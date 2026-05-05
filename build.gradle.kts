@@ -144,3 +144,15 @@ mavenPublishing {
         }
     }
 }
+
+tasks.register("test") {
+    group = "verification"
+    description = "Runs the supported cross-platform unit tests."
+    dependsOn(
+        "macosArm64Test",
+        "linuxX64Test",
+        "mingwX64Test",
+        "jsNodeTest",
+        "wasmJsNodeTest",
+    )
+}
