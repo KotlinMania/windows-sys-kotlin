@@ -16,6 +16,14 @@ Clean-room Kotlin Multiplatform port of the upstream Rust crate [`windows-sys`](
 6. Compile errors mid-port are expected. Don't paper over with stubs — port the missing dep.
 7. Commit per file.
 
+## Re-export / entrypoint files (do not port)
+
+Some upstream Rust files are crate entrypoints or re-export-only modules (for example, `src/lib.rs` and many `mod.rs` files). These are tracked by `ast_distance` via `.ast_distance_config.json` (`reexport_modules`) and are **not** translated into Kotlin item-for-item.
+
+If you need a Kotlin file purely to establish a package, use:
+
+- `// port-lint: ignore` plus a one-line explanation.
+
 ## Rust → Kotlin idiom mapping
 
 | Rust | Kotlin |
