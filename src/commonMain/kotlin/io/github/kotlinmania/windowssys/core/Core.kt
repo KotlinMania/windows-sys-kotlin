@@ -39,16 +39,16 @@ private fun ULong.toBeUByteArray(): UByteArray {
 public val IID_IUnknown: GUID = GUID.fromU128(0x0000000000000000uL, 0xC000000000000046uL)
 
 public class IUnknown_Vtbl(
-    public val QueryInterface: (this_: Long, iid: Long, interface_: Long) -> HRESULT,
-    public val AddRef: (this_: Long) -> UInt,
-    public val Release: (this_: Long) -> UInt,
+    public val QueryInterface: Long,
+    public val AddRef: Long,
+    public val Release: Long,
 )
 
 public val IID_IInspectable: GUID = GUID.fromU128(0xAF86E2E0B12D4C6AuL, 0x9C5AD7AA65101E90uL)
 
 public class IInspectable_Vtbl(
     public val base: IUnknown_Vtbl,
-    public val GetIids: (this_: Long, count: Long, values: Long) -> HRESULT,
-    public val GetRuntimeClassName: (this_: Long, value: Long) -> HRESULT,
-    public val GetTrustLevel: (this_: Long, value: Long) -> HRESULT,
+    public val GetIids: Long,
+    public val GetRuntimeClassName: Long,
+    public val GetTrustLevel: Long,
 )

@@ -1,12 +1,12 @@
-import com.vanniktech.maven.publish.SonatypeHost
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
+import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension
 
 plugins {
-    kotlin("multiplatform") version "2.3.20"
-    kotlin("plugin.serialization") version "2.3.20"
+    kotlin("multiplatform") version "2.3.21"
+    kotlin("plugin.serialization") version "2.3.21"
     id("com.android.kotlin.multiplatform.library") version "9.2.0"
-    id("com.vanniktech.maven.publish") version "0.30.0"
+    id("com.vanniktech.maven.publish") version "0.36.0"
 }
 
 group = "io.github.kotlinmania"
@@ -81,6 +81,11 @@ kotlin {
         nodejs()
     }
 
+    swiftExport {
+        moduleName = "WindowsSys"
+        flattenPackage = "io.github.kotlinmania.windowssys"
+    }
+
     android {
         namespace = "io.github.kotlinmania.windowssys"
         compileSdk = 34
@@ -95,10 +100,10 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.8.0")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.0")
-                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.1")
-                implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.8")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.11.0")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.11.0")
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.7.1")
+                implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.0")
             }
         }
 
@@ -107,9 +112,15 @@ kotlin {
     jvmToolchain(21)
 }
 
+rootProject.extensions.configure<YarnRootExtension>("kotlinYarn") {
+    resolution("diff", "8.0.3")
+    resolution("serialize-javascript", "7.0.5")
+    resolution("webpack", "5.106.2")
+}
+
 
 mavenPublishing {
-    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+    publishToMavenCentral()
     signAllPublications()
 
     coordinates(group.toString(), "windows-sys-kotlin", version.toString())
