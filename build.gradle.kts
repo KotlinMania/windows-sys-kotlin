@@ -123,11 +123,10 @@ rootProject.extensions.configure<WasmYarnRootEnvSpec>("kotlinWasmYarnSpec") {
 
 rootProject.extensions.configure<YarnRootExtension>("kotlinYarn") {
     resolution("diff", "8.0.3")
-    resolution("serialize-javascript", "7.0.5")
-    resolution("webpack", "5.106.2")
-
     resolution("**/diff", "8.0.3")
+    resolution("serialize-javascript", "7.0.5")
     resolution("**/serialize-javascript", "7.0.5")
+    resolution("webpack", "5.106.2")
     resolution("**/webpack", "5.106.2")
     resolution("follow-redirects", "1.16.0")
     resolution("**/follow-redirects", "1.16.0")
@@ -169,14 +168,14 @@ mavenPublishing {
 
     pom {
         name.set("windows-sys-kotlin")
-        description.set("Kotlin Multiplatform port of the Rust crate `windows-sys` — Raw Windows-API bindings (next-gen)")
+        description.set("Kotlin Multiplatform port of microsoft/windows-rs - Rust for Windows")
         inceptionYear.set("2026")
         url.set("https://github.com/KotlinMania/windows-sys-kotlin")
 
         licenses {
             license {
-                name.set("Apache-2.0")
-                url.set("https://opensource.org/licenses/Apache-2.0")
+                name.set("MIT")
+                url.set("https://opensource.org/licenses/MIT")
                 distribution.set("repo")
             }
         }
@@ -200,12 +199,14 @@ mavenPublishing {
 
 tasks.register("test") {
     group = "verification"
-    description = "Runs the supported cross-platform unit tests."
-    dependsOn(
+    description =
+        "Runs a portable test suite (macOS + JS + WasmJS). Android and non-host native targets are intentionally excluded."
+
+    val defaultTestTasks = listOf(
         "macosArm64Test",
-        "linuxX64Test",
-        "mingwX64Test",
         "jsNodeTest",
         "wasmJsNodeTest",
     )
+
+    dependsOn(defaultTestTasks.mapNotNull { taskName -> tasks.findByName(taskName) })
 }
