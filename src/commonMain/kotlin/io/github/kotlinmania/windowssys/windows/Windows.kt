@@ -1,4 +1,4 @@
-// port-lint: source src/Windows/mod.rs
+// port-lint: source Windows/mod.rs
 package io.github.kotlinmania.windowssys.windows
 
 /**
@@ -8,4 +8,3 @@ package io.github.kotlinmania.windowssys.windows
  * so this port models the module tree as packages.
  */
 public object Windows
-

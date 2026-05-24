@@ -1,4 +1,4 @@
-// port-lint: source src/core/mod.rs
+// port-lint: source core/mod.rs
 @file:OptIn(kotlin.ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.core
 
