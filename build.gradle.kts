@@ -57,10 +57,18 @@ kotlin {
         binaries.framework { baseName = "WindowsSys"; xcf.add(this) }
     }
     iosSimulatorArm64 {
-        binaries.framework { baseName = "WindowsSys"; xcf.add(this) }
+        binaries.framework {
+            baseName = "WindowsSys"
+            isStatic = true
+            xcf.add(this)
+        }
     }
     iosX64 {
-        binaries.framework { baseName = "WindowsSys"; xcf.add(this) }
+        binaries.framework {
+            baseName = "WindowsSys"
+            isStatic = true
+            xcf.add(this)
+        }
     }
 
     tvosArm64 {
