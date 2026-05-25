@@ -28,6 +28,7 @@ package io.github.kotlinmania.windowssys.windows.win32.foundation
 //     - WAIT_EVENT, WAIT_OBJECT_0                  →  WaitEvent.kt
 //     - FWP_E_ALREADY_EXISTS,
 //       FWP_E_FILTER_NOT_FOUND                     →  FwpErrors.kt
+//     - FALSE, TRUE                                →  Bool.kt
 //
 //   mingwMain — FFI wrappers around `platform.windows.*`:
 //     - CloseHandle                                →  mingwMain/CloseHandle.kt
