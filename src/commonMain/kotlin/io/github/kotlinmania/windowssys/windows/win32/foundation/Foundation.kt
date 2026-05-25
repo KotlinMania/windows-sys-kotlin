@@ -25,10 +25,15 @@ package io.github.kotlinmania.windowssys.windows.win32.foundation
 //     - WIN32_ERROR, ERROR_SUCCESS, ERROR_NOT_FOUND,
 //       ERROR_INSUFFICIENT_BUFFER, ERROR_IO_PENDING,
 //       ERROR_ALREADY_EXISTS, ERROR_FILE_NOT_FOUND  →  WinError.kt
-//     - WAIT_EVENT, WAIT_OBJECT_0                  →  WaitEvent.kt
-//     - FWP_E_ALREADY_EXISTS,
-//       FWP_E_FILTER_NOT_FOUND                     →  FwpErrors.kt
+//     - WAIT_EVENT, WAIT_FAILED, WAIT_OBJECT_0,
+//       WAIT_TIMEOUT                               →  WaitEvent.kt
+//     - FWP_E_ALREADY_EXISTS, FWP_E_FILTER_NOT_FOUND,
+//       FWP_E_NOT_FOUND                            →  FwpErrors.kt
 //     - FALSE, TRUE                                →  Bool.kt
+//     - GENERIC_ACCESS_RIGHTS, GENERIC_ALL,
+//       GENERIC_EXECUTE, GENERIC_READ,
+//       GENERIC_WRITE                              →  GenericAccessRights.kt
+//     - LUID                                       →  Luid.kt
 //
 //   mingwMain — FFI wrappers around `platform.windows.*`:
 //     - CloseHandle                                →  mingwMain/CloseHandle.kt

@@ -18,3 +18,8 @@ public val FWP_E_ALREADY_EXISTS: HRESULT = 0x80320009u.toInt()
 //   pub const FWP_E_FILTER_NOT_FOUND: windows_sys::core::HRESULT
 //       = 0x80320003_u32 as _;
 public val FWP_E_FILTER_NOT_FOUND: HRESULT = 0x80320003u.toInt()
+
+// Upstream line 5084:
+//   pub const FWP_E_NOT_FOUND: windows_sys::core::HRESULT
+//       = 0x80320008_u32 as _;
+public val FWP_E_NOT_FOUND: HRESULT = 0x80320008u.toInt()
