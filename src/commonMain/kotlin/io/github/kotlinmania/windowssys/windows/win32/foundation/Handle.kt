@@ -21,3 +21,14 @@ public const val HANDLE_FLAG_INHERIT: HANDLE_FLAGS = 1u
 public const val HANDLE_FLAG_PROTECT_FROM_CLOSE: HANDLE_FLAGS = 2u
 
 public typealias HANDLE_PTR = Long
+
+// Upstream line 5291 in Windows/Win32/Foundation/mod.rs:
+//
+//   pub const INVALID_HANDLE_VALUE: HANDLE = -1i32 as _;
+//
+// The Rust source reinterprets an `i32` of `-1` as a `*mut c_void`,
+// which on every Windows platform is the all-ones pointer value used
+// by Win32 APIs to signal "no valid handle." Long equivalent is `-1L`
+// (sign-extended, same bit pattern).
+
+public const val INVALID_HANDLE_VALUE: HANDLE = -1L

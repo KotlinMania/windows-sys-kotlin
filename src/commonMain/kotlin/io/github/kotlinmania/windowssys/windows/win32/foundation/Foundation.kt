@@ -13,19 +13,28 @@ package io.github.kotlinmania.windowssys.windows.win32.foundation
 //
 //   commonMain — typealiases / constants:
 //     - HANDLE, HANDLE_FLAGS, HANDLE_FLAG_INHERIT,
-//       HANDLE_FLAG_PROTECT_FROM_CLOSE, HANDLE_PTR  →  Handle.kt
+//       HANDLE_FLAG_PROTECT_FROM_CLOSE, HANDLE_PTR,
+//       INVALID_HANDLE_VALUE                       →  Handle.kt
 //     - HGLOBAL                                    →  HGlobal.kt
 //     - HLOCAL                                     →  HLocal.kt
 //     - HMODULE                                    →  HModule.kt
 //     - NTSTATUS, NTSTATUS_FACILITY_CODE,
 //       NTSTATUS_SEVERITY_CODE                     →  NtStatus.kt
-//     - DUPLICATE_HANDLE_OPTIONS                   →  DuplicateHandleOptions.kt
-//     - WIN32_ERROR                                →  WinError.kt
+//     - DUPLICATE_HANDLE_OPTIONS,
+//       DUPLICATE_SAME_ACCESS                      →  DuplicateHandleOptions.kt
+//     - WIN32_ERROR, ERROR_SUCCESS, ERROR_NOT_FOUND,
+//       ERROR_INSUFFICIENT_BUFFER, ERROR_IO_PENDING,
+//       ERROR_ALREADY_EXISTS, ERROR_FILE_NOT_FOUND  →  WinError.kt
+//     - WAIT_EVENT, WAIT_OBJECT_0                  →  WaitEvent.kt
+//     - FWP_E_ALREADY_EXISTS,
+//       FWP_E_FILTER_NOT_FOUND                     →  FwpErrors.kt
 //
 //   mingwMain — FFI wrappers around `platform.windows.*`:
 //     - CloseHandle                                →  mingwMain/CloseHandle.kt
 //     - GetLastError                               →  mingwMain/GetLastError.kt
 //     - LocalFree                                  →  mingwMain/LocalFree.kt
+//     - SetHandleInformation                       →  mingwMain/SetHandleInformation.kt
+//     - DuplicateHandle                            →  mingwMain/DuplicateHandle.kt
 //
 // Callers migrated:
 // (none yet)
