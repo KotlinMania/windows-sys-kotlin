@@ -12,6 +12,7 @@ package io.github.kotlinmania.windowssys.internal
 import com.sun.jna.Library
 import com.sun.jna.Native
 import com.sun.jna.Pointer
+import com.sun.jna.WString
 import com.sun.jna.ptr.PointerByReference
 
 internal interface Kernel32Jna : Library {
@@ -35,6 +36,8 @@ internal interface Kernel32Jna : Library {
         bInheritHandle: Int,
         dwOptions: Int,
     ): Int
+
+    fun SetFileAttributesW(lpFileName: WString?, dwFileAttributes: Int): Int
 
     companion object {
         val INSTANCE: Kernel32Jna = Native.load("kernel32", Kernel32Jna::class.java)
