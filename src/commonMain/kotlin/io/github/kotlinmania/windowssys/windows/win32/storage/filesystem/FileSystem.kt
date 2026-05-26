@@ -33,7 +33,10 @@ package io.github.kotlinmania.windowssys.windows.win32.storage.filesystem
 //     FileShareMode.kt            FILE_SHARE_MODE +
 //                                 FILE_SHARE_READ, FILE_SHARE_WRITE
 //
-//   mingwMain — FFI wrappers around `platform.windows.*`
+//   mingwMain — FFI wrappers around `platform.windows.*` (cinterop)
+//     SetFileAttributesW.kt       kernel32.dll  SetFileAttributesW
+//
+//   jvmMain — FFI wrappers around JNA `Kernel32Jna` (runtime LoadLibrary)
 //     SetFileAttributesW.kt       kernel32.dll  SetFileAttributesW
 //
 // Callers migrated:

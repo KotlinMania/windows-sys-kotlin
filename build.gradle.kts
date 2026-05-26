@@ -150,6 +150,19 @@ kotlin {
                 implementation(kotlin("test"))
             }
         }
+        val jvmMain by getting {
+            dependencies {
+                // JVM-on-Windows callers reach the same Win32 entry points
+                // the upstream Rust `windows_link::link!` declarations
+                // resolve to. JNA loads kernel32 / advapi32 / user32 /
+                // oleaut32 / ntdll at runtime via LoadLibrary and projects
+                // each declared method through a stub. Same shape the
+                // Kotlin/Native `mingwMain` source set uses via cinterop
+                // against `platform.windows.*`; jvmMain just routes through
+                // JNA instead.
+                implementation("net.java.dev.jna:jna:5.14.0")
+            }
+        }
 
     }
     jvmToolchain(21)
