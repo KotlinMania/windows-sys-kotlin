@@ -35,12 +35,19 @@ package io.github.kotlinmania.windowssys.windows.win32.foundation
 //       GENERIC_WRITE                              →  GenericAccessRights.kt
 //     - LUID                                       →  Luid.kt
 //
-//   mingwMain — FFI wrappers around `platform.windows.*`:
+//   mingwMain — FFI wrappers around `platform.windows.*` (cinterop):
 //     - CloseHandle                                →  mingwMain/CloseHandle.kt
 //     - GetLastError                               →  mingwMain/GetLastError.kt
 //     - LocalFree                                  →  mingwMain/LocalFree.kt
 //     - SetHandleInformation                       →  mingwMain/SetHandleInformation.kt
 //     - DuplicateHandle                            →  mingwMain/DuplicateHandle.kt
+//
+//   jvmMain — FFI wrappers around JNA `Kernel32Jna` (runtime LoadLibrary):
+//     - CloseHandle                                →  jvmMain/CloseHandle.kt
+//     - GetLastError                               →  jvmMain/GetLastError.kt
+//     - LocalFree                                  →  jvmMain/LocalFree.kt
+//     - SetHandleInformation                       →  jvmMain/SetHandleInformation.kt
+//     - DuplicateHandle                            →  jvmMain/DuplicateHandle.kt
 //
 // Callers migrated:
 // (none yet)
