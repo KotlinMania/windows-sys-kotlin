@@ -160,7 +160,7 @@ kotlin {
                 // Kotlin/Native `mingwMain` source set uses via cinterop
                 // against `platform.windows.*`; jvmMain just routes through
                 // JNA instead.
-                implementation("net.java.dev.jna:jna:5.14.0")
+                implementation("net.java.dev.jna:jna:5.18.1")
             }
         }
 
