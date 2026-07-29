@@ -423,7 +423,14 @@ kotlin {
     // Other native — Tier 1/2
     linuxX64 { configureBenchmarkCompilation() }
     linuxArm64 { configureBenchmarkCompilation() }
-    mingwX64 { configureBenchmarkCompilation() }
+    mingwX64 {
+        configureBenchmarkCompilation()
+        compilations["main"].cinterops {
+            val win32extras by creating {
+                defFile = File(projectDir, "src/nativeInterop/cinterop/win32extras.def")
+            }
+        }
+    }
 
     // Android NDK — always built (full target surface, no opt-in gate).
     androidNativeArm32 { configureBenchmarkCompilation() }
