@@ -38,8 +38,9 @@ package io.github.kotlinmania.windowssys.windows.win32.system.threading
 //                                 PROCESS_INFORMATION, STARTUPINFOA/W,
 //                                 STARTUPINFOEXA/W, SRWLOCK,
 //                                 SYNCHRONIZATION_BARRIER, etc.
-//     ThreadingCallbacks.kt      Function type aliases (LPTHREAD_START_ROUTINE,
-//                                 LPFIBER_START_ROUTINE, PTP_*_CALLBACK, etc.)
+//     (Function-pointer type aliases LPTHREAD_START_ROUTINE,
+//      LPFIBER_START_ROUTINE, PTP_*_CALLBACK, etc. live in
+//      ThreadingTypes.kt alongside the integer/pointer typealiases.)
 //
 // Callers migrated:
 // (none yet)
