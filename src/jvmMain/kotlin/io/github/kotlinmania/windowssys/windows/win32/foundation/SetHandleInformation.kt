@@ -16,8 +16,9 @@ public fun SetHandleInformation(
     hobject: HANDLE,
     dwmask: UInt,
     dwflags: HANDLE_FLAGS,
-): BOOL = Kernel32Jna.INSTANCE.SetHandleInformation(
-    Pointer(hobject),
-    dwmask.toInt(),
-    dwflags.toInt(),
-)
+): BOOL =
+    Kernel32Jna.INSTANCE.SetHandleInformation(
+        Pointer(hobject),
+        dwmask.toInt(),
+        dwflags.toInt(),
+    )

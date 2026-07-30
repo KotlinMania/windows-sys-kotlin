@@ -24,7 +24,8 @@ import io.github.kotlinmania.windowssys.internal.Kernel32Jna
 public fun SetFileAttributesW(
     lpfilename: PCWSTR,
     dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES,
-): BOOL = Kernel32Jna.INSTANCE.SetFileAttributesW(
-    Pointer(lpfilename).getWideString(0).let { WString(it) },
-    dwfileattributes.toInt(),
-)
+): BOOL =
+    Kernel32Jna.INSTANCE.SetFileAttributesW(
+        Pointer(lpfilename).getWideString(0).let { WString(it) },
+        dwfileattributes.toInt(),
+    )

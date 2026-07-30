@@ -10,8 +10,8 @@ import kotlinx.cinterop.ptr
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 import kotlinx.cinterop.value
-import platform.windows.DuplicateHandle as winDuplicateHandle
 import platform.windows.HANDLEVar
+import platform.windows.DuplicateHandle as winDuplicateHandle
 
 // Upstream line 3 in Windows/Win32/Foundation/mod.rs:
 //
@@ -39,17 +39,19 @@ public fun DuplicateHandle(
     dwdesiredaccess: UInt,
     binherithandle: BOOL,
     dwoptions: DUPLICATE_HANDLE_OPTIONS,
-): BOOL = memScoped {
-    val out = alloc<HANDLEVar>()
-    val result = winDuplicateHandle(
-        hsourceprocesshandle.toCPointer(),
-        hsourcehandle.toCPointer(),
-        htargetprocesshandle.toCPointer(),
-        out.ptr,
-        dwdesiredaccess,
-        binherithandle,
-        dwoptions,
-    )
-    lptargethandle[0] = out.value?.toLong() ?: 0L
-    result
-}
+): BOOL =
+    memScoped {
+        val out = alloc<HANDLEVar>()
+        val result =
+            winDuplicateHandle(
+                hsourceprocesshandle.toCPointer(),
+                hsourcehandle.toCPointer(),
+                htargetprocesshandle.toCPointer(),
+                out.ptr,
+                dwdesiredaccess,
+                binherithandle,
+                dwoptions,
+            )
+        lptargethandle[0] = out.value?.toLong() ?: 0L
+        result
+    }
