@@ -28,7 +28,8 @@ import platform.windows.SetFileAttributesW as winSetFileAttributesW
 public fun SetFileAttributesW(
     lpfilename: PCWSTR,
     dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES,
-): BOOL = winSetFileAttributesW(
-    lpfilename.toCPointer<UShortVar>()?.toKStringFromUtf16(),
-    dwfileattributes,
-)
+): BOOL =
+    winSetFileAttributesW(
+        lpfilename.toCPointer<UShortVar>()?.toKStringFromUtf16(),
+        dwfileattributes,
+    )

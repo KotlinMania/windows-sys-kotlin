@@ -488,6 +488,9 @@ kotlin {
         commonTest.dependencies {
             implementation(kotlin("test"))
         }
+        jvmMain.dependencies {
+            implementation(libs.jna)
+        }
         if (benchmarkEnabled) {
             val commonBenchmark = maybeCreate("commonBenchmark")
             commonBenchmark.dependencies {

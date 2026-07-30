@@ -33,15 +33,16 @@ public fun DuplicateHandle(
     dwoptions: DUPLICATE_HANDLE_OPTIONS,
 ): BOOL {
     val out = PointerByReference()
-    val result = Kernel32Jna.INSTANCE.DuplicateHandle(
-        Pointer(hsourceprocesshandle),
-        Pointer(hsourcehandle),
-        Pointer(htargetprocesshandle),
-        out,
-        dwdesiredaccess.toInt(),
-        binherithandle,
-        dwoptions.toInt(),
-    )
+    val result =
+        Kernel32Jna.INSTANCE.DuplicateHandle(
+            Pointer(hsourceprocesshandle),
+            Pointer(hsourcehandle),
+            Pointer(htargetprocesshandle),
+            out,
+            dwdesiredaccess.toInt(),
+            binherithandle,
+            dwoptions.toInt(),
+        )
     lptargethandle[0] = out.value?.let { Pointer.nativeValue(it) } ?: 0L
     return result
 }
