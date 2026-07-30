@@ -34,6 +34,28 @@ package io.github.kotlinmania.windowssys.windows.win32.foundation
 //       GENERIC_EXECUTE, GENERIC_READ,
 //       GENERIC_WRITE                              →  GenericAccessRights.kt
 //     - LUID                                       →  Luid.kt
+//     - COLORREF, HINSTANCE, HLSURF, HRSRC, HSPRITE,
+//       HSTR, HUMPD, HWND, LPARAM, LRESULT,
+//       OBJECT_ATTRIBUTE_FLAGS, SHANDLE_PTR,
+//       VARIANT_BOOL, WPARAM, FARPROC, NEARPROC,
+//       PROC, PAPCFUNC                            →  AdditionalTypes.kt
+//     - APP_LOCAL_DEVICE_ID, DECIMAL, DEVPROPKEY,
+//       FILETIME, FLOAT128, POINT, POINTL, POINTS,
+//       PROPERTYKEY, RECT, RECTL, SIZE, SYSTEMTIME,
+//       UNICODE_STRING                            →  AdditionalStructs.kt
+//     - APP_LOCAL_DEVICE_ID_SIZE, MAX_PATH, NOERROR,
+//       NO_ERROR, NTDDI_MAXVER, OBJ_* constants,
+//       VARIANT_FALSE/TRUE, S_OK, S_FALSE,
+//       WAIT_IO_COMPLETION, ROUTEBASE/END,
+//       FRS_ERR_* constants                       →  AdditionalConstants.kt
+//     - CompareObjectHandles, FreeLibrary,
+//       GetHandleInformation, GlobalFree,
+//       RtlNtStatusToDosError, SetLastError,
+//       SetLastErrorEx, SysAllocString*,
+//       SysFreeString, SysReAllocString*,
+//       SysStringByteLen, SysReleaseString,
+//       SysAddRefString                           →  automation/win32-foundation-port
+//                                                  (PR #46, mingwMain cinterop)
 //
 //   mingwMain — FFI wrappers around `platform.windows.*` (cinterop):
 //     - CloseHandle                                →  mingwMain/CloseHandle.kt
