@@ -1,0 +1,6 @@
+package = io.github.kotlinmania.windowssys.cinterop
+
+headers = win32extras.h
+compilerOpts = -DUNICODE -DWINVER=0x0601 -D_WIN32_WINNT=0x0601 -Wno-incompatible-pointer-types -Wno-deprecated-declarations -Isrc/nativeInterop/cinterop
+linkerOpts = -loleaut32 -lntdll -lkernel32
+depends = platform.windows
