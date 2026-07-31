@@ -3,8 +3,10 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.foundation
 
-import io.github.kotlinmania.windowssys.cinterop.SysReleaseString as winSysReleaseString
 import io.github.kotlinmania.windowssys.core.BSTR
+import kotlinx.cinterop.UShortVar
+import kotlinx.cinterop.toCPointer
+import io.github.kotlinmania.windowssys.cinterop.SysReleaseString as winSysReleaseString
 
 // Upstream line 20 in Windows/Win32/Foundation/mod.rs:
 //
@@ -14,4 +16,5 @@ import io.github.kotlinmania.windowssys.core.BSTR
 // Decrements the reference count of a BSTR. Not declared in the MinGW
 // oleauto.h; provided through the win32extras cinterop def.
 
-public fun SysReleaseString(bstrstring: BSTR): Unit = winSysReleaseString(bstrstring)
+public fun SysReleaseString(bstrstring: BSTR): Unit =
+    winSysReleaseString(bstrstring.toCPointer<UShortVar>())

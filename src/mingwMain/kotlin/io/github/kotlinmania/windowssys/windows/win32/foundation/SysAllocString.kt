@@ -5,10 +5,10 @@ package io.github.kotlinmania.windowssys.windows.win32.foundation
 
 import io.github.kotlinmania.windowssys.core.BSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.cinterop.SysAllocString as winSysAllocString
 import kotlinx.cinterop.UShortVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
+import io.github.kotlinmania.windowssys.cinterop.SysAllocString as winSysAllocString
 
 // Upstream line 14 in Windows/Win32/Foundation/mod.rs:
 //

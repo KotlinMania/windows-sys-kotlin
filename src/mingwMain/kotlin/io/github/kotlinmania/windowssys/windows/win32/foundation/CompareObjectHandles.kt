@@ -4,8 +4,8 @@
 package io.github.kotlinmania.windowssys.windows.win32.foundation
 
 import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.cinterop.CompareObjectHandles as winCompareObjectHandles
 import kotlinx.cinterop.toCPointer
+import io.github.kotlinmania.windowssys.cinterop.CompareObjectHandles as winCompareObjectHandles
 
 // Upstream line 2 in Windows/Win32/Foundation/mod.rs:
 //

@@ -4,12 +4,12 @@
 package io.github.kotlinmania.windowssys.windows.win32.foundation
 
 import io.github.kotlinmania.windowssys.core.BOOL
+import kotlinx.cinterop.UIntVar
 import kotlinx.cinterop.alloc
 import kotlinx.cinterop.memScoped
 import kotlinx.cinterop.ptr
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.value
-import kotlinx.cinterop.UIntVar
 import platform.windows.GetHandleInformation as winGetHandleInformation
 
 // Upstream line 5 in Windows/Win32/Foundation/mod.rs:
