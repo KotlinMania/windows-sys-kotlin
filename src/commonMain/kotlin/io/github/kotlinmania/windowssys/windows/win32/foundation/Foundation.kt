@@ -53,9 +53,9 @@ package io.github.kotlinmania.windowssys.windows.win32.foundation
 //       RtlNtStatusToDosError, SetLastError,
 //       SetLastErrorEx, SysAllocString*,
 //       SysFreeString, SysReAllocString*,
-//       SysStringByteLen, SysReleaseString,
+//       SysStringByteLen, SysStringLen, SysReleaseString,
 //       SysAddRefString                           →  automation/win32-foundation-port
-//                                                  (PR #46, mingwMain cinterop)
+//                                                  (PR #46 + #49, mingwMain cinterop)
 //
 //   mingwMain — FFI wrappers around `platform.windows.*` (cinterop):
 //     - CloseHandle                                →  mingwMain/CloseHandle.kt
