@@ -3,9 +3,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.foundation
 
-import io.github.kotlinmania.windowssys.core.BSTR
-import io.github.kotlinmania.windowssys.cinterop.SysReAllocString as winSysReAllocString
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import kotlinx.cinterop.CPointer
+import kotlinx.cinterop.CPointerVarOf
 import kotlinx.cinterop.UShortVar
 import kotlinx.cinterop.UShortVarOf
 import kotlinx.cinterop.alloc
@@ -14,6 +14,7 @@ import kotlinx.cinterop.ptr
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 import kotlinx.cinterop.value
+import io.github.kotlinmania.windowssys.cinterop.SysReAllocString as winSysReAllocString
 
 // Upstream line 18 in Windows/Win32/Foundation/mod.rs:
 //
@@ -27,10 +28,9 @@ import kotlinx.cinterop.value
 
 public fun SysReAllocString(pbstr: LongArray, psz: PCWSTR): Int =
     memScoped {
-        val bstrVar = alloc<UShortVarOf<UShort>>()
-        bstrVar.value = (pbstr[0].toCPointer<UShortVar>()?.reinterpret())?.pointed?.value ?: 0.toUShort()
-        val bstrPtr = alloc<UShortVarOf<UShort>>()
-        val result = winSysReAllocString(bstrPtr.ptr, psz.toCPointer<UShortVar>())
-        pbstr[0] = bstrPtr.value.toLong()
+        val bstrVar = alloc<CPointerVarOf<CPointer<UShortVarOf<UShort>>>>()
+        bstrVar.value = pbstr[0].toCPointer<UShortVar>()
+        val result = winSysReAllocString(bstrVar.ptr, psz.toCPointer<UShortVar>())
+        pbstr[0] = bstrVar.value?.toLong() ?: 0L
         result
     }

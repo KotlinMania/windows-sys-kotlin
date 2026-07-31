@@ -4,9 +4,9 @@
 package io.github.kotlinmania.windowssys.windows.win32.foundation
 
 import io.github.kotlinmania.windowssys.core.BSTR
-import io.github.kotlinmania.windowssys.cinterop.SysFreeString as winSysFreeString
 import kotlinx.cinterop.UShortVar
 import kotlinx.cinterop.toCPointer
+import io.github.kotlinmania.windowssys.cinterop.SysFreeString as winSysFreeString
 
 // Upstream line 17 in Windows/Win32/Foundation/mod.rs:
 //
