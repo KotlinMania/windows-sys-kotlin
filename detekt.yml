@@ -83,8 +83,8 @@ naming:
   active: true
   TopLevelPropertyNaming: { active: false }
   FunctionNaming: { active: false }
-  ClassNaming: { active: false }
-  EnumNaming: { active: false }
+  ClassNaming: { active: true }
+  EnumNaming: { active: true }
   VariableNaming: { active: false }
   ConstructorParameterNaming: { active: false }
   FunctionParameterNaming: { active: false }
