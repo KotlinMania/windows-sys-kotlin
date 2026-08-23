@@ -493,6 +493,9 @@ kotlin {
         commonMain.dependencies {
             implementation(commonMainDependencyBundle)
         }
+        jvmMain.dependencies {
+            implementation("net.java.dev.jna:jna:5.14.0")
+        }
         commonTest.dependencies {
             implementation(kotlin("test"))
         }
