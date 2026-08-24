@@ -49,20 +49,71 @@ public typealias PTP_WORK = Long
 
 // Function-pointer type aliases. Upstream uses
 // `Option<unsafe extern "system" fn(...)>` — Kotlin has no `unsafe`
-// or `extern "system"` equivalent, so these are plain nullable
-// functional types with `Long` standing in for raw pointers.
-public typealias LPFIBER_START_ROUTINE = ((lpFiberParameter: Long) -> Unit)?
-public typealias LPTHREAD_START_ROUTINE = ((lpThreadParameter: Long) -> UInt)?
-public typealias PFLS_CALLBACK_FUNCTION = ((lpFlsData: Long) -> Unit)?
-public typealias PINIT_ONCE_FN = ((initOnce: Long, parameter: Long, context: LongArray) -> Int)?
-public typealias PPS_POST_PROCESS_INIT_ROUTINE = (() -> Unit)?
-public typealias PTP_CLEANUP_GROUP_CANCEL_CALLBACK = ((objectContext: Long, cleanupContext: Long) -> Unit)?
-public typealias PTP_SIMPLE_CALLBACK = ((instance: PTP_CALLBACK_INSTANCE, context: Long) -> Unit)?
-public typealias PTP_TIMER_CALLBACK = ((instance: PTP_CALLBACK_INSTANCE, context: Long, timer: PTP_TIMER) -> Unit)?
-public typealias PTP_WAIT_CALLBACK = ((instance: PTP_CALLBACK_INSTANCE, context: Long, wait: PTP_WAIT, waitResult: UInt) -> Unit)?
-public typealias PTP_WIN32_IO_CALLBACK = ((instance: PTP_CALLBACK_INSTANCE, context: Long, overlapped: Long, ioResult: UInt, numberOfBytesTransferred: Long, io: PTP_IO) -> Unit)?
-public typealias PTP_WORK_CALLBACK = ((instance: PTP_CALLBACK_INSTANCE, context: Long, work: PTP_WORK) -> Unit)?
-public typealias PTIMERAPCROUTINE = ((lpArgToCompletionRoutine: Long, dwTimerLowValue: UInt, dwTimerHighValue: UInt) -> Unit)?
-public typealias RTWQPERIODICCALLBACK = ((context: Long) -> Unit)?
-public typealias WAITORTIMERCALLBACK = ((param0: Long, param1: Boolean) -> Unit)?
-public typealias WORKERCALLBACKFUNC = ((param0: Long) -> Unit)?
+// or `extern "system"` equivalent, so these are named SAM interfaces
+// with `Long` standing in for raw pointers.
+public fun interface LPFIBER_START_ROUTINE {
+    public fun invoke(lpFiberParameter: Long)
+}
+
+public fun interface LPTHREAD_START_ROUTINE {
+    public fun invoke(lpThreadParameter: Long): UInt
+}
+
+public fun interface PFLS_CALLBACK_FUNCTION {
+    public fun invoke(lpFlsData: Long)
+}
+
+public fun interface PINIT_ONCE_FN {
+    public fun invoke(initOnce: Long, parameter: Long, context: LongArray): Int
+}
+
+public fun interface PPS_POST_PROCESS_INIT_ROUTINE {
+    public fun invoke()
+}
+
+public fun interface PTP_CLEANUP_GROUP_CANCEL_CALLBACK {
+    public fun invoke(objectContext: Long, cleanupContext: Long)
+}
+
+public fun interface PTP_SIMPLE_CALLBACK {
+    public fun invoke(instance: PTP_CALLBACK_INSTANCE, context: Long)
+}
+
+public fun interface PTP_TIMER_CALLBACK {
+    public fun invoke(instance: PTP_CALLBACK_INSTANCE, context: Long, timer: PTP_TIMER)
+}
+
+public fun interface PTP_WAIT_CALLBACK {
+    public fun invoke(instance: PTP_CALLBACK_INSTANCE, context: Long, wait: PTP_WAIT, waitResult: UInt)
+}
+
+public fun interface PTP_WIN32_IO_CALLBACK {
+    public fun invoke(
+        instance: PTP_CALLBACK_INSTANCE,
+        context: Long,
+        overlapped: Long,
+        ioResult: UInt,
+        numberOfBytesTransferred: Long,
+        io: PTP_IO,
+    )
+}
+
+public fun interface PTP_WORK_CALLBACK {
+    public fun invoke(instance: PTP_CALLBACK_INSTANCE, context: Long, work: PTP_WORK)
+}
+
+public fun interface PTIMERAPCROUTINE {
+    public fun invoke(lpArgToCompletionRoutine: Long, dwTimerLowValue: UInt, dwTimerHighValue: UInt)
+}
+
+public fun interface RTWQPERIODICCALLBACK {
+    public fun invoke(context: Long)
+}
+
+public fun interface WAITORTIMERCALLBACK {
+    public fun invoke(param0: Long, param1: Boolean)
+}
+
+public fun interface WORKERCALLBACKFUNC {
+    public fun invoke(param0: Long)
+}

@@ -8,3 +8,5 @@ package io.github.kotlinmania.windowssys.windows.win32.system
 // Sub-modules ported so far:
 //   - System/Threading/mod.rs → system/threading/Threading.kt (ledger)
 //   - System/HostCompute/mod.rs → system/hostcompute/HostCompute.kt (ledger)
+//   - System/Environment/mod.rs → system/environment/Environment.kt (ledger)
+//   - System/Console/mod.rs → system/console/Console.kt (ledger)

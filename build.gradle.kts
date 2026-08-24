@@ -433,9 +433,17 @@ kotlin {
     // Other native — Tier 1/2
     linuxX64 { configureBenchmarkCompilation() }
     linuxArm64 { configureBenchmarkCompilation() }
-    mingwX64 { configureBenchmarkCompilation() }
-
-    // Android NDK — 64-bit only (32-bit retired §5.5.3, 2026-06-25).
+    mingwX64 {
+        configureBenchmarkCompilation()
+        compilations.getByName("main") {
+            cinterops {
+                val win32extras by creating {
+                    defFile(file("src/nativeInterop/cinterop/win32extras.def"))
+                    includeDirs("src/nativeInterop/cinterop")
+                }
+            }
+        }
+    }
     androidNativeArm64 { configureBenchmarkCompilation() }
     androidNativeX64 { configureBenchmarkCompilation() }
 
@@ -888,8 +896,7 @@ val publishToCentralPortal by tasks.registering {
 tasks.register("test") {
     group = "verification"
     description = "Runs the commonTest-backed KMP suite, Android host tests, and Swift Export smoke test."
-    dependsOn("allTests")
-    dependsOn("testAndroidHostTest")
+    dependsOn("hostTests")
     dependsOn("swiftExportSmokeTest")
 }
 
@@ -927,20 +934,21 @@ tasks.register("swiftExportSmokeTest") {
 
     doLast {
         val execOperations = serviceOf<ExecOperations>()
-        val swiftBuildDir =
+        val swiftBuildFile =
             layout.buildDirectory
                 .dir("swift-test")
                 .get()
                 .asFile
-                .absolutePath
+        swiftBuildFile.deleteRecursively()
+        val swiftBuildDir = swiftBuildFile.absolutePath
         execOperations
             .exec {
                 workingDir = projectDir
                 commandLine(
                     "./gradlew",
                     "embedSwiftExportForXcode",
+                    "--rerun-tasks",
                     "--no-configuration-cache",
-                    "--no-daemon",
                     "--console=plain",
                 )
                 environment(
@@ -974,11 +982,23 @@ tasks.register("swiftExportSmokeTest") {
             }
         }
 
-        execOperations
-            .exec {
-                workingDir = layout.projectDirectory.dir("swift-test-harness").asFile
-                commandLine("swift", "package", "reset")
-            }.assertNormalExitValue()
+        val spmPackageDir =
+            layout.buildDirectory
+                .dir("SPMPackage")
+                .get()
+                .asFile
+        if (spmPackageDir.exists()) {
+            val pastTime = 1700000000000L
+            spmPackageDir.walkTopDown().forEach { file ->
+                file.setLastModified(pastTime)
+            }
+        }
+
+        val harnessBuildDir =
+            layout.projectDirectory
+                .dir("swift-test-harness/.build")
+                .asFile
+        harnessBuildDir.deleteRecursively()
 
         execOperations
             .exec {
