@@ -23,9 +23,20 @@ public typealias WPARAM = ULong
 
 // Function-pointer type aliases. Upstream uses
 // `Option<unsafe extern "system" fn() -> isize>` — Kotlin has no
-// `unsafe` or `extern "system"` equivalent, so these are nullable
-// functional types returning Long (isize maps to Long).
-public typealias FARPROC = (() -> Long)?
-public typealias NEARPROC = (() -> Long)?
-public typealias PROC = (() -> Long)?
-public typealias PAPCFUNC = ((parameter: ULong) -> Unit)?
+// `unsafe` or `extern "system"` equivalent, so these are named
+// SAM interfaces returning Long (isize maps to Long).
+public fun interface FARPROC {
+    public fun invoke(): Long
+}
+
+public fun interface NEARPROC {
+    public fun invoke(): Long
+}
+
+public fun interface PROC {
+    public fun invoke(): Long
+}
+
+public fun interface PAPCFUNC {
+    public fun invoke(parameter: ULong)
+}

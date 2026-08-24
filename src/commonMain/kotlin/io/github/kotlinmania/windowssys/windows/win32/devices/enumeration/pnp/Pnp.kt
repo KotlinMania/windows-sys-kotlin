@@ -14,16 +14,16 @@ public typealias SW_DEVICE_LIFETIME = Int
 
 // Function-pointer type alias. Upstream uses
 // `Option<unsafe extern "system" fn(...)>` — Kotlin has no `unsafe`
-// or `extern "system"` equivalent, so this is a nullable functional
-// type with Long standing in for raw pointers.
-public typealias SW_DEVICE_CREATE_CALLBACK = (
-    (
+// or `extern "system"` equivalent, so this is a named SAM interface
+// with Long standing in for raw pointers.
+public fun interface SW_DEVICE_CREATE_CALLBACK {
+    public fun invoke(
         hswdevice: HSWDEVICE,
         createresult: HRESULT,
         pcontext: Long,
         pszdeviceinstanceid: PCWSTR,
-    ) -> Unit
-)?
+    )
+}
 
 // Upstream struct SW_DEVICE_CREATE_INFO (lines 37-47). The
 // pSecurityDescriptor field references Security::SECURITY_DESCRIPTOR
