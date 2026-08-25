@@ -2,7 +2,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.console
 
 import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.COLORREF
 import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
 import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT

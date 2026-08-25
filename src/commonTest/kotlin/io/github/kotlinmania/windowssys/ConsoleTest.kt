@@ -1,9 +1,34 @@
 package io.github.kotlinmania.windowssys
 
-import io.github.kotlinmania.windowssys.windows.win32.system.console.*
+import io.github.kotlinmania.windowssys.windows.win32.system.console.BACKGROUND_BLUE
+import io.github.kotlinmania.windowssys.windows.win32.system.console.BACKGROUND_GREEN
+import io.github.kotlinmania.windowssys.windows.win32.system.console.BACKGROUND_INTENSITY
+import io.github.kotlinmania.windowssys.windows.win32.system.console.BACKGROUND_RED
+import io.github.kotlinmania.windowssys.windows.win32.system.console.CHAR_INFO
+import io.github.kotlinmania.windowssys.windows.win32.system.console.CHAR_INFO_0
+import io.github.kotlinmania.windowssys.windows.win32.system.console.CONSOLE_CURSOR_INFO
+import io.github.kotlinmania.windowssys.windows.win32.system.console.COORD
+import io.github.kotlinmania.windowssys.windows.win32.system.console.CTRL_BREAK_EVENT
+import io.github.kotlinmania.windowssys.windows.win32.system.console.CTRL_CLOSE_EVENT
+import io.github.kotlinmania.windowssys.windows.win32.system.console.CTRL_C_EVENT
+import io.github.kotlinmania.windowssys.windows.win32.system.console.CTRL_LOGOFF_EVENT
+import io.github.kotlinmania.windowssys.windows.win32.system.console.CTRL_SHUTDOWN_EVENT
+import io.github.kotlinmania.windowssys.windows.win32.system.console.FOREGROUND_BLUE
+import io.github.kotlinmania.windowssys.windows.win32.system.console.FOREGROUND_GREEN
+import io.github.kotlinmania.windowssys.windows.win32.system.console.FOREGROUND_INTENSITY
+import io.github.kotlinmania.windowssys.windows.win32.system.console.FOREGROUND_RED
+import io.github.kotlinmania.windowssys.windows.win32.system.console.INPUT_RECORD
+import io.github.kotlinmania.windowssys.windows.win32.system.console.INPUT_RECORD_0
+import io.github.kotlinmania.windowssys.windows.win32.system.console.KEY_EVENT
+import io.github.kotlinmania.windowssys.windows.win32.system.console.KEY_EVENT_RECORD
+import io.github.kotlinmania.windowssys.windows.win32.system.console.KEY_EVENT_RECORD_0
+import io.github.kotlinmania.windowssys.windows.win32.system.console.PHANDLER_ROUTINE
+import io.github.kotlinmania.windowssys.windows.win32.system.console.SMALL_RECT
+import io.github.kotlinmania.windowssys.windows.win32.system.console.STD_ERROR_HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.system.console.STD_INPUT_HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.system.console.STD_OUTPUT_HANDLE
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertTrue
 
 class ConsoleTest {
     @Test
@@ -47,26 +72,29 @@ class ConsoleTest {
         assertEquals(25u, cursorInfo.dwSize)
         assertEquals(1, cursorInfo.bVisible)
 
-        val inputRecord = INPUT_RECORD(
-            EventType = KEY_EVENT.toUShort(),
-            Event = INPUT_RECORD_0(
-                KeyEvent = KEY_EVENT_RECORD(
-                    bKeyDown = 1,
-                    wRepeatCount = 1u,
-                    wVirtualKeyCode = 65u,
-                    wVirtualScanCode = 30u,
-                    uChar = KEY_EVENT_RECORD_0(UnicodeChar = 'A'.code.toUShort()),
-                    dwControlKeyState = 0u,
-                )
+        val keyEventRecord =
+            KEY_EVENT_RECORD(
+                bKeyDown = 1,
+                wRepeatCount = 1u,
+                wVirtualKeyCode = 65u,
+                wVirtualScanCode = 30u,
+                uChar = KEY_EVENT_RECORD_0(UnicodeChar = 'A'.code.toUShort()),
+                dwControlKeyState = 0u,
             )
-        )
+        val inputRecord0 = INPUT_RECORD_0(KeyEvent = keyEventRecord)
+        val inputRecord =
+            INPUT_RECORD(
+                EventType = KEY_EVENT.toUShort(),
+                Event = inputRecord0,
+            )
         assertEquals(KEY_EVENT.toUShort(), inputRecord.EventType)
         assertEquals(1, inputRecord.Event.KeyEvent.bKeyDown)
         assertEquals('A'.code.toUShort(), inputRecord.Event.KeyEvent.uChar.UnicodeChar)
 
-        val handler = PHANDLER_ROUTINE { ctrlType ->
-            if (ctrlType == CTRL_C_EVENT) 1 else 0
-        }
+        val handler =
+            PHANDLER_ROUTINE { ctrlType ->
+                if (ctrlType == CTRL_C_EVENT) 1 else 0
+            }
         assertEquals(1, handler.invoke(CTRL_C_EVENT))
         assertEquals(0, handler.invoke(CTRL_BREAK_EVENT))
     }
