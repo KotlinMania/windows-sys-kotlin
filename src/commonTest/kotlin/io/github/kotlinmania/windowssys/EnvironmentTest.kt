@@ -61,10 +61,11 @@ class EnvironmentTest {
         val pkg = VBS_ENCLAVE_REPORT_PKG_HEADER(packageSize = 256u)
         assertEquals(256u, pkg.packageSize)
 
-        val syscallPage = VBS_BASIC_ENCLAVE_SYSCALL_PAGE(
-            returnFromEnclave = { _ -> },
-            commitPages = { _, _, _, _ -> 0 }
-        )
+        val syscallPage =
+            VBS_BASIC_ENCLAVE_SYSCALL_PAGE(
+                returnFromEnclave = { _ -> },
+                commitPages = { _, _, _, _ -> 0 },
+            )
         assertNotNull(syscallPage.returnFromEnclave)
         assertNotNull(syscallPage.commitPages)
     }
