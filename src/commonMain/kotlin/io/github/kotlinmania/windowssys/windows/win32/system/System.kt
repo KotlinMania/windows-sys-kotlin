@@ -1,4 +1,4 @@
-// port-lint: source windows-sys/src/Windows/Win32/System/mod.rs
+// port-lint: source Windows/Win32/System/mod.rs
 package io.github.kotlinmania.windowssys.windows.win32.system
 
 // Module-tracking ledger for upstream `Windows/Win32/System/mod.rs`.
