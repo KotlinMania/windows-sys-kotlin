@@ -1,4 +1,4 @@
-// port-lint: source windows-sys/src/core/literals.rs
+// port-lint: source core/literals.rs
 @file:OptIn(kotlin.ExperimentalUnsignedTypes::class)
 
 package io.github.kotlinmania.windowssys.core

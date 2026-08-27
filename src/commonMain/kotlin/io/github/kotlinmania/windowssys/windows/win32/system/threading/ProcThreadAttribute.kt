@@ -1,4 +1,4 @@
-// port-lint: source windows-sys/src/Windows/Win32/System/Threading/mod.rs
+// port-lint: source Windows/Win32/System/Threading/mod.rs
 package io.github.kotlinmania.windowssys.windows.win32.system.threading
 
 // Upstream proc thread attribute number constants and the packed

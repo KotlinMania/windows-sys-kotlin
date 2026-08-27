@@ -1,4 +1,4 @@
-// port-lint: source windows-sys/src/Windows/Win32/Devices/Enumeration/Pnp/mod.rs
+// port-lint: source Windows/Win32/Devices/Enumeration/Pnp/mod.rs
 package io.github.kotlinmania.windowssys.windows.win32.devices.enumeration.pnp
 
 import io.github.kotlinmania.windowssys.core.GUID

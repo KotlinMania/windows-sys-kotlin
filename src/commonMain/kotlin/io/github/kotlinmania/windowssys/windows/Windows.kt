@@ -1,4 +1,4 @@
-// port-lint: source windows-sys/src/Windows/mod.rs
+// port-lint: source Windows/mod.rs
 package io.github.kotlinmania.windowssys.windows
 
 // Upstream `Windows/mod.rs` is a pure re-export shim that exposes the
