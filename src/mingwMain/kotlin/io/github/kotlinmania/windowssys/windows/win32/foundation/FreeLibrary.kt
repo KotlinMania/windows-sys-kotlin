@@ -1,4 +1,4 @@
-// port-lint: source Windows/Win32/Foundation/mod.rs
+// port-lint: source windows-sys/src/Windows/Win32/Foundation/mod.rs
 @file:OptIn(kotlinx.cinterop.ExperimentalForeignApi::class)
 
 package io.github.kotlinmania.windowssys.windows.win32.foundation

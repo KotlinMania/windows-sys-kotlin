@@ -1,4 +1,4 @@
-// port-lint: source Windows/Win32/Storage/FileSystem/mod.rs
+// port-lint: source windows-sys/src/Windows/Win32/Storage/FileSystem/mod.rs
 package io.github.kotlinmania.windowssys.windows.win32.storage.filesystem
 
 // Upstream line 1377:
