@@ -433,7 +433,17 @@ kotlin {
     // Other native — Tier 1/2
     linuxX64 { configureBenchmarkCompilation() }
     linuxArm64 { configureBenchmarkCompilation() }
-    mingwX64 { configureBenchmarkCompilation() }
+    mingwX64 {
+        configureBenchmarkCompilation()
+        compilations.getByName("main") {
+            cinterops {
+                val win32extras by creating {
+                    defFile(file("src/nativeInterop/cinterop/win32extras.def"))
+                    includeDirs("src/nativeInterop/cinterop")
+                }
+            }
+        }
+    }
 
     // Android NDK — 64-bit only (32-bit retired §5.5.3, 2026-06-25).
     androidNativeArm64 { configureBenchmarkCompilation() }
@@ -492,6 +502,9 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(commonMainDependencyBundle)
+        }
+        jvmMain.dependencies {
+            implementation("net.java.dev.jna:jna:5.14.0")
         }
         commonTest.dependencies {
             implementation(kotlin("test"))
