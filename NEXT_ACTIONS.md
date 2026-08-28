@@ -10,7 +10,7 @@ Based on AST analysis, here are the concrete next steps.
 - **Combined symbol parity:** 24/29213 matched (target 217) — 0.1%
 - **Average inline-code cosine:** 0.84 (function body across 1 matched files)
 - **Average documentation cosine:** 1.00 (doc text across 1 matched files)
-- **Cheat-zeroed Files:** 56
+- **Cheat-zeroed Files:** 55
 - **Critical Issues:** 56 files with <0.60 function similarity
 
 ## Priority 1: Fix Incomplete High-Dependency Files
@@ -751,17 +751,6 @@ Every matched file is listed below with function and type symbol parity.
 - **Proposed provenance header:** `// port-lint: source Windows/Wdk/Devices/Bluetooth/mod.rs` (current: `// port-lint: source Windows/Win32/System/Console/mod.rs`)
 - **Lint issues:** 1
 
-### 57. lib
-
-- **Target:** `windowssys.Lib [STUB]`
-- **Similarity:** 0.00
-- **Dependents:** 0
-- **Priority Score:** 10.0
-- **Functions:** 0/0 matched
-- **Missing functions:** _none_
-- **Types:** 0/0 matched
-- **Missing types:** _none_
-
 ## Success Criteria
 
 For each file to be considered "complete":
@@ -770,4 +759,17 @@ For each file to be considered "complete":
 - All tests ported
 - Documentation ported
 - port-lint header present
+
+## Reexport / Wiring Modules
+
+These files match `reexport_modules` patterns in `.ast_distance_config.json`. They are filtered out of
+normal priority and missing-file ladders because they are wiring
+modules, not direct logic ports. Consult them for call-site routing;
+do not treat them as the next implementation target by default.
+
+### Matched
+
+| Source | Target | Path |
+|--------|--------|------|
+| `lib` | `windowssys.Lib` | `lib` |
 
