@@ -2,7 +2,7 @@
   "type": "port",
   "name": "windows-sys-kotlin",
   "source": {
-    "path": "tmp/windows-sys/src",
+    "path": "tmp",
     "lang": "rust"
   },
   "target": {
