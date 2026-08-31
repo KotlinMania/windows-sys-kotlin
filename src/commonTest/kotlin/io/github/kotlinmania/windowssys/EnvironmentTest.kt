@@ -1,4 +1,4 @@
-// port-lint: tests Windows/Win32/System/Environment/mod.rs
+// port-lint: tests windows-sys/src/Windows/Win32/System/Environment/mod.rs
 package io.github.kotlinmania.windowssys
 
 import io.github.kotlinmania.windowssys.windows.win32.system.environment.ENCLAVE_FLAG_DYNAMIC_DEBUG_ACTIVE
