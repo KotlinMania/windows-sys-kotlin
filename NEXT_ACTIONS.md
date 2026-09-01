@@ -55,9 +55,9 @@ Every matched file is listed below with function and type symbol parity.
 - **Proposed provenance header:** `// port-lint: source Windows/Win32/UI/Shell/mod.rs` (current: `// port-lint: source windows-sys/src/Windows/Win32/System/Threading/mod.rs`)
 - **Lint issues:** 1
 
-### 3. Windows.Win32.Storage.FileSystem.mod
+### 3. windows-sys.Windows.Win32.Storage.FileSystem.mod
 
-- **Target:** `filesystem.FileSystem [STUB] [PROVENANCE-FALLBACK]`
+- **Target:** `filesystem.FileSystem [STUB]`
 - **Similarity:** 0.00
 - **Dependents:** 0
 - **Priority Score:** 3595610.0
@@ -65,9 +65,6 @@ Every matched file is listed below with function and type symbol parity.
 - **Missing functions:** `default`
 - **Types:** 0/355 matched (target 0)
 - **Missing types:** `BY_HANDLE_FILE_INFORMATION`, `CACHE_ACCESS_CHECK`, `CACHE_DESTROY_CALLBACK`, `CACHE_KEY_COMPARE`, `CACHE_KEY_HASH`, `CACHE_READ_CALLBACK`, `CLAIMMEDIALABEL`, `CLAIMMEDIALABELEX`, `CLFS_BLOCK_ALLOCATION`, `CLFS_BLOCK_DEALLOCATION`, `CLFS_CONTEXT_MODE`, `CLFS_FLAG`, `CLFS_IOSTATS_CLASS`, `CLFS_LOG_ARCHIVE_MODE`, `CLFS_LOG_NAME_INFORMATION`, `CLFS_MGMT_NOTIFICATION`, `CLFS_MGMT_NOTIFICATION_TYPE`, `CLFS_MGMT_POLICY`, `CLFS_MGMT_POLICY_0_6`, `CLFS_MGMT_POLICY_0_5`, `CLFS_MGMT_POLICY_0_3`, `CLFS_MGMT_POLICY_0_4`, `CLFS_MGMT_POLICY_0_0`, `CLFS_MGMT_POLICY_0_1`, `CLFS_MGMT_POLICY_0_9`, `CLFS_MGMT_POLICY_0_7`, `CLFS_MGMT_POLICY_0_2`, `CLFS_MGMT_POLICY_0_8`, `CLFS_MGMT_POLICY_TYPE`, `CLFS_NODE_ID`, `CLFS_PHYSICAL_LSN_INFORMATION`, `CLFS_STREAM_ID_INFORMATION`, `CLS_ARCHIVE_DESCRIPTOR`, `CLS_CONTAINER_INFORMATION`, `CLS_CONTEXT_MODE`, `CLS_INFORMATION`, `CLS_IOSTATS_CLASS`, `CLS_IO_STATISTICS`, `CLS_IO_STATISTICS_HEADER`, `CLS_LOG_INFORMATION_CLASS`, `CLS_LSN`, `CLS_SCAN_CONTEXT`, `CLS_WRITE_ENTRY`, `COMPRESSION_FORMAT`, `CONNECTION_INFO_0`, `CONNECTION_INFO_1`, `COPYFILE2_COPY_PHASE`, `COPYFILE2_EXTENDED_PARAMETERS`, `COPYFILE2_EXTENDED_PARAMETERS_V2`, `COPYFILE2_MESSAGE`, `COPYFILE2_MESSAGE_0_1`, `COPYFILE2_MESSAGE_0_0`, `COPYFILE2_MESSAGE_0_5`, `COPYFILE2_MESSAGE_0_4`, `COPYFILE2_MESSAGE_0_3`, `COPYFILE2_MESSAGE_0_2`, `COPYFILE2_MESSAGE_ACTION`, `COPYFILE2_MESSAGE_TYPE`, `COPYFILE2_V2_FLAGS`, `COPYFILE_FLAGS`, `COPYPROGRESSROUTINE_PROGRESS`, `CREATEFILE2_EXTENDED_PARAMETERS`, `CREATE_TAPE_PARTITION_METHOD`, `DEFINE_DOS_DEVICE_FLAGS`, `DISKQUOTA_USERNAME_RESOLVE`, `DISKQUOTA_USER_INFORMATION`, `DISK_SPACE_INFORMATION`, `EFS_CERTIFICATE_BLOB`, `EFS_COMPATIBILITY_INFO`, `EFS_DECRYPTION_STATUS_INFO`, `EFS_ENCRYPTION_STATUS_INFO`, `EFS_HASH_BLOB`, `EFS_KEY_INFO`, `EFS_PIN_BLOB`, `EFS_RPC_BLOB`, `EFS_VERSION_INFO`, `ENCRYPTED_FILE_METADATA_SIGNATURE`, `ENCRYPTION_CERTIFICATE`, `ENCRYPTION_CERTIFICATE_HASH`, `ENCRYPTION_CERTIFICATE_HASH_LIST`, `ENCRYPTION_CERTIFICATE_LIST`, `ENCRYPTION_PROTECTOR`, `ENCRYPTION_PROTECTOR_LIST`, `ERASE_TAPE_TYPE`, `FCACHE_CREATE_CALLBACK`, `FCACHE_RICHCREATE_CALLBACK`, `FH_OVERLAPPED`, `FILE_ACCESS_RIGHTS`, `FILE_ACTION`, `FILE_ALIGNMENT_INFO`, `FILE_ALLOCATION_INFO`, `FILE_ATTRIBUTE_TAG_INFO`, `FILE_BASIC_INFO`, `FILE_CASE_SENSITIVE_INFO`, `FILE_COMPRESSION_INFO`, `FILE_CREATION_DISPOSITION`, `FILE_DEVICE_TYPE`, `FILE_DISPOSITION_INFO`, `FILE_DISPOSITION_INFO_EX`, `FILE_DISPOSITION_INFO_EX_FLAGS`, `FILE_END_OF_FILE_INFO`, `FILE_EXTENT`, `FILE_FLAGS_AND_ATTRIBUTES`, `FILE_FLUSH_MODE`, `FILE_FULL_DIR_INFO`, `FILE_ID_128`, `FILE_ID_BOTH_DIR_INFO`, `FILE_ID_DESCRIPTOR`, `FILE_ID_EXTD_DIR_INFO`, `FILE_ID_INFO`, `FILE_ID_TYPE`, `FILE_INFO_2`, `FILE_INFO_3`, `FILE_INFO_BY_HANDLE_CLASS`, `FILE_INFO_FLAGS_PERMISSIONS`, `FILE_IO_PRIORITY_HINT_INFO`, `FILE_NAME_INFO`, `FILE_NOTIFY_CHANGE`, `FILE_NOTIFY_EXTENDED_INFORMATION`, `FILE_NOTIFY_INFORMATION`, `FILE_REMOTE_PROTOCOL_INFO`, `FILE_REMOTE_PROTOCOL_INFO_0`, `FILE_REMOTE_PROTOCOL_INFO_1_0`, `FILE_REMOTE_PROTOCOL_INFO_1_0_0`, `FILE_REMOTE_PROTOCOL_INFO_1_0_1`, `FILE_RENAME_INFO`, `FILE_SHARE_MODE`, `FILE_STANDARD_INFO`, `FILE_STORAGE_INFO`, `FILE_STREAM_INFO`, `FILE_TYPE`, `FILE_WRITE_FLAGS`, `FINDEX_INFO_LEVELS`, `FINDEX_SEARCH_OPS`, `FIND_FIRST_EX_FLAGS`, `FIO_CONTEXT`, `GETFINALPATHNAMEBYHANDLE_FLAGS`, `GET_FILEEX_INFO_LEVELS`, `GET_FILE_VERSION_INFO_FLAGS`, `GET_TAPE_DRIVE_PARAMETERS_OPERATION`, `HIORING`, `IORING_BUFFER_INFO`, `IORING_BUFFER_REF`, `IORING_CAPABILITIES`, `IORING_CQE`, `IORING_CREATE_ADVISORY_FLAGS`, `IORING_CREATE_FLAGS`, `IORING_CREATE_REQUIRED_FLAGS`, `IORING_FEATURE_FLAGS`, `IORING_HANDLE_REF`, `IORING_INFO`, `IORING_OP_CODE`, `IORING_REF_KIND`, `IORING_REGISTERED_BUFFER`, `IORING_SQE_FLAGS`, `IORING_VERSION`, `KCRM_MARSHAL_HEADER`, `KCRM_PROTOCOL_BLOB`, `KCRM_TRANSACTION_BLOB`, `LOCK_FILE_FLAGS`, `LOG_MANAGEMENT_CALLBACKS`, `LPPROGRESS_ROUTINE`, `LPPROGRESS_ROUTINE_CALLBACK_REASON`, `LZOPENFILE_STYLE`, `MAXMEDIALABEL`, `MOVE_FILE_FLAGS`, `MediaLabelInfo`, `NAME_CACHE_CONTEXT`, `NTMS_ALLOCATION_INFORMATION`, `NTMS_ASYNC_IO`, `NTMS_CHANGERINFORMATIONA`, `NTMS_CHANGERINFORMATIONW`, `NTMS_CHANGERTYPEINFORMATIONA`, `NTMS_CHANGERTYPEINFORMATIONW`, `NTMS_COMPUTERINFORMATION`, `NTMS_DRIVEINFORMATIONA`, `NTMS_DRIVEINFORMATIONW`, `NTMS_DRIVETYPEINFORMATIONA`, `NTMS_DRIVETYPEINFORMATIONW`, `NTMS_FILESYSTEM_INFO`, `NTMS_I1_LIBRARYINFORMATION`, `NTMS_I1_LIBREQUESTINFORMATIONA`, `NTMS_I1_LIBREQUESTINFORMATIONW`, `NTMS_I1_OBJECTINFORMATIONA`, `NTMS_I1_OBJECTINFORMATIONW`, `NTMS_I1_OPREQUESTINFORMATIONA`, `NTMS_I1_OPREQUESTINFORMATIONW`, `NTMS_I1_PARTITIONINFORMATIONA`, `NTMS_I1_PARTITIONINFORMATIONW`, `NTMS_I1_PMIDINFORMATIONA`, `NTMS_I1_PMIDINFORMATIONW`, `NTMS_IEDOORINFORMATION`, `NTMS_IEPORTINFORMATION`, `NTMS_LIBRARYINFORMATION`, `NTMS_LIBREQUESTINFORMATIONA`, `NTMS_LIBREQUESTINFORMATIONW`, `NTMS_LMIDINFORMATION`, `NTMS_MEDIAPOOLINFORMATION`, `NTMS_MEDIATYPEINFORMATION`, `NTMS_MOUNT_INFORMATION`, `NTMS_NOTIFICATIONINFORMATION`, `NTMS_OBJECTINFORMATIONA`, `NTMS_OBJECTINFORMATIONW`, `NTMS_OMID_TYPE`, `NTMS_OPREQUESTINFORMATIONA`, `NTMS_OPREQUESTINFORMATIONW`, `NTMS_PARTITIONINFORMATIONA`, `NTMS_PARTITIONINFORMATIONW`, `NTMS_PMIDINFORMATIONA`, `NTMS_PMIDINFORMATIONW`, `NTMS_STORAGESLOTINFORMATION`, `NtmsAccessMask`, `NtmsAllocateOptions`, `NtmsAllocationPolicy`, `NtmsAsyncOperations`, `NtmsAsyncStatus`, `NtmsBarCodeState`, `NtmsCreateNtmsMediaOptions`, `NtmsCreateOptions`, `NtmsDeallocationPolicy`, `NtmsDismountOptions`, `NtmsDoorState`, `NtmsDriveState`, `NtmsDriveType`, `NtmsEjectOperation`, `NtmsEnumerateOption`, `NtmsInjectOperation`, `NtmsInventoryMethod`, `NtmsLibRequestFlags`, `NtmsLibraryFlags`, `NtmsLibraryType`, `NtmsLmOperation`, `NtmsLmState`, `NtmsMediaPoolPolicy`, `NtmsMediaState`, `NtmsMountOptions`, `NtmsMountPriority`, `NtmsNotificationOperations`, `NtmsObjectsTypes`, `NtmsOpRequestFlags`, `NtmsOperationalState`, `NtmsOpreqCommand`, `NtmsOpreqState`, `NtmsPartitionState`, `NtmsPoolType`, `NtmsPortContent`, `NtmsPortPosition`, `NtmsReadWriteCharacteristics`, `NtmsSessionOptions`, `NtmsSlotState`, `NtmsUIOperations`, `NtmsUITypes`, `OFSTRUCT`, `PCLFS_COMPLETION_ROUTINE`, `PCOPYFILE2_PROGRESS_ROUTINE`, `PFE_EXPORT_FUNC`, `PFE_IMPORT_FUNC`, `PFN_IO_COMPLETION`, `PLOG_FULL_HANDLER_CALLBACK`, `PLOG_TAIL_ADVANCE_CALLBACK`, `PLOG_UNPINNED_CALLBACK`, `PREPARE_TAPE_OPERATION`, `PRIORITY_HINT`, `READ_DIRECTORY_NOTIFY_INFORMATION_CLASS`, `REPARSE_GUID_DATA_BUFFER`, `REPARSE_GUID_DATA_BUFFER_0`, `REPLACE_FILE_FLAGS`, `SERVER_ALIAS_INFO_0`, `SERVER_CERTIFICATE_INFO_0`, `SERVER_CERTIFICATE_TYPE`, `SESSION_INFO_0`, `SESSION_INFO_1`, `SESSION_INFO_10`, `SESSION_INFO_2`, `SESSION_INFO_502`, `SESSION_INFO_USER_FLAGS`, `SET_FILE_POINTER_MOVE_METHOD`, `SHARE_INFO_0`, `SHARE_INFO_1`, `SHARE_INFO_1004`, `SHARE_INFO_1005`, `SHARE_INFO_1006`, `SHARE_INFO_1501`, `SHARE_INFO_1503`, `SHARE_INFO_2`, `SHARE_INFO_501`, `SHARE_INFO_502`, `SHARE_INFO_503`, `SHARE_INFO_PERMISSIONS`, `SHARE_TYPE`, `STAT_SERVER_0`, `STAT_WORKSTATION_0`, `STORAGE_BUS_TYPE`, `STREAM_INFO_LEVELS`, `SYMBOLIC_LINK_FLAGS`, `TAPEMARK_TYPE`, `TAPE_ERASE`, `TAPE_GET_POSITION`, `TAPE_INFORMATION_TYPE`, `TAPE_POSITION_METHOD`, `TAPE_POSITION_TYPE`, `TAPE_PREPARE`, `TAPE_SET_POSITION`, `TAPE_WRITE_MARKS`, `TRANSACTION_NOTIFICATION`, `TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT`, `TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT`, `TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT`, `TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT`, `TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT`, `TRANSACTION_OUTCOME`, `TXFS_MINIVERSION`, `TXF_ID`, `TXF_ID_0`, `TXF_LOG_RECORD_AFFECTED_FILE`, `TXF_LOG_RECORD_BASE`, `TXF_LOG_RECORD_TRUNCATE`, `TXF_LOG_RECORD_TYPE`, `TXF_LOG_RECORD_WRITE`, `VER_FIND_FILE_FLAGS`, `VER_FIND_FILE_STATUS`, `VER_INSTALL_FILE_FLAGS`, `VER_INSTALL_FILE_STATUS`, `VOLUME_ALLOCATE_BC_STREAM_INPUT`, `VOLUME_ALLOCATE_BC_STREAM_OUTPUT`, `VOLUME_ALLOCATION_HINT_INPUT`, `VOLUME_ALLOCATION_HINT_OUTPUT`, `VOLUME_CRITICAL_IO`, `VOLUME_FAILOVER_SET`, `VOLUME_GET_BC_PROPERTIES_INPUT`, `VOLUME_GET_BC_PROPERTIES_OUTPUT`, `VOLUME_LOGICAL_OFFSET`, `VOLUME_NUMBER`, `VOLUME_PHYSICAL_OFFSET`, `VOLUME_PHYSICAL_OFFSETS`, `VOLUME_READ_PLEX_INPUT`, `VOLUME_SET_GPT_ATTRIBUTES_INFORMATION`, `VOLUME_SHRINK_INFO`, `VS_FIXEDFILEINFO`, `VS_FIXEDFILEINFO_FILE_FLAGS`, `VS_FIXEDFILEINFO_FILE_OS`, `VS_FIXEDFILEINFO_FILE_SUBTYPE`, `VS_FIXEDFILEINFO_FILE_TYPE`, `WIM_ENTRY_INFO`, `WIM_EXTERNAL_FILE_INFO`, `WIN32_FILE_ATTRIBUTE_DATA`, `WIN32_FIND_DATAA`, `WIN32_FIND_DATAW`, `WIN32_FIND_STREAM_DATA`, `WIN32_STREAM_ID`, `WIN_STREAM_ID`, `WOF_FILE_COMPRESSION_INFO_V0`, `WOF_FILE_COMPRESSION_INFO_V1`, `WofEnumEntryProc`, `WofEnumFilesProc`
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `windows-sys/src/Windows/Win32/Storage/FileSystem/mod.rs` vs expected `Windows/Win32/Storage/FileSystem/mod.rs`
-- **Proposed provenance header:** `// port-lint: source Windows/Win32/Storage/FileSystem/mod.rs` (current: `// port-lint: source windows-sys/src/Windows/Win32/Storage/FileSystem/mod.rs`)
-- **Lint issues:** 1
 
 ### 4. FileSystem.mod
 
@@ -111,7 +108,7 @@ Every matched file is listed below with function and type symbol parity.
 - **Proposed provenance header:** `// port-lint: source Windows/Win32/Devices/BiometricFramework/mod.rs` (current: `// port-lint: source windows-sys/src/Windows/Win32/System/Environment/mod.rs`)
 - **Lint issues:** 1
 
-### 7. Windows.Win32.System.SystemServices.mod
+### 7. windows-sys.Windows.Win32.System.SystemServices.mod
 
 - **Target:** `foundation.WinError [STUB] [PROVENANCE-FALLBACK]`
 - **Similarity:** 0.00
@@ -209,7 +206,7 @@ Every matched file is listed below with function and type symbol parity.
 - **Proposed provenance header:** `// port-lint: source Windows/Win32/Networking/HttpServer/mod.rs` (current: `// port-lint: source windows-sys/src/Windows/Win32/Foundation/mod.rs`)
 - **Lint issues:** 1
 
-### 14. Windows.Win32.Devices.HumanInterfaceDevice.mod
+### 14. windows-sys.Windows.Win32.Devices.HumanInterfaceDevice.mod
 
 - **Target:** `foundation.HModule [STUB] [PROVENANCE-FALLBACK]`
 - **Similarity:** 0.00
@@ -251,9 +248,9 @@ Every matched file is listed below with function and type symbol parity.
 - **Proposed provenance header:** `// port-lint: source Windows/Win32/Storage/CloudFilters/mod.rs` (current: `// port-lint: source windows-sys/src/Windows/Win32/Storage/FileSystem/mod.rs`)
 - **Lint issues:** 1
 
-### 17. Windows.Win32.System.Threading.mod
+### 17. windows-sys.Windows.Win32.System.Threading.mod
 
-- **Target:** `threading.Threading [STUB] [PROVENANCE-FALLBACK]`
+- **Target:** `threading.Threading [STUB]`
 - **Similarity:** 0.00
 - **Dependents:** 0
 - **Priority Score:** 929210.0
@@ -261,9 +258,6 @@ Every matched file is listed below with function and type symbol parity.
 - **Missing functions:** `default`
 - **Types:** 0/91 matched (target 0)
 - **Missing types:** `APC_CALLBACK_FUNCTION`, `APP_MEMORY_INFORMATION`, `AVRT_PRIORITY`, `CONDITION_VARIABLE`, `CREATE_EVENT`, `CREATE_PROCESS_LOGON_FLAGS`, `CRITICAL_SECTION`, `CRITICAL_SECTION_DEBUG`, `GET_GUI_RESOURCES_FLAGS`, `IO_COUNTERS`, `LPFIBER_START_ROUTINE`, `LPPROC_THREAD_ATTRIBUTE_LIST`, `LPTHREAD_START_ROUTINE`, `MACHINE_ATTRIBUTES`, `MEMORY_PRIORITY`, `MEMORY_PRIORITY_INFORMATION`, `OVERRIDE_PREFETCH_PARAMETER`, `PEB`, `PEB_LDR_DATA`, `PFLS_CALLBACK_FUNCTION`, `PINIT_ONCE_FN`, `POWER_REQUEST_CONTEXT_FLAGS`, `PPS_POST_PROCESS_INIT_ROUTINE`, `PROCESSOR_FEATURE_ID`, `PROCESS_ACCESS_RIGHTS`, `PROCESS_AFFINITY_AUTO_UPDATE_FLAGS`, `PROCESS_BASIC_INFORMATION`, `PROCESS_CREATION_FLAGS`, `PROCESS_DEP_FLAGS`, `PROCESS_DYNAMIC_EH_CONTINUATION_TARGET`, `PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION`, `PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE`, `PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION`, `PROCESS_INFORMATION`, `PROCESS_INFORMATION_CLASS`, `PROCESS_LEAP_SECOND_INFO`, `PROCESS_MACHINE_INFORMATION`, `PROCESS_MEMORY_EXHAUSTION_INFO`, `PROCESS_MEMORY_EXHAUSTION_TYPE`, `PROCESS_MITIGATION_POLICY`, `PROCESS_NAME_FORMAT`, `PROCESS_POWER_THROTTLING_STATE`, `PROCESS_PROTECTION_LEVEL`, `PROCESS_PROTECTION_LEVEL_INFORMATION`, `PROC_THREAD_ATTRIBUTE_NUM`, `PRTL_UMS_SCHEDULER_ENTRY_POINT`, `PTIMERAPCROUTINE`, `PTP_CALLBACK_INSTANCE`, `PTP_CLEANUP_GROUP`, `PTP_CLEANUP_GROUP_CANCEL_CALLBACK`, `PTP_IO`, `PTP_POOL`, `PTP_SIMPLE_CALLBACK`, `PTP_TIMER`, `PTP_TIMER_CALLBACK`, `PTP_WAIT`, `PTP_WAIT_CALLBACK`, `PTP_WIN32_IO_CALLBACK`, `PTP_WORK`, `PTP_WORK_CALLBACK`, `QUEUE_USER_APC_FLAGS`, `REASON_CONTEXT`, `REASON_CONTEXT_0_0`, `RTL_USER_PROCESS_PARAMETERS`, `RTWQPERIODICCALLBACK`, `RTWQ_WORKQUEUE_TYPE`, `SRWLOCK`, `STARTUPINFOA`, `STARTUPINFOEXA`, `STARTUPINFOEXW`, `STARTUPINFOW`, `STARTUPINFOW_FLAGS`, `SYNCHRONIZATION_ACCESS_RIGHTS`, `SYNCHRONIZATION_BARRIER`, `TEB`, `THREAD_ACCESS_RIGHTS`, `THREAD_CREATION_FLAGS`, `THREAD_INFORMATION_CLASS`, `THREAD_POWER_THROTTLING_STATE`, `THREAD_PRIORITY`, `TP_CALLBACK_ENVIRON_V3`, `TP_CALLBACK_ENVIRON_V3_0_0`, `TP_CALLBACK_PRIORITY`, `TP_POOL_STACK_INFORMATION`, `UMS_SCHEDULER_STARTUP_INFO`, `UMS_SYSTEM_THREAD_INFORMATION`, `UMS_SYSTEM_THREAD_INFORMATION_0_0`, `UMS_THREAD_INFO_CLASS`, `WAITORTIMERCALLBACK`, `WORKERCALLBACKFUNC`, `WORKER_THREAD_FLAGS`
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `windows-sys/src/Windows/Win32/System/Threading/mod.rs` vs expected `Windows/Win32/System/Threading/mod.rs`
-- **Proposed provenance header:** `// port-lint: source Windows/Win32/System/Threading/mod.rs` (current: `// port-lint: source windows-sys/src/Windows/Win32/System/Threading/mod.rs`)
-- **Lint issues:** 1
 
 ### 18. WebServicesOnDevices.mod
 
@@ -307,9 +301,9 @@ Every matched file is listed below with function and type symbol parity.
 - **Proposed provenance header:** `// port-lint: source Windows/Win32/UI/TextServices/mod.rs` (current: `// port-lint: source windows-sys/src/Windows/Win32/System/Threading/mod.rs`)
 - **Lint issues:** 1
 
-### 21. Windows.Win32.Foundation.mod
+### 21. windows-sys.Windows.Win32.Foundation.mod
 
-- **Target:** `foundation.Luid [STUB] [PROVENANCE-FALLBACK]`
+- **Target:** `foundation.Luid [STUB]`
 - **Similarity:** 0.00
 - **Dependents:** 0
 - **Priority Score:** 484910.0
@@ -317,13 +311,6 @@ Every matched file is listed below with function and type symbol parity.
 - **Missing functions:** `default`
 - **Types:** 1/48 matched (target 3)
 - **Missing types:** `APP_LOCAL_DEVICE_ID`, `COLORREF`, `DECIMAL`, `DECIMAL_0_0`, `DECIMAL_1_0`, `DEVPROPKEY`, `DUPLICATE_HANDLE_OPTIONS`, `FARPROC`, `FILETIME`, `FLOAT128`, `GENERIC_ACCESS_RIGHTS`, `HANDLE`, `HANDLE_FLAGS`, `HANDLE_PTR`, `HGLOBAL`, `HINSTANCE`, `HLOCAL`, `HLSURF`, `HMODULE`, `HRSRC`, `HSPRITE`, `HSTR`, `HUMPD`, `HWND`, `LPARAM`, `LRESULT`, `NEARPROC`, `NTSTATUS`, `NTSTATUS_FACILITY_CODE`, `NTSTATUS_SEVERITY_CODE`, `OBJECT_ATTRIBUTE_FLAGS`, `PAPCFUNC`, `POINT`, `POINTL`, `POINTS`, `PROC`, `PROPERTYKEY`, `RECT`, `RECTL`, `SHANDLE_PTR`, `SIZE`, `SYSTEMTIME`, `UNICODE_STRING`, `VARIANT_BOOL`, `WAIT_EVENT`, `WIN32_ERROR`, `WPARAM`
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `windows-sys/src/Windows/Win32/Foundation/mod.rs` vs expected `Windows/Win32/Foundation/mod.rs`
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `tests:windows-sys/src/Windows/Win32/Foundation/mod.rs` vs expected `Windows/Win32/Foundation/mod.rs`
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `tests:windows-sys/src/Windows/Win32/Foundation/mod.rs` vs expected `Windows/Win32/Foundation/mod.rs`
-- **Proposed provenance header:** `// port-lint: source Windows/Win32/Foundation/mod.rs` (current: `// port-lint: source windows-sys/src/Windows/Win32/Foundation/mod.rs`)
-- **Proposed provenance header:** `// port-lint: tests Windows/Win32/Foundation/mod.rs` (current: `// port-lint: tests windows-sys/src/Windows/Win32/Foundation/mod.rs`)
-- **Proposed provenance header:** `// port-lint: tests Windows/Win32/Foundation/mod.rs` (current: `// port-lint: tests windows-sys/src/Windows/Win32/Foundation/mod.rs`)
-- **Lint issues:** 3
 
 ### 22. DistributedFileSystem.mod
 
@@ -341,7 +328,7 @@ Every matched file is listed below with function and type symbol parity.
 
 ### 23. Console.mod
 
-- **Target:** `console.Console [STUB] [PROVENANCE-FALLBACK]`
+- **Target:** `console.Console [STUB]`
 - **Similarity:** 0.00
 - **Dependents:** 0
 - **Priority Score:** 292910.0
@@ -349,9 +336,6 @@ Every matched file is listed below with function and type symbol parity.
 - **Missing functions:** `default`
 - **Types:** 0/28 matched (target 0)
 - **Missing types:** `CHAR_INFO`, `CONSOLECONTROL`, `CONSOLEENDTASK`, `CONSOLESETFOREGROUND`, `CONSOLEWINDOWOWNER`, `CONSOLE_CARET_INFO`, `CONSOLE_CHARACTER_ATTRIBUTES`, `CONSOLE_CURSOR_INFO`, `CONSOLE_FONT_INFO`, `CONSOLE_FONT_INFOEX`, `CONSOLE_HISTORY_INFO`, `CONSOLE_MODE`, `CONSOLE_PROCESS_INFO`, `CONSOLE_READCONSOLE_CONTROL`, `CONSOLE_SCREEN_BUFFER_INFO`, `CONSOLE_SCREEN_BUFFER_INFOEX`, `CONSOLE_SELECTION_INFO`, `COORD`, `FOCUS_EVENT_RECORD`, `HPCON`, `INPUT_RECORD`, `KEY_EVENT_RECORD`, `MENU_EVENT_RECORD`, `MOUSE_EVENT_RECORD`, `PHANDLER_ROUTINE`, `SMALL_RECT`, `STD_HANDLE`, `WINDOW_BUFFER_SIZE_RECORD`
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `windows-sys/src/Windows/Win32/System/Console/mod.rs` vs expected `Windows/Win32/System/Console/mod.rs`
-- **Proposed provenance header:** `// port-lint: source Windows/Win32/System/Console/mod.rs` (current: `// port-lint: source windows-sys/src/Windows/Win32/System/Console/mod.rs`)
-- **Lint issues:** 1
 
 ### 24. PropertiesSystem.mod
 
@@ -369,7 +353,7 @@ Every matched file is listed below with function and type symbol parity.
 
 ### 25. Environment.mod
 
-- **Target:** `environment.Environment [STUB] [PROVENANCE-FALLBACK]`
+- **Target:** `environment.Environment [STUB]`
 - **Similarity:** 0.00
 - **Dependents:** 0
 - **Priority Score:** 262610.0
@@ -377,11 +361,6 @@ Every matched file is listed below with function and type symbol parity.
 - **Missing functions:** `default`
 - **Types:** 0/25 matched (target 1)
 - **Missing types:** `ENCLAVE_IDENTITY`, `ENCLAVE_INFORMATION`, `ENCLAVE_SEALING_IDENTITY_POLICY`, `ENCLAVE_VBS_BASIC_KEY_REQUEST`, `VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES`, `VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD`, `VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES`, `VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY`, `VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA`, `VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT`, `VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION`, `VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD`, `VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES`, `VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE`, `VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION`, `VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD`, `VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT`, `VBS_BASIC_ENCLAVE_EXCEPTION_AMD64`, `VBS_BASIC_ENCLAVE_SYSCALL_PAGE`, `VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32`, `VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64`, `VBS_ENCLAVE_REPORT`, `VBS_ENCLAVE_REPORT_MODULE`, `VBS_ENCLAVE_REPORT_PKG_HEADER`, `VBS_ENCLAVE_REPORT_VARDATA_HEADER`
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `windows-sys/src/Windows/Win32/System/Environment/mod.rs` vs expected `Windows/Win32/System/Environment/mod.rs`
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `tests:windows-sys/src/Windows/Win32/System/Environment/mod.rs` vs expected `Windows/Win32/System/Environment/mod.rs`
-- **Proposed provenance header:** `// port-lint: source Windows/Win32/System/Environment/mod.rs` (current: `// port-lint: source windows-sys/src/Windows/Win32/System/Environment/mod.rs`)
-- **Proposed provenance header:** `// port-lint: tests Windows/Win32/System/Environment/mod.rs` (current: `// port-lint: tests windows-sys/src/Windows/Win32/System/Environment/mod.rs`)
-- **Lint issues:** 2
 
 ### 26. InternetExplorer.mod
 
@@ -469,7 +448,7 @@ Every matched file is listed below with function and type symbol parity.
 
 ### 32. Pnp.mod
 
-- **Target:** `pnp.Pnp [STUB] [PROVENANCE-FALLBACK]`
+- **Target:** `pnp.Pnp [STUB]`
 - **Similarity:** 0.00
 - **Dependents:** 0
 - **Priority Score:** 20610.0
@@ -477,9 +456,6 @@ Every matched file is listed below with function and type symbol parity.
 - **Missing functions:** `default`
 - **Types:** 4/5 matched (target 4)
 - **Missing types:** `SW_DEVICE_CREATE_CALLBACK`
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `windows-sys/src/Windows/Win32/Devices/Enumeration/Pnp/mod.rs` vs expected `Windows/Win32/Devices/Enumeration/Pnp/mod.rs`
-- **Proposed provenance header:** `// port-lint: source Windows/Win32/Devices/Enumeration/Pnp/mod.rs` (current: `// port-lint: source windows-sys/src/Windows/Win32/Devices/Enumeration/Pnp/mod.rs`)
-- **Lint issues:** 1
 
 ### 33. WindowsFilteringPlatform.mod
 
@@ -525,7 +501,7 @@ Every matched file is listed below with function and type symbol parity.
 
 ### 36. core.mod
 
-- **Target:** `core.Core [STUB] [PROVENANCE-FALLBACK]`
+- **Target:** `core.Core [STUB]`
 - **Similarity:** 0.00
 - **Dependents:** 0
 - **Priority Score:** 1210.0
@@ -533,13 +509,10 @@ Every matched file is listed below with function and type symbol parity.
 - **Missing functions:** _none_
 - **Types:** 11/11 matched
 - **Missing types:** _none_
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `windows-sys/src/core/mod.rs` vs expected `core/mod.rs`
-- **Proposed provenance header:** `// port-lint: source core/mod.rs` (current: `// port-lint: source windows-sys/src/core/mod.rs`)
-- **Lint issues:** 1
 
 ### 37. StructuredStorage.mod
 
-- **Target:** `structuredstorage.StructuredStorage [STUB] [PROVENANCE-FALLBACK]`
+- **Target:** `structuredstorage.StructuredStorage [STUB]`
 - **Similarity:** 0.00
 - **Dependents:** 0
 - **Priority Score:** 310.0
@@ -547,13 +520,10 @@ Every matched file is listed below with function and type symbol parity.
 - **Missing functions:** _none_
 - **Types:** 3/3 matched
 - **Missing types:** _none_
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `windows-sys/src/Windows/Win32/Storage/StructuredStorage/mod.rs` vs expected `Windows/Win32/Storage/StructuredStorage/mod.rs`
-- **Proposed provenance header:** `// port-lint: source Windows/Win32/Storage/StructuredStorage/mod.rs` (current: `// port-lint: source windows-sys/src/Windows/Win32/Storage/StructuredStorage/mod.rs`)
-- **Lint issues:** 1
 
 ### 38. core.literals
 
-- **Target:** `core.Literals [PROVENANCE-FALLBACK]`
+- **Target:** `core.Literals`
 - **Similarity:** 0.84
 - **Dependents:** 0
 - **Priority Score:** 201.6
@@ -561,13 +531,10 @@ Every matched file is listed below with function and type symbol parity.
 - **Missing functions:** _none_
 - **Types:** 0/0 matched (target 1)
 - **Missing types:** _none_
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `windows-sys/src/core/literals.rs` vs expected `core/literals.rs`
-- **Proposed provenance header:** `// port-lint: source core/literals.rs` (current: `// port-lint: source windows-sys/src/core/literals.rs`)
-- **Lint issues:** 1
 
 ### 39. Beep.mod
 
-- **Target:** `beep.Beep [STUB] [PROVENANCE-FALLBACK]`
+- **Target:** `beep.Beep [STUB]`
 - **Similarity:** 0.00
 - **Dependents:** 0
 - **Priority Score:** 110.0
@@ -575,13 +542,10 @@ Every matched file is listed below with function and type symbol parity.
 - **Missing functions:** _none_
 - **Types:** 1/1 matched
 - **Missing types:** _none_
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `windows-sys/src/Windows/Win32/Devices/Beep/mod.rs` vs expected `Windows/Win32/Devices/Beep/mod.rs`
-- **Proposed provenance header:** `// port-lint: source Windows/Win32/Devices/Beep/mod.rs` (current: `// port-lint: source windows-sys/src/Windows/Win32/Devices/Beep/mod.rs`)
-- **Lint issues:** 1
 
 ### 40. HostCompute.mod
 
-- **Target:** `hostcompute.HostCompute [STUB] [PROVENANCE-FALLBACK]`
+- **Target:** `hostcompute.HostCompute [STUB]`
 - **Similarity:** 0.00
 - **Dependents:** 0
 - **Priority Score:** 110.0
@@ -589,9 +553,6 @@ Every matched file is listed below with function and type symbol parity.
 - **Missing functions:** _none_
 - **Types:** 1/1 matched
 - **Missing types:** _none_
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `windows-sys/src/Windows/Win32/System/HostCompute/mod.rs` vs expected `Windows/Win32/System/HostCompute/mod.rs`
-- **Proposed provenance header:** `// port-lint: source Windows/Win32/System/HostCompute/mod.rs` (current: `// port-lint: source windows-sys/src/Windows/Win32/System/HostCompute/mod.rs`)
-- **Lint issues:** 1
 
 ### 41. Devices.mod
 
@@ -609,7 +570,7 @@ Every matched file is listed below with function and type symbol parity.
 
 ### 42. Hlsl.mod
 
-- **Target:** `hlsl.Hlsl [STUB] [PROVENANCE-FALLBACK]`
+- **Target:** `hlsl.Hlsl [STUB]`
 - **Similarity:** 0.00
 - **Dependents:** 0
 - **Priority Score:** 10.0
@@ -617,9 +578,6 @@ Every matched file is listed below with function and type symbol parity.
 - **Missing functions:** _none_
 - **Types:** 0/0 matched
 - **Missing types:** _none_
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `windows-sys/src/Windows/Win32/Graphics/Hlsl/mod.rs` vs expected `Windows/Win32/Graphics/Hlsl/mod.rs`
-- **Proposed provenance header:** `// port-lint: source Windows/Win32/Graphics/Hlsl/mod.rs` (current: `// port-lint: source windows-sys/src/Windows/Win32/Graphics/Hlsl/mod.rs`)
-- **Lint issues:** 1
 
 ### 43. NetworkManagement.mod
 
@@ -637,7 +595,7 @@ Every matched file is listed below with function and type symbol parity.
 
 ### 44. Graphics.mod
 
-- **Target:** `graphics.Graphics [STUB] [PROVENANCE-FALLBACK]`
+- **Target:** `graphics.Graphics [STUB]`
 - **Similarity:** 0.00
 - **Dependents:** 0
 - **Priority Score:** 10.0
@@ -645,13 +603,10 @@ Every matched file is listed below with function and type symbol parity.
 - **Missing functions:** _none_
 - **Types:** 0/0 matched
 - **Missing types:** _none_
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `windows-sys/src/Windows/Wdk/Graphics/mod.rs` vs expected `Windows/Wdk/Graphics/mod.rs`
-- **Proposed provenance header:** `// port-lint: source Windows/Wdk/Graphics/mod.rs` (current: `// port-lint: source windows-sys/src/Windows/Wdk/Graphics/mod.rs`)
-- **Lint issues:** 1
 
 ### 45. Packaging.mod
 
-- **Target:** `packaging.Packaging [STUB] [PROVENANCE-FALLBACK]`
+- **Target:** `packaging.Packaging [STUB]`
 - **Similarity:** 0.00
 - **Dependents:** 0
 - **Priority Score:** 10.0
@@ -659,13 +614,10 @@ Every matched file is listed below with function and type symbol parity.
 - **Missing functions:** _none_
 - **Types:** 0/0 matched
 - **Missing types:** _none_
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `windows-sys/src/Windows/Win32/Storage/Packaging/mod.rs` vs expected `Windows/Win32/Storage/Packaging/mod.rs`
-- **Proposed provenance header:** `// port-lint: source Windows/Win32/Storage/Packaging/mod.rs` (current: `// port-lint: source windows-sys/src/Windows/Win32/Storage/Packaging/mod.rs`)
-- **Lint issues:** 1
 
 ### 46. Enumeration.mod
 
-- **Target:** `enumeration.Enumeration [STUB] [PROVENANCE-FALLBACK]`
+- **Target:** `enumeration.Enumeration [STUB]`
 - **Similarity:** 0.00
 - **Dependents:** 0
 - **Priority Score:** 10.0
@@ -673,13 +625,10 @@ Every matched file is listed below with function and type symbol parity.
 - **Missing functions:** _none_
 - **Types:** 0/0 matched
 - **Missing types:** _none_
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `windows-sys/src/Windows/Win32/Devices/Enumeration/mod.rs` vs expected `Windows/Win32/Devices/Enumeration/mod.rs`
-- **Proposed provenance header:** `// port-lint: source Windows/Win32/Devices/Enumeration/mod.rs` (current: `// port-lint: source windows-sys/src/Windows/Win32/Devices/Enumeration/mod.rs`)
-- **Lint issues:** 1
 
 ### 47. Storage.mod
 
-- **Target:** `storage.Storage [STUB] [PROVENANCE-FALLBACK]`
+- **Target:** `storage.Storage [STUB]`
 - **Similarity:** 0.00
 - **Dependents:** 0
 - **Priority Score:** 10.0
@@ -687,13 +636,10 @@ Every matched file is listed below with function and type symbol parity.
 - **Missing functions:** _none_
 - **Types:** 0/0 matched
 - **Missing types:** _none_
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `windows-sys/src/Windows/Wdk/Storage/mod.rs` vs expected `Windows/Wdk/Storage/mod.rs`
-- **Proposed provenance header:** `// port-lint: source Windows/Wdk/Storage/mod.rs` (current: `// port-lint: source windows-sys/src/Windows/Wdk/Storage/mod.rs`)
-- **Lint issues:** 1
 
-### 48. Windows.Win32.System.mod
+### 48. windows-sys.Windows.Win32.System.mod
 
-- **Target:** `system.System [STUB] [PROVENANCE-FALLBACK]`
+- **Target:** `system.System [STUB]`
 - **Similarity:** 0.00
 - **Dependents:** 0
 - **Priority Score:** 10.0
@@ -701,13 +647,10 @@ Every matched file is listed below with function and type symbol parity.
 - **Missing functions:** _none_
 - **Types:** 0/0 matched
 - **Missing types:** _none_
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `windows-sys/src/Windows/Win32/System/mod.rs` vs expected `Windows/Win32/System/mod.rs`
-- **Proposed provenance header:** `// port-lint: source Windows/Win32/System/mod.rs` (current: `// port-lint: source windows-sys/src/Windows/Win32/System/mod.rs`)
-- **Lint issues:** 1
 
 ### 49. Win32.mod
 
-- **Target:** `win32.Win32 [STUB] [PROVENANCE-FALLBACK]`
+- **Target:** `win32.Win32 [STUB]`
 - **Similarity:** 0.00
 - **Dependents:** 0
 - **Priority Score:** 10.0
@@ -715,9 +658,6 @@ Every matched file is listed below with function and type symbol parity.
 - **Missing functions:** _none_
 - **Types:** 0/0 matched
 - **Missing types:** _none_
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `windows-sys/src/Windows/Win32/mod.rs` vs expected `Windows/Win32/mod.rs`
-- **Proposed provenance header:** `// port-lint: source Windows/Win32/mod.rs` (current: `// port-lint: source windows-sys/src/Windows/Win32/mod.rs`)
-- **Lint issues:** 1
 
 ### 50. IO.mod
 
@@ -749,7 +689,7 @@ Every matched file is listed below with function and type symbol parity.
 
 ### 52. Wdk.mod
 
-- **Target:** `wdk.Wdk [STUB] [PROVENANCE-FALLBACK]`
+- **Target:** `wdk.Wdk [STUB]`
 - **Similarity:** 0.00
 - **Dependents:** 0
 - **Priority Score:** 10.0
@@ -757,13 +697,10 @@ Every matched file is listed below with function and type symbol parity.
 - **Missing functions:** _none_
 - **Types:** 0/0 matched
 - **Missing types:** _none_
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `windows-sys/src/Windows/Wdk/mod.rs` vs expected `Windows/Wdk/mod.rs`
-- **Proposed provenance header:** `// port-lint: source Windows/Wdk/mod.rs` (current: `// port-lint: source windows-sys/src/Windows/Wdk/mod.rs`)
-- **Lint issues:** 1
 
 ### 53. Windows.mod
 
-- **Target:** `windows.Windows [STUB] [PROVENANCE-FALLBACK]`
+- **Target:** `windows.Windows [STUB]`
 - **Similarity:** 0.00
 - **Dependents:** 0
 - **Priority Score:** 10.0
@@ -771,9 +708,6 @@ Every matched file is listed below with function and type symbol parity.
 - **Missing functions:** _none_
 - **Types:** 0/0 matched
 - **Missing types:** _none_
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `windows-sys/src/Windows/mod.rs` vs expected `Windows/mod.rs`
-- **Proposed provenance header:** `// port-lint: source Windows/mod.rs` (current: `// port-lint: source windows-sys/src/Windows/mod.rs`)
-- **Lint issues:** 1
 
 ### 54. Data.mod
 
@@ -837,5 +771,5 @@ do not treat them as the next implementation target by default.
 
 | Source | Target | Path |
 |--------|--------|------|
-| `lib` | `windowssys.Lib` | `src/lib` |
+| `windows-sys.lib` | `windowssys.Lib` | `windows-sys/src/lib` |
 
