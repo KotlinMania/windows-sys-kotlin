@@ -1,4 +1,4 @@
-// port-lint: source windows-sys/src/Windows/Win32/Devices/Beep/mod.rs
+// port-lint: source Windows/Win32/Devices/Beep/mod.rs
 package io.github.kotlinmania.windowssys.windows.win32.devices.beep
 
 import io.github.kotlinmania.windowssys.core.PCSTR

@@ -1,4 +1,4 @@
-// port-lint: source windows-sys/src/lib.rs
+// port-lint: source lib.rs
 package io.github.kotlinmania.windowssys
 
 // Upstream `src/lib.rs` is a re-export shim: `#![no_std]`, allow attrs, and
