@@ -16,6 +16,22 @@
     "lint": true
   },
   "reexport_modules": [
-    "lib"
+    "lib",
+    "lib.rs",
+    "windows-sys/src/lib.rs",
+    "core/mod",
+    "core.mod",
+    "core/mod.rs",
+    "windows-sys/src/core/mod.rs",
+    "Windows/mod",
+    "Windows.mod",
+    "Windows/mod.rs",
+    "windows-sys/src/Windows/mod.rs",
+    "Windows/Win32/mod",
+    "Windows/Win32/mod.rs",
+    "windows-sys/src/Windows/Win32/mod.rs",
+    "Windows/Wdk/mod",
+    "Windows/Wdk/mod.rs",
+    "windows-sys/src/Windows/Wdk/mod.rs"
   ]
 }
