@@ -1,4 +1,4 @@
-// port-lint: source windows-sys/src/Windows/Win32/Foundation/mod.rs
+// port-lint: source Windows/Win32/Foundation/mod.rs
 package io.github.kotlinmania.windowssys.windows.win32.foundation
 
 // Upstream lines 5674–5676 in Windows/Win32/Foundation/mod.rs:

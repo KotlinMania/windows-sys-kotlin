@@ -1,4 +1,4 @@
-// port-lint: source windows-sys/src/Windows/Win32/System/Console/mod.rs
+// port-lint: source Windows/Win32/System/Console/mod.rs
 package io.github.kotlinmania.windowssys.windows.win32.system.console
 
 public const val ALTNUMPAD_BIT: UInt = 67108864u
