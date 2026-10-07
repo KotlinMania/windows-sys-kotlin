@@ -77,3 +77,8 @@ native/node-windows-sys/build/
 native/node-windows-sys/node_modules/
 native/node-windows-sys/package-lock.json
 
+# C wrapper objects and static library
+src/nativeInterop/cinterop/*.o
+src/nativeInterop/cinterop/*.a
+src/nativeInterop/cinterop/*.o.tmp
+

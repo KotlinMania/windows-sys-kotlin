@@ -3,4 +3,6 @@ package = io.github.kotlinmania.windowssys.cinterop
 headers = win32extras.h windows_sys_wrapper.h
 compilerOpts = -DUNICODE -DWINVER=0x0601 -D_WIN32_WINNT=0x0601 -Wno-incompatible-pointer-types -Wno-deprecated-declarations -Isrc/nativeInterop/cinterop
 linkerOpts = -loleaut32 -lntdll -lkernel32
+staticLibraries = windows_sys_wrapper.a
+libraryPaths = src/nativeInterop/cinterop build/cinterop-targets/mingw_x64
 depends = platform.windows

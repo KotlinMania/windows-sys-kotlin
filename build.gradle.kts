@@ -6,7 +6,9 @@ import org.gradle.api.publish.maven.tasks.PublishToMavenRepository
 import org.gradle.api.tasks.testing.AbstractTestTask
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
+import org.gradle.kotlin.dsl.support.serviceOf
 import org.gradle.plugins.signing.Sign
+import org.gradle.process.ExecOperations
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
@@ -629,13 +631,160 @@ tasks.register("test") {
     dependsOn("hostTests")
 }
 
+val buildNodeWindowsSys =
+    tasks.register<Exec>("buildNodeWindowsSys") {
+        group = "build"
+        description = "Builds the Node N-API C++ addon using node-gyp"
+        workingDir("native/node-windows-sys")
+        val isWindows =
+            org.gradle.internal.os.OperatingSystem
+                .current()
+                .isWindows
+        if (isWindows) {
+            commandLine("cmd", "/c", "npm install && npx node-gyp rebuild")
+        } else {
+            commandLine("sh", "-c", "npm install && npx node-gyp rebuild || true")
+        }
+    }
+
 val copyNodeWindowsSys =
     tasks.register<Copy>("copyNodeWindowsSys") {
+        dependsOn(buildNodeWindowsSys)
         from("native/node-windows-sys")
         into(layout.buildDirectory.dir("js/node_modules/@kotlinmania/windows-sys-native-bindings"))
     }
 tasks.matching { it.name.startsWith("jsNodeTest") || it.name.startsWith("wasmJsNodeTest") }.configureEach {
     dependsOn(copyNodeWindowsSys)
+}
+
+val compileWindowsSysJni =
+    tasks.register("compileWindowsSysJni") {
+        group = "build"
+        description = "Compiles windows_sys_jni.c into a shared library for JVM JNI binding"
+        val cSource = file("src/jvmMain/c/windows_sys_jni.c")
+        val outDir =
+            layout.buildDirectory
+                .dir("natives")
+                .get()
+                .asFile
+        inputs.file(cSource)
+        outputs.dir(outDir)
+
+        doLast {
+            outDir.mkdirs()
+            val javaHome = System.getProperty("java.home") ?: System.getenv("JAVA_HOME") ?: ""
+            val isWindows =
+                org.gradle.internal.os.OperatingSystem
+                    .current()
+                    .isWindows
+            val isMac =
+                org.gradle.internal.os.OperatingSystem
+                    .current()
+                    .isMacOsX
+
+            val (libName, osInclude) =
+                when {
+                    isWindows -> "windows_sys_jni.dll" to "win32"
+                    isMac -> "libwindows_sys_jni.dylib" to "darwin"
+                    else -> "libwindows_sys_jni.so" to "linux"
+                }
+            val outFile = File(outDir, libName)
+            val javaInclude = File(javaHome, "include")
+            val javaOsInclude = File(javaInclude, osInclude)
+
+            if (javaInclude.exists()) {
+                val execOps = project.serviceOf<ExecOperations>()
+                try {
+                    val cmd =
+                        mutableListOf(
+                            "clang",
+                            "-shared",
+                            "-O2",
+                            "-I${javaInclude.absolutePath}",
+                            "-I${javaOsInclude.absolutePath}",
+                            cSource.absolutePath,
+                            "-o",
+                            outFile.absolutePath,
+                        )
+                    if (!isWindows) {
+                        cmd.add(2, "-fPIC")
+                    } else {
+                        cmd.add("-lkernel32")
+                    }
+                    execOps
+                        .exec {
+                            commandLine(cmd)
+                        }.assertNormalExitValue()
+                } catch (e: Exception) {
+                    logger.warn("Could not compile windows_sys_jni with host clang: ${e.message}")
+                }
+            }
+        }
+    }
+
+tasks.named<Test>("jvmTest") {
+    dependsOn(compileWindowsSysJni)
+    systemProperty(
+        "java.library.path",
+        layout.buildDirectory
+            .dir("natives")
+            .get()
+            .asFile.absolutePath,
+    )
+}
+
+val compileWindowsSysWrapperForMingwX64 =
+    tasks.register("compileWindowsSysWrapperForMingwX64") {
+        group = "build"
+        description = "Compiles windows_sys_wrapper.c into a static library for mingwX64"
+        val cSource = file("src/nativeInterop/cinterop/windows_sys_wrapper.c")
+        val hSource = file("src/nativeInterop/cinterop/windows_sys_wrapper.h")
+        val outDir =
+            layout.buildDirectory
+                .dir("cinterop-targets/mingw_x64")
+                .get()
+                .asFile
+        val outFile = File(outDir, "windows_sys_wrapper.a")
+        inputs.file(cSource)
+        inputs.file(hSource)
+        outputs.file(outFile)
+
+        doLast {
+            outDir.mkdirs()
+            val isWindows =
+                org.gradle.internal.os.OperatingSystem
+                    .current()
+                    .isWindows
+            val execOps = project.serviceOf<ExecOperations>()
+            val tempObj = File(outDir, "windows_sys_wrapper.o")
+            val prebuilt = file("src/nativeInterop/cinterop/windows_sys_wrapper.a")
+
+            if (isWindows) {
+                try {
+                    execOps
+                        .exec {
+                            commandLine("clang", "-Wall", "-Wextra", "-c", "-I${cSource.parent}", cSource.absolutePath, "-o", tempObj.absolutePath)
+                        }.assertNormalExitValue()
+                    execOps
+                        .exec {
+                            commandLine("ar", "rcs", outFile.absolutePath, tempObj.absolutePath)
+                        }.assertNormalExitValue()
+                } catch (e: Exception) {
+                    logger.warn("Windows native compilation of wrapper failed: ${e.message}")
+                    if (prebuilt.exists()) prebuilt.copyTo(outFile, overwrite = true)
+                }
+            } else {
+                if (prebuilt.exists()) {
+                    prebuilt.copyTo(outFile, overwrite = true)
+                }
+            }
+            if (tempObj.exists()) tempObj.delete()
+        }
+    }
+
+tasks.matching { it.name.startsWith("cinteropWin32extras") }.configureEach {
+    dependsOn(compileWindowsSysWrapperForMingwX64)
+    inputs.files(compileWindowsSysWrapperForMingwX64)
 }
 
 // Explicit test runner. Named hostTests to avoid shadowing the KMP allTests lifecycle task.
@@ -673,6 +822,9 @@ val fullTargetBuildTaskNames =
                 "wasmJsTestClasses",
                 "wasmWasiMainClasses",
                 "wasmWasiTestClasses",
+                "compileWindowsSysJni",
+                "compileWindowsSysWrapperForMingwX64",
+                "buildNodeWindowsSys",
             ),
         )
         for (target in nativeTargetNames) {
