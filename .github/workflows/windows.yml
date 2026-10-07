@@ -75,7 +75,20 @@ jobs:
         run: |
           cd native/node-windows-sys
           npm install
-          npx node-gyp rebuild
+          $vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
+          if (Test-Path $vswhere) {
+            $vsInstall = (& $vswhere -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath) | Select-Object -First 1
+            Write-Host "Found VS at: $vsInstall"
+            $vcvars = Join-Path $vsInstall "VC\Auxiliary\Build\vcvars64.bat"
+            if (Test-Path $vcvars) {
+              Write-Host "Invoking vcvars64.bat and node-gyp rebuild..."
+              cmd /c "`"$vcvars`" && npx node-gyp rebuild"
+            } else {
+              npx node-gyp rebuild
+            }
+          } else {
+            npx node-gyp rebuild
+          }
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       - name: Build and test Windows target

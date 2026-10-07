@@ -632,18 +632,34 @@ tasks.register("test") {
 }
 
 val buildNodeWindowsSys =
-    tasks.register<Exec>("buildNodeWindowsSys") {
+    tasks.register("buildNodeWindowsSys") {
         group = "build"
         description = "Builds the Node N-API C++ addon using node-gyp"
-        workingDir("native/node-windows-sys")
-        val isWindows =
-            org.gradle.internal.os.OperatingSystem
-                .current()
-                .isWindows
-        if (isWindows) {
-            commandLine("cmd", "/c", "npm install && npx node-gyp rebuild")
-        } else {
-            commandLine("sh", "-c", "npm install && npx node-gyp rebuild || true")
+        val addonFile = file("native/node-windows-sys/build/Release/windows_sys_native.node")
+        outputs.file(addonFile)
+        doLast {
+            if (!addonFile.exists()) {
+                val isWindows =
+                    org.gradle.internal.os.OperatingSystem
+                        .current()
+                        .isWindows
+                val execOps = project.serviceOf<ExecOperations>()
+                try {
+                    if (isWindows) {
+                        execOps.exec {
+                            workingDir("native/node-windows-sys")
+                            commandLine("cmd", "/c", "npm install && npx node-gyp rebuild")
+                        }
+                    } else {
+                        execOps.exec {
+                            workingDir("native/node-windows-sys")
+                            commandLine("sh", "-c", "npm install && npx node-gyp rebuild || true")
+                        }
+                    }
+                } catch (e: Exception) {
+                    logger.warn("Node N-API build notice: ${e.message}")
+                }
+            }
         }
     }
 
