@@ -71,3 +71,9 @@ DerivedData/
 *.xcuserstate
 *.xcworkspace/xcuserdata/
 *.xcodeproj/xcuserdata/
+
+# Node native addon build artifacts
+native/node-windows-sys/build/
+native/node-windows-sys/node_modules/
+native/node-windows-sys/package-lock.json
+

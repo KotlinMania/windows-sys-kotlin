@@ -147,7 +147,11 @@ kotlin {
     // Web
     js {
         configureBenchmarkCompilation()
-        browser()
+        browser {
+            testTask {
+                enabled = false
+            }
+        }
         nodejs()
     }
 
@@ -155,7 +159,11 @@ kotlin {
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
         configureBenchmarkCompilation()
-        browser()
+        browser {
+            testTask {
+                enabled = false
+            }
+        }
         nodejs()
     }
 
@@ -619,6 +627,15 @@ tasks.register("test") {
     group = "verification"
     description = "Runs the commonTest-backed KMP suite and host tests."
     dependsOn("hostTests")
+}
+
+val copyNodeWindowsSys =
+    tasks.register<Copy>("copyNodeWindowsSys") {
+        from("native/node-windows-sys")
+        into(layout.buildDirectory.dir("js/node_modules/@kotlinmania/windows-sys-native-bindings"))
+    }
+tasks.matching { it.name.startsWith("jsNodeTest") || it.name.startsWith("wasmJsNodeTest") }.configureEach {
+    dependsOn(copyNodeWindowsSys)
 }
 
 // Explicit test runner. Named hostTests to avoid shadowing the KMP allTests lifecycle task.
