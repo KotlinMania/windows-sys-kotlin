@@ -27,11 +27,84 @@ jobs:
         with:
           cache-provider: basic
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v7.0.0
+        with:
+          node-version: '24'
+          check-latest: true
+
+      - name: Set up Yarn
+        shell: pwsh
+        run: |
+          corepack enable
+          corepack prepare yarn@1.22.22 --activate
+
+      - name: Compile C wrapper
+        shell: pwsh
+        run: |
+          # Kotlin/Native 2.4.0's targetToolchain.mingw_x64 uses this MSVCRT package.
+          # Keep this in sync with konan.properties when upgrading Kotlin.
+          $toolchainRoot = Join-Path $env:GITHUB_WORKSPACE "build/windows-toolchain"
+          New-Item -ItemType Directory -Force -Path $toolchainRoot | Out-Null
+          $archive = Join-Path $toolchainRoot "mingw.zip"
+          Invoke-WebRequest "https://download.jetbrains.com/kotlin/native/msys2-mingw-w64-x86_64-2.zip" -OutFile $archive
+          Expand-Archive -Path $archive -DestinationPath $toolchainRoot -Force
+          $sysroot = Join-Path $toolchainRoot "msys2-mingw-w64-x86_64-2"
+          $bin = Join-Path $sysroot "bin"
+          if (!(Test-Path "$sysroot/x86_64-w64-mingw32/include/stdio.h") -or !(Test-Path "$bin/ar.exe")) { throw "Missing Kotlin/Native MinGW sysroot" }
+          Write-Host "MinGW sysroot: $sysroot"
+          clang --version
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          clang --target=x86_64-w64-mingw32 --sysroot="$sysroot" -c -Isrc/nativeInterop/cinterop src/nativeInterop/cinterop/windows_sys_wrapper.c -o src/nativeInterop/cinterop/windows_sys_wrapper.o
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          & "$bin/ar.exe" rcs src/nativeInterop/cinterop/windows_sys_wrapper.a src/nativeInterop/cinterop/windows_sys_wrapper.o
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $cinteropTargetDir = Join-Path $env:GITHUB_WORKSPACE "build/cinterop-targets/mingw_x64"
+          New-Item -ItemType Directory -Force -Path $cinteropTargetDir | Out-Null
+          Copy-Item src/nativeInterop/cinterop/windows_sys_wrapper.a -Destination $cinteropTargetDir -Force
+
+      - name: Compile JNI C library
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path "build/natives" | Out-Null
+          clang -shared -O2 -I"$env:JAVA_HOME/include" -I"$env:JAVA_HOME/include/win32" src/jvmMain/c/windows_sys_jni.c -o build/natives/windows_sys_jni.dll -lkernel32
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Build Node N-API addon
+        shell: pwsh
+        run: |
+          cd native/node-windows-sys
+          npm install --ignore-scripts
+          # Patch node-gyp to support Visual Studio 18+ (2026 preview)
+          $findVs = "node_modules/node-gyp/lib/find-visualstudio.js"
+          if (Test-Path $findVs) {
+            (Get-Content $findVs) -replace 'ret\.versionMajor === 17', 'ret.versionMajor >= 17' | Set-Content $findVs
+          }
+          $vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
+          $vsInstall = $null
+          if (Test-Path $vswhere) {
+            $vsInstall = (& $vswhere -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath) | Select-Object -First 1
+          }
+          Write-Host "Found VS at: $vsInstall"
+          if ($vsInstall) {
+            $vcvars = Join-Path $vsInstall "VC\Auxiliary\Build\vcvars64.bat"
+            if (Test-Path $vcvars) {
+              Write-Host "Invoking vcvars64.bat and node-gyp rebuild..."
+              cmd /c "`"$vcvars`" && set VSCMD_VER=17.12.0 && npx node-gyp rebuild --msvs_version=2022"
+            } else {
+              npx node-gyp rebuild
+            }
+          } else {
+            npx node-gyp rebuild
+          }
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
       - name: Build and test Windows target
         run: >
           ./gradlew
           mingwX64Test
           jvmTest
+          jsNodeTest
           --no-configuration-cache
 
       - name: Upload test reports (Windows)

@@ -1,7 +1,7 @@
 #ifndef WINDOWS_SYS_WRAPPER_H
 #define WINDOWS_SYS_WRAPPER_H
 
-#include <windows.h>
+#include "win32extras.h"
 
 #ifdef __cplusplus
 extern "C" {
