@@ -48,28 +48,30 @@ package io.github.kotlinmania.windowssys.windows.win32.foundation
 //       VARIANT_FALSE/TRUE, S_OK, S_FALSE,
 //       WAIT_IO_COMPLETION, ROUTEBASE/END,
 //       FRS_ERR_* constants                       →  AdditionalConstants.kt
-//     - CompareObjectHandles, FreeLibrary,
-//       GetHandleInformation, GlobalFree,
-//       RtlNtStatusToDosError, SetLastError,
-//       SetLastErrorEx, SysAllocString*,
-//       SysFreeString, SysReAllocString*,
-//       SysStringByteLen, SysStringLen, SysReleaseString,
-//       SysAddRefString                           →  automation/win32-foundation-port
-//                                                  (PR #46 + #49, mingwMain cinterop)
 //
-//   mingwMain — FFI wrappers around `platform.windows.*` (cinterop):
-//     - CloseHandle                                →  mingwMain/CloseHandle.kt
-//     - GetLastError                               →  mingwMain/GetLastError.kt
-//     - LocalFree                                  →  mingwMain/LocalFree.kt
-//     - SetHandleInformation                       →  mingwMain/SetHandleInformation.kt
-//     - DuplicateHandle                            →  mingwMain/DuplicateHandle.kt
-//
-//   jvmMain — FFI wrappers around JNA `Kernel32Jna` (runtime LoadLibrary):
-//     - CloseHandle                                →  jvmMain/CloseHandle.kt
-//     - GetLastError                               →  jvmMain/GetLastError.kt
-//     - LocalFree                                  →  jvmMain/LocalFree.kt
-//     - SetHandleInformation                       →  jvmMain/SetHandleInformation.kt
-//     - DuplicateHandle                            →  jvmMain/DuplicateHandle.kt
+//   Target functions (22/22 functions in mingwMain, jvmMain, jsMain, wasmJsMain):
+//     - CloseHandle
+//     - CompareObjectHandles
+//     - DuplicateHandle
+//     - FreeLibrary
+//     - GetHandleInformation
+//     - GetLastError
+//     - GlobalFree
+//     - LocalFree
+//     - RtlNtStatusToDosError
+//     - SetHandleInformation
+//     - SetLastError
+//     - SetLastErrorEx
+//     - SysAddRefString
+//     - SysAllocString
+//     - SysAllocStringByteLen
+//     - SysAllocStringLen
+//     - SysFreeString
+//     - SysReAllocString
+//     - SysReAllocStringLen
+//     - SysReleaseString
+//     - SysStringByteLen
+//     - SysStringLen
 //
 // Callers migrated:
 // (none yet)
