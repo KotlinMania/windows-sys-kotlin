@@ -636,29 +636,30 @@ val buildNodeWindowsSys =
         group = "build"
         description = "Builds the Node N-API C++ addon using node-gyp"
         val addonFile = file("native/node-windows-sys/build/Release/windows_sys_native.node")
+        inputs.dir("native/node-windows-sys/src")
+        inputs.file("native/node-windows-sys/binding.gyp")
+        inputs.file("native/node-windows-sys/index.js")
         outputs.file(addonFile)
         doLast {
-            if (!addonFile.exists()) {
-                val isWindows =
-                    org.gradle.internal.os.OperatingSystem
-                        .current()
-                        .isWindows
-                val execOps = project.serviceOf<ExecOperations>()
-                try {
-                    if (isWindows) {
-                        execOps.exec {
-                            workingDir("native/node-windows-sys")
-                            commandLine("cmd", "/c", "npm install && npx node-gyp rebuild")
-                        }
-                    } else {
-                        execOps.exec {
-                            workingDir("native/node-windows-sys")
-                            commandLine("sh", "-c", "npm install && npx node-gyp rebuild || true")
-                        }
+            val isWindows =
+                org.gradle.internal.os.OperatingSystem
+                    .current()
+                    .isWindows
+            val execOps = project.serviceOf<ExecOperations>()
+            try {
+                if (isWindows) {
+                    execOps.exec {
+                        workingDir("native/node-windows-sys")
+                        commandLine("cmd", "/c", "npm install && npx node-gyp rebuild")
                     }
-                } catch (e: Exception) {
-                    logger.warn("Node N-API build notice: ${e.message}")
+                } else {
+                    execOps.exec {
+                        workingDir("native/node-windows-sys")
+                        commandLine("sh", "-c", "npm install && npx node-gyp rebuild || true")
+                    }
                 }
+            } catch (e: Exception) {
+                logger.warn("Node N-API build notice: ${e.message}")
             }
         }
     }

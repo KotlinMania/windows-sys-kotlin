@@ -42,5 +42,33 @@ package io.github.kotlinmania.windowssys.windows.win32.system.threading
 //      LPFIBER_START_ROUTINE, PTP_*_CALLBACK, etc. live in
 //      ThreadingTypes.kt alongside the integer/pointer typealiases.)
 //
+//   mingwMain — FFI wrappers around `cinterop` (windows_sys_wrapper)
+//     ExitProcess.kt              kernel32.dll  ExitProcess
+//     GetCurrentProcess.kt        kernel32.dll  GetCurrentProcess
+//     GetCurrentProcessId.kt      kernel32.dll  GetCurrentProcessId
+//     GetCurrentThread.kt         kernel32.dll  GetCurrentThread
+//     GetCurrentThreadId.kt       kernel32.dll  GetCurrentThreadId
+//     OpenProcess.kt              kernel32.dll  OpenProcess
+//     TerminateProcess.kt         kernel32.dll  TerminateProcess
+//
+//   jvmMain — FFI wrappers around JNI `Kernel32Jni`
+//     ExitProcess.kt              kernel32.dll  ExitProcess
+//     GetCurrentProcess.kt        kernel32.dll  GetCurrentProcess
+//     GetCurrentProcessId.kt      kernel32.dll  GetCurrentProcessId
+//     GetCurrentThread.kt         kernel32.dll  GetCurrentThread
+//     GetCurrentThreadId.kt       kernel32.dll  GetCurrentThreadId
+//     OpenProcess.kt              kernel32.dll  OpenProcess
+//     TerminateProcess.kt         kernel32.dll  TerminateProcess
+//
+//   jsMain — Node N-API wrappers around `@kotlinmania/windows-sys-native-bindings`
+//     ExitProcess.kt, GetCurrentProcess.kt, GetCurrentProcessId.kt,
+//     GetCurrentThread.kt, GetCurrentThreadId.kt, OpenProcess.kt,
+//     TerminateProcess.kt
+//
+//   wasmJsMain — Stubs / N-API addon requirement
+//     ExitProcess.kt, GetCurrentProcess.kt, GetCurrentProcessId.kt,
+//     GetCurrentThread.kt, GetCurrentThreadId.kt, OpenProcess.kt,
+//     TerminateProcess.kt
+//
 // Callers migrated:
 // (none yet)

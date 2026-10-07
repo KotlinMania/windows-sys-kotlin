@@ -32,12 +32,48 @@ package io.github.kotlinmania.windowssys.windows.win32.storage.filesystem
 //                                 FILE_FLAG_OVERLAPPED
 //     FileShareMode.kt            FILE_SHARE_MODE +
 //                                 FILE_SHARE_READ, FILE_SHARE_WRITE
+//     SetFilePointerMoveMethod.kt SET_FILE_POINTER_MOVE_METHOD +
+//                                 FILE_BEGIN, FILE_CURRENT, FILE_END
 //
-//   mingwMain — FFI wrappers around `platform.windows.*` (cinterop)
+//   mingwMain — FFI wrappers around `cinterop` (windows_sys_wrapper)
+//     AreFileApisANSI.kt          kernel32.dll  AreFileApisANSI
+//     CreateFileA.kt              kernel32.dll  CreateFileA
+//     CreateFileW.kt              kernel32.dll  CreateFileW
+//     DeleteFileA.kt              kernel32.dll  DeleteFileA
+//     DeleteFileW.kt              kernel32.dll  DeleteFileW
+//     FlushFileBuffers.kt         kernel32.dll  FlushFileBuffers
+//     GetFileAttributesA.kt       kernel32.dll  GetFileAttributesA
+//     GetFileAttributesW.kt       kernel32.dll  GetFileAttributesW
+//     GetFileSize.kt              kernel32.dll  GetFileSize
+//     SetFileAttributesA.kt       kernel32.dll  SetFileAttributesA
 //     SetFileAttributesW.kt       kernel32.dll  SetFileAttributesW
+//     SetFilePointer.kt           kernel32.dll  SetFilePointer
 //
-//   jvmMain — FFI wrappers around JNA `Kernel32Jna` (runtime LoadLibrary)
+//   jvmMain — FFI wrappers around JNI `Kernel32Jni`
+//     AreFileApisANSI.kt          kernel32.dll  AreFileApisANSI
+//     CreateFileA.kt              kernel32.dll  CreateFileA
+//     CreateFileW.kt              kernel32.dll  CreateFileW
+//     DeleteFileA.kt              kernel32.dll  DeleteFileA
+//     DeleteFileW.kt              kernel32.dll  DeleteFileW
+//     FlushFileBuffers.kt         kernel32.dll  FlushFileBuffers
+//     GetFileAttributesA.kt       kernel32.dll  GetFileAttributesA
+//     GetFileAttributesW.kt       kernel32.dll  GetFileAttributesW
+//     GetFileSize.kt              kernel32.dll  GetFileSize
+//     SetFileAttributesA.kt       kernel32.dll  SetFileAttributesA
 //     SetFileAttributesW.kt       kernel32.dll  SetFileAttributesW
+//     SetFilePointer.kt           kernel32.dll  SetFilePointer
+//
+//   jsMain — Node N-API wrappers around `@kotlinmania/windows-sys-native-bindings`
+//     AreFileApisANSI.kt, CreateFileA.kt, CreateFileW.kt, DeleteFileA.kt,
+//     DeleteFileW.kt, FlushFileBuffers.kt, GetFileAttributesA.kt,
+//     GetFileAttributesW.kt, GetFileSize.kt, SetFileAttributesA.kt,
+//     SetFileAttributesW.kt, SetFilePointer.kt
+//
+//   wasmJsMain — Stubs / N-API addon requirement
+//     AreFileApisANSI.kt, CreateFileA.kt, CreateFileW.kt, DeleteFileA.kt,
+//     DeleteFileW.kt, FlushFileBuffers.kt, GetFileAttributesA.kt,
+//     GetFileAttributesW.kt, GetFileSize.kt, SetFileAttributesA.kt,
+//     SetFileAttributesW.kt, SetFilePointer.kt
 //
 // Callers migrated:
 // (none yet)
