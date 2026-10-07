@@ -67,7 +67,7 @@ jobs:
         shell: pwsh
         run: |
           New-Item -ItemType Directory -Force -Path "build/natives" | Out-Null
-          clang -shared -O2 -I"$env:JAVA_HOME/include" -I"$env:JAVA_HOME/include/win32" src/jvmMain/c/windows_sys_jni.c -o build/natives/windows_sys_jni.dll -lkernel32
+          clang -shared -O2 -I"$env:JAVA_HOME/include" -I"$env:JAVA_HOME/include/win32" src/jvmMain/c/windows_sys_jni.c -o build/natives/windows_sys_jni.dll -lkernel32 -luser32 -loleaut32
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       - name: Build Node N-API addon

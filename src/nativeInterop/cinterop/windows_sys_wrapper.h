@@ -64,6 +64,112 @@ static inline BOOL windows_sys_set_file_attributes_w(LPCWSTR lpFileName, DWORD d
     return SetFileAttributesW(lpFileName, dwFileAttributes);
 }
 
+static inline DWORD windows_sys_get_file_attributes_a(LPCSTR lpFileName) {
+    return GetFileAttributesA(lpFileName);
+}
+
+static inline BOOL windows_sys_set_file_attributes_a(LPCSTR lpFileName, DWORD dwFileAttributes) {
+    return SetFileAttributesA(lpFileName, dwFileAttributes);
+}
+
+static inline HANDLE windows_sys_create_file_w(
+    LPCWSTR lpFileName,
+    DWORD dwDesiredAccess,
+    DWORD dwShareMode,
+    LPSECURITY_ATTRIBUTES lpSecurityAttributes,
+    DWORD dwCreationDisposition,
+    DWORD dwFlagsAndAttributes,
+    HANDLE hTemplateFile
+) {
+    return CreateFileW(
+        lpFileName,
+        dwDesiredAccess,
+        dwShareMode,
+        lpSecurityAttributes,
+        dwCreationDisposition,
+        dwFlagsAndAttributes,
+        hTemplateFile
+    );
+}
+
+static inline HANDLE windows_sys_create_file_a(
+    LPCSTR lpFileName,
+    DWORD dwDesiredAccess,
+    DWORD dwShareMode,
+    LPSECURITY_ATTRIBUTES lpSecurityAttributes,
+    DWORD dwCreationDisposition,
+    DWORD dwFlagsAndAttributes,
+    HANDLE hTemplateFile
+) {
+    return CreateFileA(
+        lpFileName,
+        dwDesiredAccess,
+        dwShareMode,
+        lpSecurityAttributes,
+        dwCreationDisposition,
+        dwFlagsAndAttributes,
+        hTemplateFile
+    );
+}
+
+static inline BOOL windows_sys_delete_file_w(LPCWSTR lpFileName) {
+    return DeleteFileW(lpFileName);
+}
+
+static inline BOOL windows_sys_delete_file_a(LPCSTR lpFileName) {
+    return DeleteFileA(lpFileName);
+}
+
+static inline BOOL windows_sys_flush_file_buffers(HANDLE hFile) {
+    return FlushFileBuffers(hFile);
+}
+
+static inline BOOL windows_sys_are_file_apis_ansi(void) {
+    return AreFileApisANSI();
+}
+
+static inline DWORD windows_sys_get_file_size(HANDLE hFile, LPDWORD lpFileSizeHigh) {
+    return GetFileSize(hFile, lpFileSizeHigh);
+}
+
+static inline DWORD windows_sys_set_file_pointer(
+    HANDLE hFile,
+    LONG lDistanceToMove,
+    PLONG lpDistanceToMoveHigh,
+    DWORD dwMoveMethod
+) {
+    return SetFilePointer(hFile, lDistanceToMove, lpDistanceToMoveHigh, dwMoveMethod);
+}
+
+/* System / Threading */
+static inline HANDLE windows_sys_get_current_process(void) {
+    return GetCurrentProcess();
+}
+
+static inline DWORD windows_sys_get_current_process_id(void) {
+    return GetCurrentProcessId();
+}
+
+static inline HANDLE windows_sys_get_current_thread(void) {
+    return GetCurrentThread();
+}
+
+static inline DWORD windows_sys_get_current_thread_id(void) {
+    return GetCurrentThreadId();
+}
+
+static inline BOOL windows_sys_terminate_process(HANDLE hProcess, UINT uExitCode) {
+    return TerminateProcess(hProcess, uExitCode);
+}
+
+static inline void windows_sys_exit_process(UINT uExitCode) {
+    ExitProcess(uExitCode);
+}
+
+static inline HANDLE windows_sys_open_process(DWORD dwDesiredAccess, BOOL bInheritHandle, DWORD dwProcessId) {
+    return OpenProcess(dwDesiredAccess, bInheritHandle, dwProcessId);
+}
+
 #ifdef __cplusplus
 }
 #endif
