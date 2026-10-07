@@ -74,17 +74,23 @@ jobs:
         shell: pwsh
         run: |
           cd native/node-windows-sys
-          npm install
+          npm install --ignore-scripts
           $vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
+          $vsInstall = $null
           if (Test-Path $vswhere) {
-            $vsInstall = (& $vswhere -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath) | Select-Object -First 1
-            Write-Host "Found VS at: $vsInstall"
+            $vsInstall = (& $vswhere -version "[17.0,18.0)" -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath) | Select-Object -First 1
+          }
+          if (!$vsInstall -and (Test-Path "C:\Program Files\Microsoft Visual Studio\2022\Enterprise")) {
+            $vsInstall = "C:\Program Files\Microsoft Visual Studio\2022\Enterprise"
+          }
+          Write-Host "Found VS 2022 at: $vsInstall"
+          if ($vsInstall) {
             $vcvars = Join-Path $vsInstall "VC\Auxiliary\Build\vcvars64.bat"
             if (Test-Path $vcvars) {
-              Write-Host "Invoking vcvars64.bat and node-gyp rebuild..."
-              cmd /c "`"$vcvars`" && npx node-gyp rebuild"
+              Write-Host "Invoking VS 2022 vcvars64.bat and node-gyp rebuild..."
+              cmd /c "`"$vcvars`" && npx node-gyp rebuild --msvs_version=2022"
             } else {
-              npx node-gyp rebuild
+              npx node-gyp rebuild --msvs_version=2022
             }
           } else {
             npx node-gyp rebuild

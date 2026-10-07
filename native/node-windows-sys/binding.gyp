@@ -17,9 +17,9 @@
       "conditions": [
         ["OS=='win'", {
           "libraries": [
-            "-lkernel32.lib",
-            "-loleaut32.lib",
-            "-ladvapi32.lib"
+            "kernel32.lib",
+            "oleaut32.lib",
+            "advapi32.lib"
           ]
         }],
         ["OS=='mac'", {
