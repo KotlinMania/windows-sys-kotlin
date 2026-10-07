@@ -31,6 +31,7 @@ jobs:
         run: >
           ./gradlew
           mingwX64Test
+          jvmTest
           --no-configuration-cache
 
       - name: Upload test reports (Windows)
