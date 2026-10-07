@@ -726,7 +726,7 @@ val compileWindowsSysJni =
                     if (!isWindows) {
                         cmd.add(2, "-fPIC")
                     } else {
-                        cmd.add("-lkernel32")
+                        cmd.addAll(listOf("-lkernel32", "-luser32", "-loleaut32"))
                     }
                     execOps
                         .exec {

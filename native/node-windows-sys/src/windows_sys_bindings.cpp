@@ -4,19 +4,66 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 #include <oleauto.h>
-#include <winternl.h>
 #define IS_WINDOWS 1
 
-#ifndef RtlNtStatusToDosError
-extern "C" ULONG NTAPI RtlNtStatusToDosError(NTSTATUS Status);
-#endif
-#ifndef CompareObjectHandles
-extern "C" BOOL WINAPI CompareObjectHandles(HANDLE hFirstObjectHandle, HANDLE hSecondObjectHandle);
-#endif
+typedef BOOL (WINAPI *PFN_CompareObjectHandles)(HANDLE, HANDLE);
+static BOOL SafeCompareObjectHandles(HANDLE h1, HANDLE h2) {
+    static PFN_CompareObjectHandles pfn = NULL;
+    static int initialized = 0;
+    if (!initialized) {
+        HMODULE hModule = GetModuleHandleA("kernelbase.dll");
+        if (!hModule) hModule = GetModuleHandleA("kernel32.dll");
+        if (hModule) {
+            pfn = (PFN_CompareObjectHandles)(void(*)(void))GetProcAddress(hModule, "CompareObjectHandles");
+        }
+        initialized = 1;
+    }
+    if (pfn) {
+        return pfn(h1, h2);
+    }
+    return (h1 == h2) ? TRUE : FALSE;
+}
+
+typedef ULONG (NTAPI *PFN_RtlNtStatusToDosError)(LONG);
+static ULONG SafeRtlNtStatusToDosError(LONG status) {
+    static PFN_RtlNtStatusToDosError pfn = NULL;
+    static int initialized = 0;
+    if (!initialized) {
+        HMODULE hModule = GetModuleHandleA("ntdll.dll");
+        if (hModule) {
+            pfn = (PFN_RtlNtStatusToDosError)(void(*)(void))GetProcAddress(hModule, "RtlNtStatusToDosError");
+        }
+        initialized = 1;
+    }
+    if (pfn) {
+        return pfn(status);
+    }
+    return 0;
+}
+
+typedef void (WINAPI *PFN_SetLastErrorEx)(DWORD, DWORD);
+static void SafeSetLastErrorEx(DWORD dwErrCode, DWORD dwType) {
+    static PFN_SetLastErrorEx pfn = NULL;
+    static int initialized = 0;
+    if (!initialized) {
+        HMODULE hModule = GetModuleHandleA("user32.dll");
+        if (!hModule) hModule = LoadLibraryA("user32.dll");
+        if (hModule) {
+            pfn = (PFN_SetLastErrorEx)(void(*)(void))GetProcAddress(hModule, "SetLastErrorEx");
+        }
+        initialized = 1;
+    }
+    if (pfn) {
+        pfn(dwErrCode, dwType);
+    } else {
+        SetLastError(dwErrCode);
+    }
+}
 
 #else
 #define IS_WINDOWS 0
 #endif
+
 
 /* --- Foundation Bindings --- */
 
@@ -65,7 +112,7 @@ Napi::Value SetLastErrorExBinding(const Napi::CallbackInfo& info) {
         uint32_t err = info[0].As<Napi::Number>().Uint32Value();
         uint32_t type = info[1].As<Napi::Number>().Uint32Value();
 #if IS_WINDOWS
-        SetLastErrorEx(err, type);
+        SafeSetLastErrorEx(err, type);
 #else
         (void)err; (void)type;
 #endif
@@ -162,7 +209,7 @@ Napi::Value CompareObjectHandlesBinding(const Napi::CallbackInfo& info) {
     int64_t h1 = info[0].As<Napi::Number>().Int64Value();
     int64_t h2 = info[1].As<Napi::Number>().Int64Value();
 #if IS_WINDOWS
-    BOOL result = CompareObjectHandles(
+    BOOL result = SafeCompareObjectHandles(
         reinterpret_cast<HANDLE>(static_cast<intptr_t>(h1)),
         reinterpret_cast<HANDLE>(static_cast<intptr_t>(h2))
     );
@@ -215,7 +262,7 @@ Napi::Value RtlNtStatusToDosErrorBinding(const Napi::CallbackInfo& info) {
     if (info.Length() < 1) return Napi::Number::New(env, 0);
     int32_t status = info[0].As<Napi::Number>().Int32Value();
 #if IS_WINDOWS
-    ULONG err = RtlNtStatusToDosError(static_cast<NTSTATUS>(status));
+    ULONG err = SafeRtlNtStatusToDosError(static_cast<LONG>(status));
     return Napi::Number::New(env, static_cast<uint32_t>(err));
 #else
     (void)status;

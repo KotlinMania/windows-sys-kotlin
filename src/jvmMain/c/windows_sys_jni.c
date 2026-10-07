@@ -5,18 +5,62 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 #include <oleauto.h>
-#include <winternl.h>
 
-#ifndef CompareObjectHandles
-BOOL WINAPI CompareObjectHandles(HANDLE hFirstObjectHandle, HANDLE hSecondObjectHandle);
+typedef BOOL (WINAPI *PFN_CompareObjectHandles)(HANDLE, HANDLE);
+static BOOL SafeCompareObjectHandles(HANDLE h1, HANDLE h2) {
+    static PFN_CompareObjectHandles pfn = NULL;
+    static int initialized = 0;
+    if (!initialized) {
+        HMODULE hModule = GetModuleHandleA("kernelbase.dll");
+        if (!hModule) hModule = GetModuleHandleA("kernel32.dll");
+        if (hModule) {
+            pfn = (PFN_CompareObjectHandles)(void(*)(void))GetProcAddress(hModule, "CompareObjectHandles");
+        }
+        initialized = 1;
+    }
+    if (pfn) {
+        return pfn(h1, h2);
+    }
+    return (h1 == h2) ? TRUE : FALSE;
+}
+
+typedef ULONG (NTAPI *PFN_RtlNtStatusToDosError)(LONG);
+static ULONG SafeRtlNtStatusToDosError(LONG status) {
+    static PFN_RtlNtStatusToDosError pfn = NULL;
+    static int initialized = 0;
+    if (!initialized) {
+        HMODULE hModule = GetModuleHandleA("ntdll.dll");
+        if (hModule) {
+            pfn = (PFN_RtlNtStatusToDosError)(void(*)(void))GetProcAddress(hModule, "RtlNtStatusToDosError");
+        }
+        initialized = 1;
+    }
+    if (pfn) {
+        return pfn(status);
+    }
+    return 0;
+}
+
+typedef void (WINAPI *PFN_SetLastErrorEx)(DWORD, DWORD);
+static void SafeSetLastErrorEx(DWORD dwErrCode, DWORD dwType) {
+    static PFN_SetLastErrorEx pfn = NULL;
+    static int initialized = 0;
+    if (!initialized) {
+        HMODULE hModule = GetModuleHandleA("user32.dll");
+        if (!hModule) hModule = LoadLibraryA("user32.dll");
+        if (hModule) {
+            pfn = (PFN_SetLastErrorEx)(void(*)(void))GetProcAddress(hModule, "SetLastErrorEx");
+        }
+        initialized = 1;
+    }
+    if (pfn) {
+        pfn(dwErrCode, dwType);
+    } else {
+        SetLastError(dwErrCode);
+    }
+}
 #endif
-#ifndef RtlNtStatusToDosError
-NTSYSAPI ULONG NTAPI RtlNtStatusToDosError(NTSTATUS Status);
-#endif
-#ifndef SetLastErrorEx
-void WINAPI SetLastErrorEx(DWORD dwErrCode, DWORD dwType);
-#endif
-#endif
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -63,7 +107,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jn
     (void)env;
     (void)cls;
 #ifdef _WIN32
-    SetLastErrorEx((DWORD)dwErrCode, (DWORD)dwType);
+    SafeSetLastErrorEx((DWORD)dwErrCode, (DWORD)dwType);
 #else
     (void)dwErrCode;
     (void)dwType;
@@ -153,7 +197,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jn
     (void)env;
     (void)cls;
 #ifdef _WIN32
-    return (jint)CompareObjectHandles((HANDLE)(intptr_t)hFirstObjectHandle, (HANDLE)(intptr_t)hSecondObjectHandle);
+    return (jint)SafeCompareObjectHandles((HANDLE)(intptr_t)hFirstObjectHandle, (HANDLE)(intptr_t)hSecondObjectHandle);
 #else
     (void)hFirstObjectHandle;
     (void)hSecondObjectHandle;
@@ -190,7 +234,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jn
     (void)env;
     (void)cls;
 #ifdef _WIN32
-    return (jint)RtlNtStatusToDosError((NTSTATUS)status);
+    return (jint)SafeRtlNtStatusToDosError((LONG)status);
 #else
     (void)status;
     return 0;
