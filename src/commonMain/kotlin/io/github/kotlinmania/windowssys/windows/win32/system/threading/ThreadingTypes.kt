@@ -117,3 +117,13 @@ public fun interface WAITORTIMERCALLBACK {
 public fun interface WORKERCALLBACKFUNC {
     public fun invoke(param0: Long)
 }
+
+public fun interface APC_CALLBACK_FUNCTION {
+    public fun invoke(param0: UInt, param1: Long, param2: Long)
+}
+
+public fun interface PRTL_UMS_SCHEDULER_ENTRY_POINT {
+    public fun invoke(reason: Int, activationPayload: ULong, schedulerParam: Long)
+}
+
+

@@ -5,6 +5,9 @@ import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
 import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.windows.win32.foundation.UNICODE_STRING
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.LIST_ENTRY
 
 // Upstream structs from Windows/Win32/System/Threading/mod.rs.
 // Pointer fields use `Long` per this port's pointer-typealias
@@ -258,3 +261,82 @@ public class UMS_SYSTEM_THREAD_INFORMATION(
     public var umsVersion: UInt = 0u,
     public var anonymous: UMS_SYSTEM_THREAD_INFORMATION_0 = UMS_SYSTEM_THREAD_INFORMATION_0(),
 )
+
+public data class CRITICAL_SECTION(
+    public var DebugInfo: Long = 0L,
+    public var LockCount: Int = 0,
+    public var RecursionCount: Int = 0,
+    public var OwningThread: HANDLE = 0L,
+    public var LockSemaphore: HANDLE = 0L,
+    public var SpinCount: ULong = 0uL,
+)
+
+public data class CRITICAL_SECTION_DEBUG(
+    public var Type: UShort = 0u,
+    public var CreatorBackTraceIndex: UShort = 0u,
+    public var CriticalSection: Long = 0L,
+    public var ProcessLocksList: LIST_ENTRY = LIST_ENTRY(),
+    public var EntryCount: UInt = 0u,
+    public var ContentionCount: UInt = 0u,
+    public var Flags: UInt = 0u,
+    public var CreatorBackTraceIndexHigh: UShort = 0u,
+    public var Identifier: UShort = 0u,
+)
+
+public data class PEB_LDR_DATA(
+    public var Reserved1: UByteArray = UByteArray(8),
+    public var Reserved2: LongArray = LongArray(3),
+    public var InMemoryOrderModuleList: LIST_ENTRY = LIST_ENTRY(),
+)
+
+public data class RTL_USER_PROCESS_PARAMETERS(
+    public var Reserved1: UByteArray = UByteArray(16),
+    public var Reserved2: LongArray = LongArray(10),
+    public var ImagePathName: UNICODE_STRING = UNICODE_STRING(),
+    public var CommandLine: UNICODE_STRING = UNICODE_STRING(),
+)
+
+public data class PEB(
+    public var Reserved1: UByteArray = UByteArray(2),
+    public var BeingDebugged: UByte = 0u,
+    public var Reserved2: UByteArray = UByteArray(1),
+    public var Reserved3: LongArray = LongArray(2),
+    public var Ldr: Long = 0L,
+    public var ProcessParameters: Long = 0L,
+    public var Reserved4: LongArray = LongArray(3),
+    public var AtlThunkSListPtr: Long = 0L,
+    public var Reserved5: Long = 0L,
+    public var Reserved6: UInt = 0u,
+    public var Reserved7: Long = 0L,
+    public var Reserved8: UInt = 0u,
+    public var AtlThunkSListPtr32: UInt = 0u,
+    public var Reserved9: LongArray = LongArray(45),
+    public var Reserved10: UByteArray = UByteArray(96),
+    public var PostProcessInitRoutine: Long = 0L,
+    public var Reserved11: UByteArray = UByteArray(128),
+    public var Reserved12: LongArray = LongArray(1),
+    public var SessionId: UInt = 0u,
+)
+
+public data class PROCESS_BASIC_INFORMATION(
+    public var ExitStatus: NTSTATUS = 0,
+    public var PebBaseAddress: Long = 0L,
+    public var AffinityMask: ULong = 0uL,
+    public var BasePriority: Int = 0,
+    public var UniqueProcessId: ULong = 0uL,
+    public var InheritedFromUniqueProcessId: ULong = 0uL,
+)
+
+public data class TEB(
+    public var Reserved1: LongArray = LongArray(12),
+    public var ProcessEnvironmentBlock: Long = 0L,
+    public var Reserved2: LongArray = LongArray(399),
+    public var Reserved3: UByteArray = UByteArray(1952),
+    public var TlsSlots: LongArray = LongArray(64),
+    public var Reserved4: UByteArray = UByteArray(8),
+    public var Reserved5: LongArray = LongArray(26),
+    public var ReservedForOle: Long = 0L,
+    public var Reserved6: LongArray = LongArray(4),
+    public var TlsExpansionSlots: Long = 0L,
+)
+
