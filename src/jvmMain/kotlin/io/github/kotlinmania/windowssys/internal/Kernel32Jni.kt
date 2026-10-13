@@ -166,4 +166,16 @@ internal object Kernel32Jni {
 
     @JvmStatic
     external fun OpenProcess(dwDesiredAccess: Int, bInheritHandle: Int, dwProcessId: Int): Long
+
+    @JvmStatic
+    external fun K32EmptyWorkingSet(hProcess: Long): Int
+
+    @JvmStatic
+    external fun GetTimeZoneInformation(lpTimeZoneInformation: Long): Int
+
+    @JvmStatic
+    external fun LockWorkStation(): Int
+
+    @JvmStatic
+    external fun DisconnectNamedPipe(hNamedPipe: Long): Int
 }

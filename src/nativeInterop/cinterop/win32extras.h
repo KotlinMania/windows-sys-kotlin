@@ -22,7 +22,7 @@ BSTR __stdcall SysAllocStringLen(const OLECHAR *strIn, UINT ui);
 void __stdcall SysFreeString(BSTR bstrString);
 int __stdcall SysReAllocString(BSTR *pbstr, const OLECHAR *psz);
 int __stdcall SysReAllocStringLen(BSTR *pbstr, const OLECHAR *psz, UINT len);
-int __stdcall SysAddRefString(BSTR bstrString);
+HRESULT __stdcall SysAddRefString(BSTR bstrString);
 void __stdcall SysReleaseString(BSTR bstrString);
 UINT __stdcall SysStringByteLen(BSTR bstr);
 UINT __stdcall SysStringLen(BSTR pbstr);
@@ -36,6 +36,10 @@ BOOL __stdcall CompareObjectHandles(HANDLE hFirstObjectHandle, HANDLE hSecondObj
 
 /* Function from user32.dll — not in platform.windows cinterop. */
 void __stdcall SetLastErrorEx(DWORD dwErrCode, DWORD dwType);
+BOOL __stdcall LockWorkStation(void);
+
+/* Function from psapi.dll / kernel32.dll */
+BOOL __stdcall K32EmptyWorkingSet(HANDLE hProcess);
 
 #ifdef __cplusplus
 }

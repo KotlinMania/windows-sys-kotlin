@@ -60,6 +60,47 @@ static void SafeSetLastErrorEx(DWORD dwErrCode, DWORD dwType) {
     }
 }
 
+typedef BOOL (WINAPI *PFN_K32EmptyWorkingSet)(HANDLE);
+static BOOL SafeK32EmptyWorkingSet(HANDLE hProcess) {
+    static PFN_K32EmptyWorkingSet pfn = NULL;
+    static int initialized = 0;
+    if (!initialized) {
+        HMODULE hModule = GetModuleHandleA("kernel32.dll");
+        if (hModule) {
+            pfn = (PFN_K32EmptyWorkingSet)(void(*)(void))GetProcAddress(hModule, "K32EmptyWorkingSet");
+        }
+        if (!pfn) {
+            HMODULE hPsapi = LoadLibraryA("psapi.dll");
+            if (hPsapi) {
+                pfn = (PFN_K32EmptyWorkingSet)(void(*)(void))GetProcAddress(hPsapi, "EmptyWorkingSet");
+            }
+        }
+        initialized = 1;
+    }
+    if (pfn) {
+        return pfn(hProcess);
+    }
+    return FALSE;
+}
+
+typedef BOOL (WINAPI *PFN_LockWorkStation)(void);
+static BOOL SafeLockWorkStation(void) {
+    static PFN_LockWorkStation pfn = NULL;
+    static int initialized = 0;
+    if (!initialized) {
+        HMODULE hModule = GetModuleHandleA("user32.dll");
+        if (!hModule) hModule = LoadLibraryA("user32.dll");
+        if (hModule) {
+            pfn = (PFN_LockWorkStation)(void(*)(void))GetProcAddress(hModule, "LockWorkStation");
+        }
+        initialized = 1;
+    }
+    if (pfn) {
+        return pfn();
+    }
+    return FALSE;
+}
+
 #else
 #define IS_WINDOWS 0
 #endif
@@ -565,6 +606,67 @@ Napi::Value OpenProcessBinding(const Napi::CallbackInfo& info) {
 #endif
 }
 
+Napi::Value K32EmptyWorkingSetBinding(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    if (info.Length() < 1) {
+        Napi::TypeError::New(env, "hProcess argument required").ThrowAsJavaScriptException();
+        return env.Null();
+    }
+    int64_t handleVal = info[0].As<Napi::Number>().Int64Value();
+#if IS_WINDOWS
+    BOOL res = SafeK32EmptyWorkingSet(reinterpret_cast<HANDLE>(static_cast<intptr_t>(handleVal)));
+    return Napi::Number::New(env, res);
+#else
+    (void)handleVal;
+    return Napi::Number::New(env, 0);
+#endif
+}
+
+Napi::Value GetTimeZoneInformationBinding(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    int64_t ptrVal = 0;
+    if (info.Length() >= 1 && !info[0].IsNull() && !info[0].IsUndefined()) {
+        ptrVal = info[0].As<Napi::Number>().Int64Value();
+    }
+#if IS_WINDOWS
+    if (ptrVal == 0) {
+        SetLastError(87);
+        return Napi::Number::New(env, static_cast<uint32_t>(0xFFFFFFFF));
+    }
+    DWORD res = GetTimeZoneInformation(reinterpret_cast<LPTIME_ZONE_INFORMATION>(static_cast<intptr_t>(ptrVal)));
+    return Napi::Number::New(env, static_cast<uint32_t>(res));
+#else
+    (void)ptrVal;
+    return Napi::Number::New(env, 0xFFFFFFFF);
+#endif
+}
+
+Napi::Value LockWorkStationBinding(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+#if IS_WINDOWS
+    BOOL res = SafeLockWorkStation();
+    return Napi::Number::New(env, res);
+#else
+    return Napi::Number::New(env, 0);
+#endif
+}
+
+Napi::Value DisconnectNamedPipeBinding(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    if (info.Length() < 1) {
+        Napi::TypeError::New(env, "hNamedPipe argument required").ThrowAsJavaScriptException();
+        return env.Null();
+    }
+    int64_t handleVal = info[0].As<Napi::Number>().Int64Value();
+#if IS_WINDOWS
+    BOOL res = DisconnectNamedPipe(reinterpret_cast<HANDLE>(static_cast<intptr_t>(handleVal)));
+    return Napi::Number::New(env, res);
+#else
+    (void)handleVal;
+    return Napi::Number::New(env, 0);
+#endif
+}
+
 Napi::Value IsNativeAvailableBinding(const Napi::CallbackInfo& info) {
     Napi::Env env = info.Env();
     return Napi::Boolean::New(env, IS_WINDOWS);
@@ -611,6 +713,12 @@ Napi::Object Init(Napi::Env env, Napi::Object exports) {
     exports.Set("TerminateProcess", Napi::Function::New(env, TerminateProcessBinding));
     exports.Set("ExitProcess", Napi::Function::New(env, ExitProcessBinding));
     exports.Set("OpenProcess", Napi::Function::New(env, OpenProcessBinding));
+
+    // System / ProcessStatus, Time, Shutdown, Pipes
+    exports.Set("K32EmptyWorkingSet", Napi::Function::New(env, K32EmptyWorkingSetBinding));
+    exports.Set("GetTimeZoneInformation", Napi::Function::New(env, GetTimeZoneInformationBinding));
+    exports.Set("LockWorkStation", Napi::Function::New(env, LockWorkStationBinding));
+    exports.Set("DisconnectNamedPipe", Napi::Function::New(env, DisconnectNamedPipeBinding));
 
     exports.Set("isNativeAvailable", Napi::Function::New(env, IsNativeAvailableBinding));
     return exports;

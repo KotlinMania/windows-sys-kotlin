@@ -10,3 +10,7 @@ package io.github.kotlinmania.windowssys.windows.win32.system
 //   - System/HostCompute/mod.rs → system/hostcompute/HostCompute.kt (ledger)
 //   - System/Environment/mod.rs → system/environment/Environment.kt (ledger)
 //   - System/Console/mod.rs → system/console/Console.kt (ledger)
+//   - System/ProcessStatus/mod.rs → system/processstatus/ProcessStatus.kt (ledger)
+//   - System/Time/mod.rs → system/time/Time.kt (ledger)
+//   - System/Shutdown/mod.rs → system/shutdown/Shutdown.kt (ledger)
+//   - System/Pipes/mod.rs → system/pipes/Pipes.kt (ledger)

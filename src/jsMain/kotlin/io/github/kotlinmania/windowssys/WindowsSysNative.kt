@@ -90,5 +90,14 @@ public external object WindowsSysNative {
 
     public fun OpenProcess(dwDesiredAccess: Int, bInheritHandle: Boolean, dwProcessId: Int): Double
 
+    // System / ProcessStatus, Time, Shutdown, Pipes
+    public fun K32EmptyWorkingSet(hProcess: Double): Int
+
+    public fun GetTimeZoneInformation(lpTimeZoneInformation: Double): Int
+
+    public fun LockWorkStation(): Int
+
+    public fun DisconnectNamedPipe(hNamedPipe: Double): Int
+
     public fun isNativeAvailable(): Boolean
 }

@@ -170,6 +170,30 @@ static inline HANDLE windows_sys_open_process(DWORD dwDesiredAccess, BOOL bInher
     return OpenProcess(dwDesiredAccess, bInheritHandle, dwProcessId);
 }
 
+/* ProcessStatus */
+static inline BOOL windows_sys_k32_empty_working_set(HANDLE hProcess) {
+    return K32EmptyWorkingSet(hProcess);
+}
+
+/* Time */
+static inline DWORD windows_sys_get_time_zone_information(LPTIME_ZONE_INFORMATION lpTimeZoneInformation) {
+    if (!lpTimeZoneInformation) {
+        SetLastError(87);
+        return 0xFFFFFFFFU;
+    }
+    return GetTimeZoneInformation(lpTimeZoneInformation);
+}
+
+/* Shutdown */
+static inline BOOL windows_sys_lock_work_station(void) {
+    return LockWorkStation();
+}
+
+/* Pipes */
+static inline BOOL windows_sys_disconnect_named_pipe(HANDLE hNamedPipe) {
+    return DisconnectNamedPipe(hNamedPipe);
+}
+
 #ifdef __cplusplus
 }
 #endif

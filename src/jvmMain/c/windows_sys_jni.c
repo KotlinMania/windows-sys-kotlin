@@ -59,6 +59,47 @@ static void SafeSetLastErrorEx(DWORD dwErrCode, DWORD dwType) {
         SetLastError(dwErrCode);
     }
 }
+
+typedef BOOL (WINAPI *PFN_K32EmptyWorkingSet)(HANDLE);
+static BOOL SafeK32EmptyWorkingSet(HANDLE hProcess) {
+    static PFN_K32EmptyWorkingSet pfn = NULL;
+    static int initialized = 0;
+    if (!initialized) {
+        HMODULE hModule = GetModuleHandleA("kernel32.dll");
+        if (hModule) {
+            pfn = (PFN_K32EmptyWorkingSet)(void(*)(void))GetProcAddress(hModule, "K32EmptyWorkingSet");
+        }
+        if (!pfn) {
+            HMODULE hPsapi = LoadLibraryA("psapi.dll");
+            if (hPsapi) {
+                pfn = (PFN_K32EmptyWorkingSet)(void(*)(void))GetProcAddress(hPsapi, "EmptyWorkingSet");
+            }
+        }
+        initialized = 1;
+    }
+    if (pfn) {
+        return pfn(hProcess);
+    }
+    return FALSE;
+}
+
+typedef BOOL (WINAPI *PFN_LockWorkStation)(void);
+static BOOL SafeLockWorkStation(void) {
+    static PFN_LockWorkStation pfn = NULL;
+    static int initialized = 0;
+    if (!initialized) {
+        HMODULE hModule = GetModuleHandleA("user32.dll");
+        if (!hModule) hModule = LoadLibraryA("user32.dll");
+        if (hModule) {
+            pfn = (PFN_LockWorkStation)(void(*)(void))GetProcAddress(hModule, "LockWorkStation");
+        }
+        initialized = 1;
+    }
+    if (pfn) {
+        return pfn();
+    }
+    return FALSE;
+}
 #endif
 
 
@@ -661,6 +702,57 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32J
     (void)dwDesiredAccess;
     (void)bInheritHandle;
     (void)dwProcessId;
+    return 0;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jni_K32EmptyWorkingSet
+  (JNIEnv *env, jclass cls, jlong hProcess) {
+    (void)env;
+    (void)cls;
+#ifdef _WIN32
+    return (jint)SafeK32EmptyWorkingSet((HANDLE)(intptr_t)hProcess);
+#else
+    (void)hProcess;
+    return 0;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jni_GetTimeZoneInformation
+  (JNIEnv *env, jclass cls, jlong lpTimeZoneInformation) {
+    (void)env;
+    (void)cls;
+#ifdef _WIN32
+    if (!lpTimeZoneInformation) {
+        SetLastError(87);
+        return (jint)0xFFFFFFFF;
+    }
+    return (jint)GetTimeZoneInformation((LPTIME_ZONE_INFORMATION)(intptr_t)lpTimeZoneInformation);
+#else
+    (void)lpTimeZoneInformation;
+    return (jint)0xFFFFFFFF;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jni_LockWorkStation
+  (JNIEnv *env, jclass cls) {
+    (void)env;
+    (void)cls;
+#ifdef _WIN32
+    return (jint)SafeLockWorkStation();
+#else
+    return 0;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jni_DisconnectNamedPipe
+  (JNIEnv *env, jclass cls, jlong hNamedPipe) {
+    (void)env;
+    (void)cls;
+#ifdef _WIN32
+    return (jint)DisconnectNamedPipe((HANDLE)(intptr_t)hNamedPipe);
+#else
+    (void)hNamedPipe;
     return 0;
 #endif
 }
