@@ -723,6 +723,10 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jn
     (void)env;
     (void)cls;
 #ifdef _WIN32
+    if (!lpTimeZoneInformation) {
+        SetLastError(87);
+        return (jint)0xFFFFFFFF;
+    }
     return (jint)GetTimeZoneInformation((LPTIME_ZONE_INFORMATION)(intptr_t)lpTimeZoneInformation);
 #else
     (void)lpTimeZoneInformation;

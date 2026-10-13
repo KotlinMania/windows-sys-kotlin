@@ -629,6 +629,10 @@ Napi::Value GetTimeZoneInformationBinding(const Napi::CallbackInfo& info) {
         ptrVal = info[0].As<Napi::Number>().Int64Value();
     }
 #if IS_WINDOWS
+    if (ptrVal == 0) {
+        SetLastError(87);
+        return Napi::Number::New(env, static_cast<uint32_t>(0xFFFFFFFF));
+    }
     DWORD res = GetTimeZoneInformation(reinterpret_cast<LPTIME_ZONE_INFORMATION>(static_cast<intptr_t>(ptrVal)));
     return Napi::Number::New(env, static_cast<uint32_t>(res));
 #else

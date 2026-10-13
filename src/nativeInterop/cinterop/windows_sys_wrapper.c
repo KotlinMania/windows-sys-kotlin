@@ -167,6 +167,10 @@ BOOL windows_sys_c_k32_empty_working_set(HANDLE hProcess) {
 }
 
 DWORD windows_sys_c_get_time_zone_information(LPTIME_ZONE_INFORMATION lpTimeZoneInformation) {
+    if (!lpTimeZoneInformation) {
+        SetLastError(87);
+        return 0xFFFFFFFFU;
+    }
     return GetTimeZoneInformation(lpTimeZoneInformation);
 }
 

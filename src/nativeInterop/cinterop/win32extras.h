@@ -22,7 +22,7 @@ BSTR __stdcall SysAllocStringLen(const OLECHAR *strIn, UINT ui);
 void __stdcall SysFreeString(BSTR bstrString);
 int __stdcall SysReAllocString(BSTR *pbstr, const OLECHAR *psz);
 int __stdcall SysReAllocStringLen(BSTR *pbstr, const OLECHAR *psz, UINT len);
-int __stdcall SysAddRefString(BSTR bstrString);
+HRESULT __stdcall SysAddRefString(BSTR bstrString);
 void __stdcall SysReleaseString(BSTR bstrString);
 UINT __stdcall SysStringByteLen(BSTR bstr);
 UINT __stdcall SysStringLen(BSTR pbstr);
