@@ -161,3 +161,19 @@ void windows_sys_c_exit_process(UINT uExitCode) {
 HANDLE windows_sys_c_open_process(DWORD dwDesiredAccess, BOOL bInheritHandle, DWORD dwProcessId) {
     return OpenProcess(dwDesiredAccess, bInheritHandle, dwProcessId);
 }
+
+BOOL windows_sys_c_k32_empty_working_set(HANDLE hProcess) {
+    return K32EmptyWorkingSet(hProcess);
+}
+
+DWORD windows_sys_c_get_time_zone_information(LPTIME_ZONE_INFORMATION lpTimeZoneInformation) {
+    return GetTimeZoneInformation(lpTimeZoneInformation);
+}
+
+BOOL windows_sys_c_lock_work_station(void) {
+    return LockWorkStation();
+}
+
+BOOL windows_sys_c_disconnect_named_pipe(HANDLE hNamedPipe) {
+    return DisconnectNamedPipe(hNamedPipe);
+}

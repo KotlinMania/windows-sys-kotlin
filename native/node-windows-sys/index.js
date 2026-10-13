@@ -55,6 +55,18 @@ try {
             ExitProcess: function(_code) {},
             OpenProcess: function(_access, _inherit, _pid) { return 0; },
 
+            // System / ProcessStatus
+            K32EmptyWorkingSet: function(_h) { return 1; },
+
+            // System / Time
+            GetTimeZoneInformation: function(_tz) { return 0; },
+
+            // System / Shutdown
+            LockWorkStation: function() { return 1; },
+
+            // System / Pipes
+            DisconnectNamedPipe: function(_h) { return 1; },
+
             isNativeAvailable: function() { return false; }
         };
     }

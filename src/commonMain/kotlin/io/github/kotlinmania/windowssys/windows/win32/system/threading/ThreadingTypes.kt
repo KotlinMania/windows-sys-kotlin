@@ -125,5 +125,3 @@ public fun interface APC_CALLBACK_FUNCTION {
 public fun interface PRTL_UMS_SCHEDULER_ENTRY_POINT {
     public fun invoke(reason: Int, activationPayload: ULong, schedulerParam: Long)
 }
-
-

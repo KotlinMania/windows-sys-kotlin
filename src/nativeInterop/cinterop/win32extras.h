@@ -36,6 +36,10 @@ BOOL __stdcall CompareObjectHandles(HANDLE hFirstObjectHandle, HANDLE hSecondObj
 
 /* Function from user32.dll — not in platform.windows cinterop. */
 void __stdcall SetLastErrorEx(DWORD dwErrCode, DWORD dwType);
+BOOL __stdcall LockWorkStation(void);
+
+/* Function from psapi.dll / kernel32.dll */
+BOOL __stdcall K32EmptyWorkingSet(HANDLE hProcess);
 
 #ifdef __cplusplus
 }

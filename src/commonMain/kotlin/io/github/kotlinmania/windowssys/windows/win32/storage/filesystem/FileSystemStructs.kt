@@ -6,6 +6,7 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 import io.github.kotlinmania.windowssys.windows.win32.security.SECURITY_ATTRIBUTES
 
 public typealias COMPRESSION_FORMAT = UShort
+
 public const val COMPRESSION_FORMAT_NONE: COMPRESSION_FORMAT = 0u
 public const val COMPRESSION_FORMAT_DEFAULT: COMPRESSION_FORMAT = 1u
 public const val COMPRESSION_FORMAT_LZNT1: COMPRESSION_FORMAT = 2u

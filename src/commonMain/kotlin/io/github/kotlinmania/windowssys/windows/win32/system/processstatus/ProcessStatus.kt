@@ -1,0 +1,15 @@
+// port-lint: source Windows/Win32/System/ProcessStatus/mod.rs
+package io.github.kotlinmania.windowssys.windows.win32.system.processstatus
+
+// Module-tracking ledger for upstream
+// `Windows/Win32/System/ProcessStatus/mod.rs` (236 lines).
+//
+// Symbols parceled:
+//   - ProcessStatusTypes.kt: ENUM_PROCESS_MODULES_EX_FLAGS, PENUM_PAGE_FILE_CALLBACKA, PENUM_PAGE_FILE_CALLBACKW
+//   - ProcessStatusConstants.kt: LIST_MODULES_*, PSAPI_VERSION
+//   - ProcessStatusStructs.kt: ENUM_PAGE_FILE_INFORMATION, MODULEINFO, PERFORMANCE_INFORMATION,
+//     PROCESS_MEMORY_COUNTERS, PROCESS_MEMORY_COUNTERS_EX, PROCESS_MEMORY_COUNTERS_EX2,
+//     PSAPI_WORKING_SET_BLOCK, PSAPI_WORKING_SET_BLOCK_0, PSAPI_WORKING_SET_EX_BLOCK,
+//     PSAPI_WORKING_SET_EX_BLOCK_0, PSAPI_WORKING_SET_EX_BLOCK_0_0, PSAPI_WORKING_SET_EX_BLOCK_0_1,
+//     PSAPI_WORKING_SET_EX_INFORMATION, PSAPI_WORKING_SET_INFORMATION,
+//     PSAPI_WS_WATCH_INFORMATION, PSAPI_WS_WATCH_INFORMATION_EX
