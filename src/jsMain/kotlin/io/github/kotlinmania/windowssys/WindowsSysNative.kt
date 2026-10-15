@@ -168,5 +168,44 @@ public external object WindowsSysNative {
     // System / SystemInformation
     public fun GetComputerNameExW(nameType: Int, lpBuffer: Double, nSize: Int): dynamic
 
+    // System / Environment
+    public fun SetEnvironmentVariableA(lpName: Double, lpValue: Double): Int
+
+    public fun SetEnvironmentVariableW(lpName: Double, lpValue: Double): Int
+
+    public fun GetEnvironmentVariableA(lpName: Double, lpBuffer: Double, nSize: Int): Int
+
+    public fun GetEnvironmentVariableW(lpName: Double, lpBuffer: Double, nSize: Int): Int
+
+    public fun ExpandEnvironmentStringsA(lpSrc: Double, lpDst: Double, nSize: Int): Int
+
+    public fun ExpandEnvironmentStringsW(lpSrc: Double, lpDst: Double, nSize: Int): Int
+
+    public fun GetEnvironmentStrings(): Double
+
+    public fun GetEnvironmentStringsW(): Double
+
+    public fun FreeEnvironmentStringsA(penv: Double): Int
+
+    public fun FreeEnvironmentStringsW(penv: Double): Int
+
+    public fun SetEnvironmentStringsW(NewEnvironment: Double): Int
+
+    public fun GetCurrentDirectoryA(nBufferLength: Int, lpBuffer: Double): Int
+
+    public fun GetCurrentDirectoryW(nBufferLength: Int, lpBuffer: Double): Int
+
+    public fun SetCurrentDirectoryA(lpPathName: Double): Int
+
+    public fun SetCurrentDirectoryW(lpPathName: Double): Int
+
+    public fun GetCommandLineA(): Double
+
+    public fun GetCommandLineW(): Double
+
+    public fun NeedCurrentDirectoryForExePathA(ExeName: Double): Int
+
+    public fun NeedCurrentDirectoryForExePathW(ExeName: Double): Int
+
     public fun isNativeAvailable(): Boolean
 }

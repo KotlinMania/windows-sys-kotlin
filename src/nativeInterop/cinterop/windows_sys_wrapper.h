@@ -430,6 +430,83 @@ static inline BOOL windows_sys_get_computer_name_ex_w(
     return GetComputerNameExW((COMPUTER_NAME_FORMAT)NameType, lpBuffer, nSize);
 }
 
+/* System / Environment */
+static inline BOOL windows_sys_set_environment_variable_a(LPCSTR lpName, LPCSTR lpValue) {
+    return SetEnvironmentVariableA(lpName, lpValue);
+}
+
+static inline BOOL windows_sys_set_environment_variable_w(LPCWSTR lpName, LPCWSTR lpValue) {
+    return SetEnvironmentVariableW(lpName, lpValue);
+}
+
+static inline DWORD windows_sys_get_environment_variable_a(LPCSTR lpName, LPSTR lpBuffer, DWORD nSize) {
+    return GetEnvironmentVariableA(lpName, lpBuffer, nSize);
+}
+
+static inline DWORD windows_sys_get_environment_variable_w(LPCWSTR lpName, LPWSTR lpBuffer, DWORD nSize) {
+    return GetEnvironmentVariableW(lpName, lpBuffer, nSize);
+}
+
+static inline DWORD windows_sys_expand_environment_strings_a(LPCSTR lpSrc, LPSTR lpDst, DWORD nSize) {
+    return ExpandEnvironmentStringsA(lpSrc, lpDst, nSize);
+}
+
+static inline DWORD windows_sys_expand_environment_strings_w(LPCWSTR lpSrc, LPWSTR lpDst, DWORD nSize) {
+    return ExpandEnvironmentStringsW(lpSrc, lpDst, nSize);
+}
+
+static inline LPCH windows_sys_get_environment_strings(void) {
+    return GetEnvironmentStrings();
+}
+
+static inline LPWCH windows_sys_get_environment_strings_w(void) {
+    return GetEnvironmentStringsW();
+}
+
+static inline BOOL windows_sys_free_environment_strings_a(LPCSTR penv) {
+    return FreeEnvironmentStringsA((LPCH)penv);
+}
+
+static inline BOOL windows_sys_free_environment_strings_w(LPCWSTR penv) {
+    return FreeEnvironmentStringsW((LPWCH)penv);
+}
+
+static inline BOOL windows_sys_set_environment_strings_w(LPCWSTR NewEnvironment) {
+    return SetEnvironmentStringsW((LPWCH)NewEnvironment);
+}
+
+static inline DWORD windows_sys_get_current_directory_a(DWORD nBufferLength, LPSTR lpBuffer) {
+    return GetCurrentDirectoryA(nBufferLength, lpBuffer);
+}
+
+static inline DWORD windows_sys_get_current_directory_w(DWORD nBufferLength, LPWSTR lpBuffer) {
+    return GetCurrentDirectoryW(nBufferLength, lpBuffer);
+}
+
+static inline BOOL windows_sys_set_current_directory_a(LPCSTR lpPathName) {
+    return SetCurrentDirectoryA(lpPathName);
+}
+
+static inline BOOL windows_sys_set_current_directory_w(LPCWSTR lpPathName) {
+    return SetCurrentDirectoryW(lpPathName);
+}
+
+static inline LPCSTR windows_sys_get_command_line_a(void) {
+    return GetCommandLineA();
+}
+
+static inline LPCWSTR windows_sys_get_command_line_w(void) {
+    return GetCommandLineW();
+}
+
+static inline BOOL windows_sys_need_current_directory_for_exe_path_a(LPCSTR ExeName) {
+    return NeedCurrentDirectoryForExePathA(ExeName);
+}
+
+static inline BOOL windows_sys_need_current_directory_for_exe_path_w(LPCWSTR ExeName) {
+    return NeedCurrentDirectoryForExePathW(ExeName);
+}
+
 #ifdef __cplusplus
 }
 #endif

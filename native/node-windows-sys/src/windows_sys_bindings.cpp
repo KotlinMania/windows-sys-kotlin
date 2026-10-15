@@ -1277,6 +1277,284 @@ Napi::Value GetComputerNameExWBinding(const Napi::CallbackInfo& info) {
 #endif
 }
 
+// System / Environment
+Napi::Value SetEnvironmentVariableABinding(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    if (info.Length() < 2) return Napi::Number::New(env, 0);
+    int64_t name = info[0].As<Napi::Number>().Int64Value();
+    int64_t val = info[1].As<Napi::Number>().Int64Value();
+#if IS_WINDOWS
+    if (name == 0) { SetLastError(87); return Napi::Number::New(env, 0); }
+    BOOL res = SetEnvironmentVariableA(
+        reinterpret_cast<LPCSTR>(static_cast<intptr_t>(name)),
+        reinterpret_cast<LPCSTR>(static_cast<intptr_t>(val))
+    );
+    return Napi::Number::New(env, res);
+#else
+    (void)name; (void)val;
+    return Napi::Number::New(env, 0);
+#endif
+}
+
+Napi::Value SetEnvironmentVariableWBinding(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    if (info.Length() < 2) return Napi::Number::New(env, 0);
+    int64_t name = info[0].As<Napi::Number>().Int64Value();
+    int64_t val = info[1].As<Napi::Number>().Int64Value();
+#if IS_WINDOWS
+    if (name == 0) { SetLastError(87); return Napi::Number::New(env, 0); }
+    BOOL res = SetEnvironmentVariableW(
+        reinterpret_cast<LPCWSTR>(static_cast<intptr_t>(name)),
+        reinterpret_cast<LPCWSTR>(static_cast<intptr_t>(val))
+    );
+    return Napi::Number::New(env, res);
+#else
+    (void)name; (void)val;
+    return Napi::Number::New(env, 0);
+#endif
+}
+
+Napi::Value GetEnvironmentVariableABinding(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    if (info.Length() < 3) return Napi::Number::New(env, 0);
+    int64_t name = info[0].As<Napi::Number>().Int64Value();
+    int64_t buf = info[1].As<Napi::Number>().Int64Value();
+    uint32_t size = info[2].As<Napi::Number>().Uint32Value();
+#if IS_WINDOWS
+    if (name == 0) { SetLastError(87); return Napi::Number::New(env, 0); }
+    DWORD res = GetEnvironmentVariableA(
+        reinterpret_cast<LPCSTR>(static_cast<intptr_t>(name)),
+        reinterpret_cast<LPSTR>(static_cast<intptr_t>(buf)),
+        size
+    );
+    return Napi::Number::New(env, static_cast<uint32_t>(res));
+#else
+    (void)name; (void)buf; (void)size;
+    return Napi::Number::New(env, 0);
+#endif
+}
+
+Napi::Value GetEnvironmentVariableWBinding(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    if (info.Length() < 3) return Napi::Number::New(env, 0);
+    int64_t name = info[0].As<Napi::Number>().Int64Value();
+    int64_t buf = info[1].As<Napi::Number>().Int64Value();
+    uint32_t size = info[2].As<Napi::Number>().Uint32Value();
+#if IS_WINDOWS
+    if (name == 0) { SetLastError(87); return Napi::Number::New(env, 0); }
+    DWORD res = GetEnvironmentVariableW(
+        reinterpret_cast<LPCWSTR>(static_cast<intptr_t>(name)),
+        reinterpret_cast<LPWSTR>(static_cast<intptr_t>(buf)),
+        size
+    );
+    return Napi::Number::New(env, static_cast<uint32_t>(res));
+#else
+    (void)name; (void)buf; (void)size;
+    return Napi::Number::New(env, 0);
+#endif
+}
+
+Napi::Value ExpandEnvironmentStringsABinding(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    if (info.Length() < 3) return Napi::Number::New(env, 0);
+    int64_t src = info[0].As<Napi::Number>().Int64Value();
+    int64_t dst = info[1].As<Napi::Number>().Int64Value();
+    uint32_t size = info[2].As<Napi::Number>().Uint32Value();
+#if IS_WINDOWS
+    if (src == 0) { SetLastError(87); return Napi::Number::New(env, 0); }
+    DWORD res = ExpandEnvironmentStringsA(
+        reinterpret_cast<LPCSTR>(static_cast<intptr_t>(src)),
+        reinterpret_cast<LPSTR>(static_cast<intptr_t>(dst)),
+        size
+    );
+    return Napi::Number::New(env, static_cast<uint32_t>(res));
+#else
+    (void)src; (void)dst; (void)size;
+    return Napi::Number::New(env, 0);
+#endif
+}
+
+Napi::Value ExpandEnvironmentStringsWBinding(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    if (info.Length() < 3) return Napi::Number::New(env, 0);
+    int64_t src = info[0].As<Napi::Number>().Int64Value();
+    int64_t dst = info[1].As<Napi::Number>().Int64Value();
+    uint32_t size = info[2].As<Napi::Number>().Uint32Value();
+#if IS_WINDOWS
+    if (src == 0) { SetLastError(87); return Napi::Number::New(env, 0); }
+    DWORD res = ExpandEnvironmentStringsW(
+        reinterpret_cast<LPCWSTR>(static_cast<intptr_t>(src)),
+        reinterpret_cast<LPWSTR>(static_cast<intptr_t>(dst)),
+        size
+    );
+    return Napi::Number::New(env, static_cast<uint32_t>(res));
+#else
+    (void)src; (void)dst; (void)size;
+    return Napi::Number::New(env, 0);
+#endif
+}
+
+Napi::Value GetEnvironmentStringsBinding(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+#if IS_WINDOWS
+    LPCH res = GetEnvironmentStrings();
+    return Napi::Number::New(env, reinterpret_cast<intptr_t>(res));
+#else
+    return Napi::Number::New(env, 0);
+#endif
+}
+
+Napi::Value GetEnvironmentStringsWBinding(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+#if IS_WINDOWS
+    LPWCH res = GetEnvironmentStringsW();
+    return Napi::Number::New(env, reinterpret_cast<intptr_t>(res));
+#else
+    return Napi::Number::New(env, 0);
+#endif
+}
+
+Napi::Value FreeEnvironmentStringsABinding(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    if (info.Length() < 1) return Napi::Number::New(env, 0);
+    int64_t ptr = info[0].As<Napi::Number>().Int64Value();
+#if IS_WINDOWS
+    BOOL res = FreeEnvironmentStringsA(reinterpret_cast<LPCH>(static_cast<intptr_t>(ptr)));
+    return Napi::Number::New(env, res);
+#else
+    (void)ptr;
+    return Napi::Number::New(env, 0);
+#endif
+}
+
+Napi::Value FreeEnvironmentStringsWBinding(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    if (info.Length() < 1) return Napi::Number::New(env, 0);
+    int64_t ptr = info[0].As<Napi::Number>().Int64Value();
+#if IS_WINDOWS
+    BOOL res = FreeEnvironmentStringsW(reinterpret_cast<LPWCH>(static_cast<intptr_t>(ptr)));
+    return Napi::Number::New(env, res);
+#else
+    (void)ptr;
+    return Napi::Number::New(env, 0);
+#endif
+}
+
+Napi::Value SetEnvironmentStringsWBinding(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    if (info.Length() < 1) return Napi::Number::New(env, 0);
+    int64_t ptr = info[0].As<Napi::Number>().Int64Value();
+#if IS_WINDOWS
+    BOOL res = SetEnvironmentStringsW(reinterpret_cast<LPWCH>(static_cast<intptr_t>(ptr)));
+    return Napi::Number::New(env, res);
+#else
+    (void)ptr;
+    return Napi::Number::New(env, 0);
+#endif
+}
+
+Napi::Value GetCurrentDirectoryABinding(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    if (info.Length() < 2) return Napi::Number::New(env, 0);
+    uint32_t bufLen = info[0].As<Napi::Number>().Uint32Value();
+    int64_t buf = info[1].As<Napi::Number>().Int64Value();
+#if IS_WINDOWS
+    DWORD res = GetCurrentDirectoryA(bufLen, reinterpret_cast<LPSTR>(static_cast<intptr_t>(buf)));
+    return Napi::Number::New(env, static_cast<uint32_t>(res));
+#else
+    (void)bufLen; (void)buf;
+    return Napi::Number::New(env, 0);
+#endif
+}
+
+Napi::Value GetCurrentDirectoryWBinding(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    if (info.Length() < 2) return Napi::Number::New(env, 0);
+    uint32_t bufLen = info[0].As<Napi::Number>().Uint32Value();
+    int64_t buf = info[1].As<Napi::Number>().Int64Value();
+#if IS_WINDOWS
+    DWORD res = GetCurrentDirectoryW(bufLen, reinterpret_cast<LPWSTR>(static_cast<intptr_t>(buf)));
+    return Napi::Number::New(env, static_cast<uint32_t>(res));
+#else
+    (void)bufLen; (void)buf;
+    return Napi::Number::New(env, 0);
+#endif
+}
+
+Napi::Value SetCurrentDirectoryABinding(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    if (info.Length() < 1) return Napi::Number::New(env, 0);
+    int64_t path = info[0].As<Napi::Number>().Int64Value();
+#if IS_WINDOWS
+    if (path == 0) { SetLastError(87); return Napi::Number::New(env, 0); }
+    BOOL res = SetCurrentDirectoryA(reinterpret_cast<LPCSTR>(static_cast<intptr_t>(path)));
+    return Napi::Number::New(env, res);
+#else
+    (void)path;
+    return Napi::Number::New(env, 0);
+#endif
+}
+
+Napi::Value SetCurrentDirectoryWBinding(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    if (info.Length() < 1) return Napi::Number::New(env, 0);
+    int64_t path = info[0].As<Napi::Number>().Int64Value();
+#if IS_WINDOWS
+    if (path == 0) { SetLastError(87); return Napi::Number::New(env, 0); }
+    BOOL res = SetCurrentDirectoryW(reinterpret_cast<LPCWSTR>(static_cast<intptr_t>(path)));
+    return Napi::Number::New(env, res);
+#else
+    (void)path;
+    return Napi::Number::New(env, 0);
+#endif
+}
+
+Napi::Value GetCommandLineABinding(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+#if IS_WINDOWS
+    LPCSTR res = GetCommandLineA();
+    return Napi::Number::New(env, reinterpret_cast<intptr_t>(res));
+#else
+    return Napi::Number::New(env, 0);
+#endif
+}
+
+Napi::Value GetCommandLineWBinding(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+#if IS_WINDOWS
+    LPCWSTR res = GetCommandLineW();
+    return Napi::Number::New(env, reinterpret_cast<intptr_t>(res));
+#else
+    return Napi::Number::New(env, 0);
+#endif
+}
+
+Napi::Value NeedCurrentDirectoryForExePathABinding(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    if (info.Length() < 1) return Napi::Number::New(env, 0);
+    int64_t exe = info[0].As<Napi::Number>().Int64Value();
+#if IS_WINDOWS
+    BOOL res = NeedCurrentDirectoryForExePathA(reinterpret_cast<LPCSTR>(static_cast<intptr_t>(exe)));
+    return Napi::Number::New(env, res);
+#else
+    (void)exe;
+    return Napi::Number::New(env, 0);
+#endif
+}
+
+Napi::Value NeedCurrentDirectoryForExePathWBinding(const Napi::CallbackInfo& info) {
+    Napi::Env env = info.Env();
+    if (info.Length() < 1) return Napi::Number::New(env, 0);
+    int64_t exe = info[0].As<Napi::Number>().Int64Value();
+#if IS_WINDOWS
+    BOOL res = NeedCurrentDirectoryForExePathW(reinterpret_cast<LPCWSTR>(static_cast<intptr_t>(exe)));
+    return Napi::Number::New(env, res);
+#else
+    (void)exe;
+    return Napi::Number::New(env, 0);
+#endif
+}
+
 Napi::Value IsNativeAvailableBinding(const Napi::CallbackInfo& info) {
     Napi::Env env = info.Env();
     return Napi::Boolean::New(env, IS_WINDOWS);
@@ -1364,6 +1642,27 @@ Napi::Object Init(Napi::Env env, Napi::Object exports) {
 
     // System / SystemInformation
     exports.Set("GetComputerNameExW", Napi::Function::New(env, GetComputerNameExWBinding));
+
+    // System / Environment
+    exports.Set("SetEnvironmentVariableA", Napi::Function::New(env, SetEnvironmentVariableABinding));
+    exports.Set("SetEnvironmentVariableW", Napi::Function::New(env, SetEnvironmentVariableWBinding));
+    exports.Set("GetEnvironmentVariableA", Napi::Function::New(env, GetEnvironmentVariableABinding));
+    exports.Set("GetEnvironmentVariableW", Napi::Function::New(env, GetEnvironmentVariableWBinding));
+    exports.Set("ExpandEnvironmentStringsA", Napi::Function::New(env, ExpandEnvironmentStringsABinding));
+    exports.Set("ExpandEnvironmentStringsW", Napi::Function::New(env, ExpandEnvironmentStringsWBinding));
+    exports.Set("GetEnvironmentStrings", Napi::Function::New(env, GetEnvironmentStringsBinding));
+    exports.Set("GetEnvironmentStringsW", Napi::Function::New(env, GetEnvironmentStringsWBinding));
+    exports.Set("FreeEnvironmentStringsA", Napi::Function::New(env, FreeEnvironmentStringsABinding));
+    exports.Set("FreeEnvironmentStringsW", Napi::Function::New(env, FreeEnvironmentStringsWBinding));
+    exports.Set("SetEnvironmentStringsW", Napi::Function::New(env, SetEnvironmentStringsWBinding));
+    exports.Set("GetCurrentDirectoryA", Napi::Function::New(env, GetCurrentDirectoryABinding));
+    exports.Set("GetCurrentDirectoryW", Napi::Function::New(env, GetCurrentDirectoryWBinding));
+    exports.Set("SetCurrentDirectoryA", Napi::Function::New(env, SetCurrentDirectoryABinding));
+    exports.Set("SetCurrentDirectoryW", Napi::Function::New(env, SetCurrentDirectoryWBinding));
+    exports.Set("GetCommandLineA", Napi::Function::New(env, GetCommandLineABinding));
+    exports.Set("GetCommandLineW", Napi::Function::New(env, GetCommandLineWBinding));
+    exports.Set("NeedCurrentDirectoryForExePathA", Napi::Function::New(env, NeedCurrentDirectoryForExePathABinding));
+    exports.Set("NeedCurrentDirectoryForExePathW", Napi::Function::New(env, NeedCurrentDirectoryForExePathWBinding));
 
     exports.Set("isNativeAvailable", Napi::Function::New(env, IsNativeAvailableBinding));
     return exports;

@@ -106,6 +106,27 @@ try {
             // System / SystemInformation
             GetComputerNameExW: function(_type, _buf, _size) { return { success: 0, size: 0 }; },
 
+            // System / Environment
+            SetEnvironmentVariableA: function(_name, _val) { return 1; },
+            SetEnvironmentVariableW: function(_name, _val) { return 1; },
+            GetEnvironmentVariableA: function(_name, _buf, _size) { return 0; },
+            GetEnvironmentVariableW: function(_name, _buf, _size) { return 0; },
+            ExpandEnvironmentStringsA: function(_src, _dst, _size) { return 0; },
+            ExpandEnvironmentStringsW: function(_src, _dst, _size) { return 0; },
+            GetEnvironmentStrings: function() { return 0; },
+            GetEnvironmentStringsW: function() { return 0; },
+            FreeEnvironmentStringsA: function(_ptr) { return 1; },
+            FreeEnvironmentStringsW: function(_ptr) { return 1; },
+            SetEnvironmentStringsW: function(_ptr) { return 1; },
+            GetCurrentDirectoryA: function(_len, _buf) { return 0; },
+            GetCurrentDirectoryW: function(_len, _buf) { return 0; },
+            SetCurrentDirectoryA: function(_path) { return 1; },
+            SetCurrentDirectoryW: function(_path) { return 1; },
+            GetCommandLineA: function() { return 0; },
+            GetCommandLineW: function() { return 0; },
+            NeedCurrentDirectoryForExePathA: function(_exe) { return 0; },
+            NeedCurrentDirectoryForExePathW: function(_exe) { return 0; },
+
             isNativeAvailable: function() { return false; }
         };
     }

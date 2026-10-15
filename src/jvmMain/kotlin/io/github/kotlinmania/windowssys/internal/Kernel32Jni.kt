@@ -379,4 +379,78 @@ internal object Kernel32Jni {
         lpBuffer: ShortArray?,
         nSize: IntArray,
     ): Int
+
+    // --- System / Environment ---
+
+    @JvmStatic
+    external fun SetEnvironmentVariableA(lpName: Long, lpValue: Long): Int
+
+    @JvmStatic
+    external fun SetEnvironmentVariableW(lpName: Long, lpValue: Long): Int
+
+    @JvmStatic
+    external fun SetEnvironmentVariableWBuffer(lpName: ShortArray, lpValue: ShortArray?): Int
+
+    @JvmStatic
+    external fun GetEnvironmentVariableA(lpName: Long, lpBuffer: Long, nSize: Int): Int
+
+    @JvmStatic
+    external fun GetEnvironmentVariableW(lpName: Long, lpBuffer: Long, nSize: Int): Int
+
+    @JvmStatic
+    external fun GetEnvironmentVariableWBuffer(lpName: ShortArray, lpBuffer: ShortArray?, nSize: Int): Int
+
+    @JvmStatic
+    external fun ExpandEnvironmentStringsA(lpSrc: Long, lpDst: Long, nSize: Int): Int
+
+    @JvmStatic
+    external fun ExpandEnvironmentStringsW(lpSrc: Long, lpDst: Long, nSize: Int): Int
+
+    @JvmStatic
+    external fun ExpandEnvironmentStringsWBuffer(lpSrc: ShortArray, lpDst: ShortArray?, nSize: Int): Int
+
+    @JvmStatic
+    external fun GetEnvironmentStrings(): Long
+
+    @JvmStatic
+    external fun GetEnvironmentStringsW(): Long
+
+    @JvmStatic
+    external fun FreeEnvironmentStringsA(penv: Long): Int
+
+    @JvmStatic
+    external fun FreeEnvironmentStringsW(penv: Long): Int
+
+    @JvmStatic
+    external fun SetEnvironmentStringsW(newEnvironment: Long): Int
+
+    @JvmStatic
+    external fun GetCurrentDirectoryA(nBufferLength: Int, lpBuffer: Long): Int
+
+    @JvmStatic
+    external fun GetCurrentDirectoryW(nBufferLength: Int, lpBuffer: Long): Int
+
+    @JvmStatic
+    external fun GetCurrentDirectoryWBuffer(nBufferLength: Int, lpBuffer: ShortArray?): Int
+
+    @JvmStatic
+    external fun SetCurrentDirectoryA(lpPathName: Long): Int
+
+    @JvmStatic
+    external fun SetCurrentDirectoryW(lpPathName: Long): Int
+
+    @JvmStatic
+    external fun SetCurrentDirectoryWBuffer(lpPathName: ShortArray): Int
+
+    @JvmStatic
+    external fun GetCommandLineA(): Long
+
+    @JvmStatic
+    external fun GetCommandLineW(): Long
+
+    @JvmStatic
+    external fun NeedCurrentDirectoryForExePathA(exeName: Long): Int
+
+    @JvmStatic
+    external fun NeedCurrentDirectoryForExePathW(exeName: Long): Int
 }
