@@ -1992,6 +1992,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jn
   (JNIEnv *env, jclass cls, jlong penv) {
     (void)env; (void)cls;
 #ifdef _WIN32
+    if (!penv) return 0;
     return (jint)FreeEnvironmentStringsA((LPCH)(intptr_t)penv);
 #else
     (void)penv;
@@ -2003,6 +2004,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jn
   (JNIEnv *env, jclass cls, jlong penv) {
     (void)env; (void)cls;
 #ifdef _WIN32
+    if (!penv) return 0;
     return (jint)FreeEnvironmentStringsW((LPWCH)(intptr_t)penv);
 #else
     (void)penv;

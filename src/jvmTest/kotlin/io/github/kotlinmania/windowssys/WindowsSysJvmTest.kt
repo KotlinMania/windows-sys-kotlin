@@ -17,21 +17,37 @@ import kotlin.test.assertNotNull
 class WindowsSysJvmTest {
     @Test
     fun testEnvironmentApis() {
-        assertNotNull(SetEnvironmentVariableW(0L, 0L))
-        assertNotNull(GetEnvironmentVariableW(0L, 0L, 0u))
-        assertNotNull(GetCurrentDirectoryW(0u, 0L))
-        assertNotNull(SetCurrentDirectoryW(0L))
-        assertNotNull(GetCommandLineW())
-        assertNotNull(GetEnvironmentStringsW())
-        assertNotNull(FreeEnvironmentStringsW(0L))
-        assertNotNull(ExpandEnvironmentStringsW(0L, 0L, 0u))
+        val cmd = GetCommandLineW()
+        assertNotNull(cmd)
 
-        // Buffer overloads
-        val emptyShorts = UShortArray(0)
-        assertNotNull(SetEnvironmentVariableW(emptyShorts, null))
-        assertNotNull(GetEnvironmentVariableW(emptyShorts, null, 0u))
-        assertNotNull(GetCurrentDirectoryW(0u, emptyShorts))
-        assertNotNull(SetCurrentDirectoryW(emptyShorts))
-        assertNotNull(ExpandEnvironmentStringsW(emptyShorts, null, 0u))
+        val envStrings = GetEnvironmentStringsW()
+        assertNotNull(envStrings)
+        if (envStrings != 0L) {
+            FreeEnvironmentStringsW(envStrings)
+        }
+
+        val curDirBuf = UShortArray(260)
+        val curDirLen = GetCurrentDirectoryW(260u, curDirBuf)
+        assertNotNull(curDirLen)
+        val setCurDir = SetCurrentDirectoryW(curDirBuf)
+        assertNotNull(setCurDir)
+
+        // Null-terminated strings for Win32 API calls
+        val varName = "TEST_KM_ENV\u0000".map { it.code.toUShort() }.toUShortArray()
+        val varVal = "42\u0000".map { it.code.toUShort() }.toUShortArray()
+        val outBuf = UShortArray(64)
+
+        val setRes = SetEnvironmentVariableW(varName, varVal)
+        assertNotNull(setRes)
+
+        val getLen = GetEnvironmentVariableW(varName, outBuf, 64u)
+        assertNotNull(getLen)
+
+        // Delete test variable
+        SetEnvironmentVariableW(varName, null)
+
+        val srcStr = "%PATH%\u0000".map { it.code.toUShort() }.toUShortArray()
+        val expLen = ExpandEnvironmentStringsW(srcStr, outBuf, 64u)
+        assertNotNull(expLen)
     }
 }
