@@ -59,13 +59,52 @@ try {
             K32EmptyWorkingSet: function(_h) { return 1; },
 
             // System / Time
-            GetTimeZoneInformation: function(_tz) { return 0; },
+            GetTimeZoneInformation: function(_tz) { return 0xFFFFFFFF; },
+            GetTimeZoneInformationForYear: function(_year, _pdtzi, _ptzi) { return 0; },
+            SystemTimeToFileTime: function(_st, _ft) { return 0; },
+            SystemTimeToTzSpecificLocalTime: function(_tz, _utc, _local) { return 0; },
+            TzSpecificLocalTimeToSystemTime: function(_tz, _local, _utc) { return 0; },
 
             // System / Shutdown
             LockWorkStation: function() { return 1; },
 
             // System / Pipes
             DisconnectNamedPipe: function(_h) { return 1; },
+
+            // UI / Shell & System / Com
+            SHGetKnownFolderPath: function(_rfid, _flags, _token) { return { hr: -2147467263, path: 0 }; },
+            CoTaskMemFree: function(_pv) {},
+
+            // Globalization
+            lstrlenW: function(_str) { return 0; },
+            GetUserPreferredUILanguages: function(_flags, _num, _buf, _cch) {
+                return { success: 0, numLanguages: 0, cchLanguagesBuffer: 0 };
+            },
+
+            // System / Console
+            GetConsoleMode: function(_h) { return { success: 0, mode: 0 }; },
+            SetConsoleMode: function(_h, _mode) { return 0; },
+            GetStdHandle: function(_std) { return -1; },
+            GetConsoleScreenBufferInfo: function(_h, _info) { return 0; },
+            SetConsoleTextAttribute: function(_h, _attr) { return 0; },
+            GetConsoleCursorInfo: function(_h, _info) { return 0; },
+            SetConsoleCursorInfo: function(_h, _info) { return 0; },
+            SetConsoleCursorPosition: function(_h, _x, _y) { return 0; },
+            GetNumberOfConsoleInputEvents: function(_h) { return { success: 0, events: 0 }; },
+            ReadConsoleInputW: function(_h, _buf, _len) { return { success: 0, eventsRead: 0 }; },
+
+            // System / LibraryLoader
+            LoadLibraryW: function(_name) { return 0; },
+            GetProcAddress: function(_h, _name) { return 0; },
+            GetModuleHandleW: function(_name) { return 0; },
+
+            // Storage / FileSystem additions
+            GetFullPathNameW: function(_name, _len, _buf) { return { length: 0, filePart: 0 }; },
+            GetFileInformationByHandle: function(_h, _info) { return 0; },
+            GetFileType: function(_h) { return 0; },
+
+            // System / SystemInformation
+            GetComputerNameExW: function(_type, _buf, _size) { return { success: 0, size: 0 }; },
 
             isNativeAvailable: function() { return false; }
         };

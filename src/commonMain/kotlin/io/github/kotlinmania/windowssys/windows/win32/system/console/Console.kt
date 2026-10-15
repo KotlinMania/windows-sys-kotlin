@@ -21,3 +21,8 @@ package io.github.kotlinmania.windowssys.windows.win32.system.console
 //     FOCUS_EVENT_RECORD, KEY_EVENT_RECORD, MENU_EVENT_RECORD, MOUSE_EVENT_RECORD,
 //     WINDOW_BUFFER_SIZE_RECORD, INPUT_RECORD
 //     -> ConsoleStructs.kt
+//
+// Functions:
+//   - GetConsoleMode.kt, SetConsoleMode.kt, GetStdHandle.kt, GetConsoleScreenBufferInfo.kt,
+//     SetConsoleTextAttribute.kt, GetConsoleCursorInfo.kt, SetConsoleCursorInfo.kt,
+//     SetConsoleCursorPosition.kt, GetNumberOfConsoleInputEvents.kt, ReadConsoleInputW.kt

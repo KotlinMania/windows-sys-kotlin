@@ -95,9 +95,78 @@ public external object WindowsSysNative {
 
     public fun GetTimeZoneInformation(lpTimeZoneInformation: Double): Int
 
+    public fun GetTimeZoneInformationForYear(wYear: Int, pdtzi: Double, ptzi: Double): Int
+
+    public fun SystemTimeToFileTime(lpSystemTime: Double, lpFileTime: Double): Int
+
+    public fun SystemTimeToTzSpecificLocalTime(
+        lpTimeZoneInformation: Double,
+        lpUniversalTime: Double,
+        lpLocalTime: Double,
+    ): Int
+
+    public fun TzSpecificLocalTimeToSystemTime(
+        lpTimeZoneInformation: Double,
+        lpLocalTime: Double,
+        lpUniversalTime: Double,
+    ): Int
+
     public fun LockWorkStation(): Int
 
     public fun DisconnectNamedPipe(hNamedPipe: Double): Int
+
+    // UI / Shell & System / Com
+    public fun SHGetKnownFolderPath(rfid: Double, dwFlags: Int, hToken: Double): dynamic
+
+    public fun CoTaskMemFree(pv: Double)
+
+    // Globalization
+    public fun lstrlenW(lpString: Double): Int
+
+    public fun GetUserPreferredUILanguages(
+        dwFlags: Int,
+        pulNumLanguages: Int,
+        pwszLanguagesBuffer: Double,
+        pcchLanguagesBuffer: Int,
+    ): dynamic
+
+    // System / Console
+    public fun GetConsoleMode(hConsoleHandle: Double): dynamic
+
+    public fun SetConsoleMode(hConsoleHandle: Double, dwMode: Int): Int
+
+    public fun GetStdHandle(nStdHandle: Int): Double
+
+    public fun GetConsoleScreenBufferInfo(hConsoleOutput: Double, lpConsoleScreenBufferInfo: Double): Int
+
+    public fun SetConsoleTextAttribute(hConsoleOutput: Double, wAttributes: Int): Int
+
+    public fun GetConsoleCursorInfo(hConsoleOutput: Double, lpConsoleCursorInfo: Double): Int
+
+    public fun SetConsoleCursorInfo(hConsoleOutput: Double, lpConsoleCursorInfo: Double): Int
+
+    public fun SetConsoleCursorPosition(hConsoleOutput: Double, x: Int, y: Int): Int
+
+    public fun GetNumberOfConsoleInputEvents(hConsoleInput: Double): dynamic
+
+    public fun ReadConsoleInputW(hConsoleInput: Double, lpBuffer: Double, nLength: Int): dynamic
+
+    // System / LibraryLoader
+    public fun LoadLibraryW(lpLibFileName: Double): Double
+
+    public fun GetProcAddress(hModule: Double, lpProcName: Double): Double
+
+    public fun GetModuleHandleW(lpModuleName: Double): Double
+
+    // Storage / FileSystem additions
+    public fun GetFullPathNameW(lpFileName: Double, nBufferLength: Int, lpBuffer: Double): dynamic
+
+    public fun GetFileInformationByHandle(hFile: Double, lpFileInformation: Double): Int
+
+    public fun GetFileType(hFile: Double): Int
+
+    // System / SystemInformation
+    public fun GetComputerNameExW(nameType: Int, lpBuffer: Double, nSize: Int): dynamic
 
     public fun isNativeAvailable(): Boolean
 }

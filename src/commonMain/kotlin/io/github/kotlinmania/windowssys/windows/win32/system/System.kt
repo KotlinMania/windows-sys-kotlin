@@ -14,3 +14,6 @@ package io.github.kotlinmania.windowssys.windows.win32.system
 //   - System/Time/mod.rs → system/time/Time.kt (ledger)
 //   - System/Shutdown/mod.rs → system/shutdown/Shutdown.kt (ledger)
 //   - System/Pipes/mod.rs → system/pipes/Pipes.kt (ledger)
+//   - System/Com/mod.rs → system/com/Com.kt (ledger)
+//   - System/LibraryLoader/mod.rs → system/libraryloader/LibraryLoader.kt (ledger)
+//   - System/SystemInformation/mod.rs → system/systeminformation/SystemInformation.kt (ledger)
