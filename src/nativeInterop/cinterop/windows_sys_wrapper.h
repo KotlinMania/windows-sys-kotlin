@@ -184,6 +184,53 @@ static inline DWORD windows_sys_get_time_zone_information(LPTIME_ZONE_INFORMATIO
     return GetTimeZoneInformation(lpTimeZoneInformation);
 }
 
+static inline BOOL windows_sys_get_time_zone_information_for_year(
+    USHORT wYear,
+    PDYNAMIC_TIME_ZONE_INFORMATION pdtzi,
+    LPTIME_ZONE_INFORMATION ptzi
+) {
+    if (!ptzi) {
+        SetLastError(87);
+        return FALSE;
+    }
+    return GetTimeZoneInformationForYear(wYear, pdtzi, ptzi);
+}
+
+static inline BOOL windows_sys_system_time_to_file_time(
+    const SYSTEMTIME *lpSystemTime,
+    LPFILETIME lpFileTime
+) {
+    if (!lpSystemTime || !lpFileTime) {
+        SetLastError(87);
+        return FALSE;
+    }
+    return SystemTimeToFileTime(lpSystemTime, lpFileTime);
+}
+
+static inline BOOL windows_sys_system_time_to_tz_specific_local_time(
+    const TIME_ZONE_INFORMATION *lpTimeZoneInformation,
+    const SYSTEMTIME *lpUniversalTime,
+    LPSYSTEMTIME lpLocalTime
+) {
+    if (!lpUniversalTime || !lpLocalTime) {
+        SetLastError(87);
+        return FALSE;
+    }
+    return SystemTimeToTzSpecificLocalTime(lpTimeZoneInformation, lpUniversalTime, lpLocalTime);
+}
+
+static inline BOOL windows_sys_tz_specific_local_time_to_system_time(
+    const TIME_ZONE_INFORMATION *lpTimeZoneInformation,
+    const SYSTEMTIME *lpLocalTime,
+    LPSYSTEMTIME lpUniversalTime
+) {
+    if (!lpLocalTime || !lpUniversalTime) {
+        SetLastError(87);
+        return FALSE;
+    }
+    return TzSpecificLocalTimeToSystemTime(lpTimeZoneInformation, lpLocalTime, lpUniversalTime);
+}
+
 /* Shutdown */
 static inline BOOL windows_sys_lock_work_station(void) {
     return LockWorkStation();
@@ -192,6 +239,195 @@ static inline BOOL windows_sys_lock_work_station(void) {
 /* Pipes */
 static inline BOOL windows_sys_disconnect_named_pipe(HANDLE hNamedPipe) {
     return DisconnectNamedPipe(hNamedPipe);
+}
+
+/* UI / Shell */
+static inline HRESULT windows_sys_sh_get_known_folder_path(
+    const GUID *rfid,
+    DWORD dwFlags,
+    HANDLE hToken,
+    PWSTR *ppszPath
+) {
+    if (!rfid || !ppszPath) {
+        return (HRESULT)0x80070057; /* E_INVALIDARG */
+    }
+    return SHGetKnownFolderPath(rfid, dwFlags, hToken, ppszPath);
+}
+
+/* System / Com */
+static inline void windows_sys_co_task_mem_free(LPVOID pv) {
+    CoTaskMemFree(pv);
+}
+
+/* Globalization */
+static inline int windows_sys_lstrlen_w(LPCWSTR lpString) {
+    if (!lpString) return 0;
+    return lstrlenW(lpString);
+}
+
+static inline BOOL windows_sys_get_user_preferred_ui_languages(
+    DWORD dwFlags,
+    PULONG pulNumLanguages,
+    LPWSTR pwszLanguagesBuffer,
+    PULONG pcchLanguagesBuffer
+) {
+    if (!pulNumLanguages || !pcchLanguagesBuffer) {
+        SetLastError(87);
+        return FALSE;
+    }
+    return GetUserPreferredUILanguages(dwFlags, pulNumLanguages, pwszLanguagesBuffer, pcchLanguagesBuffer);
+}
+
+/* System / Console */
+static inline BOOL windows_sys_get_console_mode(HANDLE hConsoleHandle, LPDWORD lpMode) {
+    if (!lpMode) {
+        SetLastError(87);
+        return FALSE;
+    }
+    return GetConsoleMode(hConsoleHandle, lpMode);
+}
+
+static inline BOOL windows_sys_set_console_mode(HANDLE hConsoleHandle, DWORD dwMode) {
+    return SetConsoleMode(hConsoleHandle, dwMode);
+}
+
+static inline HANDLE windows_sys_get_std_handle(DWORD nStdHandle) {
+    return GetStdHandle(nStdHandle);
+}
+
+static inline BOOL windows_sys_get_console_screen_buffer_info(
+    HANDLE hConsoleOutput,
+    PCONSOLE_SCREEN_BUFFER_INFO lpConsoleScreenBufferInfo
+) {
+    if (!lpConsoleScreenBufferInfo) {
+        SetLastError(87);
+        return FALSE;
+    }
+    return GetConsoleScreenBufferInfo(hConsoleOutput, lpConsoleScreenBufferInfo);
+}
+
+static inline BOOL windows_sys_set_console_text_attribute(HANDLE hConsoleOutput, WORD wAttributes) {
+    return SetConsoleTextAttribute(hConsoleOutput, wAttributes);
+}
+
+static inline BOOL windows_sys_get_console_cursor_info(
+    HANDLE hConsoleOutput,
+    PCONSOLE_CURSOR_INFO lpConsoleCursorInfo
+) {
+    if (!lpConsoleCursorInfo) {
+        SetLastError(87);
+        return FALSE;
+    }
+    return GetConsoleCursorInfo(hConsoleOutput, lpConsoleCursorInfo);
+}
+
+static inline BOOL windows_sys_set_console_cursor_info(
+    HANDLE hConsoleOutput,
+    const CONSOLE_CURSOR_INFO *lpConsoleCursorInfo
+) {
+    if (!lpConsoleCursorInfo) {
+        SetLastError(87);
+        return FALSE;
+    }
+    return SetConsoleCursorInfo(hConsoleOutput, lpConsoleCursorInfo);
+}
+
+static inline BOOL windows_sys_set_console_cursor_position(HANDLE hConsoleOutput, SHORT x, SHORT y) {
+    COORD pos;
+    pos.X = x;
+    pos.Y = y;
+    return SetConsoleCursorPosition(hConsoleOutput, pos);
+}
+
+static inline BOOL windows_sys_get_number_of_console_input_events(
+    HANDLE hConsoleInput,
+    LPDWORD lpcNumberOfEvents
+) {
+    if (!lpcNumberOfEvents) {
+        SetLastError(87);
+        return FALSE;
+    }
+    return GetNumberOfConsoleInputEvents(hConsoleInput, lpcNumberOfEvents);
+}
+
+static inline BOOL windows_sys_read_console_input_w(
+    HANDLE hConsoleInput,
+    PINPUT_RECORD lpBuffer,
+    DWORD nLength,
+    LPDWORD lpNumberOfEventsRead
+) {
+    if (!lpBuffer || !lpNumberOfEventsRead) {
+        SetLastError(87);
+        return FALSE;
+    }
+    return ReadConsoleInputW(hConsoleInput, lpBuffer, nLength, lpNumberOfEventsRead);
+}
+
+/* System / LibraryLoader */
+static inline HMODULE windows_sys_load_library_w(LPCWSTR lpLibFileName) {
+    if (!lpLibFileName) {
+        SetLastError(87);
+        return NULL;
+    }
+    return LoadLibraryW(lpLibFileName);
+}
+
+static inline BOOL windows_sys_free_library(HMODULE hLibModule) {
+    return FreeLibrary(hLibModule);
+}
+
+static inline FARPROC windows_sys_get_proc_address(HMODULE hModule, LPCSTR lpProcName) {
+    if (!lpProcName) {
+        SetLastError(87);
+        return NULL;
+    }
+    return GetProcAddress(hModule, lpProcName);
+}
+
+static inline HMODULE windows_sys_get_module_handle_w(LPCWSTR lpModuleName) {
+    return GetModuleHandleW(lpModuleName);
+}
+
+/* Storage / FileSystem additions */
+static inline DWORD windows_sys_get_full_path_name_w(
+    LPCWSTR lpFileName,
+    DWORD nBufferLength,
+    LPWSTR lpBuffer,
+    LPWSTR *lpFilePart
+) {
+    if (!lpFileName) {
+        SetLastError(87);
+        return 0;
+    }
+    return GetFullPathNameW(lpFileName, nBufferLength, lpBuffer, lpFilePart);
+}
+
+static inline BOOL windows_sys_get_file_information_by_handle(
+    HANDLE hFile,
+    LPBY_HANDLE_FILE_INFORMATION lpFileInformation
+) {
+    if (!lpFileInformation) {
+        SetLastError(87);
+        return FALSE;
+    }
+    return GetFileInformationByHandle(hFile, lpFileInformation);
+}
+
+static inline DWORD windows_sys_get_file_type(HANDLE hFile) {
+    return GetFileType(hFile);
+}
+
+/* System / SystemInformation */
+static inline BOOL windows_sys_get_computer_name_ex_w(
+    int NameType,
+    LPWSTR lpBuffer,
+    LPDWORD nSize
+) {
+    if (!nSize) {
+        SetLastError(87);
+        return FALSE;
+    }
+    return GetComputerNameExW((COMPUTER_NAME_FORMAT)NameType, lpBuffer, nSize);
 }
 
 #ifdef __cplusplus

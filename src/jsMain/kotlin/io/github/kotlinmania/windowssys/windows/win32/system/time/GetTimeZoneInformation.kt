@@ -5,3 +5,6 @@ import io.github.kotlinmania.windowssys.WindowsSysNative
 
 public fun GetTimeZoneInformation(lptimezoneinformation: Long): UInt =
     WindowsSysNative.GetTimeZoneInformation(lptimezoneinformation.toDouble()).toUInt()
+
+public fun GetTimeZoneInformation(lptimezoneinformation: TIME_ZONE_INFORMATION): UInt =
+    WindowsSysNative.GetTimeZoneInformation(0.0).toUInt()

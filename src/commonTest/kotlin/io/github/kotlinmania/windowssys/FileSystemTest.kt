@@ -13,6 +13,11 @@ import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_GE
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_GENERIC_WRITE
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_SHARE_READ
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_SHARE_WRITE
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_TYPE_CHAR
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_TYPE_DISK
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_TYPE_PIPE
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_TYPE_REMOTE
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_TYPE_UNKNOWN
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.OPEN_ALWAYS
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.OPEN_EXISTING
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.TRUNCATE_EXISTING
@@ -53,5 +58,14 @@ class FileSystemTest {
     fun testFileAccessRights() {
         assertEquals(1179785u, FILE_GENERIC_READ)
         assertEquals(1179926u, FILE_GENERIC_WRITE)
+    }
+
+    @Test
+    fun testFileTypes() {
+        assertEquals(0u, FILE_TYPE_UNKNOWN)
+        assertEquals(1u, FILE_TYPE_DISK)
+        assertEquals(2u, FILE_TYPE_CHAR)
+        assertEquals(3u, FILE_TYPE_PIPE)
+        assertEquals(32768u, FILE_TYPE_REMOTE)
     }
 }

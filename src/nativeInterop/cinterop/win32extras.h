@@ -41,6 +41,18 @@ BOOL __stdcall LockWorkStation(void);
 /* Function from psapi.dll / kernel32.dll */
 BOOL __stdcall K32EmptyWorkingSet(HANDLE hProcess);
 
+/* Function from shell32.dll (shlobj.h) */
+HRESULT __stdcall SHGetKnownFolderPath(const GUID *rfid, DWORD dwFlags, HANDLE hToken, PWSTR *ppszPath);
+
+/* Function from ole32.dll / combase.dll (combaseapi.h) */
+void __stdcall CoTaskMemFree(LPVOID pv);
+
+/* Function from kernel32.dll (winnls.h) */
+BOOL __stdcall GetUserPreferredUILanguages(DWORD dwFlags, PULONG pulNumLanguages, LPWSTR pwszLanguagesBuffer, PULONG pcchLanguagesBuffer);
+
+/* Function from kernel32.dll (timezoneapi.h) */
+BOOL __stdcall GetTimeZoneInformationForYear(USHORT wYear, PDYNAMIC_TIME_ZONE_INFORMATION pdtzi, LPTIME_ZONE_INFORMATION ptzi);
+
 #ifdef __cplusplus
 }
 #endif

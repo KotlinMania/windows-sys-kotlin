@@ -174,10 +174,168 @@ DWORD windows_sys_c_get_time_zone_information(LPTIME_ZONE_INFORMATION lpTimeZone
     return GetTimeZoneInformation(lpTimeZoneInformation);
 }
 
+BOOL windows_sys_c_get_time_zone_information_for_year(
+    USHORT wYear,
+    PDYNAMIC_TIME_ZONE_INFORMATION pdtzi,
+    LPTIME_ZONE_INFORMATION ptzi
+) {
+    return windows_sys_get_time_zone_information_for_year(wYear, pdtzi, ptzi);
+}
+
+BOOL windows_sys_c_system_time_to_file_time(
+    const SYSTEMTIME *lpSystemTime,
+    LPFILETIME lpFileTime
+) {
+    return windows_sys_system_time_to_file_time(lpSystemTime, lpFileTime);
+}
+
+BOOL windows_sys_c_system_time_to_tz_specific_local_time(
+    const TIME_ZONE_INFORMATION *lpTimeZoneInformation,
+    const SYSTEMTIME *lpUniversalTime,
+    LPSYSTEMTIME lpLocalTime
+) {
+    return windows_sys_system_time_to_tz_specific_local_time(lpTimeZoneInformation, lpUniversalTime, lpLocalTime);
+}
+
+BOOL windows_sys_c_tz_specific_local_time_to_system_time(
+    const TIME_ZONE_INFORMATION *lpTimeZoneInformation,
+    const SYSTEMTIME *lpLocalTime,
+    LPSYSTEMTIME lpUniversalTime
+) {
+    return windows_sys_tz_specific_local_time_to_system_time(lpTimeZoneInformation, lpLocalTime, lpUniversalTime);
+}
+
 BOOL windows_sys_c_lock_work_station(void) {
     return LockWorkStation();
 }
 
 BOOL windows_sys_c_disconnect_named_pipe(HANDLE hNamedPipe) {
     return DisconnectNamedPipe(hNamedPipe);
+}
+
+HRESULT windows_sys_c_sh_get_known_folder_path(
+    const GUID *rfid,
+    DWORD dwFlags,
+    HANDLE hToken,
+    PWSTR *ppszPath
+) {
+    return windows_sys_sh_get_known_folder_path(rfid, dwFlags, hToken, ppszPath);
+}
+
+void windows_sys_c_co_task_mem_free(LPVOID pv) {
+    windows_sys_co_task_mem_free(pv);
+}
+
+int windows_sys_c_lstrlen_w(LPCWSTR lpString) {
+    return windows_sys_lstrlen_w(lpString);
+}
+
+BOOL windows_sys_c_get_user_preferred_ui_languages(
+    DWORD dwFlags,
+    PULONG pulNumLanguages,
+    LPWSTR pwszLanguagesBuffer,
+    PULONG pcchLanguagesBuffer
+) {
+    return windows_sys_get_user_preferred_ui_languages(dwFlags, pulNumLanguages, pwszLanguagesBuffer, pcchLanguagesBuffer);
+}
+
+BOOL windows_sys_c_get_console_mode(HANDLE hConsoleHandle, LPDWORD lpMode) {
+    return windows_sys_get_console_mode(hConsoleHandle, lpMode);
+}
+
+BOOL windows_sys_c_set_console_mode(HANDLE hConsoleHandle, DWORD dwMode) {
+    return windows_sys_set_console_mode(hConsoleHandle, dwMode);
+}
+
+HANDLE windows_sys_c_get_std_handle(DWORD nStdHandle) {
+    return windows_sys_get_std_handle(nStdHandle);
+}
+
+BOOL windows_sys_c_get_console_screen_buffer_info(
+    HANDLE hConsoleOutput,
+    PCONSOLE_SCREEN_BUFFER_INFO lpConsoleScreenBufferInfo
+) {
+    return windows_sys_get_console_screen_buffer_info(hConsoleOutput, lpConsoleScreenBufferInfo);
+}
+
+BOOL windows_sys_c_set_console_text_attribute(HANDLE hConsoleOutput, WORD wAttributes) {
+    return windows_sys_set_console_text_attribute(hConsoleOutput, wAttributes);
+}
+
+BOOL windows_sys_c_get_console_cursor_info(
+    HANDLE hConsoleOutput,
+    PCONSOLE_CURSOR_INFO lpConsoleCursorInfo
+) {
+    return windows_sys_get_console_cursor_info(hConsoleOutput, lpConsoleCursorInfo);
+}
+
+BOOL windows_sys_c_set_console_cursor_info(
+    HANDLE hConsoleOutput,
+    const CONSOLE_CURSOR_INFO *lpConsoleCursorInfo
+) {
+    return windows_sys_set_console_cursor_info(hConsoleOutput, lpConsoleCursorInfo);
+}
+
+BOOL windows_sys_c_set_console_cursor_position(HANDLE hConsoleOutput, SHORT x, SHORT y) {
+    return windows_sys_set_console_cursor_position(hConsoleOutput, x, y);
+}
+
+BOOL windows_sys_c_get_number_of_console_input_events(
+    HANDLE hConsoleInput,
+    LPDWORD lpcNumberOfEvents
+) {
+    return windows_sys_get_number_of_console_input_events(hConsoleInput, lpcNumberOfEvents);
+}
+
+BOOL windows_sys_c_read_console_input_w(
+    HANDLE hConsoleInput,
+    PINPUT_RECORD lpBuffer,
+    DWORD nLength,
+    LPDWORD lpNumberOfEventsRead
+) {
+    return windows_sys_read_console_input_w(hConsoleInput, lpBuffer, nLength, lpNumberOfEventsRead);
+}
+
+HMODULE windows_sys_c_load_library_w(LPCWSTR lpLibFileName) {
+    return windows_sys_load_library_w(lpLibFileName);
+}
+
+BOOL windows_sys_c_free_library(HMODULE hLibModule) {
+    return windows_sys_free_library(hLibModule);
+}
+
+FARPROC windows_sys_c_get_proc_address(HMODULE hModule, LPCSTR lpProcName) {
+    return windows_sys_get_proc_address(hModule, lpProcName);
+}
+
+HMODULE windows_sys_c_get_module_handle_w(LPCWSTR lpModuleName) {
+    return windows_sys_get_module_handle_w(lpModuleName);
+}
+
+DWORD windows_sys_c_get_full_path_name_w(
+    LPCWSTR lpFileName,
+    DWORD nBufferLength,
+    LPWSTR lpBuffer,
+    LPWSTR *lpFilePart
+) {
+    return windows_sys_get_full_path_name_w(lpFileName, nBufferLength, lpBuffer, lpFilePart);
+}
+
+BOOL windows_sys_c_get_file_information_by_handle(
+    HANDLE hFile,
+    LPBY_HANDLE_FILE_INFORMATION lpFileInformation
+) {
+    return windows_sys_get_file_information_by_handle(hFile, lpFileInformation);
+}
+
+DWORD windows_sys_c_get_file_type(HANDLE hFile) {
+    return windows_sys_get_file_type(hFile);
+}
+
+BOOL windows_sys_c_get_computer_name_ex_w(
+    int NameType,
+    LPWSTR lpBuffer,
+    LPDWORD nSize
+) {
+    return windows_sys_get_computer_name_ex_w(NameType, lpBuffer, nSize);
 }
