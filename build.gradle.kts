@@ -149,6 +149,13 @@ kotlin {
                 val win32extras by creating {
                     defFile(file("src/nativeInterop/cinterop/win32extras.def"))
                     includeDirs("src/nativeInterop/cinterop")
+                    extraOpts(
+                        "-libraryPath",
+                        layout.buildDirectory
+                            .dir("cinterop-targets/mingw_x64")
+                            .get()
+                            .asFile.absolutePath,
+                    )
                 }
             }
         }
@@ -759,6 +766,27 @@ tasks.named<Test>("jvmTest") {
     )
 }
 
+fun ensureKonanDependency(name: String, konanDeps: File, execOps: ExecOperations) {
+    val targetDir = File(konanDeps, name)
+    if (targetDir.exists()) return
+    konanDeps.mkdirs()
+    val cacheDir = File(konanDeps, "cache").apply { mkdirs() }
+    val archive = File(cacheDir, "$name.tar.gz")
+    val url = "https://download.jetbrains.com/kotlin/native/$name.tar.gz"
+    if (!archive.exists() || archive.length() == 0L) {
+        println("Downloading Kotlin/Native dependency $name from $url ...")
+        execOps
+            .exec {
+                commandLine("curl", "-sSL", url, "-o", archive.absolutePath)
+            }.assertNormalExitValue()
+    }
+    println("Extracting $archive into $konanDeps ...")
+    execOps
+        .exec {
+            commandLine("tar", "-xzf", archive.absolutePath, "-C", konanDeps.absolutePath)
+        }.assertNormalExitValue()
+}
+
 val compileWindowsSysWrapperForMingwX64 =
     tasks.register("compileWindowsSysWrapperForMingwX64") {
         group = "build"
@@ -781,7 +809,12 @@ val compileWindowsSysWrapperForMingwX64 =
                 org.gradle.internal.os.OperatingSystem
                     .current()
                     .isWindows
+            val isMac =
+                org.gradle.internal.os.OperatingSystem
+                    .current()
+                    .isMacOsX
             val execOps = project.serviceOf<ExecOperations>()
+            val konanDeps = File(System.getProperty("user.home"), ".konan/dependencies")
             val tempObj = File(outDir, "windows_sys_wrapper.o")
             val prebuilt = file("src/nativeInterop/cinterop/windows_sys_wrapper.a")
 
@@ -797,6 +830,28 @@ val compileWindowsSysWrapperForMingwX64 =
                         }.assertNormalExitValue()
                 } catch (e: Exception) {
                     logger.warn("Windows native compilation of wrapper failed: ${e.message}")
+                    if (prebuilt.exists()) prebuilt.copyTo(outFile, overwrite = true)
+                }
+            } else if (isMac) {
+                try {
+                    ensureKonanDependency("msys2-mingw-w64-x86_64-2", konanDeps, execOps)
+                    ensureKonanDependency("target-toolchain-2-osx-android_ndk", konanDeps, execOps)
+                    val mingwSysroot = File(konanDeps, "msys2-mingw-w64-x86_64-2")
+                    val llvmAr = File(konanDeps, "target-toolchain-2-osx-android_ndk/bin/llvm-ar")
+                    if (mingwSysroot.exists() && llvmAr.exists()) {
+                        execOps
+                            .exec {
+                                commandLine("clang", "--target=x86_64-w64-mingw32", "--sysroot=${mingwSysroot.absolutePath}", "-Wall", "-Wextra", "-c", "-I${cSource.parent}", cSource.absolutePath, "-o", tempObj.absolutePath)
+                            }.assertNormalExitValue()
+                        execOps
+                            .exec {
+                                commandLine(llvmAr.absolutePath, "rcs", outFile.absolutePath, tempObj.absolutePath)
+                            }.assertNormalExitValue()
+                    } else if (prebuilt.exists()) {
+                        prebuilt.copyTo(outFile, overwrite = true)
+                    }
+                } catch (e: Exception) {
+                    logger.warn("macOS cross-compilation of mingw wrapper failed: ${e.message}")
                     if (prebuilt.exists()) prebuilt.copyTo(outFile, overwrite = true)
                 }
             } else {
