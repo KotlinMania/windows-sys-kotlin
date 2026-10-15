@@ -8,3 +8,14 @@ package io.github.kotlinmania.windowssys.windows.win32.system.environment
 //   - EnvironmentConstants.kt: ENCLAVE_FLAG_*, ENCLAVE_REPORT_*, VBS_ENCLAVE_*
 //   - EnvironmentTypes.kt: ENCLAVE_SEALING_IDENTITY_POLICY, VBS_BASIC_ENCLAVE_BASIC_CALL_*
 //   - EnvironmentStructs.kt: ENCLAVE_IDENTITY, ENCLAVE_INFORMATION, VBS_BASIC_ENCLAVE_*, VBS_ENCLAVE_*
+//   - Functions (target-specific link declarations):
+//       * SetEnvironmentVariableA, SetEnvironmentVariableW
+//       * GetEnvironmentVariableA, GetEnvironmentVariableW
+//       * ExpandEnvironmentStringsA, ExpandEnvironmentStringsW
+//       * GetEnvironmentStrings, GetEnvironmentStringsW
+//       * FreeEnvironmentStringsA, FreeEnvironmentStringsW
+//       * SetEnvironmentStringsW
+//       * GetCurrentDirectoryA, GetCurrentDirectoryW
+//       * SetCurrentDirectoryA, SetCurrentDirectoryW
+//       * GetCommandLineA, GetCommandLineW
+//       * NeedCurrentDirectoryForExePathA, NeedCurrentDirectoryForExePathW

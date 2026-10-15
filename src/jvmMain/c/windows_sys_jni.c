@@ -1849,6 +1849,295 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jn
 #endif
 }
 
+/* --- System / Environment --- */
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jni_SetEnvironmentVariableA
+  (JNIEnv *env, jclass cls, jlong lpName, jlong lpValue) {
+    (void)env; (void)cls;
+#ifdef _WIN32
+    return (jint)SetEnvironmentVariableA((LPCSTR)(intptr_t)lpName, (LPCSTR)(intptr_t)lpValue);
+#else
+    (void)lpName; (void)lpValue;
+    return 0;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jni_SetEnvironmentVariableW
+  (JNIEnv *env, jclass cls, jlong lpName, jlong lpValue) {
+    (void)env; (void)cls;
+#ifdef _WIN32
+    return (jint)SetEnvironmentVariableW((LPCWSTR)(intptr_t)lpName, (LPCWSTR)(intptr_t)lpValue);
+#else
+    (void)lpName; (void)lpValue;
+    return 0;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jni_SetEnvironmentVariableWBuffer
+  (JNIEnv *env, jclass cls, jshortArray lpName, jshortArray lpValue) {
+    (void)cls;
+#ifdef _WIN32
+    if (!lpName) return 0;
+    jshort *namePtr = (*env)->GetShortArrayElements(env, lpName, NULL);
+    jshort *valPtr = lpValue != NULL ? (*env)->GetShortArrayElements(env, lpValue, NULL) : NULL;
+    BOOL res = SetEnvironmentVariableW((LPCWSTR)namePtr, (LPCWSTR)valPtr);
+    if (valPtr) (*env)->ReleaseShortArrayElements(env, lpValue, valPtr, JNI_ABORT);
+    (*env)->ReleaseShortArrayElements(env, lpName, namePtr, JNI_ABORT);
+    return (jint)res;
+#else
+    (void)env; (void)lpName; (void)lpValue;
+    return 0;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jni_GetEnvironmentVariableA
+  (JNIEnv *env, jclass cls, jlong lpName, jlong lpBuffer, jint nSize) {
+    (void)env; (void)cls;
+#ifdef _WIN32
+    return (jint)GetEnvironmentVariableA((LPCSTR)(intptr_t)lpName, (LPSTR)(intptr_t)lpBuffer, (DWORD)nSize);
+#else
+    (void)lpName; (void)lpBuffer; (void)nSize;
+    return 0;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jni_GetEnvironmentVariableW
+  (JNIEnv *env, jclass cls, jlong lpName, jlong lpBuffer, jint nSize) {
+    (void)env; (void)cls;
+#ifdef _WIN32
+    return (jint)GetEnvironmentVariableW((LPCWSTR)(intptr_t)lpName, (LPWSTR)(intptr_t)lpBuffer, (DWORD)nSize);
+#else
+    (void)lpName; (void)lpBuffer; (void)nSize;
+    return 0;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jni_GetEnvironmentVariableWBuffer
+  (JNIEnv *env, jclass cls, jshortArray lpName, jshortArray lpBuffer, jint nSize) {
+    (void)cls;
+#ifdef _WIN32
+    if (!lpName) return 0;
+    jshort *namePtr = (*env)->GetShortArrayElements(env, lpName, NULL);
+    jshort *bufPtr = lpBuffer != NULL ? (*env)->GetShortArrayElements(env, lpBuffer, NULL) : NULL;
+    DWORD res = GetEnvironmentVariableW((LPCWSTR)namePtr, (LPWSTR)bufPtr, (DWORD)nSize);
+    if (bufPtr) (*env)->ReleaseShortArrayElements(env, lpBuffer, bufPtr, 0);
+    (*env)->ReleaseShortArrayElements(env, lpName, namePtr, JNI_ABORT);
+    return (jint)res;
+#else
+    (void)env; (void)lpName; (void)lpBuffer; (void)nSize;
+    return 0;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jni_ExpandEnvironmentStringsA
+  (JNIEnv *env, jclass cls, jlong lpSrc, jlong lpDst, jint nSize) {
+    (void)env; (void)cls;
+#ifdef _WIN32
+    return (jint)ExpandEnvironmentStringsA((LPCSTR)(intptr_t)lpSrc, (LPSTR)(intptr_t)lpDst, (DWORD)nSize);
+#else
+    (void)lpSrc; (void)lpDst; (void)nSize;
+    return 0;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jni_ExpandEnvironmentStringsW
+  (JNIEnv *env, jclass cls, jlong lpSrc, jlong lpDst, jint nSize) {
+    (void)env; (void)cls;
+#ifdef _WIN32
+    return (jint)ExpandEnvironmentStringsW((LPCWSTR)(intptr_t)lpSrc, (LPWSTR)(intptr_t)lpDst, (DWORD)nSize);
+#else
+    (void)lpSrc; (void)lpDst; (void)nSize;
+    return 0;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jni_ExpandEnvironmentStringsWBuffer
+  (JNIEnv *env, jclass cls, jshortArray lpSrc, jshortArray lpDst, jint nSize) {
+    (void)cls;
+#ifdef _WIN32
+    if (!lpSrc) return 0;
+    jshort *srcPtr = (*env)->GetShortArrayElements(env, lpSrc, NULL);
+    jshort *dstPtr = lpDst != NULL ? (*env)->GetShortArrayElements(env, lpDst, NULL) : NULL;
+    DWORD res = ExpandEnvironmentStringsW((LPCWSTR)srcPtr, (LPWSTR)dstPtr, (DWORD)nSize);
+    if (dstPtr) (*env)->ReleaseShortArrayElements(env, lpDst, dstPtr, 0);
+    (*env)->ReleaseShortArrayElements(env, lpSrc, srcPtr, JNI_ABORT);
+    return (jint)res;
+#else
+    (void)env; (void)lpSrc; (void)lpDst; (void)nSize;
+    return 0;
+#endif
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jni_GetEnvironmentStrings
+  (JNIEnv *env, jclass cls) {
+    (void)env; (void)cls;
+#ifdef _WIN32
+    return (jlong)(intptr_t)GetEnvironmentStrings();
+#else
+    return 0;
+#endif
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jni_GetEnvironmentStringsW
+  (JNIEnv *env, jclass cls) {
+    (void)env; (void)cls;
+#ifdef _WIN32
+    return (jlong)(intptr_t)GetEnvironmentStringsW();
+#else
+    return 0;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jni_FreeEnvironmentStringsA
+  (JNIEnv *env, jclass cls, jlong penv) {
+    (void)env; (void)cls;
+#ifdef _WIN32
+    if (!penv) return 0;
+    return (jint)FreeEnvironmentStringsA((LPCH)(intptr_t)penv);
+#else
+    (void)penv;
+    return 0;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jni_FreeEnvironmentStringsW
+  (JNIEnv *env, jclass cls, jlong penv) {
+    (void)env; (void)cls;
+#ifdef _WIN32
+    if (!penv) return 0;
+    return (jint)FreeEnvironmentStringsW((LPWCH)(intptr_t)penv);
+#else
+    (void)penv;
+    return 0;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jni_SetEnvironmentStringsW
+  (JNIEnv *env, jclass cls, jlong newEnvironment) {
+    (void)env; (void)cls;
+#ifdef _WIN32
+    return (jint)SetEnvironmentStringsW((LPWCH)(intptr_t)newEnvironment);
+#else
+    (void)newEnvironment;
+    return 0;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jni_GetCurrentDirectoryA
+  (JNIEnv *env, jclass cls, jint nBufferLength, jlong lpBuffer) {
+    (void)env; (void)cls;
+#ifdef _WIN32
+    return (jint)GetCurrentDirectoryA((DWORD)nBufferLength, (LPSTR)(intptr_t)lpBuffer);
+#else
+    (void)nBufferLength; (void)lpBuffer;
+    return 0;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jni_GetCurrentDirectoryW
+  (JNIEnv *env, jclass cls, jint nBufferLength, jlong lpBuffer) {
+    (void)env; (void)cls;
+#ifdef _WIN32
+    return (jint)GetCurrentDirectoryW((DWORD)nBufferLength, (LPWSTR)(intptr_t)lpBuffer);
+#else
+    (void)nBufferLength; (void)lpBuffer;
+    return 0;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jni_GetCurrentDirectoryWBuffer
+  (JNIEnv *env, jclass cls, jint nBufferLength, jshortArray lpBuffer) {
+    (void)cls;
+#ifdef _WIN32
+    jshort *bufPtr = lpBuffer != NULL ? (*env)->GetShortArrayElements(env, lpBuffer, NULL) : NULL;
+    DWORD res = GetCurrentDirectoryW((DWORD)nBufferLength, (LPWSTR)bufPtr);
+    if (bufPtr) (*env)->ReleaseShortArrayElements(env, lpBuffer, bufPtr, 0);
+    return (jint)res;
+#else
+    (void)env; (void)nBufferLength; (void)lpBuffer;
+    return 0;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jni_SetCurrentDirectoryA
+  (JNIEnv *env, jclass cls, jlong lpPathName) {
+    (void)env; (void)cls;
+#ifdef _WIN32
+    return (jint)SetCurrentDirectoryA((LPCSTR)(intptr_t)lpPathName);
+#else
+    (void)lpPathName;
+    return 0;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jni_SetCurrentDirectoryW
+  (JNIEnv *env, jclass cls, jlong lpPathName) {
+    (void)env; (void)cls;
+#ifdef _WIN32
+    return (jint)SetCurrentDirectoryW((LPCWSTR)(intptr_t)lpPathName);
+#else
+    (void)lpPathName;
+    return 0;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jni_SetCurrentDirectoryWBuffer
+  (JNIEnv *env, jclass cls, jshortArray lpPathName) {
+    (void)cls;
+#ifdef _WIN32
+    if (!lpPathName) return 0;
+    jshort *pathPtr = (*env)->GetShortArrayElements(env, lpPathName, NULL);
+    BOOL res = SetCurrentDirectoryW((LPCWSTR)pathPtr);
+    (*env)->ReleaseShortArrayElements(env, lpPathName, pathPtr, JNI_ABORT);
+    return (jint)res;
+#else
+    (void)env; (void)lpPathName;
+    return 0;
+#endif
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jni_GetCommandLineA
+  (JNIEnv *env, jclass cls) {
+    (void)env; (void)cls;
+#ifdef _WIN32
+    return (jlong)(intptr_t)GetCommandLineA();
+#else
+    return 0;
+#endif
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jni_GetCommandLineW
+  (JNIEnv *env, jclass cls) {
+    (void)env; (void)cls;
+#ifdef _WIN32
+    return (jlong)(intptr_t)GetCommandLineW();
+#else
+    return 0;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jni_NeedCurrentDirectoryForExePathA
+  (JNIEnv *env, jclass cls, jlong exeName) {
+    (void)env; (void)cls;
+#ifdef _WIN32
+    return (jint)NeedCurrentDirectoryForExePathA((LPCSTR)(intptr_t)exeName);
+#else
+    (void)exeName;
+    return 0;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_internal_Kernel32Jni_NeedCurrentDirectoryForExePathW
+  (JNIEnv *env, jclass cls, jlong exeName) {
+    (void)env; (void)cls;
+#ifdef _WIN32
+    return (jint)NeedCurrentDirectoryForExePathW((LPCWSTR)(intptr_t)exeName);
+#else
+    (void)exeName;
+    return 0;
+#endif
+}
+
 #ifdef __cplusplus
 }
 #endif

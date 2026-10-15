@@ -339,3 +339,81 @@ BOOL windows_sys_c_get_computer_name_ex_w(
 ) {
     return windows_sys_get_computer_name_ex_w(NameType, lpBuffer, nSize);
 }
+
+/* System / Environment */
+BOOL windows_sys_c_set_environment_variable_a(LPCSTR lpName, LPCSTR lpValue) {
+    return windows_sys_set_environment_variable_a(lpName, lpValue);
+}
+
+BOOL windows_sys_c_set_environment_variable_w(LPCWSTR lpName, LPCWSTR lpValue) {
+    return windows_sys_set_environment_variable_w(lpName, lpValue);
+}
+
+DWORD windows_sys_c_get_environment_variable_a(LPCSTR lpName, LPSTR lpBuffer, DWORD nSize) {
+    return windows_sys_get_environment_variable_a(lpName, lpBuffer, nSize);
+}
+
+DWORD windows_sys_c_get_environment_variable_w(LPCWSTR lpName, LPWSTR lpBuffer, DWORD nSize) {
+    return windows_sys_get_environment_variable_w(lpName, lpBuffer, nSize);
+}
+
+DWORD windows_sys_c_expand_environment_strings_a(LPCSTR lpSrc, LPSTR lpDst, DWORD nSize) {
+    return windows_sys_expand_environment_strings_a(lpSrc, lpDst, nSize);
+}
+
+DWORD windows_sys_c_expand_environment_strings_w(LPCWSTR lpSrc, LPWSTR lpDst, DWORD nSize) {
+    return windows_sys_expand_environment_strings_w(lpSrc, lpDst, nSize);
+}
+
+LPCH windows_sys_c_get_environment_strings(void) {
+    return windows_sys_get_environment_strings();
+}
+
+LPWCH windows_sys_c_get_environment_strings_w(void) {
+    return windows_sys_get_environment_strings_w();
+}
+
+BOOL windows_sys_c_free_environment_strings_a(LPCSTR penv) {
+    return windows_sys_free_environment_strings_a(penv);
+}
+
+BOOL windows_sys_c_free_environment_strings_w(LPCWSTR penv) {
+    return windows_sys_free_environment_strings_w(penv);
+}
+
+BOOL windows_sys_c_set_environment_strings_w(LPCWSTR NewEnvironment) {
+    return windows_sys_set_environment_strings_w(NewEnvironment);
+}
+
+DWORD windows_sys_c_get_current_directory_a(DWORD nBufferLength, LPSTR lpBuffer) {
+    return windows_sys_get_current_directory_a(nBufferLength, lpBuffer);
+}
+
+DWORD windows_sys_c_get_current_directory_w(DWORD nBufferLength, LPWSTR lpBuffer) {
+    return windows_sys_get_current_directory_w(nBufferLength, lpBuffer);
+}
+
+BOOL windows_sys_c_set_current_directory_a(LPCSTR lpPathName) {
+    return windows_sys_set_current_directory_a(lpPathName);
+}
+
+BOOL windows_sys_c_set_current_directory_w(LPCWSTR lpPathName) {
+    return windows_sys_set_current_directory_w(lpPathName);
+}
+
+LPCSTR windows_sys_c_get_command_line_a(void) {
+    return windows_sys_get_command_line_a();
+}
+
+LPCWSTR windows_sys_c_get_command_line_w(void) {
+    return windows_sys_get_command_line_w();
+}
+
+BOOL windows_sys_c_need_current_directory_for_exe_path_a(LPCSTR ExeName) {
+    return windows_sys_need_current_directory_for_exe_path_a(ExeName);
+}
+
+BOOL windows_sys_c_need_current_directory_for_exe_path_w(LPCWSTR ExeName) {
+    return windows_sys_need_current_directory_for_exe_path_w(ExeName);
+}
+

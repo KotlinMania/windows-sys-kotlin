@@ -30,6 +30,14 @@ import io.github.kotlinmania.windowssys.windows.win32.system.console.SetConsoleC
 import io.github.kotlinmania.windowssys.windows.win32.system.console.SetConsoleCursorPosition
 import io.github.kotlinmania.windowssys.windows.win32.system.console.SetConsoleMode
 import io.github.kotlinmania.windowssys.windows.win32.system.console.SetConsoleTextAttribute
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.ExpandEnvironmentStringsW
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.FreeEnvironmentStringsW
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.GetCommandLineW
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.GetCurrentDirectoryW
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.GetEnvironmentStringsW
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.GetEnvironmentVariableW
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.SetCurrentDirectoryW
+import io.github.kotlinmania.windowssys.windows.win32.system.environment.SetEnvironmentVariableW
 import io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.FreeLibrary
 import io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.GetModuleHandleW
 import io.github.kotlinmania.windowssys.windows.win32.system.libraryloader.GetProcAddress
@@ -169,5 +177,14 @@ class WindowsSysJsTest {
 
         val nSize = UIntArray(1)
         assertNotNull(GetComputerNameExW(ComputerNameDnsHostname, null, nSize))
+
+        assertNotNull(SetEnvironmentVariableW(0L, 0L))
+        assertNotNull(GetEnvironmentVariableW(0L, 0L, 0u))
+        assertNotNull(GetCurrentDirectoryW(0u, 0L))
+        assertNotNull(SetCurrentDirectoryW(0L))
+        assertNotNull(GetCommandLineW())
+        assertNotNull(GetEnvironmentStringsW())
+        assertNotNull(FreeEnvironmentStringsW(0L))
+        assertNotNull(ExpandEnvironmentStringsW(0L, 0L, 0u))
     }
 }
