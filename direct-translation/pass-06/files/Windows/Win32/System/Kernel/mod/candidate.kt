@@ -1,0 +1,610 @@
+// DIRECT DECLARATION CANDIDATE: unsupported Rust remains below; not adopted or ABI-validated.
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=ntdll.dll, ABI=system, export=RtlFirstEntrySList; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `RtlFirstEntrySList`(`listhead` : /* Rust *const */ kotlinx.cinterop.CPointer<`SLIST_HEADER`>?) : /* Rust *mut */ kotlinx.cinterop.CPointer<`SLIST_ENTRY`>?
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=ntdll.dll, ABI=system, export=RtlInitializeSListHead; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `RtlInitializeSListHead`(`listhead` : /* Rust *mut */ kotlinx.cinterop.CPointer<`SLIST_HEADER`>?)
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=ntdll.dll, ABI=system, export=RtlInterlockedFlushSList; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `RtlInterlockedFlushSList`(`listhead` : /* Rust *mut */ kotlinx.cinterop.CPointer<`SLIST_HEADER`>?) : /* Rust *mut */ kotlinx.cinterop.CPointer<`SLIST_ENTRY`>?
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=ntdll.dll, ABI=system, export=RtlInterlockedPopEntrySList; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `RtlInterlockedPopEntrySList`(`listhead` : /* Rust *mut */ kotlinx.cinterop.CPointer<`SLIST_HEADER`>?) : /* Rust *mut */ kotlinx.cinterop.CPointer<`SLIST_ENTRY`>?
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=ntdll.dll, ABI=system, export=RtlInterlockedPushEntrySList; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `RtlInterlockedPushEntrySList`(`listhead` : /* Rust *mut */ kotlinx.cinterop.CPointer<`SLIST_HEADER`>?, `listentry` : /* Rust *mut */ kotlinx.cinterop.CPointer<`SLIST_ENTRY`>?) : /* Rust *mut */ kotlinx.cinterop.CPointer<`SLIST_ENTRY`>?
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=ntdll.dll, ABI=system, export=RtlInterlockedPushListSListEx; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `RtlInterlockedPushListSListEx`(`listhead` : /* Rust *mut */ kotlinx.cinterop.CPointer<`SLIST_HEADER`>?, `list` : /* Rust *mut */ kotlinx.cinterop.CPointer<`SLIST_ENTRY`>?, `listend` : /* Rust *mut */ kotlinx.cinterop.CPointer<`SLIST_ENTRY`>?, `count` : UInt) : /* Rust *mut */ kotlinx.cinterop.CPointer<`SLIST_ENTRY`>?
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=ntdll.dll, ABI=system, export=RtlQueryDepthSList; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `RtlQueryDepthSList`(`listhead` : /* Rust *const */ kotlinx.cinterop.CPointer<`SLIST_HEADER`>?) : UShort
+public const val `BackOffice`: `SUITE_TYPE` = 2;
+public const val `Blade`: `SUITE_TYPE` = 10;
+public typealias `COMPARTMENT_ID` = Int;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `CSTRING` (
+    public var `Length`: UShort,
+    public var `MaximumLength`: UShort,
+    public var `Buffer`: `windows_sys`.`core`.`PCSTR`,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `CSTRING`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `CSTRING`.Companion.`default`() : `CSTRING` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+public const val `CommunicationServer`: `SUITE_TYPE` = 3;
+public const val `ComputeServer`: `SUITE_TYPE` = 14;
+public const val `DEFAULT_COMPARTMENT_ID`: `COMPARTMENT_ID` = 1;
+public const val `DataCenter`: `SUITE_TYPE` = 7;
+public typealias `EVENT_TYPE` = Int;
+public typealias `EXCEPTION_DISPOSITION` = Int;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `EXCEPTION_REGISTRATION_RECORD` (
+    public var `Next`: /* Rust *mut */ kotlinx.cinterop.CPointer<`EXCEPTION_REGISTRATION_RECORD`>?,
+    public var `Handler`: `EXCEPTION_ROUTINE`,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `EXCEPTION_REGISTRATION_RECORD`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+
+    public fun `EXCEPTION_REGISTRATION_RECORD`.Companion.`default`() : `EXCEPTION_REGISTRATION_RECORD` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Native callback ABI=system, unsafe=true; integrate the matching native bridge.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+public typealias `EXCEPTION_ROUTINE` = `Option`<kotlinx.cinterop.CPointer<kotlinx.cinterop.CFunction<(/* Rust *mut */ kotlinx.cinterop.CPointer<`super`.`Diagnostics`.`Debug`.`EXCEPTION_RECORD`>?, /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, /* Rust *mut */ kotlinx.cinterop.CPointer<`super`.`Diagnostics`.`Debug`.`CONTEXT`>?, /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?) -> `EXCEPTION_DISPOSITION`>>>;
+public const val `EmbeddedNT`: `SUITE_TYPE` = 6;
+public const val `EmbeddedRestricted`: `SUITE_TYPE` = 11;
+public const val `Enterprise`: `SUITE_TYPE` = 1;
+public const val `ExceptionCollidedUnwind`: `EXCEPTION_DISPOSITION` = 3;
+public const val `ExceptionContinueExecution`: `EXCEPTION_DISPOSITION` = 0;
+public const val `ExceptionContinueSearch`: `EXCEPTION_DISPOSITION` = 1;
+public const val `ExceptionNestedException`: `EXCEPTION_DISPOSITION` = 2;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Rust fixed array length 80 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[cfg(target_arch = "x86")]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `FLOATING_SAVE_AREA` (
+    public var `ControlWord`: UInt,
+    public var `StatusWord`: UInt,
+    public var `TagWord`: UInt,
+    public var `ErrorOffset`: UInt,
+    public var `ErrorSelector`: UInt,
+    public var `DataOffset`: UInt,
+    public var `DataSelector`: UInt,
+    public var `RegisterArea`: UByteArray,
+    public var `Spare0`: UInt,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `FLOATING_SAVE_AREA`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[cfg(target_arch = "x86")]
+
+    public fun `FLOATING_SAVE_AREA`.Companion.`default`() : `FLOATING_SAVE_AREA` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Rust fixed array length 80 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `FLOATING_SAVE_AREA` (
+    public var `ControlWord`: UInt,
+    public var `StatusWord`: UInt,
+    public var `TagWord`: UInt,
+    public var `ErrorOffset`: UInt,
+    public var `ErrorSelector`: UInt,
+    public var `DataOffset`: UInt,
+    public var `DataSelector`: UInt,
+    public var `RegisterArea`: UByteArray,
+    public var `Cr0NpxState`: UInt,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `FLOATING_SAVE_AREA`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+
+    public fun `FLOATING_SAVE_AREA`.Companion.`default`() : `FLOATING_SAVE_AREA` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `LIST_ENTRY` (
+    public var `Flink`: /* Rust *mut */ kotlinx.cinterop.CPointer<`LIST_ENTRY`>?,
+    public var `Blink`: /* Rust *mut */ kotlinx.cinterop.CPointer<`LIST_ENTRY`>?,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `LIST_ENTRY`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `LIST_ENTRY`.Companion.`default`() : `LIST_ENTRY` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `LIST_ENTRY32` (
+    public var `Flink`: UInt,
+    public var `Blink`: UInt,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `LIST_ENTRY64` (
+    public var `Flink`: ULong,
+    public var `Blink`: ULong,
+)
+public const val `MAXUCHAR`: UInt = 255u;
+public const val `MAXULONG`: UInt = 4294967295u;
+public const val `MAXUSHORT`: UInt = 65535u;
+public const val `MaxSuiteType`: `SUITE_TYPE` = 18;
+public const val `MultiUserTS`: `SUITE_TYPE` = 17;
+public typealias `NT_PRODUCT_TYPE` = Int;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `NT_TIB` (
+    public var `ExceptionList`: /* Rust *mut */ kotlinx.cinterop.CPointer<`EXCEPTION_REGISTRATION_RECORD`>?,
+    public var `StackBase`: /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?,
+    public var `StackLimit`: /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?,
+    public var `SubSystemTib`: /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?,
+    public var `Anonymous`: `NT_TIB_0`,
+    public var `ArbitraryUserPointer`: /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?,
+    public var `Self_`: /* Rust *mut */ kotlinx.cinterop.CPointer<`NT_TIB`>?,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `NT_TIB`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+
+    public fun `NT_TIB`.Companion.`default`() : `NT_TIB` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// UNSUPPORTED Rust 138:1: declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+// #[repr(C)]
+// #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+// #[derive(Clone, Copy)]
+// pub union NT_TIB_0 {
+//     pub FiberData: *mut core::ffi::c_void,
+//     pub Version: u32,
+// }
+
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `NT_TIB_0`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+
+    public fun `NT_TIB_0`.Companion.`default`() : `NT_TIB_0` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+public const val `NULL64`: UInt = 0u;
+public const val `NotificationEvent`: `EVENT_TYPE` = 0;
+public const val `NotificationTimer`: `TIMER_TYPE` = 0;
+public const val `NtProductLanManNt`: `NT_PRODUCT_TYPE` = 2;
+public const val `NtProductServer`: `NT_PRODUCT_TYPE` = 3;
+public const val `NtProductWinNt`: `NT_PRODUCT_TYPE` = 1;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `OBJECTID` (
+    public var `Lineage`: `windows_sys`.`core`.`GUID`,
+    public var `Uniquifier`: UInt,
+)
+public const val `OBJ_HANDLE_TAGBITS`: Int = 3;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `PROCESSOR_NUMBER` (
+    public var `Group`: UShort,
+    public var `Number`: UByte,
+    public var `Reserved`: UByte,
+)
+public const val `Personal`: `SUITE_TYPE` = 9;
+public const val `PhoneNT`: `SUITE_TYPE` = 16;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `QUAD` (
+    public var `Anonymous`: `QUAD_0`,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `QUAD`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `QUAD`.Companion.`default`() : `QUAD` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// UNSUPPORTED Rust 183:1: declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+// #[repr(C)]
+// #[derive(Clone, Copy)]
+// pub union QUAD_0 {
+//     pub UseThisFieldToCopy: i64,
+//     pub DoNotUseThisField: f64,
+// }
+
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `QUAD_0`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `QUAD_0`.Companion.`default`() : `QUAD_0` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `RTL_BALANCED_NODE` (
+    public var `Anonymous1`: `RTL_BALANCED_NODE_0`,
+    public var `Anonymous2`: `RTL_BALANCED_NODE_1`,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `RTL_BALANCED_NODE`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `RTL_BALANCED_NODE`.Companion.`default`() : `RTL_BALANCED_NODE` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// UNSUPPORTED Rust 205:1: declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+// #[repr(C)]
+// #[derive(Clone, Copy)]
+// pub union RTL_BALANCED_NODE_0 {
+//     pub Children: [*mut RTL_BALANCED_NODE; 2],
+//     pub Anonymous: RTL_BALANCED_NODE_0_0,
+// }
+
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `RTL_BALANCED_NODE_0`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `RTL_BALANCED_NODE_0`.Companion.`default`() : `RTL_BALANCED_NODE_0` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `RTL_BALANCED_NODE_0_0` (
+    public var `Left`: /* Rust *mut */ kotlinx.cinterop.CPointer<`RTL_BALANCED_NODE`>?,
+    public var `Right`: /* Rust *mut */ kotlinx.cinterop.CPointer<`RTL_BALANCED_NODE`>?,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `RTL_BALANCED_NODE_0_0`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `RTL_BALANCED_NODE_0_0`.Companion.`default`() : `RTL_BALANCED_NODE_0_0` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// UNSUPPORTED Rust 227:1: declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+// #[repr(C)]
+// #[derive(Clone, Copy)]
+// pub union RTL_BALANCED_NODE_1 {
+//     pub _bitfield: u8,
+//     pub ParentValue: usize,
+// }
+
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `RTL_BALANCED_NODE_1`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `RTL_BALANCED_NODE_1`.Companion.`default`() : `RTL_BALANCED_NODE_1` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+public const val `RTL_BALANCED_NODE_RESERVED_PARENT_MASK`: UInt = 3u;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `SINGLE_LIST_ENTRY` (
+    public var `Next`: /* Rust *mut */ kotlinx.cinterop.CPointer<`SINGLE_LIST_ENTRY`>?,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `SINGLE_LIST_ENTRY`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `SINGLE_LIST_ENTRY`.Companion.`default`() : `SINGLE_LIST_ENTRY` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `SINGLE_LIST_ENTRY32` (
+    public var `Next`: UInt,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `SLIST_ENTRY` (
+    public var `Next`: /* Rust *mut */ kotlinx.cinterop.CPointer<`SLIST_ENTRY`>?,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `SLIST_ENTRY`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `SLIST_ENTRY`.Companion.`default`() : `SLIST_ENTRY` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// UNSUPPORTED Rust 264:1: declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+// #[repr(C)]
+// #[cfg(target_arch = "x86")]
+// #[derive(Clone, Copy)]
+// pub union SLIST_HEADER {
+//     pub Alignment: u64,
+//     pub Anonymous: SLIST_HEADER_0,
+// }
+
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `SLIST_HEADER`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[cfg(target_arch = "x86")]
+
+    public fun `SLIST_HEADER`.Companion.`default`() : `SLIST_HEADER` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[cfg(target_arch = "x86")]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `SLIST_HEADER_0` (
+    public var `Next`: `SINGLE_LIST_ENTRY`,
+    public var `Depth`: UShort,
+    public var `CpuId`: UShort,
+)
+// UNSUPPORTED Rust 285:1: declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+// #[repr(C)]
+// #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+// #[derive(Clone, Copy)]
+// pub union SLIST_HEADER {
+//     pub Anonymous: SLIST_HEADER_0,
+//     pub HeaderX64: SLIST_HEADER_1,
+// }
+
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `SLIST_HEADER`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+
+    public fun `SLIST_HEADER`.Companion.`default`() : `SLIST_HEADER` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `SLIST_HEADER_0` (
+    public var `Alignment`: ULong,
+    public var `Region`: ULong,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `SLIST_HEADER_1` (
+    public var `_bitfield1`: ULong,
+    public var `_bitfield2`: ULong,
+)
+// UNSUPPORTED Rust 312:1: declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+// #[repr(C)]
+// #[cfg(target_arch = "aarch64")]
+// #[derive(Clone, Copy)]
+// pub union SLIST_HEADER {
+//     pub Anonymous: SLIST_HEADER_0,
+//     pub HeaderArm64: SLIST_HEADER_1,
+// }
+
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `SLIST_HEADER`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[cfg(target_arch = "aarch64")]
+
+    public fun `SLIST_HEADER`.Companion.`default`() : `SLIST_HEADER` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[cfg(target_arch = "aarch64")]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `SLIST_HEADER_0` (
+    public var `Alignment`: ULong,
+    public var `Region`: ULong,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[cfg(target_arch = "aarch64")]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `SLIST_HEADER_1` (
+    public var `_bitfield1`: ULong,
+    public var `_bitfield2`: ULong,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `STRING` (
+    public var `Length`: UShort,
+    public var `MaximumLength`: UShort,
+    public var `Buffer`: `windows_sys`.`core`.`PSTR`,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `STRING`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `STRING`.Companion.`default`() : `STRING` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `STRING32` (
+    public var `Length`: UShort,
+    public var `MaximumLength`: UShort,
+    public var `Buffer`: UInt,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `STRING64` (
+    public var `Length`: UShort,
+    public var `MaximumLength`: UShort,
+    public var `Buffer`: ULong,
+)
+public typealias `SUITE_TYPE` = Int;
+public const val `SecurityAppliance`: `SUITE_TYPE` = 12;
+public const val `SingleUserTS`: `SUITE_TYPE` = 8;
+public const val `SmallBusiness`: `SUITE_TYPE` = 0;
+public const val `SmallBusinessRestricted`: `SUITE_TYPE` = 5;
+public const val `StorageServer`: `SUITE_TYPE` = 13;
+public const val `SynchronizationEvent`: `EVENT_TYPE` = 1;
+public const val `SynchronizationTimer`: `TIMER_TYPE` = 1;
+public typealias `TIMER_TYPE` = Int;
+public const val `TerminalServer`: `SUITE_TYPE` = 4;
+public const val `UNSPECIFIED_COMPARTMENT_ID`: `COMPARTMENT_ID` = 0;
+public typealias `WAIT_TYPE` = Int;
+public const val `WHServer`: `SUITE_TYPE` = 15;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Rust fixed array length 2 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `WNF_STATE_NAME` (
+    public var `Data`: UIntArray,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `WNF_STATE_NAME`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `WNF_STATE_NAME`.Companion.`default`() : `WNF_STATE_NAME` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+public const val `WaitAll`: `WAIT_TYPE` = 0;
+public const val `WaitAny`: `WAIT_TYPE` = 1;
+public const val `WaitDequeue`: `WAIT_TYPE` = 3;
+public const val `WaitDpc`: `WAIT_TYPE` = 4;
+public const val `WaitNotification`: `WAIT_TYPE` = 2;

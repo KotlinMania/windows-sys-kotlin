@@ -1,0 +1,7 @@
+{
+  "port": "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/src/commonMain/kotlin/io/github/kotlinmania/windowssys/windows/win32/system/console/ConsoleStructs.kt",
+  "port_sha256": "af88e46cf5bacd10d78277711b8a8f0303793e1617b1673f482634356920b535",
+  "candidate_sha256": "4fd3d9cb95f14215e95b1fb863faaa4dd5baab2171ff003c09f549fadd1bf3f3",
+  "diff_exit_code": 1,
+  "adopted": false
+}

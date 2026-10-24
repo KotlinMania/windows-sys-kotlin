@@ -1,0 +1,63 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro	GetDeviceID	0	200	1	1	2	syntax	External declaration shape only: wire DLL=tbs.dll, ABI=system, export=GetDeviceID; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1	Macro	GetDeviceIDString	201	427	2	1	7	syntax	External declaration shape only: wire DLL=tbs.dll, ABI=system, export=GetDeviceIDString; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+2	Macro	Tbsi_Context_Create	428	583	3	1	12	syntax	External declaration shape only: wire DLL=tbs.dll, ABI=system, export=Tbsi_Context_Create; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+3	Macro	Tbsi_Create_Windows_Key	584	675	4	1	17	syntax	External declaration shape only: wire DLL=tbs.dll, ABI=system, export=Tbsi_Create_Windows_Key; preserve Rust unsafe-call contract. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+4	Macro	Tbsi_GetDeviceInfo	676	788	5	1	20	syntax	External declaration shape only: wire DLL=tbs.dll, ABI=system, export=Tbsi_GetDeviceInfo; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+5	Macro	Tbsi_Get_OwnerAuth	789	964	6	1	25	syntax	External declaration shape only: wire DLL=tbs.dll, ABI=system, export=Tbsi_Get_OwnerAuth; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+6	Macro	Tbsi_Get_TCG_Log	965	1117	7	1	30	syntax	External declaration shape only: wire DLL=tbs.dll, ABI=system, export=Tbsi_Get_TCG_Log; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+7	Macro	Tbsi_Get_TCG_Log_Ex	1118	1245	8	1	35	syntax	External declaration shape only: wire DLL=tbs.dll, ABI=system, export=Tbsi_Get_TCG_Log_Ex; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+8	Macro	Tbsi_Is_Tpm_Present	1246	1338	9	1	39	syntax	External declaration shape only: wire DLL=tbs.dll, ABI=system, export=Tbsi_Is_Tpm_Present; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+9	Macro	Tbsi_Physical_Presence_Command	1339	1537	10	1	43	syntax	External declaration shape only: wire DLL=tbs.dll, ABI=system, export=Tbsi_Physical_Presence_Command; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+10	Macro	Tbsi_Revoke_Attestation	1538	1614	11	1	48	syntax	External declaration shape only: wire DLL=tbs.dll, ABI=system, export=Tbsi_Revoke_Attestation; preserve Rust unsafe-call contract. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+11	Macro	Tbsip_Cancel_Commands	1615	1724	12	1	51	syntax	External declaration shape only: wire DLL=tbs.dll, ABI=system, export=Tbsip_Cancel_Commands; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+12	Macro	Tbsip_Context_Close	1725	1832	13	1	56	syntax	External declaration shape only: wire DLL=tbs.dll, ABI=system, export=Tbsip_Context_Close; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+13	Macro	Tbsip_Submit_Command	1833	2091	14	1	61	syntax	External declaration shape only: wire DLL=tbs.dll, ABI=system, export=Tbsip_Submit_Command; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+14	ItemType	TBS_COMMAND_LOCALITY	2092	2128	15	1	66	generated	
+15	Const	TBS_COMMAND_LOCALITY_FOUR	2129	2194	16	1	67	generated	
+16	Const	TBS_COMMAND_LOCALITY_ONE	2195	2259	17	1	68	generated	
+17	Const	TBS_COMMAND_LOCALITY_THREE	2260	2326	18	1	69	generated	
+18	Const	TBS_COMMAND_LOCALITY_TWO	2327	2391	19	1	70	generated	
+19	Const	TBS_COMMAND_LOCALITY_ZERO	2392	2457	20	1	71	generated	
+20	ItemType	TBS_COMMAND_PRIORITY	2458	2494	21	1	72	generated	
+21	Const	TBS_COMMAND_PRIORITY_HIGH	2495	2562	22	1	73	generated	
+22	Const	TBS_COMMAND_PRIORITY_LOW	2563	2629	23	1	74	generated	
+23	Const	TBS_COMMAND_PRIORITY_MAX	2630	2703	24	1	75	generated	
+24	Const	TBS_COMMAND_PRIORITY_NORMAL	2704	2773	25	1	76	generated	
+25	Const	TBS_COMMAND_PRIORITY_SYSTEM	2774	2843	26	1	77	generated	
+26	Struct	TBS_CONTEXT_PARAMS	2844	2942	27	1	78	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+27	Struct	TBS_CONTEXT_PARAMS2	2943	3075	32	1	85	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+28	Impl		3076	3188	38	1	94	syntax	Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation. Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value. Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator. Rust trait implementation: `Default` for `TBS_CONTEXT_PARAMS2`; Kotlin companion extension is not a trait implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+29	Union		3189	3325	43	1	104	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+30	Impl		3326	3440	49	1	112	syntax	Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation. Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value. Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator. Rust trait implementation: `Default` for `TBS_CONTEXT_PARAMS2_0`; Kotlin companion extension is not a trait implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+31	Struct	TBS_CONTEXT_PARAMS2_0_0	3441	3546	54	1	122	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+32	Const	TBS_CONTEXT_VERSION_ONE	3547	3593	59	1	129	generated	
+33	Const	TBS_CONTEXT_VERSION_TWO	3594	3640	60	1	130	generated	
+34	Const	TBS_OWNERAUTH_TYPE_ADMIN	3641	3688	61	1	131	generated	
+35	Const	TBS_OWNERAUTH_TYPE_ENDORSEMENT	3689	3742	62	1	132	generated	
+36	Const	TBS_OWNERAUTH_TYPE_ENDORSEMENT_20	3743	3800	63	1	133	generated	
+37	Const	TBS_OWNERAUTH_TYPE_FULL	3801	3847	64	1	134	generated	
+38	Const	TBS_OWNERAUTH_TYPE_STORAGE_20	3848	3901	65	1	135	generated	
+39	Const	TBS_OWNERAUTH_TYPE_USER	3902	3948	66	1	136	generated	
+40	Const	TBS_SUCCESS	3949	3983	67	1	137	generated	
+41	Const	TBS_TCGLOG_DRTM_BOOT	3984	4027	68	1	138	generated	
+42	Const	TBS_TCGLOG_DRTM_CURRENT	4028	4074	69	1	139	generated	
+43	Const	TBS_TCGLOG_DRTM_RESUME	4075	4120	70	1	140	generated	
+44	Const	TBS_TCGLOG_SRTM_BOOT	4121	4164	71	1	141	generated	
+45	Const	TBS_TCGLOG_SRTM_CURRENT	4165	4211	72	1	142	generated	
+46	Const	TBS_TCGLOG_SRTM_RESUME	4212	4257	73	1	143	generated	
+47	Struct	TPM_DEVICE_INFO	4258	4444	74	1	144	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+48	Const	TPM_IFTYPE_1	4445	4480	82	1	154	generated	
+49	Const	TPM_IFTYPE_EMULATOR	4481	4523	83	1	155	generated	
+50	Const	TPM_IFTYPE_HW	4524	4560	84	1	156	generated	
+51	Const	TPM_IFTYPE_SPB	4561	4598	85	1	157	generated	
+52	Const	TPM_IFTYPE_TRUSTZONE	4599	4642	86	1	158	generated	
+53	Const	TPM_IFTYPE_UNKNOWN	4643	4684	87	1	159	generated	
+54	Const	TPM_VERSION_12	4685	4722	88	1	160	generated	
+55	Const	TPM_VERSION_20	4723	4760	89	1	161	generated	
+56	Const	TPM_VERSION_UNKNOWN	4761	4803	90	1	162	generated	
+57	Const	TPM_WNF_INFO_CLEAR_SUCCESSFUL	4804	4856	91	1	163	generated	
+58	Const	TPM_WNF_INFO_NO_REBOOT_REQUIRED	4857	4911	92	1	164	generated	
+59	Const	TPM_WNF_INFO_OWNERSHIP_SUCCESSFUL	4912	4968	93	1	165	generated	
+60	Struct	TPM_WNF_PROVISIONING	4969	5086	94	1	166	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 28 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+61	Impl		5087	5200	100	1	175	syntax	Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation. Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value. Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator. Rust trait implementation: `Default` for `TPM_WNF_PROVISIONING`; Kotlin companion extension is not a trait implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.

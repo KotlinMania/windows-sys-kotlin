@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-06/files/Windows/Win32/System/Com/StructuredStorage/mod: 114 generated; 197 syntax candidates; 3 unsupported

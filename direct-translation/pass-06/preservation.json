@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "protected_paths": 105,
+  "changed_protected_paths": [],
+  "staged_diff_unchanged": true,
+  "baseline_sha256": "f71e83b8dd47a8042653a0b00c1313f984cf3ad855c1f742c63f2a4827324fa2",
+  "head_before": "52b2f3b"
+}

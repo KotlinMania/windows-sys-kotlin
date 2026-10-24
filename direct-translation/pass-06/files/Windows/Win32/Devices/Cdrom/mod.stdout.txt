@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-06/files/Windows/Win32/Devices/Cdrom/mod: 130 generated; 57 syntax candidates; 2 unsupported

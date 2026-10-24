@@ -1,0 +1,190 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro	FilterAttach	0	302	1	1	2	syntax	External declaration shape only: wire DLL=fltlib.dll, ABI=system, export=FilterAttach; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1	Macro	FilterAttachAtAltitude	303	655	2	1	6	syntax	External declaration shape only: wire DLL=fltlib.dll, ABI=system, export=FilterAttachAtAltitude; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+2	Macro	FilterClose	656	763	3	1	10	syntax	External declaration shape only: wire DLL=fltlib.dll, ABI=system, export=FilterClose; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+3	Macro	FilterConnectCommunicationPort	764	1147	4	1	14	syntax	External declaration shape only: wire DLL=fltlib.dll, ABI=system, export=FilterConnectCommunicationPort; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+4	Macro	FilterCreate	1148	1303	6	1	20	syntax	External declaration shape only: wire DLL=fltlib.dll, ABI=system, export=FilterCreate; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+5	Macro	FilterDetach	1304	1521	7	1	25	syntax	External declaration shape only: wire DLL=fltlib.dll, ABI=system, export=FilterDetach; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+6	Macro	FilterFindClose	1522	1663	8	1	29	syntax	External declaration shape only: wire DLL=fltlib.dll, ABI=system, export=FilterFindClose; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+7	Macro	FilterFindFirst	1664	1941	9	1	33	syntax	External declaration shape only: wire DLL=fltlib.dll, ABI=system, export=FilterFindFirst; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+8	Macro	FilterFindNext	1942	2212	10	1	38	syntax	External declaration shape only: wire DLL=fltlib.dll, ABI=system, export=FilterFindNext; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+9	Macro	FilterGetDosName	2213	2413	11	1	43	syntax	External declaration shape only: wire DLL=fltlib.dll, ABI=system, export=FilterGetDosName; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+10	Macro	FilterGetInformation	2414	2660	12	1	47	syntax	External declaration shape only: wire DLL=fltlib.dll, ABI=system, export=FilterGetInformation; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+11	Macro	FilterGetMessage	2661	2965	13	1	52	syntax	External declaration shape only: wire DLL=fltlib.dll, ABI=system, export=FilterGetMessage; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+12	Macro	FilterInstanceClose	2966	3092	15	1	58	syntax	External declaration shape only: wire DLL=fltlib.dll, ABI=system, export=FilterInstanceClose; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+13	Macro	FilterInstanceCreate	3093	3353	16	1	62	syntax	External declaration shape only: wire DLL=fltlib.dll, ABI=system, export=FilterInstanceCreate; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+14	Macro	FilterInstanceFindClose	3354	3511	17	1	67	syntax	External declaration shape only: wire DLL=fltlib.dll, ABI=system, export=FilterInstanceFindClose; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+15	Macro	FilterInstanceFindFirst	3512	3849	18	1	71	syntax	External declaration shape only: wire DLL=fltlib.dll, ABI=system, export=FilterInstanceFindFirst; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+16	Macro	FilterInstanceFindNext	3850	4138	19	1	76	syntax	External declaration shape only: wire DLL=fltlib.dll, ABI=system, export=FilterInstanceFindNext; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+17	Macro	FilterInstanceGetInformation	4139	4406	20	1	81	syntax	External declaration shape only: wire DLL=fltlib.dll, ABI=system, export=FilterInstanceGetInformation; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+18	Macro	FilterLoad	4407	4536	21	1	86	syntax	External declaration shape only: wire DLL=fltlib.dll, ABI=system, export=FilterLoad; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+19	Macro	FilterReplyMessage	4537	4744	22	1	90	syntax	External declaration shape only: wire DLL=fltlib.dll, ABI=system, export=FilterReplyMessage; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+20	Macro	FilterSendMessage	4745	5032	23	1	95	syntax	External declaration shape only: wire DLL=fltlib.dll, ABI=system, export=FilterSendMessage; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+21	Macro	FilterUnload	5033	5164	24	1	100	syntax	External declaration shape only: wire DLL=fltlib.dll, ABI=system, export=FilterUnload; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+22	Macro	FilterVolumeFindClose	5165	5312	25	1	104	syntax	External declaration shape only: wire DLL=fltlib.dll, ABI=system, export=FilterVolumeFindClose; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+23	Macro	FilterVolumeFindFirst	5313	5603	26	1	108	syntax	External declaration shape only: wire DLL=fltlib.dll, ABI=system, export=FilterVolumeFindFirst; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+24	Macro	FilterVolumeFindNext	5604	5887	27	1	113	syntax	External declaration shape only: wire DLL=fltlib.dll, ABI=system, export=FilterVolumeFindNext; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+25	Macro	FilterVolumeInstanceFindClose	5888	6051	28	1	118	syntax	External declaration shape only: wire DLL=fltlib.dll, ABI=system, export=FilterVolumeInstanceFindClose; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+26	Macro	FilterVolumeInstanceFindFirst	6052	6395	29	1	122	syntax	External declaration shape only: wire DLL=fltlib.dll, ABI=system, export=FilterVolumeInstanceFindFirst; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+27	Macro	FilterVolumeInstanceFindNext	6396	6690	30	1	127	syntax	External declaration shape only: wire DLL=fltlib.dll, ABI=system, export=FilterVolumeInstanceFindNext; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+28	Struct	FILTER_AGGREGATE_BASIC_INFORMATION	6691	6876	31	1	132	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+29	Impl		6877	7004	38	1	142	syntax	Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation. Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value. Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator. Rust trait implementation: `Default` for `FILTER_AGGREGATE_BASIC_INFORMATION`; Kotlin companion extension is not a trait implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+30	Union		7005	7211	43	1	152	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+31	Impl		7212	7341	49	1	160	syntax	Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation. Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value. Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator. Rust trait implementation: `Default` for `FILTER_AGGREGATE_BASIC_INFORMATION_0`; Kotlin companion extension is not a trait implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+32	Struct	FILTER_AGGREGATE_BASIC_INFORMATION_0_1	7342	7506	54	1	170	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+33	Struct	FILTER_AGGREGATE_BASIC_INFORMATION_0_0	7507	7801	60	1	178	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+34	Struct	FILTER_AGGREGATE_STANDARD_INFORMATION	7802	7993	70	1	190	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+35	Impl		7994	8124	77	1	200	syntax	Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation. Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value. Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator. Rust trait implementation: `Default` for `FILTER_AGGREGATE_STANDARD_INFORMATION`; Kotlin companion extension is not a trait implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+36	Union		8125	8340	82	1	210	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+37	Impl		8341	8473	88	1	218	syntax	Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation. Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value. Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator. Rust trait implementation: `Default` for `FILTER_AGGREGATE_STANDARD_INFORMATION_0`; Kotlin companion extension is not a trait implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+38	Struct	FILTER_AGGREGATE_STANDARD_INFORMATION_0_1	8474	8737	93	1	228	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+39	Struct	FILTER_AGGREGATE_STANDARD_INFORMATION_0_0	8738	9055	102	1	239	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+40	Struct	FILTER_FULL_INFORMATION	9056	9279	113	1	252	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+41	Impl		9280	9396	122	1	264	syntax	Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation. Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value. Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator. Rust trait implementation: `Default` for `FILTER_FULL_INFORMATION`; Kotlin companion extension is not a trait implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+42	ItemType	FILTER_INFORMATION_CLASS	9397	9437	127	1	274	generated	
+43	Struct	FILTER_MESSAGE_HEADER	9438	9567	128	1	275	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+44	Const	FILTER_NAME_MAX_CHARS	9568	9614	134	1	283	generated	
+45	Struct	FILTER_REPLY_HEADER	9615	9768	135	1	284	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+46	Struct	FILTER_VOLUME_BASIC_INFORMATION	9769	9922	141	1	293	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+47	Impl		9923	10047	147	1	302	syntax	Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation. Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value. Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator. Rust trait implementation: `Default` for `FILTER_VOLUME_BASIC_INFORMATION`; Kotlin companion extension is not a trait implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+48	ItemType	FILTER_VOLUME_INFORMATION_CLASS	10048	10095	152	1	312	generated	
+49	Struct	FILTER_VOLUME_STANDARD_INFORMATION	10096	10369	153	1	313	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+50	Impl		10370	10497	163	1	327	syntax	Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation. Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value. Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator. Rust trait implementation: `Default` for `FILTER_VOLUME_STANDARD_INFORMATION`; Kotlin companion extension is not a trait implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+51	Const	FLTFL_AGGREGATE_INFO_IS_LEGACYFILTER	10498	10557	168	1	337	generated	
+52	Const	FLTFL_AGGREGATE_INFO_IS_MINIFILTER	10558	10615	169	1	338	generated	
+53	Const	FLTFL_ASI_IS_LEGACYFILTER	10616	10664	170	1	339	generated	
+54	Const	FLTFL_ASI_IS_MINIFILTER	10665	10711	171	1	340	generated	
+55	Const	FLTFL_IASIL_DETACHED_VOLUME	10712	10762	172	1	341	generated	
+56	Const	FLTFL_IASIM_DETACHED_VOLUME	10763	10813	173	1	342	generated	
+57	Const	FLTFL_IASI_IS_LEGACYFILTER	10814	10863	174	1	343	generated	
+58	Const	FLTFL_IASI_IS_MINIFILTER	10864	10911	175	1	344	generated	
+59	Const	FLTFL_VSI_DETACHED_VOLUME	10912	10960	176	1	345	generated	
+60	ItemType	FLT_FILESYSTEM_TYPE	10961	10996	177	1	346	generated	
+61	Const	FLT_FSTYPE_BSUDF	10997	11053	178	1	347	generated	
+62	Const	FLT_FSTYPE_CDFS	11054	11108	179	1	348	generated	
+63	Const	FLT_FSTYPE_CIMFS	11109	11165	180	1	349	generated	
+64	Const	FLT_FSTYPE_CSVFS	11166	11222	181	1	350	generated	
+65	Const	FLT_FSTYPE_EXFAT	11223	11279	182	1	351	generated	
+66	Const	FLT_FSTYPE_FAT	11280	11333	183	1	352	generated	
+67	Const	FLT_FSTYPE_FS_REC	11334	11391	184	1	353	generated	
+68	Const	FLT_FSTYPE_GPFS	11392	11447	185	1	354	generated	
+69	Const	FLT_FSTYPE_INCD	11448	11503	186	1	355	generated	
+70	Const	FLT_FSTYPE_INCD_FAT	11504	11563	187	1	356	generated	
+71	Const	FLT_FSTYPE_LANMAN	11564	11620	188	1	357	generated	
+72	Const	FLT_FSTYPE_MSFS	11621	11676	189	1	358	generated	
+73	Const	FLT_FSTYPE_MS_NETWARE	11677	11738	190	1	359	generated	
+74	Const	FLT_FSTYPE_MUP	11739	11793	191	1	360	generated	
+75	Const	FLT_FSTYPE_NETWARE	11794	11852	192	1	361	generated	
+76	Const	FLT_FSTYPE_NFS	11853	11906	193	1	362	generated	
+77	Const	FLT_FSTYPE_NPFS	11907	11962	194	1	363	generated	
+78	Const	FLT_FSTYPE_NTFS	11963	12017	195	1	364	generated	
+79	Const	FLT_FSTYPE_OPENAFS	12018	12076	196	1	365	generated	
+80	Const	FLT_FSTYPE_PSFS	12077	12132	197	1	366	generated	
+81	Const	FLT_FSTYPE_RAW	12133	12186	198	1	367	generated	
+82	Const	FLT_FSTYPE_RDPDR	12187	12242	199	1	368	generated	
+83	Const	FLT_FSTYPE_REFS	12243	12298	200	1	369	generated	
+84	Const	FLT_FSTYPE_ROXIO_UDF1	12299	12360	201	1	370	generated	
+85	Const	FLT_FSTYPE_ROXIO_UDF2	12361	12422	202	1	371	generated	
+86	Const	FLT_FSTYPE_ROXIO_UDF3	12423	12484	203	1	372	generated	
+87	Const	FLT_FSTYPE_RSFX	12485	12540	204	1	373	generated	
+88	Const	FLT_FSTYPE_TACIT	12541	12597	205	1	374	generated	
+89	Const	FLT_FSTYPE_UDFS	12598	12652	206	1	375	generated	
+90	Const	FLT_FSTYPE_UNKNOWN	12653	12710	207	1	376	generated	
+91	Const	FLT_FSTYPE_WEBDAV	12711	12767	208	1	377	generated	
+92	Const	FLT_PORT_FLAG_SYNC_HANDLE	12768	12816	209	1	378	generated	
+93	Const	FilterAggregateBasicInformation	12817	12892	210	1	379	generated	
+94	Const	FilterAggregateStandardInformation	12893	12971	211	1	380	generated	
+95	Const	FilterFullInformation	12972	13037	212	1	381	generated	
+96	Const	FilterVolumeBasicInformation	13038	13117	213	1	382	generated	
+97	Const	FilterVolumeStandardInformation	13118	13200	214	1	383	generated	
+98	ItemType	HFILTER	13201	13226	215	1	384	generated	
+99	ItemType	HFILTER_INSTANCE	13227	13261	216	1	385	generated	
+100	Struct	INSTANCE_AGGREGATE_STANDARD_INFORMATION	13262	13457	217	1	386	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+101	Impl		13458	13590	224	1	396	syntax	Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation. Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value. Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator. Rust trait implementation: `Default` for `INSTANCE_AGGREGATE_STANDARD_INFORMATION`; Kotlin companion extension is not a trait implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+102	Union		13591	13812	229	1	406	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+103	Impl		13813	13947	235	1	414	syntax	Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation. Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value. Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator. Rust trait implementation: `Default` for `INSTANCE_AGGREGATE_STANDARD_INFORMATION_0`; Kotlin companion extension is not a trait implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+104	Struct	INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1	13948	14301	240	1	424	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+105	Struct	INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0	14302	14800	252	1	438	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+106	Struct	INSTANCE_BASIC_INFORMATION	14801	14987	268	1	457	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+107	Struct	INSTANCE_FULL_INFORMATION	14988	15373	275	1	466	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+108	ItemType	INSTANCE_INFORMATION_CLASS	15374	15416	288	1	481	generated	
+109	Const	INSTANCE_NAME_MAX_CHARS	15417	15465	289	1	482	generated	
+110	Struct	INSTANCE_PARTIAL_INFORMATION	15466	15718	290	1	483	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+111	Const	InstanceAggregateStandardInformation	15719	15801	299	1	494	generated	
+112	Const	InstanceBasicInformation	15802	15872	300	1	495	generated	
+113	Const	InstanceFullInformation	15873	15942	301	1	496	generated	
+114	Const	InstancePartialInformation	15943	16015	302	1	497	generated	
+115	Const	VOLUME_NAME_MAX_CHARS	16016	16063	303	1	498	generated	
+116	Const	WNNC_CRED_MANAGER	16064	16113	304	1	499	generated	
+117	Const	WNNC_NET_10NET	16114	16156	305	1	500	generated	
+118	Const	WNNC_NET_3IN1	16157	16199	306	1	501	generated	
+119	Const	WNNC_NET_9P	16200	16240	307	1	502	generated	
+120	Const	WNNC_NET_9TILES	16241	16284	308	1	503	generated	
+121	Const	WNNC_NET_APPLETALK	16285	16332	309	1	504	generated	
+122	Const	WNNC_NET_AS400	16333	16375	310	1	505	generated	
+123	Const	WNNC_NET_AURISTOR_FS	16376	16425	311	1	506	generated	
+124	Const	WNNC_NET_AVID	16426	16468	312	1	507	generated	
+125	Const	WNNC_NET_AVID1	16469	16512	313	1	508	generated	
+126	Const	WNNC_NET_BMC	16513	16554	314	1	509	generated	
+127	Const	WNNC_NET_BWNFS	16555	16598	315	1	510	generated	
+128	Const	WNNC_NET_CLEARCASE	16599	16646	316	1	511	generated	
+129	Const	WNNC_NET_COGENT	16647	16691	317	1	512	generated	
+130	Const	WNNC_NET_CSC	16692	16733	318	1	513	generated	
+131	Const	WNNC_NET_DAV	16734	16775	319	1	514	generated	
+132	Const	WNNC_NET_DCE	16776	16817	320	1	515	generated	
+133	Const	WNNC_NET_DECORB	16818	16862	321	1	516	generated	
+134	Const	WNNC_NET_DFS	16863	16904	322	1	517	generated	
+135	Const	WNNC_NET_DISTINCT	16905	16951	323	1	518	generated	
+136	Const	WNNC_NET_DOCUSHARE	16952	16999	324	1	519	generated	
+137	Const	WNNC_NET_DOCUSPACE	17000	17047	325	1	520	generated	
+138	Const	WNNC_NET_DRIVEONWEB	17048	17096	326	1	521	generated	
+139	Const	WNNC_NET_EXIFS	17097	17140	327	1	522	generated	
+140	Const	WNNC_NET_EXTENDNET	17141	17188	328	1	523	generated	
+141	Const	WNNC_NET_FARALLON	17189	17235	329	1	524	generated	
+142	Const	WNNC_NET_FJ_REDIR	17236	17282	330	1	525	generated	
+143	Const	WNNC_NET_FOXBAT	17283	17327	331	1	526	generated	
+144	Const	WNNC_NET_FRONTIER	17328	17374	332	1	527	generated	
+145	Const	WNNC_NET_FTP_NFS	17375	17419	333	1	528	generated	
+146	Const	WNNC_NET_GOOGLE	17420	17464	334	1	529	generated	
+147	Const	WNNC_NET_HOB_NFS	17465	17510	335	1	530	generated	
+148	Const	WNNC_NET_IBMAL	17511	17554	336	1	531	generated	
+149	Const	WNNC_NET_INTERGRAPH	17555	17603	337	1	532	generated	
+150	Const	WNNC_NET_KNOWARE	17604	17649	338	1	533	generated	
+151	Const	WNNC_NET_KWNP	17650	17692	339	1	534	generated	
+152	Const	WNNC_NET_LANMAN	17693	17736	340	1	535	generated	
+153	Const	WNNC_NET_LANSTEP	17737	17781	341	1	536	generated	
+154	Const	WNNC_NET_LANTASTIC	17782	17828	342	1	537	generated	
+155	Const	WNNC_NET_LIFENET	17829	17873	343	1	538	generated	
+156	Const	WNNC_NET_LOCK	17874	17916	344	1	539	generated	
+157	Const	WNNC_NET_LOCUS	17917	17959	345	1	540	generated	
+158	Const	WNNC_NET_MANGOSOFT	17960	18007	346	1	541	generated	
+159	Const	WNNC_NET_MASFAX	18008	18052	347	1	542	generated	
+160	Const	WNNC_NET_MFILES	18053	18097	348	1	543	generated	
+161	Const	WNNC_NET_MSNET	18098	18139	349	1	544	generated	
+162	Const	WNNC_NET_MS_NFS	18140	18184	350	1	545	generated	
+163	Const	WNNC_NET_NDFS	18185	18227	351	1	546	generated	
+164	Const	WNNC_NET_NETWARE	18228	18272	352	1	547	generated	
+165	Const	WNNC_NET_OBJECT_DIRE	18273	18322	353	1	548	generated	
+166	Const	WNNC_NET_OPENAFS	18323	18368	354	1	549	generated	
+167	Const	WNNC_NET_PATHWORKS	18369	18415	355	1	550	generated	
+168	Const	WNNC_NET_POWERLAN	18416	18461	356	1	551	generated	
+169	Const	WNNC_NET_PROTSTOR	18462	18508	357	1	552	generated	
+170	Const	WNNC_NET_QUINCY	18509	18553	358	1	553	generated	
+171	Const	WNNC_NET_RDR2SAMPLE	18554	18602	359	1	554	generated	
+172	Const	WNNC_NET_RIVERFRONT1	18603	18652	360	1	555	generated	
+173	Const	WNNC_NET_RIVERFRONT2	18653	18702	361	1	556	generated	
+174	Const	WNNC_NET_RSFX	18703	18745	362	1	557	generated	
+175	Const	WNNC_NET_SECUREAGENT	18746	18795	363	1	558	generated	
+176	Const	WNNC_NET_SERNET	18796	18840	364	1	559	generated	
+177	Const	WNNC_NET_SHIVA	18841	18884	365	1	560	generated	
+178	Const	WNNC_NET_SMB	18885	18925	366	1	561	generated	
+179	Const	WNNC_NET_SRT	18926	18967	367	1	562	generated	
+180	Const	WNNC_NET_STAC	18968	19010	368	1	563	generated	
+181	Const	WNNC_NET_SUN_PC_NFS	19011	19058	369	1	564	generated	
+182	Const	WNNC_NET_SYMFONET	19059	19105	370	1	565	generated	
+183	Const	WNNC_NET_TERMSRV	19106	19151	371	1	566	generated	
+184	Const	WNNC_NET_TWINS	19152	19195	372	1	567	generated	
+185	Const	WNNC_NET_VINES	19196	19238	373	1	568	generated	
+186	Const	WNNC_NET_VMWARE	19239	19283	374	1	569	generated	
+187	Const	WNNC_NET_YAHOO	19284	19327	375	1	570	generated	
+188	Const	WNNC_NET_ZENWORKS	19328	19374	376	1	571	generated	

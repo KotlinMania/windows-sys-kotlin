@@ -1,0 +1,16 @@
+--- ../windows-sys-kotlin/direct-translation/comparisons-pass-06/port-snapshots/io/github/kotlinmania/windowssys/windows/win32/devices/enumeration/Enumeration.kt	2026-10-24 15:45:29
++++ ../windows-sys-kotlin/direct-translation/pass-06/files/Windows/Win32/Devices/Enumeration/mod/candidate.kt	2026-10-24 15:40:16
+@@ -1,9 +1,5 @@
+-// port-lint: source Windows/Win32/Devices/Enumeration/mod.rs
+-package io.github.kotlinmania.windowssys.windows.win32.devices.enumeration
++// DIRECT DECLARATION CANDIDATE: unsupported Rust remains below; not adopted or ABI-validated.
++// UNSUPPORTED Rust 1:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
++// #[cfg(feature = "Win32_Devices_Enumeration_Pnp")]
++// pub mod Pnp;
+ 
+-// Re-export shim — see windows/Windows.kt for the per-AGENTS.md ledger rationale.
+-// The `Pnp` submodule lives at io.github.kotlinmania.windowssys.windows.win32
+-// .devices.enumeration.pnp.* — callers import from there directly.
+-//
+-// Callers migrated:
+-// (none yet)

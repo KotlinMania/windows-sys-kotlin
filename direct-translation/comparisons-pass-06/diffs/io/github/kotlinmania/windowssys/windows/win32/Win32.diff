@@ -1,0 +1,70 @@
+--- ../windows-sys-kotlin/direct-translation/comparisons-pass-06/port-snapshots/io/github/kotlinmania/windowssys/windows/win32/Win32.kt	2026-10-24 15:45:29
++++ ../windows-sys-kotlin/direct-translation/pass-06/files/Windows/Win32/mod/candidate.kt	2026-10-24 15:40:16
+@@ -1,7 +1,61 @@
+-// port-lint: source Windows/Win32/mod.rs
+-package io.github.kotlinmania.windowssys.windows.win32
++// DIRECT DECLARATION CANDIDATE: unsupported Rust remains below; not adopted or ABI-validated.
++// UNSUPPORTED Rust 1:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
++// #[cfg(feature = "Win32_Data")]
++// pub mod Data;
+ 
+-// Re-export shim — see windows/Windows.kt for the per-AGENTS.md ledger rationale.
+-//
+-// Callers migrated:
+-// (none yet)
++// UNSUPPORTED Rust 3:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
++// #[cfg(feature = "Win32_Devices")]
++// pub mod Devices;
++
++// UNSUPPORTED Rust 5:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
++// #[cfg(feature = "Win32_Foundation")]
++// pub mod Foundation;
++
++// UNSUPPORTED Rust 7:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
++// #[cfg(feature = "Win32_Gaming")]
++// pub mod Gaming;
++
++// UNSUPPORTED Rust 9:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
++// #[cfg(feature = "Win32_Globalization")]
++// pub mod Globalization;
++
++// UNSUPPORTED Rust 11:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
++// #[cfg(feature = "Win32_Graphics")]
++// pub mod Graphics;
++
++// UNSUPPORTED Rust 13:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
++// #[cfg(feature = "Win32_Management")]
++// pub mod Management;
++
++// UNSUPPORTED Rust 15:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
++// #[cfg(feature = "Win32_Media")]
++// pub mod Media;
++
++// UNSUPPORTED Rust 17:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
++// #[cfg(feature = "Win32_NetworkManagement")]
++// pub mod NetworkManagement;
++
++// UNSUPPORTED Rust 19:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
++// #[cfg(feature = "Win32_Networking")]
++// pub mod Networking;
++
++// UNSUPPORTED Rust 21:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
++// #[cfg(feature = "Win32_Security")]
++// pub mod Security;
++
++// UNSUPPORTED Rust 23:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
++// #[cfg(feature = "Win32_Storage")]
++// pub mod Storage;
++
++// UNSUPPORTED Rust 25:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
++// #[cfg(feature = "Win32_System")]
++// pub mod System;
++
++// UNSUPPORTED Rust 27:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
++// #[cfg(feature = "Win32_UI")]
++// pub mod UI;
++
++// UNSUPPORTED Rust 29:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
++// #[cfg(feature = "Win32_Web")]
++// pub mod Web;
++

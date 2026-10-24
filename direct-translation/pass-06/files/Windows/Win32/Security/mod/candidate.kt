@@ -1,0 +1,2589 @@
+// DIRECT DECLARATION CANDIDATE: unsupported Rust remains below; not adopted or ABI-validated.
+// UNSUPPORTED Rust 1:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+// #[cfg(feature = "Win32_Security_AppLocker")]
+// pub mod AppLocker;
+
+// UNSUPPORTED Rust 3:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+// #[cfg(feature = "Win32_Security_Authentication")]
+// pub mod Authentication;
+
+// UNSUPPORTED Rust 5:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+// #[cfg(feature = "Win32_Security_Authorization")]
+// pub mod Authorization;
+
+// UNSUPPORTED Rust 7:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+// #[cfg(feature = "Win32_Security_Credentials")]
+// pub mod Credentials;
+
+// UNSUPPORTED Rust 9:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+// #[cfg(feature = "Win32_Security_Cryptography")]
+// pub mod Cryptography;
+
+// UNSUPPORTED Rust 11:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+// #[cfg(feature = "Win32_Security_DiagnosticDataQuery")]
+// pub mod DiagnosticDataQuery;
+
+// UNSUPPORTED Rust 13:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+// #[cfg(feature = "Win32_Security_DirectoryServices")]
+// pub mod DirectoryServices;
+
+// UNSUPPORTED Rust 15:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+// #[cfg(feature = "Win32_Security_EnterpriseData")]
+// pub mod EnterpriseData;
+
+// UNSUPPORTED Rust 17:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+// #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
+// pub mod ExtensibleAuthenticationProtocol;
+
+// UNSUPPORTED Rust 19:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+// #[cfg(feature = "Win32_Security_Isolation")]
+// pub mod Isolation;
+
+// UNSUPPORTED Rust 21:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+// #[cfg(feature = "Win32_Security_LicenseProtection")]
+// pub mod LicenseProtection;
+
+// UNSUPPORTED Rust 23:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+// #[cfg(feature = "Win32_Security_NetworkAccessProtection")]
+// pub mod NetworkAccessProtection;
+
+// UNSUPPORTED Rust 25:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+// #[cfg(feature = "Win32_Security_WinTrust")]
+// pub mod WinTrust;
+
+// UNSUPPORTED Rust 27:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+// #[cfg(feature = "Win32_Security_WinWlx")]
+// pub mod WinWlx;
+
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=AccessCheck; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AccessCheck`(`psecuritydescriptor` : `PSECURITY_DESCRIPTOR`, `clienttoken` : `super`.`Foundation`.`HANDLE`, `desiredaccess` : UInt, `genericmapping` : /* Rust *const */ kotlinx.cinterop.CPointer<`GENERIC_MAPPING`>?, `privilegeset` : /* Rust *mut */ kotlinx.cinterop.CPointer<`PRIVILEGE_SET`>?, `privilegesetlength` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `grantedaccess` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `accessstatus` : /* Rust *mut */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`BOOL`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=AccessCheckAndAuditAlarmA; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AccessCheckAndAuditAlarmA`(`subsystemname` : `windows_sys`.`core`.`PCSTR`, `handleid` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `objecttypename` : `windows_sys`.`core`.`PCSTR`, `objectname` : `windows_sys`.`core`.`PCSTR`, `securitydescriptor` : `PSECURITY_DESCRIPTOR`, `desiredaccess` : UInt, `genericmapping` : /* Rust *const */ kotlinx.cinterop.CPointer<`GENERIC_MAPPING`>?, `objectcreation` : `windows_sys`.`core`.`BOOL`, `grantedaccess` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `accessstatus` : /* Rust *mut */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`BOOL`>?, `pfgenerateonclose` : /* Rust *mut */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`BOOL`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=AccessCheckAndAuditAlarmW; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AccessCheckAndAuditAlarmW`(`subsystemname` : `windows_sys`.`core`.`PCWSTR`, `handleid` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `objecttypename` : `windows_sys`.`core`.`PCWSTR`, `objectname` : `windows_sys`.`core`.`PCWSTR`, `securitydescriptor` : `PSECURITY_DESCRIPTOR`, `desiredaccess` : UInt, `genericmapping` : /* Rust *const */ kotlinx.cinterop.CPointer<`GENERIC_MAPPING`>?, `objectcreation` : `windows_sys`.`core`.`BOOL`, `grantedaccess` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `accessstatus` : /* Rust *mut */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`BOOL`>?, `pfgenerateonclose` : /* Rust *mut */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`BOOL`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=AccessCheckByType; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AccessCheckByType`(`psecuritydescriptor` : `PSECURITY_DESCRIPTOR`, `principalselfsid` : `PSID`, `clienttoken` : `super`.`Foundation`.`HANDLE`, `desiredaccess` : UInt, `objecttypelist` : /* Rust *mut */ kotlinx.cinterop.CPointer<`OBJECT_TYPE_LIST`>?, `objecttypelistlength` : UInt, `genericmapping` : /* Rust *const */ kotlinx.cinterop.CPointer<`GENERIC_MAPPING`>?, `privilegeset` : /* Rust *mut */ kotlinx.cinterop.CPointer<`PRIVILEGE_SET`>?, `privilegesetlength` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `grantedaccess` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `accessstatus` : /* Rust *mut */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`BOOL`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=AccessCheckByTypeAndAuditAlarmA; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AccessCheckByTypeAndAuditAlarmA`(`subsystemname` : `windows_sys`.`core`.`PCSTR`, `handleid` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `objecttypename` : `windows_sys`.`core`.`PCSTR`, `objectname` : `windows_sys`.`core`.`PCSTR`, `securitydescriptor` : `PSECURITY_DESCRIPTOR`, `principalselfsid` : `PSID`, `desiredaccess` : UInt, `audittype` : `AUDIT_EVENT_TYPE`, `flags` : UInt, `objecttypelist` : /* Rust *mut */ kotlinx.cinterop.CPointer<`OBJECT_TYPE_LIST`>?, `objecttypelistlength` : UInt, `genericmapping` : /* Rust *const */ kotlinx.cinterop.CPointer<`GENERIC_MAPPING`>?, `objectcreation` : `windows_sys`.`core`.`BOOL`, `grantedaccess` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `accessstatus` : /* Rust *mut */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`BOOL`>?, `pfgenerateonclose` : /* Rust *mut */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`BOOL`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=AccessCheckByTypeAndAuditAlarmW; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AccessCheckByTypeAndAuditAlarmW`(`subsystemname` : `windows_sys`.`core`.`PCWSTR`, `handleid` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `objecttypename` : `windows_sys`.`core`.`PCWSTR`, `objectname` : `windows_sys`.`core`.`PCWSTR`, `securitydescriptor` : `PSECURITY_DESCRIPTOR`, `principalselfsid` : `PSID`, `desiredaccess` : UInt, `audittype` : `AUDIT_EVENT_TYPE`, `flags` : UInt, `objecttypelist` : /* Rust *mut */ kotlinx.cinterop.CPointer<`OBJECT_TYPE_LIST`>?, `objecttypelistlength` : UInt, `genericmapping` : /* Rust *const */ kotlinx.cinterop.CPointer<`GENERIC_MAPPING`>?, `objectcreation` : `windows_sys`.`core`.`BOOL`, `grantedaccess` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `accessstatus` : /* Rust *mut */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`BOOL`>?, `pfgenerateonclose` : /* Rust *mut */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`BOOL`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=AccessCheckByTypeResultList; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AccessCheckByTypeResultList`(`psecuritydescriptor` : `PSECURITY_DESCRIPTOR`, `principalselfsid` : `PSID`, `clienttoken` : `super`.`Foundation`.`HANDLE`, `desiredaccess` : UInt, `objecttypelist` : /* Rust *mut */ kotlinx.cinterop.CPointer<`OBJECT_TYPE_LIST`>?, `objecttypelistlength` : UInt, `genericmapping` : /* Rust *const */ kotlinx.cinterop.CPointer<`GENERIC_MAPPING`>?, `privilegeset` : /* Rust *mut */ kotlinx.cinterop.CPointer<`PRIVILEGE_SET`>?, `privilegesetlength` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `grantedaccesslist` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `accessstatuslist` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=AccessCheckByTypeResultListAndAuditAlarmA; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AccessCheckByTypeResultListAndAuditAlarmA`(`subsystemname` : `windows_sys`.`core`.`PCSTR`, `handleid` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `objecttypename` : `windows_sys`.`core`.`PCSTR`, `objectname` : `windows_sys`.`core`.`PCSTR`, `securitydescriptor` : `PSECURITY_DESCRIPTOR`, `principalselfsid` : `PSID`, `desiredaccess` : UInt, `audittype` : `AUDIT_EVENT_TYPE`, `flags` : UInt, `objecttypelist` : /* Rust *mut */ kotlinx.cinterop.CPointer<`OBJECT_TYPE_LIST`>?, `objecttypelistlength` : UInt, `genericmapping` : /* Rust *const */ kotlinx.cinterop.CPointer<`GENERIC_MAPPING`>?, `objectcreation` : `windows_sys`.`core`.`BOOL`, `grantedaccess` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `accessstatuslist` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `pfgenerateonclose` : /* Rust *mut */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`BOOL`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=AccessCheckByTypeResultListAndAuditAlarmByHandleA; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AccessCheckByTypeResultListAndAuditAlarmByHandleA`(`subsystemname` : `windows_sys`.`core`.`PCSTR`, `handleid` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `clienttoken` : `super`.`Foundation`.`HANDLE`, `objecttypename` : `windows_sys`.`core`.`PCSTR`, `objectname` : `windows_sys`.`core`.`PCSTR`, `securitydescriptor` : `PSECURITY_DESCRIPTOR`, `principalselfsid` : `PSID`, `desiredaccess` : UInt, `audittype` : `AUDIT_EVENT_TYPE`, `flags` : UInt, `objecttypelist` : /* Rust *mut */ kotlinx.cinterop.CPointer<`OBJECT_TYPE_LIST`>?, `objecttypelistlength` : UInt, `genericmapping` : /* Rust *const */ kotlinx.cinterop.CPointer<`GENERIC_MAPPING`>?, `objectcreation` : `windows_sys`.`core`.`BOOL`, `grantedaccess` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `accessstatuslist` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `pfgenerateonclose` : /* Rust *mut */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`BOOL`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=AccessCheckByTypeResultListAndAuditAlarmByHandleW; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AccessCheckByTypeResultListAndAuditAlarmByHandleW`(`subsystemname` : `windows_sys`.`core`.`PCWSTR`, `handleid` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `clienttoken` : `super`.`Foundation`.`HANDLE`, `objecttypename` : `windows_sys`.`core`.`PCWSTR`, `objectname` : `windows_sys`.`core`.`PCWSTR`, `securitydescriptor` : `PSECURITY_DESCRIPTOR`, `principalselfsid` : `PSID`, `desiredaccess` : UInt, `audittype` : `AUDIT_EVENT_TYPE`, `flags` : UInt, `objecttypelist` : /* Rust *mut */ kotlinx.cinterop.CPointer<`OBJECT_TYPE_LIST`>?, `objecttypelistlength` : UInt, `genericmapping` : /* Rust *const */ kotlinx.cinterop.CPointer<`GENERIC_MAPPING`>?, `objectcreation` : `windows_sys`.`core`.`BOOL`, `grantedaccesslist` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `accessstatuslist` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `pfgenerateonclose` : /* Rust *mut */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`BOOL`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=AccessCheckByTypeResultListAndAuditAlarmW; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AccessCheckByTypeResultListAndAuditAlarmW`(`subsystemname` : `windows_sys`.`core`.`PCWSTR`, `handleid` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `objecttypename` : `windows_sys`.`core`.`PCWSTR`, `objectname` : `windows_sys`.`core`.`PCWSTR`, `securitydescriptor` : `PSECURITY_DESCRIPTOR`, `principalselfsid` : `PSID`, `desiredaccess` : UInt, `audittype` : `AUDIT_EVENT_TYPE`, `flags` : UInt, `objecttypelist` : /* Rust *mut */ kotlinx.cinterop.CPointer<`OBJECT_TYPE_LIST`>?, `objecttypelistlength` : UInt, `genericmapping` : /* Rust *const */ kotlinx.cinterop.CPointer<`GENERIC_MAPPING`>?, `objectcreation` : `windows_sys`.`core`.`BOOL`, `grantedaccesslist` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `accessstatuslist` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `pfgenerateonclose` : /* Rust *mut */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`BOOL`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=AddAccessAllowedAce; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AddAccessAllowedAce`(`pacl` : /* Rust *mut */ kotlinx.cinterop.CPointer<`ACL`>?, `dwacerevision` : `ACE_REVISION`, `accessmask` : UInt, `psid` : `PSID`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=AddAccessAllowedAceEx; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AddAccessAllowedAceEx`(`pacl` : /* Rust *mut */ kotlinx.cinterop.CPointer<`ACL`>?, `dwacerevision` : `ACE_REVISION`, `aceflags` : `ACE_FLAGS`, `accessmask` : UInt, `psid` : `PSID`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=AddAccessAllowedObjectAce; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AddAccessAllowedObjectAce`(`pacl` : /* Rust *mut */ kotlinx.cinterop.CPointer<`ACL`>?, `dwacerevision` : `ACE_REVISION`, `aceflags` : `ACE_FLAGS`, `accessmask` : UInt, `objecttypeguid` : /* Rust *const */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`GUID`>?, `inheritedobjecttypeguid` : /* Rust *const */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`GUID`>?, `psid` : `PSID`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=AddAccessDeniedAce; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AddAccessDeniedAce`(`pacl` : /* Rust *mut */ kotlinx.cinterop.CPointer<`ACL`>?, `dwacerevision` : `ACE_REVISION`, `accessmask` : UInt, `psid` : `PSID`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=AddAccessDeniedAceEx; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AddAccessDeniedAceEx`(`pacl` : /* Rust *mut */ kotlinx.cinterop.CPointer<`ACL`>?, `dwacerevision` : `ACE_REVISION`, `aceflags` : `ACE_FLAGS`, `accessmask` : UInt, `psid` : `PSID`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=AddAccessDeniedObjectAce; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AddAccessDeniedObjectAce`(`pacl` : /* Rust *mut */ kotlinx.cinterop.CPointer<`ACL`>?, `dwacerevision` : `ACE_REVISION`, `aceflags` : `ACE_FLAGS`, `accessmask` : UInt, `objecttypeguid` : /* Rust *const */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`GUID`>?, `inheritedobjecttypeguid` : /* Rust *const */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`GUID`>?, `psid` : `PSID`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=AddAce; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AddAce`(`pacl` : /* Rust *mut */ kotlinx.cinterop.CPointer<`ACL`>?, `dwacerevision` : `ACE_REVISION`, `dwstartingaceindex` : UInt, `pacelist` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `nacelistlength` : UInt) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=AddAuditAccessAce; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AddAuditAccessAce`(`pacl` : /* Rust *mut */ kotlinx.cinterop.CPointer<`ACL`>?, `dwacerevision` : `ACE_REVISION`, `dwaccessmask` : UInt, `psid` : `PSID`, `bauditsuccess` : `windows_sys`.`core`.`BOOL`, `bauditfailure` : `windows_sys`.`core`.`BOOL`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=AddAuditAccessAceEx; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AddAuditAccessAceEx`(`pacl` : /* Rust *mut */ kotlinx.cinterop.CPointer<`ACL`>?, `dwacerevision` : `ACE_REVISION`, `aceflags` : `ACE_FLAGS`, `dwaccessmask` : UInt, `psid` : `PSID`, `bauditsuccess` : `windows_sys`.`core`.`BOOL`, `bauditfailure` : `windows_sys`.`core`.`BOOL`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=AddAuditAccessObjectAce; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AddAuditAccessObjectAce`(`pacl` : /* Rust *mut */ kotlinx.cinterop.CPointer<`ACL`>?, `dwacerevision` : `ACE_REVISION`, `aceflags` : `ACE_FLAGS`, `accessmask` : UInt, `objecttypeguid` : /* Rust *const */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`GUID`>?, `inheritedobjecttypeguid` : /* Rust *const */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`GUID`>?, `psid` : `PSID`, `bauditsuccess` : `windows_sys`.`core`.`BOOL`, `bauditfailure` : `windows_sys`.`core`.`BOOL`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=AddConditionalAce; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AddConditionalAce`(`pacl` : /* Rust *mut */ kotlinx.cinterop.CPointer<`ACL`>?, `dwacerevision` : `ACE_REVISION`, `aceflags` : `ACE_FLAGS`, `acetype` : UByte, `accessmask` : UInt, `psid` : `PSID`, `conditionstr` : `windows_sys`.`core`.`PCWSTR`, `returnlength` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=AddMandatoryAce; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AddMandatoryAce`(`pacl` : /* Rust *mut */ kotlinx.cinterop.CPointer<`ACL`>?, `dwacerevision` : `ACE_REVISION`, `aceflags` : `ACE_FLAGS`, `mandatorypolicy` : UInt, `plabelsid` : `PSID`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=AddResourceAttributeAce; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AddResourceAttributeAce`(`pacl` : /* Rust *mut */ kotlinx.cinterop.CPointer<`ACL`>?, `dwacerevision` : `ACE_REVISION`, `aceflags` : `ACE_FLAGS`, `accessmask` : UInt, `psid` : `PSID`, `pattributeinfo` : /* Rust *const */ kotlinx.cinterop.CPointer<`CLAIM_SECURITY_ATTRIBUTES_INFORMATION`>?, `preturnlength` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=AddScopedPolicyIDAce; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AddScopedPolicyIDAce`(`pacl` : /* Rust *mut */ kotlinx.cinterop.CPointer<`ACL`>?, `dwacerevision` : `ACE_REVISION`, `aceflags` : `ACE_FLAGS`, `accessmask` : UInt, `psid` : `PSID`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=AdjustTokenGroups; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AdjustTokenGroups`(`tokenhandle` : `super`.`Foundation`.`HANDLE`, `resettodefault` : `windows_sys`.`core`.`BOOL`, `newstate` : /* Rust *const */ kotlinx.cinterop.CPointer<`TOKEN_GROUPS`>?, `bufferlength` : UInt, `previousstate` : /* Rust *mut */ kotlinx.cinterop.CPointer<`TOKEN_GROUPS`>?, `returnlength` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=AdjustTokenPrivileges; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AdjustTokenPrivileges`(`tokenhandle` : `super`.`Foundation`.`HANDLE`, `disableallprivileges` : `windows_sys`.`core`.`BOOL`, `newstate` : /* Rust *const */ kotlinx.cinterop.CPointer<`TOKEN_PRIVILEGES`>?, `bufferlength` : UInt, `previousstate` : /* Rust *mut */ kotlinx.cinterop.CPointer<`TOKEN_PRIVILEGES`>?, `returnlength` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=AllocateAndInitializeSid; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AllocateAndInitializeSid`(`pidentifierauthority` : /* Rust *const */ kotlinx.cinterop.CPointer<`SID_IDENTIFIER_AUTHORITY`>?, `nsubauthoritycount` : UByte, `nsubauthority0` : UInt, `nsubauthority1` : UInt, `nsubauthority2` : UInt, `nsubauthority3` : UInt, `nsubauthority4` : UInt, `nsubauthority5` : UInt, `nsubauthority6` : UInt, `nsubauthority7` : UInt, `psid` : /* Rust *mut */ kotlinx.cinterop.CPointer<`PSID`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=AllocateLocallyUniqueId; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AllocateLocallyUniqueId`(`luid` : /* Rust *mut */ kotlinx.cinterop.CPointer<`super`.`Foundation`.`LUID`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=AreAllAccessesGranted; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AreAllAccessesGranted`(`grantedaccess` : UInt, `desiredaccess` : UInt) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=AreAnyAccessesGranted; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `AreAnyAccessesGranted`(`grantedaccess` : UInt, `desiredaccess` : UInt) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=CheckTokenCapability; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `CheckTokenCapability`(`tokenhandle` : `super`.`Foundation`.`HANDLE`, `capabilitysidtocheck` : `PSID`, `hascapability` : /* Rust *mut */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`BOOL`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=CheckTokenMembership; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `CheckTokenMembership`(`tokenhandle` : `super`.`Foundation`.`HANDLE`, `sidtocheck` : `PSID`, `ismember` : /* Rust *mut */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`BOOL`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=CheckTokenMembershipEx; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `CheckTokenMembershipEx`(`tokenhandle` : `super`.`Foundation`.`HANDLE`, `sidtocheck` : `PSID`, `flags` : UInt, `ismember` : /* Rust *mut */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`BOOL`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=ConvertToAutoInheritPrivateObjectSecurity; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `ConvertToAutoInheritPrivateObjectSecurity`(`parentdescriptor` : `PSECURITY_DESCRIPTOR`, `currentsecuritydescriptor` : `PSECURITY_DESCRIPTOR`, `newsecuritydescriptor` : /* Rust *mut */ kotlinx.cinterop.CPointer<`PSECURITY_DESCRIPTOR`>?, `objecttype` : /* Rust *const */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`GUID`>?, `isdirectoryobject` : Boolean, `genericmapping` : /* Rust *const */ kotlinx.cinterop.CPointer<`GENERIC_MAPPING`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=CopySid; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `CopySid`(`ndestinationsidlength` : UInt, `pdestinationsid` : `PSID`, `psourcesid` : `PSID`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=CreatePrivateObjectSecurity; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `CreatePrivateObjectSecurity`(`parentdescriptor` : `PSECURITY_DESCRIPTOR`, `creatordescriptor` : `PSECURITY_DESCRIPTOR`, `newdescriptor` : /* Rust *mut */ kotlinx.cinterop.CPointer<`PSECURITY_DESCRIPTOR`>?, `isdirectoryobject` : `windows_sys`.`core`.`BOOL`, `token` : `super`.`Foundation`.`HANDLE`, `genericmapping` : /* Rust *const */ kotlinx.cinterop.CPointer<`GENERIC_MAPPING`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=CreatePrivateObjectSecurityEx; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `CreatePrivateObjectSecurityEx`(`parentdescriptor` : `PSECURITY_DESCRIPTOR`, `creatordescriptor` : `PSECURITY_DESCRIPTOR`, `newdescriptor` : /* Rust *mut */ kotlinx.cinterop.CPointer<`PSECURITY_DESCRIPTOR`>?, `objecttype` : /* Rust *const */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`GUID`>?, `iscontainerobject` : `windows_sys`.`core`.`BOOL`, `autoinheritflags` : `SECURITY_AUTO_INHERIT_FLAGS`, `token` : `super`.`Foundation`.`HANDLE`, `genericmapping` : /* Rust *const */ kotlinx.cinterop.CPointer<`GENERIC_MAPPING`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=CreatePrivateObjectSecurityWithMultipleInheritance; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `CreatePrivateObjectSecurityWithMultipleInheritance`(`parentdescriptor` : `PSECURITY_DESCRIPTOR`, `creatordescriptor` : `PSECURITY_DESCRIPTOR`, `newdescriptor` : /* Rust *mut */ kotlinx.cinterop.CPointer<`PSECURITY_DESCRIPTOR`>?, `objecttypes` : /* Rust *const */ kotlinx.cinterop.CPointer<kotlinx.cinterop.CPointerVar<`windows_sys`.`core`.`GUID`>>?, `guidcount` : UInt, `iscontainerobject` : `windows_sys`.`core`.`BOOL`, `autoinheritflags` : `SECURITY_AUTO_INHERIT_FLAGS`, `token` : `super`.`Foundation`.`HANDLE`, `genericmapping` : /* Rust *const */ kotlinx.cinterop.CPointer<`GENERIC_MAPPING`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=CreateRestrictedToken; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `CreateRestrictedToken`(`existingtokenhandle` : `super`.`Foundation`.`HANDLE`, `flags` : `CREATE_RESTRICTED_TOKEN_FLAGS`, `disablesidcount` : UInt, `sidstodisable` : /* Rust *const */ kotlinx.cinterop.CPointer<`SID_AND_ATTRIBUTES`>?, `deleteprivilegecount` : UInt, `privilegestodelete` : /* Rust *const */ kotlinx.cinterop.CPointer<`LUID_AND_ATTRIBUTES`>?, `restrictedsidcount` : UInt, `sidstorestrict` : /* Rust *const */ kotlinx.cinterop.CPointer<`SID_AND_ATTRIBUTES`>?, `newtokenhandle` : /* Rust *mut */ kotlinx.cinterop.CPointer<`super`.`Foundation`.`HANDLE`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=CreateWellKnownSid; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `CreateWellKnownSid`(`wellknownsidtype` : `WELL_KNOWN_SID_TYPE`, `domainsid` : `PSID`, `psid` : `PSID`, `cbsid` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=DeleteAce; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `DeleteAce`(`pacl` : /* Rust *mut */ kotlinx.cinterop.CPointer<`ACL`>?, `dwaceindex` : UInt) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=api-ms-win-security-base-l1-2-2.dll, ABI=system, export=DeriveCapabilitySidsFromName; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `DeriveCapabilitySidsFromName`(`capname` : `windows_sys`.`core`.`PCWSTR`, `capabilitygroupsids` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.CPointerVar<`PSID`>>?, `capabilitygroupsidcount` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `capabilitysids` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.CPointerVar<`PSID`>>?, `capabilitysidcount` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=DestroyPrivateObjectSecurity; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `DestroyPrivateObjectSecurity`(`objectdescriptor` : /* Rust *const */ kotlinx.cinterop.CPointer<`PSECURITY_DESCRIPTOR`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=DuplicateToken; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `DuplicateToken`(`existingtokenhandle` : `super`.`Foundation`.`HANDLE`, `impersonationlevel` : `SECURITY_IMPERSONATION_LEVEL`, `duplicatetokenhandle` : /* Rust *mut */ kotlinx.cinterop.CPointer<`super`.`Foundation`.`HANDLE`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=DuplicateTokenEx; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `DuplicateTokenEx`(`hexistingtoken` : `super`.`Foundation`.`HANDLE`, `dwdesiredaccess` : `TOKEN_ACCESS_MASK`, `lptokenattributes` : /* Rust *const */ kotlinx.cinterop.CPointer<`SECURITY_ATTRIBUTES`>?, `impersonationlevel` : `SECURITY_IMPERSONATION_LEVEL`, `tokentype` : `TOKEN_TYPE`, `phnewtoken` : /* Rust *mut */ kotlinx.cinterop.CPointer<`super`.`Foundation`.`HANDLE`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=EqualDomainSid; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `EqualDomainSid`(`psid1` : `PSID`, `psid2` : `PSID`, `pfequal` : /* Rust *mut */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`BOOL`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=EqualPrefixSid; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `EqualPrefixSid`(`psid1` : `PSID`, `psid2` : `PSID`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=EqualSid; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `EqualSid`(`psid1` : `PSID`, `psid2` : `PSID`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=FindFirstFreeAce; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `FindFirstFreeAce`(`pacl` : /* Rust *const */ kotlinx.cinterop.CPointer<`ACL`>?, `pace` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.CPointerVar<`core`.`ffi`.`c_void`>>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=FreeSid; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `FreeSid`(`psid` : `PSID`) : /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=GetAce; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `GetAce`(`pacl` : /* Rust *const */ kotlinx.cinterop.CPointer<`ACL`>?, `dwaceindex` : UInt, `pace` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.CPointerVar<`core`.`ffi`.`c_void`>>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=GetAclInformation; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `GetAclInformation`(`pacl` : /* Rust *const */ kotlinx.cinterop.CPointer<`ACL`>?, `paclinformation` : /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `naclinformationlength` : UInt, `dwaclinformationclass` : `ACL_INFORMATION_CLASS`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetAppContainerAce; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `GetAppContainerAce`(`acl` : /* Rust *const */ kotlinx.cinterop.CPointer<`ACL`>?, `startingaceindex` : UInt, `appcontainerace` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.CPointerVar<`core`.`ffi`.`c_void`>>?, `appcontaineraceindex` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetCachedSigningLevel; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `GetCachedSigningLevel`(`file` : `super`.`Foundation`.`HANDLE`, `flags` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `signinglevel` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `thumbprint` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UByteVar>?, `thumbprintsize` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `thumbprintalgorithm` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=GetFileSecurityA; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `GetFileSecurityA`(`lpfilename` : `windows_sys`.`core`.`PCSTR`, `requestedinformation` : UInt, `psecuritydescriptor` : `PSECURITY_DESCRIPTOR`, `nlength` : UInt, `lpnlengthneeded` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=GetFileSecurityW; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `GetFileSecurityW`(`lpfilename` : `windows_sys`.`core`.`PCWSTR`, `requestedinformation` : UInt, `psecuritydescriptor` : `PSECURITY_DESCRIPTOR`, `nlength` : UInt, `lpnlengthneeded` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=GetKernelObjectSecurity; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `GetKernelObjectSecurity`(`handle` : `super`.`Foundation`.`HANDLE`, `requestedinformation` : UInt, `psecuritydescriptor` : `PSECURITY_DESCRIPTOR`, `nlength` : UInt, `lpnlengthneeded` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=GetLengthSid; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `GetLengthSid`(`psid` : `PSID`) : UInt
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=GetPrivateObjectSecurity; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `GetPrivateObjectSecurity`(`objectdescriptor` : `PSECURITY_DESCRIPTOR`, `securityinformation` : `OBJECT_SECURITY_INFORMATION`, `resultantdescriptor` : `PSECURITY_DESCRIPTOR`, `descriptorlength` : UInt, `returnlength` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=GetSecurityDescriptorControl; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `GetSecurityDescriptorControl`(`psecuritydescriptor` : `PSECURITY_DESCRIPTOR`, `pcontrol` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UShortVar>?, `lpdwrevision` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=GetSecurityDescriptorDacl; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `GetSecurityDescriptorDacl`(`psecuritydescriptor` : `PSECURITY_DESCRIPTOR`, `lpbdaclpresent` : /* Rust *mut */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`BOOL`>?, `pdacl` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.CPointerVar<`ACL`>>?, `lpbdacldefaulted` : /* Rust *mut */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`BOOL`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=GetSecurityDescriptorGroup; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `GetSecurityDescriptorGroup`(`psecuritydescriptor` : `PSECURITY_DESCRIPTOR`, `pgroup` : /* Rust *mut */ kotlinx.cinterop.CPointer<`PSID`>?, `lpbgroupdefaulted` : /* Rust *mut */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`BOOL`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=GetSecurityDescriptorLength; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `GetSecurityDescriptorLength`(`psecuritydescriptor` : `PSECURITY_DESCRIPTOR`) : UInt
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=GetSecurityDescriptorOwner; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `GetSecurityDescriptorOwner`(`psecuritydescriptor` : `PSECURITY_DESCRIPTOR`, `powner` : /* Rust *mut */ kotlinx.cinterop.CPointer<`PSID`>?, `lpbownerdefaulted` : /* Rust *mut */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`BOOL`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=GetSecurityDescriptorRMControl; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `GetSecurityDescriptorRMControl`(`securitydescriptor` : `PSECURITY_DESCRIPTOR`, `rmcontrol` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UByteVar>?) : UInt
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=GetSecurityDescriptorSacl; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `GetSecurityDescriptorSacl`(`psecuritydescriptor` : `PSECURITY_DESCRIPTOR`, `lpbsaclpresent` : /* Rust *mut */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`BOOL`>?, `psacl` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.CPointerVar<`ACL`>>?, `lpbsacldefaulted` : /* Rust *mut */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`BOOL`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=GetSidIdentifierAuthority; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `GetSidIdentifierAuthority`(`psid` : `PSID`) : /* Rust *mut */ kotlinx.cinterop.CPointer<`SID_IDENTIFIER_AUTHORITY`>?
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=GetSidLengthRequired; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `GetSidLengthRequired`(`nsubauthoritycount` : UByte) : UInt
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=GetSidSubAuthority; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `GetSidSubAuthority`(`psid` : `PSID`, `nsubauthority` : UInt) : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=GetSidSubAuthorityCount; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `GetSidSubAuthorityCount`(`psid` : `PSID`) : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UByteVar>?
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=GetTokenInformation; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `GetTokenInformation`(`tokenhandle` : `super`.`Foundation`.`HANDLE`, `tokeninformationclass` : `TOKEN_INFORMATION_CLASS`, `tokeninformation` : /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `tokeninformationlength` : UInt, `returnlength` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=user32.dll, ABI=system, export=GetUserObjectSecurity; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `GetUserObjectSecurity`(`hobj` : `super`.`Foundation`.`HANDLE`, `psirequested` : /* Rust *const */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `psid` : `PSECURITY_DESCRIPTOR`, `nlength` : UInt, `lpnlengthneeded` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=GetWindowsAccountDomainSid; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `GetWindowsAccountDomainSid`(`psid` : `PSID`, `pdomainsid` : `PSID`, `cbdomainsid` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=ImpersonateAnonymousToken; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `ImpersonateAnonymousToken`(`threadhandle` : `super`.`Foundation`.`HANDLE`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=ImpersonateLoggedOnUser; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `ImpersonateLoggedOnUser`(`htoken` : `super`.`Foundation`.`HANDLE`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=ImpersonateSelf; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `ImpersonateSelf`(`impersonationlevel` : `SECURITY_IMPERSONATION_LEVEL`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=InitializeAcl; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `InitializeAcl`(`pacl` : /* Rust *mut */ kotlinx.cinterop.CPointer<`ACL`>?, `nacllength` : UInt, `dwaclrevision` : `ACE_REVISION`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=InitializeSecurityDescriptor; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `InitializeSecurityDescriptor`(`psecuritydescriptor` : `PSECURITY_DESCRIPTOR`, `dwrevision` : UInt) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=InitializeSid; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `InitializeSid`(`sid` : `PSID`, `pidentifierauthority` : /* Rust *const */ kotlinx.cinterop.CPointer<`SID_IDENTIFIER_AUTHORITY`>?, `nsubauthoritycount` : UByte) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=IsTokenRestricted; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `IsTokenRestricted`(`tokenhandle` : `super`.`Foundation`.`HANDLE`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=IsValidAcl; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `IsValidAcl`(`pacl` : /* Rust *const */ kotlinx.cinterop.CPointer<`ACL`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=IsValidSecurityDescriptor; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `IsValidSecurityDescriptor`(`psecuritydescriptor` : `PSECURITY_DESCRIPTOR`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=IsValidSid; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `IsValidSid`(`psid` : `PSID`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=IsWellKnownSid; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `IsWellKnownSid`(`psid` : `PSID`, `wellknownsidtype` : `WELL_KNOWN_SID_TYPE`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=LogonUserA; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `LogonUserA`(`lpszusername` : `windows_sys`.`core`.`PCSTR`, `lpszdomain` : `windows_sys`.`core`.`PCSTR`, `lpszpassword` : `windows_sys`.`core`.`PCSTR`, `dwlogontype` : `LOGON32_LOGON`, `dwlogonprovider` : `LOGON32_PROVIDER`, `phtoken` : /* Rust *mut */ kotlinx.cinterop.CPointer<`super`.`Foundation`.`HANDLE`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=LogonUserExA; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `LogonUserExA`(`lpszusername` : `windows_sys`.`core`.`PCSTR`, `lpszdomain` : `windows_sys`.`core`.`PCSTR`, `lpszpassword` : `windows_sys`.`core`.`PCSTR`, `dwlogontype` : `LOGON32_LOGON`, `dwlogonprovider` : `LOGON32_PROVIDER`, `phtoken` : /* Rust *mut */ kotlinx.cinterop.CPointer<`super`.`Foundation`.`HANDLE`>?, `pplogonsid` : /* Rust *mut */ kotlinx.cinterop.CPointer<`PSID`>?, `ppprofilebuffer` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.CPointerVar<`core`.`ffi`.`c_void`>>?, `pdwprofilelength` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `pquotalimits` : /* Rust *mut */ kotlinx.cinterop.CPointer<`QUOTA_LIMITS`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=LogonUserExW; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `LogonUserExW`(`lpszusername` : `windows_sys`.`core`.`PCWSTR`, `lpszdomain` : `windows_sys`.`core`.`PCWSTR`, `lpszpassword` : `windows_sys`.`core`.`PCWSTR`, `dwlogontype` : `LOGON32_LOGON`, `dwlogonprovider` : `LOGON32_PROVIDER`, `phtoken` : /* Rust *mut */ kotlinx.cinterop.CPointer<`super`.`Foundation`.`HANDLE`>?, `pplogonsid` : /* Rust *mut */ kotlinx.cinterop.CPointer<`PSID`>?, `ppprofilebuffer` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.CPointerVar<`core`.`ffi`.`c_void`>>?, `pdwprofilelength` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `pquotalimits` : /* Rust *mut */ kotlinx.cinterop.CPointer<`QUOTA_LIMITS`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=LogonUserW; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `LogonUserW`(`lpszusername` : `windows_sys`.`core`.`PCWSTR`, `lpszdomain` : `windows_sys`.`core`.`PCWSTR`, `lpszpassword` : `windows_sys`.`core`.`PCWSTR`, `dwlogontype` : `LOGON32_LOGON`, `dwlogonprovider` : `LOGON32_PROVIDER`, `phtoken` : /* Rust *mut */ kotlinx.cinterop.CPointer<`super`.`Foundation`.`HANDLE`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=LookupAccountNameA; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `LookupAccountNameA`(`lpsystemname` : `windows_sys`.`core`.`PCSTR`, `lpaccountname` : `windows_sys`.`core`.`PCSTR`, `sid` : `PSID`, `cbsid` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `referenceddomainname` : `windows_sys`.`core`.`PSTR`, `cchreferenceddomainname` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `peuse` : /* Rust *mut */ kotlinx.cinterop.CPointer<`SID_NAME_USE`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=LookupAccountNameW; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `LookupAccountNameW`(`lpsystemname` : `windows_sys`.`core`.`PCWSTR`, `lpaccountname` : `windows_sys`.`core`.`PCWSTR`, `sid` : `PSID`, `cbsid` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `referenceddomainname` : `windows_sys`.`core`.`PWSTR`, `cchreferenceddomainname` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `peuse` : /* Rust *mut */ kotlinx.cinterop.CPointer<`SID_NAME_USE`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=LookupAccountSidA; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `LookupAccountSidA`(`lpsystemname` : `windows_sys`.`core`.`PCSTR`, `sid` : `PSID`, `name` : `windows_sys`.`core`.`PSTR`, `cchname` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `referenceddomainname` : `windows_sys`.`core`.`PSTR`, `cchreferenceddomainname` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `peuse` : /* Rust *mut */ kotlinx.cinterop.CPointer<`SID_NAME_USE`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=LookupAccountSidW; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `LookupAccountSidW`(`lpsystemname` : `windows_sys`.`core`.`PCWSTR`, `sid` : `PSID`, `name` : `windows_sys`.`core`.`PWSTR`, `cchname` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `referenceddomainname` : `windows_sys`.`core`.`PWSTR`, `cchreferenceddomainname` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `peuse` : /* Rust *mut */ kotlinx.cinterop.CPointer<`SID_NAME_USE`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=LookupPrivilegeDisplayNameA; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `LookupPrivilegeDisplayNameA`(`lpsystemname` : `windows_sys`.`core`.`PCSTR`, `lpname` : `windows_sys`.`core`.`PCSTR`, `lpdisplayname` : `windows_sys`.`core`.`PSTR`, `cchdisplayname` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `lplanguageid` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=LookupPrivilegeDisplayNameW; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `LookupPrivilegeDisplayNameW`(`lpsystemname` : `windows_sys`.`core`.`PCWSTR`, `lpname` : `windows_sys`.`core`.`PCWSTR`, `lpdisplayname` : `windows_sys`.`core`.`PWSTR`, `cchdisplayname` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `lplanguageid` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=LookupPrivilegeNameA; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `LookupPrivilegeNameA`(`lpsystemname` : `windows_sys`.`core`.`PCSTR`, `lpluid` : /* Rust *const */ kotlinx.cinterop.CPointer<`super`.`Foundation`.`LUID`>?, `lpname` : `windows_sys`.`core`.`PSTR`, `cchname` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=LookupPrivilegeNameW; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `LookupPrivilegeNameW`(`lpsystemname` : `windows_sys`.`core`.`PCWSTR`, `lpluid` : /* Rust *const */ kotlinx.cinterop.CPointer<`super`.`Foundation`.`LUID`>?, `lpname` : `windows_sys`.`core`.`PWSTR`, `cchname` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=LookupPrivilegeValueA; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `LookupPrivilegeValueA`(`lpsystemname` : `windows_sys`.`core`.`PCSTR`, `lpname` : `windows_sys`.`core`.`PCSTR`, `lpluid` : /* Rust *mut */ kotlinx.cinterop.CPointer<`super`.`Foundation`.`LUID`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=LookupPrivilegeValueW; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `LookupPrivilegeValueW`(`lpsystemname` : `windows_sys`.`core`.`PCWSTR`, `lpname` : `windows_sys`.`core`.`PCWSTR`, `lpluid` : /* Rust *mut */ kotlinx.cinterop.CPointer<`super`.`Foundation`.`LUID`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=MakeAbsoluteSD; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `MakeAbsoluteSD`(`pselfrelativesecuritydescriptor` : `PSECURITY_DESCRIPTOR`, `pabsolutesecuritydescriptor` : `PSECURITY_DESCRIPTOR`, `lpdwabsolutesecuritydescriptorsize` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `pdacl` : /* Rust *mut */ kotlinx.cinterop.CPointer<`ACL`>?, `lpdwdaclsize` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `psacl` : /* Rust *mut */ kotlinx.cinterop.CPointer<`ACL`>?, `lpdwsaclsize` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `powner` : `PSID`, `lpdwownersize` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `pprimarygroup` : `PSID`, `lpdwprimarygroupsize` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=MakeSelfRelativeSD; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `MakeSelfRelativeSD`(`pabsolutesecuritydescriptor` : `PSECURITY_DESCRIPTOR`, `pselfrelativesecuritydescriptor` : `PSECURITY_DESCRIPTOR`, `lpdwbufferlength` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=MapGenericMask; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `MapGenericMask`(`accessmask` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `genericmapping` : /* Rust *const */ kotlinx.cinterop.CPointer<`GENERIC_MAPPING`>?)
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=ObjectCloseAuditAlarmA; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `ObjectCloseAuditAlarmA`(`subsystemname` : `windows_sys`.`core`.`PCSTR`, `handleid` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `generateonclose` : `windows_sys`.`core`.`BOOL`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=ObjectCloseAuditAlarmW; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `ObjectCloseAuditAlarmW`(`subsystemname` : `windows_sys`.`core`.`PCWSTR`, `handleid` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `generateonclose` : `windows_sys`.`core`.`BOOL`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=ObjectDeleteAuditAlarmA; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `ObjectDeleteAuditAlarmA`(`subsystemname` : `windows_sys`.`core`.`PCSTR`, `handleid` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `generateonclose` : `windows_sys`.`core`.`BOOL`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=ObjectDeleteAuditAlarmW; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `ObjectDeleteAuditAlarmW`(`subsystemname` : `windows_sys`.`core`.`PCWSTR`, `handleid` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `generateonclose` : `windows_sys`.`core`.`BOOL`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=ObjectOpenAuditAlarmA; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `ObjectOpenAuditAlarmA`(`subsystemname` : `windows_sys`.`core`.`PCSTR`, `handleid` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `objecttypename` : `windows_sys`.`core`.`PCSTR`, `objectname` : `windows_sys`.`core`.`PCSTR`, `psecuritydescriptor` : `PSECURITY_DESCRIPTOR`, `clienttoken` : `super`.`Foundation`.`HANDLE`, `desiredaccess` : UInt, `grantedaccess` : UInt, `privileges` : /* Rust *const */ kotlinx.cinterop.CPointer<`PRIVILEGE_SET`>?, `objectcreation` : `windows_sys`.`core`.`BOOL`, `accessgranted` : `windows_sys`.`core`.`BOOL`, `generateonclose` : /* Rust *mut */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`BOOL`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=ObjectOpenAuditAlarmW; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `ObjectOpenAuditAlarmW`(`subsystemname` : `windows_sys`.`core`.`PCWSTR`, `handleid` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `objecttypename` : `windows_sys`.`core`.`PCWSTR`, `objectname` : `windows_sys`.`core`.`PCWSTR`, `psecuritydescriptor` : `PSECURITY_DESCRIPTOR`, `clienttoken` : `super`.`Foundation`.`HANDLE`, `desiredaccess` : UInt, `grantedaccess` : UInt, `privileges` : /* Rust *const */ kotlinx.cinterop.CPointer<`PRIVILEGE_SET`>?, `objectcreation` : `windows_sys`.`core`.`BOOL`, `accessgranted` : `windows_sys`.`core`.`BOOL`, `generateonclose` : /* Rust *mut */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`BOOL`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=ObjectPrivilegeAuditAlarmA; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `ObjectPrivilegeAuditAlarmA`(`subsystemname` : `windows_sys`.`core`.`PCSTR`, `handleid` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `clienttoken` : `super`.`Foundation`.`HANDLE`, `desiredaccess` : UInt, `privileges` : /* Rust *const */ kotlinx.cinterop.CPointer<`PRIVILEGE_SET`>?, `accessgranted` : `windows_sys`.`core`.`BOOL`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=ObjectPrivilegeAuditAlarmW; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `ObjectPrivilegeAuditAlarmW`(`subsystemname` : `windows_sys`.`core`.`PCWSTR`, `handleid` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `clienttoken` : `super`.`Foundation`.`HANDLE`, `desiredaccess` : UInt, `privileges` : /* Rust *const */ kotlinx.cinterop.CPointer<`PRIVILEGE_SET`>?, `accessgranted` : `windows_sys`.`core`.`BOOL`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=PrivilegeCheck; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `PrivilegeCheck`(`clienttoken` : `super`.`Foundation`.`HANDLE`, `requiredprivileges` : /* Rust *mut */ kotlinx.cinterop.CPointer<`PRIVILEGE_SET`>?, `pfresult` : /* Rust *mut */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`BOOL`>?) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=PrivilegedServiceAuditAlarmA; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `PrivilegedServiceAuditAlarmA`(`subsystemname` : `windows_sys`.`core`.`PCSTR`, `servicename` : `windows_sys`.`core`.`PCSTR`, `clienttoken` : `super`.`Foundation`.`HANDLE`, `privileges` : /* Rust *const */ kotlinx.cinterop.CPointer<`PRIVILEGE_SET`>?, `accessgranted` : `windows_sys`.`core`.`BOOL`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=PrivilegedServiceAuditAlarmW; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `PrivilegedServiceAuditAlarmW`(`subsystemname` : `windows_sys`.`core`.`PCWSTR`, `servicename` : `windows_sys`.`core`.`PCWSTR`, `clienttoken` : `super`.`Foundation`.`HANDLE`, `privileges` : /* Rust *const */ kotlinx.cinterop.CPointer<`PRIVILEGE_SET`>?, `accessgranted` : `windows_sys`.`core`.`BOOL`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=QuerySecurityAccessMask; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `QuerySecurityAccessMask`(`securityinformation` : `OBJECT_SECURITY_INFORMATION`, `desiredaccess` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?)
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RevertToSelf; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `RevertToSelf`() : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=ntdll.dll, ABI=system, export=RtlConvertSidToUnicodeString; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `RtlConvertSidToUnicodeString`(`unicodestring` : /* Rust *mut */ kotlinx.cinterop.CPointer<`super`.`Foundation`.`UNICODE_STRING`>?, `sid` : `PSID`, `allocatedestinationstring` : Boolean) : `super`.`Foundation`.`NTSTATUS`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=ntdll.dll, ABI=system, export=RtlNormalizeSecurityDescriptor; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `RtlNormalizeSecurityDescriptor`(`securitydescriptor` : /* Rust *mut */ kotlinx.cinterop.CPointer<`PSECURITY_DESCRIPTOR`>?, `securitydescriptorlength` : UInt, `newsecuritydescriptor` : /* Rust *mut */ kotlinx.cinterop.CPointer<`PSECURITY_DESCRIPTOR`>?, `newsecuritydescriptorlength` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `checkonly` : Boolean) : Boolean
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=SetAclInformation; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `SetAclInformation`(`pacl` : /* Rust *mut */ kotlinx.cinterop.CPointer<`ACL`>?, `paclinformation` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `naclinformationlength` : UInt, `dwaclinformationclass` : `ACL_INFORMATION_CLASS`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=SetCachedSigningLevel; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `SetCachedSigningLevel`(`sourcefiles` : /* Rust *const */ kotlinx.cinterop.CPointer<`super`.`Foundation`.`HANDLE`>?, `sourcefilecount` : UInt, `flags` : UInt, `targetfile` : `super`.`Foundation`.`HANDLE`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=SetFileSecurityA; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `SetFileSecurityA`(`lpfilename` : `windows_sys`.`core`.`PCSTR`, `securityinformation` : `OBJECT_SECURITY_INFORMATION`, `psecuritydescriptor` : `PSECURITY_DESCRIPTOR`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=SetFileSecurityW; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `SetFileSecurityW`(`lpfilename` : `windows_sys`.`core`.`PCWSTR`, `securityinformation` : `OBJECT_SECURITY_INFORMATION`, `psecuritydescriptor` : `PSECURITY_DESCRIPTOR`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=SetKernelObjectSecurity; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `SetKernelObjectSecurity`(`handle` : `super`.`Foundation`.`HANDLE`, `securityinformation` : `OBJECT_SECURITY_INFORMATION`, `securitydescriptor` : `PSECURITY_DESCRIPTOR`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=SetPrivateObjectSecurity; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `SetPrivateObjectSecurity`(`securityinformation` : `OBJECT_SECURITY_INFORMATION`, `modificationdescriptor` : `PSECURITY_DESCRIPTOR`, `objectssecuritydescriptor` : /* Rust *mut */ kotlinx.cinterop.CPointer<`PSECURITY_DESCRIPTOR`>?, `genericmapping` : /* Rust *const */ kotlinx.cinterop.CPointer<`GENERIC_MAPPING`>?, `token` : `super`.`Foundation`.`HANDLE`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=SetPrivateObjectSecurityEx; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `SetPrivateObjectSecurityEx`(`securityinformation` : `OBJECT_SECURITY_INFORMATION`, `modificationdescriptor` : `PSECURITY_DESCRIPTOR`, `objectssecuritydescriptor` : /* Rust *mut */ kotlinx.cinterop.CPointer<`PSECURITY_DESCRIPTOR`>?, `autoinheritflags` : `SECURITY_AUTO_INHERIT_FLAGS`, `genericmapping` : /* Rust *const */ kotlinx.cinterop.CPointer<`GENERIC_MAPPING`>?, `token` : `super`.`Foundation`.`HANDLE`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=SetSecurityAccessMask; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `SetSecurityAccessMask`(`securityinformation` : `OBJECT_SECURITY_INFORMATION`, `desiredaccess` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?)
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=SetSecurityDescriptorControl; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `SetSecurityDescriptorControl`(`psecuritydescriptor` : `PSECURITY_DESCRIPTOR`, `controlbitsofinterest` : `SECURITY_DESCRIPTOR_CONTROL`, `controlbitstoset` : `SECURITY_DESCRIPTOR_CONTROL`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=SetSecurityDescriptorDacl; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `SetSecurityDescriptorDacl`(`psecuritydescriptor` : `PSECURITY_DESCRIPTOR`, `bdaclpresent` : `windows_sys`.`core`.`BOOL`, `pdacl` : /* Rust *const */ kotlinx.cinterop.CPointer<`ACL`>?, `bdacldefaulted` : `windows_sys`.`core`.`BOOL`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=SetSecurityDescriptorGroup; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `SetSecurityDescriptorGroup`(`psecuritydescriptor` : `PSECURITY_DESCRIPTOR`, `pgroup` : `PSID`, `bgroupdefaulted` : `windows_sys`.`core`.`BOOL`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=SetSecurityDescriptorOwner; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `SetSecurityDescriptorOwner`(`psecuritydescriptor` : `PSECURITY_DESCRIPTOR`, `powner` : `PSID`, `bownerdefaulted` : `windows_sys`.`core`.`BOOL`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=SetSecurityDescriptorRMControl; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `SetSecurityDescriptorRMControl`(`securitydescriptor` : `PSECURITY_DESCRIPTOR`, `rmcontrol` : /* Rust *const */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UByteVar>?) : UInt
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=SetSecurityDescriptorSacl; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `SetSecurityDescriptorSacl`(`psecuritydescriptor` : `PSECURITY_DESCRIPTOR`, `bsaclpresent` : `windows_sys`.`core`.`BOOL`, `psacl` : /* Rust *const */ kotlinx.cinterop.CPointer<`ACL`>?, `bsacldefaulted` : `windows_sys`.`core`.`BOOL`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=SetTokenInformation; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `SetTokenInformation`(`tokenhandle` : `super`.`Foundation`.`HANDLE`, `tokeninformationclass` : `TOKEN_INFORMATION_CLASS`, `tokeninformation` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `tokeninformationlength` : UInt) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=user32.dll, ABI=system, export=SetUserObjectSecurity; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public external fun `SetUserObjectSecurity`(`hobj` : `super`.`Foundation`.`HANDLE`, `psirequested` : /* Rust *const */ kotlinx.cinterop.CPointer<`OBJECT_SECURITY_INFORMATION`>?, `psid` : `PSECURITY_DESCRIPTOR`) : `windows_sys`.`core`.`BOOL`
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `ACCESS_ALLOWED_ACE` (
+    public var `Header`: `ACE_HEADER`,
+    public var `Mask`: UInt,
+    public var `SidStart`: UInt,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `ACCESS_ALLOWED_CALLBACK_ACE` (
+    public var `Header`: `ACE_HEADER`,
+    public var `Mask`: UInt,
+    public var `SidStart`: UInt,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `ACCESS_ALLOWED_CALLBACK_OBJECT_ACE` (
+    public var `Header`: `ACE_HEADER`,
+    public var `Mask`: UInt,
+    public var `Flags`: `SYSTEM_AUDIT_OBJECT_ACE_FLAGS`,
+    public var `ObjectType`: `windows_sys`.`core`.`GUID`,
+    public var `InheritedObjectType`: `windows_sys`.`core`.`GUID`,
+    public var `SidStart`: UInt,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `ACCESS_ALLOWED_OBJECT_ACE` (
+    public var `Header`: `ACE_HEADER`,
+    public var `Mask`: UInt,
+    public var `Flags`: `SYSTEM_AUDIT_OBJECT_ACE_FLAGS`,
+    public var `ObjectType`: `windows_sys`.`core`.`GUID`,
+    public var `InheritedObjectType`: `windows_sys`.`core`.`GUID`,
+    public var `SidStart`: UInt,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `ACCESS_DENIED_ACE` (
+    public var `Header`: `ACE_HEADER`,
+    public var `Mask`: UInt,
+    public var `SidStart`: UInt,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `ACCESS_DENIED_CALLBACK_ACE` (
+    public var `Header`: `ACE_HEADER`,
+    public var `Mask`: UInt,
+    public var `SidStart`: UInt,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `ACCESS_DENIED_CALLBACK_OBJECT_ACE` (
+    public var `Header`: `ACE_HEADER`,
+    public var `Mask`: UInt,
+    public var `Flags`: `SYSTEM_AUDIT_OBJECT_ACE_FLAGS`,
+    public var `ObjectType`: `windows_sys`.`core`.`GUID`,
+    public var `InheritedObjectType`: `windows_sys`.`core`.`GUID`,
+    public var `SidStart`: UInt,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `ACCESS_DENIED_OBJECT_ACE` (
+    public var `Header`: `ACE_HEADER`,
+    public var `Mask`: UInt,
+    public var `Flags`: `SYSTEM_AUDIT_OBJECT_ACE_FLAGS`,
+    public var `ObjectType`: `windows_sys`.`core`.`GUID`,
+    public var `InheritedObjectType`: `windows_sys`.`core`.`GUID`,
+    public var `SidStart`: UInt,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Rust fixed array length 32 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `ACCESS_REASONS` (
+    public var `Data`: UIntArray,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `ACCESS_REASONS`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `ACCESS_REASONS`.Companion.`default`() : `ACCESS_REASONS` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+public typealias `ACE_FLAGS` = UInt;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `ACE_HEADER` (
+    public var `AceType`: UByte,
+    public var `AceFlags`: UByte,
+    public var `AceSize`: UShort,
+)
+public const val `ACE_INHERITED_OBJECT_TYPE_PRESENT`: `SYSTEM_AUDIT_OBJECT_ACE_FLAGS` = 2u;
+public const val `ACE_OBJECT_TYPE_PRESENT`: `SYSTEM_AUDIT_OBJECT_ACE_FLAGS` = 1u;
+public typealias `ACE_REVISION` = UInt;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `ACL` (
+    public var `AclRevision`: UByte,
+    public var `Sbz1`: UByte,
+    public var `AclSize`: UShort,
+    public var `AceCount`: UShort,
+    public var `Sbz2`: UShort,
+)
+public typealias `ACL_INFORMATION_CLASS` = Int;
+public const val `ACL_REVISION`: `ACE_REVISION` = 2u;
+public const val `ACL_REVISION_DS`: `ACE_REVISION` = 4u;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `ACL_REVISION_INFORMATION` (
+    public var `AclRevision`: UInt,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `ACL_SIZE_INFORMATION` (
+    public var `AceCount`: UInt,
+    public var `AclBytesInUse`: UInt,
+    public var `AclBytesFree`: UInt,
+)
+public const val `ATTRIBUTE_SECURITY_INFORMATION`: `OBJECT_SECURITY_INFORMATION` = 32u;
+public typealias `AUDIT_EVENT_TYPE` = Int;
+public const val `AclRevisionInformation`: `ACL_INFORMATION_CLASS` = 1;
+public const val `AclSizeInformation`: `ACL_INFORMATION_CLASS` = 2;
+public const val `AuditEventDirectoryServiceAccess`: `AUDIT_EVENT_TYPE` = 1;
+public const val `AuditEventObjectAccess`: `AUDIT_EVENT_TYPE` = 0;
+public const val `BACKUP_SECURITY_INFORMATION`: `OBJECT_SECURITY_INFORMATION` = 65536u;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `CLAIM_SECURITY_ATTRIBUTES_INFORMATION` (
+    public var `Version`: UShort,
+    public var `Reserved`: UShort,
+    public var `AttributeCount`: UInt,
+    public var `Attribute`: `CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0`,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `CLAIM_SECURITY_ATTRIBUTES_INFORMATION`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `CLAIM_SECURITY_ATTRIBUTES_INFORMATION`.Companion.`default`() : `CLAIM_SECURITY_ATTRIBUTES_INFORMATION` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// UNSUPPORTED Rust 295:1: declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+// #[repr(C)]
+// #[derive(Clone, Copy)]
+// pub union CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
+//     pub pAttributeV1: *mut CLAIM_SECURITY_ATTRIBUTE_V1,
+// }
+
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0`.Companion.`default`() : `CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+public const val `CLAIM_SECURITY_ATTRIBUTE_DISABLED`: `CLAIM_SECURITY_ATTRIBUTE_FLAGS` = 16u;
+public const val `CLAIM_SECURITY_ATTRIBUTE_DISABLED_BY_DEFAULT`: `CLAIM_SECURITY_ATTRIBUTE_FLAGS` = 8u;
+public typealias `CLAIM_SECURITY_ATTRIBUTE_FLAGS` = UInt;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE` (
+    public var `Version`: ULong,
+    public var `Name`: `windows_sys`.`core`.`PWSTR`,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE`.Companion.`default`() : `CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+public const val `CLAIM_SECURITY_ATTRIBUTE_MANDATORY`: `CLAIM_SECURITY_ATTRIBUTE_FLAGS` = 32u;
+public const val `CLAIM_SECURITY_ATTRIBUTE_NON_INHERITABLE`: `CLAIM_SECURITY_ATTRIBUTE_FLAGS` = 1u;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE` (
+    public var `pValue`: /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?,
+    public var `ValueLength`: UInt,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE`.Companion.`default`() : `CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1` (
+    public var `Name`: UInt,
+    public var `ValueType`: `CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE`,
+    public var `Reserved`: UShort,
+    public var `Flags`: `CLAIM_SECURITY_ATTRIBUTE_FLAGS`,
+    public var `ValueCount`: UInt,
+    public var `Values`: `CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0`,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1`.Companion.`default`() : `CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// UNSUPPORTED Rust 347:1: declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+// #[repr(C)]
+// #[derive(Clone, Copy)]
+// pub union CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
+//     pub pInt64: [u32; 1],
+//     pub pUint64: [u32; 1],
+//     pub ppString: [u32; 1],
+//     pub pFqbn: [u32; 1],
+//     pub pOctetString: [u32; 1],
+// }
+
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0`.Companion.`default`() : `CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+public const val `CLAIM_SECURITY_ATTRIBUTE_TYPE_BOOLEAN`: `CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE` = 6u;
+public const val `CLAIM_SECURITY_ATTRIBUTE_TYPE_FQBN`: `CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE` = 4u;
+public const val `CLAIM_SECURITY_ATTRIBUTE_TYPE_INT64`: `CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE` = 1u;
+public const val `CLAIM_SECURITY_ATTRIBUTE_TYPE_OCTET_STRING`: `CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE` = 16u;
+public const val `CLAIM_SECURITY_ATTRIBUTE_TYPE_SID`: `CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE` = 5u;
+public const val `CLAIM_SECURITY_ATTRIBUTE_TYPE_STRING`: `CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE` = 3u;
+public const val `CLAIM_SECURITY_ATTRIBUTE_TYPE_UINT64`: `CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE` = 2u;
+public const val `CLAIM_SECURITY_ATTRIBUTE_USE_FOR_DENY_ONLY`: `CLAIM_SECURITY_ATTRIBUTE_FLAGS` = 4u;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `CLAIM_SECURITY_ATTRIBUTE_V1` (
+    public var `Name`: `windows_sys`.`core`.`PWSTR`,
+    public var `ValueType`: `CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE`,
+    public var `Reserved`: UShort,
+    public var `Flags`: UInt,
+    public var `ValueCount`: UInt,
+    public var `Values`: `CLAIM_SECURITY_ATTRIBUTE_V1_0`,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `CLAIM_SECURITY_ATTRIBUTE_V1`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `CLAIM_SECURITY_ATTRIBUTE_V1`.Companion.`default`() : `CLAIM_SECURITY_ATTRIBUTE_V1` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// UNSUPPORTED Rust 384:1: declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+// #[repr(C)]
+// #[derive(Clone, Copy)]
+// pub union CLAIM_SECURITY_ATTRIBUTE_V1_0 {
+//     pub pInt64: *mut i64,
+//     pub pUint64: *mut u64,
+//     pub ppString: *mut windows_sys::core::PWSTR,
+//     pub pFqbn: *mut CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE,
+//     pub pOctetString: *mut CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE,
+// }
+
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `CLAIM_SECURITY_ATTRIBUTE_V1_0`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `CLAIM_SECURITY_ATTRIBUTE_V1_0`.Companion.`default`() : `CLAIM_SECURITY_ATTRIBUTE_V1_0` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+public const val `CLAIM_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE`: `CLAIM_SECURITY_ATTRIBUTE_FLAGS` = 2u;
+public typealias `CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE` = UShort;
+public const val `CONTAINER_INHERIT_ACE`: `ACE_FLAGS` = 2u;
+public typealias `CREATE_RESTRICTED_TOKEN_FLAGS` = UInt;
+public const val `CVT_SECONDS`: UInt = 1u;
+public const val `DACL_SECURITY_INFORMATION`: `OBJECT_SECURITY_INFORMATION` = 4u;
+public const val `DISABLE_MAX_PRIVILEGE`: `CREATE_RESTRICTED_TOKEN_FLAGS` = 1u;
+public typealias `ENUM_PERIOD` = Int;
+public const val `ENUM_PERIOD_DAYS`: `ENUM_PERIOD` = 3;
+public const val `ENUM_PERIOD_HOURS`: `ENUM_PERIOD` = 2;
+public const val `ENUM_PERIOD_INVALID`: `ENUM_PERIOD` = -1;
+public const val `ENUM_PERIOD_MINUTES`: `ENUM_PERIOD` = 1;
+public const val `ENUM_PERIOD_MONTHS`: `ENUM_PERIOD` = 5;
+public const val `ENUM_PERIOD_SECONDS`: `ENUM_PERIOD` = 0;
+public const val `ENUM_PERIOD_WEEKS`: `ENUM_PERIOD` = 4;
+public const val `ENUM_PERIOD_YEARS`: `ENUM_PERIOD` = 6;
+public const val `FAILED_ACCESS_ACE_FLAG`: `ACE_FLAGS` = 128u;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `GENERIC_MAPPING` (
+    public var `GenericRead`: UInt,
+    public var `GenericWrite`: UInt,
+    public var `GenericExecute`: UInt,
+    public var `GenericAll`: UInt,
+)
+public const val `GROUP_SECURITY_INFORMATION`: `OBJECT_SECURITY_INFORMATION` = 2u;
+public const val `INHERITED_ACE`: `ACE_FLAGS` = 16u;
+public const val `INHERIT_NO_PROPAGATE`: `ACE_FLAGS` = 4u;
+public const val `INHERIT_ONLY`: `ACE_FLAGS` = 8u;
+public const val `INHERIT_ONLY_ACE`: `ACE_FLAGS` = 8u;
+public const val `LABEL_SECURITY_INFORMATION`: `OBJECT_SECURITY_INFORMATION` = 16u;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `LLFILETIME` (
+    public var `Anonymous`: `LLFILETIME_0`,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `LLFILETIME`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `LLFILETIME`.Companion.`default`() : `LLFILETIME` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// UNSUPPORTED Rust 439:1: declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+// #[repr(C)]
+// #[derive(Clone, Copy)]
+// pub union LLFILETIME_0 {
+//     pub ll: i64,
+//     pub ft: super::Foundation::FILETIME,
+// }
+
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `LLFILETIME_0`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `LLFILETIME_0`.Companion.`default`() : `LLFILETIME_0` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+public typealias `LOGON32_LOGON` = UInt;
+public const val `LOGON32_LOGON_BATCH`: `LOGON32_LOGON` = 4u;
+public const val `LOGON32_LOGON_INTERACTIVE`: `LOGON32_LOGON` = 2u;
+public const val `LOGON32_LOGON_NETWORK`: `LOGON32_LOGON` = 3u;
+public const val `LOGON32_LOGON_NETWORK_CLEARTEXT`: `LOGON32_LOGON` = 8u;
+public const val `LOGON32_LOGON_NEW_CREDENTIALS`: `LOGON32_LOGON` = 9u;
+public const val `LOGON32_LOGON_SERVICE`: `LOGON32_LOGON` = 5u;
+public const val `LOGON32_LOGON_UNLOCK`: `LOGON32_LOGON` = 7u;
+public typealias `LOGON32_PROVIDER` = UInt;
+public const val `LOGON32_PROVIDER_DEFAULT`: `LOGON32_PROVIDER` = 0u;
+public const val `LOGON32_PROVIDER_WINNT40`: `LOGON32_PROVIDER` = 2u;
+public const val `LOGON32_PROVIDER_WINNT50`: `LOGON32_PROVIDER` = 3u;
+public const val `LUA_TOKEN`: `CREATE_RESTRICTED_TOKEN_FLAGS` = 4u;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `LUID_AND_ATTRIBUTES` (
+    public var `Luid`: `super`.`Foundation`.`LUID`,
+    public var `Attributes`: `TOKEN_PRIVILEGES_ATTRIBUTES`,
+)
+public typealias `MANDATORY_LEVEL` = Int;
+public const val `MandatoryLevelCount`: `MANDATORY_LEVEL` = 6;
+public const val `MandatoryLevelHigh`: `MANDATORY_LEVEL` = 3;
+public const val `MandatoryLevelLow`: `MANDATORY_LEVEL` = 1;
+public const val `MandatoryLevelMedium`: `MANDATORY_LEVEL` = 2;
+public const val `MandatoryLevelSecureProcess`: `MANDATORY_LEVEL` = 5;
+public const val `MandatoryLevelSystem`: `MANDATORY_LEVEL` = 4;
+public const val `MandatoryLevelUntrusted`: `MANDATORY_LEVEL` = 0;
+public const val `MaxTokenInfoClass`: `TOKEN_INFORMATION_CLASS` = 49;
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public typealias `NCRYPT_DESCRIPTOR_HANDLE` = /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?;
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public typealias `NCRYPT_STREAM_HANDLE` = /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?;
+public const val `NO_INHERITANCE`: `ACE_FLAGS` = 0u;
+public const val `NO_PROPAGATE_INHERIT_ACE`: `ACE_FLAGS` = 4u;
+public const val `OBJECT_INHERIT_ACE`: `ACE_FLAGS` = 1u;
+public typealias `OBJECT_SECURITY_INFORMATION` = UInt;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `OBJECT_TYPE_LIST` (
+    public var `Level`: UShort,
+    public var `Sbz`: UShort,
+    public var `ObjectType`: /* Rust *mut */ kotlinx.cinterop.CPointer<`windows_sys`.`core`.`GUID`>?,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `OBJECT_TYPE_LIST`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `OBJECT_TYPE_LIST`.Companion.`default`() : `OBJECT_TYPE_LIST` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+public const val `OWNER_SECURITY_INFORMATION`: `OBJECT_SECURITY_INFORMATION` = 1u;
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Native callback ABI=system, unsafe=true; integrate the matching native bridge.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public typealias `PLSA_AP_CALL_PACKAGE_UNTRUSTED` = `Option`<kotlinx.cinterop.CPointer<kotlinx.cinterop.CFunction<(/* Rust *const */ kotlinx.cinterop.CPointer<kotlinx.cinterop.CPointerVar<`core`.`ffi`.`c_void`>>?, /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, UInt, /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.CPointerVar<`core`.`ffi`.`c_void`>>?, /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.IntVar>?) -> `super`.`Foundation`.`NTSTATUS`>>>;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Rust fixed array length 1 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `PRIVILEGE_SET` (
+    public var `PrivilegeCount`: UInt,
+    public var `Control`: UInt,
+    public var `Privilege`: Array<`LUID_AND_ATTRIBUTES`>,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `PRIVILEGE_SET`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `PRIVILEGE_SET`.Companion.`default`() : `PRIVILEGE_SET` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+public const val `PROTECTED_DACL_SECURITY_INFORMATION`: `OBJECT_SECURITY_INFORMATION` = 2147483648u;
+public const val `PROTECTED_SACL_SECURITY_INFORMATION`: `OBJECT_SECURITY_INFORMATION` = 1073741824u;
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public typealias `PSECURITY_DESCRIPTOR` = /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?;
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public typealias `PSID` = /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `QUOTA_LIMITS` (
+    public var `PagedPoolLimit`: ULong,
+    public var `NonPagedPoolLimit`: ULong,
+    public var `MinimumWorkingSetSize`: ULong,
+    public var `MaximumWorkingSetSize`: ULong,
+    public var `PagefileLimit`: ULong,
+    public var `TimeLimit`: Long,
+)
+public const val `SACL_SECURITY_INFORMATION`: `OBJECT_SECURITY_INFORMATION` = 8u;
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public typealias `SAFER_LEVEL_HANDLE` = /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?;
+public const val `SANDBOX_INERT`: `CREATE_RESTRICTED_TOKEN_FLAGS` = 2u;
+public const val `SCOPE_SECURITY_INFORMATION`: `OBJECT_SECURITY_INFORMATION` = 64u;
+// UNSUPPORTED Rust 528:1: unresolved scalar type SID_IDENTIFIER_AUTHORITY; syntax: constant expression has no syntax candidate rule
+// pub const SECURITY_APP_PACKAGE_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 15] };
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `SECURITY_ATTRIBUTES` (
+    public var `nLength`: UInt,
+    public var `lpSecurityDescriptor`: /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?,
+    public var `bInheritHandle`: `windows_sys`.`core`.`BOOL`,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `SECURITY_ATTRIBUTES`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `SECURITY_ATTRIBUTES`.Companion.`default`() : `SECURITY_ATTRIBUTES` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// UNSUPPORTED Rust 541:1: unresolved scalar type SID_IDENTIFIER_AUTHORITY; syntax: constant expression has no syntax candidate rule
+// pub const SECURITY_AUTHENTICATION_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 18] };
+
+public typealias `SECURITY_AUTO_INHERIT_FLAGS` = UInt;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `SECURITY_CAPABILITIES` (
+    public var `AppContainerSid`: `PSID`,
+    public var `Capabilities`: /* Rust *mut */ kotlinx.cinterop.CPointer<`SID_AND_ATTRIBUTES`>?,
+    public var `CapabilityCount`: UInt,
+    public var `Reserved`: UInt,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `SECURITY_CAPABILITIES`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `SECURITY_CAPABILITIES`.Companion.`default`() : `SECURITY_CAPABILITIES` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// UNSUPPORTED Rust 556:1: unresolved scalar type SID_IDENTIFIER_AUTHORITY; syntax: constant expression has no syntax candidate rule
+// pub const SECURITY_CREATOR_SID_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 3] };
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `SECURITY_DESCRIPTOR` (
+    public var `Revision`: UByte,
+    public var `Sbz1`: UByte,
+    public var `Control`: `SECURITY_DESCRIPTOR_CONTROL`,
+    public var `Owner`: `PSID`,
+    public var `Group`: `PSID`,
+    public var `Sacl`: /* Rust *mut */ kotlinx.cinterop.CPointer<`ACL`>?,
+    public var `Dacl`: /* Rust *mut */ kotlinx.cinterop.CPointer<`ACL`>?,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `SECURITY_DESCRIPTOR`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `SECURITY_DESCRIPTOR`.Companion.`default`() : `SECURITY_DESCRIPTOR` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+public typealias `SECURITY_DESCRIPTOR_CONTROL` = UShort;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `SECURITY_DESCRIPTOR_RELATIVE` (
+    public var `Revision`: UByte,
+    public var `Sbz1`: UByte,
+    public var `Control`: `SECURITY_DESCRIPTOR_CONTROL`,
+    public var `Owner`: UInt,
+    public var `Group`: UInt,
+    public var `Sacl`: UInt,
+    public var `Dacl`: UInt,
+)
+public const val `SECURITY_DYNAMIC_TRACKING`: Boolean = true;
+public typealias `SECURITY_IMPERSONATION_LEVEL` = Int;
+// UNSUPPORTED Rust 587:1: unresolved scalar type SID_IDENTIFIER_AUTHORITY; syntax: constant expression has no syntax candidate rule
+// pub const SECURITY_LOCAL_SID_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 2] };
+
+// UNSUPPORTED Rust 588:1: unresolved scalar type SID_IDENTIFIER_AUTHORITY; syntax: constant expression has no syntax candidate rule
+// pub const SECURITY_MANDATORY_LABEL_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 16] };
+
+public const val `SECURITY_MAX_SID_SIZE`: UInt = 68u;
+// UNSUPPORTED Rust 590:1: unresolved scalar type SID_IDENTIFIER_AUTHORITY; syntax: constant expression has no syntax candidate rule
+// pub const SECURITY_NON_UNIQUE_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 4] };
+
+// UNSUPPORTED Rust 591:1: unresolved scalar type SID_IDENTIFIER_AUTHORITY; syntax: constant expression has no syntax candidate rule
+// pub const SECURITY_NT_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 5] };
+
+// UNSUPPORTED Rust 592:1: unresolved scalar type SID_IDENTIFIER_AUTHORITY; syntax: constant expression has no syntax candidate rule
+// pub const SECURITY_NULL_SID_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 0] };
+
+// UNSUPPORTED Rust 593:1: unresolved scalar type SID_IDENTIFIER_AUTHORITY; syntax: constant expression has no syntax candidate rule
+// pub const SECURITY_PROCESS_TRUST_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 19] };
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `SECURITY_QUALITY_OF_SERVICE` (
+    public var `Length`: UInt,
+    public var `ImpersonationLevel`: `SECURITY_IMPERSONATION_LEVEL`,
+    public var `ContextTrackingMode`: UByte,
+    public var `EffectiveOnly`: Boolean,
+)
+// UNSUPPORTED Rust 602:1: unresolved scalar type SID_IDENTIFIER_AUTHORITY; syntax: constant expression has no syntax candidate rule
+// pub const SECURITY_RESOURCE_MANAGER_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 9] };
+
+// UNSUPPORTED Rust 603:1: unresolved scalar type SID_IDENTIFIER_AUTHORITY; syntax: constant expression has no syntax candidate rule
+// pub const SECURITY_SCOPED_POLICY_ID_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 17] };
+
+public const val `SECURITY_STATIC_TRACKING`: Boolean = false;
+// UNSUPPORTED Rust 605:1: unresolved scalar type SID_IDENTIFIER_AUTHORITY; syntax: constant expression has no syntax candidate rule
+// pub const SECURITY_WORLD_SID_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 1] };
+
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Native callback ABI=system, unsafe=true; integrate the matching native bridge.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public typealias `SEC_THREAD_START` = `Option`<kotlinx.cinterop.CPointer<kotlinx.cinterop.CFunction<(/* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?) -> UInt>>>;
+public const val `SEF_AVOID_OWNER_CHECK`: `SECURITY_AUTO_INHERIT_FLAGS` = 16u;
+public const val `SEF_AVOID_OWNER_RESTRICTION`: `SECURITY_AUTO_INHERIT_FLAGS` = 4096u;
+public const val `SEF_AVOID_PRIVILEGE_CHECK`: `SECURITY_AUTO_INHERIT_FLAGS` = 8u;
+public const val `SEF_DACL_AUTO_INHERIT`: `SECURITY_AUTO_INHERIT_FLAGS` = 1u;
+public const val `SEF_DEFAULT_DESCRIPTOR_FOR_OBJECT`: `SECURITY_AUTO_INHERIT_FLAGS` = 4u;
+public const val `SEF_DEFAULT_GROUP_FROM_PARENT`: `SECURITY_AUTO_INHERIT_FLAGS` = 64u;
+public const val `SEF_DEFAULT_OWNER_FROM_PARENT`: `SECURITY_AUTO_INHERIT_FLAGS` = 32u;
+public const val `SEF_MACL_NO_EXECUTE_UP`: `SECURITY_AUTO_INHERIT_FLAGS` = 1024u;
+public const val `SEF_MACL_NO_READ_UP`: `SECURITY_AUTO_INHERIT_FLAGS` = 512u;
+public const val `SEF_MACL_NO_WRITE_UP`: `SECURITY_AUTO_INHERIT_FLAGS` = 256u;
+public const val `SEF_SACL_AUTO_INHERIT`: `SECURITY_AUTO_INHERIT_FLAGS` = 2u;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `SE_ACCESS_REPLY` (
+    public var `Size`: UInt,
+    public var `ResultListCount`: UInt,
+    public var `GrantedAccess`: /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?,
+    public var `AccessStatus`: /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?,
+    public var `AccessReason`: /* Rust *mut */ kotlinx.cinterop.CPointer<`ACCESS_REASONS`>?,
+    public var `Privileges`: /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.CPointerVar<`PRIVILEGE_SET`>>?,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `SE_ACCESS_REPLY`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `SE_ACCESS_REPLY`.Companion.`default`() : `SE_ACCESS_REPLY` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `SE_ACCESS_REQUEST` (
+    public var `Size`: UInt,
+    public var `SeSecurityDescriptor`: /* Rust *mut */ kotlinx.cinterop.CPointer<`SE_SECURITY_DESCRIPTOR`>?,
+    public var `DesiredAccess`: UInt,
+    public var `PreviouslyGrantedAccess`: UInt,
+    public var `PrincipalSelfSid`: `PSID`,
+    public var `GenericMapping`: /* Rust *mut */ kotlinx.cinterop.CPointer<`GENERIC_MAPPING`>?,
+    public var `ObjectTypeListCount`: UInt,
+    public var `ObjectTypeList`: /* Rust *mut */ kotlinx.cinterop.CPointer<`OBJECT_TYPE_LIST`>?,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `SE_ACCESS_REQUEST`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `SE_ACCESS_REQUEST`.Companion.`default`() : `SE_ACCESS_REQUEST` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_ASSIGNPRIMARYTOKEN_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeAssignPrimaryTokenPrivilege");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_AUDIT_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeAuditPrivilege");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_BACKUP_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeBackupPrivilege");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_CHANGE_NOTIFY_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeChangeNotifyPrivilege");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_CREATE_GLOBAL_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeCreateGlobalPrivilege");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_CREATE_PAGEFILE_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeCreatePagefilePrivilege");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_CREATE_PERMANENT_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeCreatePermanentPrivilege");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_CREATE_SYMBOLIC_LINK_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeCreateSymbolicLinkPrivilege");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_CREATE_TOKEN_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeCreateTokenPrivilege");
+public const val `SE_DACL_AUTO_INHERITED`: `SECURITY_DESCRIPTOR_CONTROL` = 1024u;
+public const val `SE_DACL_AUTO_INHERIT_REQ`: `SECURITY_DESCRIPTOR_CONTROL` = 256u;
+public const val `SE_DACL_DEFAULTED`: `SECURITY_DESCRIPTOR_CONTROL` = 8u;
+public const val `SE_DACL_PRESENT`: `SECURITY_DESCRIPTOR_CONTROL` = 4u;
+public const val `SE_DACL_PROTECTED`: `SECURITY_DESCRIPTOR_CONTROL` = 4096u;
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_DEBUG_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeDebugPrivilege");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_DELEGATE_SESSION_USER_IMPERSONATE_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeDelegateSessionUserImpersonatePrivilege");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_ENABLE_DELEGATION_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeEnableDelegationPrivilege");
+public const val `SE_GROUP_DEFAULTED`: `SECURITY_DESCRIPTOR_CONTROL` = 2u;
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_IMPERSONATE_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeImpersonatePrivilege");
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `SE_IMPERSONATION_STATE` (
+    public var `Token`: /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?,
+    public var `CopyOnOpen`: Boolean,
+    public var `EffectiveOnly`: Boolean,
+    public var `Level`: `SECURITY_IMPERSONATION_LEVEL`,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `SE_IMPERSONATION_STATE`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `SE_IMPERSONATION_STATE`.Companion.`default`() : `SE_IMPERSONATION_STATE` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_INCREASE_QUOTA_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeIncreaseQuotaPrivilege");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_INC_BASE_PRIORITY_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeIncreaseBasePriorityPrivilege");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_INC_WORKING_SET_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeIncreaseWorkingSetPrivilege");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_LOAD_DRIVER_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeLoadDriverPrivilege");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_LOCK_MEMORY_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeLockMemoryPrivilege");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_MACHINE_ACCOUNT_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeMachineAccountPrivilege");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_MANAGE_VOLUME_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeManageVolumePrivilege");
+public const val `SE_OWNER_DEFAULTED`: `SECURITY_DESCRIPTOR_CONTROL` = 1u;
+public const val `SE_PRIVILEGE_ENABLED`: `TOKEN_PRIVILEGES_ATTRIBUTES` = 2u;
+public const val `SE_PRIVILEGE_ENABLED_BY_DEFAULT`: `TOKEN_PRIVILEGES_ATTRIBUTES` = 1u;
+public const val `SE_PRIVILEGE_REMOVED`: `TOKEN_PRIVILEGES_ATTRIBUTES` = 4u;
+public const val `SE_PRIVILEGE_USED_FOR_ACCESS`: `TOKEN_PRIVILEGES_ATTRIBUTES` = 2147483648u;
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_PROF_SINGLE_PROCESS_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeProfileSingleProcessPrivilege");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_RELABEL_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeRelabelPrivilege");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_REMOTE_SHUTDOWN_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeRemoteShutdownPrivilege");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_RESTORE_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeRestorePrivilege");
+public const val `SE_RM_CONTROL_VALID`: `SECURITY_DESCRIPTOR_CONTROL` = 16384u;
+public const val `SE_SACL_AUTO_INHERITED`: `SECURITY_DESCRIPTOR_CONTROL` = 2048u;
+public const val `SE_SACL_AUTO_INHERIT_REQ`: `SECURITY_DESCRIPTOR_CONTROL` = 512u;
+public const val `SE_SACL_DEFAULTED`: `SECURITY_DESCRIPTOR_CONTROL` = 32u;
+public const val `SE_SACL_PRESENT`: `SECURITY_DESCRIPTOR_CONTROL` = 16u;
+public const val `SE_SACL_PROTECTED`: `SECURITY_DESCRIPTOR_CONTROL` = 8192u;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `SE_SECURITY_DESCRIPTOR` (
+    public var `Size`: UInt,
+    public var `Flags`: UInt,
+    public var `SecurityDescriptor`: `PSECURITY_DESCRIPTOR`,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `SE_SECURITY_DESCRIPTOR`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `SE_SECURITY_DESCRIPTOR`.Companion.`default`() : `SE_SECURITY_DESCRIPTOR` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_SECURITY_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeSecurityPrivilege");
+public const val `SE_SELF_RELATIVE`: `SECURITY_DESCRIPTOR_CONTROL` = 32768u;
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_SHUTDOWN_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeShutdownPrivilege");
+// UNSUPPORTED Rust 719:1: declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+// #[repr(C)]
+// #[derive(Clone, Copy)]
+// pub union SE_SID {
+//     pub Sid: SID,
+//     pub Buffer: [u8; 68],
+// }
+
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `SE_SID`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `SE_SID`.Companion.`default`() : `SE_SID` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_SYNC_AGENT_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeSyncAgentPrivilege");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_SYSTEMTIME_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeSystemtimePrivilege");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_SYSTEM_ENVIRONMENT_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeSystemEnvironmentPrivilege");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_SYSTEM_PROFILE_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeSystemProfilePrivilege");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_TAKE_OWNERSHIP_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeTakeOwnershipPrivilege");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_TCB_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeTcbPrivilege");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_TIME_ZONE_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeTimeZonePrivilege");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_TRUSTED_CREDMAN_ACCESS_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeTrustedCredManAccessPrivilege");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_UNDOCK_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeUndockPrivilege");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `SE_UNSOLICITED_INPUT_NAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("SeUnsolicitedInputPrivilege");
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Rust fixed array length 1 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `SID` (
+    public var `Revision`: UByte,
+    public var `SubAuthorityCount`: UByte,
+    public var `IdentifierAuthority`: `SID_IDENTIFIER_AUTHORITY`,
+    public var `SubAuthority`: UIntArray,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `SID`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `SID`.Companion.`default`() : `SID` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `SID_AND_ATTRIBUTES` (
+    public var `Sid`: `PSID`,
+    public var `Attributes`: UInt,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `SID_AND_ATTRIBUTES`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `SID_AND_ATTRIBUTES`.Companion.`default`() : `SID_AND_ATTRIBUTES` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Rust fixed array length 32 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `SID_AND_ATTRIBUTES_HASH` (
+    public var `SidCount`: UInt,
+    public var `SidAttr`: /* Rust *mut */ kotlinx.cinterop.CPointer<`SID_AND_ATTRIBUTES`>?,
+    public var `Hash`: ULongArray,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `SID_AND_ATTRIBUTES_HASH`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `SID_AND_ATTRIBUTES_HASH`.Companion.`default`() : `SID_AND_ATTRIBUTES_HASH` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Rust fixed array length 6 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `SID_IDENTIFIER_AUTHORITY` (
+    public var `Value`: UByteArray,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `SID_IDENTIFIER_AUTHORITY`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `SID_IDENTIFIER_AUTHORITY`.Companion.`default`() : `SID_IDENTIFIER_AUTHORITY` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+public typealias `SID_NAME_USE` = Int;
+public const val `SIGNING_LEVEL_FILE_CACHE_FLAG_NOT_VALIDATED`: UInt = 1u;
+public const val `SIGNING_LEVEL_FILE_CACHE_FLAG_VALIDATE_ONLY`: UInt = 4u;
+public const val `SIGNING_LEVEL_MICROSOFT`: UInt = 8u;
+public const val `SUB_CONTAINERS_AND_OBJECTS_INHERIT`: `ACE_FLAGS` = 3u;
+public const val `SUB_CONTAINERS_ONLY_INHERIT`: `ACE_FLAGS` = 2u;
+public const val `SUB_OBJECTS_ONLY_INHERIT`: `ACE_FLAGS` = 1u;
+public const val `SUCCESSFUL_ACCESS_ACE_FLAG`: `ACE_FLAGS` = 64u;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `SYSTEM_ACCESS_FILTER_ACE` (
+    public var `Header`: `ACE_HEADER`,
+    public var `Mask`: UInt,
+    public var `SidStart`: UInt,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `SYSTEM_ALARM_ACE` (
+    public var `Header`: `ACE_HEADER`,
+    public var `Mask`: UInt,
+    public var `SidStart`: UInt,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `SYSTEM_ALARM_CALLBACK_ACE` (
+    public var `Header`: `ACE_HEADER`,
+    public var `Mask`: UInt,
+    public var `SidStart`: UInt,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `SYSTEM_ALARM_CALLBACK_OBJECT_ACE` (
+    public var `Header`: `ACE_HEADER`,
+    public var `Mask`: UInt,
+    public var `Flags`: `SYSTEM_AUDIT_OBJECT_ACE_FLAGS`,
+    public var `ObjectType`: `windows_sys`.`core`.`GUID`,
+    public var `InheritedObjectType`: `windows_sys`.`core`.`GUID`,
+    public var `SidStart`: UInt,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `SYSTEM_ALARM_OBJECT_ACE` (
+    public var `Header`: `ACE_HEADER`,
+    public var `Mask`: UInt,
+    public var `Flags`: UInt,
+    public var `ObjectType`: `windows_sys`.`core`.`GUID`,
+    public var `InheritedObjectType`: `windows_sys`.`core`.`GUID`,
+    public var `SidStart`: UInt,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `SYSTEM_AUDIT_ACE` (
+    public var `Header`: `ACE_HEADER`,
+    public var `Mask`: UInt,
+    public var `SidStart`: UInt,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `SYSTEM_AUDIT_CALLBACK_ACE` (
+    public var `Header`: `ACE_HEADER`,
+    public var `Mask`: UInt,
+    public var `SidStart`: UInt,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `SYSTEM_AUDIT_CALLBACK_OBJECT_ACE` (
+    public var `Header`: `ACE_HEADER`,
+    public var `Mask`: UInt,
+    public var `Flags`: `SYSTEM_AUDIT_OBJECT_ACE_FLAGS`,
+    public var `ObjectType`: `windows_sys`.`core`.`GUID`,
+    public var `InheritedObjectType`: `windows_sys`.`core`.`GUID`,
+    public var `SidStart`: UInt,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `SYSTEM_AUDIT_OBJECT_ACE` (
+    public var `Header`: `ACE_HEADER`,
+    public var `Mask`: UInt,
+    public var `Flags`: `SYSTEM_AUDIT_OBJECT_ACE_FLAGS`,
+    public var `ObjectType`: `windows_sys`.`core`.`GUID`,
+    public var `InheritedObjectType`: `windows_sys`.`core`.`GUID`,
+    public var `SidStart`: UInt,
+)
+public typealias `SYSTEM_AUDIT_OBJECT_ACE_FLAGS` = UInt;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `SYSTEM_MANDATORY_LABEL_ACE` (
+    public var `Header`: `ACE_HEADER`,
+    public var `Mask`: UInt,
+    public var `SidStart`: UInt,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `SYSTEM_PROCESS_TRUST_LABEL_ACE` (
+    public var `Header`: `ACE_HEADER`,
+    public var `Mask`: UInt,
+    public var `SidStart`: UInt,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `SYSTEM_RESOURCE_ATTRIBUTE_ACE` (
+    public var `Header`: `ACE_HEADER`,
+    public var `Mask`: UInt,
+    public var `SidStart`: UInt,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `SYSTEM_SCOPED_POLICY_ID_ACE` (
+    public var `Header`: `ACE_HEADER`,
+    public var `Mask`: UInt,
+    public var `SidStart`: UInt,
+)
+public const val `SecurityAnonymous`: `SECURITY_IMPERSONATION_LEVEL` = 0;
+public const val `SecurityDelegation`: `SECURITY_IMPERSONATION_LEVEL` = 3;
+public const val `SecurityIdentification`: `SECURITY_IMPERSONATION_LEVEL` = 1;
+public const val `SecurityImpersonation`: `SECURITY_IMPERSONATION_LEVEL` = 2;
+public const val `SidTypeAlias`: `SID_NAME_USE` = 4;
+public const val `SidTypeComputer`: `SID_NAME_USE` = 9;
+public const val `SidTypeDeletedAccount`: `SID_NAME_USE` = 6;
+public const val `SidTypeDomain`: `SID_NAME_USE` = 3;
+public const val `SidTypeGroup`: `SID_NAME_USE` = 2;
+public const val `SidTypeInvalid`: `SID_NAME_USE` = 7;
+public const val `SidTypeLabel`: `SID_NAME_USE` = 10;
+public const val `SidTypeLogonSession`: `SID_NAME_USE` = 11;
+public const val `SidTypeUnknown`: `SID_NAME_USE` = 8;
+public const val `SidTypeUser`: `SID_NAME_USE` = 1;
+public const val `SidTypeWellKnownGroup`: `SID_NAME_USE` = 5;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `TOKEN_ACCESS_INFORMATION` (
+    public var `SidHash`: /* Rust *mut */ kotlinx.cinterop.CPointer<`SID_AND_ATTRIBUTES_HASH`>?,
+    public var `RestrictedSidHash`: /* Rust *mut */ kotlinx.cinterop.CPointer<`SID_AND_ATTRIBUTES_HASH`>?,
+    public var `Privileges`: /* Rust *mut */ kotlinx.cinterop.CPointer<`TOKEN_PRIVILEGES`>?,
+    public var `AuthenticationId`: `super`.`Foundation`.`LUID`,
+    public var `TokenType`: `TOKEN_TYPE`,
+    public var `ImpersonationLevel`: `SECURITY_IMPERSONATION_LEVEL`,
+    public var `MandatoryPolicy`: `TOKEN_MANDATORY_POLICY`,
+    public var `Flags`: UInt,
+    public var `AppContainerNumber`: UInt,
+    public var `PackageSid`: `PSID`,
+    public var `CapabilitiesHash`: /* Rust *mut */ kotlinx.cinterop.CPointer<`SID_AND_ATTRIBUTES_HASH`>?,
+    public var `TrustLevelSid`: `PSID`,
+    public var `SecurityAttributes`: /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `TOKEN_ACCESS_INFORMATION`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `TOKEN_ACCESS_INFORMATION`.Companion.`default`() : `TOKEN_ACCESS_INFORMATION` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+public typealias `TOKEN_ACCESS_MASK` = UInt;
+public const val `TOKEN_ACCESS_PSEUDO_HANDLE`: `TOKEN_ACCESS_MASK` = 24u;
+public const val `TOKEN_ACCESS_PSEUDO_HANDLE_WIN8`: `TOKEN_ACCESS_MASK` = 24u;
+public const val `TOKEN_ACCESS_SYSTEM_SECURITY`: `TOKEN_ACCESS_MASK` = 16777216u;
+public const val `TOKEN_ADJUST_DEFAULT`: `TOKEN_ACCESS_MASK` = 128u;
+public const val `TOKEN_ADJUST_GROUPS`: `TOKEN_ACCESS_MASK` = 64u;
+public const val `TOKEN_ADJUST_PRIVILEGES`: `TOKEN_ACCESS_MASK` = 32u;
+public const val `TOKEN_ADJUST_SESSIONID`: `TOKEN_ACCESS_MASK` = 256u;
+public const val `TOKEN_ALL_ACCESS`: `TOKEN_ACCESS_MASK` = 983551u;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `TOKEN_APPCONTAINER_INFORMATION` (
+    public var `TokenAppContainer`: `PSID`,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `TOKEN_APPCONTAINER_INFORMATION`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `TOKEN_APPCONTAINER_INFORMATION`.Companion.`default`() : `TOKEN_APPCONTAINER_INFORMATION` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+public const val `TOKEN_ASSIGN_PRIMARY`: `TOKEN_ACCESS_MASK` = 1u;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Rust fixed array length 30 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `TOKEN_AUDIT_POLICY` (
+    public var `PerUserPolicy`: UByteArray,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `TOKEN_AUDIT_POLICY`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `TOKEN_AUDIT_POLICY`.Companion.`default`() : `TOKEN_AUDIT_POLICY` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `TOKEN_CONTROL` (
+    public var `TokenId`: `super`.`Foundation`.`LUID`,
+    public var `AuthenticationId`: `super`.`Foundation`.`LUID`,
+    public var `ModifiedId`: `super`.`Foundation`.`LUID`,
+    public var `TokenSource`: `TOKEN_SOURCE`,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `TOKEN_DEFAULT_DACL` (
+    public var `DefaultDacl`: /* Rust *mut */ kotlinx.cinterop.CPointer<`ACL`>?,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `TOKEN_DEFAULT_DACL`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `TOKEN_DEFAULT_DACL`.Companion.`default`() : `TOKEN_DEFAULT_DACL` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+public const val `TOKEN_DELETE`: `TOKEN_ACCESS_MASK` = 65536u;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `TOKEN_DEVICE_CLAIMS` (
+    public var `DeviceClaims`: /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `TOKEN_DEVICE_CLAIMS`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `TOKEN_DEVICE_CLAIMS`.Companion.`default`() : `TOKEN_DEVICE_CLAIMS` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+public const val `TOKEN_DUPLICATE`: `TOKEN_ACCESS_MASK` = 2u;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `TOKEN_ELEVATION` (
+    public var `TokenIsElevated`: UInt,
+)
+public typealias `TOKEN_ELEVATION_TYPE` = Int;
+public const val `TOKEN_EXECUTE`: `TOKEN_ACCESS_MASK` = 131072u;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Rust fixed array length 1 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `TOKEN_GROUPS` (
+    public var `GroupCount`: UInt,
+    public var `Groups`: Array<`SID_AND_ATTRIBUTES`>,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `TOKEN_GROUPS`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `TOKEN_GROUPS`.Companion.`default`() : `TOKEN_GROUPS` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `TOKEN_GROUPS_AND_PRIVILEGES` (
+    public var `SidCount`: UInt,
+    public var `SidLength`: UInt,
+    public var `Sids`: /* Rust *mut */ kotlinx.cinterop.CPointer<`SID_AND_ATTRIBUTES`>?,
+    public var `RestrictedSidCount`: UInt,
+    public var `RestrictedSidLength`: UInt,
+    public var `RestrictedSids`: /* Rust *mut */ kotlinx.cinterop.CPointer<`SID_AND_ATTRIBUTES`>?,
+    public var `PrivilegeCount`: UInt,
+    public var `PrivilegeLength`: UInt,
+    public var `Privileges`: /* Rust *mut */ kotlinx.cinterop.CPointer<`LUID_AND_ATTRIBUTES`>?,
+    public var `AuthenticationId`: `super`.`Foundation`.`LUID`,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `TOKEN_GROUPS_AND_PRIVILEGES`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `TOKEN_GROUPS_AND_PRIVILEGES`.Companion.`default`() : `TOKEN_GROUPS_AND_PRIVILEGES` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+public const val `TOKEN_IMPERSONATE`: `TOKEN_ACCESS_MASK` = 4u;
+public typealias `TOKEN_INFORMATION_CLASS` = Int;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `TOKEN_LINKED_TOKEN` (
+    public var `LinkedToken`: `super`.`Foundation`.`HANDLE`,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `TOKEN_LINKED_TOKEN`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `TOKEN_LINKED_TOKEN`.Companion.`default`() : `TOKEN_LINKED_TOKEN` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `TOKEN_MANDATORY_LABEL` (
+    public var `Label`: `SID_AND_ATTRIBUTES`,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `TOKEN_MANDATORY_POLICY` (
+    public var `Policy`: `TOKEN_MANDATORY_POLICY_ID`,
+)
+public typealias `TOKEN_MANDATORY_POLICY_ID` = UInt;
+public const val `TOKEN_MANDATORY_POLICY_NEW_PROCESS_MIN`: `TOKEN_MANDATORY_POLICY_ID` = 2u;
+public const val `TOKEN_MANDATORY_POLICY_NO_WRITE_UP`: `TOKEN_MANDATORY_POLICY_ID` = 1u;
+public const val `TOKEN_MANDATORY_POLICY_OFF`: `TOKEN_MANDATORY_POLICY_ID` = 0u;
+public const val `TOKEN_MANDATORY_POLICY_VALID_MASK`: `TOKEN_MANDATORY_POLICY_ID` = 3u;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `TOKEN_ORIGIN` (
+    public var `OriginatingLogonSession`: `super`.`Foundation`.`LUID`,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `TOKEN_OWNER` (
+    public var `Owner`: `PSID`,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `TOKEN_OWNER`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `TOKEN_OWNER`.Companion.`default`() : `TOKEN_OWNER` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `TOKEN_PRIMARY_GROUP` (
+    public var `PrimaryGroup`: `PSID`,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `TOKEN_PRIMARY_GROUP`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `TOKEN_PRIMARY_GROUP`.Companion.`default`() : `TOKEN_PRIMARY_GROUP` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Rust fixed array length 1 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `TOKEN_PRIVILEGES` (
+    public var `PrivilegeCount`: UInt,
+    public var `Privileges`: Array<`LUID_AND_ATTRIBUTES`>,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `TOKEN_PRIVILEGES`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `TOKEN_PRIVILEGES`.Companion.`default`() : `TOKEN_PRIVILEGES` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+public typealias `TOKEN_PRIVILEGES_ATTRIBUTES` = UInt;
+public const val `TOKEN_QUERY`: `TOKEN_ACCESS_MASK` = 8u;
+public const val `TOKEN_QUERY_SOURCE`: `TOKEN_ACCESS_MASK` = 16u;
+public const val `TOKEN_READ`: `TOKEN_ACCESS_MASK` = 131080u;
+public const val `TOKEN_READ_CONTROL`: `TOKEN_ACCESS_MASK` = 131072u;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Rust fixed array length 8 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `TOKEN_SOURCE` (
+    public var `SourceName`: ByteArray,
+    public var `SourceIdentifier`: `super`.`Foundation`.`LUID`,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `TOKEN_SOURCE`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `TOKEN_SOURCE`.Companion.`default`() : `TOKEN_SOURCE` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `TOKEN_STATISTICS` (
+    public var `TokenId`: `super`.`Foundation`.`LUID`,
+    public var `AuthenticationId`: `super`.`Foundation`.`LUID`,
+    public var `ExpirationTime`: Long,
+    public var `TokenType`: `TOKEN_TYPE`,
+    public var `ImpersonationLevel`: `SECURITY_IMPERSONATION_LEVEL`,
+    public var `DynamicCharged`: UInt,
+    public var `DynamicAvailable`: UInt,
+    public var `GroupCount`: UInt,
+    public var `PrivilegeCount`: UInt,
+    public var `ModifiedId`: `super`.`Foundation`.`LUID`,
+)
+public const val `TOKEN_TRUST_CONSTRAINT_MASK`: `TOKEN_ACCESS_MASK` = 131096u;
+public typealias `TOKEN_TYPE` = Int;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `TOKEN_USER` (
+    public var `User`: `SID_AND_ATTRIBUTES`,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `TOKEN_USER_CLAIMS` (
+    public var `UserClaims`: /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `TOKEN_USER_CLAIMS`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `TOKEN_USER_CLAIMS`.Companion.`default`() : `TOKEN_USER_CLAIMS` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+public const val `TOKEN_WRITE`: `TOKEN_ACCESS_MASK` = 131296u;
+public const val `TOKEN_WRITE_DAC`: `TOKEN_ACCESS_MASK` = 262144u;
+public const val `TOKEN_WRITE_OWNER`: `TOKEN_ACCESS_MASK` = 524288u;
+public const val `TokenAccessInformation`: `TOKEN_INFORMATION_CLASS` = 22;
+public const val `TokenAppContainerNumber`: `TOKEN_INFORMATION_CLASS` = 32;
+public const val `TokenAppContainerSid`: `TOKEN_INFORMATION_CLASS` = 31;
+public const val `TokenAuditPolicy`: `TOKEN_INFORMATION_CLASS` = 16;
+public const val `TokenBnoIsolation`: `TOKEN_INFORMATION_CLASS` = 44;
+public const val `TokenCapabilities`: `TOKEN_INFORMATION_CLASS` = 30;
+public const val `TokenChildProcessFlags`: `TOKEN_INFORMATION_CLASS` = 45;
+public const val `TokenDefaultDacl`: `TOKEN_INFORMATION_CLASS` = 6;
+public const val `TokenDeviceClaimAttributes`: `TOKEN_INFORMATION_CLASS` = 34;
+public const val `TokenDeviceGroups`: `TOKEN_INFORMATION_CLASS` = 37;
+public const val `TokenElevation`: `TOKEN_INFORMATION_CLASS` = 20;
+public const val `TokenElevationType`: `TOKEN_INFORMATION_CLASS` = 18;
+public const val `TokenElevationTypeDefault`: `TOKEN_ELEVATION_TYPE` = 1;
+public const val `TokenElevationTypeFull`: `TOKEN_ELEVATION_TYPE` = 2;
+public const val `TokenElevationTypeLimited`: `TOKEN_ELEVATION_TYPE` = 3;
+public const val `TokenGroups`: `TOKEN_INFORMATION_CLASS` = 2;
+public const val `TokenGroupsAndPrivileges`: `TOKEN_INFORMATION_CLASS` = 13;
+public const val `TokenHasRestrictions`: `TOKEN_INFORMATION_CLASS` = 21;
+public const val `TokenImpersonation`: `TOKEN_TYPE` = 2;
+public const val `TokenImpersonationLevel`: `TOKEN_INFORMATION_CLASS` = 9;
+public const val `TokenIntegrityLevel`: `TOKEN_INFORMATION_CLASS` = 25;
+public const val `TokenIsAppContainer`: `TOKEN_INFORMATION_CLASS` = 29;
+public const val `TokenIsAppSilo`: `TOKEN_INFORMATION_CLASS` = 48;
+public const val `TokenIsLessPrivilegedAppContainer`: `TOKEN_INFORMATION_CLASS` = 46;
+public const val `TokenIsRestricted`: `TOKEN_INFORMATION_CLASS` = 40;
+public const val `TokenIsSandboxed`: `TOKEN_INFORMATION_CLASS` = 47;
+public const val `TokenLinkedToken`: `TOKEN_INFORMATION_CLASS` = 19;
+public const val `TokenLogonSid`: `TOKEN_INFORMATION_CLASS` = 28;
+public const val `TokenMandatoryPolicy`: `TOKEN_INFORMATION_CLASS` = 27;
+public const val `TokenOrigin`: `TOKEN_INFORMATION_CLASS` = 17;
+public const val `TokenOwner`: `TOKEN_INFORMATION_CLASS` = 4;
+public const val `TokenPrimary`: `TOKEN_TYPE` = 1;
+public const val `TokenPrimaryGroup`: `TOKEN_INFORMATION_CLASS` = 5;
+public const val `TokenPrivateNameSpace`: `TOKEN_INFORMATION_CLASS` = 42;
+public const val `TokenPrivileges`: `TOKEN_INFORMATION_CLASS` = 3;
+public const val `TokenProcessTrustLevel`: `TOKEN_INFORMATION_CLASS` = 41;
+public const val `TokenRestrictedDeviceClaimAttributes`: `TOKEN_INFORMATION_CLASS` = 36;
+public const val `TokenRestrictedDeviceGroups`: `TOKEN_INFORMATION_CLASS` = 38;
+public const val `TokenRestrictedSids`: `TOKEN_INFORMATION_CLASS` = 11;
+public const val `TokenRestrictedUserClaimAttributes`: `TOKEN_INFORMATION_CLASS` = 35;
+public const val `TokenSandBoxInert`: `TOKEN_INFORMATION_CLASS` = 15;
+public const val `TokenSecurityAttributes`: `TOKEN_INFORMATION_CLASS` = 39;
+public const val `TokenSessionId`: `TOKEN_INFORMATION_CLASS` = 12;
+public const val `TokenSessionReference`: `TOKEN_INFORMATION_CLASS` = 14;
+public const val `TokenSingletonAttributes`: `TOKEN_INFORMATION_CLASS` = 43;
+public const val `TokenSource`: `TOKEN_INFORMATION_CLASS` = 7;
+public const val `TokenStatistics`: `TOKEN_INFORMATION_CLASS` = 10;
+public const val `TokenType`: `TOKEN_INFORMATION_CLASS` = 8;
+public const val `TokenUIAccess`: `TOKEN_INFORMATION_CLASS` = 26;
+public const val `TokenUser`: `TOKEN_INFORMATION_CLASS` = 1;
+public const val `TokenUserClaimAttributes`: `TOKEN_INFORMATION_CLASS` = 33;
+public const val `TokenVirtualizationAllowed`: `TOKEN_INFORMATION_CLASS` = 23;
+public const val `TokenVirtualizationEnabled`: `TOKEN_INFORMATION_CLASS` = 24;
+public const val `UNPROTECTED_DACL_SECURITY_INFORMATION`: `OBJECT_SECURITY_INFORMATION` = 536870912u;
+public const val `UNPROTECTED_SACL_SECURITY_INFORMATION`: `OBJECT_SECURITY_INFORMATION` = 268435456u;
+public typealias `WELL_KNOWN_SID_TYPE` = Int;
+public const val `WRITE_RESTRICTED`: `CREATE_RESTRICTED_TOKEN_FLAGS` = 8u;
+public const val `WinAccountAdministratorSid`: `WELL_KNOWN_SID_TYPE` = 38;
+public const val `WinAccountCertAdminsSid`: `WELL_KNOWN_SID_TYPE` = 46;
+public const val `WinAccountCloneableControllersSid`: `WELL_KNOWN_SID_TYPE` = 100;
+public const val `WinAccountComputersSid`: `WELL_KNOWN_SID_TYPE` = 44;
+public const val `WinAccountControllersSid`: `WELL_KNOWN_SID_TYPE` = 45;
+public const val `WinAccountDefaultSystemManagedSid`: `WELL_KNOWN_SID_TYPE` = 110;
+public const val `WinAccountDomainAdminsSid`: `WELL_KNOWN_SID_TYPE` = 41;
+public const val `WinAccountDomainGuestsSid`: `WELL_KNOWN_SID_TYPE` = 43;
+public const val `WinAccountDomainUsersSid`: `WELL_KNOWN_SID_TYPE` = 42;
+public const val `WinAccountEnterpriseAdminsSid`: `WELL_KNOWN_SID_TYPE` = 48;
+public const val `WinAccountEnterpriseKeyAdminsSid`: `WELL_KNOWN_SID_TYPE` = 114;
+public const val `WinAccountGuestSid`: `WELL_KNOWN_SID_TYPE` = 39;
+public const val `WinAccountKeyAdminsSid`: `WELL_KNOWN_SID_TYPE` = 113;
+public const val `WinAccountKrbtgtSid`: `WELL_KNOWN_SID_TYPE` = 40;
+public const val `WinAccountPolicyAdminsSid`: `WELL_KNOWN_SID_TYPE` = 49;
+public const val `WinAccountProtectedUsersSid`: `WELL_KNOWN_SID_TYPE` = 107;
+public const val `WinAccountRasAndIasServersSid`: `WELL_KNOWN_SID_TYPE` = 50;
+public const val `WinAccountReadonlyControllersSid`: `WELL_KNOWN_SID_TYPE` = 75;
+public const val `WinAccountSchemaAdminsSid`: `WELL_KNOWN_SID_TYPE` = 47;
+public const val `WinAnonymousSid`: `WELL_KNOWN_SID_TYPE` = 13;
+public const val `WinApplicationPackageAuthoritySid`: `WELL_KNOWN_SID_TYPE` = 83;
+public const val `WinAuthenticatedUserSid`: `WELL_KNOWN_SID_TYPE` = 17;
+public const val `WinAuthenticationAuthorityAssertedSid`: `WELL_KNOWN_SID_TYPE` = 103;
+public const val `WinAuthenticationFreshKeyAuthSid`: `WELL_KNOWN_SID_TYPE` = 118;
+public const val `WinAuthenticationKeyPropertyAttestationSid`: `WELL_KNOWN_SID_TYPE` = 117;
+public const val `WinAuthenticationKeyPropertyMFASid`: `WELL_KNOWN_SID_TYPE` = 116;
+public const val `WinAuthenticationKeyTrustSid`: `WELL_KNOWN_SID_TYPE` = 115;
+public const val `WinAuthenticationServiceAssertedSid`: `WELL_KNOWN_SID_TYPE` = 104;
+public const val `WinBatchSid`: `WELL_KNOWN_SID_TYPE` = 10;
+public const val `WinBuiltinAccessControlAssistanceOperatorsSid`: `WELL_KNOWN_SID_TYPE` = 101;
+public const val `WinBuiltinAccountOperatorsSid`: `WELL_KNOWN_SID_TYPE` = 30;
+public const val `WinBuiltinAdministratorsSid`: `WELL_KNOWN_SID_TYPE` = 26;
+public const val `WinBuiltinAnyPackageSid`: `WELL_KNOWN_SID_TYPE` = 84;
+public const val `WinBuiltinAuthorizationAccessSid`: `WELL_KNOWN_SID_TYPE` = 59;
+public const val `WinBuiltinBackupOperatorsSid`: `WELL_KNOWN_SID_TYPE` = 33;
+public const val `WinBuiltinCertSvcDComAccessGroup`: `WELL_KNOWN_SID_TYPE` = 78;
+public const val `WinBuiltinCryptoOperatorsSid`: `WELL_KNOWN_SID_TYPE` = 64;
+public const val `WinBuiltinDCOMUsersSid`: `WELL_KNOWN_SID_TYPE` = 61;
+public const val `WinBuiltinDefaultSystemManagedGroupSid`: `WELL_KNOWN_SID_TYPE` = 111;
+public const val `WinBuiltinDeviceOwnersSid`: `WELL_KNOWN_SID_TYPE` = 119;
+public const val `WinBuiltinDomainSid`: `WELL_KNOWN_SID_TYPE` = 25;
+public const val `WinBuiltinEventLogReadersGroup`: `WELL_KNOWN_SID_TYPE` = 76;
+public const val `WinBuiltinGuestsSid`: `WELL_KNOWN_SID_TYPE` = 28;
+public const val `WinBuiltinHyperVAdminsSid`: `WELL_KNOWN_SID_TYPE` = 99;
+public const val `WinBuiltinIUsersSid`: `WELL_KNOWN_SID_TYPE` = 62;
+public const val `WinBuiltinIncomingForestTrustBuildersSid`: `WELL_KNOWN_SID_TYPE` = 56;
+public const val `WinBuiltinNetworkConfigurationOperatorsSid`: `WELL_KNOWN_SID_TYPE` = 37;
+public const val `WinBuiltinPerfLoggingUsersSid`: `WELL_KNOWN_SID_TYPE` = 58;
+public const val `WinBuiltinPerfMonitoringUsersSid`: `WELL_KNOWN_SID_TYPE` = 57;
+public const val `WinBuiltinPowerUsersSid`: `WELL_KNOWN_SID_TYPE` = 29;
+public const val `WinBuiltinPreWindows2000CompatibleAccessSid`: `WELL_KNOWN_SID_TYPE` = 35;
+public const val `WinBuiltinPrintOperatorsSid`: `WELL_KNOWN_SID_TYPE` = 32;
+public const val `WinBuiltinRDSEndpointServersSid`: `WELL_KNOWN_SID_TYPE` = 96;
+public const val `WinBuiltinRDSManagementServersSid`: `WELL_KNOWN_SID_TYPE` = 97;
+public const val `WinBuiltinRDSRemoteAccessServersSid`: `WELL_KNOWN_SID_TYPE` = 95;
+public const val `WinBuiltinRemoteDesktopUsersSid`: `WELL_KNOWN_SID_TYPE` = 36;
+public const val `WinBuiltinRemoteManagementUsersSid`: `WELL_KNOWN_SID_TYPE` = 102;
+public const val `WinBuiltinReplicatorSid`: `WELL_KNOWN_SID_TYPE` = 34;
+public const val `WinBuiltinStorageReplicaAdminsSid`: `WELL_KNOWN_SID_TYPE` = 112;
+public const val `WinBuiltinSystemOperatorsSid`: `WELL_KNOWN_SID_TYPE` = 31;
+public const val `WinBuiltinTerminalServerLicenseServersSid`: `WELL_KNOWN_SID_TYPE` = 60;
+public const val `WinBuiltinUsersSid`: `WELL_KNOWN_SID_TYPE` = 27;
+public const val `WinCacheablePrincipalsGroupSid`: `WELL_KNOWN_SID_TYPE` = 72;
+public const val `WinCapabilityAppointmentsSid`: `WELL_KNOWN_SID_TYPE` = 108;
+public const val `WinCapabilityContactsSid`: `WELL_KNOWN_SID_TYPE` = 109;
+public const val `WinCapabilityDocumentsLibrarySid`: `WELL_KNOWN_SID_TYPE` = 91;
+public const val `WinCapabilityEnterpriseAuthenticationSid`: `WELL_KNOWN_SID_TYPE` = 93;
+public const val `WinCapabilityInternetClientServerSid`: `WELL_KNOWN_SID_TYPE` = 86;
+public const val `WinCapabilityInternetClientSid`: `WELL_KNOWN_SID_TYPE` = 85;
+public const val `WinCapabilityMusicLibrarySid`: `WELL_KNOWN_SID_TYPE` = 90;
+public const val `WinCapabilityPicturesLibrarySid`: `WELL_KNOWN_SID_TYPE` = 88;
+public const val `WinCapabilityPrivateNetworkClientServerSid`: `WELL_KNOWN_SID_TYPE` = 87;
+public const val `WinCapabilityRemovableStorageSid`: `WELL_KNOWN_SID_TYPE` = 94;
+public const val `WinCapabilitySharedUserCertificatesSid`: `WELL_KNOWN_SID_TYPE` = 92;
+public const val `WinCapabilityVideosLibrarySid`: `WELL_KNOWN_SID_TYPE` = 89;
+public const val `WinConsoleLogonSid`: `WELL_KNOWN_SID_TYPE` = 81;
+public const val `WinCreatorGroupServerSid`: `WELL_KNOWN_SID_TYPE` = 6;
+public const val `WinCreatorGroupSid`: `WELL_KNOWN_SID_TYPE` = 4;
+public const val `WinCreatorOwnerRightsSid`: `WELL_KNOWN_SID_TYPE` = 71;
+public const val `WinCreatorOwnerServerSid`: `WELL_KNOWN_SID_TYPE` = 5;
+public const val `WinCreatorOwnerSid`: `WELL_KNOWN_SID_TYPE` = 3;
+public const val `WinDialupSid`: `WELL_KNOWN_SID_TYPE` = 8;
+public const val `WinDigestAuthenticationSid`: `WELL_KNOWN_SID_TYPE` = 52;
+public const val `WinEnterpriseControllersSid`: `WELL_KNOWN_SID_TYPE` = 15;
+public const val `WinEnterpriseReadonlyControllersSid`: `WELL_KNOWN_SID_TYPE` = 74;
+public const val `WinHighLabelSid`: `WELL_KNOWN_SID_TYPE` = 68;
+public const val `WinIUserSid`: `WELL_KNOWN_SID_TYPE` = 63;
+public const val `WinInteractiveSid`: `WELL_KNOWN_SID_TYPE` = 11;
+public const val `WinLocalAccountAndAdministratorSid`: `WELL_KNOWN_SID_TYPE` = 106;
+public const val `WinLocalAccountSid`: `WELL_KNOWN_SID_TYPE` = 105;
+public const val `WinLocalLogonSid`: `WELL_KNOWN_SID_TYPE` = 80;
+public const val `WinLocalServiceSid`: `WELL_KNOWN_SID_TYPE` = 23;
+public const val `WinLocalSid`: `WELL_KNOWN_SID_TYPE` = 2;
+public const val `WinLocalSystemSid`: `WELL_KNOWN_SID_TYPE` = 22;
+public const val `WinLogonIdsSid`: `WELL_KNOWN_SID_TYPE` = 21;
+public const val `WinLowLabelSid`: `WELL_KNOWN_SID_TYPE` = 66;
+public const val `WinMediumLabelSid`: `WELL_KNOWN_SID_TYPE` = 67;
+public const val `WinMediumPlusLabelSid`: `WELL_KNOWN_SID_TYPE` = 79;
+public const val `WinNTLMAuthenticationSid`: `WELL_KNOWN_SID_TYPE` = 51;
+public const val `WinNetworkServiceSid`: `WELL_KNOWN_SID_TYPE` = 24;
+public const val `WinNetworkSid`: `WELL_KNOWN_SID_TYPE` = 9;
+public const val `WinNewEnterpriseReadonlyControllersSid`: `WELL_KNOWN_SID_TYPE` = 77;
+public const val `WinNonCacheablePrincipalsGroupSid`: `WELL_KNOWN_SID_TYPE` = 73;
+public const val `WinNtAuthoritySid`: `WELL_KNOWN_SID_TYPE` = 7;
+public const val `WinNullSid`: `WELL_KNOWN_SID_TYPE` = 0;
+public const val `WinOtherOrganizationSid`: `WELL_KNOWN_SID_TYPE` = 55;
+public const val `WinProxySid`: `WELL_KNOWN_SID_TYPE` = 14;
+public const val `WinRemoteLogonIdSid`: `WELL_KNOWN_SID_TYPE` = 20;
+public const val `WinRestrictedCodeSid`: `WELL_KNOWN_SID_TYPE` = 18;
+public const val `WinSChannelAuthenticationSid`: `WELL_KNOWN_SID_TYPE` = 53;
+public const val `WinSelfSid`: `WELL_KNOWN_SID_TYPE` = 16;
+public const val `WinServiceSid`: `WELL_KNOWN_SID_TYPE` = 12;
+public const val `WinSystemLabelSid`: `WELL_KNOWN_SID_TYPE` = 69;
+public const val `WinTerminalServerSid`: `WELL_KNOWN_SID_TYPE` = 19;
+public const val `WinThisOrganizationCertificateSid`: `WELL_KNOWN_SID_TYPE` = 82;
+public const val `WinThisOrganizationSid`: `WELL_KNOWN_SID_TYPE` = 54;
+public const val `WinUntrustedLabelSid`: `WELL_KNOWN_SID_TYPE` = 65;
+public const val `WinUserModeDriversSid`: `WELL_KNOWN_SID_TYPE` = 98;
+public const val `WinWorldSid`: `WELL_KNOWN_SID_TYPE` = 1;
+public const val `WinWriteRestrictedCodeSid`: `WELL_KNOWN_SID_TYPE` = 70;
+public const val `cwcFILENAMESUFFIXMAX`: UInt = 20u;
+public const val `cwcHRESULTSTRING`: UInt = 40u;
+// INTEGRATION REQUIRED: Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `szLBRACE`: `windows_sys`.`core`.`PCSTR` = `windows_sys`.`core`.`s`("{");
+// INTEGRATION REQUIRED: Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `szLPAREN`: `windows_sys`.`core`.`PCSTR` = `windows_sys`.`core`.`s`("(");
+// INTEGRATION REQUIRED: Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `szRBRACE`: `windows_sys`.`core`.`PCSTR` = `windows_sys`.`core`.`s`("}");
+// INTEGRATION REQUIRED: Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `szRPAREN`: `windows_sys`.`core`.`PCSTR` = `windows_sys`.`core`.`s`(")");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `wszCERTENROLLSHAREPATH`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("CertSrv\\CertEnroll");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `wszFCSAPARM_CERTFILENAMESUFFIX`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("%4");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `wszFCSAPARM_CONFIGDN`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("%6");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `wszFCSAPARM_CRLDELTAFILENAMESUFFIX`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("%9");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `wszFCSAPARM_CRLFILENAMESUFFIX`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("%8");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `wszFCSAPARM_DOMAINDN`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("%5");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `wszFCSAPARM_DSCACERTATTRIBUTE`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("%11");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `wszFCSAPARM_DSCRLATTRIBUTE`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("%10");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `wszFCSAPARM_DSCROSSCERTPAIRATTRIBUTE`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("%14");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `wszFCSAPARM_DSKRACERTATTRIBUTE`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("%13");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `wszFCSAPARM_DSUSERCERTATTRIBUTE`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("%12");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `wszFCSAPARM_SANITIZEDCANAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("%3");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `wszFCSAPARM_SANITIZEDCANAMEHASH`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("%7");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `wszFCSAPARM_SERVERDNSNAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("%1");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `wszFCSAPARM_SERVERSHORTNAME`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("%2");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `wszLBRACE`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("{");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `wszLPAREN`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("(");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `wszRBRACE`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("}");
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `wszRPAREN`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`(")");

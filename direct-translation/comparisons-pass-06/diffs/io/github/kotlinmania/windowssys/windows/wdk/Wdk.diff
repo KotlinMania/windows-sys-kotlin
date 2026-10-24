@@ -1,0 +1,34 @@
+--- ../windows-sys-kotlin/direct-translation/comparisons-pass-06/port-snapshots/io/github/kotlinmania/windowssys/windows/wdk/Wdk.kt	2026-10-24 15:45:29
++++ ../windows-sys-kotlin/direct-translation/pass-06/files/Windows/Wdk/mod/candidate.kt	2026-10-24 15:40:16
+@@ -1,7 +1,25 @@
+-// port-lint: source Windows/Wdk/mod.rs
+-package io.github.kotlinmania.windowssys.windows.wdk
++// DIRECT DECLARATION CANDIDATE: unsupported Rust remains below; not adopted or ABI-validated.
++// UNSUPPORTED Rust 1:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
++// #[cfg(feature = "Wdk_Devices")]
++// pub mod Devices;
+ 
+-// Re-export shim — see Windows.kt for the per-AGENTS.md ledger rationale.
+-//
+-// Callers migrated:
+-// (none yet)
++// UNSUPPORTED Rust 3:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
++// #[cfg(feature = "Wdk_Foundation")]
++// pub mod Foundation;
++
++// UNSUPPORTED Rust 5:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
++// #[cfg(feature = "Wdk_Graphics")]
++// pub mod Graphics;
++
++// UNSUPPORTED Rust 7:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
++// #[cfg(feature = "Wdk_NetworkManagement")]
++// pub mod NetworkManagement;
++
++// UNSUPPORTED Rust 9:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
++// #[cfg(feature = "Wdk_Storage")]
++// pub mod Storage;
++
++// UNSUPPORTED Rust 11:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
++// #[cfg(feature = "Wdk_System")]
++// pub mod System;
++

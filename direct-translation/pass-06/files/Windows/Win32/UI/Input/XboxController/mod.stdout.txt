@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-06/files/Windows/Win32/UI/Input/XboxController/mod: 94 generated; 16 syntax candidates; 0 unsupported

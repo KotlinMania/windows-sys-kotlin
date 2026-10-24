@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-06/files/Windows/Win32/Storage/OperationRecorder/mod: 4 generated; 4 syntax candidates; 0 unsupported

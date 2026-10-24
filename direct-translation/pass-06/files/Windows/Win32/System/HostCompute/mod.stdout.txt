@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-06/files/Windows/Win32/System/HostCompute/mod: 0 generated; 1 syntax candidates; 0 unsupported

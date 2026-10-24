@@ -1,0 +1,22 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Mod	Dhcp	0	62	1	1	2	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+1	Mod	Dns	63	123	3	1	6	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+2	Mod	InternetConnectionWizard	124	226	5	1	10	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+3	Mod	IpHelper	227	297	7	1	14	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+4	Mod	Multicast	298	370	9	1	18	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+5	Mod	Ndis	371	433	11	1	22	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+6	Mod	NetBios	434	502	13	1	26	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+7	Mod	NetManagement	503	583	15	1	30	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+8	Mod	NetShell	584	654	17	1	34	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+9	Mod	NetworkDiagnosticsFramework	655	763	19	1	38	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+10	Mod	P2P	764	824	21	1	42	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+11	Mod	QoS	825	885	23	1	46	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+12	Mod	Rras	886	948	25	1	50	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+13	Mod	Snmp	949	1011	27	1	54	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+14	Mod	WNet	1012	1074	29	1	58	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+15	Mod	WebDav	1075	1141	31	1	62	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+16	Mod	WiFi	1142	1204	33	1	66	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+17	Mod	WindowsConnectionManager	1205	1307	35	1	70	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+18	Mod	WindowsFilteringPlatform	1308	1410	37	1	74	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+19	Mod	WindowsFirewall	1411	1495	39	1	78	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+20	Mod	WindowsNetworkVirtualization	1496	1606	41	1	82	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod

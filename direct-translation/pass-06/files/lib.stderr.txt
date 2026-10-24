@@ -1,0 +1,1 @@
+rust-kotlin: file attributes/shebang require explicit semantics

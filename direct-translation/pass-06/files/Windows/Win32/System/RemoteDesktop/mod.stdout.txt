@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-06/files/Windows/Win32/System/RemoteDesktop/mod: 576 generated; 237 syntax candidates; 25 unsupported

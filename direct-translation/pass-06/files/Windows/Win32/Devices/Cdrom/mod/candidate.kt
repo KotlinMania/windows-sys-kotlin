@@ -1,0 +1,778 @@
+// DIRECT DECLARATION CANDIDATE: unsupported Rust remains below; not adopted or ABI-validated.
+public const val `ADR_ENCODES_CURRENT_POSITION`: UInt = 1u;
+public const val `ADR_ENCODES_ISRC`: UInt = 3u;
+public const val `ADR_ENCODES_MEDIA_CATALOG`: UInt = 2u;
+public const val `ADR_NO_MODE_INFORMATION`: UInt = 0u;
+public const val `AUDIO_DATA_TRACK`: UInt = 4u;
+public const val `AUDIO_STATUS_IN_PROGRESS`: UInt = 17u;
+public const val `AUDIO_STATUS_NOT_SUPPORTED`: UInt = 0u;
+public const val `AUDIO_STATUS_NO_STATUS`: UInt = 21u;
+public const val `AUDIO_STATUS_PAUSED`: UInt = 18u;
+public const val `AUDIO_STATUS_PLAY_COMPLETE`: UInt = 19u;
+public const val `AUDIO_STATUS_PLAY_ERROR`: UInt = 20u;
+public const val `AUDIO_WITH_PREEMPHASIS`: UInt = 1u;
+public const val `CDDA`: `TRACK_MODE_TYPE` = 2;
+public const val `CDROM_CD_TEXT_PACK_ALBUM_NAME`: UInt = 128u;
+public const val `CDROM_CD_TEXT_PACK_ARRANGER`: UInt = 132u;
+public const val `CDROM_CD_TEXT_PACK_COMPOSER`: UInt = 131u;
+public const val `CDROM_CD_TEXT_PACK_DISC_ID`: UInt = 134u;
+public const val `CDROM_CD_TEXT_PACK_GENRE`: UInt = 135u;
+public const val `CDROM_CD_TEXT_PACK_MESSAGES`: UInt = 133u;
+public const val `CDROM_CD_TEXT_PACK_PERFORMER`: UInt = 129u;
+public const val `CDROM_CD_TEXT_PACK_SIZE_INFO`: UInt = 143u;
+public const val `CDROM_CD_TEXT_PACK_SONGWRITER`: UInt = 130u;
+public const val `CDROM_CD_TEXT_PACK_TOC_INFO`: UInt = 136u;
+public const val `CDROM_CD_TEXT_PACK_TOC_INFO2`: UInt = 137u;
+public const val `CDROM_CD_TEXT_PACK_UPC_EAN`: UInt = 142u;
+public const val `CDROM_DISK_AUDIO_TRACK`: UInt = 1u;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `CDROM_DISK_DATA` (
+    public var `DiskData`: UInt,
+)
+public const val `CDROM_DISK_DATA_TRACK`: UInt = 2u;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Rust fixed array length 4 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Rust fixed array length 2 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `CDROM_EXCEPTION_PERFORMANCE_DESCRIPTOR` (
+    public var `Lba`: UByteArray,
+    public var `Time`: UByteArray,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `CDROM_EXCEPTION_PERFORMANCE_DESCRIPTOR`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `CDROM_EXCEPTION_PERFORMANCE_DESCRIPTOR`.Companion.`default`() : `CDROM_EXCEPTION_PERFORMANCE_DESCRIPTOR` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `CDROM_EXCLUSIVE_ACCESS` (
+    public var `RequestType`: `EXCLUSIVE_ACCESS_REQUEST_TYPE`,
+    public var `Flags`: UInt,
+)
+public const val `CDROM_EXCLUSIVE_CALLER_LENGTH`: UInt = 64u;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Rust fixed array length 64 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `CDROM_EXCLUSIVE_LOCK` (
+    public var `Access`: `CDROM_EXCLUSIVE_ACCESS`,
+    public var `CallerName`: UByteArray,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `CDROM_EXCLUSIVE_LOCK`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `CDROM_EXCLUSIVE_LOCK`.Companion.`default`() : `CDROM_EXCLUSIVE_LOCK` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Rust fixed array length 64 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `CDROM_EXCLUSIVE_LOCK_STATE` (
+    public var `LockState`: Boolean,
+    public var `CallerName`: UByteArray,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `CDROM_EXCLUSIVE_LOCK_STATE`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `CDROM_EXCLUSIVE_LOCK_STATE`.Companion.`default`() : `CDROM_EXCLUSIVE_LOCK_STATE` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+public const val `CDROM_IN_EXCLUSIVE_MODE`: UInt = 1u;
+public const val `CDROM_LOCK_IGNORE_VOLUME`: UInt = 1u;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Rust fixed array length 4 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `CDROM_NOMINAL_PERFORMANCE_DESCRIPTOR` (
+    public var `StartLba`: UByteArray,
+    public var `StartPerformance`: UByteArray,
+    public var `EndLba`: UByteArray,
+    public var `EndPerformance`: UByteArray,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `CDROM_NOMINAL_PERFORMANCE_DESCRIPTOR`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `CDROM_NOMINAL_PERFORMANCE_DESCRIPTOR`.Companion.`default`() : `CDROM_NOMINAL_PERFORMANCE_DESCRIPTOR` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+public const val `CDROM_NOT_IN_EXCLUSIVE_MODE`: UInt = 0u;
+public const val `CDROM_NO_MEDIA_NOTIFICATIONS`: UInt = 2u;
+public typealias `CDROM_OPC_INFO_TYPE` = Int;
+public typealias `CDROM_PERFORMANCE_EXCEPTION_TYPE` = Int;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Rust fixed array length 4 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Rust fixed array length 3 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Rust fixed array length 1 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `CDROM_PERFORMANCE_HEADER` (
+    public var `DataLength`: UByteArray,
+    public var `_bitfield`: UByte,
+    public var `Reserved2`: UByteArray,
+    public var `Data`: UByteArray,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `CDROM_PERFORMANCE_HEADER`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `CDROM_PERFORMANCE_HEADER`.Companion.`default`() : `CDROM_PERFORMANCE_HEADER` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `CDROM_PERFORMANCE_REQUEST` (
+    public var `RequestType`: `CDROM_PERFORMANCE_REQUEST_TYPE`,
+    public var `PerformanceType`: `CDROM_PERFORMANCE_TYPE`,
+    public var `Exceptions`: `CDROM_PERFORMANCE_EXCEPTION_TYPE`,
+    public var `Tolerance`: `CDROM_PERFORMANCE_TOLERANCE_TYPE`,
+    public var `StaringLba`: UInt,
+)
+public typealias `CDROM_PERFORMANCE_REQUEST_TYPE` = Int;
+public typealias `CDROM_PERFORMANCE_TOLERANCE_TYPE` = Int;
+public typealias `CDROM_PERFORMANCE_TYPE` = Int;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `CDROM_PLAY_AUDIO_MSF` (
+    public var `StartingM`: UByte,
+    public var `StartingS`: UByte,
+    public var `StartingF`: UByte,
+    public var `EndingM`: UByte,
+    public var `EndingS`: UByte,
+    public var `EndingF`: UByte,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `CDROM_READ_TOC_EX` (
+    public var `_bitfield`: UByte,
+    public var `SessionTrack`: UByte,
+    public var `Reserved2`: UByte,
+    public var `Reserved3`: UByte,
+)
+public const val `CDROM_READ_TOC_EX_FORMAT_ATIP`: UInt = 4u;
+public const val `CDROM_READ_TOC_EX_FORMAT_CDTEXT`: UInt = 5u;
+public const val `CDROM_READ_TOC_EX_FORMAT_FULL_TOC`: UInt = 2u;
+public const val `CDROM_READ_TOC_EX_FORMAT_PMA`: UInt = 3u;
+public const val `CDROM_READ_TOC_EX_FORMAT_SESSION`: UInt = 1u;
+public const val `CDROM_READ_TOC_EX_FORMAT_TOC`: UInt = 0u;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `CDROM_SEEK_AUDIO_MSF` (
+    public var `M`: UByte,
+    public var `S`: UByte,
+    public var `F`: UByte,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `CDROM_SET_SPEED` (
+    public var `RequestType`: `CDROM_SPEED_REQUEST`,
+    public var `ReadSpeed`: UShort,
+    public var `WriteSpeed`: UShort,
+    public var `RotationControl`: `WRITE_ROTATION`,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `CDROM_SET_STREAMING` (
+    public var `RequestType`: `CDROM_SPEED_REQUEST`,
+    public var `ReadSize`: UInt,
+    public var `ReadTime`: UInt,
+    public var `WriteSize`: UInt,
+    public var `WriteTime`: UInt,
+    public var `StartLba`: UInt,
+    public var `EndLba`: UInt,
+    public var `RotationControl`: `WRITE_ROTATION`,
+    public var `RestoreDefaults`: Boolean,
+    public var `SetExact`: Boolean,
+    public var `RandomAccess`: Boolean,
+    public var `Persistent`: Boolean,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `CDROM_SIMPLE_OPC_INFO` (
+    public var `RequestType`: `CDROM_OPC_INFO_TYPE`,
+    public var `Exclude0`: Boolean,
+    public var `Exclude1`: Boolean,
+)
+public typealias `CDROM_SPEED_REQUEST` = Int;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `CDROM_STREAMING_CONTROL` (
+    public var `RequestType`: `STREAMING_CONTROL_REQUEST_TYPE`,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `CDROM_SUB_Q_DATA_FORMAT` (
+    public var `Format`: UByte,
+    public var `Track`: UByte,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Rust fixed array length 2 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Rust fixed array length 100 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `CDROM_TOC` (
+    public var `Length`: UByteArray,
+    public var `FirstTrack`: UByte,
+    public var `LastTrack`: UByte,
+    public var `TrackData`: Array<`TRACK_DATA`>,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `CDROM_TOC`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `CDROM_TOC`.Companion.`default`() : `CDROM_TOC` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Rust fixed array length 2 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Rust fixed array length 1 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `CDROM_TOC_ATIP_DATA` (
+    public var `Length`: UByteArray,
+    public var `Reserved1`: UByte,
+    public var `Reserved2`: UByte,
+    public var `Descriptors`: Array<`CDROM_TOC_ATIP_DATA_BLOCK`>,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `CDROM_TOC_ATIP_DATA`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `CDROM_TOC_ATIP_DATA`.Companion.`default`() : `CDROM_TOC_ATIP_DATA` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Rust fixed array length 3 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `CDROM_TOC_ATIP_DATA_BLOCK` (
+    public var `_bitfield1`: UByte,
+    public var `_bitfield2`: UByte,
+    public var `_bitfield3`: UByte,
+    public var `Reserved7`: UByte,
+    public var `LeadInMsf`: UByteArray,
+    public var `Reserved8`: UByte,
+    public var `LeadOutMsf`: UByteArray,
+    public var `Reserved9`: UByte,
+    public var `A1Values`: UByteArray,
+    public var `Reserved10`: UByte,
+    public var `A2Values`: UByteArray,
+    public var `Reserved11`: UByte,
+    public var `A3Values`: UByteArray,
+    public var `Reserved12`: UByte,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `CDROM_TOC_ATIP_DATA_BLOCK`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `CDROM_TOC_ATIP_DATA_BLOCK`.Companion.`default`() : `CDROM_TOC_ATIP_DATA_BLOCK` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Rust fixed array length 2 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Rust fixed array length 1 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `CDROM_TOC_CD_TEXT_DATA` (
+    public var `Length`: UByteArray,
+    public var `Reserved1`: UByte,
+    public var `Reserved2`: UByte,
+    public var `Descriptors`: Array<`CDROM_TOC_CD_TEXT_DATA_BLOCK`>,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `CDROM_TOC_CD_TEXT_DATA`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `CDROM_TOC_CD_TEXT_DATA`.Companion.`default`() : `CDROM_TOC_CD_TEXT_DATA` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Rust fixed array length 2 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `CDROM_TOC_CD_TEXT_DATA_BLOCK` (
+    public var `PackType`: UByte,
+    public var `_bitfield1`: UByte,
+    public var `SequenceNumber`: UByte,
+    public var `_bitfield2`: UByte,
+    public var `Anonymous`: `CDROM_TOC_CD_TEXT_DATA_BLOCK_0`,
+    public var `CRC`: UByteArray,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `CDROM_TOC_CD_TEXT_DATA_BLOCK`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `CDROM_TOC_CD_TEXT_DATA_BLOCK`.Companion.`default`() : `CDROM_TOC_CD_TEXT_DATA_BLOCK` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// UNSUPPORTED Rust 268:1: declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+// #[repr(C)]
+// #[derive(Clone, Copy)]
+// pub union CDROM_TOC_CD_TEXT_DATA_BLOCK_0 {
+//     pub Text: [u8; 12],
+//     pub WText: [u16; 6],
+// }
+
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `CDROM_TOC_CD_TEXT_DATA_BLOCK_0`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `CDROM_TOC_CD_TEXT_DATA_BLOCK_0`.Companion.`default`() : `CDROM_TOC_CD_TEXT_DATA_BLOCK_0` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Rust fixed array length 2 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Rust fixed array length 1 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `CDROM_TOC_FULL_TOC_DATA` (
+    public var `Length`: UByteArray,
+    public var `FirstCompleteSession`: UByte,
+    public var `LastCompleteSession`: UByte,
+    public var `Descriptors`: Array<`CDROM_TOC_FULL_TOC_DATA_BLOCK`>,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `CDROM_TOC_FULL_TOC_DATA`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `CDROM_TOC_FULL_TOC_DATA`.Companion.`default`() : `CDROM_TOC_FULL_TOC_DATA` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Rust fixed array length 3 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `CDROM_TOC_FULL_TOC_DATA_BLOCK` (
+    public var `SessionNumber`: UByte,
+    public var `_bitfield`: UByte,
+    public var `Reserved1`: UByte,
+    public var `Point`: UByte,
+    public var `MsfExtra`: UByteArray,
+    public var `Zero`: UByte,
+    public var `Msf`: UByteArray,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `CDROM_TOC_FULL_TOC_DATA_BLOCK`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `CDROM_TOC_FULL_TOC_DATA_BLOCK`.Companion.`default`() : `CDROM_TOC_FULL_TOC_DATA_BLOCK` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Rust fixed array length 2 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Rust fixed array length 1 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `CDROM_TOC_PMA_DATA` (
+    public var `Length`: UByteArray,
+    public var `Reserved1`: UByte,
+    public var `Reserved2`: UByte,
+    public var `Descriptors`: Array<`CDROM_TOC_FULL_TOC_DATA_BLOCK`>,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `CDROM_TOC_PMA_DATA`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `CDROM_TOC_PMA_DATA`.Companion.`default`() : `CDROM_TOC_PMA_DATA` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Rust fixed array length 2 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Rust fixed array length 1 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `CDROM_TOC_SESSION_DATA` (
+    public var `Length`: UByteArray,
+    public var `FirstCompleteSession`: UByte,
+    public var `LastCompleteSession`: UByte,
+    public var `TrackData`: Array<`TRACK_DATA`>,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `CDROM_TOC_SESSION_DATA`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `CDROM_TOC_SESSION_DATA`.Companion.`default`() : `CDROM_TOC_SESSION_DATA` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Rust fixed array length 3 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Rust fixed array length 4 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `CDROM_WRITE_SPEED_DESCRIPTOR` (
+    public var `_bitfield`: UByte,
+    public var `Reserved3`: UByteArray,
+    public var `EndLba`: UByteArray,
+    public var `ReadSpeed`: UByteArray,
+    public var `WriteSpeed`: UByteArray,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `CDROM_WRITE_SPEED_DESCRIPTOR`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `CDROM_WRITE_SPEED_DESCRIPTOR`.Companion.`default`() : `CDROM_WRITE_SPEED_DESCRIPTOR` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `CDROM_WRITE_SPEED_REQUEST` (
+    public var `RequestType`: `CDROM_PERFORMANCE_REQUEST_TYPE`,
+)
+public const val `CD_RAW_READ_C2_SIZE`: UInt = 296u;
+public const val `CD_RAW_READ_SUBCODE_SIZE`: UInt = 96u;
+public const val `CD_RAW_SECTOR_WITH_C2_SIZE`: UInt = 2648u;
+public const val `CD_RAW_SECTOR_WITH_SUBCODE_SIZE`: UInt = 2448u;
+public const val `Cdrom10Nominal20Exceptions`: `CDROM_PERFORMANCE_TOLERANCE_TYPE` = 1;
+public const val `CdromCAVRotation`: `WRITE_ROTATION` = 1;
+public const val `CdromDefaultRotation`: `WRITE_ROTATION` = 0;
+public const val `CdromEntirePerformanceList`: `CDROM_PERFORMANCE_EXCEPTION_TYPE` = 2;
+public const val `CdromNominalPerformance`: `CDROM_PERFORMANCE_EXCEPTION_TYPE` = 1;
+public const val `CdromPerformanceExceptionsOnly`: `CDROM_PERFORMANCE_EXCEPTION_TYPE` = 3;
+public const val `CdromPerformanceRequest`: `CDROM_PERFORMANCE_REQUEST_TYPE` = 1;
+public const val `CdromReadPerformance`: `CDROM_PERFORMANCE_TYPE` = 1;
+public const val `CdromSetSpeed`: `CDROM_SPEED_REQUEST` = 0;
+public const val `CdromSetStreaming`: `CDROM_SPEED_REQUEST` = 1;
+public const val `CdromStreamingDisable`: `STREAMING_CONTROL_REQUEST_TYPE` = 1;
+public const val `CdromStreamingEnableForReadOnly`: `STREAMING_CONTROL_REQUEST_TYPE` = 2;
+public const val `CdromStreamingEnableForReadWrite`: `STREAMING_CONTROL_REQUEST_TYPE` = 4;
+public const val `CdromStreamingEnableForWriteOnly`: `STREAMING_CONTROL_REQUEST_TYPE` = 3;
+public const val `CdromWritePerformance`: `CDROM_PERFORMANCE_TYPE` = 2;
+public const val `CdromWriteSpeedRequest`: `CDROM_PERFORMANCE_REQUEST_TYPE` = 2;
+public const val `DIGITAL_COPY_PERMITTED`: UInt = 2u;
+public typealias `EXCLUSIVE_ACCESS_REQUEST_TYPE` = Int;
+public const val `ExclusiveAccessLockDevice`: `EXCLUSIVE_ACCESS_REQUEST_TYPE` = 1;
+public const val `ExclusiveAccessQueryState`: `EXCLUSIVE_ACCESS_REQUEST_TYPE` = 0;
+public const val `ExclusiveAccessUnlockDevice`: `EXCLUSIVE_ACCESS_REQUEST_TYPE` = 2;
+public const val `IOCTL_CDROM_BASE`: Int = 2;
+public const val `IOCTL_CDROM_CHECK_VERIFY`: UInt = 149504u;
+public const val `IOCTL_CDROM_CURRENT_POSITION`: UInt = 1u;
+public const val `IOCTL_CDROM_DISK_TYPE`: UInt = 131136u;
+public const val `IOCTL_CDROM_EJECT_MEDIA`: UInt = 149512u;
+public const val `IOCTL_CDROM_ENABLE_STREAMING`: UInt = 147560u;
+public const val `IOCTL_CDROM_EXCLUSIVE_ACCESS`: UInt = 180316u;
+public const val `IOCTL_CDROM_FIND_NEW_DEVICES`: UInt = 149528u;
+public const val `IOCTL_CDROM_GET_CONFIGURATION`: UInt = 147544u;
+public const val `IOCTL_CDROM_GET_CONTROL`: UInt = 147508u;
+public const val `IOCTL_CDROM_GET_DRIVE_GEOMETRY`: UInt = 147532u;
+public const val `IOCTL_CDROM_GET_DRIVE_GEOMETRY_EX`: UInt = 147536u;
+public const val `IOCTL_CDROM_GET_INQUIRY_DATA`: UInt = 147556u;
+public const val `IOCTL_CDROM_GET_LAST_SESSION`: UInt = 147512u;
+public const val `IOCTL_CDROM_GET_PERFORMANCE`: UInt = 147568u;
+public const val `IOCTL_CDROM_GET_VOLUME`: UInt = 147476u;
+public const val `IOCTL_CDROM_LOAD_MEDIA`: UInt = 149516u;
+public const val `IOCTL_CDROM_MEDIA_CATALOG`: UInt = 2u;
+public const val `IOCTL_CDROM_MEDIA_REMOVAL`: UInt = 149508u;
+public const val `IOCTL_CDROM_PAUSE_AUDIO`: UInt = 147468u;
+public const val `IOCTL_CDROM_PLAY_AUDIO_MSF`: UInt = 147480u;
+public const val `IOCTL_CDROM_RAW_READ`: UInt = 147518u;
+public const val `IOCTL_CDROM_READ_Q_CHANNEL`: UInt = 147500u;
+public const val `IOCTL_CDROM_READ_TOC`: UInt = 147456u;
+public const val `IOCTL_CDROM_READ_TOC_EX`: UInt = 147540u;
+public const val `IOCTL_CDROM_RELEASE`: UInt = 149524u;
+public const val `IOCTL_CDROM_RESERVE`: UInt = 149520u;
+public const val `IOCTL_CDROM_RESUME_AUDIO`: UInt = 147472u;
+public const val `IOCTL_CDROM_SEEK_AUDIO_MSF`: UInt = 147460u;
+public const val `IOCTL_CDROM_SEND_OPC_INFORMATION`: UInt = 180332u;
+public const val `IOCTL_CDROM_SET_SPEED`: UInt = 147552u;
+public const val `IOCTL_CDROM_SET_VOLUME`: UInt = 147496u;
+public const val `IOCTL_CDROM_SIMBAD`: UInt = 147468u;
+public const val `IOCTL_CDROM_STOP_AUDIO`: UInt = 147464u;
+public const val `IOCTL_CDROM_SUB_Q_CHANNEL`: UInt = 0u;
+public const val `IOCTL_CDROM_TRACK_ISRC`: UInt = 3u;
+public const val `IOCTL_CDROM_UNLOAD_DRIVER`: UInt = 151560u;
+public const val `MAXIMUM_CDROM_INQUIRY_SIZE`: UInt = 260u;
+public const val `MAXIMUM_CDROM_SIZE`: UInt = 804u;
+public const val `MAXIMUM_NUMBER_TRACKS`: UInt = 100u;
+public typealias `MEDIA_BLANK_TYPE` = Int;
+public const val `MINIMUM_CDROM_INQUIRY_SIZE`: UInt = 36u;
+public const val `MINIMUM_CDROM_READ_TOC_EX_SIZE`: UInt = 2u;
+public const val `MediaBlankTypeEraseLastSession`: `MEDIA_BLANK_TYPE` = 6;
+public const val `MediaBlankTypeFull`: `MEDIA_BLANK_TYPE` = 0;
+public const val `MediaBlankTypeIncompleteTrack`: `MEDIA_BLANK_TYPE` = 2;
+public const val `MediaBlankTypeMinimal`: `MEDIA_BLANK_TYPE` = 1;
+public const val `MediaBlankTypeTrackTail`: `MEDIA_BLANK_TYPE` = 4;
+public const val `MediaBlankTypeUncloseLastSession`: `MEDIA_BLANK_TYPE` = 5;
+public const val `MediaBlankTypeUnreserveLastTrack`: `MEDIA_BLANK_TYPE` = 3;
+public const val `OBSOLETE_IOCTL_CDROM_GET_CONTROL`: UInt = 147508u;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `RAW_READ_INFO` (
+    public var `DiskOffset`: Long,
+    public var `SectorCount`: UInt,
+    public var `TrackMode`: `TRACK_MODE_TYPE`,
+)
+public const val `RawWithC2`: `TRACK_MODE_TYPE` = 4;
+public const val `RawWithC2AndSubCode`: `TRACK_MODE_TYPE` = 3;
+public const val `RawWithSubCode`: `TRACK_MODE_TYPE` = 5;
+public typealias `STREAMING_CONTROL_REQUEST_TYPE` = Int;
+// UNSUPPORTED Rust 440:1: declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+// #[repr(C)]
+// #[derive(Clone, Copy)]
+// pub union SUB_Q_CHANNEL_DATA {
+//     pub CurrentPosition: SUB_Q_CURRENT_POSITION,
+//     pub MediaCatalog: SUB_Q_MEDIA_CATALOG_NUMBER,
+//     pub TrackIsrc: SUB_Q_TRACK_ISRC,
+// }
+
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `SUB_Q_CHANNEL_DATA`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `SUB_Q_CHANNEL_DATA`.Companion.`default`() : `SUB_Q_CHANNEL_DATA` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Rust fixed array length 4 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `SUB_Q_CURRENT_POSITION` (
+    public var `Header`: `SUB_Q_HEADER`,
+    public var `FormatCode`: UByte,
+    public var `_bitfield`: UByte,
+    public var `TrackNumber`: UByte,
+    public var `IndexNumber`: UByte,
+    public var `AbsoluteAddress`: UByteArray,
+    public var `TrackRelativeAddress`: UByteArray,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `SUB_Q_CURRENT_POSITION`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `SUB_Q_CURRENT_POSITION`.Companion.`default`() : `SUB_Q_CURRENT_POSITION` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Rust fixed array length 2 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `SUB_Q_HEADER` (
+    public var `Reserved`: UByte,
+    public var `AudioStatus`: UByte,
+    public var `DataLength`: UByteArray,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `SUB_Q_HEADER`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `SUB_Q_HEADER`.Companion.`default`() : `SUB_Q_HEADER` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Rust fixed array length 3 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Rust fixed array length 15 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `SUB_Q_MEDIA_CATALOG_NUMBER` (
+    public var `Header`: `SUB_Q_HEADER`,
+    public var `FormatCode`: UByte,
+    public var `Reserved`: UByteArray,
+    public var `_bitfield`: UByte,
+    public var `MediaCatalog`: UByteArray,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `SUB_Q_MEDIA_CATALOG_NUMBER`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `SUB_Q_MEDIA_CATALOG_NUMBER`.Companion.`default`() : `SUB_Q_MEDIA_CATALOG_NUMBER` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Rust fixed array length 15 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `SUB_Q_TRACK_ISRC` (
+    public var `Header`: `SUB_Q_HEADER`,
+    public var `FormatCode`: UByte,
+    public var `Reserved0`: UByte,
+    public var `Track`: UByte,
+    public var `Reserved1`: UByte,
+    public var `_bitfield`: UByte,
+    public var `TrackIsrc`: UByteArray,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `SUB_Q_TRACK_ISRC`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `SUB_Q_TRACK_ISRC`.Companion.`default`() : `SUB_Q_TRACK_ISRC` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+public const val `SimpleOpcInfo`: `CDROM_OPC_INFO_TYPE` = 1;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Rust fixed array length 4 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `TRACK_DATA` (
+    public var `Reserved`: UByte,
+    public var `_bitfield`: UByte,
+    public var `TrackNumber`: UByte,
+    public var `Reserved1`: UByte,
+    public var `Address`: UByteArray,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `TRACK_DATA`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `TRACK_DATA`.Companion.`default`() : `TRACK_DATA` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+public typealias `TRACK_MODE_TYPE` = Int;
+public const val `TWO_FOUR_CHANNEL_AUDIO`: UInt = 8u;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Rust fixed array length 4 and value/layout semantics require coder integration.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy)]
+public class `VOLUME_CONTROL` (
+    public var `PortVolume`: UByteArray,
+) { companion object }
+// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
+// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
+// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
+// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `VOLUME_CONTROL`; Kotlin companion extension is not a trait implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+
+    public fun `VOLUME_CONTROL`.Companion.`default`() : `VOLUME_CONTROL` {
+        return run { `core`.`mem`.`zeroed`() }
+    }
+
+public typealias `WRITE_ROTATION` = Int;
+public const val `XAForm2`: `TRACK_MODE_TYPE` = 1;
+public const val `YellowMode2`: `TRACK_MODE_TYPE` = 0;

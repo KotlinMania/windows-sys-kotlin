@@ -1,0 +1,537 @@
+--- ../windows-sys-kotlin/direct-translation/comparisons-pass-06/port-snapshots/io/github/kotlinmania/windowssys/windows/win32/system/processstatus/ProcessStatus.kt	2026-10-24 15:45:30
++++ ../windows-sys-kotlin/direct-translation/pass-06/files/Windows/Win32/System/ProcessStatus/mod/candidate.kt	2026-10-24 15:40:17
+@@ -1,15 +1,520 @@
+-// port-lint: source Windows/Win32/System/ProcessStatus/mod.rs
+-package io.github.kotlinmania.windowssys.windows.win32.system.processstatus
++// DIRECT DECLARATION CANDIDATE: unsupported Rust remains below; not adopted or ABI-validated.
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=psapi.dll, ABI=system, export=EmptyWorkingSet; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `EmptyWorkingSet`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=psapi.dll, ABI=system, export=EnumDeviceDrivers; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `EnumDeviceDrivers`(`lpimagebase` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.CPointerVar<`core`.`ffi`.`c_void`>>?, `cb` : UInt, `lpcbneeded` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=psapi.dll, ABI=system, export=EnumPageFilesA; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `EnumPageFilesA`(`pcallbackroutine` : `PENUM_PAGE_FILE_CALLBACKA`, `pcontext` : /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=psapi.dll, ABI=system, export=EnumPageFilesW; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `EnumPageFilesW`(`pcallbackroutine` : `PENUM_PAGE_FILE_CALLBACKW`, `pcontext` : /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=psapi.dll, ABI=system, export=EnumProcessModules; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `EnumProcessModules`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`, `lphmodule` : /* Rust *mut */ kotlinx.cinterop.CPointer<`super`.`super`.`Foundation`.`HMODULE`>?, `cb` : UInt, `lpcbneeded` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=psapi.dll, ABI=system, export=EnumProcessModulesEx; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `EnumProcessModulesEx`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`, `lphmodule` : /* Rust *mut */ kotlinx.cinterop.CPointer<`super`.`super`.`Foundation`.`HMODULE`>?, `cb` : UInt, `lpcbneeded` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `dwfilterflag` : `ENUM_PROCESS_MODULES_EX_FLAGS`) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=psapi.dll, ABI=system, export=EnumProcesses; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `EnumProcesses`(`lpidprocess` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `cb` : UInt, `lpcbneeded` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=psapi.dll, ABI=system, export=GetDeviceDriverBaseNameA; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `GetDeviceDriverBaseNameA`(`imagebase` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `lpfilename` : `windows_sys`.`core`.`PSTR`, `nsize` : UInt) : UInt
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=psapi.dll, ABI=system, export=GetDeviceDriverBaseNameW; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `GetDeviceDriverBaseNameW`(`imagebase` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `lpbasename` : `windows_sys`.`core`.`PWSTR`, `nsize` : UInt) : UInt
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=psapi.dll, ABI=system, export=GetDeviceDriverFileNameA; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `GetDeviceDriverFileNameA`(`imagebase` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `lpfilename` : `windows_sys`.`core`.`PSTR`, `nsize` : UInt) : UInt
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=psapi.dll, ABI=system, export=GetDeviceDriverFileNameW; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `GetDeviceDriverFileNameW`(`imagebase` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `lpfilename` : `windows_sys`.`core`.`PWSTR`, `nsize` : UInt) : UInt
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=psapi.dll, ABI=system, export=GetMappedFileNameA; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `GetMappedFileNameA`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`, `lpv` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `lpfilename` : `windows_sys`.`core`.`PSTR`, `nsize` : UInt) : UInt
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=psapi.dll, ABI=system, export=GetMappedFileNameW; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `GetMappedFileNameW`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`, `lpv` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `lpfilename` : `windows_sys`.`core`.`PWSTR`, `nsize` : UInt) : UInt
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=psapi.dll, ABI=system, export=GetModuleBaseNameA; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `GetModuleBaseNameA`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`, `hmodule` : `super`.`super`.`Foundation`.`HMODULE`, `lpbasename` : `windows_sys`.`core`.`PSTR`, `nsize` : UInt) : UInt
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=psapi.dll, ABI=system, export=GetModuleBaseNameW; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `GetModuleBaseNameW`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`, `hmodule` : `super`.`super`.`Foundation`.`HMODULE`, `lpbasename` : `windows_sys`.`core`.`PWSTR`, `nsize` : UInt) : UInt
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=psapi.dll, ABI=system, export=GetModuleFileNameExA; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `GetModuleFileNameExA`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`, `hmodule` : `super`.`super`.`Foundation`.`HMODULE`, `lpfilename` : `windows_sys`.`core`.`PSTR`, `nsize` : UInt) : UInt
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=psapi.dll, ABI=system, export=GetModuleFileNameExW; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `GetModuleFileNameExW`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`, `hmodule` : `super`.`super`.`Foundation`.`HMODULE`, `lpfilename` : `windows_sys`.`core`.`PWSTR`, `nsize` : UInt) : UInt
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=psapi.dll, ABI=system, export=GetModuleInformation; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `GetModuleInformation`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`, `hmodule` : `super`.`super`.`Foundation`.`HMODULE`, `lpmodinfo` : /* Rust *mut */ kotlinx.cinterop.CPointer<`MODULEINFO`>?, `cb` : UInt) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=psapi.dll, ABI=system, export=GetPerformanceInfo; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `GetPerformanceInfo`(`pperformanceinformation` : /* Rust *mut */ kotlinx.cinterop.CPointer<`PERFORMANCE_INFORMATION`>?, `cb` : UInt) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=psapi.dll, ABI=system, export=GetProcessImageFileNameA; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `GetProcessImageFileNameA`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`, `lpimagefilename` : `windows_sys`.`core`.`PSTR`, `nsize` : UInt) : UInt
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=psapi.dll, ABI=system, export=GetProcessImageFileNameW; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `GetProcessImageFileNameW`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`, `lpimagefilename` : `windows_sys`.`core`.`PWSTR`, `nsize` : UInt) : UInt
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=psapi.dll, ABI=system, export=GetProcessMemoryInfo; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `GetProcessMemoryInfo`(`process` : `super`.`super`.`Foundation`.`HANDLE`, `ppsmemcounters` : /* Rust *mut */ kotlinx.cinterop.CPointer<`PROCESS_MEMORY_COUNTERS`>?, `cb` : UInt) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=psapi.dll, ABI=system, export=GetWsChanges; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `GetWsChanges`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`, `lpwatchinfo` : /* Rust *mut */ kotlinx.cinterop.CPointer<`PSAPI_WS_WATCH_INFORMATION`>?, `cb` : UInt) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=psapi.dll, ABI=system, export=GetWsChangesEx; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `GetWsChangesEx`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`, `lpwatchinfoex` : /* Rust *mut */ kotlinx.cinterop.CPointer<`PSAPI_WS_WATCH_INFORMATION_EX`>?, `cb` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=psapi.dll, ABI=system, export=InitializeProcessForWsWatch; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `InitializeProcessForWsWatch`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=K32EmptyWorkingSet; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `K32EmptyWorkingSet`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=K32EnumDeviceDrivers; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `K32EnumDeviceDrivers`(`lpimagebase` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.CPointerVar<`core`.`ffi`.`c_void`>>?, `cb` : UInt, `lpcbneeded` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=K32EnumPageFilesA; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `K32EnumPageFilesA`(`pcallbackroutine` : `PENUM_PAGE_FILE_CALLBACKA`, `pcontext` : /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=K32EnumPageFilesW; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `K32EnumPageFilesW`(`pcallbackroutine` : `PENUM_PAGE_FILE_CALLBACKW`, `pcontext` : /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=K32EnumProcessModules; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `K32EnumProcessModules`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`, `lphmodule` : /* Rust *mut */ kotlinx.cinterop.CPointer<`super`.`super`.`Foundation`.`HMODULE`>?, `cb` : UInt, `lpcbneeded` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=K32EnumProcessModulesEx; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `K32EnumProcessModulesEx`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`, `lphmodule` : /* Rust *mut */ kotlinx.cinterop.CPointer<`super`.`super`.`Foundation`.`HMODULE`>?, `cb` : UInt, `lpcbneeded` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `dwfilterflag` : UInt) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=K32EnumProcesses; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `K32EnumProcesses`(`lpidprocess` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `cb` : UInt, `lpcbneeded` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=K32GetDeviceDriverBaseNameA; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `K32GetDeviceDriverBaseNameA`(`imagebase` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `lpfilename` : `windows_sys`.`core`.`PSTR`, `nsize` : UInt) : UInt
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=K32GetDeviceDriverBaseNameW; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `K32GetDeviceDriverBaseNameW`(`imagebase` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `lpbasename` : `windows_sys`.`core`.`PWSTR`, `nsize` : UInt) : UInt
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=K32GetDeviceDriverFileNameA; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `K32GetDeviceDriverFileNameA`(`imagebase` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `lpfilename` : `windows_sys`.`core`.`PSTR`, `nsize` : UInt) : UInt
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=K32GetDeviceDriverFileNameW; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `K32GetDeviceDriverFileNameW`(`imagebase` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `lpfilename` : `windows_sys`.`core`.`PWSTR`, `nsize` : UInt) : UInt
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=K32GetMappedFileNameA; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `K32GetMappedFileNameA`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`, `lpv` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `lpfilename` : `windows_sys`.`core`.`PSTR`, `nsize` : UInt) : UInt
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=K32GetMappedFileNameW; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `K32GetMappedFileNameW`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`, `lpv` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `lpfilename` : `windows_sys`.`core`.`PWSTR`, `nsize` : UInt) : UInt
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=K32GetModuleBaseNameA; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `K32GetModuleBaseNameA`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`, `hmodule` : `super`.`super`.`Foundation`.`HMODULE`, `lpbasename` : `windows_sys`.`core`.`PSTR`, `nsize` : UInt) : UInt
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=K32GetModuleBaseNameW; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `K32GetModuleBaseNameW`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`, `hmodule` : `super`.`super`.`Foundation`.`HMODULE`, `lpbasename` : `windows_sys`.`core`.`PWSTR`, `nsize` : UInt) : UInt
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=K32GetModuleFileNameExA; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `K32GetModuleFileNameExA`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`, `hmodule` : `super`.`super`.`Foundation`.`HMODULE`, `lpfilename` : `windows_sys`.`core`.`PSTR`, `nsize` : UInt) : UInt
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=K32GetModuleFileNameExW; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `K32GetModuleFileNameExW`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`, `hmodule` : `super`.`super`.`Foundation`.`HMODULE`, `lpfilename` : `windows_sys`.`core`.`PWSTR`, `nsize` : UInt) : UInt
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=K32GetModuleInformation; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `K32GetModuleInformation`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`, `hmodule` : `super`.`super`.`Foundation`.`HMODULE`, `lpmodinfo` : /* Rust *mut */ kotlinx.cinterop.CPointer<`MODULEINFO`>?, `cb` : UInt) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=K32GetPerformanceInfo; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `K32GetPerformanceInfo`(`pperformanceinformation` : /* Rust *mut */ kotlinx.cinterop.CPointer<`PERFORMANCE_INFORMATION`>?, `cb` : UInt) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=K32GetProcessImageFileNameA; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `K32GetProcessImageFileNameA`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`, `lpimagefilename` : `windows_sys`.`core`.`PSTR`, `nsize` : UInt) : UInt
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=K32GetProcessImageFileNameW; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `K32GetProcessImageFileNameW`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`, `lpimagefilename` : `windows_sys`.`core`.`PWSTR`, `nsize` : UInt) : UInt
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=K32GetProcessMemoryInfo; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `K32GetProcessMemoryInfo`(`process` : `super`.`super`.`Foundation`.`HANDLE`, `ppsmemcounters` : /* Rust *mut */ kotlinx.cinterop.CPointer<`PROCESS_MEMORY_COUNTERS`>?, `cb` : UInt) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=K32GetWsChanges; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `K32GetWsChanges`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`, `lpwatchinfo` : /* Rust *mut */ kotlinx.cinterop.CPointer<`PSAPI_WS_WATCH_INFORMATION`>?, `cb` : UInt) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=K32GetWsChangesEx; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `K32GetWsChangesEx`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`, `lpwatchinfoex` : /* Rust *mut */ kotlinx.cinterop.CPointer<`PSAPI_WS_WATCH_INFORMATION_EX`>?, `cb` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=K32InitializeProcessForWsWatch; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `K32InitializeProcessForWsWatch`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=K32QueryWorkingSet; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `K32QueryWorkingSet`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`, `pv` : /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `cb` : UInt) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=K32QueryWorkingSetEx; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `K32QueryWorkingSetEx`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`, `pv` : /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `cb` : UInt) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=psapi.dll, ABI=system, export=QueryWorkingSet; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `QueryWorkingSet`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`, `pv` : /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `cb` : UInt) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=psapi.dll, ABI=system, export=QueryWorkingSetEx; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `QueryWorkingSetEx`(`hprocess` : `super`.`super`.`Foundation`.`HANDLE`, `pv` : /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `cb` : UInt) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++// Rust attribute (integration required): #[repr(C)]
++// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
++public class `ENUM_PAGE_FILE_INFORMATION` (
++    public var `cb`: UInt,
++    public var `Reserved`: UInt,
++    public var `TotalSize`: ULong,
++    public var `TotalInUse`: ULong,
++    public var `PeakUsage`: ULong,
++)
++public typealias `ENUM_PROCESS_MODULES_EX_FLAGS` = UInt;
++public const val `LIST_MODULES_32BIT`: `ENUM_PROCESS_MODULES_EX_FLAGS` = 1u;
++public const val `LIST_MODULES_64BIT`: `ENUM_PROCESS_MODULES_EX_FLAGS` = 2u;
++public const val `LIST_MODULES_ALL`: `ENUM_PROCESS_MODULES_EX_FLAGS` = 3u;
++public const val `LIST_MODULES_DEFAULT`: `ENUM_PROCESS_MODULES_EX_FLAGS` = 0u;
++// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++// Rust attribute (integration required): #[repr(C)]
++// Rust attribute (integration required): #[derive(Clone, Copy)]
++public class `MODULEINFO` (
++    public var `lpBaseOfDll`: /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?,
++    public var `SizeOfImage`: UInt,
++    public var `EntryPoint`: /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?,
++) { companion object }
++// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
++// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
++// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
++// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `MODULEINFO`; Kotlin companion extension is not a trait implementation.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+ 
+-// Module-tracking ledger for upstream
+-// `Windows/Win32/System/ProcessStatus/mod.rs` (236 lines).
+-//
+-// Symbols parceled:
+-//   - ProcessStatusTypes.kt: ENUM_PROCESS_MODULES_EX_FLAGS, PENUM_PAGE_FILE_CALLBACKA, PENUM_PAGE_FILE_CALLBACKW
+-//   - ProcessStatusConstants.kt: LIST_MODULES_*, PSAPI_VERSION
+-//   - ProcessStatusStructs.kt: ENUM_PAGE_FILE_INFORMATION, MODULEINFO, PERFORMANCE_INFORMATION,
+-//     PROCESS_MEMORY_COUNTERS, PROCESS_MEMORY_COUNTERS_EX, PROCESS_MEMORY_COUNTERS_EX2,
+-//     PSAPI_WORKING_SET_BLOCK, PSAPI_WORKING_SET_BLOCK_0, PSAPI_WORKING_SET_EX_BLOCK,
+-//     PSAPI_WORKING_SET_EX_BLOCK_0, PSAPI_WORKING_SET_EX_BLOCK_0_0, PSAPI_WORKING_SET_EX_BLOCK_0_1,
+-//     PSAPI_WORKING_SET_EX_INFORMATION, PSAPI_WORKING_SET_INFORMATION,
+-//     PSAPI_WS_WATCH_INFORMATION, PSAPI_WS_WATCH_INFORMATION_EX
++    public fun `MODULEINFO`.Companion.`default`() : `MODULEINFO` {
++        return run { `core`.`mem`.`zeroed`() }
++    }
++
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Native callback ABI=system, unsafe=true; integrate the matching native bridge.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public typealias `PENUM_PAGE_FILE_CALLBACKA` = `Option`<kotlinx.cinterop.CPointer<kotlinx.cinterop.CFunction<(/* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, /* Rust *mut */ kotlinx.cinterop.CPointer<`ENUM_PAGE_FILE_INFORMATION`>?, `windows_sys`.`core`.`PCSTR`) -> `windows_sys`.`core`.`BOOL`>>>;
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Native callback ABI=system, unsafe=true; integrate the matching native bridge.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public typealias `PENUM_PAGE_FILE_CALLBACKW` = `Option`<kotlinx.cinterop.CPointer<kotlinx.cinterop.CFunction<(/* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, /* Rust *mut */ kotlinx.cinterop.CPointer<`ENUM_PAGE_FILE_INFORMATION`>?, `windows_sys`.`core`.`PCWSTR`) -> `windows_sys`.`core`.`BOOL`>>>;
++// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++// Rust attribute (integration required): #[repr(C)]
++// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
++public class `PERFORMANCE_INFORMATION` (
++    public var `cb`: UInt,
++    public var `CommitTotal`: ULong,
++    public var `CommitLimit`: ULong,
++    public var `CommitPeak`: ULong,
++    public var `PhysicalTotal`: ULong,
++    public var `PhysicalAvailable`: ULong,
++    public var `SystemCache`: ULong,
++    public var `KernelTotal`: ULong,
++    public var `KernelPaged`: ULong,
++    public var `KernelNonpaged`: ULong,
++    public var `PageSize`: ULong,
++    public var `HandleCount`: UInt,
++    public var `ProcessCount`: UInt,
++    public var `ThreadCount`: UInt,
++)
++// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++// Rust attribute (integration required): #[repr(C)]
++// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
++public class `PROCESS_MEMORY_COUNTERS` (
++    public var `cb`: UInt,
++    public var `PageFaultCount`: UInt,
++    public var `PeakWorkingSetSize`: ULong,
++    public var `WorkingSetSize`: ULong,
++    public var `QuotaPeakPagedPoolUsage`: ULong,
++    public var `QuotaPagedPoolUsage`: ULong,
++    public var `QuotaPeakNonPagedPoolUsage`: ULong,
++    public var `QuotaNonPagedPoolUsage`: ULong,
++    public var `PagefileUsage`: ULong,
++    public var `PeakPagefileUsage`: ULong,
++)
++// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++// Rust attribute (integration required): #[repr(C)]
++// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
++public class `PROCESS_MEMORY_COUNTERS_EX` (
++    public var `cb`: UInt,
++    public var `PageFaultCount`: UInt,
++    public var `PeakWorkingSetSize`: ULong,
++    public var `WorkingSetSize`: ULong,
++    public var `QuotaPeakPagedPoolUsage`: ULong,
++    public var `QuotaPagedPoolUsage`: ULong,
++    public var `QuotaPeakNonPagedPoolUsage`: ULong,
++    public var `QuotaNonPagedPoolUsage`: ULong,
++    public var `PagefileUsage`: ULong,
++    public var `PeakPagefileUsage`: ULong,
++    public var `PrivateUsage`: ULong,
++)
++// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++// Rust attribute (integration required): #[repr(C)]
++// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
++public class `PROCESS_MEMORY_COUNTERS_EX2` (
++    public var `cb`: UInt,
++    public var `PageFaultCount`: UInt,
++    public var `PeakWorkingSetSize`: ULong,
++    public var `WorkingSetSize`: ULong,
++    public var `QuotaPeakPagedPoolUsage`: ULong,
++    public var `QuotaPagedPoolUsage`: ULong,
++    public var `QuotaPeakNonPagedPoolUsage`: ULong,
++    public var `QuotaNonPagedPoolUsage`: ULong,
++    public var `PagefileUsage`: ULong,
++    public var `PeakPagefileUsage`: ULong,
++    public var `PrivateUsage`: ULong,
++    public var `PrivateWorkingSetSize`: ULong,
++    public var `SharedCommitUsage`: ULong,
++)
++public const val `PSAPI_VERSION`: UInt = 2u;
++// UNSUPPORTED Rust 148:1: declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub union PSAPI_WORKING_SET_BLOCK {
++//     pub Flags: usize,
++//     pub Anonymous: PSAPI_WORKING_SET_BLOCK_0,
++// }
++
++// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
++// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
++// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
++// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `PSAPI_WORKING_SET_BLOCK`; Kotlin companion extension is not a trait implementation.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++
++    public fun `PSAPI_WORKING_SET_BLOCK`.Companion.`default`() : `PSAPI_WORKING_SET_BLOCK` {
++        return run { `core`.`mem`.`zeroed`() }
++    }
++
++// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++// Rust attribute (integration required): #[repr(C)]
++// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
++public class `PSAPI_WORKING_SET_BLOCK_0` (
++    public var `_bitfield`: ULong,
++)
++// UNSUPPORTED Rust 164:1: declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub union PSAPI_WORKING_SET_EX_BLOCK {
++//     pub Flags: usize,
++//     pub Anonymous: PSAPI_WORKING_SET_EX_BLOCK_0,
++// }
++
++// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
++// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
++// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
++// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `PSAPI_WORKING_SET_EX_BLOCK`; Kotlin companion extension is not a trait implementation.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++
++    public fun `PSAPI_WORKING_SET_EX_BLOCK`.Companion.`default`() : `PSAPI_WORKING_SET_EX_BLOCK` {
++        return run { `core`.`mem`.`zeroed`() }
++    }
++
++// UNSUPPORTED Rust 175:1: declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub union PSAPI_WORKING_SET_EX_BLOCK_0 {
++//     pub Anonymous: PSAPI_WORKING_SET_EX_BLOCK_0_0,
++//     pub Invalid: PSAPI_WORKING_SET_EX_BLOCK_0_1,
++// }
++
++// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
++// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
++// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
++// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `PSAPI_WORKING_SET_EX_BLOCK_0`; Kotlin companion extension is not a trait implementation.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++
++    public fun `PSAPI_WORKING_SET_EX_BLOCK_0`.Companion.`default`() : `PSAPI_WORKING_SET_EX_BLOCK_0` {
++        return run { `core`.`mem`.`zeroed`() }
++    }
++
++// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++// Rust attribute (integration required): #[repr(C)]
++// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
++public class `PSAPI_WORKING_SET_EX_BLOCK_0_0` (
++    public var `_bitfield`: ULong,
++)
++// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++// Rust attribute (integration required): #[repr(C)]
++// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
++public class `PSAPI_WORKING_SET_EX_BLOCK_0_1` (
++    public var `_bitfield`: ULong,
++)
++// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++// Rust attribute (integration required): #[repr(C)]
++// Rust attribute (integration required): #[derive(Clone, Copy)]
++public class `PSAPI_WORKING_SET_EX_INFORMATION` (
++    public var `VirtualAddress`: /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?,
++    public var `VirtualAttributes`: `PSAPI_WORKING_SET_EX_BLOCK`,
++) { companion object }
++// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
++// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
++// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
++// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `PSAPI_WORKING_SET_EX_INFORMATION`; Kotlin companion extension is not a trait implementation.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++
++    public fun `PSAPI_WORKING_SET_EX_INFORMATION`.Companion.`default`() : `PSAPI_WORKING_SET_EX_INFORMATION` {
++        return run { `core`.`mem`.`zeroed`() }
++    }
++
++// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
++// INTEGRATION REQUIRED: Rust fixed array length 1 and value/layout semantics require coder integration.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++// Rust attribute (integration required): #[repr(C)]
++// Rust attribute (integration required): #[derive(Clone, Copy)]
++public class `PSAPI_WORKING_SET_INFORMATION` (
++    public var `NumberOfEntries`: ULong,
++    public var `WorkingSetInfo`: Array<`PSAPI_WORKING_SET_BLOCK`>,
++) { companion object }
++// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
++// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
++// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
++// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `PSAPI_WORKING_SET_INFORMATION`; Kotlin companion extension is not a trait implementation.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++
++    public fun `PSAPI_WORKING_SET_INFORMATION`.Companion.`default`() : `PSAPI_WORKING_SET_INFORMATION` {
++        return run { `core`.`mem`.`zeroed`() }
++    }
++
++// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++// Rust attribute (integration required): #[repr(C)]
++// Rust attribute (integration required): #[derive(Clone, Copy)]
++public class `PSAPI_WS_WATCH_INFORMATION` (
++    public var `FaultingPc`: /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?,
++    public var `FaultingVa`: /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?,
++) { companion object }
++// INTEGRATION REQUIRED: Associated factory syntax only: companion extensions retain source method order. Integrate trait dispatch, cfg, visibility and ownership; collisions between trait methods require disambiguation.
++// INTEGRATION REQUIRED: Calls keep their Rust paths and need source-faithful bindings; core::mem::zeroed is not implemented or replaced with a fabricated value.
++// INTEGRATION REQUIRED: Rust unsafe blocks become Kotlin run value scopes; their safety obligations remain with the caller/integrator.
++// INTEGRATION REQUIRED: Rust trait implementation: `Default` for `PSAPI_WS_WATCH_INFORMATION`; Kotlin companion extension is not a trait implementation.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++
++    public fun `PSAPI_WS_WATCH_INFORMATION`.Companion.`default`() : `PSAPI_WS_WATCH_INFORMATION` {
++        return run { `core`.`mem`.`zeroed`() }
++    }
++
++// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++// Rust attribute (integration required): #[repr(C)]
++// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
++public class `PSAPI_WS_WATCH_INFORMATION_EX` (
++    public var `BasicInfo`: `PSAPI_WS_WATCH_INFORMATION`,
++    public var `FaultingThreadId`: ULong,
++    public var `Flags`: ULong,
++)

@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-06/files/Windows/Win32/NetworkManagement/InternetConnectionWizard/mod: 18 generated; 4 syntax candidates; 0 unsupported

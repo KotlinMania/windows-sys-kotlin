@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-06/files/Windows/Win32/System/StationsAndDesktops/mod: 40 generated; 40 syntax candidates; 0 unsupported

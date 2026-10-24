@@ -1,0 +1,74 @@
+{
+  "passed": true,
+  "disposition_changes": {
+    "Impl": 8925
+  },
+  "unchanged_source_item_ranges": 177873,
+  "remaining_impls": [
+    {
+      "source": "core/mod.rs",
+      "line": "24",
+      "diagnostic": "declaration Impl has no candidate rule; syntax: factory signature requires ordinary no-argument associated function"
+    },
+    {
+      "source": "Windows/Win32/Devices/WebServicesOnDevices/mod.rs",
+      "line": "287",
+      "diagnostic": "declaration Impl has no candidate rule; syntax: factory impl contains Const; no associated items are omitted"
+    },
+    {
+      "source": "Windows/Win32/System/WindowsProgramming/mod.rs",
+      "line": "493",
+      "diagnostic": "declaration Impl has no candidate rule; syntax: factory impl contains Const; no associated items are omitted"
+    },
+    {
+      "source": "Windows/Win32/System/WindowsProgramming/mod.rs",
+      "line": "501",
+      "diagnostic": "declaration Impl has no candidate rule; syntax: factory impl contains Const; no associated items are omitted"
+    },
+    {
+      "source": "Windows/Win32/System/WindowsProgramming/mod.rs",
+      "line": "508",
+      "diagnostic": "declaration Impl has no candidate rule; syntax: factory impl contains Const; no associated items are omitted"
+    },
+    {
+      "source": "Windows/Win32/System/WindowsProgramming/mod.rs",
+      "line": "515",
+      "diagnostic": "declaration Impl has no candidate rule; syntax: factory impl contains Const; no associated items are omitted"
+    },
+    {
+      "source": "Windows/Win32/System/WindowsProgramming/mod.rs",
+      "line": "523",
+      "diagnostic": "declaration Impl has no candidate rule; syntax: factory impl contains Const; no associated items are omitted"
+    },
+    {
+      "source": "Windows/Win32/System/WindowsProgramming/mod.rs",
+      "line": "530",
+      "diagnostic": "declaration Impl has no candidate rule; syntax: factory impl contains Const; no associated items are omitted"
+    },
+    {
+      "source": "Windows/Win32/Media/Audio/mod.rs",
+      "line": "1032",
+      "diagnostic": "declaration Impl has no candidate rule; syntax: factory impl contains Const; no associated items are omitted"
+    },
+    {
+      "source": "Windows/Win32/Graphics/GdiPlus/mod.rs",
+      "line": "742",
+      "diagnostic": "declaration Impl has no candidate rule; syntax: factory impl contains Const; no associated items are omitted"
+    },
+    {
+      "source": "Windows/Win32/Security/Authentication/Identity/mod.rs",
+      "line": "4209",
+      "diagnostic": "declaration Impl has no candidate rule; syntax: factory impl contains Const; no associated items are omitted"
+    },
+    {
+      "source": "Windows/Win32/Security/Cryptography/mod.rs",
+      "line": "7464",
+      "diagnostic": "declaration Impl has no candidate rule; syntax: factory impl contains Const; no associated items are omitted"
+    },
+    {
+      "source": "Windows/Win32/Security/Cryptography/mod.rs",
+      "line": "9016",
+      "diagnostic": "declaration Impl has no candidate rule; syntax: factory impl contains Const; no associated items are omitted"
+    }
+  ]
+}

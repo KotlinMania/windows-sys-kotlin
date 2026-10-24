@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-06/files/Windows/Win32/NetworkManagement/Snmp/mod: 172 generated; 120 syntax candidates; 3 unsupported

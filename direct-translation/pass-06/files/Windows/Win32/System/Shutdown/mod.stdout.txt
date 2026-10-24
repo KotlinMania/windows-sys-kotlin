@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-06/files/Windows/Win32/System/Shutdown/mod: 97 generated; 14 syntax candidates; 0 unsupported
