@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/System/DistributedTransactionCoordinator/mod: 210 generated; 27 syntax candidates; 6 unsupported

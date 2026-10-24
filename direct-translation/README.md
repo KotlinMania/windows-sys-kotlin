@@ -1,59 +1,97 @@
 # Direct Rust-to-Kotlin candidates
 
-Source: windows-sys 0.61.2, **249 Rust files** in this checkout. Generated candidates
-are **not adopted production code**. They use existing proc-macro2-kotlin → Syn AST
-recognition. No custom lexer/parser or JVM/decompiler route is used.
+Source: windows-sys 0.61.2, **249 Rust files** in this checkout. The latest complete
+run is [pass 04](pass-04/coverage.md). It uses existing proc-macro2-kotlin → Syn AST
+recognition and source-span emission. There is no custom lexer/parser or decompiler.
+Existing production sources are untouched; these are **not adopted code**.
+
+## Current coverage
+
+All 249 files were attempted. Across the 248 files with item receipts:
+
+| Disposition | Declarations |
+|---|---:|
+| Mapped constants and aliases | 118,014 |
+| Additional Kotlin syntax needing integration | 36,937 |
+| Unsupported original items retained with diagnostics | 22,922 |
+| Total counted top-level items | 177,873 |
+
+The root `lib.rs` is emission-blocked by file attributes and is outside that item
+denominator. Counts include cfg alternatives and containers, not unique APIs or
+body coverage. Four files are completely mapped; 23 more have all items emitted as
+mapped/syntax candidates; 198 are partial; 23 contain only unsupported items;
+one is blocked. This is per-file output coverage, not whole-project compilation,
+Windows ABI/runtime validation or production adoption.
+
+The syntax candidates include **20,189 foreign signatures, 12,969 records and
+3,779 aliases**. DLL/ABI/export names, attributes, array lengths and unresolved types
+remain explicit integration requirements. No fake function bodies are generated.
+The Syn array-span repair alone unlocked 2,595 record declarations between
+[pass 03](pass-03/coverage.md) and pass 04.
 
 ## Open the output
 
-- [Complete HLSL constants](pass-02/files/Windows/Win32/Graphics/Hlsl/mod/candidate.kt)
-- [Beep: constants plus explicit unsupported declarations](pass-02/files/Windows/Win32/Devices/Beep/mod/candidate.kt)
-- [Console declarations](pass-02/files/Windows/Win32/System/Console/mod/candidate.kt)
-- [FileHistory, including signed HRESULT constants](pass-02/files/Windows/Win32/Storage/FileHistory/mod/candidate.kt)
-- [Complete Ceip DLL function candidate](link-validation-04-raw-imports/ceip/candidate.kt), with adjacent generated interop header/definition
-- [Threading candidate: 430 declarations, including 52 API functions](link-validation-05-threading-raw/threading/candidate.kt)
+- [Console: signatures, records and constants](pass-04/files/Windows/Win32/System/Console/mod/candidate.kt)
+- [OpenGL: all top-level items have Kotlin output](pass-04/files/Windows/Win32/Graphics/OpenGL/mod/candidate.kt), with native integration still required
+- [Complete HLSL constants](pass-04/files/Windows/Win32/Graphics/Hlsl/mod/candidate.kt)
+- [Beep: record and constants, with pointer-string macros still unsupported](pass-04/files/Windows/Win32/Devices/Beep/mod/candidate.kt)
+- [Ceip foreign signature shape](pass-04/files/Windows/Win32/System/Diagnostics/Ceip/mod/candidate.kt)
+- [All files and remaining categories](pass-04/coverage.md)
 
-Every candidate has adjacent `input.rs`, `declarations.tsv`, comment-move records
-and a candidate receipt. Unsupported items retain their original Rust text beside
-an explicit diagnostic. Comments and declaration order are preserved; necessary
-comment moves within replaced nodes are recorded. Supported integer casts are
-folded exactly; original expressions remain available in the source snapshot.
+Each candidate has adjacent `input.rs`, `declarations.tsv`, comment-move records
+and a receipt. Unsupported items retain original Rust beside a diagnostic.
+Comments and declaration order are preserved; required moves within replaced nodes
+are recorded. Original source is always available. Ordinary diffs against all 85
+common port files are indexed in [comparisons](comparisons-pass-04/index.json).
+Diffs are comparison evidence, not automatic correctness or adoption decisions.
 
-`pass-01` records literal/alias rules. `pass-02` adds checked Rust integer casts and
-source-backed core aliases. Each pass freezes its executable and source bindings.
-`manifest.jsonl` contains completed-file records; `summary.json` is written only
-when the complete inventory finishes. Do not interpret an unfinished manifest as
-final coverage. Frozen executable binaries and first-pass bulk are retained locally
-but excluded from Git; pass-02 source/candidate/diagnostic files are checkpointed.
+## What was verified
 
-## Verification and limits
+**162 translator tests pass**. The existing Syn parser's fixed-array token repair
+passes 416 JVM and 414 macOS tests. Its rebuilt translator preserves nested-array
+comments, generates identical repeated output and compiles the unchanged fixture.
+[Array evidence and Console adjudication](syntax-validation-02-array-spans/adjudication.md)
+separate that syntax check from fixed-size/Copy/layout semantics.
 
-157 translator tests pass. The improved scalar/cast fixture matches Rust on 19
-boundary observations, compiling generated Kotlin unchanged. The four complete
-scalar-only candidates plus FileHistory compile unchanged; Beep and Console's
-emitted scalar declarations also compile. The actual complete HLSL Rust and Kotlin
-sources produce identical `49152|1` output. Receipts and ordinary port diffs are in
-[validation](validation/). These are focused checks, not a claim that every generated
-declaration has been compiled individually or that Windows APIs work.
+Earlier scalar/cast checks match 19 Rust boundary observations, with unchanged Kotlin
+compilation. Complete HLSL Rust and generated Kotlin both produce `49152|1`.
+[Receipts](validation/) cover those bounded checks, not every declaration.
 
-Candidates are separate module files without an adopted package/build arrangement.
-Do not combine them into one Kotlin namespace: Rust module names may overlap.
-Function linkage, pointers, native layout/Copy, unions, callbacks, GUIDs, target cfg,
-floating constants and richer expressions remain unsupported where marked. A
-comment-only file is not counted as translated. Separately, W3 emits supported scalar
-DLL functions through existing Syn and Kotlin/Native cinterop. Complete Ceip raw
-output compiles and links into a Windows PE importing `CeipIsOptedIn` from
-`kernel32.dll`; [receipt](link-validation-04-raw-imports/validation.json). Existing LLVM
-builds source-derived raw import archives, avoiding missing SDK symbol libraries.
-All 52 admitted Threading functions also compile and link with their exact DLL/export
-pairs: [receipt](link-validation-05-threading-raw/validation.json). Its remaining 370
-items are explicitly unsupported. This narrowly verifies
-its bridge and import, not Windows runtime behavior or whole-library ABI correctness.
-W3 has not yet been applied to the full inventory. No production adoption has occurred.
+A separate native-bridge mode was validated for
+[Ceip](link-validation-04-raw-imports/validation.json) and
+[52 Threading functions](link-validation-05-threading-raw/validation.json):
+source-derived raw DLL archives, Kotlin/Native compilation, Windows PE linking and
+exact DLL/export imports. No Windows executable was run. Pass 04 syntax output does
+not inherit those ABI claims, and whole-project integration does not gate emission.
 
-`inventory.json` records original paths/hashes. `baseline-state.json` and
-`preservation-check.json` protect the 105 pre-existing dirty paths and staged
-changes. Existing production, restoration and configuration files are untouched.
-The generator's canonical design and implementation evidence are in
-[rust-kotlin/docs/design.md](../../rust-kotlin/docs/design.md) and
-[Windows increment](../../rust-kotlin/docs/windows-candidates-01.md).
+## What remains
+
+The largest unsupported categories are 12,132 constants involving richer values
+and pointer macros, 8,938 impl blocks, and 1,500 unions. There are also 246 module
+items, 63 macros, 34 tuple/unit records, 7 uses and 2 functions. Original source is
+retained for every one. Next improvements should implement reusable AST rules on
+representative cases and rerun the inventory, rather than hand-patch these files.
+
+Cross-file namespace binding, target cfg selection, native storage/layout, ownership,
+callbacks and production adoption remain coder integration work. Syntax-shaped
+arrays do not enforce Rust lengths or value semantics. Diagnostics keep those limits
+visible; unresolved declarations are not counted as fully mapped translations.
+
+## Reproducibility and protection
+
+Pass 04 executable SHA-256:
+`811b55371ec95113ec1a44a2ad8703a9de85b8f15a55030717ea9cd4e6d45828`.
+[Verification](pass-04/verification.json) checks every source/output hash, item count
+and ordered source span. `run.json` records the exact source binding and options.
+The observed pass took about 290 seconds under concurrent load, not an isolated
+benchmark. Older passes/executables are retained unchanged. A pass is complete only
+when its `summary.json` exists; older in-progress manifests are historical partials.
+
+`inventory.json` records original paths/hashes. `baseline-state.json` and preservation
+receipts protect the 105 pre-existing dirty paths and staged changes. Output is kept
+separate from production/restoration/configuration files. Local commits protect the
+sources and evidence; binary build products remain local and ignored. No pushes,
+remote CI, PRs, public publication or releases are performed.
+
+See the generator's [canonical design](../../rust-kotlin/docs/design.md) and
+[current syntax increment](../../rust-kotlin/docs/windows-syntax-candidates.md).

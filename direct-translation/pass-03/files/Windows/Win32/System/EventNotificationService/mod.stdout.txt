@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Win32/System/EventNotificationService/mod: 8 generated; 5 syntax candidates; 8 unsupported

@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Win32/Networking/HttpServer/mod: 379 generated; 132 syntax candidates; 64 unsupported

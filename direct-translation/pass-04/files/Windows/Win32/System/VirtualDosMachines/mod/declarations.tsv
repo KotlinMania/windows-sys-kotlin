@@ -1,0 +1,148 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Const	DBG_ATTACH	0	34	1	1	2	generated	
+1	Const	DBG_BREAK	35	67	2	1	3	generated	
+2	Const	DBG_DIVOVERFLOW	68	106	3	1	4	generated	
+3	Const	DBG_DLLSTART	107	143	4	1	5	generated	
+4	Const	DBG_DLLSTOP	144	179	5	1	6	generated	
+5	Const	DBG_GPFAULT	180	214	6	1	7	generated	
+6	Const	DBG_GPFAULT2	215	251	7	1	8	generated	
+7	Const	DBG_INIT	252	284	8	1	9	generated	
+8	Const	DBG_INSTRFAULT	285	322	9	1	10	generated	
+9	Const	DBG_MODFREE	323	357	10	1	11	generated	
+10	Const	DBG_MODLOAD	358	392	11	1	12	generated	
+11	Const	DBG_MODMOVE	393	428	12	1	13	generated	
+12	Const	DBG_SEGFREE	429	463	13	1	14	generated	
+13	Const	DBG_SEGLOAD	464	498	14	1	15	generated	
+14	Const	DBG_SEGMOVE	499	533	15	1	16	generated	
+15	Const	DBG_SINGLESTEP	534	571	16	1	17	generated	
+16	Const	DBG_STACKFAULT	572	610	17	1	18	generated	
+17	Const	DBG_TASKSTART	611	648	18	1	19	generated	
+18	Const	DBG_TASKSTOP	649	685	19	1	20	generated	
+19	Const	DBG_TEMPBP	686	720	20	1	21	generated	
+20	Const	DBG_TOOLHELP	721	757	21	1	22	generated	
+21	Const	DBG_WOWINIT	758	793	22	1	23	generated	
+22	ItemType	DEBUGEVENTPROC	794	1038	23	1	24	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+23	Const	GD_ACCELERATORS	1039	1077	25	1	30	generated	
+24	Const	GD_BITMAP	1078	1110	26	1	31	generated	
+25	Const	GD_CURSOR	1111	1144	27	1	32	generated	
+26	Const	GD_CURSORCOMPONENT	1145	1186	28	1	33	generated	
+27	Const	GD_DIALOG	1187	1219	29	1	34	generated	
+28	Const	GD_ERRTABLE	1220	1255	30	1	35	generated	
+29	Const	GD_FONT	1256	1286	31	1	36	generated	
+30	Const	GD_FONTDIR	1287	1320	32	1	37	generated	
+31	Const	GD_ICON	1321	1352	33	1	38	generated	
+32	Const	GD_ICONCOMPONENT	1353	1392	34	1	39	generated	
+33	Const	GD_MAX_RESOURCE	1393	1432	35	1	40	generated	
+34	Const	GD_MENU	1433	1463	36	1	41	generated	
+35	Const	GD_NAMETABLE	1464	1500	37	1	42	generated	
+36	Const	GD_RCDATA	1501	1534	38	1	43	generated	
+37	Const	GD_STRING	1535	1567	39	1	44	generated	
+38	Const	GD_USERDEFINED	1568	1605	40	1	45	generated	
+39	Struct	GLOBALENTRY	1606	2047	41	1	46	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+40	Impl		2048	2152	58	1	66	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+41	Const	GLOBAL_ALL	2153	2186	63	1	73	generated	
+42	Const	GLOBAL_FREE	2187	2221	64	1	74	generated	
+43	Const	GLOBAL_LRU	2222	2255	65	1	75	generated	
+44	Const	GT_BURGERMASTER	2256	2295	66	1	76	generated	
+45	Const	GT_CODE	2296	2326	67	1	77	generated	
+46	Const	GT_DATA	2327	2357	68	1	78	generated	
+47	Const	GT_DGROUP	2358	2390	69	1	79	generated	
+48	Const	GT_FREE	2391	2421	70	1	80	generated	
+49	Const	GT_INTERNAL	2422	2456	71	1	81	generated	
+50	Const	GT_MODULE	2457	2489	72	1	82	generated	
+51	Const	GT_RESOURCE	2490	2524	73	1	83	generated	
+52	Const	GT_SENTINEL	2525	2559	74	1	84	generated	
+53	Const	GT_TASK	2560	2590	75	1	85	generated	
+54	Const	GT_UNKNOWN	2591	2624	76	1	86	generated	
+55	Struct	IMAGE_NOTE	2625	2781	77	1	87	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 10 and value/layout semantics require coder integration. Rust fixed array length 256 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+56	Impl		2782	2885	85	1	99	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+57	Const	MAX_MODULE_NAME	2886	2924	90	1	106	generated	
+58	Const	MAX_PATH16	2925	2960	91	1	107	generated	
+59	Struct	MODULEENTRY	2961	3204	92	1	108	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 10 and value/layout semantics require coder integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Rust fixed array length 256 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+60	Impl		3205	3309	102	1	123	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+61	ItemType	PROCESSENUMPROC	3310	3484	107	1	130	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+62	Struct	SEGMENT_NOTE	3485	3711	108	1	134	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 10 and value/layout semantics require coder integration. Rust fixed array length 256 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+63	Impl		3712	3817	119	1	149	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+64	Const	SN_CODE	3818	3848	124	1	156	generated	
+65	Const	SN_DATA	3849	3879	125	1	157	generated	
+66	Const	SN_V86	3880	3909	126	1	158	generated	
+67	Const	STATUS_VDM_EVENT	3910	3958	127	1	159	generated	
+68	ItemType	TASKENUMPROC	3959	4137	128	1	160	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+69	ItemType	TASKENUMPROCEX	4138	4361	129	1	164	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+70	Struct	TEMP_BP_NOTE	4362	4509	130	1	169	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+71	Const	V86FLAGS_ALIGNMENT	4510	4556	137	1	179	generated	
+72	Const	V86FLAGS_AUXCARRY	4557	4598	138	1	180	generated	
+73	Const	V86FLAGS_CARRY	4599	4636	139	1	181	generated	
+74	Const	V86FLAGS_DIRECTION	4637	4681	140	1	182	generated	
+75	Const	V86FLAGS_INTERRUPT	4682	4725	141	1	183	generated	
+76	Const	V86FLAGS_IOPL	4726	4766	142	1	184	generated	
+77	Const	V86FLAGS_IOPL_BITS	4767	4809	143	1	185	generated	
+78	Const	V86FLAGS_OVERFLOW	4810	4853	144	1	186	generated	
+79	Const	V86FLAGS_PARITY	4854	4892	145	1	187	generated	
+80	Const	V86FLAGS_RESUME	4893	4935	146	1	188	generated	
+81	Const	V86FLAGS_SIGN	4936	4974	147	1	189	generated	
+82	Const	V86FLAGS_TRACE	4975	5014	148	1	190	generated	
+83	Const	V86FLAGS_V86	5015	5055	149	1	191	generated	
+84	Const	V86FLAGS_ZERO	5056	5093	150	1	192	generated	
+85	Const	VDMADDR_PM16	5094	5129	151	1	193	generated	
+86	Const	VDMADDR_PM32	5130	5166	152	1	194	generated	
+87	Const	VDMADDR_V86	5167	5201	153	1	195	generated	
+88	ItemType	VDMBREAKTHREADPROC	5202	5335	154	1	196	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+89	Struct	VDMCONTEXT	5336	6051	155	1	200	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Rust fixed array length 512 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+90	Impl		6052	6281	186	1	235	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+91	Struct	VDMCONTEXT_WITHOUT_XSAVE	6282	6896	193	1	244	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+92	Const	VDMCONTEXT_i386	6897	6939	222	1	276	generated	
+93	Const	VDMCONTEXT_i486	6940	6982	223	1	277	generated	
+94	Const	VDMDBG_BREAK_DEBUGGER	6983	7028	224	1	278	generated	
+95	Const	VDMDBG_BREAK_DIVIDEBYZERO	7029	7079	225	1	279	generated	
+96	Const	VDMDBG_BREAK_DOSTASK	7080	7123	226	1	280	generated	
+97	Const	VDMDBG_BREAK_EXCEPTIONS	7124	7170	227	1	281	generated	
+98	Const	VDMDBG_BREAK_LOADDLL	7171	7214	228	1	282	generated	
+99	Const	VDMDBG_BREAK_WOWTASK	7215	7258	229	1	283	generated	
+100	Const	VDMDBG_INITIAL_FLAGS	7259	7304	230	1	284	generated	
+101	Const	VDMDBG_MAX_SYMBOL_BUFFER	7305	7354	231	1	285	generated	
+102	Const	VDMDBG_TRACE_HISTORY	7355	7400	232	1	286	generated	
+103	ItemType	VDMDETECTWOWPROC	7401	7492	233	1	287	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+104	ItemType	VDMENUMPROCESSWOWPROC	7493	7634	234	1	291	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+105	ItemType	VDMENUMTASKWOWEXPROC	7635	7787	235	1	295	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+106	ItemType	VDMENUMTASKWOWPROC	7788	7936	236	1	299	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+107	Const	VDMEVENT_ALLFLAGS	7937	7981	237	1	303	generated	
+108	Const	VDMEVENT_NEEDS_INTERACTIVE	7982	8035	238	1	304	generated	
+109	Const	VDMEVENT_PE	8036	8073	239	1	305	generated	
+110	Const	VDMEVENT_PM16	8074	8110	240	1	306	generated	
+111	Const	VDMEVENT_V86	8111	8146	241	1	307	generated	
+112	Const	VDMEVENT_VERBOSE	8147	8190	242	1	308	generated	
+113	ItemType	VDMGETADDREXPRESSIONPROC	8191	8410	243	1	309	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+114	ItemType	VDMGETCONTEXTPROC	8411	8751	244	1	314	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+115	ItemType	VDMGETCONTEXTPROC	8752	9077	247	1	321	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+116	ItemType	VDMGETDBGFLAGSPROC	9078	9191	250	1	328	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+117	ItemType	VDMGETMODULESELECTORPROC	9192	9438	251	1	332	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+118	ItemType	VDMGETPOINTERPROC	9439	9652	252	1	337	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+119	ItemType	VDMGETSEGMENTINFOPROC	9653	9827	253	1	341	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+120	ItemType	VDMGETSELECTORMODULEPROC	9828	10134	254	1	345	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+121	ItemType	VDMGETSYMBOLPROC	10135	10401	255	1	350	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+122	ItemType	VDMGETTHREADSELECTORENTRYPROC	10402	10731	256	1	355	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+123	ItemType	VDMGETTHREADSELECTORENTRYPROC	10732	11044	259	1	362	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+124	ItemType	VDMGLOBALFIRSTPROC	11045	11407	261	1	368	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+125	ItemType	VDMGLOBALNEXTPROC	11408	11769	263	1	374	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+126	ItemType	VDMISMODULELOADEDPROC	11770	11898	265	1	380	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+127	ItemType	VDMKILLWOWPROC	11899	11988	266	1	384	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+128	Struct	VDMLDT_ENTRY	11989	12215	267	1	388	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+129	Impl		12216	12407	275	1	399	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+130	Union		12408	12621	281	1	407	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+131	Impl		12622	12815	288	1	416	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+132	Struct	VDMLDT_ENTRY_0_1	12816	13000	294	1	424	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+133	Struct	VDMLDT_ENTRY_0_0	13001	13242	300	1	432	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+134	ItemType	VDMMODULEFIRSTPROC	13243	13592	309	1	443	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+135	ItemType	VDMMODULENEXTPROC	13593	13941	311	1	449	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+136	ItemType	VDMPROCESSEXCEPTIONPROC	13942	14183	313	1	455	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+137	ItemType	VDMSETCONTEXTPROC	14184	14524	315	1	461	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+138	ItemType	VDMSETCONTEXTPROC	14525	14850	318	1	468	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+139	ItemType	VDMSETDBGFLAGSPROC	14851	14997	321	1	475	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+140	ItemType	VDMSTARTTASKINWOWPROC	14998	15152	322	1	479	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+141	ItemType	VDMTERMINATETASKINWOWPROC	15153	15277	323	1	483	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+142	Const	VDM_KGDT_R3_CODE	15278	15318	324	1	487	generated	
+143	Const	VDM_MAXIMUM_SUPPORTED_EXTENSION	15319	15375	325	1	488	generated	
+144	Struct	VDM_SEGINFO	15376	15581	326	1	489	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 9 and value/layout semantics require coder integration. Rust fixed array length 255 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+145	Impl		15582	15686	336	1	503	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+146	Const	WOW_SYSTEM	15687	15720	341	1	510	generated	

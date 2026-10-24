@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/Storage/Jet/mod: 982 generated; 326 syntax candidates; 101 unsupported

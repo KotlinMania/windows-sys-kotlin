@@ -1,0 +1,8 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Mod	IO	0	45	1	1	2	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+1	Mod	Memory	46	99	3	1	6	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+2	Mod	OfflineRegistry	100	171	5	1	10	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+3	Mod	Registry	172	229	7	1	14	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+4	Mod	SystemInformation	230	305	9	1	18	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+5	Mod	SystemServices	306	375	11	1	22	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+6	Mod	Threading	376	435	13	1	26	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod

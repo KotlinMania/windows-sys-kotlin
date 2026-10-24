@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Win32/UI/HiDpi/mod: 27 generated; 30 syntax candidates; 5 unsupported

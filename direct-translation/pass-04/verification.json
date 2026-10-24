@@ -1,0 +1,72 @@
+{
+  "passed": true,
+  "files": 249,
+  "counts": {
+    "unsupported-only": 23,
+    "complete-syntax-candidate": 23,
+    "complete-candidate": 4,
+    "blocked": 1,
+    "partial-candidate": 198
+  },
+  "generated_kinds": {
+    "ItemType": 5547,
+    "Const": 112467
+  },
+  "syntax_kinds": {
+    "ItemType": 3779,
+    "Macro": 20189,
+    "Struct": 12969
+  },
+  "unsupported_kinds": {
+    "Mod": 246,
+    "Const": 12132,
+    "Impl": 8938,
+    "Use": 7,
+    "Union": 1500,
+    "Macro": 63,
+    "Fn": 2,
+    "Struct": 34
+  },
+  "generated_declarations": 118014,
+  "syntax_declarations": 36937,
+  "unsupported_declarations": 22922,
+  "generator_sha256": "811b55371ec95113ec1a44a2ad8703a9de85b8f15a55030717ea9cd4e6d45828",
+  "previous": {
+    "run": "../windows-sys-kotlin/direct-translation/pass-03",
+    "completed": true,
+    "compared_files": 249,
+    "generated_delta": 0,
+    "syntax_delta": 2595,
+    "unsupported_delta": -2595
+  },
+  "diagnostics": {
+    "declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl": 8938,
+    "non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const": 6501,
+    "missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const": 4448,
+    "declaration Union has no candidate rule; syntax: no per-file syntax rule for Union": 1500,
+    "qualified type requires source-backed binding: super::super::Foundation::PROPERTYKEY; syntax: no per-file syntax rule for Const": 748,
+    "qualified type requires source-backed binding: super::super::Foundation::DEVPROPKEY; syntax: no per-file syntax rule for Const": 343,
+    "declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod": 246,
+    "foreign declaration requires explicit native target and interop package; syntax: foreign signature shape unsupported": 49,
+    "qualified type requires source-backed binding: super::super::Foundation::NTSTATUS; syntax: no per-file syntax rule for Const": 34,
+    "declaration Struct has no candidate rule; syntax: only named record shapes currently supported": 34,
+    "qualified type requires source-backed binding: super::super::super::Win32::Foundation::DEVPROPKEY; syntax: no per-file syntax rule for Const": 14,
+    "unresolved scalar type SID_IDENTIFIER_AUTHORITY; syntax: no per-file syntax rule for Const": 12,
+    "attribute cfg requires explicit semantics/configuration; syntax: foreign signature shape unsupported": 12,
+    "attribute cfg requires explicit semantics/configuration; syntax: no per-file syntax rule for Const": 11,
+    "declaration Use has no candidate rule; syntax: no per-file syntax rule for Use": 7,
+    "qualified type requires source-backed binding: super::super::Foundation::HWND; syntax: no per-file syntax rule for Const": 7,
+    "unresolved scalar type f32; syntax: no per-file syntax rule for Const": 6,
+    "unresolved scalar type GUID; syntax: no per-file syntax rule for Const": 2,
+    "attribute macro_export requires explicit semantics/configuration; syntax: macro has no recognized windows-link contract": 2,
+    "declaration Fn has no candidate rule; syntax: no per-file syntax rule for Fn": 2,
+    "qualified type requires source-backed binding: super::super::Foundation::HANDLE; syntax: no per-file syntax rule for Const": 2,
+    "FILE: rust-kotlin: file attributes/shebang require explicit semantics": 1,
+    "unresolved scalar type CONDITION_VARIABLE; syntax: no per-file syntax rule for Const": 1,
+    "unresolved scalar type INIT_ONCE; syntax: no per-file syntax rule for Const": 1,
+    "unresolved scalar type SRWLOCK; syntax: no per-file syntax rule for Const": 1,
+    "unresolved scalar type f64; syntax: no per-file syntax rule for Const": 1
+  },
+  "adopted": false,
+  "abi_validated": false
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="nativeMacosTest.io.github.kotlinmania.rustkotlin.OptionalTraversalEmissionTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-24T21:58:30.749Z" hostname="EmberHarmony.local" time="0.001">
+  <properties/>
+  <testcase name="optionMatchKeepsTagsAndSharedPayloads[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.OptionalTraversalEmissionTest" time="0.001"/>
+  <testcase name="nullableForeignFieldsOnlyProvideReadOnlyOptionProjection[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.OptionalTraversalEmissionTest" time="0.0"/>
+  <testcase name="existingTokenLibraryOperationsAndNestedPatternAreCalled[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.OptionalTraversalEmissionTest" time="0.0"/>
+  <testcase name="nestedSomeVariantWorksForOtherDeclaredEnumsAndKeepsComments[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.OptionalTraversalEmissionTest" time="0.0"/>
+  <testcase name="fullMacroAdapterUsesExistingFragmentParsersAndRejectsChangedMarkers[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.OptionalTraversalEmissionTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

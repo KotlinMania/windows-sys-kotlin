@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Win32/System/DataExchange/mod: 144 generated; 94 syntax candidates; 30 unsupported

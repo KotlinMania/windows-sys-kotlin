@@ -1,0 +1,7 @@
+// DIRECT DECLARATION CANDIDATE: unsupported Rust remains below; not adopted or ABI-validated.
+// INTEGRATION REQUIRED: External declaration shape only: wire DLL=ntdll.dll, ABI=system, export=NtDeviceIoControlFile; preserve Rust unsafe-call contract.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[cfg(feature = "Win32_System_IO")]
+public external fun `NtDeviceIoControlFile`(`filehandle` : `super`.`super`.`super`.`Win32`.`Foundation`.`HANDLE`, `event` : `super`.`super`.`super`.`Win32`.`Foundation`.`HANDLE`, `apcroutine` : `super`.`super`.`super`.`Win32`.`System`.`IO`.`PIO_APC_ROUTINE`, `apccontext` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `iostatusblock` : /* Rust *mut */ kotlinx.cinterop.CPointer<`super`.`super`.`super`.`Win32`.`System`.`IO`.`IO_STATUS_BLOCK`>?, `iocontrolcode` : UInt, `inputbuffer` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `inputbufferlength` : UInt, `outputbuffer` : /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `outputbufferlength` : UInt) : `super`.`super`.`super`.`Win32`.`Foundation`.`NTSTATUS`

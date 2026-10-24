@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Win32/Devices/Beep/mod: 3 generated; 1 syntax candidates; 2 unsupported

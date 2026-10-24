@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Win32/System/PasswordManagement/mod: 0 generated; 2 syntax candidates; 8 unsupported

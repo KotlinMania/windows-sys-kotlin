@@ -1,0 +1,624 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Mod	HardwareCounterProfiling	0	103	1	1	2	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+1	Macro	BackupPerfRegistryToFileW	104	270	3	1	6	syntax	External declaration shape only: wire DLL=loadperf.dll, ABI=system, export=BackupPerfRegistryToFileW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+2	Macro	InstallPerfDllA	271	440	4	1	10	syntax	External declaration shape only: wire DLL=loadperf.dll, ABI=system, export=InstallPerfDllA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+3	Macro	InstallPerfDllW	441	612	5	1	14	syntax	External declaration shape only: wire DLL=loadperf.dll, ABI=system, export=InstallPerfDllW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+4	Macro	LoadPerfCounterTextStringsA	613	779	6	1	18	syntax	External declaration shape only: wire DLL=loadperf.dll, ABI=system, export=LoadPerfCounterTextStringsA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+5	Macro	LoadPerfCounterTextStringsW	780	947	7	1	22	syntax	External declaration shape only: wire DLL=loadperf.dll, ABI=system, export=LoadPerfCounterTextStringsW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+6	Macro	PdhAddCounterA	948	1131	8	1	26	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhAddCounterA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+7	Macro	PdhAddCounterW	1132	1316	9	1	31	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhAddCounterW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+8	Macro	PdhAddEnglishCounterA	1317	1507	10	1	36	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhAddEnglishCounterA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+9	Macro	PdhAddEnglishCounterW	1508	1699	11	1	41	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhAddEnglishCounterW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+10	Macro	PdhBindInputDataSourceA	1700	1848	12	1	46	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhBindInputDataSourceA; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+11	Macro	PdhBindInputDataSourceW	1849	1998	13	1	51	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhBindInputDataSourceW; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+12	Macro	PdhBrowseCountersA	1999	2117	14	1	56	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhBrowseCountersA; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+13	Macro	PdhBrowseCountersHA	2118	2238	15	1	61	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhBrowseCountersHA; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+14	Macro	PdhBrowseCountersHW	2239	2359	16	1	66	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhBrowseCountersHW; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+15	Macro	PdhBrowseCountersW	2360	2478	17	1	71	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhBrowseCountersW; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+16	Macro	PdhCalculateCounterFromRawValue	2479	2716	18	1	76	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhCalculateCounterFromRawValue; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+17	Macro	PdhCloseLog	2717	2811	19	1	81	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhCloseLog; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+18	Macro	PdhCloseQuery	2812	2897	20	1	85	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhCloseQuery; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+19	Macro	PdhCollectQueryData	2898	2989	21	1	89	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhCollectQueryData; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+20	Macro	PdhCollectQueryDataEx	2990	3156	22	1	93	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhCollectQueryDataEx; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+21	Macro	PdhCollectQueryDataWithTime	3157	3281	23	1	97	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhCollectQueryDataWithTime; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+22	Macro	PdhComputeCounterStatistics	3282	3515	24	1	102	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhComputeCounterStatistics; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+23	Macro	PdhConnectMachineA	3516	3627	25	1	107	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhConnectMachineA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+24	Macro	PdhConnectMachineW	3628	3740	26	1	111	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhConnectMachineW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+25	Macro	PdhCreateSQLTablesA	3741	3852	27	1	115	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhCreateSQLTablesA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+26	Macro	PdhCreateSQLTablesW	3853	3965	28	1	119	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhCreateSQLTablesW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+27	Macro	PdhEnumLogSetNamesA	3966	4152	29	1	123	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhEnumLogSetNamesA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+28	Macro	PdhEnumLogSetNamesW	4153	4341	30	1	128	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhEnumLogSetNamesW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+29	Macro	PdhEnumMachinesA	4342	4519	31	1	133	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhEnumMachinesA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+30	Macro	PdhEnumMachinesHA	4520	4681	32	1	138	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhEnumMachinesHA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+31	Macro	PdhEnumMachinesHW	4682	4844	33	1	143	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhEnumMachinesHW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+32	Macro	PdhEnumMachinesW	4845	5024	34	1	148	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhEnumMachinesW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+33	Macro	PdhEnumObjectItemsA	5025	5417	35	1	153	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhEnumObjectItemsA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+34	Macro	PdhEnumObjectItemsHA	5418	5794	36	1	158	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhEnumObjectItemsHA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+35	Macro	PdhEnumObjectItemsHW	5795	6175	37	1	163	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhEnumObjectItemsHW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+36	Macro	PdhEnumObjectItemsW	6176	6573	38	1	168	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhEnumObjectItemsW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+37	Macro	PdhEnumObjectsA	6574	6856	39	1	173	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhEnumObjectsA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+38	Macro	PdhEnumObjectsHA	6857	7123	40	1	178	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhEnumObjectsHA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+39	Macro	PdhEnumObjectsHW	7124	7392	41	1	183	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhEnumObjectsHW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+40	Macro	PdhEnumObjectsW	7393	7678	42	1	188	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhEnumObjectsW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+41	Macro	PdhExpandCounterPathA	7679	7872	43	1	193	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhExpandCounterPathA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+42	Macro	PdhExpandCounterPathW	7873	8068	44	1	198	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhExpandCounterPathW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+43	Macro	PdhExpandWildCardPathA	8069	8319	45	1	203	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhExpandWildCardPathA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+44	Macro	PdhExpandWildCardPathHA	8320	8554	46	1	208	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhExpandWildCardPathHA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+45	Macro	PdhExpandWildCardPathHW	8555	8791	47	1	213	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhExpandWildCardPathHW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+46	Macro	PdhExpandWildCardPathW	8792	9045	48	1	218	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhExpandWildCardPathW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+47	Macro	PdhFormatFromRawValue	9046	9296	49	1	223	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhFormatFromRawValue; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+48	Macro	PdhGetCounterInfoA	9297	9482	50	1	228	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhGetCounterInfoA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+49	Macro	PdhGetCounterInfoW	9483	9668	51	1	233	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhGetCounterInfoW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+50	Macro	PdhGetCounterTimeBase	9669	9788	52	1	238	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhGetCounterTimeBase; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+51	Macro	PdhGetDataSourceTimeRangeA	9789	9987	53	1	243	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhGetDataSourceTimeRangeA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+52	Macro	PdhGetDataSourceTimeRangeH	9988	10169	54	1	248	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhGetDataSourceTimeRangeH; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+53	Macro	PdhGetDataSourceTimeRangeW	10170	10369	55	1	253	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhGetDataSourceTimeRangeW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+54	Macro	PdhGetDefaultPerfCounterA	10370	10645	56	1	258	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhGetDefaultPerfCounterA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+55	Macro	PdhGetDefaultPerfCounterHA	10646	10905	57	1	263	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhGetDefaultPerfCounterHA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+56	Macro	PdhGetDefaultPerfCounterHW	10906	11168	58	1	268	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhGetDefaultPerfCounterHW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+57	Macro	PdhGetDefaultPerfCounterW	11169	11448	59	1	273	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhGetDefaultPerfCounterW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+58	Macro	PdhGetDefaultPerfObjectA	11449	11681	60	1	278	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhGetDefaultPerfObjectA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+59	Macro	PdhGetDefaultPerfObjectHA	11682	11898	61	1	283	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhGetDefaultPerfObjectHA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+60	Macro	PdhGetDefaultPerfObjectHW	11899	12117	62	1	288	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhGetDefaultPerfObjectHW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+61	Macro	PdhGetDefaultPerfObjectW	12118	12353	63	1	293	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhGetDefaultPerfObjectW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+62	Macro	PdhGetDllVersion	12354	12457	64	1	298	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhGetDllVersion; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+63	Macro	PdhGetFormattedCounterArrayA	12458	12682	65	1	303	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhGetFormattedCounterArrayA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+64	Macro	PdhGetFormattedCounterArrayW	12683	12907	66	1	308	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhGetFormattedCounterArrayW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+65	Macro	PdhGetFormattedCounterValue	12908	13088	67	1	313	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhGetFormattedCounterValue; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+66	Macro	PdhGetLogFileSize	13089	13193	68	1	318	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhGetLogFileSize; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+67	Macro	PdhGetLogSetGUID	13194	13335	69	1	323	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhGetLogSetGUID; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+68	Macro	PdhGetRawCounterArrayA	13336	13529	70	1	328	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhGetRawCounterArrayA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+69	Macro	PdhGetRawCounterArrayW	13530	13723	71	1	333	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhGetRawCounterArrayW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+70	Macro	PdhGetRawCounterValue	13724	13873	72	1	338	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhGetRawCounterValue; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+71	Macro	PdhIsRealTimeQuery	13874	13984	73	1	343	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhIsRealTimeQuery; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+72	Macro	PdhLookupPerfIndexByNameA	13985	14165	74	1	347	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhLookupPerfIndexByNameA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+73	Macro	PdhLookupPerfIndexByNameW	14166	14348	75	1	352	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhLookupPerfIndexByNameW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+74	Macro	PdhLookupPerfNameByIndexA	14349	14557	76	1	357	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhLookupPerfNameByIndexA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+75	Macro	PdhLookupPerfNameByIndexW	14558	14768	77	1	362	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhLookupPerfNameByIndexW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+76	Macro	PdhMakeCounterPathA	14769	14995	78	1	367	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhMakeCounterPathA; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+77	Macro	PdhMakeCounterPathW	14996	15223	79	1	372	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhMakeCounterPathW; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+78	Macro	PdhOpenLogA	15224	15489	80	1	377	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhOpenLogA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+79	Macro	PdhOpenLogW	15490	15757	81	1	382	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhOpenLogW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+80	Macro	PdhOpenQueryA	15758	15910	82	1	387	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhOpenQueryA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+81	Macro	PdhOpenQueryH	15911	16046	83	1	392	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhOpenQueryH; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+82	Macro	PdhOpenQueryW	16047	16200	84	1	397	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhOpenQueryW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+83	Macro	PdhParseCounterPathA	16201	16415	85	1	402	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhParseCounterPathA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+84	Macro	PdhParseCounterPathW	16416	16631	86	1	407	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhParseCounterPathW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+85	Macro	PdhParseInstanceNameA	16632	16919	87	1	412	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhParseInstanceNameA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+86	Macro	PdhParseInstanceNameW	16920	17210	88	1	417	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhParseInstanceNameW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+87	Macro	PdhReadRawLogRecord	17211	17415	89	1	422	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhReadRawLogRecord; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+88	Macro	PdhRemoveCounter	17416	17508	90	1	427	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhRemoveCounter; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+89	Macro	PdhSelectDataSourceA	17509	17734	91	1	431	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhSelectDataSourceA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+90	Macro	PdhSelectDataSourceW	17735	17961	92	1	436	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhSelectDataSourceW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+91	Macro	PdhSetCounterScaleFactor	17962	18077	93	1	441	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhSetCounterScaleFactor; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+92	Macro	PdhSetDefaultRealTimeDataSource	18078	18209	94	1	445	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhSetDefaultRealTimeDataSource; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+93	Macro	PdhSetLogSetRunID	18210	18308	95	1	449	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhSetLogSetRunID; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+94	Macro	PdhSetQueryTimeRange	18309	18431	96	1	453	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhSetQueryTimeRange; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+95	Macro	PdhUpdateLogA	18432	18554	97	1	458	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhUpdateLogA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+96	Macro	PdhUpdateLogFileCatalog	18555	18646	98	1	462	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhUpdateLogFileCatalog; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+97	Macro	PdhUpdateLogW	18647	18770	99	1	466	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhUpdateLogW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+98	Macro	PdhValidatePathA	18771	18883	100	1	470	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhValidatePathA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+99	Macro	PdhValidatePathExA	18884	19022	101	1	474	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhValidatePathExA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+100	Macro	PdhValidatePathExW	19023	19162	102	1	478	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhValidatePathExW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+101	Macro	PdhValidatePathW	19163	19276	103	1	482	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhValidatePathW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+102	Macro	PdhVerifySQLDBA	19277	19384	104	1	486	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhVerifySQLDBA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+103	Macro	PdhVerifySQLDBW	19385	19493	105	1	490	syntax	External declaration shape only: wire DLL=pdh.dll, ABI=system, export=PdhVerifySQLDBW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+104	Macro	PerfAddCounters	19494	19669	106	1	494	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=PerfAddCounters; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+105	Macro	PerfCloseQueryHandle	19670	19790	107	1	499	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=PerfCloseQueryHandle; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+106	Macro	PerfCreateInstance	19791	20036	108	1	503	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=PerfCreateInstance; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+107	Macro	PerfDecrementULongCounterValue	20037	20241	109	1	508	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=PerfDecrementULongCounterValue; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+108	Macro	PerfDecrementULongLongCounterValue	20242	20450	110	1	513	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=PerfDecrementULongLongCounterValue; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+109	Macro	PerfDeleteCounters	20451	20629	111	1	518	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=PerfDeleteCounters; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+110	Macro	PerfDeleteInstance	20630	20799	112	1	523	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=PerfDeleteInstance; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+111	Macro	PerfEnumerateCounterSet	20800	21021	113	1	528	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=PerfEnumerateCounterSet; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+112	Macro	PerfEnumerateCounterSetInstances	21022	21287	114	1	533	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=PerfEnumerateCounterSetInstances; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+113	Macro	PerfIncrementULongCounterValue	21288	21492	115	1	538	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=PerfIncrementULongCounterValue; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+114	Macro	PerfIncrementULongLongCounterValue	21493	21701	116	1	543	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=PerfIncrementULongLongCounterValue; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+115	Macro	PerfOpenQueryHandle	21702	21866	117	1	548	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=PerfOpenQueryHandle; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+116	Macro	PerfQueryCounterData	21867	22082	118	1	553	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=PerfQueryCounterData; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+117	Macro	PerfQueryCounterInfo	22083	22293	119	1	558	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=PerfQueryCounterInfo; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+118	Macro	PerfQueryCounterSetRegistrationInfo	22294	22591	120	1	563	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=PerfQueryCounterSetRegistrationInfo; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+119	Macro	PerfQueryInstance	22592	22836	121	1	568	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=PerfQueryInstance; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+120	Macro	PerfSetCounterRefValue	22837	23056	122	1	573	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=PerfSetCounterRefValue; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+121	Macro	PerfSetCounterSetInfo	23057	23244	123	1	578	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=PerfSetCounterSetInfo; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+122	Macro	PerfSetULongCounterValue	23245	23443	124	1	583	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=PerfSetULongCounterValue; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+123	Macro	PerfSetULongLongCounterValue	23444	23646	125	1	588	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=PerfSetULongLongCounterValue; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+124	Macro	PerfStartProvider	23647	23854	126	1	593	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=PerfStartProvider; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+125	Macro	PerfStartProviderEx	23855	24076	127	1	598	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=PerfStartProviderEx; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+126	Macro	PerfStopProvider	24077	24201	128	1	603	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=PerfStopProvider; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+127	Macro	QueryPerformanceCounter	24202	24332	129	1	607	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=QueryPerformanceCounter; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+128	Macro	QueryPerformanceFrequency	24333	24458	130	1	612	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=QueryPerformanceFrequency; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+129	Macro	RestorePerfRegistryFromFileW	24459	24621	131	1	617	syntax	External declaration shape only: wire DLL=loadperf.dll, ABI=system, export=RestorePerfRegistryFromFileW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+130	Macro	SetServiceAsTrustedA	24622	24779	132	1	621	syntax	External declaration shape only: wire DLL=loadperf.dll, ABI=system, export=SetServiceAsTrustedA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+131	Macro	SetServiceAsTrustedW	24780	24939	133	1	625	syntax	External declaration shape only: wire DLL=loadperf.dll, ABI=system, export=SetServiceAsTrustedW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+132	Macro	UnloadPerfCounterTextStringsA	24940	25108	134	1	629	syntax	External declaration shape only: wire DLL=loadperf.dll, ABI=system, export=UnloadPerfCounterTextStringsA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+133	Macro	UnloadPerfCounterTextStringsW	25109	25278	135	1	633	syntax	External declaration shape only: wire DLL=loadperf.dll, ABI=system, export=UnloadPerfCounterTextStringsW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+134	Macro	UpdatePerfNameFilesA	25279	25503	136	1	637	syntax	External declaration shape only: wire DLL=loadperf.dll, ABI=system, export=UpdatePerfNameFilesA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+135	Macro	UpdatePerfNameFilesW	25504	25731	137	1	641	syntax	External declaration shape only: wire DLL=loadperf.dll, ABI=system, export=UpdatePerfNameFilesW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+136	Const	AppearPropPage	25732	25859	138	1	645	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+137	ItemType	AutoPathFormat	25860	25890	139	1	648	generated	
+138	Const	BootTraceSession	25891	26020	140	1	649	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+139	Const	BootTraceSessionCollection	26021	26160	141	1	652	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+140	ItemType	ClockType	26161	26186	142	1	655	generated	
+141	ItemType	CommitMode	26187	26213	143	1	656	generated	
+142	Const	CounterItem	26214	26338	144	1	657	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+143	Const	CounterItem2	26339	26464	145	1	660	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+144	ItemType	CounterPathCallBack	26465	26552	146	1	663	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+145	Const	CounterPropPage	26553	26681	147	1	667	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+146	Const	Counters	26682	26803	148	1	670	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+147	Const	DATA_SOURCE_REGISTRY	26804	26874	149	1	673	generated	
+148	Const	DATA_SOURCE_WBEM	26875	26941	150	1	674	generated	
+149	Const	DIID_DICounterItem	26942	27073	151	1	675	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+150	Const	DIID_DILogFileItem	27074	27205	152	1	678	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+151	Const	DIID_DISystemMonitor	27206	27339	153	1	681	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+152	Const	DIID_DISystemMonitorEvents	27340	27479	154	1	684	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+153	Const	DIID_DISystemMonitorInternal	27480	27621	155	1	687	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+154	Const	DataCollectorSet	27622	27751	156	1	690	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+155	Const	DataCollectorSetCollection	27752	27891	157	1	693	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+156	ItemType	DataCollectorSetStatus	27892	27930	158	1	696	generated	
+157	ItemType	DataCollectorType	27931	27964	159	1	697	generated	
+158	ItemType	DataManagerSteps	27965	27997	160	1	698	generated	
+159	ItemType	DataSourceTypeConstants	27998	28037	161	1	699	generated	
+160	ItemType	DisplayTypeConstants	28038	28074	162	1	700	generated	
+161	ItemType	FileFormat	28075	28101	163	1	701	generated	
+162	ItemType	FolderActionSteps	28102	28135	164	1	702	generated	
+163	Const	GeneralPropPage	28136	28264	165	1	703	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+164	Const	GraphPropPage	28265	28391	166	1	706	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+165	Const	H_WBEM_DATASOURCE	28392	28433	167	1	709	generated	
+166	Const	LIBID_SystemMonitor	28434	28566	168	1	710	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+167	Const	LegacyDataCollectorSet	28567	28702	169	1	713	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+168	Const	LegacyDataCollectorSetCollection	28703	28848	170	1	716	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+169	Const	LegacyTraceSession	28849	28980	171	1	719	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+170	Const	LegacyTraceSessionCollection	28981	29122	172	1	722	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+171	Const	LogFileItem	29123	29247	173	1	725	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+172	Const	LogFiles	29248	29369	174	1	728	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+173	Const	MAX_COUNTER_PATH	29370	29411	175	1	731	generated	
+174	Const	MAX_PERF_OBJECTS_IN_QUERY_FUNCTION	29412	29470	176	1	732	generated	
+175	Const	PDH_ACCESS_DENIED	29471	29520	177	1	733	generated	
+176	Const	PDH_ASYNC_QUERY_TIMEOUT	29521	29576	178	1	734	generated	
+177	Const	PDH_BINARY_LOG_CORRUPT	29577	29631	179	1	735	generated	
+178	Struct	PDH_BROWSE_DLG_CONFIG_A	29632	30108	180	1	736	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+179	Impl		30109	30225	194	1	753	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+180	Struct	PDH_BROWSE_DLG_CONFIG_HA	30226	30687	199	1	760	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+181	Impl		30688	30805	213	1	777	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+182	Struct	PDH_BROWSE_DLG_CONFIG_HW	30806	31269	218	1	784	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+183	Impl		31270	31387	232	1	801	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+184	Struct	PDH_BROWSE_DLG_CONFIG_W	31388	31867	237	1	808	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+185	Impl		31868	31984	251	1	825	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+186	Const	PDH_CALC_NEGATIVE_DENOMINATOR	31985	32046	256	1	832	generated	
+187	Const	PDH_CALC_NEGATIVE_TIMEBASE	32047	32105	257	1	833	generated	
+188	Const	PDH_CALC_NEGATIVE_VALUE	32106	32161	258	1	834	generated	
+189	Const	PDH_CANNOT_CONNECT_MACHINE	32162	32220	259	1	835	generated	
+190	Const	PDH_CANNOT_CONNECT_WMI_SERVER	32221	32282	260	1	836	generated	
+191	Const	PDH_CANNOT_READ_NAME_STRINGS	32283	32343	261	1	837	generated	
+192	Const	PDH_CANNOT_SET_DEFAULT_REALTIME_DATASOURCE	32344	32418	262	1	838	generated	
+193	Const	PDH_COUNTER_ALREADY_IN_QUERY	32419	32479	263	1	839	generated	
+194	Struct	PDH_COUNTER_INFO_A	32480	32908	264	1	840	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+195	Impl		32909	33020	280	1	860	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+196	Union		33021	33235	285	1	867	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+197	Impl		33236	33349	292	1	876	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+198	Struct	PDH_COUNTER_INFO_A_0_0	33350	33694	297	1	883	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+199	Impl		33695	33810	307	1	896	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+200	Struct	PDH_COUNTER_INFO_W	33811	34241	312	1	903	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+201	Impl		34242	34353	328	1	923	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+202	Union		34354	34568	333	1	930	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+203	Impl		34569	34682	340	1	939	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+204	Struct	PDH_COUNTER_INFO_W_0_0	34683	35032	345	1	946	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+205	Impl		35033	35148	355	1	959	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+206	Struct	PDH_COUNTER_PATH_ELEMENTS_A	35149	35498	360	1	966	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+207	Impl		35499	35619	370	1	979	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+208	Struct	PDH_COUNTER_PATH_ELEMENTS_W	35620	35974	375	1	986	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+209	Impl		35975	36095	385	1	999	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+210	Const	PDH_CSTATUS_BAD_COUNTERNAME	36096	36155	390	1	1006	generated	
+211	Const	PDH_CSTATUS_INVALID_DATA	36156	36212	391	1	1007	generated	
+212	Const	PDH_CSTATUS_ITEM_NOT_VALIDATED	36213	36275	392	1	1008	generated	
+213	Const	PDH_CSTATUS_NEW_DATA	36276	36319	393	1	1009	generated	
+214	Const	PDH_CSTATUS_NO_COUNTER	36320	36374	394	1	1010	generated	
+215	Const	PDH_CSTATUS_NO_COUNTERNAME	36375	36433	395	1	1011	generated	
+216	Const	PDH_CSTATUS_NO_INSTANCE	36434	36489	396	1	1012	generated	
+217	Const	PDH_CSTATUS_NO_MACHINE	36490	36544	397	1	1013	generated	
+218	Const	PDH_CSTATUS_NO_OBJECT	36545	36598	398	1	1014	generated	
+219	Const	PDH_CSTATUS_VALID_DATA	36599	36644	399	1	1015	generated	
+220	Const	PDH_CVERSION_WIN50	36645	36701	400	1	1016	generated	
+221	Struct	PDH_DATA_ITEM_PATH_ELEMENTS_A	36702	36945	401	1	1017	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+222	Impl		36946	37068	409	1	1028	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+223	Struct	PDH_DATA_ITEM_PATH_ELEMENTS_W	37069	37314	414	1	1035	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+224	Impl		37315	37437	422	1	1046	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+225	Const	PDH_DATA_SOURCE_IS_LOG_FILE	37438	37497	427	1	1053	generated	
+226	Const	PDH_DATA_SOURCE_IS_REAL_TIME	37498	37558	428	1	1054	generated	
+227	Const	PDH_DIALOG_CANCELLED	37559	37611	429	1	1055	generated	
+228	ItemType	PDH_DLL_VERSION	37612	37643	430	1	1056	generated	
+229	Const	PDH_END_OF_LOG_FILE	37644	37695	431	1	1057	generated	
+230	Const	PDH_ENTRY_NOT_IN_LOG_FILE	37696	37753	432	1	1058	generated	
+231	Const	PDH_FILE_ALREADY_EXISTS	37754	37809	433	1	1059	generated	
+232	Const	PDH_FILE_NOT_FOUND	37810	37860	434	1	1060	generated	
+233	Const	PDH_FLAGS_FILE_BROWSER_ONLY	37861	37936	435	1	1061	generated	
+234	Const	PDH_FLAGS_NONE	37937	37999	436	1	1062	generated	
+235	ItemType	PDH_FMT	38000	38023	437	1	1063	generated	
+236	Struct	PDH_FMT_COUNTERVALUE	38024	38158	438	1	1064	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+237	Impl		38159	38272	444	1	1073	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+238	Union		38273	38521	449	1	1080	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+239	Impl		38522	38637	458	1	1091	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+240	Struct	PDH_FMT_COUNTERVALUE_ITEM_A	38638	38795	463	1	1098	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+241	Impl		38796	38916	469	1	1107	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+242	Struct	PDH_FMT_COUNTERVALUE_ITEM_W	38917	39075	474	1	1114	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+243	Impl		39076	39196	480	1	1123	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+244	Const	PDH_FMT_DOUBLE	39197	39240	485	1	1130	generated	
+245	Const	PDH_FMT_LARGE	39241	39284	486	1	1131	generated	
+246	Const	PDH_FMT_LONG	39285	39326	487	1	1132	generated	
+247	Const	PDH_FUNCTION_NOT_FOUND	39327	39381	488	1	1133	generated	
+248	ItemType	PDH_HCOUNTER	39382	39429	489	1	1134	syntax	Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+249	ItemType	PDH_HLOG	39430	39473	490	1	1138	syntax	Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+250	ItemType	PDH_HQUERY	39474	39519	491	1	1142	syntax	Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+251	Const	PDH_INCORRECT_APPEND_TIME	39520	39577	492	1	1146	generated	
+252	Const	PDH_INSUFFICIENT_BUFFER	39578	39633	493	1	1147	generated	
+253	Const	PDH_INVALID_ARGUMENT	39634	39686	494	1	1148	generated	
+254	Const	PDH_INVALID_BUFFER	39687	39737	495	1	1149	generated	
+255	Const	PDH_INVALID_DATA	39738	39786	496	1	1150	generated	
+256	Const	PDH_INVALID_DATASOURCE	39787	39841	497	1	1151	generated	
+257	Const	PDH_INVALID_HANDLE	39842	39892	498	1	1152	generated	
+258	Const	PDH_INVALID_INSTANCE	39893	39945	499	1	1153	generated	
+259	Const	PDH_INVALID_PATH	39946	39994	500	1	1154	generated	
+260	Const	PDH_INVALID_SQLDB	39995	40044	501	1	1155	generated	
+261	Const	PDH_INVALID_SQL_LOG_FORMAT	40045	40103	502	1	1156	generated	
+262	ItemType	PDH_LOG	40104	40127	503	1	1157	generated	
+263	Const	PDH_LOGSVC_NOT_OPENED	40128	40181	504	1	1158	generated	
+264	Const	PDH_LOGSVC_QUERY_NOT_FOUND	40182	40240	505	1	1159	generated	
+265	Const	PDH_LOG_FILE_CREATE_ERROR	40241	40298	506	1	1160	generated	
+266	Const	PDH_LOG_FILE_OPEN_ERROR	40299	40354	507	1	1161	generated	
+267	Const	PDH_LOG_FILE_TOO_SMALL	40355	40409	508	1	1162	generated	
+268	Const	PDH_LOG_READ_ACCESS	40410	40460	509	1	1163	generated	
+269	Const	PDH_LOG_SAMPLE_TOO_SMALL	40461	40517	510	1	1164	generated	
+270	Struct	PDH_LOG_SERVICE_QUERY_INFO_A	40518	40911	511	1	1165	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+271	Impl		40912	41033	524	1	1181	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+272	Union		41034	41220	529	1	1188	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+273	Impl		41221	41344	535	1	1196	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+274	Struct	PDH_LOG_SERVICE_QUERY_INFO_A_0_0	41345	41777	540	1	1203	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+275	Impl		41778	41903	552	1	1218	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+276	Struct	PDH_LOG_SERVICE_QUERY_INFO_A_0_1	41904	42297	557	1	1225	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+277	Impl		42298	42423	571	1	1242	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+278	Struct	PDH_LOG_SERVICE_QUERY_INFO_W	42424	42820	576	1	1249	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+279	Impl		42821	42942	589	1	1265	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+280	Union		42943	43129	594	1	1272	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+281	Impl		43130	43253	600	1	1280	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+282	Struct	PDH_LOG_SERVICE_QUERY_INFO_W_0_0	43254	43688	605	1	1287	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+283	Impl		43689	43814	617	1	1302	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+284	Struct	PDH_LOG_SERVICE_QUERY_INFO_W_0_1	43815	44209	622	1	1309	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+285	Impl		44210	44335	636	1	1326	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+286	ItemType	PDH_LOG_TYPE	44336	44364	641	1	1333	generated	
+287	Const	PDH_LOG_TYPE_BINARY	44365	44416	642	1	1334	generated	
+288	Const	PDH_LOG_TYPE_CSV	44417	44465	643	1	1335	generated	
+289	Const	PDH_LOG_TYPE_NOT_FOUND	44466	44520	644	1	1336	generated	
+290	Const	PDH_LOG_TYPE_PERFMON	44521	44573	645	1	1337	generated	
+291	Const	PDH_LOG_TYPE_RETIRED_BIN	44574	44621	646	1	1338	generated	
+292	Const	PDH_LOG_TYPE_SQL	44622	44670	647	1	1339	generated	
+293	Const	PDH_LOG_TYPE_TRACE_GENERIC	44671	44720	648	1	1340	generated	
+294	Const	PDH_LOG_TYPE_TRACE_KERNEL	44721	44769	649	1	1341	generated	
+295	Const	PDH_LOG_TYPE_TSV	44770	44818	650	1	1342	generated	
+296	Const	PDH_LOG_TYPE_UNDEFINED	44819	44873	651	1	1343	generated	
+297	Const	PDH_LOG_UPDATE_ACCESS	44874	44927	652	1	1344	generated	
+298	Const	PDH_LOG_WRITE_ACCESS	44928	44980	653	1	1345	generated	
+299	Const	PDH_MAX_COUNTER_NAME	44981	45027	654	1	1346	generated	
+300	Const	PDH_MAX_COUNTER_PATH	45028	45074	655	1	1347	generated	
+301	Const	PDH_MAX_DATASOURCE_PATH	45075	45124	656	1	1348	generated	
+302	Const	PDH_MAX_INSTANCE_NAME	45125	45172	657	1	1349	generated	
+303	Const	PDH_MAX_SCALE	45173	45209	658	1	1350	generated	
+304	Const	PDH_MEMORY_ALLOCATION_FAILURE	45210	45271	659	1	1351	generated	
+305	Const	PDH_MIN_SCALE	45272	45309	660	1	1352	generated	
+306	Const	PDH_MORE_DATA	45310	45355	661	1	1353	generated	
+307	Const	PDH_NOEXPANDCOUNTERS	45356	45399	662	1	1354	generated	
+308	Const	PDH_NOEXPANDINSTANCES	45400	45444	663	1	1355	generated	
+309	Const	PDH_NOT_IMPLEMENTED	45445	45496	664	1	1356	generated	
+310	Const	PDH_NO_COUNTERS	45497	45544	665	1	1357	generated	
+311	Const	PDH_NO_DATA	45545	45588	666	1	1358	generated	
+312	Const	PDH_NO_DIALOG_DATA	45589	45639	667	1	1359	generated	
+313	Const	PDH_NO_MORE_DATA	45640	45688	668	1	1360	generated	
+314	Const	PDH_OS_EARLIER_VERSION	45689	45743	669	1	1361	generated	
+315	Const	PDH_OS_LATER_VERSION	45744	45796	670	1	1362	generated	
+316	ItemType	PDH_PATH_FLAGS	45797	45827	671	1	1363	generated	
+317	Const	PDH_PATH_WBEM_INPUT	45828	45881	672	1	1364	generated	
+318	Const	PDH_PATH_WBEM_NONE	45882	45934	673	1	1365	generated	
+319	Const	PDH_PATH_WBEM_RESULT	45935	45989	674	1	1366	generated	
+320	Const	PDH_PLA_COLLECTION_ALREADY_RUNNING	45990	46056	675	1	1367	generated	
+321	Const	PDH_PLA_COLLECTION_NOT_FOUND	46057	46117	676	1	1368	generated	
+322	Const	PDH_PLA_ERROR_ALREADY_EXISTS	46118	46178	677	1	1369	generated	
+323	Const	PDH_PLA_ERROR_FILEPATH	46179	46233	678	1	1370	generated	
+324	Const	PDH_PLA_ERROR_NAME_TOO_LONG	46234	46293	679	1	1371	generated	
+325	Const	PDH_PLA_ERROR_NOSTART	46294	46347	680	1	1372	generated	
+326	Const	PDH_PLA_ERROR_SCHEDULE_ELAPSED	46348	46410	681	1	1373	generated	
+327	Const	PDH_PLA_ERROR_SCHEDULE_OVERLAP	46411	46473	682	1	1374	generated	
+328	Const	PDH_PLA_ERROR_TYPE_MISMATCH	46474	46533	683	1	1375	generated	
+329	Const	PDH_PLA_SERVICE_ERROR	46534	46587	684	1	1376	generated	
+330	Const	PDH_PLA_VALIDATION_ERROR	46588	46644	685	1	1377	generated	
+331	Const	PDH_PLA_VALIDATION_WARNING	46645	46703	686	1	1378	generated	
+332	Const	PDH_QUERY_PERF_DATA_TIMEOUT	46704	46763	687	1	1379	generated	
+333	Struct	PDH_RAW_COUNTER	46764	46990	688	1	1380	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+334	Struct	PDH_RAW_COUNTER_ITEM_A	46991	47138	697	1	1392	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+335	Impl		47139	47254	703	1	1401	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+336	Struct	PDH_RAW_COUNTER_ITEM_W	47255	47403	708	1	1408	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+337	Impl		47404	47519	714	1	1417	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+338	Struct	PDH_RAW_LOG_RECORD	47520	47702	719	1	1424	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+339	Impl		47703	47814	727	1	1436	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+340	Const	PDH_REFRESHCOUNTERS	47815	47857	732	1	1443	generated	
+341	Const	PDH_RETRY	47858	47899	733	1	1444	generated	
+342	ItemType	PDH_SELECT_DATA_SOURCE_FLAGS	47900	47944	734	1	1445	generated	
+343	Const	PDH_SQL_ALLOCCON_FAILED	47945	48000	735	1	1446	generated	
+344	Const	PDH_SQL_ALLOC_FAILED	48001	48053	736	1	1447	generated	
+345	Const	PDH_SQL_ALTER_DETAIL_FAILED	48054	48113	737	1	1448	generated	
+346	Const	PDH_SQL_BIND_FAILED	48114	48165	738	1	1449	generated	
+347	Const	PDH_SQL_CONNECT_FAILED	48166	48220	739	1	1450	generated	
+348	Const	PDH_SQL_EXEC_DIRECT_FAILED	48221	48279	740	1	1451	generated	
+349	Const	PDH_SQL_FETCH_FAILED	48280	48332	741	1	1452	generated	
+350	Const	PDH_SQL_MORE_RESULTS_FAILED	48333	48392	742	1	1453	generated	
+351	Const	PDH_SQL_ROWCOUNT_FAILED	48393	48448	743	1	1454	generated	
+352	Struct	PDH_STATISTICS	48449	48661	744	1	1455	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+353	Impl		48662	48769	753	1	1467	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+354	Const	PDH_STRING_NOT_FOUND	48770	48822	758	1	1474	generated	
+355	Struct	PDH_TIME_INFO	48823	48966	759	1	1475	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+356	Const	PDH_UNABLE_MAP_NAME_FILES	48967	49024	766	1	1484	generated	
+357	Const	PDH_UNABLE_READ_LOG_HEADER	49025	49083	767	1	1485	generated	
+358	Const	PDH_UNKNOWN_LOGSVC_COMMAND	49084	49142	768	1	1486	generated	
+359	Const	PDH_UNKNOWN_LOG_FORMAT	49143	49197	769	1	1487	generated	
+360	Const	PDH_UNMATCHED_APPEND_COUNTER	49198	49258	770	1	1488	generated	
+361	Const	PDH_VERSION	49259	49308	771	1	1489	generated	
+362	Const	PDH_WBEM_ERROR	49309	49355	772	1	1490	generated	
+363	ItemType	PERFLIBREQUEST	49356	49490	773	1	1491	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+364	Const	PERF_ADD_COUNTER	49491	49530	774	1	1496	generated	
+365	Const	PERF_AGGREGATE_AVG	49531	49596	775	1	1497	generated	
+366	Const	PERF_AGGREGATE_INSTANCE	49597	49692	776	1	1498	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+367	Const	PERF_AGGREGATE_MAX	49693	49758	777	1	1501	generated	
+368	Const	PERF_AGGREGATE_MIN	49759	49824	778	1	1502	generated	
+369	Const	PERF_AGGREGATE_TOTAL	49825	49892	779	1	1503	generated	
+370	Const	PERF_AGGREGATE_UNDEFINED	49893	49964	780	1	1504	generated	
+371	Const	PERF_ATTRIB_BY_REFERENCE	49965	50012	781	1	1505	generated	
+372	Const	PERF_ATTRIB_DISPLAY_AS_HEX	50013	50063	782	1	1506	generated	
+373	Const	PERF_ATTRIB_DISPLAY_AS_REAL	50064	50114	783	1	1507	generated	
+374	Const	PERF_ATTRIB_NO_DISPLAYABLE	50115	50164	784	1	1508	generated	
+375	Const	PERF_ATTRIB_NO_GROUP_SEPARATOR	50165	50218	785	1	1509	generated	
+376	Const	PERF_COLLECT_END	50219	50258	786	1	1510	generated	
+377	Const	PERF_COLLECT_START	50259	50300	787	1	1511	generated	
+378	Const	PERF_COUNTERSET	50301	50355	788	1	1512	generated	
+379	Const	PERF_COUNTERSET_FLAG_AGGREGATE	50356	50409	789	1	1513	generated	
+380	Const	PERF_COUNTERSET_FLAG_HISTORY	50410	50461	790	1	1514	generated	
+381	Const	PERF_COUNTERSET_FLAG_INSTANCE	50462	50515	791	1	1515	generated	
+382	Const	PERF_COUNTERSET_FLAG_MULTIPLE	50516	50568	792	1	1516	generated	
+383	Struct	PERF_COUNTERSET_INFO	50569	50796	793	1	1517	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+384	Struct	PERF_COUNTERSET_INSTANCE	50797	51038	801	1	1528	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+385	Const	PERF_COUNTERSET_MULTI_INSTANCES	51039	51093	810	1	1540	generated	
+386	Struct	PERF_COUNTERSET_REG_INFO	51094	51333	811	1	1541	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+387	Const	PERF_COUNTERSET_SINGLE_AGGREGATE	51334	51389	820	1	1553	generated	
+388	Const	PERF_COUNTERSET_SINGLE_INSTANCE	51390	51444	821	1	1554	generated	
+389	ItemType	PERF_COUNTER_AGGREGATE_FUNC	51445	51488	822	1	1555	generated	
+390	Const	PERF_COUNTER_BASE	51489	51534	823	1	1556	generated	
+391	Struct	PERF_COUNTER_BLOCK	51535	51636	824	1	1557	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+392	Struct	PERF_COUNTER_DATA	51637	51758	829	1	1564	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+393	Struct	PERF_COUNTER_DEFINITION	51759	52193	835	1	1572	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+394	Impl		52194	52338	850	1	1590	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+395	Struct	PERF_COUNTER_DEFINITION	52339	52798	856	1	1598	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+396	Const	PERF_COUNTER_ELAPSED	52799	52847	871	1	1615	generated	
+397	Const	PERF_COUNTER_FRACTION	52848	52897	872	1	1616	generated	
+398	Struct	PERF_COUNTER_HEADER	52898	53079	873	1	1617	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+399	Const	PERF_COUNTER_HISTOGRAM	53080	53130	881	1	1628	generated	
+400	Const	PERF_COUNTER_HISTOGRAM_TYPE	53131	53190	882	1	1629	generated	
+401	Struct	PERF_COUNTER_IDENTIFIER	53191	53453	883	1	1630	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+402	Struct	PERF_COUNTER_IDENTITY	53454	53732	894	1	1644	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+403	Struct	PERF_COUNTER_INFO	53733	53958	905	1	1658	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+404	Const	PERF_COUNTER_PRECISION	53959	54009	916	1	1671	generated	
+405	Const	PERF_COUNTER_QUEUELEN	54010	54059	917	1	1672	generated	
+406	Const	PERF_COUNTER_RATE	54060	54104	918	1	1673	generated	
+407	Struct	PERF_COUNTER_REG_INFO	54105	54476	919	1	1674	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+408	Const	PERF_COUNTER_VALUE	54477	54518	934	1	1692	generated	
+409	Struct	PERF_DATA_BLOCK	54519	54994	935	1	1693	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 4 and value/layout semantics require coder integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+410	Impl		54995	55103	953	1	1715	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+411	Struct	PERF_DATA_HEADER	55104	55371	958	1	1722	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+412	Const	PERF_DATA_REVISION	55372	55413	968	1	1735	generated	
+413	Const	PERF_DATA_VERSION	55414	55454	969	1	1736	generated	
+414	Const	PERF_DELTA_BASE	55455	55499	970	1	1737	generated	
+415	Const	PERF_DELTA_COUNTER	55500	55547	971	1	1738	generated	
+416	ItemType	PERF_DETAIL	55548	55575	972	1	1739	generated	
+417	Const	PERF_DETAIL_ADVANCED	55576	55629	973	1	1740	generated	
+418	Const	PERF_DETAIL_EXPERT	55630	55681	974	1	1741	generated	
+419	Const	PERF_DETAIL_NOVICE	55682	55733	975	1	1742	generated	
+420	Const	PERF_DETAIL_WIZARD	55734	55785	976	1	1743	generated	
+421	Const	PERF_DISPLAY_NOSHOW	55786	55837	977	1	1744	generated	
+422	Const	PERF_DISPLAY_NO_SUFFIX	55838	55883	978	1	1745	generated	
+423	Const	PERF_DISPLAY_PERCENT	55884	55935	979	1	1746	generated	
+424	Const	PERF_DISPLAY_PER_SEC	55936	55987	980	1	1747	generated	
+425	Const	PERF_DISPLAY_SECONDS	55988	56039	981	1	1748	generated	
+426	Const	PERF_ENUM_INSTANCES	56040	56082	982	1	1749	generated	
+427	Const	PERF_ERROR_RETURN	56083	56139	983	1	1750	generated	
+428	Const	PERF_FILTER	56140	56174	984	1	1751	generated	
+429	Struct	PERF_INSTANCE_DEFINITION	56175	56427	985	1	1752	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+430	Struct	PERF_INSTANCE_HEADER	56428	56550	995	1	1764	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+431	Const	PERF_INVERSE_COUNTER	56551	56601	1001	1	1772	generated	
+432	Const	PERF_MAX_INSTANCE_NAME	56602	56650	1002	1	1773	generated	
+433	ItemType	PERF_MEM_ALLOC	56651	56789	1003	1	1774	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+434	ItemType	PERF_MEM_FREE	56790	56916	1004	1	1779	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+435	Const	PERF_METADATA_MULTIPLE_INSTANCES	56917	56973	1005	1	1784	generated	
+436	Const	PERF_METADATA_NO_INSTANCES	56974	57024	1006	1	1785	generated	
+437	Const	PERF_MULTIPLE_COUNTERS	57025	57086	1007	1	1786	generated	
+438	Const	PERF_MULTIPLE_INSTANCES	57087	57149	1008	1	1787	generated	
+439	Const	PERF_MULTI_COUNTER	57150	57198	1009	1	1788	generated	
+440	Struct	PERF_MULTI_COUNTERS	57199	57322	1010	1	1789	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+441	Struct	PERF_MULTI_INSTANCES	57323	57453	1016	1	1797	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+442	Const	PERF_NO_INSTANCES	57454	57495	1022	1	1805	generated	
+443	Const	PERF_NO_UNIQUE_ID	57496	57537	1023	1	1806	generated	
+444	Const	PERF_NUMBER_DECIMAL	57538	57584	1024	1	1807	generated	
+445	Const	PERF_NUMBER_DEC_1000	57585	57633	1025	1	1808	generated	
+446	Const	PERF_NUMBER_HEX	57634	57672	1026	1	1809	generated	
+447	Const	PERF_OBJECT_TIMER	57673	57719	1027	1	1810	generated	
+448	Struct	PERF_OBJECT_TYPE	57720	58250	1028	1	1811	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+449	Impl		58251	58388	1047	1	1833	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+450	Struct	PERF_OBJECT_TYPE	58389	58944	1053	1	1841	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+451	Struct	PERF_PROVIDER_CONTEXT	58945	59230	1072	1	1862	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+452	Impl		59231	59345	1082	1	1876	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+453	Const	PERF_PROVIDER_DRIVER	59346	59389	1087	1	1883	generated	
+454	Const	PERF_PROVIDER_KERNEL_MODE	59390	59438	1088	1	1884	generated	
+455	Const	PERF_PROVIDER_USER_MODE	59439	59485	1089	1	1885	generated	
+456	Const	PERF_REG_COUNTERSET_ENGLISH_NAME	59486	59553	1090	1	1886	generated	
+457	Const	PERF_REG_COUNTERSET_HELP_STRING	59554	59620	1091	1	1887	generated	
+458	Const	PERF_REG_COUNTERSET_NAME_STRING	59621	59687	1092	1	1888	generated	
+459	Const	PERF_REG_COUNTERSET_STRUCT	59688	59749	1093	1	1889	generated	
+460	Const	PERF_REG_COUNTER_ENGLISH_NAMES	59750	59816	1094	1	1890	generated	
+461	Const	PERF_REG_COUNTER_HELP_STRINGS	59817	59881	1095	1	1891	generated	
+462	Const	PERF_REG_COUNTER_NAME_STRINGS	59882	59946	1096	1	1892	generated	
+463	Const	PERF_REG_COUNTER_STRUCT	59947	60005	1097	1	1893	generated	
+464	Const	PERF_REG_PROVIDER_GUID	60006	60063	1098	1	1894	generated	
+465	Const	PERF_REG_PROVIDER_NAME	60064	60121	1099	1	1895	generated	
+466	Const	PERF_REMOVE_COUNTER	60122	60164	1100	1	1896	generated	
+467	Const	PERF_SINGLE_COUNTER	60165	60223	1101	1	1897	generated	
+468	Const	PERF_SIZE_DWORD	60224	60262	1102	1	1898	generated	
+469	Const	PERF_SIZE_LARGE	60263	60303	1103	1	1899	generated	
+470	Const	PERF_SIZE_VARIABLE_LEN	60304	60351	1104	1	1900	generated	
+471	Const	PERF_SIZE_ZERO	60352	60391	1105	1	1901	generated	
+472	Struct	PERF_STRING_BUFFER_HEADER	60392	60521	1106	1	1902	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+473	Struct	PERF_STRING_COUNTER_HEADER	60522	60655	1112	1	1910	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+474	Const	PERF_TEXT_ASCII	60656	60698	1118	1	1918	generated	
+475	Const	PERF_TEXT_UNICODE	60699	60739	1119	1	1919	generated	
+476	Const	PERF_TIMER_100NS	60740	60785	1120	1	1920	generated	
+477	Const	PERF_TIMER_TICK	60786	60824	1121	1	1921	generated	
+478	Const	PERF_TYPE_COUNTER	60825	60868	1122	1	1922	generated	
+479	Const	PERF_TYPE_NUMBER	60869	60908	1123	1	1923	generated	
+480	Const	PERF_TYPE_TEXT	60909	60949	1124	1	1924	generated	
+481	Const	PERF_TYPE_ZERO	60950	60990	1125	1	1925	generated	
+482	Const	PERF_WILDCARD_COUNTER	60991	61044	1126	1	1926	generated	
+483	Const	PERF_WILDCARD_INSTANCE	61045	61134	1127	1	1927	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+484	Const	PLAL_ALERT_CMD_LINE_A_NAME	61135	61186	1128	1	1930	generated	
+485	Const	PLAL_ALERT_CMD_LINE_C_NAME	61187	61239	1129	1	1931	generated	
+486	Const	PLAL_ALERT_CMD_LINE_D_TIME	61240	61292	1130	1	1932	generated	
+487	Const	PLAL_ALERT_CMD_LINE_L_VAL	61293	61344	1131	1	1933	generated	
+488	Const	PLAL_ALERT_CMD_LINE_MASK	61345	61396	1132	1	1934	generated	
+489	Const	PLAL_ALERT_CMD_LINE_M_VAL	61397	61448	1133	1	1935	generated	
+490	Const	PLAL_ALERT_CMD_LINE_SINGLE	61449	61500	1134	1	1936	generated	
+491	Const	PLAL_ALERT_CMD_LINE_U_TEXT	61501	61554	1135	1	1937	generated	
+492	ItemType	PLA_CABEXTRACT_CALLBACK	61555	61694	1136	1	1938	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+493	Const	PLA_CAPABILITY_AUTOLOGGER	61695	61744	1137	1	1943	generated	
+494	Const	PLA_CAPABILITY_LEGACY_SESSION	61745	61797	1138	1	1944	generated	
+495	Const	PLA_CAPABILITY_LEGACY_SVC	61798	61847	1139	1	1945	generated	
+496	Const	PLA_CAPABILITY_LOCAL	61848	61899	1140	1	1946	generated	
+497	Const	PLA_CAPABILITY_V1_SESSION	61900	61948	1141	1	1947	generated	
+498	Const	PLA_CAPABILITY_V1_SVC	61949	61993	1142	1	1948	generated	
+499	Const	PLA_CAPABILITY_V1_SYSTEM	61994	62041	1143	1	1949	generated	
+500	ItemType	PM_CLOSE_PROC	62042	62110	1144	1	1950	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+501	ItemType	PM_COLLECT_PROC	62111	62307	1145	1	1954	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+502	ItemType	PM_OPEN_PROC	62308	62410	1146	1	1959	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+503	ItemType	PerfCounterDataType	62411	62446	1147	1	1963	generated	
+504	ItemType	PerfRegInfoType	62447	62478	1148	1	1964	generated	
+505	ItemType	REAL_TIME_DATA_SOURCE_ID_FLAGS	62479	62525	1149	1	1965	generated	
+506	ItemType	ReportValueTypeConstants	62526	62566	1150	1	1966	generated	
+507	ItemType	ResourcePolicy	62567	62597	1151	1	1967	generated	
+508	Const	S_PDH	62598	62716	1152	1	1968	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+509	Const	ServerDataCollectorSet	62717	62852	1153	1	1971	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+510	Const	ServerDataCollectorSetCollection	62853	62998	1154	1	1974	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+511	Const	SourcePropPage	62999	63126	1155	1	1977	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+512	ItemType	StreamMode	63127	63153	1156	1	1980	generated	
+513	ItemType	SysmonBatchReason	63154	63187	1157	1	1981	generated	
+514	ItemType	SysmonDataType	63188	63218	1158	1	1982	generated	
+515	ItemType	SysmonFileType	63219	63249	1159	1	1983	generated	
+516	Const	SystemDataCollectorSet	63250	63385	1160	1	1984	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+517	Const	SystemDataCollectorSetCollection	63386	63531	1161	1	1987	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+518	Const	SystemMonitor	63532	63658	1162	1	1990	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+519	Const	SystemMonitor2	63659	63786	1163	1	1993	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+520	Const	TraceDataProvider	63787	63917	1164	1	1996	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+521	Const	TraceDataProviderCollection	63918	64058	1165	1	1999	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+522	Const	TraceSession	64059	64184	1166	1	2002	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+523	Const	TraceSessionCollection	64185	64320	1167	1	2005	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+524	ItemType	ValueMapType	64321	64349	1168	1	2008	generated	
+525	Const	WINPERF_LOG_DEBUG	64350	64390	1169	1	2009	generated	
+526	Const	WINPERF_LOG_NONE	64391	64430	1170	1	2010	generated	
+527	Const	WINPERF_LOG_USER	64431	64470	1171	1	2011	generated	
+528	Const	WINPERF_LOG_VERBOSE	64471	64513	1172	1	2012	generated	
+529	ItemType	WeekDays	64514	64538	1173	1	2013	generated	
+530	Const	plaAlert	64539	64584	1174	1	2014	generated	
+531	Const	plaApiTrace	64585	64633	1175	1	2015	generated	
+532	Const	plaBinary	64634	64673	1176	1	2016	generated	
+533	Const	plaBoth	64674	64711	1177	1	2017	generated	
+534	Const	plaBuffering	64712	64754	1178	1	2018	generated	
+535	Const	plaCommaSeparated	64755	64802	1179	1	2019	generated	
+536	Const	plaCompiling	64803	64857	1180	1	2020	generated	
+537	Const	plaComputer	64858	64903	1181	1	2021	generated	
+538	Const	plaConfiguration	64904	64957	1182	1	2022	generated	
+539	Const	plaCreateCab	64958	65007	1183	1	2023	generated	
+540	Const	plaCreateHtml	65008	65057	1184	1	2024	generated	
+541	Const	plaCreateNew	65058	65100	1185	1	2025	generated	
+542	Const	plaCreateOrModify	65101	65148	1186	1	2026	generated	
+543	Const	plaCreateReport	65149	65200	1187	1	2027	generated	
+544	Const	plaCycle	65201	65238	1188	1	2028	generated	
+545	Const	plaDeleteCab	65239	65288	1189	1	2029	generated	
+546	Const	plaDeleteData	65289	65339	1190	1	2030	generated	
+547	Const	plaDeleteLargest	65340	65390	1191	1	2031	generated	
+548	Const	plaDeleteOldest	65391	65440	1192	1	2032	generated	
+549	Const	plaDeleteReport	65441	65494	1193	1	2033	generated	
+550	Const	plaEveryday	65495	65536	1194	1	2034	generated	
+551	Const	plaFile	65537	65574	1195	1	2035	generated	
+552	Const	plaFlag	65575	65614	1196	1	2036	generated	
+553	Const	plaFlagArray	65615	65659	1197	1	2037	generated	
+554	Const	plaFlushTrace	65660	65704	1198	1	2038	generated	
+555	Const	plaFolderActions	65705	65757	1199	1	2039	generated	
+556	Const	plaFriday	65758	65796	1200	1	2040	generated	
+557	Const	plaIndex	65797	65837	1201	1	2041	generated	
+558	Const	plaModify	65838	65877	1202	1	2042	generated	
+559	Const	plaMonday	65878	65915	1203	1	2043	generated	
+560	Const	plaMonthDayHour	65916	65967	1204	1	2044	generated	
+561	Const	plaMonthDayHourMinute	65968	66027	1205	1	2045	generated	
+562	Const	plaNone	66028	66069	1206	1	2046	generated	
+563	Const	plaPattern	66070	66114	1207	1	2047	generated	
+564	Const	plaPending	66115	66167	1208	1	2048	generated	
+565	Const	plaPerformance	66168	66211	1209	1	2049	generated	
+566	Const	plaPerformanceCounter	66212	66270	1210	1	2050	generated	
+567	Const	plaRealTime	66271	66312	1211	1	2051	generated	
+568	Const	plaResourceFreeing	66313	66368	1212	1	2052	generated	
+569	Const	plaRunOnce	66369	66407	1213	1	2053	generated	
+570	Const	plaRunRules	66408	66455	1214	1	2054	generated	
+571	Const	plaRunning	66456	66508	1215	1	2055	generated	
+572	Const	plaSaturday	66509	66549	1216	1	2056	generated	
+573	Const	plaSendCab	66550	66597	1217	1	2057	generated	
+574	Const	plaSerialNumber	66598	66649	1218	1	2058	generated	
+575	Const	plaSql	66650	66686	1219	1	2059	generated	
+576	Const	plaStopped	66687	66739	1220	1	2060	generated	
+577	Const	plaSunday	66740	66777	1221	1	2061	generated	
+578	Const	plaSystem	66778	66816	1222	1	2062	generated	
+579	Const	plaTabSeparated	66817	66862	1223	1	2063	generated	
+580	Const	plaThursday	66863	66903	1224	1	2064	generated	
+581	Const	plaTimeStamp	66904	66945	1225	1	2065	generated	
+582	Const	plaTrace	66946	66991	1226	1	2066	generated	
+583	Const	plaTuesday	66992	67030	1227	1	2067	generated	
+584	Const	plaUndefined	67031	67085	1228	1	2068	generated	
+585	Const	plaUpdateRunningInstance	67086	67141	1229	1	2069	generated	
+586	Const	plaValidateOnly	67142	67190	1230	1	2070	generated	
+587	Const	plaValidation	67191	67236	1231	1	2071	generated	
+588	Const	plaWednesday	67237	67277	1232	1	2072	generated	
+589	Const	plaYearDayOfYear	67278	67331	1233	1	2073	generated	
+590	Const	plaYearMonth	67332	67381	1234	1	2074	generated	
+591	Const	plaYearMonthDay	67382	67434	1235	1	2075	generated	
+592	Const	plaYearMonthDayHour	67435	67491	1236	1	2076	generated	
+593	Const	sysmonAverage	67492	67549	1237	1	2077	generated	
+594	Const	sysmonBatchAddCounters	67550	67609	1238	1	2078	generated	
+595	Const	sysmonBatchAddFiles	67610	67666	1239	1	2079	generated	
+596	Const	sysmonBatchAddFilesAutoCounters	67667	67735	1240	1	2080	generated	
+597	Const	sysmonBatchNone	67736	67788	1241	1	2081	generated	
+598	Const	sysmonChartArea	67789	67844	1242	1	2082	generated	
+599	Const	sysmonChartStackedArea	67845	67907	1243	1	2083	generated	
+600	Const	sysmonCurrentActivity	67908	67972	1244	1	2084	generated	
+601	Const	sysmonCurrentValue	67973	68035	1245	1	2085	generated	
+602	Const	sysmonDataAvg	68036	68083	1246	1	2086	generated	
+603	Const	sysmonDataCount	68084	68133	1247	1	2087	generated	
+604	Const	sysmonDataMax	68134	68181	1248	1	2088	generated	
+605	Const	sysmonDataMin	68182	68229	1249	1	2089	generated	
+606	Const	sysmonDataTime	68230	68278	1250	1	2090	generated	
+607	Const	sysmonDefaultValue	68279	68341	1251	1	2091	generated	
+608	Const	sysmonFileBlg	68342	68389	1252	1	2092	generated	
+609	Const	sysmonFileCsv	68390	68437	1253	1	2093	generated	
+610	Const	sysmonFileGif	68438	68485	1254	1	2094	generated	
+611	Const	sysmonFileHtml	68486	68534	1255	1	2095	generated	
+612	Const	sysmonFileReport	68535	68585	1256	1	2096	generated	
+613	Const	sysmonFileRetiredBlg	68586	68640	1257	1	2097	generated	
+614	Const	sysmonFileTsv	68641	68688	1258	1	2098	generated	
+615	Const	sysmonHistogram	68689	68744	1259	1	2099	generated	
+616	Const	sysmonLineGraph	68745	68800	1260	1	2100	generated	
+617	Const	sysmonLogFiles	68801	68858	1261	1	2101	generated	
+618	Const	sysmonMaximum	68859	68916	1262	1	2102	generated	
+619	Const	sysmonMinimum	68917	68974	1263	1	2103	generated	
+620	Const	sysmonNullDataSource	68975	69039	1264	1	2104	generated	
+621	Const	sysmonReport	69040	69092	1265	1	2105	generated	
+622	Const	sysmonSqlLog	69093	69148	1266	1	2106	generated	

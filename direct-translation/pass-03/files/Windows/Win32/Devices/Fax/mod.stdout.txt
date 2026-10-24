@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Win32/Devices/Fax/mod: 390 generated; 178 syntax candidates; 153 unsupported

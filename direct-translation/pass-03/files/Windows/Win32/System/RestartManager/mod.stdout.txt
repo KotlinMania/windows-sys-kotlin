@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Win32/System/RestartManager/mod: 42 generated; 14 syntax candidates; 5 unsupported

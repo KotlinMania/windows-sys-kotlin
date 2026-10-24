@@ -1,0 +1,789 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro	QOSAddSocketToFlow	0	364	1	1	2	syntax	External declaration shape only: wire DLL=qwave.dll, ABI=system, export=QOSAddSocketToFlow; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1	Macro	QOSCancel	365	589	3	1	8	syntax	External declaration shape only: wire DLL=qwave.dll, ABI=system, export=QOSCancel; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+2	Macro	QOSCloseHandle	590	724	5	1	14	syntax	External declaration shape only: wire DLL=qwave.dll, ABI=system, export=QOSCloseHandle; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+3	Macro	QOSCreateHandle	725	895	6	1	18	syntax	External declaration shape only: wire DLL=qwave.dll, ABI=system, export=QOSCreateHandle; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+4	Macro	QOSEnumerateFlows	896	1083	7	1	23	syntax	External declaration shape only: wire DLL=qwave.dll, ABI=system, export=QOSEnumerateFlows; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+5	Macro	QOSNotifyFlow	1084	1416	8	1	28	syntax	External declaration shape only: wire DLL=qwave.dll, ABI=system, export=QOSNotifyFlow; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+6	Macro	QOSQueryFlow	1417	1747	10	1	34	syntax	External declaration shape only: wire DLL=qwave.dll, ABI=system, export=QOSQueryFlow; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+7	Macro	QOSRemoveSocketFromFlow	1748	2016	12	1	40	syntax	External declaration shape only: wire DLL=qwave.dll, ABI=system, export=QOSRemoveSocketFromFlow; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+8	Macro	QOSSetFlow	2017	2340	14	1	45	syntax	External declaration shape only: wire DLL=qwave.dll, ABI=system, export=QOSSetFlow; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+9	Macro	QOSStartTrackingClient	2341	2605	16	1	51	syntax	External declaration shape only: wire DLL=qwave.dll, ABI=system, export=QOSStartTrackingClient; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+10	Macro	QOSStopTrackingClient	2606	2869	18	1	57	syntax	External declaration shape only: wire DLL=qwave.dll, ABI=system, export=QOSStopTrackingClient; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+11	Macro	TcAddFilter	2870	3079	20	1	63	syntax	External declaration shape only: wire DLL=traffic.dll, ABI=system, export=TcAddFilter; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+12	Macro	TcAddFlow	3080	3385	21	1	68	syntax	External declaration shape only: wire DLL=traffic.dll, ABI=system, export=TcAddFlow; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+13	Macro	TcCloseInterface	3386	3504	23	1	74	syntax	External declaration shape only: wire DLL=traffic.dll, ABI=system, export=TcCloseInterface; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+14	Macro	TcDeleteFilter	3505	3624	24	1	78	syntax	External declaration shape only: wire DLL=traffic.dll, ABI=system, export=TcDeleteFilter; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+15	Macro	TcDeleteFlow	3625	3740	25	1	82	syntax	External declaration shape only: wire DLL=traffic.dll, ABI=system, export=TcDeleteFlow; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+16	Macro	TcDeregisterClient	3741	3864	26	1	86	syntax	External declaration shape only: wire DLL=traffic.dll, ABI=system, export=TcDeregisterClient; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+17	Macro	TcEnumerateFlows	3865	4160	27	1	90	syntax	External declaration shape only: wire DLL=traffic.dll, ABI=system, export=TcEnumerateFlows; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+18	Macro	TcEnumerateInterfaces	4161	4402	29	1	96	syntax	External declaration shape only: wire DLL=traffic.dll, ABI=system, export=TcEnumerateInterfaces; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+19	Macro	TcGetFlowNameA	4403	4572	31	1	102	syntax	External declaration shape only: wire DLL=traffic.dll, ABI=system, export=TcGetFlowNameA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+20	Macro	TcGetFlowNameW	4573	4743	32	1	106	syntax	External declaration shape only: wire DLL=traffic.dll, ABI=system, export=TcGetFlowNameW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+21	Macro	TcModifyFlow	4744	4939	33	1	110	syntax	External declaration shape only: wire DLL=traffic.dll, ABI=system, export=TcModifyFlow; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+22	Macro	TcOpenInterfaceA	4940	5203	35	1	116	syntax	External declaration shape only: wire DLL=traffic.dll, ABI=system, export=TcOpenInterfaceA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+23	Macro	TcOpenInterfaceW	5204	5468	36	1	121	syntax	External declaration shape only: wire DLL=traffic.dll, ABI=system, export=TcOpenInterfaceW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+24	Macro	TcQueryFlowA	5469	5676	37	1	126	syntax	External declaration shape only: wire DLL=traffic.dll, ABI=system, export=TcQueryFlowA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+25	Macro	TcQueryFlowW	5677	5885	38	1	131	syntax	External declaration shape only: wire DLL=traffic.dll, ABI=system, export=TcQueryFlowW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+26	Macro	TcQueryInterface	5886	6127	39	1	136	syntax	External declaration shape only: wire DLL=traffic.dll, ABI=system, export=TcQueryInterface; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+27	Macro	TcRegisterClient	6128	6368	40	1	141	syntax	External declaration shape only: wire DLL=traffic.dll, ABI=system, export=TcRegisterClient; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+28	Macro	TcSetFlowA	6369	6570	41	1	146	syntax	External declaration shape only: wire DLL=traffic.dll, ABI=system, export=TcSetFlowA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+29	Macro	TcSetFlowW	6571	6773	42	1	151	syntax	External declaration shape only: wire DLL=traffic.dll, ABI=system, export=TcSetFlowW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+30	Macro	TcSetInterface	6774	6988	43	1	156	syntax	External declaration shape only: wire DLL=traffic.dll, ABI=system, export=TcSetInterface; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+31	Const	ABLE_TO_RECV_RSVP	6989	7033	44	1	161	generated	
+32	Struct	ADDRESS_LIST_DESCRIPTOR	7034	7244	45	1	162	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+33	Const	ADM_CTRL_FAILED	7245	7283	52	1	172	generated	
+34	Struct	ADSPEC	7284	7420	53	1	173	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+35	Const	AD_FLAG_BREAK_BIT	7421	7461	59	1	182	generated	
+36	Struct	AD_GENERAL_PARAMS	7462	7679	60	1	183	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+37	Struct	AD_GUARANTEED	7680	7831	69	1	194	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+38	Const	ALLOWED_TO_SEND_DATA	7832	7879	77	1	204	generated	
+39	Const	ANY_DEST_ADDR	7880	7925	78	1	205	generated	
+40	ItemType	CBADMITRESULT	7926	8149	79	1	206	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+41	ItemType	CBGETRSVPOBJECTS	8150	8346	80	1	211	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+42	Const	CONTROLLED_DELAY_SERV	8347	8391	81	1	216	generated	
+43	Const	CONTROLLED_LOAD_SERV	8392	8435	82	1	217	generated	
+44	Struct	CONTROL_SERVICE	8436	8619	83	1	218	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+45	Impl		8620	8728	91	1	229	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+46	Union		8729	8869	96	1	236	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+47	Impl		8870	8980	102	1	244	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+48	Const	CREDENTIAL_SUB_TYPE_ASCII_ID	8981	9032	107	1	251	generated	
+49	Const	CREDENTIAL_SUB_TYPE_KERBEROS_TKT	9033	9088	108	1	252	generated	
+50	Const	CREDENTIAL_SUB_TYPE_PGP_CERT	9089	9140	109	1	253	generated	
+51	Const	CREDENTIAL_SUB_TYPE_UNICODE_ID	9141	9194	110	1	254	generated	
+52	Const	CREDENTIAL_SUB_TYPE_X509_V3_CERT	9195	9250	111	1	255	generated	
+53	Const	CURRENT_TCI_VERSION	9251	9293	112	1	256	generated	
+54	Struct	CtrlLoadFlowspec	9294	9493	113	1	257	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+55	Const	DD_TCP_DEVICE_NAME	9494	9591	120	1	267	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+56	Const	DUP_RESULTS	9592	9626	121	1	270	generated	
+57	Const	END_TO_END_QOSABILITY	9627	9675	122	1	271	generated	
+58	Struct	ENUMERATION_BUFFER	9676	10003	123	1	272	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 256 and value/layout semantics require coder integration. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+59	Impl		10004	10160	135	1	290	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+60	Const	ERROR_ADDRESS_TYPE_NOT_SUPPORTED	10161	10219	141	1	298	generated	
+61	Const	ERROR_DS_MAPPING_EXISTS	10220	10269	142	1	299	generated	
+62	Const	ERROR_DUPLICATE_FILTER	10270	10318	143	1	300	generated	
+63	Const	ERROR_FILTER_CONFLICT	10319	10366	144	1	301	generated	
+64	Const	ERROR_INCOMPATABLE_QOS	10367	10415	145	1	302	generated	
+65	Const	ERROR_INCOMPATIBLE_TCI_VERSION	10416	10472	146	1	303	generated	
+66	Const	ERROR_INVALID_ADDRESS_TYPE	10473	10525	147	1	304	generated	
+67	Const	ERROR_INVALID_DIFFSERV_FLOW	10526	10579	148	1	305	generated	
+68	Const	ERROR_INVALID_DS_CLASS	10580	10628	149	1	306	generated	
+69	Const	ERROR_INVALID_FLOW_MODE	10629	10678	150	1	307	generated	
+70	Const	ERROR_INVALID_PEAK_RATE	10679	10728	151	1	308	generated	
+71	Const	ERROR_INVALID_QOS_PRIORITY	10729	10781	152	1	309	generated	
+72	Const	ERROR_INVALID_SD_MODE	10782	10829	153	1	310	generated	
+73	Const	ERROR_INVALID_SERVICE_TYPE	10830	10882	154	1	311	generated	
+74	Const	ERROR_INVALID_SHAPE_RATE	10883	10933	155	1	312	generated	
+75	Const	ERROR_INVALID_TOKEN_RATE	10934	10984	156	1	313	generated	
+76	Const	ERROR_INVALID_TRAFFIC_CLASS	10985	11038	157	1	314	generated	
+77	Const	ERROR_NO_MORE_INFO	11039	11080	158	1	315	generated	
+78	Struct	ERROR_SPEC	11081	11248	159	1	316	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+79	Impl		11249	11397	166	1	326	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+80	Union		11398	11539	172	1	334	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+81	Impl		11540	11690	178	1	342	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+82	Const	ERROR_SPECF_InPlace	11691	11733	184	1	350	generated	
+83	Const	ERROR_SPECF_NotGuilty	11734	11778	185	1	351	generated	
+84	Const	ERROR_TC_NOT_SUPPORTED	11779	11827	186	1	352	generated	
+85	Const	ERROR_TC_OBJECT_LENGTH_INVALID	11828	11884	187	1	353	generated	
+86	Const	ERROR_TC_SUPPORTED_OBJECTS_EXIST	11885	11943	188	1	354	generated	
+87	Const	ERROR_TOO_MANY_CLIENTS	11944	11992	189	1	355	generated	
+88	Const	ERR_FORWARD_OK	11993	12034	190	1	356	generated	
+89	Const	ERR_Usage_globl	12035	12073	191	1	357	generated	
+90	Const	ERR_Usage_local	12074	12113	192	1	358	generated	
+91	Const	ERR_Usage_serv	12114	12152	193	1	359	generated	
+92	Const	ERR_global_mask	12153	12194	194	1	360	generated	
+93	Const	EXPIRED_CREDENTIAL	12195	12236	195	1	361	generated	
+94	Struct	Error_Spec_IPv4	12237	12484	196	1	362	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+95	Impl		12485	12638	205	1	374	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+96	Const	FILTERSPECV4	12639	12681	211	1	382	generated	
+97	Const	FILTERSPECV4_GPI	12682	12728	212	1	383	generated	
+98	Const	FILTERSPECV6	12729	12771	213	1	384	generated	
+99	Const	FILTERSPECV6_FLOW	12772	12819	214	1	385	generated	
+100	Const	FILTERSPECV6_GPI	12820	12866	215	1	386	generated	
+101	Const	FILTERSPEC_END	12867	12911	216	1	387	generated	
+102	Struct	FILTER_SPEC	12912	13081	217	1	388	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+103	Impl		13082	13231	224	1	398	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+104	Union		13232	13418	230	1	406	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+105	Impl		13419	13570	237	1	415	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+106	Struct	FLOWDESCRIPTOR	13571	13809	243	1	423	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+107	Impl		13810	13962	251	1	435	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+108	Struct	FLOW_DESC	13963	14116	257	1	443	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+109	Impl		14117	14264	264	1	453	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+110	Union		14265	14438	270	1	461	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+111	Impl		14439	14588	277	1	470	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+112	Union		14589	14759	283	1	478	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+113	Impl		14760	14909	290	1	487	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+114	Const	FLOW_DURATION	14910	14946	296	1	495	generated	
+115	Const	FORCE_IMMEDIATE_REFRESH	14947	14993	297	1	496	generated	
+116	Const	FSCTL_TCP_BASE	14994	15032	298	1	497	generated	
+117	Const	FVEB_UNLOCK_FLAG_AUK_OSFVEINFO	15033	15088	299	1	498	generated	
+118	Const	FVEB_UNLOCK_FLAG_CACHED	15089	15135	300	1	499	generated	
+119	Const	FVEB_UNLOCK_FLAG_EXTERNAL	15136	15185	301	1	500	generated	
+120	Const	FVEB_UNLOCK_FLAG_MEDIA	15186	15231	302	1	501	generated	
+121	Const	FVEB_UNLOCK_FLAG_NBP	15232	15277	303	1	502	generated	
+122	Const	FVEB_UNLOCK_FLAG_NONE	15278	15322	304	1	503	generated	
+123	Const	FVEB_UNLOCK_FLAG_PASSPHRASE	15323	15375	305	1	504	generated	
+124	Const	FVEB_UNLOCK_FLAG_PIN	15376	15420	306	1	505	generated	
+125	Const	FVEB_UNLOCK_FLAG_RECOVERY	15421	15470	307	1	506	generated	
+126	Const	FVEB_UNLOCK_FLAG_TPM	15471	15514	308	1	507	generated	
+127	ItemType	FilterType	15515	15541	309	1	508	generated	
+128	Struct	Filter_Spec_IPv4	15542	15767	310	1	509	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+129	Impl		15768	15922	318	1	520	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+130	Struct	Filter_Spec_IPv4GPI	15923	16124	324	1	528	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+131	Impl		16125	16282	331	1	538	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+132	Const	GENERAL_INFO	16283	16318	337	1	546	generated	
+133	Const	GQOS_API	16319	16354	338	1	547	generated	
+134	Const	GQOS_ERRORCODE_UNKNOWN	16355	16409	339	1	548	generated	
+135	Const	GQOS_ERRORVALUE_UNKNOWN	16410	16465	340	1	549	generated	
+136	Const	GQOS_KERNEL_TC	16466	16507	341	1	550	generated	
+137	Const	GQOS_KERNEL_TC_SYS	16508	16553	342	1	551	generated	
+138	Const	GQOS_NET_ADMISSION	16554	16599	343	1	552	generated	
+139	Const	GQOS_NET_POLICY	16600	16642	344	1	553	generated	
+140	Const	GQOS_NO_ERRORCODE	16643	16683	345	1	554	generated	
+141	Const	GQOS_NO_ERRORVALUE	16684	16725	346	1	555	generated	
+142	Const	GQOS_RSVP	16726	16762	347	1	556	generated	
+143	Const	GQOS_RSVP_SYS	16763	16803	348	1	557	generated	
+144	Const	GUARANTEED_SERV	16804	16842	349	1	558	generated	
+145	Const	GUAR_ADSPARM_C	16843	16882	350	1	559	generated	
+146	Const	GUAR_ADSPARM_Csum	16883	16925	351	1	560	generated	
+147	Const	GUAR_ADSPARM_Ctot	16926	16968	352	1	561	generated	
+148	Const	GUAR_ADSPARM_D	16969	17008	353	1	562	generated	
+149	Const	GUAR_ADSPARM_Dsum	17009	17051	354	1	563	generated	
+150	Const	GUAR_ADSPARM_Dtot	17052	17094	355	1	564	generated	
+151	Const	GUID_QOS_BESTEFFORT_BANDWIDTH	17095	17237	356	1	565	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+152	Const	GUID_QOS_ENABLE_AVG_STATS	17238	17376	357	1	568	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+153	Const	GUID_QOS_ENABLE_WINDOW_ADJUSTMENT	17377	17523	358	1	571	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+154	Const	GUID_QOS_FLOW_8021P_CONFORMING	17524	17667	359	1	574	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+155	Const	GUID_QOS_FLOW_8021P_NONCONFORMING	17668	17814	360	1	577	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+156	Const	GUID_QOS_FLOW_COUNT	17815	17947	361	1	580	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+157	Const	GUID_QOS_FLOW_IP_CONFORMING	17948	18088	362	1	583	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+158	Const	GUID_QOS_FLOW_IP_NONCONFORMING	18089	18232	363	1	586	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+159	Const	GUID_QOS_FLOW_MODE	18233	18364	364	1	589	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+160	Const	GUID_QOS_ISSLOW_FLOW	18365	18498	365	1	592	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+161	Const	GUID_QOS_LATENCY	18499	18628	366	1	595	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+162	Const	GUID_QOS_MAX_OUTSTANDING_SENDS	18629	18772	367	1	598	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+163	Const	GUID_QOS_NON_BESTEFFORT_LIMIT	18773	18915	368	1	601	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+164	Const	GUID_QOS_REMAINING_BANDWIDTH	18916	19057	369	1	604	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+165	Const	GUID_QOS_STATISTICS_BUFFER	19058	19197	370	1	607	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+166	Const	GUID_QOS_TIMER_RESOLUTION	19198	19336	371	1	610	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+167	Struct	Gads_parms_t	19337	19701	372	1	613	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+168	Struct	GenAdspecParams	19702	20129	385	1	629	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+169	Struct	GenTspec	20130	20327	398	1	645	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+170	Struct	GenTspecParms	20328	20524	405	1	655	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+171	Struct	GuarFlowSpec	20525	20789	414	1	666	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+172	Struct	GuarRspec	20790	20899	423	1	678	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+173	Const	HIGHLY_DELAY_SENSITIVE	20900	20954	429	1	686	generated	
+174	Struct	HSP_UPGRADE_IMAGEDATA	20955	21140	430	1	687	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 64 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+175	Impl		21141	21255	438	1	698	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+176	Const	IDENTITY_CHANGED	21256	21295	443	1	705	generated	
+177	Struct	IDPE_ATTR	21296	21470	444	1	706	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 4 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+178	Impl		21471	21573	452	1	717	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+179	Struct	ID_ERROR_OBJECT	21574	21794	457	1	724	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 4 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+180	Impl		21795	21903	467	1	737	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+181	Const	IF_MIB_STATS_ID	21904	21942	472	1	744	generated	
+182	Const	INFO_NOT_AVAILABLE	21943	21993	473	1	745	generated	
+183	Const	INSUFFICIENT_PRIVILEGES	21994	22040	474	1	746	generated	
+184	Const	INTSERV_VERSION0	22041	22080	475	1	747	generated	
+185	Const	INTSERV_VERS_MASK	22081	22123	476	1	748	generated	
+186	Const	INV_LPM_HANDLE	22124	22161	477	1	749	generated	
+187	Const	INV_REQ_HANDLE	22162	22199	478	1	750	generated	
+188	Const	INV_RESULTS	22200	22234	479	1	751	generated	
+189	Union		22235	22342	480	1	752	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+190	Impl		22343	22448	486	1	760	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+191	Struct	IN_ADDR_IPV6	22449	22534	491	1	767	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 16 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+192	Impl		22535	22640	496	1	775	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+193	Struct	IPX_PATTERN	22641	22767	501	1	782	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+194	Struct	IPX_PATTERN_0	22768	22910	507	1	791	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 6 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+195	Impl		22911	23017	514	1	801	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+196	Const	IP_INTFC_INFO_ID	23018	23059	519	1	808	generated	
+197	Const	IP_MIB_ADDRTABLE_ENTRY_ID	23060	23110	520	1	809	generated	
+198	Const	IP_MIB_STATS_ID	23111	23149	521	1	810	generated	
+199	Struct	IP_PATTERN	23150	23381	522	1	811	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Rust fixed array length 3 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+200	Impl		23382	23485	533	1	826	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+201	Union		23486	23637	538	1	833	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+202	Impl		23638	23743	545	1	842	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+203	Struct	IP_PATTERN_0_1	23744	23877	550	1	849	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+204	Struct	IP_PATTERN_0_0	23878	23998	557	1	858	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+205	Const	ISPH_FLG_INV	23999	24036	563	1	866	generated	
+206	Const	ISSH_BREAK_BIT	24037	24076	564	1	867	generated	
+207	Struct	IS_ADSPEC_BODY	24077	24226	565	1	868	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+208	Struct	IS_FLOWSPEC	24227	24356	571	1	877	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+209	Impl		24357	24461	577	1	886	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+210	Const	IS_GUAR_RSPEC	24462	24500	582	1	893	generated	
+211	Const	IS_WKP_COMPOSED_MTU	24501	24553	583	1	894	generated	
+212	Const	IS_WKP_HOP_CNT	24554	24600	584	1	895	generated	
+213	Const	IS_WKP_MIN_LATENCY	24601	24651	585	1	896	generated	
+214	Const	IS_WKP_PATH_BW	24652	24698	586	1	897	generated	
+215	Const	IS_WKP_Q_TSPEC	24699	24747	587	1	898	generated	
+216	Const	IS_WKP_TB_TSPEC	24748	24797	588	1	899	generated	
+217	Struct	IntServFlowSpec	24798	24930	589	1	900	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+218	Impl		24931	25039	595	1	909	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+219	Union		25040	25203	600	1	916	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+220	Impl		25204	25314	607	1	925	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+221	Struct	IntServMainHdr	25315	25464	612	1	932	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+222	Struct	IntServParmHdr	25465	25614	619	1	941	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+223	Struct	IntServServiceHdr	25615	25766	626	1	950	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+224	Struct	IntServTspecBody	25767	25900	633	1	959	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+225	Impl		25901	26010	639	1	968	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+226	Union		26011	26139	644	1	975	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+227	Impl		26140	26251	650	1	983	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+228	Const	LINE_RATE	26252	26288	655	1	990	generated	
+229	Const	LOCAL_QOSABILITY	26289	26332	656	1	991	generated	
+230	Const	LOCAL_TRAFFIC_CONTROL	26333	26381	657	1	992	generated	
+231	Struct	LPMIPTABLE	26382	26659	658	1	993	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+232	Impl		26660	26808	667	1	1005	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+233	Const	LPM_API_VERSION_1	26809	26849	673	1	1013	generated	
+234	ItemType	LPM_HANDLE	26850	26895	674	1	1014	syntax	Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+235	Struct	LPM_INIT_INFO	26896	27220	675	1	1018	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+236	Const	LPM_OK	27221	27250	686	1	1032	generated	
+237	Const	LPM_PE_ALL_TYPES	27251	27290	687	1	1033	generated	
+238	Const	LPM_PE_APP_IDENTITY	27291	27333	688	1	1034	generated	
+239	Const	LPM_PE_USER_IDENTITY	27334	27377	689	1	1035	generated	
+240	Const	LPM_RESULT_DEFER	27378	27417	690	1	1036	generated	
+241	Const	LPM_RESULT_READY	27418	27457	691	1	1037	generated	
+242	Const	LPM_TIME_OUT	27458	27493	692	1	1038	generated	
+243	Const	LPV_DONT_CARE	27494	27534	693	1	1039	generated	
+244	Const	LPV_DROP_MSG	27535	27574	694	1	1040	generated	
+245	Const	LPV_MAX_PRIORITY	27575	27618	695	1	1041	generated	
+246	Const	LPV_MIN_PRIORITY	27619	27658	696	1	1042	generated	
+247	Const	LPV_REJECT	27659	27696	697	1	1043	generated	
+248	Const	LPV_RESERVED	27697	27732	698	1	1044	generated	
+249	Const	MAX_HSP_UPGRADE_FILENAME_LENGTH	27733	27788	699	1	1045	generated	
+250	Const	MAX_PHYSADDR_SIZE	27789	27829	700	1	1046	generated	
+251	Const	MAX_STRING_LENGTH	27830	27872	701	1	1047	generated	
+252	Const	MODERATELY_DELAY_SENSITIVE	27873	27931	702	1	1048	generated	
+253	Const	OSDEVICE_TYPE_BLOCKIO_CDROM	27932	27986	703	1	1049	generated	
+254	Const	OSDEVICE_TYPE_BLOCKIO_FILE	27987	28040	704	1	1050	generated	
+255	Const	OSDEVICE_TYPE_BLOCKIO_HARDDISK	28041	28098	705	1	1051	generated	
+256	Const	OSDEVICE_TYPE_BLOCKIO_PARTITION	28099	28157	706	1	1052	generated	
+257	Const	OSDEVICE_TYPE_BLOCKIO_RAMDISK	28158	28214	707	1	1053	generated	
+258	Const	OSDEVICE_TYPE_BLOCKIO_REMOVABLEDISK	28215	28277	708	1	1054	generated	
+259	Const	OSDEVICE_TYPE_BLOCKIO_VIRTUALHARDDISK	28278	28342	709	1	1055	generated	
+260	Const	OSDEVICE_TYPE_CIMFS	28343	28390	710	1	1056	generated	
+261	Const	OSDEVICE_TYPE_COMPOSITE	28391	28442	711	1	1057	generated	
+262	Const	OSDEVICE_TYPE_SERIAL	28443	28491	712	1	1058	generated	
+263	Const	OSDEVICE_TYPE_UDP	28492	28537	713	1	1059	generated	
+264	Const	OSDEVICE_TYPE_UNKNOWN	28538	28582	714	1	1060	generated	
+265	Const	OSDEVICE_TYPE_VMBUS	28583	28630	715	1	1061	generated	
+266	Const	Opt_Distinct	28631	28666	716	1	1062	generated	
+267	Const	Opt_Explicit	28667	28702	717	1	1063	generated	
+268	Const	Opt_Share_mask	28703	28741	718	1	1064	generated	
+269	Const	Opt_Shared	28742	28776	719	1	1065	generated	
+270	Const	Opt_SndSel_mask	28777	28815	720	1	1066	generated	
+271	Const	Opt_Wildcard	28816	28851	721	1	1067	generated	
+272	ItemType	PALLOCMEM	28852	28944	722	1	1068	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+273	Struct	PARAM_BUFFER	28945	29078	723	1	1073	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+274	Impl		29079	29184	730	1	1083	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+275	Const	PCM_VERSION_1	29185	29221	735	1	1090	generated	
+276	Const	PE_ATTRIB_TYPE_CREDENTIAL	29222	29270	736	1	1091	generated	
+277	Const	PE_ATTRIB_TYPE_POLICY_LOCATOR	29271	29323	737	1	1092	generated	
+278	Const	PE_TYPE_APPID	29324	29360	738	1	1093	generated	
+279	ItemType	PFREEMEM	29361	29443	739	1	1094	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+280	Struct	POLICY_DATA	29444	29597	740	1	1099	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+281	Struct	POLICY_DECISION	29598	29754	747	1	1109	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+282	Struct	POLICY_ELEMENT	29755	29893	754	1	1118	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 4 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+283	Impl		29894	30001	761	1	1128	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+284	Const	POLICY_ERRV_CRAZY_FLOWSPEC	30002	30052	766	1	1135	generated	
+285	Const	POLICY_ERRV_EXPIRED_CREDENTIALS	30053	30107	767	1	1136	generated	
+286	Const	POLICY_ERRV_EXPIRED_USER_TOKEN	30108	30162	768	1	1137	generated	
+287	Const	POLICY_ERRV_GLOBAL_DEF_FLOW_COUNT	30163	30219	769	1	1138	generated	
+288	Const	POLICY_ERRV_GLOBAL_DEF_FLOW_DURATION	30220	30279	770	1	1139	generated	
+289	Const	POLICY_ERRV_GLOBAL_DEF_FLOW_RATE	30280	30336	771	1	1140	generated	
+290	Const	POLICY_ERRV_GLOBAL_DEF_PEAK_RATE	30337	30393	772	1	1141	generated	
+291	Const	POLICY_ERRV_GLOBAL_DEF_SUM_FLOW_RATE	30394	30454	773	1	1142	generated	
+292	Const	POLICY_ERRV_GLOBAL_DEF_SUM_PEAK_RATE	30455	30515	774	1	1143	generated	
+293	Const	POLICY_ERRV_GLOBAL_GRP_FLOW_COUNT	30516	30572	775	1	1144	generated	
+294	Const	POLICY_ERRV_GLOBAL_GRP_FLOW_DURATION	30573	30633	776	1	1145	generated	
+295	Const	POLICY_ERRV_GLOBAL_GRP_FLOW_RATE	30634	30690	777	1	1146	generated	
+296	Const	POLICY_ERRV_GLOBAL_GRP_PEAK_RATE	30691	30747	778	1	1147	generated	
+297	Const	POLICY_ERRV_GLOBAL_GRP_SUM_FLOW_RATE	30748	30808	779	1	1148	generated	
+298	Const	POLICY_ERRV_GLOBAL_GRP_SUM_PEAK_RATE	30809	30869	780	1	1149	generated	
+299	Const	POLICY_ERRV_GLOBAL_UNAUTH_USER_FLOW_COUNT	30870	30934	781	1	1150	generated	
+300	Const	POLICY_ERRV_GLOBAL_UNAUTH_USER_FLOW_DURATION	30935	31003	782	1	1151	generated	
+301	Const	POLICY_ERRV_GLOBAL_UNAUTH_USER_FLOW_RATE	31004	31068	783	1	1152	generated	
+302	Const	POLICY_ERRV_GLOBAL_UNAUTH_USER_PEAK_RATE	31069	31133	784	1	1153	generated	
+303	Const	POLICY_ERRV_GLOBAL_UNAUTH_USER_SUM_FLOW_RATE	31134	31202	785	1	1154	generated	
+304	Const	POLICY_ERRV_GLOBAL_UNAUTH_USER_SUM_PEAK_RATE	31203	31271	786	1	1155	generated	
+305	Const	POLICY_ERRV_GLOBAL_USER_FLOW_COUNT	31272	31329	787	1	1156	generated	
+306	Const	POLICY_ERRV_GLOBAL_USER_FLOW_DURATION	31330	31391	788	1	1157	generated	
+307	Const	POLICY_ERRV_GLOBAL_USER_FLOW_RATE	31392	31449	789	1	1158	generated	
+308	Const	POLICY_ERRV_GLOBAL_USER_PEAK_RATE	31450	31507	790	1	1159	generated	
+309	Const	POLICY_ERRV_GLOBAL_USER_SUM_FLOW_RATE	31508	31569	791	1	1160	generated	
+310	Const	POLICY_ERRV_GLOBAL_USER_SUM_PEAK_RATE	31570	31631	792	1	1161	generated	
+311	Const	POLICY_ERRV_IDENTITY_CHANGED	31632	31683	793	1	1162	generated	
+312	Const	POLICY_ERRV_INSUFFICIENT_PRIVILEGES	31684	31742	794	1	1163	generated	
+313	Const	POLICY_ERRV_NO_ACCEPTS	31743	31789	795	1	1164	generated	
+314	Const	POLICY_ERRV_NO_MEMORY	31790	31835	796	1	1165	generated	
+315	Const	POLICY_ERRV_NO_MORE_INFO	31836	31883	797	1	1166	generated	
+316	Const	POLICY_ERRV_NO_PRIVILEGES	31884	31933	798	1	1167	generated	
+317	Const	POLICY_ERRV_NO_RESOURCES	31934	31982	799	1	1168	generated	
+318	Const	POLICY_ERRV_PRE_EMPTED	31983	32029	800	1	1169	generated	
+319	Const	POLICY_ERRV_SUBNET_DEF_FLOW_COUNT	32030	32086	801	1	1170	generated	
+320	Const	POLICY_ERRV_SUBNET_DEF_FLOW_DURATION	32087	32147	802	1	1171	generated	
+321	Const	POLICY_ERRV_SUBNET_DEF_FLOW_RATE	32148	32204	803	1	1172	generated	
+322	Const	POLICY_ERRV_SUBNET_DEF_PEAK_RATE	32205	32261	804	1	1173	generated	
+323	Const	POLICY_ERRV_SUBNET_DEF_SUM_FLOW_RATE	32262	32322	805	1	1174	generated	
+324	Const	POLICY_ERRV_SUBNET_DEF_SUM_PEAK_RATE	32323	32383	806	1	1175	generated	
+325	Const	POLICY_ERRV_SUBNET_GRP_FLOW_COUNT	32384	32440	807	1	1176	generated	
+326	Const	POLICY_ERRV_SUBNET_GRP_FLOW_DURATION	32441	32501	808	1	1177	generated	
+327	Const	POLICY_ERRV_SUBNET_GRP_FLOW_RATE	32502	32558	809	1	1178	generated	
+328	Const	POLICY_ERRV_SUBNET_GRP_PEAK_RATE	32559	32615	810	1	1179	generated	
+329	Const	POLICY_ERRV_SUBNET_GRP_SUM_FLOW_RATE	32616	32676	811	1	1180	generated	
+330	Const	POLICY_ERRV_SUBNET_GRP_SUM_PEAK_RATE	32677	32737	812	1	1181	generated	
+331	Const	POLICY_ERRV_SUBNET_UNAUTH_USER_FLOW_COUNT	32738	32802	813	1	1182	generated	
+332	Const	POLICY_ERRV_SUBNET_UNAUTH_USER_FLOW_DURATION	32803	32871	814	1	1183	generated	
+333	Const	POLICY_ERRV_SUBNET_UNAUTH_USER_FLOW_RATE	32872	32936	815	1	1184	generated	
+334	Const	POLICY_ERRV_SUBNET_UNAUTH_USER_PEAK_RATE	32937	33001	816	1	1185	generated	
+335	Const	POLICY_ERRV_SUBNET_UNAUTH_USER_SUM_FLOW_RATE	33002	33070	817	1	1186	generated	
+336	Const	POLICY_ERRV_SUBNET_UNAUTH_USER_SUM_PEAK_RATE	33071	33139	818	1	1187	generated	
+337	Const	POLICY_ERRV_SUBNET_USER_FLOW_COUNT	33140	33197	819	1	1188	generated	
+338	Const	POLICY_ERRV_SUBNET_USER_FLOW_DURATION	33198	33259	820	1	1189	generated	
+339	Const	POLICY_ERRV_SUBNET_USER_FLOW_RATE	33260	33317	821	1	1190	generated	
+340	Const	POLICY_ERRV_SUBNET_USER_PEAK_RATE	33318	33375	822	1	1191	generated	
+341	Const	POLICY_ERRV_SUBNET_USER_SUM_FLOW_RATE	33376	33437	823	1	1192	generated	
+342	Const	POLICY_ERRV_SUBNET_USER_SUM_PEAK_RATE	33438	33499	824	1	1193	generated	
+343	Const	POLICY_ERRV_UNKNOWN	33500	33542	825	1	1194	generated	
+344	Const	POLICY_ERRV_UNKNOWN_USER	33543	33591	826	1	1195	generated	
+345	Const	POLICY_ERRV_UNSUPPORTED_CREDENTIAL_TYPE	33592	33654	827	1	1196	generated	
+346	Const	POLICY_ERRV_USER_CHANGED	33655	33703	828	1	1197	generated	
+347	Const	POLICY_LOCATOR_SUB_TYPE_ASCII_DN	33704	33759	829	1	1198	generated	
+348	Const	POLICY_LOCATOR_SUB_TYPE_ASCII_DN_ENC	33760	33819	830	1	1199	generated	
+349	Const	POLICY_LOCATOR_SUB_TYPE_UNICODE_DN	33820	33877	831	1	1200	generated	
+350	Const	POLICY_LOCATOR_SUB_TYPE_UNICODE_DN_ENC	33878	33939	832	1	1201	generated	
+351	Const	POSITIVE_INFINITY_RATE	33940	33994	833	1	1202	generated	
+352	Const	PREDICTIVE_SERV	33995	34033	834	1	1203	generated	
+353	Const	QOSFlowRateCongestion	34034	34094	835	1	1204	generated	
+354	Const	QOSFlowRateContentChange	34095	34158	836	1	1205	generated	
+355	Const	QOSFlowRateHigherContentEncoding	34159	34230	837	1	1206	generated	
+356	Const	QOSFlowRateNotApplicable	34231	34294	838	1	1207	generated	
+357	Const	QOSFlowRateUserCaused	34295	34355	839	1	1208	generated	
+358	Const	QOSNotifyAvailable	34356	34409	840	1	1209	generated	
+359	Const	QOSNotifyCongested	34410	34463	841	1	1210	generated	
+360	Const	QOSNotifyUncongested	34464	34519	842	1	1211	generated	
+361	Const	QOSQueryFlowFundamentals	34520	34578	843	1	1212	generated	
+362	Const	QOSQueryOutgoingRate	34579	34633	844	1	1213	generated	
+363	Const	QOSQueryPacketPriority	34634	34690	845	1	1214	generated	
+364	Const	QOSSPBASE	34691	34727	846	1	1215	generated	
+365	Const	QOSSP_ERR_BASE	34728	34769	847	1	1216	generated	
+366	Const	QOSSetOutgoingDSCPValue	34770	34825	848	1	1217	generated	
+367	Const	QOSSetOutgoingRate	34826	34876	849	1	1218	generated	
+368	Const	QOSSetTrafficType	34877	34926	850	1	1219	generated	
+369	Const	QOSShapeAndMark	34927	34973	851	1	1220	generated	
+370	Const	QOSShapeOnly	34974	35017	852	1	1221	generated	
+371	Const	QOSTrafficTypeAudioVideo	35018	35078	853	1	1222	generated	
+372	Const	QOSTrafficTypeBackground	35079	35139	854	1	1223	generated	
+373	Const	QOSTrafficTypeBestEffort	35140	35200	855	1	1224	generated	
+374	Const	QOSTrafficTypeControl	35201	35258	856	1	1225	generated	
+375	Const	QOSTrafficTypeExcellentEffort	35259	35324	857	1	1226	generated	
+376	Const	QOSTrafficTypeVoice	35325	35380	858	1	1227	generated	
+377	Const	QOSUseNonConformantMarkings	35381	35439	859	1	1228	generated	
+378	Struct	QOS_DESTADDR	35440	35690	860	1	1229	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+379	Impl		35691	35841	868	1	1241	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+380	Struct	QOS_DIFFSERV	35842	35996	874	1	1249	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+381	Impl		35997	36102	881	1	1260	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+382	Struct	QOS_DIFFSERV_RULE	36103	36362	886	1	1267	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+383	Struct	QOS_DS_CLASS	36363	36490	895	1	1278	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+384	Struct	QOS_FLOWRATE_OUTGOING	36491	36669	901	1	1287	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+385	ItemType	QOS_FLOWRATE_REASON	36670	36705	908	1	1297	generated	
+386	Struct	QOS_FLOW_FUNDAMENTALS	36706	37024	909	1	1298	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+387	Struct	QOS_FRIENDLY_NAME	37025	37160	919	1	1311	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Rust fixed array length 256 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+388	Impl		37161	37271	925	1	1321	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+389	Const	QOS_GENERAL_ID_BASE	37272	37317	930	1	1328	generated	
+390	Const	QOS_MAX_OBJECT_STRING_LENGTH	37318	37371	931	1	1329	generated	
+391	Const	QOS_NON_ADAPTIVE_FLOW	37372	37416	932	1	1330	generated	
+392	ItemType	QOS_NOTIFY_FLOW	37417	37448	933	1	1331	generated	
+393	Const	QOS_NOT_SPECIFIED	37449	37498	934	1	1332	generated	
+394	Struct	QOS_OBJECT_HDR	37499	37623	935	1	1333	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+395	Const	QOS_OUTGOING_DEFAULT_MINIMUM_BANDWIDTH	37624	37694	941	1	1341	generated	
+396	Struct	QOS_PACKET_PRIORITY	37695	37910	942	1	1342	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+397	Const	QOS_QUERYFLOW_FRESH	37911	37953	950	1	1352	generated	
+398	ItemType	QOS_QUERY_FLOW	37954	37984	951	1	1353	generated	
+399	Struct	QOS_SD_MODE	37985	38120	952	1	1354	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+400	ItemType	QOS_SET_FLOW	38121	38149	958	1	1363	generated	
+401	ItemType	QOS_SHAPING	38150	38177	959	1	1364	generated	
+402	Struct	QOS_SHAPING_RATE	38178	38313	960	1	1365	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+403	Struct	QOS_TCP_TRAFFIC	38314	38422	966	1	1374	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+404	Struct	QOS_TRAFFIC_CLASS	38423	38560	971	1	1382	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+405	Const	QOS_TRAFFIC_GENERAL_ID_BASE	38561	38614	977	1	1391	generated	
+406	ItemType	QOS_TRAFFIC_TYPE	38615	38647	978	1	1392	generated	
+407	Struct	QOS_VERSION	38648	38771	979	1	1393	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+408	Const	QUALITATIVE_SERV	38772	38811	985	1	1401	generated	
+409	Struct	QualAppFlowSpec	38812	39008	986	1	1402	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+410	Struct	QualTspec	39009	39211	993	1	1412	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+411	Struct	QualTspecParms	39212	39309	1000	1	1422	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+412	Const	RCVD_PATH_TEAR	39310	39347	1005	1	1429	generated	
+413	Const	RCVD_RESV_TEAR	39348	39385	1006	1	1430	generated	
+414	Const	RESOURCES_ALLOCATED	39386	39428	1007	1	1431	generated	
+415	Const	RESOURCES_MODIFIED	39429	39470	1008	1	1432	generated	
+416	Struct	RESV_STYLE	39471	39598	1009	1	1433	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+417	ItemType	RHANDLE	39599	39641	1015	1	1442	syntax	Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+418	Struct	RSVP_ADSPEC	39642	39850	1016	1	1446	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+419	Impl		39851	39955	1024	1	1458	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+420	Const	RSVP_DEFAULT_STYLE	39956	39997	1029	1	1465	generated	
+421	Const	RSVP_Err_ADMISSION	39998	40039	1030	1	1466	generated	
+422	Const	RSVP_Err_AMBIG_FILTER	40040	40084	1031	1	1467	generated	
+423	Const	RSVP_Err_API_ERROR	40085	40127	1032	1	1468	generated	
+424	Const	RSVP_Err_BAD_DSTPORT	40128	40171	1033	1	1469	generated	
+425	Const	RSVP_Err_BAD_SNDPORT	40172	40215	1034	1	1470	generated	
+426	Const	RSVP_Err_BAD_STYLE	40216	40257	1035	1	1471	generated	
+427	Const	RSVP_Err_NONE	40258	40294	1036	1	1472	generated	
+428	Const	RSVP_Err_NO_PATH	40295	40334	1037	1	1473	generated	
+429	Const	RSVP_Err_NO_SENDER	40335	40376	1038	1	1474	generated	
+430	Const	RSVP_Err_POLICY	40377	40415	1039	1	1475	generated	
+431	Const	RSVP_Err_PREEMPTED	40416	40458	1040	1	1476	generated	
+432	Const	RSVP_Err_RSVP_SYS_ERROR	40459	40506	1041	1	1477	generated	
+433	Const	RSVP_Err_TC_ERROR	40507	40548	1042	1	1478	generated	
+434	Const	RSVP_Err_TC_SYS_ERROR	40549	40594	1043	1	1479	generated	
+435	Const	RSVP_Err_UNKNOWN_CTYPE	40595	40641	1044	1	1480	generated	
+436	Const	RSVP_Err_UNKNOWN_STYLE	40642	40687	1045	1	1481	generated	
+437	Const	RSVP_Err_UNKN_OBJ_CLASS	40688	40735	1046	1	1482	generated	
+438	Const	RSVP_Erv_API	40736	40771	1047	1	1483	generated	
+439	Const	RSVP_Erv_Bandwidth	40772	40813	1048	1	1484	generated	
+440	Const	RSVP_Erv_Bucket_szie	40814	40861	1049	1	1485	generated	
+441	Const	RSVP_Erv_Conflict_Serv	40862	40907	1050	1	1486	generated	
+442	Const	RSVP_Erv_Crazy_Flowspec	40908	40954	1051	1	1487	generated	
+443	Const	RSVP_Erv_Crazy_Tspec	40955	40998	1052	1	1488	generated	
+444	Const	RSVP_Erv_DelayBnd	40999	41039	1053	1	1489	generated	
+445	Const	RSVP_Erv_Flow_Rate	41040	41085	1054	1	1490	generated	
+446	Const	RSVP_Erv_MEMORY	41086	41124	1055	1	1491	generated	
+447	Const	RSVP_Erv_MTU	41125	41160	1056	1	1492	generated	
+448	Const	RSVP_Erv_Min_Policied_size	41161	41214	1057	1	1493	generated	
+449	Const	RSVP_Erv_No_Serv	41215	41254	1058	1	1494	generated	
+450	Const	RSVP_Erv_Nonev	41255	41292	1059	1	1495	generated	
+451	Const	RSVP_Erv_Other	41293	41330	1060	1	1496	generated	
+452	Const	RSVP_Erv_Peak_Rate	41331	41376	1061	1	1497	generated	
+453	Struct	RSVP_FILTERSPEC	41377	41505	1062	1	1498	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+454	Impl		41506	41614	1068	1	1507	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+455	Union		41615	41913	1073	1	1514	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+456	Impl		41914	42024	1082	1	1525	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+457	Struct	RSVP_FILTERSPEC_V4	42025	42163	1087	1	1532	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+458	Impl		42164	42275	1094	1	1542	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+459	Struct	RSVP_FILTERSPEC_V4_GPI	42276	42406	1099	1	1549	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+460	Impl		42407	42522	1105	1	1558	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+461	Struct	RSVP_FILTERSPEC_V6	42523	42670	1110	1	1565	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+462	Struct	RSVP_FILTERSPEC_V6_FLOW	42671	42822	1117	1	1575	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Rust fixed array length 3 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+463	Impl		42823	42939	1124	1	1586	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+464	Struct	RSVP_FILTERSPEC_V6_GPI	42940	43079	1129	1	1593	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+465	Const	RSVP_FIXED_FILTER_STYLE	43080	43126	1135	1	1602	generated	
+466	Struct	RSVP_HOP	43127	43288	1136	1	1603	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+467	Impl		43289	43435	1143	1	1613	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+468	Union		43436	43572	1149	1	1621	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+469	Impl		43573	43721	1155	1	1629	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+470	Struct	RSVP_MSG_OBJS	43722	44245	1161	1	1637	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+471	Impl		44246	44397	1178	1	1658	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+472	Const	RSVP_OBJECT_ID_BASE	44398	44443	1184	1	1666	generated	
+473	Const	RSVP_PATH	44444	44476	1185	1	1667	generated	
+474	Const	RSVP_PATH_ERR	44477	44513	1186	1	1668	generated	
+475	Const	RSVP_PATH_TEAR	44514	44551	1187	1	1669	generated	
+476	Struct	RSVP_POLICY	44552	44672	1188	1	1670	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 4 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+477	Impl		44673	44777	1195	1	1680	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+478	Struct	RSVP_POLICY_INFO	44778	44950	1200	1	1687	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+479	Impl		44951	45060	1207	1	1698	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+480	Struct	RSVP_RESERVE_INFO	45061	45375	1212	1	1705	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+481	Impl		45376	45531	1223	1	1720	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+482	Const	RSVP_RESV	45532	45564	1229	1	1728	generated	
+483	Const	RSVP_RESV_ERR	45565	45601	1230	1	1729	generated	
+484	Const	RSVP_RESV_TEAR	45602	45639	1231	1	1730	generated	
+485	Struct	RSVP_SCOPE	45640	45809	1232	1	1731	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+486	Impl		45810	45958	1239	1	1741	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+487	Union		45959	46101	1245	1	1749	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+488	Impl		46102	46252	1251	1	1757	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+489	Struct	RSVP_SESSION	46253	46424	1257	1	1765	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+490	Impl		46425	46575	1264	1	1775	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+491	Union		46576	46716	1270	1	1783	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+492	Impl		46717	46869	1276	1	1791	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+493	Const	RSVP_SHARED_EXPLICIT_STYLE	46870	46919	1282	1	1799	generated	
+494	Struct	RSVP_STATUS_INFO	46920	47114	1283	1	1800	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+495	Const	RSVP_WILDCARD_STYLE	47115	47157	1291	1	1811	generated	
+496	Struct	RsvpObjHdr	47158	47297	1292	1	1812	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+497	Struct	Rsvp_Hop_IPv4	47298	47491	1299	1	1821	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+498	Impl		47492	47643	1306	1	1831	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+499	Struct	SENDER_TSPEC	47644	47779	1312	1	1839	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+500	Impl		47780	47885	1318	1	1848	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+501	Const	SERVICETYPE_BESTEFFORT	47886	47931	1323	1	1855	generated	
+502	Const	SERVICETYPE_CONTROLLEDLOAD	47932	47981	1324	1	1856	generated	
+503	Const	SERVICETYPE_GENERAL_INFORMATION	47982	48036	1325	1	1857	generated	
+504	Const	SERVICETYPE_GUARANTEED	48037	48082	1326	1	1858	generated	
+505	Const	SERVICETYPE_NETWORK_CONTROL	48083	48134	1327	1	1859	generated	
+506	Const	SERVICETYPE_NETWORK_UNAVAILABLE	48135	48189	1328	1	1860	generated	
+507	Const	SERVICETYPE_NOCHANGE	48190	48233	1329	1	1861	generated	
+508	Const	SERVICETYPE_NONCONFORMING	48234	48282	1330	1	1862	generated	
+509	Const	SERVICETYPE_NOTRAFFIC	48283	48327	1331	1	1863	generated	
+510	Const	SERVICETYPE_QUALITATIVE	48328	48375	1332	1	1864	generated	
+511	Const	SERVICE_BESTEFFORT	48376	48426	1333	1	1865	generated	
+512	Const	SERVICE_CONTROLLEDLOAD	48427	48481	1334	1	1866	generated	
+513	Const	SERVICE_GUARANTEED	48482	48532	1335	1	1867	generated	
+514	Const	SERVICE_NO_QOS_SIGNALING	48533	48589	1336	1	1868	generated	
+515	Const	SERVICE_NO_TRAFFIC_CONTROL	48590	48648	1337	1	1869	generated	
+516	Const	SERVICE_QUALITATIVE	48649	48700	1338	1	1870	generated	
+517	Const	SESSFLG_E_Police	48701	48740	1339	1	1871	generated	
+518	Const	SIPAERROR_FIRMWAREFAILURE	48741	48794	1340	1	1872	generated	
+519	Const	SIPAERROR_INTERNALFAILURE	48795	48848	1341	1	1873	generated	
+520	Const	SIPAEVENTTYPE_AGGREGATION	48849	48906	1342	1	1874	generated	
+521	Const	SIPAEVENTTYPE_AUTHORITY	48907	48958	1343	1	1875	generated	
+522	Const	SIPAEVENTTYPE_CONTAINER	48959	49009	1344	1	1876	generated	
+523	Const	SIPAEVENTTYPE_DRTM	49010	49056	1345	1	1877	generated	
+524	Const	SIPAEVENTTYPE_ELAM	49057	49103	1346	1	1878	generated	
+525	Const	SIPAEVENTTYPE_ERROR	49104	49151	1347	1	1879	generated	
+526	Const	SIPAEVENTTYPE_INFORMATION	49152	49205	1348	1	1880	generated	
+527	Const	SIPAEVENTTYPE_KSR	49206	49251	1349	1	1881	generated	
+528	Const	SIPAEVENTTYPE_LOADEDMODULE	49252	49306	1350	1	1882	generated	
+529	Const	SIPAEVENTTYPE_NONMEASURED	49307	49364	1351	1	1883	generated	
+530	Const	SIPAEVENTTYPE_OSPARAMETER	49365	49418	1352	1	1884	generated	
+531	Const	SIPAEVENTTYPE_PREOSPARAMETER	49419	49475	1353	1	1885	generated	
+532	Const	SIPAEVENTTYPE_TRUSTPOINT	49476	49528	1354	1	1886	generated	
+533	Const	SIPAEVENTTYPE_VBS	49529	49574	1355	1	1887	generated	
+534	Const	SIPAEVENT_APPLICATION_RETURN	49575	49631	1356	1	1888	generated	
+535	Const	SIPAEVENT_APPLICATION_SVN	49632	49685	1357	1	1889	generated	
+536	Const	SIPAEVENT_AUTHENTICODEHASH	49686	49740	1358	1	1890	generated	
+537	Const	SIPAEVENT_AUTHORITYISSUER	49741	49794	1359	1	1891	generated	
+538	Const	SIPAEVENT_AUTHORITYPUBKEY	49795	49848	1360	1	1892	generated	
+539	Const	SIPAEVENT_AUTHORITYPUBLISHER	49849	49905	1361	1	1893	generated	
+540	Const	SIPAEVENT_AUTHORITYSERIAL	49906	49959	1362	1	1894	generated	
+541	Const	SIPAEVENT_AUTHORITYSHA1THUMBPRINT	49960	50021	1363	1	1895	generated	
+542	Const	SIPAEVENT_BITLOCKER_UNLOCK	50022	50076	1364	1	1896	generated	
+543	Const	SIPAEVENT_BOOTCOUNTER	50077	50126	1365	1	1897	generated	
+544	Const	SIPAEVENT_BOOTDEBUGGING	50127	50178	1366	1	1898	generated	
+545	Const	SIPAEVENT_BOOT_REVOCATION_LIST	50179	50237	1367	1	1899	generated	
+546	Const	SIPAEVENT_CODEINTEGRITY	50238	50289	1368	1	1900	generated	
+547	Const	SIPAEVENT_COUNTERID	50290	50337	1369	1	1901	generated	
+548	Const	SIPAEVENT_DATAEXECUTIONPREVENTION	50338	50399	1370	1	1902	generated	
+549	Const	SIPAEVENT_DRIVER_LOAD_POLICY	50400	50456	1371	1	1903	generated	
+550	Const	SIPAEVENT_DRTM_AMD_SMM_HASH	50457	50512	1372	1	1904	generated	
+551	Const	SIPAEVENT_DRTM_AMD_SMM_SIGNER_KEY	50513	50574	1373	1	1905	generated	
+552	Const	SIPAEVENT_DRTM_SMM_LEVEL	50575	50627	1374	1	1906	generated	
+553	Const	SIPAEVENT_DRTM_STATE_AUTH	50628	50681	1375	1	1907	generated	
+554	Const	SIPAEVENT_DUMPS_DISABLED	50682	50734	1376	1	1908	generated	
+555	Const	SIPAEVENT_DUMP_ENCRYPTION_ENABLED	50735	50796	1377	1	1909	generated	
+556	Const	SIPAEVENT_DUMP_ENCRYPTION_KEY_DIGEST	50797	50861	1378	1	1910	generated	
+557	Const	SIPAEVENT_ELAM_CONFIGURATION	50862	50918	1379	1	1911	generated	
+558	Const	SIPAEVENT_ELAM_KEYNAME	50919	50969	1380	1	1912	generated	
+559	Const	SIPAEVENT_ELAM_MEASURED	50970	51021	1381	1	1913	generated	
+560	Const	SIPAEVENT_ELAM_POLICY	51022	51071	1382	1	1914	generated	
+561	Const	SIPAEVENT_EVENTCOUNTER	51072	51122	1383	1	1915	generated	
+562	Const	SIPAEVENT_FILEPATH	51123	51169	1384	1	1916	generated	
+563	Const	SIPAEVENT_FLIGHTSIGNING	51170	51221	1385	1	1917	generated	
+564	Const	SIPAEVENT_HASHALGORITHMID	51222	51275	1386	1	1918	generated	
+565	Const	SIPAEVENT_HIBERNATION_DISABLED	51276	51334	1387	1	1919	generated	
+566	Const	SIPAEVENT_HYPERVISOR_BOOT_DMA_PROTECTION	51335	51403	1388	1	1920	generated	
+567	Const	SIPAEVENT_HYPERVISOR_DEBUG	51404	51458	1389	1	1921	generated	
+568	Const	SIPAEVENT_HYPERVISOR_IOMMU_POLICY	51459	51520	1390	1	1922	generated	
+569	Const	SIPAEVENT_HYPERVISOR_LAUNCH_TYPE	51521	51581	1391	1	1923	generated	
+570	Const	SIPAEVENT_HYPERVISOR_MMIO_NX_POLICY	51582	51645	1392	1	1924	generated	
+571	Const	SIPAEVENT_HYPERVISOR_MSR_FILTER_POLICY	51646	51712	1393	1	1925	generated	
+572	Const	SIPAEVENT_HYPERVISOR_PATH	51713	51766	1394	1	1926	generated	
+573	Const	SIPAEVENT_IMAGEBASE	51767	51814	1395	1	1927	generated	
+574	Const	SIPAEVENT_IMAGESIZE	51815	51862	1396	1	1928	generated	
+575	Const	SIPAEVENT_IMAGEVALIDATED	51863	51915	1397	1	1929	generated	
+576	Const	SIPAEVENT_INFORMATION	51916	51965	1398	1	1930	generated	
+577	Const	SIPAEVENT_KSR_SIGNATURE	51966	52017	1399	1	1931	generated	
+578	Struct	SIPAEVENT_KSR_SIGNATURE_PAYLOAD	52018	52191	1400	1	1932	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+579	Impl		52192	52316	1407	1	1942	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+580	Const	SIPAEVENT_LSAISO_CONFIG	52317	52368	1412	1	1949	generated	
+581	Const	SIPAEVENT_MODULE_HSP	52369	52417	1413	1	1950	generated	
+582	Const	SIPAEVENT_MODULE_SVN	52418	52466	1414	1	1951	generated	
+583	Const	SIPAEVENT_MORBIT_API_STATUS	52467	52522	1415	1	1952	generated	
+584	Const	SIPAEVENT_MORBIT_NOT_CANCELABLE	52523	52582	1416	1	1953	generated	
+585	Const	SIPAEVENT_NOAUTHORITY	52583	52632	1417	1	1954	generated	
+586	Const	SIPAEVENT_OSDEVICE	52633	52679	1418	1	1955	generated	
+587	Const	SIPAEVENT_OSKERNELDEBUG	52680	52731	1419	1	1956	generated	
+588	Const	SIPAEVENT_OS_REVOCATION_LIST	52732	52788	1420	1	1957	generated	
+589	Const	SIPAEVENT_PAGEFILE_ENCRYPTION_ENABLED	52789	52854	1421	1	1958	generated	
+590	Const	SIPAEVENT_PHYSICALADDRESSEXTENSION	52855	52917	1422	1	1959	generated	
+591	Struct	SIPAEVENT_REVOCATION_LIST_PAYLOAD	52918	53114	1423	1	1960	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+592	Impl		53115	53241	1431	1	1971	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+593	Const	SIPAEVENT_SAFEMODE	53242	53288	1436	1	1978	generated	
+594	Const	SIPAEVENT_SBCP_INFO	53289	53336	1437	1	1979	generated	
+595	Struct	SIPAEVENT_SBCP_INFO_PAYLOAD_V1	53337	53610	1438	1	1980	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+596	Impl		53611	53734	1449	1	1994	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+597	Const	SIPAEVENT_SI_POLICY	53735	53782	1454	1	2001	generated	
+598	Struct	SIPAEVENT_SI_POLICY_PAYLOAD	53783	54012	1455	1	2002	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+599	Impl		54013	54133	1464	1	2014	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+600	Const	SIPAEVENT_SMT_STATUS	54134	54182	1469	1	2021	generated	
+601	Const	SIPAEVENT_SVN_CHAIN_STATUS	54183	54237	1470	1	2022	generated	
+602	Const	SIPAEVENT_SYSTEMROOT	54238	54286	1471	1	2023	generated	
+603	Const	SIPAEVENT_TESTSIGNING	54287	54336	1472	1	2024	generated	
+604	Const	SIPAEVENT_TRANSFER_CONTROL	54337	54391	1473	1	2025	generated	
+605	Const	SIPAEVENT_VBS_DUMP_USES_AMEROOT	54392	54451	1474	1	2026	generated	
+606	Const	SIPAEVENT_VBS_HVCI_POLICY	54452	54505	1475	1	2027	generated	
+607	Const	SIPAEVENT_VBS_IOMMU_REQUIRED	54506	54562	1476	1	2028	generated	
+608	Const	SIPAEVENT_VBS_MANDATORY_ENFORCEMENT	54563	54626	1477	1	2029	generated	
+609	Const	SIPAEVENT_VBS_MICROSOFT_BOOT_CHAIN_REQUIRED	54627	54698	1478	1	2030	generated	
+610	Const	SIPAEVENT_VBS_MMIO_NX_REQUIRED	54699	54757	1479	1	2031	generated	
+611	Const	SIPAEVENT_VBS_MSR_FILTERING_REQUIRED	54758	54822	1480	1	2032	generated	
+612	Const	SIPAEVENT_VBS_SECUREBOOT_REQUIRED	54823	54884	1481	1	2033	generated	
+613	Const	SIPAEVENT_VBS_VSM_NOSECRETS_ENFORCED	54885	54949	1482	1	2034	generated	
+614	Const	SIPAEVENT_VBS_VSM_REQUIRED	54950	55004	1483	1	2035	generated	
+615	Const	SIPAEVENT_VSM_IDKS_INFO	55005	55056	1484	1	2036	generated	
+616	Const	SIPAEVENT_VSM_IDK_INFO	55057	55107	1485	1	2037	generated	
+617	Struct	SIPAEVENT_VSM_IDK_INFO_PAYLOAD	55108	55274	1486	1	2038	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+618	Impl		55275	55398	1492	1	2047	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+619	Union		55399	55527	1497	1	2054	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+620	Impl		55528	55653	1502	1	2061	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+621	Struct	SIPAEVENT_VSM_IDK_RSA_INFO	55654	55865	1507	1	2068	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+622	Impl		55866	55985	1515	1	2079	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+623	Const	SIPAEVENT_VSM_LAUNCH_TYPE	55986	56039	1520	1	2086	generated	
+624	Const	SIPAEVENT_WINPE	56040	56083	1521	1	2087	generated	
+625	Const	SIPAEV_ACTION	56084	56120	1522	1	2088	generated	
+626	Const	SIPAEV_AMD_SL_EVENT_BASE	56121	56172	1523	1	2089	generated	
+627	Const	SIPAEV_AMD_SL_LOAD	56173	56218	1524	1	2090	generated	
+628	Const	SIPAEV_AMD_SL_LOAD_1	56219	56266	1525	1	2091	generated	
+629	Const	SIPAEV_AMD_SL_PSP_FW_SPLT	56267	56319	1526	1	2092	generated	
+630	Const	SIPAEV_AMD_SL_PUB_KEY	56320	56368	1527	1	2093	generated	
+631	Const	SIPAEV_AMD_SL_SEPARATOR	56369	56419	1528	1	2094	generated	
+632	Const	SIPAEV_AMD_SL_SVN	56420	56464	1529	1	2095	generated	
+633	Const	SIPAEV_AMD_SL_TSME_RB_FUSE	56465	56518	1530	1	2096	generated	
+634	Const	SIPAEV_COMPACT_HASH	56519	56562	1531	1	2097	generated	
+635	Const	SIPAEV_CPU_MICROCODE	56563	56606	1532	1	2098	generated	
+636	Const	SIPAEV_EFI_ACTION	56607	56656	1533	1	2099	generated	
+637	Const	SIPAEV_EFI_BOOT_SERVICES_APPLICATION	56657	56725	1534	1	2100	generated	
+638	Const	SIPAEV_EFI_BOOT_SERVICES_DRIVER	56726	56789	1535	1	2101	generated	
+639	Const	SIPAEV_EFI_EVENT_BASE	56790	56843	1536	1	2102	generated	
+640	Const	SIPAEV_EFI_GPT_EVENT	56844	56896	1537	1	2103	generated	
+641	Const	SIPAEV_EFI_HANDOFF_TABLES	56897	56954	1538	1	2104	generated	
+642	Const	SIPAEV_EFI_HANDOFF_TABLES2	56955	57013	1539	1	2105	generated	
+643	Const	SIPAEV_EFI_HCRTM_EVENT	57014	57068	1540	1	2106	generated	
+644	Const	SIPAEV_EFI_PLATFORM_FIRMWARE_BLOB	57069	57134	1541	1	2107	generated	
+645	Const	SIPAEV_EFI_PLATFORM_FIRMWARE_BLOB2	57135	57201	1542	1	2108	generated	
+646	Const	SIPAEV_EFI_RUNTIME_SERVICES_DRIVER	57202	57268	1543	1	2109	generated	
+647	Const	SIPAEV_EFI_SPDM_FIRMWARE_BLOB	57269	57330	1544	1	2110	generated	
+648	Const	SIPAEV_EFI_SPDM_FIRMWARE_CONFIG	57331	57394	1545	1	2111	generated	
+649	Const	SIPAEV_EFI_VARIABLE_AUTHORITY	57395	57456	1546	1	2112	generated	
+650	Const	SIPAEV_EFI_VARIABLE_BOOT	57457	57513	1547	1	2113	generated	
+651	Const	SIPAEV_EFI_VARIABLE_BOOT2	57514	57571	1548	1	2114	generated	
+652	Const	SIPAEV_EFI_VARIABLE_DRIVER_CONFIG	57572	57637	1549	1	2115	generated	
+653	Const	SIPAEV_EVENT_TAG	57638	57677	1550	1	2116	generated	
+654	Const	SIPAEV_IPL	57678	57712	1551	1	2117	generated	
+655	Const	SIPAEV_IPL_PARTITION_DATA	57713	57762	1552	1	2118	generated	
+656	Const	SIPAEV_NONHOST_CODE	57763	57806	1553	1	2119	generated	
+657	Const	SIPAEV_NONHOST_CONFIG	57807	57852	1554	1	2120	generated	
+658	Const	SIPAEV_NONHOST_INFO	57853	57896	1555	1	2121	generated	
+659	Const	SIPAEV_NO_ACTION	57897	57936	1556	1	2122	generated	
+660	Const	SIPAEV_OMIT_BOOT_DEVICE_EVENTS	57937	57991	1557	1	2123	generated	
+661	Const	SIPAEV_PLATFORM_CONFIG_FLAGS	57992	58044	1558	1	2124	generated	
+662	Const	SIPAEV_POST_CODE	58045	58084	1559	1	2125	generated	
+663	Const	SIPAEV_PREBOOT_CERT	58085	58127	1560	1	2126	generated	
+664	Const	SIPAEV_SEPARATOR	58128	58167	1561	1	2127	generated	
+665	Const	SIPAEV_S_CRTM_CONTENTS	58168	58213	1562	1	2128	generated	
+666	Const	SIPAEV_S_CRTM_VERSION	58214	58258	1563	1	2129	generated	
+667	Const	SIPAEV_TABLE_OF_DEVICES	58259	58306	1564	1	2130	generated	
+668	Const	SIPAEV_TXT_BIOSAC_REG_DATA	58307	58359	1565	1	2131	generated	
+669	Const	SIPAEV_TXT_BOOT_POL_HASH	58360	58410	1566	1	2132	generated	
+670	Const	SIPAEV_TXT_BPM_HASH	58411	58456	1567	1	2133	generated	
+671	Const	SIPAEV_TXT_BPM_INFO_HASH	58457	58507	1568	1	2134	generated	
+672	Const	SIPAEV_TXT_CAP_VALUE	58508	58554	1569	1	2135	generated	
+673	Const	SIPAEV_TXT_COLD_BOOT_BIOS_HASH	58555	58611	1570	1	2136	generated	
+674	Const	SIPAEV_TXT_COMBINED_HASH	58612	58662	1571	1	2137	generated	
+675	Const	SIPAEV_TXT_CPU_SCRTM_STAT	58663	58714	1572	1	2138	generated	
+676	Const	SIPAEV_TXT_ELEMENTS_HASH	58715	58765	1573	1	2139	generated	
+677	Const	SIPAEV_TXT_EVENT_BASE	58766	58813	1574	1	2140	generated	
+678	Const	SIPAEV_TXT_HASH_START	58814	58861	1575	1	2141	generated	
+679	Const	SIPAEV_TXT_KM_HASH	58862	58906	1576	1	2142	generated	
+680	Const	SIPAEV_TXT_KM_INFO_HASH	58907	58956	1577	1	2143	generated	
+681	Const	SIPAEV_TXT_LCP_AUTHORITIES_HASH	58957	59014	1578	1	2144	generated	
+682	Const	SIPAEV_TXT_LCP_CONTROL_HASH	59015	59068	1579	1	2145	generated	
+683	Const	SIPAEV_TXT_LCP_DETAILS_HASH	59069	59122	1580	1	2146	generated	
+684	Const	SIPAEV_TXT_LCP_HASH	59123	59168	1581	1	2147	generated	
+685	Const	SIPAEV_TXT_MLE_HASH	59169	59214	1582	1	2148	generated	
+686	Const	SIPAEV_TXT_NV_INFO_HASH	59215	59264	1583	1	2149	generated	
+687	Const	SIPAEV_TXT_OSSINITDATA_CAP_HASH	59265	59322	1584	1	2150	generated	
+688	Const	SIPAEV_TXT_PCR_MAPPING	59323	59371	1585	1	2151	generated	
+689	Const	SIPAEV_TXT_RANDOM_VALUE	59372	59421	1586	1	2152	generated	
+690	Const	SIPAEV_TXT_SINIT_PUBKEY_HASH	59422	59476	1587	1	2153	generated	
+691	Const	SIPAEV_TXT_STM_HASH	59477	59522	1588	1	2154	generated	
+692	Const	SIPAEV_UNUSED	59523	59559	1589	1	2155	generated	
+693	Const	SIPAHDRSIGNATURE	59560	59608	1590	1	2156	generated	
+694	Const	SIPAKSRHDRSIGNATURE	59609	59660	1591	1	2157	generated	
+695	Const	SIPALOGVERSION	59661	59698	1592	1	2158	generated	
+696	Const	STATE_TIMEOUT	59699	59735	1593	1	2159	generated	
+697	Struct	Scope_list_ipv4	59736	59916	1594	1	2160	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 1 and value/layout semantics require coder integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+698	Impl		59917	60070	1600	1	2170	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+699	Struct	Session_IPv4	60071	60321	1606	1	2178	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+700	Impl		60322	60472	1615	1	2190	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+701	Const	TCBASE	60473	60505	1621	1	2198	generated	
+702	Struct	TCG_PCClientPCREventStruct	60506	60717	1622	1	2199	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 20 and value/layout semantics require coder integration. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+703	Impl		60718	60837	1631	1	2212	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+704	Struct	TCG_PCClientTaggedEventStruct	60838	61005	1636	1	2219	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+705	Impl		61006	61128	1643	1	2229	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+706	ItemType	TCI_ADD_FLOW_COMPLETE_HANDLER	61129	61262	1648	1	2236	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+707	Struct	TCI_CLIENT_FUNC_LIST	61263	61587	1649	1	2240	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+708	ItemType	TCI_DEL_FLOW_COMPLETE_HANDLER	61588	61721	1657	1	2251	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+709	ItemType	TCI_MOD_FLOW_COMPLETE_HANDLER	61722	61855	1658	1	2255	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+710	ItemType	TCI_NOTIFY_HANDLER	61856	62111	1659	1	2259	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+711	Struct	TC_GEN_FILTER	62112	62305	1660	1	2264	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+712	Impl		62306	62412	1668	1	2276	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+713	Struct	TC_GEN_FLOW	62413	62730	1673	1	2283	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+714	Impl		62731	62880	1682	1	2296	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+715	Struct	TC_IFC_DESCRIPTOR	62881	63165	1688	1	2304	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+716	Impl		63166	63325	1697	1	2316	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+717	Const	TC_NONCONF_BORROW	63326	63366	1703	1	2324	generated	
+718	Const	TC_NONCONF_BORROW_PLUS	63367	63412	1704	1	2325	generated	
+719	Const	TC_NONCONF_DISCARD	63413	63454	1705	1	2326	generated	
+720	Const	TC_NONCONF_SHAPE	63455	63494	1706	1	2327	generated	
+721	Const	TC_NOTIFY_FLOW_CLOSE	63495	63538	1707	1	2328	generated	
+722	Const	TC_NOTIFY_IFC_CHANGE	63539	63582	1708	1	2329	generated	
+723	Const	TC_NOTIFY_IFC_CLOSE	63583	63625	1709	1	2330	generated	
+724	Const	TC_NOTIFY_IFC_UP	63626	63665	1710	1	2331	generated	
+725	Const	TC_NOTIFY_PARAM_CHANGED	63666	63712	1711	1	2332	generated	
+726	Struct	TC_SUPPORTED_INFO_BUFFER	63713	63973	1712	1	2333	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 256 and value/layout semantics require coder integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+727	Impl		63974	64140	1721	1	2346	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+728	Const	UNSUPPORTED_CREDENTIAL_TYPE	64141	64191	1727	1	2354	generated	
+729	Const	WBCL_DIGEST_ALG_BITMAP_SHA3_256	64192	64247	1728	1	2355	generated	
+730	Const	WBCL_DIGEST_ALG_BITMAP_SHA3_384	64248	64303	1729	1	2356	generated	
+731	Const	WBCL_DIGEST_ALG_BITMAP_SHA3_512	64304	64360	1730	1	2357	generated	
+732	Const	WBCL_DIGEST_ALG_BITMAP_SHA_1	64361	64412	1731	1	2358	generated	
+733	Const	WBCL_DIGEST_ALG_BITMAP_SHA_2_256	64413	64468	1732	1	2359	generated	
+734	Const	WBCL_DIGEST_ALG_BITMAP_SHA_2_384	64469	64524	1733	1	2360	generated	
+735	Const	WBCL_DIGEST_ALG_BITMAP_SHA_2_512	64525	64580	1734	1	2361	generated	
+736	Const	WBCL_DIGEST_ALG_BITMAP_SM3_256	64581	64635	1735	1	2362	generated	
+737	Const	WBCL_DIGEST_ALG_ID_SHA3_256	64636	64687	1736	1	2363	generated	
+738	Const	WBCL_DIGEST_ALG_ID_SHA3_384	64688	64739	1737	1	2364	generated	
+739	Const	WBCL_DIGEST_ALG_ID_SHA3_512	64740	64791	1738	1	2365	generated	
+740	Const	WBCL_DIGEST_ALG_ID_SHA_1	64792	64839	1739	1	2366	generated	
+741	Const	WBCL_DIGEST_ALG_ID_SHA_2_256	64840	64892	1740	1	2367	generated	
+742	Const	WBCL_DIGEST_ALG_ID_SHA_2_384	64893	64945	1741	1	2368	generated	
+743	Const	WBCL_DIGEST_ALG_ID_SHA_2_512	64946	64998	1742	1	2369	generated	
+744	Const	WBCL_DIGEST_ALG_ID_SM3_256	64999	65049	1743	1	2370	generated	
+745	Const	WBCL_HASH_LEN_SHA1	65050	65092	1744	1	2371	generated	
+746	Struct	WBCL_Iterator	65093	65507	1745	1	2372	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+747	Impl		65508	65614	1759	1	2390	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+748	Struct	WBCL_LogHdr	65615	65784	1764	1	2397	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+749	Const	WBCL_MAX_HSP_UPGRADE_HASH_LEN	65785	65838	1772	1	2407	generated	
+750	Const	class_ADSPEC	65839	65875	1773	1	2408	generated	
+751	Const	class_CONFIRM	65876	65913	1774	1	2409	generated	
+752	Const	class_ERROR_SPEC	65914	65953	1775	1	2410	generated	
+753	Const	class_FILTER_SPEC	65954	65995	1776	1	2411	generated	
+754	Const	class_FLOWSPEC	65996	66033	1777	1	2412	generated	
+755	Const	class_INTEGRITY	66034	66072	1778	1	2413	generated	
+756	Const	class_IS_FLOWSPEC	66073	66113	1779	1	2414	generated	
+757	Const	class_MAX	66114	66147	1780	1	2415	generated	
+758	Const	class_NULL	66148	66181	1781	1	2416	generated	
+759	Const	class_POLICY_DATA	66182	66223	1782	1	2417	generated	
+760	Const	class_RSVP_HOP	66224	66261	1783	1	2418	generated	
+761	Const	class_SCOPE	66262	66296	1784	1	2419	generated	
+762	Const	class_SENDER_TEMPLATE	66297	66342	1785	1	2420	generated	
+763	Const	class_SENDER_TSPEC	66343	66385	1786	1	2421	generated	
+764	Const	class_SESSION	66386	66422	1787	1	2422	generated	
+765	Const	class_SESSION_GROUP	66423	66465	1788	1	2423	generated	
+766	Const	class_STYLE	66466	66500	1789	1	2424	generated	
+767	Const	class_TIME_VALUES	66501	66541	1790	1	2425	generated	
+768	Const	ctype_ADSPEC_INTSERV	66542	66585	1791	1	2426	generated	
+769	Const	ctype_ERROR_SPEC_ipv4	66586	66630	1792	1	2427	generated	
+770	Const	ctype_FILTER_SPEC_ipv4	66631	66676	1793	1	2428	generated	
+771	Const	ctype_FILTER_SPEC_ipv4GPI	66677	66725	1794	1	2429	generated	
+772	Const	ctype_FLOWSPEC_Intserv0	66726	66772	1795	1	2430	generated	
+773	Const	ctype_POLICY_DATA	66773	66813	1796	1	2431	generated	
+774	Const	ctype_RSVP_HOP_ipv4	66814	66856	1797	1	2432	generated	
+775	Const	ctype_SCOPE_list_ipv4	66857	66901	1798	1	2433	generated	
+776	Const	ctype_SENDER_TEMPLATE_ipv4	66902	66951	1799	1	2434	generated	
+777	Const	ctype_SENDER_TEMPLATE_ipv4GPI	66952	67004	1800	1	2435	generated	
+778	Const	ctype_SENDER_TSPEC	67005	67046	1801	1	2436	generated	
+779	Const	ctype_SESSION_ipv4	67047	67088	1802	1	2437	generated	
+780	Const	ctype_SESSION_ipv4GPI	67089	67133	1803	1	2438	generated	
+781	Const	ctype_STYLE	67134	67168	1804	1	2439	generated	
+782	ItemType	int_serv_wkp	67169	67197	1805	1	2440	generated	
+783	Const	ioctl_code	67198	67231	1806	1	2441	generated	
+784	Const	mCOMPANY	67232	67271	1807	1	2442	generated	
+785	Const	mIOC_IN	67272	67311	1808	1	2443	generated	
+786	Const	mIOC_OUT	67312	67352	1809	1	2444	generated	
+787	Const	mIOC_VENDOR	67353	67394	1810	1	2445	generated	

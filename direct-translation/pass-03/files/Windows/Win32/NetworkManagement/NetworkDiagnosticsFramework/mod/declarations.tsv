@@ -1,0 +1,126 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro	NdfCancelIncident	0	129	1	1	2	syntax	External declaration shape only: wire DLL=ndfapi.dll, ABI=system, export=NdfCancelIncident; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1	Macro	NdfCloseIncident	130	256	2	1	7	syntax	External declaration shape only: wire DLL=ndfapi.dll, ABI=system, export=NdfCloseIncident; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+2	Macro	NdfCreateConnectivityIncident	257	401	3	1	12	syntax	External declaration shape only: wire DLL=ndfapi.dll, ABI=system, export=NdfCreateConnectivityIncident; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+3	Macro	NdfCreateDNSIncident	402	592	4	1	17	syntax	External declaration shape only: wire DLL=ndfapi.dll, ABI=system, export=NdfCreateDNSIncident; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+4	Macro	NdfCreateGroupingIncident	593	1045	5	1	22	syntax	External declaration shape only: wire DLL=ndfapi.dll, ABI=system, export=NdfCreateGroupingIncident; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+5	Macro	NdfCreateIncident	1046	1273	7	1	28	syntax	External declaration shape only: wire DLL=ndfapi.dll, ABI=system, export=NdfCreateIncident; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+6	Macro	NdfCreateNetConnectionIncident	1274	1449	8	1	33	syntax	External declaration shape only: wire DLL=ndfapi.dll, ABI=system, export=NdfCreateNetConnectionIncident; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+7	Macro	NdfCreatePnrpIncident	1450	1741	9	1	38	syntax	External declaration shape only: wire DLL=ndfapi.dll, ABI=system, export=NdfCreatePnrpIncident; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+8	Macro	NdfCreateSharingIncident	1742	1918	10	1	43	syntax	External declaration shape only: wire DLL=ndfapi.dll, ABI=system, export=NdfCreateSharingIncident; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+9	Macro	NdfCreateWebIncident	1919	2087	11	1	48	syntax	External declaration shape only: wire DLL=ndfapi.dll, ABI=system, export=NdfCreateWebIncident; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+10	Macro	NdfCreateWebIncidentEx	2088	2336	12	1	53	syntax	External declaration shape only: wire DLL=ndfapi.dll, ABI=system, export=NdfCreateWebIncidentEx; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+11	Macro	NdfCreateWinSockIncident	2337	2732	13	1	58	syntax	External declaration shape only: wire DLL=ndfapi.dll, ABI=system, export=NdfCreateWinSockIncident; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+12	Macro	NdfDiagnoseIncident	2733	2958	15	1	64	syntax	External declaration shape only: wire DLL=ndfapi.dll, ABI=system, export=NdfDiagnoseIncident; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+13	Macro	NdfExecuteDiagnosis	2959	3130	16	1	69	syntax	External declaration shape only: wire DLL=ndfapi.dll, ABI=system, export=NdfExecuteDiagnosis; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+14	Macro	NdfGetTraceFile	3131	3310	17	1	74	syntax	External declaration shape only: wire DLL=ndfapi.dll, ABI=system, export=NdfGetTraceFile; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+15	Macro	NdfRepairIncident	3311	3486	18	1	79	syntax	External declaration shape only: wire DLL=ndfapi.dll, ABI=system, export=NdfRepairIncident; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+16	ItemType	ATTRIBUTE_TYPE	3487	3517	19	1	84	generated	
+17	Const	AT_BOOLEAN	3518	3562	20	1	85	generated	
+18	Const	AT_GUID	3563	3605	21	1	86	generated	
+19	Const	AT_INT16	3606	3648	22	1	87	generated	
+20	Const	AT_INT32	3649	3691	23	1	88	generated	
+21	Const	AT_INT64	3692	3734	24	1	89	generated	
+22	Const	AT_INT8	3735	3776	25	1	90	generated	
+23	Const	AT_INVALID	3777	3821	26	1	91	generated	
+24	Const	AT_LIFE_TIME	3822	3869	27	1	92	generated	
+25	Const	AT_OCTET_STRING	3870	3920	28	1	93	generated	
+26	Const	AT_SOCKADDR	3921	3967	29	1	94	generated	
+27	Const	AT_STRING	3968	4012	30	1	95	generated	
+28	Const	AT_UINT16	4013	4056	31	1	96	generated	
+29	Const	AT_UINT32	4057	4100	32	1	97	generated	
+30	Const	AT_UINT64	4101	4144	33	1	98	generated	
+31	Const	AT_UINT8	4145	4187	34	1	99	generated	
+32	Const	DF_IMPERSONATION	4188	4236	35	1	100	generated	
+33	Const	DF_TRACELESS	4237	4281	36	1	101	generated	
+34	ItemType	DIAGNOSIS_STATUS	4282	4314	37	1	102	generated	
+35	Struct	DIAG_SOCKADDR	4315	4423	38	1	103	unsupported	declaration Struct has no candidate rule; syntax: overlapping/out-of-range AST source edits
+36	Impl		4424	4530	44	1	111	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+37	Const	DS_CONFIRMED	4531	4579	49	1	118	generated	
+38	Const	DS_DEFERRED	4580	4627	50	1	119	generated	
+39	Const	DS_INDETERMINATE	4628	4680	51	1	120	generated	
+40	Const	DS_NOT_IMPLEMENTED	4681	4735	52	1	121	generated	
+41	Const	DS_PASSTHROUGH	4736	4786	53	1	122	generated	
+42	Const	DS_REJECTED	4787	4834	54	1	123	generated	
+43	Struct	DiagnosticsInfo	4835	4947	55	1	124	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+44	Struct	HELPER_ATTRIBUTE	4948	5128	61	1	132	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+45	Impl		5129	5238	68	1	142	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+46	Union		5239	5677	73	1	149	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+47	Impl		5678	5789	91	1	169	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+48	Struct	HYPOTHESIS	5790	6013	96	1	176	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+49	Impl		6014	6117	104	1	188	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+50	Struct	HelperAttributeInfo	6118	6262	109	1	195	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+51	Impl		6263	6375	115	1	204	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+52	Struct	HypothesisResult	6376	6520	120	1	211	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+53	Struct	LIFE_TIME	6521	6696	126	1	220	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+54	Const	NDF_ADD_CAPTURE_TRACE	6697	6741	132	1	229	generated	
+55	Const	NDF_APPLY_INCLUSION_LIST_FILTER	6742	6796	133	1	230	generated	
+56	Const	NDF_ERROR_START	6797	6839	134	1	231	generated	
+57	Const	NDF_E_BAD_PARAM	6840	6916	135	1	232	generated	
+58	Const	NDF_E_CANCELLED	6917	6993	136	1	233	generated	
+59	Const	NDF_E_DISABLED	6994	7069	137	1	234	generated	
+60	Const	NDF_E_LENGTH_EXCEEDED	7070	7152	138	1	235	generated	
+61	Const	NDF_E_NOHELPERCLASS	7153	7233	139	1	236	generated	
+62	Const	NDF_E_PROBLEM_PRESENT	7234	7316	140	1	237	generated	
+63	Const	NDF_E_UNKNOWN	7317	7391	141	1	238	generated	
+64	Const	NDF_E_VALIDATION	7392	7469	142	1	239	generated	
+65	Const	NDF_INBOUND_FLAG_EDGETRAVERSAL	7470	7523	143	1	240	generated	
+66	Const	NDF_INBOUND_FLAG_HEALTHCHECK	7524	7575	144	1	241	generated	
+67	Struct	OCTET_STRING	7576	7686	145	1	242	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+68	Impl		7687	7792	151	1	251	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+69	ItemType	PROBLEM_TYPE	7793	7821	156	1	258	generated	
+70	Const	PT_DOWN_STREAM_HEALTH	7822	7875	157	1	259	generated	
+71	Const	PT_HIGHER_UTILIZATION	7876	7930	158	1	260	generated	
+72	Const	PT_HIGH_UTILIZATION	7931	7982	159	1	261	generated	
+73	Const	PT_INVALID	7983	8025	160	1	262	generated	
+74	Const	PT_LOWER_HEALTH	8026	8073	161	1	263	generated	
+75	Const	PT_LOW_HEALTH	8074	8119	162	1	264	generated	
+76	Const	PT_UP_STREAM_UTILIZATION	8120	8177	163	1	265	generated	
+77	Const	RCF_ISCONFIRMED	8178	8216	164	1	266	generated	
+78	Const	RCF_ISLEAF	8217	8250	165	1	267	generated	
+79	Const	RCF_ISTHIRDPARTY	8251	8290	166	1	268	generated	
+80	ItemType	REPAIR_RISK	8291	8318	167	1	269	generated	
+81	ItemType	REPAIR_SCOPE	8319	8347	168	1	270	generated	
+82	ItemType	REPAIR_STATUS	8348	8377	169	1	271	generated	
+83	Const	RF_CONTACT_ADMIN	8378	8422	170	1	272	generated	
+84	Const	RF_INFORMATION_ONLY	8423	8472	171	1	273	generated	
+85	Const	RF_REPRO	8473	8510	172	1	274	generated	
+86	Const	RF_RESERVED	8511	8554	173	1	275	generated	
+87	Const	RF_RESERVED_CA	8555	8601	174	1	276	generated	
+88	Const	RF_RESERVED_LNI	8602	8644	175	1	277	generated	
+89	Const	RF_SHOW_EVENTS	8645	8688	176	1	278	generated	
+90	Const	RF_UI_ONLY	8689	8729	177	1	279	generated	
+91	Const	RF_USER_ACTION	8730	8775	178	1	280	generated	
+92	Const	RF_USER_CONFIRMATION	8776	8827	179	1	281	generated	
+93	Const	RF_VALIDATE_HELPTOPIC	8828	8878	180	1	282	generated	
+94	Const	RF_WORKAROUND	8879	8923	181	1	283	generated	
+95	Const	RR_NORISK	8924	8964	182	1	284	generated	
+96	Const	RR_NOROLLBACK	8965	9009	183	1	285	generated	
+97	Const	RR_ROLLBACK	9010	9052	184	1	286	generated	
+98	Const	RS_APPLICATION	9053	9099	185	1	287	generated	
+99	Const	RS_DEFERRED	9100	9144	186	1	288	generated	
+100	Const	RS_NOT_IMPLEMENTED	9145	9196	187	1	289	generated	
+101	Const	RS_PROCESS	9197	9239	188	1	290	generated	
+102	Const	RS_REPAIRED	9240	9284	189	1	291	generated	
+103	Const	RS_SYSTEM	9285	9326	190	1	292	generated	
+104	Const	RS_UNREPAIRED	9327	9373	191	1	293	generated	
+105	Const	RS_USER	9374	9413	192	1	294	generated	
+106	Const	RS_USER_ACTION	9414	9461	193	1	295	generated	
+107	Struct	RepairInfo	9462	9830	194	1	296	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+108	Impl		9831	9934	208	1	313	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+109	Struct	RepairInfoEx	9935	10049	213	1	320	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+110	Impl		10050	10155	219	1	329	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+111	Struct	RootCauseInfo	10156	10460	224	1	336	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+112	Impl		10461	10567	234	1	350	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+113	Struct	ShellCommandInfo	10568	10848	239	1	357	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+114	Impl		10849	10958	248	1	369	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+115	Const	UIT_DUI	10959	10998	253	1	376	generated	
+116	Const	UIT_HELP_PANE	10999	11044	254	1	377	generated	
+117	Const	UIT_INVALID	11045	11088	255	1	378	generated	
+118	Const	UIT_NONE	11089	11129	256	1	379	generated	
+119	Const	UIT_SHELL_COMMAND	11130	11179	257	1	380	generated	
+120	ItemType	UI_INFO_TYPE	11180	11208	258	1	381	generated	
+121	Struct	UiInfo	11209	11323	259	1	382	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+122	Impl		11324	11423	265	1	391	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+123	Union		11424	11648	270	1	398	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+124	Impl		11649	11750	278	1	408	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl

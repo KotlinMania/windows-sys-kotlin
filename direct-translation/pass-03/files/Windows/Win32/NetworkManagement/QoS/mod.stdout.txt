@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Win32/NetworkManagement/QoS/mod: 554 generated; 111 syntax candidates; 123 unsupported

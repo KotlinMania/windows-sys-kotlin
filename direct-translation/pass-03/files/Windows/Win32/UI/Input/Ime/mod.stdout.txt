@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Win32/UI/Input/Ime/mod: 757 generated; 119 syntax candidates; 99 unsupported

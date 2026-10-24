@@ -1,0 +1,72 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Const	ComponentTypeEnforcementClientRp	0	55	1	1	2	generated	
+1	Const	ComponentTypeEnforcementClientSoH	56	112	2	1	3	generated	
+2	Struct	CorrelationId	113	280	3	1	4	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+3	Struct	CountedString	281	406	9	1	13	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+4	Impl		407	513	15	1	22	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+5	ItemType	ExtendedIsolationState	514	552	20	1	29	generated	
+6	ItemType	FailureCategory	553	584	21	1	30	generated	
+7	Struct	FailureCategoryMapping	585	713	22	1	31	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 5 and value/layout semantics require coder integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+8	Impl		714	829	27	1	40	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+9	Struct	FixupInfo	830	1007	32	1	47	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+10	ItemType	FixupState	1008	1034	40	1	58	generated	
+11	Struct	Ipv4Address	1035	1118	41	1	59	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 4 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+12	Impl		1119	1223	46	1	67	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+13	Struct	Ipv6Address	1224	1308	51	1	74	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 16 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+14	Impl		1309	1413	56	1	82	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+15	Struct	IsolationInfo	1414	1617	61	1	89	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+16	Struct	IsolationInfoEx	1618	1879	68	1	99	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+17	ItemType	IsolationState	1880	1910	76	1	110	generated	
+18	Struct	NapComponentRegistrationInfo	1911	2334	77	1	111	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+19	ItemType	NapNotifyType	2335	2364	90	1	127	generated	
+20	ItemType	NapTracingLevel	2365	2396	91	1	128	generated	
+21	Struct	NetworkSoH	2397	2498	92	1	129	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+22	Impl		2499	2602	98	1	138	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+23	Struct	PrivateData	2603	2705	103	1	145	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+24	Impl		2706	2810	109	1	154	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+25	ItemType	RemoteConfigurationType	2811	2850	114	1	161	generated	
+26	Struct	ResultCodes	2851	2981	115	1	162	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+27	Impl		2982	3086	121	1	172	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+28	Struct	SoH	3087	3198	126	1	179	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+29	Impl		3199	3295	132	1	189	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+30	Struct	SoHAttribute	3296	3421	137	1	196	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+31	Impl		3422	3527	144	1	206	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+32	Struct	SystemHealthAgentState	3528	3734	149	1	213	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+33	Const	extendedIsolationStateInfected	3735	3807	157	1	224	generated	
+34	Const	extendedIsolationStateNoData	3808	3878	158	1	225	generated	
+35	Const	extendedIsolationStateTransition	3879	3953	159	1	226	generated	
+36	Const	extendedIsolationStateUnknown	3954	4025	160	1	227	generated	
+37	Const	failureCategoryClientCommunication	4026	4095	161	1	228	generated	
+38	Const	failureCategoryClientComponent	4096	4161	162	1	229	generated	
+39	Const	failureCategoryCount	4162	4205	163	1	230	generated	
+40	Const	failureCategoryNone	4206	4260	164	1	231	generated	
+41	Const	failureCategoryOther	4261	4316	165	1	232	generated	
+42	Const	failureCategoryServerCommunication	4317	4386	166	1	233	generated	
+43	Const	failureCategoryServerComponent	4387	4452	167	1	234	generated	
+44	Const	fixupStateCouldNotUpdate	4453	4507	168	1	235	generated	
+45	Const	fixupStateInProgress	4508	4558	169	1	236	generated	
+46	Const	fixupStateSuccess	4559	4606	170	1	237	generated	
+47	Const	freshSoHRequest	4607	4645	171	1	238	generated	
+48	Const	isolationStateInProbation	4646	4705	172	1	239	generated	
+49	Const	isolationStateNotRestricted	4706	4767	173	1	240	generated	
+50	Const	isolationStateRestrictedAccess	4768	4832	174	1	241	generated	
+51	Const	maxConnectionCountPerEnforcer	4833	4886	175	1	242	generated	
+52	Const	maxEnforcerCount	4887	4927	176	1	243	generated	
+53	Const	maxNetworkSoHSize	4928	4971	177	1	244	generated	
+54	Const	maxPrivateDataSize	4972	5015	178	1	245	generated	
+55	Const	maxSoHAttributeCount	5016	5061	179	1	246	generated	
+56	Const	maxSoHAttributeSize	5062	5107	180	1	247	generated	
+57	Const	maxStringLength	5108	5149	181	1	248	generated	
+58	Const	maxSystemHealthEntityCount	5150	5200	182	1	249	generated	
+59	Const	minNetworkSoHSize	5201	5242	183	1	250	generated	
+60	Const	napNotifyTypeQuarState	5243	5298	184	1	251	generated	
+61	Const	napNotifyTypeServiceState	5299	5357	185	1	252	generated	
+62	Const	napNotifyTypeUnknown	5358	5411	186	1	253	generated	
+63	Const	percentageNotSupported	5412	5459	187	1	254	generated	
+64	Const	remoteConfigTypeConfigBlob	5460	5529	188	1	255	generated	
+65	Const	remoteConfigTypeMachine	5530	5596	189	1	256	generated	
+66	Const	shaFixup	5597	5628	190	1	257	generated	
+67	Const	tracingLevelAdvanced	5629	5684	191	1	258	generated	
+68	Const	tracingLevelBasic	5685	5737	192	1	259	generated	
+69	Const	tracingLevelDebug	5738	5790	193	1	260	generated	
+70	Const	tracingLevelUndefined	5791	5847	194	1	261	generated	

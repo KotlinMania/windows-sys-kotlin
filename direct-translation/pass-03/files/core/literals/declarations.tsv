@@ -1,0 +1,7 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	92	1	1	2	unsupported	attribute macro_export requires explicit semantics/configuration; syntax: macro has no recognized windows-link contract
+1	Macro		168	266	9	1	12	unsupported	attribute macro_export requires explicit semantics/configuration; syntax: macro has no recognized windows-link contract
+2	Use		1249	1259	38	1	43	unsupported	declaration Use has no candidate rule; syntax: no per-file syntax rule for Use
+3	Use		1260	1270	39	1	46	unsupported	declaration Use has no candidate rule; syntax: no per-file syntax rule for Use
+4	Fn	decode_utf8_char	1272	3071	41	1	50	unsupported	declaration Fn has no candidate rule; syntax: no per-file syntax rule for Fn
+5	Fn	utf16_len	3073	3348	105	1	116	unsupported	declaration Fn has no candidate rule; syntax: no per-file syntax rule for Fn

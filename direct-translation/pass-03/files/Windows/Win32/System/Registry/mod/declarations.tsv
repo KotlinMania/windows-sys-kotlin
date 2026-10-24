@@ -1,0 +1,1056 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro	GetRegistryValueWithFallbackW	0	430	1	1	2	syntax	External declaration shape only: wire DLL=api-ms-win-core-state-helpers-l1-1-0.dll, ABI=system, export=GetRegistryValueWithFallbackW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1	Macro	RegCloseKey	431	546	2	1	7	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegCloseKey; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+2	Macro	RegConnectRegistryA	547	735	3	1	11	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegConnectRegistryA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+3	Macro	RegConnectRegistryExA	736	904	4	1	16	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegConnectRegistryExA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+4	Macro	RegConnectRegistryExW	905	1074	5	1	21	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegConnectRegistryExW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+5	Macro	RegConnectRegistryW	1075	1264	6	1	26	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegConnectRegistryW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+6	Macro	RegCopyTreeA	1265	1438	7	1	31	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegCopyTreeA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+7	Macro	RegCopyTreeW	1439	1613	8	1	35	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegCopyTreeW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+8	Macro	RegCreateKeyA	1614	1791	9	1	39	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegCreateKeyA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+9	Macro	RegCreateKeyExA	1792	2250	10	1	44	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegCreateKeyExA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+10	Macro	RegCreateKeyExW	2251	2711	12	1	50	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegCreateKeyExW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+11	Macro	RegCreateKeyTransactedA	2712	3275	14	1	56	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegCreateKeyTransactedA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+12	Macro	RegCreateKeyTransactedW	3276	3841	16	1	62	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegCreateKeyTransactedW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+13	Macro	RegCreateKeyW	3842	4020	18	1	68	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegCreateKeyW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+14	Macro	RegDeleteKeyA	4021	4175	19	1	73	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegDeleteKeyA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+15	Macro	RegDeleteKeyExA	4176	4366	20	1	77	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegDeleteKeyExA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+16	Macro	RegDeleteKeyExW	4367	4558	21	1	81	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegDeleteKeyExW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+17	Macro	RegDeleteKeyTransactedA	4559	4854	22	1	85	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegDeleteKeyTransactedA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+18	Macro	RegDeleteKeyTransactedW	4855	5151	23	1	90	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegDeleteKeyTransactedW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+19	Macro	RegDeleteKeyValueA	5152	5351	24	1	95	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegDeleteKeyValueA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+20	Macro	RegDeleteKeyValueW	5352	5553	25	1	99	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegDeleteKeyValueW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+21	Macro	RegDeleteKeyW	5554	5709	26	1	103	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegDeleteKeyW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+22	Macro	RegDeleteTreeA	5710	5865	27	1	107	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegDeleteTreeA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+23	Macro	RegDeleteTreeW	5866	6022	28	1	111	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegDeleteTreeW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+24	Macro	RegDeleteValueA	6023	6182	29	1	115	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegDeleteValueA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+25	Macro	RegDeleteValueW	6183	6343	30	1	119	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegDeleteValueW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+26	Macro	RegDisablePredefinedCache	6344	6462	31	1	123	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegDisablePredefinedCache; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+27	Macro	RegDisablePredefinedCacheEx	6463	6583	32	1	127	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegDisablePredefinedCacheEx; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+28	Macro	RegDisableReflectionKey	6584	6712	33	1	131	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegDisableReflectionKey; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+29	Macro	RegEnableReflectionKey	6713	6840	34	1	135	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegEnableReflectionKey; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+30	Macro	RegEnumKeyA	6841	7020	35	1	139	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegEnumKeyA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+31	Macro	RegEnumKeyExA	7021	7354	36	1	143	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegEnumKeyExA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+32	Macro	RegEnumKeyExW	7355	7690	37	1	148	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegEnumKeyExW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+33	Macro	RegEnumKeyW	7691	7871	38	1	153	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegEnumKeyW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+34	Macro	RegEnumValueA	7872	8153	39	1	157	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegEnumValueA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+35	Macro	RegEnumValueW	8154	8436	40	1	162	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegEnumValueW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+36	Macro	RegFlushKey	8437	8552	41	1	167	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegFlushKey; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+37	Macro	RegGetKeySecurity	8553	8889	42	1	171	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegGetKeySecurity; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+38	Macro	RegGetValueA	8890	9192	44	1	177	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegGetValueA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+39	Macro	RegGetValueW	9193	9497	45	1	182	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegGetValueW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+40	Macro	RegLoadAppKeyA	9498	9712	46	1	187	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegLoadAppKeyA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+41	Macro	RegLoadAppKeyW	9713	9928	47	1	192	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegLoadAppKeyW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+42	Macro	RegLoadKeyA	9929	10116	48	1	197	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegLoadKeyA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+43	Macro	RegLoadKeyW	10117	10306	49	1	201	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegLoadKeyW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+44	Macro	RegLoadMUIStringA	10307	10592	50	1	205	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegLoadMUIStringA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+45	Macro	RegLoadMUIStringW	10593	10881	51	1	210	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegLoadMUIStringW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+46	Macro	RegNotifyChangeKeyValue	10882	11171	52	1	215	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegNotifyChangeKeyValue; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+47	Macro	RegOpenCurrentUser	11172	11322	53	1	219	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegOpenCurrentUser; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+48	Macro	RegOpenKeyA	11323	11498	54	1	224	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegOpenKeyA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+49	Macro	RegOpenKeyExA	11499	11721	55	1	229	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegOpenKeyExA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+50	Macro	RegOpenKeyExW	11722	11945	56	1	234	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegOpenKeyExW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+51	Macro	RegOpenKeyTransactedA	11946	12273	57	1	239	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegOpenKeyTransactedA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+52	Macro	RegOpenKeyTransactedW	12274	12602	58	1	244	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegOpenKeyTransactedW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+53	Macro	RegOpenKeyW	12603	12779	59	1	249	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegOpenKeyW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+54	Macro	RegOpenUserClassesRoot	12780	12995	60	1	254	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegOpenUserClassesRoot; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+55	Macro	RegOverridePredefKey	12996	13137	61	1	259	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegOverridePredefKey; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+56	Macro	RegQueryInfoKeyA	13138	13600	62	1	263	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegQueryInfoKeyA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+57	Macro	RegQueryInfoKeyW	13601	14064	63	1	268	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegQueryInfoKeyW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+58	Macro	RegQueryMultipleValuesA	14065	14294	64	1	273	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegQueryMultipleValuesA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+59	Macro	RegQueryMultipleValuesW	14295	14525	65	1	278	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegQueryMultipleValuesW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+60	Macro	RegQueryReflectionKey	14526	14706	66	1	283	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegQueryReflectionKey; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+61	Macro	RegQueryValueA	14707	14917	67	1	288	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegQueryValueA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+62	Macro	RegQueryValueExA	14918	15172	68	1	293	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegQueryValueExA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+63	Macro	RegQueryValueExW	15173	15428	69	1	298	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegQueryValueExW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+64	Macro	RegQueryValueW	15429	15641	70	1	303	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegQueryValueW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+65	Macro	RegRenameKey	15642	15842	71	1	308	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegRenameKey; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+66	Macro	RegReplaceKeyA	15843	16074	72	1	312	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegReplaceKeyA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+67	Macro	RegReplaceKeyW	16075	16309	73	1	316	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegReplaceKeyW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+68	Macro	RegRestoreKeyA	16310	16478	74	1	320	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegRestoreKeyA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+69	Macro	RegRestoreKeyW	16479	16648	75	1	324	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegRestoreKeyW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+70	Macro	RegSaveKeyA	16649	16910	76	1	328	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegSaveKeyA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+71	Macro	RegSaveKeyExA	16911	17199	78	1	334	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegSaveKeyExA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+72	Macro	RegSaveKeyExW	17200	17489	80	1	340	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegSaveKeyExW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+73	Macro	RegSaveKeyW	17490	17752	82	1	346	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegSaveKeyW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+74	Macro	RegSetKeySecurity	17753	18054	84	1	352	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegSetKeySecurity; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+75	Macro	RegSetKeyValueA	18055	18314	86	1	357	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegSetKeyValueA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+76	Macro	RegSetKeyValueW	18315	18576	87	1	362	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegSetKeyValueW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+77	Macro	RegSetValueA	18577	18804	88	1	367	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegSetValueA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+78	Macro	RegSetValueExA	18805	19038	89	1	371	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegSetValueExA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+79	Macro	RegSetValueExW	19039	19273	90	1	376	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegSetValueExW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+80	Macro	RegSetValueW	19274	19503	91	1	381	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegSetValueW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+81	Macro	RegUnLoadKeyA	19504	19658	92	1	385	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegUnLoadKeyA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+82	Macro	RegUnLoadKeyW	19659	19814	93	1	389	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegUnLoadKeyW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+83	Const	AGP_FLAG_NO_1X_RATE	19815	19857	94	1	393	generated	
+84	Const	AGP_FLAG_NO_2X_RATE	19858	19900	95	1	394	generated	
+85	Const	AGP_FLAG_NO_4X_RATE	19901	19943	96	1	395	generated	
+86	Const	AGP_FLAG_NO_8X_RATE	19944	19986	97	1	396	generated	
+87	Const	AGP_FLAG_NO_FW_ENABLE	19987	20033	98	1	397	generated	
+88	Const	AGP_FLAG_NO_SBA_ENABLE	20034	20081	99	1	398	generated	
+89	Const	AGP_FLAG_REVERSE_INITIALIZATION	20082	20138	100	1	399	generated	
+90	Const	AGP_FLAG_SPECIAL_RESERVE	20139	20192	101	1	400	generated	
+91	Const	AGP_FLAG_SPECIAL_TARGET	20193	20245	102	1	401	generated	
+92	Const	APMMENUSUSPEND_DISABLED	20246	20292	103	1	402	generated	
+93	Const	APMMENUSUSPEND_ENABLED	20293	20338	104	1	403	generated	
+94	Const	APMMENUSUSPEND_NOCHANGE	20339	20387	105	1	404	generated	
+95	Const	APMMENUSUSPEND_UNDOCKED	20388	20434	106	1	405	generated	
+96	Const	APMTIMEOUT_DISABLED	20435	20477	107	1	406	generated	
+97	Const	BIF_RAWDEVICENEEDSDRIVER	20478	20525	108	1	407	generated	
+98	Const	BIF_SHOWSIMILARDRIVERS	20526	20571	109	1	408	generated	
+99	Const	CSCONFIGFLAG_BITS	20572	20612	110	1	409	generated	
+100	Const	CSCONFIGFLAG_DISABLED	20613	20657	111	1	410	generated	
+101	Const	CSCONFIGFLAG_DO_NOT_CREATE	20658	20707	112	1	411	generated	
+102	Const	CSCONFIGFLAG_DO_NOT_START	20708	20756	113	1	412	generated	
+103	Const	DMSTATEFLAG_APPLYTOALL	20757	20802	114	1	413	generated	
+104	Const	DOSOPTF_ALWAYSUSE	20803	20843	115	1	414	generated	
+105	Const	DOSOPTF_DEFAULT	20844	20882	116	1	415	generated	
+106	Const	DOSOPTF_INDOSSTART	20883	20925	117	1	416	generated	
+107	Const	DOSOPTF_MULTIPLE	20926	20967	118	1	417	generated	
+108	Const	DOSOPTF_NEEDSETUP	20968	21009	119	1	418	generated	
+109	Const	DOSOPTF_PROVIDESUMB	21010	21053	120	1	419	generated	
+110	Const	DOSOPTF_SUPPORTED	21054	21094	121	1	420	generated	
+111	Const	DOSOPTF_USESPMODE	21095	21135	122	1	421	generated	
+112	Const	DOSOPTGF_DEFCLEAN	21136	21176	123	1	422	generated	
+113	Const	DRIVERSIGN_BLOCKING	21177	21219	124	1	423	generated	
+114	Const	DRIVERSIGN_NONE	21220	21258	125	1	424	generated	
+115	Const	DRIVERSIGN_WARNING	21259	21300	126	1	425	generated	
+116	Struct	DSKTLSYSTEMTIME	21301	21573	127	1	426	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+117	Const	DTRESULTFIX	21574	21608	140	1	441	generated	
+118	Const	DTRESULTOK	21609	21642	141	1	442	generated	
+119	Const	DTRESULTPART	21643	21678	142	1	443	generated	
+120	Const	DTRESULTPROB	21679	21714	143	1	444	generated	
+121	Const	EISAFLAG_NO_IO_MERGE	21715	21758	144	1	445	generated	
+122	Const	EISAFLAG_SLOT_IO_FIRST	21759	21804	145	1	446	generated	
+123	Const	EISA_NO_MAX_FUNCTION	21805	21850	146	1	447	generated	
+124	ItemType	HKEY	21851	21890	147	1	448	syntax	Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+125	Const	HKEY_CLASSES_ROOT	21891	21947	148	1	452	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+126	Const	HKEY_CURRENT_CONFIG	21948	22006	149	1	455	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+127	Const	HKEY_CURRENT_USER	22007	22063	150	1	458	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+128	Const	HKEY_CURRENT_USER_LOCAL_SETTINGS	22064	22135	151	1	461	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+129	Const	HKEY_DYN_DATA	22136	22188	152	1	464	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+130	Const	HKEY_LOCAL_MACHINE	22189	22246	153	1	467	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+131	Const	HKEY_PERFORMANCE_DATA	22247	22307	154	1	470	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+132	Const	HKEY_PERFORMANCE_NLSTEXT	22308	22371	155	1	473	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+133	Const	HKEY_PERFORMANCE_TEXT	22372	22432	156	1	476	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+134	Const	HKEY_USERS	22433	22482	157	1	479	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+135	Const	IT_COMPACT	22483	22516	158	1	482	generated	
+136	Const	IT_CUSTOM	22517	22549	159	1	483	generated	
+137	Const	IT_PORTABLE	22550	22584	160	1	484	generated	
+138	Const	IT_TYPICAL	22585	22618	161	1	485	generated	
+139	Const	KEY_ALL_ACCESS	22619	22671	162	1	486	generated	
+140	Const	KEY_CREATE_LINK	22672	22721	163	1	487	generated	
+141	Const	KEY_CREATE_SUB_KEY	22722	22773	164	1	488	generated	
+142	Const	KEY_ENUMERATE_SUB_KEYS	22774	22829	165	1	489	generated	
+143	Const	KEY_EXECUTE	22830	22879	166	1	490	generated	
+144	Const	KEY_NOTIFY	22880	22924	167	1	491	generated	
+145	Const	KEY_QUERY_VALUE	22925	22973	168	1	492	generated	
+146	Const	KEY_READ	22974	23020	169	1	493	generated	
+147	Const	KEY_SET_VALUE	23021	23067	170	1	494	generated	
+148	Const	KEY_WOW64_32KEY	23068	23118	171	1	495	generated	
+149	Const	KEY_WOW64_64KEY	23119	23169	172	1	496	generated	
+150	Const	KEY_WOW64_RES	23170	23218	173	1	497	generated	
+151	Const	KEY_WRITE	23219	23266	174	1	498	generated	
+152	Const	LASTGOOD_OPERATION	23267	23310	175	1	499	generated	
+153	Const	LASTGOOD_OPERATION_DELETE	23311	23359	176	1	500	generated	
+154	Const	LASTGOOD_OPERATION_NOPOSTPROC	23360	23412	177	1	501	generated	
+155	Const	MF_FLAGS_CREATE_BUT_NO_SHOW_DISABLED	23413	23472	178	1	502	generated	
+156	Const	MF_FLAGS_EVEN_IF_NO_RESOURCE	23473	23524	179	1	503	generated	
+157	Const	MF_FLAGS_FILL_IN_UNKNOWN_RESOURCE	23525	23581	180	1	504	generated	
+158	Const	MF_FLAGS_NO_CREATE_IF_NO_RESOURCE	23582	23638	181	1	505	generated	
+159	Const	NUM_EISA_RANGES	23639	23677	182	1	506	generated	
+160	Const	NUM_RESOURCE_MAP	23678	23719	183	1	507	generated	
+161	Const	PCIC_DEFAULT_IRQMASK	23720	23767	184	1	508	generated	
+162	Const	PCIC_DEFAULT_NUMSOCKETS	23768	23814	185	1	509	generated	
+163	Const	PCI_OPTIONS_USE_BIOS	23815	23858	186	1	510	generated	
+164	Const	PCI_OPTIONS_USE_IRQ_STEERING	23859	23910	187	1	511	generated	
+165	Const	PCMCIA_DEF_MEMBEGIN	23911	23958	188	1	512	generated	
+166	Const	PCMCIA_DEF_MEMEND	23959	24006	189	1	513	generated	
+167	Const	PCMCIA_DEF_MEMLEN	24007	24050	190	1	514	generated	
+168	Const	PCMCIA_DEF_MIN_REGION	24051	24099	191	1	515	generated	
+169	Const	PCMCIA_OPT_AUTOMEM	24100	24141	192	1	516	generated	
+170	Const	PCMCIA_OPT_HAVE_SOCKET	24142	24187	193	1	517	generated	
+171	Const	PCMCIA_OPT_NO_APMREMOVE	24188	24235	194	1	518	generated	
+172	Const	PCMCIA_OPT_NO_AUDIO	24236	24279	195	1	519	generated	
+173	Const	PCMCIA_OPT_NO_SOUND	24280	24322	196	1	520	generated	
+174	Const	PIR_OPTION_DEFAULT	24323	24365	197	1	521	generated	
+175	Const	PIR_OPTION_ENABLED	24366	24407	198	1	522	generated	
+176	Const	PIR_OPTION_MSSPEC	24408	24448	199	1	523	generated	
+177	Const	PIR_OPTION_REALMODE	24449	24491	200	1	524	generated	
+178	Const	PIR_OPTION_REGISTRY	24492	24534	201	1	525	generated	
+179	Const	PIR_STATUS_DISABLED	24535	24577	202	1	526	generated	
+180	Const	PIR_STATUS_ENABLED	24578	24619	203	1	527	generated	
+181	Const	PIR_STATUS_ERROR	24620	24659	204	1	528	generated	
+182	Const	PIR_STATUS_MAX	24660	24697	205	1	529	generated	
+183	Const	PIR_STATUS_MINIPORT_COMPATIBLE	24698	24751	206	1	530	generated	
+184	Const	PIR_STATUS_MINIPORT_ERROR	24752	24800	207	1	531	generated	
+185	Const	PIR_STATUS_MINIPORT_INVALID	24801	24851	208	1	532	generated	
+186	Const	PIR_STATUS_MINIPORT_MAX	24852	24898	209	1	533	generated	
+187	Const	PIR_STATUS_MINIPORT_NOKEY	24899	24947	210	1	534	generated	
+188	Const	PIR_STATUS_MINIPORT_NONE	24948	24995	211	1	535	generated	
+189	Const	PIR_STATUS_MINIPORT_NORMAL	24996	25045	212	1	536	generated	
+190	Const	PIR_STATUS_MINIPORT_OVERRIDE	25046	25097	213	1	537	generated	
+191	Const	PIR_STATUS_MINIPORT_SUCCESS	25098	25148	214	1	538	generated	
+192	Const	PIR_STATUS_TABLE_BAD	25149	25192	215	1	539	generated	
+193	Const	PIR_STATUS_TABLE_ERROR	25193	25238	216	1	540	generated	
+194	Const	PIR_STATUS_TABLE_MAX	25239	25282	217	1	541	generated	
+195	Const	PIR_STATUS_TABLE_MSSPEC	25283	25329	218	1	542	generated	
+196	Const	PIR_STATUS_TABLE_NONE	25330	25374	219	1	543	generated	
+197	Const	PIR_STATUS_TABLE_REALMODE	25375	25423	220	1	544	generated	
+198	Const	PIR_STATUS_TABLE_REGISTRY	25424	25472	221	1	545	generated	
+199	Const	PIR_STATUS_TABLE_SUCCESS	25473	25520	222	1	546	generated	
+200	ItemType	PQUERYHANDLER	25521	25745	223	1	547	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+201	Const	PROVIDER_KEEPS_VALUE_LENGTH	25746	25796	224	1	552	generated	
+202	Struct	PVALUEA	25797	25998	225	1	553	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+203	Impl		25999	26099	233	1	565	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+204	Struct	PVALUEW	26100	26302	238	1	572	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+205	Impl		26303	26403	246	1	584	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+206	Const	REGDF_CONFLICTDMA	26404	26449	251	1	591	generated	
+207	Const	REGDF_CONFLICTIO	26450	26493	252	1	592	generated	
+208	Const	REGDF_CONFLICTIRQ	26494	26539	253	1	593	generated	
+209	Const	REGDF_CONFLICTMEM	26540	26585	254	1	594	generated	
+210	Const	REGDF_GENFORCEDCONFIG	26586	26631	255	1	595	generated	
+211	Const	REGDF_MAPIRQ2TO9	26632	26677	256	1	596	generated	
+212	Const	REGDF_NEEDFULLCONFIG	26678	26722	257	1	597	generated	
+213	Const	REGDF_NODETCONFIG	26723	26767	258	1	598	generated	
+214	Const	REGDF_NOTDETDMA	26768	26806	259	1	599	generated	
+215	Const	REGDF_NOTDETIO	26807	26844	260	1	600	generated	
+216	Const	REGDF_NOTDETIRQ	26845	26883	261	1	601	generated	
+217	Const	REGDF_NOTDETMEM	26884	26922	262	1	602	generated	
+218	Const	REGDF_NOTVERIFIED	26923	26972	263	1	603	generated	
+219	Const	REGSTR_DATA_NETOS_IPX	26973	27063	264	1	604	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+220	Const	REGSTR_DATA_NETOS_NDIS	27064	27156	265	1	607	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+221	Const	REGSTR_DATA_NETOS_ODI	27157	27247	266	1	610	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+222	Const	REGSTR_DEFAULT_INSTANCE	27248	27341	267	1	613	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+223	Const	REGSTR_KEY_ACPIENUM	27342	27431	268	1	616	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+224	Const	REGSTR_KEY_APM	27432	27520	269	1	619	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+225	Const	REGSTR_KEY_BIOSENUM	27521	27610	270	1	622	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+226	Const	REGSTR_KEY_CLASS	27611	27698	271	1	625	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+227	Const	REGSTR_KEY_CONFIG	27699	27788	272	1	628	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+228	Const	REGSTR_KEY_CONTROL	27789	27880	273	1	631	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+229	Const	REGSTR_KEY_CRASHES	27881	27972	274	1	634	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+230	Const	REGSTR_KEY_CURRENT	27973	28064	275	1	637	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+231	Const	REGSTR_KEY_CURRENT_ENV	28065	28166	276	1	640	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+232	Const	REGSTR_KEY_DANGERS	28167	28258	277	1	643	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+233	Const	REGSTR_KEY_DEFAULT	28259	28350	278	1	646	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+234	Const	REGSTR_KEY_DETMODVARS	28351	28448	279	1	649	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+235	Const	REGSTR_KEY_DEVICEPARAMETERS	28449	28559	280	1	652	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+236	Const	REGSTR_KEY_DEVICE_PROPERTIES	28560	28664	281	1	655	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+237	Const	REGSTR_KEY_DISPLAY_CLASS	28665	28762	282	1	658	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+238	Const	REGSTR_KEY_DOSOPTCDROM	28763	28857	283	1	661	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+239	Const	REGSTR_KEY_DOSOPTMOUSE	28858	28951	284	1	664	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+240	Const	REGSTR_KEY_DRIVERPARAMETERS	28952	29062	285	1	667	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+241	Const	REGSTR_KEY_DRIVERS	29063	29156	286	1	670	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+242	Const	REGSTR_KEY_EBDAUTOEXECBATKEYBOARD	29157	29278	287	1	673	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+243	Const	REGSTR_KEY_EBDAUTOEXECBATLOCAL	29279	29395	288	1	676	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+244	Const	REGSTR_KEY_EBDCONFIGSYSKEYBOARD	29396	29513	289	1	679	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+245	Const	REGSTR_KEY_EBDCONFIGSYSLOCAL	29514	29626	290	1	682	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+246	Const	REGSTR_KEY_EBDFILESKEYBOARD	29627	29736	291	1	685	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+247	Const	REGSTR_KEY_EBDFILESLOCAL	29737	29841	292	1	688	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+248	Const	REGSTR_KEY_EISAENUM	29842	29931	293	1	691	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+249	Const	REGSTR_KEY_ENUM	29932	30017	294	1	694	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+250	Const	REGSTR_KEY_EXPLORER	30018	30111	295	1	697	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+251	Const	REGSTR_KEY_FILTERS	30112	30203	296	1	700	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+252	Const	REGSTR_KEY_INIUPDATE	30204	30299	297	1	703	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+253	Const	REGSTR_KEY_ISAENUM	30300	30390	298	1	706	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+254	Const	REGSTR_KEY_JOYCURR	30391	30498	299	1	709	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+255	Const	REGSTR_KEY_JOYSETTINGS	30499	30603	300	1	712	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+256	Const	REGSTR_KEY_KEYBOARD_CLASS	30604	30703	301	1	715	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+257	Const	REGSTR_KEY_KNOWNDOCKINGSTATES	30704	30816	302	1	718	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+258	Const	REGSTR_KEY_LOGCONFIG	30817	30912	303	1	721	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+259	Const	REGSTR_KEY_LOGON	30913	31002	304	1	724	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+260	Const	REGSTR_KEY_LOWER_FILTER_LEVEL_DEFAULT	31003	31112	305	1	727	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+261	Const	REGSTR_KEY_MEDIA_CLASS	31113	31206	306	1	730	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+262	Const	REGSTR_KEY_MODEM_CLASS	31207	31300	307	1	733	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+263	Const	REGSTR_KEY_MODES	31301	31388	308	1	736	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+264	Const	REGSTR_KEY_MONITOR_CLASS	31389	31486	309	1	739	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+265	Const	REGSTR_KEY_MOUSE_CLASS	31487	31580	310	1	742	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+266	Const	REGSTR_KEY_NDISINFO	31581	31674	311	1	745	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+267	Const	REGSTR_KEY_NETWORK	31675	31766	312	1	748	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+268	Const	REGSTR_KEY_NETWORKPROVIDER	31767	31876	313	1	751	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+269	Const	REGSTR_KEY_NETWORK_PERSISTENT	31877	31984	314	1	754	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+270	Const	REGSTR_KEY_NETWORK_RECENT	31985	32084	315	1	757	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+271	Const	REGSTR_KEY_OVERRIDE	32085	32178	316	1	760	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+272	Const	REGSTR_KEY_PCIENUM	32179	32266	317	1	763	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+273	Const	REGSTR_KEY_PCMCIA	32267	32358	318	1	766	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+274	Const	REGSTR_KEY_PCMCIAENUM	32359	32452	319	1	769	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+275	Const	REGSTR_KEY_PCMCIA_CLASS	32453	32548	320	1	772	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+276	Const	REGSTR_KEY_PCMTD	32549	32635	321	1	775	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+277	Const	REGSTR_KEY_PCUNKNOWN	32636	32742	322	1	778	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+278	Const	REGSTR_KEY_POL_COMPUTERS	32743	32842	323	1	781	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+279	Const	REGSTR_KEY_POL_DEFAULT	32843	32939	324	1	784	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+280	Const	REGSTR_KEY_POL_USERGROUPDATA	32940	33065	325	1	787	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+281	Const	REGSTR_KEY_POL_USERGROUPS	33066	33167	326	1	790	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+282	Const	REGSTR_KEY_POL_USERS	33168	33259	327	1	793	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+283	Const	REGSTR_KEY_PORTS_CLASS	33260	33353	328	1	796	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+284	Const	REGSTR_KEY_PRINTERS	33354	33447	329	1	799	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+285	Const	REGSTR_KEY_PRINT_PROC	33448	33553	330	1	802	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+286	Const	REGSTR_KEY_ROOTENUM	33554	33643	331	1	805	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+287	Const	REGSTR_KEY_RUNHISTORY	33644	33741	332	1	808	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+288	Const	REGSTR_KEY_SCSI_CLASS	33742	33840	333	1	811	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+289	Const	REGSTR_KEY_SETUP	33841	33930	334	1	814	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+290	Const	REGSTR_KEY_SHARES	33931	34075	335	1	817	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+291	Const	REGSTR_KEY_SYSTEM	34076	34165	336	1	820	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+292	Const	REGSTR_KEY_SYSTEMBOARD	34166	34262	337	1	823	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+293	Const	REGSTR_KEY_UPPER_FILTER_LEVEL_DEFAULT	34263	34372	338	1	826	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+294	Const	REGSTR_KEY_USER	34373	34458	339	1	829	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+295	Const	REGSTR_KEY_VPOWERDENUM	34459	34554	340	1	832	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+296	Const	REGSTR_KEY_WINOLDAPP	34555	34650	341	1	835	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+297	Const	REGSTR_MACHTYPE_ATT_PC	34651	34746	342	1	838	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+298	Const	REGSTR_MACHTYPE_HP_VECTRA	34747	34847	343	1	841	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+299	Const	REGSTR_MACHTYPE_IBMPC	34848	34941	344	1	844	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+300	Const	REGSTR_MACHTYPE_IBMPCAT	34942	35040	345	1	847	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+301	Const	REGSTR_MACHTYPE_IBMPCCONV	35041	35150	346	1	850	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+302	Const	REGSTR_MACHTYPE_IBMPCJR	35151	35248	347	1	853	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+303	Const	REGSTR_MACHTYPE_IBMPCXT	35249	35347	348	1	856	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+304	Const	REGSTR_MACHTYPE_IBMPCXT_286	35348	35454	349	1	859	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+305	Const	REGSTR_MACHTYPE_IBMPS1	35455	35551	350	1	862	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+306	Const	REGSTR_MACHTYPE_IBMPS2_25	35552	35654	351	1	865	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+307	Const	REGSTR_MACHTYPE_IBMPS2_30	35655	35757	352	1	868	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+308	Const	REGSTR_MACHTYPE_IBMPS2_30_286	35758	35868	353	1	871	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+309	Const	REGSTR_MACHTYPE_IBMPS2_50	35869	35971	354	1	874	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+310	Const	REGSTR_MACHTYPE_IBMPS2_50Z	35972	36076	355	1	877	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+311	Const	REGSTR_MACHTYPE_IBMPS2_55SX	36077	36183	356	1	880	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+312	Const	REGSTR_MACHTYPE_IBMPS2_60	36184	36286	357	1	883	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+313	Const	REGSTR_MACHTYPE_IBMPS2_65SX	36287	36393	358	1	886	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+314	Const	REGSTR_MACHTYPE_IBMPS2_70	36394	36496	359	1	889	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+315	Const	REGSTR_MACHTYPE_IBMPS2_70_80	36497	36605	360	1	892	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+316	Const	REGSTR_MACHTYPE_IBMPS2_80	36606	36708	361	1	895	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+317	Const	REGSTR_MACHTYPE_IBMPS2_90	36709	36811	362	1	898	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+318	Const	REGSTR_MACHTYPE_IBMPS2_P70	36812	36916	363	1	901	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+319	Const	REGSTR_MACHTYPE_PHOENIX_PCAT	36917	37035	364	1	904	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+320	Const	REGSTR_MACHTYPE_UNKNOWN	37036	37132	365	1	907	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+321	Const	REGSTR_MACHTYPE_ZENITH_PC	37133	37233	366	1	910	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+322	Const	REGSTR_MAX_VALUE_LENGTH	37234	37282	367	1	913	generated	
+323	Const	REGSTR_PATH_ADDRARB	37283	37425	368	1	914	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+324	Const	REGSTR_PATH_AEDEBUG	37426	37567	369	1	917	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+325	Const	REGSTR_PATH_APPEARANCE	37568	37681	370	1	920	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+326	Const	REGSTR_PATH_APPPATCH	37682	37830	371	1	923	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+327	Const	REGSTR_PATH_APPPATHS	37831	37972	372	1	926	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+328	Const	REGSTR_PATH_BIOSINFO	37973	38103	373	1	929	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+329	Const	REGSTR_PATH_BUSINFORMATION	38104	38251	374	1	932	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+330	Const	REGSTR_PATH_CDFS	38252	38386	375	1	935	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+331	Const	REGSTR_PATH_CHECKBADAPPS	38387	38541	376	1	938	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+332	Const	REGSTR_PATH_CHECKBADAPPS400	38542	38702	377	1	941	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+333	Const	REGSTR_PATH_CHECKDISK	38703	38856	378	1	944	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+334	Const	REGSTR_PATH_CHECKDISKSET	38857	38955	379	1	947	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+335	Const	REGSTR_PATH_CHECKDISKUDRVS	38956	39066	380	1	950	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+336	Const	REGSTR_PATH_CHECKVERDLLS	39067	39221	381	1	953	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+337	Const	REGSTR_PATH_CHILD_PREFIX	39222	39317	382	1	956	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+338	Const	REGSTR_PATH_CHKLASTCHECK	39318	39485	383	1	959	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+339	Const	REGSTR_PATH_CHKLASTSURFAN	39486	39664	384	1	962	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+340	Const	REGSTR_PATH_CLASS	39665	39790	385	1	965	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+341	Const	REGSTR_PATH_CLASS_NT	39791	39918	386	1	968	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+342	Const	REGSTR_PATH_CODEPAGE	39919	40054	387	1	971	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+343	Const	REGSTR_PATH_CODEVICEINSTALLERS	40055	40205	388	1	974	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+344	Const	REGSTR_PATH_COLORS	40206	40311	389	1	977	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+345	Const	REGSTR_PATH_COMPUTRNAME	40312	40463	390	1	980	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+346	Const	REGSTR_PATH_CONTROLPANEL	40464	40567	391	1	983	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+347	Const	REGSTR_PATH_CONTROLSFOLDER	40568	40721	392	1	986	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+348	Const	REGSTR_PATH_CRITICALDEVICEDATABASE	40722	40880	393	1	989	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+349	Const	REGSTR_PATH_CURRENTCONTROLSET	40881	41001	394	1	992	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+350	Const	REGSTR_PATH_CURRENT_CONTROL_SET	41002	41133	395	1	995	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+351	Const	REGSTR_PATH_CURSORS	41134	41241	396	1	998	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+352	Const	REGSTR_PATH_CVNETWORK	41242	41382	397	1	1001	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+353	Const	REGSTR_PATH_DESKTOP	41383	41490	398	1	1004	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+354	Const	REGSTR_PATH_DETECT	41491	41627	399	1	1007	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+355	Const	REGSTR_PATH_DEVICEINSTALLER	41628	41783	400	1	1010	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+356	Const	REGSTR_PATH_DEVICE_CLASSES	41784	41925	401	1	1013	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+357	Const	REGSTR_PATH_DIFX	41926	42058	402	1	1016	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+358	Const	REGSTR_PATH_DISPLAYSETTINGS	42059	42169	403	1	1019	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+359	Const	REGSTR_PATH_DMAARB	42170	42310	404	1	1022	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+360	Const	REGSTR_PATH_DRIVERSIGN	42311	42434	405	1	1025	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+361	Const	REGSTR_PATH_DRIVERSIGN_POLICY	42435	42587	406	1	1028	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+362	Const	REGSTR_PATH_ENUM	42588	42674	407	1	1031	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+363	Const	REGSTR_PATH_ENVIRONMENTS	42675	42820	408	1	1034	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+364	Const	REGSTR_PATH_EVENTLABELS	42821	42932	409	1	1037	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+365	Const	REGSTR_PATH_EXPLORER	42933	43073	410	1	1040	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+366	Const	REGSTR_PATH_FAULT	43074	43208	411	1	1043	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+367	Const	REGSTR_PATH_FILESYSTEM	43209	43343	412	1	1046	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+368	Const	REGSTR_PATH_FILESYSTEM_NOVOLTRACK	43344	43501	413	1	1049	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+369	Const	REGSTR_PATH_FLOATINGPOINTPROCESSOR	43502	43655	414	1	1052	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+370	Const	REGSTR_PATH_FLOATINGPOINTPROCESSOR0	43656	43813	415	1	1055	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+371	Const	REGSTR_PATH_FONTS	43814	43911	416	1	1058	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+372	Const	REGSTR_PATH_GRPCONV	43912	44050	417	1	1061	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+373	Const	REGSTR_PATH_HACKINIFILE	44051	44204	418	1	1064	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+374	Const	REGSTR_PATH_HWPROFILES	44205	44337	419	1	1067	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+375	Const	REGSTR_PATH_HWPROFILESCURRENT	44338	44486	420	1	1070	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+376	Const	REGSTR_PATH_ICONS	44487	44590	421	1	1073	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+377	Const	REGSTR_PATH_IDCONFIGDB	44591	44725	422	1	1076	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+378	Const	REGSTR_PATH_INSTALLEDFILES	44726	44868	423	1	1079	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+379	Const	REGSTR_PATH_IOARB	44869	45007	424	1	1082	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+380	Const	REGSTR_PATH_IOS	45008	45134	425	1	1085	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+381	Const	REGSTR_PATH_IRQARB	45135	45275	426	1	1088	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+382	Const	REGSTR_PATH_KEYBOARD	45276	45385	427	1	1091	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+383	Const	REGSTR_PATH_KNOWN16DLLS	45386	45538	428	1	1094	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+384	Const	REGSTR_PATH_KNOWNDLLS	45539	45687	429	1	1097	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+385	Const	REGSTR_PATH_KNOWNVXDS	45688	45836	430	1	1100	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+386	Const	REGSTR_PATH_LASTBACKUP	45837	45991	431	1	1103	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+387	Const	REGSTR_PATH_LASTCHECK	45992	46144	432	1	1106	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+388	Const	REGSTR_PATH_LASTGOOD	46145	46270	433	1	1109	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+389	Const	REGSTR_PATH_LASTGOODTMP	46271	46403	434	1	1112	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+390	Const	REGSTR_PATH_LASTOPTIMIZE	46404	46562	435	1	1115	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+391	Const	REGSTR_PATH_LOOKSCHEMES	46563	46686	436	1	1118	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+392	Const	REGSTR_PATH_METRICS	46687	46809	437	1	1121	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+393	Const	REGSTR_PATH_MONITORS	46810	46947	438	1	1124	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+394	Const	REGSTR_PATH_MOUSE	46948	47051	439	1	1127	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+395	Const	REGSTR_PATH_MSDOSOPTS	47052	47198	440	1	1130	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+396	Const	REGSTR_PATH_MULTIMEDIA_AUDIO	47199	47331	441	1	1133	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+397	Const	REGSTR_PATH_MULTI_FUNCTION	47332	47426	442	1	1136	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+398	Const	REGSTR_PATH_NCPSERVER	47427	47572	443	1	1139	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+399	Const	REGSTR_PATH_NETEQUIV	47573	47724	444	1	1142	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+400	Const	REGSTR_PATH_NETWORK_USERSETTINGS	47725	47830	445	1	1145	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+401	Const	REGSTR_PATH_NEWDOSBOX	47831	47983	446	1	1148	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+402	Const	REGSTR_PATH_NONDRIVERSIGN	47984	48114	447	1	1151	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+403	Const	REGSTR_PATH_NONDRIVERSIGN_POLICY	48115	48274	448	1	1154	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+404	Const	REGSTR_PATH_NOSUGGMSDOS	48275	48421	449	1	1157	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+405	Const	REGSTR_PATH_NT_CURRENTVERSION	48422	48564	450	1	1160	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+406	Const	REGSTR_PATH_NWREDIR	48565	48699	451	1	1163	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+407	Const	REGSTR_PATH_PCIIR	48700	48837	452	1	1166	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+408	Const	REGSTR_PATH_PER_HW_ID_STORAGE	48838	48996	453	1	1169	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+409	Const	REGSTR_PATH_PIFCONVERT	48997	49141	454	1	1172	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+410	Const	REGSTR_PATH_POLICIES	49142	49282	455	1	1175	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+411	Const	REGSTR_PATH_PRINT	49283	49407	456	1	1178	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+412	Const	REGSTR_PATH_PRINTERS	49408	49545	457	1	1181	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+413	Const	REGSTR_PATH_PROPERTYSYSTEM	49546	49698	458	1	1184	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+414	Const	REGSTR_PATH_PROVIDERS	49699	49838	459	1	1187	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+415	Const	REGSTR_PATH_PWDPROVIDER	49839	49975	460	1	1190	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+416	Const	REGSTR_PATH_REALMODENET	49976	50133	461	1	1193	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+417	Const	REGSTR_PATH_REINSTALL	50134	50276	462	1	1196	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+418	Const	REGSTR_PATH_RELIABILITY	50277	50423	463	1	1199	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+419	Const	REGSTR_PATH_RELIABILITY_POLICY	50424	50574	464	1	1202	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+420	Const	REGSTR_PATH_RELIABILITY_POLICY_REPORTSNAPSHOT	50575	50700	465	1	1205	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+421	Const	REGSTR_PATH_RELIABILITY_POLICY_SHUTDOWNREASONUI	50701	50830	466	1	1208	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+422	Const	REGSTR_PATH_RELIABILITY_POLICY_SNAPSHOT	50831	50944	467	1	1211	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+423	Const	REGSTR_PATH_ROOT	50945	51037	468	1	1214	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+424	Const	REGSTR_PATH_RUN	51038	51168	469	1	1217	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+425	Const	REGSTR_PATH_RUNONCE	51169	51307	470	1	1220	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+426	Const	REGSTR_PATH_RUNONCEEX	51308	51450	471	1	1223	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+427	Const	REGSTR_PATH_RUNSERVICES	51451	51597	472	1	1226	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+428	Const	REGSTR_PATH_RUNSERVICESONCE	51598	51752	473	1	1229	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+429	Const	REGSTR_PATH_SCHEMES	51753	51856	474	1	1232	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+430	Const	REGSTR_PATH_SCREENSAVE	51857	51967	475	1	1235	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+431	Const	REGSTR_PATH_SERVICES	51968	52089	476	1	1238	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+432	Const	REGSTR_PATH_SETUP	52090	52217	477	1	1241	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+433	Const	REGSTR_PATH_SHUTDOWN	52218	52348	478	1	1244	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+434	Const	REGSTR_PATH_SOUND	52349	52452	479	1	1247	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+435	Const	REGSTR_PATH_SYSTEMENUM	52453	52572	480	1	1250	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+436	Const	REGSTR_PATH_SYSTRAY	52573	52720	481	1	1253	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+437	Const	REGSTR_PATH_TIMEZONE	52721	52862	482	1	1256	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+438	Const	REGSTR_PATH_UNINSTALL	52863	53005	483	1	1259	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+439	Const	REGSTR_PATH_UPDATE	53006	53132	484	1	1262	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+440	Const	REGSTR_PATH_VCOMM	53133	53263	485	1	1265	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+441	Const	REGSTR_PATH_VMM	53264	53390	486	1	1268	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+442	Const	REGSTR_PATH_VMM32FILES	53391	53525	487	1	1271	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+443	Const	REGSTR_PATH_VNETSUP	53526	53660	488	1	1274	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+444	Const	REGSTR_PATH_VOLUMECACHE	53661	53818	489	1	1277	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+445	Const	REGSTR_PATH_VPOWERD	53819	53953	490	1	1280	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+446	Const	REGSTR_PATH_VXD	53954	54075	491	1	1283	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+447	Const	REGSTR_PATH_WARNVERDLLS	54076	54228	492	1	1286	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+448	Const	REGSTR_PATH_WINBOOT	54229	54357	493	1	1289	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+449	Const	REGSTR_PATH_WINDOWSAPPLETS	54358	54503	494	1	1292	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+450	Const	REGSTR_PATH_WINLOGON	54504	54644	495	1	1295	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+451	Const	REGSTR_PATH_WMI_SECURITY	54645	54784	496	1	1298	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+452	Const	REGSTR_PCI_DUAL_IDE	54785	54880	497	1	1301	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+453	Const	REGSTR_PCI_OPTIONS	54881	54972	498	1	1304	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+454	Const	REGSTR_VALUE_DEFAULTLOC	54973	55083	499	1	1307	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+455	Const	REGSTR_VALUE_ENABLE	55084	55175	500	1	1310	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+456	Const	REGSTR_VALUE_LOWPOWERACTIVE	55176	55293	501	1	1313	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+457	Const	REGSTR_VALUE_LOWPOWERTIMEOUT	55294	55413	502	1	1316	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+458	Const	REGSTR_VALUE_NETPATH	55414	55511	503	1	1319	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+459	Const	REGSTR_VALUE_POWEROFFACTIVE	55512	55629	504	1	1322	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+460	Const	REGSTR_VALUE_POWEROFFTIMEOUT	55630	55749	505	1	1325	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+461	Const	REGSTR_VALUE_SCRPASSWORD	55750	55855	506	1	1328	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+462	Const	REGSTR_VALUE_USESCRPASSWORD	55856	55970	507	1	1331	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+463	Const	REGSTR_VALUE_VERBOSE	55971	56064	508	1	1334	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+464	Const	REGSTR_VAL_ACDRIVESPINDOWN	56065	56172	509	1	1337	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+465	Const	REGSTR_VAL_ACSPINDOWNPREVIOUS	56173	56286	510	1	1340	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+466	Const	REGSTR_VAL_ACTIVESERVICE	56287	56390	511	1	1343	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+467	Const	REGSTR_VAL_ADDRESS	56391	56482	512	1	1346	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+468	Const	REGSTR_VAL_AEDEBUG_AUTO	56483	56576	513	1	1349	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+469	Const	REGSTR_VAL_AEDEBUG_DEBUGGER	56577	56678	514	1	1352	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+470	Const	REGSTR_VAL_ALPHANUMPWDS	56679	56780	515	1	1355	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+471	Const	REGSTR_VAL_APISUPPORT	56781	56878	516	1	1358	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+472	Const	REGSTR_VAL_APMACTIMEOUT	56879	56980	517	1	1361	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+473	Const	REGSTR_VAL_APMBATTIMEOUT	56981	57084	518	1	1364	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+474	Const	REGSTR_VAL_APMBIOSVER	57085	57182	519	1	1367	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+475	Const	REGSTR_VAL_APMFLAGS	57183	57276	520	1	1370	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+476	Const	REGSTR_VAL_APMMENUSUSPEND	57277	57382	521	1	1373	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+477	Const	REGSTR_VAL_APMSHUTDOWNPOWER	57383	57492	522	1	1376	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+478	Const	REGSTR_VAL_APPINSTPATH	57493	57595	523	1	1379	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+479	Const	REGSTR_VAL_ASKFORCONFIG	57596	57697	524	1	1382	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+480	Const	REGSTR_VAL_ASKFORCONFIGFUNC	57698	57807	525	1	1385	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+481	Const	REGSTR_VAL_ASYNCFILECOMMIT	57808	57915	526	1	1388	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+482	Const	REGSTR_VAL_AUDIO_BITMAP	57916	58011	527	1	1391	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+483	Const	REGSTR_VAL_AUDIO_ICON	58012	58103	528	1	1394	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+484	Const	REGSTR_VAL_AUTHENT_AGENT	58104	58213	529	1	1397	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+485	Const	REGSTR_VAL_AUTOEXEC	58214	58311	530	1	1400	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+486	Const	REGSTR_VAL_AUTOINSNOTE	58312	58422	531	1	1403	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+487	Const	REGSTR_VAL_AUTOLOGON	58423	58518	532	1	1406	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+488	Const	REGSTR_VAL_AUTOMOUNT	58519	58620	533	1	1409	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+489	Const	REGSTR_VAL_AUTOSTART	58621	58716	534	1	1412	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+490	Const	REGSTR_VAL_BASICPROPERTIES	58717	58824	535	1	1415	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+491	Const	REGSTR_VAL_BASICPROPERTIES_32	58825	58937	536	1	1418	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+492	Const	REGSTR_VAL_BATDRIVESPINDOWN	58938	59047	537	1	1421	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+493	Const	REGSTR_VAL_BATSPINDOWNPREVIOUS	59048	59163	538	1	1424	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+494	Const	REGSTR_VAL_BEHAVIOR_ON_FAILED_VERIFY	59164	59288	539	1	1427	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+495	Const	REGSTR_VAL_BIOSDATE	59289	59382	540	1	1430	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+496	Const	REGSTR_VAL_BIOSNAME	59383	59476	541	1	1433	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+497	Const	REGSTR_VAL_BIOSVERSION	59477	59576	542	1	1436	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+498	Const	REGSTR_VAL_BITSPERPIXEL	59577	59678	543	1	1439	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+499	Const	REGSTR_VAL_BOOTCONFIG	59679	59776	544	1	1442	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+500	Const	REGSTR_VAL_BOOTCOUNT	59777	59872	545	1	1445	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+501	Const	REGSTR_VAL_BOOTDIR	59873	59964	546	1	1448	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+502	Const	REGSTR_VAL_BPP	59965	60048	547	1	1451	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+503	Const	REGSTR_VAL_BT	60049	60134	548	1	1454	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+504	Const	REGSTR_VAL_BUFFAGETIMEOUT	60135	60242	549	1	1457	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+505	Const	REGSTR_VAL_BUFFIDLETIMEOUT	60243	60352	550	1	1460	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+506	Const	REGSTR_VAL_BUSTYPE	60353	60444	551	1	1463	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+507	Const	REGSTR_VAL_CAPABILITIES	60445	60546	552	1	1466	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+508	Const	REGSTR_VAL_CARDSPECIFIC	60547	60648	553	1	1469	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+509	Const	REGSTR_VAL_CDCACHESIZE	60649	60746	554	1	1472	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+510	Const	REGSTR_VAL_CDCOMPATNAMES	60747	60854	555	1	1475	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+511	Const	REGSTR_VAL_CDEXTERRORS	60855	60957	556	1	1478	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+512	Const	REGSTR_VAL_CDNOREADAHEAD	60958	61059	557	1	1481	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+513	Const	REGSTR_VAL_CDPREFETCH	61060	61155	558	1	1484	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+514	Const	REGSTR_VAL_CDPREFETCHTAIL	61156	61259	559	1	1487	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+515	Const	REGSTR_VAL_CDRAWCACHE	61260	61355	560	1	1490	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+516	Const	REGSTR_VAL_CDROM	61356	61443	561	1	1493	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+517	Const	REGSTR_VAL_CDROMCLASSNAME	61444	61540	562	1	1496	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+518	Const	REGSTR_VAL_CDSHOWVERSIONS	61541	61644	563	1	1499	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+519	Const	REGSTR_VAL_CDSVDSENSE	61645	61740	564	1	1502	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+520	Const	REGSTR_VAL_CHECKSUM	61741	61841	565	1	1505	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+521	Const	REGSTR_VAL_CLASS	61842	61929	566	1	1508	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+522	Const	REGSTR_VAL_CLASSDESC	61930	62025	567	1	1511	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+523	Const	REGSTR_VAL_CLASSGUID	62026	62121	568	1	1514	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+524	Const	REGSTR_VAL_CMDRIVFLAGS	62122	62221	569	1	1517	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+525	Const	REGSTR_VAL_CMENUMFLAGS	62222	62321	570	1	1520	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+526	Const	REGSTR_VAL_COINSTALLERS_32	62322	62428	571	1	1523	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+527	Const	REGSTR_VAL_COMINFO	62429	62520	572	1	1526	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+528	Const	REGSTR_VAL_COMMENT	62521	62612	573	1	1529	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+529	Const	REGSTR_VAL_COMPATIBLEIDS	62613	62716	574	1	1532	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+530	Const	REGSTR_VAL_COMPRESSIONMETHOD	62717	62831	575	1	1535	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+531	Const	REGSTR_VAL_COMPRESSIONTHRESHOLD	62832	62949	576	1	1538	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+532	Const	REGSTR_VAL_COMPUTERNAME	62950	63051	577	1	1541	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+533	Const	REGSTR_VAL_COMPUTRNAME	63052	63152	578	1	1544	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+534	Const	REGSTR_VAL_COMVERIFYBASE	63153	63256	579	1	1547	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+535	Const	REGSTR_VAL_CONFIG	63257	63350	580	1	1550	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+536	Const	REGSTR_VAL_CONFIGFLAGS	63351	63450	581	1	1553	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+537	Const	REGSTR_VAL_CONFIGMG	63451	63544	582	1	1556	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+538	Const	REGSTR_VAL_CONFIGSYS	63545	63641	583	1	1559	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+539	Const	REGSTR_VAL_CONNECTION_TYPE	63642	63748	584	1	1562	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+540	Const	REGSTR_VAL_CONTAINERID	63749	63848	585	1	1565	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+541	Const	REGSTR_VAL_CONTIGFILEALLOC	63849	63960	586	1	1568	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+542	Const	REGSTR_VAL_CONVMEM	63961	64052	587	1	1571	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+543	Const	REGSTR_VAL_CPU	64053	64136	588	1	1574	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+544	Const	REGSTR_VAL_CRASHFUNCS	64137	64234	589	1	1577	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+545	Const	REGSTR_VAL_CSCONFIGFLAGS	64235	64338	590	1	1580	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+546	Const	REGSTR_VAL_CURCONFIG	64339	64438	591	1	1583	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+547	Const	REGSTR_VAL_CURDRVLET	64439	64553	592	1	1586	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+548	Const	REGSTR_VAL_CURRENTCONFIG	64554	64657	593	1	1589	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+549	Const	REGSTR_VAL_CURRENT_BUILD	64658	64766	594	1	1592	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+550	Const	REGSTR_VAL_CURRENT_CSDVERSION	64767	64872	595	1	1595	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+551	Const	REGSTR_VAL_CURRENT_TYPE	64873	64973	596	1	1598	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+552	Const	REGSTR_VAL_CURRENT_USER	64974	65075	597	1	1601	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+553	Const	REGSTR_VAL_CURRENT_VERSION	65076	65182	598	1	1604	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+554	Const	REGSTR_VAL_CUSTOMCOLORS	65183	65284	599	1	1607	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+555	Const	REGSTR_VAL_CUSTOM_PROPERTY_CACHE_DATE	65285	65411	600	1	1610	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+556	Const	REGSTR_VAL_CUSTOM_PROPERTY_HW_ID_KEY	65412	65535	601	1	1613	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+557	Const	REGSTR_VAL_DEFAULT	65536	65627	602	1	1616	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+558	Const	REGSTR_VAL_DETCONFIG	65628	65723	603	1	1619	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+559	Const	REGSTR_VAL_DETECT	65724	65813	604	1	1622	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+560	Const	REGSTR_VAL_DETECTFUNC	65814	65911	605	1	1625	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+561	Const	REGSTR_VAL_DETFLAGS	65912	66005	606	1	1628	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+562	Const	REGSTR_VAL_DETFUNC	66006	66097	607	1	1631	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+563	Const	REGSTR_VAL_DEVDESC	66098	66192	608	1	1634	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+564	Const	REGSTR_VAL_DEVICEDRIVER	66193	66294	609	1	1637	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+565	Const	REGSTR_VAL_DEVICEPATH	66295	66392	610	1	1640	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+566	Const	REGSTR_VAL_DEVICE_CHARACTERISTICS	66393	66513	611	1	1643	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+567	Const	REGSTR_VAL_DEVICE_EXCLUSIVE	66514	66616	612	1	1646	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+568	Const	REGSTR_VAL_DEVICE_INSTANCE	66617	66723	613	1	1649	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+569	Const	REGSTR_VAL_DEVICE_SECURITY_DESCRIPTOR	66724	66835	614	1	1652	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+570	Const	REGSTR_VAL_DEVICE_TYPE	66836	66934	615	1	1655	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+571	Const	REGSTR_VAL_DEVLOADER	66935	67030	616	1	1658	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+572	Const	REGSTR_VAL_DEVTYPE	67031	67125	617	1	1661	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+573	Const	REGSTR_VAL_DIRECTHOST	67126	67223	618	1	1664	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+574	Const	REGSTR_VAL_DIRTYSHUTDOWN	67224	67327	619	1	1667	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+575	Const	REGSTR_VAL_DIRTYSHUTDOWNTIME	67328	67439	620	1	1670	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+576	Const	REGSTR_VAL_DISABLECOUNT	67440	67541	621	1	1673	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+577	Const	REGSTR_VAL_DISABLEPWDCACHING	67542	67653	622	1	1676	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+578	Const	REGSTR_VAL_DISABLEREGTOOLS	67654	67766	623	1	1679	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+579	Const	REGSTR_VAL_DISCONNECT	67767	67864	624	1	1682	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+580	Const	REGSTR_VAL_DISK	67865	67953	625	1	1685	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+581	Const	REGSTR_VAL_DISKCLASSNAME	67954	68053	626	1	1688	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+582	Const	REGSTR_VAL_DISPCPL_NOAPPEARANCEPAGE	68054	68175	627	1	1691	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+583	Const	REGSTR_VAL_DISPCPL_NOBACKGROUNDPAGE	68176	68297	628	1	1694	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+584	Const	REGSTR_VAL_DISPCPL_NODISPCPL	68298	68401	629	1	1697	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+585	Const	REGSTR_VAL_DISPCPL_NOSCRSAVPAGE	68402	68515	630	1	1700	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+586	Const	REGSTR_VAL_DISPCPL_NOSETTINGSPAGE	68516	68633	631	1	1703	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+587	Const	REGSTR_VAL_DISPLAY	68634	68725	632	1	1706	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+588	Const	REGSTR_VAL_DISPLAYFLAGS	68726	68827	633	1	1709	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+589	Const	REGSTR_VAL_DOCKED	68828	68929	634	1	1712	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+590	Const	REGSTR_VAL_DOCKSTATE	68930	69025	635	1	1715	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+591	Const	REGSTR_VAL_DOES_POLLING	69026	69135	636	1	1718	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+592	Const	REGSTR_VAL_DONTLOADIFCONFLICT	69136	69249	637	1	1721	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+593	Const	REGSTR_VAL_DONTUSEMEM	69250	69353	638	1	1724	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+594	Const	REGSTR_VAL_DOSCP	69354	69441	639	1	1727	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+595	Const	REGSTR_VAL_DOSOPTFLAGS	69442	69535	640	1	1730	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+596	Const	REGSTR_VAL_DOSOPTGLOBALFLAGS	69536	69641	641	1	1733	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+597	Const	REGSTR_VAL_DOSOPTTIP	69642	69735	642	1	1736	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+598	Const	REGSTR_VAL_DOSPAGER	69736	69829	643	1	1739	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+599	Const	REGSTR_VAL_DOS_SPOOL_MASK	69830	69933	644	1	1742	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+600	Const	REGSTR_VAL_DOUBLEBUFFER	69934	70035	645	1	1745	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+601	Const	REGSTR_VAL_DPI	70036	70119	646	1	1748	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+602	Const	REGSTR_VAL_DPILOGICALX	70120	70219	647	1	1751	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+603	Const	REGSTR_VAL_DPILOGICALY	70220	70319	648	1	1754	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+604	Const	REGSTR_VAL_DPIPHYSICALX	70320	70421	649	1	1757	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+605	Const	REGSTR_VAL_DPIPHYSICALY	70422	70523	650	1	1760	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+606	Const	REGSTR_VAL_DPMS	70524	70609	651	1	1763	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+607	Const	REGSTR_VAL_DRIVER	70610	70699	652	1	1766	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+608	Const	REGSTR_VAL_DRIVERCACHEPATH	70700	70807	653	1	1769	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+609	Const	REGSTR_VAL_DRIVERDATE	70808	70905	654	1	1772	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+610	Const	REGSTR_VAL_DRIVERDATEDATA	70906	71011	655	1	1775	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+611	Const	REGSTR_VAL_DRIVERVERSION	71012	71115	656	1	1778	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+612	Const	REGSTR_VAL_DRIVESPINDOWN	71116	71219	657	1	1781	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+613	Const	REGSTR_VAL_DRIVEWRITEBEHIND	71220	71329	658	1	1784	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+614	Const	REGSTR_VAL_DRIVE_SPINDOWN	71330	71435	659	1	1787	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+615	Const	REGSTR_VAL_DRV	71436	71519	660	1	1790	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+616	Const	REGSTR_VAL_DRVDESC	71520	71614	661	1	1793	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+617	Const	REGSTR_VAL_DYNAMIC	71615	71706	662	1	1796	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+618	Const	REGSTR_VAL_EISA_FLAGS	71707	71803	663	1	1799	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+619	Const	REGSTR_VAL_EISA_FUNCTIONS	71804	71908	664	1	1802	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+620	Const	REGSTR_VAL_EISA_FUNCTIONS_MASK	71909	72022	665	1	1805	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+621	Const	REGSTR_VAL_EISA_RANGES	72023	72121	666	1	1808	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+622	Const	REGSTR_VAL_EISA_SIMULATE_INT15	72122	72235	667	1	1811	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+623	Const	REGSTR_VAL_EJECT_PRIORITY	72236	72340	668	1	1814	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+624	Const	REGSTR_VAL_ENABLEINTS	72341	72438	669	1	1817	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+625	Const	REGSTR_VAL_ENUMERATOR	72439	72536	670	1	1820	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+626	Const	REGSTR_VAL_ENUMPROPPAGES	72537	72640	671	1	1823	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+627	Const	REGSTR_VAL_ENUMPROPPAGES_32	72641	72749	672	1	1826	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+628	Const	REGSTR_VAL_ESDI	72750	72837	673	1	1829	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+629	Const	REGSTR_VAL_EXISTS	72838	72927	674	1	1832	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+630	Const	REGSTR_VAL_EXTMEM	72928	73017	675	1	1835	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+631	Const	REGSTR_VAL_FAULT_LOGFILE	73018	73115	676	1	1838	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+632	Const	REGSTR_VAL_FIFODEPTH	73116	73211	677	1	1841	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+633	Const	REGSTR_VAL_FILESHARING	73212	73311	678	1	1844	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+634	Const	REGSTR_VAL_FIRSTINSTALLDATETIME	73312	73429	679	1	1847	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+635	Const	REGSTR_VAL_FIRSTNETDRIVE	73430	73537	680	1	1850	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+636	Const	REGSTR_VAL_FLOP	73538	73625	681	1	1853	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+637	Const	REGSTR_VAL_FLOPPY	73626	73715	682	1	1856	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+638	Const	REGSTR_VAL_FONTSIZE	73716	73809	683	1	1859	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+639	Const	REGSTR_VAL_FORCECL	73810	73909	684	1	1862	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+640	Const	REGSTR_VAL_FORCEDCONFIG	73910	74011	685	1	1865	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+641	Const	REGSTR_VAL_FORCEFIFO	74012	74107	686	1	1868	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+642	Const	REGSTR_VAL_FORCELOAD	74108	74205	687	1	1871	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+643	Const	REGSTR_VAL_FORCEPMIO	74206	74301	688	1	1874	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+644	Const	REGSTR_VAL_FORCEREBOOT	74302	74401	689	1	1877	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+645	Const	REGSTR_VAL_FORCERMIO	74402	74497	690	1	1880	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+646	Const	REGSTR_VAL_FREESPACERATIO	74498	74603	691	1	1883	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+647	Const	REGSTR_VAL_FRIENDLYNAME	74604	74705	692	1	1886	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+648	Const	REGSTR_VAL_FSFILTERCLASS	74706	74809	693	1	1889	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+649	Const	REGSTR_VAL_FULLTRACE	74810	74905	694	1	1892	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+650	Const	REGSTR_VAL_FUNCDESC	74906	75003	695	1	1895	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+651	Const	REGSTR_VAL_GAPTIME	75004	75095	696	1	1898	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+652	Const	REGSTR_VAL_GRB	75096	75179	697	1	1901	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+653	Const	REGSTR_VAL_HARDWAREID	75180	75277	698	1	1904	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+654	Const	REGSTR_VAL_HIDESHAREPWDS	75278	75381	699	1	1907	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+655	Const	REGSTR_VAL_HRES	75382	75467	700	1	1910	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+656	Const	REGSTR_VAL_HWDETECT	75468	75567	701	1	1913	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+657	Const	REGSTR_VAL_HWMECHANISM	75568	75667	702	1	1916	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+658	Const	REGSTR_VAL_HWREV	75668	75760	703	1	1919	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+659	Const	REGSTR_VAL_ID	75761	75849	704	1	1922	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+660	Const	REGSTR_VAL_IDE_FORCE_SERIALIZE	75850	75964	705	1	1925	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+661	Const	REGSTR_VAL_IDE_NO_SERIALIZE	75965	76072	706	1	1928	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+662	Const	REGSTR_VAL_INFNAME	76073	76164	707	1	1931	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+663	Const	REGSTR_VAL_INFPATH	76165	76256	708	1	1934	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+664	Const	REGSTR_VAL_INFSECTION	76257	76354	709	1	1937	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+665	Const	REGSTR_VAL_INFSECTIONEXT	76355	76458	710	1	1940	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+666	Const	REGSTR_VAL_INHIBITRESULTS	76459	76564	711	1	1943	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+667	Const	REGSTR_VAL_INSICON	76565	76653	712	1	1946	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+668	Const	REGSTR_VAL_INSTALLER	76654	76749	713	1	1949	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+669	Const	REGSTR_VAL_INSTALLER_32	76750	76850	714	1	1952	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+670	Const	REGSTR_VAL_INSTALLTYPE	76851	76950	715	1	1955	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+671	Const	REGSTR_VAL_INT13	76951	77038	716	1	1958	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+672	Const	REGSTR_VAL_ISAPNP	77039	77128	717	1	1961	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+673	Const	REGSTR_VAL_ISAPNP_RDP_OVERRIDE	77129	77236	718	1	1964	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+674	Const	REGSTR_VAL_JOYCALLOUT	77237	77339	719	1	1967	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+675	Const	REGSTR_VAL_JOYNCONFIG	77340	77450	720	1	1970	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+676	Const	REGSTR_VAL_JOYNOEMCALLOUT	77451	77562	721	1	1973	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+677	Const	REGSTR_VAL_JOYNOEMNAME	77563	77668	722	1	1976	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+678	Const	REGSTR_VAL_JOYOEMCAL1	77669	77763	723	1	1979	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+679	Const	REGSTR_VAL_JOYOEMCAL10	77764	77860	724	1	1982	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+680	Const	REGSTR_VAL_JOYOEMCAL11	77861	77957	725	1	1985	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+681	Const	REGSTR_VAL_JOYOEMCAL12	77958	78054	726	1	1988	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+682	Const	REGSTR_VAL_JOYOEMCAL2	78055	78149	727	1	1991	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+683	Const	REGSTR_VAL_JOYOEMCAL3	78150	78244	728	1	1994	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+684	Const	REGSTR_VAL_JOYOEMCAL4	78245	78339	729	1	1997	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+685	Const	REGSTR_VAL_JOYOEMCAL5	78340	78434	730	1	2000	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+686	Const	REGSTR_VAL_JOYOEMCAL6	78435	78529	731	1	2003	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+687	Const	REGSTR_VAL_JOYOEMCAL7	78530	78624	732	1	2006	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+688	Const	REGSTR_VAL_JOYOEMCAL8	78625	78719	733	1	2009	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+689	Const	REGSTR_VAL_JOYOEMCAL9	78720	78814	734	1	2012	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+690	Const	REGSTR_VAL_JOYOEMCALCAP	78815	78913	735	1	2015	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+691	Const	REGSTR_VAL_JOYOEMCALLOUT	78914	79014	736	1	2018	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+692	Const	REGSTR_VAL_JOYOEMCALWINCAP	79015	79119	737	1	2021	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+693	Const	REGSTR_VAL_JOYOEMDATA	79120	79214	738	1	2024	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+694	Const	REGSTR_VAL_JOYOEMNAME	79215	79309	739	1	2027	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+695	Const	REGSTR_VAL_JOYOEMPOVLABEL	79310	79412	740	1	2030	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+696	Const	REGSTR_VAL_JOYOEMRLABEL	79413	79511	741	1	2033	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+697	Const	REGSTR_VAL_JOYOEMTESTBUTTONCAP	79512	79624	742	1	2036	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+698	Const	REGSTR_VAL_JOYOEMTESTBUTTONDESC	79625	79739	743	1	2039	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+699	Const	REGSTR_VAL_JOYOEMTESTMOVECAP	79740	79848	744	1	2042	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+700	Const	REGSTR_VAL_JOYOEMTESTMOVEDESC	79849	79959	745	1	2045	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+701	Const	REGSTR_VAL_JOYOEMTESTWINCAP	79960	80066	746	1	2048	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+702	Const	REGSTR_VAL_JOYOEMULABEL	80067	80165	747	1	2051	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+703	Const	REGSTR_VAL_JOYOEMVLABEL	80166	80264	748	1	2054	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+704	Const	REGSTR_VAL_JOYOEMXYLABEL	80265	80365	749	1	2057	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+705	Const	REGSTR_VAL_JOYOEMZLABEL	80366	80464	750	1	2060	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+706	Const	REGSTR_VAL_JOYUSERVALUES	80465	80573	751	1	2063	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+707	Const	REGSTR_VAL_LASTALIVEBT	80574	80673	752	1	2066	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+708	Const	REGSTR_VAL_LASTALIVEINTERVAL	80674	80785	753	1	2069	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+709	Const	REGSTR_VAL_LASTALIVEPMPOLICY	80786	80897	754	1	2072	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+710	Const	REGSTR_VAL_LASTALIVESTAMP	80898	81003	755	1	2075	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+711	Const	REGSTR_VAL_LASTALIVESTAMPFORCED	81004	81121	756	1	2078	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+712	Const	REGSTR_VAL_LASTALIVESTAMPINTERVAL	81122	81243	757	1	2081	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+713	Const	REGSTR_VAL_LASTALIVESTAMPPOLICYINTERVAL	81244	81377	758	1	2084	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+714	Const	REGSTR_VAL_LASTALIVEUPTIME	81378	81485	759	1	2087	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+715	Const	REGSTR_VAL_LASTBOOTPMDRVS	81486	81591	760	1	2090	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+716	Const	REGSTR_VAL_LASTCOMPUTERNAME	81592	81701	761	1	2093	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+717	Const	REGSTR_VAL_LASTPCIBUSNUM	81702	81805	762	1	2096	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+718	Const	REGSTR_VAL_LAST_UPDATE_TIME	81806	81913	763	1	2099	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+719	Const	REGSTR_VAL_LEGALNOTICECAPTION	81914	82027	764	1	2102	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+720	Const	REGSTR_VAL_LEGALNOTICETEXT	82028	82135	765	1	2105	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+721	Const	REGSTR_VAL_LICENSINGINFO	82136	82239	766	1	2108	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+722	Const	REGSTR_VAL_LINKED	82240	82329	767	1	2111	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+723	Const	REGSTR_VAL_LOADHI	82330	82419	768	1	2114	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+724	Const	REGSTR_VAL_LOADRMDRIVERS	82420	82523	769	1	2117	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+725	Const	REGSTR_VAL_LOCATION_INFORMATION	82524	82640	770	1	2120	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+726	Const	REGSTR_VAL_LOCATION_INFORMATION_OVERRIDE	82641	82774	771	1	2123	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+727	Const	REGSTR_VAL_LOWERFILTERS	82775	82876	772	1	2126	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+728	Const	REGSTR_VAL_LOWER_FILTER_DEFAULT_LEVEL	82877	83003	773	1	2129	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+729	Const	REGSTR_VAL_LOWER_FILTER_LEVELS	83004	83117	774	1	2132	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+730	Const	REGSTR_VAL_MACHINETYPE	83118	83217	775	1	2135	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+731	Const	REGSTR_VAL_MANUFACTURER	83218	83319	776	1	2138	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+732	Const	REGSTR_VAL_MAP	83320	83403	777	1	2141	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+733	Const	REGSTR_VAL_MATCHINGDEVID	83404	83510	778	1	2144	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+734	Const	REGSTR_VAL_MAXCONNECTIONS	83511	83616	779	1	2147	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+735	Const	REGSTR_VAL_MAXLIP	83617	83706	780	1	2150	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+736	Const	REGSTR_VAL_MAXRES	83707	83803	781	1	2153	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+737	Const	REGSTR_VAL_MAXRETRY	83804	83897	782	1	2156	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+738	Const	REGSTR_VAL_MAX_HCID_LEN	83898	83947	783	1	2159	generated	
+739	Const	REGSTR_VAL_MEDIA	83948	84039	784	1	2160	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+740	Const	REGSTR_VAL_MFG	84040	84123	785	1	2163	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+741	Const	REGSTR_VAL_MF_FLAGS	84124	84216	786	1	2166	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+742	Const	REGSTR_VAL_MINIPORT_STAT	84217	84321	787	1	2169	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+743	Const	REGSTR_VAL_MINPWDLEN	84322	84417	788	1	2172	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+744	Const	REGSTR_VAL_MINRETRY	84418	84511	789	1	2175	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+745	Const	REGSTR_VAL_MODE	84512	84597	790	1	2178	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+746	Const	REGSTR_VAL_MODEL	84598	84685	791	1	2181	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+747	Const	REGSTR_VAL_MSDOSMODE	84686	84781	792	1	2184	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+748	Const	REGSTR_VAL_MSDOSMODEDISCARD	84782	84882	793	1	2187	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+749	Const	REGSTR_VAL_MUSTBEVALIDATED	84883	84990	794	1	2190	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+750	Const	REGSTR_VAL_NAMECACHECOUNT	84991	85091	795	1	2193	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+751	Const	REGSTR_VAL_NAMENUMERICTAIL	85092	85199	796	1	2196	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+752	Const	REGSTR_VAL_NCP_BROWSEMASTER	85200	85305	797	1	2199	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+753	Const	REGSTR_VAL_NCP_USEPEERBROWSING	85306	85418	798	1	2202	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+754	Const	REGSTR_VAL_NCP_USESAP	85419	85513	799	1	2205	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+755	Const	REGSTR_VAL_NDP	85514	85597	800	1	2208	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+756	Const	REGSTR_VAL_NETCARD	85598	85689	801	1	2211	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+757	Const	REGSTR_VAL_NETCLEAN	85690	85783	802	1	2214	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+758	Const	REGSTR_VAL_NETOSTYPE	85784	85879	803	1	2217	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+759	Const	REGSTR_VAL_NETSETUP_DISABLE	85880	85983	804	1	2220	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+760	Const	REGSTR_VAL_NETSETUP_NOCONFIGPAGE	85984	86102	805	1	2223	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+761	Const	REGSTR_VAL_NETSETUP_NOIDPAGE	86103	86213	806	1	2226	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+762	Const	REGSTR_VAL_NETSETUP_NOSECURITYPAGE	86214	86336	807	1	2229	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+763	Const	REGSTR_VAL_NOCMOSORFDPT	86337	86438	808	1	2232	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+764	Const	REGSTR_VAL_NODISPLAYCLASS	86439	86544	809	1	2235	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+765	Const	REGSTR_VAL_NOENTIRENETWORK	86545	86652	810	1	2238	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+766	Const	REGSTR_VAL_NOFILESHARING	86653	86756	811	1	2241	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+767	Const	REGSTR_VAL_NOFILESHARINGCTRL	86757	86871	812	1	2244	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+768	Const	REGSTR_VAL_NOIDE	86872	86959	813	1	2247	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+769	Const	REGSTR_VAL_NOINSTALLCLASS	86960	87065	814	1	2250	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+770	Const	REGSTR_VAL_NONSTANDARD_ATAPI	87066	87176	815	1	2253	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+771	Const	REGSTR_VAL_NOPRINTSHARING	87177	87282	816	1	2256	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+772	Const	REGSTR_VAL_NOPRINTSHARINGCTRL	87283	87399	817	1	2259	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+773	Const	REGSTR_VAL_NOUSECLASS	87400	87497	818	1	2262	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+774	Const	REGSTR_VAL_NOWORKGROUPCONTENTS	87498	87613	819	1	2265	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+775	Const	REGSTR_VAL_OLDMSDOSVER	87614	87713	820	1	2268	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+776	Const	REGSTR_VAL_OLDWINDIR	87714	87809	821	1	2271	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+777	Const	REGSTR_VAL_OPTIMIZESFN	87810	87909	822	1	2274	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+778	Const	REGSTR_VAL_OPTIONS	87910	88001	823	1	2277	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+779	Const	REGSTR_VAL_OPTORDER	88002	88092	824	1	2280	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+780	Const	REGSTR_VAL_P1284MDL	88093	88183	825	1	2283	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+781	Const	REGSTR_VAL_P1284MFG	88184	88281	826	1	2286	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+782	Const	REGSTR_VAL_PATHCACHECOUNT	88282	88382	827	1	2289	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+783	Const	REGSTR_VAL_PCCARD_POWER	88383	88493	828	1	2292	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+784	Const	REGSTR_VAL_PCI	88494	88577	829	1	2295	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+785	Const	REGSTR_VAL_PCIBIOSVER	88578	88675	830	1	2298	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+786	Const	REGSTR_VAL_PCICIRQMAP	88676	88773	831	1	2301	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+787	Const	REGSTR_VAL_PCICOPTIONS	88774	88873	832	1	2304	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+788	Const	REGSTR_VAL_PCMCIA_ALLOC	88874	88974	833	1	2307	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+789	Const	REGSTR_VAL_PCMCIA_ATAD	88975	89071	834	1	2310	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+790	Const	REGSTR_VAL_PCMCIA_MEM	89072	89165	835	1	2313	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+791	Const	REGSTR_VAL_PCMCIA_OPT	89166	89260	836	1	2316	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+792	Const	REGSTR_VAL_PCMCIA_SIZ	89261	89361	837	1	2319	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+793	Const	REGSTR_VAL_PCMTDRIVER	89362	89452	838	1	2322	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+794	Const	REGSTR_VAL_PCSSDRIVER	89453	89546	839	1	2325	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+795	Const	REGSTR_VAL_PHYSICALDEVICEOBJECT	89547	89664	840	1	2328	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+796	Const	REGSTR_VAL_PMODE_INT13	89665	89763	841	1	2331	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+797	Const	REGSTR_VAL_PNPBIOSVER	89764	89861	842	1	2334	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+798	Const	REGSTR_VAL_PNPSTRUCOFFSET	89862	89967	843	1	2337	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+799	Const	REGSTR_VAL_POLICY	89968	90057	844	1	2340	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+800	Const	REGSTR_VAL_POLLING	90058	90149	845	1	2343	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+801	Const	REGSTR_VAL_PORTNAME	90150	90243	846	1	2346	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+802	Const	REGSTR_VAL_PORTSUBCLASS	90244	90345	847	1	2349	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+803	Const	REGSTR_VAL_PREFREDIR	90346	90446	848	1	2352	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+804	Const	REGSTR_VAL_PRESERVECASE	90447	90548	849	1	2355	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+805	Const	REGSTR_VAL_PRESERVELONGNAMES	90549	90660	850	1	2358	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+806	Const	REGSTR_VAL_PRINTERS_HIDETABS	90661	90768	851	1	2361	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+807	Const	REGSTR_VAL_PRINTERS_MASK	90769	90871	852	1	2364	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+808	Const	REGSTR_VAL_PRINTERS_NOADD	90872	90975	853	1	2367	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+809	Const	REGSTR_VAL_PRINTERS_NODELETE	90976	91085	854	1	2370	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+810	Const	REGSTR_VAL_PRINTSHARING	91086	91187	855	1	2373	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+811	Const	REGSTR_VAL_PRIORITY	91188	91281	856	1	2376	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+812	Const	REGSTR_VAL_PRIVATE	91282	91373	857	1	2379	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+813	Const	REGSTR_VAL_PRIVATEFUNC	91374	91473	858	1	2382	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+814	Const	REGSTR_VAL_PRIVATEPROBLEM	91474	91579	859	1	2385	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+815	Const	REGSTR_VAL_PRODUCTID	91580	91675	860	1	2388	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+816	Const	REGSTR_VAL_PRODUCTTYPE	91676	91775	861	1	2391	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+817	Const	REGSTR_VAL_PROFILEFLAGS	91776	91877	862	1	2394	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+818	Const	REGSTR_VAL_PROPERTIES	91878	91975	863	1	2397	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+819	Const	REGSTR_VAL_PROTINIPATH	91976	92075	864	1	2400	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+820	Const	REGSTR_VAL_PROVIDER_NAME	92076	92178	865	1	2403	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+821	Const	REGSTR_VAL_PWDEXPIRATION	92179	92282	866	1	2406	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+822	Const	REGSTR_VAL_PWDPROVIDER_CHANGEORDER	92283	92394	867	1	2409	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+823	Const	REGSTR_VAL_PWDPROVIDER_CHANGEPWD	92395	92507	868	1	2412	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+824	Const	REGSTR_VAL_PWDPROVIDER_CHANGEPWDHWND	92508	92628	869	1	2415	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+825	Const	REGSTR_VAL_PWDPROVIDER_DESC	92629	92733	870	1	2418	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+826	Const	REGSTR_VAL_PWDPROVIDER_GETPWDSTATUS	92734	92852	871	1	2421	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+827	Const	REGSTR_VAL_PWDPROVIDER_ISNP	92853	92961	872	1	2424	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+828	Const	REGSTR_VAL_PWDPROVIDER_PATH	92962	93067	873	1	2427	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+829	Const	REGSTR_VAL_RDINTTHRESHOLD	93068	93173	874	1	2430	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+830	Const	REGSTR_VAL_READAHEADTHRESHOLD	93174	93287	875	1	2433	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+831	Const	REGSTR_VAL_READCACHING	93288	93387	876	1	2436	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+832	Const	REGSTR_VAL_REALNETSTART	93388	93489	877	1	2439	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+833	Const	REGSTR_VAL_REASONCODE	93490	93587	878	1	2442	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+834	Const	REGSTR_VAL_REFRESHRATE	93588	93687	879	1	2445	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+835	Const	REGSTR_VAL_REGITEMDELETEMESSAGE	93688	93800	880	1	2448	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+836	Const	REGSTR_VAL_REGORGANIZATION	93801	93915	881	1	2451	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+837	Const	REGSTR_VAL_REGOWNER	93916	94016	882	1	2454	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+838	Const	REGSTR_VAL_REINSTALL_DEVICEINSTANCEIDS	94017	94138	883	1	2457	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+839	Const	REGSTR_VAL_REINSTALL_DISPLAYNAME	94139	94248	884	1	2460	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+840	Const	REGSTR_VAL_REINSTALL_STRING	94249	94357	885	1	2463	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+841	Const	REGSTR_VAL_REMOTE_PATH	94358	94456	886	1	2466	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+842	Const	REGSTR_VAL_REMOVABLE	94457	94552	887	1	2469	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+843	Const	REGSTR_VAL_REMOVAL_POLICY	94553	94657	888	1	2472	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+844	Const	REGSTR_VAL_REMOVEROMOKAY	94658	94761	889	1	2475	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+845	Const	REGSTR_VAL_REMOVEROMOKAYFUNC	94762	94873	890	1	2478	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+846	Const	REGSTR_VAL_RESERVED_DEVNODE	94874	94985	891	1	2481	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+847	Const	REGSTR_VAL_RESOLUTION	94986	95083	892	1	2484	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+848	Const	REGSTR_VAL_RESOURCES	95084	95179	893	1	2487	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+849	Const	REGSTR_VAL_RESOURCE_MAP	95180	95280	894	1	2490	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+850	Const	REGSTR_VAL_RESOURCE_PICKER_EXCEPTIONS	95281	95408	895	1	2493	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+851	Const	REGSTR_VAL_RESOURCE_PICKER_TAGS	95409	95524	896	1	2496	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+852	Const	REGSTR_VAL_RESTRICTRUN	95525	95624	897	1	2499	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+853	Const	REGSTR_VAL_RESUMERESET	95625	95724	898	1	2502	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+854	Const	REGSTR_VAL_REVISION	95725	95818	899	1	2505	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+855	Const	REGSTR_VAL_REVLEVEL	95819	95917	900	1	2508	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+856	Const	REGSTR_VAL_ROOT_DEVNODE	95918	96021	901	1	2511	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+857	Const	REGSTR_VAL_RUNLOGINSCRIPT	96022	96131	902	1	2514	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+858	Const	REGSTR_VAL_SCANNER	96132	96223	903	1	2517	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+859	Const	REGSTR_VAL_SCAN_ONLY_FIRST	96224	96334	904	1	2520	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+860	Const	REGSTR_VAL_SCSI	96335	96422	905	1	2523	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+861	Const	REGSTR_VAL_SCSILUN	96423	96514	906	1	2526	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+862	Const	REGSTR_VAL_SCSITID	96515	96611	907	1	2529	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+863	Const	REGSTR_VAL_SEARCHMODE	96612	96709	908	1	2532	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+864	Const	REGSTR_VAL_SEARCHOPTIONS	96710	96813	909	1	2535	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+865	Const	REGSTR_VAL_SECCPL_NOADMINPAGE	96814	96920	910	1	2538	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+866	Const	REGSTR_VAL_SECCPL_NOPROFILEPAGE	96921	97031	911	1	2541	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+867	Const	REGSTR_VAL_SECCPL_NOPWDPAGE	97032	97134	912	1	2544	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+868	Const	REGSTR_VAL_SECCPL_NOSECCPL	97135	97235	913	1	2547	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+869	Const	REGSTR_VAL_SERVICE	97236	97327	914	1	2550	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+870	Const	REGSTR_VAL_SETUPFLAGS	97328	97425	915	1	2553	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+871	Const	REGSTR_VAL_SETUPMACHINETYPE	97426	97535	916	1	2556	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+872	Const	REGSTR_VAL_SETUPN	97536	97625	917	1	2559	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+873	Const	REGSTR_VAL_SETUPNPATH	97626	97723	918	1	2562	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+874	Const	REGSTR_VAL_SETUPPROGRAMRAN	97724	97831	919	1	2565	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+875	Const	REGSTR_VAL_SHARES_FLAGS	97832	97926	920	1	2568	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+876	Const	REGSTR_VAL_SHARES_PATH	97927	98019	921	1	2571	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+877	Const	REGSTR_VAL_SHARES_REMARK	98020	98116	922	1	2574	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+878	Const	REGSTR_VAL_SHARES_RO_PASS	98117	98213	923	1	2577	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+879	Const	REGSTR_VAL_SHARES_RW_PASS	98214	98310	924	1	2580	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+880	Const	REGSTR_VAL_SHARES_TYPE	98311	98403	925	1	2583	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+881	Const	REGSTR_VAL_SHARE_IRQ	98404	98505	926	1	2586	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+882	Const	REGSTR_VAL_SHELLVERSION	98506	98607	927	1	2589	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+883	Const	REGSTR_VAL_SHOWDOTS	98608	98701	928	1	2592	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+884	Const	REGSTR_VAL_SHOWREASONUI	98702	98807	929	1	2595	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+885	Const	REGSTR_VAL_SHUTDOWNREASON	98808	98913	930	1	2598	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+886	Const	REGSTR_VAL_SHUTDOWNREASON_CODE	98914	99028	931	1	2601	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+887	Const	REGSTR_VAL_SHUTDOWNREASON_COMMENT	99029	99149	932	1	2604	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+888	Const	REGSTR_VAL_SHUTDOWNREASON_PROCESS	99150	99270	933	1	2607	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+889	Const	REGSTR_VAL_SHUTDOWNREASON_USERNAME	99271	99393	934	1	2610	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+890	Const	REGSTR_VAL_SHUTDOWN_FLAGS	99394	99498	935	1	2613	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+891	Const	REGSTR_VAL_SHUTDOWN_IGNORE_PREDEFINED	99499	99633	936	1	2616	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+892	Const	REGSTR_VAL_SHUTDOWN_STATE_SNAPSHOT	99634	99755	937	1	2619	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+893	Const	REGSTR_VAL_SILENTINSTALL	99756	99859	938	1	2622	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+894	Const	REGSTR_VAL_SLSUPPORT	99860	99955	939	1	2625	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+895	Const	REGSTR_VAL_SOFTCOMPATMODE	99956	100061	940	1	2628	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+896	Const	REGSTR_VAL_SRCPATH	100062	100156	941	1	2631	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+897	Const	REGSTR_VAL_SRVNAMECACHE	100157	100261	942	1	2634	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+898	Const	REGSTR_VAL_SRVNAMECACHECOUNT	100262	100374	943	1	2637	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+899	Const	REGSTR_VAL_SRVNAMECACHENETPROV	100375	100493	944	1	2640	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+900	Const	REGSTR_VAL_START_ON_BOOT	100494	100595	945	1	2643	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+901	Const	REGSTR_VAL_STAT	100596	100683	946	1	2646	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+902	Const	REGSTR_VAL_STATICDRIVE	100684	100783	947	1	2649	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+903	Const	REGSTR_VAL_STATICVXD	100784	100879	948	1	2652	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+904	Const	REGSTR_VAL_STDDOSOPTION	100880	100978	949	1	2655	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+905	Const	REGSTR_VAL_SUBMODEL	100979	101072	950	1	2658	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+906	Const	REGSTR_VAL_SUPPORTBURST	101073	101174	951	1	2661	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+907	Const	REGSTR_VAL_SUPPORTLFN	101175	101272	952	1	2664	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+908	Const	REGSTR_VAL_SUPPORTTUNNELLING	101273	101384	953	1	2667	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+909	Const	REGSTR_VAL_SYMBOLIC_LINK	101385	101487	954	1	2670	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+910	Const	REGSTR_VAL_SYNCDATAXFER	101488	101589	955	1	2673	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+911	Const	REGSTR_VAL_SYSDM	101590	101677	956	1	2676	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+912	Const	REGSTR_VAL_SYSDMFUNC	101678	101773	957	1	2679	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+913	Const	REGSTR_VAL_SYSTEMCPL_NOCONFIGPAGE	101774	101885	958	1	2682	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+914	Const	REGSTR_VAL_SYSTEMCPL_NODEVMGRPAGE	101886	101997	959	1	2685	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+915	Const	REGSTR_VAL_SYSTEMCPL_NOFILESYSPAGE	101998	102111	960	1	2688	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+916	Const	REGSTR_VAL_SYSTEMCPL_NOVIRTMEMPAGE	102112	102225	961	1	2691	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+917	Const	REGSTR_VAL_SYSTEMROOT	102226	102323	962	1	2694	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+918	Const	REGSTR_VAL_SYSTRAYBATFLAGS	102324	102426	963	1	2697	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+919	Const	REGSTR_VAL_SYSTRAYPCCARDFLAGS	102427	102533	964	1	2700	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+920	Const	REGSTR_VAL_SYSTRAYSVCS	102534	102630	965	1	2703	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+921	Const	REGSTR_VAL_TABLE_STAT	102631	102729	966	1	2706	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+922	Const	REGSTR_VAL_TAPE	102730	102815	967	1	2709	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+923	Const	REGSTR_VAL_TRANSITION	102816	102913	968	1	2712	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+924	Const	REGSTR_VAL_TRANSPORT	102914	103009	969	1	2715	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+925	Const	REGSTR_VAL_TZACTBIAS	103010	103110	970	1	2718	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+926	Const	REGSTR_VAL_TZBIAS	103111	103198	971	1	2721	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+927	Const	REGSTR_VAL_TZDLTBIAS	103199	103297	972	1	2724	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+928	Const	REGSTR_VAL_TZDLTFLAG	103298	103396	973	1	2727	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+929	Const	REGSTR_VAL_TZDLTNAME	103397	103495	974	1	2730	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+930	Const	REGSTR_VAL_TZDLTSTART	103496	103596	975	1	2733	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+931	Const	REGSTR_VAL_TZNOAUTOTIME	103597	103712	976	1	2736	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+932	Const	REGSTR_VAL_TZNOCHANGEEND	103713	103814	977	1	2739	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+933	Const	REGSTR_VAL_TZNOCHANGESTART	103815	103920	978	1	2742	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+934	Const	REGSTR_VAL_TZSTDBIAS	103921	104019	979	1	2745	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+935	Const	REGSTR_VAL_TZSTDNAME	104020	104118	980	1	2748	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+936	Const	REGSTR_VAL_TZSTDSTART	104119	104219	981	1	2751	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+937	Const	REGSTR_VAL_UI_NUMBER	104220	104314	982	1	2754	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+938	Const	REGSTR_VAL_UI_NUMBER_DESC_FORMAT	104315	104431	983	1	2757	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+939	Const	REGSTR_VAL_UNDOCK_WITHOUT_LOGON	104432	104547	984	1	2760	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+940	Const	REGSTR_VAL_UNINSTALLER_COMMANDLINE	104548	104663	985	1	2763	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+941	Const	REGSTR_VAL_UNINSTALLER_DISPLAYNAME	104664	104775	986	1	2766	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+942	Const	REGSTR_VAL_UPGRADE	104776	104867	987	1	2769	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+943	Const	REGSTR_VAL_UPPERFILTERS	104868	104969	988	1	2772	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+944	Const	REGSTR_VAL_UPPER_FILTER_DEFAULT_LEVEL	104970	105096	989	1	2775	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+945	Const	REGSTR_VAL_UPPER_FILTER_LEVELS	105097	105210	990	1	2778	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+946	Const	REGSTR_VAL_USERSETTINGS	105211	105315	991	1	2781	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+947	Const	REGSTR_VAL_USER_NAME	105316	105410	992	1	2784	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+948	Const	REGSTR_VAL_USRDRVLET	105411	105522	993	1	2787	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+949	Const	REGSTR_VAL_VDD	105523	105606	994	1	2790	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+950	Const	REGSTR_VAL_VER	105607	105690	995	1	2793	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+951	Const	REGSTR_VAL_VERIFYKEY	105691	105786	996	1	2796	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+952	Const	REGSTR_VAL_VIRTUALHDIRQ	105787	105888	997	1	2799	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+953	Const	REGSTR_VAL_VOLIDLETIMEOUT	105889	105997	998	1	2802	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+954	Const	REGSTR_VAL_VPOWERDFLAGS	105998	106092	999	1	2805	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+955	Const	REGSTR_VAL_VRES	106093	106178	1000	1	2808	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+956	Const	REGSTR_VAL_VXDGROUPS	106179	106274	1001	1	2811	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+957	Const	REGSTR_VAL_WAITFORUNDOCK	106275	106378	1002	1	2814	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+958	Const	REGSTR_VAL_WAITFORUNDOCKFUNC	106379	106490	1003	1	2817	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+959	Const	REGSTR_VAL_WIN31FILESYSTEM	106491	106598	1004	1	2820	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+960	Const	REGSTR_VAL_WIN31PROVIDER	106599	106702	1005	1	2823	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+961	Const	REGSTR_VAL_WINBOOTDIR	106703	106800	1006	1	2826	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+962	Const	REGSTR_VAL_WINCP	106801	106886	1007	1	2829	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+963	Const	REGSTR_VAL_WINDIR	106887	106976	1008	1	2832	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+964	Const	REGSTR_VAL_WINOLDAPP_DISABLED	106977	107080	1009	1	2835	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+965	Const	REGSTR_VAL_WINOLDAPP_NOREALMODE	107081	107188	1010	1	2838	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+966	Const	REGSTR_VAL_WORKGROUP	107189	107284	1011	1	2841	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+967	Const	REGSTR_VAL_WRAPPER	107285	107376	1012	1	2844	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+968	Const	REGSTR_VAL_WRINTTHRESHOLD	107377	107482	1013	1	2847	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+969	Const	REGSTR_VAL_WRKGRP_FORCEMAPPING	107483	107597	1014	1	2850	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+970	Const	REGSTR_VAL_WRKGRP_REQUIRED	107598	107704	1015	1	2853	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+971	Const	REG_BINARY	107705	107749	1016	1	2856	generated	
+972	Const	REG_CREATED_NEW_KEY	107750	107815	1017	1	2857	generated	
+973	ItemType	REG_CREATE_KEY_DISPOSITION	107816	107858	1018	1	2858	generated	
+974	Const	REG_DWORD	107859	107902	1019	1	2859	generated	
+975	Const	REG_DWORD_BIG_ENDIAN	107903	107957	1020	1	2860	generated	
+976	Const	REG_DWORD_LITTLE_ENDIAN	107958	108015	1021	1	2861	generated	
+977	Const	REG_EXPAND_SZ	108016	108063	1022	1	2862	generated	
+978	Const	REG_FORCE_RESTORE	108064	108122	1023	1	2863	generated	
+979	Const	REG_FULL_RESOURCE_DESCRIPTOR	108123	108185	1024	1	2864	generated	
+980	Const	REG_KEY_INSTDEV	108186	108276	1025	1	2865	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+981	Const	REG_LATEST_FORMAT	108277	108329	1026	1	2868	generated	
+982	Const	REG_LINK	108330	108372	1027	1	2869	generated	
+983	Const	REG_MUI_STRING_TRUNCATE	108373	108419	1028	1	2870	generated	
+984	Const	REG_MULTI_SZ	108420	108466	1029	1	2871	generated	
+985	Const	REG_NONE	108467	108509	1030	1	2872	generated	
+986	Const	REG_NOTIFY_CHANGE_ATTRIBUTES	108510	108575	1031	1	2873	generated	
+987	Const	REG_NOTIFY_CHANGE_LAST_SET	108576	108639	1032	1	2874	generated	
+988	Const	REG_NOTIFY_CHANGE_NAME	108640	108699	1033	1	2875	generated	
+989	Const	REG_NOTIFY_CHANGE_SECURITY	108700	108763	1034	1	2876	generated	
+990	ItemType	REG_NOTIFY_FILTER	108764	108797	1035	1	2877	generated	
+991	Const	REG_NOTIFY_THREAD_AGNOSTIC	108798	108869	1036	1	2878	generated	
+992	Const	REG_NO_COMPRESSION	108870	108923	1037	1	2879	generated	
+993	Const	REG_OPENED_EXISTING_KEY	108924	108993	1038	1	2880	generated	
+994	ItemType	REG_OPEN_CREATE_OPTIONS	108994	109033	1039	1	2881	generated	
+995	Const	REG_OPTION_BACKUP_RESTORE	109034	109102	1040	1	2882	generated	
+996	Const	REG_OPTION_CREATE_LINK	109103	109168	1041	1	2883	generated	
+997	Const	REG_OPTION_DONT_VIRTUALIZE	109169	109239	1042	1	2884	generated	
+998	Const	REG_OPTION_NON_VOLATILE	109240	109306	1043	1	2885	generated	
+999	Const	REG_OPTION_OPEN_LINK	109307	109370	1044	1	2886	generated	
+1000	Const	REG_OPTION_RESERVED	109371	109433	1045	1	2887	generated	
+1001	Const	REG_OPTION_VOLATILE	109434	109496	1046	1	2888	generated	
+1002	Const	REG_PROCESS_APPKEY	109497	109538	1047	1	2889	generated	
+1003	Struct	REG_PROVIDER	109539	109817	1048	1	2890	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1004	Impl		109818	109923	1058	1	2904	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+1005	Const	REG_QWORD	109924	109968	1063	1	2911	generated	
+1006	Const	REG_QWORD_LITTLE_ENDIAN	109969	110027	1064	1	2912	generated	
+1007	Const	REG_RESOURCE_LIST	110028	110079	1065	1	2913	generated	
+1008	Const	REG_RESOURCE_REQUIREMENTS_LIST	110080	110145	1066	1	2914	generated	
+1009	ItemType	REG_RESTORE_KEY_FLAGS	110146	110183	1067	1	2915	generated	
+1010	ItemType	REG_ROUTINE_FLAGS	110184	110217	1068	1	2916	generated	
+1011	ItemType	REG_SAM_FLAGS	110218	110247	1069	1	2917	generated	
+1012	ItemType	REG_SAVE_FORMAT	110248	110279	1070	1	2918	generated	
+1013	Const	REG_SECURE_CONNECTION	110280	110324	1071	1	2919	generated	
+1014	Const	REG_STANDARD_FORMAT	110325	110379	1072	1	2920	generated	
+1015	Const	REG_SZ	110380	110420	1073	1	2921	generated	
+1016	Const	REG_USE_CURRENT_SECURITY_CONTEXT	110421	110476	1074	1	2922	generated	
+1017	ItemType	REG_VALUE_TYPE	110477	110507	1075	1	2923	generated	
+1018	Const	REG_WHOLE_HIVE_VOLATILE	110508	110572	1076	1	2924	generated	
+1019	Const	RRF_NOEXPAND	110573	110630	1077	1	2925	generated	
+1020	Const	RRF_RT_ANY	110631	110682	1078	1	2926	generated	
+1021	Const	RRF_RT_DWORD	110683	110733	1079	1	2927	generated	
+1022	Const	RRF_RT_QWORD	110734	110784	1080	1	2928	generated	
+1023	Const	RRF_RT_REG_BINARY	110785	110839	1081	1	2929	generated	
+1024	Const	RRF_RT_REG_DWORD	110840	110894	1082	1	2930	generated	
+1025	Const	RRF_RT_REG_EXPAND_SZ	110895	110952	1083	1	2931	generated	
+1026	Const	RRF_RT_REG_MULTI_SZ	110953	111010	1084	1	2932	generated	
+1027	Const	RRF_RT_REG_NONE	111011	111063	1085	1	2933	generated	
+1028	Const	RRF_RT_REG_QWORD	111064	111118	1086	1	2934	generated	
+1029	Const	RRF_RT_REG_SZ	111119	111169	1087	1	2935	generated	
+1030	Const	RRF_SUBKEY_WOW6432KEY	111170	111233	1088	1	2936	generated	
+1031	Const	RRF_SUBKEY_WOW6464KEY	111234	111296	1089	1	2937	generated	
+1032	Const	RRF_WOW64_MASK	111297	111353	1090	1	2938	generated	
+1033	Const	RRF_ZEROONFAILURE	111354	111416	1091	1	2939	generated	
+1034	Const	SUF_BATCHINF	111417	111452	1092	1	2940	generated	
+1035	Const	SUF_CLEAN	111453	111485	1093	1	2941	generated	
+1036	Const	SUF_EXPRESS	111486	111520	1094	1	2942	generated	
+1037	Const	SUF_FIRSTTIME	111521	111557	1095	1	2943	generated	
+1038	Const	SUF_INSETUP	111558	111593	1096	1	2944	generated	
+1039	Const	SUF_NETHDBOOT	111594	111631	1097	1	2945	generated	
+1040	Const	SUF_NETRPLBOOT	111632	111671	1098	1	2946	generated	
+1041	Const	SUF_NETSETUP	111672	111708	1099	1	2947	generated	
+1042	Const	SUF_SBSCOPYOK	111709	111747	1100	1	2948	generated	
+1043	Struct	VALENTA	111748	111938	1101	1	2949	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1044	Impl		111939	112039	1109	1	2960	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+1045	Struct	VALENTW	112040	112231	1114	1	2967	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1046	Impl		112232	112332	1122	1	2978	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+1047	Const	VPDF_DISABLEPWRMGMT	112333	112375	1127	1	2985	generated	
+1048	Const	VPDF_DISABLEPWRSTATUSPOLL	112376	112424	1128	1	2986	generated	
+1049	Const	VPDF_DISABLERINGRESUME	112425	112471	1129	1	2987	generated	
+1050	Const	VPDF_FORCEAPM10MODE	112472	112514	1130	1	2988	generated	
+1051	Const	VPDF_SHOWMULTIBATT	112515	112557	1131	1	2989	generated	
+1052	Const	VPDF_SKIPINTELSLCHECK	112558	112602	1132	1	2990	generated	
+1053	Struct	val_context	112603	112779	1133	1	2991	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1054	Impl		112780	112884	1140	1	3002	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl

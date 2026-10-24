@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/Networking/ActiveDirectory/mod: 995 generated; 273 syntax candidates; 190 unsupported

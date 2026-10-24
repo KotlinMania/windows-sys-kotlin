@@ -1,0 +1,22 @@
+// DIRECT DECLARATION CANDIDATE: unsupported Rust remains below; not adopted or ABI-validated.
+public typealias `CONDITION_OPERATION` = Int;
+public typealias `CONDITION_TYPE` = Int;
+public const val `COP_APPLICATION_SPECIFIC`: `CONDITION_OPERATION` = 14;
+public const val `COP_DOSWILDCARDS`: `CONDITION_OPERATION` = 11;
+public const val `COP_EQUAL`: `CONDITION_OPERATION` = 1;
+public const val `COP_GREATERTHAN`: `CONDITION_OPERATION` = 4;
+public const val `COP_GREATERTHANOREQUAL`: `CONDITION_OPERATION` = 6;
+public const val `COP_IMPLICIT`: `CONDITION_OPERATION` = 0;
+public const val `COP_LESSTHAN`: `CONDITION_OPERATION` = 3;
+public const val `COP_LESSTHANOREQUAL`: `CONDITION_OPERATION` = 5;
+public const val `COP_NOTEQUAL`: `CONDITION_OPERATION` = 2;
+public const val `COP_VALUE_CONTAINS`: `CONDITION_OPERATION` = 9;
+public const val `COP_VALUE_ENDSWITH`: `CONDITION_OPERATION` = 8;
+public const val `COP_VALUE_NOTCONTAINS`: `CONDITION_OPERATION` = 10;
+public const val `COP_VALUE_STARTSWITH`: `CONDITION_OPERATION` = 7;
+public const val `COP_WORD_EQUAL`: `CONDITION_OPERATION` = 12;
+public const val `COP_WORD_STARTSWITH`: `CONDITION_OPERATION` = 13;
+public const val `CT_AND_CONDITION`: `CONDITION_TYPE` = 0;
+public const val `CT_LEAF_CONDITION`: `CONDITION_TYPE` = 3;
+public const val `CT_NOT_CONDITION`: `CONDITION_TYPE` = 2;
+public const val `CT_OR_CONDITION`: `CONDITION_TYPE` = 1;

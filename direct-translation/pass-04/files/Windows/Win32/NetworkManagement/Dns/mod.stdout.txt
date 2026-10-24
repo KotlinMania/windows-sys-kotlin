@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/NetworkManagement/Dns/mod: 411 generated; 163 syntax candidates; 120 unsupported

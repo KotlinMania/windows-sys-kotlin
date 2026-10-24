@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="nativeMacosTest.io.github.kotlinmania.rustkotlin.DeclarationCandidatesTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-10-24T21:58:29.738Z" hostname="EmberHarmony.local" time="0.0">
+  <properties/>
+  <testcase name="scalarWidthsAliasesAndSourceOrder[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.DeclarationCandidatesTest" time="0.0"/>
+  <testcase name="unsupportedDeclarationsAndCommentsStayAtTheirSourcePosition[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.DeclarationCandidatesTest" time="0.0"/>
+  <testcase name="invalidOrUnresolvedSemanticsNeverBecomeGeneratedConstants[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.DeclarationCandidatesTest" time="0.0"/>
+  <testcase name="strictWholeFileTranslationStillRejectsUnsupportedInput[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.DeclarationCandidatesTest" time="0.0"/>
+  <testcase name="castsUseRustWidthTruncationSignExtensionAndContextualInfer[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.DeclarationCandidatesTest" time="0.0"/>
+  <testcase name="qualifiedAliasesRequireVerifiedSourceAndNeverGuessPointers[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.DeclarationCandidatesTest" time="0.0"/>
+  <testcase name="sourceAliasesShadowPrimitiveNames[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.DeclarationCandidatesTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

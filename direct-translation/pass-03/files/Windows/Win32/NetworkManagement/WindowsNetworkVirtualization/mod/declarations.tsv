@@ -1,0 +1,38 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro	WnvOpen	0	93	1	1	2	syntax	External declaration shape only: wire DLL=wnvapi.dll, ABI=system, export=WnvOpen; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1	Macro	WnvRequestNotification	94	388	2	1	6	syntax	External declaration shape only: wire DLL=wnvapi.dll, ABI=system, export=WnvRequestNotification; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+2	Const	WNV_API_MAJOR_VERSION_1	389	435	4	1	12	generated	
+3	Const	WNV_API_MINOR_VERSION_0	436	482	5	1	13	generated	
+4	ItemType	WNV_CA_NOTIFICATION_TYPE	483	523	6	1	14	generated	
+5	Struct	WNV_CUSTOMER_ADDRESS_CHANGE_PARAM	524	994	7	1	15	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+6	Impl		995	1166	19	1	30	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+7	Struct	WNV_IP_ADDRESS	1167	1305	25	1	38	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+8	Impl		1306	1458	31	1	47	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+9	Union		1459	1705	37	1	55	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+10	Impl		1706	1860	45	1	65	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+11	Struct	WNV_NOTIFICATION_PARAM	1861	2076	51	1	73	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+12	Impl		2077	2192	59	1	85	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+13	ItemType	WNV_NOTIFICATION_TYPE	2193	2230	64	1	92	generated	
+14	Struct	WNV_OBJECT_CHANGE_PARAM	2231	2433	65	1	93	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+15	Impl		2434	2595	72	1	103	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+16	Union		2596	2846	78	1	111	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+17	Impl		2847	3010	85	1	120	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+18	Struct	WNV_OBJECT_HEADER	3011	3157	91	1	128	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+19	ItemType	WNV_OBJECT_TYPE	3158	3189	98	1	137	generated	
+20	Struct	WNV_POLICY_MISMATCH_PARAM	3190	3533	99	1	138	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+21	Impl		3534	3697	109	1	151	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+22	Struct	WNV_PROVIDER_ADDRESS_CHANGE_PARAM	3698	3993	115	1	159	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+23	Impl		3994	4165	123	1	170	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+24	Struct	WNV_REDIRECT_PARAM	4166	4605	129	1	178	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+25	Impl		4606	4762	141	1	193	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+26	Const	WnvCustomerAddressAdded	4763	4830	147	1	201	generated	
+27	Const	WnvCustomerAddressDeleted	4831	4900	148	1	202	generated	
+28	Const	WnvCustomerAddressMax	4901	4966	149	1	203	generated	
+29	Const	WnvCustomerAddressMoved	4967	5034	150	1	204	generated	
+30	Const	WnvCustomerAddressType	5035	5092	151	1	205	generated	
+31	Const	WnvNotificationTypeMax	5093	5156	152	1	206	generated	
+32	Const	WnvObjectChangeType	5157	5217	153	1	207	generated	
+33	Const	WnvObjectTypeMax	5218	5269	154	1	208	generated	
+34	Const	WnvPolicyMismatchType	5270	5332	155	1	209	generated	
+35	Const	WnvProviderAddressType	5333	5390	156	1	210	generated	
+36	Const	WnvRedirectType	5391	5447	157	1	211	generated	

@@ -1,0 +1,16 @@
+--- ../windows-sys-kotlin/direct-translation/comparisons-pass-04/port-snapshots/io/github/kotlinmania/windowssys/windows/win32/storage/packaging/Packaging.kt	2026-10-24 15:05:00
++++ ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/Storage/Packaging/mod/candidate.kt	2026-10-24 14:59:46
+@@ -1,9 +1,5 @@
+-// port-lint: source Windows/Win32/Storage/Packaging/mod.rs
+-package io.github.kotlinmania.windowssys.windows.win32.storage.packaging
++// DIRECT DECLARATION CANDIDATE: unsupported Rust remains below; not adopted or ABI-validated.
++// UNSUPPORTED Rust 1:1: declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
++// #[cfg(feature = "Win32_Storage_Packaging_Appx")]
++// pub mod Appx;
+ 
+-// Re-export shim — see windows/Windows.kt for the per-AGENTS.md ledger
+-// rationale. The `Appx` submodule lives at
+-// io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx.*.
+-//
+-// Callers migrated:
+-// (none yet)

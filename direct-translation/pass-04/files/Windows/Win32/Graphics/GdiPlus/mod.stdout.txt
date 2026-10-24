@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/Graphics/GdiPlus/mod: 1029 generated; 681 syntax candidates; 83 unsupported

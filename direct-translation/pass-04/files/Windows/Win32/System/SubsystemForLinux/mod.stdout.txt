@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/System/SubsystemForLinux/mod: 5 generated; 7 syntax candidates; 0 unsupported

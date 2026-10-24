@@ -1,0 +1,81 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro	SwDeviceClose	0	85	1	1	2	syntax	External declaration shape only: wire DLL=cfgmgr32.dll, ABI=system, export=SwDeviceClose; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1	Macro	SwDeviceCreate	86	589	2	1	6	syntax	External declaration shape only: wire DLL=cfgmgr32.dll, ABI=system, export=SwDeviceCreate; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+2	Macro	SwDeviceGetLifetime	590	748	4	1	12	syntax	External declaration shape only: wire DLL=cfgmgr32.dll, ABI=system, export=SwDeviceGetLifetime; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+3	Macro	SwDeviceInterfacePropertySet	749	1057	5	1	17	syntax	External declaration shape only: wire DLL=cfgmgr32.dll, ABI=system, export=SwDeviceInterfacePropertySet; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+4	Macro	SwDeviceInterfaceRegister	1058	1506	7	1	23	syntax	External declaration shape only: wire DLL=cfgmgr32.dll, ABI=system, export=SwDeviceInterfaceRegister; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+5	Macro	SwDeviceInterfaceSetState	1507	1720	9	1	29	syntax	External declaration shape only: wire DLL=cfgmgr32.dll, ABI=system, export=SwDeviceInterfaceSetState; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+6	Macro	SwDevicePropertySet	1721	1970	10	1	33	syntax	External declaration shape only: wire DLL=cfgmgr32.dll, ABI=system, export=SwDevicePropertySet; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+7	Macro	SwDeviceSetLifetime	1971	2123	12	1	39	syntax	External declaration shape only: wire DLL=cfgmgr32.dll, ABI=system, export=SwDeviceSetLifetime; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+8	Macro	SwMemFree	2124	2215	13	1	43	syntax	External declaration shape only: wire DLL=cfgmgr32.dll, ABI=system, export=SwMemFree; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+9	Const	ADDRESS_FAMILY_VALUE_NAME	2216	2320	14	1	48	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+10	Const	FAULT_ACTION_SPECIFIC_BASE	2321	2372	15	1	51	generated	
+11	Const	FAULT_ACTION_SPECIFIC_MAX	2373	2423	16	1	52	generated	
+12	Const	FAULT_DEVICE_INTERNAL_ERROR	2424	2476	17	1	53	generated	
+13	Const	FAULT_INVALID_ACTION	2477	2522	18	1	54	generated	
+14	Const	FAULT_INVALID_ARG	2523	2565	19	1	55	generated	
+15	Const	FAULT_INVALID_SEQUENCE_NUMBER	2566	2620	20	1	56	generated	
+16	Const	FAULT_INVALID_VARIABLE	2621	2668	21	1	57	generated	
+17	ItemType	HSWDEVICE	2669	2713	22	1	58	syntax	Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+18	Const	REMOTE_ADDRESS_VALUE_NAME	2714	2818	23	1	62	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+19	Const	SWDeviceCapabilitiesDriverRequired	2819	2895	24	1	65	generated	
+20	Const	SWDeviceCapabilitiesNoDisplayInUI	2896	2971	25	1	66	generated	
+21	Const	SWDeviceCapabilitiesNone	2972	3038	26	1	67	generated	
+22	Const	SWDeviceCapabilitiesRemovable	3039	3110	27	1	68	generated	
+23	Const	SWDeviceCapabilitiesSilentInstall	3111	3186	28	1	69	generated	
+24	Const	SWDeviceLifetimeHandle	3187	3247	29	1	70	generated	
+25	Const	SWDeviceLifetimeMax	3248	3305	30	1	71	generated	
+26	Const	SWDeviceLifetimeParentPresent	3306	3373	31	1	72	generated	
+27	ItemType	SW_DEVICE_CAPABILITIES	3374	3412	32	1	73	generated	
+28	ItemType	SW_DEVICE_CREATE_CALLBACK	3413	3632	33	1	74	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+29	Struct	SW_DEVICE_CREATE_INFO	3633	4198	34	1	79	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+30	Impl		4199	4348	48	1	97	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+31	ItemType	SW_DEVICE_LIFETIME	4349	4383	54	1	105	generated	
+32	Const	UPNP_ADDRESSFAMILY_BOTH	4384	4430	55	1	106	generated	
+33	Const	UPNP_ADDRESSFAMILY_IPv4	4431	4477	56	1	107	generated	
+34	Const	UPNP_ADDRESSFAMILY_IPv6	4478	4524	57	1	108	generated	
+35	Const	UPNP_E_ACTION_REQUEST_FAILED	4525	4614	58	1	109	generated	
+36	Const	UPNP_E_ACTION_SPECIFIC_BASE	4615	4703	59	1	110	generated	
+37	Const	UPNP_E_DEVICE_ELEMENT_EXPECTED	4704	4795	60	1	111	generated	
+38	Const	UPNP_E_DEVICE_ERROR	4796	4876	61	1	112	generated	
+39	Const	UPNP_E_DEVICE_NODE_INCOMPLETE	4877	4967	62	1	113	generated	
+40	Const	UPNP_E_DEVICE_NOTREGISTERED	4968	5056	63	1	114	generated	
+41	Const	UPNP_E_DEVICE_RUNNING	5057	5139	64	1	115	generated	
+42	Const	UPNP_E_DEVICE_TIMEOUT	5140	5222	65	1	116	generated	
+43	Const	UPNP_E_DUPLICATE_NOT_ALLOWED	5223	5312	66	1	117	generated	
+44	Const	UPNP_E_DUPLICATE_SERVICE_ID	5313	5401	67	1	118	generated	
+45	Const	UPNP_E_ERROR_PROCESSING_RESPONSE	5402	5495	68	1	119	generated	
+46	Const	UPNP_E_EVENT_SUBSCRIPTION_FAILED	5496	5589	69	1	120	generated	
+47	Const	UPNP_E_ICON_ELEMENT_EXPECTED	5590	5679	70	1	121	generated	
+48	Const	UPNP_E_ICON_NODE_INCOMPLETE	5680	5768	71	1	122	generated	
+49	Const	UPNP_E_INVALID_ACTION	5769	5851	72	1	123	generated	
+50	Const	UPNP_E_INVALID_ARGUMENTS	5852	5937	73	1	124	generated	
+51	Const	UPNP_E_INVALID_DESCRIPTION	5938	6025	74	1	125	generated	
+52	Const	UPNP_E_INVALID_DOCUMENT	6026	6110	75	1	126	generated	
+53	Const	UPNP_E_INVALID_ICON	6111	6191	76	1	127	generated	
+54	Const	UPNP_E_INVALID_ROOT_NAMESPACE	6192	6282	77	1	128	generated	
+55	Const	UPNP_E_INVALID_SERVICE	6283	6366	78	1	129	generated	
+56	Const	UPNP_E_INVALID_VARIABLE	6367	6451	79	1	130	generated	
+57	Const	UPNP_E_INVALID_XML	6452	6531	80	1	131	generated	
+58	Const	UPNP_E_OUT_OF_SYNC	6532	6611	81	1	132	generated	
+59	Const	UPNP_E_PROTOCOL_ERROR	6612	6694	82	1	133	generated	
+60	Const	UPNP_E_REQUIRED_ELEMENT_ERROR	6695	6785	83	1	134	generated	
+61	Const	UPNP_E_ROOT_ELEMENT_EXPECTED	6786	6875	84	1	135	generated	
+62	Const	UPNP_E_SERVICE_ELEMENT_EXPECTED	6876	6968	85	1	136	generated	
+63	Const	UPNP_E_SERVICE_NODE_INCOMPLETE	6969	7060	86	1	137	generated	
+64	Const	UPNP_E_SUFFIX_TOO_LONG	7061	7144	87	1	138	generated	
+65	Const	UPNP_E_TRANSPORT_ERROR	7145	7228	88	1	139	generated	
+66	Const	UPNP_E_URLBASE_PRESENT	7229	7312	89	1	140	generated	
+67	Const	UPNP_E_VALUE_TOO_LONG	7313	7395	90	1	141	generated	
+68	Const	UPNP_E_VARIABLE_VALUE_UNKNOWN	7396	7486	91	1	142	generated	
+69	Const	UPNP_SERVICE_DELAY_SCPD_AND_SUBSCRIPTION	7487	7550	92	1	143	generated	
+70	Const	UPnPDescriptionDocument	7551	7687	93	1	144	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+71	Const	UPnPDescriptionDocumentEx	7688	7826	94	1	147	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+72	Const	UPnPDevice	7827	7950	95	1	150	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+73	Const	UPnPDeviceFinder	7951	8080	96	1	153	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+74	Const	UPnPDeviceFinderEx	8081	8212	97	1	156	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+75	Const	UPnPDevices	8213	8337	98	1	159	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+76	Const	UPnPRegistrar	8338	8464	99	1	162	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+77	Const	UPnPRemoteEndpointInfo	8465	8600	100	1	165	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+78	Const	UPnPService	8601	8725	101	1	168	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+79	Const	UPnPServices	8726	8851	102	1	171	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const

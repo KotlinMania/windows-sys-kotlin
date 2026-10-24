@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/System/UserAccessLogging/mod: 0 generated; 5 syntax candidates; 1 unsupported

@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/Storage/DistributedFileSystem/mod: 44 generated; 55 syntax candidates; 19 unsupported

@@ -1,0 +1,146 @@
+--- ../windows-sys-kotlin/direct-translation/comparisons-pass-04/port-snapshots/io/github/kotlinmania/windowssys/windows/win32/system/pipes/PipesConstants.kt	2026-10-24 15:05:00
++++ ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/System/Pipes/mod/candidate.kt	2026-10-24 14:59:47
+@@ -1,18 +1,125 @@
+-// port-lint: source Windows/Win32/System/Pipes/mod.rs
+-package io.github.kotlinmania.windowssys.windows.win32.system.pipes
+-
+-public const val NMPWAIT_USE_DEFAULT_WAIT: UInt = 0u
+-public const val NMPWAIT_NOWAIT: UInt = 1u
+-public const val NMPWAIT_WAIT_FOREVER: UInt = 4294967295u
+-
+-public const val PIPE_WAIT: NAMED_PIPE_MODE = 0u
+-public const val PIPE_NOWAIT: NAMED_PIPE_MODE = 1u
+-public const val PIPE_READMODE_BYTE: NAMED_PIPE_MODE = 0u
+-public const val PIPE_READMODE_MESSAGE: NAMED_PIPE_MODE = 2u
+-public const val PIPE_CLIENT_END: NAMED_PIPE_MODE = 0u
+-public const val PIPE_SERVER_END: NAMED_PIPE_MODE = 1u
+-public const val PIPE_TYPE_BYTE: NAMED_PIPE_MODE = 0u
+-public const val PIPE_TYPE_MESSAGE: NAMED_PIPE_MODE = 4u
+-public const val PIPE_ACCEPT_REMOTE_CLIENTS: NAMED_PIPE_MODE = 0u
+-public const val PIPE_REJECT_REMOTE_CLIENTS: NAMED_PIPE_MODE = 8u
+-public const val PIPE_UNLIMITED_INSTANCES: UInt = 255u
++// DIRECT DECLARATION CANDIDATE: unsupported Rust remains below; not adopted or ABI-validated.
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=CallNamedPipeA; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `CallNamedPipeA`(`lpnamedpipename` : `windows_sys`.`core`.`PCSTR`, `lpinbuffer` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `ninbuffersize` : UInt, `lpoutbuffer` : /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `noutbuffersize` : UInt, `lpbytesread` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `ntimeout` : UInt) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=CallNamedPipeW; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `CallNamedPipeW`(`lpnamedpipename` : `windows_sys`.`core`.`PCWSTR`, `lpinbuffer` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `ninbuffersize` : UInt, `lpoutbuffer` : /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `noutbuffersize` : UInt, `lpbytesread` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `ntimeout` : UInt) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=ConnectNamedPipe; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++// Rust attribute (integration required): #[cfg(feature = "Win32_System_IO")]
++public external fun `ConnectNamedPipe`(`hnamedpipe` : `super`.`super`.`Foundation`.`HANDLE`, `lpoverlapped` : /* Rust *mut */ kotlinx.cinterop.CPointer<`super`.`IO`.`OVERLAPPED`>?) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=CreateNamedPipeA; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++// Rust attribute (integration required): #[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_FileSystem"))]
++public external fun `CreateNamedPipeA`(`lpname` : `windows_sys`.`core`.`PCSTR`, `dwopenmode` : `super`.`super`.`Storage`.`FileSystem`.`FILE_FLAGS_AND_ATTRIBUTES`, `dwpipemode` : `NAMED_PIPE_MODE`, `nmaxinstances` : UInt, `noutbuffersize` : UInt, `ninbuffersize` : UInt, `ndefaulttimeout` : UInt, `lpsecurityattributes` : /* Rust *const */ kotlinx.cinterop.CPointer<`super`.`super`.`Security`.`SECURITY_ATTRIBUTES`>?) : `super`.`super`.`Foundation`.`HANDLE`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=CreateNamedPipeW; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++// Rust attribute (integration required): #[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_FileSystem"))]
++public external fun `CreateNamedPipeW`(`lpname` : `windows_sys`.`core`.`PCWSTR`, `dwopenmode` : `super`.`super`.`Storage`.`FileSystem`.`FILE_FLAGS_AND_ATTRIBUTES`, `dwpipemode` : `NAMED_PIPE_MODE`, `nmaxinstances` : UInt, `noutbuffersize` : UInt, `ninbuffersize` : UInt, `ndefaulttimeout` : UInt, `lpsecurityattributes` : /* Rust *const */ kotlinx.cinterop.CPointer<`super`.`super`.`Security`.`SECURITY_ATTRIBUTES`>?) : `super`.`super`.`Foundation`.`HANDLE`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=CreatePipe; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++// Rust attribute (integration required): #[cfg(feature = "Win32_Security")]
++public external fun `CreatePipe`(`hreadpipe` : /* Rust *mut */ kotlinx.cinterop.CPointer<`super`.`super`.`Foundation`.`HANDLE`>?, `hwritepipe` : /* Rust *mut */ kotlinx.cinterop.CPointer<`super`.`super`.`Foundation`.`HANDLE`>?, `lppipeattributes` : /* Rust *const */ kotlinx.cinterop.CPointer<`super`.`super`.`Security`.`SECURITY_ATTRIBUTES`>?, `nsize` : UInt) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=DisconnectNamedPipe; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `DisconnectNamedPipe`(`hnamedpipe` : `super`.`super`.`Foundation`.`HANDLE`) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetNamedPipeClientComputerNameA; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `GetNamedPipeClientComputerNameA`(`pipe` : `super`.`super`.`Foundation`.`HANDLE`, `clientcomputername` : `windows_sys`.`core`.`PSTR`, `clientcomputernamelength` : UInt) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetNamedPipeClientComputerNameW; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `GetNamedPipeClientComputerNameW`(`pipe` : `super`.`super`.`Foundation`.`HANDLE`, `clientcomputername` : `windows_sys`.`core`.`PWSTR`, `clientcomputernamelength` : UInt) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetNamedPipeClientProcessId; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `GetNamedPipeClientProcessId`(`pipe` : `super`.`super`.`Foundation`.`HANDLE`, `clientprocessid` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetNamedPipeClientSessionId; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `GetNamedPipeClientSessionId`(`pipe` : `super`.`super`.`Foundation`.`HANDLE`, `clientsessionid` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetNamedPipeHandleStateA; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `GetNamedPipeHandleStateA`(`hnamedpipe` : `super`.`super`.`Foundation`.`HANDLE`, `lpstate` : /* Rust *mut */ kotlinx.cinterop.CPointer<`NAMED_PIPE_MODE`>?, `lpcurinstances` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `lpmaxcollectioncount` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `lpcollectdatatimeout` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `lpusername` : `windows_sys`.`core`.`PSTR`, `nmaxusernamesize` : UInt) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetNamedPipeHandleStateW; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `GetNamedPipeHandleStateW`(`hnamedpipe` : `super`.`super`.`Foundation`.`HANDLE`, `lpstate` : /* Rust *mut */ kotlinx.cinterop.CPointer<`NAMED_PIPE_MODE`>?, `lpcurinstances` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `lpmaxcollectioncount` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `lpcollectdatatimeout` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `lpusername` : `windows_sys`.`core`.`PWSTR`, `nmaxusernamesize` : UInt) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetNamedPipeInfo; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `GetNamedPipeInfo`(`hnamedpipe` : `super`.`super`.`Foundation`.`HANDLE`, `lpflags` : /* Rust *mut */ kotlinx.cinterop.CPointer<`NAMED_PIPE_MODE`>?, `lpoutbuffersize` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `lpinbuffersize` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `lpmaxinstances` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetNamedPipeServerProcessId; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `GetNamedPipeServerProcessId`(`pipe` : `super`.`super`.`Foundation`.`HANDLE`, `serverprocessid` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetNamedPipeServerSessionId; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `GetNamedPipeServerSessionId`(`pipe` : `super`.`super`.`Foundation`.`HANDLE`, `serversessionid` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=ImpersonateNamedPipeClient; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `ImpersonateNamedPipeClient`(`hnamedpipe` : `super`.`super`.`Foundation`.`HANDLE`) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=PeekNamedPipe; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `PeekNamedPipe`(`hnamedpipe` : `super`.`super`.`Foundation`.`HANDLE`, `lpbuffer` : /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `nbuffersize` : UInt, `lpbytesread` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `lptotalbytesavail` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `lpbytesleftthismessage` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=SetNamedPipeHandleState; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `SetNamedPipeHandleState`(`hnamedpipe` : `super`.`super`.`Foundation`.`HANDLE`, `lpmode` : /* Rust *const */ kotlinx.cinterop.CPointer<`NAMED_PIPE_MODE`>?, `lpmaxcollectioncount` : /* Rust *const */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `lpcollectdatatimeout` : /* Rust *const */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=TransactNamedPipe; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++// Rust attribute (integration required): #[cfg(feature = "Win32_System_IO")]
++public external fun `TransactNamedPipe`(`hnamedpipe` : `super`.`super`.`Foundation`.`HANDLE`, `lpinbuffer` : /* Rust *const */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `ninbuffersize` : UInt, `lpoutbuffer` : /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?, `noutbuffersize` : UInt, `lpbytesread` : /* Rust *mut */ kotlinx.cinterop.CPointer<kotlinx.cinterop.UIntVar>?, `lpoverlapped` : /* Rust *mut */ kotlinx.cinterop.CPointer<`super`.`IO`.`OVERLAPPED`>?) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=WaitNamedPipeA; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `WaitNamedPipeA`(`lpnamedpipename` : `windows_sys`.`core`.`PCSTR`, `ntimeout` : UInt) : `windows_sys`.`core`.`BOOL`
++// INTEGRATION REQUIRED: External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=WaitNamedPipeW; preserve Rust unsafe-call contract.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public external fun `WaitNamedPipeW`(`lpnamedpipename` : `windows_sys`.`core`.`PCWSTR`, `ntimeout` : UInt) : `windows_sys`.`core`.`BOOL`
++public typealias `NAMED_PIPE_MODE` = UInt;
++public const val `NMPWAIT_NOWAIT`: UInt = 1u;
++public const val `NMPWAIT_USE_DEFAULT_WAIT`: UInt = 0u;
++public const val `NMPWAIT_WAIT_FOREVER`: UInt = 4294967295u;
++public const val `PIPE_ACCEPT_REMOTE_CLIENTS`: `NAMED_PIPE_MODE` = 0u;
++public const val `PIPE_CLIENT_END`: `NAMED_PIPE_MODE` = 0u;
++public const val `PIPE_NOWAIT`: `NAMED_PIPE_MODE` = 1u;
++public const val `PIPE_READMODE_BYTE`: `NAMED_PIPE_MODE` = 0u;
++public const val `PIPE_READMODE_MESSAGE`: `NAMED_PIPE_MODE` = 2u;
++public const val `PIPE_REJECT_REMOTE_CLIENTS`: `NAMED_PIPE_MODE` = 8u;
++public const val `PIPE_SERVER_END`: `NAMED_PIPE_MODE` = 1u;
++public const val `PIPE_TYPE_BYTE`: `NAMED_PIPE_MODE` = 0u;
++public const val `PIPE_TYPE_MESSAGE`: `NAMED_PIPE_MODE` = 4u;
++public const val `PIPE_UNLIMITED_INSTANCES`: UInt = 255u;
++public const val `PIPE_WAIT`: `NAMED_PIPE_MODE` = 0u;

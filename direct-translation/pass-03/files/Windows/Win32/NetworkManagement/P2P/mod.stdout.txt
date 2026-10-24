@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Win32/NetworkManagement/P2P/mod: 276 generated; 271 syntax candidates; 76 unsupported

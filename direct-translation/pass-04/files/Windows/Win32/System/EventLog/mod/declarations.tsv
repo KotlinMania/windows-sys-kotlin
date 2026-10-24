@@ -1,0 +1,284 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro	BackupEventLogA	0	183	1	1	2	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=BackupEventLogA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1	Macro	BackupEventLogW	184	368	2	1	6	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=BackupEventLogW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+2	Macro	ClearEventLogA	369	551	3	1	10	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=ClearEventLogA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+3	Macro	ClearEventLogW	552	735	4	1	14	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=ClearEventLogW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+4	Macro	CloseEventLog	736	872	5	1	18	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=CloseEventLog; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+5	Macro	DeregisterEventSource	873	1017	6	1	22	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=DeregisterEventSource; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+6	Macro	EvtArchiveExportedLog	1018	1204	7	1	26	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtArchiveExportedLog; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+7	Macro	EvtCancel	1205	1310	8	1	30	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtCancel; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+8	Macro	EvtClearLog	1311	1517	9	1	34	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtClearLog; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+9	Macro	EvtClose	1518	1622	10	1	38	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtClose; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+10	Macro	EvtCreateBookmark	1623	1743	11	1	42	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtCreateBookmark; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+11	Macro	EvtCreateRenderContext	1744	1911	12	1	46	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtCreateRenderContext; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+12	Macro	EvtExportLog	1912	2147	13	1	51	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtExportLog; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+13	Macro	EvtFormatMessage	2148	2479	14	1	55	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtFormatMessage; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+14	Macro	EvtGetChannelConfigProperty	2480	2810	16	1	61	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtGetChannelConfigProperty; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+15	Macro	EvtGetEventInfo	2811	3099	18	1	67	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtGetEventInfo; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+16	Macro	EvtGetEventMetadataProperty	3100	3454	20	1	73	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtGetEventMetadataProperty; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+17	Macro	EvtGetExtendedStatus	3455	3606	22	1	79	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtGetExtendedStatus; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+18	Macro	EvtGetLogInfo	3607	3889	23	1	84	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtGetLogInfo; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+19	Macro	EvtGetObjectArrayProperty	3890	4202	25	1	90	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtGetObjectArrayProperty; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+20	Macro	EvtGetObjectArraySize	4203	4348	27	1	96	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtGetObjectArraySize; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+21	Macro	EvtGetPublisherMetadataProperty	4349	4727	28	1	101	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtGetPublisherMetadataProperty; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+22	Macro	EvtGetQueryInfo	4728	5030	30	1	107	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtGetQueryInfo; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+23	Macro	EvtNext	5031	5225	32	1	113	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtNext; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+24	Macro	EvtNextChannelPath	5226	5454	33	1	118	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtNextChannelPath; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+25	Macro	EvtNextEventMetadata	5455	5582	34	1	123	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtNextEventMetadata; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+26	Macro	EvtNextPublisherId	5583	5813	35	1	127	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtNextPublisherId; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+27	Macro	EvtOpenChannelConfig	5814	5972	36	1	132	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtOpenChannelConfig; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+28	Macro	EvtOpenChannelEnum	5973	6088	37	1	136	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtOpenChannelEnum; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+29	Macro	EvtOpenEventMetadataEnum	6089	6220	38	1	140	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtOpenEventMetadataEnum; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+30	Macro	EvtOpenLog	6221	6362	39	1	144	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtOpenLog; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+31	Macro	EvtOpenPublisherEnum	6363	6480	40	1	148	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtOpenPublisherEnum; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+32	Macro	EvtOpenPublisherMetadata	6481	6698	41	1	152	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtOpenPublisherMetadata; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+33	Macro	EvtOpenSession	6699	6867	42	1	156	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtOpenSession; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+34	Macro	EvtQuery	6868	7042	43	1	161	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtQuery; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+35	Macro	EvtRender	7043	7285	44	1	165	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtRender; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+36	Macro	EvtSaveChannelConfig	7286	7422	45	1	170	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtSaveChannelConfig; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+37	Macro	EvtSeek	7423	7596	46	1	174	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtSeek; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+38	Macro	EvtSetChannelConfigProperty	7597	7856	47	1	178	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtSetChannelConfigProperty; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+39	Macro	EvtSubscribe	7857	8185	49	1	184	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtSubscribe; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+40	Macro	EvtUpdateBookmark	8186	8321	50	1	189	syntax	External declaration shape only: wire DLL=wevtapi.dll, ABI=system, export=EvtUpdateBookmark; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+41	Macro	GetEventLogInformation	8322	8565	51	1	193	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=GetEventLogInformation; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+42	Macro	GetNumberOfEventLogRecords	8566	8743	52	1	198	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=GetNumberOfEventLogRecords; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+43	Macro	GetOldestEventLogRecord	8744	8915	53	1	203	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=GetOldestEventLogRecord; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+44	Macro	NotifyChangeEventLog	8916	9103	54	1	208	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=NotifyChangeEventLog; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+45	Macro	OpenBackupEventLogA	9104	9292	55	1	212	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=OpenBackupEventLogA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+46	Macro	OpenBackupEventLogW	9293	9483	56	1	216	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=OpenBackupEventLogW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+47	Macro	OpenEventLogA	9484	9668	57	1	220	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=OpenEventLogA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+48	Macro	OpenEventLogW	9669	9855	58	1	224	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=OpenEventLogW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+49	Macro	ReadEventLogA	9856	10179	59	1	228	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=ReadEventLogA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+50	Macro	ReadEventLogW	10180	10503	60	1	233	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=ReadEventLogW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+51	Macro	RegisterEventSourceA	10504	10695	61	1	238	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegisterEventSourceA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+52	Macro	RegisterEventSourceW	10696	10889	62	1	242	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=RegisterEventSourceW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+53	Macro	ReportEventA	10890	11284	63	1	246	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=ReportEventA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+54	Macro	ReportEventW	11285	11680	65	1	252	syntax	External declaration shape only: wire DLL=advapi32.dll, ABI=system, export=ReportEventW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+55	Struct	EVENTLOGRECORD	11681	12186	67	1	258	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+56	Const	EVENTLOG_AUDIT_FAILURE	12187	12247	87	1	281	generated	
+57	Const	EVENTLOG_AUDIT_SUCCESS	12248	12307	88	1	282	generated	
+58	Const	EVENTLOG_ERROR_TYPE	12308	12364	89	1	283	generated	
+59	Struct	EVENTLOG_FULL_INFORMATION	12365	12469	90	1	284	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+60	Const	EVENTLOG_INFORMATION_TYPE	12470	12532	95	1	291	generated	
+61	Const	EVENTLOG_SEEK_READ	12533	12596	96	1	292	generated	
+62	Const	EVENTLOG_SEQUENTIAL_READ	12597	12666	97	1	293	generated	
+63	Const	EVENTLOG_SUCCESS	12667	12720	98	1	294	generated	
+64	Const	EVENTLOG_WARNING_TYPE	12721	12779	99	1	295	generated	
+65	Struct	EVENTSFORLOGFILE	12780	12978	100	1	296	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 256 and value/layout semantics require coder integration. Rust fixed array length 1 and value/layout semantics require coder integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+66	Impl		12979	13088	108	1	309	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+67	Const	EVT_ALL_ACCESS	13089	13126	113	1	316	generated	
+68	ItemType	EVT_CHANNEL_CLOCK_TYPE	13127	13165	114	1	317	generated	
+69	ItemType	EVT_CHANNEL_CONFIG_PROPERTY_ID	13166	13212	115	1	318	generated	
+70	ItemType	EVT_CHANNEL_ISOLATION_TYPE	13213	13255	116	1	319	generated	
+71	ItemType	EVT_CHANNEL_REFERENCE_FLAGS	13256	13299	117	1	320	generated	
+72	ItemType	EVT_CHANNEL_SID_TYPE	13300	13336	118	1	321	generated	
+73	ItemType	EVT_CHANNEL_TYPE	13337	13369	119	1	322	generated	
+74	Const	EVT_CLEAR_ACCESS	13370	13409	120	1	323	generated	
+75	ItemType	EVT_EVENT_METADATA_PROPERTY_ID	13410	13456	121	1	324	generated	
+76	ItemType	EVT_EVENT_PROPERTY_ID	13457	13494	122	1	325	generated	
+77	ItemType	EVT_EXPORTLOG_FLAGS	13495	13530	123	1	326	generated	
+78	ItemType	EVT_FORMAT_MESSAGE_FLAGS	13531	13571	124	1	327	generated	
+79	ItemType	EVT_HANDLE	13572	13600	125	1	328	generated	
+80	ItemType	EVT_LOGIN_CLASS	13601	13632	126	1	329	generated	
+81	ItemType	EVT_LOG_PROPERTY_ID	13633	13668	127	1	330	generated	
+82	ItemType	EVT_OPEN_LOG_FLAGS	13669	13703	128	1	331	generated	
+83	ItemType	EVT_PUBLISHER_METADATA_PROPERTY_ID	13704	13754	129	1	332	generated	
+84	ItemType	EVT_QUERY_FLAGS	13755	13786	130	1	333	generated	
+85	ItemType	EVT_QUERY_PROPERTY_ID	13787	13824	131	1	334	generated	
+86	Const	EVT_READ_ACCESS	13825	13863	132	1	335	generated	
+87	ItemType	EVT_RENDER_CONTEXT_FLAGS	13864	13904	133	1	336	generated	
+88	ItemType	EVT_RENDER_FLAGS	13905	13937	134	1	337	generated	
+89	Struct	EVT_RPC_LOGIN	13938	14188	135	1	338	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+90	Impl		14189	14295	144	1	350	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+91	ItemType	EVT_RPC_LOGIN_FLAGS	14296	14331	149	1	357	generated	
+92	ItemType	EVT_SEEK_FLAGS	14332	14362	150	1	358	generated	
+93	ItemType	EVT_SUBSCRIBE_CALLBACK	14363	14533	151	1	359	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+94	ItemType	EVT_SUBSCRIBE_FLAGS	14534	14569	152	1	364	generated	
+95	ItemType	EVT_SUBSCRIBE_NOTIFY_ACTION	14570	14613	153	1	365	generated	
+96	ItemType	EVT_SYSTEM_PROPERTY_ID	14614	14652	154	1	366	generated	
+97	Struct	EVT_VARIANT	14653	14821	155	1	367	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+98	Impl		14822	14961	163	1	378	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+99	Union		14962	16483	169	1	386	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+100	Impl		16484	16625	214	1	433	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+101	ItemType	EVT_VARIANT_TYPE	16626	16658	220	1	441	generated	
+102	Const	EVT_VARIANT_TYPE_ARRAY	16659	16706	221	1	442	generated	
+103	Const	EVT_VARIANT_TYPE_MASK	16707	16753	222	1	443	generated	
+104	Const	EVT_WRITE_ACCESS	16754	16793	223	1	444	generated	
+105	Const	EventMetadataEventChannel	16794	16869	224	1	445	generated	
+106	Const	EventMetadataEventID	16870	16940	225	1	446	generated	
+107	Const	EventMetadataEventKeyword	16941	17016	226	1	447	generated	
+108	Const	EventMetadataEventLevel	17017	17090	227	1	448	generated	
+109	Const	EventMetadataEventMessageID	17091	17168	228	1	449	generated	
+110	Const	EventMetadataEventOpcode	17169	17243	229	1	450	generated	
+111	Const	EventMetadataEventTask	17244	17316	230	1	451	generated	
+112	Const	EventMetadataEventTemplate	17317	17393	231	1	452	generated	
+113	Const	EventMetadataEventVersion	17394	17469	232	1	453	generated	
+114	Const	EvtChannelClockTypeQPC	17470	17534	233	1	454	generated	
+115	Const	EvtChannelClockTypeSystemTime	17535	17606	234	1	455	generated	
+116	Const	EvtChannelConfigAccess	17607	17679	235	1	456	generated	
+117	Const	EvtChannelConfigClassicEventlog	17680	17761	236	1	457	generated	
+118	Const	EvtChannelConfigEnabled	17762	17835	237	1	458	generated	
+119	Const	EvtChannelConfigIsolation	17836	17911	238	1	459	generated	
+120	Const	EvtChannelConfigOwningPublisher	17912	17993	239	1	460	generated	
+121	Const	EvtChannelConfigPropertyIdEND	17994	18074	240	1	461	generated	
+122	Const	EvtChannelConfigType	18075	18145	241	1	462	generated	
+123	Const	EvtChannelIsolationTypeApplication	18146	18226	242	1	463	generated	
+124	Const	EvtChannelIsolationTypeCustom	18227	18302	243	1	464	generated	
+125	Const	EvtChannelIsolationTypeSystem	18303	18378	244	1	465	generated	
+126	Const	EvtChannelLoggingConfigAutoBackup	18379	18462	245	1	466	generated	
+127	Const	EvtChannelLoggingConfigLogFilePath	18463	18547	246	1	467	generated	
+128	Const	EvtChannelLoggingConfigMaxSize	18548	18628	247	1	468	generated	
+129	Const	EvtChannelLoggingConfigRetention	18629	18711	248	1	469	generated	
+130	Const	EvtChannelPublisherList	18712	18786	249	1	470	generated	
+131	Const	EvtChannelPublishingConfigBufferSize	18787	18874	250	1	471	generated	
+132	Const	EvtChannelPublishingConfigClockType	18875	18961	251	1	472	generated	
+133	Const	EvtChannelPublishingConfigControlGuid	18962	19050	252	1	473	generated	
+134	Const	EvtChannelPublishingConfigFileMax	19051	19135	253	1	474	generated	
+135	Const	EvtChannelPublishingConfigKeywords	19136	19221	254	1	475	generated	
+136	Const	EvtChannelPublishingConfigLatency	19222	19306	255	1	476	generated	
+137	Const	EvtChannelPublishingConfigLevel	19307	19389	256	1	477	generated	
+138	Const	EvtChannelPublishingConfigMaxBuffers	19390	19477	257	1	478	generated	
+139	Const	EvtChannelPublishingConfigMinBuffers	19478	19565	258	1	479	generated	
+140	Const	EvtChannelPublishingConfigSidType	19566	19650	259	1	480	generated	
+141	Const	EvtChannelReferenceImported	19651	19725	260	1	481	generated	
+142	Const	EvtChannelSidTypeNone	19726	19787	261	1	482	generated	
+143	Const	EvtChannelSidTypePublishing	19788	19855	262	1	483	generated	
+144	Const	EvtChannelTypeAdmin	19856	19911	263	1	484	generated	
+145	Const	EvtChannelTypeAnalytic	19912	19970	264	1	485	generated	
+146	Const	EvtChannelTypeDebug	19971	20026	265	1	486	generated	
+147	Const	EvtChannelTypeOperational	20027	20088	266	1	487	generated	
+148	Const	EvtEventMetadataPropertyIdEND	20089	20168	267	1	488	generated	
+149	Const	EvtEventPath	20169	20222	268	1	489	generated	
+150	Const	EvtEventPropertyIdEND	20223	20285	269	1	490	generated	
+151	Const	EvtEventQueryIDs	20286	20343	270	1	491	generated	
+152	Const	EvtExportLogChannelPath	20344	20406	271	1	492	generated	
+153	Const	EvtExportLogFilePath	20407	20466	272	1	493	generated	
+154	Const	EvtExportLogOverwrite	20467	20530	273	1	494	generated	
+155	Const	EvtExportLogTolerateQueryErrors	20531	20604	274	1	495	generated	
+156	Const	EvtFormatMessageChannel	20605	20672	275	1	496	generated	
+157	Const	EvtFormatMessageEvent	20673	20738	276	1	497	generated	
+158	Const	EvtFormatMessageId	20739	20801	277	1	498	generated	
+159	Const	EvtFormatMessageKeyword	20802	20869	278	1	499	generated	
+160	Const	EvtFormatMessageLevel	20870	20935	279	1	500	generated	
+161	Const	EvtFormatMessageOpcode	20936	21002	280	1	501	generated	
+162	Const	EvtFormatMessageProvider	21003	21071	281	1	502	generated	
+163	Const	EvtFormatMessageTask	21072	21136	282	1	503	generated	
+164	Const	EvtFormatMessageXml	21137	21200	283	1	504	generated	
+165	Const	EvtLogAttributes	21201	21256	284	1	505	generated	
+166	Const	EvtLogCreationTime	21257	21314	285	1	506	generated	
+167	Const	EvtLogFileSize	21315	21368	286	1	507	generated	
+168	Const	EvtLogFull	21369	21418	287	1	508	generated	
+169	Const	EvtLogLastAccessTime	21419	21478	288	1	509	generated	
+170	Const	EvtLogLastWriteTime	21479	21537	289	1	510	generated	
+171	Const	EvtLogNumberOfLogRecords	21538	21601	290	1	511	generated	
+172	Const	EvtLogOldestRecordNumber	21602	21665	291	1	512	generated	
+173	Const	EvtOpenChannelPath	21666	21722	292	1	513	generated	
+174	Const	EvtOpenFilePath	21723	21776	293	1	514	generated	
+175	Const	EvtPublisherMetadataChannelReferenceFlags	21777	21873	294	1	515	generated	
+176	Const	EvtPublisherMetadataChannelReferenceID	21874	21966	295	1	516	generated	
+177	Const	EvtPublisherMetadataChannelReferenceIndex	21967	22062	296	1	517	generated	
+178	Const	EvtPublisherMetadataChannelReferenceMessageID	22063	22163	297	1	518	generated	
+179	Const	EvtPublisherMetadataChannelReferencePath	22164	22258	298	1	519	generated	
+180	Const	EvtPublisherMetadataChannelReferences	22259	22350	299	1	520	generated	
+181	Const	EvtPublisherMetadataHelpLink	22351	22433	300	1	521	generated	
+182	Const	EvtPublisherMetadataKeywordMessageID	22434	22525	301	1	522	generated	
+183	Const	EvtPublisherMetadataKeywordName	22526	22612	302	1	523	generated	
+184	Const	EvtPublisherMetadataKeywordValue	22613	22700	303	1	524	generated	
+185	Const	EvtPublisherMetadataKeywords	22701	22784	304	1	525	generated	
+186	Const	EvtPublisherMetadataLevelMessageID	22785	22874	305	1	526	generated	
+187	Const	EvtPublisherMetadataLevelName	22875	22959	306	1	527	generated	
+188	Const	EvtPublisherMetadataLevelValue	22960	23045	307	1	528	generated	
+189	Const	EvtPublisherMetadataLevels	23046	23127	308	1	529	generated	
+190	Const	EvtPublisherMetadataMessageFilePath	23128	23217	309	1	530	generated	
+191	Const	EvtPublisherMetadataOpcodeMessageID	23218	23308	310	1	531	generated	
+192	Const	EvtPublisherMetadataOpcodeName	23309	23394	311	1	532	generated	
+193	Const	EvtPublisherMetadataOpcodeValue	23395	23481	312	1	533	generated	
+194	Const	EvtPublisherMetadataOpcodes	23482	23564	313	1	534	generated	
+195	Const	EvtPublisherMetadataParameterFilePath	23565	23656	314	1	535	generated	
+196	Const	EvtPublisherMetadataPropertyIdEND	23657	23745	315	1	536	generated	
+197	Const	EvtPublisherMetadataPublisherGuid	23746	23833	316	1	537	generated	
+198	Const	EvtPublisherMetadataPublisherMessageID	23834	23926	317	1	538	generated	
+199	Const	EvtPublisherMetadataResourceFilePath	23927	24017	318	1	539	generated	
+200	Const	EvtPublisherMetadataTaskEventGuid	24018	24106	319	1	540	generated	
+201	Const	EvtPublisherMetadataTaskMessageID	24107	24195	320	1	541	generated	
+202	Const	EvtPublisherMetadataTaskName	24196	24279	321	1	542	generated	
+203	Const	EvtPublisherMetadataTaskValue	24280	24364	322	1	543	generated	
+204	Const	EvtPublisherMetadataTasks	24365	24445	323	1	544	generated	
+205	Const	EvtQueryChannelPath	24446	24500	324	1	545	generated	
+206	Const	EvtQueryFilePath	24501	24552	325	1	546	generated	
+207	Const	EvtQueryForwardDirection	24553	24614	326	1	547	generated	
+208	Const	EvtQueryNames	24615	24669	327	1	548	generated	
+209	Const	EvtQueryPropertyIdEND	24670	24732	328	1	549	generated	
+210	Const	EvtQueryReverseDirection	24733	24794	329	1	550	generated	
+211	Const	EvtQueryStatuses	24795	24852	330	1	551	generated	
+212	Const	EvtQueryTolerateQueryErrors	24853	24918	331	1	552	generated	
+213	Const	EvtRenderBookmark	24919	24972	332	1	553	generated	
+214	Const	EvtRenderContextSystem	24973	25039	333	1	554	generated	
+215	Const	EvtRenderContextUser	25040	25104	334	1	555	generated	
+216	Const	EvtRenderContextValues	25105	25171	335	1	556	generated	
+217	Const	EvtRenderEventValues	25172	25228	336	1	557	generated	
+218	Const	EvtRenderEventXml	25229	25282	337	1	558	generated	
+219	Const	EvtRpcLogin	25283	25329	338	1	559	generated	
+220	Const	EvtRpcLoginAuthDefault	25330	25391	339	1	560	generated	
+221	Const	EvtRpcLoginAuthKerberos	25392	25454	340	1	561	generated	
+222	Const	EvtRpcLoginAuthNTLM	25455	25513	341	1	562	generated	
+223	Const	EvtRpcLoginAuthNegotiate	25514	25577	342	1	563	generated	
+224	Const	EvtSeekOriginMask	25578	25629	343	1	564	generated	
+225	Const	EvtSeekRelativeToBookmark	25630	25689	344	1	565	generated	
+226	Const	EvtSeekRelativeToCurrent	25690	25748	345	1	566	generated	
+227	Const	EvtSeekRelativeToFirst	25749	25805	346	1	567	generated	
+228	Const	EvtSeekRelativeToLast	25806	25861	347	1	568	generated	
+229	Const	EvtSeekStrict	25862	25913	348	1	569	generated	
+230	Const	EvtSubscribeActionDeliver	25914	25986	349	1	570	generated	
+231	Const	EvtSubscribeActionError	25987	26057	350	1	571	generated	
+232	Const	EvtSubscribeOriginMask	26058	26119	351	1	572	generated	
+233	Const	EvtSubscribeStartAfterBookmark	26120	26189	352	1	573	generated	
+234	Const	EvtSubscribeStartAtOldestRecord	26190	26260	353	1	574	generated	
+235	Const	EvtSubscribeStrict	26261	26322	354	1	575	generated	
+236	Const	EvtSubscribeToFutureEvents	26323	26388	355	1	576	generated	
+237	Const	EvtSubscribeTolerateQueryErrors	26389	26462	356	1	577	generated	
+238	Const	EvtSystemActivityID	26463	26525	357	1	578	generated	
+239	Const	EvtSystemChannel	26526	26585	358	1	579	generated	
+240	Const	EvtSystemComputer	26586	26646	359	1	580	generated	
+241	Const	EvtSystemEventID	26647	26705	360	1	581	generated	
+242	Const	EvtSystemEventRecordId	26706	26770	361	1	582	generated	
+243	Const	EvtSystemKeywords	26771	26830	362	1	583	generated	
+244	Const	EvtSystemLevel	26831	26887	363	1	584	generated	
+245	Const	EvtSystemOpcode	26888	26945	364	1	585	generated	
+246	Const	EvtSystemProcessID	26946	27007	365	1	586	generated	
+247	Const	EvtSystemPropertyIdEND	27008	27073	366	1	587	generated	
+248	Const	EvtSystemProviderGuid	27074	27137	367	1	588	generated	
+249	Const	EvtSystemProviderName	27138	27201	368	1	589	generated	
+250	Const	EvtSystemQualifiers	27202	27263	369	1	590	generated	
+251	Const	EvtSystemRelatedActivityID	27264	27333	370	1	591	generated	
+252	Const	EvtSystemTask	27334	27389	371	1	592	generated	
+253	Const	EvtSystemThreadID	27390	27450	372	1	593	generated	
+254	Const	EvtSystemTimeCreated	27451	27513	373	1	594	generated	
+255	Const	EvtSystemUserID	27514	27572	374	1	595	generated	
+256	Const	EvtSystemVersion	27573	27632	375	1	596	generated	
+257	Const	EvtVarTypeAnsiString	27633	27689	376	1	597	generated	
+258	Const	EvtVarTypeBinary	27690	27743	377	1	598	generated	
+259	Const	EvtVarTypeBoolean	27744	27798	378	1	599	generated	
+260	Const	EvtVarTypeByte	27799	27849	379	1	600	generated	
+261	Const	EvtVarTypeDouble	27850	27903	380	1	601	generated	
+262	Const	EvtVarTypeEvtHandle	27904	27960	381	1	602	generated	
+263	Const	EvtVarTypeEvtXml	27961	28014	382	1	603	generated	
+264	Const	EvtVarTypeFileTime	28015	28070	383	1	604	generated	
+265	Const	EvtVarTypeGuid	28071	28122	384	1	605	generated	
+266	Const	EvtVarTypeHexInt32	28123	28178	385	1	606	generated	
+267	Const	EvtVarTypeHexInt64	28179	28234	386	1	607	generated	
+268	Const	EvtVarTypeInt16	28235	28286	387	1	608	generated	
+269	Const	EvtVarTypeInt32	28287	28338	388	1	609	generated	
+270	Const	EvtVarTypeInt64	28339	28390	389	1	610	generated	
+271	Const	EvtVarTypeNull	28391	28441	390	1	611	generated	
+272	Const	EvtVarTypeSByte	28442	28493	391	1	612	generated	
+273	Const	EvtVarTypeSid	28494	28544	392	1	613	generated	
+274	Const	EvtVarTypeSingle	28545	28598	393	1	614	generated	
+275	Const	EvtVarTypeSizeT	28599	28651	394	1	615	generated	
+276	Const	EvtVarTypeString	28652	28704	395	1	616	generated	
+277	Const	EvtVarTypeSysTime	28705	28759	396	1	617	generated	
+278	Const	EvtVarTypeUInt16	28760	28812	397	1	618	generated	
+279	Const	EvtVarTypeUInt32	28813	28865	398	1	619	generated	
+280	Const	EvtVarTypeUInt64	28866	28919	399	1	620	generated	
+281	ItemType	READ_EVENT_LOG_READ_FLAGS	28920	28961	400	1	621	generated	
+282	ItemType	REPORT_EVENT_TYPE	28962	28995	401	1	622	generated	

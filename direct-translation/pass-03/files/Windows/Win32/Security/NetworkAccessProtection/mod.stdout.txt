@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Win32/Security/NetworkAccessProtection/mod: 47 generated; 12 syntax candidates; 12 unsupported

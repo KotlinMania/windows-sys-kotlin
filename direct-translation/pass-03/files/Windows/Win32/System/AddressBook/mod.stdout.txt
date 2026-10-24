@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Win32/System/AddressBook/mod: 217 generated; 131 syntax candidates; 83 unsupported

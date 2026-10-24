@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="nativeMacosTest.io.github.kotlinmania.rustkotlin.WindowsLinkCandidatesTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-10-24T21:58:31.239Z" hostname="EmberHarmony.local" time="0.0">
+  <properties/>
+  <testcase name="dllAbiExportAndScalarWidthsComeFromExistingSynNodes[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.WindowsLinkCandidatesTest" time="0.0"/>
+  <testcase name="sourceBackedAliasAndMacroTokensSurviveSpanSerialization[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.WindowsLinkCandidatesTest" time="0.0"/>
+  <testcase name="unsupportedForeignSemanticsRemainSourceWithNoStubOrHeader[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.WindowsLinkCandidatesTest" time="0.0"/>
+  <testcase name="rawPointersKeepLevelsNullabilityAndPointeeConstnessWithoutStringConversion[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.WindowsLinkCandidatesTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

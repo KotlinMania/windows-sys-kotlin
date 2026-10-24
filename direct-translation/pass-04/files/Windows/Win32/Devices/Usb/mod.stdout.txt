@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/Devices/Usb/mod: 694 generated; 232 syntax candidates; 187 unsupported

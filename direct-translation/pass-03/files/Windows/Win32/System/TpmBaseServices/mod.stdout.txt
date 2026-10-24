@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Win32/System/TpmBaseServices/mod: 39 generated; 18 syntax candidates; 5 unsupported

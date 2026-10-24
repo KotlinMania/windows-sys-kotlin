@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Win32/Media/Audio/mod: 638 generated; 234 syntax candidates; 178 unsupported

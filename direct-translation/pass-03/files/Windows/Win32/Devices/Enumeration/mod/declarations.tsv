@@ -1,0 +1,2 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Mod	Pnp	0	62	1	1	2	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod

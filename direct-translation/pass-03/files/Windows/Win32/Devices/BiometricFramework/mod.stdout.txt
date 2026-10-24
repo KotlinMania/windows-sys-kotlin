@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Win32/Devices/BiometricFramework/mod: 164 generated; 275 syntax candidates; 66 unsupported

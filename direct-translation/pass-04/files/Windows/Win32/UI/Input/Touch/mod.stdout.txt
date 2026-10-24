@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/UI/Input/Touch/mod: 32 generated; 16 syntax candidates; 5 unsupported

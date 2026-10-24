@@ -7,3 +7,4 @@ link-validation-*/*.exe
 link-validation-*/*.klib
 link-validation-*/*-build/
 link-validation-*/cinterop-tmp/
+syntax-validation-*/*.klib

@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/System/Com/Urlmon/mod: 703 generated; 86 syntax candidates; 10 unsupported

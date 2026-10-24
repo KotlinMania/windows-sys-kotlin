@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/Web/InternetExplorer/mod: 350 generated; 59 syntax candidates; 185 unsupported

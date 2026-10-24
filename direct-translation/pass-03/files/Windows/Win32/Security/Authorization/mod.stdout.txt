@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Win32/Security/Authorization/mod: 353 generated; 140 syntax candidates; 210 unsupported

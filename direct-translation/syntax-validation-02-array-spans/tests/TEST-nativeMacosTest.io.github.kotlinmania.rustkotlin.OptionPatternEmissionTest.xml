@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="nativeMacosTest.io.github.kotlinmania.rustkotlin.OptionPatternEmissionTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-24T21:58:29.743Z" hostname="EmberHarmony.local" time="1.006">
+  <properties/>
+  <testcase name="someBindingIsScopedToItsBranchAndKeepsNestedOptionTags[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.OptionPatternEmissionTest" time="1.005"/>
+  <testcase name="stringSearchAndUnwrapHaveExplicitTypedSemantics[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.OptionPatternEmissionTest" time="0.0"/>
+  <testcase name="guardedBindingsRangesAndSignedSubtractionAreTyped[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.OptionPatternEmissionTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

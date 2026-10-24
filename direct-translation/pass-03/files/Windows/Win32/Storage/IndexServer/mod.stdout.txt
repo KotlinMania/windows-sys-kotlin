@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Win32/Storage/IndexServer/mod: 176 generated; 10 syntax candidates; 21 unsupported

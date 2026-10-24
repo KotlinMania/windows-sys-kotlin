@@ -1,0 +1,14 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro	DSCreateSecurityPage	0	416	1	1	2	syntax	External declaration shape only: wire DLL=dssec.dll, ABI=system, export=DSCreateSecurityPage; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1	Macro	DSEditSecurity	417	816	3	1	8	syntax	External declaration shape only: wire DLL=dssec.dll, ABI=system, export=DSEditSecurity; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+2	Const	DSSI_IS_ROOT	817	853	4	1	12	generated	
+3	Const	DSSI_NO_ACCESS_CHECK	854	897	5	1	13	generated	
+4	Const	DSSI_NO_EDIT_OWNER	898	939	6	1	14	generated	
+5	Const	DSSI_NO_EDIT_SACL	940	980	7	1	15	generated	
+6	Const	DSSI_NO_FILTER	981	1019	8	1	16	generated	
+7	Const	DSSI_NO_READONLY_MESSAGE	1020	1068	9	1	17	generated	
+8	Const	DSSI_READ_ONLY	1069	1106	10	1	18	generated	
+9	ItemType	PFNDSCREATESECPAGE	1107	1484	11	1	19	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+10	ItemType	PFNDSEDITSECURITY	1485	1841	13	1	25	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+11	ItemType	PFNREADOBJECTSECURITY	1842	2071	14	1	29	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+12	ItemType	PFNWRITEOBJECTSECURITY	2072	2297	15	1	34	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.

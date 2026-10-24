@@ -1,0 +1,7 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Const	BEEP_FREQUENCY_MAXIMUM	0	49	1	1	2	generated	
+1	Const	BEEP_FREQUENCY_MINIMUM	50	96	2	1	3	generated	
+2	Struct	BEEP_SET_PARAMETERS	97	221	3	1	4	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+3	Const	DD_BEEP_DEVICE_NAME	222	320	9	1	12	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+4	Const	DD_BEEP_DEVICE_NAME_U	321	422	10	1	15	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+5	Const	IOCTL_BEEP_SET	423	464	11	1	18	generated	

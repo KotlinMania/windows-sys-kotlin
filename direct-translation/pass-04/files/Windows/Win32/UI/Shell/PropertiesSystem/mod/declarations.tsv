@@ -1,0 +1,289 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro	PSCoerceToCanonicalValue	0	339	1	1	2	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSCoerceToCanonicalValue; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1	Macro	PSCreateAdapterFromPropertyStore	340	555	3	1	8	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSCreateAdapterFromPropertyStore; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+2	Macro	PSCreateDelayedMultiplexPropertyStore	556	849	4	1	13	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSCreateDelayedMultiplexPropertyStore; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+3	Macro	PSCreateMemoryPropertyStore	850	1029	5	1	18	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSCreateMemoryPropertyStore; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+4	Macro	PSCreateMultiplexPropertyStore	1030	1275	6	1	23	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSCreateMultiplexPropertyStore; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+5	Macro	PSCreatePropertyChangeArray	1276	1745	7	1	28	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSCreatePropertyChangeArray; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+6	Macro	PSCreatePropertyStoreFromObject	1746	1976	9	1	34	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSCreatePropertyStoreFromObject; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+7	Macro	PSCreatePropertyStoreFromPropertySetStorage	1977	2274	10	1	39	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSCreatePropertyStoreFromPropertySetStorage; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+8	Macro	PSCreateSimplePropertyChange	2275	2712	12	1	45	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSCreateSimplePropertyChange; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+9	Macro	PSEnumeratePropertyDescriptions	2713	2928	14	1	51	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSEnumeratePropertyDescriptions; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+10	Macro	PSFormatForDisplay	2929	3353	15	1	56	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSFormatForDisplay; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+11	Macro	PSFormatForDisplayAlloc	3354	3768	17	1	62	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSFormatForDisplayAlloc; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+12	Macro	PSFormatPropertyValue	3769	4005	19	1	68	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSFormatPropertyValue; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+13	Macro	PSGetImageReferenceForValue	4006	4399	20	1	73	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSGetImageReferenceForValue; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+14	Macro	PSGetItemPropertyHandler	4400	4650	22	1	79	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSGetItemPropertyHandler; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+15	Macro	PSGetItemPropertyHandlerWithCreateObject	4651	4961	23	1	84	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSGetItemPropertyHandlerWithCreateObject; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+16	Macro	PSGetNameFromPropertyKey	4962	5179	24	1	89	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSGetNameFromPropertyKey; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+17	Macro	PSGetNamedPropertyFromPropertyStorage	5180	5552	25	1	94	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSGetNamedPropertyFromPropertyStorage; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+18	Macro	PSGetPropertyDescription	5553	5793	27	1	100	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSGetPropertyDescription; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+19	Macro	PSGetPropertyDescriptionByName	5794	6022	28	1	105	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSGetPropertyDescriptionByName; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+20	Macro	PSGetPropertyDescriptionListFromString	6023	6254	29	1	110	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSGetPropertyDescriptionListFromString; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+21	Macro	PSGetPropertyFromPropertyStorage	6255	6647	30	1	115	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSGetPropertyFromPropertyStorage; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+22	Macro	PSGetPropertyKeyFromName	6648	6850	32	1	121	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSGetPropertyKeyFromName; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+23	Macro	PSGetPropertySystem	6851	7022	33	1	126	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSGetPropertySystem; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+24	Macro	PSGetPropertyValue	7023	7358	34	1	131	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSGetPropertyValue; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+25	Macro	PSLookupPropertyHandlerCLSID	7359	7545	36	1	137	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSLookupPropertyHandlerCLSID; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+26	Macro	PSPropertyBag_Delete	7546	7772	37	1	142	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_Delete; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+27	Macro	PSPropertyBag_ReadBOOL	7773	8039	39	1	148	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_ReadBOOL; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+28	Macro	PSPropertyBag_ReadBSTR	8040	8306	41	1	154	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_ReadBSTR; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+29	Macro	PSPropertyBag_ReadDWORD	8307	8554	43	1	160	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_ReadDWORD; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+30	Macro	PSPropertyBag_ReadGUID	8555	8821	45	1	166	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_ReadGUID; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+31	Macro	PSPropertyBag_ReadInt	8822	9067	47	1	172	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_ReadInt; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+32	Macro	PSPropertyBag_ReadLONG	9068	9314	49	1	178	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_ReadLONG; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+33	Macro	PSPropertyBag_ReadPOINTL	9315	9600	51	1	184	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_ReadPOINTL; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+34	Macro	PSPropertyBag_ReadPOINTS	9601	9886	53	1	190	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_ReadPOINTS; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+35	Macro	PSPropertyBag_ReadPropertyKey	9887	10182	55	1	196	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_ReadPropertyKey; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+36	Macro	PSPropertyBag_ReadRECTL	10183	10466	57	1	202	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_ReadRECTL; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+37	Macro	PSPropertyBag_ReadSHORT	10467	10714	59	1	208	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_ReadSHORT; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+38	Macro	PSPropertyBag_ReadStr	10715	10998	61	1	214	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_ReadStr; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+39	Macro	PSPropertyBag_ReadStrAlloc	10999	11270	63	1	220	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_ReadStrAlloc; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+40	Macro	PSPropertyBag_ReadStream	11271	11539	65	1	226	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_ReadStream; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+41	Macro	PSPropertyBag_ReadType	11540	11953	67	1	232	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_ReadType; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+42	Macro	PSPropertyBag_ReadULONGLONG	11954	12205	69	1	238	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_ReadULONGLONG; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+43	Macro	PSPropertyBag_ReadUnknown	12206	12511	71	1	244	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_ReadUnknown; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+44	Macro	PSPropertyBag_WriteBOOL	12512	12774	73	1	250	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_WriteBOOL; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+45	Macro	PSPropertyBag_WriteBSTR	12775	13037	75	1	256	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_WriteBSTR; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+46	Macro	PSPropertyBag_WriteDWORD	13038	13281	77	1	262	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_WriteDWORD; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+47	Macro	PSPropertyBag_WriteGUID	13282	13551	79	1	268	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_WriteGUID; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+48	Macro	PSPropertyBag_WriteInt	13552	13793	81	1	274	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_WriteInt; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+49	Macro	PSPropertyBag_WriteLONG	13794	14036	83	1	280	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_WriteLONG; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+50	Macro	PSPropertyBag_WritePOINTL	14037	14325	85	1	286	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_WritePOINTL; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+51	Macro	PSPropertyBag_WritePOINTS	14326	14614	87	1	292	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_WritePOINTS; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+52	Macro	PSPropertyBag_WritePropertyKey	14615	14913	89	1	298	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_WritePropertyKey; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+53	Macro	PSPropertyBag_WriteRECTL	14914	15200	91	1	304	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_WriteRECTL; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+54	Macro	PSPropertyBag_WriteSHORT	15201	15444	93	1	310	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_WriteSHORT; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+55	Macro	PSPropertyBag_WriteStr	15445	15708	95	1	316	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_WriteStr; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+56	Macro	PSPropertyBag_WriteStream	15709	15973	97	1	322	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_WriteStream; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+57	Macro	PSPropertyBag_WriteULONGLONG	15974	16221	99	1	328	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_WriteULONGLONG; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+58	Macro	PSPropertyBag_WriteUnknown	16222	16486	101	1	334	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyBag_WriteUnknown; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+59	Macro	PSPropertyKeyFromString	16487	16686	103	1	340	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSPropertyKeyFromString; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+60	Macro	PSRefreshPropertySchema	16687	16790	104	1	345	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSRefreshPropertySchema; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+61	Macro	PSRegisterPropertySchema	16791	16930	105	1	349	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSRegisterPropertySchema; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+62	Macro	PSSetPropertyValue	16931	17267	106	1	353	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSSetPropertyValue; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+63	Macro	PSStringFromPropertyKey	17268	17473	108	1	359	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSStringFromPropertyKey; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+64	Macro	PSUnregisterPropertySchema	17474	17615	109	1	364	syntax	External declaration shape only: wire DLL=propsys.dll, ABI=system, export=PSUnregisterPropertySchema; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+65	Macro	PifMgr_CloseProperties	17616	17794	110	1	368	syntax	External declaration shape only: wire DLL=shell32.dll, ABI=system, export=PifMgr_CloseProperties; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+66	Macro	PifMgr_GetProperties	17795	18020	111	1	372	syntax	External declaration shape only: wire DLL=shell32.dll, ABI=system, export=PifMgr_GetProperties; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+67	Macro	PifMgr_OpenProperties	18021	18231	112	1	377	syntax	External declaration shape only: wire DLL=shell32.dll, ABI=system, export=PifMgr_OpenProperties; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+68	Macro	PifMgr_SetProperties	18232	18459	113	1	381	syntax	External declaration shape only: wire DLL=shell32.dll, ABI=system, export=PifMgr_SetProperties; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+69	Macro	SHAddDefaultPropertiesByExt	18460	18639	114	1	386	syntax	External declaration shape only: wire DLL=shell32.dll, ABI=system, export=SHAddDefaultPropertiesByExt; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+70	Macro	SHGetPropertyStoreForWindow	18640	18866	115	1	391	syntax	External declaration shape only: wire DLL=shell32.dll, ABI=system, export=SHGetPropertyStoreForWindow; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+71	Macro	SHGetPropertyStoreFromIDList	18867	19162	116	1	396	syntax	External declaration shape only: wire DLL=shell32.dll, ABI=system, export=SHGetPropertyStoreFromIDList; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+72	Macro	SHGetPropertyStoreFromParsingName	19163	19484	118	1	402	syntax	External declaration shape only: wire DLL=shell32.dll, ABI=system, export=SHGetPropertyStoreFromParsingName; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+73	Macro	SHPropStgCreate	19485	19860	120	1	408	syntax	External declaration shape only: wire DLL=shell32.dll, ABI=system, export=SHPropStgCreate; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+74	Macro	SHPropStgReadMultiple	19861	20277	122	1	414	syntax	External declaration shape only: wire DLL=shell32.dll, ABI=system, export=SHPropStgReadMultiple; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+75	Macro	SHPropStgWriteMultiple	20278	20724	124	1	420	syntax	External declaration shape only: wire DLL=shell32.dll, ABI=system, export=SHPropStgWriteMultiple; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+76	Const	FPSPS_DEFAULT	20725	20783	126	1	426	generated	
+77	Const	FPSPS_READONLY	20784	20843	127	1	427	generated	
+78	Const	FPSPS_TREAT_NEW_VALUES_AS_DIRTY	20844	20920	128	1	428	generated	
+79	ItemType	GETPROPERTYSTOREFLAGS	20921	20958	129	1	429	generated	
+80	Const	GPS_BESTEFFORT	20959	21015	130	1	430	generated	
+81	Const	GPS_DEFAULT	21016	21068	131	1	431	generated	
+82	Const	GPS_DELAYCREATION	21069	21128	132	1	432	generated	
+83	Const	GPS_EXTRINSICPROPERTIES	21129	21195	133	1	433	generated	
+84	Const	GPS_EXTRINSICPROPERTIESONLY	21196	21267	134	1	434	generated	
+85	Const	GPS_FASTPROPERTIESONLY	21268	21331	135	1	435	generated	
+86	Const	GPS_HANDLERPROPERTIESONLY	21332	21398	136	1	436	generated	
+87	Const	GPS_MASK_VALID	21399	21457	137	1	437	generated	
+88	Const	GPS_NO_OPLOCK	21458	21514	138	1	438	generated	
+89	Const	GPS_OPENSLOWITEM	21515	21573	139	1	439	generated	
+90	Const	GPS_PREFERQUERYPROPERTIES	21574	21642	140	1	440	generated	
+91	Const	GPS_READWRITE	21643	21697	141	1	441	generated	
+92	Const	GPS_TEMPORARY	21698	21752	142	1	442	generated	
+93	Const	GPS_VOLATILEPROPERTIES	21753	21819	143	1	443	generated	
+94	Const	GPS_VOLATILEPROPERTIESONLY	21820	21890	144	1	444	generated	
+95	Const	InMemoryPropertyStore	21891	22025	145	1	445	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+96	Const	InMemoryPropertyStoreMarshalByValue	22026	22174	146	1	448	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+97	ItemType	PCUSERIALIZEDPROPSTORAGE	22175	22217	147	1	451	generated	
+98	Const	PDAT_AVERAGE	22218	22275	148	1	452	generated	
+99	Const	PDAT_DATERANGE	22276	22335	149	1	453	generated	
+100	Const	PDAT_DEFAULT	22336	22393	150	1	454	generated	
+101	Const	PDAT_FIRST	22394	22449	151	1	455	generated	
+102	Const	PDAT_MAX	22450	22503	152	1	456	generated	
+103	Const	PDAT_MIN	22504	22557	153	1	457	generated	
+104	Const	PDAT_SUM	22558	22611	154	1	458	generated	
+105	Const	PDAT_UNION	22612	22667	155	1	459	generated	
+106	Const	PDCIT_INMEMORY	22668	22727	156	1	460	generated	
+107	Const	PDCIT_NONE	22728	22783	157	1	461	generated	
+108	Const	PDCIT_ONDEMAND	22784	22843	158	1	462	generated	
+109	Const	PDCIT_ONDISK	22844	22901	159	1	463	generated	
+110	Const	PDCIT_ONDISKALL	22902	22962	160	1	464	generated	
+111	Const	PDCIT_ONDISKVECTOR	22963	23026	161	1	465	generated	
+112	Const	PDCOT_BOOLEAN	23027	23083	162	1	466	generated	
+113	Const	PDCOT_DATETIME	23084	23141	163	1	467	generated	
+114	Const	PDCOT_NONE	23142	23195	164	1	468	generated	
+115	Const	PDCOT_NUMBER	23196	23251	165	1	469	generated	
+116	Const	PDCOT_SIZE	23252	23305	166	1	470	generated	
+117	Const	PDCOT_STRING	23306	23361	167	1	471	generated	
+118	Const	PDDT_BOOLEAN	23362	23414	168	1	472	generated	
+119	Const	PDDT_DATETIME	23415	23468	169	1	473	generated	
+120	Const	PDDT_ENUMERATED	23469	23524	170	1	474	generated	
+121	Const	PDDT_NUMBER	23525	23576	171	1	475	generated	
+122	Const	PDDT_STRING	23577	23628	172	1	476	generated	
+123	Const	PDEF_ALL	23629	23676	173	1	477	generated	
+124	Const	PDEF_COLUMN	23677	23727	174	1	478	generated	
+125	Const	PDEF_INFULLTEXTQUERY	23728	23787	175	1	479	generated	
+126	Const	PDEF_NONSYSTEM	23788	23841	176	1	480	generated	
+127	Const	PDEF_QUERYABLE	23842	23895	177	1	481	generated	
+128	Const	PDEF_SYSTEM	23896	23946	178	1	482	generated	
+129	Const	PDEF_VIEWABLE	23947	23999	179	1	483	generated	
+130	Const	PDFF_ALWAYSKB	24000	24054	180	1	484	generated	
+131	Const	PDFF_DEFAULT	24055	24108	181	1	485	generated	
+132	Const	PDFF_FILENAME	24109	24163	182	1	486	generated	
+133	Const	PDFF_HIDEDATE	24164	24220	183	1	487	generated	
+134	Const	PDFF_HIDETIME	24221	24276	184	1	488	generated	
+135	Const	PDFF_LONGDATE	24277	24333	185	1	489	generated	
+136	Const	PDFF_LONGTIME	24334	24389	186	1	490	generated	
+137	Const	PDFF_NOAUTOREADINGORDER	24390	24457	187	1	491	generated	
+138	Const	PDFF_PREFIXNAME	24458	24514	188	1	492	generated	
+139	Const	PDFF_READONLY	24515	24572	189	1	493	generated	
+140	Const	PDFF_RELATIVEDATE	24573	24634	190	1	494	generated	
+141	Const	PDFF_RESERVED_RIGHTTOLEFT	24635	24701	191	1	495	generated	
+142	Const	PDFF_SHORTDATE	24702	24759	192	1	496	generated	
+143	Const	PDFF_SHORTTIME	24760	24816	193	1	497	generated	
+144	Const	PDFF_USEEDITINVITATION	24817	24883	194	1	498	generated	
+145	Const	PDGR_ALPHANUMERIC	24884	24944	195	1	499	generated	
+146	Const	PDGR_DATE	24945	24997	196	1	500	generated	
+147	Const	PDGR_DISCRETE	24998	25054	197	1	501	generated	
+148	Const	PDGR_DYNAMIC	25055	25110	198	1	502	generated	
+149	Const	PDGR_ENUMERATED	25111	25169	199	1	503	generated	
+150	Const	PDGR_PERCENT	25170	25225	200	1	504	generated	
+151	Const	PDGR_SIZE	25226	25278	201	1	505	generated	
+152	ItemType	PDOPSTATUS	25279	25305	202	1	506	generated	
+153	Const	PDOPS_CANCELLED	25306	25351	203	1	507	generated	
+154	Const	PDOPS_ERRORS	25352	25394	204	1	508	generated	
+155	Const	PDOPS_PAUSED	25395	25437	205	1	509	generated	
+156	Const	PDOPS_RUNNING	25438	25481	206	1	510	generated	
+157	Const	PDOPS_STOPPED	25482	25525	207	1	511	generated	
+158	Const	PDRDT_COUNT	25526	25590	208	1	512	generated	
+159	Const	PDRDT_DATE	25591	25654	209	1	513	generated	
+160	Const	PDRDT_DURATION	25655	25722	210	1	514	generated	
+161	Const	PDRDT_GENERAL	25723	25789	211	1	515	generated	
+162	Const	PDRDT_LENGTH	25790	25855	212	1	516	generated	
+163	Const	PDRDT_PRIORITY	25856	25924	213	1	517	generated	
+164	Const	PDRDT_RATE	25925	25988	214	1	518	generated	
+165	Const	PDRDT_RATING	25989	26054	215	1	519	generated	
+166	Const	PDRDT_REVISION	26055	26122	216	1	520	generated	
+167	Const	PDRDT_SIZE	26123	26186	217	1	521	generated	
+168	Const	PDRDT_SPEED	26187	26251	218	1	522	generated	
+169	Const	PDSD_A_Z	26252	26304	219	1	523	generated	
+170	Const	PDSD_GENERAL	26305	26361	220	1	524	generated	
+171	Const	PDSD_LOWEST_HIGHEST	26362	26425	221	1	525	generated	
+172	Const	PDSD_OLDEST_NEWEST	26426	26488	222	1	526	generated	
+173	Const	PDSD_SMALLEST_BIGGEST	26489	26554	223	1	527	generated	
+174	Const	PDSIF_ALWAYSINCLUDE	26555	26619	224	1	528	generated	
+175	Const	PDSIF_DEFAULT	26620	26678	225	1	529	generated	
+176	Const	PDSIF_ININVERTEDINDEX	26679	26745	226	1	530	generated	
+177	Const	PDSIF_ISCOLUMN	26746	26805	227	1	531	generated	
+178	Const	PDSIF_ISCOLUMNSPARSE	26806	26871	228	1	532	generated	
+179	Const	PDSIF_USEFORTYPEAHEAD	26872	26939	229	1	533	generated	
+180	Const	PDTF_ALWAYSINSUPPLEMENTALSTORE	26940	27012	230	1	534	generated	
+181	Const	PDTF_CANBEPURGED	27013	27070	231	1	535	generated	
+182	Const	PDTF_CANGROUPBY	27071	27125	232	1	536	generated	
+183	Const	PDTF_CANSTACKBY	27126	27181	233	1	537	generated	
+184	Const	PDTF_DEFAULT	27182	27233	234	1	538	generated	
+185	Const	PDTF_DONTCOERCEEMPTYSTRINGS	27234	27303	235	1	539	generated	
+186	Const	PDTF_INCLUDEINFULLTEXTQUERY	27304	27371	236	1	540	generated	
+187	Const	PDTF_ISGROUP	27372	27423	237	1	541	generated	
+188	Const	PDTF_ISINNATE	27424	27476	238	1	542	generated	
+189	Const	PDTF_ISQUERYABLE	27477	27534	239	1	543	generated	
+190	Const	PDTF_ISSYSTEMPROPERTY	27535	27604	240	1	544	generated	
+191	Const	PDTF_ISTREEPROPERTY	27605	27664	241	1	545	generated	
+192	Const	PDTF_ISVIEWABLE	27665	27721	242	1	546	generated	
+193	Const	PDTF_MASK_ALL	27722	27783	243	1	547	generated	
+194	Const	PDTF_MULTIPLEVALUES	27784	27842	244	1	548	generated	
+195	Const	PDTF_SEARCHRAWVALUE	27843	27904	245	1	549	generated	
+196	Const	PDVF_BEGINNEWGROUP	27905	27962	246	1	550	generated	
+197	Const	PDVF_CANWRAP	27963	28017	247	1	551	generated	
+198	Const	PDVF_CENTERALIGN	28018	28073	248	1	552	generated	
+199	Const	PDVF_DEFAULT	28074	28125	249	1	553	generated	
+200	Const	PDVF_FILLAREA	28126	28178	250	1	554	generated	
+201	Const	PDVF_HIDDEN	28179	28232	251	1	555	generated	
+202	Const	PDVF_HIDELABEL	28233	28288	252	1	556	generated	
+203	Const	PDVF_MASK_ALL	28289	28344	253	1	557	generated	
+204	Const	PDVF_RIGHTALIGN	28345	28399	254	1	558	generated	
+205	Const	PDVF_SHOWBYDEFAULT	28400	28458	255	1	559	generated	
+206	Const	PDVF_SHOWINPRIMARYLIST	28459	28522	256	1	560	generated	
+207	Const	PDVF_SHOWINSECONDARYLIST	28523	28588	257	1	561	generated	
+208	Const	PDVF_SHOWONLYIFPRESENT	28589	28651	258	1	562	generated	
+209	Const	PDVF_SORTDESCENDING	28652	28711	259	1	563	generated	
+210	Const	PET_DEFAULTVALUE	28712	28760	260	1	564	generated	
+211	Const	PET_DISCRETEVALUE	28761	28810	261	1	565	generated	
+212	Const	PET_ENDRANGE	28811	28855	262	1	566	generated	
+213	Const	PET_RANGEDVALUE	28856	28903	263	1	567	generated	
+214	Const	PKA_APPEND	28904	28943	264	1	568	generated	
+215	Const	PKA_DELETE	28944	28983	265	1	569	generated	
+216	ItemType	PKA_FLAGS	28984	29009	266	1	570	generated	
+217	Const	PKA_SET	29010	29046	267	1	571	generated	
+218	Const	PKEY_PIDSTR_MAX	29047	29086	268	1	572	generated	
+219	ItemType	PLACEHOLDER_STATES	29087	29121	269	1	573	generated	
+220	ItemType	PROPDESC_AGGREGATION_TYPE	29122	29163	270	1	574	generated	
+221	ItemType	PROPDESC_COLUMNINDEX_TYPE	29164	29205	271	1	575	generated	
+222	ItemType	PROPDESC_CONDITION_TYPE	29206	29245	272	1	576	generated	
+223	ItemType	PROPDESC_DISPLAYTYPE	29246	29282	273	1	577	generated	
+224	ItemType	PROPDESC_ENUMFILTER	29283	29318	274	1	578	generated	
+225	ItemType	PROPDESC_FORMAT_FLAGS	29319	29356	275	1	579	generated	
+226	ItemType	PROPDESC_GROUPING_RANGE	29357	29396	276	1	580	generated	
+227	ItemType	PROPDESC_RELATIVEDESCRIPTION_TYPE	29397	29446	277	1	581	generated	
+228	ItemType	PROPDESC_SEARCHINFO_FLAGS	29447	29488	278	1	582	generated	
+229	ItemType	PROPDESC_SORTDESCRIPTION	29489	29529	279	1	583	generated	
+230	ItemType	PROPDESC_TYPE_FLAGS	29530	29565	280	1	584	generated	
+231	ItemType	PROPDESC_VIEW_FLAGS	29566	29601	281	1	585	generated	
+232	ItemType	PROPENUMTYPE	29602	29630	282	1	586	generated	
+233	ItemType	PROPERTYUI_FLAGS	29631	29663	283	1	587	generated	
+234	ItemType	PROPERTYUI_FORMAT_FLAGS	29664	29703	284	1	588	generated	
+235	ItemType	PROPERTYUI_NAME_FLAGS	29704	29741	285	1	589	generated	
+236	Struct	PROPPRG	29742	30142	286	1	590	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 30 and value/layout semantics require coder integration. Rust fixed array length 128 and value/layout semantics require coder integration. Rust fixed array length 64 and value/layout semantics require coder integration. Rust fixed array length 80 and value/layout semantics require coder integration. Rust fixed array length 260 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+237	Impl		30143	30243	302	1	613	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+238	Const	PSC_DIRTY	30244	30282	307	1	620	generated	
+239	Const	PSC_NORMAL	30283	30322	308	1	621	generated	
+240	Const	PSC_NOTINSOURCE	30323	30367	309	1	622	generated	
+241	Const	PSC_READONLY	30368	30409	310	1	623	generated	
+242	ItemType	PSC_STATE	30410	30435	311	1	624	generated	
+243	Const	PS_ALL	30436	30481	312	1	625	generated	
+244	Const	PS_CLOUDFILE_PLACEHOLDER	30482	30544	313	1	626	generated	
+245	Const	PS_CREATE_FILE_ACCESSIBLE	30545	30608	314	1	627	generated	
+246	Const	PS_DEFAULT	30609	30657	315	1	628	generated	
+247	Const	PS_FULL_PRIMARY_STREAM_AVAILABLE	30658	30728	316	1	629	generated	
+248	Const	PS_MARKED_FOR_OFFLINE_AVAILABILITY	30729	30801	317	1	630	generated	
+249	Const	PS_NONE	30802	30847	318	1	631	generated	
+250	Const	PUIFFDF_DEFAULT	30848	30906	319	1	632	generated	
+251	Const	PUIFFDF_FRIENDLYDATE	30907	30970	320	1	633	generated	
+252	Const	PUIFFDF_NOTIME	30971	31028	321	1	634	generated	
+253	Const	PUIFFDF_RIGHTTOLEFT	31029	31091	322	1	635	generated	
+254	Const	PUIFFDF_SHORTFORMAT	31092	31154	323	1	636	generated	
+255	Const	PUIFNF_DEFAULT	31155	31210	324	1	637	generated	
+256	Const	PUIFNF_MNEMONIC	31211	31267	325	1	638	generated	
+257	Const	PUIF_DEFAULT	31268	31316	326	1	639	generated	
+258	Const	PUIF_NOLABELININFOTIP	31317	31374	327	1	640	generated	
+259	Const	PUIF_RIGHTALIGN	31375	31426	328	1	641	generated	
+260	Const	PropertySystem	31427	31554	329	1	642	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+261	ItemType	SERIALIZEDPROPSTORAGE	31555	31594	330	1	645	generated	
+262	Const	SESF_ALL_FLAGS	31595	31654	331	1	646	generated	
+263	Const	SESF_AUTHENTICATION_ERROR	31655	31723	332	1	647	generated	
+264	Const	SESF_NONE	31724	31776	333	1	648	generated	
+265	Const	SESF_PAUSED_DUE_TO_CLIENT_POLICY	31777	31853	334	1	649	generated	
+266	Const	SESF_PAUSED_DUE_TO_DISK_SPACE_FULL	31854	31932	335	1	650	generated	
+267	Const	SESF_PAUSED_DUE_TO_METERED_NETWORK	31933	32010	336	1	651	generated	
+268	Const	SESF_PAUSED_DUE_TO_SERVICE_POLICY	32011	32088	337	1	652	generated	
+269	Const	SESF_PAUSED_DUE_TO_USER_REQUEST	32089	32165	338	1	653	generated	
+270	Const	SESF_SERVICE_QUOTA_EXCEEDED_LIMIT	32166	32242	339	1	654	generated	
+271	Const	SESF_SERVICE_QUOTA_NEARING_LIMIT	32243	32318	340	1	655	generated	
+272	Const	SESF_SERVICE_UNAVAILABLE	32319	32388	341	1	656	generated	
+273	Const	STS_EXCLUDED	32389	32443	342	1	657	generated	
+274	Const	STS_FETCHING_METADATA	32444	32506	343	1	658	generated	
+275	Const	STS_HASERROR	32507	32560	344	1	659	generated	
+276	Const	STS_HASWARNING	32561	32617	345	1	660	generated	
+277	Const	STS_INCOMPLETE	32618	32674	346	1	661	generated	
+278	Const	STS_NEEDSDOWNLOAD	32675	32732	347	1	662	generated	
+279	Const	STS_NEEDSUPLOAD	32733	32788	348	1	663	generated	
+280	Const	STS_NONE	32789	32837	349	1	664	generated	
+281	Const	STS_PAUSED	32838	32888	350	1	665	generated	
+282	Const	STS_PLACEHOLDER_IFEMPTY	32889	32955	351	1	666	generated	
+283	Const	STS_TRANSFERRING	32956	33012	352	1	667	generated	
+284	Const	STS_USER_REQUESTED_REFRESH	33013	33080	353	1	668	generated	
+285	ItemType	SYNC_ENGINE_STATE_FLAGS	33081	33120	354	1	669	generated	
+286	ItemType	SYNC_TRANSFER_STATUS	33121	33157	355	1	670	generated	
+287	ItemType	_PERSIST_SPROPSTORE_FLAGS	33158	33199	356	1	671	generated	

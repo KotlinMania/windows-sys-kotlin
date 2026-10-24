@@ -1,0 +1,208 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro	BindIFilterFromStorage	0	260	1	1	2	syntax	External declaration shape only: wire DLL=query.dll, ABI=system, export=BindIFilterFromStorage; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1	Macro	BindIFilterFromStream	261	502	3	1	8	syntax	External declaration shape only: wire DLL=query.dll, ABI=system, export=BindIFilterFromStream; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+2	Macro	LoadIFilter	503	703	5	1	14	syntax	External declaration shape only: wire DLL=query.dll, ABI=system, export=LoadIFilter; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+3	Macro	LoadIFilterEx	704	923	6	1	19	syntax	External declaration shape only: wire DLL=query.dll, ABI=system, export=LoadIFilterEx; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+4	ItemType	CHUNKSTATE	924	950	7	1	24	generated	
+5	ItemType	CHUNK_BREAKTYPE	951	982	8	1	25	generated	
+6	Const	CHUNK_EOC	983	1027	9	1	26	generated	
+7	Const	CHUNK_EOP	1028	1072	10	1	27	generated	
+8	Const	CHUNK_EOS	1073	1117	11	1	28	generated	
+9	Const	CHUNK_EOW	1118	1162	12	1	29	generated	
+10	Const	CHUNK_FILTER_OWNED_VALUE	1163	1217	13	1	30	generated	
+11	Const	CHUNK_NO_BREAK	1218	1267	14	1	31	generated	
+12	Const	CHUNK_TEXT	1268	1308	15	1	32	generated	
+13	Const	CHUNK_VALUE	1309	1350	16	1	33	generated	
+14	Const	CIADMIN	1351	1440	17	1	34	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+15	Const	CICAT_ALL_OPENED	1441	1481	18	1	37	generated	
+16	Const	CICAT_GET_STATE	1482	1521	19	1	38	generated	
+17	Const	CICAT_NO_QUERY	1522	1559	20	1	39	generated	
+18	Const	CICAT_READONLY	1560	1597	21	1	40	generated	
+19	Const	CICAT_STOPPED	1598	1634	22	1	41	generated	
+20	Const	CICAT_WRITABLE	1635	1672	23	1	42	generated	
+21	Const	CINULLCATALOG	1673	1765	24	1	43	unsupported	non-scalar type Ptr unsupported; syntax: no per-file syntax rule for Const
+22	Const	CI_PROVIDER_ALL	1766	1813	25	1	46	generated	
+23	Const	CI_PROVIDER_INDEXING_SERVICE	1814	1865	26	1	47	generated	
+24	Const	CI_PROVIDER_MSSEARCH	1866	1909	27	1	48	generated	
+25	Struct	CI_STATE	1910	2380	28	1	49	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+26	Const	CI_STATE_ANNEALING_MERGE	2381	2428	47	1	70	generated	
+27	Const	CI_STATE_BATTERY_POLICY	2429	2480	48	1	71	generated	
+28	Const	CI_STATE_BATTERY_POWER	2481	2529	49	1	72	generated	
+29	Const	CI_STATE_CONTENT_SCAN_REQUIRED	2530	2583	50	1	73	generated	
+30	Const	CI_STATE_DELETION_MERGE	2584	2634	51	1	74	generated	
+31	Const	CI_STATE_HIGH_CPU	2635	2680	52	1	75	generated	
+32	Const	CI_STATE_HIGH_IO	2681	2722	53	1	76	generated	
+33	Const	CI_STATE_INDEX_MIGRATION_MERGE	2723	2777	54	1	77	generated	
+34	Const	CI_STATE_LOW_DISK	2778	2822	55	1	78	generated	
+35	Const	CI_STATE_LOW_MEMORY	2823	2867	56	1	79	generated	
+36	Const	CI_STATE_MASTER_MERGE	2868	2912	57	1	80	generated	
+37	Const	CI_STATE_MASTER_MERGE_PAUSED	2913	2966	58	1	81	generated	
+38	Const	CI_STATE_READING_USNS	2967	3015	59	1	82	generated	
+39	Const	CI_STATE_READ_ONLY	3016	3060	60	1	83	generated	
+40	Const	CI_STATE_RECOVERING	3061	3104	61	1	84	generated	
+41	Const	CI_STATE_SCANNING	3105	3146	62	1	85	generated	
+42	Const	CI_STATE_SHADOW_MERGE	3147	3191	63	1	86	generated	
+43	Const	CI_STATE_STARTING	3192	3235	64	1	87	generated	
+44	Const	CI_STATE_USER_ACTIVE	3236	3282	65	1	88	generated	
+45	Const	CI_VERSION_WDS30	3283	3324	66	1	89	generated	
+46	Const	CI_VERSION_WDS40	3325	3366	67	1	90	generated	
+47	Const	CI_VERSION_WIN70	3367	3409	68	1	91	generated	
+48	Const	CLSID_INDEX_SERVER_DSO	3410	3545	69	1	92	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+49	Struct	DBID	3546	3704	70	1	95	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+50	Impl		3705	3830	78	1	106	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+51	Union		3831	4008	84	1	114	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+52	Impl		4009	4136	91	1	123	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+53	Union		4137	4297	97	1	131	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+54	Impl		4298	4425	104	1	140	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+55	Struct	DBID	4426	4631	110	1	148	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+56	Impl		4632	4815	118	1	159	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+57	Union		4816	5040	124	1	167	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+58	Impl		5041	5226	131	1	176	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+59	Union		5227	5434	137	1	184	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+60	Impl		5435	5620	144	1	193	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+61	ItemType	DBKINDENUM	5621	5647	150	1	201	generated	
+62	Const	DBKIND_GUID	5648	5689	151	1	202	generated	
+63	Const	DBKIND_GUID_NAME	5690	5736	152	1	203	generated	
+64	Const	DBKIND_GUID_PROPID	5737	5785	153	1	204	generated	
+65	Const	DBKIND_NAME	5786	5827	154	1	205	generated	
+66	Const	DBKIND_PGUID_NAME	5828	5875	155	1	206	generated	
+67	Const	DBKIND_PGUID_PROPID	5876	5925	156	1	207	generated	
+68	Const	DBKIND_PROPID	5926	5969	157	1	208	generated	
+69	Const	DBPROPSET_CIFRMWRKCORE_EXT	5970	6109	158	1	209	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+70	Const	DBPROPSET_FSCIFRMWRK_EXT	6110	6247	159	1	212	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+71	Const	DBPROPSET_MSIDXS_ROWSETEXT	6248	6387	160	1	215	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+72	Const	DBPROPSET_QUERYEXT	6388	6519	161	1	218	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+73	Const	DBPROPSET_SESS_QUERYEXT	6520	6656	162	1	221	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+74	Const	DBPROP_APPLICATION_NAME	6657	6704	163	1	224	generated	
+75	Const	DBPROP_CATALOGLISTID	6705	6748	164	1	225	generated	
+76	Const	DBPROP_CI_CATALOG_NAME	6749	6794	165	1	226	generated	
+77	Const	DBPROP_CI_DEPTHS	6795	6834	166	1	227	generated	
+78	Const	DBPROP_CI_EXCLUDE_SCOPES	6835	6882	167	1	228	generated	
+79	Const	DBPROP_CI_INCLUDE_SCOPES	6883	6930	168	1	229	generated	
+80	Const	DBPROP_CI_PROVIDER	6931	6972	169	1	230	generated	
+81	Const	DBPROP_CI_QUERY_TYPE	6973	7016	170	1	231	generated	
+82	Const	DBPROP_CI_SCOPE_FLAGS	7017	7061	171	1	232	generated	
+83	Const	DBPROP_CI_SECURITY_ID	7062	7106	172	1	233	generated	
+84	Const	DBPROP_CLIENT_CLSID	7107	7149	173	1	234	generated	
+85	Const	DBPROP_DEFAULT_EQUALS_BEHAVIOR	7150	7203	174	1	235	generated	
+86	Const	DBPROP_DEFERCATALOGVERIFICATION	7204	7258	175	1	236	generated	
+87	Const	DBPROP_DEFERNONINDEXEDTRIMMING	7259	7312	176	1	237	generated	
+88	Const	DBPROP_DONOTCOMPUTEEXPENSIVEPROPS	7313	7370	177	1	238	generated	
+89	Const	DBPROP_ENABLEROWSETEVENTS	7371	7420	178	1	239	generated	
+90	Const	DBPROP_FIRSTROWS	7421	7460	179	1	240	generated	
+91	Const	DBPROP_FREETEXTANYTERM	7461	7507	180	1	241	generated	
+92	Const	DBPROP_FREETEXTUSESTEMMING	7508	7558	181	1	242	generated	
+93	Const	DBPROP_GENERATEPARSETREE	7559	7607	182	1	243	generated	
+94	Const	DBPROP_GENERICOPTIONS_STRING	7608	7659	183	1	244	generated	
+95	Const	DBPROP_IGNORENOISEONLYCLAUSES	7660	7712	184	1	245	generated	
+96	Const	DBPROP_IGNORESBRI	7713	7754	185	1	246	generated	
+97	Const	DBPROP_MACHINE	7755	7792	186	1	247	generated	
+98	Const	DBPROP_USECONTENTINDEX	7793	7838	187	1	248	generated	
+99	Const	DBPROP_USEEXTENDEDDBTYPES	7839	7887	188	1	249	generated	
+100	Const	DBSETFUNC_ALL	7888	7924	189	1	250	generated	
+101	Const	DBSETFUNC_DISTINCT	7925	7966	190	1	251	generated	
+102	Const	DBSETFUNC_NONE	7967	8004	191	1	252	generated	
+103	Struct	FILTERREGION	8005	8144	192	1	253	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+104	Const	FILTER_E_ACCESS	8145	8221	199	1	262	generated	
+105	Const	FILTER_E_EMBEDDING_UNAVAILABLE	8222	8313	200	1	263	generated	
+106	Const	FILTER_E_END_OF_CHUNKS	8314	8397	201	1	264	generated	
+107	Const	FILTER_E_LINK_UNAVAILABLE	8398	8484	202	1	265	generated	
+108	Const	FILTER_E_NO_MORE_TEXT	8485	8567	203	1	266	generated	
+109	Const	FILTER_E_NO_MORE_VALUES	8568	8652	204	1	267	generated	
+110	Const	FILTER_E_NO_TEXT	8653	8730	205	1	268	generated	
+111	Const	FILTER_E_NO_VALUES	8731	8810	206	1	269	generated	
+112	Const	FILTER_E_PASSWORD	8811	8889	207	1	270	generated	
+113	Const	FILTER_E_UNKNOWNFORMAT	8890	8973	208	1	271	generated	
+114	Const	FILTER_S_LAST_TEXT	8974	9050	209	1	272	generated	
+115	Const	FILTER_S_LAST_VALUES	9051	9129	210	1	273	generated	
+116	Const	FILTER_W_MONIKER_CLIPPED	9130	9212	211	1	274	generated	
+117	Struct	FULLPROPSPEC	9213	9451	212	1	275	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+118	Impl		9452	9612	219	1	285	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+119	Const	GENERATE_METHOD_EXACT	9613	9657	225	1	293	generated	
+120	Const	GENERATE_METHOD_INFLECT	9658	9704	226	1	294	generated	
+121	Const	GENERATE_METHOD_PREFIX	9705	9750	227	1	295	generated	
+122	ItemType	IFILTER_FLAGS	9751	9780	228	1	296	generated	
+123	Const	IFILTER_FLAGS_OLE_PROPERTIES	9781	9842	229	1	297	generated	
+124	ItemType	IFILTER_INIT	9843	9871	230	1	298	generated	
+125	Const	IFILTER_INIT_APPLY_CRAWL_ATTRIBUTES	9872	9941	231	1	299	generated	
+126	Const	IFILTER_INIT_APPLY_INDEX_ATTRIBUTES	9942	10010	232	1	300	generated	
+127	Const	IFILTER_INIT_APPLY_OTHER_ATTRIBUTES	10011	10079	233	1	301	generated	
+128	Const	IFILTER_INIT_CANON_HYPHENS	10080	10138	234	1	302	generated	
+129	Const	IFILTER_INIT_CANON_PARAGRAPHS	10139	10200	235	1	303	generated	
+130	Const	IFILTER_INIT_CANON_SPACES	10201	10258	236	1	304	generated	
+131	Const	IFILTER_INIT_DISABLE_EMBEDDED	10259	10323	237	1	305	generated	
+132	Const	IFILTER_INIT_EMIT_FORMATTING	10324	10387	238	1	306	generated	
+133	Const	IFILTER_INIT_FILTER_AGGRESSIVE_BREAK	10388	10459	239	1	307	generated	
+134	Const	IFILTER_INIT_FILTER_OWNED_VALUE_OK	10460	10528	240	1	308	generated	
+135	Const	IFILTER_INIT_HARD_LINE_BREAKS	10529	10590	241	1	309	generated	
+136	Const	IFILTER_INIT_INDEXING_ONLY	10591	10650	242	1	310	generated	
+137	Const	IFILTER_INIT_SEARCH_LINKS	10651	10710	243	1	311	generated	
+138	Const	LIFF_FORCE_TEXT_FILTER_FALLBACK	10711	10765	244	1	312	generated	
+139	Const	LIFF_IMPLEMENT_TEXT_FILTER_FALLBACK_POLICY	10766	10831	245	1	313	generated	
+140	Const	LIFF_LOAD_DEFINED_FILTER	10832	10879	246	1	314	generated	
+141	Const	MSIDXSPROP_COMMAND_LOCALE_STRING	10880	10935	247	1	315	generated	
+142	Const	MSIDXSPROP_MAX_RANK	10936	10978	248	1	316	generated	
+143	Const	MSIDXSPROP_PARSE_TREE	10979	11023	249	1	317	generated	
+144	Const	MSIDXSPROP_QUERY_RESTRICTION	11024	11075	250	1	318	generated	
+145	Const	MSIDXSPROP_RESULTS_FOUND	11076	11123	251	1	319	generated	
+146	Const	MSIDXSPROP_ROWSETQUERYSTATUS	11124	11175	252	1	320	generated	
+147	Const	MSIDXSPROP_SAME_SORTORDER_USED	11176	11230	253	1	321	generated	
+148	Const	MSIDXSPROP_SERVER_NLSVERSION	11231	11283	254	1	322	generated	
+149	Const	MSIDXSPROP_SERVER_NLSVER_DEFINED	11284	11340	255	1	323	generated	
+150	Const	MSIDXSPROP_SERVER_VERSION	11341	11389	256	1	324	generated	
+151	Const	MSIDXSPROP_SERVER_WINVER_MAJOR	11390	11444	257	1	325	generated	
+152	Const	MSIDXSPROP_SERVER_WINVER_MINOR	11445	11499	258	1	326	generated	
+153	Const	MSIDXSPROP_WHEREID	11500	11541	259	1	327	generated	
+154	Const	NOT_AN_ERROR	11542	11612	260	1	328	generated	
+155	Const	PID_FILENAME	11613	11650	261	1	329	generated	
+156	Const	PROPID_QUERY_ALL	11651	11690	262	1	330	generated	
+157	Const	PROPID_QUERY_HITCOUNT	11691	11735	263	1	331	generated	
+158	Const	PROPID_QUERY_LASTSEENTIME	11736	11785	264	1	332	generated	
+159	Const	PROPID_QUERY_RANK	11786	11826	265	1	333	generated	
+160	Const	PROPID_QUERY_RANKVECTOR	11827	11873	266	1	334	generated	
+161	Const	PROPID_QUERY_UNFILTERED	11874	11920	267	1	335	generated	
+162	Const	PROPID_QUERY_VIRTUALPATH	11921	11968	268	1	336	generated	
+163	Const	PROPID_QUERY_WORKID	11969	12011	269	1	337	generated	
+164	Const	PROPID_STG_CONTENTS	12012	12055	270	1	338	generated	
+165	Const	PROXIMITY_UNIT_CHAPTER	12056	12101	271	1	339	generated	
+166	Const	PROXIMITY_UNIT_PARAGRAPH	12102	12149	272	1	340	generated	
+167	Const	PROXIMITY_UNIT_SENTENCE	12150	12196	273	1	341	generated	
+168	Const	PROXIMITY_UNIT_WORD	12197	12239	274	1	342	generated	
+169	Const	PSGUID_FILENAME	12240	12368	275	1	343	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: no per-file syntax rule for Const
+170	Const	QUERY_DEEP	12369	12402	276	1	346	generated	
+171	Const	QUERY_PHYSICAL_PATH	12403	12445	277	1	347	generated	
+172	Const	QUERY_SHALLOW	12446	12482	278	1	348	generated	
+173	Const	QUERY_VIRTUAL_PATH	12483	12524	279	1	349	generated	
+174	Const	SCOPE_FLAG_DEEP	12525	12563	280	1	350	generated	
+175	Const	SCOPE_FLAG_INCLUDE	12564	12605	281	1	351	generated	
+176	Const	SCOPE_FLAG_MASK	12606	12646	282	1	352	generated	
+177	Const	SCOPE_TYPE_MASK	12647	12694	283	1	353	generated	
+178	Const	SCOPE_TYPE_VPATH	12695	12736	284	1	354	generated	
+179	Const	SCOPE_TYPE_WINPATH	12737	12780	285	1	355	generated	
+180	Const	STAT_BUSY	12781	12813	286	1	356	generated	
+181	Struct	STAT_CHUNK	12814	13151	287	1	357	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+182	Impl		13152	13310	300	1	373	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+183	Const	STAT_COALESCE_COMP_ALL_NOISE	13311	13365	306	1	381	generated	
+184	Const	STAT_CONTENT_OUT_OF_DATE	13366	13414	307	1	382	generated	
+185	Const	STAT_CONTENT_QUERY_INCOMPLETE	13415	13469	308	1	383	generated	
+186	Const	STAT_DONE	13470	13502	309	1	384	generated	
+187	Const	STAT_ERROR	13503	13536	310	1	385	generated	
+188	Const	STAT_MISSING_PROP_IN_RELDOC	13537	13590	311	1	386	generated	
+189	Const	STAT_MISSING_RELDOC	13591	13636	312	1	387	generated	
+190	Const	STAT_NOISE_WORDS	13637	13677	313	1	388	generated	
+191	Const	STAT_PARTIAL_SCOPE	13678	13719	314	1	389	generated	
+192	Const	STAT_REFRESH	13720	13755	315	1	390	generated	
+193	Const	STAT_REFRESH_INCOMPLETE	13756	13803	316	1	391	generated	
+194	Const	STAT_RELDOC_ACCESS_DENIED	13804	13855	317	1	392	generated	
+195	Const	STAT_SHARING_VIOLATION	13856	13903	318	1	393	generated	
+196	Const	STAT_TIME_LIMIT_EXCEEDED	13904	13953	319	1	394	generated	
+197	Const	VECTOR_RANK_DICE	13954	13993	320	1	395	generated	
+198	Const	VECTOR_RANK_INNER	13994	14034	321	1	396	generated	
+199	Const	VECTOR_RANK_JACCARD	14035	14077	322	1	397	generated	
+200	Const	VECTOR_RANK_MAX	14078	14116	323	1	398	generated	
+201	Const	VECTOR_RANK_MIN	14117	14155	324	1	399	generated	
+202	Const	WORDREP_BREAK_EOC	14156	14211	325	1	400	generated	
+203	Const	WORDREP_BREAK_EOP	14212	14267	326	1	401	generated	
+204	Const	WORDREP_BREAK_EOS	14268	14323	327	1	402	generated	
+205	Const	WORDREP_BREAK_EOW	14324	14379	328	1	403	generated	
+206	ItemType	WORDREP_BREAK_TYPE	14380	14414	329	1	404	generated	

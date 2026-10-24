@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/Devices/Properties/mod: 42 generated; 2 syntax candidates; 200 unsupported

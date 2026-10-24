@@ -1,0 +1,12 @@
+--- ../windows-sys-kotlin/direct-translation/comparisons-pass-04/port-snapshots/io/github/kotlinmania/windowssys/windows/win32/system/hostcompute/HostCompute.kt	2026-10-24 15:05:00
++++ ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/System/HostCompute/mod/candidate.kt	2026-10-24 14:59:46
+@@ -1,4 +1,5 @@
+-// port-lint: source Windows/Win32/System/HostCompute/mod.rs
+-package io.github.kotlinmania.windowssys.windows.win32.system.hostcompute
+-
+-public typealias HCS_CALLBACK = Long
++// DIRECT DECLARATION CANDIDATE: unsupported Rust remains below; not adopted or ABI-validated.
++// INTEGRATION REQUIRED: Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions.
++// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
++// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
++public typealias `HCS_CALLBACK` = /* Rust *mut */ kotlinx.cinterop.CPointer<`core`.`ffi`.`c_void`>?;

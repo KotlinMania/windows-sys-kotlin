@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Win32/Storage/OfflineFiles/mod: 269 generated; 4 syntax candidates; 3 unsupported
