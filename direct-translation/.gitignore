@@ -2,3 +2,8 @@
 **/*.kexe
 pass-01/files/
 pass-01/*.diff
+# Cross-compilation products remain local; source, commands and receipts are tracked.
+link-validation-*/*.exe
+link-validation-*/*.klib
+link-validation-*/*-build/
+link-validation-*/cinterop-tmp/

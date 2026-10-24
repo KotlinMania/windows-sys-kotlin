@@ -1,0 +1,19 @@
+{
+  "suites": {
+    "jvmTest": {
+      "tests": 69,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "macosArm64Test": {
+      "tests": 69,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "configuration_unchanged": true,
+  "library_sha256": "d5bd7ad42359f7d67cf59bab511dda3f7bbb167aff8b1ecb571c8895fdd3841e",
+  "first_attempt": "New test compared wrapper identities instead of offsets; corrected test, prior tests passed."
+}

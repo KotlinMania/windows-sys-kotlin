@@ -1,0 +1,9 @@
+{
+  "suites": {
+    "tests": 154,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "generator_sha256": "53f74c464777b6c8f2fdfd36e23b24200327a02fd195db83b6ba2a2ac97c48a1"
+}

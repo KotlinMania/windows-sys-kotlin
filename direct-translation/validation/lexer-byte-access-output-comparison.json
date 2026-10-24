@@ -1,0 +1,24 @@
+[
+  {
+    "source": "Windows/Win32/System/Console/mod.rs",
+    "old_seconds": 2.19,
+    "new_seconds": 0.407,
+    "comparison": {
+      "candidate.kt": true,
+      "declarations.tsv": true,
+      "comment-moves.tsv": true
+    },
+    "caveat": "Observed timings under concurrent inventory load, not an isolated benchmark."
+  },
+  {
+    "source": "Windows/Win32/Media/Multimedia/mod.rs",
+    "old_seconds": 355.931,
+    "new_seconds": 13.897,
+    "comparison": {
+      "candidate.kt": true,
+      "declarations.tsv": true,
+      "comment-moves.tsv": true
+    },
+    "caveat": "Observed timings under concurrent inventory load, not an isolated benchmark."
+  }
+]

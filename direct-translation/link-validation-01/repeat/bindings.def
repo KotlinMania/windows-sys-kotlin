@@ -1,0 +1,4 @@
+headers = bindings.h
+headerFilter = bindings.h
+package = translated.ceip.ffi
+linkerOpts = -lkernel32

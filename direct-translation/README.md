@@ -10,6 +10,7 @@ recognition. No custom lexer/parser or JVM/decompiler route is used.
 - [Beep: constants plus explicit unsupported declarations](pass-02/files/Windows/Win32/Devices/Beep/mod/candidate.kt)
 - [Console declarations](pass-02/files/Windows/Win32/System/Console/mod/candidate.kt)
 - [FileHistory, including signed HRESULT constants](pass-02/files/Windows/Win32/Storage/FileHistory/mod/candidate.kt)
+- [Complete Ceip DLL function candidate](link-validation-01/ceip/candidate.kt), with adjacent generated interop header/definition
 
 Every candidate has adjacent `input.rs`, `declarations.tsv`, comment-move records
 and a candidate receipt. Unsupported items retain their original Rust text beside
@@ -26,7 +27,7 @@ but excluded from Git; pass-02 source/candidate/diagnostic files are checkpointe
 
 ## Verification and limits
 
-154 translator tests pass. The improved scalar/cast fixture matches Rust on 19
+157 translator tests pass. The improved scalar/cast fixture matches Rust on 19
 boundary observations, compiling generated Kotlin unchanged. The four complete
 scalar-only candidates plus FileHistory compile unchanged; Beep and Console's
 emitted scalar declarations also compile. The actual complete HLSL Rust and Kotlin
@@ -38,8 +39,12 @@ Candidates are separate module files without an adopted package/build arrangemen
 Do not combine them into one Kotlin namespace: Rust module names may overlap.
 Function linkage, pointers, native layout/Copy, unions, callbacks, GUIDs, target cfg,
 floating constants and richer expressions remain unsupported where marked. A
-comment-only file is not counted as translated. No Windows runtime/ABI validation
-or production adoption has occurred.
+comment-only file is not counted as translated. Separately, W3 emits supported scalar
+DLL functions through existing Syn and Kotlin/Native cinterop. Complete Ceip raw
+output compiles and links into a Windows PE importing `CeipIsOptedIn` from
+`KERNEL32.dll`; [receipt](link-validation-01/validation.json). This narrowly verifies
+its bridge and import, not Windows runtime behavior or whole-library ABI correctness.
+W3 has not yet been applied to the full inventory. No production adoption has occurred.
 
 `inventory.json` records original paths/hashes. `baseline-state.json` and
 `preservation-check.json` protect the 105 pre-existing dirty paths and staged
