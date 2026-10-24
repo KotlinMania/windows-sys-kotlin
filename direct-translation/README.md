@@ -10,7 +10,8 @@ recognition. No custom lexer/parser or JVM/decompiler route is used.
 - [Beep: constants plus explicit unsupported declarations](pass-02/files/Windows/Win32/Devices/Beep/mod/candidate.kt)
 - [Console declarations](pass-02/files/Windows/Win32/System/Console/mod/candidate.kt)
 - [FileHistory, including signed HRESULT constants](pass-02/files/Windows/Win32/Storage/FileHistory/mod/candidate.kt)
-- [Complete Ceip DLL function candidate](link-validation-01/ceip/candidate.kt), with adjacent generated interop header/definition
+- [Complete Ceip DLL function candidate](link-validation-04-raw-imports/ceip/candidate.kt), with adjacent generated interop header/definition
+- [Threading candidate: 430 declarations, including 52 API functions](link-validation-05-threading-raw/threading/candidate.kt)
 
 Every candidate has adjacent `input.rs`, `declarations.tsv`, comment-move records
 and a candidate receipt. Unsupported items retain their original Rust text beside
@@ -42,7 +43,11 @@ floating constants and richer expressions remain unsupported where marked. A
 comment-only file is not counted as translated. Separately, W3 emits supported scalar
 DLL functions through existing Syn and Kotlin/Native cinterop. Complete Ceip raw
 output compiles and links into a Windows PE importing `CeipIsOptedIn` from
-`KERNEL32.dll`; [receipt](link-validation-01/validation.json). This narrowly verifies
+`kernel32.dll`; [receipt](link-validation-04-raw-imports/validation.json). Existing LLVM
+builds source-derived raw import archives, avoiding missing SDK symbol libraries.
+All 52 admitted Threading functions also compile and link with their exact DLL/export
+pairs: [receipt](link-validation-05-threading-raw/validation.json). Its remaining 370
+items are explicitly unsupported. This narrowly verifies
 its bridge and import, not Windows runtime behavior or whole-library ABI correctness.
 W3 has not yet been applied to the full inventory. No production adoption has occurred.
 

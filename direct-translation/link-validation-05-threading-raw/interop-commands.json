@@ -1,0 +1,119 @@
+[
+  {
+    "command": [
+      "/opt/homebrew/opt/llvm/bin/llvm-dlltool",
+      "-m",
+      "i386:x86-64",
+      "-d",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/threading/import-0.def",
+      "-l",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/interop-build/import-0.a"
+    ],
+    "cwd": "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/interop-build",
+    "exit_code": 0,
+    "label": "import-0"
+  },
+  {
+    "command": [
+      "/opt/homebrew/opt/llvm/bin/llvm-dlltool",
+      "-I",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/interop-build/import-0.a"
+    ],
+    "cwd": "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/interop-build",
+    "exit_code": 0,
+    "label": "identify-0"
+  },
+  {
+    "command": [
+      "/opt/homebrew/opt/llvm/bin/llvm-dlltool",
+      "-m",
+      "i386:x86-64",
+      "-d",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/threading/import-1.def",
+      "-l",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/interop-build/import-1.a"
+    ],
+    "cwd": "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/interop-build",
+    "exit_code": 0,
+    "label": "import-1"
+  },
+  {
+    "command": [
+      "/opt/homebrew/opt/llvm/bin/llvm-dlltool",
+      "-I",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/interop-build/import-1.a"
+    ],
+    "cwd": "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/interop-build",
+    "exit_code": 0,
+    "label": "identify-1"
+  },
+  {
+    "command": [
+      "/opt/homebrew/opt/llvm/bin/llvm-dlltool",
+      "-m",
+      "i386:x86-64",
+      "-d",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/threading/import-2.def",
+      "-l",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/interop-build/import-2.a"
+    ],
+    "cwd": "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/interop-build",
+    "exit_code": 0,
+    "label": "import-2"
+  },
+  {
+    "command": [
+      "/opt/homebrew/opt/llvm/bin/llvm-dlltool",
+      "-I",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/interop-build/import-2.a"
+    ],
+    "cwd": "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/interop-build",
+    "exit_code": 0,
+    "label": "identify-2"
+  },
+  {
+    "command": [
+      "/opt/homebrew/opt/llvm/bin/llvm-dlltool",
+      "-m",
+      "i386:x86-64",
+      "-d",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/threading/import-3.def",
+      "-l",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/interop-build/import-3.a"
+    ],
+    "cwd": "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/interop-build",
+    "exit_code": 0,
+    "label": "import-3"
+  },
+  {
+    "command": [
+      "/opt/homebrew/opt/llvm/bin/llvm-dlltool",
+      "-I",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/interop-build/import-3.a"
+    ],
+    "cwd": "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/interop-build",
+    "exit_code": 0,
+    "label": "identify-3"
+  },
+  {
+    "command": [
+      "/Users/sydney/.konan/kotlin-native-prebuilt-macos-aarch64-2.4.21/bin/cinterop",
+      "-target",
+      "mingw_x64",
+      "-def",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/threading/bindings.def",
+      "-compiler-option",
+      "-I/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/threading",
+      "-Xproject-dir",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/interop-build",
+      "-o",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/interop-build/bindings",
+      "-Xtemporary-files-dir",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/interop-build/cinterop-tmp",
+      "-Xdump-bridges"
+    ],
+    "cwd": "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/interop-build",
+    "exit_code": 0,
+    "label": "cinterop"
+  }
+]

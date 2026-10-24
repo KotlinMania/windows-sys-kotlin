@@ -1,0 +1,5 @@
+DECLARATION CANDIDATE ONLY; not adopted, not ABI-validated, not a complete-translation receipt
+complete input parsed by proc-macro2-kotlin:0.1.7 and syn-kotlin:0.4.0; AST correspondence verified
+430 generated declarations; 370 unsupported declarations retained verbatim as comments
+TranslationProfile(pointerWidth=64, overflowChecks=null, panic=null, debugAssertions=null, cfgTest=null, cfgFeatures={})
+native target=mingw_x64; interop package=translated.threading.ffi; link validation is separate

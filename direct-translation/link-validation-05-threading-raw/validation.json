@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "functions": 52,
+  "generated_declarations": 430,
+  "unsupported": 370,
+  "raw_kotlin_compiled_unchanged": true,
+  "all_import_pairs_verified": true,
+  "missing": [],
+  "runtime_executed": false,
+  "adopted": false
+}

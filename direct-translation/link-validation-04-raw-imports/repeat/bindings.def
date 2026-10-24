@@ -1,0 +1,5 @@
+headers = bindings.h
+headerFilter = bindings.h
+package = translated.ceip.ffi
+staticLibraries = import-0.a
+libraryPaths = .

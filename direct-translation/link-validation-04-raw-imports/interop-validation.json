@@ -1,0 +1,76 @@
+{
+  "passed": true,
+  "source_unchanged": true,
+  "target": "mingw_x64",
+  "source_hashes": {
+    "comment-moves.tsv": "b27905dfdcba19568c9e9d7eea0592b552a70b6e576c150fcb8a7df6a6cda60b",
+    "import-0.def": "581f770f77598ccb8027b8fd4dce3425c1a19c569815a8f501ad8a7fc93c2e01",
+    "declarations.tsv": "12eb3d33a64937dae6a918abde9d0dde237cb6c5626ec334681db410eb3dba7d",
+    "candidate.kt": "11801ad467d4242ad609332fca72e4ba1a8bf4ec14d1ac5f9e24d2b51e1fcf4a",
+    "imports.tsv": "3a3cef21e222be6ac5ee6853ef2b3792f2c0ebf0154cc7cde877fd1c78d26eb0",
+    "bindings.def": "8ab06c707a07f3a0def9a3b8e678b7b6d730617969b1e15b2ce2af6932d58fe7",
+    "scalar-bindings.tsv": "ae7a87f6e673f51da32f288862025129df9a2b8a6d7341e78890496d2a698a57",
+    "bindings.h": "cf071f879a024034966d4d64856bdb0d542f391109f905ac567c79a7c6af619a",
+    "input.rs": "6160ec4626c65c217b8d9570c2abf945d273ec9de870356c71e6ca71bbbc0cf8",
+    "candidate-receipt.txt": "e27dd3d9e1bc8ea3e1b4d1ab4d3c7f63f8877a13504aea2e6d9cc099f816c5bc",
+    "foreign-declarations.tsv": "9757c7bc2b5ac64a05b59041b5252ece7de9809f106aefcda181ba9f1da3646a"
+  },
+  "imports": [
+    {
+      "definition": "import-0.def",
+      "archive": "import-0.a",
+      "dll": "kernel32.dll",
+      "target": "mingw_x64"
+    }
+  ],
+  "library": "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-04-raw-imports/interop-build/bindings.klib",
+  "library_sha256": "f8483ecd0c1b1b3ad2ee567a16fc08020ecbb63c7970d844a15df9533aafe067",
+  "runtime_tested": false,
+  "commands": [
+    {
+      "command": [
+        "/opt/homebrew/opt/llvm/bin/llvm-dlltool",
+        "-m",
+        "i386:x86-64",
+        "-d",
+        "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-04-raw-imports/ceip/import-0.def",
+        "-l",
+        "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-04-raw-imports/interop-build/import-0.a"
+      ],
+      "cwd": "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-04-raw-imports/interop-build",
+      "exit_code": 0,
+      "label": "import-0"
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/llvm/bin/llvm-dlltool",
+        "-I",
+        "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-04-raw-imports/interop-build/import-0.a"
+      ],
+      "cwd": "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-04-raw-imports/interop-build",
+      "exit_code": 0,
+      "label": "identify-0"
+    },
+    {
+      "command": [
+        "/Users/sydney/.konan/kotlin-native-prebuilt-macos-aarch64-2.4.21/bin/cinterop",
+        "-target",
+        "mingw_x64",
+        "-def",
+        "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-04-raw-imports/ceip/bindings.def",
+        "-compiler-option",
+        "-I/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-04-raw-imports/ceip",
+        "-Xproject-dir",
+        "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-04-raw-imports/interop-build",
+        "-o",
+        "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-04-raw-imports/interop-build/bindings",
+        "-Xtemporary-files-dir",
+        "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-04-raw-imports/interop-build/cinterop-tmp",
+        "-Xdump-bridges"
+      ],
+      "cwd": "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-04-raw-imports/interop-build",
+      "exit_code": 0,
+      "label": "cinterop"
+    }
+  ]
+}

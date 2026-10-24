@@ -1,0 +1,56 @@
+[
+  {
+    "command": [
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/rust-kotlin.kexe",
+      "candidates",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/Windows/Win32/System/Threading/mod.rs",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/threading",
+      "--pointer-width=64",
+      "--native-target=mingw_x64",
+      "--interop-package=translated.threading.ffi",
+      "--scalar-module=windows_sys::core=/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/core/mod.rs"
+    ],
+    "exit": 0,
+    "label": "generate"
+  },
+  {
+    "command": [
+      "python3",
+      "/Volumes/stuff/Projects/kotlinmania/rust-kotlin/tools/build_candidate_interop.py",
+      "--candidate",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/threading",
+      "--output",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/interop-build",
+      "--kotlin-native",
+      "/Users/sydney/.konan/kotlin-native-prebuilt-macos-aarch64-2.4.21",
+      "--llvm-dlltool",
+      "/opt/homebrew/opt/llvm/bin/llvm-dlltool"
+    ],
+    "exit": 0,
+    "label": "interop"
+  },
+  {
+    "command": [
+      "/Users/sydney/.konan/kotlin-native-prebuilt-macos-aarch64-2.4.21/bin/konanc",
+      "-target",
+      "mingw_x64",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/threading/candidate.kt",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/Main.kt",
+      "-library",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/interop-build/bindings.klib",
+      "-o",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/threading-check"
+    ],
+    "exit": 0,
+    "label": "windows-link"
+  },
+  {
+    "command": [
+      "/opt/homebrew/opt/llvm/bin/llvm-readobj",
+      "--coff-imports",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-05-threading-raw/threading-check.exe"
+    ],
+    "exit": 0,
+    "label": "imports"
+  }
+]

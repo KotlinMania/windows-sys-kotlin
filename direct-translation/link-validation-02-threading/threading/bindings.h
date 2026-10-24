@@ -1,0 +1,56 @@
+// Generated from recognized Rust signatures; target mingw_x64 only.
+#pragma once
+#include <stdint.h>
+#include <stdbool.h>
+__declspec(dllimport) int32_t __stdcall AttachThreadInput(uint32_t arg0, uint32_t arg1, int32_t arg2);
+__declspec(dllimport) int32_t __stdcall CallbackMayRunLong(intptr_t arg0);
+__declspec(dllimport) void __stdcall CancelThreadpoolIo(intptr_t arg0);
+__declspec(dllimport) void __stdcall CloseThreadpool(intptr_t arg0);
+__declspec(dllimport) void __stdcall CloseThreadpoolCleanupGroup(intptr_t arg0);
+__declspec(dllimport) void __stdcall CloseThreadpoolIo(intptr_t arg0);
+__declspec(dllimport) void __stdcall CloseThreadpoolTimer(intptr_t arg0);
+__declspec(dllimport) void __stdcall CloseThreadpoolWait(intptr_t arg0);
+__declspec(dllimport) void __stdcall CloseThreadpoolWork(intptr_t arg0);
+__declspec(dllimport) int32_t __stdcall ConvertFiberToThread(void);
+__declspec(dllimport) intptr_t __stdcall CreateThreadpoolCleanupGroup(void);
+__declspec(dllimport) void __stdcall DisassociateCurrentThreadFromCallback(intptr_t arg0);
+__declspec(dllimport) int32_t __stdcall FlsFree(uint32_t arg0);
+__declspec(dllimport) void __stdcall FlushProcessWriteBuffers(void);
+__declspec(dllimport) uint32_t __stdcall GetActiveProcessorCount(uint16_t arg0);
+__declspec(dllimport) uint16_t __stdcall GetActiveProcessorGroupCount(void);
+__declspec(dllimport) uint32_t __stdcall GetCurrentProcessId(void);
+__declspec(dllimport) uint32_t __stdcall GetCurrentProcessorNumber(void);
+__declspec(dllimport) uint32_t __stdcall GetCurrentThreadId(void);
+__declspec(dllimport) uint32_t __stdcall GetMaximumProcessorCount(uint16_t arg0);
+__declspec(dllimport) uint16_t __stdcall GetMaximumProcessorGroupCount(void);
+__declspec(dllimport) uint32_t __stdcall GetProcessVersion(uint32_t arg0);
+__declspec(dllimport) int32_t __stdcall IsProcessorFeaturePresent(uint32_t arg0);
+__declspec(dllimport) int32_t __stdcall IsThreadAFiber(void);
+__declspec(dllimport) int32_t __stdcall IsThreadpoolTimerSet(intptr_t arg0);
+__declspec(dllimport) int32_t __stdcall RtwqCancelWorkItem(uint64_t arg0);
+__declspec(dllimport) int32_t __stdcall RtwqLockPlatform(void);
+__declspec(dllimport) int32_t __stdcall RtwqLockWorkQueue(uint32_t arg0);
+__declspec(dllimport) int32_t __stdcall RtwqRemovePeriodicCallback(uint32_t arg0);
+__declspec(dllimport) int32_t __stdcall RtwqSetLongRunning(uint32_t arg0, int32_t arg1);
+__declspec(dllimport) int32_t __stdcall RtwqShutdown(void);
+__declspec(dllimport) int32_t __stdcall RtwqStartup(void);
+__declspec(dllimport) int32_t __stdcall RtwqUnlockPlatform(void);
+__declspec(dllimport) int32_t __stdcall RtwqUnlockWorkQueue(uint32_t arg0);
+__declspec(dllimport) int32_t __stdcall RtwqUnregisterPlatformFromMMCSS(void);
+__declspec(dllimport) int32_t __stdcall SetProcessDEPPolicy(uint32_t arg0);
+__declspec(dllimport) int32_t __stdcall SetProcessRestrictionExemption(int32_t arg0);
+__declspec(dllimport) int32_t __stdcall SetProcessShutdownParameters(uint32_t arg0, uint32_t arg1);
+__declspec(dllimport) void __stdcall SetThreadpoolThreadMaximum(intptr_t arg0, uint32_t arg1);
+__declspec(dllimport) int32_t __stdcall SetThreadpoolThreadMinimum(intptr_t arg0, uint32_t arg1);
+__declspec(dllimport) void __stdcall Sleep(uint32_t arg0);
+__declspec(dllimport) uint32_t __stdcall SleepEx(uint32_t arg0, int32_t arg1);
+__declspec(dllimport) void __stdcall StartThreadpoolIo(intptr_t arg0);
+__declspec(dllimport) void __stdcall SubmitThreadpoolWork(intptr_t arg0);
+__declspec(dllimport) int32_t __stdcall SwitchToThread(void);
+__declspec(dllimport) uint32_t __stdcall TlsAlloc(void);
+__declspec(dllimport) int32_t __stdcall TlsFree(uint32_t arg0);
+__declspec(dllimport) void __stdcall WaitForThreadpoolIoCallbacks(intptr_t arg0, int32_t arg1);
+__declspec(dllimport) void __stdcall WaitForThreadpoolTimerCallbacks(intptr_t arg0, int32_t arg1);
+__declspec(dllimport) void __stdcall WaitForThreadpoolWaitCallbacks(intptr_t arg0, int32_t arg1);
+__declspec(dllimport) void __stdcall WaitForThreadpoolWorkCallbacks(intptr_t arg0, int32_t arg1);
+__declspec(dllimport) uint16_t __stdcall Wow64SetThreadDefaultGuestMachine(uint16_t arg0);

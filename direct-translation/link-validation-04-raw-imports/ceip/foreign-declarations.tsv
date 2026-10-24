@@ -1,0 +1,2 @@
+rust_name	dll	abi	export	target
+CeipIsOptedIn	kernel32.dll	system	CeipIsOptedIn	mingw_x64

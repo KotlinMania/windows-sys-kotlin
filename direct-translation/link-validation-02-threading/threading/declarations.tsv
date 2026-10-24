@@ -1,0 +1,801 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	96	1	1	2	unsupported	non-scalar type Ptr unsupported
+1	Macro		97	190	2	1	5	unsupported	non-scalar type Ptr unsupported
+2	Macro		191	448	3	1	8	unsupported	attribute cfg requires explicit semantics/configuration
+3	Macro		449	692	5	1	12	unsupported	attribute cfg requires explicit semantics/configuration
+4	Macro	AttachThreadInput	693	853	7	1	16	generated	
+5	Macro		854	1039	8	1	20	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+6	Macro		1040	1191	9	1	23	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+7	Macro		1192	1437	10	1	26	unsupported	non-scalar type Ptr unsupported
+8	Macro		1438	1723	11	1	29	unsupported	non-scalar type Ptr unsupported
+9	Macro		1724	2010	12	1	32	unsupported	non-scalar type Ptr unsupported
+10	Macro		2011	2157	13	1	35	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+11	Macro		2158	2394	14	1	38	unsupported	non-scalar type Ptr unsupported
+12	Macro		2395	2540	15	1	41	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+13	Macro		2541	2687	16	1	44	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+14	Macro		2688	2901	17	1	47	unsupported	non-scalar type Ptr unsupported
+15	Macro		2902	3117	18	1	50	unsupported	non-scalar type Ptr unsupported
+16	Macro		3118	3288	19	1	53	unsupported	non-scalar type Ptr unsupported
+17	Macro		3289	3460	20	1	56	unsupported	non-scalar type Ptr unsupported
+18	Macro		3461	3628	21	1	59	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+19	Macro	CallbackMayRunLong	3629	3752	22	1	62	generated	
+20	Macro	CancelThreadpoolIo	3753	3834	23	1	66	generated	
+21	Macro		3835	4023	24	1	70	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+22	Macro		4024	4163	25	1	73	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+23	Macro		4164	4381	26	1	76	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+24	Macro		4382	4517	27	1	79	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+25	Macro	CloseThreadpool	4518	4599	28	1	82	generated	
+26	Macro	CloseThreadpoolCleanupGroup	4600	4703	29	1	86	generated	
+27	Macro		4704	4908	30	1	90	unsupported	non-scalar type Ptr unsupported
+28	Macro	CloseThreadpoolIo	4909	4989	31	1	93	generated	
+29	Macro	CloseThreadpoolTimer	4990	5076	32	1	97	generated	
+30	Macro	CloseThreadpoolWait	5077	5161	33	1	101	generated	
+31	Macro	CloseThreadpoolWork	5162	5246	34	1	105	generated	
+32	Macro	ConvertFiberToThread	5247	5345	35	1	109	generated	
+33	Macro		5346	5481	36	1	113	unsupported	non-scalar type Ptr unsupported
+34	Macro		5482	5634	37	1	116	unsupported	non-scalar type Ptr unsupported
+35	Macro		5635	5792	38	1	119	unsupported	non-scalar type Ptr unsupported
+36	Macro		5793	5951	39	1	122	unsupported	non-scalar type Ptr unsupported
+37	Macro		5952	6274	40	1	125	unsupported	attribute cfg requires explicit semantics/configuration
+38	Macro		6275	6565	42	1	129	unsupported	attribute cfg requires explicit semantics/configuration
+39	Macro		6566	6857	44	1	133	unsupported	attribute cfg requires explicit semantics/configuration
+40	Macro		6858	7181	46	1	137	unsupported	attribute cfg requires explicit semantics/configuration
+41	Macro		7182	7369	48	1	141	unsupported	generic scalar type unsupported
+42	Macro		7370	7608	49	1	144	unsupported	generic scalar type unsupported
+43	Macro		7609	7891	50	1	147	unsupported	attribute cfg requires explicit semantics/configuration
+44	Macro		7892	8173	52	1	151	unsupported	attribute cfg requires explicit semantics/configuration
+45	Macro		8174	8456	54	1	155	unsupported	attribute cfg requires explicit semantics/configuration
+46	Macro		8457	8740	56	1	159	unsupported	attribute cfg requires explicit semantics/configuration
+47	Macro		8741	9060	58	1	163	unsupported	attribute cfg requires explicit semantics/configuration
+48	Macro		9061	9381	60	1	167	unsupported	attribute cfg requires explicit semantics/configuration
+49	Macro		9382	10003	62	1	171	unsupported	attribute cfg requires explicit semantics/configuration
+50	Macro		10004	10675	64	1	175	unsupported	attribute cfg requires explicit semantics/configuration
+51	Macro		10676	11350	66	1	179	unsupported	attribute cfg requires explicit semantics/configuration
+52	Macro		11351	11975	68	1	183	unsupported	attribute cfg requires explicit semantics/configuration
+53	Macro		11976	12543	70	1	187	unsupported	non-scalar type Ptr unsupported
+54	Macro		12544	13037	71	1	190	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+55	Macro		13038	13445	72	1	193	unsupported	attribute cfg requires explicit semantics/configuration
+56	Macro		13446	13903	74	1	197	unsupported	attribute cfg requires explicit semantics/configuration
+57	Macro		13904	14195	76	1	201	unsupported	attribute cfg requires explicit semantics/configuration
+58	Macro		14196	14527	78	1	205	unsupported	attribute cfg requires explicit semantics/configuration
+59	Macro		14528	14860	80	1	209	unsupported	attribute cfg requires explicit semantics/configuration
+60	Macro		14861	15153	82	1	213	unsupported	attribute cfg requires explicit semantics/configuration
+61	Macro		15154	15527	84	1	217	unsupported	attribute cfg requires explicit semantics/configuration
+62	Macro		15528	15642	86	1	221	unsupported	non-scalar type Ptr unsupported
+63	Macro	CreateThreadpoolCleanupGroup	15643	15743	87	1	224	generated	
+64	Macro		15744	15959	88	1	228	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+65	Macro		15960	16138	89	1	231	unsupported	generic scalar type unsupported
+66	Macro		16139	16314	90	1	234	unsupported	generic scalar type unsupported
+67	Macro		16315	16490	91	1	237	unsupported	generic scalar type unsupported
+68	Macro		16491	16595	92	1	240	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+69	Macro		16596	16922	93	1	243	unsupported	non-scalar type Ptr unsupported
+70	Macro		16923	17071	94	1	246	unsupported	non-scalar type Ptr unsupported
+71	Macro		17072	17213	95	1	249	unsupported	non-scalar type Ptr unsupported
+72	Macro		17214	17508	96	1	252	unsupported	attribute cfg requires explicit semantics/configuration
+73	Macro		17509	17803	98	1	256	unsupported	attribute cfg requires explicit semantics/configuration
+74	Macro		17804	18099	100	1	260	unsupported	attribute cfg requires explicit semantics/configuration
+75	Macro		18100	18395	102	1	264	unsupported	attribute cfg requires explicit semantics/configuration
+76	Macro		18396	18525	104	1	268	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+77	Macro		18526	18679	105	1	271	unsupported	attribute cfg requires explicit semantics/configuration
+78	Macro		18680	18776	107	1	275	unsupported	non-scalar type Ptr unsupported
+79	Macro		18777	18903	108	1	278	unsupported	non-scalar type Ptr unsupported
+80	Macro		18904	19050	109	1	281	unsupported	non-scalar type Ptr unsupported
+81	Macro		19051	19191	110	1	284	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+82	Macro		19192	19387	111	1	287	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+83	Macro		19388	19629	112	1	290	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+84	Macro		19630	19775	113	1	293	unsupported	non-scalar type Ptr unsupported
+85	Macro		19776	19912	114	1	296	unsupported	non-scalar type Ptr unsupported
+86	Macro		19913	20128	115	1	299	unsupported	non-scalar type Ptr unsupported
+87	Macro	DisassociateCurrentThreadFromCallback	20129	20244	116	1	302	generated	
+88	Macro		20245	20397	117	1	306	unsupported	attribute cfg requires explicit semantics/configuration
+89	Macro		20398	20558	119	1	310	unsupported	non-scalar type Ptr unsupported
+90	Macro		20559	20763	120	1	313	unsupported	attribute cfg requires explicit semantics/configuration
+91	Macro		20764	20892	122	1	317	unsupported	non-scalar type Ptr unsupported
+92	Macro		20893	20975	123	1	320	unsupported	non-scalar type Never unsupported
+93	Macro		20976	21058	124	1	323	unsupported	non-scalar type Never unsupported
+94	Macro		21059	21160	125	1	326	unsupported	generic scalar type unsupported
+95	Macro	FlsFree	21161	21262	126	1	329	generated	
+96	Macro		21263	21367	127	1	333	unsupported	non-scalar type Ptr unsupported
+97	Macro		21368	21511	128	1	336	unsupported	non-scalar type Ptr unsupported
+98	Macro	FlushProcessWriteBuffers	21512	21587	129	1	339	generated	
+99	Macro		21588	21740	130	1	343	unsupported	qualified type requires source-backed binding: super::super::Foundation::HMODULE
+100	Macro	GetActiveProcessorCount	21741	21839	131	1	346	generated	
+101	Macro	GetActiveProcessorGroupCount	21840	21926	132	1	350	generated	
+102	Macro		21927	22032	133	1	354	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+103	Macro	GetCurrentProcessId	22033	22110	134	1	357	generated	
+104	Macro	GetCurrentProcessorNumber	22111	22194	135	1	361	generated	
+105	Macro		22195	22363	136	1	365	unsupported	attribute cfg requires explicit semantics/configuration
+106	Macro		22364	22468	138	1	369	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+107	Macro	GetCurrentThreadId	22469	22545	139	1	372	generated	
+108	Macro		22546	22669	140	1	376	unsupported	non-scalar type Ptr unsupported
+109	Macro		22670	22766	141	1	379	unsupported	non-scalar type Ptr unsupported
+110	Macro		22767	22930	142	1	382	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+111	Macro		22931	23092	143	1	385	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+112	Macro		23093	23243	144	1	388	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+113	Macro		23244	23411	145	1	391	unsupported	non-scalar type Ptr unsupported
+114	Macro	GetMaximumProcessorCount	23412	23511	146	1	394	generated	
+115	Macro	GetMaximumProcessorGroupCount	23512	23599	147	1	398	generated	
+116	Macro		23600	23730	148	1	402	unsupported	non-scalar type Ptr unsupported
+117	Macro		23731	23871	149	1	405	unsupported	non-scalar type Ptr unsupported
+118	Macro		23872	24015	150	1	408	unsupported	non-scalar type Ptr unsupported
+119	Macro		24016	24146	151	1	411	unsupported	non-scalar type Ptr unsupported
+120	Macro		24147	24316	152	1	414	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+121	Macro		24317	24454	153	1	417	unsupported	non-scalar type Ptr unsupported
+122	Macro		24455	24746	154	1	420	unsupported	attribute cfg requires explicit semantics/configuration
+123	Macro		24747	24976	156	1	424	unsupported	attribute cfg requires explicit semantics/configuration
+124	Macro		24977	25111	158	1	428	unsupported	non-scalar type Ptr unsupported
+125	Macro		25112	25326	159	1	431	unsupported	attribute cfg requires explicit semantics/configuration
+126	Macro		25327	25464	161	1	435	unsupported	non-scalar type Ptr unsupported
+127	Macro		25465	25605	162	1	438	unsupported	non-scalar type Ptr unsupported
+128	Macro		25606	25724	163	1	441	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+129	Macro		25725	25940	164	1	444	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+130	Macro		25941	26146	165	1	447	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+131	Macro		26147	26462	166	1	450	unsupported	attribute cfg requires explicit semantics/configuration
+132	Macro		26463	26679	168	1	454	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+133	Macro		26680	26871	169	1	457	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+134	Macro		26872	27042	170	1	460	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+135	Macro		27043	27191	171	1	463	unsupported	qualified type requires source-backed binding: super::super::Foundation::HWND
+136	Macro		27192	27305	172	1	466	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+137	Macro		27306	27426	173	1	469	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+138	Macro		27427	27698	174	1	472	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+139	Macro		27699	27874	175	1	475	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+140	Macro		27875	28122	176	1	478	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+141	Macro		28123	28322	177	1	481	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+142	Macro		28323	28471	178	1	484	unsupported	non-scalar type Ptr unsupported
+143	Macro		28472	28835	179	1	487	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+144	Macro	GetProcessVersion	28836	28926	180	1	490	generated	
+145	Macro		28927	29149	181	1	494	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+146	Macro		29150	29249	182	1	497	unsupported	non-scalar type Ptr unsupported
+147	Macro		29250	29349	183	1	500	unsupported	non-scalar type Ptr unsupported
+148	Macro		29350	29607	184	1	503	unsupported	non-scalar type Ptr unsupported
+149	Macro		29608	29807	185	1	506	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+150	Macro		29808	30066	186	1	509	unsupported	attribute cfg requires explicit semantics/configuration
+151	Macro		30067	30256	188	1	513	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+152	Macro		30257	30368	189	1	516	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+153	Macro		30369	30613	190	1	519	unsupported	attribute cfg requires explicit semantics/configuration
+154	Macro		30614	30879	192	1	523	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+155	Macro		30880	30998	193	1	526	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+156	Macro		30999	31196	194	1	529	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+157	Macro		31197	31511	195	1	532	unsupported	attribute cfg requires explicit semantics/configuration
+158	Macro		31512	31727	197	1	536	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+159	Macro		31728	32089	198	1	539	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+160	Macro		32090	32298	199	1	542	unsupported	non-scalar type Ptr unsupported
+161	Macro		32299	32509	200	1	545	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+162	Macro		32510	32735	201	1	548	unsupported	non-scalar type Ptr unsupported
+163	Macro		32736	32910	202	1	551	unsupported	non-scalar type Ptr unsupported
+164	Macro		32911	33132	203	1	554	unsupported	non-scalar type Ptr unsupported
+165	Macro		33133	33227	204	1	557	unsupported	non-scalar type Ptr unsupported
+166	Macro		33228	33349	205	1	560	unsupported	non-scalar type Ptr unsupported
+167	Macro		33350	33507	206	1	563	unsupported	attribute cfg requires explicit semantics/configuration
+168	Macro		33508	33723	208	1	567	unsupported	attribute cfg requires explicit semantics/configuration
+169	Macro		33724	33942	210	1	571	unsupported	attribute cfg requires explicit semantics/configuration
+170	Macro		33943	34160	212	1	575	unsupported	non-scalar type Ptr unsupported
+171	Macro		34161	34315	213	1	578	unsupported	attribute cfg requires explicit semantics/configuration
+172	Macro		34316	34406	215	1	582	unsupported	non-scalar type Ptr unsupported
+173	Macro		34407	34596	216	1	585	unsupported	non-scalar type Ptr unsupported
+174	Macro		34597	34789	217	1	588	unsupported	attribute cfg requires explicit semantics/configuration
+175	Macro		34790	34985	219	1	592	unsupported	attribute cfg requires explicit semantics/configuration
+176	Macro		34986	35228	221	1	596	unsupported	attribute cfg requires explicit semantics/configuration
+177	Macro		35229	35524	223	1	600	unsupported	attribute cfg requires explicit semantics/configuration
+178	Macro		35525	35663	225	1	604	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+179	Macro		35664	35844	226	1	607	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+180	Macro	IsProcessorFeaturePresent	35845	35987	227	1	610	generated	
+181	Macro	IsThreadAFiber	35988	36080	228	1	614	generated	
+182	Macro	IsThreadpoolTimerSet	36081	36194	229	1	618	generated	
+183	Macro		36195	36376	230	1	622	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+184	Macro		36377	36704	231	1	625	unsupported	attribute cfg requires explicit semantics/configuration
+185	Macro		36705	36857	233	1	629	unsupported	attribute cfg requires explicit semantics/configuration
+186	Macro		36858	37044	235	1	633	unsupported	attribute cfg requires explicit semantics/configuration
+187	Macro		37045	37267	237	1	637	unsupported	non-scalar type Ptr unsupported
+188	Macro		37268	37491	238	1	640	unsupported	non-scalar type Ptr unsupported
+189	Macro		37492	37715	239	1	643	unsupported	non-scalar type Ptr unsupported
+190	Macro		37716	37914	240	1	646	unsupported	non-scalar type Ptr unsupported
+191	Macro		37915	38114	241	1	649	unsupported	non-scalar type Ptr unsupported
+192	Macro		38115	38314	242	1	652	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+193	Macro		38315	38607	243	1	655	unsupported	attribute cfg requires explicit semantics/configuration
+194	Macro		38608	38835	245	1	659	unsupported	non-scalar type Ptr unsupported
+195	Macro		38836	39032	246	1	662	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+196	Macro		39033	39361	247	1	665	unsupported	attribute cfg requires explicit semantics/configuration
+197	Macro		39362	39571	249	1	669	unsupported	non-scalar type Ptr unsupported
+198	Macro		39572	39808	250	1	672	unsupported	non-scalar type Ptr unsupported
+199	Macro		39809	39939	251	1	675	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+200	Macro		39940	40099	252	1	678	unsupported	attribute cfg requires explicit semantics/configuration
+201	Macro		40100	40337	254	1	682	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+202	Macro		40338	40576	255	1	685	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+203	Macro		40577	40782	256	1	688	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+204	Macro		40783	40950	257	1	691	unsupported	non-scalar type Ptr unsupported
+205	Macro		40951	41115	258	1	694	unsupported	non-scalar type Ptr unsupported
+206	Macro		41116	41405	259	1	697	unsupported	non-scalar type Ptr unsupported
+207	Macro		41406	41581	260	1	700	unsupported	qualified type requires source-backed binding: super::super::Foundation::PAPCFUNC
+208	Macro		41582	41809	261	1	703	unsupported	qualified type requires source-backed binding: super::super::Foundation::PAPCFUNC
+209	Macro		41810	42003	262	1	706	unsupported	generic scalar type unsupported
+210	Macro		42004	42331	263	1	709	unsupported	non-scalar type Ptr unsupported
+211	Macro		42332	42464	264	1	712	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+212	Macro		42465	42617	265	1	715	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+213	Macro		42618	42714	266	1	718	unsupported	non-scalar type Ptr unsupported
+214	Macro		42715	42808	267	1	721	unsupported	non-scalar type Ptr unsupported
+215	Macro		42809	42998	268	1	724	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+216	Macro		42999	43165	269	1	727	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+217	Macro		43166	43296	270	1	730	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+218	Macro		43297	43410	271	1	733	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+219	Macro		43411	43596	272	1	736	unsupported	generic scalar type unsupported
+220	Macro		43597	43750	273	1	739	unsupported	non-scalar type Ptr unsupported
+221	Macro		43751	43911	274	1	742	unsupported	non-scalar type Ptr unsupported
+222	Macro		43912	44194	275	1	745	unsupported	non-scalar type Ptr unsupported
+223	Macro		44195	44406	276	1	748	unsupported	non-scalar type Ptr unsupported
+224	Macro		44407	44549	277	1	751	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+225	Macro	RtwqCancelWorkItem	44550	44657	278	1	754	generated	
+226	Macro		44658	44910	279	1	758	unsupported	non-scalar type Ptr unsupported
+227	Macro		44911	45075	280	1	761	unsupported	non-scalar type Ptr unsupported
+228	Macro		45076	45267	281	1	764	unsupported	non-scalar type Ptr unsupported
+229	Macro		45268	45415	282	1	767	unsupported	non-scalar type Ptr unsupported
+230	Macro		45416	45559	283	1	770	unsupported	non-scalar type Ptr unsupported
+231	Macro		45560	45690	284	1	773	unsupported	non-scalar type Ptr unsupported
+232	Macro		45691	45894	285	1	776	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+233	Macro	RtwqLockPlatform	45895	45991	286	1	779	generated	
+234	Macro		45992	46187	287	1	783	unsupported	non-scalar type Ptr unsupported
+235	Macro	RtwqLockWorkQueue	46188	46302	288	1	786	generated	
+236	Macro		46303	46514	289	1	790	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+237	Macro		46515	46674	290	1	793	unsupported	non-scalar type Ptr unsupported
+238	Macro		46675	46821	291	1	796	unsupported	non-scalar type Ptr unsupported
+239	Macro		46822	47005	292	1	799	unsupported	non-scalar type Ptr unsupported
+240	Macro	RtwqRemovePeriodicCallback	47006	47123	293	1	802	generated	
+241	Macro		47124	47287	294	1	806	unsupported	non-scalar type Ptr unsupported
+242	Macro		47288	47472	295	1	809	unsupported	non-scalar type Ptr unsupported
+243	Macro		47473	47682	296	1	812	unsupported	non-scalar type Ptr unsupported
+244	Macro	RtwqSetLongRunning	47683	47832	297	1	815	generated	
+245	Macro	RtwqShutdown	47833	47925	298	1	819	generated	
+246	Macro	RtwqStartup	47926	48017	299	1	823	generated	
+247	Macro		48018	48177	300	1	827	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+248	Macro	RtwqUnlockPlatform	48178	48276	301	1	830	generated	
+249	Macro	RtwqUnlockWorkQueue	48277	48393	302	1	834	generated	
+250	Macro		48394	48542	303	1	838	unsupported	non-scalar type Ptr unsupported
+251	Macro	RtwqUnregisterPlatformFromMMCSS	48543	48654	304	1	841	generated	
+252	Macro		48655	48840	305	1	845	unsupported	attribute cfg requires explicit semantics/configuration
+253	Macro		48841	48969	307	1	849	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+254	Macro		48970	49116	308	1	852	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+255	Macro		49117	49297	309	1	855	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+256	Macro		49298	49473	310	1	858	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+257	Macro		49474	49670	311	1	861	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+258	Macro	SetProcessDEPPolicy	49671	49795	312	1	864	generated	
+259	Macro		49796	50083	313	1	868	unsupported	attribute cfg requires explicit semantics/configuration
+260	Macro		50084	50274	315	1	872	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+261	Macro		50275	50512	316	1	875	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+262	Macro		50513	50754	317	1	878	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+263	Macro		50755	51028	318	1	881	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+264	Macro		51029	51232	319	1	884	unsupported	non-scalar type Ptr unsupported
+265	Macro		51233	51427	320	1	887	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+266	Macro	SetProcessRestrictionExemption	51428	51576	321	1	890	generated	
+267	Macro	SetProcessShutdownParameters	51577	51711	322	1	894	generated	
+268	Macro		51712	51924	323	1	898	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+269	Macro		51925	52114	324	1	901	unsupported	non-scalar type Ptr unsupported
+270	Macro		52115	52269	325	1	904	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+271	Macro		52270	52463	326	1	907	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+272	Macro		52464	52796	327	1	910	unsupported	attribute cfg requires explicit semantics/configuration
+273	Macro		52797	52945	329	1	914	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+274	Macro		52946	53258	330	1	917	unsupported	attribute cfg requires explicit semantics/configuration
+275	Macro		53259	53526	332	1	921	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+276	Macro		53527	53694	333	1	924	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+277	Macro		53695	53887	334	1	927	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+278	Macro		53888	54174	335	1	930	unsupported	attribute cfg requires explicit semantics/configuration
+279	Macro		54175	54364	337	1	934	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+280	Macro		54365	54493	338	1	937	unsupported	non-scalar type Ptr unsupported
+281	Macro		54494	54678	339	1	940	unsupported	non-scalar type Ptr unsupported
+282	Macro		54679	54843	340	1	943	unsupported	non-scalar type Ptr unsupported
+283	Macro	SetThreadpoolThreadMaximum	54844	54953	341	1	946	generated	
+284	Macro	SetThreadpoolThreadMinimum	54954	55089	342	1	950	generated	
+285	Macro		55090	55269	343	1	954	unsupported	non-scalar type Ptr unsupported
+286	Macro		55270	55478	344	1	957	unsupported	non-scalar type Ptr unsupported
+287	Macro		55479	55657	345	1	960	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+288	Macro		55658	55902	346	1	963	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+289	Macro		55903	56190	347	1	966	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+290	Macro		56191	56455	348	1	969	unsupported	non-scalar type Ptr unsupported
+291	Macro		56456	56760	349	1	972	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+292	Macro		56761	57091	350	1	975	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+293	Macro		57092	57367	351	1	978	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+294	Macro	Sleep	57368	57444	352	1	981	generated	
+295	Macro		57445	57693	353	1	985	unsupported	attribute cfg requires explicit semantics/configuration
+296	Macro		57694	57899	355	1	989	unsupported	non-scalar type Ptr unsupported
+297	Macro	SleepEx	57900	58023	356	1	992	generated	
+298	Macro	StartThreadpoolIo	58024	58104	357	1	996	generated	
+299	Macro	SubmitThreadpoolWork	58105	58190	358	1	1000	generated	
+300	Macro		58191	58305	359	1	1004	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+301	Macro		58306	58404	360	1	1007	unsupported	non-scalar type Ptr unsupported
+302	Macro	SwitchToThread	58405	58497	361	1	1010	generated	
+303	Macro		58498	58653	362	1	1014	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+304	Macro		58654	58808	363	1	1017	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+305	Macro	TlsAlloc	58809	58875	364	1	1020	generated	
+306	Macro	TlsFree	58876	58977	365	1	1024	generated	
+307	Macro		58978	59082	366	1	1028	unsupported	non-scalar type Ptr unsupported
+308	Macro		59083	59227	367	1	1031	unsupported	non-scalar type Ptr unsupported
+309	Macro		59228	59335	368	1	1034	unsupported	non-scalar type Ptr unsupported
+310	Macro		59336	59440	369	1	1037	unsupported	non-scalar type Ptr unsupported
+311	Macro		59441	59623	370	1	1040	unsupported	attribute cfg requires explicit semantics/configuration
+312	Macro		59624	59822	372	1	1044	unsupported	generic scalar type unsupported
+313	Macro		59823	59956	373	1	1047	unsupported	non-scalar type Ptr unsupported
+314	Macro		59957	60095	374	1	1050	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+315	Macro		60096	60289	375	1	1053	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+316	Macro		60290	60596	376	1	1056	unsupported	non-scalar type Ptr unsupported
+317	Macro		60597	60735	377	1	1059	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+318	Macro		60736	60974	378	1	1062	unsupported	non-scalar type Ptr unsupported
+319	Macro		60975	61253	379	1	1065	unsupported	non-scalar type Ptr unsupported
+320	Macro		61254	61430	380	1	1068	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+321	Macro		61431	61647	381	1	1071	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+322	Macro	WaitForThreadpoolIoCallbacks	61648	61790	382	1	1074	generated	
+323	Macro	WaitForThreadpoolTimerCallbacks	61791	61939	383	1	1078	generated	
+324	Macro	WaitForThreadpoolWaitCallbacks	61940	62086	384	1	1082	generated	
+325	Macro	WaitForThreadpoolWorkCallbacks	62087	62233	385	1	1086	generated	
+326	Macro		62234	62465	386	1	1090	unsupported	non-scalar type Ptr unsupported
+327	Macro		62466	62584	387	1	1093	unsupported	non-scalar type Ptr unsupported
+328	Macro		62585	62706	388	1	1096	unsupported	non-scalar type Ptr unsupported
+329	Macro		62707	62831	389	1	1099	unsupported	non-scalar type Ptr unsupported
+330	Macro		62832	62947	390	1	1102	unsupported	non-scalar type Ptr unsupported
+331	Macro		62948	63065	391	1	1105	unsupported	non-scalar type Ptr unsupported
+332	Macro	Wow64SetThreadDefaultGuestMachine	63066	63190	392	1	1108	generated	
+333	Macro		63191	63310	393	1	1112	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+334	Const	ABOVE_NORMAL_PRIORITY_CLASS	63311	63384	394	1	1115	generated	
+335	Const	ALL_PROCESSOR_GROUPS	63385	63432	395	1	1116	generated	
+336	ItemType	APC_CALLBACK_FUNCTION	63433	63577	396	1	1117	unsupported	generic scalar type unsupported
+337	Struct	APP_MEMORY_INFORMATION	63578	63789	397	1	1120	unsupported	declaration Struct has no candidate rule
+338	ItemType	AVRT_PRIORITY	63790	63819	405	1	1130	generated	
+339	Const	AVRT_PRIORITY_CRITICAL	63820	63875	406	1	1131	generated	
+340	Const	AVRT_PRIORITY_HIGH	63876	63927	407	1	1132	generated	
+341	Const	AVRT_PRIORITY_LOW	63928	63979	408	1	1133	generated	
+342	Const	AVRT_PRIORITY_NORMAL	63980	64033	409	1	1134	generated	
+343	Const	AVRT_PRIORITY_VERYLOW	64034	64089	410	1	1135	generated	
+344	Const	BELOW_NORMAL_PRIORITY_CLASS	64090	64163	411	1	1136	generated	
+345	Struct	CONDITION_VARIABLE	64164	64268	412	1	1137	unsupported	declaration Struct has no candidate rule
+346	Impl		64269	64380	417	1	1144	unsupported	declaration Impl has no candidate rule
+347	Const	CONDITION_VARIABLE_INIT	64381	64487	422	1	1151	unsupported	unresolved scalar type CONDITION_VARIABLE
+348	Const	CONDITION_VARIABLE_LOCKMODE_SHARED	64488	64545	423	1	1154	generated	
+349	Const	CREATE_BREAKAWAY_FROM_JOB	64546	64620	424	1	1155	generated	
+350	Const	CREATE_DEFAULT_ERROR_MODE	64621	64695	425	1	1156	generated	
+351	ItemType	CREATE_EVENT	64696	64724	426	1	1157	generated	
+352	Const	CREATE_EVENT_INITIAL_SET	64725	64781	427	1	1158	generated	
+353	Const	CREATE_EVENT_MANUAL_RESET	64782	64839	428	1	1159	generated	
+354	Const	CREATE_FORCEDOS	64840	64900	429	1	1160	generated	
+355	Const	CREATE_IGNORE_SYSTEM_DEFAULT	64901	64980	430	1	1161	generated	
+356	Const	CREATE_MUTEX_INITIAL_OWNER	64981	65030	431	1	1162	generated	
+357	Const	CREATE_NEW_CONSOLE	65031	65092	432	1	1163	generated	
+358	Const	CREATE_NEW_PROCESS_GROUP	65093	65161	433	1	1164	generated	
+359	Const	CREATE_NO_WINDOW	65162	65228	434	1	1165	generated	
+360	Const	CREATE_PRESERVE_CODE_AUTHZ_LEVEL	65229	65310	435	1	1166	generated	
+361	ItemType	CREATE_PROCESS_LOGON_FLAGS	65311	65353	436	1	1167	generated	
+362	Const	CREATE_PROTECTED_PROCESS	65354	65425	437	1	1168	generated	
+363	Const	CREATE_SECURE_PROCESS	65426	65495	438	1	1169	generated	
+364	Const	CREATE_SEPARATE_WOW_VDM	65496	65564	439	1	1170	generated	
+365	Const	CREATE_SHARED_WOW_VDM	65565	65631	440	1	1171	generated	
+366	Const	CREATE_SUSPENDED	65632	65690	441	1	1172	generated	
+367	Const	CREATE_UNICODE_ENVIRONMENT	65691	65762	442	1	1173	generated	
+368	Const	CREATE_WAITABLE_TIMER_HIGH_RESOLUTION	65763	65823	443	1	1174	generated	
+369	Const	CREATE_WAITABLE_TIMER_MANUAL_RESET	65824	65881	444	1	1175	generated	
+370	Struct	CRITICAL_SECTION	65882	66227	445	1	1176	unsupported	declaration Struct has no candidate rule
+371	Impl		66228	66377	456	1	1189	unsupported	declaration Impl has no candidate rule
+372	Struct	CRITICAL_SECTION_DEBUG	66378	66785	462	1	1197	unsupported	declaration Struct has no candidate rule
+373	Impl		66786	66941	476	1	1213	unsupported	declaration Impl has no candidate rule
+374	Const	DEBUG_ONLY_THIS_PROCESS	66942	67007	482	1	1221	generated	
+375	Const	DEBUG_PROCESS	67008	67063	483	1	1222	generated	
+376	Const	DETACHED_PROCESS	67064	67122	484	1	1223	generated	
+377	Const	EVENT_ALL_ACCESS	67123	67194	485	1	1224	generated	
+378	Const	EVENT_MODIFY_STATE	67195	67262	486	1	1225	generated	
+379	Const	EXTENDED_STARTUPINFO_PRESENT	67263	67338	487	1	1226	generated	
+380	Const	FLS_OUT_OF_INDEXES	67339	67389	488	1	1227	generated	
+381	ItemType	GET_GUI_RESOURCES_FLAGS	67390	67429	489	1	1228	generated	
+382	Const	GR_GDIOBJECTS	67430	67486	490	1	1229	generated	
+383	Const	GR_GDIOBJECTS_PEAK	67487	67548	491	1	1230	generated	
+384	Const	GR_GLOBAL	67549	67610	492	1	1231	generated	
+385	Const	GR_USEROBJECTS	67611	67668	493	1	1232	generated	
+386	Const	GR_USEROBJECTS_PEAK	67669	67731	494	1	1233	generated	
+387	Const	HIGH_PRIORITY_CLASS	67732	67795	495	1	1234	generated	
+388	Const	IDLE_PRIORITY_CLASS	67796	67858	496	1	1235	generated	
+389	Const	INFINITE	67859	67899	497	1	1236	generated	
+390	Const	INHERIT_CALLER_PRIORITY	67900	67970	498	1	1237	generated	
+391	Const	INHERIT_PARENT_AFFINITY	67971	68040	499	1	1238	generated	
+392	Union		68041	68135	500	1	1239	unsupported	declaration Union has no candidate rule
+393	Impl		68136	68238	505	1	1246	unsupported	declaration Impl has no candidate rule
+394	Const	INIT_ONCE_ASYNC	68239	68277	510	1	1253	generated	
+395	Const	INIT_ONCE_CHECK_ONLY	68278	68321	511	1	1254	generated	
+396	Const	INIT_ONCE_CTX_RESERVED_BITS	68322	68372	512	1	1255	generated	
+397	Const	INIT_ONCE_INIT_FAILED	68373	68417	513	1	1256	generated	
+398	Const	INIT_ONCE_STATIC_INIT	68418	68504	514	1	1257	unsupported	unresolved scalar type INIT_ONCE
+399	Struct	IO_COUNTERS	68505	68773	515	1	1260	unsupported	declaration Struct has no candidate rule
+400	Const	KernelEnabled	68774	68825	525	1	1272	generated	
+401	Const	LOGON_NETCREDENTIALS_ONLY	68826	68897	526	1	1273	generated	
+402	Const	LOGON_WITH_PROFILE	68898	68962	527	1	1274	generated	
+403	ItemType	LPFIBER_START_ROUTINE	68963	69072	528	1	1275	unsupported	generic scalar type unsupported
+404	ItemType	LPPROC_THREAD_ATTRIBUTE_LIST	69073	69136	529	1	1278	unsupported	non-scalar type Ptr unsupported
+405	ItemType	LPTHREAD_START_ROUTINE	69137	69255	530	1	1281	unsupported	generic scalar type unsupported
+406	ItemType	MACHINE_ATTRIBUTES	69256	69290	531	1	1284	generated	
+407	ItemType	MEMORY_PRIORITY	69291	69322	532	1	1285	generated	
+408	Const	MEMORY_PRIORITY_BELOW_NORMAL	69323	69386	533	1	1286	generated	
+409	Struct	MEMORY_PRIORITY_INFORMATION	69387	69513	534	1	1287	unsupported	declaration Struct has no candidate rule
+410	Const	MEMORY_PRIORITY_LOW	69514	69568	539	1	1294	generated	
+411	Const	MEMORY_PRIORITY_MEDIUM	69569	69626	540	1	1295	generated	
+412	Const	MEMORY_PRIORITY_NORMAL	69627	69684	541	1	1296	generated	
+413	Const	MEMORY_PRIORITY_VERY_LOW	69685	69744	542	1	1297	generated	
+414	Const	MUTEX_ALL_ACCESS	69745	69816	543	1	1298	generated	
+415	Const	MUTEX_MODIFY_STATE	69817	69884	544	1	1299	generated	
+416	Const	MaxProcessMitigationPolicy	69885	69957	545	1	1300	generated	
+417	Const	NORMAL_PRIORITY_CLASS	69958	70022	546	1	1301	generated	
+418	Struct	OVERRIDE_PREFETCH_PARAMETER	70023	70128	547	1	1302	unsupported	declaration Struct has no candidate rule
+419	Struct	PEB	70129	70956	552	1	1309	unsupported	declaration Struct has no candidate rule
+420	Impl		70957	71093	576	1	1335	unsupported	declaration Impl has no candidate rule
+421	Struct	PEB_LDR_DATA	71094	71331	582	1	1343	unsupported	declaration Struct has no candidate rule
+422	Impl		71332	71477	590	1	1353	unsupported	declaration Impl has no candidate rule
+423	ItemType	PFLS_CALLBACK_FUNCTION	71478	71583	596	1	1361	unsupported	generic scalar type unsupported
+424	Const	PF_3DNOW_INSTRUCTIONS_AVAILABLE	71584	71655	597	1	1364	generated	
+425	Const	PF_ALPHA_BYTE_INSTRUCTIONS	71656	71722	598	1	1365	generated	
+426	Const	PF_ARM_64BIT_LOADSTORE_ATOMIC	71723	71793	599	1	1366	generated	
+427	Const	PF_ARM_DIVIDE_INSTRUCTION_AVAILABLE	71794	71870	600	1	1367	generated	
+428	Const	PF_ARM_EXTERNAL_CACHE_AVAILABLE	71871	71943	601	1	1368	generated	
+429	Const	PF_ARM_FMAC_INSTRUCTIONS_AVAILABLE	71944	72019	602	1	1369	generated	
+430	Const	PF_ARM_NEON_INSTRUCTIONS_AVAILABLE	72020	72095	603	1	1370	generated	
+431	Const	PF_ARM_V81_ATOMIC_INSTRUCTIONS_AVAILABLE	72096	72177	604	1	1371	generated	
+432	Const	PF_ARM_V82_DP_INSTRUCTIONS_AVAILABLE	72178	72255	605	1	1372	generated	
+433	Const	PF_ARM_V83_JSCVT_INSTRUCTIONS_AVAILABLE	72256	72336	606	1	1373	generated	
+434	Const	PF_ARM_V83_LRCPC_INSTRUCTIONS_AVAILABLE	72337	72417	607	1	1374	generated	
+435	Const	PF_ARM_V8_CRC32_INSTRUCTIONS_AVAILABLE	72418	72497	608	1	1375	generated	
+436	Const	PF_ARM_V8_CRYPTO_INSTRUCTIONS_AVAILABLE	72498	72578	609	1	1376	generated	
+437	Const	PF_ARM_V8_INSTRUCTIONS_AVAILABLE	72579	72652	610	1	1377	generated	
+438	Const	PF_ARM_VFP_32_REGISTERS_AVAILABLE	72653	72727	611	1	1378	generated	
+439	Const	PF_AVX2_INSTRUCTIONS_AVAILABLE	72728	72799	612	1	1379	generated	
+440	Const	PF_AVX512F_INSTRUCTIONS_AVAILABLE	72800	72874	613	1	1380	generated	
+441	Const	PF_AVX_INSTRUCTIONS_AVAILABLE	72875	72945	614	1	1381	generated	
+442	Const	PF_CHANNELS_ENABLED	72946	73006	615	1	1382	generated	
+443	Const	PF_COMPARE64_EXCHANGE128	73007	73072	616	1	1383	generated	
+444	Const	PF_COMPARE_EXCHANGE128	73073	73136	617	1	1384	generated	
+445	Const	PF_COMPARE_EXCHANGE_DOUBLE	73137	73203	618	1	1385	generated	
+446	Const	PF_ERMS_AVAILABLE	73204	73262	619	1	1386	generated	
+447	Const	PF_FASTFAIL_AVAILABLE	73263	73325	620	1	1387	generated	
+448	Const	PF_FLOATING_POINT_EMULATED	73326	73392	621	1	1388	generated	
+449	Const	PF_FLOATING_POINT_PRECISION_ERRATA	73393	73467	622	1	1389	generated	
+450	Const	PF_MMX_INSTRUCTIONS_AVAILABLE	73468	73537	623	1	1390	generated	
+451	Const	PF_MONITORX_INSTRUCTION_AVAILABLE	73538	73612	624	1	1391	generated	
+452	Const	PF_NX_ENABLED	73613	73667	625	1	1392	generated	
+453	Const	PF_PAE_ENABLED	73668	73722	626	1	1393	generated	
+454	Const	PF_PPC_MOVEMEM_64BIT_OK	73723	73786	627	1	1394	generated	
+455	Const	PF_RDPID_INSTRUCTION_AVAILABLE	73787	73858	628	1	1395	generated	
+456	Const	PF_RDRAND_INSTRUCTION_AVAILABLE	73859	73931	629	1	1396	generated	
+457	Const	PF_RDTSCP_INSTRUCTION_AVAILABLE	73932	74004	630	1	1397	generated	
+458	Const	PF_RDTSC_INSTRUCTION_AVAILABLE	74005	74075	631	1	1398	generated	
+459	Const	PF_RDWRFSGSBASE_AVAILABLE	74076	74142	632	1	1399	generated	
+460	Const	PF_SECOND_LEVEL_ADDRESS_TRANSLATION	74143	74219	633	1	1400	generated	
+461	Const	PF_SSE3_INSTRUCTIONS_AVAILABLE	74220	74291	634	1	1401	generated	
+462	Const	PF_SSE4_1_INSTRUCTIONS_AVAILABLE	74292	74365	635	1	1402	generated	
+463	Const	PF_SSE4_2_INSTRUCTIONS_AVAILABLE	74366	74439	636	1	1403	generated	
+464	Const	PF_SSE_DAZ_MODE_AVAILABLE	74440	74506	637	1	1404	generated	
+465	Const	PF_SSSE3_INSTRUCTIONS_AVAILABLE	74507	74579	638	1	1405	generated	
+466	Const	PF_VIRT_FIRMWARE_ENABLED	74580	74645	639	1	1406	generated	
+467	Const	PF_XMMI64_INSTRUCTIONS_AVAILABLE	74646	74719	640	1	1407	generated	
+468	Const	PF_XMMI_INSTRUCTIONS_AVAILABLE	74720	74790	641	1	1408	generated	
+469	Const	PF_XSAVE_ENABLED	74791	74848	642	1	1409	generated	
+470	ItemType	PINIT_ONCE_FN	74849	75034	643	1	1410	unsupported	generic scalar type unsupported
+471	Const	PMETypeFailFastOnCommitFailure	75035	75115	644	1	1413	generated	
+472	Const	PMETypeMax	75116	75176	645	1	1414	generated	
+473	Const	PME_CURRENT_VERSION	75177	75219	646	1	1415	generated	
+474	Const	PME_FAILFAST_ON_COMMIT_FAIL_DISABLE	75220	75278	647	1	1416	generated	
+475	Const	PME_FAILFAST_ON_COMMIT_FAIL_ENABLE	75279	75336	648	1	1417	generated	
+476	Const	POWER_REQUEST_CONTEXT_DETAILED_STRING	75337	75421	649	1	1418	generated	
+477	ItemType	POWER_REQUEST_CONTEXT_FLAGS	75422	75465	650	1	1419	generated	
+478	Const	POWER_REQUEST_CONTEXT_SIMPLE_STRING	75466	75548	651	1	1420	generated	
+479	ItemType	PPS_POST_PROCESS_INIT_ROUTINE	75549	75626	652	1	1421	unsupported	generic scalar type unsupported
+480	Const	PRIVATE_NAMESPACE_FLAG_DESTROY	75627	75680	653	1	1424	generated	
+481	ItemType	PROCESSOR_FEATURE_ID	75681	75717	654	1	1425	generated	
+482	ItemType	PROCESS_ACCESS_RIGHTS	75718	75755	655	1	1426	generated	
+483	ItemType	PROCESS_AFFINITY_AUTO_UPDATE_FLAGS	75756	75806	656	1	1427	generated	
+484	Const	PROCESS_AFFINITY_DISABLE_AUTO_UPDATE	75807	75897	657	1	1428	generated	
+485	Const	PROCESS_AFFINITY_ENABLE_AUTO_UPDATE	75898	75987	658	1	1429	generated	
+486	Const	PROCESS_ALL_ACCESS	75988	76053	659	1	1430	generated	
+487	Struct	PROCESS_BASIC_INFORMATION	76054	76391	660	1	1431	unsupported	declaration Struct has no candidate rule
+488	Impl		76392	76550	671	1	1444	unsupported	declaration Impl has no candidate rule
+489	Const	PROCESS_CREATE_PROCESS	76551	76616	677	1	1452	generated	
+490	Const	PROCESS_CREATE_THREAD	76617	76679	678	1	1453	generated	
+491	ItemType	PROCESS_CREATION_FLAGS	76680	76718	679	1	1454	generated	
+492	Const	PROCESS_DELETE	76719	76778	680	1	1455	generated	
+493	Const	PROCESS_DEP_DISABLE_ATL_THUNK_EMULATION	76779	76855	681	1	1456	generated	
+494	Const	PROCESS_DEP_ENABLE	76856	76911	682	1	1457	generated	
+495	ItemType	PROCESS_DEP_FLAGS	76912	76945	683	1	1458	generated	
+496	Const	PROCESS_DEP_NONE	76946	76999	684	1	1459	generated	
+497	Const	PROCESS_DUP_HANDLE	77000	77060	685	1	1460	generated	
+498	Struct	PROCESS_DYNAMIC_EH_CONTINUATION_TARGET	77061	77209	686	1	1461	unsupported	declaration Struct has no candidate rule
+499	Struct	PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION	77210	77449	692	1	1469	unsupported	declaration Struct has no candidate rule
+500	Impl		77450	77594	700	1	1479	unsupported	declaration Impl has no candidate rule
+501	Struct	PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE	77595	77760	705	1	1486	unsupported	declaration Struct has no candidate rule
+502	Struct	PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION	77761	77998	712	1	1495	unsupported	declaration Struct has no candidate rule
+503	Impl		77999	78143	720	1	1505	unsupported	declaration Impl has no candidate rule
+504	Struct	PROCESS_INFORMATION	78144	78366	725	1	1512	unsupported	declaration Struct has no candidate rule
+505	Impl		78367	78479	733	1	1522	unsupported	declaration Impl has no candidate rule
+506	ItemType	PROCESS_INFORMATION_CLASS	78480	78521	738	1	1529	generated	
+507	Struct	PROCESS_LEAP_SECOND_INFO	78522	78647	739	1	1530	unsupported	declaration Struct has no candidate rule
+508	Const	PROCESS_LEAP_SECOND_INFO_FLAG_ENABLE_SIXTY_SECOND	78648	78720	745	1	1538	generated	
+509	Const	PROCESS_LEAP_SECOND_INFO_VALID_FLAGS	78721	78780	746	1	1539	generated	
+510	Struct	PROCESS_MACHINE_INFORMATION	78781	79053	747	1	1540	unsupported	declaration Struct has no candidate rule
+511	Struct	PROCESS_MEMORY_EXHAUSTION_INFO	79054	79255	755	1	1550	unsupported	declaration Struct has no candidate rule
+512	ItemType	PROCESS_MEMORY_EXHAUSTION_TYPE	79256	79302	763	1	1560	generated	
+513	ItemType	PROCESS_MITIGATION_POLICY	79303	79344	764	1	1561	generated	
+514	Const	PROCESS_MODE_BACKGROUND_BEGIN	79345	79422	765	1	1562	generated	
+515	Const	PROCESS_MODE_BACKGROUND_END	79423	79498	766	1	1563	generated	
+516	ItemType	PROCESS_NAME_FORMAT	79499	79534	767	1	1564	generated	
+517	Const	PROCESS_NAME_NATIVE	79535	79593	768	1	1565	generated	
+518	Const	PROCESS_NAME_WIN32	79594	79651	769	1	1566	generated	
+519	Const	PROCESS_POWER_THROTTLING_CURRENT_VERSION	79652	79715	770	1	1567	generated	
+520	Const	PROCESS_POWER_THROTTLING_EXECUTION_SPEED	79716	79779	771	1	1568	generated	
+521	Const	PROCESS_POWER_THROTTLING_IGNORE_TIMER_RESOLUTION	79780	79851	772	1	1569	generated	
+522	Struct	PROCESS_POWER_THROTTLING_STATE	79852	80012	773	1	1570	unsupported	declaration Struct has no candidate rule
+523	ItemType	PROCESS_PROTECTION_LEVEL	80013	80053	780	1	1579	generated	
+524	Struct	PROCESS_PROTECTION_LEVEL_INFORMATION	80054	80199	781	1	1580	unsupported	declaration Struct has no candidate rule
+525	Const	PROCESS_QUERY_INFORMATION	80200	80269	786	1	1587	generated	
+526	Const	PROCESS_QUERY_LIMITED_INFORMATION	80270	80347	787	1	1588	generated	
+527	Const	PROCESS_READ_CONTROL	80348	80414	788	1	1589	generated	
+528	Const	PROCESS_SET_INFORMATION	80415	80481	789	1	1590	generated	
+529	Const	PROCESS_SET_LIMITED_INFORMATION	80482	80557	790	1	1591	generated	
+530	Const	PROCESS_SET_QUOTA	80558	80618	791	1	1592	generated	
+531	Const	PROCESS_SET_SESSIONID	80619	80681	792	1	1593	generated	
+532	Const	PROCESS_STANDARD_RIGHTS_REQUIRED	80682	80760	793	1	1594	generated	
+533	Const	PROCESS_SUSPEND_RESUME	80761	80827	794	1	1595	generated	
+534	Const	PROCESS_SYNCHRONIZE	80828	80894	795	1	1596	generated	
+535	Const	PROCESS_TERMINATE	80895	80953	796	1	1597	generated	
+536	Const	PROCESS_VM_OPERATION	80954	81015	797	1	1598	generated	
+537	Const	PROCESS_VM_READ	81016	81073	798	1	1599	generated	
+538	Const	PROCESS_VM_WRITE	81074	81132	799	1	1600	generated	
+539	Const	PROCESS_WRITE_DAC	81133	81196	800	1	1601	generated	
+540	Const	PROCESS_WRITE_OWNER	81197	81262	801	1	1602	generated	
+541	Const	PROC_THREAD_ATTRIBUTE_ALL_APPLICATION_PACKAGES_POLICY	81263	81344	802	1	1603	generated	
+542	Const	PROC_THREAD_ATTRIBUTE_CHILD_PROCESS_POLICY	81345	81415	803	1	1604	generated	
+543	Const	PROC_THREAD_ATTRIBUTE_COMPONENT_FILTER	81416	81482	804	1	1605	generated	
+544	Const	PROC_THREAD_ATTRIBUTE_DESKTOP_APP_POLICY	81483	81551	805	1	1606	generated	
+545	Const	PROC_THREAD_ATTRIBUTE_ENABLE_OPTIONAL_XSTATE_FEATURES	81552	81633	806	1	1607	generated	
+546	Const	PROC_THREAD_ATTRIBUTE_GROUP_AFFINITY	81634	81698	807	1	1608	generated	
+547	Const	PROC_THREAD_ATTRIBUTE_HANDLE_LIST	81699	81760	808	1	1609	generated	
+548	Const	PROC_THREAD_ATTRIBUTE_IDEAL_PROCESSOR	81761	81826	809	1	1610	generated	
+549	Const	PROC_THREAD_ATTRIBUTE_JOB_LIST	81827	81885	810	1	1611	generated	
+550	Const	PROC_THREAD_ATTRIBUTE_MACHINE_TYPE	81886	81948	811	1	1612	generated	
+551	Const	PROC_THREAD_ATTRIBUTE_MITIGATION_AUDIT_POLICY	81949	82022	812	1	1613	generated	
+552	Const	PROC_THREAD_ATTRIBUTE_MITIGATION_POLICY	82023	82090	813	1	1614	generated	
+553	ItemType	PROC_THREAD_ATTRIBUTE_NUM	82091	82132	814	1	1615	generated	
+554	Const	PROC_THREAD_ATTRIBUTE_PARENT_PROCESS	82133	82197	815	1	1616	generated	
+555	Const	PROC_THREAD_ATTRIBUTE_PREFERRED_NODE	82198	82262	816	1	1617	generated	
+556	Const	PROC_THREAD_ATTRIBUTE_PROTECTION_LEVEL	82263	82329	817	1	1618	generated	
+557	Const	PROC_THREAD_ATTRIBUTE_PSEUDOCONSOLE	82330	82393	818	1	1619	generated	
+558	Const	PROC_THREAD_ATTRIBUTE_REPLACE_VALUE	82394	82452	819	1	1620	generated	
+559	Const	PROC_THREAD_ATTRIBUTE_SECURITY_CAPABILITIES	82453	82524	820	1	1621	generated	
+560	Const	PROC_THREAD_ATTRIBUTE_UMS_THREAD	82525	82585	821	1	1622	generated	
+561	Const	PROC_THREAD_ATTRIBUTE_WIN32K_FILTER	82586	82649	822	1	1623	generated	
+562	Const	PROFILE_KERNEL	82650	82714	823	1	1624	generated	
+563	Const	PROFILE_SERVER	82715	82780	824	1	1625	generated	
+564	Const	PROFILE_USER	82781	82843	825	1	1626	generated	
+565	Const	PROTECTION_LEVEL_ANTIMALWARE_LIGHT	82844	82922	826	1	1627	generated	
+566	Const	PROTECTION_LEVEL_AUTHENTICODE	82923	82996	827	1	1628	generated	
+567	Const	PROTECTION_LEVEL_CODEGEN_LIGHT	82997	83071	828	1	1629	generated	
+568	Const	PROTECTION_LEVEL_LSA_LIGHT	83072	83142	829	1	1630	generated	
+569	Const	PROTECTION_LEVEL_NONE	83143	83217	830	1	1631	generated	
+570	Const	PROTECTION_LEVEL_PPL_APP	83218	83286	831	1	1632	generated	
+571	Const	PROTECTION_LEVEL_WINDOWS	83287	83355	832	1	1633	generated	
+572	Const	PROTECTION_LEVEL_WINDOWS_LIGHT	83356	83430	833	1	1634	generated	
+573	Const	PROTECTION_LEVEL_WINTCB	83431	83498	834	1	1635	generated	
+574	Const	PROTECTION_LEVEL_WINTCB_LIGHT	83499	83572	835	1	1636	generated	
+575	ItemType	PRTL_UMS_SCHEDULER_ENTRY_POINT	83573	83822	836	1	1637	unsupported	attribute cfg requires explicit semantics/configuration
+576	ItemType	PTIMERAPCROUTINE	83823	83982	838	1	1641	unsupported	generic scalar type unsupported
+577	ItemType	PTP_CALLBACK_INSTANCE	83983	84022	839	1	1644	generated	
+578	ItemType	PTP_CLEANUP_GROUP	84023	84058	840	1	1645	generated	
+579	ItemType	PTP_CLEANUP_GROUP_CANCEL_CALLBACK	84059	84217	841	1	1646	unsupported	generic scalar type unsupported
+580	ItemType	PTP_IO	84218	84242	842	1	1649	generated	
+581	ItemType	PTP_POOL	84243	84269	843	1	1650	generated	
+582	ItemType	PTP_SIMPLE_CALLBACK	84270	84401	844	1	1651	unsupported	generic scalar type unsupported
+583	ItemType	PTP_TIMER	84402	84429	845	1	1654	generated	
+584	ItemType	PTP_TIMER_CALLBACK	84430	84578	846	1	1655	unsupported	generic scalar type unsupported
+585	ItemType	PTP_WAIT	84579	84605	847	1	1658	generated	
+586	ItemType	PTP_WAIT_CALLBACK	84606	84768	848	1	1659	unsupported	generic scalar type unsupported
+587	ItemType	PTP_WIN32_IO_CALLBACK	84769	84998	849	1	1662	unsupported	generic scalar type unsupported
+588	ItemType	PTP_WORK	84999	85025	850	1	1665	generated	
+589	ItemType	PTP_WORK_CALLBACK	85026	85171	851	1	1666	unsupported	generic scalar type unsupported
+590	Const	ProcThreadAttributeAllApplicationPackagesPolicy	85172	85265	852	1	1669	generated	
+591	Const	ProcThreadAttributeChildProcessPolicy	85266	85349	853	1	1670	generated	
+592	Const	ProcThreadAttributeComponentFilter	85350	85430	854	1	1671	generated	
+593	Const	ProcThreadAttributeDesktopAppPolicy	85431	85512	855	1	1672	generated	
+594	Const	ProcThreadAttributeEnableOptionalXStateFeatures	85513	85606	856	1	1673	generated	
+595	Const	ProcThreadAttributeGroupAffinity	85607	85684	857	1	1674	generated	
+596	Const	ProcThreadAttributeHandleList	85685	85759	858	1	1675	generated	
+597	Const	ProcThreadAttributeIdealProcessor	85760	85838	859	1	1676	generated	
+598	Const	ProcThreadAttributeJobList	85839	85911	860	1	1677	generated	
+599	Const	ProcThreadAttributeMachineType	85912	85988	861	1	1678	generated	
+600	Const	ProcThreadAttributeMitigationAuditPolicy	85989	86075	862	1	1679	generated	
+601	Const	ProcThreadAttributeMitigationPolicy	86076	86156	863	1	1680	generated	
+602	Const	ProcThreadAttributeParentProcess	86157	86234	864	1	1681	generated	
+603	Const	ProcThreadAttributePreferredNode	86235	86312	865	1	1682	generated	
+604	Const	ProcThreadAttributeProtectionLevel	86313	86393	866	1	1683	generated	
+605	Const	ProcThreadAttributePseudoConsole	86394	86472	867	1	1684	generated	
+606	Const	ProcThreadAttributeSafeOpenPromptOriginClaim	86473	86563	868	1	1685	generated	
+607	Const	ProcThreadAttributeSecurityCapabilities	86564	86648	869	1	1686	generated	
+608	Const	ProcThreadAttributeTrustedApp	86649	86724	870	1	1687	generated	
+609	Const	ProcThreadAttributeUmsThread	86725	86798	871	1	1688	generated	
+610	Const	ProcThreadAttributeWin32kFilter	86799	86876	872	1	1689	generated	
+611	Const	ProcessASLRPolicy	86877	86939	873	1	1690	generated	
+612	Const	ProcessActivationContextTrustPolicy	86940	87021	874	1	1691	generated	
+613	Const	ProcessAppMemoryInfo	87022	87087	875	1	1692	generated	
+614	Const	ProcessChildProcessPolicy	87088	87159	876	1	1693	generated	
+615	Const	ProcessControlFlowGuardPolicy	87160	87234	877	1	1694	generated	
+616	Const	ProcessDEPPolicy	87235	87296	878	1	1695	generated	
+617	Const	ProcessDynamicCodePolicy	87297	87366	879	1	1696	generated	
+618	Const	ProcessExtensionPointDisablePolicy	87367	87446	880	1	1697	generated	
+619	Const	ProcessFontDisablePolicy	87447	87516	881	1	1698	generated	
+620	Const	ProcessImageLoadPolicy	87517	87585	882	1	1699	generated	
+621	Const	ProcessInPrivateInfo	87586	87651	883	1	1700	generated	
+622	Const	ProcessInformationClassMax	87652	87724	884	1	1701	generated	
+623	Const	ProcessLeapSecondInfo	87725	87791	885	1	1702	generated	
+624	Const	ProcessMachineTypeInfo	87792	87859	886	1	1703	generated	
+625	Const	ProcessMaxOverridePrefetchParameter	87860	87941	887	1	1704	generated	
+626	Const	ProcessMemoryExhaustionInfo	87942	88014	888	1	1705	generated	
+627	Const	ProcessMemoryPriority	88015	88081	889	1	1706	generated	
+628	Const	ProcessMitigationOptionsMask	88082	88155	890	1	1707	generated	
+629	Const	ProcessOverrideSubsequentPrefetchParameter	88156	88244	891	1	1708	generated	
+630	Const	ProcessPayloadRestrictionPolicy	88245	88322	892	1	1709	generated	
+631	Const	ProcessPowerThrottling	88323	88390	893	1	1710	generated	
+632	Const	ProcessProtectionLevelInfo	88391	88462	894	1	1711	generated	
+633	Const	ProcessRedirectionTrustPolicy	88463	88538	895	1	1712	generated	
+634	Const	ProcessReservedValue1	88539	88605	896	1	1713	generated	
+635	Const	ProcessSEHOPPolicy	88606	88670	897	1	1714	generated	
+636	Const	ProcessSideChannelIsolationPolicy	88671	88750	898	1	1715	generated	
+637	Const	ProcessSignaturePolicy	88751	88818	899	1	1716	generated	
+638	Const	ProcessStrictHandleCheckPolicy	88819	88894	900	1	1717	generated	
+639	Const	ProcessSystemCallDisablePolicy	88895	88970	901	1	1718	generated	
+640	Const	ProcessSystemCallFilterPolicy	88971	89046	902	1	1719	generated	
+641	Const	ProcessTelemetryCoverageInfo	89047	89120	903	1	1720	generated	
+642	Const	ProcessUserPointerAuthPolicy	89121	89195	904	1	1721	generated	
+643	Const	ProcessUserShadowStackPolicy	89196	89270	905	1	1722	generated	
+644	Const	QUEUE_USER_APC_CALLBACK_DATA_CONTEXT	89271	89351	906	1	1723	generated	
+645	ItemType	QUEUE_USER_APC_FLAGS	89352	89388	907	1	1724	generated	
+646	Const	QUEUE_USER_APC_FLAGS_NONE	89389	89454	908	1	1725	generated	
+647	Const	QUEUE_USER_APC_FLAGS_SPECIAL_USER_APC	89455	89532	909	1	1726	generated	
+648	Const	REALTIME_PRIORITY_CLASS	89533	89600	910	1	1727	generated	
+649	Struct	REASON_CONTEXT	89601	89764	911	1	1728	unsupported	declaration Struct has no candidate rule
+650	Impl		89765	89872	918	1	1737	unsupported	declaration Impl has no candidate rule
+651	Union		89873	90029	923	1	1744	unsupported	declaration Union has no candidate rule
+652	Impl		90030	90139	929	1	1752	unsupported	declaration Impl has no candidate rule
+653	Struct	REASON_CONTEXT_0_0	90140	90391	934	1	1759	unsupported	declaration Struct has no candidate rule
+654	Impl		90392	90503	942	1	1769	unsupported	declaration Impl has no candidate rule
+655	Const	RTL_CRITICAL_SECTION_ALL_FLAG_BITS	90504	90570	947	1	1776	generated	
+656	Const	RTL_CRITICAL_SECTION_DEBUG_FLAG_STATIC_INIT	90571	90637	948	1	1777	generated	
+657	Const	RTL_CRITICAL_SECTION_FLAG_DYNAMIC_SPIN	90638	90706	949	1	1778	generated	
+658	Const	RTL_CRITICAL_SECTION_FLAG_FORCE_DEBUG_INFO	90707	90780	950	1	1779	generated	
+659	Const	RTL_CRITICAL_SECTION_FLAG_NO_DEBUG_INFO	90781	90850	951	1	1780	generated	
+660	Const	RTL_CRITICAL_SECTION_FLAG_RESOURCE_TYPE	90851	90921	952	1	1781	generated	
+661	Const	RTL_CRITICAL_SECTION_FLAG_STATIC_INIT	90922	90989	953	1	1782	generated	
+662	Struct	RTL_USER_PROCESS_PARAMETERS	90990	91272	954	1	1783	unsupported	declaration Struct has no candidate rule
+663	Impl		91273	91393	962	1	1793	unsupported	declaration Impl has no candidate rule
+664	ItemType	RTWQPERIODICCALLBACK	91394	91493	967	1	1800	unsupported	generic scalar type unsupported
+665	Const	RTWQ_MULTITHREADED_WORKQUEUE	91494	91561	968	1	1803	generated	
+666	Const	RTWQ_STANDARD_WORKQUEUE	91562	91624	969	1	1804	generated	
+667	Const	RTWQ_WINDOW_WORKQUEUE	91625	91685	970	1	1805	generated	
+668	ItemType	RTWQ_WORKQUEUE_TYPE	91686	91721	971	1	1806	generated	
+669	Const	SEMAPHORE_ALL_ACCESS	91722	91797	972	1	1807	generated	
+670	Const	SEMAPHORE_MODIFY_STATE	91798	91869	973	1	1808	generated	
+671	Struct	SRWLOCK	91870	91963	974	1	1809	unsupported	declaration Struct has no candidate rule
+672	Impl		91964	92064	979	1	1816	unsupported	declaration Impl has no candidate rule
+673	Const	SRWLOCK_INIT	92065	92138	984	1	1823	unsupported	unresolved scalar type SRWLOCK
+674	Const	STACK_SIZE_PARAM_IS_A_RESERVATION	92139	92217	985	1	1826	generated	
+675	Const	STARTF_FORCEOFFFEEDBACK	92218	92281	986	1	1827	generated	
+676	Const	STARTF_FORCEONFEEDBACK	92282	92343	987	1	1828	generated	
+677	Const	STARTF_PREVENTPINNING	92344	92406	988	1	1829	generated	
+678	Const	STARTF_RUNFULLSCREEN	92407	92466	989	1	1830	generated	
+679	Const	STARTF_TITLEISAPPID	92467	92527	990	1	1831	generated	
+680	Const	STARTF_TITLEISLINKNAME	92528	92591	991	1	1832	generated	
+681	Const	STARTF_UNTRUSTEDSOURCE	92592	92656	992	1	1833	generated	
+682	Const	STARTF_USECOUNTCHARS	92657	92715	993	1	1834	generated	
+683	Const	STARTF_USEFILLATTRIBUTE	92716	92778	994	1	1835	generated	
+684	Const	STARTF_USEHOTKEY	92779	92835	995	1	1836	generated	
+685	Const	STARTF_USEPOSITION	92836	92892	996	1	1837	generated	
+686	Const	STARTF_USESHOWWINDOW	92893	92951	997	1	1838	generated	
+687	Const	STARTF_USESIZE	92952	93004	998	1	1839	generated	
+688	Const	STARTF_USESTDHANDLES	93005	93065	999	1	1840	generated	
+689	Struct	STARTUPINFOA	93066	93720	1000	1	1841	unsupported	declaration Struct has no candidate rule
+690	Impl		93721	93826	1022	1	1865	unsupported	declaration Impl has no candidate rule
+691	Struct	STARTUPINFOEXA	93827	93980	1027	1	1872	unsupported	declaration Struct has no candidate rule
+692	Impl		93981	94088	1033	1	1880	unsupported	declaration Impl has no candidate rule
+693	Struct	STARTUPINFOEXW	94089	94242	1038	1	1887	unsupported	declaration Struct has no candidate rule
+694	Impl		94243	94350	1044	1	1895	unsupported	declaration Impl has no candidate rule
+695	Struct	STARTUPINFOW	94351	95008	1049	1	1902	unsupported	declaration Struct has no candidate rule
+696	Impl		95009	95114	1071	1	1926	unsupported	declaration Impl has no candidate rule
+697	ItemType	STARTUPINFOW_FLAGS	95115	95149	1076	1	1933	generated	
+698	ItemType	SYNCHRONIZATION_ACCESS_RIGHTS	95150	95195	1077	1	1934	generated	
+699	Struct	SYNCHRONIZATION_BARRIER	95196	95395	1078	1	1935	unsupported	declaration Struct has no candidate rule
+700	Impl		95396	95512	1087	1	1946	unsupported	declaration Impl has no candidate rule
+701	Const	SYNCHRONIZATION_BARRIER_FLAGS_BLOCK_ONLY	95513	95576	1092	1	1953	generated	
+702	Const	SYNCHRONIZATION_BARRIER_FLAGS_NO_DELETE	95577	95639	1093	1	1954	generated	
+703	Const	SYNCHRONIZATION_BARRIER_FLAGS_SPIN_ONLY	95640	95702	1094	1	1955	generated	
+704	Const	SYNCHRONIZATION_DELETE	95703	95778	1095	1	1956	generated	
+705	Const	SYNCHRONIZATION_READ_CONTROL	95779	95861	1096	1	1957	generated	
+706	Const	SYNCHRONIZATION_SYNCHRONIZE	95862	95944	1097	1	1958	generated	
+707	Const	SYNCHRONIZATION_WRITE_DAC	95945	96024	1098	1	1959	generated	
+708	Const	SYNCHRONIZATION_WRITE_OWNER	96025	96106	1099	1	1960	generated	
+709	Struct	TEB	96107	96644	1100	1	1961	unsupported	declaration Struct has no candidate rule
+710	Impl		96645	96781	1115	1	1978	unsupported	declaration Impl has no candidate rule
+711	ItemType	THREAD_ACCESS_RIGHTS	96782	96818	1121	1	1986	generated	
+712	Const	THREAD_ALL_ACCESS	96819	96882	1122	1	1987	generated	
+713	Const	THREAD_CREATE_RUN_IMMEDIATELY	96883	96953	1123	1	1988	generated	
+714	Const	THREAD_CREATE_SUSPENDED	96954	97018	1124	1	1989	generated	
+715	ItemType	THREAD_CREATION_FLAGS	97019	97056	1125	1	1990	generated	
+716	Const	THREAD_DELETE	97057	97114	1126	1	1991	generated	
+717	Const	THREAD_DIRECT_IMPERSONATION	97115	97184	1127	1	1992	generated	
+718	Const	THREAD_GET_CONTEXT	97185	97243	1128	1	1993	generated	
+719	Const	THREAD_IMPERSONATE	97244	97304	1129	1	1994	generated	
+720	ItemType	THREAD_INFORMATION_CLASS	97305	97345	1130	1	1995	generated	
+721	Const	THREAD_MODE_BACKGROUND_BEGIN	97346	97413	1131	1	1996	generated	
+722	Const	THREAD_MODE_BACKGROUND_END	97414	97480	1132	1	1997	generated	
+723	Const	THREAD_POWER_THROTTLING_CURRENT_VERSION	97481	97543	1133	1	1998	generated	
+724	Const	THREAD_POWER_THROTTLING_EXECUTION_SPEED	97544	97606	1134	1	1999	generated	
+725	Struct	THREAD_POWER_THROTTLING_STATE	97607	97766	1135	1	2000	unsupported	declaration Struct has no candidate rule
+726	Const	THREAD_POWER_THROTTLING_VALID_FLAGS	97767	97825	1142	1	2009	generated	
+727	ItemType	THREAD_PRIORITY	97826	97857	1143	1	2010	generated	
+728	Const	THREAD_PRIORITY_ABOVE_NORMAL	97858	97921	1144	1	2011	generated	
+729	Const	THREAD_PRIORITY_BELOW_NORMAL	97922	97986	1145	1	2012	generated	
+730	Const	THREAD_PRIORITY_HIGHEST	97987	98045	1146	1	2013	generated	
+731	Const	THREAD_PRIORITY_IDLE	98046	98103	1147	1	2014	generated	
+732	Const	THREAD_PRIORITY_LOWEST	98104	98162	1148	1	2015	generated	
+733	Const	THREAD_PRIORITY_MIN	98163	98218	1149	1	2016	generated	
+734	Const	THREAD_PRIORITY_NORMAL	98219	98276	1150	1	2017	generated	
+735	Const	THREAD_PRIORITY_TIME_CRITICAL	98277	98342	1151	1	2018	generated	
+736	Const	THREAD_QUERY_INFORMATION	98343	98408	1152	1	2019	generated	
+737	Const	THREAD_QUERY_LIMITED_INFORMATION	98409	98484	1153	1	2020	generated	
+738	Const	THREAD_READ_CONTROL	98485	98549	1154	1	2021	generated	
+739	Const	THREAD_RESUME	98550	98606	1155	1	2022	generated	
+740	Const	THREAD_SET_CONTEXT	98607	98666	1156	1	2023	generated	
+741	Const	THREAD_SET_INFORMATION	98667	98730	1157	1	2024	generated	
+742	Const	THREAD_SET_LIMITED_INFORMATION	98731	98804	1158	1	2025	generated	
+743	Const	THREAD_SET_THREAD_TOKEN	98805	98870	1159	1	2026	generated	
+744	Const	THREAD_STANDARD_RIGHTS_REQUIRED	98871	98947	1160	1	2027	generated	
+745	Const	THREAD_SUSPEND_RESUME	98948	99009	1161	1	2028	generated	
+746	Const	THREAD_SYNCHRONIZE	99010	99074	1162	1	2029	generated	
+747	Const	THREAD_TERMINATE	99075	99131	1163	1	2030	generated	
+748	Const	THREAD_WRITE_DAC	99132	99193	1164	1	2031	generated	
+749	Const	THREAD_WRITE_OWNER	99194	99257	1165	1	2032	generated	
+750	Const	TIMER_ALL_ACCESS	99258	99329	1166	1	2033	generated	
+751	Const	TIMER_MODIFY_STATE	99330	99397	1167	1	2034	generated	
+752	Const	TIMER_QUERY_STATE	99398	99464	1168	1	2035	generated	
+753	Const	TLS_OUT_OF_INDEXES	99465	99515	1169	1	2036	generated	
+754	Struct	TP_CALLBACK_ENVIRON_V3	99516	99975	1170	1	2037	unsupported	declaration Struct has no candidate rule
+755	Impl		99976	100091	1184	1	2053	unsupported	declaration Impl has no candidate rule
+756	Union		100092	100223	1189	1	2060	unsupported	declaration Union has no candidate rule
+757	Impl		100224	100341	1195	1	2068	unsupported	declaration Impl has no candidate rule
+758	Struct	TP_CALLBACK_ENVIRON_V3_0_0	100342	100450	1200	1	2075	unsupported	declaration Struct has no candidate rule
+759	ItemType	TP_CALLBACK_PRIORITY	100451	100487	1205	1	2082	generated	
+760	Const	TP_CALLBACK_PRIORITY_COUNT	100488	100554	1206	1	2083	generated	
+761	Const	TP_CALLBACK_PRIORITY_HIGH	100555	100620	1207	1	2084	generated	
+762	Const	TP_CALLBACK_PRIORITY_INVALID	100621	100689	1208	1	2085	generated	
+763	Const	TP_CALLBACK_PRIORITY_LOW	100690	100754	1209	1	2086	generated	
+764	Const	TP_CALLBACK_PRIORITY_NORMAL	100755	100822	1210	1	2087	generated	
+765	Struct	TP_POOL_STACK_INFORMATION	100823	100963	1211	1	2088	unsupported	declaration Struct has no candidate rule
+766	Const	ThreadAbsoluteCpuPriority	100964	101033	1217	1	2096	generated	
+767	Const	ThreadDynamicCodePolicy	101034	101101	1218	1	2097	generated	
+768	Const	ThreadInformationClassMax	101102	101171	1219	1	2098	generated	
+769	Const	ThreadMemoryPriority	101172	101236	1220	1	2099	generated	
+770	Const	ThreadPowerThrottling	101237	101302	1221	1	2100	generated	
+771	Struct	UMS_SCHEDULER_STARTUP_INFO	101303	101602	1222	1	2101	unsupported	declaration Struct has no candidate rule
+772	Impl		101603	101770	1231	1	2112	unsupported	declaration Impl has no candidate rule
+773	Struct	UMS_SYSTEM_THREAD_INFORMATION	101771	101926	1237	1	2120	unsupported	declaration Struct has no candidate rule
+774	Impl		101927	102049	1243	1	2128	unsupported	declaration Impl has no candidate rule
+775	Union		102050	102212	1248	1	2135	unsupported	declaration Union has no candidate rule
+776	Impl		102213	102337	1254	1	2143	unsupported	declaration Impl has no candidate rule
+777	Struct	UMS_SYSTEM_THREAD_INFORMATION_0_0	102338	102453	1259	1	2150	unsupported	declaration Struct has no candidate rule
+778	ItemType	UMS_THREAD_INFO_CLASS	102454	102491	1264	1	2157	generated	
+779	Const	UmsThreadAffinity	102492	102550	1265	1	2158	generated	
+780	Const	UmsThreadInvalidInfoClass	102551	102617	1266	1	2159	generated	
+781	Const	UmsThreadIsSuspended	102618	102679	1267	1	2160	generated	
+782	Const	UmsThreadIsTerminated	102680	102742	1268	1	2161	generated	
+783	Const	UmsThreadMaxInfoClass	102743	102805	1269	1	2162	generated	
+784	Const	UmsThreadPriority	102806	102864	1270	1	2163	generated	
+785	Const	UmsThreadTeb	102865	102918	1271	1	2164	generated	
+786	Const	UmsThreadUserContext	102919	102980	1272	1	2165	generated	
+787	Const	UserEnabled	102981	103030	1273	1	2166	generated	
+788	ItemType	WAITORTIMERCALLBACK	103031	103142	1274	1	2167	unsupported	generic scalar type unsupported
+789	ItemType	WORKERCALLBACKFUNC	103143	103239	1275	1	2170	unsupported	generic scalar type unsupported
+790	ItemType	WORKER_THREAD_FLAGS	103240	103275	1276	1	2173	generated	
+791	Const	WT_EXECUTEDEFAULT	103276	103332	1277	1	2174	generated	
+792	Const	WT_EXECUTEINIOTHREAD	103333	103392	1278	1	2175	generated	
+793	Const	WT_EXECUTEINPERSISTENTTHREAD	103393	103462	1279	1	2176	generated	
+794	Const	WT_EXECUTEINTIMERTHREAD	103463	103526	1280	1	2177	generated	
+795	Const	WT_EXECUTEINWAITTHREAD	103527	103588	1281	1	2178	generated	
+796	Const	WT_EXECUTELONGFUNCTION	103589	103651	1282	1	2179	generated	
+797	Const	WT_EXECUTEONLYONCE	103652	103709	1283	1	2180	generated	
+798	Const	WT_TRANSFER_IMPERSONATION	103710	103776	1284	1	2181	generated	
+799	Const	Wow64Container	103777	103829	1285	1	2182	generated	

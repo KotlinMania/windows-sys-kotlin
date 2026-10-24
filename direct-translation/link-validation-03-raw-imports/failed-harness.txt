@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/Volumes/stuff/Projects/kotlinmania/rust-kotlin/tools/check_windows_links.py", line 71, in <module>
+    main()
+  File "/Volumes/stuff/Projects/kotlinmania/rust-kotlin/tools/check_windows_links.py", line 53, in main
+    library = build(out / "ceip", out / "interop-build", args.kotlin_native.resolve(), args.llvm_dlltool.resolve())
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/stuff/Projects/kotlinmania/rust-kotlin/tools/build_candidate_interop.py", line 36, in build
+    run([dlltool, "-m", "i386:x86-64", "-d", candidate / row["definition"], "-l", output / row["archive"]], f"import-{index}")
+  File "/Volumes/stuff/Projects/kotlinmania/rust-kotlin/tools/build_candidate_interop.py", line 30, in run
+    assert result.returncode == 0, (label, result.returncode, result.stderr[-4000:])
+           ^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('import-0', 1, '/opt/homebrew/Cellar/llvm/23.1.2/bin/llvm-ar: error: only one operation may be specified\n')

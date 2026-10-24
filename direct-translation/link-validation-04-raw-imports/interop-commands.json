@@ -1,0 +1,47 @@
+[
+  {
+    "command": [
+      "/opt/homebrew/opt/llvm/bin/llvm-dlltool",
+      "-m",
+      "i386:x86-64",
+      "-d",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-04-raw-imports/ceip/import-0.def",
+      "-l",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-04-raw-imports/interop-build/import-0.a"
+    ],
+    "cwd": "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-04-raw-imports/interop-build",
+    "exit_code": 0,
+    "label": "import-0"
+  },
+  {
+    "command": [
+      "/opt/homebrew/opt/llvm/bin/llvm-dlltool",
+      "-I",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-04-raw-imports/interop-build/import-0.a"
+    ],
+    "cwd": "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-04-raw-imports/interop-build",
+    "exit_code": 0,
+    "label": "identify-0"
+  },
+  {
+    "command": [
+      "/Users/sydney/.konan/kotlin-native-prebuilt-macos-aarch64-2.4.21/bin/cinterop",
+      "-target",
+      "mingw_x64",
+      "-def",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-04-raw-imports/ceip/bindings.def",
+      "-compiler-option",
+      "-I/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-04-raw-imports/ceip",
+      "-Xproject-dir",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-04-raw-imports/interop-build",
+      "-o",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-04-raw-imports/interop-build/bindings",
+      "-Xtemporary-files-dir",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-04-raw-imports/interop-build/cinterop-tmp",
+      "-Xdump-bridges"
+    ],
+    "cwd": "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-04-raw-imports/interop-build",
+    "exit_code": 0,
+    "label": "cinterop"
+  }
+]

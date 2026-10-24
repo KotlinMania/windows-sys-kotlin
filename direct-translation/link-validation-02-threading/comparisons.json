@@ -1,0 +1,62 @@
+[
+  {
+    "port": "../windows-sys-kotlin/src/commonMain/kotlin/io/github/kotlinmania/windowssys/windows/win32/system/threading/ThreadingConstants.kt",
+    "sha256": "e18035b1d2f7539cc513c1d4e6905734f84dff48f2787e975579408a85b81a89",
+    "diff": "port-0.diff"
+  },
+  {
+    "port": "../windows-sys-kotlin/src/commonMain/kotlin/io/github/kotlinmania/windowssys/windows/win32/system/threading/SynchronizationAccessRights.kt",
+    "sha256": "a390f08e61fcfc0b7eded33e309ec3ccf84f6b0d8c0986fd45af05f79ab78581",
+    "diff": "port-1.diff"
+  },
+  {
+    "port": "../windows-sys-kotlin/src/commonMain/kotlin/io/github/kotlinmania/windowssys/windows/win32/system/threading/ProcThreadAttribute.kt",
+    "sha256": "f6becf89e66b7fd257c2291723f54f7fc997b313687fc6fa1bd08fbe00a3bd6a",
+    "diff": "port-2.diff"
+  },
+  {
+    "port": "../windows-sys-kotlin/src/commonMain/kotlin/io/github/kotlinmania/windowssys/windows/win32/system/threading/ThreadingTypes.kt",
+    "sha256": "78d10b411cdcfd4260cd9bf203bd647bbf4d64086cb14ea27a7be45249d3ce90",
+    "diff": "port-3.diff"
+  },
+  {
+    "port": "../windows-sys-kotlin/src/commonMain/kotlin/io/github/kotlinmania/windowssys/windows/win32/system/threading/ProcessCreationFlags.kt",
+    "sha256": "5d4b513133c7f3fa6114984adb41c411011d14b33e6125e990a4223d076259d9",
+    "diff": "port-4.diff"
+  },
+  {
+    "port": "../windows-sys-kotlin/src/commonMain/kotlin/io/github/kotlinmania/windowssys/windows/win32/system/threading/ProcessMitigation.kt",
+    "sha256": "f9574f1170a8f061e02d415e4ed159d40180eaa237d005b1a0d58945243b6933",
+    "diff": "port-5.diff"
+  },
+  {
+    "port": "../windows-sys-kotlin/src/commonMain/kotlin/io/github/kotlinmania/windowssys/windows/win32/system/threading/ThreadAccessRights.kt",
+    "sha256": "f983774427cbc2cc36a88b6b46d53f72d2026f11ef7f140fd10217a416943250",
+    "diff": "port-6.diff"
+  },
+  {
+    "port": "../windows-sys-kotlin/src/commonMain/kotlin/io/github/kotlinmania/windowssys/windows/win32/system/threading/Threading.kt",
+    "sha256": "8e1893a508f1e629330f54f0ee70c07470d18c8a6505bd2450ac9b99c2772e47",
+    "diff": "port-7.diff"
+  },
+  {
+    "port": "../windows-sys-kotlin/src/commonMain/kotlin/io/github/kotlinmania/windowssys/windows/win32/system/threading/ProcessorFeatures.kt",
+    "sha256": "f711888d09b24b841cae95b120e919dbc579f786a161ec7b83931f0fbfd17642",
+    "diff": "port-8.diff"
+  },
+  {
+    "port": "../windows-sys-kotlin/src/commonMain/kotlin/io/github/kotlinmania/windowssys/windows/win32/system/threading/ProcessAccessRights.kt",
+    "sha256": "648982b8d15d3a9a42de3c3fbc6b88eb3d5b320853474bc9a173b3ee49adf772",
+    "diff": "port-9.diff"
+  },
+  {
+    "port": "../windows-sys-kotlin/src/commonMain/kotlin/io/github/kotlinmania/windowssys/windows/win32/system/threading/ProcessInformation.kt",
+    "sha256": "0420895c070ba50a4556e18f800e1e42557a311333068d29036bf09ee8b11059",
+    "diff": "port-10.diff"
+  },
+  {
+    "port": "../windows-sys-kotlin/src/commonMain/kotlin/io/github/kotlinmania/windowssys/windows/win32/system/threading/ThreadingStructs.kt",
+    "sha256": "ed8f3e87576762a8acd92b0031e651c68cfa9b5d0f1223ba6d32e1d447c43438",
+    "diff": "port-11.diff"
+  }
+]
