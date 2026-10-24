@@ -1,0 +1,4 @@
+# Frozen executables and historical first-pass bulk remain local evidence.
+**/*.kexe
+pass-01/files/
+pass-01/*.diff

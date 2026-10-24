@@ -1,0 +1,93 @@
+{
+  "passed": true,
+  "observations": 12,
+  "rust_output": "255|65535|4294967295|18446744073709551615|-128|-32768|-2147483648|-9223372036854775808|0|true|18446744073709551615|255\n",
+  "generator_sha256": "a2b0c97143ea92020bbf37dcddb13c37e98e61be0ff475ca0f21dc5bfdebc753",
+  "raw_output_sha256": "9cc5c8cd7c7281e8ade93b6b3c6c45cd8856f75a836208583263483d7861cfed",
+  "raw_output_compiled_unchanged": true,
+  "deterministic": true,
+  "strict_no_output": true,
+  "overwrite_rejected": true,
+  "commands": [
+    {
+      "command": [
+        "/Volumes/stuff/Projects/kotlinmania/rust-kotlin/build/bin/nativeMacos/releaseExecutable/rust-kotlin.kexe",
+        "candidates",
+        "/Volumes/stuff/Projects/kotlinmania/rust-kotlin/tmp/windows-candidates-01-validation/input.rs",
+        "/Volumes/stuff/Projects/kotlinmania/rust-kotlin/tmp/windows-candidates-01-validation/generated",
+        "--pointer-width=64"
+      ],
+      "exit_code": 0,
+      "label": "generate"
+    },
+    {
+      "command": [
+        "/Volumes/stuff/Projects/kotlinmania/rust-kotlin/build/bin/nativeMacos/releaseExecutable/rust-kotlin.kexe",
+        "candidates",
+        "/Volumes/stuff/Projects/kotlinmania/rust-kotlin/tmp/windows-candidates-01-validation/input.rs",
+        "/Volumes/stuff/Projects/kotlinmania/rust-kotlin/tmp/windows-candidates-01-validation/repeat",
+        "--pointer-width=64"
+      ],
+      "exit_code": 0,
+      "label": "repeat"
+    },
+    {
+      "command": [
+        "/Volumes/stuff/Projects/kotlinmania/rust-kotlin/build/bin/nativeMacos/releaseExecutable/rust-kotlin.kexe",
+        "candidates",
+        "/Volumes/stuff/Projects/kotlinmania/rust-kotlin/tmp/windows-candidates-01-validation/input.rs",
+        "/Volumes/stuff/Projects/kotlinmania/rust-kotlin/tmp/windows-candidates-01-validation/generated",
+        "--pointer-width=64"
+      ],
+      "exit_code": 2,
+      "label": "refuse-overwrite"
+    },
+    {
+      "command": [
+        "/Volumes/stuff/Projects/kotlinmania/rust-kotlin/build/bin/nativeMacos/releaseExecutable/rust-kotlin.kexe",
+        "translate",
+        "/Volumes/stuff/Projects/kotlinmania/rust-kotlin/tmp/windows-candidates-01-validation/input.rs",
+        "/Volumes/stuff/Projects/kotlinmania/rust-kotlin/tmp/windows-candidates-01-validation/strict",
+        "--pointer-width=64"
+      ],
+      "exit_code": 2,
+      "label": "strict-reject"
+    },
+    {
+      "command": [
+        "/opt/homebrew/bin/rustc",
+        "--edition=2021",
+        "/Volumes/stuff/Projects/kotlinmania/rust-kotlin/tmp/windows-candidates-01-validation/oracle.rs",
+        "-o",
+        "/Volumes/stuff/Projects/kotlinmania/rust-kotlin/tmp/windows-candidates-01-validation/oracle"
+      ],
+      "exit_code": 0,
+      "label": "rust-compile"
+    },
+    {
+      "command": [
+        "/Users/sydney/.konan/kotlin-native-prebuilt-macos-aarch64-2.4.21/bin/konanc",
+        "/Volumes/stuff/Projects/kotlinmania/rust-kotlin/tmp/windows-candidates-01-validation/generated/candidate.kt",
+        "/Volumes/stuff/Projects/kotlinmania/rust-kotlin/tmp/windows-candidates-01-validation/Runner.kt",
+        "-o",
+        "/Volumes/stuff/Projects/kotlinmania/rust-kotlin/tmp/windows-candidates-01-validation/kotlin"
+      ],
+      "exit_code": 0,
+      "label": "kotlin-compile"
+    },
+    {
+      "command": [
+        "/Volumes/stuff/Projects/kotlinmania/rust-kotlin/tmp/windows-candidates-01-validation/oracle"
+      ],
+      "exit_code": 0,
+      "label": "rust-run"
+    },
+    {
+      "command": [
+        "/Volumes/stuff/Projects/kotlinmania/rust-kotlin/tmp/windows-candidates-01-validation/kotlin.kexe"
+      ],
+      "exit_code": 0,
+      "label": "kotlin-run"
+    }
+  ]
+}

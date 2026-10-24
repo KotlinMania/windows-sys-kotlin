@@ -1,0 +1,10 @@
+{
+  "exit_code": 0,
+  "unchanged_outputs": [
+    "../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/Storage/StructuredStorage/mod/candidate.kt",
+    "../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/Graphics/Hlsl/mod/candidate.kt",
+    "../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/System/Search/Common/mod/candidate.kt",
+    "../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/System/Diagnostics/TraceLogging/mod/candidate.kt",
+    "../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/Storage/FileHistory/mod/candidate.kt"
+  ]
+}

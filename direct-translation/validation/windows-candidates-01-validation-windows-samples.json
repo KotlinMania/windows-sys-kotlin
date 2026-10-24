@@ -1,0 +1,10 @@
+{
+  "unchanged_candidates_compiled": {
+    "../windows-sys-kotlin/direct-translation/pass-01/files/Windows/Win32/Devices/Beep/mod/candidate.kt": "22e079412e69dcb75e9354a7b8b8a4a54b8092e265eafe660e18bc675c088894",
+    "../windows-sys-kotlin/direct-translation/pass-01/files/Windows/Win32/Graphics/Hlsl/mod/candidate.kt": "6097abb44e68ed16fe01e8afa2df828792d7bb62cb67ebafec5d35bdd8b9a5e7",
+    "../windows-sys-kotlin/direct-translation/pass-01/files/Windows/Win32/System/Console/mod/candidate.kt": "47bac7c77ec76b54e304b7389a744d58f48cf87fc091a64f568c450580d492ef"
+  },
+  "hlsl_complete_rust_matches": true,
+  "hlsl_output": "49152|1\n",
+  "scope": "scalar declaration validation, not FFI/ABI, adoption, or full Beep/Console translation"
+}

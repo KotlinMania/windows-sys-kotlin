@@ -1,0 +1,37 @@
+--- ../windows-sys-kotlin/src/commonMain/kotlin/io/github/kotlinmania/windowssys/windows/win32/devices/beep/Beep.kt	2026-09-01 04:28:14
++++ ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/Devices/Beep/mod/candidate.kt	2026-10-24 13:17:47
+@@ -1,19 +1,18 @@
+-// port-lint: source Windows/Win32/Devices/Beep/mod.rs
+-package io.github.kotlinmania.windowssys.windows.win32.devices.beep
++// DIRECT DECLARATION CANDIDATE: unsupported Rust remains below; not adopted or ABI-validated.
++public const val `BEEP_FREQUENCY_MAXIMUM`: UInt = 32767u;
++public const val `BEEP_FREQUENCY_MINIMUM`: UInt = 37u;
++// UNSUPPORTED Rust 3:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy, Default)]
++// pub struct BEEP_SET_PARAMETERS {
++//     pub Frequency: u32,
++//     pub Duration: u32,
++// }
+ 
+-import io.github.kotlinmania.windowssys.core.PCSTR
+-import io.github.kotlinmania.windowssys.core.PCWSTR
+-import io.github.kotlinmania.windowssys.core.s
+-import io.github.kotlinmania.windowssys.core.w
++// UNSUPPORTED Rust 9:1: non-scalar type Ptr unsupported
++// pub const DD_BEEP_DEVICE_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("\\Device\\Beep");
+ 
+-public const val BEEP_FREQUENCY_MAXIMUM: UInt = 32767u
+-public const val BEEP_FREQUENCY_MINIMUM: UInt = 37u
++// UNSUPPORTED Rust 10:1: non-scalar type Ptr unsupported
++// pub const DD_BEEP_DEVICE_NAME_U: windows_sys::core::PCWSTR = windows_sys::core::w!("\\Device\\Beep");
+ 
+-public data class BEEP_SET_PARAMETERS(
+-    public var Frequency: UInt = 0u,
+-    public var Duration: UInt = 0u,
+-)
+-
+-public val DD_BEEP_DEVICE_NAME: PCSTR = s("\\Device\\Beep")
+-public val DD_BEEP_DEVICE_NAME_U: PCWSTR = w("\\Device\\Beep")
+-public const val IOCTL_BEEP_SET: UInt = 65536u
++public const val `IOCTL_BEEP_SET`: UInt = 65536u;

@@ -1,0 +1,427 @@
+{
+  "head": "12671834874ad458293f21c6e2cf04cbbf09e3e1",
+  "dirty": {
+    ".editorconfig": {
+      "status": " M",
+      "sha256": "8edc62e24492a498859b1155570cee92a0454158a50c3a71b591d07744bb6733"
+    },
+    ".github/workflows/ci.yml": {
+      "status": " M",
+      "sha256": "9b80d51f8047fa0bf36ed2e4c3873ef7d6845b94e07c7e630b539c21d50b50e3"
+    },
+    ".github/workflows/js.yml": {
+      "status": " M",
+      "sha256": "2cc54292d159c80db631895c4c2b9bd4b4620c417d4e925a11a27a99421de239"
+    },
+    ".github/workflows/jvm.yml": {
+      "status": " M",
+      "sha256": "5513a207774373d7b048a45c60ca2496053010279c808332e9937839acfa909b"
+    },
+    ".github/workflows/publish.yml": {
+      "status": " M",
+      "sha256": "24f2761449e3cd7673de8d6217b76171ee189362607c03d952e5977f37338719"
+    },
+    ".github/workflows/wasm.yml": {
+      "status": " M",
+      "sha256": "29263ecb1c28356446d0c15b4c99b5d0e86e3456c96b0a2b4d765a455072db23"
+    },
+    ".github/workflows/windows.yml": {
+      "status": " M",
+      "sha256": "2ac383a5ffe35a3588b1c73cf1cf0e2bc6bb5c012bda06830953b92b825b48f3"
+    },
+    ".gitignore": {
+      "status": " M",
+      "sha256": "5efe54255caccc722d38cdc9c8c4f2c83051d857ad6cc075a78224cddf4ac48d"
+    },
+    "AGENTS.md": {
+      "status": " M",
+      "sha256": "4f3ed2053ae27c36f8442879fc323dab559fc63ded5b6f399aeec3b166f49898"
+    },
+    "ANDROID.md": {
+      "status": " M",
+      "sha256": "a6a5929e04f440e6028fda893c8d212a77f373f9d6ae328d6027974129666d22"
+    },
+    "NEXT_ACTIONS.md": {
+      "status": " M",
+      "sha256": "2eba53e463418fbc998838f22473641f2937840112601070623efe32cf2b8681"
+    },
+    "SWIFT.md": {
+      "status": " M",
+      "sha256": "10b2c22c711b08bfcd06a95c130c417ae9988a85c7a13024b0a770a7f74dbcdb"
+    },
+    "build.gradle.kts": {
+      "status": " M",
+      "sha256": "8bf167969596ca58b8f8830df89189c41787284e2c72026cd249abcd16b73312"
+    },
+    "detekt.yml": {
+      "status": " M",
+      "sha256": "26457c8444f208a2384bf046293dc8e614e673364ab2b5cea2d6d8e0b8fe4b2b"
+    },
+    "gradle.properties": {
+      "status": " M",
+      "sha256": "04428c84d94981ddbab5eb526a2fdc9b1742278b5f254fdcc6e0cce1c2e6d2f2"
+    },
+    "gradle/libs.versions.toml": {
+      "status": " M",
+      "sha256": "9ed1b7b6e40c650d88174e959c8bf46c5a5f5f2fc63c8be6352370d9deb2cd16"
+    },
+    "gradle/npm/karma-webpack/lib/karma-webpack/controller.js": {
+      "status": " M",
+      "sha256": "348e70ef04fc24a4f4bff63c6e7491f6bbd46917eb63f134edfa2a69ad154651"
+    },
+    "gradle/npm/karma-webpack/package.json": {
+      "status": " M",
+      "sha256": "bd24cae7ecf917359b0a20819bf7f865d9e72ee51dc06b3703ee6dcb64fd6c3a"
+    },
+    "gradle/wrapper/gradle-wrapper.jar": {
+      "status": " M",
+      "sha256": "3b8a25775a69158b5ad2b1d17a80a88dc7b40a352a73eb27d06c612a7ce68e98"
+    },
+    "gradle/wrapper/gradle-wrapper.properties": {
+      "status": " M",
+      "sha256": "62779c1edca4389b50577428c5cab724a2ddd3ea4cac0685ce48bab709cce6c6"
+    },
+    "gradlew": {
+      "status": " M",
+      "sha256": "a5a5c199ba02189ae8c46a334223371a20599d9c298ef65e7540ede4a3f72d59"
+    },
+    "kotlin-js-store/package.json": {
+      "status": " M",
+      "sha256": "0b69f739ad89e63fa49a0ee3a20363bf7b69c9ef46f909dbb570fe23285b214d"
+    },
+    "kotlin-js-store/wasm/package.json": {
+      "status": " M",
+      "sha256": "a38b3260d6cc3a859da42a2face15038d87801adc961da04563314413a0b788d"
+    },
+    "kotlin-js-store/wasm/yarn.lock": {
+      "status": " M",
+      "sha256": "dc8a154ad08613048cd8750253147e13347a4634b82fb418ebbea7802fe030f4"
+    },
+    "kotlin-js-store/yarn.lock": {
+      "status": " M",
+      "sha256": "1f3784b20b272ef135724897cd48ffcf0d0ab9d50a353e68877581987c812d09"
+    },
+    "port_lint_proposed_changes.md": {
+      "status": " M",
+      "sha256": "4d9a88721cfc4bed8bae64237192b868863e295a258381a1df3861cfb0e7bc1b"
+    },
+    "settings.gradle.kts": {
+      "status": " M",
+      "sha256": "c7742da0ddd3cb81ecd3a6fadca5853ce8030be2e74235816b601f88af4c22fb"
+    },
+    "src/commonMain/kotlin/io/github/kotlinmania/windowssys/Lib.kt": {
+      "status": "D ",
+      "sha256": null
+    },
+    ".github/workflows/android-native.yml": {
+      "status": "??",
+      "sha256": "b3caf1315c99f30d908fbb7a147e3873edb1c92261b0d6110f9a5e013a1baf41"
+    },
+    ".github/workflows/android.yml": {
+      "status": "??",
+      "sha256": "b00d46279c324a828d106c0efaefd25c8aa4e4b4b69c6c758b44e8754055c0c8"
+    },
+    ".github/workflows/ios.yml": {
+      "status": "??",
+      "sha256": "a881ff57d61fe187688fd04e6ffa025833e8cb11c10166494cbf93d6d10188c0"
+    },
+    ".github/workflows/linux.yml": {
+      "status": "??",
+      "sha256": "21a9386d7baa8c1df7897457576401b78bc1f55dfacba2dcc8eea1706883a2b4"
+    },
+    ".github/workflows/macos.yml": {
+      "status": "??",
+      "sha256": "58c0979338470f0484ed21c6cdf32321bb01e95567d7d3799cc7e4f09a434743"
+    },
+    ".github/workflows/swift.yml": {
+      "status": "??",
+      "sha256": "87dea58aa331bc5f7baecf68360b7425970051161d024c4b4c2115134b2c0e9f"
+    },
+    ".github/workflows/tvos.yml": {
+      "status": "??",
+      "sha256": "31fd913651ab5910f79ce320c3b33cbab43d4374f017f6877ea06d4ba4dbc571"
+    },
+    ".github/workflows/watchos.yml": {
+      "status": "??",
+      "sha256": "381e45693c22cccdcce919a11c22059007dc3e72d4c7b0eb022d750b15312ff8"
+    },
+    "V2_SWIFT.md": {
+      "status": "??",
+      "sha256": "50ccd71fa109f845be7bd9bb85b90973171e284839a0fc0c2641c5f61ff9e31e"
+    },
+    "deep_symbol_inventory.txt": {
+      "status": "??",
+      "sha256": "1ba629d1fc3b43e2479565934bb6b699b99f4016dc18e398ced48bfcf5e23af3"
+    },
+    "karma.config.d/mocha-timeout.js": {
+      "status": "??",
+      "sha256": "f1af6bc25caa5e4eb561bce728262e1fe3848282cb88399114788188dab4f6c7"
+    },
+    "native/node-ffi/README.md": {
+      "status": "??",
+      "sha256": "b38a92e88c91ac88a6c4e13d57a63531fc53261eea5542d05cb68ab18cf56ba4"
+    },
+    "native/node-ffi/binding.gyp": {
+      "status": "??",
+      "sha256": "90b884d763e54efc0fda439de99d436f2df7e1f4f310b5a4974582d3a4ef49e0"
+    },
+    "native/node-ffi/index.js": {
+      "status": "??",
+      "sha256": "b1c87c3f44c25e6f38a2ff63b5bda44a0272084fbf4dbaa060ca1f794bcc64e2"
+    },
+    "native/node-ffi/package-lock.json": {
+      "status": "??",
+      "sha256": "6261ffa963bde053f0039c9ec76459e5dbceedbb39e0feea2130d1eb59a213b7"
+    },
+    "native/node-ffi/package.json": {
+      "status": "??",
+      "sha256": "c31ddcbebc17715df86433aaf09fadf2ff7c59bc05b1dfbc69627d308c251b12"
+    },
+    "native/node-ffi/src/ffi_bindings.cpp": {
+      "status": "??",
+      "sha256": "49749fbf8bcd7d335c8151cee91c5ff2178bd89c011a9bcbb9df5a5ca7b95e8f"
+    },
+    "src/androidDeviceTest/kotlin/io/github/kotlinmania/.gitkeep": {
+      "status": "??",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/androidHostTest/kotlin/io/github/kotlinmania/.gitkeep": {
+      "status": "??",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/androidMain/kotlin/io/github/kotlinmania/.gitkeep": {
+      "status": "??",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/androidNativeMain/kotlin/io/github/kotlinmania/.gitkeep": {
+      "status": "??",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/androidNativeTest/kotlin/io/github/kotlinmania/.gitkeep": {
+      "status": "??",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/appleMain/kotlin/io/github/kotlinmania/.gitkeep": {
+      "status": "??",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/appleTest/kotlin/io/github/kotlinmania/.gitkeep": {
+      "status": "??",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/iosMain/kotlin/io/github/kotlinmania/.gitkeep": {
+      "status": "??",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/iosTest/kotlin/io/github/kotlinmania/.gitkeep": {
+      "status": "??",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/jvmMain/c/README.md": {
+      "status": "??",
+      "sha256": "8fb54942bccc7fbd26374f776acf62e0d858a8d5e11434fdb1d4f9d5fd9a0d5c"
+    },
+    "src/jvmMain/c/ffi_jni.c": {
+      "status": "??",
+      "sha256": "9da7ea4a9b74ead999e57c58f36107c2edc8619b4e3718c45611e7ca7463116d"
+    },
+    "src/linuxMain/kotlin/io/github/kotlinmania/.gitkeep": {
+      "status": "??",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/linuxTest/kotlin/io/github/kotlinmania/.gitkeep": {
+      "status": "??",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/macosMain/kotlin/io/github/kotlinmania/.gitkeep": {
+      "status": "??",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/macosTest/kotlin/io/github/kotlinmania/.gitkeep": {
+      "status": "??",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/nativeInterop/cinterop/Ffi.def": {
+      "status": "??",
+      "sha256": "dce98df917b85821c18efe143ec69c52acbd03ef2b126828d704350e058d2266"
+    },
+    "src/nativeInterop/cinterop/README.md": {
+      "status": "??",
+      "sha256": "4d5e84fc485c79a7c1ad20ab069e76f3867a0aafb258002c71744e7538add067"
+    },
+    "src/nativeInterop/cinterop/ffi_wrapper.c": {
+      "status": "??",
+      "sha256": "174aa5b8605e9f02e1478c868d2be2a35c15a7e8bb4b0651ec79cfc1edfee118"
+    },
+    "src/nativeInterop/cinterop/ffi_wrapper.h": {
+      "status": "??",
+      "sha256": "397719a0bedb9dcca367b7c3b0c8c6d17ef3a4960d766b06ddaae734b1700d9c"
+    },
+    "src/tvosMain/kotlin/io/github/kotlinmania/.gitkeep": {
+      "status": "??",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/tvosTest/kotlin/io/github/kotlinmania/.gitkeep": {
+      "status": "??",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/watchosMain/kotlin/io/github/kotlinmania/.gitkeep": {
+      "status": "??",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/watchosTest/kotlin/io/github/kotlinmania/.gitkeep": {
+      "status": "??",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "swift-test-harness/.gitignore": {
+      "status": "??",
+      "sha256": "99921edb369e12a35a87d768ae481f8c944573626abd4b8f3a1fe78846f30ba7"
+    },
+    "swift-test-harness/Package.swift": {
+      "status": "??",
+      "sha256": "da9d301bf2d64e8cb5fde10492bdbe5d52b418f43a79c7050326cb5c2f918f67"
+    },
+    "swift-test-harness/Tests/SwiftTestHarnessTests/ExampleTests.swift": {
+      "status": "??",
+      "sha256": "1f8ed810d951eefac44bfc3b1b16665ab74d74c9c06aeb722896f15dd2de0a4a"
+    },
+    "verification/ALL_TARGET_VALIDATION.md": {
+      "status": "??",
+      "sha256": "ee177f997a3c93ce6509530aa5f9b09c31e8d0a78df565bca4dabbc8b67c596f"
+    },
+    "verification/DEPENDENCY_VISIBILITY.md": {
+      "status": "??",
+      "sha256": "8fc98317a54b167e7d62e085a84ef1f1c44a7bafa79a3105aa7d18ef331d8c00"
+    },
+    "verification/README.md": {
+      "status": "??",
+      "sha256": "1e05c828ecd524fe232ac9526f7ecd484ddd3808a2bab39a4329460bec4b3868"
+    },
+    "verification/SERIALIZATION.md": {
+      "status": "??",
+      "sha256": "92808278b4559f98886cdad59be1959d31a5e374574152a0c699682679bd1db6"
+    },
+    "verification/android-consumer/build.gradle.kts": {
+      "status": "??",
+      "sha256": "4b2fdd109e4add1597b959abb00b29c115ba30a02970f54fc2effb45d8bce419"
+    },
+    "verification/android-consumer/settings.gradle.kts": {
+      "status": "??",
+      "sha256": "615e39fec82f6404d7704cfa94dadfe9d69c60dc6961391aa593afa9e79ca126"
+    },
+    "verification/android-consumer/src/commonMain/kotlin/consumer/PublishedApi.kt": {
+      "status": "??",
+      "sha256": "f44f9491b553d479d250ad47815bd7199cf6103982bab9bf584b0c3f6ad5e188"
+    },
+    "verification/android-consumer/src/commonTest/kotlin/consumer/PublicationConsumerTest.kt": {
+      "status": "??",
+      "sha256": "09d0ef7538f96ff477172b14d840df9a4f757ddab998d27b10950d55b470920b"
+    },
+    "verification/android-publication.gradle.kts.fragment": {
+      "status": "??",
+      "sha256": "07308baf02dd3f57bc524614ec86d3a77aecf14f4d634a35ad1fac08aa89530b"
+    },
+    "verification/check_android_classpath.py": {
+      "status": "??",
+      "sha256": "22298e73f421a386099080c764932ea3bd6c1669f4bfb8b4f8fbfdca9a903481"
+    },
+    "verification/dependency-visibility.init.gradle": {
+      "status": "??",
+      "sha256": "41610c54fd18f5df55fa6649201f25700fdcb2800ec3e933ffbae3e4e802280a"
+    },
+    "verification/enforce_swift5.py": {
+      "status": "??",
+      "sha256": "efc6b1c2f0b43f701722ba18597b3f0bc43d8d2c274bd02a4a0513f1711d7897"
+    },
+    "verification/legacy-sync-pin-safety.patch": {
+      "status": "??",
+      "sha256": "e08f82ae6edc6a676d0cdc9c50a62e1481592dc88a4914b8534d062dbf687a9c"
+    },
+    "verification/scan_rust_parity.py": {
+      "status": "??",
+      "sha256": "4e18d9dc2c72e3bb45514e707f23973c7ae3b5b01575c1bdc48f0123ee04fe8c"
+    },
+    "verification/scan_swift.py": {
+      "status": "??",
+      "sha256": "643a2c2c580dec8df6d0ce34732b681d08be1cee07556ccc006c63d512fc1919"
+    },
+    "verification/strict-swift.xcconfig": {
+      "status": "??",
+      "sha256": "7e407f8f8464a6ecc1619366ad8c7e3a1800c8de26c025e97ac03a953ae5ac52"
+    },
+    "verification/swift-known-problems.json": {
+      "status": "??",
+      "sha256": "478362d1cd85c616ddebf213b0bc19cc6286d10e1f38c7013039236d8e7460ca"
+    },
+    "verification/sync_android_publication.py": {
+      "status": "??",
+      "sha256": "b758012af6759bdb060c6ff24bce8688479b4450dc35a046f6bd983abcf5c7ab"
+    },
+    "verification/test_android_host_route.py": {
+      "status": "??",
+      "sha256": "a328ea007e5d2a829ef5ed48a3fa099416b9c151fb649e2466f3f65666b741b5"
+    },
+    "verification/test_android_publication.py": {
+      "status": "??",
+      "sha256": "3e5a6dede6151af0da05e003d91880f513c215049749309c1a0b09f2090dcd94"
+    },
+    "verification/test_legacy_sync_pins.py": {
+      "status": "??",
+      "sha256": "a24306ec466e4d37b043c3617f1db24a5747b05f10fbf827a0051d6de5ecb57a"
+    },
+    "verification/test_linux_wrapper_target.py": {
+      "status": "??",
+      "sha256": "942985c78e770a9a9f25ce5c4aa222a60a0063c8012e94227b877a4fbf5c2c96"
+    },
+    "verification/test_native_dependency_cache.py": {
+      "status": "??",
+      "sha256": "bcbaa488f168681a213cb74a96984dedc09be7005cef6a6a48c48586416efb10"
+    },
+    "verification/test_publication_pins.py": {
+      "status": "??",
+      "sha256": "34ef997a9f4e500be31a74e2c6e894f10525834c9a4d3f6a1d028053a993b3e9"
+    },
+    "verification/test_scan_rust_parity.py": {
+      "status": "??",
+      "sha256": "1c5868d5295aa9706017d8d84bdac75fae88165cc31dac834be83e9684f8976c"
+    },
+    "verification/test_scan_swift.py": {
+      "status": "??",
+      "sha256": "b209f818c2cf86146d13dd151a020a88b9a7ae8f34239642596d1124c646ffee"
+    },
+    "verification/test_serialization_defaults.py": {
+      "status": "??",
+      "sha256": "f0be91772697bd67f8b07920072858d3dd19c5cf13547620aaed7c7f889b6645"
+    },
+    "verification/test_strict_swift.py": {
+      "status": "??",
+      "sha256": "b4a432bf6e5c91ca836f8503cf934c98d09c3016e76aee6c68e1a85524c4f80b"
+    },
+    "verification/test_sync_android_publication.py": {
+      "status": "??",
+      "sha256": "bed0cd7702a5c68980cd0ff36853d1a1508571306484d9c8cbf188e349e68a69"
+    },
+    "verification/test_verify_native_archive.py": {
+      "status": "??",
+      "sha256": "a0ec0a460af1f552d4254fc9e8462116641284945a6f68b2fed6eb087722a63f"
+    },
+    "verification/verify_android_publication.py": {
+      "status": "??",
+      "sha256": "41ab38396db57abf4f5d56eef151f4711f958839a64e9facba2f10366738f14e"
+    },
+    "verification/verify_native_archive.py": {
+      "status": "??",
+      "sha256": "25e07fa1cf064f6d2247c7fc6ccf43483855eb474ceae977987c5687910e8dea"
+    },
+    "verification/verify_publication_pins.py": {
+      "status": "??",
+      "sha256": "c1f48b3a942f1397f477453104b329a03f2675db578db580c593cca700fca11c"
+    },
+    "verification/workspace-sync-template.sh": {
+      "status": "??",
+      "sha256": "2c009e9be8ef4c38a332575154a16354fd5c351aa8ab8f9895b5238884d6e19c"
+    }
+  },
+  "staged_diff_sha256": "a147d957750f49da9a4006483935f9f247e156bd7c5f5a514114daa70eef9082",
+  "ownership": "New direct-translation directory only; no existing source/config/index changes. App inventory showed no active task with this checkout as cwd; restoration edits preserved."
+}

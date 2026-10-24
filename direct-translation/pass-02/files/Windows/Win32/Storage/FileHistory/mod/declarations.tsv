@@ -1,0 +1,98 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	130	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		131	259	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		260	441	3	1	8	unsupported	declaration Macro has no candidate rule
+3	Macro		442	580	4	1	11	unsupported	declaration Macro has no candidate rule
+4	Macro		581	752	5	1	14	unsupported	declaration Macro has no candidate rule
+5	Macro		753	922	6	1	17	unsupported	declaration Macro has no candidate rule
+6	Macro		923	1055	7	1	20	unsupported	declaration Macro has no candidate rule
+7	Const	BackupCancelled	1056	1109	8	1	23	generated	
+8	Const	BackupInvalidStopReason	1110	1171	9	1	24	generated	
+9	Const	BackupLimitUserBusyMachineOnAC	1172	1240	10	1	25	generated	
+10	Const	BackupLimitUserBusyMachineOnDC	1241	1309	11	1	26	generated	
+11	Const	BackupLimitUserIdleMachineOnDC	1310	1378	12	1	27	generated	
+12	Const	FHCFG_E_CONFIGURATION_PREVIOUSLY_LOADED	1379	1479	13	1	28	generated	
+13	Const	FHCFG_E_CONFIG_ALREADY_EXISTS	1480	1570	14	1	29	generated	
+14	Const	FHCFG_E_CONFIG_FILE_NOT_FOUND	1571	1661	15	1	30	generated	
+15	Const	FHCFG_E_CORRUPT_CONFIG_FILE	1662	1750	16	1	31	generated	
+16	Const	FHCFG_E_INVALID_REHYDRATION_STATE	1751	1845	17	1	32	generated	
+17	Const	FHCFG_E_LEGACY_BACKUP_NOT_FOUND	1846	1938	18	1	33	generated	
+18	Const	FHCFG_E_LEGACY_BACKUP_USER_EXCLUDED	1939	2035	19	1	34	generated	
+19	Const	FHCFG_E_LEGACY_TARGET_UNSUPPORTED	2036	2130	20	1	35	generated	
+20	Const	FHCFG_E_LEGACY_TARGET_VALIDATION_UNSUPPORTED	2131	2236	21	1	36	generated	
+21	Const	FHCFG_E_NO_VALID_CONFIGURATION_LOADED	2237	2335	22	1	37	generated	
+22	Const	FHCFG_E_RECOMMENDATION_CHANGE_NOT_ALLOWED	2336	2438	23	1	38	generated	
+23	Const	FHCFG_E_TARGET_CANNOT_BE_USED	2439	2529	24	1	39	generated	
+24	Const	FHCFG_E_TARGET_NOT_CONFIGURED	2530	2620	25	1	40	generated	
+25	Const	FHCFG_E_TARGET_NOT_CONNECTED	2621	2710	26	1	41	generated	
+26	Const	FHCFG_E_TARGET_NOT_ENOUGH_FREE_SPACE	2711	2808	27	1	42	generated	
+27	Const	FHCFG_E_TARGET_REHYDRATED_ELSEWHERE	2809	2905	28	1	43	generated	
+28	Const	FHCFG_E_TARGET_VERIFICATION_FAILED	2906	3001	29	1	44	generated	
+29	Const	FHSVC_E_BACKUP_BLOCKED	3002	3085	30	1	45	generated	
+30	Const	FHSVC_E_CONFIG_DISABLED	3086	3170	31	1	46	generated	
+31	Const	FHSVC_E_CONFIG_DISABLED_GP	3171	3258	32	1	47	generated	
+32	Const	FHSVC_E_CONFIG_REHYDRATING	3259	3346	33	1	48	generated	
+33	Const	FHSVC_E_FATAL_CONFIG_ERROR	3347	3434	34	1	49	generated	
+34	Const	FHSVC_E_NOT_CONFIGURED	3435	3518	35	1	50	generated	
+35	Const	FH_ACCESS_DENIED	3519	3582	36	1	51	generated	
+36	ItemType	FH_BACKUP_STATUS	3583	3615	37	1	52	generated	
+37	Const	FH_CURRENT_DEFAULT	3616	3681	38	1	53	generated	
+38	ItemType	FH_DEVICE_VALIDATION_RESULT	3682	3725	39	1	54	generated	
+39	Const	FH_DRIVE_FIXED	3726	3781	40	1	55	generated	
+40	Const	FH_DRIVE_REMOTE	3782	3838	41	1	56	generated	
+41	Const	FH_DRIVE_REMOVABLE	3839	3898	42	1	57	generated	
+42	Const	FH_DRIVE_UNKNOWN	3899	3956	43	1	58	generated	
+43	Const	FH_FOLDER	3957	4012	44	1	59	generated	
+44	Const	FH_FREQUENCY	4013	4065	45	1	60	generated	
+45	Const	FH_INVALID_DRIVE_TYPE	4066	4134	46	1	61	generated	
+46	Const	FH_LIBRARY	4135	4191	47	1	62	generated	
+47	ItemType	FH_LOCAL_POLICY_TYPE	4192	4228	48	1	63	generated	
+48	Const	FH_NAMESPACE_EXISTS	4229	4295	49	1	64	generated	
+49	ItemType	FH_PROTECTED_ITEM_CATEGORY	4296	4338	50	1	65	generated	
+50	Const	FH_READ_ONLY_PERMISSION	4339	4409	51	1	66	generated	
+51	Const	FH_RETENTION_AGE	4410	4466	52	1	67	generated	
+52	Const	FH_RETENTION_AGE_BASED	4467	4527	53	1	68	generated	
+53	Const	FH_RETENTION_DISABLED	4528	4587	54	1	69	generated	
+54	Const	FH_RETENTION_TYPE	4588	4645	55	1	70	generated	
+55	ItemType	FH_RETENTION_TYPES	4646	4680	56	1	71	generated	
+56	Const	FH_RETENTION_UNLIMITED	4681	4741	57	1	72	generated	
+57	ItemType	FH_SERVICE_PIPE_HANDLE	4742	4799	58	1	73	unsupported	non-scalar type Ptr unsupported
+58	Const	FH_STATE_BACKUP_NOT_SUPPORTED	4800	4855	59	1	76	generated	
+59	Const	FH_STATE_DISABLED_BY_GP	4856	4902	60	1	77	generated	
+60	Const	FH_STATE_FATAL_CONFIG_ERROR	4903	4953	61	1	78	generated	
+61	Const	FH_STATE_MIGRATING	4954	4995	62	1	79	generated	
+62	Const	FH_STATE_NOT_TRACKED	4996	5039	63	1	80	generated	
+63	Const	FH_STATE_NO_ERROR	5040	5082	64	1	81	generated	
+64	Const	FH_STATE_OFF	5083	5118	65	1	82	generated	
+65	Const	FH_STATE_REHYDRATING	5119	5162	66	1	83	generated	
+66	Const	FH_STATE_RUNNING	5163	5204	67	1	84	generated	
+67	Const	FH_STATE_STAGING_FULL	5205	5250	68	1	85	generated	
+68	Const	FH_STATE_TARGET_ABSENT	5251	5297	69	1	86	generated	
+69	Const	FH_STATE_TARGET_ACCESS_DENIED	5298	5351	70	1	87	generated	
+70	Const	FH_STATE_TARGET_FS_LIMITATION	5352	5405	71	1	88	generated	
+71	Const	FH_STATE_TARGET_FULL	5406	5450	72	1	89	generated	
+72	Const	FH_STATE_TARGET_FULL_RETENTION_MAX	5451	5509	73	1	90	generated	
+73	Const	FH_STATE_TARGET_LOW_SPACE	5510	5559	74	1	91	generated	
+74	Const	FH_STATE_TARGET_LOW_SPACE_RETENTION_MAX	5560	5623	75	1	92	generated	
+75	Const	FH_STATE_TARGET_VOLUME_DIRTY	5624	5676	76	1	93	generated	
+76	Const	FH_STATE_TOO_MUCH_BEHIND	5677	5726	77	1	94	generated	
+77	Const	FH_STATUS_DISABLED	5727	5781	78	1	95	generated	
+78	Const	FH_STATUS_DISABLED_BY_GP	5782	5842	79	1	96	generated	
+79	Const	FH_STATUS_ENABLED	5843	5896	80	1	97	generated	
+80	Const	FH_STATUS_REHYDRATING	5897	5954	81	1	98	generated	
+81	Const	FH_TARGET_DRIVE_TYPE	5955	6018	82	1	99	generated	
+82	ItemType	FH_TARGET_DRIVE_TYPES	6019	6056	83	1	100	generated	
+83	Const	FH_TARGET_NAME	6057	6114	84	1	101	generated	
+84	Const	FH_TARGET_PART_OF_LIBRARY	6115	6187	85	1	102	generated	
+85	ItemType	FH_TARGET_PROPERTY_TYPE	6188	6227	86	1	103	generated	
+86	Const	FH_TARGET_URL	6228	6284	87	1	104	generated	
+87	Const	FH_VALID_TARGET	6285	6347	88	1	105	generated	
+88	ItemType	FhBackupStopReason	6348	6382	89	1	106	generated	
+89	Const	FhConfigMgr	6383	6507	90	1	107	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+90	Const	FhReassociation	6508	6636	91	1	110	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+91	Const	MAX_BACKUP_STATUS	6637	6690	92	1	113	generated	
+92	Const	MAX_LOCAL_POLICY	6691	6747	93	1	114	generated	
+93	Const	MAX_PROTECTED_ITEM_CATEGORY	6748	6821	94	1	115	generated	
+94	Const	MAX_RETENTION_TYPE	6822	6878	95	1	116	generated	
+95	Const	MAX_TARGET_PROPERTY	6879	6941	96	1	117	generated	
+96	Const	MAX_VALIDATION_RESULT	6942	7010	97	1	118	generated	
