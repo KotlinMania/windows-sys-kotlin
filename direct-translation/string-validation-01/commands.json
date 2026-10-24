@@ -1,0 +1,66 @@
+[
+  {
+    "command": [
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/string-validation-01/rust-kotlin.kexe",
+      "candidates",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/string-validation-01/literal-cases.rs",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/string-validation-01/fixture",
+      "--pointer-width=64",
+      "--syntax-candidates",
+      "--scalar-module=windows_sys::core=/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/core/mod.rs"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/string-validation-01/rust-kotlin.kexe",
+      "candidates",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/string-validation-01/literal-cases.rs",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/string-validation-01/repeat",
+      "--pointer-width=64",
+      "--syntax-candidates",
+      "--scalar-module=windows_sys::core=/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/core/mod.rs"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/string-validation-01/rust-kotlin.kexe",
+      "candidates",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/Windows/Win32/Devices/Beep/mod.rs",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/string-validation-01/beep",
+      "--pointer-width=64",
+      "--syntax-candidates",
+      "--scalar-module=windows_sys::core=/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/core/mod.rs"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "/opt/homebrew/bin/rustc",
+      "--edition=2021",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/string-validation-01/main.rs",
+      "-o",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/string-validation-01/rust-oracle"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/string-validation-01/rust-oracle"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "/Users/sydney/.konan/kotlin-native-prebuilt-macos-aarch64-2.4.21/bin/konanc",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/string-validation-01/fixture/candidate.kt",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/string-validation-01/beep/candidate.kt",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/string-validation-01/TestValueAdapters.kt",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/string-validation-01/Main.kt",
+      "-o",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/string-validation-01/kotlin-values"
+    ],
+    "exit_code": 1
+  }
+]

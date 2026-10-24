@@ -1,0 +1,595 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	241	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		242	371	3	1	6	unsupported	declaration Macro has no candidate rule
+2	Macro		372	603	4	1	9	unsupported	declaration Macro has no candidate rule
+3	Macro		604	883	6	1	13	unsupported	declaration Macro has no candidate rule
+4	Macro		884	1346	8	1	17	unsupported	declaration Macro has no candidate rule
+5	Macro		1347	1465	10	1	21	unsupported	declaration Macro has no candidate rule
+6	Macro		1466	1617	11	1	24	unsupported	declaration Macro has no candidate rule
+7	Macro		1618	1756	12	1	27	unsupported	declaration Macro has no candidate rule
+8	Macro		1757	2000	13	1	30	unsupported	declaration Macro has no candidate rule
+9	Macro		2001	2399	15	1	34	unsupported	declaration Macro has no candidate rule
+10	Macro		2400	2527	17	1	38	unsupported	declaration Macro has no candidate rule
+11	Macro		2528	2682	18	1	41	unsupported	declaration Macro has no candidate rule
+12	Macro		2683	2946	19	1	44	unsupported	declaration Macro has no candidate rule
+13	Macro		2947	3249	21	1	48	unsupported	declaration Macro has no candidate rule
+14	Macro		3250	3518	23	1	52	unsupported	declaration Macro has no candidate rule
+15	Macro		3519	3714	24	1	55	unsupported	declaration Macro has no candidate rule
+16	Macro		3715	3908	25	1	58	unsupported	declaration Macro has no candidate rule
+17	Macro		3909	4013	27	1	62	unsupported	declaration Macro has no candidate rule
+18	Macro		4014	4112	28	1	65	unsupported	declaration Macro has no candidate rule
+19	Macro		4113	4256	29	1	68	unsupported	declaration Macro has no candidate rule
+20	Macro		4257	4394	30	1	71	unsupported	declaration Macro has no candidate rule
+21	Macro		4395	4674	31	1	74	unsupported	declaration Macro has no candidate rule
+22	Macro		4675	4868	33	1	78	unsupported	declaration Macro has no candidate rule
+23	Macro		4869	4973	34	1	81	unsupported	declaration Macro has no candidate rule
+24	Macro		4974	5429	35	1	84	unsupported	declaration Macro has no candidate rule
+25	Macro		5430	5666	37	1	88	unsupported	declaration Macro has no candidate rule
+26	Macro		5667	5886	38	1	91	unsupported	declaration Macro has no candidate rule
+27	Macro		5887	6156	39	1	94	unsupported	declaration Macro has no candidate rule
+28	Macro		6157	6289	40	1	97	unsupported	declaration Macro has no candidate rule
+29	Macro		6290	6468	41	1	100	unsupported	declaration Macro has no candidate rule
+30	Macro		6469	6711	42	1	103	unsupported	declaration Macro has no candidate rule
+31	Macro		6712	7130	43	1	106	unsupported	declaration Macro has no candidate rule
+32	Macro		7131	7596	44	1	109	unsupported	declaration Macro has no candidate rule
+33	Macro		7597	7701	45	1	112	unsupported	declaration Macro has no candidate rule
+34	Macro		7702	7840	46	1	115	unsupported	declaration Macro has no candidate rule
+35	Macro		7841	7991	47	1	118	unsupported	declaration Macro has no candidate rule
+36	Macro		7992	8266	48	1	121	unsupported	declaration Macro has no candidate rule
+37	Macro		8267	8492	49	1	124	unsupported	declaration Macro has no candidate rule
+38	Macro		8493	8720	50	1	127	unsupported	declaration Macro has no candidate rule
+39	Macro		8721	8998	51	1	130	unsupported	declaration Macro has no candidate rule
+40	Macro		8999	9354	52	1	133	unsupported	declaration Macro has no candidate rule
+41	Macro		9355	9652	53	1	136	unsupported	declaration Macro has no candidate rule
+42	Macro		9653	9954	54	1	139	unsupported	declaration Macro has no candidate rule
+43	Macro		9955	10206	55	1	142	unsupported	declaration Macro has no candidate rule
+44	Macro		10207	10458	56	1	145	unsupported	declaration Macro has no candidate rule
+45	Macro		10459	10671	57	1	148	unsupported	declaration Macro has no candidate rule
+46	Macro		10672	10886	58	1	151	unsupported	declaration Macro has no candidate rule
+47	Macro		10887	10986	59	1	154	unsupported	declaration Macro has no candidate rule
+48	Macro		10987	11126	60	1	157	unsupported	declaration Macro has no candidate rule
+49	Macro		11127	11218	61	1	160	unsupported	declaration Macro has no candidate rule
+50	Macro		11219	11372	62	1	163	unsupported	declaration Macro has no candidate rule
+51	Macro		11373	11609	63	1	166	unsupported	declaration Macro has no candidate rule
+52	Macro		11610	11848	64	1	169	unsupported	declaration Macro has no candidate rule
+53	Macro		11849	12021	65	1	172	unsupported	declaration Macro has no candidate rule
+54	Macro		12022	12196	66	1	175	unsupported	declaration Macro has no candidate rule
+55	Macro		12197	12425	67	1	178	unsupported	declaration Macro has no candidate rule
+56	Const	ADDRESSBAND	12426	12460	69	1	182	generated	
+57	Const	ADDURL_ADDTOCACHE	12461	12509	70	1	183	generated	
+58	Const	ADDURL_ADDTOHISTORYANDCACHE	12510	12568	71	1	184	generated	
+59	Const	ADDURL_FIRST	12569	12612	72	1	185	generated	
+60	ItemType	ADDURL_FLAG	12613	12640	73	1	186	generated	
+61	Const	ADDURL_Max	12641	12691	74	1	187	generated	
+62	Const	ActivityContentCount	12692	12762	75	1	188	generated	
+63	Const	ActivityContentDocument	12763	12836	76	1	189	generated	
+64	Const	ActivityContentLink	12837	12906	77	1	190	generated	
+65	Const	ActivityContentNone	12907	12977	78	1	191	generated	
+66	Const	ActivityContentSelection	12978	13052	79	1	192	generated	
+67	Const	AnchorClick	13053	13177	80	1	193	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+68	Const	CATID_MSOfficeAntiVirus	13178	13314	81	1	196	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+69	Const	CDeviceRect	13315	13439	82	1	199	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+70	Const	CDownloadBehavior	13440	13570	83	1	202	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+71	Const	CHeaderFooter	13571	13697	84	1	205	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+72	Const	CLayoutRect	13698	13822	85	1	208	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+73	Const	COLOR_NO_TRANSPARENT	13823	13875	86	1	211	generated	
+74	Const	CPersistDataPeer	13876	14005	87	1	212	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+75	Const	CPersistHistory	14006	14134	88	1	215	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+76	Const	CPersistShortcut	14135	14264	89	1	218	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+77	Const	CPersistSnapshot	14265	14394	90	1	221	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+78	Const	CPersistUserData	14395	14524	91	1	224	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+79	Const	CoDitherToRGB8	14525	14652	92	1	227	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+80	Const	CoMapMIMEToCLSID	14653	14782	93	1	230	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+81	Const	CoSniffStream	14783	14909	94	1	233	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+82	Const	DISPID_ACTIVEXFILTERINGENABLED	14910	14964	95	1	236	generated	
+83	Const	DISPID_ADDCHANNEL	14965	15005	96	1	237	generated	
+84	Const	DISPID_ADDDESKTOPCOMPONENT	15006	15055	97	1	238	generated	
+85	Const	DISPID_ADDFAVORITE	15056	15097	98	1	239	generated	
+86	Const	DISPID_ADDSEARCHPROVIDER	15098	15146	99	1	240	generated	
+87	Const	DISPID_ADDSERVICE	15147	15188	100	1	241	generated	
+88	Const	DISPID_ADDSITEMODE	15189	15231	101	1	242	generated	
+89	Const	DISPID_ADDTHUMBNAILBUTTONS	15232	15282	102	1	243	generated	
+90	Const	DISPID_ADDTOFAVORITESBAR	15283	15331	103	1	244	generated	
+91	Const	DISPID_ADDTRACKINGPROTECTIONLIST	15332	15388	104	1	245	generated	
+92	Const	DISPID_ADVANCEERROR	15389	15432	105	1	246	generated	
+93	Const	DISPID_AMBIENT_OFFLINEIFNOTCONNECTED	15433	15496	106	1	247	generated	
+94	Const	DISPID_AMBIENT_SILENT	15497	15545	107	1	248	generated	
+95	Const	DISPID_AUTOCOMPLETEATTACH	15546	15595	108	1	249	generated	
+96	Const	DISPID_AUTOCOMPLETESAVEFORM	15596	15647	109	1	250	generated	
+97	Const	DISPID_AUTOSCAN	15648	15687	110	1	251	generated	
+98	Const	DISPID_BEFORENAVIGATE	15688	15734	111	1	252	generated	
+99	Const	DISPID_BEFORENAVIGATE2	15735	15782	112	1	253	generated	
+100	Const	DISPID_BEFORESCRIPTEXECUTE	15783	15834	113	1	254	generated	
+101	Const	DISPID_BRANDIMAGEURI	15835	15879	114	1	255	generated	
+102	Const	DISPID_BUILDNEWTABPAGE	15880	15926	115	1	256	generated	
+103	Const	DISPID_CANADVANCEERROR	15927	15973	116	1	257	generated	
+104	Const	DISPID_CANRETREATERROR	15974	16020	117	1	258	generated	
+105	Const	DISPID_CHANGEDEFAULTBROWSER	16021	16072	118	1	259	generated	
+106	Const	DISPID_CLEARNOTIFICATION	16073	16121	119	1	260	generated	
+107	Const	DISPID_CLEARSITEMODEICONOVERLAY	16122	16177	120	1	261	generated	
+108	Const	DISPID_CLIENTTOHOSTWINDOW	16178	16228	121	1	262	generated	
+109	Const	DISPID_COMMANDSTATECHANGE	16229	16279	122	1	263	generated	
+110	Const	DISPID_CONTENTDISCOVERYRESET	16280	16332	123	1	264	generated	
+111	Const	DISPID_COUNTVIEWTYPES	16333	16378	124	1	265	generated	
+112	Const	DISPID_CREATESUBSCRIPTION	16379	16428	125	1	266	generated	
+113	Const	DISPID_CUSTOMIZECLEARTYPE	16429	16478	126	1	267	generated	
+114	Const	DISPID_CUSTOMIZESETTINGS	16479	16527	127	1	268	generated	
+115	Const	DISPID_DEFAULTSEARCHPROVIDER	16528	16580	128	1	269	generated	
+116	Const	DISPID_DELETESUBSCRIPTION	16581	16630	129	1	270	generated	
+117	Const	DISPID_DEPTH	16631	16667	130	1	271	generated	
+118	Const	DISPID_DIAGNOSECONNECTION	16668	16717	131	1	272	generated	
+119	Const	DISPID_DIAGNOSECONNECTIONUILESS	16718	16773	132	1	273	generated	
+120	Const	DISPID_DOCUMENTCOMPLETE	16774	16822	133	1	274	generated	
+121	Const	DISPID_DOUBLECLICK	16823	16864	134	1	275	generated	
+122	Const	DISPID_DOWNLOADBEGIN	16865	16910	135	1	276	generated	
+123	Const	DISPID_DOWNLOADCOMPLETE	16911	16959	136	1	277	generated	
+124	Const	DISPID_ENABLENOTIFICATIONQUEUE	16960	17014	137	1	278	generated	
+125	Const	DISPID_ENABLENOTIFICATIONQUEUELARGE	17015	17074	138	1	279	generated	
+126	Const	DISPID_ENABLENOTIFICATIONQUEUESQUARE	17075	17135	139	1	280	generated	
+127	Const	DISPID_ENABLENOTIFICATIONQUEUEWIDE	17136	17194	140	1	281	generated	
+128	Const	DISPID_ENABLESUGGESTEDSITES	17195	17246	141	1	282	generated	
+129	Const	DISPID_ENUMOPTIONS	17247	17289	142	1	283	generated	
+130	Const	DISPID_EXPAND	17290	17327	143	1	284	generated	
+131	Const	DISPID_EXPORT	17328	17364	144	1	285	generated	
+132	Const	DISPID_FAVSELECTIONCHANGE	17365	17413	145	1	286	generated	
+133	Const	DISPID_FILEDOWNLOAD	17414	17458	146	1	287	generated	
+134	Const	DISPID_FLAGS	17459	17495	147	1	288	generated	
+135	Const	DISPID_FRAMEBEFORENAVIGATE	17496	17547	148	1	289	generated	
+136	Const	DISPID_FRAMENAVIGATECOMPLETE	17548	17601	149	1	290	generated	
+137	Const	DISPID_FRAMENEWWINDOW	17602	17648	150	1	291	generated	
+138	Const	DISPID_GETALWAYSSHOWLOCKSTATE	17649	17702	151	1	292	generated	
+139	Const	DISPID_GETCVLISTDATA	17703	17747	152	1	293	generated	
+140	Const	DISPID_GETCVLISTLOCALDATA	17748	17797	153	1	294	generated	
+141	Const	DISPID_GETDETAILSSTATE	17798	17844	154	1	295	generated	
+142	Const	DISPID_GETEMIELISTDATA	17845	17891	155	1	296	generated	
+143	Const	DISPID_GETEMIELISTLOCALDATA	17892	17943	156	1	297	generated	
+144	Const	DISPID_GETERRORCHAR	17944	17987	157	1	298	generated	
+145	Const	DISPID_GETERRORCODE	17988	18031	158	1	299	generated	
+146	Const	DISPID_GETERRORLINE	18032	18075	159	1	300	generated	
+147	Const	DISPID_GETERRORMSG	18076	18118	160	1	301	generated	
+148	Const	DISPID_GETERRORURL	18119	18161	161	1	302	generated	
+149	Const	DISPID_GETEXPERIMENTALFLAG	18162	18212	162	1	303	generated	
+150	Const	DISPID_GETEXPERIMENTALVALUE	18213	18264	163	1	304	generated	
+151	Const	DISPID_GETNEEDHVSIAUTOLAUNCHFLAG	18265	18322	164	1	305	generated	
+152	Const	DISPID_GETNEEDIEAUTOLAUNCHFLAG	18323	18377	165	1	306	generated	
+153	Const	DISPID_GETOSSKU	18378	18418	166	1	307	generated	
+154	Const	DISPID_GETPERERRSTATE	18419	18464	167	1	308	generated	
+155	Const	DISPID_HASNEEDHVSIAUTOLAUNCHFLAG	18465	18522	168	1	309	generated	
+156	Const	DISPID_HASNEEDIEAUTOLAUNCHFLAG	18523	18577	169	1	310	generated	
+157	Const	DISPID_IMPORT	18578	18614	170	1	311	generated	
+158	Const	DISPID_IMPORTEXPORTFAVORITES	18615	18666	171	1	312	generated	
+159	Const	DISPID_INITIALIZED	18667	18708	172	1	313	generated	
+160	Const	DISPID_INPRIVATEFILTERINGENABLED	18709	18765	173	1	314	generated	
+161	Const	DISPID_INVOKECONTEXTMENU	18766	18813	174	1	315	generated	
+162	Const	DISPID_ISMETAREFERRERAVAILABLE	18814	18868	175	1	316	generated	
+163	Const	DISPID_ISSEARCHMIGRATED	18869	18916	176	1	317	generated	
+164	Const	DISPID_ISSEARCHPROVIDERINSTALLED	18917	18973	177	1	318	generated	
+165	Const	DISPID_ISSERVICEINSTALLED	18974	19023	178	1	319	generated	
+166	Const	DISPID_ISSITEMODE	19024	19065	179	1	320	generated	
+167	Const	DISPID_ISSITEMODEFIRSTRUN	19066	19115	180	1	321	generated	
+168	Const	DISPID_ISSUBSCRIBED	19116	19158	181	1	322	generated	
+169	Const	DISPID_LAUNCHIE	19159	19198	182	1	323	generated	
+170	Const	DISPID_LAUNCHINHVSI	19199	19242	183	1	324	generated	
+171	Const	DISPID_LAUNCHINTERNETOPTIONS	19243	19295	184	1	325	generated	
+172	Const	DISPID_LAUNCHNETWORKCLIENTHELP	19296	19350	185	1	326	generated	
+173	Const	DISPID_MODE	19351	19386	186	1	327	generated	
+174	Const	DISPID_MOVESELECTIONDOWN	19387	19434	187	1	328	generated	
+175	Const	DISPID_MOVESELECTIONTO	19435	19480	188	1	329	generated	
+176	Const	DISPID_MOVESELECTIONUP	19481	19526	189	1	330	generated	
+177	Const	DISPID_NAVIGATEANDFIND	19527	19572	190	1	331	generated	
+178	Const	DISPID_NAVIGATECOMPLETE	19573	19621	191	1	332	generated	
+179	Const	DISPID_NAVIGATECOMPLETE2	19622	19671	192	1	333	generated	
+180	Const	DISPID_NAVIGATEERROR	19672	19717	193	1	334	generated	
+181	Const	DISPID_NAVIGATETOSUGGESTEDSITES	19718	19773	194	1	335	generated	
+182	Const	DISPID_NEWFOLDER	19774	19813	195	1	336	generated	
+183	Const	DISPID_NEWPROCESS	19814	19856	196	1	337	generated	
+184	Const	DISPID_NEWWINDOW	19857	19898	197	1	338	generated	
+185	Const	DISPID_NEWWINDOW2	19899	19941	198	1	339	generated	
+186	Const	DISPID_NEWWINDOW3	19942	19984	199	1	340	generated	
+187	Const	DISPID_NSCOLUMNS	19985	20025	200	1	341	generated	
+188	Const	DISPID_ONADDRESSBAR	20026	20070	201	1	342	generated	
+189	Const	DISPID_ONFULLSCREEN	20071	20115	202	1	343	generated	
+190	Const	DISPID_ONMENUBAR	20116	20157	203	1	344	generated	
+191	Const	DISPID_ONQUIT	20158	20196	204	1	345	generated	
+192	Const	DISPID_ONSTATUSBAR	20197	20240	205	1	346	generated	
+193	Const	DISPID_ONTHEATERMODE	20241	20286	206	1	347	generated	
+194	Const	DISPID_ONTOOLBAR	20287	20328	207	1	348	generated	
+195	Const	DISPID_ONVISIBLE	20329	20370	208	1	349	generated	
+196	Const	DISPID_OPENFAVORITESPANE	20371	20419	209	1	350	generated	
+197	Const	DISPID_OPENFAVORITESSETTINGS	20420	20472	210	1	351	generated	
+198	Const	DISPID_PHISHINGENABLED	20473	20519	211	1	352	generated	
+199	Const	DISPID_PINNEDSITESTATE	20520	20566	212	1	353	generated	
+200	Const	DISPID_PRINTTEMPLATEINSTANTIATION	20567	20625	213	1	354	generated	
+201	Const	DISPID_PRINTTEMPLATETEARDOWN	20626	20679	214	1	355	generated	
+202	Const	DISPID_PRIVACYIMPACTEDSTATECHANGE	20680	20738	215	1	356	generated	
+203	Const	DISPID_PROGRESSCHANGE	20739	20785	216	1	357	generated	
+204	Const	DISPID_PROPERTYCHANGE	20786	20832	217	1	358	generated	
+205	Const	DISPID_PROVISIONNETWORKS	20833	20881	218	1	359	generated	
+206	Const	DISPID_QUIT	20882	20918	219	1	360	generated	
+207	Const	DISPID_REDIRECTXDOMAINBLOCKED	20919	20973	220	1	361	generated	
+208	Const	DISPID_REFRESHOFFLINEDESKTOP	20974	21025	221	1	362	generated	
+209	Const	DISPID_REMOVESCHEDULEDTILENOTIFICATION	21026	21088	222	1	363	generated	
+210	Const	DISPID_REPORTSAFEURL	21089	21133	223	1	364	generated	
+211	Const	DISPID_RESETEXPERIMENTALFLAGS	21134	21187	224	1	365	generated	
+212	Const	DISPID_RESETFIRSTBOOTMODE	21188	21236	225	1	366	generated	
+213	Const	DISPID_RESETSAFEMODE	21237	21280	226	1	367	generated	
+214	Const	DISPID_RESETSORT	21281	21320	227	1	368	generated	
+215	Const	DISPID_RETREATERROR	21321	21364	228	1	369	generated	
+216	Const	DISPID_ROOT	21365	21400	229	1	370	generated	
+217	Const	DISPID_RUNONCEHASSHOWN	21401	21447	230	1	371	generated	
+218	Const	DISPID_RUNONCEREQUIREDSETTINGSCOMPLETE	21448	21510	231	1	372	generated	
+219	Const	DISPID_RUNONCESHOWN	21511	21554	232	1	373	generated	
+220	Const	DISPID_SCHEDULEDTILENOTIFICATION	21555	21611	233	1	374	generated	
+221	Const	DISPID_SEARCHGUIDEURL	21612	21657	234	1	375	generated	
+222	Const	DISPID_SELECTEDITEM	21658	21701	235	1	376	generated	
+223	Const	DISPID_SELECTEDITEMS	21702	21746	236	1	377	generated	
+224	Const	DISPID_SELECTIONCHANGE	21747	21792	237	1	378	generated	
+225	Const	DISPID_SETACTIVITIESVISIBLE	21793	21844	238	1	379	generated	
+226	Const	DISPID_SETDETAILSSTATE	21845	21891	239	1	380	generated	
+227	Const	DISPID_SETEXPERIMENTALFLAG	21892	21942	240	1	381	generated	
+228	Const	DISPID_SETEXPERIMENTALVALUE	21943	21994	241	1	382	generated	
+229	Const	DISPID_SETMSDEFAULTS	21995	22040	242	1	383	generated	
+230	Const	DISPID_SETNEEDHVSIAUTOLAUNCHFLAG	22041	22098	243	1	384	generated	
+231	Const	DISPID_SETNEEDIEAUTOLAUNCHFLAG	22099	22153	244	1	385	generated	
+232	Const	DISPID_SETPERERRSTATE	22154	22199	245	1	386	generated	
+233	Const	DISPID_SETPHISHINGFILTERSTATUS	22200	22255	246	1	387	generated	
+234	Const	DISPID_SETRECENTLYCLOSEDVISIBLE	22256	22311	247	1	388	generated	
+235	Const	DISPID_SETROOT	22312	22350	248	1	389	generated	
+236	Const	DISPID_SETSECURELOCKICON	22351	22400	249	1	390	generated	
+237	Const	DISPID_SETSITEMODEICONOVERLAY	22401	22454	250	1	391	generated	
+238	Const	DISPID_SETSITEMODEPROPERTIES	22455	22507	251	1	392	generated	
+239	Const	DISPID_SETTHUMBNAILBUTTONS	22508	22558	252	1	393	generated	
+240	Const	DISPID_SETVIEWTYPE	22559	22601	253	1	394	generated	
+241	Const	DISPID_SHELLUIHELPERLAST	22602	22651	254	1	395	generated	
+242	Const	DISPID_SHOWBROWSERUI	22652	22696	255	1	396	generated	
+243	Const	DISPID_SHOWINPRIVATEHELP	22697	22745	256	1	397	generated	
+244	Const	DISPID_SHOWTABSHELP	22746	22789	257	1	398	generated	
+245	Const	DISPID_SITEMODEACTIVATE	22790	22837	258	1	399	generated	
+246	Const	DISPID_SITEMODEADDBUTTONSTYLE	22838	22891	259	1	400	generated	
+247	Const	DISPID_SITEMODEADDJUMPLISTITEM	22892	22946	260	1	401	generated	
+248	Const	DISPID_SITEMODECLEARBADGE	22947	22996	261	1	402	generated	
+249	Const	DISPID_SITEMODECLEARJUMPLIST	22997	23049	262	1	403	generated	
+250	Const	DISPID_SITEMODECREATEJUMPLIST	23050	23103	263	1	404	generated	
+251	Const	DISPID_SITEMODEREFRESHBADGE	23104	23155	264	1	405	generated	
+252	Const	DISPID_SITEMODESHOWBUTTONSTYLE	23156	23210	265	1	406	generated	
+253	Const	DISPID_SITEMODESHOWJUMPLIST	23211	23262	266	1	407	generated	
+254	Const	DISPID_SKIPRUNONCE	23263	23305	267	1	408	generated	
+255	Const	DISPID_SKIPTABSWELCOME	23306	23352	268	1	409	generated	
+256	Const	DISPID_SQMENABLED	23353	23394	269	1	410	generated	
+257	Const	DISPID_STARTBADGEUPDATE	23395	23442	270	1	411	generated	
+258	Const	DISPID_STARTPERIODICUPDATE	23443	23493	271	1	412	generated	
+259	Const	DISPID_STARTPERIODICUPDATEBATCH	23494	23549	272	1	413	generated	
+260	Const	DISPID_STATUSTEXTCHANGE	23550	23598	273	1	414	generated	
+261	Const	DISPID_STOPBADGEUPDATE	23599	23645	274	1	415	generated	
+262	Const	DISPID_STOPPERIODICUPDATE	23646	23695	275	1	416	generated	
+263	Const	DISPID_SUBSCRIPTIONSENABLED	23696	23747	276	1	417	generated	
+264	Const	DISPID_SUGGESTEDSITESENABLED	23748	23800	277	1	418	generated	
+265	Const	DISPID_SYNCHRONIZE	23801	23842	278	1	419	generated	
+266	Const	DISPID_THIRDPARTYURLBLOCKED	23843	23895	279	1	420	generated	
+267	Const	DISPID_TITLECHANGE	23896	23939	280	1	421	generated	
+268	Const	DISPID_TITLEICONCHANGE	23940	23987	281	1	422	generated	
+269	Const	DISPID_TRACKINGPROTECTIONENABLED	23988	24044	282	1	423	generated	
+270	Const	DISPID_TVFLAGS	24045	24083	283	1	424	generated	
+271	Const	DISPID_UNSELECTALL	24084	24126	284	1	425	generated	
+272	Const	DISPID_UPDATEPAGESTATUS	24127	24175	285	1	426	generated	
+273	Const	DISPID_UPDATETHUMBNAILBUTTON	24176	24228	286	1	427	generated	
+274	Const	DISPID_VIEWUPDATE	24229	24271	287	1	428	generated	
+275	Const	DISPID_WEBWORKERFINISHED	24272	24321	288	1	429	generated	
+276	Const	DISPID_WEBWORKERSTARTED	24322	24370	289	1	430	generated	
+277	Const	DISPID_WINDOWACTIVATE	24371	24417	290	1	431	generated	
+278	Const	DISPID_WINDOWCLOSING	24418	24463	291	1	432	generated	
+279	Const	DISPID_WINDOWMOVE	24464	24506	292	1	433	generated	
+280	Const	DISPID_WINDOWREGISTERED	24507	24555	293	1	434	generated	
+281	Const	DISPID_WINDOWRESIZE	24556	24600	294	1	435	generated	
+282	Const	DISPID_WINDOWREVOKED	24601	24646	295	1	436	generated	
+283	Const	DISPID_WINDOWSETHEIGHT	24647	24694	296	1	437	generated	
+284	Const	DISPID_WINDOWSETLEFT	24695	24740	297	1	438	generated	
+285	Const	DISPID_WINDOWSETRESIZABLE	24741	24791	298	1	439	generated	
+286	Const	DISPID_WINDOWSETTOP	24792	24836	299	1	440	generated	
+287	Const	DISPID_WINDOWSETWIDTH	24837	24883	300	1	441	generated	
+288	Const	DISPID_WINDOWSTATECHANGED	24884	24934	301	1	442	generated	
+289	Const	E_SURFACE_DISCARDED	24935	24987	302	1	443	generated	
+290	Const	E_SURFACE_NODC	24988	25035	303	1	444	generated	
+291	Const	E_SURFACE_NOSURFACE	25036	25088	304	1	445	generated	
+292	Const	E_SURFACE_NOTMYDC	25089	25139	305	1	446	generated	
+293	Const	E_SURFACE_NOTMYPOINTER	25140	25195	306	1	447	generated	
+294	Const	E_SURFACE_UNKNOWN_FORMAT	25196	25253	307	1	448	generated	
+295	Const	ExtensionValidationContextDynamic	25254	25334	308	1	449	generated	
+296	Const	ExtensionValidationContextNone	25335	25412	309	1	450	generated	
+297	Const	ExtensionValidationContextParsed	25413	25492	310	1	451	generated	
+298	ItemType	ExtensionValidationContexts	25493	25536	311	1	452	generated	
+299	Const	ExtensionValidationResultArrestPageLoad	25537	25622	312	1	453	generated	
+300	Const	ExtensionValidationResultDoNotInstantiate	25623	25710	313	1	454	generated	
+301	Const	ExtensionValidationResultNone	25711	25786	314	1	455	generated	
+302	ItemType	ExtensionValidationResults	25787	25829	315	1	456	generated	
+303	ItemType	FINDFRAME_FLAGS	25830	25861	316	1	457	generated	
+304	Const	FINDFRAME_INTERNAL	25862	25925	317	1	458	generated	
+305	Const	FINDFRAME_JUSTTESTEXISTENCE	25926	25988	318	1	459	generated	
+306	Const	FINDFRAME_NONE	25989	26038	319	1	460	generated	
+307	Const	FRAMEOPTIONS_BROWSERBAND	26039	26102	320	1	461	generated	
+308	Const	FRAMEOPTIONS_DESKTOP	26103	26162	321	1	462	generated	
+309	ItemType	FRAMEOPTIONS_FLAGS	26163	26197	322	1	463	generated	
+310	Const	FRAMEOPTIONS_NO3DBORDER	26198	26260	323	1	464	generated	
+311	Const	FRAMEOPTIONS_NORESIZE	26261	26320	324	1	465	generated	
+312	Const	FRAMEOPTIONS_SCROLL_AUTO	26321	26383	325	1	466	generated	
+313	Const	FRAMEOPTIONS_SCROLL_NO	26384	26444	326	1	467	generated	
+314	Const	FRAMEOPTIONS_SCROLL_YES	26445	26506	327	1	468	generated	
+315	Const	HomePage	26507	26628	328	1	469	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+316	Const	HomePageSetting	26629	26757	329	1	472	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+317	Const	IECMDID_ARG_CLEAR_FORMS_ALL	26758	26808	330	1	475	generated	
+318	Const	IECMDID_ARG_CLEAR_FORMS_ALL_BUT_PASSWORDS	26809	26873	331	1	476	generated	
+319	Const	IECMDID_ARG_CLEAR_FORMS_PASSWORDS_ONLY	26874	26935	332	1	477	generated	
+320	Const	IECMDID_BEFORENAVIGATE_DOEXTERNALBROWSE	26936	26998	333	1	478	generated	
+321	Const	IECMDID_BEFORENAVIGATE_GETIDLIST	26999	27054	334	1	479	generated	
+322	Const	IECMDID_BEFORENAVIGATE_GETSHELLBROWSE	27055	27115	335	1	480	generated	
+323	Const	IECMDID_CLEAR_AUTOCOMPLETE_FOR_FORMS	27116	27175	336	1	481	generated	
+324	Const	IECMDID_GET_INVOKE_DEFAULT_BROWSER_ON_NEW_WINDOW	27176	27247	337	1	482	generated	
+325	Const	IECMDID_SETID_AUTOCOMPLETE_FOR_FORMS	27248	27307	338	1	483	generated	
+326	Const	IECMDID_SET_INVOKE_DEFAULT_BROWSER_ON_NEW_WINDOW	27308	27379	339	1	484	generated	
+327	Const	IEGetProcessModule_PROC_NAME	27380	27491	340	1	485	unsupported	non-scalar type Ptr unsupported
+328	Const	IEGetTabWindowExports_PROC_NAME	27492	27609	341	1	488	unsupported	non-scalar type Ptr unsupported
+329	ItemType	IELAUNCHOPTION_FLAGS	27610	27646	342	1	491	generated	
+330	Const	IELAUNCHOPTION_FORCE_COMPAT	27647	27714	343	1	492	generated	
+331	Const	IELAUNCHOPTION_FORCE_EDGE	27715	27780	344	1	493	generated	
+332	Const	IELAUNCHOPTION_LOCK_ENGINE	27781	27847	345	1	494	generated	
+333	Const	IELAUNCHOPTION_SCRIPTDEBUG	27848	27914	346	1	495	generated	
+334	Struct	IELAUNCHURLINFO	27915	28073	347	1	496	unsupported	declaration Struct has no candidate rule
+335	Const	IEPROCESS_MODULE_NAME	28074	28173	354	1	505	unsupported	non-scalar type Ptr unsupported
+336	Const	IEWebDriverManager	28174	28305	355	1	508	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+337	Const	IE_USE_OE_MAIL_HKEY	28306	28358	356	1	511	generated	
+338	Const	IE_USE_OE_MAIL_KEY	28359	28487	357	1	512	unsupported	non-scalar type Ptr unsupported
+339	Const	IE_USE_OE_MAIL_VALUE	28488	28593	358	1	515	unsupported	non-scalar type Ptr unsupported
+340	Const	IE_USE_OE_NEWS_HKEY	28594	28646	359	1	518	generated	
+341	Const	IE_USE_OE_NEWS_KEY	28647	28775	360	1	519	unsupported	non-scalar type Ptr unsupported
+342	Const	IE_USE_OE_NEWS_VALUE	28776	28881	361	1	522	unsupported	non-scalar type Ptr unsupported
+343	Const	IE_USE_OE_PRESENT_HKEY	28882	28937	362	1	525	generated	
+344	Const	IE_USE_OE_PRESENT_KEY	28938	29091	363	1	526	unsupported	non-scalar type Ptr unsupported
+345	Const	IMGDECODE_EVENT_BEGINBITS	29092	29140	364	1	529	generated	
+346	Const	IMGDECODE_EVENT_BITSCOMPLETE	29141	29192	365	1	530	generated	
+347	Const	IMGDECODE_EVENT_PALETTE	29193	29239	366	1	531	generated	
+348	Const	IMGDECODE_EVENT_PROGRESS	29240	29287	367	1	532	generated	
+349	Const	IMGDECODE_EVENT_USEDDRAW	29288	29336	368	1	533	generated	
+350	Const	IMGDECODE_HINT_BOTTOMUP	29337	29383	369	1	534	generated	
+351	Const	IMGDECODE_HINT_FULLWIDTH	29384	29431	370	1	535	generated	
+352	Const	IMGDECODE_HINT_TOPDOWN	29432	29477	371	1	536	generated	
+353	ItemType	INTERNETEXPLORERCONFIGURATION	29478	29523	372	1	537	generated	
+354	Const	INTERNETEXPLORERCONFIGURATION_HOST	29524	29607	373	1	538	generated	
+355	Const	INTERNETEXPLORERCONFIGURATION_WEB_DRIVER	29608	29697	374	1	539	generated	
+356	Const	INTERNETEXPLORERCONFIGURATION_WEB_DRIVER_EDGE	29698	29792	375	1	540	generated	
+357	Const	IntelliForms	29793	29918	376	1	541	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+358	Const	InternetExplorerManager	29919	30055	377	1	544	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+359	Const	LINKSBAND	30056	30088	378	1	547	generated	
+360	Const	MAPMIME_CLSID	30089	30125	379	1	548	generated	
+361	Const	MAPMIME_DEFAULT	30126	30164	380	1	549	generated	
+362	Const	MAPMIME_DEFAULT_ALWAYS	30165	30210	381	1	550	generated	
+363	Const	MAPMIME_DISABLE	30211	30249	382	1	551	generated	
+364	Const	MAX_SEARCH_FORMAT_STRING	30250	30299	383	1	552	generated	
+365	ItemType	MEDIA_ACTIVITY_NOTIFY_TYPE	30300	30342	384	1	553	generated	
+366	Const	MediaCasting	30343	30401	385	1	554	generated	
+367	Const	MediaPlayback	30402	30461	386	1	555	generated	
+368	Const	MediaRecording	30462	30522	387	1	556	generated	
+369	Struct	NAVIGATEDATA	30523	30706	388	1	557	unsupported	declaration Struct has no candidate rule
+370	ItemType	NAVIGATEFRAME_FLAGS	30707	30742	397	1	568	generated	
+371	Const	NAVIGATEFRAME_FL_AUTH_FAIL_CACHE_OK	30743	30818	398	1	569	generated	
+372	Const	NAVIGATEFRAME_FL_NO_DOC_CACHE	30819	30887	399	1	570	generated	
+373	Const	NAVIGATEFRAME_FL_NO_IMAGE_CACHE	30888	30958	400	1	571	generated	
+374	Const	NAVIGATEFRAME_FL_POST	30959	31019	401	1	572	generated	
+375	Const	NAVIGATEFRAME_FL_REALLY_SENDING_FROM_FORM	31020	31101	402	1	573	generated	
+376	Const	NAVIGATEFRAME_FL_RECORD	31102	31164	403	1	574	generated	
+377	Const	NAVIGATEFRAME_FL_SENDING_FROM_FORM	31165	31239	404	1	575	generated	
+378	Const	OS_E_CANCELLED	31240	31301	405	1	576	generated	
+379	Const	OS_E_GPDISABLED	31302	31364	406	1	577	generated	
+380	Const	OS_E_NOTFOUND	31365	31425	407	1	578	generated	
+381	Const	OS_E_NOTSUPPORTED	31426	31490	408	1	579	generated	
+382	ItemType	OpenServiceActivityContentType	31491	31537	409	1	580	generated	
+383	Const	OpenServiceActivityManager	31538	31677	410	1	581	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+384	ItemType	OpenServiceErrors	31678	31711	411	1	584	generated	
+385	Const	OpenServiceManager	31712	31843	412	1	585	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+386	Const	PeerFactory	31844	31968	413	1	588	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+387	Const	REGSTRA_VAL_STARTPAGE	31969	32065	414	1	591	unsupported	non-scalar type Ptr unsupported
+388	Const	REGSTR_PATH_CURRENT	32066	32158	415	1	594	unsupported	non-scalar type Ptr unsupported
+389	Const	REGSTR_PATH_DEFAULT	32159	32251	416	1	597	unsupported	non-scalar type Ptr unsupported
+390	Const	REGSTR_PATH_INETCPL_RESTRICTIONS	32252	32413	417	1	600	unsupported	non-scalar type Ptr unsupported
+391	Const	REGSTR_PATH_MIME_DATABASE	32414	32519	418	1	603	unsupported	non-scalar type Ptr unsupported
+392	Const	REGSTR_PATH_REMOTEACCESS	32520	32622	419	1	606	unsupported	non-scalar type Ptr unsupported
+393	Const	REGSTR_PATH_REMOTEACESS	32623	32724	420	1	609	unsupported	non-scalar type Ptr unsupported
+394	Const	REGSTR_SHIFTQUICKSUFFIX	32725	32838	421	1	612	unsupported	non-scalar type Ptr unsupported
+395	Const	REGSTR_VAL_ACCEPT_LANGUAGE	32839	32945	422	1	615	unsupported	non-scalar type Ptr unsupported
+396	Const	REGSTR_VAL_ACCESSMEDIUM	32946	33047	423	1	618	unsupported	non-scalar type Ptr unsupported
+397	Const	REGSTR_VAL_ACCESSTYPE	33048	33145	424	1	621	unsupported	non-scalar type Ptr unsupported
+398	Const	REGSTR_VAL_ALIASTO	33146	33245	425	1	624	unsupported	non-scalar type Ptr unsupported
+399	Const	REGSTR_VAL_ANCHORCOLOR	33246	33346	426	1	627	unsupported	non-scalar type Ptr unsupported
+400	Const	REGSTR_VAL_ANCHORCOLORHOVER	33347	33458	427	1	630	unsupported	non-scalar type Ptr unsupported
+401	Const	REGSTR_VAL_ANCHORCOLORVISITED	33459	33574	428	1	633	unsupported	non-scalar type Ptr unsupported
+402	Const	REGSTR_VAL_ANCHORUNDERLINE	33575	33683	429	1	636	unsupported	non-scalar type Ptr unsupported
+403	Const	REGSTR_VAL_AUTODETECT	33684	33781	430	1	639	unsupported	non-scalar type Ptr unsupported
+404	Const	REGSTR_VAL_AUTODIALDLLNAME	33782	33889	431	1	642	unsupported	non-scalar type Ptr unsupported
+405	Const	REGSTR_VAL_AUTODIALFCNNAME	33890	33997	432	1	645	unsupported	non-scalar type Ptr unsupported
+406	Const	REGSTR_VAL_AUTODIAL_MONITORCLASSNAME	33998	34118	433	1	648	unsupported	non-scalar type Ptr unsupported
+407	Const	REGSTR_VAL_AUTODIAL_TRYONLYONCE	34119	34231	434	1	651	unsupported	non-scalar type Ptr unsupported
+408	Const	REGSTR_VAL_AUTONAVIGATE	34232	34340	435	1	654	unsupported	non-scalar type Ptr unsupported
+409	Const	REGSTR_VAL_AUTOSEARCH	34341	34439	436	1	657	unsupported	non-scalar type Ptr unsupported
+410	Const	REGSTR_VAL_BACKBITMAP	34440	34537	437	1	660	unsupported	non-scalar type Ptr unsupported
+411	Const	REGSTR_VAL_BACKGROUNDCOLOR	34538	34646	438	1	663	unsupported	non-scalar type Ptr unsupported
+412	Const	REGSTR_VAL_BODYCHARSET	34647	34746	439	1	666	unsupported	non-scalar type Ptr unsupported
+413	Const	REGSTR_VAL_BYPASSAUTOCONFIG	34747	34856	440	1	669	unsupported	non-scalar type Ptr unsupported
+414	Const	REGSTR_VAL_CACHEPREFIX	34857	34956	441	1	672	unsupported	non-scalar type Ptr unsupported
+415	Const	REGSTR_VAL_CHECKASSOC	34957	35062	442	1	675	unsupported	non-scalar type Ptr unsupported
+416	Const	REGSTR_VAL_CODEDOWNLOAD	35063	35165	443	1	678	unsupported	non-scalar type Ptr unsupported
+417	Const	REGSTR_VAL_CODEDOWNLOAD_DEF	35166	35262	444	1	681	unsupported	non-scalar type Ptr unsupported
+418	Const	REGSTR_VAL_CODEPAGE	35263	35356	445	1	684	unsupported	non-scalar type Ptr unsupported
+419	Const	REGSTR_VAL_COVEREXCLUDE	35357	35458	446	1	687	unsupported	non-scalar type Ptr unsupported
+420	Const	REGSTR_VAL_DAYSTOKEEP	35459	35556	447	1	690	unsupported	non-scalar type Ptr unsupported
+421	Const	REGSTR_VAL_DEFAULT_CODEPAGE	35557	35666	448	1	693	unsupported	non-scalar type Ptr unsupported
+422	Const	REGSTR_VAL_DEFAULT_SCRIPT	35667	35772	449	1	696	unsupported	non-scalar type Ptr unsupported
+423	Const	REGSTR_VAL_DEF_ENCODING	35773	35878	450	1	699	unsupported	non-scalar type Ptr unsupported
+424	Const	REGSTR_VAL_DEF_INETENCODING	35879	35996	451	1	702	unsupported	non-scalar type Ptr unsupported
+425	Const	REGSTR_VAL_DESCRIPTION	35997	36096	452	1	705	unsupported	non-scalar type Ptr unsupported
+426	Const	REGSTR_VAL_DIRECTORY	36097	36192	453	1	708	unsupported	non-scalar type Ptr unsupported
+427	Const	REGSTR_VAL_DISCONNECTIDLETIME	36193	36306	454	1	711	unsupported	non-scalar type Ptr unsupported
+428	Const	REGSTR_VAL_ENABLEAUTODIAL	36307	36412	455	1	714	unsupported	non-scalar type Ptr unsupported
+429	Const	REGSTR_VAL_ENABLEAUTODIALDISCONNECT	36413	36534	456	1	717	unsupported	non-scalar type Ptr unsupported
+430	Const	REGSTR_VAL_ENABLEAUTODISCONNECT	36535	36652	457	1	720	unsupported	non-scalar type Ptr unsupported
+431	Const	REGSTR_VAL_ENABLEEXITDISCONNECT	36653	36770	458	1	723	unsupported	non-scalar type Ptr unsupported
+432	Const	REGSTR_VAL_ENABLESECURITYCHECK	36771	36886	459	1	726	unsupported	non-scalar type Ptr unsupported
+433	Const	REGSTR_VAL_ENABLEUNATTENDED	36887	36996	460	1	729	unsupported	non-scalar type Ptr unsupported
+434	Const	REGSTR_VAL_ENCODENAME	36997	37096	461	1	732	unsupported	non-scalar type Ptr unsupported
+435	Const	REGSTR_VAL_FAMILY	37097	37186	462	1	735	unsupported	non-scalar type Ptr unsupported
+436	Const	REGSTR_VAL_FIXEDWIDTHFONT	37187	37292	463	1	738	unsupported	non-scalar type Ptr unsupported
+437	Const	REGSTR_VAL_FIXED_FONT	37293	37395	464	1	741	unsupported	non-scalar type Ptr unsupported
+438	Const	REGSTR_VAL_FONT_SCRIPT	37396	37490	465	1	744	unsupported	non-scalar type Ptr unsupported
+439	Const	REGSTR_VAL_FONT_SCRIPTS	37491	37587	466	1	747	unsupported	non-scalar type Ptr unsupported
+440	Const	REGSTR_VAL_FONT_SCRIPT_NAME	37588	37687	467	1	750	unsupported	non-scalar type Ptr unsupported
+441	Const	REGSTR_VAL_FONT_SIZE	37688	37784	468	1	753	unsupported	non-scalar type Ptr unsupported
+442	Const	REGSTR_VAL_FONT_SIZE_DEF	37785	37832	469	1	756	generated	
+443	Const	REGSTR_VAL_HEADERCHARSET	37833	37936	470	1	757	unsupported	non-scalar type Ptr unsupported
+444	Const	REGSTR_VAL_HTTP_ERRORS	37937	38045	471	1	760	unsupported	non-scalar type Ptr unsupported
+445	Const	REGSTR_VAL_IE_CUSTOMCOLORS	38046	38151	472	1	763	unsupported	non-scalar type Ptr unsupported
+446	Const	REGSTR_VAL_INETCPL_ADVANCEDTAB	38152	38259	473	1	766	unsupported	non-scalar type Ptr unsupported
+447	Const	REGSTR_VAL_INETCPL_CONNECTIONSTAB	38260	38373	474	1	769	unsupported	non-scalar type Ptr unsupported
+448	Const	REGSTR_VAL_INETCPL_CONTENTTAB	38374	38479	475	1	772	unsupported	non-scalar type Ptr unsupported
+449	Const	REGSTR_VAL_INETCPL_GENERALTAB	38480	38585	476	1	775	unsupported	non-scalar type Ptr unsupported
+450	Const	REGSTR_VAL_INETCPL_IEAK	38586	38686	477	1	778	unsupported	non-scalar type Ptr unsupported
+451	Const	REGSTR_VAL_INETCPL_PRIVACYTAB	38687	38792	478	1	781	unsupported	non-scalar type Ptr unsupported
+452	Const	REGSTR_VAL_INETCPL_PROGRAMSTAB	38793	38900	479	1	784	unsupported	non-scalar type Ptr unsupported
+453	Const	REGSTR_VAL_INETCPL_SECURITYTAB	38901	39008	480	1	787	unsupported	non-scalar type Ptr unsupported
+454	Const	REGSTR_VAL_INETENCODING	39009	39114	481	1	790	unsupported	non-scalar type Ptr unsupported
+455	Const	REGSTR_VAL_INTERNETENTRY	39115	39220	482	1	793	unsupported	non-scalar type Ptr unsupported
+456	Const	REGSTR_VAL_INTERNETENTRYBKUP	39221	39336	483	1	796	unsupported	non-scalar type Ptr unsupported
+457	Const	REGSTR_VAL_INTERNETPROFILE	39337	39444	484	1	799	unsupported	non-scalar type Ptr unsupported
+458	Const	REGSTR_VAL_JAVAJIT	39445	39538	485	1	802	unsupported	non-scalar type Ptr unsupported
+459	Const	REGSTR_VAL_JAVAJIT_DEF	39539	39584	486	1	805	generated	
+460	Const	REGSTR_VAL_JAVALOGGING	39585	39686	487	1	806	unsupported	non-scalar type Ptr unsupported
+461	Const	REGSTR_VAL_JAVALOGGING_DEF	39687	39736	488	1	809	generated	
+462	Const	REGSTR_VAL_LEVEL	39737	39824	489	1	810	unsupported	non-scalar type Ptr unsupported
+463	Const	REGSTR_VAL_LOADIMAGES	39825	39933	490	1	813	unsupported	non-scalar type Ptr unsupported
+464	Const	REGSTR_VAL_LOCALPAGE	39934	40030	491	1	816	unsupported	non-scalar type Ptr unsupported
+465	Const	REGSTR_VAL_MOSDISCONNECT	40031	40138	492	1	819	unsupported	non-scalar type Ptr unsupported
+466	Const	REGSTR_VAL_NEWDIRECTORY	40139	40240	493	1	822	unsupported	non-scalar type Ptr unsupported
+467	Const	REGSTR_VAL_NONETAUTODIAL	40241	40344	494	1	825	unsupported	non-scalar type Ptr unsupported
+468	Const	REGSTR_VAL_PLAYSOUNDS	40345	40454	495	1	828	unsupported	non-scalar type Ptr unsupported
+469	Const	REGSTR_VAL_PLAYVIDEOS	40455	40563	496	1	831	unsupported	non-scalar type Ptr unsupported
+470	Const	REGSTR_VAL_PRIVCONVERTER	40564	40667	497	1	834	unsupported	non-scalar type Ptr unsupported
+471	Const	REGSTR_VAL_PROPORTIONALFONT	40668	40777	498	1	837	unsupported	non-scalar type Ptr unsupported
+472	Const	REGSTR_VAL_PROP_FONT	40778	40878	499	1	840	unsupported	non-scalar type Ptr unsupported
+473	Const	REGSTR_VAL_PROXYENABLE	40879	40978	500	1	843	unsupported	non-scalar type Ptr unsupported
+474	Const	REGSTR_VAL_PROXYOVERRIDE	40979	41082	501	1	846	unsupported	non-scalar type Ptr unsupported
+475	Const	REGSTR_VAL_PROXYSERVER	41083	41182	502	1	849	unsupported	non-scalar type Ptr unsupported
+476	Const	REGSTR_VAL_REDIALATTEMPTS	41183	41288	503	1	852	unsupported	non-scalar type Ptr unsupported
+477	Const	REGSTR_VAL_REDIALINTERVAL	41289	41390	504	1	855	unsupported	non-scalar type Ptr unsupported
+478	Const	REGSTR_VAL_RNAINSTALLED	41391	41489	505	1	858	unsupported	non-scalar type Ptr unsupported
+479	Const	REGSTR_VAL_SAFETYWARNINGLEVEL	41490	41605	506	1	861	unsupported	non-scalar type Ptr unsupported
+480	Const	REGSTR_VAL_SCHANNELENABLEPROTOCOL	41606	41712	507	1	864	unsupported	non-scalar type Ptr unsupported
+481	Const	REGSTR_VAL_SCHANNELENABLEPROTOCOL_DEF	41713	41773	508	1	867	generated	
+482	Const	REGSTR_VAL_SCRIPT_FIXED_FONT	41774	41883	509	1	868	unsupported	non-scalar type Ptr unsupported
+483	Const	REGSTR_VAL_SCRIPT_PROP_FONT	41884	41991	510	1	871	unsupported	non-scalar type Ptr unsupported
+484	Const	REGSTR_VAL_SEARCHPAGE	41992	42090	511	1	874	unsupported	non-scalar type Ptr unsupported
+485	Const	REGSTR_VAL_SECURITYACTICEXSCRIPTS	42091	42209	512	1	877	unsupported	non-scalar type Ptr unsupported
+486	Const	REGSTR_VAL_SECURITYACTICEXSCRIPTS_DEF	42210	42270	513	1	880	generated	
+487	Const	REGSTR_VAL_SECURITYACTIVEX	42271	42390	514	1	881	unsupported	non-scalar type Ptr unsupported
+488	Const	REGSTR_VAL_SECURITYACTIVEX_DEF	42391	42444	515	1	884	generated	
+489	Const	REGSTR_VAL_SECURITYALLOWCOOKIES	42445	42554	516	1	885	unsupported	non-scalar type Ptr unsupported
+490	Const	REGSTR_VAL_SECURITYALLOWCOOKIES_DEF	42555	42613	517	1	888	generated	
+491	Const	REGSTR_VAL_SECURITYDISABLECACHINGOFSSLPAGES	42614	42747	518	1	889	unsupported	non-scalar type Ptr unsupported
+492	Const	REGSTR_VAL_SECURITYDISABLECACHINGOFSSLPAGES_DEF	42748	42818	519	1	892	generated	
+493	Const	REGSTR_VAL_SECURITYJAVA	42819	42931	520	1	893	unsupported	non-scalar type Ptr unsupported
+494	Const	REGSTR_VAL_SECURITYJAVA_DEF	42932	42982	521	1	896	generated	
+495	Const	REGSTR_VAL_SECURITYWARNONBADCERTSENDING	42983	43108	522	1	897	unsupported	non-scalar type Ptr unsupported
+496	Const	REGSTR_VAL_SECURITYWARNONBADCERTSENDING_DEF	43109	43175	523	1	900	generated	
+497	Const	REGSTR_VAL_SECURITYWARNONBADCERTVIEWING	43176	43301	524	1	901	unsupported	non-scalar type Ptr unsupported
+498	Const	REGSTR_VAL_SECURITYWARNONBADCERTVIEWING_DEF	43302	43368	525	1	904	generated	
+499	Const	REGSTR_VAL_SECURITYWARNONSEND	43369	43474	526	1	905	unsupported	non-scalar type Ptr unsupported
+500	Const	REGSTR_VAL_SECURITYWARNONSENDALWAYS	43475	43592	527	1	908	unsupported	non-scalar type Ptr unsupported
+501	Const	REGSTR_VAL_SECURITYWARNONSENDALWAYS_DEF	43593	43655	528	1	911	generated	
+502	Const	REGSTR_VAL_SECURITYWARNONSEND_DEF	43656	43712	529	1	912	generated	
+503	Const	REGSTR_VAL_SECURITYWARNONVIEW	43713	43818	530	1	913	unsupported	non-scalar type Ptr unsupported
+504	Const	REGSTR_VAL_SECURITYWARNONVIEW_DEF	43819	43875	531	1	916	generated	
+505	Const	REGSTR_VAL_SECURITYWARNONZONECROSSING	43876	43997	532	1	917	unsupported	non-scalar type Ptr unsupported
+506	Const	REGSTR_VAL_SECURITYWARNONZONECROSSING_DEF	43998	44062	533	1	920	generated	
+507	Const	REGSTR_VAL_SHOWADDRESSBAR	44063	44169	534	1	921	unsupported	non-scalar type Ptr unsupported
+508	Const	REGSTR_VAL_SHOWFOCUS	44170	44275	535	1	924	unsupported	non-scalar type Ptr unsupported
+509	Const	REGSTR_VAL_SHOWFOCUS_DEF	44276	44368	536	1	927	unsupported	non-scalar type Ptr unsupported
+510	Const	REGSTR_VAL_SHOWFULLURLS	44369	44470	537	1	930	unsupported	non-scalar type Ptr unsupported
+511	Const	REGSTR_VAL_SHOWTOOLBAR	44471	44571	538	1	933	unsupported	non-scalar type Ptr unsupported
+512	Const	REGSTR_VAL_SMOOTHSCROLL	44572	44673	539	1	936	unsupported	non-scalar type Ptr unsupported
+513	Const	REGSTR_VAL_SMOOTHSCROLL_DEF	44674	44724	540	1	939	generated	
+514	Const	REGSTR_VAL_STARTPAGE	44725	44821	541	1	940	unsupported	non-scalar type Ptr unsupported
+515	Const	REGSTR_VAL_TEXTCOLOR	44822	44918	542	1	943	unsupported	non-scalar type Ptr unsupported
+516	Const	REGSTR_VAL_TRUSTWARNINGLEVEL_HIGH	44919	45022	543	1	946	unsupported	non-scalar type Ptr unsupported
+517	Const	REGSTR_VAL_TRUSTWARNINGLEVEL_LOW	45023	45132	544	1	949	unsupported	non-scalar type Ptr unsupported
+518	Const	REGSTR_VAL_TRUSTWARNINGLEVEL_MED	45133	45237	545	1	952	unsupported	non-scalar type Ptr unsupported
+519	Const	REGSTR_VAL_USEAUTOAPPEND	45238	45345	546	1	955	unsupported	non-scalar type Ptr unsupported
+520	Const	REGSTR_VAL_USEAUTOCOMPLETE	45346	45454	547	1	958	unsupported	non-scalar type Ptr unsupported
+521	Const	REGSTR_VAL_USEAUTOSUGGEST	45455	45557	548	1	961	unsupported	non-scalar type Ptr unsupported
+522	Const	REGSTR_VAL_USEDLGCOLORS	45558	45664	549	1	964	unsupported	non-scalar type Ptr unsupported
+523	Const	REGSTR_VAL_USEHOVERCOLOR	45665	45777	550	1	967	unsupported	non-scalar type Ptr unsupported
+524	Const	REGSTR_VAL_USEIBAR	45778	45868	551	1	970	unsupported	non-scalar type Ptr unsupported
+525	Const	REGSTR_VAL_USEICM	45869	45958	552	1	973	unsupported	non-scalar type Ptr unsupported
+526	Const	REGSTR_VAL_USEICM_DEF	45959	46003	553	1	976	generated	
+527	Const	REGSTR_VAL_USERAGENT	46004	46100	554	1	977	unsupported	non-scalar type Ptr unsupported
+528	Const	REGSTR_VAL_USESTYLESHEETS	46101	46207	555	1	980	unsupported	non-scalar type Ptr unsupported
+529	Const	REGSTR_VAL_USESTYLESHEETS_DEF	46208	46306	556	1	983	unsupported	non-scalar type Ptr unsupported
+530	Const	REGSTR_VAL_VISIBLEBANDS	46307	46408	557	1	986	unsupported	non-scalar type Ptr unsupported
+531	Const	REGSTR_VAL_VISIBLEBANDS_DEF	46409	46459	558	1	989	generated	
+532	Const	REGSTR_VAL_WEBCHARSET	46460	46557	559	1	990	unsupported	non-scalar type Ptr unsupported
+533	Const	SCMP_BOTTOM	46558	46620	560	1	993	generated	
+534	Const	SCMP_FULL	46621	46681	561	1	994	generated	
+535	Const	SCMP_LEFT	46682	46742	562	1	995	generated	
+536	Const	SCMP_RIGHT	46743	46804	563	1	996	generated	
+537	Const	SCMP_TOP	46805	46864	564	1	997	generated	
+538	ItemType	SCROLLABLECONTEXTMENU_PLACEMENT	46865	46912	565	1	998	generated	
+539	Struct	STATURL	46913	47273	566	1	999	unsupported	declaration Struct has no candidate rule
+540	Impl		47274	47374	577	1	1012	unsupported	declaration Impl has no candidate rule
+541	Const	STATURLFLAG_ISCACHED	47375	47418	582	1	1019	generated	
+542	Const	STATURLFLAG_ISTOPLEVEL	47419	47464	583	1	1020	generated	
+543	Const	STATURL_QUERYFLAG_ISCACHED	47465	47518	584	1	1021	generated	
+544	Const	STATURL_QUERYFLAG_NOTITLE	47519	47572	585	1	1022	generated	
+545	Const	STATURL_QUERYFLAG_NOURL	47573	47624	586	1	1023	generated	
+546	Const	STATURL_QUERYFLAG_TOPLEVEL	47625	47679	587	1	1024	generated	
+547	Const	SURFACE_LOCK_ALLOW_DISCARD	47680	47729	588	1	1025	generated	
+548	Const	SURFACE_LOCK_EXCLUSIVE	47730	47775	589	1	1026	generated	
+549	Const	SURFACE_LOCK_WAIT	47776	47816	590	1	1027	generated	
+550	Const	SZBACKBITMAP	47817	47904	591	1	1028	unsupported	non-scalar type Ptr unsupported
+551	Const	SZJAVAVMPATH	47905	47991	592	1	1031	unsupported	non-scalar type Ptr unsupported
+552	Const	SZNOTEXT	47992	48071	593	1	1034	unsupported	non-scalar type Ptr unsupported
+553	Const	SZTOOLBAR	48072	48155	594	1	1037	unsupported	non-scalar type Ptr unsupported
+554	Const	SZTRUSTWARNLEVEL	48156	48256	595	1	1040	unsupported	non-scalar type Ptr unsupported
+555	Const	SZVISIBLE	48257	48343	596	1	1043	unsupported	non-scalar type Ptr unsupported
+556	Const	SZ_IE_DEFAULT_HTML_EDITOR	48344	48453	597	1	1046	unsupported	non-scalar type Ptr unsupported
+557	Const	SZ_IE_IBAR	48454	48532	598	1	1049	unsupported	non-scalar type Ptr unsupported
+558	Const	SZ_IE_IBAR_BANDS	48533	48619	599	1	1052	unsupported	non-scalar type Ptr unsupported
+559	Const	SZ_IE_MAIN	48620	48699	600	1	1055	unsupported	non-scalar type Ptr unsupported
+560	Const	SZ_IE_SEARCHSTRINGS	48700	48795	601	1	1058	unsupported	non-scalar type Ptr unsupported
+561	Const	SZ_IE_SECURITY	48796	48883	602	1	1061	unsupported	non-scalar type Ptr unsupported
+562	Const	SZ_IE_SETTINGS	48884	48971	603	1	1064	unsupported	non-scalar type Ptr unsupported
+563	Const	SZ_IE_THRESHOLDS	48972	49068	604	1	1067	unsupported	non-scalar type Ptr unsupported
+564	Const	S_SURFACE_DISCARDED	49069	49115	605	1	1070	generated	
+565	Const	TARGET_NOTIFY_OBJECT_NAME	49116	49243	606	1	1071	unsupported	non-scalar type Ptr unsupported
+566	Const	TF_NAVIGATE	49244	49287	607	1	1074	generated	
+567	Const	TIMERMODE_NORMAL	49288	49327	608	1	1075	generated	
+568	Const	TIMERMODE_VISIBILITYAWARE	49328	49376	609	1	1076	generated	
+569	Const	TOOLSBAND	49377	49409	610	1	1077	generated	
+570	Const	TSZCALENDARPROTOCOL	49410	49498	611	1	1078	unsupported	non-scalar type Ptr unsupported
+571	Const	TSZCALLTOPROTOCOL	49499	49588	612	1	1081	unsupported	non-scalar type Ptr unsupported
+572	Const	TSZINTERNETCLIENTSPATH	49589	49721	613	1	1084	unsupported	non-scalar type Ptr unsupported
+573	Const	TSZLDAPPROTOCOL	49722	49807	614	1	1087	unsupported	non-scalar type Ptr unsupported
+574	Const	TSZMAILTOPROTOCOL	49808	49897	615	1	1090	unsupported	non-scalar type Ptr unsupported
+575	Const	TSZMICROSOFTPATH	49898	49999	616	1	1093	unsupported	non-scalar type Ptr unsupported
+576	Const	TSZNEWSPROTOCOL	50000	50085	617	1	1096	unsupported	non-scalar type Ptr unsupported
+577	Const	TSZPROTOCOLSPATH	50086	50179	618	1	1099	unsupported	non-scalar type Ptr unsupported
+578	Const	TSZSCHANNELPATH	50180	50324	619	1	1102	unsupported	non-scalar type Ptr unsupported
+579	Const	TSZVSOURCEPROTOCOL	50325	50420	620	1	1105	unsupported	non-scalar type Ptr unsupported
+580	Const	msodsvFailed	50421	50456	621	1	1108	generated	
+581	Const	msodsvLowSecurityLevel	50457	50502	622	1	1109	generated	
+582	Const	msodsvNoMacros	50503	50540	623	1	1110	generated	
+583	Const	msodsvPassedTrusted	50541	50583	624	1	1111	generated	
+584	Const	msodsvPassedTrustedCert	50584	50630	625	1	1112	generated	
+585	Const	msodsvUnsigned	50631	50668	626	1	1113	generated	
+586	Const	msoedmDisable	50669	50705	627	1	1114	generated	
+587	Const	msoedmDontOpen	50706	50743	628	1	1115	generated	
+588	Const	msoedmEnable	50744	50779	629	1	1116	generated	
+589	Const	msoslHigh	50780	50812	630	1	1117	generated	
+590	Const	msoslMedium	50813	50847	631	1	1118	generated	
+591	Const	msoslNone	50848	50880	632	1	1119	generated	
+592	Const	msoslUndefined	50881	50918	633	1	1120	generated	
+593	Const	wfolders	50919	51040	634	1	1121	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID

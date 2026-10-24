@@ -1,0 +1,1075 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro	GetExtensionVersion	0	125	1	1	2	syntax	External declaration shape only: wire DLL=rpcproxy.dll, ABI=system, export=GetExtensionVersion; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1	Macro	GetFilterVersion	126	251	2	1	7	syntax	External declaration shape only: wire DLL=rpcproxy.dll, ABI=system, export=GetFilterVersion; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+2	Macro	HttpExtensionProc	252	364	3	1	12	syntax	External declaration shape only: wire DLL=rpcproxy.dll, ABI=system, export=HttpExtensionProc; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+3	Macro	HttpFilterProc	365	532	4	1	17	syntax	External declaration shape only: wire DLL=rpcproxy.dll, ABI=system, export=HttpFilterProc; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+4	Const	ADMINDATA_MAX_NAME_LEN	533	580	5	1	22	generated	
+5	Const	ALL_METADATA	581	626	6	1	23	generated	
+6	Const	APPCTR_MD_ID_BEGIN_RESERVED	627	681	7	1	24	generated	
+7	Const	APPCTR_MD_ID_END_RESERVED	682	734	8	1	25	generated	
+8	Const	APPSTATUS_NOTDEFINED	735	778	9	1	26	generated	
+9	Const	APPSTATUS_RUNNING	779	819	10	1	27	generated	
+10	Const	APPSTATUS_STOPPED	820	860	11	1	28	generated	
+11	Const	ASP_MD_ID_BEGIN_RESERVED	861	912	12	1	29	generated	
+12	Const	ASP_MD_ID_END_RESERVED	913	962	13	1	30	generated	
+13	Const	ASP_MD_SERVER_BASE	963	1007	14	1	31	generated	
+14	Const	ASP_MD_UT_APP	1008	1046	15	1	32	generated	
+15	Const	BINARY_METADATA	1047	1095	16	1	33	generated	
+16	Struct	CERT_CONTEXT_EX	1096	1349	17	1	34	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+17	Const	CLSID_IImgCtx	1350	1476	25	1	45	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+18	Const	CLSID_IisServiceControl	1477	1613	26	1	48	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+19	Const	CLSID_MSAdminBase_W	1614	1746	27	1	51	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+20	Const	CLSID_Request	1747	1873	28	1	54	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+21	Const	CLSID_Response	1874	2001	29	1	57	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+22	Const	CLSID_ScriptingContext	2002	2137	30	1	60	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+23	Const	CLSID_Server	2138	2263	31	1	63	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+24	Const	CLSID_Session	2264	2390	32	1	66	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+25	Const	CLSID_WamAdmin	2391	2518	33	1	69	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+26	Struct	CONFIGURATION_ENTRY	2519	2673	34	1	72	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+27	Impl		2674	2786	40	1	81	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+28	Const	DISPID_HTTPREQUEST_ABORT	2787	2835	45	1	88	generated	
+29	Const	DISPID_HTTPREQUEST_BASE	2836	2882	46	1	89	generated	
+30	Const	DISPID_HTTPREQUEST_GETALLRESPONSEHEADERS	2883	2946	47	1	90	generated	
+31	Const	DISPID_HTTPREQUEST_GETRESPONSEHEADER	2947	3006	48	1	91	generated	
+32	Const	DISPID_HTTPREQUEST_OPEN	3007	3053	49	1	92	generated	
+33	Const	DISPID_HTTPREQUEST_OPTION	3054	3102	50	1	93	generated	
+34	Const	DISPID_HTTPREQUEST_RESPONSEBODY	3103	3158	51	1	94	generated	
+35	Const	DISPID_HTTPREQUEST_RESPONSESTREAM	3159	3216	52	1	95	generated	
+36	Const	DISPID_HTTPREQUEST_RESPONSETEXT	3217	3271	53	1	96	generated	
+37	Const	DISPID_HTTPREQUEST_SEND	3272	3318	54	1	97	generated	
+38	Const	DISPID_HTTPREQUEST_SETAUTOLOGONPOLICY	3319	3380	55	1	98	generated	
+39	Const	DISPID_HTTPREQUEST_SETCLIENTCERTIFICATE	3381	3444	56	1	99	generated	
+40	Const	DISPID_HTTPREQUEST_SETCREDENTIALS	3445	3502	57	1	100	generated	
+41	Const	DISPID_HTTPREQUEST_SETPROXY	3503	3554	58	1	101	generated	
+42	Const	DISPID_HTTPREQUEST_SETREQUESTHEADER	3555	3613	59	1	102	generated	
+43	Const	DISPID_HTTPREQUEST_SETTIMEOUTS	3614	3668	60	1	103	generated	
+44	Const	DISPID_HTTPREQUEST_STATUS	3669	3717	61	1	104	generated	
+45	Const	DISPID_HTTPREQUEST_STATUSTEXT	3718	3770	62	1	105	generated	
+46	Const	DISPID_HTTPREQUEST_WAITFORRESPONSE	3771	3829	63	1	106	generated	
+47	Const	DWN_COLORMODE	3830	3867	64	1	107	generated	
+48	Const	DWN_DOWNLOADONLY	3868	3908	65	1	108	generated	
+49	Const	DWN_FORCEDITHER	3909	3949	66	1	109	generated	
+50	Const	DWN_MIRRORIMAGE	3950	3990	67	1	110	generated	
+51	Const	DWN_RAWIMAGE	3991	4028	68	1	111	generated	
+52	Const	DWORD_METADATA	4029	4076	69	1	112	generated	
+53	Const	EXPANDSZ_METADATA	4077	4127	70	1	113	generated	
+54	Struct	EXTENSION_CONTROL_BLOCK	4128	4852	71	1	114	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Rust fixed array length 80 and value/layout semantics require coder integration. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+55	Impl		4853	4969	92	1	140	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+56	Const	FP_MD_ID_BEGIN_RESERVED	4970	5020	97	1	147	generated	
+57	Const	FP_MD_ID_END_RESERVED	5021	5069	98	1	148	generated	
+58	ItemType	FTP_ACCESS	5070	5096	99	1	149	generated	
+59	Const	FTP_ACCESS_NONE	5097	5142	100	1	150	generated	
+60	Const	FTP_ACCESS_READ	5143	5188	101	1	151	generated	
+61	Const	FTP_ACCESS_READ_WRITE	5189	5240	102	1	152	generated	
+62	Const	FTP_ACCESS_WRITE	5241	5287	103	1	153	generated	
+63	Const	FTP_PROCESS_CLOSE_SESSION	5288	5351	104	1	154	generated	
+64	Const	FTP_PROCESS_CONTINUE	5352	5410	105	1	155	generated	
+65	Const	FTP_PROCESS_REJECT_COMMAND	5411	5475	106	1	156	generated	
+66	ItemType	FTP_PROCESS_STATUS	5476	5510	107	1	157	generated	
+67	Const	FTP_PROCESS_TERMINATE_SESSION	5511	5578	108	1	158	generated	
+68	Const	FtpProvider	5579	5703	109	1	159	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+69	Const	GUID_IIS_ALL_TRACE_PROVIDERS	5704	5845	110	1	162	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+70	Const	GUID_IIS_ASPNET_TRACE_PROVIDER	5846	5989	111	1	165	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+71	Const	GUID_IIS_ASP_TRACE_TRACE_PROVIDER	5990	6136	112	1	168	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+72	Const	GUID_IIS_ISAPI_TRACE_PROVIDER	6137	6279	113	1	171	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+73	Const	GUID_IIS_WWW_GLOBAL_TRACE_PROVIDER	6280	6427	114	1	174	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+74	Const	GUID_IIS_WWW_SERVER_TRACE_PROVIDER	6428	6575	115	1	177	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+75	Const	GUID_IIS_WWW_SERVER_V2_TRACE_PROVIDER	6576	6726	116	1	180	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+76	ItemType	HCONN	6727	6767	117	1	183	syntax	Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+77	Const	HSE_APPEND_LOG_PARAMETER	6768	6818	118	1	187	generated	
+78	Const	HSE_APP_FLAG_IN_PROCESS	6819	6865	119	1	188	generated	
+79	Const	HSE_APP_FLAG_ISOLATED_OOP	6866	6914	120	1	189	generated	
+80	Const	HSE_APP_FLAG_POOLED_OOP	6915	6961	121	1	190	generated	
+81	Struct	HSE_CUSTOM_ERROR_INFO	6962	7145	122	1	191	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+82	Impl		7146	7260	129	1	201	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+83	Struct	HSE_EXEC_UNICODE_URL_INFO	7261	7604	134	1	208	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+84	Impl		7605	7723	144	1	222	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+85	Struct	HSE_EXEC_UNICODE_URL_USER_INFO	7724	7971	149	1	229	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+86	Impl		7972	8095	156	1	239	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+87	Const	HSE_EXEC_URL_DISABLE_CUSTOM_ERROR	8096	8153	161	1	246	generated	
+88	Struct	HSE_EXEC_URL_ENTITY_INFO	8154	8294	162	1	247	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+89	Impl		8295	8412	168	1	257	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+90	Const	HSE_EXEC_URL_HTTP_CACHE_ELIGIBLE	8413	8470	173	1	264	generated	
+91	Const	HSE_EXEC_URL_IGNORE_CURRENT_INTERCEPTOR	8471	8533	174	1	265	generated	
+92	Const	HSE_EXEC_URL_IGNORE_VALIDATION_AND_RANGE	8534	8598	175	1	266	generated	
+93	Struct	HSE_EXEC_URL_INFO	8599	8925	176	1	267	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+94	Impl		8926	9036	186	1	281	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+95	Const	HSE_EXEC_URL_NO_HEADERS	9037	9083	191	1	288	generated	
+96	Const	HSE_EXEC_URL_SSI_CMD	9084	9128	192	1	289	generated	
+97	Struct	HSE_EXEC_URL_STATUS	9129	9292	193	1	290	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+98	Struct	HSE_EXEC_URL_USER_INFO	9293	9531	200	1	299	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+99	Impl		9532	9647	207	1	309	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+100	Const	HSE_IO_ASYNC	9648	9683	212	1	316	generated	
+101	Const	HSE_IO_CACHE_RESPONSE	9684	9729	213	1	317	generated	
+102	Const	HSE_IO_DISCONNECT_AFTER_SEND	9730	9781	214	1	318	generated	
+103	Const	HSE_IO_FINAL_SEND	9782	9823	215	1	319	generated	
+104	Const	HSE_IO_NODELAY	9824	9864	216	1	320	generated	
+105	Const	HSE_IO_SEND_HEADERS	9865	9907	217	1	321	generated	
+106	Const	HSE_IO_SYNC	9908	9942	218	1	322	generated	
+107	Const	HSE_IO_TRY_SKIP_CUSTOM_ERRORS	9943	9996	219	1	323	generated	
+108	Const	HSE_LOG_BUFFER_LEN	9997	10039	220	1	324	generated	
+109	Const	HSE_MAX_EXT_DLL_NAME_LEN	10040	10089	221	1	325	generated	
+110	Const	HSE_REQ_ABORTIVE_CLOSE	10090	10138	222	1	326	generated	
+111	Const	HSE_REQ_ASYNC_READ_CLIENT	10139	10190	223	1	327	generated	
+112	Const	HSE_REQ_BASE	10191	10226	224	1	328	generated	
+113	Const	HSE_REQ_CANCEL_IO	10227	10270	225	1	329	generated	
+114	Const	HSE_REQ_CLOSE_CONNECTION	10271	10321	226	1	330	generated	
+115	Const	HSE_REQ_DONE_WITH_SESSION	10322	10370	227	1	331	generated	
+116	Const	HSE_REQ_END_RESERVED	10371	10417	228	1	332	generated	
+117	Const	HSE_REQ_EXEC_UNICODE_URL	10418	10468	229	1	333	generated	
+118	Const	HSE_REQ_EXEC_URL	10469	10511	230	1	334	generated	
+119	Const	HSE_REQ_GET_ANONYMOUS_TOKEN	10512	10565	231	1	335	generated	
+120	Const	HSE_REQ_GET_CACHE_INVALIDATION_CALLBACK	10566	10631	232	1	336	generated	
+121	Const	HSE_REQ_GET_CERT_INFO_EX	10632	10682	233	1	337	generated	
+122	Const	HSE_REQ_GET_CHANNEL_BINDING_TOKEN	10683	10742	234	1	338	generated	
+123	Const	HSE_REQ_GET_CONFIG_OBJECT	10743	10794	235	1	339	generated	
+124	Const	HSE_REQ_GET_EXEC_URL_STATUS	10795	10848	236	1	340	generated	
+125	Const	HSE_REQ_GET_IMPERSONATION_TOKEN	10849	10906	237	1	341	generated	
+126	Const	HSE_REQ_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK	10907	10987	238	1	342	generated	
+127	Const	HSE_REQ_GET_SSPI_INFO	10988	11035	239	1	343	generated	
+128	Const	HSE_REQ_GET_TRACE_INFO	11036	11084	240	1	344	generated	
+129	Const	HSE_REQ_GET_TRACE_INFO_EX	11085	11136	241	1	345	generated	
+130	Const	HSE_REQ_GET_UNICODE_ANONYMOUS_TOKEN	11137	11198	242	1	346	generated	
+131	Const	HSE_REQ_GET_WORKER_PROCESS_SETTINGS	11199	11260	243	1	347	generated	
+132	Const	HSE_REQ_IO_COMPLETION	11261	11308	244	1	348	generated	
+133	Const	HSE_REQ_IS_CONNECTED	11309	11355	245	1	349	generated	
+134	Const	HSE_REQ_IS_IN_PROCESS	11356	11403	246	1	350	generated	
+135	Const	HSE_REQ_IS_KEEP_CONN	11404	11450	247	1	351	generated	
+136	Const	HSE_REQ_MAP_UNICODE_URL_TO_PATH	11451	11508	248	1	352	generated	
+137	Const	HSE_REQ_MAP_UNICODE_URL_TO_PATH_EX	11509	11569	249	1	353	generated	
+138	Const	HSE_REQ_MAP_URL_TO_PATH	11570	11619	250	1	354	generated	
+139	Const	HSE_REQ_MAP_URL_TO_PATH_EX	11620	11672	251	1	355	generated	
+140	Const	HSE_REQ_NORMALIZE_URL	11673	11720	252	1	356	generated	
+141	Const	HSE_REQ_RAISE_TRACE_EVENT	11721	11772	253	1	357	generated	
+142	Const	HSE_REQ_REFRESH_ISAPI_ACL	11773	11824	254	1	358	generated	
+143	Const	HSE_REQ_REPORT_UNHEALTHY	11825	11875	255	1	359	generated	
+144	Const	HSE_REQ_SEND_CUSTOM_ERROR	11876	11927	256	1	360	generated	
+145	Const	HSE_REQ_SEND_RESPONSE_HEADER	11928	11979	257	1	361	generated	
+146	Const	HSE_REQ_SEND_RESPONSE_HEADER_EX	11980	12037	258	1	362	generated	
+147	Const	HSE_REQ_SEND_URL	12038	12077	259	1	363	generated	
+148	Const	HSE_REQ_SEND_URL_REDIRECT_RESP	12078	12131	260	1	364	generated	
+149	Const	HSE_REQ_SET_FLUSH_FLAG	12132	12180	261	1	365	generated	
+150	Const	HSE_REQ_TRANSMIT_FILE	12181	12228	262	1	366	generated	
+151	Const	HSE_REQ_VECTOR_SEND	12229	12274	263	1	367	generated	
+152	Struct	HSE_RESPONSE_VECTOR	12275	12531	264	1	368	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+153	Impl		12532	12644	273	1	381	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+154	Struct	HSE_SEND_HEADER_EX_INFO	12645	12899	278	1	388	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+155	Impl		12900	13016	287	1	400	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+156	Const	HSE_STATUS_ERROR	13017	13056	292	1	407	generated	
+157	Const	HSE_STATUS_PENDING	13057	13098	293	1	408	generated	
+158	Const	HSE_STATUS_SUCCESS	13099	13140	294	1	409	generated	
+159	Const	HSE_STATUS_SUCCESS_AND_KEEP_CONN	13141	13196	295	1	410	generated	
+160	Const	HSE_TERM_ADVISORY_UNLOAD	13197	13244	296	1	411	generated	
+161	Const	HSE_TERM_MUST_UNLOAD	13245	13288	297	1	412	generated	
+162	Struct	HSE_TF_INFO	13289	13728	298	1	413	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+163	Impl		13729	13833	313	1	432	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+164	Struct	HSE_TRACE_INFO	13834	14031	318	1	439	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Rust fixed array length 16 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+165	Impl		14032	14139	326	1	451	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+166	Struct	HSE_UNICODE_URL_MAPEX_INFO	14140	14326	331	1	458	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 260 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+167	Impl		14327	14446	339	1	469	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+168	Const	HSE_URL_FLAGS_DONT_CACHE	14447	14495	344	1	476	generated	
+169	Const	HSE_URL_FLAGS_EXECUTE	14496	14540	345	1	477	generated	
+170	Const	HSE_URL_FLAGS_MAP_CERT	14541	14588	346	1	478	generated	
+171	Const	HSE_URL_FLAGS_MASK	14589	14633	347	1	479	generated	
+172	Const	HSE_URL_FLAGS_NEGO_CERT	14634	14681	348	1	480	generated	
+173	Const	HSE_URL_FLAGS_READ	14682	14723	349	1	481	generated	
+174	Const	HSE_URL_FLAGS_REQUIRE_CERT	14724	14774	350	1	482	generated	
+175	Const	HSE_URL_FLAGS_SCRIPT	14775	14820	351	1	483	generated	
+176	Const	HSE_URL_FLAGS_SSL	14821	14861	352	1	484	generated	
+177	Const	HSE_URL_FLAGS_SSL128	14862	14907	353	1	485	generated	
+178	Const	HSE_URL_FLAGS_WRITE	14908	14950	354	1	486	generated	
+179	Struct	HSE_URL_MAPEX_INFO	14951	15180	355	1	487	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 260 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+180	Impl		15181	15292	365	1	500	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+181	Struct	HSE_VECTOR_ELEMENT	15293	15473	370	1	507	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+182	Impl		15474	15585	378	1	519	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+183	Const	HSE_VECTOR_ELEMENT_TYPE_FILE_HANDLE	15586	15644	383	1	526	generated	
+184	Const	HSE_VECTOR_ELEMENT_TYPE_MEMORY_BUFFER	15645	15705	384	1	527	generated	
+185	Struct	HSE_VERSION_INFO	15706	15842	385	1	528	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 256 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+186	Impl		15843	15952	391	1	537	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+187	Const	HSE_VERSION_MAJOR	15953	15993	396	1	544	generated	
+188	Const	HSE_VERSION_MINOR	15994	16034	397	1	545	generated	
+189	Struct	HTTP_FILTER_ACCESS_DENIED	16035	16225	398	1	546	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+190	Impl		16226	16344	405	1	556	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+191	Struct	HTTP_FILTER_AUTHENT	16345	16555	410	1	563	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+192	Impl		16556	16668	418	1	574	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+193	Struct	HTTP_FILTER_AUTH_COMPLETE_INFO	16669	16959	423	1	581	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+194	Struct	HTTP_FILTER_CONTEXT	16960	17400	434	1	595	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+195	Impl		17401	17513	449	1	614	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+196	Struct	HTTP_FILTER_LOG	17514	18017	454	1	621	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+197	Impl		18018	18126	469	1	639	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+198	Struct	HTTP_FILTER_PREPROC_HEADERS	18127	18340	474	1	646	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+199	Struct	HTTP_FILTER_RAW_DATA	18341	18525	483	1	657	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+200	Impl		18526	18639	491	1	669	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+201	Struct	HTTP_FILTER_URL_MAP	18640	18825	496	1	676	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+202	Impl		18826	18938	503	1	686	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+203	Struct	HTTP_FILTER_URL_MAP_EX	18939	19261	508	1	693	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+204	Impl		19262	19377	519	1	707	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+205	Struct	HTTP_FILTER_VERSION	19378	19569	524	1	714	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 257 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+206	Impl		19570	19682	532	1	725	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+207	Struct	HTTP_TRACE_CONFIGURATION	19683	19910	537	1	732	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+208	Impl		19911	20028	545	1	744	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+209	Struct	HTTP_TRACE_EVENT	20029	20587	550	1	751	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+210	Impl		20588	20697	567	1	772	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+211	Const	HTTP_TRACE_EVENT_FLAG_STATIC_DESCRIPTIVE_FIELDS	20698	20768	572	1	779	generated	
+212	Struct	HTTP_TRACE_EVENT_ITEM	20769	21021	573	1	780	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+213	Impl		21022	21136	582	1	793	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+214	Const	HTTP_TRACE_LEVEL_END	21137	21180	587	1	800	generated	
+215	Const	HTTP_TRACE_LEVEL_START	21181	21226	588	1	801	generated	
+216	ItemType	HTTP_TRACE_TYPE	21227	21258	589	1	802	generated	
+217	Const	HTTP_TRACE_TYPE_BOOL	21259	21315	590	1	803	generated	
+218	Const	HTTP_TRACE_TYPE_BYTE	21316	21372	591	1	804	generated	
+219	Const	HTTP_TRACE_TYPE_CHAR	21373	21429	592	1	805	generated	
+220	Const	HTTP_TRACE_TYPE_LONG	21430	21485	593	1	806	generated	
+221	Const	HTTP_TRACE_TYPE_LONGLONG	21486	21546	594	1	807	generated	
+222	Const	HTTP_TRACE_TYPE_LPCGUID	21547	21606	595	1	808	generated	
+223	Const	HTTP_TRACE_TYPE_LPCSTR	21607	21665	596	1	809	generated	
+224	Const	HTTP_TRACE_TYPE_LPCWSTR	21666	21725	597	1	810	generated	
+225	Const	HTTP_TRACE_TYPE_SHORT	21726	21782	598	1	811	generated	
+226	Const	HTTP_TRACE_TYPE_ULONG	21783	21840	599	1	812	generated	
+227	Const	HTTP_TRACE_TYPE_ULONGLONG	21841	21902	600	1	813	generated	
+228	Const	HTTP_TRACE_TYPE_USHORT	21903	21961	601	1	814	generated	
+229	Const	IISADMIN_EXTENSIONS_CLSID_MD_KEY	21962	22093	602	1	815	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+230	Const	IISADMIN_EXTENSIONS_CLSID_MD_KEYA	22094	22225	603	1	820	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+231	Const	IISADMIN_EXTENSIONS_CLSID_MD_KEYW	22226	22358	604	1	825	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+232	Const	IISADMIN_EXTENSIONS_REG_KEY	22359	22492	605	1	830	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+233	Const	IISADMIN_EXTENSIONS_REG_KEYA	22493	22626	606	1	835	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+234	Const	IISADMIN_EXTENSIONS_REG_KEYW	22627	22761	607	1	840	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+235	Const	IIS_CLASS_CERTMAPPER	22762	22860	608	1	845	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+236	Const	IIS_CLASS_CERTMAPPER_W	22861	22962	609	1	850	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+237	Const	IIS_CLASS_COMPRESS_SCHEME	22963	23073	610	1	855	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+238	Const	IIS_CLASS_COMPRESS_SCHEMES	23074	23186	611	1	860	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+239	Const	IIS_CLASS_COMPRESS_SCHEMES_W	23187	23302	612	1	865	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+240	Const	IIS_CLASS_COMPRESS_SCHEME_W	23303	23416	613	1	870	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+241	Const	IIS_CLASS_COMPUTER	23417	23511	614	1	875	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+242	Const	IIS_CLASS_COMPUTER_W	23512	23609	615	1	880	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+243	Const	IIS_CLASS_FILTER	23610	23700	616	1	885	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+244	Const	IIS_CLASS_FILTERS	23701	23793	617	1	890	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+245	Const	IIS_CLASS_FILTERS_W	23794	23889	618	1	895	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+246	Const	IIS_CLASS_FILTER_W	23890	23983	619	1	900	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+247	Const	IIS_CLASS_FTP_INFO	23984	24077	620	1	905	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+248	Const	IIS_CLASS_FTP_INFO_W	24078	24174	621	1	910	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+249	Const	IIS_CLASS_FTP_SERVER	24175	24272	622	1	915	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+250	Const	IIS_CLASS_FTP_SERVER_W	24273	24373	623	1	920	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+251	Const	IIS_CLASS_FTP_SERVICE	24374	24473	624	1	925	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+252	Const	IIS_CLASS_FTP_SERVICE_W	24474	24576	625	1	930	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+253	Const	IIS_CLASS_FTP_VDIR	24577	24676	626	1	935	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+254	Const	IIS_CLASS_FTP_VDIR_W	24677	24779	627	1	940	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+255	Const	IIS_CLASS_LOG_MODULE	24780	24877	628	1	945	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+256	Const	IIS_CLASS_LOG_MODULES	24878	24977	629	1	950	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+257	Const	IIS_CLASS_LOG_MODULES_W	24978	25080	630	1	955	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+258	Const	IIS_CLASS_LOG_MODULE_W	25081	25181	631	1	960	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+259	Const	IIS_CLASS_MIMEMAP	25182	25274	632	1	965	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+260	Const	IIS_CLASS_MIMEMAP_W	25275	25370	633	1	970	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+261	Const	IIS_CLASS_WEB_DIR	25371	25468	634	1	975	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+262	Const	IIS_CLASS_WEB_DIR_W	25469	25569	635	1	980	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+263	Const	IIS_CLASS_WEB_FILE	25570	25663	636	1	985	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+264	Const	IIS_CLASS_WEB_FILE_W	25664	25760	637	1	990	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+265	Const	IIS_CLASS_WEB_INFO	25761	25854	638	1	995	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+266	Const	IIS_CLASS_WEB_INFO_W	25855	25951	639	1	1000	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+267	Const	IIS_CLASS_WEB_SERVER	25952	26049	640	1	1005	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+268	Const	IIS_CLASS_WEB_SERVER_W	26050	26150	641	1	1010	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+269	Const	IIS_CLASS_WEB_SERVICE	26151	26250	642	1	1015	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+270	Const	IIS_CLASS_WEB_SERVICE_W	26251	26353	643	1	1020	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+271	Const	IIS_CLASS_WEB_VDIR	26354	26453	644	1	1025	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+272	Const	IIS_CLASS_WEB_VDIR_W	26454	26556	645	1	1030	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+273	Const	IIS_MD_ADSI_METAID_BEGIN	26557	26609	646	1	1035	generated	
+274	Const	IIS_MD_ADSI_SCHEMA_PATH_A	26610	26707	647	1	1036	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+275	Const	IIS_MD_ADSI_SCHEMA_PATH_W	26708	26806	648	1	1041	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+276	Const	IIS_MD_APPPOOL_BASE	26807	26852	649	1	1046	generated	
+277	Const	IIS_MD_APP_BASE	26853	26894	650	1	1047	generated	
+278	Const	IIS_MD_FILE_PROP_BASE	26895	26942	651	1	1048	generated	
+279	Const	IIS_MD_FTP_BASE	26943	26984	652	1	1049	generated	
+280	Const	IIS_MD_GLOBAL_BASE	26985	27029	653	1	1050	generated	
+281	Const	IIS_MD_HTTP_BASE	27030	27072	654	1	1051	generated	
+282	Const	IIS_MD_ID_BEGIN_RESERVED	27073	27120	655	1	1052	generated	
+283	Const	IIS_MD_ID_END_RESERVED	27121	27170	656	1	1053	generated	
+284	Const	IIS_MD_INSTANCE_ROOT	27171	27260	657	1	1054	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+285	Const	IIS_MD_ISAPI_FILTERS	27261	27354	658	1	1059	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+286	Const	IIS_MD_LOCAL_MACHINE_PATH	27355	27447	659	1	1064	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+287	Const	IIS_MD_LOGCUSTOM_BASE	27448	27495	660	1	1069	generated	
+288	Const	IIS_MD_LOGCUSTOM_LAST	27496	27543	661	1	1070	generated	
+289	Const	IIS_MD_LOG_BASE	27544	27585	662	1	1071	generated	
+290	Const	IIS_MD_LOG_LAST	27586	27627	663	1	1072	generated	
+291	Const	IIS_MD_SERVER_BASE	27628	27672	664	1	1073	generated	
+292	Const	IIS_MD_SSL_BASE	27673	27714	665	1	1074	generated	
+293	Const	IIS_MD_SVC_INFO_PATH	27715	27804	666	1	1075	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+294	Const	IIS_MD_UT_END_RESERVED	27805	27853	667	1	1080	generated	
+295	Const	IIS_MD_UT_FILE	27854	27891	668	1	1081	generated	
+296	Const	IIS_MD_UT_SERVER	27892	27931	669	1	1082	generated	
+297	Const	IIS_MD_UT_WAM	27932	27970	670	1	1083	generated	
+298	Const	IIS_MD_VR_BASE	27971	28011	671	1	1084	generated	
+299	Const	IIS_WEBSOCKET	28012	28101	672	1	1085	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+300	Const	IIS_WEBSOCKET_SERVER_VARIABLE	28102	28207	673	1	1090	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+301	Const	IMAP_MD_ID_BEGIN_RESERVED	28208	28260	674	1	1095	generated	
+302	Const	IMAP_MD_ID_END_RESERVED	28261	28311	675	1	1096	generated	
+303	Const	IMGANIM_ANIMATED	28312	28359	676	1	1097	generated	
+304	Const	IMGANIM_MASK	28360	28403	677	1	1098	generated	
+305	Const	IMGBITS_MASK	28404	28447	678	1	1099	generated	
+306	Const	IMGBITS_NONE	28448	28490	679	1	1100	generated	
+307	Const	IMGBITS_PARTIAL	28491	28536	680	1	1101	generated	
+308	Const	IMGBITS_TOTAL	28537	28581	681	1	1102	generated	
+309	Const	IMGCHG_ANIMATE	28582	28619	682	1	1103	generated	
+310	Const	IMGCHG_COMPLETE	28620	28658	683	1	1104	generated	
+311	Const	IMGCHG_MASK	28659	28694	684	1	1105	generated	
+312	Const	IMGCHG_SIZE	28695	28729	685	1	1106	generated	
+313	Const	IMGCHG_VIEW	28730	28764	686	1	1107	generated	
+314	Const	IMGLOAD_COMPLETE	28765	28811	687	1	1108	generated	
+315	Const	IMGLOAD_ERROR	28812	28854	688	1	1109	generated	
+316	Const	IMGLOAD_LOADING	28855	28899	689	1	1110	generated	
+317	Const	IMGLOAD_MASK	28900	28942	690	1	1111	generated	
+318	Const	IMGLOAD_NOTLOADED	28943	28989	691	1	1112	generated	
+319	Const	IMGLOAD_STOPPED	28990	29034	692	1	1113	generated	
+320	Const	IMGTRANS_MASK	29035	29079	693	1	1114	generated	
+321	Const	IMGTRANS_OPAQUE	29080	29126	694	1	1115	generated	
+322	Const	INVALID_END_METADATA	29127	29180	695	1	1116	generated	
+323	Const	LIBID_ASPTypeLibrary	29181	29314	696	1	1117	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+324	Const	LIBID_IISRSTALib	29315	29444	697	1	1120	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+325	Const	LIBID_WAMREGLib	29445	29573	698	1	1123	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+326	Struct	LOGGING_PARAMETERS	29574	30388	699	1	1126	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+327	Impl		30389	30500	721	1	1151	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+328	Const	MB_DONT_IMPERSONATE	30501	30546	726	1	1158	generated	
+329	Const	MD_ACCESS_EXECUTE	30547	30587	727	1	1159	generated	
+330	Const	MD_ACCESS_MAP_CERT	30588	30631	728	1	1160	generated	
+331	Const	MD_ACCESS_MASK	30632	30673	729	1	1161	generated	
+332	Const	MD_ACCESS_NEGO_CERT	30674	30717	730	1	1162	generated	
+333	Const	MD_ACCESS_NO_PHYSICAL_DIR	30718	30770	731	1	1163	generated	
+334	Const	MD_ACCESS_NO_REMOTE_EXECUTE	30771	30824	732	1	1164	generated	
+335	Const	MD_ACCESS_NO_REMOTE_READ	30825	30875	733	1	1165	generated	
+336	Const	MD_ACCESS_NO_REMOTE_SCRIPT	30876	30929	734	1	1166	generated	
+337	Const	MD_ACCESS_NO_REMOTE_WRITE	30930	30981	735	1	1167	generated	
+338	Const	MD_ACCESS_PERM	30982	31022	736	1	1168	generated	
+339	Const	MD_ACCESS_READ	31023	31060	737	1	1169	generated	
+340	Const	MD_ACCESS_REQUIRE_CERT	31061	31107	738	1	1170	generated	
+341	Const	MD_ACCESS_SCRIPT	31108	31149	739	1	1171	generated	
+342	Const	MD_ACCESS_SOURCE	31150	31190	740	1	1172	generated	
+343	Const	MD_ACCESS_SSL	31191	31227	741	1	1173	generated	
+344	Const	MD_ACCESS_SSL128	31228	31269	742	1	1174	generated	
+345	Const	MD_ACCESS_WRITE	31270	31308	743	1	1175	generated	
+346	Const	MD_ACR_ENUM_KEYS	31309	31348	744	1	1176	generated	
+347	Const	MD_ACR_READ	31349	31383	745	1	1177	generated	
+348	Const	MD_ACR_RESTRICTED_WRITE	31384	31431	746	1	1178	generated	
+349	Const	MD_ACR_UNSECURE_PROPS_READ	31432	31483	747	1	1179	generated	
+350	Const	MD_ACR_WRITE	31484	31519	748	1	1180	generated	
+351	Const	MD_ACR_WRITE_DAC	31520	31564	749	1	1181	generated	
+352	Const	MD_ADMIN_ACL	31565	31603	750	1	1182	generated	
+353	Const	MD_ADMIN_INSTANCE	31604	31647	751	1	1183	generated	
+354	Const	MD_ADV_CACHE_TTL	31648	31690	752	1	1184	generated	
+355	Const	MD_ADV_NOTIFY_PWD_EXP_IN_DAYS	31691	31746	753	1	1185	generated	
+356	Const	MD_AD_CONNECTIONS_PASSWORD	31747	31799	754	1	1186	generated	
+357	Const	MD_AD_CONNECTIONS_USERNAME	31800	31852	755	1	1187	generated	
+358	Const	MD_ALLOW_ANONYMOUS	31853	31897	756	1	1188	generated	
+359	Const	MD_ALLOW_KEEPALIVES	31898	31943	757	1	1189	generated	
+360	Const	MD_ALLOW_PATH_INFO_FOR_SCRIPT_MAPPINGS	31944	32008	758	1	1190	generated	
+361	Const	MD_ALLOW_REPLACE_ON_RENAME	32009	32061	759	1	1191	generated	
+362	Const	MD_ANONYMOUS_ONLY	32062	32105	760	1	1192	generated	
+363	Const	MD_ANONYMOUS_PWD	32106	32148	761	1	1193	generated	
+364	Const	MD_ANONYMOUS_USER_NAME	32149	32197	762	1	1194	generated	
+365	Const	MD_ANONYMOUS_USE_SUBAUTH	32198	32248	763	1	1195	generated	
+366	Const	MD_APPPOOL_32_BIT_APP_ON_WIN64	32249	32305	764	1	1196	generated	
+367	Const	MD_APPPOOL_ALLOW_TRANSIENT_REGISTRATION	32306	32371	765	1	1197	generated	
+368	Const	MD_APPPOOL_APPPOOL_ID	32372	32419	766	1	1198	generated	
+369	Const	MD_APPPOOL_AUTO_SHUTDOWN_EXE	32420	32474	767	1	1199	generated	
+370	Const	MD_APPPOOL_AUTO_SHUTDOWN_PARAMS	32475	32532	768	1	1200	generated	
+371	Const	MD_APPPOOL_AUTO_START	32533	32580	769	1	1201	generated	
+372	Const	MD_APPPOOL_COMMAND	32581	32625	770	1	1202	generated	
+373	Const	MD_APPPOOL_COMMAND_START	32626	32673	771	1	1203	generated	
+374	Const	MD_APPPOOL_COMMAND_STOP	32674	32720	772	1	1204	generated	
+375	Const	MD_APPPOOL_DISALLOW_OVERLAPPING_ROTATION	32721	32787	773	1	1205	generated	
+376	Const	MD_APPPOOL_DISALLOW_ROTATION_ON_CONFIG_CHANGE	32788	32859	774	1	1206	generated	
+377	Const	MD_APPPOOL_EMULATION_ON_WINARM64	32860	32918	775	1	1207	generated	
+378	Const	MD_APPPOOL_IDENTITY_TYPE	32919	32969	776	1	1208	generated	
+379	Const	MD_APPPOOL_IDENTITY_TYPE_LOCALSERVICE	32970	33030	777	1	1209	generated	
+380	Const	MD_APPPOOL_IDENTITY_TYPE_LOCALSYSTEM	33031	33090	778	1	1210	generated	
+381	Const	MD_APPPOOL_IDENTITY_TYPE_NETWORKSERVICE	33091	33153	779	1	1211	generated	
+382	Const	MD_APPPOOL_IDENTITY_TYPE_SPECIFICUSER	33154	33214	780	1	1212	generated	
+383	Const	MD_APPPOOL_IDLE_TIMEOUT	33215	33264	781	1	1213	generated	
+384	Const	MD_APPPOOL_MANAGED_PIPELINE_MODE	33265	33323	782	1	1214	generated	
+385	Const	MD_APPPOOL_MANAGED_RUNTIME_VERSION	33324	33384	783	1	1215	generated	
+386	Const	MD_APPPOOL_MAX_PROCESS_COUNT	33385	33439	784	1	1216	generated	
+387	Const	MD_APPPOOL_ORPHAN_ACTION_EXE	33440	33494	785	1	1217	generated	
+388	Const	MD_APPPOOL_ORPHAN_ACTION_PARAMS	33495	33552	786	1	1218	generated	
+389	Const	MD_APPPOOL_ORPHAN_PROCESSES_FOR_DEBUGGING	33553	33620	787	1	1219	generated	
+390	Const	MD_APPPOOL_PERIODIC_RESTART_CONNECTIONS	33621	33686	788	1	1220	generated	
+391	Const	MD_APPPOOL_PERIODIC_RESTART_MEMORY	33687	33747	789	1	1221	generated	
+392	Const	MD_APPPOOL_PERIODIC_RESTART_PRIVATE_MEMORY	33748	33816	790	1	1222	generated	
+393	Const	MD_APPPOOL_PERIODIC_RESTART_REQUEST_COUNT	33817	33884	791	1	1223	generated	
+394	Const	MD_APPPOOL_PERIODIC_RESTART_SCHEDULE	33885	33947	792	1	1224	generated	
+395	Const	MD_APPPOOL_PERIODIC_RESTART_TIME	33948	34006	793	1	1225	generated	
+396	Const	MD_APPPOOL_PINGING_ENABLED	34007	34059	794	1	1226	generated	
+397	Const	MD_APPPOOL_PING_INTERVAL	34060	34110	795	1	1227	generated	
+398	Const	MD_APPPOOL_PING_RESPONSE_TIMELIMIT	34111	34171	796	1	1228	generated	
+399	Const	MD_APPPOOL_RAPID_FAIL_PROTECTION_ENABLED	34172	34238	797	1	1229	generated	
+400	Const	MD_APPPOOL_SHUTDOWN_TIMELIMIT	34239	34294	798	1	1230	generated	
+401	Const	MD_APPPOOL_SMP_AFFINITIZED	34295	34347	799	1	1231	generated	
+402	Const	MD_APPPOOL_SMP_AFFINITIZED_PROCESSOR_MASK	34348	34415	800	1	1232	generated	
+403	Const	MD_APPPOOL_STARTUP_TIMELIMIT	34416	34470	801	1	1233	generated	
+404	Const	MD_APPPOOL_STATE	34471	34513	802	1	1234	generated	
+405	Const	MD_APPPOOL_STATE_STARTED	34514	34561	803	1	1235	generated	
+406	Const	MD_APPPOOL_STATE_STARTING	34562	34610	804	1	1236	generated	
+407	Const	MD_APPPOOL_STATE_STOPPED	34611	34658	805	1	1237	generated	
+408	Const	MD_APPPOOL_STATE_STOPPING	34659	34707	806	1	1238	generated	
+409	Const	MD_APPPOOL_UL_APPPOOL_QUEUE_LENGTH	34708	34768	807	1	1239	generated	
+410	Const	MD_APP_ALLOW_TRANSIENT_REGISTRATION	34769	34830	808	1	1240	generated	
+411	Const	MD_APP_APPPOOL_ID	34831	34874	809	1	1241	generated	
+412	Const	MD_APP_AUTO_START	34875	34918	810	1	1242	generated	
+413	Const	MD_APP_DEPENDENCIES	34919	34964	811	1	1243	generated	
+414	Const	MD_APP_FRIENDLY_NAME	34965	35011	812	1	1244	generated	
+415	Const	MD_APP_ISOLATED	35012	35053	813	1	1245	generated	
+416	Const	MD_APP_OOP_RECOVER_LIMIT	35054	35104	814	1	1246	generated	
+417	Const	MD_APP_PACKAGE_ID	35105	35148	815	1	1247	generated	
+418	Const	MD_APP_PACKAGE_NAME	35149	35194	816	1	1248	generated	
+419	Const	MD_APP_PERIODIC_RESTART_REQUESTS	35195	35253	817	1	1249	generated	
+420	Const	MD_APP_PERIODIC_RESTART_SCHEDULE	35254	35312	818	1	1250	generated	
+421	Const	MD_APP_PERIODIC_RESTART_TIME	35313	35367	819	1	1251	generated	
+422	Const	MD_APP_POOL_LOG_EVENT_ON_PROCESSMODEL	35368	35431	820	1	1252	generated	
+423	Const	MD_APP_POOL_LOG_EVENT_ON_RECYCLE	35432	35490	821	1	1253	generated	
+424	Const	MD_APP_POOL_PROCESSMODEL_IDLE_TIMEOUT	35491	35551	822	1	1254	generated	
+425	Const	MD_APP_POOL_RECYCLE_CONFIG_CHANGE	35552	35609	823	1	1255	generated	
+426	Const	MD_APP_POOL_RECYCLE_ISAPI_UNHEALTHY	35610	35669	824	1	1256	generated	
+427	Const	MD_APP_POOL_RECYCLE_MEMORY	35670	35719	825	1	1257	generated	
+428	Const	MD_APP_POOL_RECYCLE_ON_DEMAND	35720	35773	826	1	1258	generated	
+429	Const	MD_APP_POOL_RECYCLE_PRIVATE_MEMORY	35774	35833	827	1	1259	generated	
+430	Const	MD_APP_POOL_RECYCLE_REQUESTS	35834	35885	828	1	1260	generated	
+431	Const	MD_APP_POOL_RECYCLE_SCHEDULE	35886	35937	829	1	1261	generated	
+432	Const	MD_APP_POOL_RECYCLE_TIME	35938	35985	830	1	1262	generated	
+433	Const	MD_APP_ROOT	35986	36023	831	1	1263	generated	
+434	Const	MD_APP_SHUTDOWN_TIME_LIMIT	36024	36076	832	1	1264	generated	
+435	Const	MD_APP_TRACE_URL_LIST	36077	36124	833	1	1265	generated	
+436	Const	MD_APP_WAM_CLSID	36125	36167	834	1	1266	generated	
+437	Const	MD_ASP_ALLOWOUTOFPROCCMPNTS	36168	36221	835	1	1267	generated	
+438	Const	MD_ASP_ALLOWOUTOFPROCCOMPONENTS	36222	36279	836	1	1268	generated	
+439	Const	MD_ASP_ALLOWSESSIONSTATE	36280	36330	837	1	1269	generated	
+440	Const	MD_ASP_BUFFERINGON	36331	36375	838	1	1270	generated	
+441	Const	MD_ASP_BUFFER_LIMIT	36376	36421	839	1	1271	generated	
+442	Const	MD_ASP_CALCLINENUMBER	36422	36469	840	1	1272	generated	
+443	Const	MD_ASP_CODEPAGE	36470	36511	841	1	1273	generated	
+444	Const	MD_ASP_DISKTEMPLATECACHEDIRECTORY	36512	36571	842	1	1274	generated	
+445	Const	MD_ASP_ENABLEAPPLICATIONRESTART	36572	36629	843	1	1275	generated	
+446	Const	MD_ASP_ENABLEASPHTMLFALLBACK	36630	36684	844	1	1276	generated	
+447	Const	MD_ASP_ENABLECHUNKEDENCODING	36685	36739	845	1	1277	generated	
+448	Const	MD_ASP_ENABLECLIENTDEBUG	36740	36790	846	1	1278	generated	
+449	Const	MD_ASP_ENABLEPARENTPATHS	36791	36841	847	1	1279	generated	
+450	Const	MD_ASP_ENABLESERVERDEBUG	36842	36892	848	1	1280	generated	
+451	Const	MD_ASP_ENABLETYPELIBCACHE	36893	36944	849	1	1281	generated	
+452	Const	MD_ASP_ERRORSTONTLOG	36945	36991	850	1	1282	generated	
+453	Const	MD_ASP_EXCEPTIONCATCHENABLE	36992	37045	851	1	1283	generated	
+454	Const	MD_ASP_EXECUTEINMTA	37046	37091	852	1	1284	generated	
+455	Const	MD_ASP_ID_LAST	37092	37132	853	1	1285	generated	
+456	Const	MD_ASP_KEEPSESSIONIDSECURE	37133	37185	854	1	1286	generated	
+457	Const	MD_ASP_LCID	37186	37223	855	1	1287	generated	
+458	Const	MD_ASP_LOGERRORREQUESTS	37224	37273	856	1	1288	generated	
+459	Const	MD_ASP_MAXDISKTEMPLATECACHEFILES	37274	37332	857	1	1289	generated	
+460	Const	MD_ASP_MAXREQUESTENTITY	37333	37382	858	1	1290	generated	
+461	Const	MD_ASP_MAX_REQUEST_ENTITY_ALLOWED	37383	37442	859	1	1291	generated	
+462	Const	MD_ASP_MEMFREEFACTOR	37443	37489	860	1	1292	generated	
+463	Const	MD_ASP_MINUSEDBLOCKS	37490	37536	861	1	1293	generated	
+464	Const	MD_ASP_PROCESSORTHREADMAX	37537	37588	862	1	1294	generated	
+465	Const	MD_ASP_QUEUECONNECTIONTESTTIME	37589	37645	863	1	1295	generated	
+466	Const	MD_ASP_QUEUETIMEOUT	37646	37691	864	1	1296	generated	
+467	Const	MD_ASP_REQEUSTQUEUEMAX	37692	37740	865	1	1297	generated	
+468	Const	MD_ASP_RUN_ONEND_ANON	37741	37788	866	1	1298	generated	
+469	Const	MD_ASP_SCRIPTENGINECACHEMAX	37789	37842	867	1	1299	generated	
+470	Const	MD_ASP_SCRIPTERRORMESSAGE	37843	37894	868	1	1300	generated	
+471	Const	MD_ASP_SCRIPTERRORSSENTTOBROWSER	37895	37953	869	1	1301	generated	
+472	Const	MD_ASP_SCRIPTFILECACHESIZE	37954	38006	870	1	1302	generated	
+473	Const	MD_ASP_SCRIPTLANGUAGE	38007	38054	871	1	1303	generated	
+474	Const	MD_ASP_SCRIPTLANGUAGELIST	38055	38106	872	1	1304	generated	
+475	Const	MD_ASP_SCRIPTTIMEOUT	38107	38153	873	1	1305	generated	
+476	Const	MD_ASP_SERVICE_ENABLE_SXS	38154	38202	874	1	1306	generated	
+477	Const	MD_ASP_SERVICE_ENABLE_TRACKER	38203	38255	875	1	1307	generated	
+478	Const	MD_ASP_SERVICE_FLAGS	38256	38302	876	1	1308	generated	
+479	Const	MD_ASP_SERVICE_FLAG_FUSION	38303	38355	877	1	1309	generated	
+480	Const	MD_ASP_SERVICE_FLAG_PARTITIONS	38356	38412	878	1	1310	generated	
+481	Const	MD_ASP_SERVICE_FLAG_TRACKER	38413	38466	879	1	1311	generated	
+482	Const	MD_ASP_SERVICE_PARTITION_ID	38467	38520	880	1	1312	generated	
+483	Const	MD_ASP_SERVICE_SXS_NAME	38521	38570	881	1	1313	generated	
+484	Const	MD_ASP_SERVICE_USE_PARTITION	38571	38622	882	1	1314	generated	
+485	Const	MD_ASP_SESSIONMAX	38623	38666	883	1	1315	generated	
+486	Const	MD_ASP_SESSIONTIMEOUT	38667	38714	884	1	1316	generated	
+487	Const	MD_ASP_THREADGATEENABLED	38715	38765	885	1	1317	generated	
+488	Const	MD_ASP_THREADGATELOADHIGH	38766	38817	886	1	1318	generated	
+489	Const	MD_ASP_THREADGATELOADLOW	38818	38868	887	1	1319	generated	
+490	Const	MD_ASP_THREADGATESLEEPDELAY	38869	38922	888	1	1320	generated	
+491	Const	MD_ASP_THREADGATESLEEPMAX	38923	38974	889	1	1321	generated	
+492	Const	MD_ASP_THREADGATETIMESLICE	38975	39027	890	1	1322	generated	
+493	Const	MD_ASP_TRACKTHREADINGMODEL	39028	39080	891	1	1323	generated	
+494	Const	MD_AUTHORIZATION	39081	39123	892	1	1324	generated	
+495	Const	MD_AUTHORIZATION_PERSISTENCE	39124	39178	893	1	1325	generated	
+496	Const	MD_AUTH_ADVNOTIFY_DISABLE	39179	39227	894	1	1326	generated	
+497	Const	MD_AUTH_ANONYMOUS	39228	39268	895	1	1327	generated	
+498	Const	MD_AUTH_BASIC	39269	39305	896	1	1328	generated	
+499	Const	MD_AUTH_CHANGE_DISABLE	39306	39351	897	1	1329	generated	
+500	Const	MD_AUTH_CHANGE_FLAGS	39352	39398	898	1	1330	generated	
+501	Const	MD_AUTH_CHANGE_UNSECURE	39399	39445	899	1	1331	generated	
+502	Const	MD_AUTH_CHANGE_URL	39446	39490	900	1	1332	generated	
+503	Const	MD_AUTH_EXPIRED_UNSECUREURL	39491	39544	901	1	1333	generated	
+504	Const	MD_AUTH_EXPIRED_URL	39545	39590	902	1	1334	generated	
+505	Const	MD_AUTH_MD5	39591	39626	903	1	1335	generated	
+506	Const	MD_AUTH_NT	39627	39660	904	1	1336	generated	
+507	Const	MD_AUTH_PASSPORT	39661	39701	905	1	1337	generated	
+508	Const	MD_AUTH_SINGLEREQUEST	39702	39747	906	1	1338	generated	
+509	Const	MD_AUTH_SINGLEREQUESTALWAYSIFPROXY	39748	39807	907	1	1339	generated	
+510	Const	MD_AUTH_SINGLEREQUESTIFPROXY	39808	39861	908	1	1340	generated	
+511	Const	MD_BACKUP_FORCE_BACKUP	39862	39907	909	1	1341	generated	
+512	Const	MD_BACKUP_HIGHEST_VERSION	39908	39965	910	1	1342	generated	
+513	Const	MD_BACKUP_MAX_LEN	39966	40008	911	1	1343	generated	
+514	Const	MD_BACKUP_MAX_VERSION	40009	40056	912	1	1344	generated	
+515	Const	MD_BACKUP_NEXT_VERSION	40057	40111	913	1	1345	generated	
+516	Const	MD_BACKUP_OVERWRITE	40112	40154	914	1	1346	generated	
+517	Const	MD_BACKUP_SAVE_FIRST	40155	40198	915	1	1347	generated	
+518	Const	MD_BANNER_MESSAGE	40199	40242	916	1	1348	generated	
+519	Const	MD_BINDINGS	40243	40280	917	1	1349	generated	
+520	Const	MD_CACHE_EXTENSIONS	40281	40326	918	1	1350	generated	
+521	Const	MD_CAL_AUTH_RESERVE_TIMEOUT	40327	40380	919	1	1351	generated	
+522	Const	MD_CAL_SSL_RESERVE_TIMEOUT	40381	40433	920	1	1352	generated	
+523	Const	MD_CAL_VC_PER_CONNECT	40434	40481	921	1	1353	generated	
+524	Const	MD_CAL_W3_ERROR	40482	40523	922	1	1354	generated	
+525	Const	MD_CC_MAX_AGE	40524	40563	923	1	1355	generated	
+526	Const	MD_CC_NO_CACHE	40564	40604	924	1	1356	generated	
+527	Const	MD_CC_OTHER	40605	40642	925	1	1357	generated	
+528	Const	MD_CENTRAL_W3C_LOGGING_ENABLED	40643	40699	926	1	1358	generated	
+529	Const	MD_CERT_CACHE_RETRIEVAL_ONLY	40700	40751	927	1	1359	generated	
+530	Const	MD_CERT_CHECK_REVOCATION_FRESHNESS_TIME	40752	40814	928	1	1360	generated	
+531	Const	MD_CERT_NO_REVOC_CHECK	40815	40860	929	1	1361	generated	
+532	Const	MD_CERT_NO_USAGE_CHECK	40861	40910	930	1	1362	generated	
+533	Const	MD_CGI_RESTRICTION_LIST	40911	40960	931	1	1363	generated	
+534	Struct	MD_CHANGE_OBJECT_W	40961	41163	932	1	1364	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+535	Impl		41164	41275	940	1	1376	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+536	Const	MD_CHANGE_TYPE_ADD_OBJECT	41276	41324	945	1	1383	generated	
+537	Const	MD_CHANGE_TYPE_DELETE_DATA	41325	41374	946	1	1384	generated	
+538	Const	MD_CHANGE_TYPE_DELETE_OBJECT	41375	41426	947	1	1385	generated	
+539	Const	MD_CHANGE_TYPE_RENAME_OBJECT	41427	41479	948	1	1386	generated	
+540	Const	MD_CHANGE_TYPE_RESTORE	41480	41526	949	1	1387	generated	
+541	Const	MD_CHANGE_TYPE_SET_DATA	41527	41573	950	1	1388	generated	
+542	Const	MD_COMMENTS	41574	41611	951	1	1389	generated	
+543	Const	MD_CONNECTION_TIMEOUT	41612	41659	952	1	1390	generated	
+544	Const	MD_CPU_ACTION	41660	41699	953	1	1391	generated	
+545	Const	MD_CPU_APP_ENABLED	41700	41744	954	1	1392	generated	
+546	Const	MD_CPU_CGI_ENABLED	41745	41789	955	1	1393	generated	
+547	Const	MD_CPU_CGI_LIMIT	41790	41832	956	1	1394	generated	
+548	Const	MD_CPU_DISABLE_ALL_LOGGING	41833	41882	957	1	1395	generated	
+549	Const	MD_CPU_ENABLE_ACTIVE_PROCS	41883	41933	958	1	1396	generated	
+550	Const	MD_CPU_ENABLE_ALL_PROC_LOGGING	41934	41987	959	1	1397	generated	
+551	Const	MD_CPU_ENABLE_APP_LOGGING	41988	42036	960	1	1398	generated	
+552	Const	MD_CPU_ENABLE_CGI_LOGGING	42037	42085	961	1	1399	generated	
+553	Const	MD_CPU_ENABLE_EVENT	42086	42128	962	1	1400	generated	
+554	Const	MD_CPU_ENABLE_KERNEL_TIME	42129	42177	963	1	1401	generated	
+555	Const	MD_CPU_ENABLE_LOGGING	42178	42231	964	1	1402	generated	
+556	Const	MD_CPU_ENABLE_PAGE_FAULTS	42232	42281	965	1	1403	generated	
+557	Const	MD_CPU_ENABLE_PROC_TYPE	42282	42328	966	1	1404	generated	
+558	Const	MD_CPU_ENABLE_TERMINATED_PROCS	42329	42384	967	1	1405	generated	
+559	Const	MD_CPU_ENABLE_TOTAL_PROCS	42385	42434	968	1	1406	generated	
+560	Const	MD_CPU_ENABLE_USER_TIME	42435	42481	969	1	1407	generated	
+561	Const	MD_CPU_KILL_W3WP	42482	42521	970	1	1408	generated	
+562	Const	MD_CPU_LIMIT	42522	42560	971	1	1409	generated	
+563	Const	MD_CPU_LIMITS_ENABLED	42561	42608	972	1	1410	generated	
+564	Const	MD_CPU_LIMIT_LOGEVENT	42609	42656	973	1	1411	generated	
+565	Const	MD_CPU_LIMIT_PAUSE	42657	42701	974	1	1412	generated	
+566	Const	MD_CPU_LIMIT_PRIORITY	42702	42749	975	1	1413	generated	
+567	Const	MD_CPU_LIMIT_PROCSTOP	42750	42797	976	1	1414	generated	
+568	Const	MD_CPU_LOGGING_INTERVAL	42798	42847	977	1	1415	generated	
+569	Const	MD_CPU_LOGGING_MASK	42848	42893	978	1	1416	generated	
+570	Const	MD_CPU_LOGGING_OPTIONS	42894	42942	979	1	1417	generated	
+571	Const	MD_CPU_NO_ACTION	42943	42982	980	1	1418	generated	
+572	Const	MD_CPU_RESET_INTERVAL	42983	43030	981	1	1419	generated	
+573	Const	MD_CPU_THROTTLE	43031	43069	982	1	1420	generated	
+574	Const	MD_CPU_TRACE	43070	43105	983	1	1421	generated	
+575	Const	MD_CREATE_PROCESS_AS_USER	43106	43157	984	1	1422	generated	
+576	Const	MD_CREATE_PROC_NEW_CONSOLE	43158	43210	985	1	1423	generated	
+577	Const	MD_CUSTOM_DEPLOYMENT_DATA	43211	43262	986	1	1424	generated	
+578	Const	MD_CUSTOM_ERROR	43263	43304	987	1	1425	generated	
+579	Const	MD_CUSTOM_ERROR_DESC	43305	43351	988	1	1426	generated	
+580	Const	MD_DEFAULT_BACKUP_LOCATION	43352	43452	989	1	1427	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+581	Const	MD_DEFAULT_LOAD_FILE	43453	43499	990	1	1432	generated	
+582	Const	MD_DEFAULT_LOGON_DOMAIN	43500	43549	991	1	1433	generated	
+583	Const	MD_DEMAND_START_THRESHOLD	43550	43601	992	1	1434	generated	
+584	Const	MD_DIRBROW_ENABLED	43602	43652	993	1	1435	generated	
+585	Const	MD_DIRBROW_LOADDEFAULT	43653	43707	994	1	1436	generated	
+586	Const	MD_DIRBROW_LONG_DATE	43708	43752	995	1	1437	generated	
+587	Const	MD_DIRBROW_SHOW_DATE	43753	43796	996	1	1438	generated	
+588	Const	MD_DIRBROW_SHOW_EXTENSION	43797	43846	997	1	1439	generated	
+589	Const	MD_DIRBROW_SHOW_SIZE	43847	43890	998	1	1440	generated	
+590	Const	MD_DIRBROW_SHOW_TIME	43891	43934	999	1	1441	generated	
+591	Const	MD_DIRECTORY_BROWSING	43935	43982	1000	1	1442	generated	
+592	Const	MD_DISABLE_SOCKET_POOLING	43983	44034	1001	1	1443	generated	
+593	Const	MD_DONT_LOG	44035	44072	1002	1	1444	generated	
+594	Const	MD_DOWNLEVEL_ADMIN_INSTANCE	44073	44126	1003	1	1445	generated	
+595	Const	MD_DO_REVERSE_DNS	44127	44170	1004	1	1446	generated	
+596	Const	MD_ENABLEDPROTOCOLS	44171	44216	1005	1	1447	generated	
+597	Const	MD_ENABLE_URL_AUTHORIZATION	44217	44270	1006	1	1448	generated	
+598	Const	MD_ERROR_CANNOT_REMOVE_SECURE_ATTRIBUTE	44271	44343	1007	1	1449	generated	
+599	Const	MD_ERROR_DATA_NOT_FOUND	44344	44400	1008	1	1450	generated	
+600	Const	MD_ERROR_IISAO_INVALID_SCHEMA	44401	44463	1009	1	1451	generated	
+601	Const	MD_ERROR_INVALID_VERSION	44464	44521	1010	1	1452	generated	
+602	Const	MD_ERROR_NOT_INITIALIZED	44522	44579	1011	1	1453	generated	
+603	Const	MD_ERROR_NO_SESSION_KEY	44580	44636	1012	1	1454	generated	
+604	Const	MD_ERROR_READ_METABASE_FILE	44637	44697	1013	1	1455	generated	
+605	Const	MD_ERROR_SECURE_CHANNEL_FAILURE	44698	44762	1014	1	1456	generated	
+606	Const	MD_ERROR_SUB400_INVALID_CONTENT_LENGTH	44763	44824	1015	1	1457	generated	
+607	Const	MD_ERROR_SUB400_INVALID_DEPTH	44825	44877	1016	1	1458	generated	
+608	Const	MD_ERROR_SUB400_INVALID_DESTINATION	44878	44936	1017	1	1459	generated	
+609	Const	MD_ERROR_SUB400_INVALID_IF	44937	44986	1018	1	1460	generated	
+610	Const	MD_ERROR_SUB400_INVALID_LOCK_TOKEN	44987	45044	1019	1	1461	generated	
+611	Const	MD_ERROR_SUB400_INVALID_OVERWRITE	45045	45101	1020	1	1462	generated	
+612	Const	MD_ERROR_SUB400_INVALID_REQUEST_BODY	45102	45161	1021	1	1463	generated	
+613	Const	MD_ERROR_SUB400_INVALID_TIMEOUT	45162	45216	1022	1	1464	generated	
+614	Const	MD_ERROR_SUB400_INVALID_TRANSLATE	45217	45273	1023	1	1465	generated	
+615	Const	MD_ERROR_SUB400_INVALID_WEBSOCKET_REQUEST	45274	45339	1024	1	1466	generated	
+616	Const	MD_ERROR_SUB400_INVALID_XFF_HEADER	45340	45398	1025	1	1467	generated	
+617	Const	MD_ERROR_SUB401_APPLICATION	45399	45449	1026	1	1468	generated	
+618	Const	MD_ERROR_SUB401_FILTER	45450	45495	1027	1	1469	generated	
+619	Const	MD_ERROR_SUB401_LOGON	45496	45540	1028	1	1470	generated	
+620	Const	MD_ERROR_SUB401_LOGON_ACL	45541	45589	1029	1	1471	generated	
+621	Const	MD_ERROR_SUB401_LOGON_CONFIG	45590	45641	1030	1	1472	generated	
+622	Const	MD_ERROR_SUB401_URLAUTH_POLICY	45642	45695	1031	1	1473	generated	
+623	Const	MD_ERROR_SUB403_ADDR_REJECT	45696	45746	1032	1	1474	generated	
+624	Const	MD_ERROR_SUB403_APPPOOL_DENIED	45747	45801	1033	1	1475	generated	
+625	Const	MD_ERROR_SUB403_CAL_EXCEEDED	45802	45854	1034	1	1476	generated	
+626	Const	MD_ERROR_SUB403_CERT_BAD	45855	45903	1035	1	1477	generated	
+627	Const	MD_ERROR_SUB403_CERT_REQUIRED	45904	45956	1036	1	1478	generated	
+628	Const	MD_ERROR_SUB403_CERT_REVOKED	45957	46009	1037	1	1479	generated	
+629	Const	MD_ERROR_SUB403_CERT_TIME_INVALID	46010	46067	1038	1	1480	generated	
+630	Const	MD_ERROR_SUB403_DIR_LIST_DENIED	46068	46123	1039	1	1481	generated	
+631	Const	MD_ERROR_SUB403_EXECUTE_ACCESS_DENIED	46124	46184	1040	1	1482	generated	
+632	Const	MD_ERROR_SUB403_INFINITE_DEPTH_DENIED	46185	46246	1041	1	1483	generated	
+633	Const	MD_ERROR_SUB403_INSUFFICIENT_PRIVILEGE_FOR_CGI	46247	46317	1042	1	1484	generated	
+634	Const	MD_ERROR_SUB403_INVALID_CNFG	46318	46370	1043	1	1485	generated	
+635	Const	MD_ERROR_SUB403_LOCK_TOKEN_REQUIRED	46371	46430	1044	1	1486	generated	
+636	Const	MD_ERROR_SUB403_MAPPER_DENY_ACCESS	46431	46489	1045	1	1487	generated	
+637	Const	MD_ERROR_SUB403_PASSPORT_LOGIN_FAILURE	46490	46552	1046	1	1488	generated	
+638	Const	MD_ERROR_SUB403_PWD_CHANGE	46553	46603	1047	1	1489	generated	
+639	Const	MD_ERROR_SUB403_READ_ACCESS_DENIED	46604	46661	1048	1	1490	generated	
+640	Const	MD_ERROR_SUB403_SITE_ACCESS_DENIED	46662	46719	1049	1	1491	generated	
+641	Const	MD_ERROR_SUB403_SOURCE_ACCESS_DENIED	46720	46780	1050	1	1492	generated	
+642	Const	MD_ERROR_SUB403_SSL128_REQUIRED	46781	46835	1051	1	1493	generated	
+643	Const	MD_ERROR_SUB403_SSL_REQUIRED	46836	46887	1052	1	1494	generated	
+644	Const	MD_ERROR_SUB403_TOO_MANY_USERS	46888	46941	1053	1	1495	generated	
+645	Const	MD_ERROR_SUB403_VALIDATION_FAILURE	46942	47000	1054	1	1496	generated	
+646	Const	MD_ERROR_SUB403_WRITE_ACCESS_DENIED	47001	47059	1055	1	1497	generated	
+647	Const	MD_ERROR_SUB404_DENIED_BY_FILTERING_RULE	47060	47124	1056	1	1498	generated	
+648	Const	MD_ERROR_SUB404_DENIED_BY_MIMEMAP	47125	47181	1057	1	1499	generated	
+649	Const	MD_ERROR_SUB404_DENIED_BY_POLICY	47182	47237	1058	1	1500	generated	
+650	Const	MD_ERROR_SUB404_FILE_ATTRIBUTE_HIDDEN	47238	47298	1059	1	1501	generated	
+651	Const	MD_ERROR_SUB404_FILE_EXTENSION_DENIED	47299	47359	1060	1	1502	generated	
+652	Const	MD_ERROR_SUB404_HIDDEN_SEGMENT	47360	47413	1061	1	1503	generated	
+653	Const	MD_ERROR_SUB404_NO_HANDLER	47414	47463	1062	1	1504	generated	
+654	Const	MD_ERROR_SUB404_PRECONDITIONED_HANDLER	47464	47526	1063	1	1505	generated	
+655	Const	MD_ERROR_SUB404_QUERY_STRING_SEQUENCE_DENIED	47527	47595	1064	1	1506	generated	
+656	Const	MD_ERROR_SUB404_QUERY_STRING_TOO_LONG	47596	47657	1065	1	1507	generated	
+657	Const	MD_ERROR_SUB404_SITE_NOT_FOUND	47658	47711	1066	1	1508	generated	
+658	Const	MD_ERROR_SUB404_STATICFILE_DAV	47712	47766	1067	1	1509	generated	
+659	Const	MD_ERROR_SUB404_TOO_MANY_URL_SEGMENTS	47767	47828	1068	1	1510	generated	
+660	Const	MD_ERROR_SUB404_URL_DOUBLE_ESCAPED	47829	47887	1069	1	1511	generated	
+661	Const	MD_ERROR_SUB404_URL_HAS_HIGH_BIT_CHARS	47888	47950	1070	1	1512	generated	
+662	Const	MD_ERROR_SUB404_URL_SEQUENCE_DENIED	47951	48009	1071	1	1513	generated	
+663	Const	MD_ERROR_SUB404_URL_TOO_LONG	48010	48062	1072	1	1514	generated	
+664	Const	MD_ERROR_SUB404_VERB_DENIED	48063	48113	1073	1	1515	generated	
+665	Const	MD_ERROR_SUB413_CONTENT_LENGTH_TOO_LARGE	48114	48177	1074	1	1516	generated	
+666	Const	MD_ERROR_SUB423_LOCK_TOKEN_SUBMITTED	48178	48237	1075	1	1517	generated	
+667	Const	MD_ERROR_SUB423_NO_CONFLICTING_LOCK	48238	48296	1076	1	1518	generated	
+668	Const	MD_ERROR_SUB500_ASPNET_HANDLERS	48297	48352	1077	1	1519	generated	
+669	Const	MD_ERROR_SUB500_ASPNET_IMPERSONATION	48353	48413	1078	1	1520	generated	
+670	Const	MD_ERROR_SUB500_ASPNET_MODULES	48414	48468	1079	1	1521	generated	
+671	Const	MD_ERROR_SUB500_BAD_METADATA	48469	48521	1080	1	1522	generated	
+672	Const	MD_ERROR_SUB500_HANDLERS_MODULE	48522	48577	1081	1	1523	generated	
+673	Const	MD_ERROR_SUB500_UNC_ACCESS	48578	48628	1082	1	1524	generated	
+674	Const	MD_ERROR_SUB500_URLAUTH_NO_SCOPE	48629	48685	1083	1	1525	generated	
+675	Const	MD_ERROR_SUB500_URLAUTH_NO_STORE	48686	48742	1084	1	1526	generated	
+676	Const	MD_ERROR_SUB500_URLAUTH_STORE_ERROR	48743	48802	1085	1	1527	generated	
+677	Const	MD_ERROR_SUB502_ARR_CONNECTION_ERROR	48803	48862	1086	1	1528	generated	
+678	Const	MD_ERROR_SUB502_ARR_NO_SERVER	48863	48915	1087	1	1529	generated	
+679	Const	MD_ERROR_SUB502_PREMATURE_EXIT	48916	48969	1088	1	1530	generated	
+680	Const	MD_ERROR_SUB502_TIMEOUT	48970	49016	1089	1	1531	generated	
+681	Const	MD_ERROR_SUB503_APP_CONCURRENT	49017	49070	1090	1	1532	generated	
+682	Const	MD_ERROR_SUB503_ASPNET_QUEUE_FULL	49071	49127	1091	1	1533	generated	
+683	Const	MD_ERROR_SUB503_CONNECTION_LIMIT	49128	49183	1092	1	1534	generated	
+684	Const	MD_ERROR_SUB503_CPU_LIMIT	49184	49232	1093	1	1535	generated	
+685	Const	MD_ERROR_SUB503_FASTCGI_QUEUE_FULL	49233	49290	1094	1	1536	generated	
+686	Const	MD_EXIT_MESSAGE	49291	49332	1095	1	1537	generated	
+687	Const	MD_EXPORT_INHERITED	49333	49375	1096	1	1538	generated	
+688	Const	MD_EXPORT_NODE_ONLY	49376	49418	1097	1	1539	generated	
+689	Const	MD_EXTLOG_BYTES_RECV	49419	49465	1098	1	1540	generated	
+690	Const	MD_EXTLOG_BYTES_SENT	49466	49512	1099	1	1541	generated	
+691	Const	MD_EXTLOG_CLIENT_IP	49513	49555	1100	1	1542	generated	
+692	Const	MD_EXTLOG_COMPUTER_NAME	49556	49603	1101	1	1543	generated	
+693	Const	MD_EXTLOG_COOKIE	49604	49648	1102	1	1544	generated	
+694	Const	MD_EXTLOG_DATE	49649	49686	1103	1	1545	generated	
+695	Const	MD_EXTLOG_HOST	49687	49730	1104	1	1546	generated	
+696	Const	MD_EXTLOG_HTTP_STATUS	49731	49778	1105	1	1547	generated	
+697	Const	MD_EXTLOG_HTTP_SUB_STATUS	49779	49833	1106	1	1548	generated	
+698	Const	MD_EXTLOG_METHOD	49834	49875	1107	1	1549	generated	
+699	Const	MD_EXTLOG_PROTOCOL_VERSION	49876	49930	1108	1	1550	generated	
+700	Const	MD_EXTLOG_REFERER	49931	49976	1109	1	1551	generated	
+701	Const	MD_EXTLOG_SERVER_IP	49977	50020	1110	1	1552	generated	
+702	Const	MD_EXTLOG_SERVER_PORT	50021	50069	1111	1	1553	generated	
+703	Const	MD_EXTLOG_SITE_NAME	50070	50113	1112	1	1554	generated	
+704	Const	MD_EXTLOG_TIME	50114	50151	1113	1	1555	generated	
+705	Const	MD_EXTLOG_TIME_TAKEN	50152	50199	1114	1	1556	generated	
+706	Const	MD_EXTLOG_URI_QUERY	50200	50244	1115	1	1557	generated	
+707	Const	MD_EXTLOG_URI_STEM	50245	50288	1116	1	1558	generated	
+708	Const	MD_EXTLOG_USERNAME	50289	50330	1117	1	1559	generated	
+709	Const	MD_EXTLOG_USER_AGENT	50331	50378	1118	1	1560	generated	
+710	Const	MD_EXTLOG_WIN32_STATUS	50379	50427	1119	1	1561	generated	
+711	Const	MD_FILTER_DESCRIPTION	50428	50475	1120	1	1562	generated	
+712	Const	MD_FILTER_ENABLED	50476	50519	1121	1	1563	generated	
+713	Const	MD_FILTER_ENABLE_CACHE	50520	50568	1122	1	1564	generated	
+714	Const	MD_FILTER_FLAGS	50569	50610	1123	1	1565	generated	
+715	Const	MD_FILTER_IMAGE_PATH	50611	50657	1124	1	1566	generated	
+716	Const	MD_FILTER_LOAD_ORDER	50658	50704	1125	1	1567	generated	
+717	Const	MD_FILTER_STATE	50705	50746	1126	1	1568	generated	
+718	Const	MD_FILTER_STATE_LOADED	50747	50792	1127	1	1569	generated	
+719	Const	MD_FILTER_STATE_UNLOADED	50793	50840	1128	1	1570	generated	
+720	Const	MD_FOOTER_DOCUMENT	50841	50885	1129	1	1571	generated	
+721	Const	MD_FOOTER_ENABLED	50886	50929	1130	1	1572	generated	
+722	Const	MD_FRONTPAGE_WEB	50930	50972	1131	1	1573	generated	
+723	Const	MD_FTPS_128_BITS	50973	51015	1132	1	1574	generated	
+724	Const	MD_FTPS_ALLOW_CCC	51016	51059	1133	1	1575	generated	
+725	Const	MD_FTPS_SECURE_ANONYMOUS	51060	51110	1134	1	1576	generated	
+726	Const	MD_FTPS_SECURE_CONTROL_CHANNEL	51111	51167	1135	1	1577	generated	
+727	Const	MD_FTPS_SECURE_DATA_CHANNEL	51168	51221	1136	1	1578	generated	
+728	Const	MD_FTP_KEEP_PARTIAL_UPLOADS	51222	51275	1137	1	1579	generated	
+729	Const	MD_FTP_LOG_IN_UTF_8	51276	51321	1138	1	1580	generated	
+730	Const	MD_FTP_PASV_RESPONSE_IP	51322	51371	1139	1	1581	generated	
+731	Const	MD_FTP_UTF8_FILE_NAMES	51372	51420	1140	1	1582	generated	
+732	Const	MD_GLOBAL_BINARY_LOGGING_ENABLED	51421	51479	1141	1	1583	generated	
+733	Const	MD_GLOBAL_BINSCHEMATIMESTAMP	51480	51534	1142	1	1584	generated	
+734	Const	MD_GLOBAL_CHANGE_NUMBER	51535	51584	1143	1	1585	generated	
+735	Const	MD_GLOBAL_EDIT_WHILE_RUNNING_MAJOR_VERSION_NUMBER	51585	51660	1144	1	1586	generated	
+736	Const	MD_GLOBAL_EDIT_WHILE_RUNNING_MINOR_VERSION_NUMBER	51661	51736	1145	1	1587	generated	
+737	Const	MD_GLOBAL_LOG_IN_UTF_8	51737	51785	1146	1	1588	generated	
+738	Const	MD_GLOBAL_SESSIONKEY	51786	51832	1147	1	1589	generated	
+739	Const	MD_GLOBAL_STANDARD_APP_MODE_ENABLED	51833	51894	1148	1	1590	generated	
+740	Const	MD_GLOBAL_XMLSCHEMATIMESTAMP	51895	51949	1149	1	1591	generated	
+741	Const	MD_GREETING_MESSAGE	51950	51995	1150	1	1592	generated	
+742	Const	MD_HC_CACHE_CONTROL_HEADER	51996	52048	1151	1	1593	generated	
+743	Const	MD_HC_COMPRESSION_BUFFER_SIZE	52049	52104	1152	1	1594	generated	
+744	Const	MD_HC_COMPRESSION_DIRECTORY	52105	52158	1153	1	1595	generated	
+745	Const	MD_HC_COMPRESSION_DLL	52159	52206	1154	1	1596	generated	
+746	Const	MD_HC_CREATE_FLAGS	52207	52251	1155	1	1597	generated	
+747	Const	MD_HC_DO_DISK_SPACE_LIMITING	52252	52306	1156	1	1598	generated	
+748	Const	MD_HC_DO_DYNAMIC_COMPRESSION	52307	52361	1157	1	1599	generated	
+749	Const	MD_HC_DO_NAMESPACE_DYNAMIC_COMPRESSION	52362	52426	1158	1	1600	generated	
+750	Const	MD_HC_DO_NAMESPACE_STATIC_COMPRESSION	52427	52490	1159	1	1601	generated	
+751	Const	MD_HC_DO_ON_DEMAND_COMPRESSION	52491	52547	1160	1	1602	generated	
+752	Const	MD_HC_DO_STATIC_COMPRESSION	52548	52601	1161	1	1603	generated	
+753	Const	MD_HC_DYNAMIC_COMPRESSION_LEVEL	52602	52659	1162	1	1604	generated	
+754	Const	MD_HC_EXPIRES_HEADER	52660	52706	1163	1	1605	generated	
+755	Const	MD_HC_FILES_DELETED_PER_DISK_FREE	52707	52766	1164	1	1606	generated	
+756	Const	MD_HC_FILE_EXTENSIONS	52767	52814	1165	1	1607	generated	
+757	Const	MD_HC_IO_BUFFER_SIZE	52815	52861	1166	1	1608	generated	
+758	Const	MD_HC_MAX_DISK_SPACE_USAGE	52862	52914	1167	1	1609	generated	
+759	Const	MD_HC_MAX_QUEUE_LENGTH	52915	52963	1168	1	1610	generated	
+760	Const	MD_HC_MIME_TYPE	52964	53005	1169	1	1611	generated	
+761	Const	MD_HC_MIN_FILE_SIZE_FOR_COMP	53006	53060	1170	1	1612	generated	
+762	Const	MD_HC_NO_COMPRESSION_FOR_HTTP_10	53061	53119	1171	1	1613	generated	
+763	Const	MD_HC_NO_COMPRESSION_FOR_PROXIES	53120	53178	1172	1	1614	generated	
+764	Const	MD_HC_NO_COMPRESSION_FOR_RANGE	53179	53235	1173	1	1615	generated	
+765	Const	MD_HC_ON_DEMAND_COMP_LEVEL	53236	53288	1174	1	1616	generated	
+766	Const	MD_HC_PRIORITY	53289	53329	1175	1	1617	generated	
+767	Const	MD_HC_SCRIPT_FILE_EXTENSIONS	53330	53384	1176	1	1618	generated	
+768	Const	MD_HC_SEND_CACHE_HEADERS	53385	53435	1177	1	1619	generated	
+769	Const	MD_HEADER_WAIT_TIMEOUT	53436	53484	1178	1	1620	generated	
+770	Const	MD_HISTORY_LATEST	53485	53525	1179	1	1621	generated	
+771	Const	MD_HTTPERRORS_EXISTING_RESPONSE	53526	53583	1180	1	1622	generated	
+772	Const	MD_HTTP_CUSTOM	53584	53624	1181	1	1623	generated	
+773	Const	MD_HTTP_EXPIRES	53625	53666	1182	1	1624	generated	
+774	Const	MD_HTTP_FORWARDER_CUSTOM	53667	53717	1183	1	1625	generated	
+775	Const	MD_HTTP_PICS	53718	53756	1184	1	1626	generated	
+776	Const	MD_HTTP_REDIRECT	53757	53799	1185	1	1627	generated	
+777	Const	MD_IISADMIN_EXTENSIONS	53800	53848	1186	1	1628	generated	
+778	Const	MD_IMPORT_INHERITED	53849	53891	1187	1	1629	generated	
+779	Const	MD_IMPORT_MERGE	53892	53930	1188	1	1630	generated	
+780	Const	MD_IMPORT_NODE_ONLY	53931	53973	1189	1	1631	generated	
+781	Const	MD_INSERT_PATH_STRING	53974	54076	1190	1	1632	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+782	Const	MD_INSERT_PATH_STRINGA	54077	54179	1191	1	1637	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+783	Const	MD_IN_PROCESS_ISAPI_APPS	54180	54230	1192	1	1642	generated	
+784	Const	MD_IP_SEC	54231	54266	1193	1	1643	generated	
+785	Const	MD_ISAPI_RESTRICTION_LIST	54267	54318	1194	1	1644	generated	
+786	Const	MD_IS_CONTENT_INDEXED	54319	54366	1195	1	1645	generated	
+787	Const	MD_KEY_TYPE	54367	54404	1196	1	1646	generated	
+788	Const	MD_LEVELS_TO_SCAN	54405	54448	1197	1	1647	generated	
+789	Const	MD_LOAD_BALANCER_CAPABILITIES	54449	54504	1198	1	1648	generated	
+790	Const	MD_LOAD_BALANCER_CAPABILITIES_BASIC	54505	54563	1199	1	1649	generated	
+791	Const	MD_LOAD_BALANCER_CAPABILITIES_SOPHISTICATED	54564	54630	1200	1	1650	generated	
+792	Const	MD_LOCATION	54631	54668	1201	1	1651	generated	
+793	Const	MD_LOGCUSTOM_DATATYPE_DOUBLE	54669	54720	1202	1	1652	generated	
+794	Const	MD_LOGCUSTOM_DATATYPE_FLOAT	54721	54771	1203	1	1653	generated	
+795	Const	MD_LOGCUSTOM_DATATYPE_INT	54772	54820	1204	1	1654	generated	
+796	Const	MD_LOGCUSTOM_DATATYPE_LONG	54821	54870	1205	1	1655	generated	
+797	Const	MD_LOGCUSTOM_DATATYPE_LPSTR	54871	54921	1206	1	1656	generated	
+798	Const	MD_LOGCUSTOM_DATATYPE_LPWSTR	54922	54973	1207	1	1657	generated	
+799	Const	MD_LOGCUSTOM_DATATYPE_UINT	54974	55023	1208	1	1658	generated	
+800	Const	MD_LOGCUSTOM_DATATYPE_ULONG	55024	55074	1209	1	1659	generated	
+801	Const	MD_LOGCUSTOM_PROPERTY_DATATYPE	55075	55131	1210	1	1660	generated	
+802	Const	MD_LOGCUSTOM_PROPERTY_HEADER	55132	55186	1211	1	1661	generated	
+803	Const	MD_LOGCUSTOM_PROPERTY_ID	55187	55237	1212	1	1662	generated	
+804	Const	MD_LOGCUSTOM_PROPERTY_MASK	55238	55290	1213	1	1663	generated	
+805	Const	MD_LOGCUSTOM_PROPERTY_NAME	55291	55343	1214	1	1664	generated	
+806	Const	MD_LOGCUSTOM_PROPERTY_NODE_ID	55344	55399	1215	1	1665	generated	
+807	Const	MD_LOGCUSTOM_SERVICES_STRING	55400	55454	1216	1	1666	generated	
+808	Const	MD_LOGEXT_FIELD_MASK	55455	55501	1217	1	1667	generated	
+809	Const	MD_LOGEXT_FIELD_MASK2	55502	55549	1218	1	1668	generated	
+810	Const	MD_LOGFILE_DIRECTORY	55550	55596	1219	1	1669	generated	
+811	Const	MD_LOGFILE_LOCALTIME_ROLLOVER	55597	55652	1220	1	1670	generated	
+812	Const	MD_LOGFILE_PERIOD	55653	55696	1221	1	1671	generated	
+813	Const	MD_LOGFILE_PERIOD_DAILY	55697	55743	1222	1	1672	generated	
+814	Const	MD_LOGFILE_PERIOD_HOURLY	55744	55791	1223	1	1673	generated	
+815	Const	MD_LOGFILE_PERIOD_MAXSIZE	55792	55840	1224	1	1674	generated	
+816	Const	MD_LOGFILE_PERIOD_MONTHLY	55841	55889	1225	1	1675	generated	
+817	Const	MD_LOGFILE_PERIOD_NONE	55890	55935	1226	1	1676	generated	
+818	Const	MD_LOGFILE_PERIOD_WEEKLY	55936	55983	1227	1	1677	generated	
+819	Const	MD_LOGFILE_TRUNCATE_SIZE	55984	56034	1228	1	1678	generated	
+820	Const	MD_LOGON_BATCH	56035	56072	1229	1	1679	generated	
+821	Const	MD_LOGON_INTERACTIVE	56073	56116	1230	1	1680	generated	
+822	Const	MD_LOGON_METHOD	56117	56158	1231	1	1681	generated	
+823	Const	MD_LOGON_NETWORK	56159	56198	1232	1	1682	generated	
+824	Const	MD_LOGON_NETWORK_CLEARTEXT	56199	56248	1233	1	1683	generated	
+825	Const	MD_LOGSQL_DATA_SOURCES	56249	56297	1234	1	1684	generated	
+826	Const	MD_LOGSQL_PASSWORD	56298	56342	1235	1	1685	generated	
+827	Const	MD_LOGSQL_TABLE_NAME	56343	56389	1236	1	1686	generated	
+828	Const	MD_LOGSQL_USER_NAME	56390	56435	1237	1	1687	generated	
+829	Const	MD_LOG_ANONYMOUS	56436	56478	1238	1	1688	generated	
+830	Const	MD_LOG_NONANONYMOUS	56479	56524	1239	1	1689	generated	
+831	Const	MD_LOG_PLUGINS_AVAILABLE	56525	56575	1240	1	1690	generated	
+832	Const	MD_LOG_PLUGIN_MOD_ID	56576	56622	1241	1	1691	generated	
+833	Const	MD_LOG_PLUGIN_ORDER	56623	56668	1242	1	1692	generated	
+834	Const	MD_LOG_PLUGIN_UI_ID	56669	56714	1243	1	1693	generated	
+835	Const	MD_LOG_TYPE	56715	56752	1244	1	1694	generated	
+836	Const	MD_LOG_TYPE_DISABLED	56753	56796	1245	1	1695	generated	
+837	Const	MD_LOG_TYPE_ENABLED	56797	56839	1246	1	1696	generated	
+838	Const	MD_LOG_UNUSED1	56840	56880	1247	1	1697	generated	
+839	Const	MD_MAX_BANDWIDTH	56881	56923	1248	1	1698	generated	
+840	Const	MD_MAX_BANDWIDTH_BLOCKED	56924	56974	1249	1	1699	generated	
+841	Const	MD_MAX_CHANGE_ENTRIES	56975	57021	1250	1	1700	generated	
+842	Const	MD_MAX_CLIENTS_MESSAGE	57022	57070	1251	1	1701	generated	
+843	Const	MD_MAX_CONNECTIONS	57071	57115	1252	1	1702	generated	
+844	Const	MD_MAX_ENDPOINT_CONNECTIONS	57116	57169	1253	1	1703	generated	
+845	Const	MD_MAX_ERROR_FILES	57170	57214	1254	1	1704	generated	
+846	Const	MD_MAX_GLOBAL_BANDWIDTH	57215	57264	1255	1	1705	generated	
+847	Const	MD_MAX_GLOBAL_CONNECTIONS	57265	57316	1256	1	1706	generated	
+848	Const	MD_MAX_REQUEST_ENTITY_ALLOWED	57317	57372	1257	1	1707	generated	
+849	Const	MD_MD_SERVER_SS_AUTH_MAPPING	57373	57427	1258	1	1708	generated	
+850	Const	MD_METADATA_ID_REGISTRATION	57428	57481	1259	1	1709	generated	
+851	Const	MD_MIME_MAP	57482	57519	1260	1	1710	generated	
+852	Const	MD_MIN_FILE_BYTES_PER_SEC	57520	57571	1261	1	1711	generated	
+853	Const	MD_MSDOS_DIR_OUTPUT	57572	57617	1262	1	1712	generated	
+854	Const	MD_NETLOGON_WKS_DNS	57618	57660	1263	1	1713	generated	
+855	Const	MD_NETLOGON_WKS_IP	57661	57702	1264	1	1714	generated	
+856	Const	MD_NETLOGON_WKS_NONE	57703	57746	1265	1	1715	generated	
+857	Const	MD_NET_LOGON_WKS	57747	57789	1266	1	1716	generated	
+858	Const	MD_NOTIFEXAUTH_NTLMSSL	57790	57835	1267	1	1717	generated	
+859	Const	MD_NOTIFY_ACCESS_DENIED	57836	57885	1268	1	1718	generated	
+860	Const	MD_NOTIFY_AUTHENTICATION	57886	57936	1269	1	1719	generated	
+861	Const	MD_NOTIFY_AUTH_COMPLETE	57937	57990	1270	1	1720	generated	
+862	Const	MD_NOTIFY_END_OF_NET_SESSION	57991	58044	1271	1	1721	generated	
+863	Const	MD_NOTIFY_END_OF_REQUEST	58045	58094	1272	1	1722	generated	
+864	Const	MD_NOTIFY_LOG	58095	58133	1273	1	1723	generated	
+865	Const	MD_NOTIFY_NONSECURE_PORT	58134	58181	1274	1	1724	generated	
+866	Const	MD_NOTIFY_ORDER_DEFAULT	58182	58233	1275	1	1725	generated	
+867	Const	MD_NOTIFY_ORDER_HIGH	58234	58282	1276	1	1726	generated	
+868	Const	MD_NOTIFY_ORDER_LOW	58283	58330	1277	1	1727	generated	
+869	Const	MD_NOTIFY_ORDER_MEDIUM	58331	58381	1278	1	1728	generated	
+870	Const	MD_NOTIFY_PREPROC_HEADERS	58382	58434	1279	1	1729	generated	
+871	Const	MD_NOTIFY_READ_RAW_DATA	58435	58485	1280	1	1730	generated	
+872	Const	MD_NOTIFY_SECURE_PORT	58486	58530	1281	1	1731	generated	
+873	Const	MD_NOTIFY_SEND_RAW_DATA	58531	58580	1282	1	1732	generated	
+874	Const	MD_NOTIFY_SEND_RESPONSE	58581	58628	1283	1	1733	generated	
+875	Const	MD_NOTIFY_URL_MAP	58629	58672	1284	1	1734	generated	
+876	Const	MD_NOT_DELETABLE	58673	58715	1285	1	1735	generated	
+877	Const	MD_NTAUTHENTICATION_PROVIDERS	58716	58771	1286	1	1736	generated	
+878	Const	MD_PASSIVE_PORT_RANGE	58772	58819	1287	1	1737	generated	
+879	Const	MD_PASSPORT_NEED_MAPPING	58820	58867	1288	1	1738	generated	
+880	Const	MD_PASSPORT_NO_MAPPING	58868	58913	1289	1	1739	generated	
+881	Const	MD_PASSPORT_REQUIRE_AD_MAPPING	58914	58970	1290	1	1740	generated	
+882	Const	MD_PASSPORT_TRY_MAPPING	58971	59017	1291	1	1741	generated	
+883	Const	MD_POOL_IDC_TIMEOUT	59018	59063	1292	1	1742	generated	
+884	Const	MD_PROCESS_NTCR_IF_LOGGED_ON	59064	59118	1293	1	1743	generated	
+885	Const	MD_PUT_READ_SIZE	59119	59161	1294	1	1744	generated	
+886	Const	MD_RAPID_FAIL_PROTECTION_INTERVAL	59162	59221	1295	1	1745	generated	
+887	Const	MD_RAPID_FAIL_PROTECTION_MAX_CRASHES	59222	59284	1296	1	1746	generated	
+888	Const	MD_REALM	59285	59319	1297	1	1747	generated	
+889	Const	MD_REDIRECT_HEADERS	59320	59365	1298	1	1748	generated	
+890	Const	MD_RESTRICTION_LIST_CUSTOM_DESC	59366	59423	1299	1	1749	generated	
+891	Const	MD_ROOT_ENABLE_EDIT_WHILE_RUNNING	59424	59483	1300	1	1750	generated	
+892	Const	MD_ROOT_ENABLE_HISTORY	59484	59532	1301	1	1751	generated	
+893	Const	MD_ROOT_MAX_HISTORY_FILES	59533	59584	1302	1	1752	generated	
+894	Const	MD_SCHEMA_METAID	59585	59627	1303	1	1753	generated	
+895	Const	MD_SCRIPTMAPFLAG_ALLOWED_ON_READ_DIR	59628	59687	1304	1	1754	generated	
+896	Const	MD_SCRIPTMAPFLAG_CHECK_PATH_INFO	59688	59743	1305	1	1755	generated	
+897	Const	MD_SCRIPTMAPFLAG_SCRIPT	59744	59790	1306	1	1756	generated	
+898	Const	MD_SCRIPT_MAPS	59791	59831	1307	1	1757	generated	
+899	Const	MD_SCRIPT_TIMEOUT	59832	59875	1308	1	1758	generated	
+900	Const	MD_SECURE_BINDINGS	59876	59920	1309	1	1759	generated	
+901	Const	MD_SECURITY_SETUP_REQUIRED	59921	59973	1310	1	1760	generated	
+902	Const	MD_SERVER_AUTOSTART	59974	60019	1311	1	1761	generated	
+903	Const	MD_SERVER_BINDINGS	60020	60064	1312	1	1762	generated	
+904	Const	MD_SERVER_COMMAND	60065	60108	1313	1	1763	generated	
+905	Const	MD_SERVER_COMMAND_CONTINUE	60109	60158	1314	1	1764	generated	
+906	Const	MD_SERVER_COMMAND_PAUSE	60159	60205	1315	1	1765	generated	
+907	Const	MD_SERVER_COMMAND_START	60206	60252	1316	1	1766	generated	
+908	Const	MD_SERVER_COMMAND_STOP	60253	60298	1317	1	1767	generated	
+909	Const	MD_SERVER_COMMENT	60299	60342	1318	1	1768	generated	
+910	Const	MD_SERVER_CONFIGURATION_INFO	60343	60397	1319	1	1769	generated	
+911	Const	MD_SERVER_CONFIG_ALLOW_ENCRYPT	60398	60451	1320	1	1770	generated	
+912	Const	MD_SERVER_CONFIG_AUTO_PW_SYNC	60452	60504	1321	1	1771	generated	
+913	Const	MD_SERVER_CONFIG_SSL_128	60505	60552	1322	1	1772	generated	
+914	Const	MD_SERVER_CONFIG_SSL_40	60553	60599	1323	1	1773	generated	
+915	Const	MD_SERVER_LISTEN_BACKLOG	60600	60650	1324	1	1774	generated	
+916	Const	MD_SERVER_LISTEN_TIMEOUT	60651	60701	1325	1	1775	generated	
+917	Const	MD_SERVER_SIZE	60702	60742	1326	1	1776	generated	
+918	Const	MD_SERVER_SIZE_LARGE	60743	60786	1327	1	1777	generated	
+919	Const	MD_SERVER_SIZE_MEDIUM	60787	60831	1328	1	1778	generated	
+920	Const	MD_SERVER_SIZE_SMALL	60832	60875	1329	1	1779	generated	
+921	Const	MD_SERVER_STATE	60876	60917	1330	1	1780	generated	
+922	Const	MD_SERVER_STATE_CONTINUING	60918	60967	1331	1	1781	generated	
+923	Const	MD_SERVER_STATE_PAUSED	60968	61013	1332	1	1782	generated	
+924	Const	MD_SERVER_STATE_PAUSING	61014	61060	1333	1	1783	generated	
+925	Const	MD_SERVER_STATE_STARTED	61061	61107	1334	1	1784	generated	
+926	Const	MD_SERVER_STATE_STARTING	61108	61155	1335	1	1785	generated	
+927	Const	MD_SERVER_STATE_STOPPED	61156	61202	1336	1	1786	generated	
+928	Const	MD_SERVER_STATE_STOPPING	61203	61250	1337	1	1787	generated	
+929	Const	MD_SET_HOST_NAME	61251	61293	1338	1	1788	generated	
+930	Const	MD_SHOW_4_DIGIT_YEAR	61294	61340	1339	1	1789	generated	
+931	Const	MD_SSI_EXEC_DISABLED	61341	61387	1340	1	1790	generated	
+932	Const	MD_SSL_ACCESS_PERM	61388	61432	1341	1	1791	generated	
+933	Const	MD_SSL_ALWAYS_NEGO_CLIENT_CERT	61433	61489	1342	1	1792	generated	
+934	Const	MD_SSL_KEY_PASSWORD	61490	61535	1343	1	1793	generated	
+935	Const	MD_SSL_KEY_REQUEST	61536	61580	1344	1	1794	generated	
+936	Const	MD_SSL_PRIVATE_KEY	61581	61625	1345	1	1795	generated	
+937	Const	MD_SSL_PUBLIC_KEY	61626	61669	1346	1	1796	generated	
+938	Const	MD_SSL_USE_DS_MAPPER	61670	61716	1347	1	1797	generated	
+939	Const	MD_STOP_LISTENING	61717	61760	1348	1	1798	generated	
+940	Const	MD_SUPPRESS_DEFAULT_BANNER	61761	61813	1349	1	1799	generated	
+941	Const	MD_UPLOAD_READAHEAD_SIZE	61814	61864	1350	1	1800	generated	
+942	Const	MD_URL_AUTHORIZATION_IMPERSONATION_LEVEL	61865	61931	1351	1	1801	generated	
+943	Const	MD_URL_AUTHORIZATION_SCOPE_NAME	61932	61989	1352	1	1802	generated	
+944	Const	MD_URL_AUTHORIZATION_STORE_NAME	61990	62047	1353	1	1803	generated	
+945	Const	MD_USER_ISOLATION	62048	62091	1354	1	1804	generated	
+946	Const	MD_USER_ISOLATION_AD	62092	62135	1355	1	1805	generated	
+947	Const	MD_USER_ISOLATION_BASIC	62136	62182	1356	1	1806	generated	
+948	Const	MD_USER_ISOLATION_LAST	62183	62228	1357	1	1807	generated	
+949	Const	MD_USER_ISOLATION_NONE	62229	62274	1358	1	1808	generated	
+950	Const	MD_USE_DIGEST_SSP	62275	62318	1359	1	1809	generated	
+951	Const	MD_USE_HOST_NAME	62319	62361	1360	1	1810	generated	
+952	Const	MD_VR_IGNORE_TRANSLATE	62362	62410	1361	1	1811	generated	
+953	Const	MD_VR_NO_CACHE	62411	62451	1362	1	1812	generated	
+954	Const	MD_VR_PASSTHROUGH	62452	62495	1363	1	1813	generated	
+955	Const	MD_VR_PASSWORD	62496	62536	1364	1	1814	generated	
+956	Const	MD_VR_PATH	62537	62573	1365	1	1815	generated	
+957	Const	MD_VR_USERNAME	62574	62614	1366	1	1816	generated	
+958	Const	MD_WAM_PWD	62615	62651	1367	1	1817	generated	
+959	Const	MD_WAM_USER_NAME	62652	62694	1368	1	1818	generated	
+960	Const	MD_WARNING_DUP_NAME	62695	62742	1369	1	1819	generated	
+961	Const	MD_WARNING_INVALID_DATA	62743	62794	1370	1	1820	generated	
+962	Const	MD_WARNING_PATH_NOT_FOUND	62795	62848	1371	1	1821	generated	
+963	Const	MD_WARNING_PATH_NOT_INSERTED	62849	62905	1372	1	1822	generated	
+964	Const	MD_WARNING_SAVE_FAILED	62906	62956	1373	1	1823	generated	
+965	Const	MD_WEBDAV_MAX_ATTRIBUTES_PER_ELEMENT	62957	63019	1374	1	1824	generated	
+966	Const	MD_WEB_SVC_EXT_RESTRICTION_LIST	63020	63077	1375	1	1825	generated	
+967	Const	MD_WIN32_ERROR	63078	63118	1376	1	1826	generated	
+968	ItemType	METADATATYPES	63119	63148	1377	1	1827	generated	
+969	Const	METADATA_DONT_EXPAND	63149	63194	1378	1	1828	generated	
+970	Struct	METADATA_GETALL_INTERNAL_RECORD	63195	63493	1379	1	1829	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+971	Impl		63494	63618	1390	1	1843	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+972	Union		63619	63758	1395	1	1850	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+973	Impl		63759	63885	1401	1	1858	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+974	Struct	METADATA_GETALL_RECORD	63886	64159	1406	1	1865	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+975	Struct	METADATA_HANDLE_INFO	64160	64305	1417	1	1878	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+976	Const	METADATA_INHERIT	64306	64345	1423	1	1886	generated	
+977	Const	METADATA_INSERT_PATH	64346	64390	1424	1	1887	generated	
+978	Const	METADATA_ISINHERITED	64391	64435	1425	1	1888	generated	
+979	Const	METADATA_LOCAL_MACHINE_ONLY	64436	64488	1426	1	1889	generated	
+980	Const	METADATA_MASTER_ROOT_HANDLE	64489	64539	1427	1	1890	generated	
+981	Const	METADATA_MAX_NAME_LEN	64540	64586	1428	1	1891	generated	
+982	Const	METADATA_NON_SECURE_ONLY	64587	64636	1429	1	1892	generated	
+983	Const	METADATA_NO_ATTRIBUTES	64637	64682	1430	1	1893	generated	
+984	Const	METADATA_PARTIAL_PATH	64683	64727	1431	1	1894	generated	
+985	Const	METADATA_PERMISSION_READ	64728	64775	1432	1	1895	generated	
+986	Const	METADATA_PERMISSION_WRITE	64776	64824	1433	1	1896	generated	
+987	Struct	METADATA_RECORD	64825	65080	1434	1	1897	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+988	Impl		65081	65189	1445	1	1911	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+989	Const	METADATA_REFERENCE	65190	65231	1450	1	1918	generated	
+990	Const	METADATA_SECURE	65232	65270	1451	1	1919	generated	
+991	Const	METADATA_VOLATILE	65271	65312	1452	1	1920	generated	
+992	Const	MSCS_MD_ID_BEGIN_RESERVED	65313	65365	1453	1	1921	generated	
+993	Const	MSCS_MD_ID_END_RESERVED	65366	65416	1454	1	1922	generated	
+994	Const	MULTISZ_METADATA	65417	65466	1455	1	1923	generated	
+995	Const	NNTP_MD_ID_BEGIN_RESERVED	65467	65519	1456	1	1924	generated	
+996	Const	NNTP_MD_ID_END_RESERVED	65520	65570	1457	1	1925	generated	
+997	ItemType	PFN_GETEXTENSIONVERSION	65571	65696	1458	1	1926	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+998	ItemType	PFN_HSE_CACHE_INVALIDATION_CALLBACK	65697	65843	1459	1	1931	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+999	ItemType	PFN_HSE_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK	65844	66160	1460	1	1935	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1000	ItemType	PFN_HSE_IO_COMPLETION	66161	66323	1461	1	1940	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1001	ItemType	PFN_HTTPEXTENSIONPROC	66324	66434	1462	1	1945	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1002	ItemType	PFN_IIS_GETSERVERVARIABLE	66435	66632	1463	1	1950	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1003	ItemType	PFN_IIS_READCLIENT	66633	66789	1464	1	1955	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1004	ItemType	PFN_IIS_SERVERSUPPORTFUNCTION	66790	66988	1465	1	1960	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1005	ItemType	PFN_IIS_WRITECLIENT	66989	67159	1466	1	1965	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1006	ItemType	PFN_TERMINATEEXTENSION	67160	67269	1467	1	1970	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1007	ItemType	PFN_WEB_CORE_ACTIVATE	67270	67509	1468	1	1974	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1008	ItemType	PFN_WEB_CORE_SET_METADATA_DLL_ENTRY	67510	67702	1469	1	1978	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1009	ItemType	PFN_WEB_CORE_SHUTDOWN	67703	67817	1470	1	1982	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1010	Const	POP3_MD_ID_BEGIN_RESERVED	67818	67870	1471	1	1986	generated	
+1011	Const	POP3_MD_ID_END_RESERVED	67871	67921	1472	1	1987	generated	
+1012	Struct	POST_PROCESS_PARAMETERS	67922	68840	1473	1	1988	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1013	Impl		68841	68957	1497	1	2015	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+1014	Struct	PRE_PROCESS_PARAMETERS	68958	69626	1502	1	2022	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1015	Impl		69627	69742	1519	1	2042	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+1016	Const	SF_DENIED_APPLICATION	69743	69787	1524	1	2049	generated	
+1017	Const	SF_DENIED_BY_CONFIG	69788	69834	1525	1	2050	generated	
+1018	Const	SF_DENIED_FILTER	69835	69874	1526	1	2051	generated	
+1019	Const	SF_DENIED_LOGON	69875	69913	1527	1	2052	generated	
+1020	Const	SF_DENIED_RESOURCE	69914	69955	1528	1	2053	generated	
+1021	Const	SF_MAX_AUTH_TYPE	69956	69996	1529	1	2054	generated	
+1022	Const	SF_MAX_FILTER_DESC_LEN	69997	70044	1530	1	2055	generated	
+1023	Const	SF_MAX_PASSWORD	70045	70085	1531	1	2056	generated	
+1024	Const	SF_MAX_USERNAME	70086	70126	1532	1	2057	generated	
+1025	Const	SF_NOTIFY_ACCESS_DENIED	70127	70176	1533	1	2058	generated	
+1026	Const	SF_NOTIFY_AUTHENTICATION	70177	70227	1534	1	2059	generated	
+1027	Const	SF_NOTIFY_AUTH_COMPLETE	70228	70281	1535	1	2060	generated	
+1028	Const	SF_NOTIFY_END_OF_NET_SESSION	70282	70335	1536	1	2061	generated	
+1029	Const	SF_NOTIFY_END_OF_REQUEST	70336	70385	1537	1	2062	generated	
+1030	Const	SF_NOTIFY_LOG	70386	70424	1538	1	2063	generated	
+1031	Const	SF_NOTIFY_NONSECURE_PORT	70425	70472	1539	1	2064	generated	
+1032	Const	SF_NOTIFY_ORDER_DEFAULT	70473	70524	1540	1	2065	generated	
+1033	Const	SF_NOTIFY_ORDER_HIGH	70525	70573	1541	1	2066	generated	
+1034	Const	SF_NOTIFY_ORDER_LOW	70574	70621	1542	1	2067	generated	
+1035	Const	SF_NOTIFY_ORDER_MEDIUM	70622	70672	1543	1	2068	generated	
+1036	Const	SF_NOTIFY_PREPROC_HEADERS	70673	70725	1544	1	2069	generated	
+1037	Const	SF_NOTIFY_READ_RAW_DATA	70726	70776	1545	1	2070	generated	
+1038	Const	SF_NOTIFY_SECURE_PORT	70777	70821	1546	1	2071	generated	
+1039	Const	SF_NOTIFY_SEND_RAW_DATA	70822	70871	1547	1	2072	generated	
+1040	Const	SF_NOTIFY_SEND_RESPONSE	70872	70919	1548	1	2073	generated	
+1041	Const	SF_NOTIFY_URL_MAP	70920	70963	1549	1	2074	generated	
+1042	ItemType	SF_PROPERTY_IIS	70964	70995	1550	1	2075	generated	
+1043	Const	SF_PROPERTY_INSTANCE_NUM_ID	70996	71058	1551	1	2076	generated	
+1044	Const	SF_PROPERTY_SSL_CTXT	71059	71114	1552	1	2077	generated	
+1045	Const	SF_REQ_ADD_HEADERS_ON_DENIAL	71115	71174	1553	1	2078	generated	
+1046	Const	SF_REQ_DISABLE_NOTIFICATIONS	71175	71234	1554	1	2079	generated	
+1047	Const	SF_REQ_GET_CONNID	71235	71283	1555	1	2080	generated	
+1048	Const	SF_REQ_GET_PROPERTY	71284	71334	1556	1	2081	generated	
+1049	Const	SF_REQ_NORMALIZE_URL	71335	71386	1557	1	2082	generated	
+1050	Const	SF_REQ_SEND_RESPONSE_HEADER	71387	71445	1558	1	2083	generated	
+1051	Const	SF_REQ_SET_CERTIFICATE_INFO	71446	71504	1559	1	2084	generated	
+1052	Const	SF_REQ_SET_NEXT_READ_SIZE	71505	71561	1560	1	2085	generated	
+1053	Const	SF_REQ_SET_PROXY_INFO	71562	71614	1561	1	2086	generated	
+1054	ItemType	SF_REQ_TYPE	71615	71642	1562	1	2087	generated	
+1055	Const	SF_STATUS_REQ_ERROR	71643	71704	1563	1	2088	generated	
+1056	Const	SF_STATUS_REQ_FINISHED	71705	71769	1564	1	2089	generated	
+1057	Const	SF_STATUS_REQ_FINISHED_KEEP_CONN	71770	71844	1565	1	2090	generated	
+1058	Const	SF_STATUS_REQ_HANDLED_NOTIFICATION	71845	71921	1566	1	2091	generated	
+1059	Const	SF_STATUS_REQ_NEXT_NOTIFICATION	71922	71995	1567	1	2092	generated	
+1060	Const	SF_STATUS_REQ_READ_NEXT	71996	72061	1568	1	2093	generated	
+1061	ItemType	SF_STATUS_TYPE	72062	72092	1569	1	2094	generated	
+1062	Const	SMTP_MD_ID_BEGIN_RESERVED	72093	72145	1570	1	2095	generated	
+1063	Const	SMTP_MD_ID_END_RESERVED	72146	72196	1571	1	2096	generated	
+1064	Const	STRING_METADATA	72197	72245	1572	1	2097	generated	
+1065	Const	USER_MD_ID_BASE_RESERVED	72246	72297	1573	1	2098	generated	
+1066	Const	WAM_MD_ID_BEGIN_RESERVED	72298	72349	1574	1	2099	generated	
+1067	Const	WAM_MD_ID_END_RESERVED	72350	72399	1575	1	2100	generated	
+1068	Const	WAM_MD_SERVER_BASE	72400	72444	1576	1	2101	generated	
+1069	Const	WEBDAV_MD_SERVER_BASE	72445	72492	1577	1	2102	generated	
+1070	Const	WEB_CORE_ACTIVATE_DLL_ENTRY	72493	72600	1578	1	2103	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1071	Const	WEB_CORE_DLL_NAME	72601	72696	1579	1	2108	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1072	Const	WEB_CORE_SET_METADATA_DLL_ENTRY	72697	72811	1580	1	2113	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1073	Const	WEB_CORE_SHUTDOWN_DLL_ENTRY	72812	72919	1581	1	2118	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.

@@ -1,0 +1,19 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	274	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		275	414	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		415	608	3	1	8	unsupported	declaration Macro has no candidate rule
+3	Macro		609	883	4	1	11	unsupported	declaration Macro has no candidate rule
+4	Macro		884	1023	5	1	14	unsupported	declaration Macro has no candidate rule
+5	Macro		1024	1217	6	1	17	unsupported	declaration Macro has no candidate rule
+6	ItemType	SYSTEM_INFORMATION_CLASS	1218	1258	7	1	20	generated	
+7	Const	SystemBasicInformation	1259	1325	8	1	21	generated	
+8	Const	SystemCodeIntegrityInformation	1326	1402	9	1	22	generated	
+9	Const	SystemExceptionInformation	1403	1474	10	1	23	generated	
+10	Const	SystemInterruptInformation	1475	1546	11	1	24	generated	
+11	Const	SystemLookasideInformation	1547	1618	12	1	25	generated	
+12	Const	SystemPerformanceInformation	1619	1691	13	1	26	generated	
+13	Const	SystemPolicyInformation	1692	1761	14	1	27	generated	
+14	Const	SystemProcessInformation	1762	1830	15	1	28	generated	
+15	Const	SystemProcessorPerformanceInformation	1831	1912	16	1	29	generated	
+16	Const	SystemRegistryQuotaInformation	1913	1988	17	1	30	generated	
+17	Const	SystemTimeOfDayInformation	1989	2059	18	1	31	generated	

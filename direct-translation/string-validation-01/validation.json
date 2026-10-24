@@ -1,0 +1,8 @@
+{
+  "passed": false,
+  "stage": "kotlin-compile",
+  "reason": "Syn macro delimiter span covered opening delimiter only; original literal tail remained after emitted call",
+  "native_pointer_behavior_validated": false,
+  "adopted": false,
+  "corrective_action": "Preserve full original delimiter span in existing Syn parseDelimiter; rerun with fresh output directory"
+}

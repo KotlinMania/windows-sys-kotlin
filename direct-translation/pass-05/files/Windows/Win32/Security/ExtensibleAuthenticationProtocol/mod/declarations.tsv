@@ -1,0 +1,675 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro	EapHostPeerBeginSession	0	526	1	1	2	syntax	External declaration shape only: wire DLL=eappprxy.dll, ABI=system, export=EapHostPeerBeginSession; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1	Macro	EapHostPeerClearConnection	527	689	2	1	7	syntax	External declaration shape only: wire DLL=eappprxy.dll, ABI=system, export=EapHostPeerClearConnection; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+2	Macro	EapHostPeerEndSession	690	822	3	1	12	syntax	External declaration shape only: wire DLL=eappprxy.dll, ABI=system, export=EapHostPeerEndSession; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+3	Macro	EapHostPeerFreeEapError	823	923	4	1	17	syntax	External declaration shape only: wire DLL=eappprxy.dll, ABI=system, export=EapHostPeerFreeEapError; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+4	Macro	EapHostPeerFreeErrorMemory	924	1026	5	1	22	syntax	External declaration shape only: wire DLL=eappcfg.dll, ABI=system, export=EapHostPeerFreeErrorMemory; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+5	Macro	EapHostPeerFreeMemory	1027	1113	6	1	27	syntax	External declaration shape only: wire DLL=eappcfg.dll, ABI=system, export=EapHostPeerFreeMemory; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+6	Macro	EapHostPeerFreeRuntimeMemory	1114	1208	7	1	31	syntax	External declaration shape only: wire DLL=eappprxy.dll, ABI=system, export=EapHostPeerFreeRuntimeMemory; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+7	Macro	EapHostPeerGetAuthStatus	1209	1430	8	1	35	syntax	External declaration shape only: wire DLL=eappprxy.dll, ABI=system, export=EapHostPeerGetAuthStatus; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+8	Macro	EapHostPeerGetDataToUnplumbCredentials	1431	1736	9	1	40	syntax	External declaration shape only: wire DLL=eappprxy.dll, ABI=system, export=EapHostPeerGetDataToUnplumbCredentials; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+9	Macro	EapHostPeerGetEncryptedPassword	1737	1937	10	1	45	syntax	External declaration shape only: wire DLL=eappprxy.dll, ABI=system, export=EapHostPeerGetEncryptedPassword; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+10	Macro	EapHostPeerGetIdentity	1938	2461	11	1	50	syntax	External declaration shape only: wire DLL=eappprxy.dll, ABI=system, export=EapHostPeerGetIdentity; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+11	Macro	EapHostPeerGetMethodProperties	2462	2860	12	1	55	syntax	External declaration shape only: wire DLL=eappcfg.dll, ABI=system, export=EapHostPeerGetMethodProperties; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+12	Macro	EapHostPeerGetMethods	2861	3021	13	1	60	syntax	External declaration shape only: wire DLL=eappcfg.dll, ABI=system, export=EapHostPeerGetMethods; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+13	Macro	EapHostPeerGetResponseAttributes	3022	3197	14	1	65	syntax	External declaration shape only: wire DLL=eappprxy.dll, ABI=system, export=EapHostPeerGetResponseAttributes; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+14	Macro	EapHostPeerGetResult	3198	3410	15	1	70	syntax	External declaration shape only: wire DLL=eappprxy.dll, ABI=system, export=EapHostPeerGetResult; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+15	Macro	EapHostPeerGetSendPacket	3411	3601	16	1	75	syntax	External declaration shape only: wire DLL=eappprxy.dll, ABI=system, export=EapHostPeerGetSendPacket; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+16	Macro	EapHostPeerGetUIContext	3602	3803	17	1	80	syntax	External declaration shape only: wire DLL=eappprxy.dll, ABI=system, export=EapHostPeerGetUIContext; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+17	Macro	EapHostPeerInitialize	3804	3883	18	1	85	syntax	External declaration shape only: wire DLL=eappprxy.dll, ABI=system, export=EapHostPeerInitialize; preserve Rust unsafe-call contract. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+18	Macro	EapHostPeerInvokeConfigUI	3884	4198	19	1	88	syntax	External declaration shape only: wire DLL=eappcfg.dll, ABI=system, export=EapHostPeerInvokeConfigUI; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+19	Macro	EapHostPeerInvokeIdentityUI	4199	4685	20	1	93	syntax	External declaration shape only: wire DLL=eappcfg.dll, ABI=system, export=EapHostPeerInvokeIdentityUI; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+20	Macro	EapHostPeerInvokeInteractiveUI	4686	4991	21	1	98	syntax	External declaration shape only: wire DLL=eappcfg.dll, ABI=system, export=EapHostPeerInvokeInteractiveUI; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+21	Macro	EapHostPeerProcessReceivedPacket	4992	5231	22	1	103	syntax	External declaration shape only: wire DLL=eappprxy.dll, ABI=system, export=EapHostPeerProcessReceivedPacket; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+22	Macro	EapHostPeerQueryCredentialInputFields	5232	5582	23	1	108	syntax	External declaration shape only: wire DLL=eappcfg.dll, ABI=system, export=EapHostPeerQueryCredentialInputFields; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+23	Macro	EapHostPeerQueryInteractiveUIInputFields	5583	5898	24	1	113	syntax	External declaration shape only: wire DLL=eappcfg.dll, ABI=system, export=EapHostPeerQueryInteractiveUIInputFields; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+24	Macro	EapHostPeerQueryUIBlobFromInteractiveUIInputFields	5899	6309	25	1	118	syntax	External declaration shape only: wire DLL=eappcfg.dll, ABI=system, export=EapHostPeerQueryUIBlobFromInteractiveUIInputFields; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+25	Macro	EapHostPeerQueryUserBlobFromCredentialInputFields	6310	6730	26	1	123	syntax	External declaration shape only: wire DLL=eappcfg.dll, ABI=system, export=EapHostPeerQueryUserBlobFromCredentialInputFields; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+26	Macro	EapHostPeerSetResponseAttributes	6731	6953	27	1	128	syntax	External declaration shape only: wire DLL=eappprxy.dll, ABI=system, export=EapHostPeerSetResponseAttributes; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+27	Macro	EapHostPeerSetUIContext	6954	7190	28	1	133	syntax	External declaration shape only: wire DLL=eappprxy.dll, ABI=system, export=EapHostPeerSetUIContext; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+28	Macro	EapHostPeerUninitialize	7191	7265	29	1	138	syntax	External declaration shape only: wire DLL=eappprxy.dll, ABI=system, export=EapHostPeerUninitialize; preserve Rust unsafe-call contract. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+29	Const	CERTIFICATE_HASH_LENGTH	7266	7313	30	1	141	generated	
+30	Const	EAPACTION_Authenticate	7314	7370	31	1	142	generated	
+31	Const	EAPACTION_Done	7371	7419	32	1	143	generated	
+32	Const	EAPACTION_IndicateIdentity	7420	7480	33	1	144	generated	
+33	Const	EAPACTION_IndicateTLV	7481	7536	34	1	145	generated	
+34	Const	EAPACTION_NoAction	7537	7589	35	1	146	generated	
+35	Const	EAPACTION_Send	7590	7638	36	1	147	generated	
+36	Const	EAPACTION_SendAndDone	7639	7694	37	1	148	generated	
+37	Const	EAPACTION_SendWithTimeout	7695	7754	38	1	149	generated	
+38	Const	EAPACTION_SendWithTimeoutInteractive	7755	7825	39	1	150	generated	
+39	Const	EAPCODE_Failure	7826	7864	40	1	151	generated	
+40	Const	EAPCODE_Request	7865	7903	41	1	152	generated	
+41	Const	EAPCODE_Response	7904	7943	42	1	153	generated	
+42	Const	EAPCODE_Success	7944	7982	43	1	154	generated	
+43	Struct	EAPHOST_AUTH_INFO	7983	8148	44	1	155	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+44	ItemType	EAPHOST_AUTH_STATUS	8149	8184	51	1	165	generated	
+45	Struct	EAPHOST_IDENTITY_UI_PARAMS	8185	8622	52	1	166	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+46	Impl		8623	8742	67	1	185	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+47	Struct	EAPHOST_INTERACTIVE_UI_PARAMS	8743	9020	72	1	192	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+48	Impl		9021	9143	82	1	206	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+49	Const	EAPHOST_METHOD_API_VERSION	9144	9193	87	1	213	generated	
+50	Const	EAPHOST_PEER_API_VERSION	9194	9241	88	1	214	generated	
+51	Struct	EAP_ATTRIBUTE	9242	9388	89	1	215	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+52	Impl		9389	9495	96	1	226	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+53	Struct	EAP_ATTRIBUTES	9496	9632	101	1	233	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+54	Impl		9633	9740	107	1	243	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+55	ItemType	EAP_ATTRIBUTE_TYPE	9741	9775	112	1	250	generated	
+56	Struct	EAP_AUTHENTICATOR_METHOD_ROUTINES	9776	10437	113	1	251	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+57	Impl		10438	10564	129	1	271	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+58	ItemType	EAP_AUTHENTICATOR_SEND_TIMEOUT	10565	10611	134	1	278	generated	
+59	Const	EAP_AUTHENTICATOR_SEND_TIMEOUT_BASIC	10612	10698	135	1	279	generated	
+60	Const	EAP_AUTHENTICATOR_SEND_TIMEOUT_INTERACTIVE	10699	10791	136	1	280	generated	
+61	Const	EAP_AUTHENTICATOR_SEND_TIMEOUT_NONE	10792	10877	137	1	281	generated	
+62	Const	EAP_AUTHENTICATOR_VALUENAME_CONFIGUI	10878	11005	138	1	282	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+63	Const	EAP_AUTHENTICATOR_VALUENAME_DLL_PATH	11006	11128	139	1	287	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+64	Const	EAP_AUTHENTICATOR_VALUENAME_FRIENDLY_NAME	11129	11261	140	1	292	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+65	Const	EAP_AUTHENTICATOR_VALUENAME_PROPERTIES	11262	11376	141	1	297	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+66	Const	EAP_CERTIFICATE_CREDENTIAL	11377	11440	142	1	302	generated	
+67	Struct	EAP_CONFIG_INPUT_FIELD_ARRAY	11441	11624	143	1	303	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+68	Impl		11625	11746	150	1	314	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+69	Struct	EAP_CONFIG_INPUT_FIELD_DATA	11747	12062	155	1	321	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+70	Impl		12063	12183	166	1	335	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+71	Const	EAP_CONFIG_INPUT_FIELD_PROPS_DEFAULT	12184	12243	171	1	342	generated	
+72	Const	EAP_CONFIG_INPUT_FIELD_PROPS_NON_DISPLAYABLE	12244	12311	172	1	343	generated	
+73	Const	EAP_CONFIG_INPUT_FIELD_PROPS_NON_PERSIST	12312	12375	173	1	344	generated	
+74	ItemType	EAP_CONFIG_INPUT_FIELD_TYPE	12376	12419	174	1	345	generated	
+75	Const	EAP_CREDENTIAL_VERSION	12420	12465	175	1	346	generated	
+76	Struct	EAP_CRED_EXPIRY_REQ	12466	12639	176	1	347	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+77	Const	EAP_EMPTY_CREDENTIAL	12640	12697	182	1	356	generated	
+78	Struct	EAP_ERROR	12698	13082	183	1	357	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+79	Impl		13083	13185	195	1	372	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+80	Const	EAP_E_AUTHENTICATION_FAILED	13186	13245	200	1	379	generated	
+81	Const	EAP_E_CERT_STORE_INACCESSIBLE	13246	13307	201	1	380	generated	
+82	Const	EAP_E_EAPHOST_EAPQEC_INACCESSIBLE	13308	13373	202	1	381	generated	
+83	Const	EAP_E_EAPHOST_FIRST	13374	13426	203	1	382	generated	
+84	Const	EAP_E_EAPHOST_IDENTITY_UNKNOWN	13427	13489	204	1	383	generated	
+85	Const	EAP_E_EAPHOST_LAST	13490	13541	205	1	384	generated	
+86	Const	EAP_E_EAPHOST_METHOD_INVALID_PACKET	13542	13609	206	1	385	generated	
+87	Const	EAP_E_EAPHOST_METHOD_NOT_INSTALLED	13610	13676	207	1	386	generated	
+88	Const	EAP_E_EAPHOST_METHOD_OPERATION_NOT_SUPPORTED	13677	13753	208	1	387	generated	
+89	Const	EAP_E_EAPHOST_REMOTE_INVALID_PACKET	13754	13821	209	1	388	generated	
+90	Const	EAP_E_EAPHOST_THIRDPARTY_METHOD_HOST_RESET	13822	13896	210	1	389	generated	
+91	Const	EAP_E_EAPHOST_XML_MALFORMED	13897	13956	211	1	390	generated	
+92	Const	EAP_E_METHOD_CONFIG_DOES_NOT_SUPPORT_SSO	13957	14029	212	1	391	generated	
+93	Const	EAP_E_NO_SMART_CARD_READER	14030	14088	213	1	392	generated	
+94	Const	EAP_E_SERVER_CERT_EXPIRED	14089	14146	214	1	393	generated	
+95	Const	EAP_E_SERVER_CERT_INVALID	14147	14204	215	1	394	generated	
+96	Const	EAP_E_SERVER_CERT_NOT_FOUND	14205	14264	216	1	395	generated	
+97	Const	EAP_E_SERVER_CERT_OTHER_ERROR	14265	14326	217	1	396	generated	
+98	Const	EAP_E_SERVER_CERT_REVOKED	14327	14384	218	1	397	generated	
+99	Const	EAP_E_SERVER_FIRST	14385	14436	219	1	398	generated	
+100	Const	EAP_E_SERVER_LAST	14437	14487	220	1	399	generated	
+101	Const	EAP_E_SERVER_ROOT_CERT_FIRST	14488	14549	221	1	400	generated	
+102	Const	EAP_E_SERVER_ROOT_CERT_INVALID	14550	14612	222	1	401	generated	
+103	Const	EAP_E_SERVER_ROOT_CERT_LAST	14613	14673	223	1	402	generated	
+104	Const	EAP_E_SERVER_ROOT_CERT_NAME_REQUIRED	14674	14742	224	1	403	generated	
+105	Const	EAP_E_SERVER_ROOT_CERT_NOT_FOUND	14743	14807	225	1	404	generated	
+106	Const	EAP_E_SIM_NOT_VALID	14808	14859	226	1	405	generated	
+107	Const	EAP_E_USER_CERT_EXPIRED	14860	14915	227	1	406	generated	
+108	Const	EAP_E_USER_CERT_INVALID	14916	14971	228	1	407	generated	
+109	Const	EAP_E_USER_CERT_NOT_FOUND	14972	15029	229	1	408	generated	
+110	Const	EAP_E_USER_CERT_OTHER_ERROR	15030	15089	230	1	409	generated	
+111	Const	EAP_E_USER_CERT_REJECTED	15090	15146	231	1	410	generated	
+112	Const	EAP_E_USER_CERT_REVOKED	15147	15202	232	1	411	generated	
+113	Const	EAP_E_USER_CREDENTIALS_REJECTED	15203	15266	233	1	412	generated	
+114	Const	EAP_E_USER_FIRST	15267	15316	234	1	413	generated	
+115	Const	EAP_E_USER_LAST	15317	15365	235	1	414	generated	
+116	Const	EAP_E_USER_NAME_PASSWORD_REJECTED	15366	15431	236	1	415	generated	
+117	Const	EAP_E_USER_ROOT_CERT_EXPIRED	15432	15492	237	1	416	generated	
+118	Const	EAP_E_USER_ROOT_CERT_FIRST	15493	15552	238	1	417	generated	
+119	Const	EAP_E_USER_ROOT_CERT_INVALID	15553	15613	239	1	418	generated	
+120	Const	EAP_E_USER_ROOT_CERT_LAST	15614	15672	240	1	419	generated	
+121	Const	EAP_E_USER_ROOT_CERT_NOT_FOUND	15673	15735	241	1	420	generated	
+122	Const	EAP_FLAG_CONFG_READONLY	15736	15787	242	1	421	generated	
+123	Const	EAP_FLAG_FULL_AUTH	15788	15832	243	1	422	generated	
+124	Const	EAP_FLAG_GUEST_ACCESS	15833	15878	244	1	423	generated	
+125	Const	EAP_FLAG_LOGON	15879	15916	245	1	424	generated	
+126	Const	EAP_FLAG_MACHINE_AUTH	15917	15962	246	1	425	generated	
+127	Const	EAP_FLAG_NON_INTERACTIVE	15963	16010	247	1	426	generated	
+128	Const	EAP_FLAG_ONLY_EAP_TLS	16011	16062	248	1	427	generated	
+129	Const	EAP_FLAG_PREFER_ALT_CREDENTIALS	16063	16120	249	1	428	generated	
+130	Const	EAP_FLAG_PREVIEW	16121	16160	250	1	429	generated	
+131	Const	EAP_FLAG_PRE_LOGON	16161	16207	251	1	430	generated	
+132	Const	EAP_FLAG_RESUME_FROM_HIBERNATE	16208	16263	252	1	431	generated	
+133	Const	EAP_FLAG_Reserved1	16264	16305	253	1	432	generated	
+134	Const	EAP_FLAG_Reserved2	16306	16348	254	1	433	generated	
+135	Const	EAP_FLAG_Reserved3	16349	16392	255	1	434	generated	
+136	Const	EAP_FLAG_Reserved4	16393	16436	256	1	435	generated	
+137	Const	EAP_FLAG_Reserved5	16437	16481	257	1	436	generated	
+138	Const	EAP_FLAG_Reserved6	16482	16526	258	1	437	generated	
+139	Const	EAP_FLAG_Reserved7	16527	16572	259	1	438	generated	
+140	Const	EAP_FLAG_Reserved8	16573	16620	260	1	439	generated	
+141	Const	EAP_FLAG_Reserved9	16621	16668	261	1	440	generated	
+142	Const	EAP_FLAG_SERVER_VALIDATION_REQUIRED	16669	16734	262	1	441	generated	
+143	Const	EAP_FLAG_SUPRESS_UI	16735	16781	263	1	442	generated	
+144	Const	EAP_FLAG_USER_AUTH	16782	16828	264	1	443	generated	
+145	Const	EAP_FLAG_VPN	16829	16870	265	1	444	generated	
+146	Const	EAP_GROUP_MASK	16871	16912	266	1	445	generated	
+147	Struct	EAP_INTERACTIVE_UI_DATA	16913	17141	267	1	446	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+148	Impl		17142	17258	276	1	458	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+149	ItemType	EAP_INTERACTIVE_UI_DATA_TYPE	17259	17303	281	1	465	generated	
+150	Const	EAP_INTERACTIVE_UI_DATA_VERSION	17304	17358	282	1	466	generated	
+151	Const	EAP_INVALID_PACKET	17359	17409	283	1	467	generated	
+152	Const	EAP_I_EAPHOST_EAP_NEGOTIATION_FAILED	17410	17478	284	1	468	generated	
+153	Const	EAP_I_EAPHOST_FIRST	17479	17531	285	1	469	generated	
+154	Const	EAP_I_EAPHOST_LAST	17532	17583	286	1	470	generated	
+155	Const	EAP_I_USER_ACCOUNT_OTHER_ERROR	17584	17646	287	1	471	generated	
+156	Const	EAP_I_USER_FIRST	17647	17695	288	1	472	generated	
+157	Const	EAP_I_USER_LAST	17696	17743	289	1	473	generated	
+158	Const	EAP_METHOD_AUTHENTICATOR_CONFIG_IS_IDENTITY_PRIVACY	17744	17818	290	1	474	generated	
+159	ItemType	EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION	17819	17875	291	1	475	generated	
+160	Const	EAP_METHOD_AUTHENTICATOR_RESPONSE_AUTHENTICATE	17876	17982	292	1	476	generated	
+161	Const	EAP_METHOD_AUTHENTICATOR_RESPONSE_DISCARD	17983	18084	293	1	477	generated	
+162	Const	EAP_METHOD_AUTHENTICATOR_RESPONSE_HANDLE_IDENTITY	18085	18194	294	1	478	generated	
+163	Const	EAP_METHOD_AUTHENTICATOR_RESPONSE_RESPOND	18195	18296	295	1	479	generated	
+164	Const	EAP_METHOD_AUTHENTICATOR_RESPONSE_RESULT	18297	18397	296	1	480	generated	
+165	Const	EAP_METHOD_AUTHENTICATOR_RESPONSE_SEND	18398	18496	297	1	481	generated	
+166	Struct	EAP_METHOD_AUTHENTICATOR_RESULT	18497	18695	298	1	482	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+167	Impl		18696	18820	305	1	493	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+168	Struct	EAP_METHOD_INFO	18821	19097	310	1	500	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+169	Impl		19098	19206	319	1	513	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+170	Struct	EAP_METHOD_INFO_ARRAY	19207	19352	324	1	520	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+171	Impl		19353	19467	330	1	530	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+172	Struct	EAP_METHOD_INFO_ARRAY_EX	19468	19619	335	1	537	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+173	Impl		19620	19737	341	1	547	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+174	Struct	EAP_METHOD_INFO_EX	19738	20031	346	1	554	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+175	Impl		20032	20143	355	1	567	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+176	Const	EAP_METHOD_INVALID_PACKET	20144	20201	360	1	574	generated	
+177	Struct	EAP_METHOD_PROPERTY	20202	20454	361	1	575	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+178	Impl		20455	20567	368	1	585	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+179	Struct	EAP_METHOD_PROPERTY_ARRAY	20568	20728	373	1	592	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+180	Impl		20729	20847	379	1	602	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+181	ItemType	EAP_METHOD_PROPERTY_TYPE	20848	20888	384	1	609	generated	
+182	Union		20889	21118	385	1	610	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+183	Impl		21119	21237	392	1	619	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+184	Struct	EAP_METHOD_PROPERTY_VALUE_BOOL	21238	21387	397	1	626	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+185	Struct	EAP_METHOD_PROPERTY_VALUE_DWORD	21388	21518	403	1	635	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+186	Struct	EAP_METHOD_PROPERTY_VALUE_STRING	21519	21645	409	1	643	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+187	Impl		21646	21771	415	1	652	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+188	ItemType	EAP_METHOD_PROPERTY_VALUE_TYPE	21772	21818	420	1	659	generated	
+189	Struct	EAP_METHOD_TYPE	21819	21944	421	1	660	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+190	Const	EAP_PEER_FLAG_GUEST_ACCESS	21945	21995	427	1	669	generated	
+191	Const	EAP_PEER_FLAG_HEALTH_STATE_CHANGE	21996	22056	428	1	670	generated	
+192	Struct	EAP_PEER_METHOD_ROUTINES	22057	22676	429	1	671	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+193	Impl		22677	22794	448	1	694	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+194	Const	EAP_PEER_VALUENAME_CONFIGUI	22795	22904	453	1	701	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+195	Const	EAP_PEER_VALUENAME_DLL_PATH	22905	23009	454	1	706	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+196	Const	EAP_PEER_VALUENAME_FRIENDLY_NAME	23010	23124	455	1	711	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+197	Const	EAP_PEER_VALUENAME_IDENTITY	23125	23234	456	1	716	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+198	Const	EAP_PEER_VALUENAME_INTERACTIVEUI	23235	23354	457	1	721	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+199	Const	EAP_PEER_VALUENAME_INVOKE_NAMEDLG	23355	23478	458	1	726	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+200	Const	EAP_PEER_VALUENAME_INVOKE_PWDDLG	23479	23601	459	1	731	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+201	Const	EAP_PEER_VALUENAME_PROPERTIES	23602	23707	460	1	736	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+202	Const	EAP_PEER_VALUENAME_REQUIRE_CONFIGUI	23708	23828	461	1	741	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+203	Const	EAP_REGISTRY_LOCATION	23829	23969	462	1	746	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+204	Const	EAP_SIM_CREDENTIAL	23970	24025	463	1	751	generated	
+205	Struct	EAP_TYPE	24026	24164	464	1	752	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+206	Union		24165	24392	471	1	761	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+207	Impl		24393	24504	478	1	770	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+208	Const	EAP_UI_INPUT_FIELD_PROPS_DEFAULT	24505	24560	483	1	777	generated	
+209	Const	EAP_UI_INPUT_FIELD_PROPS_NON_DISPLAYABLE	24561	24624	484	1	778	generated	
+210	Const	EAP_UI_INPUT_FIELD_PROPS_NON_PERSIST	24625	24684	485	1	779	generated	
+211	Const	EAP_UI_INPUT_FIELD_PROPS_READ_ONLY	24685	24742	486	1	780	generated	
+212	Const	EAP_USERNAME_PASSWORD_CREDENTIAL	24743	24812	487	1	781	generated	
+213	Const	EAP_VALUENAME_PROPERTIES	24813	24913	488	1	782	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+214	Const	EAP_WINLOGON_CREDENTIAL	24914	24974	489	1	787	generated	
+215	Struct	EapCertificateCredential	24975	25120	490	1	788	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 20 and value/layout semantics require coder integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+216	Impl		25121	25238	496	1	798	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+217	ItemType	EapCode	25239	25262	501	1	805	generated	
+218	Const	EapCodeFailure	25263	25304	502	1	806	generated	
+219	Const	EapCodeMaximum	25305	25346	503	1	807	generated	
+220	Const	EapCodeMinimum	25347	25388	504	1	808	generated	
+221	Const	EapCodeRequest	25389	25430	505	1	809	generated	
+222	Const	EapCodeResponse	25431	25473	506	1	810	generated	
+223	Const	EapCodeSuccess	25474	25515	507	1	811	generated	
+224	Const	EapConfigInputEdit	25516	25581	508	1	812	generated	
+225	Const	EapConfigInputNetworkPassword	25582	25658	509	1	813	generated	
+226	Const	EapConfigInputNetworkUsername	25659	25735	510	1	814	generated	
+227	Const	EapConfigInputPSK	25736	25800	511	1	815	generated	
+228	Const	EapConfigInputPassword	25801	25870	512	1	816	generated	
+229	Const	EapConfigInputPin	25871	25935	513	1	817	generated	
+230	Const	EapConfigInputUsername	25936	26005	514	1	818	generated	
+231	Const	EapConfigSmartCardError	26006	26076	515	1	819	generated	
+232	Const	EapConfigSmartCardUsername	26077	26150	516	1	820	generated	
+233	Const	EapCredExpiryReq	26151	26215	517	1	821	generated	
+234	Const	EapCredExpiryResp	26216	26281	518	1	822	generated	
+235	Const	EapCredLogonReq	26282	26345	519	1	823	generated	
+236	Const	EapCredLogonResp	26346	26410	520	1	824	generated	
+237	Const	EapCredReq	26411	26469	521	1	825	generated	
+238	Const	EapCredResp	26470	26529	522	1	826	generated	
+239	Struct	EapCredential	26530	26670	523	1	827	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+240	Impl		26671	26777	529	1	836	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+241	ItemType	EapCredentialType	26778	26811	534	1	843	generated	
+242	Union		26812	27017	535	1	844	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+243	Impl		27018	27132	542	1	853	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+244	Const	EapHostAuthFailed	27133	27189	547	1	860	generated	
+245	Const	EapHostAuthIdentityExchange	27190	27256	548	1	861	generated	
+246	Const	EapHostAuthInProgress	27257	27317	549	1	862	generated	
+247	Const	EapHostAuthNegotiatingType	27318	27383	550	1	863	generated	
+248	Const	EapHostAuthNotStarted	27384	27444	551	1	864	generated	
+249	Const	EapHostAuthSucceeded	27445	27504	552	1	865	generated	
+250	Const	EapHostInvalidSession	27505	27565	553	1	866	generated	
+251	Const	EapHostNapInfo	27566	27621	554	1	867	generated	
+252	ItemType	EapHostPeerAuthParams	27622	27659	555	1	868	generated	
+253	Const	EapHostPeerAuthStatus	27660	27722	556	1	869	generated	
+254	Const	EapHostPeerIdentity	27723	27783	557	1	870	generated	
+255	Const	EapHostPeerIdentityExtendedInfo	27784	27856	558	1	871	generated	
+256	Struct	EapHostPeerMethodResult	27857	28405	559	1	872	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+257	Impl		28406	28522	575	1	892	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+258	Const	EapHostPeerMethodResultAltSuccessReceived	28523	28613	580	1	899	generated	
+259	Const	EapHostPeerMethodResultFromMethod	28614	28696	581	1	900	generated	
+260	ItemType	EapHostPeerMethodResultReason	28697	28742	582	1	901	generated	
+261	Const	EapHostPeerMethodResultTimeout	28743	28822	583	1	902	generated	
+262	ItemType	EapHostPeerResponseAction	28823	28864	584	1	903	generated	
+263	Const	EapHostPeerResponseDiscard	28865	28936	585	1	904	generated	
+264	Const	EapHostPeerResponseInvokeUi	28937	29009	586	1	905	generated	
+265	Const	EapHostPeerResponseNone	29010	29078	587	1	906	generated	
+266	Const	EapHostPeerResponseRespond	29079	29150	588	1	907	generated	
+267	Const	EapHostPeerResponseResult	29151	29221	589	1	908	generated	
+268	Const	EapHostPeerResponseSend	29222	29290	590	1	909	generated	
+269	Const	EapHostPeerResponseStartAuthentication	29291	29374	591	1	910	generated	
+270	Struct	EapPacket	29375	29515	592	1	911	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 2 and value/layout semantics require coder integration. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+271	Impl		29516	29618	600	1	923	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+272	Struct	EapPeerMethodOutput	29619	29795	605	1	930	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+273	ItemType	EapPeerMethodResponseAction	29796	29839	611	1	939	generated	
+274	Const	EapPeerMethodResponseActionDiscard	29840	29921	612	1	940	generated	
+275	Const	EapPeerMethodResponseActionInvokeUI	29922	30004	613	1	941	generated	
+276	Const	EapPeerMethodResponseActionNone	30005	30083	614	1	942	generated	
+277	Const	EapPeerMethodResponseActionRespond	30084	30165	615	1	943	generated	
+278	Const	EapPeerMethodResponseActionResult	30166	30246	616	1	944	generated	
+279	Const	EapPeerMethodResponseActionSend	30247	30325	617	1	945	generated	
+280	Struct	EapPeerMethodResult	30326	30927	618	1	946	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+281	Impl		30928	31088	635	1	967	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+282	Const	EapPeerMethodResultFailure	31089	31160	641	1	975	generated	
+283	ItemType	EapPeerMethodResultReason	31161	31202	642	1	976	generated	
+284	Const	EapPeerMethodResultSuccess	31203	31274	643	1	977	generated	
+285	Const	EapPeerMethodResultUnknown	31275	31346	644	1	978	generated	
+286	Struct	EapSimCredential	31347	31453	645	1	979	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+287	Impl		31454	31563	650	1	987	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+288	Struct	EapUsernamePasswordCredential	31564	31730	655	1	994	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+289	Impl		31731	31853	661	1	1003	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+290	Const	FACILITY_EAP_MESSAGE	31854	31900	666	1	1010	generated	
+291	Const	GUID_EapHost_Cause_CertStoreInaccessible	31901	32054	667	1	1011	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+292	Const	GUID_EapHost_Cause_EapNegotiationFailed	32055	32207	668	1	1014	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+293	Const	GUID_EapHost_Cause_EapQecInaccessible	32208	32358	669	1	1017	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+294	Const	GUID_EapHost_Cause_Generic_AuthFailure	32359	32510	670	1	1020	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+295	Const	GUID_EapHost_Cause_IdentityUnknown	32511	32658	671	1	1023	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+296	Const	GUID_EapHost_Cause_MethodDLLNotFound	32659	32808	672	1	1026	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+297	Const	GUID_EapHost_Cause_MethodDoesNotSupportOperation	32809	32970	673	1	1029	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+298	Const	GUID_EapHost_Cause_Method_Config_Does_Not_Support_Sso	32971	33137	674	1	1032	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+299	Const	GUID_EapHost_Cause_No_SmartCardReader_Found	33138	33294	675	1	1035	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+300	Const	GUID_EapHost_Cause_Server_CertExpired	33295	33445	676	1	1038	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+301	Const	GUID_EapHost_Cause_Server_CertInvalid	33446	33596	677	1	1041	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+302	Const	GUID_EapHost_Cause_Server_CertNotFound	33597	33748	678	1	1044	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+303	Const	GUID_EapHost_Cause_Server_CertOtherError	33749	33902	679	1	1047	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+304	Const	GUID_EapHost_Cause_Server_CertRevoked	33903	34053	680	1	1050	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+305	Const	GUID_EapHost_Cause_Server_Root_CertNameRequired	34054	34214	681	1	1053	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+306	Const	GUID_EapHost_Cause_Server_Root_CertNotFound	34215	34371	682	1	1056	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+307	Const	GUID_EapHost_Cause_SimNotValid	34372	34515	683	1	1059	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+308	Const	GUID_EapHost_Cause_ThirdPartyMethod_Host_Reset	34516	34675	684	1	1062	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+309	Const	GUID_EapHost_Cause_User_Account_OtherProblem	34676	34833	685	1	1065	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+310	Const	GUID_EapHost_Cause_User_CertExpired	34834	34982	686	1	1068	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+311	Const	GUID_EapHost_Cause_User_CertInvalid	34983	35131	687	1	1071	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+312	Const	GUID_EapHost_Cause_User_CertNotFound	35132	35281	688	1	1074	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+313	Const	GUID_EapHost_Cause_User_CertOtherError	35282	35433	689	1	1077	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+314	Const	GUID_EapHost_Cause_User_CertRejected	35434	35583	690	1	1080	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+315	Const	GUID_EapHost_Cause_User_CertRevoked	35584	35732	691	1	1083	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+316	Const	GUID_EapHost_Cause_User_CredsRejected	35733	35883	692	1	1086	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+317	Const	GUID_EapHost_Cause_User_Root_CertExpired	35884	36037	693	1	1089	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+318	Const	GUID_EapHost_Cause_User_Root_CertInvalid	36038	36191	694	1	1092	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+319	Const	GUID_EapHost_Cause_User_Root_CertNotFound	36192	36346	695	1	1095	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+320	Const	GUID_EapHost_Cause_XmlMalformed	36347	36491	696	1	1098	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+321	Const	GUID_EapHost_Default	36492	36625	697	1	1101	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+322	Const	GUID_EapHost_Help_ObtainingCerts	36626	36771	698	1	1104	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+323	Const	GUID_EapHost_Help_Troubleshooting	36772	36918	699	1	1107	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+324	Const	GUID_EapHost_Repair_ContactAdmin_AuthFailure	36919	37076	700	1	1110	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+325	Const	GUID_EapHost_Repair_ContactAdmin_CertNameAbsent	37077	37237	701	1	1113	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+326	Const	GUID_EapHost_Repair_ContactAdmin_CertStoreInaccessible	37238	37405	702	1	1116	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+327	Const	GUID_EapHost_Repair_ContactAdmin_IdentityUnknown	37406	37567	703	1	1119	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+328	Const	GUID_EapHost_Repair_ContactAdmin_InvalidUserAccount	37568	37732	704	1	1122	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+329	Const	GUID_EapHost_Repair_ContactAdmin_InvalidUserCert	37733	37894	705	1	1125	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+330	Const	GUID_EapHost_Repair_ContactAdmin_MethodNotFound	37895	38055	706	1	1128	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+331	Const	GUID_EapHost_Repair_ContactAdmin_NegotiationFailed	38056	38219	707	1	1131	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+332	Const	GUID_EapHost_Repair_ContactAdmin_NoSmartCardReader	38220	38383	708	1	1134	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+333	Const	GUID_EapHost_Repair_ContactAdmin_RootCertInvalid	38384	38545	709	1	1137	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+334	Const	GUID_EapHost_Repair_ContactAdmin_RootCertNotFound	38546	38708	710	1	1140	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+335	Const	GUID_EapHost_Repair_ContactAdmin_RootExpired	38709	38866	711	1	1143	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+336	Const	GUID_EapHost_Repair_ContactSysadmin	38867	39015	712	1	1146	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+337	Const	GUID_EapHost_Repair_Method_Not_Support_Sso	39016	39171	713	1	1149	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+338	Const	GUID_EapHost_Repair_No_ValidSim_Found	39172	39322	714	1	1152	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+339	Const	GUID_EapHost_Repair_RestartNap	39323	39466	715	1	1155	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+340	Const	GUID_EapHost_Repair_Retry_Authentication	39467	39620	716	1	1158	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+341	Const	GUID_EapHost_Repair_Server_ClientSelectServerCert	39621	39783	717	1	1161	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+342	Const	GUID_EapHost_Repair_User_AuthFailure	39784	39933	718	1	1164	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+343	Const	GUID_EapHost_Repair_User_GetNewCert	39934	40082	719	1	1167	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+344	Const	GUID_EapHost_Repair_User_SelectValidCert	40083	40236	720	1	1170	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+345	ItemType	ISOLATION_STATE	40237	40268	721	1	1173	generated	
+346	Const	ISOLATION_STATE_IN_PROBATION	40269	40332	722	1	1174	generated	
+347	Const	ISOLATION_STATE_NOT_RESTRICTED	40333	40398	723	1	1175	generated	
+348	Const	ISOLATION_STATE_RESTRICTED_ACCESS	40399	40467	724	1	1176	generated	
+349	Const	ISOLATION_STATE_UNKNOWN	40468	40526	725	1	1177	generated	
+350	Struct	LEGACY_IDENTITY_UI_PARAMS	40527	40910	726	1	1178	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+351	Impl		40911	41029	740	1	1196	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+352	Struct	LEGACY_INTERACTIVE_UI_PARAMS	41030	41293	745	1	1203	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+353	Impl		41294	41415	755	1	1216	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+354	Const	MAXEAPCODE	41416	41449	760	1	1223	generated	
+355	Const	MAX_EAP_CONFIG_INPUT_FIELD_LENGTH	41450	41508	761	1	1224	generated	
+356	Const	MAX_EAP_CONFIG_INPUT_FIELD_VALUE_LENGTH	41509	41574	762	1	1225	generated	
+357	Const	NCRYPT_PIN_CACHE_PIN_BYTE_LENGTH	41575	41631	763	1	1226	generated	
+358	Struct	NgcTicketContext	41632	41890	764	1	1227	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 45 and value/layout semantics require coder integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+359	Impl		41891	42048	772	1	1239	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+360	ItemType	NotificationHandler	42049	42191	778	1	1247	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+361	ItemType	PPP_EAP_ACTION	42192	42222	779	1	1252	generated	
+362	Struct	PPP_EAP_INFO	42223	42468	780	1	1253	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+363	Struct	PPP_EAP_INPUT	42469	43434	790	1	1265	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+364	Impl		43435	43541	815	1	1294	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+365	Struct	PPP_EAP_OUTPUT	43542	44246	820	1	1301	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+366	Impl		44247	44402	840	1	1325	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+367	Struct	PPP_EAP_PACKET	44403	44548	846	1	1333	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 2 and value/layout semantics require coder integration. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+368	Impl		44549	44656	854	1	1345	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+369	Struct	RAS_AUTH_ATTRIBUTE	44657	44828	859	1	1352	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+370	Impl		44829	44940	866	1	1363	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+371	ItemType	RAS_AUTH_ATTRIBUTE_TYPE	44941	44980	871	1	1370	generated	
+372	Const	RAS_EAP_FLAG_8021X_AUTH	44981	45029	872	1	1371	generated	
+373	Const	RAS_EAP_FLAG_ALTERNATIVE_USER_DB	45030	45088	873	1	1372	generated	
+374	Const	RAS_EAP_FLAG_CONFG_READONLY	45089	45144	874	1	1373	generated	
+375	Const	RAS_EAP_FLAG_FIRST_LINK	45145	45192	875	1	1374	generated	
+376	Const	RAS_EAP_FLAG_GUEST_ACCESS	45193	45242	876	1	1375	generated	
+377	Const	RAS_EAP_FLAG_HOSTED_IN_PEAP	45243	45295	877	1	1376	generated	
+378	Const	RAS_EAP_FLAG_LOGON	45296	45337	878	1	1377	generated	
+379	Const	RAS_EAP_FLAG_MACHINE_AUTH	45338	45387	879	1	1378	generated	
+380	Const	RAS_EAP_FLAG_NON_INTERACTIVE	45388	45439	880	1	1379	generated	
+381	Const	RAS_EAP_FLAG_PEAP_FORCE_FULL_AUTH	45440	45499	881	1	1380	generated	
+382	Const	RAS_EAP_FLAG_PEAP_UPFRONT	45500	45551	882	1	1381	generated	
+383	Const	RAS_EAP_FLAG_PREVIEW	45552	45595	883	1	1382	generated	
+384	Const	RAS_EAP_FLAG_PRE_LOGON	45596	45646	884	1	1383	generated	
+385	Const	RAS_EAP_FLAG_RESERVED	45647	45697	885	1	1384	generated	
+386	Const	RAS_EAP_FLAG_RESUME_FROM_HIBERNATE	45698	45757	886	1	1385	generated	
+387	Const	RAS_EAP_FLAG_ROUTER	45758	45800	887	1	1386	generated	
+388	Const	RAS_EAP_FLAG_SAVE_CREDMAN	45801	45855	888	1	1387	generated	
+389	Const	RAS_EAP_FLAG_SERVER_VALIDATION_REQUIRED	45856	45925	889	1	1388	generated	
+390	Const	RAS_EAP_REGISTRY_LOCATION	45926	46070	890	1	1389	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+391	Const	RAS_EAP_ROLE_AUTHENTICATEE	46071	46120	891	1	1394	generated	
+392	Const	RAS_EAP_ROLE_AUTHENTICATOR	46121	46170	892	1	1395	generated	
+393	Const	RAS_EAP_ROLE_EXCLUDE_IN_EAP	46171	46221	893	1	1396	generated	
+394	Const	RAS_EAP_ROLE_EXCLUDE_IN_PEAP	46222	46273	894	1	1397	generated	
+395	Const	RAS_EAP_ROLE_EXCLUDE_IN_VPN	46274	46325	895	1	1398	generated	
+396	Const	RAS_EAP_VALUENAME_CONFIGUI	46326	46430	896	1	1399	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+397	Const	RAS_EAP_VALUENAME_CONFIG_CLSID	46431	46538	897	1	1404	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+398	Const	RAS_EAP_VALUENAME_DEFAULT_DATA	46539	46645	898	1	1409	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+399	Const	RAS_EAP_VALUENAME_ENCRYPTION	46646	46763	899	1	1414	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+400	Const	RAS_EAP_VALUENAME_FILTER_INNERMETHODS	46764	46885	900	1	1419	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+401	Const	RAS_EAP_VALUENAME_FRIENDLY_NAME	46886	46995	901	1	1424	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+402	Const	RAS_EAP_VALUENAME_IDENTITY	46996	47100	902	1	1429	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+403	Const	RAS_EAP_VALUENAME_INTERACTIVEUI	47101	47215	903	1	1434	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+404	Const	RAS_EAP_VALUENAME_INVOKE_NAMEDLG	47216	47334	904	1	1439	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+405	Const	RAS_EAP_VALUENAME_INVOKE_PWDDLG	47335	47452	905	1	1444	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+406	Const	RAS_EAP_VALUENAME_ISTUNNEL_METHOD	47453	47566	906	1	1449	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+407	Const	RAS_EAP_VALUENAME_PATH	47567	47659	907	1	1454	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+408	Const	RAS_EAP_VALUENAME_PER_POLICY_CONFIG	47660	47776	908	1	1459	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+409	Const	RAS_EAP_VALUENAME_REQUIRE_CONFIGUI	47777	47892	909	1	1464	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+410	Const	RAS_EAP_VALUENAME_ROLES_SUPPORTED	47893	48006	910	1	1469	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+411	Const	RAS_EAP_VALUENAME_STANDALONE_SUPPORTED	48007	48130	911	1	1474	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+412	Const	eapPropCertifiedMethod	48131	48182	912	1	1479	generated	
+413	Const	eapPropChannelBinding	48183	48231	913	1	1480	generated	
+414	Const	eapPropCipherSuiteNegotiation	48232	48284	914	1	1481	generated	
+415	Const	eapPropConfidentiality	48285	48331	915	1	1482	generated	
+416	Const	eapPropCryptoBinding	48332	48378	916	1	1483	generated	
+417	Const	eapPropDictionaryAttackResistance	48379	48438	917	1	1484	generated	
+418	Const	eapPropFastReconnect	48439	48485	918	1	1485	generated	
+419	Const	eapPropFragmentation	48486	48533	919	1	1486	generated	
+420	Const	eapPropHiddenMethod	48534	48582	920	1	1487	generated	
+421	Const	eapPropIdentityPrivacy	48583	48635	921	1	1488	generated	
+422	Const	eapPropIntegrity	48636	48675	922	1	1489	generated	
+423	Const	eapPropKeyDerivation	48676	48720	923	1	1490	generated	
+424	Const	eapPropKeyStrength1024	48721	48769	924	1	1491	generated	
+425	Const	eapPropKeyStrength128	48770	48816	925	1	1492	generated	
+426	Const	eapPropKeyStrength256	48817	48863	926	1	1493	generated	
+427	Const	eapPropKeyStrength512	48864	48910	927	1	1494	generated	
+428	Const	eapPropKeyStrength64	48911	48955	928	1	1495	generated	
+429	Const	eapPropMachineAuth	48956	49004	929	1	1496	generated	
+430	Const	eapPropMethodChaining	49005	49057	930	1	1497	generated	
+431	Const	eapPropMppeEncryption	49058	49107	931	1	1498	generated	
+432	Const	eapPropMutualAuth	49108	49148	932	1	1499	generated	
+433	Const	eapPropNap	49149	49187	933	1	1500	generated	
+434	Const	eapPropReplayProtection	49188	49234	934	1	1501	generated	
+435	Const	eapPropReserved	49235	49282	935	1	1502	generated	
+436	Const	eapPropSessionIndependence	49283	49336	936	1	1503	generated	
+437	Const	eapPropSharedStateEquivalence	49337	49397	937	1	1504	generated	
+438	Const	eapPropStandalone	49398	49443	938	1	1505	generated	
+439	Const	eapPropSupportsConfig	49444	49494	939	1	1506	generated	
+440	Const	eapPropTunnelMethod	49495	49543	940	1	1507	generated	
+441	Const	eapPropUserAuth	49544	49589	941	1	1508	generated	
+442	Const	eatARAPChallengeResponse	49590	49653	942	1	1509	generated	
+443	Const	eatARAPFeatures	49654	49708	943	1	1510	generated	
+444	Const	eatARAPGuestLogon	49709	49767	944	1	1511	generated	
+445	Const	eatARAPPassword	49768	49822	945	1	1512	generated	
+446	Const	eatARAPSecurity	49823	49877	946	1	1513	generated	
+447	Const	eatARAPSecurityData	49878	49936	947	1	1514	generated	
+448	Const	eatARAPZoneAccess	49937	49993	948	1	1515	generated	
+449	Const	eatAcctAuthentic	49994	50049	949	1	1516	generated	
+450	Const	eatAcctDelayTime	50050	50105	950	1	1517	generated	
+451	Const	eatAcctEventTimeStamp	50106	50166	951	1	1518	generated	
+452	Const	eatAcctInputOctets	50167	50224	952	1	1519	generated	
+453	Const	eatAcctInputPackets	50225	50283	953	1	1520	generated	
+454	Const	eatAcctInterimInterval	50284	50345	954	1	1521	generated	
+455	Const	eatAcctLinkCount	50346	50401	955	1	1522	generated	
+456	Const	eatAcctMultiSessionId	50402	50462	956	1	1523	generated	
+457	Const	eatAcctOutputOctets	50463	50521	957	1	1524	generated	
+458	Const	eatAcctOutputPackets	50522	50581	958	1	1525	generated	
+459	Const	eatAcctSessionId	50582	50637	959	1	1526	generated	
+460	Const	eatAcctSessionTime	50638	50695	960	1	1527	generated	
+461	Const	eatAcctStatusType	50696	50752	961	1	1528	generated	
+462	Const	eatAcctTerminateCause	50753	50813	962	1	1529	generated	
+463	Const	eatCallbackId	50814	50866	963	1	1530	generated	
+464	Const	eatCallbackNumber	50867	50923	964	1	1531	generated	
+465	Const	eatCalledStationId	50924	50981	965	1	1532	generated	
+466	Const	eatCallingStationId	50982	51040	966	1	1533	generated	
+467	Const	eatCertificateOID	51041	51099	967	1	1534	generated	
+468	Const	eatCertificateThumbprint	51100	51165	968	1	1535	generated	
+469	Const	eatClass	51166	51213	969	1	1536	generated	
+470	Const	eatClearTextPassword	51214	51275	970	1	1537	generated	
+471	Const	eatConfigurationToken	51276	51336	971	1	1538	generated	
+472	Const	eatConnectInfo	51337	51390	972	1	1539	generated	
+473	Const	eatCredentialsChanged	51391	51453	973	1	1540	generated	
+474	Const	eatEAPConfiguration	51454	51514	974	1	1541	generated	
+475	Const	eatEAPMessage	51515	51567	975	1	1542	generated	
+476	Const	eatEAPTLV	51568	51618	976	1	1543	generated	
+477	Const	eatEMSK	51619	51667	977	1	1544	generated	
+478	Const	eatFastRoamedSession	51668	51729	978	1	1545	generated	
+479	Const	eatFilterId	51730	51780	979	1	1546	generated	
+480	Const	eatFramedAppleTalkLink	51781	51842	980	1	1547	generated	
+481	Const	eatFramedAppleTalkNetwork	51843	51907	981	1	1548	generated	
+482	Const	eatFramedAppleTalkZone	51908	51969	982	1	1549	generated	
+483	Const	eatFramedCompression	51970	52029	983	1	1550	generated	
+484	Const	eatFramedIPAddress	52030	52086	984	1	1551	generated	
+485	Const	eatFramedIPNetmask	52087	52143	985	1	1552	generated	
+486	Const	eatFramedIPXNetwork	52144	52202	986	1	1553	generated	
+487	Const	eatFramedIPv6Pool	52203	52260	987	1	1554	generated	
+488	Const	eatFramedIPv6Prefix	52261	52319	988	1	1555	generated	
+489	Const	eatFramedIPv6Route	52320	52377	989	1	1556	generated	
+490	Const	eatFramedInterfaceId	52378	52437	990	1	1557	generated	
+491	Const	eatFramedMTU	52438	52489	991	1	1558	generated	
+492	Const	eatFramedProtocol	52490	52545	992	1	1559	generated	
+493	Const	eatFramedRoute	52546	52599	993	1	1560	generated	
+494	Const	eatFramedRouting	52600	52655	994	1	1561	generated	
+495	Const	eatIdleTimeout	52656	52709	995	1	1562	generated	
+496	Const	eatInnerEapMethodType	52710	52772	996	1	1563	generated	
+497	Const	eatLoginIPHost	52773	52826	997	1	1564	generated	
+498	Const	eatLoginIPv6Host	52827	52882	998	1	1565	generated	
+499	Const	eatLoginLATGroup	52883	52938	999	1	1566	generated	
+500	Const	eatLoginLATNode	52939	52993	1000	1	1567	generated	
+501	Const	eatLoginLATPort	52994	53048	1001	1	1568	generated	
+502	Const	eatLoginLATService	53049	53106	1002	1	1569	generated	
+503	Const	eatLoginService	53107	53161	1003	1	1570	generated	
+504	Const	eatLoginTCPPort	53162	53216	1004	1	1571	generated	
+505	Const	eatMD5CHAPChallenge	53217	53275	1005	1	1572	generated	
+506	Const	eatMD5CHAPPassword	53276	53332	1006	1	1573	generated	
+507	Const	eatMethodId	53333	53385	1007	1	1574	generated	
+508	Const	eatMinimum	53386	53434	1008	1	1575	generated	
+509	Const	eatNASIPAddress	53435	53488	1009	1	1576	generated	
+510	Const	eatNASIPv6Address	53489	53545	1010	1	1577	generated	
+511	Const	eatNASIdentifier	53546	53601	1011	1	1578	generated	
+512	Const	eatNASPort	53602	53650	1012	1	1579	generated	
+513	Const	eatNASPortType	53651	53704	1013	1	1580	generated	
+514	Const	eatPEAPEmbeddedEAPTypeId	53705	53770	1014	1	1581	generated	
+515	Const	eatPEAPFastRoamedSession	53771	53836	1015	1	1582	generated	
+516	Const	eatPasswordRetry	53837	53892	1016	1	1583	generated	
+517	Const	eatPeerId	53893	53943	1017	1	1584	generated	
+518	Const	eatPortLimit	53944	53995	1018	1	1585	generated	
+519	Const	eatPrompt	53996	54044	1019	1	1586	generated	
+520	Const	eatProxyState	54045	54097	1020	1	1587	generated	
+521	Const	eatQuarantineSoH	54098	54155	1021	1	1588	generated	
+522	Const	eatReplyMessage	54156	54210	1022	1	1589	generated	
+523	Const	eatReserved	54211	54261	1023	1	1590	generated	
+524	Const	eatServerId	54262	54314	1024	1	1591	generated	
+525	Const	eatServiceType	54315	54367	1025	1	1592	generated	
+526	Const	eatSessionId	54368	54421	1026	1	1593	generated	
+527	Const	eatSessionTimeout	54422	54478	1027	1	1594	generated	
+528	Const	eatSignature	54479	54530	1028	1	1595	generated	
+529	Const	eatState	54531	54578	1029	1	1596	generated	
+530	Const	eatTerminationAction	54579	54638	1030	1	1597	generated	
+531	Const	eatTunnelClientEndpoint	54639	54701	1031	1	1598	generated	
+532	Const	eatTunnelMediumType	54702	54760	1032	1	1599	generated	
+533	Const	eatTunnelServerEndpoint	54761	54823	1033	1	1600	generated	
+534	Const	eatTunnelType	54824	54876	1034	1	1601	generated	
+535	Const	eatUnassigned17	54877	54931	1035	1	1602	generated	
+536	Const	eatUnassigned21	54932	54986	1036	1	1603	generated	
+537	Const	eatUserName	54987	55036	1037	1	1604	generated	
+538	Const	eatUserPassword	55037	55090	1038	1	1605	generated	
+539	Const	eatVendorSpecific	55091	55147	1039	1	1606	generated	
+540	Const	emptLegacyMethodPropertyFlag	55148	55221	1040	1	1607	generated	
+541	Const	emptPropCertifiedMethod	55222	55290	1041	1	1608	generated	
+542	Const	emptPropChannelBinding	55291	55358	1042	1	1609	generated	
+543	Const	emptPropCipherSuiteNegotiation	55359	55433	1043	1	1610	generated	
+544	Const	emptPropConfidentiality	55434	55501	1044	1	1611	generated	
+545	Const	emptPropCryptoBinding	55502	55568	1045	1	1612	generated	
+546	Const	emptPropDictionaryAttackResistance	55569	55648	1046	1	1613	generated	
+547	Const	emptPropFastReconnect	55649	55715	1047	1	1614	generated	
+548	Const	emptPropFragmentation	55716	55782	1048	1	1615	generated	
+549	Const	emptPropHiddenMethod	55783	55848	1049	1	1616	generated	
+550	Const	emptPropIdentityPrivacy	55849	55917	1050	1	1617	generated	
+551	Const	emptPropIntegrity	55918	55979	1051	1	1618	generated	
+552	Const	emptPropKeyDerivation	55980	56045	1052	1	1619	generated	
+553	Const	emptPropKeyStrength1024	56046	56114	1053	1	1620	generated	
+554	Const	emptPropKeyStrength128	56115	56181	1054	1	1621	generated	
+555	Const	emptPropKeyStrength256	56182	56248	1055	1	1622	generated	
+556	Const	emptPropKeyStrength512	56249	56315	1056	1	1623	generated	
+557	Const	emptPropKeyStrength64	56316	56381	1057	1	1624	generated	
+558	Const	emptPropMachineAuth	56382	56446	1058	1	1625	generated	
+559	Const	emptPropMethodChaining	56447	56514	1059	1	1626	generated	
+560	Const	emptPropMppeEncryption	56515	56582	1060	1	1627	generated	
+561	Const	emptPropMutualAuth	56583	56645	1061	1	1628	generated	
+562	Const	emptPropNap	56646	56702	1062	1	1629	generated	
+563	Const	emptPropReplayProtection	56703	56771	1063	1	1630	generated	
+564	Const	emptPropSessionIndependence	56772	56844	1064	1	1631	generated	
+565	Const	emptPropSharedStateEquivalence	56845	56920	1065	1	1632	generated	
+566	Const	emptPropStandalone	56921	56984	1066	1	1633	generated	
+567	Const	emptPropSupportsConfig	56985	57052	1067	1	1634	generated	
+568	Const	emptPropTunnelMethod	57053	57118	1068	1	1635	generated	
+569	Const	emptPropUserAuth	57119	57180	1069	1	1636	generated	
+570	Const	emptPropVendorSpecific	57181	57249	1070	1	1637	generated	
+571	Const	empvtBool	57250	57309	1071	1	1638	generated	
+572	Const	empvtDword	57310	57370	1072	1	1639	generated	
+573	Const	empvtString	57371	57432	1073	1	1640	generated	
+574	Const	raatARAPChallenge	57433	57474	1074	1	1641	generated	
+575	Const	raatARAPChallengeResponse	57475	57544	1075	1	1642	generated	
+576	Const	raatARAPFeatures	57545	57605	1076	1	1643	generated	
+577	Const	raatARAPGuestLogon	57606	57670	1077	1	1644	generated	
+578	Const	raatARAPNewPassword	57671	57714	1078	1	1645	generated	
+579	Const	raatARAPOldPassword	57715	57758	1079	1	1646	generated	
+580	Const	raatARAPPassword	57759	57819	1080	1	1647	generated	
+581	Const	raatARAPPasswordChangeReason	57820	57872	1081	1	1648	generated	
+582	Const	raatARAPSecurity	57873	57933	1082	1	1649	generated	
+583	Const	raatARAPSecurityData	57934	57998	1083	1	1650	generated	
+584	Const	raatARAPZoneAccess	57999	58061	1084	1	1651	generated	
+585	Const	raatAcctAuthentic	58062	58123	1085	1	1652	generated	
+586	Const	raatAcctDelayTime	58124	58185	1086	1	1653	generated	
+587	Const	raatAcctEventTimeStamp	58186	58252	1087	1	1654	generated	
+588	Const	raatAcctInputOctets	58253	58316	1088	1	1655	generated	
+589	Const	raatAcctInputPackets	58317	58381	1089	1	1656	generated	
+590	Const	raatAcctInterimInterval	58382	58449	1090	1	1657	generated	
+591	Const	raatAcctLinkCount	58450	58511	1091	1	1658	generated	
+592	Const	raatAcctMultiSessionId	58512	58578	1092	1	1659	generated	
+593	Const	raatAcctOutputOctets	58579	58643	1093	1	1660	generated	
+594	Const	raatAcctOutputPackets	58644	58709	1094	1	1661	generated	
+595	Const	raatAcctSessionId	58710	58771	1095	1	1662	generated	
+596	Const	raatAcctSessionTime	58772	58835	1096	1	1663	generated	
+597	Const	raatAcctStatusType	58836	58898	1097	1	1664	generated	
+598	Const	raatAcctTerminateCause	58899	58965	1098	1	1665	generated	
+599	Const	raatCallbackId	58966	59024	1099	1	1666	generated	
+600	Const	raatCallbackNumber	59025	59087	1100	1	1667	generated	
+601	Const	raatCalledStationId	59088	59151	1101	1	1668	generated	
+602	Const	raatCallingStationId	59152	59216	1102	1	1669	generated	
+603	Const	raatCertificateOID	59217	59281	1103	1	1670	generated	
+604	Const	raatCertificateThumbprint	59282	59353	1104	1	1671	generated	
+605	Const	raatClass	59354	59407	1105	1	1672	generated	
+606	Const	raatConfigurationToken	59408	59474	1106	1	1673	generated	
+607	Const	raatConnectInfo	59475	59534	1107	1	1674	generated	
+608	Const	raatCredentialsChanged	59535	59603	1108	1	1675	generated	
+609	Const	raatEAPConfiguration	59604	59670	1109	1	1676	generated	
+610	Const	raatEAPMessage	59671	59729	1110	1	1677	generated	
+611	Const	raatEAPTLV	59730	59786	1111	1	1678	generated	
+612	Const	raatEMSK	59787	59841	1112	1	1679	generated	
+613	Const	raatFastRoamedSession	59842	59909	1113	1	1680	generated	
+614	Const	raatFilterId	59910	59966	1114	1	1681	generated	
+615	Const	raatFramedAppleTalkLink	59967	60034	1115	1	1682	generated	
+616	Const	raatFramedAppleTalkNetwork	60035	60105	1116	1	1683	generated	
+617	Const	raatFramedAppleTalkZone	60106	60173	1117	1	1684	generated	
+618	Const	raatFramedCompression	60174	60239	1118	1	1685	generated	
+619	Const	raatFramedIPAddress	60240	60302	1119	1	1686	generated	
+620	Const	raatFramedIPNetmask	60303	60365	1120	1	1687	generated	
+621	Const	raatFramedIPXNetwork	60366	60430	1121	1	1688	generated	
+622	Const	raatFramedIPv6Pool	60431	60494	1122	1	1689	generated	
+623	Const	raatFramedIPv6Prefix	60495	60559	1123	1	1690	generated	
+624	Const	raatFramedIPv6Route	60560	60623	1124	1	1691	generated	
+625	Const	raatFramedInterfaceId	60624	60689	1125	1	1692	generated	
+626	Const	raatFramedMTU	60690	60747	1126	1	1693	generated	
+627	Const	raatFramedProtocol	60748	60809	1127	1	1694	generated	
+628	Const	raatFramedRoute	60810	60869	1128	1	1695	generated	
+629	Const	raatFramedRouting	60870	60931	1129	1	1696	generated	
+630	Const	raatIdleTimeout	60932	60991	1130	1	1697	generated	
+631	Const	raatInnerEAPTypeId	60992	61056	1131	1	1698	generated	
+632	Const	raatLoginIPHost	61057	61116	1132	1	1699	generated	
+633	Const	raatLoginIPv6Host	61117	61178	1133	1	1700	generated	
+634	Const	raatLoginLATGroup	61179	61240	1134	1	1701	generated	
+635	Const	raatLoginLATNode	61241	61301	1135	1	1702	generated	
+636	Const	raatLoginLATPort	61302	61362	1136	1	1703	generated	
+637	Const	raatLoginLATService	61363	61426	1137	1	1704	generated	
+638	Const	raatLoginService	61427	61487	1138	1	1705	generated	
+639	Const	raatLoginTCPPort	61488	61548	1139	1	1706	generated	
+640	Const	raatMD5CHAPChallenge	61549	61613	1140	1	1707	generated	
+641	Const	raatMD5CHAPPassword	61614	61676	1141	1	1708	generated	
+642	Const	raatMethodId	61677	61735	1142	1	1709	generated	
+643	Const	raatMinimum	61736	61790	1143	1	1710	generated	
+644	Const	raatNASIPAddress	61791	61850	1144	1	1711	generated	
+645	Const	raatNASIPv6Address	61851	61913	1145	1	1712	generated	
+646	Const	raatNASIdentifier	61914	61975	1146	1	1713	generated	
+647	Const	raatNASPort	61976	62030	1147	1	1714	generated	
+648	Const	raatNASPortType	62031	62090	1148	1	1715	generated	
+649	Const	raatPEAPEmbeddedEAPTypeId	62091	62162	1149	1	1716	generated	
+650	Const	raatPEAPFastRoamedSession	62163	62234	1150	1	1717	generated	
+651	Const	raatPasswordRetry	62235	62296	1151	1	1718	generated	
+652	Const	raatPeerId	62297	62353	1152	1	1719	generated	
+653	Const	raatPortLimit	62354	62411	1153	1	1720	generated	
+654	Const	raatPrompt	62412	62466	1154	1	1721	generated	
+655	Const	raatProxyState	62467	62525	1155	1	1722	generated	
+656	Const	raatReplyMessage	62526	62586	1156	1	1723	generated	
+657	Const	raatReserved	62587	62643	1157	1	1724	generated	
+658	Const	raatServerId	62644	62702	1158	1	1725	generated	
+659	Const	raatServiceType	62703	62761	1159	1	1726	generated	
+660	Const	raatSessionId	62762	62821	1160	1	1727	generated	
+661	Const	raatSessionTimeout	62822	62884	1161	1	1728	generated	
+662	Const	raatSignature	62885	62942	1162	1	1729	generated	
+663	Const	raatState	62943	62996	1163	1	1730	generated	
+664	Const	raatTerminationAction	62997	63062	1164	1	1731	generated	
+665	Const	raatTunnelClientEndpoint	63063	63131	1165	1	1732	generated	
+666	Const	raatTunnelMediumType	63132	63196	1166	1	1733	generated	
+667	Const	raatTunnelServerEndpoint	63197	63265	1167	1	1734	generated	
+668	Const	raatTunnelType	63266	63324	1168	1	1735	generated	
+669	Const	raatUnassigned17	63325	63385	1169	1	1736	generated	
+670	Const	raatUnassigned21	63386	63446	1170	1	1737	generated	
+671	Const	raatUserName	63447	63502	1171	1	1738	generated	
+672	Const	raatUserPassword	63503	63562	1172	1	1739	generated	
+673	Const	raatVendorSpecific	63563	63625	1173	1	1740	generated	

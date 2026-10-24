@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/System/Wmi/mod: 957 generated; 323 unsupported

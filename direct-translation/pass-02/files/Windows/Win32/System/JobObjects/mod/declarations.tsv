@@ -1,0 +1,192 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	188	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		189	432	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		433	677	4	1	9	unsupported	declaration Macro has no candidate rule
+3	Macro		678	828	6	1	13	unsupported	declaration Macro has no candidate rule
+4	Macro		829	932	7	1	16	unsupported	declaration Macro has no candidate rule
+5	Macro		933	1160	8	1	19	unsupported	declaration Macro has no candidate rule
+6	Macro		1161	1361	9	1	22	unsupported	declaration Macro has no candidate rule
+7	Macro		1362	1563	10	1	25	unsupported	declaration Macro has no candidate rule
+8	Macro		1564	1867	11	1	28	unsupported	declaration Macro has no candidate rule
+9	Macro		1868	2133	12	1	31	unsupported	declaration Macro has no candidate rule
+10	Macro		2134	2410	13	1	34	unsupported	declaration Macro has no candidate rule
+11	Macro		2411	2611	14	1	37	unsupported	declaration Macro has no candidate rule
+12	Macro		2612	2765	15	1	40	unsupported	declaration Macro has no candidate rule
+13	Macro		2766	2986	16	1	43	unsupported	declaration Macro has no candidate rule
+14	ItemType	JOBOBJECTINFOCLASS	2987	3021	17	1	46	generated	
+15	Struct	JOBOBJECT_ASSOCIATE_COMPLETION_PORT	3022	3211	18	1	47	unsupported	declaration Struct has no candidate rule
+16	Impl		3212	3340	24	1	55	unsupported	declaration Impl has no candidate rule
+17	Struct	JOBOBJECT_BASIC_ACCOUNTING_INFORMATION	3341	3705	29	1	62	unsupported	declaration Struct has no candidate rule
+18	Struct	JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION	3706	3958	41	1	76	unsupported	declaration Struct has no candidate rule
+19	Struct	JOBOBJECT_BASIC_LIMIT_INFORMATION	3959	4352	48	1	85	unsupported	declaration Struct has no candidate rule
+20	Struct	JOBOBJECT_BASIC_PROCESS_ID_LIST	4353	4547	61	1	100	unsupported	declaration Struct has no candidate rule
+21	Impl		4548	4672	68	1	109	unsupported	declaration Impl has no candidate rule
+22	Struct	JOBOBJECT_BASIC_UI_RESTRICTIONS	4673	4811	73	1	116	unsupported	declaration Struct has no candidate rule
+23	Struct	JOBOBJECT_CPU_RATE_CONTROL_INFORMATION	4812	5011	78	1	123	unsupported	declaration Struct has no candidate rule
+24	Impl		5012	5143	84	1	131	unsupported	declaration Impl has no candidate rule
+25	Union		5144	5338	89	1	138	unsupported	declaration Union has no candidate rule
+26	Impl		5339	5472	96	1	147	unsupported	declaration Impl has no candidate rule
+27	Struct	JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0	5473	5617	101	1	154	unsupported	declaration Struct has no candidate rule
+28	Struct	JOBOBJECT_END_OF_JOB_TIME_INFORMATION	5618	5777	107	1	162	unsupported	declaration Struct has no candidate rule
+29	Struct	JOBOBJECT_EXTENDED_LIMIT_INFORMATION	5778	6166	112	1	169	unsupported	declaration Struct has no candidate rule
+30	Const	JOBOBJECT_IO_ATTRIBUTION_CONTROL_DISABLE	6167	6265	123	1	182	generated	
+31	Const	JOBOBJECT_IO_ATTRIBUTION_CONTROL_ENABLE	6266	6363	124	1	183	generated	
+32	ItemType	JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS	6364	6418	125	1	184	generated	
+33	Const	JOBOBJECT_IO_ATTRIBUTION_CONTROL_VALID_FLAGS	6419	6521	126	1	185	generated	
+34	Struct	JOBOBJECT_IO_ATTRIBUTION_INFORMATION	6522	6746	127	1	186	unsupported	declaration Struct has no candidate rule
+35	Struct	JOBOBJECT_IO_ATTRIBUTION_STATS	6747	6969	134	1	195	unsupported	declaration Struct has no candidate rule
+36	Struct	JOBOBJECT_IO_RATE_CONTROL_INFORMATION	6970	7234	142	1	205	unsupported	declaration Struct has no candidate rule
+37	Impl		7235	7365	152	1	217	unsupported	declaration Impl has no candidate rule
+38	Struct	JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1	7366	7699	157	1	224	unsupported	declaration Struct has no candidate rule
+39	Impl		7700	7840	168	1	237	unsupported	declaration Impl has no candidate rule
+40	Struct	JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2	7841	8401	173	1	244	unsupported	declaration Struct has no candidate rule
+41	Impl		8402	8542	190	1	263	unsupported	declaration Impl has no candidate rule
+42	Struct	JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3	8543	9313	195	1	270	unsupported	declaration Struct has no candidate rule
+43	Impl		9314	9454	218	1	295	unsupported	declaration Impl has no candidate rule
+44	Struct	JOBOBJECT_JOBSET_INFORMATION	9455	9567	223	1	302	unsupported	declaration Struct has no candidate rule
+45	Struct	JOBOBJECT_LIMIT_VIOLATION_INFORMATION	9568	10113	228	1	309	unsupported	declaration Struct has no candidate rule
+46	Struct	JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2	10114	10987	244	1	327	unsupported	declaration Struct has no candidate rule
+47	Impl		10988	11120	265	1	350	unsupported	declaration Impl has no candidate rule
+48	Union		11121	11272	270	1	357	unsupported	declaration Union has no candidate rule
+49	Impl		11273	11407	276	1	365	unsupported	declaration Impl has no candidate rule
+50	Union		11408	11628	281	1	372	unsupported	declaration Union has no candidate rule
+51	Impl		11629	11763	287	1	380	unsupported	declaration Impl has no candidate rule
+52	Union		11764	11994	292	1	387	unsupported	declaration Union has no candidate rule
+53	Impl		11995	12129	298	1	395	unsupported	declaration Impl has no candidate rule
+54	Struct	JOBOBJECT_NET_RATE_CONTROL_INFORMATION	12130	12331	303	1	402	unsupported	declaration Struct has no candidate rule
+55	Struct	JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION	12332	12739	310	1	411	unsupported	declaration Struct has no candidate rule
+56	Struct	JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2	12740	13496	321	1	424	unsupported	declaration Struct has no candidate rule
+57	Impl		13497	13632	337	1	442	unsupported	declaration Impl has no candidate rule
+58	Union		13633	13787	342	1	449	unsupported	declaration Union has no candidate rule
+59	Impl		13788	13925	348	1	457	unsupported	declaration Impl has no candidate rule
+60	Union		13926	14149	353	1	464	unsupported	declaration Union has no candidate rule
+61	Impl		14150	14287	359	1	472	unsupported	declaration Impl has no candidate rule
+62	Union		14288	14545	364	1	479	unsupported	declaration Union has no candidate rule
+63	Impl		14546	14683	370	1	487	unsupported	declaration Impl has no candidate rule
+64	ItemType	JOBOBJECT_RATE_CONTROL_TOLERANCE	14684	14732	375	1	494	generated	
+65	ItemType	JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL	14733	14790	376	1	495	generated	
+66	Struct	JOBOBJECT_SECURITY_LIMIT_INFORMATION	14791	15220	377	1	496	unsupported	declaration Struct has no candidate rule
+67	Impl		15221	15385	387	1	508	unsupported	declaration Impl has no candidate rule
+68	Const	JOB_OBJECT_BASIC_LIMIT_VALID_FLAGS	15386	15458	393	1	516	generated	
+69	ItemType	JOB_OBJECT_CPU_RATE_CONTROL	15459	15502	394	1	517	generated	
+70	Const	JOB_OBJECT_CPU_RATE_CONTROL_ENABLE	15503	15584	395	1	518	generated	
+71	Const	JOB_OBJECT_CPU_RATE_CONTROL_HARD_CAP	15585	15668	396	1	519	generated	
+72	Const	JOB_OBJECT_CPU_RATE_CONTROL_MIN_MAX_RATE	15669	15757	397	1	520	generated	
+73	Const	JOB_OBJECT_CPU_RATE_CONTROL_NOTIFY	15758	15839	398	1	521	generated	
+74	Const	JOB_OBJECT_CPU_RATE_CONTROL_VALID_FLAGS	15840	15927	399	1	522	generated	
+75	Const	JOB_OBJECT_CPU_RATE_CONTROL_WEIGHT_BASED	15928	16015	400	1	523	generated	
+76	Const	JOB_OBJECT_EXTENDED_LIMIT_VALID_FLAGS	16016	16093	401	1	524	generated	
+77	Const	JOB_OBJECT_IO_RATE_CONTROL_ENABLE	16094	16179	402	1	525	generated	
+78	ItemType	JOB_OBJECT_IO_RATE_CONTROL_FLAGS	16180	16228	403	1	526	generated	
+79	Const	JOB_OBJECT_IO_RATE_CONTROL_FORCE_UNIT_ACCESS_ALL	16229	16329	404	1	527	generated	
+80	Const	JOB_OBJECT_IO_RATE_CONTROL_FORCE_UNIT_ACCESS_ON_SOFT_CAP	16330	16438	405	1	528	generated	
+81	Const	JOB_OBJECT_IO_RATE_CONTROL_STANDALONE_VOLUME	16439	16535	406	1	529	generated	
+82	Const	JOB_OBJECT_IO_RATE_CONTROL_VALID_FLAGS	16536	16627	407	1	530	generated	
+83	ItemType	JOB_OBJECT_LIMIT	16628	16660	408	1	531	generated	
+84	Const	JOB_OBJECT_LIMIT_ACTIVE_PROCESS	16661	16728	409	1	532	generated	
+85	Const	JOB_OBJECT_LIMIT_AFFINITY	16729	16791	410	1	533	generated	
+86	Const	JOB_OBJECT_LIMIT_BREAKAWAY_OK	16792	16860	411	1	534	generated	
+87	Const	JOB_OBJECT_LIMIT_CPU_RATE_CONTROL	16861	16935	412	1	535	generated	
+88	Const	JOB_OBJECT_LIMIT_DIE_ON_UNHANDLED_EXCEPTION	16936	17018	413	1	536	generated	
+89	Const	JOB_OBJECT_LIMIT_IO_RATE_CONTROL	17019	17092	414	1	537	generated	
+90	Const	JOB_OBJECT_LIMIT_JOB_MEMORY	17093	17158	415	1	538	generated	
+91	Const	JOB_OBJECT_LIMIT_JOB_MEMORY_HIGH	17159	17229	416	1	539	generated	
+92	Const	JOB_OBJECT_LIMIT_JOB_MEMORY_LOW	17230	17301	417	1	540	generated	
+93	Const	JOB_OBJECT_LIMIT_JOB_READ_BYTES	17302	17373	418	1	541	generated	
+94	Const	JOB_OBJECT_LIMIT_JOB_TIME	17374	17435	419	1	542	generated	
+95	Const	JOB_OBJECT_LIMIT_JOB_WRITE_BYTES	17436	17509	420	1	543	generated	
+96	Const	JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE	17510	17583	421	1	544	generated	
+97	Const	JOB_OBJECT_LIMIT_NET_RATE_CONTROL	17584	17659	422	1	545	generated	
+98	Const	JOB_OBJECT_LIMIT_PRESERVE_JOB_TIME	17660	17731	423	1	546	generated	
+99	Const	JOB_OBJECT_LIMIT_PRIORITY_CLASS	17732	17800	424	1	547	generated	
+100	Const	JOB_OBJECT_LIMIT_PROCESS_MEMORY	17801	17870	425	1	548	generated	
+101	Const	JOB_OBJECT_LIMIT_PROCESS_TIME	17871	17936	426	1	549	generated	
+102	Const	JOB_OBJECT_LIMIT_RATE_CONTROL	17937	18007	427	1	550	generated	
+103	Const	JOB_OBJECT_LIMIT_SCHEDULING_CLASS	18008	18079	428	1	551	generated	
+104	Const	JOB_OBJECT_LIMIT_SILENT_BREAKAWAY_OK	18080	18155	429	1	552	generated	
+105	Const	JOB_OBJECT_LIMIT_SUBSET_AFFINITY	18156	18228	430	1	553	generated	
+106	Const	JOB_OBJECT_LIMIT_VALID_FLAGS	18229	18298	431	1	554	generated	
+107	Const	JOB_OBJECT_LIMIT_WORKINGSET	18299	18362	432	1	555	generated	
+108	Const	JOB_OBJECT_NET_RATE_CONTROL_DSCP_TAG	18363	18452	433	1	556	generated	
+109	Const	JOB_OBJECT_NET_RATE_CONTROL_ENABLE	18453	18540	434	1	557	generated	
+110	ItemType	JOB_OBJECT_NET_RATE_CONTROL_FLAGS	18541	18590	435	1	558	generated	
+111	Const	JOB_OBJECT_NET_RATE_CONTROL_MAX_BANDWIDTH	18591	18685	436	1	559	generated	
+112	Const	JOB_OBJECT_NET_RATE_CONTROL_VALID_FLAGS	18686	18778	437	1	560	generated	
+113	Const	JOB_OBJECT_NOTIFICATION_LIMIT_VALID_FLAGS	18779	18862	438	1	561	generated	
+114	Const	JOB_OBJECT_POST_AT_END_OF_JOB	18863	18946	439	1	562	generated	
+115	ItemType	JOB_OBJECT_SECURITY	18947	18982	440	1	563	generated	
+116	Const	JOB_OBJECT_SECURITY_FILTER_TOKENS	18983	19055	441	1	564	generated	
+117	Const	JOB_OBJECT_SECURITY_NO_ADMIN	19056	19123	442	1	565	generated	
+118	Const	JOB_OBJECT_SECURITY_ONLY_TOKEN	19124	19193	443	1	566	generated	
+119	Const	JOB_OBJECT_SECURITY_RESTRICTED_TOKEN	19194	19269	444	1	567	generated	
+120	Const	JOB_OBJECT_SECURITY_VALID_FLAGS	19270	19341	445	1	568	generated	
+121	ItemType	JOB_OBJECT_TERMINATE_AT_END_ACTION	19342	19392	446	1	569	generated	
+122	Const	JOB_OBJECT_TERMINATE_AT_END_OF_JOB	19393	19481	447	1	570	generated	
+123	ItemType	JOB_OBJECT_UILIMIT	19482	19516	448	1	571	generated	
+124	Const	JOB_OBJECT_UILIMIT_DESKTOP	19517	19582	449	1	572	generated	
+125	Const	JOB_OBJECT_UILIMIT_DISPLAYSETTINGS	19583	19656	450	1	573	generated	
+126	Const	JOB_OBJECT_UILIMIT_EXITWINDOWS	19657	19727	451	1	574	generated	
+127	Const	JOB_OBJECT_UILIMIT_GLOBALATOMS	19728	19797	452	1	575	generated	
+128	Const	JOB_OBJECT_UILIMIT_HANDLES	19798	19862	453	1	576	generated	
+129	Const	JOB_OBJECT_UILIMIT_NONE	19863	19924	454	1	577	generated	
+130	Const	JOB_OBJECT_UILIMIT_READCLIPBOARD	19925	19995	455	1	578	generated	
+131	Const	JOB_OBJECT_UILIMIT_SYSTEMPARAMETERS	19996	20069	456	1	579	generated	
+132	Const	JOB_OBJECT_UILIMIT_WRITECLIPBOARD	20070	20141	457	1	580	generated	
+133	Struct	JOB_SET_ARRAY	20142	20303	458	1	581	unsupported	declaration Struct has no candidate rule
+134	Impl		20304	20410	465	1	590	unsupported	declaration Impl has no candidate rule
+135	Const	JobObjectAssociateCompletionPortInformation	20411	20492	470	1	597	generated	
+136	Const	JobObjectBasicAccountingInformation	20493	20566	471	1	598	generated	
+137	Const	JobObjectBasicAndIoAccountingInformation	20567	20645	472	1	599	generated	
+138	Const	JobObjectBasicLimitInformation	20646	20714	473	1	600	generated	
+139	Const	JobObjectBasicProcessIdList	20715	20780	474	1	601	generated	
+140	Const	JobObjectBasicUIRestrictions	20781	20847	475	1	602	generated	
+141	Const	JobObjectCompletionCounter	20848	20913	476	1	603	generated	
+142	Const	JobObjectCompletionFilter	20914	20978	477	1	604	generated	
+143	Const	JobObjectCpuRateControlInformation	20979	21052	478	1	605	generated	
+144	Const	JobObjectCreateSilo	21053	21111	479	1	606	generated	
+145	Const	JobObjectEndOfJobTimeInformation	21112	21182	480	1	607	generated	
+146	Const	JobObjectExtendedLimitInformation	21183	21254	481	1	608	generated	
+147	Const	JobObjectGroupInformation	21255	21319	482	1	609	generated	
+148	Const	JobObjectGroupInformationEx	21320	21386	483	1	610	generated	
+149	Const	JobObjectJobSetInformation	21387	21452	484	1	611	generated	
+150	Const	JobObjectLimitViolationInformation	21453	21526	485	1	612	generated	
+151	Const	JobObjectLimitViolationInformation2	21527	21601	486	1	613	generated	
+152	Const	JobObjectNetRateControlInformation	21602	21675	487	1	614	generated	
+153	Const	JobObjectNotificationLimitInformation	21676	21752	488	1	615	generated	
+154	Const	JobObjectNotificationLimitInformation2	21753	21830	489	1	616	generated	
+155	Const	JobObjectReserved10Information	21831	21900	490	1	617	generated	
+156	Const	JobObjectReserved11Information	21901	21970	491	1	618	generated	
+157	Const	JobObjectReserved12Information	21971	22040	492	1	619	generated	
+158	Const	JobObjectReserved13Information	22041	22110	493	1	620	generated	
+159	Const	JobObjectReserved14Information	22111	22180	494	1	621	generated	
+160	Const	JobObjectReserved15Information	22181	22250	495	1	622	generated	
+161	Const	JobObjectReserved16Information	22251	22320	496	1	623	generated	
+162	Const	JobObjectReserved17Information	22321	22390	497	1	624	generated	
+163	Const	JobObjectReserved18Information	22391	22460	498	1	625	generated	
+164	Const	JobObjectReserved19Information	22461	22530	499	1	626	generated	
+165	Const	JobObjectReserved1Information	22531	22599	500	1	627	generated	
+166	Const	JobObjectReserved20Information	22600	22669	501	1	628	generated	
+167	Const	JobObjectReserved21Information	22670	22739	502	1	629	generated	
+168	Const	JobObjectReserved22Information	22740	22809	503	1	630	generated	
+169	Const	JobObjectReserved23Information	22810	22879	504	1	631	generated	
+170	Const	JobObjectReserved24Information	22880	22949	505	1	632	generated	
+171	Const	JobObjectReserved25Information	22950	23019	506	1	633	generated	
+172	Const	JobObjectReserved26Information	23020	23089	507	1	634	generated	
+173	Const	JobObjectReserved27Information	23090	23159	508	1	635	generated	
+174	Const	JobObjectReserved2Information	23160	23228	509	1	636	generated	
+175	Const	JobObjectReserved3Information	23229	23297	510	1	637	generated	
+176	Const	JobObjectReserved4Information	23298	23366	511	1	638	generated	
+177	Const	JobObjectReserved5Information	23367	23435	512	1	639	generated	
+178	Const	JobObjectReserved6Information	23436	23504	513	1	640	generated	
+179	Const	JobObjectReserved7Information	23505	23573	514	1	641	generated	
+180	Const	JobObjectReserved8Information	23574	23642	515	1	642	generated	
+181	Const	JobObjectReserved9Information	23643	23711	516	1	643	generated	
+182	Const	JobObjectSecurityLimitInformation	23712	23783	517	1	644	generated	
+183	Const	JobObjectSiloBasicInformation	23784	23852	518	1	645	generated	
+184	Const	MaxJobObjectInfoClass	23853	23913	519	1	646	generated	
+185	Const	ToleranceHigh	23914	23979	520	1	647	generated	
+186	Const	ToleranceIntervalLong	23980	24062	521	1	648	generated	
+187	Const	ToleranceIntervalMedium	24063	24147	522	1	649	generated	
+188	Const	ToleranceIntervalShort	24148	24231	523	1	650	generated	
+189	Const	ToleranceLow	24232	24296	524	1	651	generated	
+190	Const	ToleranceMedium	24297	24364	525	1	652	generated	

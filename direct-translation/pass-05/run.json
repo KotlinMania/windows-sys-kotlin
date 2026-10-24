@@ -1,0 +1,20 @@
+{
+  "generator_sha256": "48587deaffc35820d005660532afaed8601e7381b5a9fa0db858e2521f3c735c",
+  "mode": "candidates",
+  "native_target": null,
+  "syntax_candidates": true,
+  "inventory_sha256": "3be1f30b170900f14589229219236604eb820cf072dd47712903c6ceb8b03a85",
+  "started": 1792880467.336472,
+  "source_root": "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src",
+  "scalar_modules": [
+    {
+      "module": "windows_sys::core",
+      "source": "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/core/mod.rs",
+      "sha256": "07f6eba3b6ce73a2e5d02dcbee07ec3ff12777d2e2d9b564f168fcdb0f19cae5",
+      "snapshot": "scalar-binding-0.rs"
+    }
+  ],
+  "jobs": 2,
+  "adopted": false,
+  "abi_validated": false
+}

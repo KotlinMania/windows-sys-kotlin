@@ -1,0 +1,456 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	106	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		107	214	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		215	596	3	1	8	unsupported	declaration Macro has no candidate rule
+3	Macro		597	978	4	1	11	unsupported	declaration Macro has no candidate rule
+4	Macro		979	1231	5	1	14	unsupported	declaration Macro has no candidate rule
+5	Macro		1232	1485	6	1	17	unsupported	declaration Macro has no candidate rule
+6	Macro		1486	1804	7	1	20	unsupported	declaration Macro has no candidate rule
+7	Macro		1805	2125	8	1	23	unsupported	declaration Macro has no candidate rule
+8	Macro		2126	2246	9	1	26	unsupported	declaration Macro has no candidate rule
+9	Macro		2247	2368	10	1	29	unsupported	declaration Macro has no candidate rule
+10	Macro		2369	2477	11	1	32	unsupported	declaration Macro has no candidate rule
+11	Macro		2478	2587	12	1	35	unsupported	declaration Macro has no candidate rule
+12	Macro		2588	2673	13	1	38	unsupported	declaration Macro has no candidate rule
+13	Macro		2674	2908	14	1	41	unsupported	declaration Macro has no candidate rule
+14	Macro		2909	3143	16	1	45	unsupported	declaration Macro has no candidate rule
+15	Macro		3144	3354	18	1	49	unsupported	declaration Macro has no candidate rule
+16	Macro		3355	3566	19	1	52	unsupported	declaration Macro has no candidate rule
+17	Macro		3567	3694	20	1	55	unsupported	declaration Macro has no candidate rule
+18	Macro		3695	3823	21	1	58	unsupported	declaration Macro has no candidate rule
+19	Macro		3824	3988	22	1	61	unsupported	declaration Macro has no candidate rule
+20	Macro		3989	4159	23	1	64	unsupported	declaration Macro has no candidate rule
+21	Macro		4160	4324	24	1	67	unsupported	declaration Macro has no candidate rule
+22	Macro		4325	4587	25	1	70	unsupported	declaration Macro has no candidate rule
+23	Macro		4588	4852	26	1	73	unsupported	declaration Macro has no candidate rule
+24	Macro		4853	4974	27	1	76	unsupported	declaration Macro has no candidate rule
+25	Macro		4975	5501	28	1	79	unsupported	declaration Macro has no candidate rule
+26	Macro		5502	6030	29	1	82	unsupported	declaration Macro has no candidate rule
+27	Macro		6031	6152	30	1	85	unsupported	declaration Macro has no candidate rule
+28	Macro		6153	6263	31	1	88	unsupported	declaration Macro has no candidate rule
+29	Macro		6264	6375	32	1	91	unsupported	declaration Macro has no candidate rule
+30	Macro		6376	6570	33	1	94	unsupported	declaration Macro has no candidate rule
+31	Macro		6571	6766	34	1	97	unsupported	declaration Macro has no candidate rule
+32	Macro		6767	6876	35	1	100	unsupported	declaration Macro has no candidate rule
+33	Macro		6877	6987	36	1	103	unsupported	declaration Macro has no candidate rule
+34	Macro		6988	7158	37	1	106	unsupported	declaration Macro has no candidate rule
+35	Macro		7159	7391	38	1	109	unsupported	declaration Macro has no candidate rule
+36	Macro		7392	7626	39	1	112	unsupported	declaration Macro has no candidate rule
+37	Macro		7627	7820	40	1	115	unsupported	declaration Macro has no candidate rule
+38	Macro		7821	8015	41	1	118	unsupported	declaration Macro has no candidate rule
+39	Macro		8016	8135	42	1	121	unsupported	declaration Macro has no candidate rule
+40	Macro		8136	8256	43	1	124	unsupported	declaration Macro has no candidate rule
+41	Macro		8257	8380	44	1	127	unsupported	declaration Macro has no candidate rule
+42	Macro		8381	8505	45	1	130	unsupported	declaration Macro has no candidate rule
+43	Macro		8506	8617	46	1	133	unsupported	declaration Macro has no candidate rule
+44	Macro		8618	8730	47	1	136	unsupported	declaration Macro has no candidate rule
+45	Macro		8731	8906	48	1	139	unsupported	declaration Macro has no candidate rule
+46	Macro		8907	9082	49	1	142	unsupported	declaration Macro has no candidate rule
+47	Macro		9083	9223	50	1	145	unsupported	declaration Macro has no candidate rule
+48	Macro		9224	9365	51	1	148	unsupported	declaration Macro has no candidate rule
+49	Macro		9366	9504	52	1	151	unsupported	declaration Macro has no candidate rule
+50	Macro		9505	9644	53	1	154	unsupported	declaration Macro has no candidate rule
+51	Macro		9645	9834	54	1	157	unsupported	declaration Macro has no candidate rule
+52	Macro		9835	10024	55	1	160	unsupported	declaration Macro has no candidate rule
+53	Macro		10025	10179	56	1	163	unsupported	declaration Macro has no candidate rule
+54	Macro		10180	10366	57	1	166	unsupported	declaration Macro has no candidate rule
+55	Macro		10367	10553	58	1	169	unsupported	declaration Macro has no candidate rule
+56	Macro		10554	10708	59	1	172	unsupported	declaration Macro has no candidate rule
+57	Macro		10709	10961	60	1	175	unsupported	declaration Macro has no candidate rule
+58	Macro		10962	11216	61	1	178	unsupported	declaration Macro has no candidate rule
+59	Macro		11217	11369	62	1	181	unsupported	declaration Macro has no candidate rule
+60	Macro		11370	11523	63	1	184	unsupported	declaration Macro has no candidate rule
+61	Macro		11524	11672	64	1	187	unsupported	declaration Macro has no candidate rule
+62	Macro		11673	11822	65	1	190	unsupported	declaration Macro has no candidate rule
+63	Macro		11823	11965	66	1	193	unsupported	declaration Macro has no candidate rule
+64	Macro		11966	12109	67	1	196	unsupported	declaration Macro has no candidate rule
+65	Macro		12110	12389	68	1	199	unsupported	declaration Macro has no candidate rule
+66	Macro		12390	12643	69	1	202	unsupported	declaration Macro has no candidate rule
+67	Macro		12644	12884	70	1	205	unsupported	declaration Macro has no candidate rule
+68	Macro		12885	13014	71	1	208	unsupported	declaration Macro has no candidate rule
+69	Macro		13015	13220	72	1	211	unsupported	declaration Macro has no candidate rule
+70	Macro		13221	13427	73	1	214	unsupported	declaration Macro has no candidate rule
+71	Macro		13428	13567	74	1	217	unsupported	declaration Macro has no candidate rule
+72	Macro		13568	13696	75	1	220	unsupported	declaration Macro has no candidate rule
+73	Macro		13697	13826	76	1	223	unsupported	declaration Macro has no candidate rule
+74	Macro		13827	13968	77	1	226	unsupported	declaration Macro has no candidate rule
+75	Macro		13969	14233	78	1	229	unsupported	declaration Macro has no candidate rule
+76	Macro		14234	14501	79	1	232	unsupported	declaration Macro has no candidate rule
+77	Macro		14502	14587	80	1	235	unsupported	declaration Macro has no candidate rule
+78	Macro		14588	14673	81	1	238	unsupported	declaration Macro has no candidate rule
+79	Const	ATA_FLAGS_48BIT_COMMAND	14674	14720	82	1	241	generated	
+80	Const	ATA_FLAGS_DATA_IN	14721	14761	83	1	242	generated	
+81	Const	ATA_FLAGS_DATA_OUT	14762	14803	84	1	243	generated	
+82	Const	ATA_FLAGS_DRDY_REQUIRED	14804	14850	85	1	244	generated	
+83	Const	ATA_FLAGS_NO_MULTIPLE	14851	14896	86	1	245	generated	
+84	Const	ATA_FLAGS_USE_DMA	14897	14938	87	1	246	generated	
+85	Struct	ATA_PASS_THROUGH_DIRECT	14939	15346	88	1	247	unsupported	declaration Struct has no candidate rule
+86	Impl		15347	15463	104	1	265	unsupported	declaration Impl has no candidate rule
+87	Struct	ATA_PASS_THROUGH_DIRECT32	15464	15959	109	1	272	unsupported	declaration Struct has no candidate rule
+88	Impl		15960	16164	126	1	291	unsupported	declaration Impl has no candidate rule
+89	Struct	ATA_PASS_THROUGH_EX	16165	16557	132	1	299	unsupported	declaration Struct has no candidate rule
+90	Impl		16558	16670	148	1	317	unsupported	declaration Impl has no candidate rule
+91	Struct	ATA_PASS_THROUGH_EX32	16671	17149	153	1	324	unsupported	declaration Struct has no candidate rule
+92	Impl		17150	17350	170	1	343	unsupported	declaration Impl has no candidate rule
+93	Const	DD_SCSI_DEVICE_NAME	17351	17453	176	1	351	unsupported	non-scalar type Ptr unsupported
+94	Struct	DSM_NOTIFICATION_REQUEST_BLOCK	17454	17744	177	1	354	unsupported	declaration Struct has no candidate rule
+95	Impl		17745	17868	188	1	367	unsupported	declaration Impl has no candidate rule
+96	Struct	DUMP_DRIVER	17869	18037	193	1	374	unsupported	declaration Struct has no candidate rule
+97	Impl		18038	18142	200	1	383	unsupported	declaration Impl has no candidate rule
+98	Struct	DUMP_DRIVER_EX	18143	18361	205	1	390	unsupported	declaration Struct has no candidate rule
+99	Impl		18362	18469	213	1	400	unsupported	declaration Impl has no candidate rule
+100	Const	DUMP_DRIVER_NAME_LENGTH	18470	18517	218	1	407	generated	
+101	Const	DUMP_EX_FLAG_DRIVER_FULL_PATH_SUPPORT	18518	18578	219	1	408	generated	
+102	Const	DUMP_EX_FLAG_RESUME_SUPPORT	18579	18629	220	1	409	generated	
+103	Const	DUMP_EX_FLAG_SUPPORT_64BITMEMORY	18630	18685	221	1	410	generated	
+104	Const	DUMP_EX_FLAG_SUPPORT_DD_TELEMETRY	18686	18742	222	1	411	generated	
+105	Struct	DUMP_POINTERS	18743	19187	223	1	412	unsupported	declaration Struct has no candidate rule
+106	Impl		19188	19294	237	1	428	unsupported	declaration Impl has no candidate rule
+107	Struct	DUMP_POINTERS_EX	19295	20021	242	1	435	unsupported	declaration Struct has no candidate rule
+108	Impl		20022	20131	262	1	457	unsupported	declaration Impl has no candidate rule
+109	Struct	DUMP_POINTERS_VERSION	20132	20252	267	1	464	unsupported	declaration Struct has no candidate rule
+110	Const	DUMP_POINTERS_VERSION_1	20253	20299	273	1	472	generated	
+111	Const	DUMP_POINTERS_VERSION_2	20300	20346	274	1	473	generated	
+112	Const	DUMP_POINTERS_VERSION_3	20347	20393	275	1	474	generated	
+113	Const	DUMP_POINTERS_VERSION_4	20394	20440	276	1	475	generated	
+114	Const	DiscoveryMechanisms	20441	20504	277	1	476	generated	
+115	Const	FILE_DEVICE_SCSI	20505	20545	278	1	477	generated	
+116	Const	FIRMWARE_FUNCTION_ACTIVATE	20546	20595	279	1	478	generated	
+117	Const	FIRMWARE_FUNCTION_DOWNLOAD	20596	20645	280	1	479	generated	
+118	Const	FIRMWARE_FUNCTION_GET_INFO	20646	20695	281	1	480	generated	
+119	Struct	FIRMWARE_REQUEST_BLOCK	20696	20922	282	1	481	unsupported	declaration Struct has no candidate rule
+120	Const	FIRMWARE_REQUEST_BLOCK_STRUCTURE_VERSION	20923	20986	292	1	493	generated	
+121	Const	FIRMWARE_REQUEST_FLAG_CONTROLLER	20987	21042	293	1	494	generated	
+122	Const	FIRMWARE_REQUEST_FLAG_FIRST_SEGMENT	21043	21101	294	1	495	generated	
+123	Const	FIRMWARE_REQUEST_FLAG_LAST_SEGMENT	21102	21159	295	1	496	generated	
+124	Const	FIRMWARE_REQUEST_FLAG_REPLACE_EXISTING_IMAGE	21160	21236	296	1	497	generated	
+125	Const	FIRMWARE_REQUEST_FLAG_SWITCH_TO_EXISTING_FIRMWARE	21237	21318	297	1	498	generated	
+126	Const	FIRMWARE_STATUS_COMMAND_ABORT	21319	21373	298	1	499	generated	
+127	Const	FIRMWARE_STATUS_CONTROLLER_ERROR	21374	21430	299	1	500	generated	
+128	Const	FIRMWARE_STATUS_DEVICE_ERROR	21431	21483	300	1	501	generated	
+129	Const	FIRMWARE_STATUS_END_OF_MEDIA	21484	21537	301	1	502	generated	
+130	Const	FIRMWARE_STATUS_ERROR	21538	21582	302	1	503	generated	
+131	Const	FIRMWARE_STATUS_ID_NOT_FOUND	21583	21636	303	1	504	generated	
+132	Const	FIRMWARE_STATUS_ILLEGAL_LENGTH	21637	21692	304	1	505	generated	
+133	Const	FIRMWARE_STATUS_ILLEGAL_REQUEST	21693	21747	305	1	506	generated	
+134	Const	FIRMWARE_STATUS_INPUT_BUFFER_TOO_BIG	21748	21807	306	1	507	generated	
+135	Const	FIRMWARE_STATUS_INTERFACE_CRC_ERROR	21808	21868	307	1	508	generated	
+136	Const	FIRMWARE_STATUS_INVALID_IMAGE	21869	21921	308	1	509	generated	
+137	Const	FIRMWARE_STATUS_INVALID_PARAMETER	21922	21978	309	1	510	generated	
+138	Const	FIRMWARE_STATUS_INVALID_SLOT	21979	22030	310	1	511	generated	
+139	Const	FIRMWARE_STATUS_MEDIA_CHANGE	22031	22084	311	1	512	generated	
+140	Const	FIRMWARE_STATUS_MEDIA_CHANGE_REQUEST	22085	22146	312	1	513	generated	
+141	Const	FIRMWARE_STATUS_OUTPUT_BUFFER_TOO_SMALL	22147	22209	313	1	514	generated	
+142	Const	FIRMWARE_STATUS_POWER_CYCLE_REQUIRED	22210	22270	314	1	515	generated	
+143	Const	FIRMWARE_STATUS_SUCCESS	22271	22317	315	1	516	generated	
+144	Const	FIRMWARE_STATUS_UNCORRECTABLE_DATA_ERROR	22318	22383	316	1	517	generated	
+145	Struct	HYBRID_DEMOTE_BY_SIZE	22384	22631	317	1	518	unsupported	declaration Struct has no candidate rule
+146	Struct	HYBRID_DIRTY_THRESHOLDS	22632	22819	328	1	531	unsupported	declaration Struct has no candidate rule
+147	Const	HYBRID_FUNCTION_DEMOTE_BY_SIZE	22820	22874	336	1	541	generated	
+148	Const	HYBRID_FUNCTION_DISABLE_CACHING_MEDIUM	22875	22937	337	1	542	generated	
+149	Const	HYBRID_FUNCTION_ENABLE_CACHING_MEDIUM	22938	22999	338	1	543	generated	
+150	Const	HYBRID_FUNCTION_GET_INFO	23000	23047	339	1	544	generated	
+151	Const	HYBRID_FUNCTION_SET_DIRTY_THRESHOLD	23048	23107	340	1	545	generated	
+152	Struct	HYBRID_INFORMATION	23108	23505	341	1	546	unsupported	declaration Struct has no candidate rule
+153	Struct	HYBRID_INFORMATION_0	23506	23608	355	1	562	unsupported	declaration Struct has no candidate rule
+154	Struct	HYBRID_INFORMATION_1	23609	23978	360	1	569	unsupported	declaration Struct has no candidate rule
+155	Impl		23979	24092	372	1	583	unsupported	declaration Impl has no candidate rule
+156	Struct	HYBRID_INFORMATION_1_0	24093	24310	377	1	590	unsupported	declaration Struct has no candidate rule
+157	Struct	HYBRID_REQUEST_BLOCK	24311	24535	385	1	600	unsupported	declaration Struct has no candidate rule
+158	Const	HYBRID_REQUEST_BLOCK_STRUCTURE_VERSION	24536	24597	395	1	612	generated	
+159	Const	HYBRID_REQUEST_INFO_STRUCTURE_VERSION	24598	24658	396	1	613	generated	
+160	Const	HYBRID_STATUS_ENABLE_REFCOUNT_HOLD	24659	24717	397	1	614	generated	
+161	Const	HYBRID_STATUS_ILLEGAL_REQUEST	24718	24770	398	1	615	generated	
+162	Const	HYBRID_STATUS_INVALID_PARAMETER	24771	24825	399	1	616	generated	
+163	Const	HYBRID_STATUS_OUTPUT_BUFFER_TOO_SMALL	24826	24886	400	1	617	generated	
+164	Const	HYBRID_STATUS_SUCCESS	24887	24931	401	1	618	generated	
+165	Struct	IDE_IO_CONTROL	24932	25150	402	1	619	unsupported	declaration Struct has no candidate rule
+166	Impl		25151	25258	412	1	631	unsupported	declaration Impl has no candidate rule
+167	Const	ID_FQDN	25259	25332	417	1	638	unsupported	non-scalar type Ptr unsupported
+168	Const	ID_IPV4_ADDR	25333	25411	418	1	641	unsupported	non-scalar type Ptr unsupported
+169	Const	ID_IPV6_ADDR	25412	25490	419	1	644	unsupported	non-scalar type Ptr unsupported
+170	Const	ID_USER_FQDN	25491	25569	420	1	647	unsupported	non-scalar type Ptr unsupported
+171	Struct	IKE_AUTHENTICATION_INFORMATION	25570	25749	421	1	650	unsupported	declaration Struct has no candidate rule
+172	Impl		25750	25873	427	1	658	unsupported	declaration Impl has no candidate rule
+173	Union		25874	26003	432	1	665	unsupported	declaration Union has no candidate rule
+174	Impl		26004	26129	437	1	672	unsupported	declaration Impl has no candidate rule
+175	ItemType	IKE_AUTHENTICATION_METHOD	26130	26171	442	1	679	generated	
+176	Struct	IKE_AUTHENTICATION_PRESHARED_KEY	26172	26405	443	1	680	unsupported	declaration Struct has no candidate rule
+177	Impl		26406	26531	453	1	692	unsupported	declaration Impl has no candidate rule
+178	Const	IKE_AUTHENTICATION_PRESHARED_KEY_METHOD	26532	26616	458	1	699	generated	
+179	Const	IOCTL_ATA_MINIPORT	26617	26663	459	1	700	generated	
+180	Const	IOCTL_ATA_PASS_THROUGH	26664	26714	460	1	701	generated	
+181	Const	IOCTL_ATA_PASS_THROUGH_DIRECT	26715	26772	461	1	702	generated	
+182	Const	IOCTL_IDE_PASS_THROUGH	26773	26823	462	1	703	generated	
+183	Const	IOCTL_MINIPORT_PROCESS_SERVICE_IRP	26824	26886	463	1	704	generated	
+184	Const	IOCTL_MINIPORT_SIGNATURE_DSM_GENERAL	26887	26996	464	1	705	unsupported	non-scalar type Ptr unsupported
+185	Const	IOCTL_MINIPORT_SIGNATURE_DSM_NOTIFICATION	26997	27111	465	1	708	unsupported	non-scalar type Ptr unsupported
+186	Const	IOCTL_MINIPORT_SIGNATURE_ENDURANCE_INFO	27112	27224	466	1	711	unsupported	non-scalar type Ptr unsupported
+187	Const	IOCTL_MINIPORT_SIGNATURE_FIRMWARE	27225	27331	467	1	714	unsupported	non-scalar type Ptr unsupported
+188	Const	IOCTL_MINIPORT_SIGNATURE_HYBRDISK	27332	27438	468	1	717	unsupported	non-scalar type Ptr unsupported
+189	Const	IOCTL_MINIPORT_SIGNATURE_QUERY_PHYSICAL_TOPOLOGY	27439	27560	469	1	720	unsupported	non-scalar type Ptr unsupported
+190	Const	IOCTL_MINIPORT_SIGNATURE_QUERY_PROTOCOL	27561	27673	470	1	723	unsupported	non-scalar type Ptr unsupported
+191	Const	IOCTL_MINIPORT_SIGNATURE_QUERY_TEMPERATURE	27674	27789	471	1	726	unsupported	non-scalar type Ptr unsupported
+192	Const	IOCTL_MINIPORT_SIGNATURE_SCSIDISK	27790	27896	472	1	729	unsupported	non-scalar type Ptr unsupported
+193	Const	IOCTL_MINIPORT_SIGNATURE_SET_PROTOCOL	27897	28007	473	1	732	unsupported	non-scalar type Ptr unsupported
+194	Const	IOCTL_MINIPORT_SIGNATURE_SET_TEMPERATURE_THRESHOLD	28008	28131	474	1	735	unsupported	non-scalar type Ptr unsupported
+195	Const	IOCTL_MPIO_PASS_THROUGH_PATH	28132	28188	475	1	738	generated	
+196	Const	IOCTL_MPIO_PASS_THROUGH_PATH_DIRECT	28189	28252	476	1	739	generated	
+197	Const	IOCTL_MPIO_PASS_THROUGH_PATH_DIRECT_EX	28253	28319	477	1	740	generated	
+198	Const	IOCTL_MPIO_PASS_THROUGH_PATH_EX	28320	28379	478	1	741	generated	
+199	Const	IOCTL_SCSI_BASE	28380	28418	479	1	742	generated	
+200	Const	IOCTL_SCSI_FREE_DUMP_POINTERS	28419	28476	480	1	743	generated	
+201	Const	IOCTL_SCSI_GET_ADDRESS	28477	28527	481	1	744	generated	
+202	Const	IOCTL_SCSI_GET_CAPABILITIES	28528	28583	482	1	745	generated	
+203	Const	IOCTL_SCSI_GET_DUMP_POINTERS	28584	28640	483	1	746	generated	
+204	Const	IOCTL_SCSI_GET_INQUIRY_DATA	28641	28696	484	1	747	generated	
+205	Const	IOCTL_SCSI_MINIPORT	28697	28744	485	1	748	generated	
+206	Const	IOCTL_SCSI_PASS_THROUGH	28745	28796	486	1	749	generated	
+207	Const	IOCTL_SCSI_PASS_THROUGH_DIRECT	28797	28855	487	1	750	generated	
+208	Const	IOCTL_SCSI_PASS_THROUGH_DIRECT_EX	28856	28917	488	1	751	generated	
+209	Const	IOCTL_SCSI_PASS_THROUGH_EX	28918	28972	489	1	752	generated	
+210	Const	IOCTL_SCSI_RESCAN_BUS	28973	29022	490	1	753	generated	
+211	Struct	IO_SCSI_CAPABILITIES	29023	29354	491	1	754	unsupported	declaration Struct has no candidate rule
+212	ItemType	ISCSI_AUTH_TYPES	29355	29387	503	1	768	generated	
+213	Const	ISCSI_CHAP_AUTH_TYPE	29388	29444	504	1	769	generated	
+214	Struct	ISCSI_CONNECTION_INFOA	29445	29741	505	1	770	unsupported	declaration Struct has no candidate rule
+215	Impl		29742	29857	515	1	782	unsupported	declaration Impl has no candidate rule
+216	Struct	ISCSI_CONNECTION_INFOW	29858	30156	520	1	789	unsupported	declaration Struct has no candidate rule
+217	Impl		30157	30272	530	1	801	unsupported	declaration Impl has no candidate rule
+218	Struct	ISCSI_CONNECTION_INFO_EX	30273	30632	535	1	808	unsupported	declaration Struct has no candidate rule
+219	Struct	ISCSI_DEVICE_ON_SESSIONA	30633	31080	548	1	823	unsupported	declaration Struct has no candidate rule
+220	Impl		31081	31237	561	1	838	unsupported	declaration Impl has no candidate rule
+221	Struct	ISCSI_DEVICE_ON_SESSIONW	31238	31689	567	1	846	unsupported	declaration Struct has no candidate rule
+222	Impl		31690	31846	580	1	861	unsupported	declaration Impl has no candidate rule
+223	ItemType	ISCSI_DIGEST_TYPES	31847	31881	586	1	869	generated	
+224	Const	ISCSI_DIGEST_TYPE_CRC32C	31882	31944	587	1	870	generated	
+225	Const	ISCSI_DIGEST_TYPE_NONE	31945	32005	588	1	871	generated	
+226	Const	ISCSI_LOGIN_FLAG_ALLOW_PORTAL_HOPPING	32006	32066	589	1	872	generated	
+227	Const	ISCSI_LOGIN_FLAG_MULTIPATH_ENABLED	32067	32124	590	1	873	generated	
+228	Const	ISCSI_LOGIN_FLAG_REQUIRE_IPSEC	32125	32178	591	1	874	generated	
+229	Const	ISCSI_LOGIN_FLAG_RESERVED1	32179	32228	592	1	875	generated	
+230	Const	ISCSI_LOGIN_FLAG_USE_RADIUS_RESPONSE	32229	32289	593	1	876	generated	
+231	Const	ISCSI_LOGIN_FLAG_USE_RADIUS_VERIFICATION	32290	32354	594	1	877	generated	
+232	Struct	ISCSI_LOGIN_OPTIONS	32355	32832	595	1	878	unsupported	declaration Struct has no candidate rule
+233	Impl		32833	32945	612	1	897	unsupported	declaration Impl has no candidate rule
+234	Const	ISCSI_LOGIN_OPTIONS_AUTH_TYPE	32946	33050	617	1	904	unsupported	non-scalar type Ptr unsupported
+235	Const	ISCSI_LOGIN_OPTIONS_DATA_DIGEST	33051	33157	618	1	907	unsupported	non-scalar type Ptr unsupported
+236	Const	ISCSI_LOGIN_OPTIONS_DEFAULT_TIME_2_RETAIN	33158	33274	619	1	910	unsupported	non-scalar type Ptr unsupported
+237	Const	ISCSI_LOGIN_OPTIONS_DEFAULT_TIME_2_WAIT	33275	33389	620	1	913	unsupported	non-scalar type Ptr unsupported
+238	Const	ISCSI_LOGIN_OPTIONS_HEADER_DIGEST	33390	33498	621	1	916	unsupported	non-scalar type Ptr unsupported
+239	Const	ISCSI_LOGIN_OPTIONS_MAXIMUM_CONNECTIONS	33499	33613	622	1	919	unsupported	non-scalar type Ptr unsupported
+240	Const	ISCSI_LOGIN_OPTIONS_PASSWORD	33614	33717	623	1	922	unsupported	non-scalar type Ptr unsupported
+241	Const	ISCSI_LOGIN_OPTIONS_USERNAME	33718	33821	624	1	925	unsupported	non-scalar type Ptr unsupported
+242	Const	ISCSI_LOGIN_OPTIONS_VERSION	33822	33872	625	1	928	generated	
+243	Const	ISCSI_MUTUAL_CHAP_AUTH_TYPE	33873	33936	626	1	929	generated	
+244	Const	ISCSI_NO_AUTH_TYPE	33937	33991	627	1	930	generated	
+245	Const	ISCSI_SECURITY_FLAG_AGGRESSIVE_MODE_ENABLED	33992	34110	628	1	931	unsupported	non-scalar type Ptr unsupported
+246	Const	ISCSI_SECURITY_FLAG_IKE_IPSEC_ENABLED	34111	34223	629	1	934	unsupported	non-scalar type Ptr unsupported
+247	Const	ISCSI_SECURITY_FLAG_MAIN_MODE_ENABLED	34224	34336	630	1	937	unsupported	non-scalar type Ptr unsupported
+248	Const	ISCSI_SECURITY_FLAG_PFS_ENABLED	34337	34443	631	1	940	unsupported	non-scalar type Ptr unsupported
+249	Const	ISCSI_SECURITY_FLAG_TRANSPORT_MODE_PREFERRED	34444	34563	632	1	943	unsupported	non-scalar type Ptr unsupported
+250	Const	ISCSI_SECURITY_FLAG_TUNNEL_MODE_PREFERRED	34564	34680	633	1	946	unsupported	non-scalar type Ptr unsupported
+251	Const	ISCSI_SECURITY_FLAG_VALID	34681	34781	634	1	949	unsupported	non-scalar type Ptr unsupported
+252	Struct	ISCSI_SESSION_INFOA	34782	35162	635	1	952	unsupported	declaration Struct has no candidate rule
+253	Impl		35163	35275	647	1	966	unsupported	declaration Impl has no candidate rule
+254	Struct	ISCSI_SESSION_INFOW	35276	35659	652	1	973	unsupported	declaration Struct has no candidate rule
+255	Impl		35660	35772	664	1	987	unsupported	declaration Impl has no candidate rule
+256	Struct	ISCSI_SESSION_INFO_EX	35773	36264	669	1	994	unsupported	declaration Struct has no candidate rule
+257	Impl		36265	36379	686	1	1013	unsupported	declaration Impl has no candidate rule
+258	Const	ISCSI_TARGET_FLAG_HIDE_STATIC_TARGET	36380	36439	691	1	1020	generated	
+259	Const	ISCSI_TARGET_FLAG_MERGE_TARGET_INFORMATION	36440	36505	692	1	1021	generated	
+260	Struct	ISCSI_TARGET_MAPPINGA	36506	36833	693	1	1022	unsupported	declaration Struct has no candidate rule
+261	Impl		36834	36948	705	1	1036	unsupported	declaration Impl has no candidate rule
+262	Struct	ISCSI_TARGET_MAPPINGW	36949	37279	710	1	1043	unsupported	declaration Struct has no candidate rule
+263	Impl		37280	37394	722	1	1057	unsupported	declaration Impl has no candidate rule
+264	Struct	ISCSI_TARGET_PORTALA	37395	37546	727	1	1064	unsupported	declaration Struct has no candidate rule
+265	Impl		37547	37660	734	1	1073	unsupported	declaration Impl has no candidate rule
+266	Struct	ISCSI_TARGET_PORTALW	37661	37814	739	1	1080	unsupported	declaration Struct has no candidate rule
+267	Impl		37815	37928	746	1	1089	unsupported	declaration Impl has no candidate rule
+268	Struct	ISCSI_TARGET_PORTAL_GROUPA	37929	38068	751	1	1096	unsupported	declaration Struct has no candidate rule
+269	Impl		38069	38188	757	1	1104	unsupported	declaration Impl has no candidate rule
+270	Struct	ISCSI_TARGET_PORTAL_GROUPW	38189	38328	762	1	1111	unsupported	declaration Struct has no candidate rule
+271	Impl		38329	38448	768	1	1119	unsupported	declaration Impl has no candidate rule
+272	Struct	ISCSI_TARGET_PORTAL_INFOA	38449	38673	773	1	1126	unsupported	declaration Struct has no candidate rule
+273	Impl		38674	38792	782	1	1137	unsupported	declaration Impl has no candidate rule
+274	Struct	ISCSI_TARGET_PORTAL_INFOW	38793	39020	787	1	1144	unsupported	declaration Struct has no candidate rule
+275	Impl		39021	39139	796	1	1155	unsupported	declaration Impl has no candidate rule
+276	Struct	ISCSI_TARGET_PORTAL_INFO_EXA	39140	39438	801	1	1162	unsupported	declaration Struct has no candidate rule
+277	Impl		39439	39560	812	1	1175	unsupported	declaration Impl has no candidate rule
+278	Struct	ISCSI_TARGET_PORTAL_INFO_EXW	39561	39862	817	1	1182	unsupported	declaration Struct has no candidate rule
+279	Impl		39863	39984	828	1	1195	unsupported	declaration Impl has no candidate rule
+280	Const	ISCSI_TCP_PROTOCOL_TYPE	39985	40046	833	1	1202	generated	
+281	Struct	ISCSI_UNIQUE_SESSION_ID	40047	40186	834	1	1203	unsupported	declaration Struct has no candidate rule
+282	Struct	ISCSI_VERSION_INFO	40187	40343	840	1	1211	unsupported	declaration Struct has no candidate rule
+283	Const	InitiatorName	40344	40401	847	1	1220	generated	
+284	Const	LoginOptions	40402	40458	848	1	1221	generated	
+285	Const	MAX_ISCSI_ALIAS_LEN	40459	40503	849	1	1222	generated	
+286	Const	MAX_ISCSI_DISCOVERY_DOMAIN_LEN	40504	40559	850	1	1223	generated	
+287	Const	MAX_ISCSI_HBANAME_LEN	40560	40606	851	1	1224	generated	
+288	Const	MAX_ISCSI_NAME_LEN	40607	40650	852	1	1225	generated	
+289	Const	MAX_ISCSI_PORTAL_ADDRESS_LEN	40651	40704	853	1	1226	generated	
+290	Const	MAX_ISCSI_PORTAL_ALIAS_LEN	40705	40756	854	1	1227	generated	
+291	Const	MAX_ISCSI_PORTAL_NAME_LEN	40757	40807	855	1	1228	generated	
+292	Const	MAX_ISCSI_TEXT_ADDRESS_LEN	40808	40859	856	1	1229	generated	
+293	Const	MAX_RADIUS_ADDRESS_LEN	40860	40906	857	1	1230	generated	
+294	Const	MINIPORT_DSM_NOTIFICATION_VERSION	40907	40963	858	1	1231	generated	
+295	Const	MINIPORT_DSM_NOTIFICATION_VERSION_1	40964	41022	859	1	1232	generated	
+296	Const	MINIPORT_DSM_NOTIFY_FLAG_BEGIN	41023	41076	860	1	1233	generated	
+297	Const	MINIPORT_DSM_NOTIFY_FLAG_END	41077	41128	861	1	1234	generated	
+298	Const	MINIPORT_DSM_PROFILE_CRASHDUMP_FILE	41129	41187	862	1	1235	generated	
+299	Const	MINIPORT_DSM_PROFILE_HIBERNATION_FILE	41188	41248	863	1	1236	generated	
+300	Const	MINIPORT_DSM_PROFILE_PAGE_FILE	41249	41302	864	1	1237	generated	
+301	Const	MINIPORT_DSM_PROFILE_UNKNOWN	41303	41354	865	1	1238	generated	
+302	Const	MPIO_IOCTL_FLAG_INVOLVE_DSM	41355	41405	866	1	1239	generated	
+303	Const	MPIO_IOCTL_FLAG_USE_PATHID	41406	41455	867	1	1240	generated	
+304	Const	MPIO_IOCTL_FLAG_USE_SCSIADDRESS	41456	41510	868	1	1241	generated	
+305	Struct	MPIO_PASS_THROUGH_PATH	41511	41742	869	1	1242	unsupported	declaration Struct has no candidate rule
+306	Struct	MPIO_PASS_THROUGH_PATH32	41743	42064	879	1	1254	unsupported	declaration Struct has no candidate rule
+307	Struct	MPIO_PASS_THROUGH_PATH32_EX	42065	42379	890	1	1267	unsupported	declaration Struct has no candidate rule
+308	Struct	MPIO_PASS_THROUGH_PATH_DIRECT	42380	42625	901	1	1280	unsupported	declaration Struct has no candidate rule
+309	Struct	MPIO_PASS_THROUGH_PATH_DIRECT32	42626	42961	911	1	1292	unsupported	declaration Struct has no candidate rule
+310	Struct	MPIO_PASS_THROUGH_PATH_DIRECT32_EX	42962	43283	922	1	1305	unsupported	declaration Struct has no candidate rule
+311	Struct	MPIO_PASS_THROUGH_PATH_DIRECT_EX	43284	43517	933	1	1318	unsupported	declaration Struct has no candidate rule
+312	Struct	MPIO_PASS_THROUGH_PATH_EX	43518	43744	943	1	1330	unsupported	declaration Struct has no candidate rule
+313	Struct	MP_DEVICE_DATA_SET_RANGE	43745	43884	953	1	1342	unsupported	declaration Struct has no candidate rule
+314	ItemType	MP_STORAGE_DIAGNOSTIC_LEVEL	43885	43928	959	1	1350	generated	
+315	ItemType	MP_STORAGE_DIAGNOSTIC_TARGET_TYPE	43929	43978	960	1	1351	generated	
+316	Const	MpStorageDiagnosticLevelDefault	43979	44057	961	1	1352	generated	
+317	Const	MpStorageDiagnosticLevelMax	44058	44132	962	1	1353	generated	
+318	Const	MpStorageDiagnosticTargetTypeHbaFirmware	44133	44226	963	1	1354	generated	
+319	Const	MpStorageDiagnosticTargetTypeMax	44227	44312	964	1	1355	generated	
+320	Const	MpStorageDiagnosticTargetTypeMiniport	44313	44403	965	1	1356	generated	
+321	Const	MpStorageDiagnosticTargetTypeUndefined	44404	44495	966	1	1357	generated	
+322	Const	NRB_FUNCTION_ADD_LBAS_PINNED_SET	44496	44552	967	1	1358	generated	
+323	Const	NRB_FUNCTION_FLUSH_NVCACHE	44553	44603	968	1	1359	generated	
+324	Const	NRB_FUNCTION_NVCACHE_INFO	44604	44654	969	1	1360	generated	
+325	Const	NRB_FUNCTION_NVCACHE_POWER_MODE_RETURN	44655	44716	970	1	1361	generated	
+326	Const	NRB_FUNCTION_NVCACHE_POWER_MODE_SET	44717	44775	971	1	1362	generated	
+327	Const	NRB_FUNCTION_NVSEPARATED_FLUSH	44776	44831	972	1	1363	generated	
+328	Const	NRB_FUNCTION_NVSEPARATED_INFO	44832	44886	973	1	1364	generated	
+329	Const	NRB_FUNCTION_NVSEPARATED_WB_DISABLE	44887	44947	974	1	1365	generated	
+330	Const	NRB_FUNCTION_NVSEPARATED_WB_REVERT_DEFAULT	44948	45015	975	1	1366	generated	
+331	Const	NRB_FUNCTION_PASS_HINT_PAYLOAD	45016	45071	976	1	1367	generated	
+332	Const	NRB_FUNCTION_QUERY_ASCENDER_STATUS	45072	45131	977	1	1368	generated	
+333	Const	NRB_FUNCTION_QUERY_CACHE_MISS	45132	45185	978	1	1369	generated	
+334	Const	NRB_FUNCTION_QUERY_HYBRID_DISK_STATUS	45186	45248	979	1	1370	generated	
+335	Const	NRB_FUNCTION_QUERY_PINNED_SET	45249	45302	980	1	1371	generated	
+336	Const	NRB_FUNCTION_REMOVE_LBAS_PINNED_SET	45303	45362	981	1	1372	generated	
+337	Const	NRB_FUNCTION_SPINDLE_STATUS	45363	45415	982	1	1373	generated	
+338	Const	NRB_ILLEGAL_REQUEST	45416	45458	983	1	1374	generated	
+339	Const	NRB_INPUT_DATA_OVERRUN	45459	45504	984	1	1375	generated	
+340	Const	NRB_INPUT_DATA_UNDERRUN	45505	45551	985	1	1376	generated	
+341	Const	NRB_INVALID_PARAMETER	45552	45596	986	1	1377	generated	
+342	Const	NRB_OUTPUT_DATA_OVERRUN	45597	45643	987	1	1378	generated	
+343	Const	NRB_OUTPUT_DATA_UNDERRUN	45644	45691	988	1	1379	generated	
+344	Const	NRB_SUCCESS	45692	45726	989	1	1380	generated	
+345	Struct	NTSCSI_UNICODE_STRING	45727	45888	990	1	1381	unsupported	declaration Struct has no candidate rule
+346	Impl		45889	46003	997	1	1390	unsupported	declaration Impl has no candidate rule
+347	Struct	NVCACHE_HINT_PAYLOAD	46004	46376	1002	1	1397	unsupported	declaration Struct has no candidate rule
+348	Impl		46377	46490	1019	1	1416	unsupported	declaration Impl has no candidate rule
+349	Struct	NVCACHE_PRIORITY_LEVEL_DESCRIPTOR	46491	46846	1024	1	1423	unsupported	declaration Struct has no candidate rule
+350	Impl		46847	46973	1035	1	1436	unsupported	declaration Impl has no candidate rule
+351	Struct	NVCACHE_REQUEST_BLOCK	46974	47268	1040	1	1443	unsupported	declaration Struct has no candidate rule
+352	ItemType	NVCACHE_STATUS	47269	47299	1053	1	1458	generated	
+353	ItemType	NVCACHE_TYPE	47300	47328	1054	1	1459	generated	
+354	Const	NVSEPWriteCacheTypeNone	47329	47395	1055	1	1460	generated	
+355	Const	NVSEPWriteCacheTypeUnknown	47396	47465	1056	1	1461	generated	
+356	Const	NVSEPWriteCacheTypeWriteBack	47466	47537	1057	1	1462	generated	
+357	Const	NVSEPWriteCacheTypeWriteThrough	47538	47612	1058	1	1463	generated	
+358	Struct	NV_FEATURE_PARAMETER	47613	47972	1059	1	1464	unsupported	declaration Struct has no candidate rule
+359	Struct	NV_SEP_CACHE_PARAMETER	47973	48227	1073	1	1480	unsupported	declaration Struct has no candidate rule
+360	Impl		48228	48343	1083	1	1492	unsupported	declaration Impl has no candidate rule
+361	Union		48344	48491	1088	1	1499	unsupported	declaration Union has no candidate rule
+362	Impl		48492	48609	1094	1	1507	unsupported	declaration Impl has no candidate rule
+363	Struct	NV_SEP_CACHE_PARAMETER_0_0	48610	48717	1099	1	1514	unsupported	declaration Struct has no candidate rule
+364	Const	NV_SEP_CACHE_PARAMETER_VERSION	48718	48771	1104	1	1521	generated	
+365	Const	NV_SEP_CACHE_PARAMETER_VERSION_1	48772	48827	1105	1	1522	generated	
+366	ItemType	NV_SEP_WRITE_CACHE_TYPE	48828	48867	1106	1	1523	generated	
+367	Const	NvCacheStatusDisabled	48868	48923	1107	1	1524	generated	
+368	Const	NvCacheStatusDisabling	48924	48980	1108	1	1525	generated	
+369	Const	NvCacheStatusEnabled	48981	49035	1109	1	1526	generated	
+370	Const	NvCacheStatusUnknown	49036	49090	1110	1	1527	generated	
+371	Const	NvCacheTypeNone	49091	49138	1111	1	1528	generated	
+372	Const	NvCacheTypeUnknown	49139	49189	1112	1	1529	generated	
+373	Const	NvCacheTypeWriteBack	49190	49242	1113	1	1530	generated	
+374	Const	NvCacheTypeWriteThrough	49243	49298	1114	1	1531	generated	
+375	ItemType	PDUMP_DEVICE_POWERON_ROUTINE	49299	49415	1115	1	1532	unsupported	generic scalar type unsupported
+376	Struct	PERSISTENT_ISCSI_LOGIN_INFOA	49416	49795	1116	1	1535	unsupported	declaration Struct has no candidate rule
+377	Impl		49796	49917	1128	1	1549	unsupported	declaration Impl has no candidate rule
+378	Struct	PERSISTENT_ISCSI_LOGIN_INFOW	49918	50299	1133	1	1556	unsupported	declaration Struct has no candidate rule
+379	Impl		50300	50421	1145	1	1570	unsupported	declaration Impl has no candidate rule
+380	Const	PersistentTargetMappings	50422	50490	1150	1	1577	generated	
+381	Const	PortalGroups	50491	50547	1151	1	1578	generated	
+382	Const	ProtocolType	50548	50604	1152	1	1579	generated	
+383	Struct	SCSI_ADAPTER_BUS_INFO	50605	50739	1153	1	1580	unsupported	declaration Struct has no candidate rule
+384	Impl		50740	50854	1159	1	1588	unsupported	declaration Impl has no candidate rule
+385	Struct	SCSI_ADDRESS	50855	51029	1164	1	1595	unsupported	declaration Struct has no candidate rule
+386	Struct	SCSI_BUS_DATA	51030	51195	1173	1	1606	unsupported	declaration Struct has no candidate rule
+387	Struct	SCSI_INQUIRY_DATA	51196	51448	1180	1	1615	unsupported	declaration Struct has no candidate rule
+388	Impl		51449	51559	1191	1	1628	unsupported	declaration Impl has no candidate rule
+389	Const	SCSI_IOCTL_DATA_BIDIRECTIONAL	51560	51612	1196	1	1635	generated	
+390	Const	SCSI_IOCTL_DATA_IN	51613	51654	1197	1	1636	generated	
+391	Const	SCSI_IOCTL_DATA_OUT	51655	51697	1198	1	1637	generated	
+392	Const	SCSI_IOCTL_DATA_UNSPECIFIED	51698	51748	1199	1	1638	generated	
+393	Struct	SCSI_LUN_LIST	51749	51864	1200	1	1639	unsupported	declaration Struct has no candidate rule
+394	Struct	SCSI_PASS_THROUGH	51865	52253	1206	1	1647	unsupported	declaration Struct has no candidate rule
+395	Impl		52254	52364	1223	1	1666	unsupported	declaration Impl has no candidate rule
+396	Struct	SCSI_PASS_THROUGH32	52365	52839	1228	1	1673	unsupported	declaration Struct has no candidate rule
+397	Impl		52840	53038	1246	1	1693	unsupported	declaration Impl has no candidate rule
+398	Struct	SCSI_PASS_THROUGH32_EX	53039	53646	1252	1	1701	unsupported	declaration Struct has no candidate rule
+399	Impl		53647	53848	1273	1	1724	unsupported	declaration Impl has no candidate rule
+400	Struct	SCSI_PASS_THROUGH_DIRECT	53849	54255	1279	1	1732	unsupported	declaration Struct has no candidate rule
+401	Impl		54256	54373	1296	1	1751	unsupported	declaration Impl has no candidate rule
+402	Struct	SCSI_PASS_THROUGH_DIRECT32	54374	54868	1301	1	1758	unsupported	declaration Struct has no candidate rule
+403	Impl		54869	55074	1319	1	1778	unsupported	declaration Impl has no candidate rule
+404	Struct	SCSI_PASS_THROUGH_DIRECT32_EX	55075	55715	1325	1	1786	unsupported	declaration Struct has no candidate rule
+405	Impl		55716	55924	1346	1	1809	unsupported	declaration Impl has no candidate rule
+406	Struct	SCSI_PASS_THROUGH_DIRECT_EX	55925	56477	1352	1	1817	unsupported	declaration Struct has no candidate rule
+407	Impl		56478	56598	1372	1	1839	unsupported	declaration Impl has no candidate rule
+408	Struct	SCSI_PASS_THROUGH_EX	56599	57122	1377	1	1846	unsupported	declaration Struct has no candidate rule
+409	Impl		57123	57236	1397	1	1868	unsupported	declaration Impl has no candidate rule
+410	Struct	SRB_IO_CONTROL	57237	57449	1402	1	1875	unsupported	declaration Struct has no candidate rule
+411	Impl		57450	57557	1412	1	1887	unsupported	declaration Impl has no candidate rule
+412	Struct	STORAGE_DIAGNOSTIC_MP_REQUEST	57558	57898	1417	1	1894	unsupported	declaration Struct has no candidate rule
+413	Impl		57899	58021	1429	1	1908	unsupported	declaration Impl has no candidate rule
+414	Const	STORAGE_DIAGNOSTIC_STATUS_BUFFER_TOO_SMALL	58022	58087	1434	1	1915	generated	
+415	Const	STORAGE_DIAGNOSTIC_STATUS_INVALID_PARAMETER	58088	58154	1435	1	1916	generated	
+416	Const	STORAGE_DIAGNOSTIC_STATUS_INVALID_SIGNATURE	58155	58221	1436	1	1917	generated	
+417	Const	STORAGE_DIAGNOSTIC_STATUS_INVALID_TARGET_TYPE	58222	58290	1437	1	1918	generated	
+418	Const	STORAGE_DIAGNOSTIC_STATUS_MORE_DATA	58291	58349	1438	1	1919	generated	
+419	Const	STORAGE_DIAGNOSTIC_STATUS_SUCCESS	58350	58406	1439	1	1920	generated	
+420	Const	STORAGE_DIAGNOSTIC_STATUS_UNSUPPORTED_VERSION	58407	58475	1440	1	1921	generated	
+421	Struct	STORAGE_ENDURANCE_DATA_DESCRIPTOR	58476	58655	1441	1	1922	unsupported	declaration Struct has no candidate rule
+422	Struct	STORAGE_ENDURANCE_INFO	58656	58913	1448	1	1931	unsupported	declaration Struct has no candidate rule
+423	Impl		58914	59029	1458	1	1943	unsupported	declaration Impl has no candidate rule
+424	Struct	STORAGE_ENDURANCE_INFO_0	59030	59136	1463	1	1950	unsupported	declaration Struct has no candidate rule
+425	Struct	STORAGE_FIRMWARE_ACTIVATE	59137	59308	1468	1	1957	unsupported	declaration Struct has no candidate rule
+426	Impl		59309	59427	1476	1	1967	unsupported	declaration Impl has no candidate rule
+427	Const	STORAGE_FIRMWARE_ACTIVATE_STRUCTURE_VERSION	59428	59494	1481	1	1974	generated	
+428	Struct	STORAGE_FIRMWARE_DOWNLOAD	59495	59686	1482	1	1975	unsupported	declaration Struct has no candidate rule
+429	Impl		59687	59805	1491	1	1986	unsupported	declaration Impl has no candidate rule
+430	Const	STORAGE_FIRMWARE_DOWNLOAD_STRUCTURE_VERSION	59806	59872	1496	1	1993	generated	
+431	Const	STORAGE_FIRMWARE_DOWNLOAD_STRUCTURE_VERSION_V2	59873	59942	1497	1	1994	generated	
+432	Struct	STORAGE_FIRMWARE_DOWNLOAD_V2	59943	60206	1498	1	1995	unsupported	declaration Struct has no candidate rule
+433	Impl		60207	60328	1510	1	2009	unsupported	declaration Impl has no candidate rule
+434	Struct	STORAGE_FIRMWARE_INFO	60329	60620	1515	1	2016	unsupported	declaration Struct has no candidate rule
+435	Impl		60621	60735	1527	1	2030	unsupported	declaration Impl has no candidate rule
+436	Const	STORAGE_FIRMWARE_INFO_INVALID_SLOT	60736	60795	1532	1	2037	generated	
+437	Const	STORAGE_FIRMWARE_INFO_STRUCTURE_VERSION	60796	60858	1533	1	2038	generated	
+438	Const	STORAGE_FIRMWARE_INFO_STRUCTURE_VERSION_V2	60859	60924	1534	1	2039	generated	
+439	Struct	STORAGE_FIRMWARE_INFO_V2	60925	61326	1535	1	2040	unsupported	declaration Struct has no candidate rule
+440	Impl		61327	61444	1550	1	2057	unsupported	declaration Impl has no candidate rule
+441	Struct	STORAGE_FIRMWARE_SLOT_INFO	61445	61643	1555	1	2064	unsupported	declaration Struct has no candidate rule
+442	Impl		61644	61763	1563	1	2074	unsupported	declaration Impl has no candidate rule
+443	Union		61764	61889	1568	1	2081	unsupported	declaration Union has no candidate rule
+444	Impl		61890	62011	1574	1	2089	unsupported	declaration Impl has no candidate rule
+445	Struct	STORAGE_FIRMWARE_SLOT_INFO_V2	62012	62193	1579	1	2096	unsupported	declaration Struct has no candidate rule
+446	Impl		62194	62316	1587	1	2106	unsupported	declaration Impl has no candidate rule
+447	Const	STORAGE_FIRMWARE_SLOT_INFO_V2_REVISION_LENGTH	62317	62386	1592	1	2113	generated	
+448	Const	ScsiRawInterfaceGuid	62387	62520	1593	1	2114	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+449	ItemType	TARGETPROTOCOLTYPE	62521	62555	1594	1	2117	generated	
+450	ItemType	TARGET_INFORMATION_CLASS	62556	62596	1595	1	2118	generated	
+451	Const	TargetAlias	62597	62652	1596	1	2119	generated	
+452	Const	TargetFlags	62653	62708	1597	1	2120	generated	
+453	Const	WmiScsiAddressGuid	62709	62840	1598	1	2121	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+454	ItemType	_ADAPTER_OBJECT	62841	62874	1599	1	2124	generated	

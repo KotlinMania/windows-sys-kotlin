@@ -1,0 +1,5 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	135	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		136	377	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		378	525	3	1	8	unsupported	declaration Macro has no candidate rule
+3	ItemType	OOBE_COMPLETED_CALLBACK	526	638	4	1	11	unsupported	generic scalar type unsupported

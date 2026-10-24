@@ -1,0 +1,273 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	146	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		147	282	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		283	500	3	1	8	unsupported	declaration Macro has no candidate rule
+3	Macro		501	786	4	1	11	unsupported	declaration Macro has no candidate rule
+4	Macro		787	1088	5	1	14	unsupported	declaration Macro has no candidate rule
+5	Macro		1089	1349	6	1	17	unsupported	declaration Macro has no candidate rule
+6	Macro		1350	1678	7	1	20	unsupported	declaration Macro has no candidate rule
+7	Macro		1679	1989	8	1	23	unsupported	declaration Macro has no candidate rule
+8	Macro		1990	2172	9	1	26	unsupported	declaration Macro has no candidate rule
+9	Macro		2173	2423	10	1	29	unsupported	declaration Macro has no candidate rule
+10	Macro		2424	2608	11	1	32	unsupported	declaration Macro has no candidate rule
+11	Macro		2609	2861	12	1	35	unsupported	declaration Macro has no candidate rule
+12	Macro		2862	3001	13	1	38	unsupported	declaration Macro has no candidate rule
+13	Macro		3002	3152	14	1	41	unsupported	declaration Macro has no candidate rule
+14	Macro		3153	3302	15	1	44	unsupported	declaration Macro has no candidate rule
+15	Macro		3303	3441	16	1	47	unsupported	declaration Macro has no candidate rule
+16	Macro		3442	3591	17	1	50	unsupported	declaration Macro has no candidate rule
+17	Macro		3592	3692	18	1	53	unsupported	declaration Macro has no candidate rule
+18	Macro		3693	3791	19	1	56	unsupported	declaration Macro has no candidate rule
+19	Macro		3792	4112	20	1	59	unsupported	declaration Macro has no candidate rule
+20	Macro		4113	4387	21	1	62	unsupported	declaration Macro has no candidate rule
+21	Macro		4388	4557	22	1	65	unsupported	declaration Macro has no candidate rule
+22	Macro		4558	4728	23	1	68	unsupported	declaration Macro has no candidate rule
+23	Macro		4729	4935	24	1	71	unsupported	declaration Macro has no candidate rule
+24	Macro		4936	5142	25	1	74	unsupported	declaration Macro has no candidate rule
+25	Macro		5143	5295	26	1	77	unsupported	declaration Macro has no candidate rule
+26	Macro		5296	5450	27	1	80	unsupported	declaration Macro has no candidate rule
+27	Macro		5451	5662	28	1	83	unsupported	declaration Macro has no candidate rule
+28	Macro		5663	5788	29	1	86	unsupported	declaration Macro has no candidate rule
+29	Macro		5789	5927	30	1	89	unsupported	declaration Macro has no candidate rule
+30	Macro		5928	6149	31	1	92	unsupported	declaration Macro has no candidate rule
+31	Macro		6150	6399	32	1	95	unsupported	declaration Macro has no candidate rule
+32	ItemType	DeviceDiscoveryMechanism	6400	6440	33	1	98	generated	
+33	Const	DirectedDiscovery	6441	6502	34	1	99	generated	
+34	Const	MulticastDiscovery	6503	6565	35	1	100	generated	
+35	Const	ONE_WAY	6566	6610	36	1	101	generated	
+36	Const	OpAnyElement	6611	6652	37	1	102	generated	
+37	Const	OpAnyElements	6653	6695	38	1	103	generated	
+38	Const	OpAnyNumber	6696	6737	39	1	104	generated	
+39	Const	OpAnyText	6738	6776	40	1	105	generated	
+40	Const	OpAnything	6777	6817	41	1	106	generated	
+41	Const	OpAttribute_	6818	6859	42	1	107	generated	
+42	Const	OpBeginAll	6860	6900	43	1	108	generated	
+43	Const	OpBeginAnyElement	6901	6947	44	1	109	generated	
+44	Const	OpBeginChoice	6948	6991	45	1	110	generated	
+45	Const	OpBeginElement_	6992	7036	46	1	111	generated	
+46	Const	OpBeginSequence	7037	7082	47	1	112	generated	
+47	Const	OpElement_	7083	7122	48	1	113	generated	
+48	Const	OpEndAll	7123	7161	49	1	114	generated	
+49	Const	OpEndChoice	7162	7203	50	1	115	generated	
+50	Const	OpEndElement	7204	7245	51	1	116	generated	
+51	Const	OpEndOfTable	7246	7287	52	1	117	generated	
+52	Const	OpEndSequence	7288	7331	53	1	118	generated	
+53	Const	OpFormatBool_	7332	7375	54	1	119	generated	
+54	Const	OpFormatDateTime_	7376	7423	55	1	120	generated	
+55	Const	OpFormatDom_	7424	7466	56	1	121	generated	
+56	Const	OpFormatDouble_	7467	7512	57	1	122	generated	
+57	Const	OpFormatDuration_	7513	7560	58	1	123	generated	
+58	Const	OpFormatDynamicType_	7561	7611	59	1	124	generated	
+59	Const	OpFormatFloat_	7612	7656	60	1	125	generated	
+60	Const	OpFormatInt16_	7657	7701	61	1	126	generated	
+61	Const	OpFormatInt32_	7702	7746	62	1	127	generated	
+62	Const	OpFormatInt64_	7747	7791	63	1	128	generated	
+63	Const	OpFormatInt8_	7792	7835	64	1	129	generated	
+64	Const	OpFormatListInsertTail_	7836	7889	65	1	130	generated	
+65	Const	OpFormatLookupType_	7890	7939	66	1	131	generated	
+66	Const	OpFormatMax	7940	7981	67	1	132	generated	
+67	Const	OpFormatName_	7982	8025	68	1	133	generated	
+68	Const	OpFormatStruct_	8026	8071	69	1	134	generated	
+69	Const	OpFormatType_	8072	8115	70	1	135	generated	
+70	Const	OpFormatUInt16_	8116	8161	71	1	136	generated	
+71	Const	OpFormatUInt32_	8162	8207	72	1	137	generated	
+72	Const	OpFormatUInt64_	8208	8253	73	1	138	generated	
+73	Const	OpFormatUInt8_	8254	8298	74	1	139	generated	
+74	Const	OpFormatUnicodeString_	8299	8351	75	1	140	generated	
+75	Const	OpFormatUri_	8352	8394	76	1	141	generated	
+76	Const	OpFormatUuidUri_	8395	8441	77	1	142	generated	
+77	Const	OpFormatXMLDeclaration_	8442	8495	78	1	143	generated	
+78	Const	OpNone	8496	8531	79	1	144	generated	
+79	Const	OpOneOrMore	8532	8573	80	1	145	generated	
+80	Const	OpOptional	8574	8614	81	1	146	generated	
+81	Const	OpProcess_	8615	8655	82	1	147	generated	
+82	Const	OpQualifiedAttribute_	8656	8707	83	1	148	generated	
+83	ItemType	PWSD_SOAP_MESSAGE_HANDLER	8708	8869	84	1	149	unsupported	generic scalar type unsupported
+84	Struct	REQUESTBODY_GetStatus	8870	8974	85	1	152	unsupported	declaration Struct has no candidate rule
+85	Impl		8975	9089	90	1	159	unsupported	declaration Impl has no candidate rule
+86	Struct	REQUESTBODY_Renew	9090	9234	95	1	166	unsupported	declaration Struct has no candidate rule
+87	Impl		9235	9345	101	1	174	unsupported	declaration Impl has no candidate rule
+88	Struct	REQUESTBODY_Subscribe	9346	9631	106	1	181	unsupported	declaration Struct has no candidate rule
+89	Impl		9632	9746	115	1	192	unsupported	declaration Impl has no candidate rule
+90	Struct	REQUESTBODY_Unsubscribe	9747	9853	120	1	199	unsupported	declaration Struct has no candidate rule
+91	Impl		9854	9970	125	1	206	unsupported	declaration Impl has no candidate rule
+92	Struct	RESPONSEBODY_GetMetadata	9971	10094	130	1	213	unsupported	declaration Struct has no candidate rule
+93	Impl		10095	10212	135	1	220	unsupported	declaration Impl has no candidate rule
+94	Struct	RESPONSEBODY_GetStatus	10213	10362	140	1	227	unsupported	declaration Struct has no candidate rule
+95	Impl		10363	10478	146	1	235	unsupported	declaration Impl has no candidate rule
+96	Struct	RESPONSEBODY_Renew	10479	10624	151	1	242	unsupported	declaration Struct has no candidate rule
+97	Impl		10625	10736	157	1	250	unsupported	declaration Impl has no candidate rule
+98	Struct	RESPONSEBODY_Subscribe	10737	10944	162	1	257	unsupported	declaration Struct has no candidate rule
+99	Impl		10945	11060	169	1	266	unsupported	declaration Impl has no candidate rule
+100	Struct	RESPONSEBODY_SubscriptionEnd	11061	11316	174	1	273	unsupported	declaration Struct has no candidate rule
+101	Impl		11317	11438	182	1	283	unsupported	declaration Impl has no candidate rule
+102	Const	SecureDirectedDiscovery	11439	11506	187	1	290	generated	
+103	Const	TWO_WAY	11507	11551	188	1	291	generated	
+104	Const	WSDAPI_ADDRESSFAMILY_IPV4	11552	11600	189	1	292	generated	
+105	Const	WSDAPI_ADDRESSFAMILY_IPV6	11601	11649	190	1	293	generated	
+106	Const	WSDAPI_COMPACTSIG_ACCEPT_ALL_MESSAGES	11650	11710	191	1	294	generated	
+107	Const	WSDAPI_OPTION_MAX_INBOUND_MESSAGE_SIZE	11711	11772	192	1	295	generated	
+108	Const	WSDAPI_OPTION_TRACE_XML_TO_DEBUGGER	11773	11831	193	1	296	generated	
+109	Const	WSDAPI_OPTION_TRACE_XML_TO_FILE	11832	11886	194	1	297	generated	
+110	Const	WSDAPI_SSL_CERT_APPLY_DEFAULT_CHECKS	11887	11946	195	1	298	generated	
+111	Const	WSDAPI_SSL_CERT_IGNORE_EXPIRY	11947	11999	196	1	299	generated	
+112	Const	WSDAPI_SSL_CERT_IGNORE_INVALID_CN	12000	12057	197	1	300	generated	
+113	Const	WSDAPI_SSL_CERT_IGNORE_REVOCATION	12058	12114	198	1	301	generated	
+114	Const	WSDAPI_SSL_CERT_IGNORE_UNKNOWN_CA	12115	12171	199	1	302	generated	
+115	Const	WSDAPI_SSL_CERT_IGNORE_WRONG_USAGE	12172	12229	200	1	303	generated	
+116	Const	WSDET_INCOMING_FAULT	12230	12282	201	1	304	generated	
+117	Const	WSDET_INCOMING_MESSAGE	12283	12337	202	1	305	generated	
+118	Const	WSDET_NONE	12338	12380	203	1	306	generated	
+119	Const	WSDET_RESPONSE_TIMEOUT	12381	12435	204	1	307	generated	
+120	Const	WSDET_TRANSMISSION_FAILURE	12436	12494	205	1	308	generated	
+121	ItemType	WSDEventType	12495	12523	206	1	309	generated	
+122	ItemType	WSDUdpMessageType	12524	12557	207	1	310	generated	
+123	Struct	WSDUdpRetransmitParams	12558	12782	208	1	311	unsupported	declaration Struct has no candidate rule
+124	Struct	WSDXML_ATTRIBUTE	12783	12996	217	1	322	unsupported	declaration Struct has no candidate rule
+125	Impl		12997	13106	225	1	332	unsupported	declaration Impl has no candidate rule
+126	Struct	WSDXML_ELEMENT	13107	13366	230	1	339	unsupported	declaration Struct has no candidate rule
+127	Impl		13367	13474	239	1	350	unsupported	declaration Impl has no candidate rule
+128	Struct	WSDXML_ELEMENT_LIST	13475	13621	244	1	357	unsupported	declaration Struct has no candidate rule
+129	Impl		13622	13734	250	1	365	unsupported	declaration Impl has no candidate rule
+130	Struct	WSDXML_NAME	13735	13878	255	1	372	unsupported	declaration Struct has no candidate rule
+131	Impl		13879	13983	261	1	380	unsupported	declaration Impl has no candidate rule
+132	Struct	WSDXML_NAMESPACE	13984	14222	266	1	387	unsupported	declaration Struct has no candidate rule
+133	Impl		14223	14332	275	1	398	unsupported	declaration Impl has no candidate rule
+134	Struct	WSDXML_NODE	14333	14481	280	1	405	unsupported	declaration Struct has no candidate rule
+135	Impl		14482	14577	287	1	414	unsupported	declaration Impl has no candidate rule
+136	Impl		14578	14682	291	1	420	unsupported	declaration Impl has no candidate rule
+137	ItemType	WSDXML_OP	14683	14708	296	1	427	generated	
+138	Struct	WSDXML_PREFIX_MAPPING	14709	14920	297	1	428	unsupported	declaration Struct has no candidate rule
+139	Impl		14921	15035	305	1	438	unsupported	declaration Impl has no candidate rule
+140	Struct	WSDXML_TEXT	15036	15163	310	1	445	unsupported	declaration Struct has no candidate rule
+141	Impl		15164	15268	316	1	453	unsupported	declaration Impl has no candidate rule
+142	Struct	WSDXML_TYPE	15269	15395	321	1	460	unsupported	declaration Struct has no candidate rule
+143	Impl		15396	15500	327	1	468	unsupported	declaration Impl has no candidate rule
+144	Struct	WSD_APP_SEQUENCE	15501	15666	332	1	475	unsupported	declaration Struct has no candidate rule
+145	Impl		15667	15776	339	1	484	unsupported	declaration Impl has no candidate rule
+146	Struct	WSD_BYE	15777	15923	344	1	491	unsupported	declaration Struct has no candidate rule
+147	Impl		15924	16024	350	1	499	unsupported	declaration Impl has no candidate rule
+148	Struct	WSD_CONFIG_ADDRESSES	16025	16171	355	1	506	unsupported	declaration Struct has no candidate rule
+149	Impl		16172	16285	361	1	514	unsupported	declaration Impl has no candidate rule
+150	Const	WSD_CONFIG_DEVICE_ADDRESSES	16286	16355	366	1	521	generated	
+151	Const	WSD_CONFIG_HOSTING_ADDRESSES	16356	16425	367	1	522	generated	
+152	Const	WSD_CONFIG_MAX_INBOUND_MESSAGE_SIZE	16426	16502	368	1	523	generated	
+153	Const	WSD_CONFIG_MAX_OUTBOUND_MESSAGE_SIZE	16503	16580	369	1	524	generated	
+154	Struct	WSD_CONFIG_PARAM	16581	16770	370	1	525	unsupported	declaration Struct has no candidate rule
+155	Impl		16771	16880	377	1	534	unsupported	declaration Impl has no candidate rule
+156	ItemType	WSD_CONFIG_PARAM_TYPE	16881	16918	382	1	541	generated	
+157	Struct	WSD_DATETIME	16919	17306	383	1	542	unsupported	declaration Struct has no candidate rule
+158	Const	WSD_DEFAULT_EVENTING_ADDRESS	17307	17415	399	1	560	unsupported	non-scalar type Ptr unsupported
+159	Const	WSD_DEFAULT_HOSTING_ADDRESS	17416	17523	400	1	563	unsupported	non-scalar type Ptr unsupported
+160	Const	WSD_DEFAULT_SECURE_HOSTING_ADDRESS	17524	17639	401	1	566	unsupported	non-scalar type Ptr unsupported
+161	Struct	WSD_DURATION	17640	17899	402	1	569	unsupported	declaration Struct has no candidate rule
+162	Struct	WSD_ENDPOINT_REFERENCE	17900	18234	414	1	583	unsupported	declaration Struct has no candidate rule
+163	Impl		18235	18350	424	1	595	unsupported	declaration Impl has no candidate rule
+164	Struct	WSD_ENDPOINT_REFERENCE_LIST	18351	18521	429	1	602	unsupported	declaration Struct has no candidate rule
+165	Impl		18522	18642	435	1	610	unsupported	declaration Impl has no candidate rule
+166	Struct	WSD_EVENT	18643	18984	440	1	617	unsupported	declaration Struct has no candidate rule
+167	Impl		18985	19087	451	1	630	unsupported	declaration Impl has no candidate rule
+168	Struct	WSD_EVENTING_DELIVERY_MODE	19088	19294	456	1	637	unsupported	declaration Struct has no candidate rule
+169	Impl		19295	19414	463	1	646	unsupported	declaration Impl has no candidate rule
+170	Struct	WSD_EVENTING_DELIVERY_MODE_PUSH	19415	19542	468	1	653	unsupported	declaration Struct has no candidate rule
+171	Impl		19543	19667	473	1	660	unsupported	declaration Impl has no candidate rule
+172	Struct	WSD_EVENTING_EXPIRES	19668	19811	478	1	667	unsupported	declaration Struct has no candidate rule
+173	Impl		19812	19925	484	1	675	unsupported	declaration Impl has no candidate rule
+174	Struct	WSD_EVENTING_FILTER	19926	20131	489	1	682	unsupported	declaration Struct has no candidate rule
+175	Impl		20132	20244	496	1	691	unsupported	declaration Impl has no candidate rule
+176	Struct	WSD_EVENTING_FILTER_ACTION	20245	20356	501	1	698	unsupported	declaration Struct has no candidate rule
+177	Impl		20357	20476	506	1	705	unsupported	declaration Impl has no candidate rule
+178	Struct	WSD_HANDLER_CONTEXT	20477	20669	511	1	712	unsupported	declaration Struct has no candidate rule
+179	Impl		20670	20782	518	1	721	unsupported	declaration Impl has no candidate rule
+180	Struct	WSD_HEADER_RELATESTO	20783	20942	523	1	728	unsupported	declaration Struct has no candidate rule
+181	Impl		20943	21056	529	1	736	unsupported	declaration Impl has no candidate rule
+182	Struct	WSD_HELLO	21057	21338	534	1	743	unsupported	declaration Struct has no candidate rule
+183	Impl		21339	21441	544	1	755	unsupported	declaration Impl has no candidate rule
+184	Struct	WSD_HOST_METADATA	21442	21597	549	1	762	unsupported	declaration Struct has no candidate rule
+185	Impl		21598	21708	555	1	770	unsupported	declaration Impl has no candidate rule
+186	Struct	WSD_LOCALIZED_STRING	21709	21862	560	1	777	unsupported	declaration Struct has no candidate rule
+187	Impl		21863	21976	566	1	785	unsupported	declaration Impl has no candidate rule
+188	Struct	WSD_LOCALIZED_STRING_LIST	21977	22141	571	1	792	unsupported	declaration Struct has no candidate rule
+189	Impl		22142	22260	577	1	800	unsupported	declaration Impl has no candidate rule
+190	Struct	WSD_METADATA_SECTION	22261	22594	582	1	807	unsupported	declaration Struct has no candidate rule
+191	Impl		22595	22708	592	1	819	unsupported	declaration Impl has no candidate rule
+192	Struct	WSD_METADATA_SECTION_LIST	22709	22873	597	1	826	unsupported	declaration Struct has no candidate rule
+193	Impl		22874	22992	603	1	834	unsupported	declaration Impl has no candidate rule
+194	Struct	WSD_NAME_LIST	22993	23124	608	1	841	unsupported	declaration Struct has no candidate rule
+195	Impl		23125	23231	614	1	849	unsupported	declaration Impl has no candidate rule
+196	Struct	WSD_OPERATION	23232	23421	619	1	856	unsupported	declaration Struct has no candidate rule
+197	Impl		23422	23528	626	1	865	unsupported	declaration Impl has no candidate rule
+198	Struct	WSD_PORT_TYPE	23529	23727	631	1	872	unsupported	declaration Struct has no candidate rule
+199	Impl		23728	23834	639	1	882	unsupported	declaration Impl has no candidate rule
+200	Struct	WSD_PROBE	23835	23995	644	1	889	unsupported	declaration Struct has no candidate rule
+201	Impl		23996	24098	651	1	898	unsupported	declaration Impl has no candidate rule
+202	Struct	WSD_PROBE_MATCH	24099	24386	656	1	905	unsupported	declaration Struct has no candidate rule
+203	Impl		24387	24495	666	1	917	unsupported	declaration Impl has no candidate rule
+204	Struct	WSD_PROBE_MATCHES	24496	24643	671	1	924	unsupported	declaration Struct has no candidate rule
+205	Impl		24644	24754	677	1	932	unsupported	declaration Impl has no candidate rule
+206	Struct	WSD_PROBE_MATCH_LIST	24755	24904	682	1	939	unsupported	declaration Struct has no candidate rule
+207	Impl		24905	25018	688	1	947	unsupported	declaration Impl has no candidate rule
+208	ItemType	WSD_PROTOCOL_TYPE	25019	25052	693	1	954	generated	
+209	Const	WSD_PT_ALL	25053	25102	694	1	955	generated	
+210	Const	WSD_PT_HTTP	25103	25151	695	1	956	generated	
+211	Const	WSD_PT_HTTPS	25152	25201	696	1	957	generated	
+212	Const	WSD_PT_NONE	25202	25250	697	1	958	generated	
+213	Const	WSD_PT_UDP	25251	25298	698	1	959	generated	
+214	Struct	WSD_REFERENCE_PARAMETERS	25299	25406	699	1	960	unsupported	declaration Struct has no candidate rule
+215	Impl		25407	25524	704	1	967	unsupported	declaration Impl has no candidate rule
+216	Struct	WSD_REFERENCE_PROPERTIES	25525	25632	709	1	974	unsupported	declaration Struct has no candidate rule
+217	Impl		25633	25750	714	1	981	unsupported	declaration Impl has no candidate rule
+218	Struct	WSD_RELATIONSHIP_METADATA	25751	25938	719	1	988	unsupported	declaration Struct has no candidate rule
+219	Impl		25939	26057	726	1	997	unsupported	declaration Impl has no candidate rule
+220	Struct	WSD_RESOLVE	26058	26208	731	1	1004	unsupported	declaration Struct has no candidate rule
+221	Impl		26209	26313	737	1	1012	unsupported	declaration Impl has no candidate rule
+222	Struct	WSD_RESOLVE_MATCH	26314	26603	742	1	1019	unsupported	declaration Struct has no candidate rule
+223	Impl		26604	26714	752	1	1031	unsupported	declaration Impl has no candidate rule
+224	Struct	WSD_RESOLVE_MATCHES	26715	26863	757	1	1038	unsupported	declaration Struct has no candidate rule
+225	Impl		26864	26976	763	1	1046	unsupported	declaration Impl has no candidate rule
+226	Struct	WSD_SCOPES	26977	27115	768	1	1053	unsupported	declaration Struct has no candidate rule
+227	Impl		27116	27219	774	1	1061	unsupported	declaration Impl has no candidate rule
+228	Struct	WSD_SECURITY_CERT_VALIDATION	27220	27761	779	1	1068	unsupported	declaration Struct has no candidate rule
+229	Impl		27762	27931	792	1	1083	unsupported	declaration Impl has no candidate rule
+230	Struct	WSD_SECURITY_CERT_VALIDATION_V1	27932	28366	798	1	1091	unsupported	declaration Struct has no candidate rule
+231	Impl		28367	28539	808	1	1103	unsupported	declaration Impl has no candidate rule
+232	Const	WSD_SECURITY_COMPACTSIG_SIGNING_CERT	28540	28617	814	1	1111	generated	
+233	Const	WSD_SECURITY_COMPACTSIG_VALIDATION	28618	28693	815	1	1112	generated	
+234	Const	WSD_SECURITY_HTTP_AUTH_SCHEME_NEGOTIATE	28694	28756	816	1	1113	generated	
+235	Const	WSD_SECURITY_HTTP_AUTH_SCHEME_NTLM	28757	28814	817	1	1114	generated	
+236	Const	WSD_SECURITY_REQUIRE_CLIENT_CERT_OR_HTTP_CLIENT_AUTH	28815	28909	818	1	1115	generated	
+237	Const	WSD_SECURITY_REQUIRE_HTTP_CLIENT_AUTH	28910	28989	819	1	1116	generated	
+238	Struct	WSD_SECURITY_SIGNATURE_VALIDATION	28990	29345	820	1	1117	unsupported	declaration Struct has no candidate rule
+239	Impl		29346	29520	829	1	1128	unsupported	declaration Impl has no candidate rule
+240	Const	WSD_SECURITY_SSL_CERT_FOR_CLIENT_AUTH	29521	29599	835	1	1136	generated	
+241	Const	WSD_SECURITY_SSL_CLIENT_CERT_VALIDATION	29600	29680	836	1	1137	generated	
+242	Const	WSD_SECURITY_SSL_NEGOTIATE_CLIENT_CERT	29681	29760	837	1	1138	generated	
+243	Const	WSD_SECURITY_SSL_SERVER_CERT_VALIDATION	29761	29841	838	1	1139	generated	
+244	Const	WSD_SECURITY_USE_HTTP_CLIENT_AUTH	29842	29917	839	1	1140	generated	
+245	Struct	WSD_SERVICE_METADATA	29918	30163	840	1	1141	unsupported	declaration Struct has no candidate rule
+246	Impl		30164	30277	848	1	1151	unsupported	declaration Impl has no candidate rule
+247	Struct	WSD_SERVICE_METADATA_LIST	30278	30442	853	1	1158	unsupported	declaration Struct has no candidate rule
+248	Impl		30443	30561	859	1	1166	unsupported	declaration Impl has no candidate rule
+249	Struct	WSD_SOAP_FAULT	30562	30828	864	1	1173	unsupported	declaration Struct has no candidate rule
+250	Impl		30829	30936	873	1	1184	unsupported	declaration Impl has no candidate rule
+251	Struct	WSD_SOAP_FAULT_CODE	30937	31084	878	1	1191	unsupported	declaration Struct has no candidate rule
+252	Impl		31085	31197	884	1	1199	unsupported	declaration Impl has no candidate rule
+253	Struct	WSD_SOAP_FAULT_REASON	31198	31314	889	1	1206	unsupported	declaration Struct has no candidate rule
+254	Impl		31315	31429	894	1	1213	unsupported	declaration Impl has no candidate rule
+255	Struct	WSD_SOAP_FAULT_SUBCODE	31430	31580	899	1	1220	unsupported	declaration Struct has no candidate rule
+256	Impl		31581	31696	905	1	1228	unsupported	declaration Impl has no candidate rule
+257	Struct	WSD_SOAP_HEADER	31697	32150	910	1	1235	unsupported	declaration Struct has no candidate rule
+258	Impl		32151	32259	923	1	1250	unsupported	declaration Impl has no candidate rule
+259	Struct	WSD_SOAP_MESSAGE	32260	32432	928	1	1257	unsupported	declaration Struct has no candidate rule
+260	Impl		32433	32542	935	1	1266	unsupported	declaration Impl has no candidate rule
+261	ItemType	WSD_STUB_FUNCTION	32543	32724	940	1	1273	unsupported	generic scalar type unsupported
+262	Struct	WSD_SYNCHRONOUS_RESPONSE_CONTEXT	32725	32993	941	1	1276	unsupported	declaration Struct has no candidate rule
+263	Impl		32994	33119	949	1	1286	unsupported	declaration Impl has no candidate rule
+264	Struct	WSD_THIS_DEVICE_METADATA	33120	33382	954	1	1293	unsupported	declaration Struct has no candidate rule
+265	Impl		33383	33500	962	1	1303	unsupported	declaration Impl has no candidate rule
+266	Struct	WSD_THIS_MODEL_METADATA	33501	33909	967	1	1310	unsupported	declaration Struct has no candidate rule
+267	Impl		33910	34026	978	1	1323	unsupported	declaration Impl has no candidate rule
+268	Struct	WSD_UNKNOWN_LOOKUP	34027	34128	983	1	1330	unsupported	declaration Struct has no candidate rule
+269	Impl		34129	34240	988	1	1337	unsupported	declaration Impl has no candidate rule
+270	Struct	WSD_URI_LIST	34241	34379	993	1	1344	unsupported	declaration Struct has no candidate rule
+271	Impl		34380	34485	999	1	1352	unsupported	declaration Impl has no candidate rule

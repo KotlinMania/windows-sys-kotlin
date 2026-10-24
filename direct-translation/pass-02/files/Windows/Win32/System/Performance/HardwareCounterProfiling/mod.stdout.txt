@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/System/Performance/HardwareCounterProfiling/mod: 3 generated; 7 unsupported

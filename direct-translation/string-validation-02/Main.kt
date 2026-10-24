@@ -1,0 +1,16 @@
+fun main() {
+println("s0|" + S0.joinToString(",") { it.toUByte().toString() })
+println("w0|" + W0.joinToString(",") { it.code.toString() })
+println("s1|" + S1.joinToString(",") { it.toUByte().toString() })
+println("w1|" + W1.joinToString(",") { it.code.toString() })
+println("s2|" + S2.joinToString(",") { it.toUByte().toString() })
+println("w2|" + W2.joinToString(",") { it.code.toString() })
+println("s3|" + S3.joinToString(",") { it.toUByte().toString() })
+println("w3|" + W3.joinToString(",") { it.code.toString() })
+println("s4|" + S4.joinToString(",") { it.toUByte().toString() })
+println("w4|" + W4.joinToString(",") { it.code.toString() })
+println("s5|" + S5.joinToString(",") { it.toUByte().toString() })
+println("w5|" + W5.joinToString(",") { it.code.toString() })
+println("beep-s|" + DD_BEEP_DEVICE_NAME.joinToString(",") { it.toUByte().toString() })
+println("beep-w|" + DD_BEEP_DEVICE_NAME_U.joinToString(",") { it.code.toString() })
+}

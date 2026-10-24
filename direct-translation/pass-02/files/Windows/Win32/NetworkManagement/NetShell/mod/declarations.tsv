@@ -1,0 +1,95 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	216	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		217	385	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		386	688	3	1	8	unsupported	declaration Macro has no candidate rule
+3	Macro		689	812	4	1	11	unsupported	declaration Macro has no candidate rule
+4	Macro		813	918	5	1	14	unsupported	declaration Macro has no candidate rule
+5	Macro		919	1054	6	1	17	unsupported	declaration Macro has no candidate rule
+6	Macro		1055	1169	7	1	20	unsupported	declaration Macro has no candidate rule
+7	Macro		1170	1343	8	1	23	unsupported	declaration Macro has no candidate rule
+8	Struct	CMD_ENTRY	1344	1661	9	1	26	unsupported	declaration Struct has no candidate rule
+9	Impl		1662	1764	20	1	39	unsupported	declaration Impl has no candidate rule
+10	Const	CMD_FLAG_HIDDEN	1765	1813	25	1	46	generated	
+11	Const	CMD_FLAG_INTERACTIVE	1814	1866	26	1	47	generated	
+12	Const	CMD_FLAG_LIMIT_MASK	1867	1922	27	1	48	generated	
+13	Const	CMD_FLAG_LOCAL	1923	1969	28	1	49	generated	
+14	Const	CMD_FLAG_ONLINE	1970	2018	29	1	50	generated	
+15	Const	CMD_FLAG_PRIORITY	2019	2078	30	1	51	generated	
+16	Const	CMD_FLAG_PRIVATE	2079	2127	31	1	52	generated	
+17	Struct	CMD_GROUP_ENTRY	2128	2411	32	1	53	unsupported	declaration Struct has no candidate rule
+18	Impl		2412	2520	42	1	65	unsupported	declaration Impl has no candidate rule
+19	Const	DEFAULT_CONTEXT_PRIORITY	2521	2570	47	1	72	generated	
+20	Const	ERROR_CMD_NOT_FOUND	2571	2617	48	1	73	generated	
+21	Const	ERROR_CONTEXT_ALREADY_REGISTERED	2618	2677	49	1	74	generated	
+22	Const	ERROR_CONTINUE_IN_PARENT_CONTEXT	2678	2737	50	1	75	generated	
+23	Const	ERROR_DLL_LOAD_FAILED	2738	2786	51	1	76	generated	
+24	Const	ERROR_ENTRY_PT_NOT_FOUND	2787	2838	52	1	77	generated	
+25	Const	ERROR_HELPER_ALREADY_REGISTERED	2839	2897	53	1	78	generated	
+26	Const	ERROR_INIT_DISPLAY	2898	2943	54	1	79	generated	
+27	Const	ERROR_INVALID_OPTION_TAG	2944	2995	55	1	80	generated	
+28	Const	ERROR_INVALID_OPTION_VALUE	2996	3049	56	1	81	generated	
+29	Const	ERROR_INVALID_SYNTAX	3050	3097	57	1	82	generated	
+30	Const	ERROR_MISSING_OPTION	3098	3145	58	1	83	generated	
+31	Const	ERROR_NO_CHANGE	3146	3188	59	1	84	generated	
+32	Const	ERROR_NO_ENTRIES	3189	3232	60	1	85	generated	
+33	Const	ERROR_NO_TAG	3233	3272	61	1	86	generated	
+34	Const	ERROR_OKAY	3273	3310	62	1	87	generated	
+35	Const	ERROR_PARSING_FAILURE	3311	3359	63	1	88	generated	
+36	Const	ERROR_PROTOCOL_NOT_IN_TRANSPORT	3360	3418	64	1	89	generated	
+37	Const	ERROR_SHOW_USAGE	3419	3462	65	1	90	generated	
+38	Const	ERROR_SUPPRESS_OUTPUT	3463	3511	66	1	91	generated	
+39	Const	ERROR_TAG_ALREADY_PRESENT	3512	3564	67	1	92	generated	
+40	Const	ERROR_TRANSPORT_NOT_PRESENT	3565	3619	68	1	93	generated	
+41	Const	GET_RESOURCE_STRING_FN_NAME	3620	3729	69	1	94	unsupported	non-scalar type Ptr unsupported
+42	Const	MAX_NAME_LEN	3730	3766	70	1	97	generated	
+43	Const	NETSH_ARG_DELIMITER	3767	3853	71	1	98	unsupported	non-scalar type Ptr unsupported
+44	Const	NETSH_CMD_DELIMITER	3854	3940	72	1	101	unsupported	non-scalar type Ptr unsupported
+45	Const	NETSH_COMMIT	3941	3987	73	1	104	generated	
+46	Const	NETSH_COMMIT_STATE	3988	4040	74	1	105	generated	
+47	Const	NETSH_ERROR_BASE	4041	4084	75	1	106	generated	
+48	Const	NETSH_ERROR_END	4085	4127	76	1	107	generated	
+49	Const	NETSH_FLUSH	4128	4173	77	1	108	generated	
+50	Const	NETSH_MAX_CMD_TOKEN_LENGTH	4174	4225	78	1	109	generated	
+51	Const	NETSH_MAX_TOKEN_LENGTH	4226	4272	79	1	110	generated	
+52	Const	NETSH_SAVE	4273	4317	80	1	111	generated	
+53	Const	NETSH_UNCOMMIT	4318	4366	81	1	112	generated	
+54	Const	NETSH_VERSION_50	4367	4410	82	1	113	generated	
+55	ItemType	NS_CMD_FLAGS	4411	4439	83	1	114	generated	
+56	Struct	NS_CONTEXT_ATTRIBUTES	4440	5042	84	1	115	unsupported	declaration Struct has no candidate rule
+57	Impl		5043	5157	102	1	135	unsupported	declaration Impl has no candidate rule
+58	Union		5158	5299	107	1	142	unsupported	declaration Union has no candidate rule
+59	Impl		5300	5416	113	1	150	unsupported	declaration Impl has no candidate rule
+60	Struct	NS_CONTEXT_ATTRIBUTES_0_0	5417	5549	118	1	157	unsupported	declaration Struct has no candidate rule
+61	ItemType	NS_EVENTS	5550	5575	124	1	165	generated	
+62	Const	NS_EVENT_FROM_N	5576	5620	125	1	166	generated	
+63	Const	NS_EVENT_FROM_START	5621	5669	126	1	167	generated	
+64	Const	NS_EVENT_LAST_N	5670	5714	127	1	168	generated	
+65	Const	NS_EVENT_LAST_SECS	5715	5762	128	1	169	generated	
+66	Const	NS_EVENT_LOOP	5763	5809	129	1	170	generated	
+67	Const	NS_GET_EVENT_IDS_FN_NAME	5810	5910	130	1	171	unsupported	non-scalar type Ptr unsupported
+68	Struct	NS_HELPER_ATTRIBUTES	5911	6144	131	1	174	unsupported	declaration Struct has no candidate rule
+69	Impl		6145	6258	139	1	184	unsupported	declaration Impl has no candidate rule
+70	Union		6259	6398	144	1	191	unsupported	declaration Union has no candidate rule
+71	Impl		6399	6514	150	1	199	unsupported	declaration Impl has no candidate rule
+72	Struct	NS_HELPER_ATTRIBUTES_0_0	6515	6646	155	1	206	unsupported	declaration Struct has no candidate rule
+73	ItemType	NS_MODE_CHANGE	6647	6677	161	1	214	generated	
+74	ItemType	NS_REQS	6678	6701	162	1	215	generated	
+75	Const	NS_REQ_ALLOW_MULTIPLE	6702	6750	163	1	216	generated	
+76	Const	NS_REQ_ONE_OR_MORE	6751	6796	164	1	217	generated	
+77	Const	NS_REQ_PRESENT	6797	6838	165	1	218	generated	
+78	Const	NS_REQ_ZERO	6839	6877	166	1	219	generated	
+79	ItemType	PFN_CUSTOM_HELP	6878	7023	167	1	220	unsupported	generic scalar type unsupported
+80	ItemType	PFN_HANDLE_CMD	7024	7301	168	1	223	unsupported	generic scalar type unsupported
+81	ItemType	PGET_RESOURCE_STRING_FN	7302	7446	169	1	226	unsupported	generic scalar type unsupported
+82	ItemType	PNS_CONTEXT_COMMIT_FN	7447	7536	170	1	229	unsupported	generic scalar type unsupported
+83	ItemType	PNS_CONTEXT_CONNECT_FN	7537	7652	171	1	232	unsupported	generic scalar type unsupported
+84	ItemType	PNS_CONTEXT_DUMP_FN	7653	7864	172	1	235	unsupported	generic scalar type unsupported
+85	ItemType	PNS_DLL_INIT_FN	7865	7989	173	1	238	unsupported	generic scalar type unsupported
+86	ItemType	PNS_DLL_STOP_FN	7990	8075	174	1	241	unsupported	generic scalar type unsupported
+87	ItemType	PNS_HELPER_START_FN	8076	8209	175	1	244	unsupported	generic scalar type unsupported
+88	ItemType	PNS_HELPER_STOP_FN	8210	8298	176	1	247	unsupported	generic scalar type unsupported
+89	ItemType	PNS_OSVERSIONCHECK	8299	8660	177	1	250	unsupported	generic scalar type unsupported
+90	Struct	TAG_TYPE	8661	8830	178	1	253	unsupported	declaration Struct has no candidate rule
+91	Impl		8831	8932	185	1	262	unsupported	declaration Impl has no candidate rule
+92	Struct	TOKEN_VALUE	8933	9061	190	1	269	unsupported	declaration Struct has no candidate rule
+93	Impl		9062	9166	196	1	277	unsupported	declaration Impl has no candidate rule

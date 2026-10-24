@@ -1,0 +1,95 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro	MatchEnumTag	0	216	1	1	2	syntax	External declaration shape only: wire DLL=netsh.dll, ABI=system, export=MatchEnumTag; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1	Macro	MatchToken	217	385	2	1	7	syntax	External declaration shape only: wire DLL=netsh.dll, ABI=system, export=MatchToken; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+2	Macro	PreprocessCommand	386	688	3	1	11	syntax	External declaration shape only: wire DLL=netsh.dll, ABI=system, export=PreprocessCommand; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+3	Macro		689	812	4	1	16	unsupported	foreign declaration requires explicit native target and interop package; syntax: foreign signature shape unsupported
+4	Macro		813	918	5	1	19	unsupported	foreign declaration requires explicit native target and interop package; syntax: foreign signature shape unsupported
+5	Macro		919	1054	6	1	22	unsupported	foreign declaration requires explicit native target and interop package; syntax: foreign signature shape unsupported
+6	Macro	RegisterContext	1055	1169	7	1	25	syntax	External declaration shape only: wire DLL=netsh.dll, ABI=system, export=RegisterContext; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+7	Macro	RegisterHelper	1170	1343	8	1	30	syntax	External declaration shape only: wire DLL=netsh.dll, ABI=system, export=RegisterHelper; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+8	Struct	CMD_ENTRY	1344	1661	9	1	35	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+9	Impl		1662	1764	20	1	49	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+10	Const	CMD_FLAG_HIDDEN	1765	1813	25	1	56	generated	
+11	Const	CMD_FLAG_INTERACTIVE	1814	1866	26	1	57	generated	
+12	Const	CMD_FLAG_LIMIT_MASK	1867	1922	27	1	58	generated	
+13	Const	CMD_FLAG_LOCAL	1923	1969	28	1	59	generated	
+14	Const	CMD_FLAG_ONLINE	1970	2018	29	1	60	generated	
+15	Const	CMD_FLAG_PRIORITY	2019	2078	30	1	61	generated	
+16	Const	CMD_FLAG_PRIVATE	2079	2127	31	1	62	generated	
+17	Struct	CMD_GROUP_ENTRY	2128	2411	32	1	63	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+18	Impl		2412	2520	42	1	77	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+19	Const	DEFAULT_CONTEXT_PRIORITY	2521	2570	47	1	84	generated	
+20	Const	ERROR_CMD_NOT_FOUND	2571	2617	48	1	85	generated	
+21	Const	ERROR_CONTEXT_ALREADY_REGISTERED	2618	2677	49	1	86	generated	
+22	Const	ERROR_CONTINUE_IN_PARENT_CONTEXT	2678	2737	50	1	87	generated	
+23	Const	ERROR_DLL_LOAD_FAILED	2738	2786	51	1	88	generated	
+24	Const	ERROR_ENTRY_PT_NOT_FOUND	2787	2838	52	1	89	generated	
+25	Const	ERROR_HELPER_ALREADY_REGISTERED	2839	2897	53	1	90	generated	
+26	Const	ERROR_INIT_DISPLAY	2898	2943	54	1	91	generated	
+27	Const	ERROR_INVALID_OPTION_TAG	2944	2995	55	1	92	generated	
+28	Const	ERROR_INVALID_OPTION_VALUE	2996	3049	56	1	93	generated	
+29	Const	ERROR_INVALID_SYNTAX	3050	3097	57	1	94	generated	
+30	Const	ERROR_MISSING_OPTION	3098	3145	58	1	95	generated	
+31	Const	ERROR_NO_CHANGE	3146	3188	59	1	96	generated	
+32	Const	ERROR_NO_ENTRIES	3189	3232	60	1	97	generated	
+33	Const	ERROR_NO_TAG	3233	3272	61	1	98	generated	
+34	Const	ERROR_OKAY	3273	3310	62	1	99	generated	
+35	Const	ERROR_PARSING_FAILURE	3311	3359	63	1	100	generated	
+36	Const	ERROR_PROTOCOL_NOT_IN_TRANSPORT	3360	3418	64	1	101	generated	
+37	Const	ERROR_SHOW_USAGE	3419	3462	65	1	102	generated	
+38	Const	ERROR_SUPPRESS_OUTPUT	3463	3511	66	1	103	generated	
+39	Const	ERROR_TAG_ALREADY_PRESENT	3512	3564	67	1	104	generated	
+40	Const	ERROR_TRANSPORT_NOT_PRESENT	3565	3619	68	1	105	generated	
+41	Const	GET_RESOURCE_STRING_FN_NAME	3620	3729	69	1	106	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+42	Const	MAX_NAME_LEN	3730	3766	70	1	111	generated	
+43	Const	NETSH_ARG_DELIMITER	3767	3853	71	1	112	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+44	Const	NETSH_CMD_DELIMITER	3854	3940	72	1	117	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+45	Const	NETSH_COMMIT	3941	3987	73	1	122	generated	
+46	Const	NETSH_COMMIT_STATE	3988	4040	74	1	123	generated	
+47	Const	NETSH_ERROR_BASE	4041	4084	75	1	124	generated	
+48	Const	NETSH_ERROR_END	4085	4127	76	1	125	generated	
+49	Const	NETSH_FLUSH	4128	4173	77	1	126	generated	
+50	Const	NETSH_MAX_CMD_TOKEN_LENGTH	4174	4225	78	1	127	generated	
+51	Const	NETSH_MAX_TOKEN_LENGTH	4226	4272	79	1	128	generated	
+52	Const	NETSH_SAVE	4273	4317	80	1	129	generated	
+53	Const	NETSH_UNCOMMIT	4318	4366	81	1	130	generated	
+54	Const	NETSH_VERSION_50	4367	4410	82	1	131	generated	
+55	ItemType	NS_CMD_FLAGS	4411	4439	83	1	132	generated	
+56	Struct	NS_CONTEXT_ATTRIBUTES	4440	5042	84	1	133	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+57	Impl		5043	5157	102	1	155	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+58	Union		5158	5299	107	1	162	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+59	Impl		5300	5416	113	1	170	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+60	Struct	NS_CONTEXT_ATTRIBUTES_0_0	5417	5549	118	1	177	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+61	ItemType	NS_EVENTS	5550	5575	124	1	185	generated	
+62	Const	NS_EVENT_FROM_N	5576	5620	125	1	186	generated	
+63	Const	NS_EVENT_FROM_START	5621	5669	126	1	187	generated	
+64	Const	NS_EVENT_LAST_N	5670	5714	127	1	188	generated	
+65	Const	NS_EVENT_LAST_SECS	5715	5762	128	1	189	generated	
+66	Const	NS_EVENT_LOOP	5763	5809	129	1	190	generated	
+67	Const	NS_GET_EVENT_IDS_FN_NAME	5810	5910	130	1	191	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+68	Struct	NS_HELPER_ATTRIBUTES	5911	6144	131	1	196	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+69	Impl		6145	6258	139	1	207	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+70	Union		6259	6398	144	1	214	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+71	Impl		6399	6514	150	1	222	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+72	Struct	NS_HELPER_ATTRIBUTES_0_0	6515	6646	155	1	229	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+73	ItemType	NS_MODE_CHANGE	6647	6677	161	1	237	generated	
+74	ItemType	NS_REQS	6678	6701	162	1	238	generated	
+75	Const	NS_REQ_ALLOW_MULTIPLE	6702	6750	163	1	239	generated	
+76	Const	NS_REQ_ONE_OR_MORE	6751	6796	164	1	240	generated	
+77	Const	NS_REQ_PRESENT	6797	6838	165	1	241	generated	
+78	Const	NS_REQ_ZERO	6839	6877	166	1	242	generated	
+79	ItemType	PFN_CUSTOM_HELP	6878	7023	167	1	243	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+80	ItemType	PFN_HANDLE_CMD	7024	7301	168	1	247	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+81	ItemType	PGET_RESOURCE_STRING_FN	7302	7446	169	1	252	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+82	ItemType	PNS_CONTEXT_COMMIT_FN	7447	7536	170	1	256	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+83	ItemType	PNS_CONTEXT_CONNECT_FN	7537	7652	171	1	260	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+84	ItemType	PNS_CONTEXT_DUMP_FN	7653	7864	172	1	264	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+85	ItemType	PNS_DLL_INIT_FN	7865	7989	173	1	269	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+86	ItemType	PNS_DLL_STOP_FN	7990	8075	174	1	274	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+87	ItemType	PNS_HELPER_START_FN	8076	8209	175	1	278	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+88	ItemType	PNS_HELPER_STOP_FN	8210	8298	176	1	283	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+89	ItemType	PNS_OSVERSIONCHECK	8299	8660	177	1	287	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+90	Struct	TAG_TYPE	8661	8830	178	1	291	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+91	Impl		8831	8932	185	1	301	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+92	Struct	TOKEN_VALUE	8933	9061	190	1	308	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+93	Impl		9062	9166	196	1	317	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl

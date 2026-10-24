@@ -1,0 +1,225 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	143	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		144	289	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		290	532	3	1	8	unsupported	declaration Macro has no candidate rule
+3	Macro		533	709	5	1	12	unsupported	declaration Macro has no candidate rule
+4	Macro		710	804	6	1	15	unsupported	declaration Macro has no candidate rule
+5	Macro		805	978	7	1	18	unsupported	declaration Macro has no candidate rule
+6	Macro		979	1138	8	1	21	unsupported	declaration Macro has no candidate rule
+7	Macro		1139	1295	9	1	24	unsupported	declaration Macro has no candidate rule
+8	Macro		1296	1468	10	1	27	unsupported	declaration Macro has no candidate rule
+9	Macro		1469	1626	11	1	30	unsupported	declaration Macro has no candidate rule
+10	Macro		1627	1816	12	1	33	unsupported	declaration Macro has no candidate rule
+11	Macro		1817	1970	13	1	36	unsupported	declaration Macro has no candidate rule
+12	Macro		1971	2177	14	1	39	unsupported	declaration Macro has no candidate rule
+13	Macro		2178	2357	15	1	42	unsupported	declaration Macro has no candidate rule
+14	Macro		2358	2799	16	1	45	unsupported	declaration Macro has no candidate rule
+15	Macro		2800	3005	18	1	49	unsupported	declaration Macro has no candidate rule
+16	Macro		3006	3125	19	1	52	unsupported	declaration Macro has no candidate rule
+17	Macro		3126	3367	20	1	55	unsupported	declaration Macro has no candidate rule
+18	Macro		3368	3559	21	1	58	unsupported	declaration Macro has no candidate rule
+19	Macro		3560	3772	22	1	61	unsupported	declaration Macro has no candidate rule
+20	Macro		3773	3959	23	1	64	unsupported	declaration Macro has no candidate rule
+21	Macro		3960	4165	24	1	67	unsupported	declaration Macro has no candidate rule
+22	Macro		4166	4287	25	1	70	unsupported	declaration Macro has no candidate rule
+23	Macro		4288	4374	26	1	73	unsupported	declaration Macro has no candidate rule
+24	Macro		4375	4551	27	1	76	unsupported	declaration Macro has no candidate rule
+25	Macro		4552	4727	28	1	79	unsupported	declaration Macro has no candidate rule
+26	Macro		4728	4880	29	1	82	unsupported	declaration Macro has no candidate rule
+27	Macro		4881	5032	30	1	85	unsupported	declaration Macro has no candidate rule
+28	Macro		5033	5189	31	1	88	unsupported	declaration Macro has no candidate rule
+29	Macro		5190	5279	32	1	91	unsupported	declaration Macro has no candidate rule
+30	Macro		5280	5501	33	1	94	unsupported	declaration Macro has no candidate rule
+31	Macro		5502	5723	34	1	97	unsupported	declaration Macro has no candidate rule
+32	Macro		5724	5945	35	1	100	unsupported	declaration Macro has no candidate rule
+33	Macro		5946	6166	36	1	103	unsupported	declaration Macro has no candidate rule
+34	Macro		6167	6293	37	1	106	unsupported	declaration Macro has no candidate rule
+35	Macro		6294	6400	38	1	109	unsupported	declaration Macro has no candidate rule
+36	Macro		6401	6540	39	1	112	unsupported	declaration Macro has no candidate rule
+37	Macro		6541	6688	40	1	115	unsupported	declaration Macro has no candidate rule
+38	Macro		6689	6826	41	1	118	unsupported	declaration Macro has no candidate rule
+39	Macro		6827	6968	42	1	121	unsupported	declaration Macro has no candidate rule
+40	Macro		6969	7177	43	1	124	unsupported	declaration Macro has no candidate rule
+41	Const	APPCRASH_EVENT	7178	7266	44	1	127	unsupported	non-scalar type Ptr unsupported
+42	ItemType	EFaultRepRetVal	7267	7298	45	1	130	generated	
+43	Const	E_STORE_INVALID	7299	7352	46	1	131	generated	
+44	Const	E_STORE_MACHINE_ARCHIVE	7353	7414	47	1	132	generated	
+45	Const	E_STORE_MACHINE_QUEUE	7415	7474	48	1	133	generated	
+46	Const	E_STORE_USER_ARCHIVE	7475	7533	49	1	134	generated	
+47	Const	E_STORE_USER_QUEUE	7534	7590	50	1	135	generated	
+48	ItemType	HREPORT	7591	7633	51	1	136	unsupported	non-scalar type Ptr unsupported
+49	ItemType	HREPORTSTORE	7634	7681	52	1	139	unsupported	non-scalar type Ptr unsupported
+50	Const	PACKAGED_APPCRASH_EVENT	7682	7781	53	1	142	unsupported	non-scalar type Ptr unsupported
+51	ItemType	PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH	7782	8268	54	1	145	unsupported	attribute cfg requires explicit semantics/configuration
+52	ItemType	PFN_WER_RUNTIME_EXCEPTION_EVENT	8269	8705	56	1	149	unsupported	attribute cfg requires explicit semantics/configuration
+53	ItemType	PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE	8706	9139	58	1	153	unsupported	attribute cfg requires explicit semantics/configuration
+54	ItemType	REPORT_STORE_TYPES	9140	9174	60	1	157	generated	
+55	ItemType	WER_CONSENT	9175	9202	61	1	158	generated	
+56	Const	WER_DUMP_AUXILIARY	9203	9244	62	1	159	generated	
+57	Struct	WER_DUMP_CUSTOM_OPTIONS	9245	9692	63	1	160	unsupported	declaration Struct has no candidate rule
+58	Impl		9693	9809	78	1	177	unsupported	declaration Impl has no candidate rule
+59	Struct	WER_DUMP_CUSTOM_OPTIONS_V2	9810	10340	83	1	184	unsupported	declaration Struct has no candidate rule
+60	Impl		10341	10460	100	1	203	unsupported	declaration Impl has no candidate rule
+61	Struct	WER_DUMP_CUSTOM_OPTIONS_V3	10461	11112	105	1	210	unsupported	declaration Struct has no candidate rule
+62	Impl		11113	11232	125	1	232	unsupported	declaration Impl has no candidate rule
+63	Const	WER_DUMP_MASK_START	11233	11275	130	1	239	generated	
+64	Const	WER_DUMP_NOHEAP_ONQUEUE	11276	11322	131	1	240	generated	
+65	ItemType	WER_DUMP_TYPE	11323	11352	132	1	241	generated	
+66	Struct	WER_EXCEPTION_INFORMATION	11353	11646	133	1	242	unsupported	declaration Struct has no candidate rule
+67	Impl		11647	11854	140	1	251	unsupported	declaration Impl has no candidate rule
+68	ItemType	WER_FAULT_REPORTING	11855	11890	146	1	259	generated	
+69	Const	WER_FAULT_REPORTING_ALWAYS_SHOW_UI	11891	11965	147	1	260	generated	
+70	Const	WER_FAULT_REPORTING_CRITICAL	11966	12019	148	1	261	generated	
+71	Const	WER_FAULT_REPORTING_DISABLE_SNAPSHOT_CRASH	12020	12087	149	1	262	generated	
+72	Const	WER_FAULT_REPORTING_DISABLE_SNAPSHOT_HANG	12088	12154	150	1	263	generated	
+73	Const	WER_FAULT_REPORTING_DURABLE	12155	12208	151	1	264	generated	
+74	Const	WER_FAULT_REPORTING_FLAG_DISABLE_THREAD_SUSPENSION	12209	12298	152	1	265	generated	
+75	Const	WER_FAULT_REPORTING_FLAG_NOHEAP	12299	12369	153	1	266	generated	
+76	Const	WER_FAULT_REPORTING_FLAG_NO_HEAP_ON_QUEUE	12370	12435	154	1	267	generated	
+77	Const	WER_FAULT_REPORTING_FLAG_QUEUE	12436	12505	155	1	268	generated	
+78	Const	WER_FAULT_REPORTING_FLAG_QUEUE_UPLOAD	12506	12582	156	1	269	generated	
+79	Const	WER_FAULT_REPORTING_NO_UI	12583	12632	157	1	270	generated	
+80	ItemType	WER_FILE	12633	12657	158	1	271	generated	
+81	Const	WER_FILE_ANONYMOUS_DATA	12658	12709	159	1	272	generated	
+82	Const	WER_FILE_COMPRESSED	12710	12752	160	1	273	generated	
+83	Const	WER_FILE_DELETE_WHEN_DONE	12753	12806	161	1	274	generated	
+84	ItemType	WER_FILE_TYPE	12807	12836	162	1	275	generated	
+85	Const	WER_MAX_APPLICATION_NAME_LENGTH	12837	12893	163	1	276	generated	
+86	Const	WER_MAX_BUCKET_ID_STRING_LENGTH	12894	12950	164	1	277	generated	
+87	Const	WER_MAX_DESCRIPTION_LENGTH	12951	13002	165	1	278	generated	
+88	Const	WER_MAX_EVENT_NAME_LENGTH	13003	13052	166	1	279	generated	
+89	Const	WER_MAX_FRIENDLY_EVENT_NAME_LENGTH	13053	13112	167	1	280	generated	
+90	Const	WER_MAX_LOCAL_DUMP_SUBPATH_LENGTH	13113	13170	168	1	281	generated	
+91	Const	WER_MAX_PARAM_COUNT	13171	13214	169	1	282	generated	
+92	Const	WER_MAX_PARAM_LENGTH	13215	13260	170	1	283	generated	
+93	Const	WER_MAX_PREFERRED_MODULES	13261	13311	171	1	284	generated	
+94	Const	WER_MAX_PREFERRED_MODULES_BUFFER	13312	13369	172	1	285	generated	
+95	Const	WER_MAX_REGISTERED_DUMPCOLLECTION	13370	13426	173	1	286	generated	
+96	Const	WER_MAX_REGISTERED_ENTRIES	13427	13478	174	1	287	generated	
+97	Const	WER_MAX_REGISTERED_METADATA	13479	13529	175	1	288	generated	
+98	Const	WER_MAX_REGISTERED_RUNTIME_EXCEPTION_MODULES	13530	13598	176	1	289	generated	
+99	Const	WER_MAX_SIGNATURE_NAME_LENGTH	13599	13653	177	1	290	generated	
+100	Const	WER_MAX_TOTAL_PARAM_LENGTH	13654	13706	178	1	291	generated	
+101	Const	WER_METADATA_KEY_MAX_LENGTH	13707	13758	179	1	292	generated	
+102	Const	WER_METADATA_VALUE_MAX_LENGTH	13759	13813	180	1	293	generated	
+103	Const	WER_P0	13814	13843	181	1	294	generated	
+104	Const	WER_P1	13844	13873	182	1	295	generated	
+105	Const	WER_P2	13874	13903	183	1	296	generated	
+106	Const	WER_P3	13904	13933	184	1	297	generated	
+107	Const	WER_P4	13934	13963	185	1	298	generated	
+108	Const	WER_P5	13964	13993	186	1	299	generated	
+109	Const	WER_P6	13994	14023	187	1	300	generated	
+110	Const	WER_P7	14024	14053	188	1	301	generated	
+111	Const	WER_P8	14054	14083	189	1	302	generated	
+112	Const	WER_P9	14084	14113	190	1	303	generated	
+113	ItemType	WER_REGISTER_FILE_TYPE	14114	14152	191	1	304	generated	
+114	Struct	WER_REPORT_INFORMATION	14153	14536	192	1	305	unsupported	declaration Struct has no candidate rule
+115	Impl		14537	14652	204	1	319	unsupported	declaration Impl has no candidate rule
+116	Struct	WER_REPORT_INFORMATION_V3	14653	15115	209	1	326	unsupported	declaration Struct has no candidate rule
+117	Impl		15116	15234	223	1	342	unsupported	declaration Impl has no candidate rule
+118	Struct	WER_REPORT_INFORMATION_V4	15235	15866	228	1	349	unsupported	declaration Struct has no candidate rule
+119	Impl		15867	15985	245	1	368	unsupported	declaration Impl has no candidate rule
+120	Struct	WER_REPORT_INFORMATION_V5	15986	16661	250	1	375	unsupported	declaration Struct has no candidate rule
+121	Impl		16662	16780	268	1	395	unsupported	declaration Impl has no candidate rule
+122	Struct	WER_REPORT_METADATA_V1	16781	17072	273	1	402	unsupported	declaration Struct has no candidate rule
+123	Struct	WER_REPORT_METADATA_V2	17073	17565	282	1	413	unsupported	declaration Struct has no candidate rule
+124	Impl		17566	17681	297	1	430	unsupported	declaration Impl has no candidate rule
+125	Struct	WER_REPORT_METADATA_V3	17682	18385	302	1	437	unsupported	declaration Struct has no candidate rule
+126	Impl		18386	18501	323	1	460	unsupported	declaration Impl has no candidate rule
+127	Struct	WER_REPORT_PARAMETER	18502	18624	328	1	467	unsupported	declaration Struct has no candidate rule
+128	Impl		18625	18738	334	1	475	unsupported	declaration Impl has no candidate rule
+129	Struct	WER_REPORT_SIGNATURE	18739	18886	339	1	482	unsupported	declaration Struct has no candidate rule
+130	Impl		18887	19000	345	1	490	unsupported	declaration Impl has no candidate rule
+131	ItemType	WER_REPORT_TYPE	19001	19032	350	1	497	generated	
+132	ItemType	WER_REPORT_UI	19033	19062	351	1	498	generated	
+133	Const	WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH	19063	19213	352	1	499	unsupported	non-scalar type Ptr unsupported
+134	Const	WER_RUNTIME_EXCEPTION_EVENT_FUNCTION	19214	19349	353	1	502	unsupported	non-scalar type Ptr unsupported
+135	Const	WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE_FUNCTION	19350	19504	354	1	505	unsupported	non-scalar type Ptr unsupported
+136	Struct	WER_RUNTIME_EXCEPTION_INFORMATION	19505	20040	355	1	508	unsupported	declaration Struct has no candidate rule
+137	Impl		20041	20256	368	1	523	unsupported	declaration Impl has no candidate rule
+138	Const	WER_SUBMIT_ADD_REGISTERED_DATA	20257	20324	374	1	531	generated	
+139	Const	WER_SUBMIT_ARCHIVE_PARAMETERS_ONLY	20325	20398	375	1	532	generated	
+140	Const	WER_SUBMIT_BYPASS_DATA_THROTTLING	20399	20471	376	1	533	generated	
+141	Const	WER_SUBMIT_BYPASS_NETWORK_COST_THROTTLING	20472	20540	377	1	534	generated	
+142	Const	WER_SUBMIT_BYPASS_POWER_THROTTLING	20541	20602	378	1	535	generated	
+143	ItemType	WER_SUBMIT_FLAGS	20603	20635	379	1	536	generated	
+144	Const	WER_SUBMIT_HONOR_RECOVERY	20636	20697	380	1	537	generated	
+145	Const	WER_SUBMIT_HONOR_RESTART	20698	20758	381	1	538	generated	
+146	Const	WER_SUBMIT_NO_ARCHIVE	20759	20818	382	1	539	generated	
+147	Const	WER_SUBMIT_NO_CLOSE_UI	20819	20878	383	1	540	generated	
+148	Const	WER_SUBMIT_NO_QUEUE	20879	20936	384	1	541	generated	
+149	Const	WER_SUBMIT_OUTOFPROCESS	20937	20997	385	1	542	generated	
+150	Const	WER_SUBMIT_OUTOFPROCESS_ASYNC	20998	21066	386	1	543	generated	
+151	Const	WER_SUBMIT_QUEUE	21067	21119	387	1	544	generated	
+152	Const	WER_SUBMIT_REPORT_MACHINE_ID	21120	21187	388	1	545	generated	
+153	ItemType	WER_SUBMIT_RESULT	21188	21221	389	1	546	generated	
+154	Const	WER_SUBMIT_SHOW_DEBUG	21222	21279	390	1	547	generated	
+155	Const	WER_SUBMIT_START_MINIMIZED	21280	21344	391	1	548	generated	
+156	Const	WerConsentAlwaysPrompt	21345	21398	392	1	549	generated	
+157	Const	WerConsentApproved	21399	21448	393	1	550	generated	
+158	Const	WerConsentDenied	21449	21496	394	1	551	generated	
+159	Const	WerConsentMax	21497	21541	395	1	552	generated	
+160	Const	WerConsentNotAsked	21542	21591	396	1	553	generated	
+161	Const	WerCustomAction	21592	21644	397	1	554	generated	
+162	Const	WerDisabled	21645	21693	398	1	555	generated	
+163	Const	WerDisabledQueue	21694	21747	399	1	556	generated	
+164	Const	WerDumpTypeHeapDump	21748	21800	400	1	557	generated	
+165	Const	WerDumpTypeMax	21801	21848	401	1	558	generated	
+166	Const	WerDumpTypeMicroDump	21849	21902	402	1	559	generated	
+167	Const	WerDumpTypeMiniDump	21903	21955	403	1	560	generated	
+168	Const	WerDumpTypeNone	21956	22004	404	1	561	generated	
+169	Const	WerDumpTypeTriageDump	22005	22059	405	1	562	generated	
+170	Const	WerFileTypeAuxiliaryDump	22060	22117	406	1	563	generated	
+171	Const	WerFileTypeCustomDump	22118	22172	407	1	564	generated	
+172	Const	WerFileTypeEtlTrace	22173	22225	408	1	565	generated	
+173	Const	WerFileTypeHeapdump	22226	22278	409	1	566	generated	
+174	Const	WerFileTypeMax	22279	22327	410	1	567	generated	
+175	Const	WerFileTypeMicrodump	22328	22381	411	1	568	generated	
+176	Const	WerFileTypeMinidump	22382	22434	412	1	569	generated	
+177	Const	WerFileTypeOther	22435	22484	413	1	570	generated	
+178	Const	WerFileTypeTriagedump	22485	22539	414	1	571	generated	
+179	Const	WerFileTypeUserDocument	22540	22596	415	1	572	generated	
+180	Const	WerRegFileTypeMax	22597	22656	416	1	573	generated	
+181	Const	WerRegFileTypeOther	22657	22718	417	1	574	generated	
+182	Const	WerRegFileTypeUserDocument	22719	22787	418	1	575	generated	
+183	Const	WerReportApplicationCrash	22788	22848	419	1	576	generated	
+184	Const	WerReportApplicationHang	22849	22908	420	1	577	generated	
+185	Const	WerReportAsync	22909	22960	421	1	578	generated	
+186	Const	WerReportCancelled	22961	23016	422	1	579	generated	
+187	Const	WerReportCritical	23017	23069	423	1	580	generated	
+188	Const	WerReportDebug	23070	23121	424	1	581	generated	
+189	Const	WerReportFailed	23122	23174	425	1	582	generated	
+190	Const	WerReportInvalid	23175	23226	426	1	583	generated	
+191	Const	WerReportKernel	23227	23277	427	1	584	generated	
+192	Const	WerReportNonCritical	23278	23333	428	1	585	generated	
+193	Const	WerReportQueued	23334	23386	429	1	586	generated	
+194	Const	WerReportUploaded	23387	23441	430	1	587	generated	
+195	Const	WerReportUploadedCab	23442	23500	431	1	588	generated	
+196	Const	WerStorageLocationNotFound	23501	23565	432	1	589	generated	
+197	Const	WerSubmitResultMax	23566	23622	433	1	590	generated	
+198	Const	WerThrottled	23623	23673	434	1	591	generated	
+199	Const	WerUIAdditionalDataDlgHeader	23674	23735	435	1	592	generated	
+200	Const	WerUICloseDlgBody	23736	23786	436	1	593	generated	
+201	Const	WerUICloseDlgButtonText	23787	23844	437	1	594	generated	
+202	Const	WerUICloseDlgHeader	23845	23897	438	1	595	generated	
+203	Const	WerUICloseText	23898	23945	439	1	596	generated	
+204	Const	WerUIConsentDlgBody	23946	23998	440	1	597	generated	
+205	Const	WerUIConsentDlgHeader	23999	24053	441	1	598	generated	
+206	Const	WerUIIconFilePath	24054	24104	442	1	599	generated	
+207	Const	WerUIMax	24105	24147	443	1	600	generated	
+208	Const	WerUIOfflineSolutionCheckText	24148	24210	444	1	601	generated	
+209	Const	WerUIOnlineSolutionCheckText	24211	24272	445	1	602	generated	
+210	Const	frrvErr	24273	24315	446	1	603	generated	
+211	Const	frrvErrAnotherInstance	24316	24373	447	1	604	generated	
+212	Const	frrvErrDoubleFault	24374	24428	448	1	605	generated	
+213	Const	frrvErrNoDW	24429	24475	449	1	606	generated	
+214	Const	frrvErrNoMemory	24476	24526	450	1	607	generated	
+215	Const	frrvErrTimeout	24527	24576	451	1	608	generated	
+216	Const	frrvLaunchDebugger	24577	24630	452	1	609	generated	
+217	Const	frrvOk	24631	24672	453	1	610	generated	
+218	Const	frrvOkHeadless	24673	24722	454	1	611	generated	
+219	Const	frrvOkManifest	24723	24772	455	1	612	generated	
+220	Const	frrvOkQueued	24773	24820	456	1	613	generated	
+221	ItemType	pfn_ADDEREXCLUDEDAPPLICATIONA	24821	24949	457	1	614	unsupported	generic scalar type unsupported
+222	ItemType	pfn_ADDEREXCLUDEDAPPLICATIONW	24950	25079	458	1	617	unsupported	generic scalar type unsupported
+223	ItemType	pfn_REPORTFAULT	25080	25324	459	1	620	unsupported	attribute cfg requires explicit semantics/configuration

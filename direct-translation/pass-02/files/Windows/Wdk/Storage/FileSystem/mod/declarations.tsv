@@ -1,0 +1,2053 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Mod	Minifilters	0	75	1	1	2	unsupported	declaration Mod has no candidate rule
+1	Macro		76	232	3	1	6	unsupported	declaration Macro has no candidate rule
+2	Macro		233	828	4	1	9	unsupported	declaration Macro has no candidate rule
+3	Macro		829	1206	6	1	13	unsupported	declaration Macro has no candidate rule
+4	Macro		1207	1562	8	1	17	unsupported	declaration Macro has no candidate rule
+5	Macro		1563	2050	10	1	21	unsupported	declaration Macro has no candidate rule
+6	Macro		2051	2594	12	1	25	unsupported	declaration Macro has no candidate rule
+7	Macro		2595	3011	14	1	29	unsupported	declaration Macro has no candidate rule
+8	Macro		3012	3484	16	1	33	unsupported	declaration Macro has no candidate rule
+9	Macro		3485	3862	18	1	37	unsupported	declaration Macro has no candidate rule
+10	Macro		3863	4335	20	1	41	unsupported	declaration Macro has no candidate rule
+11	Macro		4336	4504	22	1	45	unsupported	declaration Macro has no candidate rule
+12	Macro		4505	4985	23	1	48	unsupported	declaration Macro has no candidate rule
+13	Macro		4986	5378	25	1	52	unsupported	declaration Macro has no candidate rule
+14	Macro		5379	5704	27	1	56	unsupported	declaration Macro has no candidate rule
+15	Macro		5705	6129	29	1	60	unsupported	declaration Macro has no candidate rule
+16	Macro		6130	6481	31	1	64	unsupported	declaration Macro has no candidate rule
+17	Macro		6482	6891	33	1	68	unsupported	declaration Macro has no candidate rule
+18	Macro		6892	7304	35	1	72	unsupported	declaration Macro has no candidate rule
+19	Macro		7305	7519	37	1	76	unsupported	declaration Macro has no candidate rule
+20	Macro		7520	7991	39	1	80	unsupported	declaration Macro has no candidate rule
+21	Macro		7992	8478	41	1	84	unsupported	declaration Macro has no candidate rule
+22	Macro		8479	8626	43	1	88	unsupported	declaration Macro has no candidate rule
+23	Macro		8627	8948	44	1	91	unsupported	declaration Macro has no candidate rule
+24	Macro		8949	9305	46	1	95	unsupported	declaration Macro has no candidate rule
+25	Macro		9306	9758	48	1	99	unsupported	declaration Macro has no candidate rule
+26	Macro		9759	10244	50	1	103	unsupported	declaration Macro has no candidate rule
+27	Macro		10245	10622	52	1	107	unsupported	declaration Macro has no candidate rule
+28	Macro		10623	10998	54	1	111	unsupported	declaration Macro has no candidate rule
+29	Macro		10999	11402	56	1	115	unsupported	declaration Macro has no candidate rule
+30	Macro		11403	11823	58	1	119	unsupported	declaration Macro has no candidate rule
+31	Macro		11824	12276	60	1	123	unsupported	declaration Macro has no candidate rule
+32	Macro		12277	12770	62	1	127	unsupported	declaration Macro has no candidate rule
+33	Macro		12771	13244	64	1	131	unsupported	declaration Macro has no candidate rule
+34	Macro		13245	13490	66	1	135	unsupported	declaration Macro has no candidate rule
+35	Macro		13491	13608	68	1	139	unsupported	declaration Macro has no candidate rule
+36	Macro		13609	13700	69	1	142	unsupported	declaration Macro has no candidate rule
+37	Macro		13701	14069	70	1	145	unsupported	declaration Macro has no candidate rule
+38	Macro		14070	14494	72	1	149	unsupported	declaration Macro has no candidate rule
+39	Macro		14495	14887	74	1	153	unsupported	declaration Macro has no candidate rule
+40	Macro		14888	15243	76	1	157	unsupported	declaration Macro has no candidate rule
+41	Macro		15244	15386	78	1	161	unsupported	declaration Macro has no candidate rule
+42	Macro		15387	15746	79	1	164	unsupported	declaration Macro has no candidate rule
+43	Macro		15747	15870	81	1	168	unsupported	declaration Macro has no candidate rule
+44	Macro		15871	16229	82	1	171	unsupported	declaration Macro has no candidate rule
+45	Macro		16230	16643	84	1	175	unsupported	declaration Macro has no candidate rule
+46	Macro		16644	17048	86	1	179	unsupported	declaration Macro has no candidate rule
+47	Macro		17049	17409	88	1	183	unsupported	declaration Macro has no candidate rule
+48	Macro		17410	17764	90	1	187	unsupported	declaration Macro has no candidate rule
+49	Macro		17765	18185	92	1	191	unsupported	declaration Macro has no candidate rule
+50	Macro		18186	18278	94	1	195	unsupported	declaration Macro has no candidate rule
+51	Macro		18279	18406	95	1	198	unsupported	declaration Macro has no candidate rule
+52	Macro		18407	18637	96	1	201	unsupported	declaration Macro has no candidate rule
+53	Macro		18638	18776	98	1	205	unsupported	declaration Macro has no candidate rule
+54	Macro		18777	19168	99	1	208	unsupported	declaration Macro has no candidate rule
+55	Macro		19169	19325	101	1	212	unsupported	declaration Macro has no candidate rule
+56	Macro		19326	19530	102	1	215	unsupported	declaration Macro has no candidate rule
+57	Macro		19531	19673	104	1	219	unsupported	declaration Macro has no candidate rule
+58	Macro		19674	19888	105	1	222	unsupported	declaration Macro has no candidate rule
+59	Macro		19889	19996	106	1	225	unsupported	declaration Macro has no candidate rule
+60	Macro		19997	20332	107	1	228	unsupported	declaration Macro has no candidate rule
+61	Macro		20333	20472	109	1	232	unsupported	declaration Macro has no candidate rule
+62	Macro		20473	20659	110	1	235	unsupported	declaration Macro has no candidate rule
+63	Macro		20660	20874	111	1	238	unsupported	declaration Macro has no candidate rule
+64	Macro		20875	21078	113	1	242	unsupported	declaration Macro has no candidate rule
+65	Macro		21079	21488	115	1	246	unsupported	declaration Macro has no candidate rule
+66	Macro		21489	21890	117	1	250	unsupported	declaration Macro has no candidate rule
+67	Macro		21891	22084	119	1	254	unsupported	declaration Macro has no candidate rule
+68	Macro		22085	22419	121	1	258	unsupported	declaration Macro has no candidate rule
+69	Macro		22420	22796	122	1	261	unsupported	declaration Macro has no candidate rule
+70	Macro		22797	23041	123	1	264	unsupported	declaration Macro has no candidate rule
+71	Macro		23042	23417	125	1	268	unsupported	declaration Macro has no candidate rule
+72	Macro		23418	23608	127	1	272	unsupported	declaration Macro has no candidate rule
+73	Macro		23609	23889	129	1	276	unsupported	declaration Macro has no candidate rule
+74	Macro		23890	24218	130	1	279	unsupported	declaration Macro has no candidate rule
+75	Macro		24219	24535	132	1	283	unsupported	declaration Macro has no candidate rule
+76	Macro		24536	24636	134	1	287	unsupported	declaration Macro has no candidate rule
+77	Macro		24637	25021	135	1	290	unsupported	declaration Macro has no candidate rule
+78	Macro		25022	25621	137	1	294	unsupported	declaration Macro has no candidate rule
+79	Macro		25622	26062	139	1	298	unsupported	declaration Macro has no candidate rule
+80	Macro		26063	26584	141	1	302	unsupported	declaration Macro has no candidate rule
+81	Macro		26585	26931	143	1	306	unsupported	declaration Macro has no candidate rule
+82	Macro		26932	27291	145	1	310	unsupported	declaration Macro has no candidate rule
+83	Macro		27292	27652	147	1	314	unsupported	declaration Macro has no candidate rule
+84	Macro		27653	28187	149	1	318	unsupported	declaration Macro has no candidate rule
+85	Macro		28188	28737	151	1	322	unsupported	declaration Macro has no candidate rule
+86	Macro		28738	29418	153	1	326	unsupported	declaration Macro has no candidate rule
+87	Macro		29419	29970	155	1	330	unsupported	declaration Macro has no candidate rule
+88	Macro		29971	30540	157	1	334	unsupported	declaration Macro has no candidate rule
+89	Macro		30541	31113	159	1	338	unsupported	declaration Macro has no candidate rule
+90	Macro		31114	31838	161	1	342	unsupported	declaration Macro has no candidate rule
+91	Macro		31839	31961	163	1	346	unsupported	declaration Macro has no candidate rule
+92	Macro		31962	32079	164	1	349	unsupported	declaration Macro has no candidate rule
+93	Macro		32080	32198	165	1	352	unsupported	declaration Macro has no candidate rule
+94	Macro		32199	32341	166	1	355	unsupported	declaration Macro has no candidate rule
+95	Macro		32342	32534	167	1	358	unsupported	declaration Macro has no candidate rule
+96	Macro		32535	32700	169	1	362	unsupported	declaration Macro has no candidate rule
+97	Macro		32701	32834	171	1	366	unsupported	declaration Macro has no candidate rule
+98	Macro		32835	33238	172	1	369	unsupported	declaration Macro has no candidate rule
+99	Macro		33239	33548	174	1	373	unsupported	declaration Macro has no candidate rule
+100	Macro		33549	33830	176	1	377	unsupported	declaration Macro has no candidate rule
+101	Macro		33831	34024	177	1	380	unsupported	declaration Macro has no candidate rule
+102	Macro		34025	34182	179	1	384	unsupported	declaration Macro has no candidate rule
+103	Macro		34183	34652	180	1	387	unsupported	declaration Macro has no candidate rule
+104	Macro		34653	35102	182	1	391	unsupported	declaration Macro has no candidate rule
+105	Macro		35103	35599	184	1	395	unsupported	declaration Macro has no candidate rule
+106	Macro		35600	36112	186	1	399	unsupported	declaration Macro has no candidate rule
+107	Macro		36113	36697	188	1	403	unsupported	declaration Macro has no candidate rule
+108	Macro		36698	37029	190	1	407	unsupported	declaration Macro has no candidate rule
+109	Macro		37030	37497	192	1	411	unsupported	declaration Macro has no candidate rule
+110	Macro		37498	37980	194	1	415	unsupported	declaration Macro has no candidate rule
+111	Macro		37981	38086	196	1	419	unsupported	declaration Macro has no candidate rule
+112	Macro		38087	38204	197	1	422	unsupported	declaration Macro has no candidate rule
+113	Macro		38205	38376	198	1	425	unsupported	declaration Macro has no candidate rule
+114	Macro		38377	38673	200	1	429	unsupported	declaration Macro has no candidate rule
+115	Macro		38674	38861	202	1	433	unsupported	declaration Macro has no candidate rule
+116	Macro		38862	39289	204	1	437	unsupported	declaration Macro has no candidate rule
+117	Macro		39290	39690	206	1	441	unsupported	declaration Macro has no candidate rule
+118	Macro		39691	39867	208	1	445	unsupported	declaration Macro has no candidate rule
+119	Macro		39868	40258	209	1	448	unsupported	declaration Macro has no candidate rule
+120	Macro		40259	40597	211	1	452	unsupported	declaration Macro has no candidate rule
+121	Macro		40598	40849	213	1	456	unsupported	declaration Macro has no candidate rule
+122	Macro		40850	41090	215	1	460	unsupported	declaration Macro has no candidate rule
+123	Macro		41091	41542	217	1	464	unsupported	declaration Macro has no candidate rule
+124	Macro		41543	41965	219	1	468	unsupported	declaration Macro has no candidate rule
+125	Macro		41966	42414	221	1	472	unsupported	declaration Macro has no candidate rule
+126	Macro		42415	42497	223	1	476	unsupported	declaration Macro has no candidate rule
+127	Macro		42498	42579	224	1	479	unsupported	declaration Macro has no candidate rule
+128	Macro		42580	42666	225	1	482	unsupported	declaration Macro has no candidate rule
+129	Macro		42667	42754	226	1	485	unsupported	declaration Macro has no candidate rule
+130	Macro		42755	42834	227	1	488	unsupported	declaration Macro has no candidate rule
+131	Macro		42835	43000	228	1	491	unsupported	declaration Macro has no candidate rule
+132	Macro		43001	43177	229	1	494	unsupported	declaration Macro has no candidate rule
+133	Macro		43178	43377	231	1	498	unsupported	declaration Macro has no candidate rule
+134	Macro		43378	43734	233	1	502	unsupported	declaration Macro has no candidate rule
+135	Macro		43735	43963	235	1	506	unsupported	declaration Macro has no candidate rule
+136	Macro		43964	44350	237	1	510	unsupported	declaration Macro has no candidate rule
+137	Macro		44351	44567	239	1	514	unsupported	declaration Macro has no candidate rule
+138	Macro		44568	44773	241	1	518	unsupported	declaration Macro has no candidate rule
+139	Macro		44774	44882	243	1	522	unsupported	declaration Macro has no candidate rule
+140	Macro		44883	45052	244	1	525	unsupported	declaration Macro has no candidate rule
+141	Macro		45053	45310	246	1	529	unsupported	declaration Macro has no candidate rule
+142	Macro		45311	45605	248	1	533	unsupported	declaration Macro has no candidate rule
+143	Macro		45606	46043	250	1	537	unsupported	declaration Macro has no candidate rule
+144	Macro		46044	46338	252	1	541	unsupported	declaration Macro has no candidate rule
+145	Macro		46339	46498	254	1	545	unsupported	declaration Macro has no candidate rule
+146	Macro		46499	46833	256	1	549	unsupported	declaration Macro has no candidate rule
+147	Macro		46834	47094	258	1	553	unsupported	declaration Macro has no candidate rule
+148	Macro		47095	47213	260	1	557	unsupported	declaration Macro has no candidate rule
+149	Macro		47214	47332	261	1	560	unsupported	declaration Macro has no candidate rule
+150	Macro		47333	47461	262	1	563	unsupported	declaration Macro has no candidate rule
+151	Macro		47462	47735	263	1	566	unsupported	declaration Macro has no candidate rule
+152	Macro		47736	48010	265	1	570	unsupported	declaration Macro has no candidate rule
+153	Macro		48011	48085	267	1	574	unsupported	declaration Macro has no candidate rule
+154	Macro		48086	48374	268	1	577	unsupported	declaration Macro has no candidate rule
+155	Macro		48375	48672	269	1	580	unsupported	declaration Macro has no candidate rule
+156	Macro		48673	48791	270	1	583	unsupported	declaration Macro has no candidate rule
+157	Macro		48792	48935	271	1	586	unsupported	declaration Macro has no candidate rule
+158	Macro		48936	49270	272	1	589	unsupported	declaration Macro has no candidate rule
+159	Macro		49271	49611	274	1	593	unsupported	declaration Macro has no candidate rule
+160	Macro		49612	50191	276	1	597	unsupported	declaration Macro has no candidate rule
+161	Macro		50192	50762	278	1	601	unsupported	declaration Macro has no candidate rule
+162	Macro		50763	51384	280	1	605	unsupported	declaration Macro has no candidate rule
+163	Macro		51385	51627	282	1	609	unsupported	declaration Macro has no candidate rule
+164	Macro		51628	51945	283	1	612	unsupported	declaration Macro has no candidate rule
+165	Macro		51946	52085	285	1	616	unsupported	declaration Macro has no candidate rule
+166	Macro		52086	52267	286	1	619	unsupported	declaration Macro has no candidate rule
+167	Macro		52268	52482	287	1	622	unsupported	declaration Macro has no candidate rule
+168	Macro		52483	52739	289	1	626	unsupported	declaration Macro has no candidate rule
+169	Macro		52740	52943	291	1	630	unsupported	declaration Macro has no candidate rule
+170	Macro		52944	53180	293	1	634	unsupported	declaration Macro has no candidate rule
+171	Macro		53181	53491	295	1	638	unsupported	declaration Macro has no candidate rule
+172	Macro		53492	53945	297	1	642	unsupported	declaration Macro has no candidate rule
+173	Macro		53946	54261	299	1	646	unsupported	declaration Macro has no candidate rule
+174	Macro		54262	54717	301	1	650	unsupported	declaration Macro has no candidate rule
+175	Macro		54718	55296	303	1	654	unsupported	declaration Macro has no candidate rule
+176	Macro		55297	55855	305	1	658	unsupported	declaration Macro has no candidate rule
+177	Macro		55856	56337	307	1	662	unsupported	declaration Macro has no candidate rule
+178	Macro		56338	56573	309	1	666	unsupported	declaration Macro has no candidate rule
+179	Macro		56574	57046	310	1	669	unsupported	declaration Macro has no candidate rule
+180	Macro		57047	57304	312	1	673	unsupported	declaration Macro has no candidate rule
+181	Macro		57305	57614	313	1	676	unsupported	declaration Macro has no candidate rule
+182	Macro		57615	57889	315	1	680	unsupported	declaration Macro has no candidate rule
+183	Macro		57890	58699	317	1	684	unsupported	declaration Macro has no candidate rule
+184	Macro		58700	59356	319	1	688	unsupported	declaration Macro has no candidate rule
+185	Macro		59357	60122	321	1	692	unsupported	declaration Macro has no candidate rule
+186	Macro		60123	60735	323	1	696	unsupported	declaration Macro has no candidate rule
+187	Macro		60736	60904	325	1	700	unsupported	declaration Macro has no candidate rule
+188	Macro		60905	61075	327	1	704	unsupported	declaration Macro has no candidate rule
+189	Macro		61076	61478	329	1	708	unsupported	declaration Macro has no candidate rule
+190	Macro		61479	61960	331	1	712	unsupported	declaration Macro has no candidate rule
+191	Macro		61961	62066	333	1	716	unsupported	declaration Macro has no candidate rule
+192	Macro		62067	62247	334	1	719	unsupported	declaration Macro has no candidate rule
+193	Macro		62248	62417	336	1	723	unsupported	declaration Macro has no candidate rule
+194	Macro		62418	62966	338	1	727	unsupported	declaration Macro has no candidate rule
+195	Macro		62967	63570	340	1	731	unsupported	declaration Macro has no candidate rule
+196	Macro		63571	64168	342	1	735	unsupported	declaration Macro has no candidate rule
+197	Macro		64169	64720	344	1	739	unsupported	declaration Macro has no candidate rule
+198	Macro		64721	65145	346	1	743	unsupported	declaration Macro has no candidate rule
+199	Macro		65146	65585	348	1	747	unsupported	declaration Macro has no candidate rule
+200	Macro		65586	65786	350	1	751	unsupported	declaration Macro has no candidate rule
+201	Macro		65787	65913	352	1	755	unsupported	declaration Macro has no candidate rule
+202	Macro		65914	66243	353	1	758	unsupported	declaration Macro has no candidate rule
+203	Macro		66244	66628	355	1	762	unsupported	declaration Macro has no candidate rule
+204	Macro		66629	66923	357	1	766	unsupported	declaration Macro has no candidate rule
+205	Macro		66924	67208	359	1	770	unsupported	declaration Macro has no candidate rule
+206	Macro		67209	67795	361	1	774	unsupported	declaration Macro has no candidate rule
+207	Macro		67796	68362	363	1	778	unsupported	declaration Macro has no candidate rule
+208	Macro		68363	68473	365	1	782	unsupported	declaration Macro has no candidate rule
+209	Macro		68474	69169	366	1	785	unsupported	declaration Macro has no candidate rule
+210	Macro		69170	69603	368	1	789	unsupported	declaration Macro has no candidate rule
+211	Macro		69604	70002	370	1	793	unsupported	declaration Macro has no candidate rule
+212	Macro		70003	70529	372	1	797	unsupported	declaration Macro has no candidate rule
+213	Macro		70530	71120	374	1	801	unsupported	declaration Macro has no candidate rule
+214	Macro		71121	71219	376	1	805	unsupported	declaration Macro has no candidate rule
+215	Macro		71220	71671	377	1	808	unsupported	declaration Macro has no candidate rule
+216	Macro		71672	71978	379	1	812	unsupported	declaration Macro has no candidate rule
+217	Macro		71979	72530	380	1	815	unsupported	declaration Macro has no candidate rule
+218	Macro		72531	73125	382	1	819	unsupported	declaration Macro has no candidate rule
+219	Macro		73126	73452	384	1	823	unsupported	declaration Macro has no candidate rule
+220	Macro		73453	73584	386	1	827	unsupported	declaration Macro has no candidate rule
+221	Macro		73585	73793	387	1	830	unsupported	declaration Macro has no candidate rule
+222	Macro		73794	74125	388	1	833	unsupported	declaration Macro has no candidate rule
+223	Macro		74126	74324	390	1	837	unsupported	declaration Macro has no candidate rule
+224	Macro		74325	74512	392	1	841	unsupported	declaration Macro has no candidate rule
+225	Macro		74513	74823	394	1	845	unsupported	declaration Macro has no candidate rule
+226	Macro		74824	75277	396	1	849	unsupported	declaration Macro has no candidate rule
+227	Macro		75278	75585	398	1	853	unsupported	declaration Macro has no candidate rule
+228	Macro		75586	75673	400	1	857	unsupported	declaration Macro has no candidate rule
+229	Macro		75674	75861	401	1	860	unsupported	declaration Macro has no candidate rule
+230	Macro		75862	76260	403	1	864	unsupported	declaration Macro has no candidate rule
+231	Macro		76261	76683	405	1	868	unsupported	declaration Macro has no candidate rule
+232	Macro		76684	77118	407	1	872	unsupported	declaration Macro has no candidate rule
+233	Macro		77119	77239	409	1	876	unsupported	declaration Macro has no candidate rule
+234	Macro		77240	77435	410	1	879	unsupported	declaration Macro has no candidate rule
+235	Macro		77436	77570	412	1	883	unsupported	declaration Macro has no candidate rule
+236	Macro		77571	77774	413	1	886	unsupported	declaration Macro has no candidate rule
+237	Macro		77775	77876	415	1	890	unsupported	declaration Macro has no candidate rule
+238	Macro		77877	78053	416	1	893	unsupported	declaration Macro has no candidate rule
+239	Macro		78054	78219	418	1	897	unsupported	declaration Macro has no candidate rule
+240	Macro		78220	78316	420	1	901	unsupported	declaration Macro has no candidate rule
+241	Macro		78317	78619	421	1	904	unsupported	declaration Macro has no candidate rule
+242	Macro		78620	78789	423	1	908	unsupported	declaration Macro has no candidate rule
+243	Macro		78790	78948	425	1	912	unsupported	declaration Macro has no candidate rule
+244	Macro		78949	79059	427	1	916	unsupported	declaration Macro has no candidate rule
+245	Macro		79060	79169	428	1	919	unsupported	declaration Macro has no candidate rule
+246	Macro		79170	79636	429	1	922	unsupported	declaration Macro has no candidate rule
+247	Macro		79637	79834	431	1	926	unsupported	declaration Macro has no candidate rule
+248	Macro		79835	80277	432	1	929	unsupported	declaration Macro has no candidate rule
+249	Macro		80278	80647	434	1	933	unsupported	declaration Macro has no candidate rule
+250	Macro		80648	80733	436	1	937	unsupported	declaration Macro has no candidate rule
+251	Macro		80734	81031	437	1	940	unsupported	declaration Macro has no candidate rule
+252	Macro		81032	81201	439	1	944	unsupported	declaration Macro has no candidate rule
+253	Macro		81202	81411	440	1	947	unsupported	declaration Macro has no candidate rule
+254	Macro		81412	81683	441	1	950	unsupported	declaration Macro has no candidate rule
+255	Macro		81684	81898	442	1	953	unsupported	declaration Macro has no candidate rule
+256	Macro		81899	82111	443	1	956	unsupported	declaration Macro has no candidate rule
+257	Macro		82112	82363	444	1	959	unsupported	declaration Macro has no candidate rule
+258	Macro		82364	82735	446	1	963	unsupported	declaration Macro has no candidate rule
+259	Macro		82736	83181	448	1	967	unsupported	declaration Macro has no candidate rule
+260	Macro		83182	83696	450	1	971	unsupported	declaration Macro has no candidate rule
+261	Macro		83697	84341	452	1	975	unsupported	declaration Macro has no candidate rule
+262	Macro		84342	84791	454	1	979	unsupported	declaration Macro has no candidate rule
+263	Macro		84792	85323	456	1	983	unsupported	declaration Macro has no candidate rule
+264	Macro		85324	85796	458	1	987	unsupported	declaration Macro has no candidate rule
+265	Macro		85797	86210	460	1	991	unsupported	declaration Macro has no candidate rule
+266	Macro		86211	86593	462	1	995	unsupported	declaration Macro has no candidate rule
+267	Macro		86594	86984	464	1	999	unsupported	declaration Macro has no candidate rule
+268	Macro		86985	87376	466	1	1003	unsupported	declaration Macro has no candidate rule
+269	Macro		87377	87741	468	1	1007	unsupported	declaration Macro has no candidate rule
+270	Macro		87742	88211	470	1	1011	unsupported	declaration Macro has no candidate rule
+271	Macro		88212	88753	472	1	1015	unsupported	declaration Macro has no candidate rule
+272	Macro		88754	89139	474	1	1019	unsupported	declaration Macro has no candidate rule
+273	Macro		89140	89502	476	1	1023	unsupported	declaration Macro has no candidate rule
+274	Macro		89503	89863	478	1	1027	unsupported	declaration Macro has no candidate rule
+275	Macro		89864	90220	480	1	1031	unsupported	declaration Macro has no candidate rule
+276	Macro		90221	90546	482	1	1035	unsupported	declaration Macro has no candidate rule
+277	Macro		90547	90941	484	1	1039	unsupported	declaration Macro has no candidate rule
+278	Macro		90942	91279	486	1	1043	unsupported	declaration Macro has no candidate rule
+279	Macro		91280	91607	488	1	1047	unsupported	declaration Macro has no candidate rule
+280	Macro		91608	91762	490	1	1051	unsupported	declaration Macro has no candidate rule
+281	Macro		91763	92137	492	1	1055	unsupported	declaration Macro has no candidate rule
+282	Macro		92138	92731	494	1	1059	unsupported	declaration Macro has no candidate rule
+283	Macro		92732	93205	496	1	1063	unsupported	declaration Macro has no candidate rule
+284	Macro		93206	93721	498	1	1067	unsupported	declaration Macro has no candidate rule
+285	Macro		93722	94233	500	1	1071	unsupported	declaration Macro has no candidate rule
+286	Macro		94234	94545	502	1	1075	unsupported	declaration Macro has no candidate rule
+287	Macro		94546	94880	504	1	1079	unsupported	declaration Macro has no candidate rule
+288	Macro		94881	95357	506	1	1083	unsupported	declaration Macro has no candidate rule
+289	Macro		95358	95874	508	1	1087	unsupported	declaration Macro has no candidate rule
+290	Macro		95875	95955	510	1	1091	unsupported	declaration Macro has no candidate rule
+291	Macro		95956	96405	511	1	1094	unsupported	declaration Macro has no candidate rule
+292	Macro		96406	96824	513	1	1098	unsupported	declaration Macro has no candidate rule
+293	Macro		96825	97339	515	1	1102	unsupported	declaration Macro has no candidate rule
+294	Macro		97340	97719	517	1	1106	unsupported	declaration Macro has no candidate rule
+295	Macro		97720	98245	519	1	1110	unsupported	declaration Macro has no candidate rule
+296	Macro		98246	98730	521	1	1114	unsupported	declaration Macro has no candidate rule
+297	Macro		98731	99336	523	1	1118	unsupported	declaration Macro has no candidate rule
+298	Macro		99337	99524	525	1	1122	unsupported	declaration Macro has no candidate rule
+299	Macro		99525	99861	527	1	1126	unsupported	declaration Macro has no candidate rule
+300	Macro		99862	100287	529	1	1130	unsupported	declaration Macro has no candidate rule
+301	Macro		100288	100691	531	1	1134	unsupported	declaration Macro has no candidate rule
+302	Macro		100692	100866	533	1	1138	unsupported	declaration Macro has no candidate rule
+303	Macro		100867	100974	535	1	1142	unsupported	declaration Macro has no candidate rule
+304	Macro		100975	101123	536	1	1145	unsupported	declaration Macro has no candidate rule
+305	Macro		101124	101190	538	1	1149	unsupported	declaration Macro has no candidate rule
+306	Macro		101191	101402	539	1	1152	unsupported	declaration Macro has no candidate rule
+307	Macro		101403	101603	541	1	1156	unsupported	declaration Macro has no candidate rule
+308	Macro		101604	101868	543	1	1160	unsupported	declaration Macro has no candidate rule
+309	Macro		101869	102129	545	1	1164	unsupported	declaration Macro has no candidate rule
+310	Macro		102130	102328	547	1	1168	unsupported	declaration Macro has no candidate rule
+311	Macro		102329	102524	549	1	1172	unsupported	declaration Macro has no candidate rule
+312	Macro		102525	102767	551	1	1176	unsupported	declaration Macro has no candidate rule
+313	Macro		102768	102950	553	1	1180	unsupported	declaration Macro has no candidate rule
+314	Macro		102951	103235	555	1	1184	unsupported	declaration Macro has no candidate rule
+315	Macro		103236	103576	557	1	1188	unsupported	declaration Macro has no candidate rule
+316	Macro		103577	103825	559	1	1192	unsupported	declaration Macro has no candidate rule
+317	Macro		103826	104003	561	1	1196	unsupported	declaration Macro has no candidate rule
+318	Macro		104004	104102	563	1	1200	unsupported	declaration Macro has no candidate rule
+319	Macro		104103	104322	564	1	1203	unsupported	declaration Macro has no candidate rule
+320	Macro		104323	104522	566	1	1207	unsupported	declaration Macro has no candidate rule
+321	Macro		104523	104664	568	1	1211	unsupported	declaration Macro has no candidate rule
+322	Macro		104665	104851	570	1	1215	unsupported	declaration Macro has no candidate rule
+323	Macro		104852	105008	571	1	1218	unsupported	declaration Macro has no candidate rule
+324	Macro		105009	105223	572	1	1221	unsupported	declaration Macro has no candidate rule
+325	Macro		105224	105427	574	1	1225	unsupported	declaration Macro has no candidate rule
+326	Macro		105428	105647	576	1	1229	unsupported	declaration Macro has no candidate rule
+327	Macro		105648	105861	578	1	1233	unsupported	declaration Macro has no candidate rule
+328	Macro		105862	106081	580	1	1237	unsupported	declaration Macro has no candidate rule
+329	Macro		106082	106167	582	1	1241	unsupported	declaration Macro has no candidate rule
+330	Macro		106168	106445	583	1	1244	unsupported	declaration Macro has no candidate rule
+331	Macro		106446	106525	585	1	1248	unsupported	declaration Macro has no candidate rule
+332	Macro		106526	106679	586	1	1251	unsupported	declaration Macro has no candidate rule
+333	Macro		106680	107094	588	1	1255	unsupported	declaration Macro has no candidate rule
+334	Macro		107095	107229	590	1	1259	unsupported	declaration Macro has no candidate rule
+335	Macro		107230	107951	591	1	1262	unsupported	declaration Macro has no candidate rule
+336	Macro		107952	108934	593	1	1266	unsupported	declaration Macro has no candidate rule
+337	Macro		108935	109927	595	1	1270	unsupported	declaration Macro has no candidate rule
+338	Macro		109928	110991	597	1	1274	unsupported	declaration Macro has no candidate rule
+339	Macro		110992	111421	599	1	1278	unsupported	declaration Macro has no candidate rule
+340	Macro		111422	111869	601	1	1282	unsupported	declaration Macro has no candidate rule
+341	Macro		111870	112180	603	1	1286	unsupported	declaration Macro has no candidate rule
+342	Macro		112181	112647	604	1	1289	unsupported	declaration Macro has no candidate rule
+343	Macro		112648	113025	606	1	1293	unsupported	declaration Macro has no candidate rule
+344	Macro		113026	113289	608	1	1297	unsupported	declaration Macro has no candidate rule
+345	Macro		113290	113645	609	1	1300	unsupported	declaration Macro has no candidate rule
+346	Macro		113646	114110	611	1	1304	unsupported	declaration Macro has no candidate rule
+347	Macro		114111	115016	613	1	1308	unsupported	declaration Macro has no candidate rule
+348	Macro		115017	115507	615	1	1312	unsupported	declaration Macro has no candidate rule
+349	Macro		115508	116158	617	1	1316	unsupported	declaration Macro has no candidate rule
+350	Macro		116159	116410	619	1	1320	unsupported	declaration Macro has no candidate rule
+351	Macro		116411	116675	621	1	1324	unsupported	declaration Macro has no candidate rule
+352	Macro		116676	117127	622	1	1327	unsupported	declaration Macro has no candidate rule
+353	Macro		117128	117631	623	1	1330	unsupported	declaration Macro has no candidate rule
+354	Macro		117632	118172	625	1	1334	unsupported	declaration Macro has no candidate rule
+355	Macro		118173	118467	627	1	1338	unsupported	declaration Macro has no candidate rule
+356	Macro		118468	118838	629	1	1342	unsupported	declaration Macro has no candidate rule
+357	Macro		118839	119201	631	1	1346	unsupported	declaration Macro has no candidate rule
+358	Macro		119202	119469	633	1	1350	unsupported	declaration Macro has no candidate rule
+359	Macro		119470	120079	634	1	1353	unsupported	declaration Macro has no candidate rule
+360	Macro		120080	120270	636	1	1357	unsupported	declaration Macro has no candidate rule
+361	Macro		120271	120827	637	1	1360	unsupported	declaration Macro has no candidate rule
+362	Macro		120828	121401	639	1	1364	unsupported	declaration Macro has no candidate rule
+363	Macro		121402	121755	641	1	1368	unsupported	declaration Macro has no candidate rule
+364	Macro		121756	122239	643	1	1372	unsupported	declaration Macro has no candidate rule
+365	Macro		122240	123006	645	1	1376	unsupported	declaration Macro has no candidate rule
+366	Macro		123007	123278	647	1	1380	unsupported	declaration Macro has no candidate rule
+367	Macro		123279	123576	648	1	1383	unsupported	declaration Macro has no candidate rule
+368	Macro		123577	123928	649	1	1386	unsupported	declaration Macro has no candidate rule
+369	Macro		123929	124217	651	1	1390	unsupported	declaration Macro has no candidate rule
+370	Macro		124218	124532	652	1	1393	unsupported	declaration Macro has no candidate rule
+371	Macro		124533	124846	653	1	1396	unsupported	declaration Macro has no candidate rule
+372	Macro		124847	125305	655	1	1400	unsupported	declaration Macro has no candidate rule
+373	Macro		125306	125786	657	1	1404	unsupported	declaration Macro has no candidate rule
+374	Macro		125787	126474	659	1	1408	unsupported	declaration Macro has no candidate rule
+375	Macro		126475	127136	661	1	1412	unsupported	declaration Macro has no candidate rule
+376	Macro		127137	127463	663	1	1416	unsupported	declaration Macro has no candidate rule
+377	Macro		127464	127923	664	1	1419	unsupported	declaration Macro has no candidate rule
+378	Macro		127924	128242	666	1	1423	unsupported	declaration Macro has no candidate rule
+379	Macro		128243	128717	668	1	1427	unsupported	declaration Macro has no candidate rule
+380	Macro		128718	129119	670	1	1431	unsupported	declaration Macro has no candidate rule
+381	Macro		129120	129526	672	1	1435	unsupported	declaration Macro has no candidate rule
+382	Macro		129527	130069	674	1	1439	unsupported	declaration Macro has no candidate rule
+383	Macro		130070	130431	676	1	1443	unsupported	declaration Macro has no candidate rule
+384	Macro		130432	130720	678	1	1447	unsupported	declaration Macro has no candidate rule
+385	Macro		130721	131100	679	1	1450	unsupported	declaration Macro has no candidate rule
+386	Macro		131101	131502	680	1	1453	unsupported	declaration Macro has no candidate rule
+387	Macro		131503	132046	682	1	1457	unsupported	declaration Macro has no candidate rule
+388	Macro		132047	132383	684	1	1461	unsupported	declaration Macro has no candidate rule
+389	Macro		132384	132582	686	1	1465	unsupported	declaration Macro has no candidate rule
+390	Macro		132583	132984	687	1	1468	unsupported	declaration Macro has no candidate rule
+391	Macro		132985	133366	689	1	1472	unsupported	declaration Macro has no candidate rule
+392	Macro		133367	133755	691	1	1476	unsupported	declaration Macro has no candidate rule
+393	Macro		133756	134106	692	1	1479	unsupported	declaration Macro has no candidate rule
+394	Macro		134107	134427	694	1	1483	unsupported	declaration Macro has no candidate rule
+395	Macro		134428	134829	696	1	1487	unsupported	declaration Macro has no candidate rule
+396	Macro		134830	135175	698	1	1491	unsupported	declaration Macro has no candidate rule
+397	Macro		135176	135722	700	1	1495	unsupported	declaration Macro has no candidate rule
+398	Macro		135723	136197	702	1	1499	unsupported	declaration Macro has no candidate rule
+399	Macro		136198	136329	704	1	1503	unsupported	declaration Macro has no candidate rule
+400	Macro		136330	136435	705	1	1506	unsupported	declaration Macro has no candidate rule
+401	Macro		136436	136948	706	1	1509	unsupported	declaration Macro has no candidate rule
+402	Macro		136949	137479	708	1	1513	unsupported	declaration Macro has no candidate rule
+403	Macro		137480	137782	710	1	1517	unsupported	declaration Macro has no candidate rule
+404	Macro		137783	138001	712	1	1521	unsupported	declaration Macro has no candidate rule
+405	Macro		138002	138267	713	1	1524	unsupported	declaration Macro has no candidate rule
+406	Macro		138268	138433	715	1	1528	unsupported	declaration Macro has no candidate rule
+407	Macro		138434	138724	717	1	1532	unsupported	declaration Macro has no candidate rule
+408	Macro		138725	138940	719	1	1536	unsupported	declaration Macro has no candidate rule
+409	Macro		138941	139199	721	1	1540	unsupported	declaration Macro has no candidate rule
+410	Macro		139200	139466	723	1	1544	unsupported	declaration Macro has no candidate rule
+411	Macro		139467	139681	725	1	1548	unsupported	declaration Macro has no candidate rule
+412	Macro		139682	139956	727	1	1552	unsupported	declaration Macro has no candidate rule
+413	Macro		139957	140084	729	1	1556	unsupported	declaration Macro has no candidate rule
+414	Macro		140085	140200	730	1	1559	unsupported	declaration Macro has no candidate rule
+415	Macro		140201	140483	731	1	1562	unsupported	declaration Macro has no candidate rule
+416	Macro		140484	140562	733	1	1566	unsupported	declaration Macro has no candidate rule
+417	Macro		140563	140751	734	1	1569	unsupported	declaration Macro has no candidate rule
+418	Macro		140752	141152	736	1	1573	unsupported	declaration Macro has no candidate rule
+419	Macro		141153	141235	738	1	1577	unsupported	declaration Macro has no candidate rule
+420	Macro		141236	141390	739	1	1580	unsupported	declaration Macro has no candidate rule
+421	Macro		141391	141550	741	1	1584	unsupported	declaration Macro has no candidate rule
+422	Macro		141551	141828	743	1	1588	unsupported	declaration Macro has no candidate rule
+423	Macro		141829	142101	745	1	1592	unsupported	declaration Macro has no candidate rule
+424	Macro		142102	142466	747	1	1596	unsupported	declaration Macro has no candidate rule
+425	Macro		142467	142648	749	1	1600	unsupported	declaration Macro has no candidate rule
+426	Macro		142649	142925	751	1	1604	unsupported	declaration Macro has no candidate rule
+427	Macro		142926	143140	753	1	1608	unsupported	declaration Macro has no candidate rule
+428	Macro		143141	143206	755	1	1612	unsupported	declaration Macro has no candidate rule
+429	Macro		143207	143476	756	1	1615	unsupported	declaration Macro has no candidate rule
+430	Macro		143477	143647	758	1	1619	unsupported	declaration Macro has no candidate rule
+431	Macro		143648	144018	759	1	1622	unsupported	declaration Macro has no candidate rule
+432	Macro		144019	144318	761	1	1626	unsupported	declaration Macro has no candidate rule
+433	Macro		144319	144636	763	1	1630	unsupported	declaration Macro has no candidate rule
+434	Macro		144637	144935	765	1	1634	unsupported	declaration Macro has no candidate rule
+435	Macro		144936	145439	767	1	1638	unsupported	declaration Macro has no candidate rule
+436	Macro		145440	145806	769	1	1642	unsupported	declaration Macro has no candidate rule
+437	Macro		145807	145960	771	1	1646	unsupported	declaration Macro has no candidate rule
+438	Macro		145961	146264	772	1	1649	unsupported	declaration Macro has no candidate rule
+439	Macro		146265	146489	774	1	1653	unsupported	declaration Macro has no candidate rule
+440	Macro		146490	146632	775	1	1656	unsupported	declaration Macro has no candidate rule
+441	Macro		146633	147000	776	1	1659	unsupported	declaration Macro has no candidate rule
+442	Macro		147001	147356	777	1	1662	unsupported	declaration Macro has no candidate rule
+443	Macro		147357	147551	778	1	1665	unsupported	declaration Macro has no candidate rule
+444	Macro		147552	147843	779	1	1668	unsupported	declaration Macro has no candidate rule
+445	Macro		147844	148081	781	1	1672	unsupported	declaration Macro has no candidate rule
+446	Macro		148082	148332	783	1	1676	unsupported	declaration Macro has no candidate rule
+447	Macro		148333	148651	784	1	1679	unsupported	declaration Macro has no candidate rule
+448	Macro		148652	148870	786	1	1683	unsupported	declaration Macro has no candidate rule
+449	Macro		148871	149071	787	1	1686	unsupported	declaration Macro has no candidate rule
+450	Macro		149072	149400	788	1	1689	unsupported	declaration Macro has no candidate rule
+451	Macro		149401	149730	790	1	1693	unsupported	declaration Macro has no candidate rule
+452	Macro		149731	150026	791	1	1696	unsupported	declaration Macro has no candidate rule
+453	Macro		150027	150362	792	1	1699	unsupported	declaration Macro has no candidate rule
+454	Macro		150363	150731	793	1	1702	unsupported	declaration Macro has no candidate rule
+455	Macro		150732	151075	794	1	1705	unsupported	declaration Macro has no candidate rule
+456	Macro		151076	151437	795	1	1708	unsupported	declaration Macro has no candidate rule
+457	Macro		151438	151833	796	1	1711	unsupported	declaration Macro has no candidate rule
+458	Macro		151834	152051	797	1	1714	unsupported	declaration Macro has no candidate rule
+459	Macro		152052	152318	799	1	1718	unsupported	declaration Macro has no candidate rule
+460	Macro		152319	152444	800	1	1721	unsupported	declaration Macro has no candidate rule
+461	Macro		152445	152778	801	1	1724	unsupported	declaration Macro has no candidate rule
+462	Macro		152779	153097	802	1	1727	unsupported	declaration Macro has no candidate rule
+463	Macro		153098	153384	803	1	1730	unsupported	declaration Macro has no candidate rule
+464	Macro		153385	153595	804	1	1733	unsupported	declaration Macro has no candidate rule
+465	Macro		153596	153800	806	1	1737	unsupported	declaration Macro has no candidate rule
+466	Macro		153801	154086	808	1	1741	unsupported	declaration Macro has no candidate rule
+467	Macro		154087	154243	810	1	1745	unsupported	declaration Macro has no candidate rule
+468	Macro		154244	154412	811	1	1748	unsupported	declaration Macro has no candidate rule
+469	Macro		154413	154747	813	1	1752	unsupported	declaration Macro has no candidate rule
+470	Macro		154748	154999	814	1	1755	unsupported	declaration Macro has no candidate rule
+471	Macro		155000	155245	816	1	1759	unsupported	declaration Macro has no candidate rule
+472	Macro		155246	155603	817	1	1762	unsupported	declaration Macro has no candidate rule
+473	Macro		155604	155935	819	1	1766	unsupported	declaration Macro has no candidate rule
+474	Macro		155936	156267	821	1	1770	unsupported	declaration Macro has no candidate rule
+475	Macro		156268	156625	823	1	1774	unsupported	declaration Macro has no candidate rule
+476	Macro		156626	156855	825	1	1778	unsupported	declaration Macro has no candidate rule
+477	Macro		156856	157131	827	1	1782	unsupported	declaration Macro has no candidate rule
+478	Macro		157132	157417	828	1	1785	unsupported	declaration Macro has no candidate rule
+479	Macro		157418	157695	829	1	1788	unsupported	declaration Macro has no candidate rule
+480	Macro		157696	157820	830	1	1791	unsupported	declaration Macro has no candidate rule
+481	Macro		157821	158066	831	1	1794	unsupported	declaration Macro has no candidate rule
+482	Macro		158067	158386	832	1	1797	unsupported	declaration Macro has no candidate rule
+483	Macro		158387	158708	834	1	1801	unsupported	declaration Macro has no candidate rule
+484	Macro		158709	158860	836	1	1805	unsupported	declaration Macro has no candidate rule
+485	Macro		158861	159143	838	1	1809	unsupported	declaration Macro has no candidate rule
+486	Macro		159144	159264	840	1	1813	unsupported	declaration Macro has no candidate rule
+487	Macro		159265	159379	841	1	1816	unsupported	declaration Macro has no candidate rule
+488	Macro		159380	159493	842	1	1819	unsupported	declaration Macro has no candidate rule
+489	Macro		159494	159722	843	1	1822	unsupported	declaration Macro has no candidate rule
+490	Macro		159723	159840	844	1	1825	unsupported	declaration Macro has no candidate rule
+491	Macro		159841	160069	845	1	1828	unsupported	declaration Macro has no candidate rule
+492	Macro		160070	160309	846	1	1831	unsupported	declaration Macro has no candidate rule
+493	Macro		160310	160543	847	1	1834	unsupported	declaration Macro has no candidate rule
+494	Macro		160544	160656	849	1	1838	unsupported	declaration Macro has no candidate rule
+495	Macro		160657	160755	850	1	1841	unsupported	declaration Macro has no candidate rule
+496	Macro		160756	160907	851	1	1844	unsupported	declaration Macro has no candidate rule
+497	Macro		160908	161209	853	1	1848	unsupported	declaration Macro has no candidate rule
+498	Macro		161210	161441	854	1	1851	unsupported	declaration Macro has no candidate rule
+499	Macro		161442	161640	855	1	1854	unsupported	declaration Macro has no candidate rule
+500	Macro		161641	161924	857	1	1858	unsupported	declaration Macro has no candidate rule
+501	Macro		161925	162064	858	1	1861	unsupported	declaration Macro has no candidate rule
+502	Macro		162065	162432	859	1	1864	unsupported	declaration Macro has no candidate rule
+503	Macro		162433	162790	861	1	1868	unsupported	declaration Macro has no candidate rule
+504	Macro		162791	163074	863	1	1872	unsupported	declaration Macro has no candidate rule
+505	Macro		163075	163348	864	1	1875	unsupported	declaration Macro has no candidate rule
+506	Macro		163349	163661	866	1	1879	unsupported	declaration Macro has no candidate rule
+507	Macro		163662	164014	867	1	1882	unsupported	declaration Macro has no candidate rule
+508	Macro		164015	164112	868	1	1885	unsupported	declaration Macro has no candidate rule
+509	Macro		164113	164209	869	1	1888	unsupported	declaration Macro has no candidate rule
+510	Macro		164210	164289	870	1	1891	unsupported	declaration Macro has no candidate rule
+511	Macro		164290	164371	871	1	1894	unsupported	declaration Macro has no candidate rule
+512	Macro		164372	164575	872	1	1897	unsupported	declaration Macro has no candidate rule
+513	Macro		164576	164940	874	1	1901	unsupported	declaration Macro has no candidate rule
+514	Macro		164941	165201	876	1	1905	unsupported	declaration Macro has no candidate rule
+515	Macro		165202	165312	877	1	1908	unsupported	declaration Macro has no candidate rule
+516	Macro		165313	165423	878	1	1911	unsupported	declaration Macro has no candidate rule
+517	Macro		165424	166130	879	1	1914	unsupported	declaration Macro has no candidate rule
+518	Macro		166131	166452	881	1	1918	unsupported	declaration Macro has no candidate rule
+519	Macro		166453	166774	883	1	1922	unsupported	declaration Macro has no candidate rule
+520	Macro		166775	166879	885	1	1926	unsupported	declaration Macro has no candidate rule
+521	Macro		166880	166983	886	1	1929	unsupported	declaration Macro has no candidate rule
+522	Macro		166984	167150	887	1	1932	unsupported	declaration Macro has no candidate rule
+523	Macro		167151	167333	889	1	1936	unsupported	declaration Macro has no candidate rule
+524	Macro		167334	167459	891	1	1940	unsupported	declaration Macro has no candidate rule
+525	Macro		167460	167824	892	1	1943	unsupported	declaration Macro has no candidate rule
+526	Macro		167825	168155	894	1	1947	unsupported	declaration Macro has no candidate rule
+527	Macro		168156	168444	895	1	1950	unsupported	declaration Macro has no candidate rule
+528	Macro		168445	168709	896	1	1953	unsupported	declaration Macro has no candidate rule
+529	Macro		168710	169080	897	1	1956	unsupported	declaration Macro has no candidate rule
+530	Macro		169081	169444	899	1	1960	unsupported	declaration Macro has no candidate rule
+531	Macro		169445	169781	901	1	1964	unsupported	declaration Macro has no candidate rule
+532	Macro		169782	170076	902	1	1967	unsupported	declaration Macro has no candidate rule
+533	Macro		170077	170347	903	1	1970	unsupported	declaration Macro has no candidate rule
+534	Macro		170348	170499	904	1	1973	unsupported	declaration Macro has no candidate rule
+535	Macro		170500	170709	906	1	1977	unsupported	declaration Macro has no candidate rule
+536	Macro		170710	170901	907	1	1980	unsupported	declaration Macro has no candidate rule
+537	Macro		170902	171061	909	1	1984	unsupported	declaration Macro has no candidate rule
+538	Macro		171062	171730	910	1	1987	unsupported	declaration Macro has no candidate rule
+539	Macro		171731	172287	912	1	1991	unsupported	declaration Macro has no candidate rule
+540	Macro		172288	172664	914	1	1995	unsupported	declaration Macro has no candidate rule
+541	Macro		172665	173034	916	1	1999	unsupported	declaration Macro has no candidate rule
+542	Macro		173035	173677	918	1	2003	unsupported	declaration Macro has no candidate rule
+543	Macro		173678	174039	920	1	2007	unsupported	declaration Macro has no candidate rule
+544	Macro		174040	174152	922	1	2011	unsupported	declaration Macro has no candidate rule
+545	Macro		174153	174392	923	1	2014	unsupported	declaration Macro has no candidate rule
+546	Macro		174393	174695	924	1	2017	unsupported	declaration Macro has no candidate rule
+547	Macro		174696	174901	925	1	2020	unsupported	declaration Macro has no candidate rule
+548	Macro		174902	175228	926	1	2023	unsupported	declaration Macro has no candidate rule
+549	Macro		175229	175585	928	1	2027	unsupported	declaration Macro has no candidate rule
+550	Macro		175586	175802	930	1	2031	unsupported	declaration Macro has no candidate rule
+551	Macro		175803	176148	932	1	2035	unsupported	declaration Macro has no candidate rule
+552	Macro		176149	176524	934	1	2039	unsupported	declaration Macro has no candidate rule
+553	Macro		176525	176867	936	1	2043	unsupported	declaration Macro has no candidate rule
+554	Macro		176868	177088	938	1	2047	unsupported	declaration Macro has no candidate rule
+555	Macro		177089	177438	940	1	2051	unsupported	declaration Macro has no candidate rule
+556	Macro		177439	177750	942	1	2055	unsupported	declaration Macro has no candidate rule
+557	Macro		177751	178163	944	1	2059	unsupported	declaration Macro has no candidate rule
+558	Macro		178164	178571	946	1	2063	unsupported	declaration Macro has no candidate rule
+559	Macro		178572	179023	948	1	2067	unsupported	declaration Macro has no candidate rule
+560	Macro		179024	179176	950	1	2071	unsupported	declaration Macro has no candidate rule
+561	Macro		179177	179343	952	1	2075	unsupported	declaration Macro has no candidate rule
+562	Macro		179344	179573	953	1	2078	unsupported	declaration Macro has no candidate rule
+563	Macro		179574	179926	954	1	2081	unsupported	declaration Macro has no candidate rule
+564	Macro		179927	180415	956	1	2085	unsupported	declaration Macro has no candidate rule
+565	Macro		180416	180590	958	1	2089	unsupported	declaration Macro has no candidate rule
+566	Macro		180591	180827	960	1	2093	unsupported	declaration Macro has no candidate rule
+567	Macro		180828	181119	962	1	2097	unsupported	declaration Macro has no candidate rule
+568	Macro		181120	181413	964	1	2101	unsupported	declaration Macro has no candidate rule
+569	Macro		181414	181624	966	1	2105	unsupported	declaration Macro has no candidate rule
+570	Macro		181625	181921	967	1	2108	unsupported	declaration Macro has no candidate rule
+571	Macro		181922	182535	969	1	2112	unsupported	declaration Macro has no candidate rule
+572	Macro		182536	183212	971	1	2116	unsupported	declaration Macro has no candidate rule
+573	Macro		183213	183835	973	1	2120	unsupported	declaration Macro has no candidate rule
+574	Macro		183836	184521	975	1	2124	unsupported	declaration Macro has no candidate rule
+575	Macro		184522	184845	977	1	2128	unsupported	declaration Macro has no candidate rule
+576	Macro		184846	185081	979	1	2132	unsupported	declaration Macro has no candidate rule
+577	Macro		185082	185412	980	1	2135	unsupported	declaration Macro has no candidate rule
+578	Macro		185413	185808	982	1	2139	unsupported	declaration Macro has no candidate rule
+579	Macro		185809	186056	984	1	2143	unsupported	declaration Macro has no candidate rule
+580	Macro		186057	186236	986	1	2147	unsupported	declaration Macro has no candidate rule
+581	Macro		186237	186448	987	1	2150	unsupported	declaration Macro has no candidate rule
+582	Macro		186449	186646	988	1	2153	unsupported	declaration Macro has no candidate rule
+583	Macro		186647	186885	989	1	2156	unsupported	declaration Macro has no candidate rule
+584	Macro		186886	187368	990	1	2159	unsupported	declaration Macro has no candidate rule
+585	Macro		187369	187695	992	1	2163	unsupported	declaration Macro has no candidate rule
+586	Macro		187696	188271	994	1	2167	unsupported	declaration Macro has no candidate rule
+587	Macro		188272	188873	996	1	2171	unsupported	declaration Macro has no candidate rule
+588	Macro		188874	189256	998	1	2175	unsupported	declaration Macro has no candidate rule
+589	Macro		189257	189587	1000	1	2179	unsupported	declaration Macro has no candidate rule
+590	Macro		189588	189693	1002	1	2183	unsupported	declaration Macro has no candidate rule
+591	Macro		189694	189804	1003	1	2186	unsupported	declaration Macro has no candidate rule
+592	Macro		189805	189920	1004	1	2189	unsupported	declaration Macro has no candidate rule
+593	Macro		189921	190103	1005	1	2192	unsupported	declaration Macro has no candidate rule
+594	Macro		190104	190303	1007	1	2196	unsupported	declaration Macro has no candidate rule
+595	Macro		190304	190544	1008	1	2199	unsupported	declaration Macro has no candidate rule
+596	Macro		190545	191014	1009	1	2202	unsupported	declaration Macro has no candidate rule
+597	Macro		191015	191484	1011	1	2206	unsupported	declaration Macro has no candidate rule
+598	Macro		191485	191803	1013	1	2210	unsupported	declaration Macro has no candidate rule
+599	Macro		191804	192341	1015	1	2214	unsupported	declaration Macro has no candidate rule
+600	Macro		192342	192956	1016	1	2217	unsupported	declaration Macro has no candidate rule
+601	Macro		192957	193607	1017	1	2220	unsupported	declaration Macro has no candidate rule
+602	Macro		193608	193808	1018	1	2223	unsupported	declaration Macro has no candidate rule
+603	Macro		193809	194267	1019	1	2226	unsupported	declaration Macro has no candidate rule
+604	Macro		194268	194909	1021	1	2230	unsupported	declaration Macro has no candidate rule
+605	Macro		194910	195627	1023	1	2234	unsupported	declaration Macro has no candidate rule
+606	Macro		195628	195786	1025	1	2238	unsupported	declaration Macro has no candidate rule
+607	Macro		195787	196024	1027	1	2242	unsupported	declaration Macro has no candidate rule
+608	Macro		196025	196188	1029	1	2246	unsupported	declaration Macro has no candidate rule
+609	Macro		196189	196429	1031	1	2250	unsupported	declaration Macro has no candidate rule
+610	Macro		196430	196625	1033	1	2254	unsupported	declaration Macro has no candidate rule
+611	Macro		196626	197165	1035	1	2258	unsupported	declaration Macro has no candidate rule
+612	Macro		197166	197743	1037	1	2262	unsupported	declaration Macro has no candidate rule
+613	Macro		197744	197960	1039	1	2266	unsupported	declaration Macro has no candidate rule
+614	Macro		197961	198238	1041	1	2270	unsupported	declaration Macro has no candidate rule
+615	Macro		198239	198433	1043	1	2274	unsupported	declaration Macro has no candidate rule
+616	Macro		198434	199155	1044	1	2277	unsupported	declaration Macro has no candidate rule
+617	Macro		199156	200138	1046	1	2281	unsupported	declaration Macro has no candidate rule
+618	Macro		200139	201131	1048	1	2285	unsupported	declaration Macro has no candidate rule
+619	Macro		201132	202195	1050	1	2289	unsupported	declaration Macro has no candidate rule
+620	Macro		202196	202625	1052	1	2293	unsupported	declaration Macro has no candidate rule
+621	Macro		202626	203073	1054	1	2297	unsupported	declaration Macro has no candidate rule
+622	Macro		203074	203384	1056	1	2301	unsupported	declaration Macro has no candidate rule
+623	Macro		203385	203851	1057	1	2304	unsupported	declaration Macro has no candidate rule
+624	Macro		203852	204229	1059	1	2308	unsupported	declaration Macro has no candidate rule
+625	Macro		204230	204493	1061	1	2312	unsupported	declaration Macro has no candidate rule
+626	Macro		204494	204849	1062	1	2315	unsupported	declaration Macro has no candidate rule
+627	Macro		204850	205314	1064	1	2319	unsupported	declaration Macro has no candidate rule
+628	Macro		205315	205965	1066	1	2323	unsupported	declaration Macro has no candidate rule
+629	Macro		205966	206217	1068	1	2327	unsupported	declaration Macro has no candidate rule
+630	Macro		206218	206482	1070	1	2331	unsupported	declaration Macro has no candidate rule
+631	Macro		206483	206934	1071	1	2334	unsupported	declaration Macro has no candidate rule
+632	Macro		206935	207438	1072	1	2337	unsupported	declaration Macro has no candidate rule
+633	Macro		207439	207979	1074	1	2341	unsupported	declaration Macro has no candidate rule
+634	Macro		207980	208274	1076	1	2345	unsupported	declaration Macro has no candidate rule
+635	Macro		208275	208645	1078	1	2349	unsupported	declaration Macro has no candidate rule
+636	Macro		208646	209008	1080	1	2353	unsupported	declaration Macro has no candidate rule
+637	Macro		209009	209276	1082	1	2357	unsupported	declaration Macro has no candidate rule
+638	Macro		209277	209886	1083	1	2360	unsupported	declaration Macro has no candidate rule
+639	Macro		209887	210077	1085	1	2364	unsupported	declaration Macro has no candidate rule
+640	Macro		210078	210634	1086	1	2367	unsupported	declaration Macro has no candidate rule
+641	Macro		210635	211208	1088	1	2371	unsupported	declaration Macro has no candidate rule
+642	Macro		211209	211562	1090	1	2375	unsupported	declaration Macro has no candidate rule
+643	Macro		211563	212329	1092	1	2379	unsupported	declaration Macro has no candidate rule
+644	Macro		212330	212601	1094	1	2383	unsupported	declaration Macro has no candidate rule
+645	Macro		212602	212899	1095	1	2386	unsupported	declaration Macro has no candidate rule
+646	Macro		212900	213188	1096	1	2389	unsupported	declaration Macro has no candidate rule
+647	Macro		213189	213503	1097	1	2392	unsupported	declaration Macro has no candidate rule
+648	Macro		213504	213817	1098	1	2395	unsupported	declaration Macro has no candidate rule
+649	Macro		213818	214276	1100	1	2399	unsupported	declaration Macro has no candidate rule
+650	Macro		214277	214757	1102	1	2403	unsupported	declaration Macro has no candidate rule
+651	Macro		214758	215445	1104	1	2407	unsupported	declaration Macro has no candidate rule
+652	Macro		215446	216107	1106	1	2411	unsupported	declaration Macro has no candidate rule
+653	Macro		216108	216434	1108	1	2415	unsupported	declaration Macro has no candidate rule
+654	Macro		216435	216894	1109	1	2418	unsupported	declaration Macro has no candidate rule
+655	Macro		216895	217213	1111	1	2422	unsupported	declaration Macro has no candidate rule
+656	Macro		217214	217620	1113	1	2426	unsupported	declaration Macro has no candidate rule
+657	Macro		217621	218004	1115	1	2430	unsupported	declaration Macro has no candidate rule
+658	Macro		218005	218547	1117	1	2434	unsupported	declaration Macro has no candidate rule
+659	Macro		218548	218909	1119	1	2438	unsupported	declaration Macro has no candidate rule
+660	Macro		218910	219289	1121	1	2442	unsupported	declaration Macro has no candidate rule
+661	Macro		219290	219691	1122	1	2445	unsupported	declaration Macro has no candidate rule
+662	Macro		219692	220028	1124	1	2449	unsupported	declaration Macro has no candidate rule
+663	Macro		220029	220227	1126	1	2453	unsupported	declaration Macro has no candidate rule
+664	Macro		220228	220609	1127	1	2456	unsupported	declaration Macro has no candidate rule
+665	Macro		220610	220998	1129	1	2460	unsupported	declaration Macro has no candidate rule
+666	Macro		220999	221349	1130	1	2463	unsupported	declaration Macro has no candidate rule
+667	Macro		221350	221670	1132	1	2467	unsupported	declaration Macro has no candidate rule
+668	Macro		221671	222072	1134	1	2471	unsupported	declaration Macro has no candidate rule
+669	Macro		222073	222418	1136	1	2475	unsupported	declaration Macro has no candidate rule
+670	Struct	ACE_HEADER	222419	222552	1138	1	2479	unsupported	declaration Struct has no candidate rule
+671	ItemType	ALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK	222553	223084	1145	1	2488	unsupported	attribute cfg requires explicit semantics/configuration
+672	Struct	ATOMIC_CREATE_ECP_CONTEXT	223085	223739	1147	1	2492	unsupported	declaration Struct has no candidate rule
+673	Impl		223740	223858	1170	1	2517	unsupported	declaration Impl has no candidate rule
+674	Const	ATOMIC_CREATE_ECP_IN_FLAG_BEST_EFFORT	223859	223921	1175	1	2524	generated	
+675	Const	ATOMIC_CREATE_ECP_IN_FLAG_EOF_SPECIFIED	223922	223984	1176	1	2525	generated	
+676	Const	ATOMIC_CREATE_ECP_IN_FLAG_FILE_ATTRIBUTES_SPECIFIED	223985	224060	1177	1	2526	generated	
+677	Const	ATOMIC_CREATE_ECP_IN_FLAG_GEN_FLAGS_SPECIFIED	224061	224133	1178	1	2527	generated	
+678	Const	ATOMIC_CREATE_ECP_IN_FLAG_MARK_USN_SOURCE_INFO	224134	224206	1179	1	2528	generated	
+679	Const	ATOMIC_CREATE_ECP_IN_FLAG_OPERATION_MASK	224207	224272	1180	1	2529	generated	
+680	Const	ATOMIC_CREATE_ECP_IN_FLAG_OP_FLAGS_SPECIFIED	224273	224342	1181	1	2530	generated	
+681	Const	ATOMIC_CREATE_ECP_IN_FLAG_REPARSE_POINT_SPECIFIED	224343	224415	1182	1	2531	generated	
+682	Const	ATOMIC_CREATE_ECP_IN_FLAG_SPARSE_SPECIFIED	224416	224481	1183	1	2532	generated	
+683	Const	ATOMIC_CREATE_ECP_IN_FLAG_SUPPRESS_DIR_CHANGE_NOTIFY	224482	224560	1184	1	2533	generated	
+684	Const	ATOMIC_CREATE_ECP_IN_FLAG_SUPPRESS_FILE_ATTRIBUTE_INHERITANCE	224561	224646	1185	1	2534	generated	
+685	Const	ATOMIC_CREATE_ECP_IN_FLAG_SUPPRESS_PARENT_TIMESTAMPS_UPDATE	224647	224731	1186	1	2535	generated	
+686	Const	ATOMIC_CREATE_ECP_IN_FLAG_TIMESTAMPS_SPECIFIED	224732	224802	1187	1	2536	generated	
+687	Const	ATOMIC_CREATE_ECP_IN_FLAG_VDL_SPECIFIED	224803	224865	1188	1	2537	generated	
+688	Const	ATOMIC_CREATE_ECP_IN_FLAG_WRITE_USN_CLOSE_RECORD	224866	224940	1189	1	2538	generated	
+689	Const	ATOMIC_CREATE_ECP_IN_OP_FLAG_CASE_SENSITIVE_FLAGS_SPECIFIED	224941	225023	1190	1	2539	generated	
+690	Const	ATOMIC_CREATE_ECP_OUT_FLAG_EOF_SET	225024	225081	1191	1	2540	generated	
+691	Const	ATOMIC_CREATE_ECP_OUT_FLAG_FILE_ATTRIBUTES_RETURNED	225082	225158	1192	1	2541	generated	
+692	Const	ATOMIC_CREATE_ECP_OUT_FLAG_FILE_ATTRIBUTES_SET	225159	225229	1193	1	2542	generated	
+693	Const	ATOMIC_CREATE_ECP_OUT_FLAG_FILE_ATTRIBUTE_INHERITANCE_SUPPRESSED	225230	225318	1194	1	2543	generated	
+694	Const	ATOMIC_CREATE_ECP_OUT_FLAG_OPERATION_MASK	225319	225385	1195	1	2544	generated	
+695	Const	ATOMIC_CREATE_ECP_OUT_FLAG_OP_FLAGS_HONORED	225386	225454	1196	1	2545	generated	
+696	Const	ATOMIC_CREATE_ECP_OUT_FLAG_REPARSE_POINT_SET	225455	225522	1197	1	2546	generated	
+697	Const	ATOMIC_CREATE_ECP_OUT_FLAG_SPARSE_SET	225523	225583	1198	1	2547	generated	
+698	Const	ATOMIC_CREATE_ECP_OUT_FLAG_TIMESTAMPS_RETURNED	225584	225655	1199	1	2548	generated	
+699	Const	ATOMIC_CREATE_ECP_OUT_FLAG_TIMESTAMPS_SET	225656	225721	1200	1	2549	generated	
+700	Const	ATOMIC_CREATE_ECP_OUT_FLAG_USN_CLOSE_RECORD_WRITTEN	225722	225799	1201	1	2550	generated	
+701	Const	ATOMIC_CREATE_ECP_OUT_FLAG_USN_RETURNED	225800	225865	1202	1	2551	generated	
+702	Const	ATOMIC_CREATE_ECP_OUT_FLAG_USN_SOURCE_INFO_MARKED	225866	225941	1203	1	2552	generated	
+703	Const	ATOMIC_CREATE_ECP_OUT_FLAG_VDL_SET	225942	225999	1204	1	2553	generated	
+704	Const	ATOMIC_CREATE_ECP_OUT_OP_FLAG_CASE_SENSITIVE_FLAGS_SET	226000	226077	1205	1	2554	generated	
+705	Const	AuditAccessCheck	226078	226132	1206	1	2555	generated	
+706	Const	AuditCloseNonObject	226133	226190	1207	1	2556	generated	
+707	Const	AuditCloseObject	226191	226245	1208	1	2557	generated	
+708	Const	AuditDeleteObject	226246	226301	1209	1	2558	generated	
+709	Const	AuditHandleCreation	226302	226360	1210	1	2559	generated	
+710	Const	AuditObjectReference	226361	226420	1211	1	2560	generated	
+711	Const	AuditOpenNonObject	226421	226478	1212	1	2561	generated	
+712	Const	AuditOpenObject	226479	226532	1213	1	2562	generated	
+713	Const	AuditOpenObjectForDelete	226533	226595	1214	1	2563	generated	
+714	Const	AuditOpenObjectForDeleteWithTransaction	226596	226673	1215	1	2564	generated	
+715	Const	AuditOpenObjectWithTransaction	226674	226742	1216	1	2565	generated	
+716	Const	AuditPrivilegeObject	226743	226801	1217	1	2566	generated	
+717	Const	AuditPrivilegeService	226802	226861	1218	1	2567	generated	
+718	Struct	BASE_MCB	226862	227058	1219	1	2568	unsupported	declaration Struct has no candidate rule
+719	Impl		227059	227160	1228	1	2579	unsupported	declaration Impl has no candidate rule
+720	Struct	BOOT_AREA_INFO	227161	227298	1233	1	2586	unsupported	declaration Struct has no candidate rule
+721	Impl		227299	227406	1239	1	2594	unsupported	declaration Impl has no candidate rule
+722	Struct	BOOT_AREA_INFO_0	227407	227502	1244	1	2601	unsupported	declaration Struct has no candidate rule
+723	Struct	CACHE_MANAGER_CALLBACKS	227503	227804	1249	1	2608	unsupported	declaration Struct has no candidate rule
+724	Struct	CACHE_MANAGER_CALLBACKS_EX	227805	227983	1257	1	2618	unsupported	declaration Struct has no candidate rule
+725	Const	CACHE_MANAGER_CALLBACKS_EX_V1	227984	228036	1264	1	2627	generated	
+726	Struct	CACHE_MANAGER_CALLBACK_FUNCTIONS	228037	228352	1265	1	2628	unsupported	declaration Struct has no candidate rule
+727	Struct	CACHE_UNINITIALIZE_EVENT	228353	228593	1273	1	2638	unsupported	declaration Struct has no candidate rule
+728	Impl		228594	228784	1280	1	2647	unsupported	declaration Impl has no candidate rule
+729	Const	CACHE_USE_DIRECT_ACCESS_MAPPING	228785	228839	1286	1	2655	generated	
+730	Const	CACHE_VALID_FLAGS	228840	228880	1287	1	2656	generated	
+731	Const	CC_ACQUIRE_DONT_WAIT	228881	228924	1288	1	2657	generated	
+732	Const	CC_ACQUIRE_SUPPORTS_ASYNC_LAZYWRITE	228925	228983	1289	1	2658	generated	
+733	Const	CC_AGGRESSIVE_UNMAP_BEHIND	228984	229033	1290	1	2659	generated	
+734	Struct	CC_ASYNC_READ_CONTEXT	229034	229343	1291	1	2660	unsupported	declaration Struct has no candidate rule
+735	Impl		229344	229493	1301	1	2672	unsupported	declaration Impl has no candidate rule
+736	Const	CC_DISABLE_DIRTY_PAGE_TRACKING	229494	229547	1307	1	2680	generated	
+737	Const	CC_DISABLE_READ_AHEAD	229548	229592	1308	1	2681	generated	
+738	Const	CC_DISABLE_UNMAP_BEHIND	229593	229640	1309	1	2682	generated	
+739	Const	CC_DISABLE_WRITE_BEHIND	229641	229687	1310	1	2683	generated	
+740	Const	CC_ENABLE_CPU_CACHE	229688	229738	1311	1	2684	generated	
+741	Const	CC_ENABLE_DISK_IO_ACCOUNTING	229739	229791	1312	1	2685	generated	
+742	Struct	CC_ERROR_CALLBACK_CONTEXT	229792	229971	1313	1	2686	unsupported	declaration Struct has no candidate rule
+743	Struct	CC_FILE_SIZES	229972	230125	1319	1	2694	unsupported	declaration Struct has no candidate rule
+744	Const	CC_FLUSH_AND_PURGE_GATHER_DIRTY_BITS	230126	230185	1326	1	2703	generated	
+745	Const	CC_FLUSH_AND_PURGE_NO_PURGE	230186	230236	1327	1	2704	generated	
+746	Const	CC_FLUSH_AND_PURGE_WRITEABLE_VIEWS_NOTSEEN	230237	230302	1328	1	2705	generated	
+747	Struct	COMPRESSED_DATA_INFO	230303	230588	1329	1	2706	unsupported	declaration Struct has no candidate rule
+748	Impl		230589	230702	1340	1	2719	unsupported	declaration Impl has no candidate rule
+749	Const	COMPRESSION_ENGINE_MASK	230703	230753	1345	1	2726	generated	
+750	Const	COMPRESSION_ENGINE_MAX	230754	230801	1346	1	2727	generated	
+751	Const	COMPRESSION_FORMAT_MASK	230802	230850	1347	1	2728	generated	
+752	Const	COMPRESSION_FORMAT_MAX	230851	230896	1348	1	2729	generated	
+753	Struct	CONTAINER_ROOT_INFO_INPUT	230897	231000	1349	1	2730	unsupported	declaration Struct has no candidate rule
+754	Struct	CONTAINER_ROOT_INFO_OUTPUT	231001	231146	1354	1	2737	unsupported	declaration Struct has no candidate rule
+755	Impl		231147	231266	1360	1	2745	unsupported	declaration Impl has no candidate rule
+756	Struct	CONTAINER_VOLUME_STATE	231267	231367	1365	1	2752	unsupported	declaration Struct has no candidate rule
+757	Struct	COPY_INFORMATION	231368	231735	1370	1	2759	unsupported	declaration Struct has no candidate rule
+758	Impl		231736	232046	1377	1	2768	unsupported	declaration Impl has no candidate rule
+759	Struct	CPTABLEINFO	232047	232482	1383	1	2776	unsupported	declaration Struct has no candidate rule
+760	Impl		232483	232587	1399	1	2794	unsupported	declaration Impl has no candidate rule
+761	Struct	CREATE_REDIRECTION_ECP_CONTEXT	232588	232883	1404	1	2801	unsupported	declaration Struct has no candidate rule
+762	Const	CREATE_REDIRECTION_FLAGS_SERVICED_FROM_LAYER	232884	232951	1413	1	2812	generated	
+763	Const	CREATE_REDIRECTION_FLAGS_SERVICED_FROM_REGISTERED_LAYER	232952	233030	1414	1	2813	generated	
+764	Const	CREATE_REDIRECTION_FLAGS_SERVICED_FROM_REMOTE_LAYER	233031	233105	1415	1	2814	generated	
+765	Const	CREATE_REDIRECTION_FLAGS_SERVICED_FROM_SCRATCH	233106	233175	1416	1	2815	generated	
+766	Const	CREATE_REDIRECTION_FLAGS_SERVICED_FROM_USER_MODE	233176	233248	1417	1	2816	generated	
+767	Struct	CREATE_USN_JOURNAL_DATA	233249	233386	1418	1	2817	unsupported	declaration Struct has no candidate rule
+768	ItemType	CSV_DOWN_LEVEL_FILE_TYPE	233387	233427	1424	1	2825	generated	
+769	Struct	CSV_DOWN_LEVEL_OPEN_ECP_CONTEXT	233428	233666	1425	1	2826	unsupported	declaration Struct has no candidate rule
+770	Struct	CSV_QUERY_FILE_REVISION_ECP_CONTEXT	233667	233804	1434	1	2837	unsupported	declaration Struct has no candidate rule
+771	Impl		233805	233933	1440	1	2845	unsupported	declaration Impl has no candidate rule
+772	Struct	CSV_QUERY_FILE_REVISION_ECP_CONTEXT_FILE_ID_128	233934	234185	1445	1	2852	unsupported	declaration Struct has no candidate rule
+773	Impl		234186	234371	1452	1	2861	unsupported	declaration Impl has no candidate rule
+774	Struct	CSV_SET_HANDLE_PROPERTIES_ECP_CONTEXT	234372	234544	1458	1	2869	unsupported	declaration Struct has no candidate rule
+775	Const	CSV_SET_HANDLE_PROPERTIES_ECP_CONTEXT_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR	234545	234641	1465	1	2878	generated	
+776	Const	ChangeDataControlArea	234642	234708	1466	1	2879	generated	
+777	Const	ChangeImageControlArea	234709	234776	1467	1	2880	generated	
+778	Const	ChangeSharedCacheMap	234777	234842	1468	1	2881	generated	
+779	Const	CsvCsvFsInternalFileObject	234843	234913	1469	1	2882	generated	
+780	Const	CsvDownLevelFileObject	234914	234980	1470	1	2883	generated	
+781	Const	DD_MUP_DEVICE_NAME	234981	235078	1471	1	2884	unsupported	non-scalar type Ptr unsupported
+782	Const	DEVICE_RESET_KEEP_STACK	235079	235125	1472	1	2887	generated	
+783	Const	DEVICE_RESET_RESERVED_0	235126	235172	1473	1	2888	generated	
+784	Const	DEVICE_RESET_RESERVED_1	235173	235219	1474	1	2889	generated	
+785	Const	DO_BOOT_CRITICAL	235220	235267	1475	1	2890	generated	
+786	Const	DO_BUFFERED_IO	235268	235305	1476	1	2891	generated	
+787	Const	DO_BUS_ENUMERATED_DEVICE	235306	235356	1477	1	2892	generated	
+788	Const	DO_DAX_VOLUME	235357	235401	1478	1	2893	generated	
+789	Const	DO_DEVICE_HAS_NAME	235402	235444	1479	1	2894	generated	
+790	Const	DO_DEVICE_INITIALIZING	235445	235492	1480	1	2895	generated	
+791	Const	DO_DEVICE_IRP_REQUIRES_EXTENSION	235493	235556	1481	1	2896	generated	
+792	Const	DO_DEVICE_TO_BE_RESET	235557	235608	1482	1	2897	generated	
+793	Const	DO_DIRECT_IO	235609	235645	1483	1	2898	generated	
+794	Const	DO_DISALLOW_EXECUTE	235646	235694	1484	1	2899	generated	
+795	Const	DO_EXCLUSIVE	235695	235730	1485	1	2900	generated	
+796	Const	DO_FORCE_NEITHER_IO	235731	235778	1486	1	2901	generated	
+797	Const	DO_LONG_TERM_REQUESTS	235779	235825	1487	1	2902	generated	
+798	Const	DO_LOW_PRIORITY_FILESYSTEM	235826	235879	1488	1	2903	generated	
+799	Const	DO_MAP_IO_BUFFER	235880	235920	1489	1	2904	generated	
+800	Const	DO_NEVER_LAST_DEVICE	235921	235967	1490	1	2905	generated	
+801	Const	DO_NOT_PURGE_DIRTY_PAGES	235968	236015	1491	1	2906	generated	
+802	Const	DO_NOT_RETRY_PURGE	236016	236057	1492	1	2907	generated	
+803	Const	DO_POWER_INRUSH	236058	236100	1493	1	2908	generated	
+804	Const	DO_POWER_PAGABLE	236101	236143	1494	1	2909	generated	
+805	Const	DO_SHUTDOWN_REGISTERED	236144	236192	1495	1	2910	generated	
+806	Const	DO_SUPPORTS_PERSISTENT_ACLS	236193	236248	1496	1	2911	generated	
+807	Const	DO_SUPPORTS_TRANSACTIONS	236249	236301	1497	1	2912	generated	
+808	Const	DO_SYSTEM_BOOT_PARTITION	236302	236351	1498	1	2913	generated	
+809	Const	DO_SYSTEM_CRITICAL_PARTITION	236352	236409	1499	1	2914	generated	
+810	Const	DO_SYSTEM_SYSTEM_PARTITION	236410	236465	1500	1	2915	generated	
+811	Const	DO_VERIFY_VOLUME	236466	236505	1501	1	2916	generated	
+812	Const	DO_VOLUME_DEVICE_OBJECT	236506	236558	1502	1	2917	generated	
+813	Struct	DUAL_OPLOCK_KEY_ECP_CONTEXT	236559	236812	1503	1	2918	unsupported	declaration Struct has no candidate rule
+814	Struct	DUPLICATE_CLUSTER_DATA	236813	237002	1511	1	2928	unsupported	declaration Struct has no candidate rule
+815	Const	DfsLinkTrackingInformation	237003	237079	1519	1	2938	generated	
+816	Const	EA_NAME_NETWORK_OPEN_ECP_INTEGRITY	237080	237232	1520	1	2939	unsupported	non-scalar type Ptr unsupported
+817	Const	EA_NAME_NETWORK_OPEN_ECP_INTEGRITY_U	237233	237388	1521	1	2942	unsupported	non-scalar type Ptr unsupported
+818	Const	EA_NAME_NETWORK_OPEN_ECP_PRIVACY	237389	237537	1522	1	2945	unsupported	non-scalar type Ptr unsupported
+819	Const	EA_NAME_NETWORK_OPEN_ECP_PRIVACY_U	237538	237689	1523	1	2948	unsupported	non-scalar type Ptr unsupported
+820	Struct	ECP_OPEN_PARAMETERS	237690	237829	1524	1	2951	unsupported	declaration Struct has no candidate rule
+821	Const	ECP_OPEN_PARAMETERS_FLAG_FAIL_ON_CASE_SENSITIVE_DIR	237830	237905	1531	1	2960	generated	
+822	Const	ECP_OPEN_PARAMETERS_FLAG_IGNORE_DIR_CASE_SENSITIVITY	237906	237981	1532	1	2961	generated	
+823	Const	ECP_OPEN_PARAMETERS_FLAG_OPEN_FOR_DELETE	237982	238045	1533	1	2962	generated	
+824	Const	ECP_OPEN_PARAMETERS_FLAG_OPEN_FOR_READ	238046	238107	1534	1	2963	generated	
+825	Const	ECP_OPEN_PARAMETERS_FLAG_OPEN_FOR_WRITE	238108	238170	1535	1	2964	generated	
+826	Const	ECP_TYPE_CLFS_CREATE_CONTAINER	238171	238314	1536	1	2965	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+827	Const	ECP_TYPE_IO_STOP_ON_SYMLINK_FILTER_GUID	238315	238467	1537	1	2968	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+828	Const	ECP_TYPE_OPEN_REPARSE_GUID	238468	238607	1538	1	2971	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+829	Struct	EOF_WAIT_BLOCK	238608	238871	1539	1	2974	unsupported	declaration Struct has no candidate rule
+830	Impl		238872	239052	1546	1	2983	unsupported	declaration Impl has no candidate rule
+831	Const	EVENT_INCREMENT	239053	239091	1552	1	2991	generated	
+832	Struct	EXTENT_READ_CACHE_INFO_BUFFER	239092	239264	1553	1	2992	unsupported	declaration Struct has no candidate rule
+833	Const	EqualTo	239265	239315	1560	1	3001	generated	
+834	ItemType	FAST_IO_POSSIBLE	239316	239348	1561	1	3002	generated	
+835	Struct	FILE_ACCESS_INFORMATION	239349	239456	1562	1	3003	unsupported	declaration Struct has no candidate rule
+836	Const	FILE_ACTION_ADDED_STREAM	239457	239504	1567	1	3010	generated	
+837	Const	FILE_ACTION_ID_NOT_TUNNELLED	239505	239557	1568	1	3011	generated	
+838	Const	FILE_ACTION_MODIFIED_STREAM	239558	239608	1569	1	3012	generated	
+839	Const	FILE_ACTION_REMOVED_BY_DELETE	239609	239661	1570	1	3013	generated	
+840	Const	FILE_ACTION_REMOVED_STREAM	239662	239711	1571	1	3014	generated	
+841	Const	FILE_ACTION_TUNNELLED_ID_COLLISION	239712	239770	1572	1	3015	generated	
+842	Struct	FILE_ALIGNMENT_INFORMATION	239771	239890	1573	1	3016	unsupported	declaration Struct has no candidate rule
+843	Struct	FILE_ALLOCATION_INFORMATION	239891	240005	1578	1	3023	unsupported	declaration Struct has no candidate rule
+844	Struct	FILE_ALL_INFORMATION	240006	240552	1583	1	3030	unsupported	declaration Struct has no candidate rule
+845	Struct	FILE_BASIC_INFORMATION	240553	240771	1596	1	3045	unsupported	declaration Struct has no candidate rule
+846	Struct	FILE_BOTH_DIR_INFORMATION	240772	241228	1605	1	3056	unsupported	declaration Struct has no candidate rule
+847	Impl		241229	241347	1623	1	3076	unsupported	declaration Impl has no candidate rule
+848	Struct	FILE_CASE_SENSITIVE_INFORMATION	241348	241457	1628	1	3083	unsupported	declaration Struct has no candidate rule
+849	Const	FILE_CLEANUP_FILE_DELETED	241458	241506	1633	1	3090	generated	
+850	Const	FILE_CLEANUP_FILE_REMAINS	241507	241555	1634	1	3091	generated	
+851	Const	FILE_CLEANUP_LINK_DELETED	241556	241604	1635	1	3092	generated	
+852	Const	FILE_CLEANUP_POSIX_STYLE_DELETE	241605	241660	1636	1	3093	generated	
+853	Const	FILE_CLEANUP_STREAM_DELETED	241661	241712	1637	1	3094	generated	
+854	Const	FILE_CLEANUP_UNKNOWN	241713	241756	1638	1	3095	generated	
+855	Const	FILE_CLEANUP_WRONG_DEVICE	241757	241805	1639	1	3096	generated	
+856	Const	FILE_COMPLETE_IF_OPLOCKED	241806	241880	1640	1	3097	generated	
+857	Struct	FILE_COMPLETION_INFORMATION	241881	242056	1641	1	3098	unsupported	declaration Struct has no candidate rule
+858	Impl		242057	242177	1647	1	3106	unsupported	declaration Impl has no candidate rule
+859	Struct	FILE_COMPRESSION_INFORMATION	242178	242431	1652	1	3113	unsupported	declaration Struct has no candidate rule
+860	Impl		242432	242553	1662	1	3125	unsupported	declaration Impl has no candidate rule
+861	Const	FILE_CONTAINS_EXTENDED_CREATE_INFORMATION	242554	242650	1667	1	3132	generated	
+862	Const	FILE_CREATE	242651	242713	1668	1	3133	generated	
+863	Const	FILE_CREATE_TREE_CONNECTION	242714	242790	1669	1	3134	generated	
+864	Const	FILE_DELETE_ON_CLOSE	242791	242861	1670	1	3135	generated	
+865	Const	FILE_DIRECTORY_FILE	242862	242928	1671	1	3136	generated	
+866	Struct	FILE_DIRECTORY_INFORMATION	242929	243306	1672	1	3137	unsupported	declaration Struct has no candidate rule
+867	Impl		243307	243426	1687	1	3154	unsupported	declaration Impl has no candidate rule
+868	Const	FILE_DISALLOW_EXCLUSIVE	243427	243502	1692	1	3161	generated	
+869	Const	FILE_DISPOSITION_DELETE	243503	243583	1693	1	3162	generated	
+870	Const	FILE_DISPOSITION_DO_NOT_DELETE	243584	243671	1694	1	3163	generated	
+871	Const	FILE_DISPOSITION_FORCE_IMAGE_SECTION_CHECK	243672	243771	1695	1	3164	generated	
+872	Const	FILE_DISPOSITION_IGNORE_READONLY_ATTRIBUTE	243772	243872	1696	1	3165	generated	
+873	Struct	FILE_DISPOSITION_INFORMATION	243873	243985	1697	1	3166	unsupported	declaration Struct has no candidate rule
+874	Struct	FILE_DISPOSITION_INFORMATION_EX	243986	244129	1702	1	3173	unsupported	declaration Struct has no candidate rule
+875	ItemType	FILE_DISPOSITION_INFORMATION_EX_FLAGS	244130	244183	1707	1	3180	generated	
+876	Const	FILE_DISPOSITION_ON_CLOSE	244184	244266	1708	1	3181	generated	
+877	Const	FILE_DISPOSITION_POSIX_SEMANTICS	244267	244356	1709	1	3182	generated	
+878	Struct	FILE_EA_INFORMATION	244357	244455	1710	1	3183	unsupported	declaration Struct has no candidate rule
+879	Const	FILE_EA_TYPE_ASCII	244456	244501	1715	1	3190	generated	
+880	Const	FILE_EA_TYPE_ASN1	244502	244546	1716	1	3191	generated	
+881	Const	FILE_EA_TYPE_BINARY	244547	244593	1717	1	3192	generated	
+882	Const	FILE_EA_TYPE_BITMAP	244594	244640	1718	1	3193	generated	
+883	Const	FILE_EA_TYPE_EA	244641	244683	1719	1	3194	generated	
+884	Const	FILE_EA_TYPE_FAMILY_IDS	244684	244734	1720	1	3195	generated	
+885	Const	FILE_EA_TYPE_ICON	244735	244779	1721	1	3196	generated	
+886	Const	FILE_EA_TYPE_METAFILE	244780	244828	1722	1	3197	generated	
+887	Const	FILE_EA_TYPE_MVMT	244829	244873	1723	1	3198	generated	
+888	Const	FILE_EA_TYPE_MVST	244874	244918	1724	1	3199	generated	
+889	Struct	FILE_END_OF_FILE_INFORMATION_EX	244919	245117	1725	1	3200	unsupported	declaration Struct has no candidate rule
+890	Struct	FILE_FS_ATTRIBUTE_INFORMATION	245118	245341	1733	1	3210	unsupported	declaration Struct has no candidate rule
+891	Impl		245342	245464	1741	1	3220	unsupported	declaration Impl has no candidate rule
+892	Struct	FILE_FS_CONTROL_INFORMATION	245465	245763	1746	1	3227	unsupported	declaration Struct has no candidate rule
+893	Struct	FILE_FS_DATA_COPY_INFORMATION	245764	245880	1756	1	3239	unsupported	declaration Struct has no candidate rule
+894	Struct	FILE_FS_DRIVER_PATH_INFORMATION	245881	246050	1761	1	3246	unsupported	declaration Struct has no candidate rule
+895	Impl		246051	246175	1768	1	3255	unsupported	declaration Impl has no candidate rule
+896	Struct	FILE_FS_SECTOR_SIZE_INFORMATION	246176	246578	1773	1	3262	unsupported	declaration Struct has no candidate rule
+897	Struct	FILE_FS_VOLUME_FLAGS_INFORMATION	246579	246689	1784	1	3275	unsupported	declaration Struct has no candidate rule
+898	Struct	FILE_FULL_DIR_INFORMATION	246690	247087	1789	1	3282	unsupported	declaration Struct has no candidate rule
+899	Impl		247088	247206	1805	1	3300	unsupported	declaration Impl has no candidate rule
+900	Struct	FILE_FULL_EA_INFORMATION	247207	247408	1810	1	3307	unsupported	declaration Struct has no candidate rule
+901	Impl		247409	247526	1819	1	3318	unsupported	declaration Impl has no candidate rule
+902	Struct	FILE_GET_EA_INFORMATION	247527	247680	1824	1	3325	unsupported	declaration Struct has no candidate rule
+903	Impl		247681	247797	1831	1	3334	unsupported	declaration Impl has no candidate rule
+904	Struct	FILE_GET_QUOTA_INFORMATION	247798	248027	1836	1	3341	unsupported	declaration Struct has no candidate rule
+905	Struct	FILE_ID_BOTH_DIR_INFORMATION	248028	248508	1844	1	3351	unsupported	declaration Struct has no candidate rule
+906	Impl		248509	248630	1863	1	3372	unsupported	declaration Impl has no candidate rule
+907	Struct	FILE_ID_EXTD_BOTH_DIR_INFORMATION	248631	249248	1868	1	3379	unsupported	declaration Struct has no candidate rule
+908	Impl		249249	249420	1889	1	3402	unsupported	declaration Impl has no candidate rule
+909	Struct	FILE_ID_EXTD_DIR_INFORMATION	249421	249974	1895	1	3410	unsupported	declaration Struct has no candidate rule
+910	Impl		249975	250141	1914	1	3431	unsupported	declaration Impl has no candidate rule
+911	Struct	FILE_ID_FULL_DIR_INFORMATION	250142	250563	1920	1	3439	unsupported	declaration Struct has no candidate rule
+912	Impl		250564	250685	1937	1	3458	unsupported	declaration Impl has no candidate rule
+913	Struct	FILE_ID_GLOBAL_TX_DIR_INFORMATION	250686	251172	1942	1	3465	unsupported	declaration Struct has no candidate rule
+914	Impl		251173	251299	1960	1	3485	unsupported	declaration Impl has no candidate rule
+915	Const	FILE_ID_GLOBAL_TX_DIR_INFO_FLAG_VISIBLE_OUTSIDE_TX	251300	251373	1965	1	3492	generated	
+916	Const	FILE_ID_GLOBAL_TX_DIR_INFO_FLAG_VISIBLE_TO_TX	251374	251442	1966	1	3493	generated	
+917	Const	FILE_ID_GLOBAL_TX_DIR_INFO_FLAG_WRITELOCKED	251443	251509	1967	1	3494	generated	
+918	Struct	FILE_ID_INFORMATION	251510	251743	1968	1	3495	unsupported	declaration Struct has no candidate rule
+919	ItemType	FILE_INFORMATION_CLASS	251744	251782	1975	1	3504	generated	
+920	Struct	FILE_INFORMATION_DEFINITION	251783	252001	1976	1	3505	unsupported	declaration Struct has no candidate rule
+921	Struct	FILE_INTERNAL_INFORMATION	252002	252111	1984	1	3515	unsupported	declaration Struct has no candidate rule
+922	Struct	FILE_KNOWN_FOLDER_INFORMATION	252112	252237	1989	1	3522	unsupported	declaration Struct has no candidate rule
+923	ItemType	FILE_KNOWN_FOLDER_TYPE	252238	252276	1994	1	3529	generated	
+924	Struct	FILE_LINKS_FULL_ID_INFORMATION	252277	252518	1995	1	3530	unsupported	declaration Struct has no candidate rule
+925	Struct	FILE_LINKS_INFORMATION	252519	252699	2003	1	3540	unsupported	declaration Struct has no candidate rule
+926	Struct	FILE_LINK_ENTRY_FULL_ID_INFORMATION	252700	253000	2010	1	3549	unsupported	declaration Struct has no candidate rule
+927	Impl		253001	253174	2019	1	3560	unsupported	declaration Impl has no candidate rule
+928	Struct	FILE_LINK_ENTRY_INFORMATION	253175	253365	2025	1	3568	unsupported	declaration Struct has no candidate rule
+929	Impl		253366	253486	2033	1	3578	unsupported	declaration Impl has no candidate rule
+930	Const	FILE_LINK_FORCE_RESIZE_SOURCE_SR	253487	253544	2038	1	3585	generated	
+931	Const	FILE_LINK_FORCE_RESIZE_SR	253545	253595	2039	1	3586	generated	
+932	Const	FILE_LINK_FORCE_RESIZE_TARGET_SR	253596	253653	2040	1	3587	generated	
+933	Const	FILE_LINK_IGNORE_READONLY_ATTRIBUTE	253654	253713	2041	1	3588	generated	
+934	Struct	FILE_LINK_INFORMATION	253714	253956	2042	1	3589	unsupported	declaration Struct has no candidate rule
+935	Impl		253957	254071	2050	1	3599	unsupported	declaration Impl has no candidate rule
+936	Union		254072	254194	2055	1	3606	unsupported	declaration Union has no candidate rule
+937	Impl		254195	254311	2061	1	3614	unsupported	declaration Impl has no candidate rule
+938	Const	FILE_LINK_NO_DECREASE_AVAILABLE_SPACE	254312	254373	2066	1	3621	generated	
+939	Const	FILE_LINK_NO_INCREASE_AVAILABLE_SPACE	254374	254435	2067	1	3622	generated	
+940	Const	FILE_LINK_POSIX_SEMANTICS	254436	254484	2068	1	3623	generated	
+941	Const	FILE_LINK_PRESERVE_AVAILABLE_SPACE	254485	254543	2069	1	3624	generated	
+942	Const	FILE_LINK_REPLACE_IF_EXISTS	254544	254594	2070	1	3625	generated	
+943	Const	FILE_LINK_SUPPRESS_STORAGE_RESERVE_INHERITANCE	254595	254664	2071	1	3626	generated	
+944	Struct	FILE_LOCK	254665	255269	2072	1	3627	unsupported	declaration Struct has no candidate rule
+945	Impl		255270	255573	2085	1	3642	unsupported	declaration Impl has no candidate rule
+946	Struct	FILE_LOCK_INFO	255574	256065	2091	1	3650	unsupported	declaration Struct has no candidate rule
+947	Impl		256066	256374	2103	1	3664	unsupported	declaration Impl has no candidate rule
+948	Struct	FILE_MAILSLOT_QUERY_INFORMATION	256375	256613	2109	1	3672	unsupported	declaration Struct has no candidate rule
+949	Struct	FILE_MAILSLOT_SET_INFORMATION	256614	256723	2118	1	3683	unsupported	declaration Struct has no candidate rule
+950	Impl		256724	256846	2123	1	3690	unsupported	declaration Impl has no candidate rule
+951	Struct	FILE_MODE_INFORMATION	256847	256945	2128	1	3697	unsupported	declaration Struct has no candidate rule
+952	Struct	FILE_MOVE_CLUSTER_INFORMATION	256946	257179	2133	1	3704	unsupported	declaration Struct has no candidate rule
+953	Impl		257180	257302	2141	1	3714	unsupported	declaration Impl has no candidate rule
+954	Struct	FILE_NAMES_INFORMATION	257303	257485	2146	1	3721	unsupported	declaration Struct has no candidate rule
+955	Impl		257486	257601	2154	1	3731	unsupported	declaration Impl has no candidate rule
+956	Struct	FILE_NAME_INFORMATION	257602	257729	2159	1	3738	unsupported	declaration Struct has no candidate rule
+957	Impl		257730	257844	2165	1	3746	unsupported	declaration Impl has no candidate rule
+958	Const	FILE_NEED_EA	257845	257882	2170	1	3753	generated	
+959	Struct	FILE_NETWORK_OPEN_INFORMATION	257883	258161	2171	1	3754	unsupported	declaration Struct has no candidate rule
+960	Struct	FILE_NETWORK_PHYSICAL_NAME_INFORMATION	258162	258306	2182	1	3767	unsupported	declaration Struct has no candidate rule
+961	Impl		258307	258438	2188	1	3775	unsupported	declaration Impl has no candidate rule
+962	Const	FILE_NON_DIRECTORY_FILE	258439	258510	2193	1	3782	generated	
+963	Const	FILE_NOTIFY_CHANGE_EA	258511	258557	2194	1	3783	generated	
+964	Const	FILE_NOTIFY_CHANGE_NAME	258558	258604	2195	1	3784	generated	
+965	Const	FILE_NOTIFY_CHANGE_STREAM_NAME	258605	258660	2196	1	3785	generated	
+966	Const	FILE_NOTIFY_CHANGE_STREAM_SIZE	258661	258717	2197	1	3786	generated	
+967	Const	FILE_NOTIFY_CHANGE_STREAM_WRITE	258718	258775	2198	1	3787	generated	
+968	Const	FILE_NOTIFY_VALID_MASK	258776	258824	2199	1	3788	generated	
+969	Const	FILE_NO_COMPRESSION	258825	258895	2200	1	3789	generated	
+970	Const	FILE_NO_EA_KNOWLEDGE	258896	258965	2201	1	3790	generated	
+971	Const	FILE_NO_INTERMEDIATE_BUFFERING	258966	259043	2202	1	3791	generated	
+972	Struct	FILE_OBJECTID_INFORMATION	259044	259222	2203	1	3792	unsupported	declaration Struct has no candidate rule
+973	Impl		259223	259341	2210	1	3801	unsupported	declaration Impl has no candidate rule
+974	Union		259342	259499	2215	1	3808	unsupported	declaration Union has no candidate rule
+975	Impl		259500	259620	2221	1	3816	unsupported	declaration Impl has no candidate rule
+976	Struct	FILE_OBJECTID_INFORMATION_0_0	259621	259793	2226	1	3823	unsupported	declaration Struct has no candidate rule
+977	Impl		259794	259916	2233	1	3832	unsupported	declaration Impl has no candidate rule
+978	Const	FILE_OPBATCH_BREAK_UNDERWAY	259917	259967	2238	1	3839	generated	
+979	Const	FILE_OPEN	259968	260028	2239	1	3840	generated	
+980	Const	FILE_OPEN_BY_FILE_ID	260029	260099	2240	1	3841	generated	
+981	Const	FILE_OPEN_FOR_BACKUP_INTENT	260100	260178	2241	1	3842	generated	
+982	Const	FILE_OPEN_FOR_FREE_SPACE_QUERY	260179	260262	2242	1	3843	generated	
+983	Const	FILE_OPEN_IF	260263	260326	2243	1	3844	generated	
+984	Const	FILE_OPEN_NO_RECALL	260327	260399	2244	1	3845	generated	
+985	Const	FILE_OPEN_REPARSE_POINT	260400	260476	2245	1	3846	generated	
+986	Const	FILE_OPEN_REQUIRING_OPLOCK	260477	260554	2246	1	3847	generated	
+987	Const	FILE_OPLOCK_BROKEN_TO_LEVEL_2	260555	260607	2247	1	3848	generated	
+988	Const	FILE_OPLOCK_BROKEN_TO_NONE	260608	260657	2248	1	3849	generated	
+989	Const	FILE_OVERWRITE	260658	260723	2249	1	3850	generated	
+990	Const	FILE_OVERWRITE_IF	260724	260792	2250	1	3851	generated	
+991	Const	FILE_PIPE_ACCEPT_REMOTE_CLIENTS	260793	260847	2251	1	3852	generated	
+992	Struct	FILE_PIPE_ASSIGN_EVENT_BUFFER	260848	261018	2252	1	3853	unsupported	declaration Struct has no candidate rule
+993	Impl		261019	261141	2258	1	3861	unsupported	declaration Impl has no candidate rule
+994	Const	FILE_PIPE_BYTE_STREAM_MODE	261142	261191	2263	1	3868	generated	
+995	Const	FILE_PIPE_BYTE_STREAM_TYPE	261192	261241	2264	1	3869	generated	
+996	Const	FILE_PIPE_CLIENT_END	261242	261285	2265	1	3870	generated	
+997	Struct	FILE_PIPE_CLIENT_PROCESS_BUFFER	261286	261460	2266	1	3871	unsupported	declaration Struct has no candidate rule
+998	Impl		261461	261585	2272	1	3879	unsupported	declaration Impl has no candidate rule
+999	Struct	FILE_PIPE_CLIENT_PROCESS_BUFFER_EX	261586	261843	2277	1	3886	unsupported	declaration Struct has no candidate rule
+1000	Impl		261844	261971	2285	1	3896	unsupported	declaration Impl has no candidate rule
+1001	Struct	FILE_PIPE_CLIENT_PROCESS_BUFFER_V2	261972	262130	2290	1	3903	unsupported	declaration Struct has no candidate rule
+1002	Impl		262131	262258	2296	1	3911	unsupported	declaration Impl has no candidate rule
+1003	Const	FILE_PIPE_CLOSING_STATE	262259	262305	2301	1	3918	generated	
+1004	Const	FILE_PIPE_COMPLETE_OPERATION	262306	262357	2302	1	3919	generated	
+1005	Const	FILE_PIPE_COMPUTER_NAME_LENGTH	262358	262412	2303	1	3920	generated	
+1006	Const	FILE_PIPE_CONNECTED_STATE	262413	262461	2304	1	3921	generated	
+1007	Struct	FILE_PIPE_CREATE_SYMLINK_INPUT	262462	262690	2305	1	3922	unsupported	declaration Struct has no candidate rule
+1008	Struct	FILE_PIPE_DELETE_SYMLINK_INPUT	262691	262829	2314	1	3933	unsupported	declaration Struct has no candidate rule
+1009	Const	FILE_PIPE_DISCONNECTED_STATE	262830	262881	2320	1	3941	generated	
+1010	Struct	FILE_PIPE_EVENT_BUFFER	262882	263091	2321	1	3942	unsupported	declaration Struct has no candidate rule
+1011	Const	FILE_PIPE_FULL_DUPLEX	263092	263136	2330	1	3953	generated	
+1012	Const	FILE_PIPE_INBOUND	263137	263177	2331	1	3954	generated	
+1013	Struct	FILE_PIPE_INFORMATION	263178	263309	2332	1	3955	unsupported	declaration Struct has no candidate rule
+1014	Const	FILE_PIPE_LISTENING_STATE	263310	263358	2338	1	3963	generated	
+1015	Struct	FILE_PIPE_LOCAL_INFORMATION	263359	263748	2339	1	3964	unsupported	declaration Struct has no candidate rule
+1016	Const	FILE_PIPE_MESSAGE_MODE	263749	263794	2353	1	3980	generated	
+1017	Const	FILE_PIPE_MESSAGE_TYPE	263795	263840	2354	1	3981	generated	
+1018	Const	FILE_PIPE_OUTBOUND	263841	263882	2355	1	3982	generated	
+1019	Struct	FILE_PIPE_PEEK_BUFFER	263883	264096	2356	1	3983	unsupported	declaration Struct has no candidate rule
+1020	Impl		264097	264211	2365	1	3994	unsupported	declaration Impl has no candidate rule
+1021	Const	FILE_PIPE_QUEUE_OPERATION	264212	264260	2370	1	4001	generated	
+1022	Const	FILE_PIPE_READ_DATA	264261	264303	2371	1	4002	generated	
+1023	Const	FILE_PIPE_REJECT_REMOTE_CLIENTS	264304	264358	2372	1	4003	generated	
+1024	Struct	FILE_PIPE_REMOTE_INFORMATION	264359	264512	2373	1	4004	unsupported	declaration Struct has no candidate rule
+1025	Const	FILE_PIPE_SERVER_END	264513	264556	2379	1	4012	generated	
+1026	Struct	FILE_PIPE_SILO_ARRIVAL_INPUT	264557	264701	2380	1	4013	unsupported	declaration Struct has no candidate rule
+1027	Impl		264702	264823	2385	1	4020	unsupported	declaration Impl has no candidate rule
+1028	Const	FILE_PIPE_SYMLINK_FLAG_GLOBAL	264824	264876	2390	1	4027	generated	
+1029	Const	FILE_PIPE_SYMLINK_FLAG_RELATIVE	264877	264931	2391	1	4028	generated	
+1030	Const	FILE_PIPE_TYPE_VALID_MASK	264932	264980	2392	1	4029	generated	
+1031	Struct	FILE_PIPE_WAIT_FOR_BUFFER	264981	265158	2393	1	4030	unsupported	declaration Struct has no candidate rule
+1032	Impl		265159	265277	2401	1	4040	unsupported	declaration Impl has no candidate rule
+1033	Const	FILE_PIPE_WRITE_SPACE	265278	265322	2406	1	4047	generated	
+1034	Struct	FILE_POSITION_INFORMATION	265323	265438	2407	1	4048	unsupported	declaration Struct has no candidate rule
+1035	Struct	FILE_QUOTA_INFORMATION	265439	265767	2412	1	4055	unsupported	declaration Struct has no candidate rule
+1036	Const	FILE_RANDOM_ACCESS	265768	265836	2424	1	4069	generated	
+1037	Struct	FILE_REMOTE_PROTOCOL_INFORMATION	265837	266267	2425	1	4070	unsupported	declaration Struct has no candidate rule
+1038	Impl		266268	266393	2439	1	4086	unsupported	declaration Impl has no candidate rule
+1039	Struct	FILE_REMOTE_PROTOCOL_INFORMATION_0	266394	266505	2444	1	4093	unsupported	declaration Struct has no candidate rule
+1040	Impl		266506	266633	2449	1	4100	unsupported	declaration Impl has no candidate rule
+1041	Union		266634	266797	2454	1	4107	unsupported	declaration Union has no candidate rule
+1042	Impl		266798	266925	2460	1	4115	unsupported	declaration Impl has no candidate rule
+1043	Struct	FILE_REMOTE_PROTOCOL_INFORMATION_1_0	266926	267131	2465	1	4122	unsupported	declaration Struct has no candidate rule
+1044	Struct	FILE_REMOTE_PROTOCOL_INFORMATION_1_0_0	267132	267255	2471	1	4130	unsupported	declaration Struct has no candidate rule
+1045	Struct	FILE_REMOTE_PROTOCOL_INFORMATION_1_0_1	267256	267470	2476	1	4137	unsupported	declaration Struct has no candidate rule
+1046	Impl		267471	267602	2485	1	4148	unsupported	declaration Impl has no candidate rule
+1047	Const	FILE_RENAME_FORCE_RESIZE_SOURCE_SR	267603	267662	2490	1	4155	generated	
+1048	Const	FILE_RENAME_FORCE_RESIZE_SR	267663	267715	2491	1	4156	generated	
+1049	Const	FILE_RENAME_FORCE_RESIZE_TARGET_SR	267716	267775	2492	1	4157	generated	
+1050	Const	FILE_RENAME_IGNORE_READONLY_ATTRIBUTE	267776	267837	2493	1	4158	generated	
+1051	Struct	FILE_RENAME_INFORMATION	267838	268084	2494	1	4159	unsupported	declaration Struct has no candidate rule
+1052	Impl		268085	268201	2502	1	4169	unsupported	declaration Impl has no candidate rule
+1053	Union		268202	268326	2507	1	4176	unsupported	declaration Union has no candidate rule
+1054	Impl		268327	268445	2513	1	4184	unsupported	declaration Impl has no candidate rule
+1055	Const	FILE_RENAME_NO_DECREASE_AVAILABLE_SPACE	268446	268509	2518	1	4191	generated	
+1056	Const	FILE_RENAME_NO_INCREASE_AVAILABLE_SPACE	268510	268573	2519	1	4192	generated	
+1057	Const	FILE_RENAME_POSIX_SEMANTICS	268574	268624	2520	1	4193	generated	
+1058	Const	FILE_RENAME_PRESERVE_AVAILABLE_SPACE	268625	268685	2521	1	4194	generated	
+1059	Const	FILE_RENAME_REPLACE_IF_EXISTS	268686	268738	2522	1	4195	generated	
+1060	Const	FILE_RENAME_SUPPRESS_PIN_STATE_INHERITANCE	268739	268804	2523	1	4196	generated	
+1061	Const	FILE_RENAME_SUPPRESS_STORAGE_RESERVE_INHERITANCE	268805	268876	2524	1	4197	generated	
+1062	Struct	FILE_REPARSE_POINT_INFORMATION	268877	269011	2525	1	4198	unsupported	declaration Struct has no candidate rule
+1063	Const	FILE_RESERVE_OPFILTER	269012	269086	2531	1	4206	generated	
+1064	Const	FILE_SEQUENTIAL_ONLY	269087	269154	2532	1	4207	generated	
+1065	Const	FILE_SESSION_AWARE	269155	269225	2533	1	4208	generated	
+1066	Struct	FILE_STANDARD_INFORMATION	269226	269444	2534	1	4209	unsupported	declaration Struct has no candidate rule
+1067	Struct	FILE_STANDARD_LINK_INFORMATION	269445	269658	2543	1	4220	unsupported	declaration Struct has no candidate rule
+1068	Struct	FILE_STAT_INFORMATION	269659	270033	2551	1	4230	unsupported	declaration Struct has no candidate rule
+1069	Struct	FILE_STAT_LX_INFORMATION	270034	270554	2566	1	4247	unsupported	declaration Struct has no candidate rule
+1070	Struct	FILE_STORAGE_RESERVE_ID_INFORMATION	270555	270776	2587	1	4270	unsupported	declaration Struct has no candidate rule
+1071	Struct	FILE_STREAM_INFORMATION	270777	271000	2593	1	4278	unsupported	declaration Struct has no candidate rule
+1072	Impl		271001	271117	2602	1	4289	unsupported	declaration Impl has no candidate rule
+1073	Const	FILE_SUPERSEDE	271118	271183	2607	1	4296	generated	
+1074	Const	FILE_SYNCHRONOUS_IO_ALERT	271184	271257	2608	1	4297	generated	
+1075	Const	FILE_SYNCHRONOUS_IO_NONALERT	271258	271334	2609	1	4298	generated	
+1076	Struct	FILE_TIMESTAMPS	271335	271517	2610	1	4299	unsupported	declaration Struct has no candidate rule
+1077	Struct	FILE_TRACKING_INFORMATION	271518	271739	2618	1	4309	unsupported	declaration Struct has no candidate rule
+1078	Impl		271740	271858	2625	1	4318	unsupported	declaration Impl has no candidate rule
+1079	Const	FILE_VC_CONTENT_INDEX_DISABLED	271859	271912	2630	1	4325	generated	
+1080	Const	FILE_VC_LOG_QUOTA_LIMIT	271913	271960	2631	1	4326	generated	
+1081	Const	FILE_VC_LOG_QUOTA_THRESHOLD	271961	272012	2632	1	4327	generated	
+1082	Const	FILE_VC_LOG_VOLUME_LIMIT	272013	272062	2633	1	4328	generated	
+1083	Const	FILE_VC_LOG_VOLUME_THRESHOLD	272063	272115	2634	1	4329	generated	
+1084	Const	FILE_VC_QUOTAS_INCOMPLETE	272116	272166	2635	1	4330	generated	
+1085	Const	FILE_VC_QUOTAS_REBUILDING	272167	272217	2636	1	4331	generated	
+1086	Const	FILE_VC_QUOTA_ENFORCE	272218	272262	2637	1	4332	generated	
+1087	Const	FILE_VC_QUOTA_MASK	272263	272304	2638	1	4333	generated	
+1088	Const	FILE_VC_QUOTA_NONE	272305	272346	2639	1	4334	generated	
+1089	Const	FILE_VC_QUOTA_TRACK	272347	272389	2640	1	4335	generated	
+1090	Const	FILE_VC_VALID_MASK	272390	272434	2641	1	4336	generated	
+1091	Struct	FILE_VOLUME_NAME_INFORMATION	272435	272573	2642	1	4337	unsupported	declaration Struct has no candidate rule
+1092	Impl		272574	272695	2648	1	4345	unsupported	declaration Impl has no candidate rule
+1093	Const	FILE_WRITE_THROUGH	272696	272761	2653	1	4352	generated	
+1094	Const	FLAGS_DELAY_REASONS_BITMAP_SCANNED	272762	272819	2654	1	4353	generated	
+1095	Const	FLAGS_DELAY_REASONS_LOG_FILE_FULL	272820	272876	2655	1	4354	generated	
+1096	Const	FLAGS_END_OF_FILE_INFO_EX_EXTEND_PAGING	272877	272939	2656	1	4355	generated	
+1097	Const	FLAGS_END_OF_FILE_INFO_EX_NO_EXTRA_PAGING_EXTEND	272940	273011	2657	1	4356	generated	
+1098	Const	FLAGS_END_OF_FILE_INFO_EX_TIME_CONSTRAINED	273012	273077	2658	1	4357	generated	
+1099	ItemType	FREE_VIRTUAL_MEMORY_EX_CALLBACK	273078	273416	2659	1	4358	unsupported	generic scalar type unsupported
+1100	Struct	FSCTL_GHOST_FILE_EXTENTS_INPUT_BUFFER	273417	273680	2660	1	4361	unsupported	declaration Struct has no candidate rule
+1101	Impl		273681	273811	2669	1	4372	unsupported	declaration Impl has no candidate rule
+1102	Const	FSCTL_LMR_GET_LINK_TRACKING_INFORMATION	273812	273880	2674	1	4379	generated	
+1103	Const	FSCTL_LMR_SET_LINK_TRACKING_INFORMATION	273881	273949	2675	1	4380	generated	
+1104	Const	FSCTL_MAILSLOT_PEEK	273950	273997	2676	1	4381	generated	
+1105	Const	FSCTL_PIPE_ASSIGN_EVENT	273998	274050	2677	1	4382	generated	
+1106	Const	FSCTL_PIPE_CREATE_SYMLINK	274051	274105	2678	1	4383	generated	
+1107	Const	FSCTL_PIPE_DELETE_SYMLINK	274106	274160	2679	1	4384	generated	
+1108	Const	FSCTL_PIPE_DISABLE_IMPERSONATE	274161	274220	2680	1	4385	generated	
+1109	Const	FSCTL_PIPE_DISCONNECT	274221	274271	2681	1	4386	generated	
+1110	Const	FSCTL_PIPE_FLUSH	274272	274317	2682	1	4387	generated	
+1111	Const	FSCTL_PIPE_GET_CONNECTION_ATTRIBUTE	274318	274382	2683	1	4388	generated	
+1112	Const	FSCTL_PIPE_GET_HANDLE_ATTRIBUTE	274383	274443	2684	1	4389	generated	
+1113	Const	FSCTL_PIPE_GET_PIPE_ATTRIBUTE	274444	274502	2685	1	4390	generated	
+1114	Const	FSCTL_PIPE_IMPERSONATE	274503	274554	2686	1	4391	generated	
+1115	Const	FSCTL_PIPE_INTERNAL_READ	274555	274608	2687	1	4392	generated	
+1116	Const	FSCTL_PIPE_INTERNAL_READ_OVFLOW	274609	274669	2688	1	4393	generated	
+1117	Const	FSCTL_PIPE_INTERNAL_TRANSCEIVE	274670	274729	2689	1	4394	generated	
+1118	Const	FSCTL_PIPE_INTERNAL_WRITE	274730	274784	2690	1	4395	generated	
+1119	Const	FSCTL_PIPE_LISTEN	274785	274831	2691	1	4396	generated	
+1120	Const	FSCTL_PIPE_PEEK	274832	274876	2692	1	4397	generated	
+1121	Const	FSCTL_PIPE_QUERY_CLIENT_PROCESS	274877	274937	2693	1	4398	generated	
+1122	Const	FSCTL_PIPE_QUERY_CLIENT_PROCESS_V2	274938	275001	2694	1	4399	generated	
+1123	Const	FSCTL_PIPE_QUERY_EVENT	275002	275053	2695	1	4400	generated	
+1124	Const	FSCTL_PIPE_SET_CLIENT_PROCESS	275054	275112	2696	1	4401	generated	
+1125	Const	FSCTL_PIPE_SET_CONNECTION_ATTRIBUTE	275113	275177	2697	1	4402	generated	
+1126	Const	FSCTL_PIPE_SET_HANDLE_ATTRIBUTE	275178	275238	2698	1	4403	generated	
+1127	Const	FSCTL_PIPE_SET_PIPE_ATTRIBUTE	275239	275297	2699	1	4404	generated	
+1128	Const	FSCTL_PIPE_SILO_ARRIVAL	275298	275350	2700	1	4405	generated	
+1129	Const	FSCTL_PIPE_TRANSCEIVE	275351	275401	2701	1	4406	generated	
+1130	Const	FSCTL_PIPE_WAIT	275402	275446	2702	1	4407	generated	
+1131	Struct	FSCTL_QUERY_GHOSTED_FILE_EXTENTS_INPUT_RANGE	275447	275598	2703	1	4408	unsupported	declaration Struct has no candidate rule
+1132	Struct	FSCTL_QUERY_GHOSTED_FILE_EXTENTS_OUTPUT	275599	275770	2709	1	4416	unsupported	declaration Struct has no candidate rule
+1133	Impl		275771	275903	2716	1	4425	unsupported	declaration Impl has no candidate rule
+1134	Struct	FSCTL_QUERY_VOLUME_NUMA_INFO_OUTPUT	275904	276020	2721	1	4432	unsupported	declaration Struct has no candidate rule
+1135	Struct	FSCTL_UNMAP_SPACE_INPUT_BUFFER	276021	276136	2726	1	4439	unsupported	declaration Struct has no candidate rule
+1136	Struct	FSCTL_UNMAP_SPACE_OUTPUT	276137	276247	2731	1	4446	unsupported	declaration Struct has no candidate rule
+1137	Const	FSRTL_ADD_TC_CASE_SENSITIVE	276248	276298	2736	1	4453	generated	
+1138	Const	FSRTL_ADD_TC_KEY_BY_SHORT_NAME	276299	276352	2737	1	4454	generated	
+1139	Struct	FSRTL_ADVANCED_FCB_HEADER	276353	276894	2738	1	4455	unsupported	declaration Struct has no candidate rule
+1140	Impl		276895	277086	2751	1	4470	unsupported	declaration Impl has no candidate rule
+1141	Union		277087	277326	2757	1	4478	unsupported	declaration Union has no candidate rule
+1142	Impl		277327	277520	2764	1	4487	unsupported	declaration Impl has no candidate rule
+1143	Const	FSRTL_ALLOCATE_ECPLIST_FLAG_CHARGE_QUOTA	277521	277584	2770	1	4495	generated	
+1144	Const	FSRTL_ALLOCATE_ECP_FLAG_CHARGE_QUOTA	277585	277644	2771	1	4496	generated	
+1145	Const	FSRTL_ALLOCATE_ECP_FLAG_NONPAGED_POOL	277645	277705	2772	1	4497	generated	
+1146	Struct	FSRTL_AUXILIARY_BUFFER	277706	277942	2773	1	4498	unsupported	declaration Struct has no candidate rule
+1147	Impl		277943	278093	2782	1	4509	unsupported	declaration Impl has no candidate rule
+1148	Const	FSRTL_AUXILIARY_FLAG_DEALLOCATE	278094	278148	2788	1	4517	generated	
+1149	Const	FSRTL_CC_FLUSH_ERROR_FLAG_NO_HARD_ERROR	278149	278211	2789	1	4518	generated	
+1150	Const	FSRTL_CC_FLUSH_ERROR_FLAG_NO_LOG_ENTRY	278212	278273	2790	1	4519	generated	
+1151	ItemType	FSRTL_CHANGE_BACKING_TYPE	278274	278315	2791	1	4520	generated	
+1152	Struct	FSRTL_COMMON_FCB_HEADER	278316	278817	2792	1	4521	unsupported	declaration Struct has no candidate rule
+1153	Impl		278818	279007	2808	1	4539	unsupported	declaration Impl has no candidate rule
+1154	ItemType	FSRTL_COMPARISON_RESULT	279008	279047	2814	1	4547	generated	
+1155	Const	FSRTL_DRIVER_BACKING_FLAG_USE_PAGE_FILE	279048	279110	2815	1	4548	generated	
+1156	Const	FSRTL_ECP_LOOKASIDE_FLAG_NONPAGED_POOL	279111	279172	2816	1	4549	generated	
+1157	Const	FSRTL_FAT_LEGAL	279173	279211	2817	1	4550	generated	
+1158	Const	FSRTL_FCB_HEADER_V0	279212	279254	2818	1	4551	generated	
+1159	Const	FSRTL_FCB_HEADER_V1	279255	279297	2819	1	4552	generated	
+1160	Const	FSRTL_FCB_HEADER_V2	279298	279340	2820	1	4553	generated	
+1161	Const	FSRTL_FCB_HEADER_V3	279341	279383	2821	1	4554	generated	
+1162	Const	FSRTL_FCB_HEADER_V4	279384	279426	2822	1	4555	generated	
+1163	Const	FSRTL_FIND_TC_CASE_SENSITIVE	279427	279478	2823	1	4556	generated	
+1164	Const	FSRTL_FLAG2_BYPASSIO_STREAM_PAUSED	279479	279537	2824	1	4557	generated	
+1165	Const	FSRTL_FLAG2_DO_MODIFIED_WRITE	279538	279590	2825	1	4558	generated	
+1166	Const	FSRTL_FLAG2_IS_PAGING_FILE	279591	279640	2826	1	4559	generated	
+1167	Const	FSRTL_FLAG2_PURGE_WHEN_MAPPED	279641	279693	2827	1	4560	generated	
+1168	Const	FSRTL_FLAG2_SUPPORTS_FILTER_CONTEXTS	279694	279753	2828	1	4561	generated	
+1169	Const	FSRTL_FLAG2_WRITABLE_USER_MAPPED_FILE	279754	279815	2829	1	4562	generated	
+1170	Const	FSRTL_FLAG_ACQUIRE_MAIN_RSRC_EX	279816	279870	2830	1	4563	generated	
+1171	Const	FSRTL_FLAG_ACQUIRE_MAIN_RSRC_SH	279871	279926	2831	1	4564	generated	
+1172	Const	FSRTL_FLAG_ADVANCED_HEADER	279927	279977	2832	1	4565	generated	
+1173	Const	FSRTL_FLAG_EOF_ADVANCE_ACTIVE	279978	280032	2833	1	4566	generated	
+1174	Const	FSRTL_FLAG_FILE_LENGTH_CHANGED	280033	280086	2834	1	4567	generated	
+1175	Const	FSRTL_FLAG_FILE_MODIFIED	280087	280134	2835	1	4568	generated	
+1176	Const	FSRTL_FLAG_LIMIT_MODIFIED_PAGES	280135	280189	2836	1	4569	generated	
+1177	Const	FSRTL_FLAG_USER_MAPPED_FILE	280190	280241	2837	1	4570	generated	
+1178	Const	FSRTL_HPFS_LEGAL	280242	280281	2838	1	4571	generated	
+1179	Struct	FSRTL_MUP_PROVIDER_INFO_LEVEL_1	280282	280396	2839	1	4572	unsupported	declaration Struct has no candidate rule
+1180	Struct	FSRTL_MUP_PROVIDER_INFO_LEVEL_2	280397	280589	2844	1	4579	unsupported	declaration Struct has no candidate rule
+1181	Const	FSRTL_NTFS_LEGAL	280590	280629	2850	1	4587	generated	
+1182	Const	FSRTL_OLE_LEGAL	280630	280669	2851	1	4588	generated	
+1183	Struct	FSRTL_PER_FILEOBJECT_CONTEXT	280670	280943	2852	1	4589	unsupported	declaration Struct has no candidate rule
+1184	Impl		280944	281105	2860	1	4599	unsupported	declaration Impl has no candidate rule
+1185	Struct	FSRTL_PER_FILE_CONTEXT	281106	281470	2866	1	4607	unsupported	declaration Struct has no candidate rule
+1186	Impl		281471	281659	2875	1	4618	unsupported	declaration Impl has no candidate rule
+1187	Struct	FSRTL_PER_STREAM_CONTEXT	281660	282026	2881	1	4626	unsupported	declaration Struct has no candidate rule
+1188	Impl		282027	282217	2890	1	4637	unsupported	declaration Impl has no candidate rule
+1189	Const	FSRTL_UNC_HARDENING_CAPABILITIES_INTEGRITY	282218	282283	2896	1	4645	generated	
+1190	Const	FSRTL_UNC_HARDENING_CAPABILITIES_MUTUAL_AUTH	282284	282351	2897	1	4646	generated	
+1191	Const	FSRTL_UNC_HARDENING_CAPABILITIES_PRIVACY	282352	282415	2898	1	4647	generated	
+1192	Const	FSRTL_UNC_PROVIDER_FLAGS_CONTAINER_AWARE	282416	282479	2899	1	4648	generated	
+1193	Const	FSRTL_UNC_PROVIDER_FLAGS_CSC_ENABLED	282480	282539	2900	1	4649	generated	
+1194	Const	FSRTL_UNC_PROVIDER_FLAGS_DOMAIN_SVC_AWARE	282540	282604	2901	1	4650	generated	
+1195	Const	FSRTL_UNC_PROVIDER_FLAGS_MAILSLOTS_SUPPORTED	282605	282672	2902	1	4651	generated	
+1196	Struct	FSRTL_UNC_PROVIDER_REGISTRATION	282673	282904	2903	1	4652	unsupported	declaration Struct has no candidate rule
+1197	Impl		282905	283029	2911	1	4662	unsupported	declaration Impl has no candidate rule
+1198	Union		283030	283195	2916	1	4669	unsupported	declaration Union has no candidate rule
+1199	Impl		283196	283322	2922	1	4677	unsupported	declaration Impl has no candidate rule
+1200	Struct	FSRTL_UNC_PROVIDER_REGISTRATION_0_0	283323	283440	2927	1	4684	unsupported	declaration Struct has no candidate rule
+1201	Union		283441	283614	2932	1	4691	unsupported	declaration Union has no candidate rule
+1202	Impl		283615	283741	2938	1	4699	unsupported	declaration Impl has no candidate rule
+1203	Struct	FSRTL_UNC_PROVIDER_REGISTRATION_1_0	283742	283859	2943	1	4706	unsupported	declaration Struct has no candidate rule
+1204	Const	FSRTL_UNC_REGISTRATION_CURRENT_VERSION	283860	283923	2948	1	4713	generated	
+1205	Const	FSRTL_UNC_REGISTRATION_VERSION_0200	283924	283984	2949	1	4714	generated	
+1206	Const	FSRTL_UNC_REGISTRATION_VERSION_0201	283985	284045	2950	1	4715	generated	
+1207	Const	FSRTL_VIRTDISK_FULLY_ALLOCATED	284046	284099	2951	1	4716	generated	
+1208	Const	FSRTL_VIRTDISK_NO_DRIVE_LETTER	284100	284153	2952	1	4717	generated	
+1209	Const	FSRTL_VOLUME_BACKGROUND_FORMAT	284154	284208	2953	1	4718	generated	
+1210	Const	FSRTL_VOLUME_CHANGE_SIZE	284209	284257	2954	1	4719	generated	
+1211	Const	FSRTL_VOLUME_DISMOUNT	284258	284302	2955	1	4720	generated	
+1212	Const	FSRTL_VOLUME_DISMOUNT_FAILED	284303	284354	2956	1	4721	generated	
+1213	Const	FSRTL_VOLUME_FORCED_CLOSED	284355	284405	2957	1	4722	generated	
+1214	Const	FSRTL_VOLUME_INFO_MAKE_COMPAT	284406	284459	2958	1	4723	generated	
+1215	Const	FSRTL_VOLUME_LOCK	284460	284500	2959	1	4724	generated	
+1216	Const	FSRTL_VOLUME_LOCK_FAILED	284501	284548	2960	1	4725	generated	
+1217	Const	FSRTL_VOLUME_MOUNT	284549	284590	2961	1	4726	generated	
+1218	Const	FSRTL_VOLUME_NEEDS_CHKDSK	284591	284639	2962	1	4727	generated	
+1219	Const	FSRTL_VOLUME_PREPARING_EJECT	284640	284692	2963	1	4728	generated	
+1220	Const	FSRTL_VOLUME_UNLOCK	284693	284735	2964	1	4729	generated	
+1221	Const	FSRTL_VOLUME_WEARING_OUT	284736	284783	2965	1	4730	generated	
+1222	Const	FSRTL_VOLUME_WORM_NEAR_FULL	284784	284834	2966	1	4731	generated	
+1223	Const	FSRTL_WILD_CHARACTER	284835	284878	2967	1	4732	generated	
+1224	Struct	FS_BPIO_INFO	284879	285047	2968	1	4733	unsupported	declaration Struct has no candidate rule
+1225	Impl		285048	285153	2975	1	4742	unsupported	declaration Impl has no candidate rule
+1226	Struct	FS_BPIO_INPUT	285154	285471	2980	1	4749	unsupported	declaration Struct has no candidate rule
+1227	Const	FS_FILTER_ACQUIRE_FOR_CC_FLUSH	285472	285529	2989	1	4760	generated	
+1228	Const	FS_FILTER_ACQUIRE_FOR_MOD_WRITE	285530	285588	2990	1	4761	generated	
+1229	Const	FS_FILTER_ACQUIRE_FOR_SECTION_SYNCHRONIZATION	285589	285661	2991	1	4762	generated	
+1230	Struct	FS_FILTER_CALLBACKS	285662	286887	2992	1	4763	unsupported	declaration Struct has no candidate rule
+1231	Struct	FS_FILTER_CALLBACK_DATA	286888	287421	3013	1	4786	unsupported	declaration Struct has no candidate rule
+1232	Impl		287422	287739	3024	1	4799	unsupported	declaration Impl has no candidate rule
+1233	Union		287740	288282	3030	1	4807	unsupported	declaration Union has no candidate rule
+1234	Impl		288283	288597	3040	1	4819	unsupported	declaration Impl has no candidate rule
+1235	Struct	FS_FILTER_PARAMETERS_0	288598	288976	3046	1	4827	unsupported	declaration Struct has no candidate rule
+1236	Impl		288977	289293	3053	1	4836	unsupported	declaration Impl has no candidate rule
+1237	Struct	FS_FILTER_PARAMETERS_2	289294	289760	3059	1	4844	unsupported	declaration Struct has no candidate rule
+1238	Impl		289761	290077	3069	1	4856	unsupported	declaration Impl has no candidate rule
+1239	Struct	FS_FILTER_PARAMETERS_4	290078	290565	3075	1	4864	unsupported	declaration Struct has no candidate rule
+1240	Impl		290566	290882	3085	1	4876	unsupported	declaration Impl has no candidate rule
+1241	Struct	FS_FILTER_PARAMETERS_3	290883	291409	3091	1	4884	unsupported	declaration Struct has no candidate rule
+1242	Impl		291410	291726	3101	1	4896	unsupported	declaration Impl has no candidate rule
+1243	Struct	FS_FILTER_PARAMETERS_1	291727	292068	3107	1	4904	unsupported	declaration Struct has no candidate rule
+1244	Impl		292069	292385	3113	1	4912	unsupported	declaration Impl has no candidate rule
+1245	Const	FS_FILTER_QUERY_OPEN	292386	292433	3119	1	4920	generated	
+1246	Const	FS_FILTER_RELEASE_FOR_CC_FLUSH	292434	292491	3120	1	4921	generated	
+1247	Const	FS_FILTER_RELEASE_FOR_MOD_WRITE	292492	292550	3121	1	4922	generated	
+1248	Const	FS_FILTER_RELEASE_FOR_SECTION_SYNCHRONIZATION	292551	292623	3122	1	4923	generated	
+1249	Const	FS_FILTER_SECTION_SYNC_IMAGE_EXTENTS_ARE_NOT_RVA	292624	292695	3123	1	4924	generated	
+1250	Const	FS_FILTER_SECTION_SYNC_IN_FLAG_DONT_UPDATE_LAST_ACCESS	292696	292773	3124	1	4925	generated	
+1251	Const	FS_FILTER_SECTION_SYNC_IN_FLAG_DONT_UPDATE_LAST_WRITE	292774	292850	3125	1	4926	generated	
+1252	Struct	FS_FILTER_SECTION_SYNC_OUTPUT	292851	293048	3126	1	4927	unsupported	declaration Struct has no candidate rule
+1253	Const	FS_FILTER_SECTION_SYNC_SUPPORTS_ASYNC_PARALLEL_IO	293049	293121	3134	1	4937	generated	
+1254	Const	FS_FILTER_SECTION_SYNC_SUPPORTS_DIRECT_MAP_DATA	293122	293192	3135	1	4938	generated	
+1255	Const	FS_FILTER_SECTION_SYNC_SUPPORTS_DIRECT_MAP_IMAGE	293193	293264	3136	1	4939	generated	
+1256	ItemType	FS_FILTER_SECTION_SYNC_TYPE	293265	293308	3137	1	4940	generated	
+1257	ItemType	FS_FILTER_STREAM_FO_NOTIFICATION_TYPE	293309	293362	3138	1	4941	generated	
+1258	ItemType	FS_INFORMATION_CLASS	293363	293399	3139	1	4942	generated	
+1259	Const	FastIoIsNotPossible	293400	293455	3140	1	4943	generated	
+1260	Const	FastIoIsPossible	293456	293508	3141	1	4944	generated	
+1261	Const	FastIoIsQuestionable	293509	293565	3142	1	4945	generated	
+1262	Const	FileAccessInformation	293566	293629	3143	1	4946	generated	
+1263	Const	FileAlignmentInformation	293630	293697	3144	1	4947	generated	
+1264	Const	FileAllInformation	293698	293759	3145	1	4948	generated	
+1265	Const	FileAllocationInformation	293760	293828	3146	1	4949	generated	
+1266	Const	FileAlternateNameInformation	293829	293900	3147	1	4950	generated	
+1267	Const	FileAttributeTagInformation	293901	293971	3148	1	4951	generated	
+1268	Const	FileBasicInformation	293972	294034	3149	1	4952	generated	
+1269	Const	FileBothDirectoryInformation	294035	294105	3150	1	4953	generated	
+1270	Const	FileCaseSensitiveInformation	294106	294177	3151	1	4954	generated	
+1271	Const	FileCaseSensitiveInformationForceAccessCheck	294178	294265	3152	1	4955	generated	
+1272	Const	FileCompletionInformation	294266	294334	3153	1	4956	generated	
+1273	Const	FileCompressionInformation	294335	294404	3154	1	4957	generated	
+1274	Const	FileDesiredStorageClassInformation	294405	294482	3155	1	4958	generated	
+1275	Const	FileDirectoryInformation	294483	294549	3156	1	4959	generated	
+1276	Const	FileDispositionInformation	294550	294619	3157	1	4960	generated	
+1277	Const	FileDispositionInformationEx	294620	294691	3158	1	4961	generated	
+1278	Const	FileEaInformation	294692	294751	3159	1	4962	generated	
+1279	Const	FileEndOfFileInformation	294752	294819	3160	1	4963	generated	
+1280	Const	FileFsAttributeInformation	294820	294886	3161	1	4964	generated	
+1281	Const	FileFsControlInformation	294887	294951	3162	1	4965	generated	
+1282	Const	FileFsDataCopyInformation	294952	295018	3163	1	4966	generated	
+1283	Const	FileFsDeviceInformation	295019	295082	3164	1	4967	generated	
+1284	Const	FileFsDriverPathInformation	295083	295150	3165	1	4968	generated	
+1285	Const	FileFsFullSizeInformation	295151	295216	3166	1	4969	generated	
+1286	Const	FileFsFullSizeInformationEx	295217	295285	3167	1	4970	generated	
+1287	Const	FileFsLabelInformation	295286	295348	3168	1	4971	generated	
+1288	Const	FileFsMaximumInformation	295349	295414	3169	1	4972	generated	
+1289	Const	FileFsMetadataSizeInformation	295415	295485	3170	1	4973	generated	
+1290	Const	FileFsObjectIdInformation	295486	295551	3171	1	4974	generated	
+1291	Const	FileFsSectorSizeInformation	295552	295620	3172	1	4975	generated	
+1292	Const	FileFsSizeInformation	295621	295682	3173	1	4976	generated	
+1293	Const	FileFsVolumeFlagsInformation	295683	295752	3174	1	4977	generated	
+1294	Const	FileFsVolumeInformation	295753	295816	3175	1	4978	generated	
+1295	Const	FileFullDirectoryInformation	295817	295887	3176	1	4979	generated	
+1296	Const	FileFullEaInformation	295888	295952	3177	1	4980	generated	
+1297	Const	FileHardLinkFullIdInformation	295953	296025	3178	1	4981	generated	
+1298	Const	FileHardLinkInformation	296026	296092	3179	1	4982	generated	
+1299	Const	FileIdBothDirectoryInformation	296093	296166	3180	1	4983	generated	
+1300	Const	FileIdExtdBothDirectoryInformation	296167	296244	3181	1	4984	generated	
+1301	Const	FileIdExtdDirectoryInformation	296245	296318	3182	1	4985	generated	
+1302	Const	FileIdFullDirectoryInformation	296319	296392	3183	1	4986	generated	
+1303	Const	FileIdGlobalTxDirectoryInformation	296393	296470	3184	1	4987	generated	
+1304	Const	FileIdInformation	296471	296531	3185	1	4988	generated	
+1305	Const	FileInternalInformation	296532	296597	3186	1	4989	generated	
+1306	Const	FileIoCompletionNotificationInformation	296598	296680	3187	1	4990	generated	
+1307	Const	FileIoPriorityHintInformation	296681	296753	3188	1	4991	generated	
+1308	Const	FileIoStatusBlockRangeInformation	296754	296830	3189	1	4992	generated	
+1309	Const	FileIsRemoteDeviceInformation	296831	296903	3190	1	4993	generated	
+1310	Const	FileKnownFolderInformation	296904	296973	3191	1	4994	generated	
+1311	Const	FileLinkInformation	296974	297036	3192	1	4995	generated	
+1312	Const	FileLinkInformationBypassAccessCheck	297037	297116	3193	1	4996	generated	
+1313	Const	FileLinkInformationEx	297117	297181	3194	1	4997	generated	
+1314	Const	FileLinkInformationExBypassAccessCheck	297182	297263	3195	1	4998	generated	
+1315	Const	FileMailslotQueryInformation	297264	297335	3196	1	4999	generated	
+1316	Const	FileMailslotSetInformation	297336	297405	3197	1	5000	generated	
+1317	Const	FileMaximumInformation	297406	297471	3198	1	5001	generated	
+1318	Const	FileMemoryPartitionInformation	297472	297545	3199	1	5002	generated	
+1319	Const	FileModeInformation	297546	297608	3200	1	5003	generated	
+1320	Const	FileMoveClusterInformation	297609	297678	3201	1	5004	generated	
+1321	Const	FileNameInformation	297679	297740	3202	1	5005	generated	
+1322	Const	FileNamesInformation	297741	297804	3203	1	5006	generated	
+1323	Const	FileNetworkOpenInformation	297805	297874	3204	1	5007	generated	
+1324	Const	FileNetworkPhysicalNameInformation	297875	297952	3205	1	5008	generated	
+1325	Const	FileNormalizedNameInformation	297953	298025	3206	1	5009	generated	
+1326	Const	FileNumaNodeInformation	298026	298092	3207	1	5010	generated	
+1327	Const	FileObjectIdInformation	298093	298159	3208	1	5011	generated	
+1328	Const	FilePipeInformation	298160	298222	3209	1	5012	generated	
+1329	Const	FilePipeLocalInformation	298223	298290	3210	1	5013	generated	
+1330	Const	FilePipeRemoteInformation	298291	298359	3211	1	5014	generated	
+1331	Const	FilePositionInformation	298360	298426	3212	1	5015	generated	
+1332	Const	FileProcessIdsUsingFileInformation	298427	298504	3213	1	5016	generated	
+1333	Const	FileQuotaInformation	298505	298568	3214	1	5017	generated	
+1334	Const	FileRemoteProtocolInformation	298569	298641	3215	1	5018	generated	
+1335	Const	FileRenameInformation	298642	298706	3216	1	5019	generated	
+1336	Const	FileRenameInformationBypassAccessCheck	298707	298788	3217	1	5020	generated	
+1337	Const	FileRenameInformationEx	298789	298855	3218	1	5021	generated	
+1338	Const	FileRenameInformationExBypassAccessCheck	298856	298939	3219	1	5022	generated	
+1339	Const	FileReparsePointInformation	298940	299010	3220	1	5023	generated	
+1340	Const	FileReplaceCompletionInformation	299011	299086	3221	1	5024	generated	
+1341	Const	FileSfioReserveInformation	299087	299156	3222	1	5025	generated	
+1342	Const	FileSfioVolumeInformation	299157	299225	3223	1	5026	generated	
+1343	Const	FileShortNameInformation	299226	299293	3224	1	5027	generated	
+1344	Const	FileStandardInformation	299294	299359	3225	1	5028	generated	
+1345	Const	FileStandardLinkInformation	299360	299430	3226	1	5029	generated	
+1346	Const	FileStatInformation	299431	299493	3227	1	5030	generated	
+1347	Const	FileStatLxInformation	299494	299558	3228	1	5031	generated	
+1348	Const	FileStorageReserveIdInformation	299559	299633	3229	1	5032	generated	
+1349	Const	FileStreamInformation	299634	299698	3230	1	5033	generated	
+1350	Const	FileTrackingInformation	299699	299765	3231	1	5034	generated	
+1351	Const	FileUnusedInformation	299766	299830	3232	1	5035	generated	
+1352	Const	FileValidDataLengthInformation	299831	299904	3233	1	5036	generated	
+1353	Const	FileVolumeNameInformation	299905	299973	3234	1	5037	generated	
+1354	Const	GCR_ALLOW_LM	299974	300012	3235	1	5038	generated	
+1355	Const	GCR_ALLOW_NO_TARGET	300013	300058	3236	1	5039	generated	
+1356	Const	GCR_ALLOW_NTLM	300059	300098	3237	1	5040	generated	
+1357	Const	GCR_MACHINE_CREDENTIAL	300099	300147	3238	1	5041	generated	
+1358	Const	GCR_NTLM3_PARMS	300148	300187	3239	1	5042	generated	
+1359	Const	GCR_TARGET_INFO	300188	300227	3240	1	5043	generated	
+1360	Const	GCR_USE_OEM_SET	300228	300268	3241	1	5044	generated	
+1361	Const	GCR_USE_OWF_PASSWORD	300269	300315	3242	1	5045	generated	
+1362	Const	GCR_VSM_PROTECTED_PASSWORD	300316	300369	3243	1	5046	generated	
+1363	Const	GENERATE_CLIENT_CHALLENGE	300370	300419	3244	1	5047	generated	
+1364	Struct	GENERATE_NAME_CONTEXT	300420	300693	3245	1	5048	unsupported	declaration Struct has no candidate rule
+1365	Impl		300694	300808	3256	1	5061	unsupported	declaration Impl has no candidate rule
+1366	Struct	GHOSTED_FILE_EXTENT	300809	301084	3261	1	5068	unsupported	declaration Struct has no candidate rule
+1367	Impl		301085	301197	3271	1	5080	unsupported	declaration Impl has no candidate rule
+1368	Const	GUID_ECP_ATOMIC_CREATE	301198	301333	3276	1	5087	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+1369	Const	GUID_ECP_CLOUDFILES_ATTRIBUTION	301334	301478	3277	1	5090	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+1370	Const	GUID_ECP_CREATE_REDIRECTION	301479	301619	3278	1	5093	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+1371	Const	GUID_ECP_CSV_DOWN_LEVEL_OPEN	301620	301761	3279	1	5096	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+1372	Const	GUID_ECP_CSV_QUERY_FILE_REVISION	301762	301907	3280	1	5099	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+1373	Const	GUID_ECP_CSV_QUERY_FILE_REVISION_FILE_ID_128	301908	302065	3281	1	5102	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+1374	Const	GUID_ECP_CSV_SET_HANDLE_PROPERTIES	302066	302213	3282	1	5105	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+1375	Const	GUID_ECP_DUAL_OPLOCK_KEY	302214	302351	3283	1	5108	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+1376	Const	GUID_ECP_IO_DEVICE_HINT	302352	302488	3284	1	5111	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+1377	Const	GUID_ECP_NETWORK_APP_INSTANCE	302489	302631	3285	1	5114	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+1378	Const	GUID_ECP_NETWORK_APP_INSTANCE_VERSION	302632	302782	3286	1	5117	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+1379	Const	GUID_ECP_NETWORK_OPEN_CONTEXT	302783	302925	3287	1	5120	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+1380	Const	GUID_ECP_NFS_OPEN	302926	303056	3288	1	5123	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+1381	Const	GUID_ECP_OPEN_PARAMETERS	303057	303194	3289	1	5126	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+1382	Const	GUID_ECP_OPLOCK_KEY	303195	303327	3290	1	5129	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+1383	Const	GUID_ECP_PREFETCH_OPEN	303328	303463	3291	1	5132	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+1384	Const	GUID_ECP_QUERY_ON_CREATE	303464	303601	3292	1	5135	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+1385	Const	GUID_ECP_RKF_BYPASS	303602	303734	3293	1	5138	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+1386	Const	GUID_ECP_SRV_OPEN	303735	303865	3294	1	5141	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+1387	Const	GreaterThan	303866	303920	3295	1	5144	generated	
+1388	Const	HEAP_CLASS_0	303921	303956	3296	1	5145	generated	
+1389	Const	HEAP_CLASS_1	303957	303995	3297	1	5146	generated	
+1390	Const	HEAP_CLASS_2	303996	304034	3298	1	5147	generated	
+1391	Const	HEAP_CLASS_3	304035	304074	3299	1	5148	generated	
+1392	Const	HEAP_CLASS_4	304075	304114	3300	1	5149	generated	
+1393	Const	HEAP_CLASS_5	304115	304154	3301	1	5150	generated	
+1394	Const	HEAP_CLASS_6	304155	304194	3302	1	5151	generated	
+1395	Const	HEAP_CLASS_7	304195	304234	3303	1	5152	generated	
+1396	Const	HEAP_CLASS_8	304235	304274	3304	1	5153	generated	
+1397	Const	HEAP_CLASS_MASK	304275	304317	3305	1	5154	generated	
+1398	Const	HEAP_CREATE_ALIGN_16	304318	304365	3306	1	5155	generated	
+1399	Const	HEAP_CREATE_ENABLE_EXECUTE	304366	304420	3307	1	5156	generated	
+1400	Const	HEAP_CREATE_ENABLE_TRACING	304421	304475	3308	1	5157	generated	
+1401	Const	HEAP_CREATE_HARDENED	304476	304521	3309	1	5158	generated	
+1402	Const	HEAP_CREATE_SEGMENT_HEAP	304522	304571	3310	1	5159	generated	
+1403	Const	HEAP_DISABLE_COALESCE_ON_FREE	304572	304626	3311	1	5160	generated	
+1404	Const	HEAP_FREE_CHECKING_ENABLED	304627	304677	3312	1	5161	generated	
+1405	Const	HEAP_GENERATE_EXCEPTIONS	304678	304725	3313	1	5162	generated	
+1406	Const	HEAP_GLOBAL_TAG	304726	304767	3314	1	5163	generated	
+1407	Const	HEAP_GROWABLE	304768	304804	3315	1	5164	generated	
+1408	Const	HEAP_MAXIMUM_TAG	304805	304847	3316	1	5165	generated	
+1409	ItemType	HEAP_MEMORY_INFO_CLASS	304848	304886	3317	1	5166	generated	
+1410	Const	HEAP_NO_SERIALIZE	304887	304927	3318	1	5167	generated	
+1411	Const	HEAP_PSEUDO_TAG_FLAG	304928	304975	3319	1	5168	generated	
+1412	Const	HEAP_REALLOC_IN_PLACE_ONLY	304976	305026	3320	1	5169	generated	
+1413	Const	HEAP_SETTABLE_USER_FLAG1	305027	305076	3321	1	5170	generated	
+1414	Const	HEAP_SETTABLE_USER_FLAG2	305077	305127	3322	1	5171	generated	
+1415	Const	HEAP_SETTABLE_USER_FLAG3	305128	305178	3323	1	5172	generated	
+1416	Const	HEAP_SETTABLE_USER_FLAGS	305179	305229	3324	1	5173	generated	
+1417	Const	HEAP_SETTABLE_USER_VALUE	305230	305279	3325	1	5174	generated	
+1418	Const	HEAP_TAG_SHIFT	305280	305318	3326	1	5175	generated	
+1419	Const	HEAP_TAIL_CHECKING_ENABLED	305319	305369	3327	1	5176	generated	
+1420	Const	HEAP_ZERO_MEMORY	305370	305409	3328	1	5177	generated	
+1421	Const	HeapMemoryBasicInformation	305410	305478	3329	1	5178	generated	
+1422	Const	INVALID_PROCESSOR_INDEX	305479	305534	3330	1	5179	generated	
+1423	Const	IOCTL_LMR_ARE_FILE_OBJECTS_ON_SAME_SERVER	305535	305605	3331	1	5180	generated	
+1424	Const	IOCTL_REDIR_QUERY_PATH	305606	305657	3332	1	5181	generated	
+1425	Const	IOCTL_REDIR_QUERY_PATH_EX	305658	305712	3333	1	5182	generated	
+1426	Const	IOCTL_VOLSNAP_FLUSH_AND_HOLD_WRITES	305713	305777	3334	1	5183	generated	
+1427	Const	IO_CD_ROM_INCREMENT	305778	305820	3335	1	5184	generated	
+1428	Const	IO_CREATE_STREAM_FILE_LITE	305821	305870	3336	1	5185	generated	
+1429	Struct	IO_CREATE_STREAM_FILE_OPTIONS	305871	306263	3337	1	5186	unsupported	declaration Struct has no candidate rule
+1430	Impl		306264	306587	3345	1	5196	unsupported	declaration Impl has no candidate rule
+1431	Const	IO_CREATE_STREAM_FILE_RAISE_ON_ERROR	306588	306647	3351	1	5204	generated	
+1432	Struct	IO_DEVICE_HINT_ECP_CONTEXT	306648	307071	3352	1	5205	unsupported	declaration Struct has no candidate rule
+1433	Impl		307072	307392	3359	1	5214	unsupported	declaration Impl has no candidate rule
+1434	Const	IO_DISK_INCREMENT	307393	307433	3365	1	5222	generated	
+1435	Const	IO_FILE_OBJECT_NON_PAGED_POOL_CHARGE	307434	307494	3366	1	5223	generated	
+1436	Const	IO_FILE_OBJECT_PAGED_POOL_CHARGE	307495	307553	3367	1	5224	generated	
+1437	Const	IO_IGNORE_READONLY_ATTRIBUTE	307554	307606	3368	1	5225	generated	
+1438	Const	IO_MAILSLOT_INCREMENT	307607	307651	3369	1	5226	generated	
+1439	Const	IO_MM_PAGING_FILE	307652	307693	3370	1	5227	generated	
+1440	Const	IO_NAMED_PIPE_INCREMENT	307694	307740	3371	1	5228	generated	
+1441	Const	IO_NETWORK_INCREMENT	307741	307784	3372	1	5229	generated	
+1442	Const	IO_NO_INCREMENT	307785	307823	3373	1	5230	generated	
+1443	Const	IO_OPEN_PAGING_FILE	307824	307866	3374	1	5231	generated	
+1444	Const	IO_OPEN_TARGET_DIRECTORY	307867	307914	3375	1	5232	generated	
+1445	Struct	IO_PRIORITY_INFO	307915	308163	3376	1	5233	unsupported	declaration Struct has no candidate rule
+1446	Const	IO_REPARSE_TAG_ACRONIS_HSM_0	308164	308216	3385	1	5244	generated	
+1447	Const	IO_REPARSE_TAG_ACRONIS_HSM_1	308217	308269	3386	1	5245	generated	
+1448	Const	IO_REPARSE_TAG_ACRONIS_HSM_2	308270	308322	3387	1	5246	generated	
+1449	Const	IO_REPARSE_TAG_ACRONIS_HSM_3	308323	308375	3388	1	5247	generated	
+1450	Const	IO_REPARSE_TAG_ACRONIS_HSM_4	308376	308429	3389	1	5248	generated	
+1451	Const	IO_REPARSE_TAG_ACRONIS_HSM_5	308430	308483	3390	1	5249	generated	
+1452	Const	IO_REPARSE_TAG_ACRONIS_HSM_6	308484	308537	3391	1	5250	generated	
+1453	Const	IO_REPARSE_TAG_ACRONIS_HSM_7	308538	308591	3392	1	5251	generated	
+1454	Const	IO_REPARSE_TAG_ACRONIS_HSM_8	308592	308645	3393	1	5252	generated	
+1455	Const	IO_REPARSE_TAG_ACRONIS_HSM_9	308646	308699	3394	1	5253	generated	
+1456	Const	IO_REPARSE_TAG_ACRONIS_HSM_A	308700	308753	3395	1	5254	generated	
+1457	Const	IO_REPARSE_TAG_ACRONIS_HSM_B	308754	308807	3396	1	5255	generated	
+1458	Const	IO_REPARSE_TAG_ACRONIS_HSM_C	308808	308861	3397	1	5256	generated	
+1459	Const	IO_REPARSE_TAG_ACRONIS_HSM_D	308862	308915	3398	1	5257	generated	
+1460	Const	IO_REPARSE_TAG_ACRONIS_HSM_E	308916	308969	3399	1	5258	generated	
+1461	Const	IO_REPARSE_TAG_ACRONIS_HSM_F	308970	309023	3400	1	5259	generated	
+1462	Const	IO_REPARSE_TAG_ACTIVISION_HSM	309024	309077	3401	1	5260	generated	
+1463	Const	IO_REPARSE_TAG_ADA_HSM	309078	309124	3402	1	5261	generated	
+1464	Const	IO_REPARSE_TAG_ADOBE_HSM	309125	309173	3403	1	5262	generated	
+1465	Const	IO_REPARSE_TAG_ALERTBOOT	309174	309229	3404	1	5263	generated	
+1466	Const	IO_REPARSE_TAG_ALTIRIS_HSM	309230	309280	3405	1	5264	generated	
+1467	Const	IO_REPARSE_TAG_APPXSTRM	309281	309337	3406	1	5265	generated	
+1468	Const	IO_REPARSE_TAG_ARCO_BACKUP	309338	309388	3407	1	5266	generated	
+1469	Const	IO_REPARSE_TAG_ARKIVIO	309389	309435	3408	1	5267	generated	
+1470	Const	IO_REPARSE_TAG_AURISTOR_FS	309436	309486	3409	1	5268	generated	
+1471	Const	IO_REPARSE_TAG_AUTN_HSM	309487	309534	3410	1	5269	generated	
+1472	Const	IO_REPARSE_TAG_BRIDGEHEAD_HSM	309535	309588	3411	1	5270	generated	
+1473	Const	IO_REPARSE_TAG_C2CSYSTEMS_HSM	309589	309642	3412	1	5271	generated	
+1474	Const	IO_REPARSE_TAG_CARINGO_HSM	309643	309693	3413	1	5272	generated	
+1475	Const	IO_REPARSE_TAG_CARROLL_HSM	309694	309744	3414	1	5273	generated	
+1476	Const	IO_REPARSE_TAG_CITRIX_PM	309745	309793	3415	1	5274	generated	
+1477	Const	IO_REPARSE_TAG_COMMVAULT	309794	309842	3416	1	5275	generated	
+1478	Const	IO_REPARSE_TAG_COMMVAULT_HSM	309843	309895	3417	1	5276	generated	
+1479	Const	IO_REPARSE_TAG_COMTRADE_HSM	309896	309947	3418	1	5277	generated	
+1480	Const	IO_REPARSE_TAG_CTERA_HSM	309948	309996	3419	1	5278	generated	
+1481	Const	IO_REPARSE_TAG_DATAFIRST_HSM	309997	310049	3420	1	5279	generated	
+1482	Const	IO_REPARSE_TAG_DATAGLOBAL_HSM	310050	310103	3421	1	5280	generated	
+1483	Const	IO_REPARSE_TAG_DATASTOR_SIS	310104	310155	3422	1	5281	generated	
+1484	Const	IO_REPARSE_TAG_DFM	310156	310207	3423	1	5282	generated	
+1485	Const	IO_REPARSE_TAG_DOR_HSM	310208	310254	3424	1	5283	generated	
+1486	Const	IO_REPARSE_TAG_DOUBLE_TAKE_HSM	310255	310309	3425	1	5284	generated	
+1487	Const	IO_REPARSE_TAG_DOUBLE_TAKE_SIS	310310	310364	3426	1	5285	generated	
+1488	Const	IO_REPARSE_TAG_DRIVE_EXTENDER	310365	310427	3427	1	5286	generated	
+1489	Const	IO_REPARSE_TAG_DROPBOX_HSM	310428	310478	3428	1	5287	generated	
+1490	Const	IO_REPARSE_TAG_EASEFILTER_HSM	310479	310532	3429	1	5288	generated	
+1491	Const	IO_REPARSE_TAG_EASEVAULT_HSM	310533	310585	3430	1	5289	generated	
+1492	Const	IO_REPARSE_TAG_EDSI_HSM	310586	310633	3431	1	5290	generated	
+1493	Const	IO_REPARSE_TAG_ELTAN_HSM	310634	310682	3432	1	5291	generated	
+1494	Const	IO_REPARSE_TAG_EMC_HSM	310683	310729	3433	1	5292	generated	
+1495	Const	IO_REPARSE_TAG_ENIGMA_HSM	310730	310779	3434	1	5293	generated	
+1496	Const	IO_REPARSE_TAG_FILTER_MANAGER	310780	310842	3435	1	5294	generated	
+1497	Const	IO_REPARSE_TAG_GLOBAL360_HSM	310843	310895	3436	1	5295	generated	
+1498	Const	IO_REPARSE_TAG_GOOGLE_HSM	310896	310945	3437	1	5296	generated	
+1499	Const	IO_REPARSE_TAG_GRAU_DATASTORAGE_HSM	310946	311005	3438	1	5297	generated	
+1500	Const	IO_REPARSE_TAG_HDS_HCP_HSM	311006	311056	3439	1	5298	generated	
+1501	Const	IO_REPARSE_TAG_HDS_HSM	311057	311103	3440	1	5299	generated	
+1502	Const	IO_REPARSE_TAG_HERMES_HSM	311104	311153	3441	1	5300	generated	
+1503	Const	IO_REPARSE_TAG_HP_BACKUP	311154	311202	3442	1	5301	generated	
+1504	Const	IO_REPARSE_TAG_HP_DATA_PROTECT	311203	311257	3443	1	5302	generated	
+1505	Const	IO_REPARSE_TAG_HP_HSM	311258	311303	3444	1	5303	generated	
+1506	Const	IO_REPARSE_TAG_HSAG_HSM	311304	311351	3445	1	5304	generated	
+1507	Const	IO_REPARSE_TAG_HUBSTOR_HSM	311352	311402	3446	1	5305	generated	
+1508	Const	IO_REPARSE_TAG_IFSTEST_CONGRUENT	311403	311458	3447	1	5306	generated	
+1509	Const	IO_REPARSE_TAG_IIS_CACHE	311459	311516	3448	1	5307	generated	
+1510	Const	IO_REPARSE_TAG_IMANAGE_HSM	311517	311574	3449	1	5308	generated	
+1511	Const	IO_REPARSE_TAG_INTERCOPE_HSM	311575	311627	3450	1	5309	generated	
+1512	Const	IO_REPARSE_TAG_ITSTATION	311628	311676	3451	1	5310	generated	
+1513	Const	IO_REPARSE_TAG_KOM_NETWORKS_HSM	311677	311732	3452	1	5311	generated	
+1514	Const	IO_REPARSE_TAG_LX_BLK	311733	311787	3453	1	5312	generated	
+1515	Const	IO_REPARSE_TAG_LX_CHR	311788	311842	3454	1	5313	generated	
+1516	Const	IO_REPARSE_TAG_LX_FIFO	311843	311898	3455	1	5314	generated	
+1517	Const	IO_REPARSE_TAG_LX_SYMLINK	311899	311957	3456	1	5315	generated	
+1518	Const	IO_REPARSE_TAG_MAGINATICS_RDR	311958	312011	3457	1	5316	generated	
+1519	Const	IO_REPARSE_TAG_MAXISCALE_HSM	312012	312071	3458	1	5317	generated	
+1520	Const	IO_REPARSE_TAG_MEMORY_TECH_HSM	312072	312126	3459	1	5318	generated	
+1521	Const	IO_REPARSE_TAG_MIMOSA_HSM	312127	312176	3460	1	5319	generated	
+1522	Const	IO_REPARSE_TAG_MOONWALK_HSM	312177	312228	3461	1	5320	generated	
+1523	Const	IO_REPARSE_TAG_MTALOS	312229	312274	3462	1	5321	generated	
+1524	Const	IO_REPARSE_TAG_NEUSHIELD	312275	312323	3463	1	5322	generated	
+1525	Const	IO_REPARSE_TAG_NEXSAN_HSM	312324	312373	3464	1	5323	generated	
+1526	Const	IO_REPARSE_TAG_NIPPON_HSM	312374	312423	3465	1	5324	generated	
+1527	Const	IO_REPARSE_TAG_NVIDIA_UNIONFS	312424	312484	3466	1	5325	generated	
+1528	Const	IO_REPARSE_TAG_OPENAFS_DFS	312485	312535	3467	1	5326	generated	
+1529	Const	IO_REPARSE_TAG_OSR_SAMPLE	312536	312592	3468	1	5327	generated	
+1530	Const	IO_REPARSE_TAG_OVERTONE	312593	312640	3469	1	5328	generated	
+1531	Const	IO_REPARSE_TAG_POINTSOFT_HSM	312641	312693	3470	1	5329	generated	
+1532	Const	IO_REPARSE_TAG_QI_TECH_HSM	312694	312751	3471	1	5330	generated	
+1533	Const	IO_REPARSE_TAG_QUADDRA_HSM	312752	312802	3472	1	5331	generated	
+1534	Const	IO_REPARSE_TAG_QUEST_HSM	312803	312851	3473	1	5332	generated	
+1535	Const	IO_REPARSE_TAG_REDSTOR_HSM	312852	312902	3474	1	5333	generated	
+1536	Const	IO_REPARSE_TAG_RIVERBED_HSM	312903	312954	3475	1	5334	generated	
+1537	Const	IO_REPARSE_TAG_SER_HSM	312955	313001	3476	1	5335	generated	
+1538	Const	IO_REPARSE_TAG_SHX_BACKUP	313002	313051	3477	1	5336	generated	
+1539	Const	IO_REPARSE_TAG_SOLUTIONSOFT	313052	313110	3478	1	5337	generated	
+1540	Const	IO_REPARSE_TAG_SONY_HSM	313111	313158	3479	1	5338	generated	
+1541	Const	IO_REPARSE_TAG_SPHARSOFT	313159	313207	3480	1	5339	generated	
+1542	Const	IO_REPARSE_TAG_SYMANTEC_HSM	313208	313259	3481	1	5340	generated	
+1543	Const	IO_REPARSE_TAG_SYMANTEC_HSM2	313260	313312	3482	1	5341	generated	
+1544	Const	IO_REPARSE_TAG_TSINGHUA_UNIVERSITY_RESEARCH	313313	313380	3483	1	5342	generated	
+1545	Const	IO_REPARSE_TAG_UTIXO_HSM	313381	313429	3484	1	5343	generated	
+1546	Const	IO_REPARSE_TAG_VALID_VALUES	313430	313489	3485	1	5344	generated	
+1547	Const	IO_REPARSE_TAG_VMWARE_PM	313490	313538	3486	1	5345	generated	
+1548	Const	IO_REPARSE_TAG_WATERFORD	313539	313587	3487	1	5346	generated	
+1549	Const	IO_REPARSE_TAG_WISDATA_HSM	313588	313638	3488	1	5347	generated	
+1550	Const	IO_REPARSE_TAG_ZLTI_HSM	313639	313686	3489	1	5348	generated	
+1551	Const	IO_STOP_ON_SYMLINK	313687	313728	3490	1	5349	generated	
+1552	Struct	IO_STOP_ON_SYMLINK_FILTER_ECP_v0	313729	313868	3491	1	5350	unsupported	declaration Struct has no candidate rule
+1553	Struct	IO_STOP_ON_SYMLINK_FILTER_ECP_v0_0	313869	314022	3496	1	5357	unsupported	declaration Struct has no candidate rule
+1554	Struct	KAPC_STATE	314023	314333	3502	1	5365	unsupported	declaration Struct has no candidate rule
+1555	Impl		314334	314477	3512	1	5377	unsupported	declaration Impl has no candidate rule
+1556	Union		314478	314642	3518	1	5385	unsupported	declaration Union has no candidate rule
+1557	Impl		314643	314788	3525	1	5394	unsupported	declaration Impl has no candidate rule
+1558	Struct	KAPC_STATE_0_0	314789	314924	3531	1	5402	unsupported	declaration Struct has no candidate rule
+1559	Union		314925	315093	3537	1	5410	unsupported	declaration Union has no candidate rule
+1560	Impl		315094	315239	3544	1	5419	unsupported	declaration Impl has no candidate rule
+1561	Struct	KAPC_STATE_1_0	315240	315375	3550	1	5427	unsupported	declaration Struct has no candidate rule
+1562	Const	KnownFolderDesktop	315376	315436	3556	1	5435	generated	
+1563	Const	KnownFolderDocuments	315437	315499	3557	1	5436	generated	
+1564	Const	KnownFolderDownloads	315500	315562	3558	1	5437	generated	
+1565	Const	KnownFolderMax	315563	315619	3559	1	5438	generated	
+1566	Const	KnownFolderMusic	315620	315678	3560	1	5439	generated	
+1567	Const	KnownFolderNone	315679	315736	3561	1	5440	generated	
+1568	Const	KnownFolderOther	315737	315795	3562	1	5441	generated	
+1569	Const	KnownFolderPictures	315796	315857	3563	1	5442	generated	
+1570	Const	KnownFolderVideos	315858	315917	3564	1	5443	generated	
+1571	Struct	LARGE_MCB	315918	316141	3565	1	5444	unsupported	declaration Struct has no candidate rule
+1572	Impl		316142	316317	3572	1	5453	unsupported	declaration Impl has no candidate rule
+1573	Const	LCN_CHECKSUM_VALID	316318	316381	3578	1	5461	generated	
+1574	Struct	LCN_WEAK_REFERENCE_BUFFER	316382	316563	3579	1	5462	unsupported	declaration Struct has no candidate rule
+1575	Struct	LCN_WEAK_REFERENCE_CREATE_INPUT_BUFFER	316564	316745	3587	1	5472	unsupported	declaration Struct has no candidate rule
+1576	Const	LCN_WEAK_REFERENCE_VALID	316746	316815	3595	1	5482	generated	
+1577	Struct	LINK_TRACKING_INFORMATION	316816	316964	3596	1	5483	unsupported	declaration Struct has no candidate rule
+1578	Impl		316965	317083	3602	1	5491	unsupported	declaration Impl has no candidate rule
+1579	ItemType	LINK_TRACKING_INFORMATION_TYPE	317084	317130	3607	1	5498	generated	
+1580	Const	LX_FILE_CASE_SENSITIVE_DIR	317131	317181	3608	1	5499	generated	
+1581	Const	LX_FILE_METADATA_DEVICE_ID_EA_NAME	317182	317287	3609	1	5500	unsupported	non-scalar type Ptr unsupported
+1582	Const	LX_FILE_METADATA_GID_EA_NAME	317288	317387	3610	1	5503	unsupported	non-scalar type Ptr unsupported
+1583	Const	LX_FILE_METADATA_HAS_DEVICE_ID	317388	317441	3611	1	5506	generated	
+1584	Const	LX_FILE_METADATA_HAS_GID	317442	317489	3612	1	5507	generated	
+1585	Const	LX_FILE_METADATA_HAS_MODE	317490	317538	3613	1	5508	generated	
+1586	Const	LX_FILE_METADATA_HAS_UID	317539	317586	3614	1	5509	generated	
+1587	Const	LX_FILE_METADATA_MODE_EA_NAME	317587	317687	3615	1	5510	unsupported	non-scalar type Ptr unsupported
+1588	Const	LX_FILE_METADATA_UID_EA_NAME	317688	317787	3616	1	5513	unsupported	non-scalar type Ptr unsupported
+1589	Const	LessThan	317788	317840	3617	1	5516	generated	
+1590	Const	MAP_DISABLE_PAGEFAULT_CLUSTERING	317841	317898	3618	1	5517	generated	
+1591	Const	MAP_HIGH_PRIORITY	317899	317940	3619	1	5518	generated	
+1592	Const	MAP_NO_READ	317941	317976	3620	1	5519	generated	
+1593	Const	MAP_WAIT	317977	318008	3621	1	5520	generated	
+1594	Const	MAXIMUM_LEADBYTES	318009	318050	3622	1	5521	generated	
+1595	Const	MAX_UNICODE_STACK_BUFFER_LENGTH	318051	318107	3623	1	5522	generated	
+1596	Struct	MCB	318108	318304	3624	1	5523	unsupported	declaration Struct has no candidate rule
+1597	Const	MCB_FLAG_RAISE_ON_ALLOCATION_FAILURE	318305	318364	3630	1	5531	generated	
+1598	ItemType	MEMORY_INFORMATION_CLASS	318365	318405	3631	1	5532	generated	
+1599	Struct	MEMORY_RANGE_ENTRY	318406	318551	3632	1	5533	unsupported	declaration Struct has no candidate rule
+1600	Impl		318552	318663	3638	1	5541	unsupported	declaration Impl has no candidate rule
+1601	Struct	MFT_ENUM_DATA	318664	318877	3643	1	5548	unsupported	declaration Struct has no candidate rule
+1602	ItemType	MMFLUSH_TYPE	318878	318906	3652	1	5559	generated	
+1603	Const	MM_FORCE_CLOSED_DATA	318907	318950	3653	1	5560	generated	
+1604	Const	MM_FORCE_CLOSED_IMAGE	318951	318995	3654	1	5561	generated	
+1605	Const	MM_FORCE_CLOSED_LATER_OK	318996	319043	3655	1	5562	generated	
+1606	Const	MM_IS_FILE_SECTION_ACTIVE_DATA	319044	319097	3656	1	5563	generated	
+1607	Const	MM_IS_FILE_SECTION_ACTIVE_IMAGE	319098	319152	3657	1	5564	generated	
+1608	Const	MM_IS_FILE_SECTION_ACTIVE_USER	319153	319206	3658	1	5565	generated	
+1609	Union		319207	319331	3659	1	5566	unsupported	declaration Union has no candidate rule
+1610	Impl		319332	319442	3665	1	5574	unsupported	declaration Impl has no candidate rule
+1611	Struct	MM_PREFETCH_FLAGS_0	319443	319544	3670	1	5581	unsupported	declaration Struct has no candidate rule
+1612	ItemType	MSV1_0_AVID	319545	319572	3675	1	5588	generated	
+1613	Struct	MSV1_0_ENUMUSERS_REQUEST	319573	319829	3676	1	5589	unsupported	declaration Struct has no candidate rule
+1614	Struct	MSV1_0_ENUMUSERS_RESPONSE	319830	320214	3682	1	5597	unsupported	declaration Struct has no candidate rule
+1615	Impl		320215	320392	3691	1	5608	unsupported	declaration Impl has no candidate rule
+1616	Struct	MSV1_0_GETCHALLENRESP_REQUEST	320393	321080	3697	1	5616	unsupported	declaration Struct has no candidate rule
+1617	Impl		321081	321262	3710	1	5631	unsupported	declaration Impl has no candidate rule
+1618	Struct	MSV1_0_GETCHALLENRESP_REQUEST_V1	321263	321722	3716	1	5639	unsupported	declaration Struct has no candidate rule
+1619	Impl		321723	321907	3726	1	5651	unsupported	declaration Impl has no candidate rule
+1620	Struct	MSV1_0_GETCHALLENRESP_RESPONSE	321908	322609	3732	1	5659	unsupported	declaration Struct has no candidate rule
+1621	Impl		322610	322830	3744	1	5673	unsupported	declaration Impl has no candidate rule
+1622	Struct	MSV1_0_GETUSERINFO_REQUEST	322831	323152	3750	1	5681	unsupported	declaration Struct has no candidate rule
+1623	Struct	MSV1_0_GETUSERINFO_RESPONSE	323153	323800	3757	1	5690	unsupported	declaration Struct has no candidate rule
+1624	Impl		323801	323980	3768	1	5703	unsupported	declaration Impl has no candidate rule
+1625	Struct	MSV1_0_LM20_CHALLENGE_REQUEST	323981	324242	3774	1	5711	unsupported	declaration Struct has no candidate rule
+1626	Struct	MSV1_0_LM20_CHALLENGE_RESPONSE	324243	324532	3780	1	5719	unsupported	declaration Struct has no candidate rule
+1627	Impl		324533	324715	3787	1	5728	unsupported	declaration Impl has no candidate rule
+1628	Const	MemoryBasicInformation	324716	324782	3793	1	5736	generated	
+1629	Const	MemoryType64KPage	324783	324835	3794	1	5737	generated	
+1630	Const	MemoryTypeCustom	324836	324887	3795	1	5738	generated	
+1631	Const	MemoryTypeHugePage	324888	324941	3796	1	5739	generated	
+1632	Const	MemoryTypeLargePage	324942	324996	3797	1	5740	generated	
+1633	Const	MemoryTypeMax	324997	325045	3798	1	5741	generated	
+1634	Const	MemoryTypeNonPaged	325046	325099	3799	1	5742	generated	
+1635	Const	MemoryTypePaged	325100	325150	3800	1	5743	generated	
+1636	Const	MmFlushForDelete	325151	325199	3801	1	5744	generated	
+1637	Const	MmFlushForWrite	325200	325247	3802	1	5745	generated	
+1638	Const	MsvAvChannelBindings	325248	325300	3803	1	5746	generated	
+1639	Const	MsvAvDnsComputerName	325301	325352	3804	1	5747	generated	
+1640	Const	MsvAvDnsDomainName	325353	325402	3805	1	5748	generated	
+1641	Const	MsvAvDnsTreeName	325403	325450	3806	1	5749	generated	
+1642	Const	MsvAvEOL	325451	325490	3807	1	5750	generated	
+1643	Const	MsvAvFlags	325491	325532	3808	1	5751	generated	
+1644	Const	MsvAvNbComputerName	325533	325583	3809	1	5752	generated	
+1645	Const	MsvAvNbDomainName	325584	325632	3810	1	5753	generated	
+1646	Const	MsvAvRestrictions	325633	325681	3811	1	5754	generated	
+1647	Const	MsvAvTargetName	325682	325728	3812	1	5755	generated	
+1648	Const	MsvAvTimestamp	325729	325774	3813	1	5756	generated	
+1649	Struct	NETWORK_APP_INSTANCE_ECP_CONTEXT	325775	325955	3814	1	5757	unsupported	declaration Struct has no candidate rule
+1650	Struct	NETWORK_APP_INSTANCE_VERSION_ECP_CONTEXT	325956	326147	3821	1	5766	unsupported	declaration Struct has no candidate rule
+1651	Struct	NETWORK_OPEN_ECP_CONTEXT	326148	326319	3829	1	5776	unsupported	declaration Struct has no candidate rule
+1652	Struct	NETWORK_OPEN_ECP_CONTEXT_0	326320	326491	3836	1	5785	unsupported	declaration Struct has no candidate rule
+1653	Struct	NETWORK_OPEN_ECP_CONTEXT_0_0	326492	326702	3842	1	5793	unsupported	declaration Struct has no candidate rule
+1654	Struct	NETWORK_OPEN_ECP_CONTEXT_0_1	326703	326913	3849	1	5802	unsupported	declaration Struct has no candidate rule
+1655	Struct	NETWORK_OPEN_ECP_CONTEXT_V0	326914	327091	3856	1	5811	unsupported	declaration Struct has no candidate rule
+1656	Struct	NETWORK_OPEN_ECP_CONTEXT_V0_0	327092	327272	3863	1	5820	unsupported	declaration Struct has no candidate rule
+1657	Struct	NETWORK_OPEN_ECP_CONTEXT_V0_0_0	327273	327466	3869	1	5828	unsupported	declaration Struct has no candidate rule
+1658	Struct	NETWORK_OPEN_ECP_CONTEXT_V0_0_1	327467	327660	3875	1	5836	unsupported	declaration Struct has no candidate rule
+1659	Const	NETWORK_OPEN_ECP_IN_FLAG_DISABLE_HANDLE_COLLAPSING	327661	327734	3881	1	5844	generated	
+1660	Const	NETWORK_OPEN_ECP_IN_FLAG_DISABLE_HANDLE_DURABILITY	327735	327808	3882	1	5845	generated	
+1661	Const	NETWORK_OPEN_ECP_IN_FLAG_DISABLE_OPLOCKS	327809	327872	3883	1	5846	generated	
+1662	Const	NETWORK_OPEN_ECP_IN_FLAG_FORCE_BUFFERED_SYNCHRONOUS_IO_HACK	327873	327964	3884	1	5847	generated	
+1663	Const	NETWORK_OPEN_ECP_IN_FLAG_FORCE_MAX_EOF_HACK	327965	328040	3885	1	5848	generated	
+1664	Const	NETWORK_OPEN_ECP_IN_FLAG_REQ_MUTUAL_AUTH	328041	328104	3886	1	5849	generated	
+1665	Const	NETWORK_OPEN_ECP_OUT_FLAG_RET_MUTUAL_AUTH	328105	328169	3887	1	5850	generated	
+1666	ItemType	NETWORK_OPEN_INTEGRITY_QUALIFIER	328170	328218	3888	1	5851	generated	
+1667	ItemType	NETWORK_OPEN_LOCATION_QUALIFIER	328219	328266	3889	1	5852	generated	
+1668	Struct	NFS_OPEN_ECP_CONTEXT	328267	328564	3890	1	5853	unsupported	declaration Struct has no candidate rule
+1669	Impl		328565	328723	3897	1	5862	unsupported	declaration Impl has no candidate rule
+1670	Struct	NLSTABLEINFO	328724	328924	3903	1	5870	unsupported	declaration Struct has no candidate rule
+1671	Impl		328925	329030	3911	1	5880	unsupported	declaration Impl has no candidate rule
+1672	Const	NO_8DOT3_NAME_PRESENT	329031	329075	3916	1	5887	generated	
+1673	ItemType	NTCREATEFILE_CREATE_DISPOSITION	329076	329123	3917	1	5888	generated	
+1674	ItemType	NTCREATEFILE_CREATE_OPTIONS	329124	329167	3918	1	5889	generated	
+1675	Const	NetworkOpenIntegrityAny	329168	329243	3919	1	5890	generated	
+1676	Const	NetworkOpenIntegrityEncrypted	329244	329325	3920	1	5891	generated	
+1677	Const	NetworkOpenIntegrityMaximum	329326	329405	3921	1	5892	generated	
+1678	Const	NetworkOpenIntegrityNone	329406	329482	3922	1	5893	generated	
+1679	Const	NetworkOpenIntegritySigned	329483	329561	3923	1	5894	generated	
+1680	Const	NetworkOpenLocationAny	329562	329635	3924	1	5895	generated	
+1681	Const	NetworkOpenLocationLoopback	329636	329714	3925	1	5896	generated	
+1682	Const	NetworkOpenLocationRemote	329715	329791	3926	1	5897	generated	
+1683	Const	NotifyTypeCreate	329792	329865	3927	1	5898	generated	
+1684	Const	NotifyTypeRetired	329866	329940	3928	1	5899	generated	
+1685	Const	NtfsLinkTrackingInformation	329941	330018	3929	1	5900	generated	
+1686	Struct	OPEN_REPARSE_LIST	330019	330215	3930	1	5901	unsupported	declaration Struct has no candidate rule
+1687	Struct	OPEN_REPARSE_LIST_ENTRY	330216	330563	3936	1	5909	unsupported	declaration Struct has no candidate rule
+1688	Const	OPEN_REPARSE_POINT_OVERRIDE_CREATE_OPTION	330564	330629	3947	1	5922	generated	
+1689	Const	OPEN_REPARSE_POINT_REPARSE_ALWAYS	330630	330688	3948	1	5923	generated	
+1690	Const	OPEN_REPARSE_POINT_REPARSE_IF_CHILD_EXISTS	330689	330754	3949	1	5924	generated	
+1691	Const	OPEN_REPARSE_POINT_REPARSE_IF_CHILD_NOT_EXISTS	330755	330824	3950	1	5925	generated	
+1692	Const	OPEN_REPARSE_POINT_REPARSE_IF_DIRECTORY_FINAL_COMPONENT	330825	330903	3951	1	5926	generated	
+1693	Const	OPEN_REPARSE_POINT_REPARSE_IF_DIRECTORY_FINAL_COMPONENT_ALWAYS	330904	330990	3952	1	5927	generated	
+1694	Const	OPEN_REPARSE_POINT_REPARSE_IF_FINAL_COMPONENT	330991	331060	3953	1	5928	generated	
+1695	Const	OPEN_REPARSE_POINT_REPARSE_IF_FINAL_COMPONENT_ALWAYS	331061	331138	3954	1	5929	generated	
+1696	Const	OPEN_REPARSE_POINT_REPARSE_IF_NON_DIRECTORY_FINAL_COMPONENT	331139	331222	3955	1	5930	generated	
+1697	Const	OPEN_REPARSE_POINT_REPARSE_IF_NON_DIRECTORY_FINAL_COMPONENT_ALWAYS	331223	331313	3956	1	5931	generated	
+1698	Const	OPEN_REPARSE_POINT_REPARSE_IF_NON_DIRECTORY_NON_FINAL_COMPONENT	331314	331401	3957	1	5932	generated	
+1699	Const	OPEN_REPARSE_POINT_REPARSE_IF_NON_DIRECTORY_NON_FINAL_COMPONENT_ALWAYS	331402	331496	3958	1	5933	generated	
+1700	Const	OPEN_REPARSE_POINT_REPARSE_IF_NON_FINAL_COMPONENT	331497	331570	3959	1	5934	generated	
+1701	Const	OPEN_REPARSE_POINT_RETURN_REPARSE_DATA_BUFFER	331571	331641	3960	1	5935	generated	
+1702	Const	OPEN_REPARSE_POINT_TAG_ENCOUNTERED	331642	331699	3961	1	5936	generated	
+1703	Const	OPEN_REPARSE_POINT_VERSION_EX	331700	331761	3962	1	5937	generated	
+1704	Const	OPLOCK_FLAG_BACK_OUT_ATOMIC_OPLOCK	331762	331819	3963	1	5938	generated	
+1705	Const	OPLOCK_FLAG_BREAKING_FOR_SHARING_VIOLATION	331820	331887	3964	1	5939	generated	
+1706	Const	OPLOCK_FLAG_CLOSING_DELETE_ON_CLOSE	331888	331947	3965	1	5940	generated	
+1707	Const	OPLOCK_FLAG_COMPLETE_IF_OPLOCKED	331948	332003	3966	1	5941	generated	
+1708	Const	OPLOCK_FLAG_IGNORE_OPLOCK_KEYS	332004	332057	3967	1	5942	generated	
+1709	Const	OPLOCK_FLAG_OPLOCK_KEY_CHECK_ONLY	332058	332114	3968	1	5943	generated	
+1710	Const	OPLOCK_FLAG_PARENT_OBJECT	332115	332164	3969	1	5944	generated	
+1711	Const	OPLOCK_FLAG_REMOVING_FILE_OR_LINK	332165	332222	3970	1	5945	generated	
+1712	Const	OPLOCK_FSCTRL_FLAG_ALL_KEYS_MATCH	332223	332279	3971	1	5946	generated	
+1713	Struct	OPLOCK_KEY_CONTEXT	332280	332521	3972	1	5947	unsupported	declaration Struct has no candidate rule
+1714	Struct	OPLOCK_KEY_ECP_CONTEXT	332522	332669	3981	1	5958	unsupported	declaration Struct has no candidate rule
+1715	Const	OPLOCK_NOTIFY_BREAK_WAIT_INTERIM_TIMEOUT	332670	332750	3987	1	5966	generated	
+1716	Const	OPLOCK_NOTIFY_BREAK_WAIT_TERMINATED	332751	332826	3988	1	5967	generated	
+1717	Struct	OPLOCK_NOTIFY_PARAMS	332827	333303	3989	1	5968	unsupported	declaration Struct has no candidate rule
+1718	Impl		333304	333618	3998	1	5979	unsupported	declaration Impl has no candidate rule
+1719	ItemType	OPLOCK_NOTIFY_REASON	333619	333655	4004	1	5987	generated	
+1720	Const	OPLOCK_UPPER_FLAG_CHECK_NO_BREAK	333656	333715	4005	1	5988	generated	
+1721	Const	OPLOCK_UPPER_FLAG_NOTIFY_REFRESH_READ	333716	333781	4006	1	5989	generated	
+1722	ItemType	PACQUIRE_FOR_LAZY_WRITE	333782	333906	4007	1	5990	unsupported	generic scalar type unsupported
+1723	ItemType	PACQUIRE_FOR_LAZY_WRITE_EX	333907	334056	4008	1	5993	unsupported	generic scalar type unsupported
+1724	ItemType	PACQUIRE_FOR_READ_AHEAD	334057	334181	4009	1	5996	unsupported	generic scalar type unsupported
+1725	ItemType	PALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK	334182	334318	4010	1	5999	unsupported	generic scalar type unsupported
+1726	ItemType	PASYNC_READ_COMPLETION_CALLBACK	334319	334439	4011	1	6002	unsupported	generic scalar type unsupported
+1727	ItemType	PCC_POST_DEFERRED_WRITE	334440	334581	4012	1	6005	unsupported	generic scalar type unsupported
+1728	ItemType	PCHECK_FOR_TRAVERSE_ACCESS	334582	334887	4013	1	6008	unsupported	attribute cfg requires explicit semantics/configuration
+1729	ItemType	PCOMPLETE_LOCK_IRP_ROUTINE	334888	335291	4015	1	6012	unsupported	attribute cfg requires explicit semantics/configuration
+1730	ItemType	PDIRTY_PAGE_ROUTINE	335292	335771	4017	1	6016	unsupported	attribute cfg requires explicit semantics/configuration
+1731	ItemType	PFILTER_REPORT_CHANGE	335772	335929	4019	1	6020	unsupported	generic scalar type unsupported
+1732	ItemType	PFLUSH_TO_LSN	335930	336036	4020	1	6023	unsupported	generic scalar type unsupported
+1733	ItemType	PFN_FSRTLTEARDOWNPERSTREAMCONTEXTS	336037	336240	4021	1	6026	unsupported	attribute cfg requires explicit semantics/configuration
+1734	ItemType	PFREE_VIRTUAL_MEMORY_EX_CALLBACK	336241	336373	4023	1	6030	unsupported	generic scalar type unsupported
+1735	ItemType	PFSRTL_EXTRA_CREATE_PARAMETER_CLEANUP_CALLBACK	336374	336543	4024	1	6033	unsupported	generic scalar type unsupported
+1736	ItemType	PFSRTL_STACK_OVERFLOW_ROUTINE	336544	336775	4025	1	6036	unsupported	attribute cfg requires explicit semantics/configuration
+1737	ItemType	PFS_FILTER_CALLBACK	336776	337180	4027	1	6040	unsupported	attribute cfg requires explicit semantics/configuration
+1738	ItemType	PFS_FILTER_COMPLETION_CALLBACK	337181	337608	4029	1	6044	unsupported	attribute cfg requires explicit semantics/configuration
+1739	Struct	PHYSICAL_EXTENTS_DESCRIPTOR	337609	337783	4031	1	6048	unsupported	declaration Struct has no candidate rule
+1740	Impl		337784	337904	4038	1	6057	unsupported	declaration Impl has no candidate rule
+1741	Struct	PHYSICAL_MEMORY_DESCRIPTOR	337905	338074	4043	1	6064	unsupported	declaration Struct has no candidate rule
+1742	Impl		338075	338194	4050	1	6073	unsupported	declaration Impl has no candidate rule
+1743	Struct	PHYSICAL_MEMORY_RUN	338195	338319	4055	1	6080	unsupported	declaration Struct has no candidate rule
+1744	Const	PIN_CALLER_TRACKS_DIRTY_DATA	338320	338372	4061	1	6088	generated	
+1745	Const	PIN_EXCLUSIVE	338373	338409	4062	1	6089	generated	
+1746	Const	PIN_HIGH_PRIORITY	338410	338451	4063	1	6090	generated	
+1747	Const	PIN_IF_BCB	338452	338485	4064	1	6091	generated	
+1748	Const	PIN_NO_READ	338486	338520	4065	1	6092	generated	
+1749	Const	PIN_VERIFY_REQUIRED	338521	338565	4066	1	6093	generated	
+1750	Const	PIN_WAIT	338566	338597	4067	1	6094	generated	
+1751	Const	POLICY_AUDIT_SUBCATEGORY_COUNT	338598	338652	4068	1	6095	generated	
+1752	ItemType	POPLOCK_FS_PREPOST_IRP	338653	339000	4069	1	6096	unsupported	attribute cfg requires explicit semantics/configuration
+1753	ItemType	POPLOCK_NOTIFY_ROUTINE	339001	339365	4071	1	6100	unsupported	attribute cfg requires explicit semantics/configuration
+1754	ItemType	POPLOCK_WAIT_COMPLETE_ROUTINE	339366	339720	4073	1	6104	unsupported	attribute cfg requires explicit semantics/configuration
+1755	Const	PO_CB_AC_STATUS	339721	339759	4075	1	6108	generated	
+1756	Const	PO_CB_BUTTON_COLLISION	339760	339805	4076	1	6109	generated	
+1757	Const	PO_CB_LID_SWITCH_STATE	339806	339851	4077	1	6110	generated	
+1758	Const	PO_CB_PROCESSOR_POWER_POLICY	339852	339903	4078	1	6111	generated	
+1759	Const	PO_CB_SYSTEM_POWER_POLICY	339904	339952	4079	1	6112	generated	
+1760	Const	PO_CB_SYSTEM_STATE_LOCK	339953	339999	4080	1	6113	generated	
+1761	ItemType	PQUERY_LOG_USAGE	340000	340125	4081	1	6114	unsupported	generic scalar type unsupported
+1762	ItemType	PQUERY_VIRTUAL_MEMORY_CALLBACK	340126	340256	4082	1	6117	unsupported	generic scalar type unsupported
+1763	Struct	PREFETCH_OPEN_ECP_CONTEXT	340257	340372	4083	1	6120	unsupported	declaration Struct has no candidate rule
+1764	Impl		340373	340491	4088	1	6127	unsupported	declaration Impl has no candidate rule
+1765	Struct	PREFIX_TABLE	340492	340727	4093	1	6134	unsupported	declaration Struct has no candidate rule
+1766	Impl		340728	340906	4101	1	6144	unsupported	declaration Impl has no candidate rule
+1767	Struct	PREFIX_TABLE_ENTRY	340907	341279	4107	1	6152	unsupported	declaration Struct has no candidate rule
+1768	Impl		341280	341464	4117	1	6164	unsupported	declaration Impl has no candidate rule
+1769	ItemType	PRELEASE_FROM_LAZY_WRITE	341465	341570	4123	1	6172	unsupported	generic scalar type unsupported
+1770	ItemType	PRELEASE_FROM_READ_AHEAD	341571	341676	4124	1	6175	unsupported	generic scalar type unsupported
+1771	ItemType	PRTL_ALLOCATE_STRING_ROUTINE	341677	341779	4125	1	6178	unsupported	generic scalar type unsupported
+1772	ItemType	PRTL_FREE_STRING_ROUTINE	341780	341852	4126	1	6181	unsupported	generic scalar type unsupported
+1773	ItemType	PRTL_HEAP_COMMIT_ROUTINE	341853	341977	4127	1	6184	unsupported	generic scalar type unsupported
+1774	ItemType	PRTL_REALLOCATE_STRING_ROUTINE	341978	342082	4128	1	6187	unsupported	generic scalar type unsupported
+1775	ItemType	PSE_LOGON_SESSION_TERMINATED_ROUTINE	342083	342219	4129	1	6190	unsupported	generic scalar type unsupported
+1776	ItemType	PSE_LOGON_SESSION_TERMINATED_ROUTINE_EX	342220	342359	4130	1	6193	unsupported	generic scalar type unsupported
+1777	Const	PSMP_MAXIMUM_SYSAPP_CLAIM_VALUES	342360	342415	4131	1	6196	generated	
+1778	Const	PSMP_MINIMUM_SYSAPP_CLAIM_VALUES	342416	342471	4132	1	6197	generated	
+1779	Struct	PUBLIC_BCB	342472	342652	4133	1	6198	unsupported	declaration Struct has no candidate rule
+1780	ItemType	PUNLOCK_ROUTINE	342653	342987	4141	1	6208	unsupported	attribute cfg requires explicit semantics/configuration
+1781	Const	PURGE_WITH_ACTIVE_VIEWS	342988	343034	4143	1	6212	generated	
+1782	Struct	QUERY_BAD_RANGES_INPUT	343035	343283	4144	1	6213	unsupported	declaration Struct has no candidate rule
+1783	Impl		343284	343438	4152	1	6223	unsupported	declaration Impl has no candidate rule
+1784	Const	QUERY_DIRECT_ACCESS_DATA_EXTENTS	343439	343494	4158	1	6231	generated	
+1785	Struct	QUERY_DIRECT_ACCESS_EXTENTS	343495	343669	4159	1	6232	unsupported	declaration Struct has no candidate rule
+1786	Const	QUERY_DIRECT_ACCESS_IMAGE_EXTENTS	343670	343726	4167	1	6242	generated	
+1787	Struct	QUERY_ON_CREATE_EA_INFORMATION	343727	343882	4168	1	6243	unsupported	declaration Struct has no candidate rule
+1788	Impl		343883	344006	4174	1	6251	unsupported	declaration Impl has no candidate rule
+1789	Struct	QUERY_ON_CREATE_ECP_CONTEXT	344007	344397	4179	1	6258	unsupported	declaration Struct has no candidate rule
+1790	Struct	QUERY_ON_CREATE_FILE_LX_INFORMATION	344398	344664	4190	1	6271	unsupported	declaration Struct has no candidate rule
+1791	Struct	QUERY_ON_CREATE_FILE_STAT_INFORMATION	344665	345025	4201	1	6284	unsupported	declaration Struct has no candidate rule
+1792	Struct	QUERY_PATH_REQUEST	345026	345338	4215	1	6300	unsupported	declaration Struct has no candidate rule
+1793	Impl		345339	345557	4223	1	6310	unsupported	declaration Impl has no candidate rule
+1794	Struct	QUERY_PATH_REQUEST_EX	345558	346167	4229	1	6318	unsupported	declaration Struct has no candidate rule
+1795	Impl		346168	346389	4242	1	6333	unsupported	declaration Impl has no candidate rule
+1796	Struct	QUERY_PATH_RESPONSE	346390	346496	4248	1	6341	unsupported	declaration Struct has no candidate rule
+1797	ItemType	QUERY_VIRTUAL_MEMORY_CALLBACK	346497	346940	4253	1	6348	unsupported	generic scalar type unsupported
+1798	Const	QoCFileEaInformation	346941	346984	4254	1	6351	generated	
+1799	Const	QoCFileLxInformation	346985	347028	4255	1	6352	generated	
+1800	Const	QoCFileStatInformation	347029	347074	4256	1	6353	generated	
+1801	Struct	READ_AHEAD_PARAMETERS	347075	347282	4257	1	6354	unsupported	declaration Struct has no candidate rule
+1802	Struct	READ_LIST	347283	347786	4265	1	6364	unsupported	declaration Struct has no candidate rule
+1803	Impl		347787	348128	4274	1	6375	unsupported	declaration Impl has no candidate rule
+1804	Struct	READ_USN_JOURNAL_DATA	348129	348426	4280	1	6383	unsupported	declaration Struct has no candidate rule
+1805	ItemType	REFS_COMPRESSION_FORMATS	348427	348467	4292	1	6397	generated	
+1806	Const	REFS_COMPRESSION_FORMAT_LZ4	348468	348539	4293	1	6398	generated	
+1807	Const	REFS_COMPRESSION_FORMAT_MAX	348540	348611	4294	1	6399	generated	
+1808	Const	REFS_COMPRESSION_FORMAT_UNCOMPRESSED	348612	348692	4295	1	6400	generated	
+1809	Const	REFS_COMPRESSION_FORMAT_ZSTD	348693	348765	4296	1	6401	generated	
+1810	ItemType	REFS_DEALLOCATE_RANGES_ALLOCATOR	348766	348814	4297	1	6402	generated	
+1811	Const	REFS_DEALLOCATE_RANGES_ALLOCATOR_CAA	348815	348903	4298	1	6403	generated	
+1812	Const	REFS_DEALLOCATE_RANGES_ALLOCATOR_MAA	348904	348992	4299	1	6404	generated	
+1813	Const	REFS_DEALLOCATE_RANGES_ALLOCATOR_NONE	348993	349082	4300	1	6405	generated	
+1814	Const	REFS_DEALLOCATE_RANGES_ALLOCATOR_SAA	349083	349171	4301	1	6406	generated	
+1815	Struct	REFS_DEALLOCATE_RANGES_INPUT_BUFFER	349172	349332	4302	1	6407	unsupported	declaration Struct has no candidate rule
+1816	Impl		349333	349461	4308	1	6415	unsupported	declaration Impl has no candidate rule
+1817	Struct	REFS_DEALLOCATE_RANGES_INPUT_BUFFER_EX	349462	349756	4313	1	6422	unsupported	declaration Struct has no candidate rule
+1818	Impl		349757	349888	4323	1	6434	unsupported	declaration Impl has no candidate rule
+1819	Struct	REFS_DEALLOCATE_RANGES_RANGE	349889	350029	4328	1	6441	unsupported	declaration Struct has no candidate rule
+1820	Struct	REFS_QUERY_VOLUME_COMPRESSION_INFO_OUTPUT_BUFFER	350030	350540	4334	1	6449	unsupported	declaration Struct has no candidate rule
+1821	Impl		350541	350682	4348	1	6465	unsupported	declaration Impl has no candidate rule
+1822	Struct	REFS_QUERY_VOLUME_DEDUP_INFO_OUTPUT_BUFFER	350683	350806	4353	1	6472	unsupported	declaration Struct has no candidate rule
+1823	Struct	REFS_REMOVE_HARDLINK_BACKPOINTER	350807	350969	4358	1	6479	unsupported	declaration Struct has no candidate rule
+1824	Impl		350970	351095	4365	1	6488	unsupported	declaration Impl has no candidate rule
+1825	ItemType	REFS_SET_VOLUME_COMPRESSION_INFO_FLAGS	351096	351150	4370	1	6495	generated	
+1826	Const	REFS_SET_VOLUME_COMPRESSION_INFO_FLAG_COMPRESS_SYNC	351151	351260	4371	1	6496	generated	
+1827	Const	REFS_SET_VOLUME_COMPRESSION_INFO_FLAG_MAX	351261	351360	4372	1	6497	generated	
+1828	Struct	REFS_SET_VOLUME_COMPRESSION_INFO_INPUT_BUFFER	351361	351662	4373	1	6498	unsupported	declaration Struct has no candidate rule
+1829	Impl		351663	351801	4382	1	6509	unsupported	declaration Impl has no candidate rule
+1830	Struct	REFS_SET_VOLUME_DEDUP_INFO_INPUT_BUFFER	351802	351921	4387	1	6516	unsupported	declaration Struct has no candidate rule
+1831	Struct	REFS_STREAM_EXTENT	351922	352080	4392	1	6523	unsupported	declaration Struct has no candidate rule
+1832	Const	REFS_STREAM_EXTENT_PROPERTY_CRC32	352081	352166	4400	1	6533	generated	
+1833	Const	REFS_STREAM_EXTENT_PROPERTY_CRC64	352167	352252	4401	1	6534	generated	
+1834	Const	REFS_STREAM_EXTENT_PROPERTY_GHOSTED	352253	352340	4402	1	6535	generated	
+1835	Const	REFS_STREAM_EXTENT_PROPERTY_READONLY	352341	352430	4403	1	6536	generated	
+1836	Const	REFS_STREAM_EXTENT_PROPERTY_SPARSE	352431	352515	4404	1	6537	generated	
+1837	Const	REFS_STREAM_EXTENT_PROPERTY_STREAM_RESERVED	352516	352610	4405	1	6538	generated	
+1838	Const	REFS_STREAM_EXTENT_PROPERTY_VALID	352611	352695	4406	1	6539	generated	
+1839	Struct	REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER	352696	352947	4407	1	6540	unsupported	declaration Struct has no candidate rule
+1840	Impl		352948	353080	4415	1	6550	unsupported	declaration Impl has no candidate rule
+1841	Struct	REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER_ENTRY	353081	353393	4420	1	6557	unsupported	declaration Struct has no candidate rule
+1842	Impl		353394	353532	4431	1	6570	unsupported	declaration Impl has no candidate rule
+1843	Struct	REFS_STREAM_SNAPSHOT_MANAGEMENT_INPUT_BUFFER	353533	353817	4436	1	6577	unsupported	declaration Struct has no candidate rule
+1844	Impl		353818	353955	4445	1	6588	unsupported	declaration Impl has no candidate rule
+1845	ItemType	REFS_STREAM_SNAPSHOT_OPERATION	353956	354002	4450	1	6595	generated	
+1846	Const	REFS_STREAM_SNAPSHOT_OPERATION_CLEAR_SHADOW_BTREE	354003	354102	4451	1	6596	generated	
+1847	Const	REFS_STREAM_SNAPSHOT_OPERATION_CREATE	354103	354190	4452	1	6597	generated	
+1848	Const	REFS_STREAM_SNAPSHOT_OPERATION_INVALID	354191	354279	4453	1	6598	generated	
+1849	Const	REFS_STREAM_SNAPSHOT_OPERATION_LIST	354280	354365	4454	1	6599	generated	
+1850	Const	REFS_STREAM_SNAPSHOT_OPERATION_MAX	354366	354450	4455	1	6600	generated	
+1851	Const	REFS_STREAM_SNAPSHOT_OPERATION_QUERY_DELTAS	354451	354544	4456	1	6601	generated	
+1852	Const	REFS_STREAM_SNAPSHOT_OPERATION_REVERT	354545	354632	4457	1	6602	generated	
+1853	Const	REFS_STREAM_SNAPSHOT_OPERATION_SET_SHADOW_BTREE	354633	354730	4458	1	6603	generated	
+1854	Struct	REFS_STREAM_SNAPSHOT_QUERY_DELTAS_INPUT_BUFFER	354731	354904	4459	1	6604	unsupported	declaration Struct has no candidate rule
+1855	Struct	REFS_STREAM_SNAPSHOT_QUERY_DELTAS_OUTPUT_BUFFER	354905	355097	4466	1	6613	unsupported	declaration Struct has no candidate rule
+1856	Impl		355098	355238	4473	1	6622	unsupported	declaration Impl has no candidate rule
+1857	Struct	REFS_VOLUME_COUNTER_INFO_INPUT_BUFFER	355239	355363	4478	1	6629	unsupported	declaration Struct has no candidate rule
+1858	Struct	REFS_VOLUME_DATA_BUFFER	355364	355939	4483	1	6636	unsupported	declaration Struct has no candidate rule
+1859	Impl		355940	356056	4503	1	6658	unsupported	declaration Impl has no candidate rule
+1860	Struct	REMOTE_LINK_TRACKING_INFORMATION	356057	356292	4508	1	6665	unsupported	declaration Struct has no candidate rule
+1861	Impl		356293	356418	4515	1	6674	unsupported	declaration Impl has no candidate rule
+1862	Const	REMOTE_PROTOCOL_FLAG_INTEGRITY	356419	356473	4520	1	6681	generated	
+1863	Const	REMOTE_PROTOCOL_FLAG_LOOPBACK	356474	356526	4521	1	6682	generated	
+1864	Const	REMOTE_PROTOCOL_FLAG_MUTUAL_AUTH	356527	356583	4522	1	6683	generated	
+1865	Const	REMOTE_PROTOCOL_FLAG_OFFLINE	356584	356635	4523	1	6684	generated	
+1866	Const	REMOTE_PROTOCOL_FLAG_PERSISTENT_HANDLE	356636	356697	4524	1	6685	generated	
+1867	Const	REMOTE_PROTOCOL_FLAG_PRIVACY	356698	356749	4525	1	6686	generated	
+1868	Const	REMOVED_8DOT3_NAME	356750	356791	4526	1	6687	generated	
+1869	Struct	REPARSE_DATA_BUFFER	356792	356982	4527	1	6688	unsupported	declaration Struct has no candidate rule
+1870	Impl		356983	357095	4535	1	6698	unsupported	declaration Impl has no candidate rule
+1871	Union		357096	357338	4540	1	6705	unsupported	declaration Union has no candidate rule
+1872	Impl		357339	357453	4547	1	6714	unsupported	declaration Impl has no candidate rule
+1873	Struct	REPARSE_DATA_BUFFER_0_2	357454	357555	4552	1	6721	unsupported	declaration Struct has no candidate rule
+1874	Impl		357556	357672	4557	1	6728	unsupported	declaration Impl has no candidate rule
+1875	Struct	REPARSE_DATA_BUFFER_0_1	357673	357905	4562	1	6735	unsupported	declaration Struct has no candidate rule
+1876	Impl		357906	358022	4571	1	6746	unsupported	declaration Impl has no candidate rule
+1877	Struct	REPARSE_DATA_BUFFER_0_0	358023	358275	4576	1	6753	unsupported	declaration Struct has no candidate rule
+1878	Impl		358276	358392	4586	1	6765	unsupported	declaration Impl has no candidate rule
+1879	Struct	REPARSE_DATA_BUFFER_EX	358393	358684	4591	1	6772	unsupported	declaration Struct has no candidate rule
+1880	Impl		358685	358845	4601	1	6784	unsupported	declaration Impl has no candidate rule
+1881	Union		358846	359117	4607	1	6792	unsupported	declaration Union has no candidate rule
+1882	Impl		359118	359280	4614	1	6801	unsupported	declaration Impl has no candidate rule
+1883	Const	REPARSE_DATA_EX_FLAG_GIVEN_TAG_OR_NONE	359281	359342	4620	1	6809	generated	
+1884	Struct	REPARSE_INDEX_KEY	359343	359479	4621	1	6810	unsupported	declaration Struct has no candidate rule
+1885	Struct	RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER	359480	359683	4627	1	6818	unsupported	declaration Struct has no candidate rule
+1886	Impl		359684	359815	4634	1	6827	unsupported	declaration Impl has no candidate rule
+1887	Struct	RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0	359816	359983	4639	1	6834	unsupported	declaration Struct has no candidate rule
+1888	Const	RETURN_NON_NT_USER_SESSION_KEY	359984	360037	4646	1	6843	generated	
+1889	Const	RETURN_PRIMARY_LOGON_DOMAINNAME	360038	360092	4647	1	6844	generated	
+1890	Const	RETURN_PRIMARY_USERNAME	360093	360139	4648	1	6845	generated	
+1891	Const	RETURN_RESERVED_PARAMETER	360140	360190	4649	1	6846	generated	
+1892	Struct	RKF_BYPASS_ECP_CONTEXT	360191	360316	4650	1	6847	unsupported	declaration Struct has no candidate rule
+1893	Const	RPI_SMB2_SERVERCAP_DFS	360317	360362	4656	1	6855	generated	
+1894	Const	RPI_SMB2_SERVERCAP_DIRECTORY_LEASING	360363	360423	4657	1	6856	generated	
+1895	Const	RPI_SMB2_SERVERCAP_ENCRYPTION_AWARE	360424	360483	4658	1	6857	generated	
+1896	Const	RPI_SMB2_SERVERCAP_LARGEMTU	360484	360534	4659	1	6858	generated	
+1897	Const	RPI_SMB2_SERVERCAP_LEASING	360535	360584	4660	1	6859	generated	
+1898	Const	RPI_SMB2_SERVERCAP_MULTICHANNEL	360585	360639	4661	1	6860	generated	
+1899	Const	RPI_SMB2_SERVERCAP_PERSISTENT_HANDLES	360640	360701	4662	1	6861	generated	
+1900	Const	RPI_SMB2_SHARECAP_ACCESS_BASED_DIRECTORY_ENUM	360702	360772	4663	1	6862	generated	
+1901	Const	RPI_SMB2_SHARECAP_ASYMMETRIC_SCALEOUT	360773	360836	4664	1	6863	generated	
+1902	Const	RPI_SMB2_SHARECAP_CLUSTER	360837	360886	4665	1	6864	generated	
+1903	Const	RPI_SMB2_SHARECAP_CONTINUOUS_AVAILABILITY	360887	360952	4666	1	6865	generated	
+1904	Const	RPI_SMB2_SHARECAP_DFS	360953	360997	4667	1	6866	generated	
+1905	Const	RPI_SMB2_SHARECAP_ENCRYPTED	360998	361050	4668	1	6867	generated	
+1906	Const	RPI_SMB2_SHARECAP_IDENTITY_REMOTING	361051	361111	4669	1	6868	generated	
+1907	Const	RPI_SMB2_SHARECAP_SCALEOUT	361112	361162	4670	1	6869	generated	
+1908	Const	RPI_SMB2_SHARECAP_TIMEWARP	361163	361212	4671	1	6870	generated	
+1909	Const	RPI_SMB2_SHARETYPE_DISK	361213	361259	4672	1	6871	generated	
+1910	Const	RPI_SMB2_SHARETYPE_PIPE	361260	361306	4673	1	6872	generated	
+1911	Const	RPI_SMB2_SHARETYPE_PRINT	361307	361354	4674	1	6873	generated	
+1912	ItemType	RTL_ALLOCATE_STRING_ROUTINE	361355	361476	4675	1	6874	unsupported	generic scalar type unsupported
+1913	Const	RTL_DUPLICATE_UNICODE_STRING_ALLOCATE_NULL_STRING	361477	361549	4676	1	6877	generated	
+1914	Const	RTL_DUPLICATE_UNICODE_STRING_NULL_TERMINATE	361550	361616	4677	1	6878	generated	
+1915	ItemType	RTL_FREE_STRING_ROUTINE	361617	361720	4678	1	6879	unsupported	generic scalar type unsupported
+1916	ItemType	RTL_HEAP_COMMIT_ROUTINE	361721	361942	4679	1	6882	unsupported	generic scalar type unsupported
+1917	Const	RTL_HEAP_MEMORY_LIMIT_CURRENT_VERSION	361943	362003	4680	1	6885	generated	
+1918	Struct	RTL_HEAP_MEMORY_LIMIT_DATA	362004	362242	4681	1	6886	unsupported	declaration Struct has no candidate rule
+1919	Struct	RTL_HEAP_MEMORY_LIMIT_INFO	362243	362391	4689	1	6896	unsupported	declaration Struct has no candidate rule
+1920	Struct	RTL_HEAP_PARAMETERS	362392	362845	4695	1	6904	unsupported	declaration Struct has no candidate rule
+1921	Impl		362846	362958	4710	1	6921	unsupported	declaration Impl has no candidate rule
+1922	ItemType	RTL_MEMORY_TYPE	362959	362990	4715	1	6928	generated	
+1923	Struct	RTL_NLS_STATE	362991	363397	4716	1	6929	unsupported	declaration Struct has no candidate rule
+1924	Impl		363398	363504	4729	1	6944	unsupported	declaration Impl has no candidate rule
+1925	ItemType	RTL_REALLOCATE_STRING_ROUTINE	363505	363662	4734	1	6951	unsupported	generic scalar type unsupported
+1926	Struct	RTL_SEGMENT_HEAP_MEMORY_SOURCE	363663	363897	4735	1	6954	unsupported	declaration Struct has no candidate rule
+1927	Impl		363898	364021	4744	1	6965	unsupported	declaration Impl has no candidate rule
+1928	Union		364022	364230	4749	1	6972	unsupported	declaration Union has no candidate rule
+1929	Impl		364231	364356	4755	1	6980	unsupported	declaration Impl has no candidate rule
+1930	Struct	RTL_SEGMENT_HEAP_PARAMETERS	364357	364578	4760	1	6987	unsupported	declaration Struct has no candidate rule
+1931	Impl		364579	364699	4769	1	6998	unsupported	declaration Impl has no candidate rule
+1932	Struct	RTL_SEGMENT_HEAP_VA_CALLBACKS	364700	365041	4774	1	7005	unsupported	declaration Struct has no candidate rule
+1933	Impl		365042	365164	4782	1	7015	unsupported	declaration Impl has no candidate rule
+1934	Const	RTL_SYSTEM_VOLUME_INFORMATION_FOLDER	365165	365292	4787	1	7022	unsupported	non-scalar type Ptr unsupported
+1935	Const	SECURITY_ANONYMOUS_LOGON_RID	365293	365344	4788	1	7025	generated	
+1936	Struct	SECURITY_CLIENT_CONTEXT	365345	365778	4789	1	7026	unsupported	declaration Struct has no candidate rule
+1937	Impl		365779	365930	4800	1	7039	unsupported	declaration Impl has no candidate rule
+1938	Struct	SEC_APPLICATION_PROTOCOLS	365931	366219	4806	1	7047	unsupported	declaration Struct has no candidate rule
+1939	Impl		366220	366397	4813	1	7056	unsupported	declaration Impl has no candidate rule
+1940	Struct	SEC_DTLS_MTU	366398	366490	4819	1	7064	unsupported	declaration Struct has no candidate rule
+1941	Struct	SEC_FLAGS	366491	366578	4824	1	7071	unsupported	declaration Struct has no candidate rule
+1942	Struct	SEC_NEGOTIATION_INFO	366579	366758	4829	1	7078	unsupported	declaration Struct has no candidate rule
+1943	Impl		366759	366872	4837	1	7088	unsupported	declaration Impl has no candidate rule
+1944	Struct	SEC_PRESHAREDKEY	366873	366982	4842	1	7095	unsupported	declaration Struct has no candidate rule
+1945	Impl		366983	367092	4848	1	7103	unsupported	declaration Impl has no candidate rule
+1946	Struct	SEC_SRTP_MASTER_KEY_IDENTIFIER	367093	367247	4853	1	7110	unsupported	declaration Struct has no candidate rule
+1947	Impl		367248	367371	4859	1	7118	unsupported	declaration Impl has no candidate rule
+1948	Const	SEGMENT_HEAP_FLG_USE_PAGE_HEAP	367372	367425	4864	1	7125	generated	
+1949	Const	SEGMENT_HEAP_PARAMETERS_VERSION	367426	367480	4865	1	7126	generated	
+1950	Const	SEGMENT_HEAP_PARAMS_VALID_FLAGS	367481	367535	4866	1	7127	generated	
+1951	Const	SEMAPHORE_INCREMENT	367536	367578	4867	1	7128	generated	
+1952	Struct	SET_CACHED_RUNS_STATE_INPUT_BUFFER	367579	367693	4868	1	7129	unsupported	declaration Struct has no candidate rule
+1953	Const	SET_PURGE_FAILURE_MODE_DISABLED	367694	367748	4873	1	7136	generated	
+1954	Struct	SE_AUDIT_INFO	367749	368472	4874	1	7137	unsupported	declaration Struct has no candidate rule
+1955	Impl		368473	368614	4891	1	7156	unsupported	declaration Impl has no candidate rule
+1956	ItemType	SE_AUDIT_OPERATION	368615	368649	4897	1	7164	generated	
+1957	Const	SE_BACKUP_PRIVILEGES_CHECKED	368650	368703	4898	1	7165	generated	
+1958	Const	SE_DACL_UNTRUSTED	368704	368745	4899	1	7166	generated	
+1959	Struct	SE_EXPORTS	368746	374348	4900	1	7167	unsupported	declaration Struct has no candidate rule
+1960	Impl		374349	374487	4978	1	7247	unsupported	declaration Impl has no candidate rule
+1961	ItemType	SE_LOGON_SESSION_TERMINATED_ROUTINE	374488	374683	4984	1	7255	unsupported	generic scalar type unsupported
+1962	ItemType	SE_LOGON_SESSION_TERMINATED_ROUTINE_EX	374684	374999	4985	1	7258	unsupported	attribute cfg requires explicit semantics/configuration
+1963	Const	SE_SERVER_SECURITY	375000	375043	4987	1	7262	generated	
+1964	Const	SPECIAL_ENCRYPTED_OPEN	375044	375094	4988	1	7263	generated	
+1965	ItemType	SRV_INSTANCE_TYPE	375095	375128	4989	1	7264	generated	
+1966	Struct	SRV_OPEN_ECP_CONTEXT	375129	375575	4990	1	7265	unsupported	declaration Struct has no candidate rule
+1967	Impl		375576	375734	5002	1	7279	unsupported	declaration Impl has no candidate rule
+1968	Const	SRV_OPEN_ECP_CONTEXT_VERSION_2	375735	375788	5008	1	7287	generated	
+1969	Const	SUPPORTED_FS_FEATURES_BYPASS_IO	375789	375843	5009	1	7288	generated	
+1970	Const	SUPPORTED_FS_FEATURES_OFFLOAD_READ	375844	375901	5010	1	7289	generated	
+1971	Const	SUPPORTED_FS_FEATURES_OFFLOAD_WRITE	375902	375960	5011	1	7290	generated	
+1972	Const	SUPPORTED_FS_FEATURES_QUERY_OPEN	375961	376016	5012	1	7291	generated	
+1973	Const	SYMLINK_DIRECTORY	376017	376066	5013	1	7292	generated	
+1974	Const	SYMLINK_FILE	376067	376111	5014	1	7293	generated	
+1975	Const	SYMLINK_FLAG_RELATIVE	376112	376156	5015	1	7294	generated	
+1976	Const	SYMLINK_RESERVED_MASK	376157	376210	5016	1	7295	generated	
+1977	Const	SYSTEM_PAGE_PRIORITY_BITS	376211	376259	5017	1	7296	generated	
+1978	Struct	SYSTEM_PROCESS_TRUST_LABEL_ACE	376260	376418	5018	1	7297	unsupported	declaration Struct has no candidate rule
+1979	Struct	SecBuffer	376419	376567	5025	1	7306	unsupported	declaration Struct has no candidate rule
+1980	Impl		376568	376670	5032	1	7315	unsupported	declaration Impl has no candidate rule
+1981	Struct	SecBufferDesc	376671	376814	5037	1	7322	unsupported	declaration Struct has no candidate rule
+1982	Impl		376815	376921	5044	1	7331	unsupported	declaration Impl has no candidate rule
+1983	Struct	SecHandle	376922	377037	5049	1	7338	unsupported	declaration Struct has no candidate rule
+1984	Const	SharedVirtualDiskCDPSnapshotsSupported	377038	377124	5055	1	7346	generated	
+1985	ItemType	SharedVirtualDiskHandleState	377125	377169	5056	1	7347	generated	
+1986	Const	SharedVirtualDiskHandleStateFileShared	377170	377256	5057	1	7348	generated	
+1987	Const	SharedVirtualDiskHandleStateHandleShared	377257	377345	5058	1	7349	generated	
+1988	Const	SharedVirtualDiskHandleStateNone	377346	377426	5059	1	7350	generated	
+1989	Const	SharedVirtualDiskSnapshotsSupported	377427	377510	5060	1	7351	generated	
+1990	ItemType	SharedVirtualDiskSupportType	377511	377555	5061	1	7352	generated	
+1991	Const	SharedVirtualDisksSupported	377556	377631	5062	1	7353	generated	
+1992	Const	SharedVirtualDisksUnsupported	377632	377709	5063	1	7354	generated	
+1993	Const	SrvInstanceTypeCsv	377710	377765	5064	1	7355	generated	
+1994	Const	SrvInstanceTypePrimary	377766	377825	5065	1	7356	generated	
+1995	Const	SrvInstanceTypeSBL	377826	377881	5066	1	7357	generated	
+1996	Const	SrvInstanceTypeSR	377882	377936	5067	1	7358	generated	
+1997	Const	SrvInstanceTypeUndefined	377937	377998	5068	1	7359	generated	
+1998	Const	SrvInstanceTypeVSMB	377999	378055	5069	1	7360	generated	
+1999	ItemType	SspiAsyncNotifyCallback	378056	378259	5070	1	7361	unsupported	attribute cfg requires explicit semantics/configuration
+2000	Const	SyncTypeCreateSection	378260	378328	5072	1	7365	generated	
+2001	Const	SyncTypeOther	378329	378389	5073	1	7366	generated	
+2002	Const	TOKEN_AUDIT_NO_CHILD_PROCESS	378390	378447	5074	1	7367	generated	
+2003	Const	TOKEN_AUDIT_REDIRECTION_TRUST	378448	378506	5075	1	7368	generated	
+2004	Const	TOKEN_DO_NOT_USE_GLOBAL_ATTRIBS_FOR_QUERY	378507	378576	5076	1	7369	generated	
+2005	Const	TOKEN_ENFORCE_REDIRECTION_TRUST	378577	378637	5077	1	7370	generated	
+2006	Const	TOKEN_HAS_BACKUP_PRIVILEGE	378638	378687	5078	1	7371	generated	
+2007	Const	TOKEN_HAS_IMPERSONATE_PRIVILEGE	378688	378744	5079	1	7372	generated	
+2008	Const	TOKEN_HAS_OWN_CLAIM_ATTRIBUTES	378745	378802	5080	1	7373	generated	
+2009	Const	TOKEN_HAS_RESTORE_PRIVILEGE	378803	378853	5081	1	7374	generated	
+2010	Const	TOKEN_HAS_TRAVERSE_PRIVILEGE	378854	378905	5082	1	7375	generated	
+2011	Const	TOKEN_IS_FILTERED	378906	378949	5083	1	7376	generated	
+2012	Const	TOKEN_IS_RESTRICTED	378950	378993	5084	1	7377	generated	
+2013	Const	TOKEN_LEARNING_MODE_LOGGING	378994	379051	5085	1	7378	generated	
+2014	Const	TOKEN_LOWBOX	379052	379091	5086	1	7379	generated	
+2015	Const	TOKEN_NOT_LOW	379092	379131	5087	1	7380	generated	
+2016	Const	TOKEN_NO_CHILD_PROCESS	379132	379182	5088	1	7381	generated	
+2017	Const	TOKEN_NO_CHILD_PROCESS_UNLESS_SECURE	379183	379248	5089	1	7382	generated	
+2018	Const	TOKEN_PERMISSIVE_LEARNING_MODE	379249	379309	5090	1	7383	generated	
+2019	Const	TOKEN_PRIVATE_NAMESPACE	379310	379360	5091	1	7384	generated	
+2020	Const	TOKEN_SANDBOX_INERT	379361	379404	5092	1	7385	generated	
+2021	Const	TOKEN_SESSION_NOT_REFERENCED	379405	379457	5093	1	7386	generated	
+2022	Const	TOKEN_UIACCESS	379458	379498	5094	1	7387	generated	
+2023	Const	TOKEN_VIRTUALIZE_ALLOWED	379499	379548	5095	1	7388	generated	
+2024	Const	TOKEN_VIRTUALIZE_ENABLED	379549	379599	5096	1	7389	generated	
+2025	Const	TOKEN_WRITE_RESTRICTED	379600	379645	5097	1	7390	generated	
+2026	Struct	TUNNEL	379646	379991	5098	1	7391	unsupported	declaration Struct has no candidate rule
+2027	Impl		379992	380164	5107	1	7402	unsupported	declaration Impl has no candidate rule
+2028	Struct	UNICODE_PREFIX_TABLE	380165	380434	5113	1	7410	unsupported	declaration Struct has no candidate rule
+2029	Impl		380435	380583	5122	1	7421	unsupported	declaration Impl has no candidate rule
+2030	Struct	UNICODE_PREFIX_TABLE_ENTRY	380584	380990	5128	1	7429	unsupported	declaration Struct has no candidate rule
+2031	Impl		380991	381145	5139	1	7442	unsupported	declaration Impl has no candidate rule
+2032	Const	UNINITIALIZE_CACHE_MAPS	381146	381192	5145	1	7450	generated	
+2033	Const	USE_PRIMARY_PASSWORD	381193	381236	5146	1	7451	generated	
+2034	Const	USN_DELETE_FLAG_DELETE	381237	381282	5147	1	7452	generated	
+2035	Struct	USN_JOURNAL_DATA	381283	381613	5148	1	7453	unsupported	declaration Struct has no candidate rule
+2036	Struct	USN_RECORD	381614	382056	5161	1	7468	unsupported	declaration Struct has no candidate rule
+2037	Impl		382057	382160	5179	1	7488	unsupported	declaration Impl has no candidate rule
+2038	Const	VACB_MAPPING_GRANULARITY	382161	382213	5184	1	7495	generated	
+2039	Const	VACB_OFFSET_SHIFT	382214	382255	5185	1	7496	generated	
+2040	Const	VALID_INHERIT_FLAGS	382256	382299	5186	1	7497	generated	
+2041	Struct	VCN_RANGE_INPUT_BUFFER	382300	382433	5187	1	7498	unsupported	declaration Struct has no candidate rule
+2042	ItemType	VIRTUAL_MEMORY_INFORMATION_CLASS	382434	382482	5193	1	7506	generated	
+2043	Const	VOLSNAPCONTROLTYPE	382483	382525	5194	1	7507	generated	
+2044	Struct	VOLUME_REFS_INFO_BUFFER	382526	385732	5195	1	7508	unsupported	declaration Struct has no candidate rule
+2045	Const	VmPrefetchInformation	385733	385806	5278	1	7593	generated	
+2046	Const	WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_LAYER	385807	385880	5279	1	7594	generated	
+2047	Const	WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_REGISTERED_LAYER	385881	385965	5280	1	7595	generated	
+2048	Const	WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_REMOTE_LAYER	385966	386046	5281	1	7596	generated	
+2049	Const	WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_SCRATCH	386047	386122	5282	1	7597	generated	
+2050	ItemType	_LCN_WEAK_REFERENCE_STATE	386123	386164	5283	1	7598	generated	
+2051	ItemType	_REFS_STREAM_EXTENT_PROPERTIES	386165	386211	5284	1	7599	generated	

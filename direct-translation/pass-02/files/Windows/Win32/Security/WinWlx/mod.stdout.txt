@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/Security/WinWlx/mod: 63 generated; 53 unsupported

@@ -1,0 +1,13 @@
+--- ../windows-sys-kotlin/direct-translation/comparisons-pass-02/port-snapshots/io/github/kotlinmania/windowssys/windows/win32/storage/structuredstorage/StructuredStorage.kt	2026-10-24 15:27:53
++++ ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/Storage/StructuredStorage/mod/candidate.kt	2026-10-24 13:17:47
+@@ -1,6 +1,4 @@
+-// port-lint: source Windows/Win32/Storage/StructuredStorage/mod.rs
+-package io.github.kotlinmania.windowssys.windows.win32.storage.structuredstorage
+-
+-public typealias JET_API_PTR = Long
+-public typealias JET_HANDLE = Long
+-public typealias JET_TABLEID = Long
++// DIRECT DECLARATION CANDIDATE: unsupported Rust remains below; not adopted or ABI-validated.
++public typealias `JET_API_PTR` = ULong;
++public typealias `JET_HANDLE` = ULong;
++public typealias `JET_TABLEID` = ULong;

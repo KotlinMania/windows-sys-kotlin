@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/Security/ExtensibleAuthenticationProtocol/mod: 480 generated; 194 unsupported

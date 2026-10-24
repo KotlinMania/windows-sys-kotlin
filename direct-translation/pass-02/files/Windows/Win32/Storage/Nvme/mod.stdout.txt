@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/Storage/Nvme/mod: 554 generated; 619 unsupported

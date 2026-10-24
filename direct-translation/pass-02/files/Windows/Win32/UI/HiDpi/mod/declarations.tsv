@@ -1,0 +1,63 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	349	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		350	526	3	1	6	unsupported	declaration Macro has no candidate rule
+2	Macro		527	666	4	1	9	unsupported	declaration Macro has no candidate rule
+3	Macro		667	797	5	1	12	unsupported	declaration Macro has no candidate rule
+4	Macro		798	957	6	1	15	unsupported	declaration Macro has no candidate rule
+5	Macro		958	1102	7	1	18	unsupported	declaration Macro has no candidate rule
+6	Macro		1103	1253	8	1	21	unsupported	declaration Macro has no candidate rule
+7	Macro		1254	1525	9	1	24	unsupported	declaration Macro has no candidate rule
+8	Macro		1526	1597	11	1	28	unsupported	declaration Macro has no candidate rule
+9	Macro		1598	1707	12	1	31	unsupported	declaration Macro has no candidate rule
+10	Macro		1708	1822	13	1	34	unsupported	declaration Macro has no candidate rule
+11	Macro		1823	2030	14	1	37	unsupported	declaration Macro has no candidate rule
+12	Macro		2031	2153	15	1	40	unsupported	declaration Macro has no candidate rule
+13	Macro		2154	2350	16	1	43	unsupported	declaration Macro has no candidate rule
+14	Macro		2351	2453	18	1	47	unsupported	declaration Macro has no candidate rule
+15	Macro		2454	2554	19	1	50	unsupported	declaration Macro has no candidate rule
+16	Macro		2555	2695	20	1	53	unsupported	declaration Macro has no candidate rule
+17	Macro		2696	2834	21	1	56	unsupported	declaration Macro has no candidate rule
+18	Macro		2835	2966	22	1	59	unsupported	declaration Macro has no candidate rule
+19	Macro		2967	3168	23	1	62	unsupported	declaration Macro has no candidate rule
+20	Macro		3169	3395	24	1	65	unsupported	declaration Macro has no candidate rule
+21	Macro		3396	3597	26	1	69	unsupported	declaration Macro has no candidate rule
+22	Macro		3598	3835	27	1	72	unsupported	declaration Macro has no candidate rule
+23	Macro		3836	4050	28	1	75	unsupported	declaration Macro has no candidate rule
+24	Macro		4051	4207	29	1	78	unsupported	declaration Macro has no candidate rule
+25	Macro		4208	4342	30	1	81	unsupported	declaration Macro has no candidate rule
+26	Macro		4343	4479	31	1	84	unsupported	declaration Macro has no candidate rule
+27	Macro		4480	4608	32	1	87	unsupported	declaration Macro has no candidate rule
+28	Macro		4609	4800	33	1	90	unsupported	declaration Macro has no candidate rule
+29	Const	DCDC_DEFAULT	4801	4868	34	1	93	generated	
+30	Const	DCDC_DISABLE_FONT_UPDATE	4869	4948	35	1	94	generated	
+31	Const	DCDC_DISABLE_RELAYOUT	4949	5025	36	1	95	generated	
+32	Const	DDC_DEFAULT	5026	5084	37	1	96	generated	
+33	Const	DDC_DISABLE_ALL	5085	5147	38	1	97	generated	
+34	Const	DDC_DISABLE_CONTROL_RELAYOUT	5148	5223	39	1	98	generated	
+35	Const	DDC_DISABLE_RESIZE	5224	5289	40	1	99	generated	
+36	ItemType	DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS	5290	5341	41	1	100	generated	
+37	ItemType	DIALOG_DPI_CHANGE_BEHAVIORS	5342	5385	42	1	101	generated	
+38	ItemType	DPI_AWARENESS	5386	5415	43	1	102	generated	
+39	ItemType	DPI_AWARENESS_CONTEXT	5416	5472	44	1	103	unsupported	non-scalar type Ptr unsupported
+40	Const	DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE	5473	5559	45	1	106	unsupported	non-scalar type Ptr unsupported
+41	Const	DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2	5560	5649	46	1	109	unsupported	non-scalar type Ptr unsupported
+42	Const	DPI_AWARENESS_CONTEXT_SYSTEM_AWARE	5650	5731	47	1	112	unsupported	non-scalar type Ptr unsupported
+43	Const	DPI_AWARENESS_CONTEXT_UNAWARE	5732	5808	48	1	115	unsupported	non-scalar type Ptr unsupported
+44	Const	DPI_AWARENESS_CONTEXT_UNAWARE_GDISCALED	5809	5895	49	1	118	unsupported	non-scalar type Ptr unsupported
+45	Const	DPI_AWARENESS_INVALID	5896	5951	50	1	121	generated	
+46	Const	DPI_AWARENESS_PER_MONITOR_AWARE	5952	6016	51	1	122	generated	
+47	Const	DPI_AWARENESS_SYSTEM_AWARE	6017	6076	52	1	123	generated	
+48	Const	DPI_AWARENESS_UNAWARE	6077	6131	53	1	124	generated	
+49	ItemType	DPI_HOSTING_BEHAVIOR	6132	6168	54	1	125	generated	
+50	Const	DPI_HOSTING_BEHAVIOR_DEFAULT	6169	6237	55	1	126	generated	
+51	Const	DPI_HOSTING_BEHAVIOR_INVALID	6238	6307	56	1	127	generated	
+52	Const	DPI_HOSTING_BEHAVIOR_MIXED	6308	6374	57	1	128	generated	
+53	Const	MDT_ANGULAR_DPI	6375	6426	58	1	129	generated	
+54	Const	MDT_DEFAULT	6427	6474	59	1	130	generated	
+55	Const	MDT_EFFECTIVE_DPI	6475	6528	60	1	131	generated	
+56	Const	MDT_RAW_DPI	6529	6576	61	1	132	generated	
+57	ItemType	MONITOR_DPI_TYPE	6577	6609	62	1	133	generated	
+58	ItemType	PROCESS_DPI_AWARENESS	6610	6647	63	1	134	generated	
+59	Const	PROCESS_DPI_UNAWARE	6648	6708	64	1	135	generated	
+60	Const	PROCESS_PER_MONITOR_DPI_AWARE	6709	6779	65	1	136	generated	
+61	Const	PROCESS_SYSTEM_DPI_AWARE	6780	6845	66	1	137	generated	

@@ -1,0 +1,20 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Mod	Cabinets	0	60	1	1	2	unsupported	declaration Mod has no candidate rule
+1	Mod	CloudFilters	61	129	3	1	6	unsupported	declaration Mod has no candidate rule
+2	Mod	Compression	130	196	5	1	10	unsupported	declaration Mod has no candidate rule
+3	Mod	DistributedFileSystem	197	283	7	1	14	unsupported	declaration Mod has no candidate rule
+4	Mod	FileHistory	284	350	9	1	18	unsupported	declaration Mod has no candidate rule
+5	Mod	FileSystem	351	415	11	1	22	unsupported	declaration Mod has no candidate rule
+6	Mod	Imapi	416	470	13	1	26	unsupported	declaration Mod has no candidate rule
+7	Mod	IndexServer	471	537	15	1	30	unsupported	declaration Mod has no candidate rule
+8	Mod	InstallableFileSystems	538	626	17	1	34	unsupported	declaration Mod has no candidate rule
+9	Mod	IscsiDisc	627	689	19	1	38	unsupported	declaration Mod has no candidate rule
+10	Mod	Jet	690	740	21	1	42	unsupported	declaration Mod has no candidate rule
+11	Mod	Nvme	741	793	23	1	46	unsupported	declaration Mod has no candidate rule
+12	Mod	OfflineFiles	794	862	25	1	50	unsupported	declaration Mod has no candidate rule
+13	Mod	OperationRecorder	863	941	27	1	54	unsupported	declaration Mod has no candidate rule
+14	Mod	Packaging	942	1004	29	1	58	unsupported	declaration Mod has no candidate rule
+15	Mod	ProjectedFileSystem	1005	1087	31	1	62	unsupported	declaration Mod has no candidate rule
+16	Mod	StructuredStorage	1088	1166	33	1	66	unsupported	declaration Mod has no candidate rule
+17	Mod	Vhd	1167	1217	35	1	70	unsupported	declaration Mod has no candidate rule
+18	Mod	Xps	1218	1268	37	1	74	unsupported	declaration Mod has no candidate rule

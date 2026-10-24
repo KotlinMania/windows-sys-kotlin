@@ -1,0 +1,25 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	205	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		206	333	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		334	497	3	1	8	unsupported	declaration Macro has no candidate rule
+3	Macro		498	638	4	1	11	unsupported	declaration Macro has no candidate rule
+4	Macro		639	911	5	1	14	unsupported	declaration Macro has no candidate rule
+5	Macro		912	1251	6	1	17	unsupported	declaration Macro has no candidate rule
+6	Macro		1252	1496	7	1	20	unsupported	declaration Macro has no candidate rule
+7	Macro		1497	1770	8	1	23	unsupported	declaration Macro has no candidate rule
+8	Macro		1771	2052	9	1	26	unsupported	declaration Macro has no candidate rule
+9	Macro		2053	2364	10	1	29	unsupported	declaration Macro has no candidate rule
+10	Macro		2365	2612	11	1	32	unsupported	declaration Macro has no candidate rule
+11	Struct	IO_STATUS_BLOCK	2613	2743	12	1	35	unsupported	declaration Struct has no candidate rule
+12	Impl		2744	2852	18	1	43	unsupported	declaration Impl has no candidate rule
+13	Union		2853	3011	23	1	50	unsupported	declaration Union has no candidate rule
+14	Impl		3012	3122	29	1	58	unsupported	declaration Impl has no candidate rule
+15	ItemType	LPOVERLAPPED_COMPLETION_ROUTINE	3123	3281	34	1	65	unsupported	generic scalar type unsupported
+16	Struct	OVERLAPPED	3282	3478	35	1	68	unsupported	declaration Struct has no candidate rule
+17	Impl		3479	3582	43	1	78	unsupported	declaration Impl has no candidate rule
+18	Union		3583	3719	48	1	85	unsupported	declaration Union has no candidate rule
+19	Impl		3720	3825	54	1	93	unsupported	declaration Impl has no candidate rule
+20	Struct	OVERLAPPED_0_0	3826	3944	59	1	100	unsupported	declaration Struct has no candidate rule
+21	Struct	OVERLAPPED_ENTRY	3945	4147	65	1	108	unsupported	declaration Struct has no candidate rule
+22	Impl		4148	4257	73	1	118	unsupported	declaration Impl has no candidate rule
+23	ItemType	PIO_APC_ROUTINE	4258	4407	78	1	125	unsupported	generic scalar type unsupported

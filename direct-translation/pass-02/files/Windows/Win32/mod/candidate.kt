@@ -1,0 +1,61 @@
+// DIRECT DECLARATION CANDIDATE: unsupported Rust remains below; not adopted or ABI-validated.
+// UNSUPPORTED Rust 1:1: declaration Mod has no candidate rule
+// #[cfg(feature = "Win32_Data")]
+// pub mod Data;
+
+// UNSUPPORTED Rust 3:1: declaration Mod has no candidate rule
+// #[cfg(feature = "Win32_Devices")]
+// pub mod Devices;
+
+// UNSUPPORTED Rust 5:1: declaration Mod has no candidate rule
+// #[cfg(feature = "Win32_Foundation")]
+// pub mod Foundation;
+
+// UNSUPPORTED Rust 7:1: declaration Mod has no candidate rule
+// #[cfg(feature = "Win32_Gaming")]
+// pub mod Gaming;
+
+// UNSUPPORTED Rust 9:1: declaration Mod has no candidate rule
+// #[cfg(feature = "Win32_Globalization")]
+// pub mod Globalization;
+
+// UNSUPPORTED Rust 11:1: declaration Mod has no candidate rule
+// #[cfg(feature = "Win32_Graphics")]
+// pub mod Graphics;
+
+// UNSUPPORTED Rust 13:1: declaration Mod has no candidate rule
+// #[cfg(feature = "Win32_Management")]
+// pub mod Management;
+
+// UNSUPPORTED Rust 15:1: declaration Mod has no candidate rule
+// #[cfg(feature = "Win32_Media")]
+// pub mod Media;
+
+// UNSUPPORTED Rust 17:1: declaration Mod has no candidate rule
+// #[cfg(feature = "Win32_NetworkManagement")]
+// pub mod NetworkManagement;
+
+// UNSUPPORTED Rust 19:1: declaration Mod has no candidate rule
+// #[cfg(feature = "Win32_Networking")]
+// pub mod Networking;
+
+// UNSUPPORTED Rust 21:1: declaration Mod has no candidate rule
+// #[cfg(feature = "Win32_Security")]
+// pub mod Security;
+
+// UNSUPPORTED Rust 23:1: declaration Mod has no candidate rule
+// #[cfg(feature = "Win32_Storage")]
+// pub mod Storage;
+
+// UNSUPPORTED Rust 25:1: declaration Mod has no candidate rule
+// #[cfg(feature = "Win32_System")]
+// pub mod System;
+
+// UNSUPPORTED Rust 27:1: declaration Mod has no candidate rule
+// #[cfg(feature = "Win32_UI")]
+// pub mod UI;
+
+// UNSUPPORTED Rust 29:1: declaration Mod has no candidate rule
+// #[cfg(feature = "Win32_Web")]
+// pub mod Web;
+

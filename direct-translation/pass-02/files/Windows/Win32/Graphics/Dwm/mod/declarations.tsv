@@ -1,0 +1,145 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	136	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		137	418	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		419	555	3	1	8	unsupported	declaration Macro has no candidate rule
+3	Macro		556	774	4	1	11	unsupported	declaration Macro has no candidate rule
+4	Macro		775	898	6	1	15	unsupported	declaration Macro has no candidate rule
+5	Macro		899	1030	7	1	18	unsupported	declaration Macro has no candidate rule
+6	Macro		1031	1271	8	1	21	unsupported	declaration Macro has no candidate rule
+7	Macro		1272	1359	10	1	25	unsupported	declaration Macro has no candidate rule
+8	Macro		1360	1534	11	1	28	unsupported	declaration Macro has no candidate rule
+9	Macro		1535	1715	12	1	31	unsupported	declaration Macro has no candidate rule
+10	Macro		1716	1877	13	1	34	unsupported	declaration Macro has no candidate rule
+11	Macro		1878	2035	14	1	37	unsupported	declaration Macro has no candidate rule
+12	Macro		2036	2255	15	1	40	unsupported	declaration Macro has no candidate rule
+13	Macro		2256	2446	16	1	43	unsupported	declaration Macro has no candidate rule
+14	Macro		2447	2661	17	1	46	unsupported	declaration Macro has no candidate rule
+15	Macro		2662	2805	18	1	49	unsupported	declaration Macro has no candidate rule
+16	Macro		2806	2948	19	1	52	unsupported	declaration Macro has no candidate rule
+17	Macro		2949	3153	20	1	55	unsupported	declaration Macro has no candidate rule
+18	Macro		3154	3324	21	1	58	unsupported	declaration Macro has no candidate rule
+19	Macro		3325	3547	22	1	61	unsupported	declaration Macro has no candidate rule
+20	Macro		3548	3755	23	1	64	unsupported	declaration Macro has no candidate rule
+21	Macro		3756	3912	24	1	67	unsupported	declaration Macro has no candidate rule
+22	Macro		3913	4198	25	1	70	unsupported	declaration Macro has no candidate rule
+23	Macro		4199	4423	27	1	74	unsupported	declaration Macro has no candidate rule
+24	Macro		4424	4610	29	1	78	unsupported	declaration Macro has no candidate rule
+25	Macro		4611	4827	30	1	81	unsupported	declaration Macro has no candidate rule
+26	Macro		4828	4970	31	1	84	unsupported	declaration Macro has no candidate rule
+27	Macro		4971	5163	32	1	87	unsupported	declaration Macro has no candidate rule
+28	Macro		5164	5348	33	1	90	unsupported	declaration Macro has no candidate rule
+29	Macro		5349	5470	34	1	93	unsupported	declaration Macro has no candidate rule
+30	Macro		5471	5647	35	1	96	unsupported	declaration Macro has no candidate rule
+31	ItemType	DWMFLIP3DWINDOWPOLICY	5648	5685	36	1	99	generated	
+32	Const	DWMFLIP3D_DEFAULT	5686	5744	37	1	100	generated	
+33	Const	DWMFLIP3D_EXCLUDEABOVE	5745	5808	38	1	101	generated	
+34	Const	DWMFLIP3D_EXCLUDEBELOW	5809	5872	39	1	102	generated	
+35	Const	DWMFLIP3D_LAST	5873	5928	40	1	103	generated	
+36	ItemType	DWMNCRENDERINGPOLICY	5929	5965	41	1	104	generated	
+37	Const	DWMNCRP_DISABLED	5966	6022	42	1	105	generated	
+38	Const	DWMNCRP_ENABLED	6023	6078	43	1	106	generated	
+39	Const	DWMNCRP_LAST	6079	6131	44	1	107	generated	
+40	Const	DWMNCRP_USEWINDOWSTYLE	6132	6194	45	1	108	generated	
+41	Const	DWMSBT_AUTO	6195	6249	46	1	109	generated	
+42	Const	DWMSBT_MAINWINDOW	6250	6310	47	1	110	generated	
+43	Const	DWMSBT_NONE	6311	6365	48	1	111	generated	
+44	Const	DWMSBT_TABBEDWINDOW	6366	6428	49	1	112	generated	
+45	Const	DWMSBT_TRANSIENTWINDOW	6429	6494	50	1	113	generated	
+46	Const	DWMSC_ALL	6495	6548	51	1	114	generated	
+47	Const	DWMSC_DOWN	6549	6594	52	1	115	generated	
+48	Const	DWMSC_DRAG	6595	6640	53	1	116	generated	
+49	Const	DWMSC_HOLD	6641	6686	54	1	117	generated	
+50	Const	DWMSC_NONE	6687	6732	55	1	118	generated	
+51	Const	DWMSC_PENBARREL	6733	6784	56	1	119	generated	
+52	Const	DWMSC_UP	6785	6828	57	1	120	generated	
+53	Const	DWMTRANSITION_OWNEDWINDOW_NULL	6829	6912	58	1	121	generated	
+54	Const	DWMTRANSITION_OWNEDWINDOW_REPOSITION	6913	7001	59	1	122	generated	
+55	ItemType	DWMTRANSITION_OWNEDWINDOW_TARGET	7002	7050	60	1	123	generated	
+56	Const	DWMTWR_APP_COMPAT	7051	7117	61	1	124	generated	
+57	Const	DWMTWR_GROUP_POLICY	7118	7186	62	1	125	generated	
+58	Const	DWMTWR_IMPLEMENTED_BY_SYSTEM	7187	7262	63	1	126	generated	
+59	Const	DWMTWR_NONE	7263	7321	64	1	127	generated	
+60	Const	DWMTWR_TABBING_ENABLED	7322	7392	65	1	128	generated	
+61	Const	DWMTWR_USER_POLICY	7393	7460	66	1	129	generated	
+62	Const	DWMTWR_WINDOW_DWM_ATTRIBUTES	7461	7537	67	1	130	generated	
+63	Const	DWMTWR_WINDOW_MARGINS	7538	7607	68	1	131	generated	
+64	Const	DWMTWR_WINDOW_REGION	7608	7675	69	1	132	generated	
+65	Const	DWMTWR_WINDOW_RELATIONSHIP	7676	7749	70	1	133	generated	
+66	Const	DWMTWR_WINDOW_STYLES	7750	7817	71	1	134	generated	
+67	Const	DWMWA_ALLOW_NCPAINT	7818	7875	72	1	135	generated	
+68	Const	DWMWA_BORDER_COLOR	7876	7933	73	1	136	generated	
+69	Const	DWMWA_CAPTION_BUTTON_BOUNDS	7934	7999	74	1	137	generated	
+70	Const	DWMWA_CAPTION_COLOR	8000	8058	75	1	138	generated	
+71	Const	DWMWA_CLOAK	8059	8109	76	1	139	generated	
+72	Const	DWMWA_CLOAKED	8110	8162	77	1	140	generated	
+73	Const	DWMWA_COLOR_DEFAULT	8163	8214	78	1	141	generated	
+74	Const	DWMWA_COLOR_NONE	8215	8263	79	1	142	generated	
+75	Const	DWMWA_DISALLOW_PEEK	8264	8322	80	1	143	generated	
+76	Const	DWMWA_EXCLUDED_FROM_PEEK	8323	8386	81	1	144	generated	
+77	Const	DWMWA_EXTENDED_FRAME_BOUNDS	8387	8452	82	1	145	generated	
+78	Const	DWMWA_FLIP3D_POLICY	8453	8510	83	1	146	generated	
+79	Const	DWMWA_FORCE_ICONIC_REPRESENTATION	8511	8582	84	1	147	generated	
+80	Const	DWMWA_FREEZE_REPRESENTATION	8583	8649	85	1	148	generated	
+81	Const	DWMWA_HAS_ICONIC_BITMAP	8650	8712	86	1	149	generated	
+82	Const	DWMWA_LAST	8713	8762	87	1	150	generated	
+83	Const	DWMWA_NCRENDERING_ENABLED	8763	8826	88	1	151	generated	
+84	Const	DWMWA_NCRENDERING_POLICY	8827	8889	89	1	152	generated	
+85	Const	DWMWA_NONCLIENT_RTL_LAYOUT	8890	8954	90	1	153	generated	
+86	Const	DWMWA_PASSIVE_UPDATE_MODE	8955	9019	91	1	154	generated	
+87	Const	DWMWA_SYSTEMBACKDROP_TYPE	9020	9084	92	1	155	generated	
+88	Const	DWMWA_TEXT_COLOR	9085	9140	93	1	156	generated	
+89	Const	DWMWA_TRANSITIONS_FORCEDISABLED	9141	9210	94	1	157	generated	
+90	Const	DWMWA_USE_HOSTBACKDROPBRUSH	9211	9277	95	1	158	generated	
+91	Const	DWMWA_USE_IMMERSIVE_DARK_MODE	9278	9346	96	1	159	generated	
+92	Const	DWMWA_VISIBLE_FRAME_BORDER_THICKNESS	9347	9422	97	1	160	generated	
+93	Const	DWMWA_WINDOW_CORNER_PREFERENCE	9423	9492	98	1	161	generated	
+94	Const	DWMWCP_DEFAULT	9493	9555	99	1	162	generated	
+95	Const	DWMWCP_DONOTROUND	9556	9621	100	1	163	generated	
+96	Const	DWMWCP_ROUND	9622	9682	101	1	164	generated	
+97	Const	DWMWCP_ROUNDSMALL	9683	9748	102	1	165	generated	
+98	ItemType	DWMWINDOWATTRIBUTE	9749	9783	103	1	166	generated	
+99	Const	DWM_BB_BLURREGION	9784	9824	104	1	167	generated	
+100	Const	DWM_BB_ENABLE	9825	9861	105	1	168	generated	
+101	Const	DWM_BB_TRANSITIONONMAXIMIZED	9862	9913	106	1	169	generated	
+102	Struct	DWM_BLURBEHIND	9914	10184	107	1	170	unsupported	declaration Struct has no candidate rule
+103	Impl		10185	10331	116	1	181	unsupported	declaration Impl has no candidate rule
+104	Const	DWM_CLOAKED_APP	10332	10370	122	1	189	generated	
+105	Const	DWM_CLOAKED_INHERITED	10371	10415	123	1	190	generated	
+106	Const	DWM_CLOAKED_SHELL	10416	10456	124	1	191	generated	
+107	Const	DWM_EC_DISABLECOMPOSITION	10457	10505	125	1	192	generated	
+108	Const	DWM_EC_ENABLECOMPOSITION	10506	10553	126	1	193	generated	
+109	Const	DWM_FRAME_DURATION_DEFAULT	10554	10604	127	1	194	generated	
+110	Struct	DWM_PRESENT_PARAMETERS	10605	10972	128	1	195	unsupported	declaration Struct has no candidate rule
+111	ItemType	DWM_SHOWCONTACT	10973	11004	140	1	209	generated	
+112	Const	DWM_SIT_DISPLAYFRAME	11005	11048	141	1	210	generated	
+113	ItemType	DWM_SOURCE_FRAME_SAMPLING	11049	11090	142	1	211	generated	
+114	Const	DWM_SOURCE_FRAME_SAMPLING_COVERAGE	11091	11170	143	1	212	generated	
+115	Const	DWM_SOURCE_FRAME_SAMPLING_LAST	11171	11246	144	1	213	generated	
+116	Const	DWM_SOURCE_FRAME_SAMPLING_POINT	11247	11323	145	1	214	generated	
+117	ItemType	DWM_SYSTEMBACKDROP_TYPE	11324	11363	146	1	215	generated	
+118	ItemType	DWM_TAB_WINDOW_REQUIREMENTS	11364	11407	147	1	216	generated	
+119	Struct	DWM_THUMBNAIL_PROPERTIES	11408	11748	148	1	217	unsupported	declaration Struct has no candidate rule
+120	Struct	DWM_TIMING_INFO	11749	13033	158	1	229	unsupported	declaration Struct has no candidate rule
+121	Const	DWM_TNP_OPACITY	13034	13072	202	1	275	generated	
+122	Const	DWM_TNP_RECTDESTINATION	13073	13119	203	1	276	generated	
+123	Const	DWM_TNP_RECTSOURCE	13120	13161	204	1	277	generated	
+124	Const	DWM_TNP_SOURCECLIENTAREAONLY	13162	13214	205	1	278	generated	
+125	Const	DWM_TNP_VISIBLE	13215	13253	206	1	279	generated	
+126	ItemType	DWM_WINDOW_CORNER_PREFERENCE	13254	13298	207	1	280	generated	
+127	ItemType	GESTURE_TYPE	13299	13327	208	1	281	generated	
+128	Const	GT_PEN_DOUBLETAP	13328	13376	209	1	282	generated	
+129	Const	GT_PEN_PRESSANDHOLD	13377	13428	210	1	283	generated	
+130	Const	GT_PEN_PRESSANDHOLDABORT	13429	13485	211	1	284	generated	
+131	Const	GT_PEN_RIGHTTAP	13486	13533	212	1	285	generated	
+132	Const	GT_PEN_TAP	13534	13576	213	1	286	generated	
+133	Const	GT_TOUCH_DOUBLETAP	13577	13627	214	1	287	generated	
+134	Const	GT_TOUCH_PRESSANDHOLD	13628	13681	215	1	288	generated	
+135	Const	GT_TOUCH_PRESSANDHOLDABORT	13682	13740	216	1	289	generated	
+136	Const	GT_TOUCH_PRESSANDTAP	13741	13794	217	1	290	generated	
+137	Const	GT_TOUCH_RIGHTTAP	13795	13844	218	1	291	generated	
+138	Const	GT_TOUCH_TAP	13845	13889	219	1	292	generated	
+139	Struct	MilMatrix3x2D	13890	14082	220	1	293	unsupported	declaration Struct has no candidate rule
+140	Struct	UNSIGNED_RATIO	14083	14220	230	1	305	unsupported	declaration Struct has no candidate rule
+141	Const	c_DwmMaxAdapters	14221	14261	236	1	313	generated	
+142	Const	c_DwmMaxMonitors	14262	14302	237	1	314	generated	
+143	Const	c_DwmMaxQueuedBuffers	14303	14347	238	1	315	generated	

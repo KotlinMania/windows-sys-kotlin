@@ -8,3 +8,4 @@ link-validation-*/*.klib
 link-validation-*/*-build/
 link-validation-*/cinterop-tmp/
 syntax-validation-*/*.klib
+string-validation-*/rust-oracle

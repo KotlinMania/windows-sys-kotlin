@@ -1,0 +1,144 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	122	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		123	256	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		257	391	3	1	8	unsupported	declaration Macro has no candidate rule
+3	Macro		392	609	4	1	11	unsupported	declaration Macro has no candidate rule
+4	Macro		610	724	5	1	14	unsupported	declaration Macro has no candidate rule
+5	Macro		725	945	6	1	17	unsupported	declaration Macro has no candidate rule
+6	Macro		946	1109	7	1	20	unsupported	declaration Macro has no candidate rule
+7	Macro		1110	1271	8	1	23	unsupported	declaration Macro has no candidate rule
+8	Macro		1272	1428	9	1	26	unsupported	declaration Macro has no candidate rule
+9	Macro		1429	1590	10	1	29	unsupported	declaration Macro has no candidate rule
+10	Macro		1591	1718	11	1	32	unsupported	declaration Macro has no candidate rule
+11	Macro		1719	1867	12	1	35	unsupported	declaration Macro has no candidate rule
+12	Macro		1868	2062	13	1	38	unsupported	declaration Macro has no candidate rule
+13	Macro		2063	2258	14	1	41	unsupported	declaration Macro has no candidate rule
+14	Macro		2259	2373	15	1	44	unsupported	declaration Macro has no candidate rule
+15	Macro		2374	2527	16	1	47	unsupported	declaration Macro has no candidate rule
+16	Macro		2528	2685	17	1	50	unsupported	declaration Macro has no candidate rule
+17	Macro		2686	2912	18	1	53	unsupported	declaration Macro has no candidate rule
+18	Macro		2913	3067	19	1	56	unsupported	declaration Macro has no candidate rule
+19	Macro		3068	3220	20	1	59	unsupported	declaration Macro has no candidate rule
+20	Macro		3221	3372	21	1	62	unsupported	declaration Macro has no candidate rule
+21	Macro		3373	3592	22	1	65	unsupported	declaration Macro has no candidate rule
+22	Macro		3593	3747	23	1	68	unsupported	declaration Macro has no candidate rule
+23	Macro		3748	3959	24	1	71	unsupported	declaration Macro has no candidate rule
+24	Macro		3960	4083	25	1	74	unsupported	declaration Macro has no candidate rule
+25	Macro		4084	4198	26	1	77	unsupported	declaration Macro has no candidate rule
+26	Macro		4199	4333	27	1	80	unsupported	declaration Macro has no candidate rule
+27	Macro		4334	4456	28	1	83	unsupported	declaration Macro has no candidate rule
+28	Macro		4457	4619	29	1	86	unsupported	declaration Macro has no candidate rule
+29	Macro		4620	4745	30	1	89	unsupported	declaration Macro has no candidate rule
+30	Macro		4746	4873	31	1	92	unsupported	declaration Macro has no candidate rule
+31	Macro		4874	5011	32	1	95	unsupported	declaration Macro has no candidate rule
+32	Macro		5012	5170	33	1	98	unsupported	declaration Macro has no candidate rule
+33	Macro		5171	5290	34	1	101	unsupported	declaration Macro has no candidate rule
+34	Macro		5291	5414	35	1	104	unsupported	declaration Macro has no candidate rule
+35	Macro		5415	5604	36	1	107	unsupported	declaration Macro has no candidate rule
+36	Macro		5605	5722	37	1	110	unsupported	declaration Macro has no candidate rule
+37	Macro		5723	5935	38	1	113	unsupported	declaration Macro has no candidate rule
+38	Macro		5936	6099	39	1	116	unsupported	declaration Macro has no candidate rule
+39	Macro		6100	6286	40	1	119	unsupported	declaration Macro has no candidate rule
+40	Macro		6287	6448	41	1	122	unsupported	declaration Macro has no candidate rule
+41	Macro		6449	6595	42	1	125	unsupported	declaration Macro has no candidate rule
+42	Macro		6596	6754	43	1	128	unsupported	declaration Macro has no candidate rule
+43	Macro		6755	6904	44	1	131	unsupported	declaration Macro has no candidate rule
+44	Macro		6905	7052	45	1	134	unsupported	declaration Macro has no candidate rule
+45	Macro		7053	7200	46	1	137	unsupported	declaration Macro has no candidate rule
+46	Macro		7201	7339	47	1	140	unsupported	declaration Macro has no candidate rule
+47	Macro		7340	7457	48	1	143	unsupported	declaration Macro has no candidate rule
+48	Macro		7458	7585	49	1	146	unsupported	declaration Macro has no candidate rule
+49	Macro		7586	7723	50	1	149	unsupported	declaration Macro has no candidate rule
+50	Macro		7724	7826	51	1	152	unsupported	declaration Macro has no candidate rule
+51	Macro		7827	7960	52	1	155	unsupported	declaration Macro has no candidate rule
+52	Macro		7961	8132	53	1	158	unsupported	declaration Macro has no candidate rule
+53	Macro		8133	8307	54	1	161	unsupported	declaration Macro has no candidate rule
+54	Macro		8308	8401	55	1	164	unsupported	declaration Macro has no candidate rule
+55	Macro		8402	8530	56	1	167	unsupported	declaration Macro has no candidate rule
+56	Macro		8531	8643	57	1	170	unsupported	declaration Macro has no candidate rule
+57	Macro		8644	8794	58	1	173	unsupported	declaration Macro has no candidate rule
+58	Macro		8795	8931	59	1	176	unsupported	declaration Macro has no candidate rule
+59	Macro		8932	9143	60	1	179	unsupported	declaration Macro has no candidate rule
+60	Macro		9144	9385	61	1	182	unsupported	declaration Macro has no candidate rule
+61	Macro		9386	9565	62	1	185	unsupported	declaration Macro has no candidate rule
+62	Macro		9566	9681	63	1	188	unsupported	declaration Macro has no candidate rule
+63	Macro		9682	9805	64	1	191	unsupported	declaration Macro has no candidate rule
+64	Macro		9806	10015	65	1	194	unsupported	declaration Macro has no candidate rule
+65	Macro		10016	10255	66	1	197	unsupported	declaration Macro has no candidate rule
+66	Macro		10256	10412	67	1	200	unsupported	declaration Macro has no candidate rule
+67	Macro		10413	10530	68	1	203	unsupported	declaration Macro has no candidate rule
+68	Macro		10531	10645	69	1	206	unsupported	declaration Macro has no candidate rule
+69	Macro		10646	10801	70	1	209	unsupported	declaration Macro has no candidate rule
+70	Macro		10802	10987	71	1	212	unsupported	declaration Macro has no candidate rule
+71	Macro		10988	11192	72	1	215	unsupported	declaration Macro has no candidate rule
+72	Macro		11193	11348	73	1	218	unsupported	declaration Macro has no candidate rule
+73	Macro		11349	11571	74	1	221	unsupported	declaration Macro has no candidate rule
+74	Macro		11572	11797	75	1	224	unsupported	declaration Macro has no candidate rule
+75	Macro		11798	11940	76	1	227	unsupported	declaration Macro has no candidate rule
+76	Macro		11941	12055	77	1	230	unsupported	declaration Macro has no candidate rule
+77	Macro		12056	12224	78	1	233	unsupported	declaration Macro has no candidate rule
+78	Macro		12225	12394	79	1	236	unsupported	declaration Macro has no candidate rule
+79	Macro		12395	12655	80	1	239	unsupported	declaration Macro has no candidate rule
+80	Macro		12656	12920	82	1	243	unsupported	declaration Macro has no candidate rule
+81	Const	JS_SOURCE_CONTEXT_NONE	12921	12985	84	1	247	generated	
+82	Const	JsArray	12986	13024	85	1	248	generated	
+83	ItemType	JsBackgroundWorkItemCallback	13025	13140	86	1	249	unsupported	generic scalar type unsupported
+84	ItemType	JsBeforeCollectCallback	13141	13251	87	1	252	unsupported	generic scalar type unsupported
+85	Const	JsBoolean	13252	13292	88	1	255	generated	
+86	Const	JsError	13293	13331	89	1	256	generated	
+87	Const	JsErrorAlreadyDebuggingContext	13332	13397	90	1	257	generated	
+88	Const	JsErrorAlreadyProfilingContext	13398	13463	91	1	258	generated	
+89	Const	JsErrorArgumentNotObject	13464	13523	92	1	259	generated	
+90	Const	JsErrorBadSerializedScript	13524	13585	93	1	260	generated	
+91	Const	JsErrorCannotDisableExecution	13586	13650	94	1	261	generated	
+92	Const	JsErrorCannotSerializeDebugScript	13651	13719	95	1	262	generated	
+93	Const	JsErrorCategoryEngine	13720	13777	96	1	263	generated	
+94	Const	JsErrorCategoryFatal	13778	13834	97	1	264	generated	
+95	Const	JsErrorCategoryScript	13835	13892	98	1	265	generated	
+96	Const	JsErrorCategoryUsage	13893	13948	99	1	266	generated	
+97	ItemType	JsErrorCode	13949	13976	100	1	267	generated	
+98	Const	JsErrorFatal	13977	14025	101	1	268	generated	
+99	Const	JsErrorHeapEnumInProgress	14026	14086	102	1	269	generated	
+100	Const	JsErrorIdleNotEnabled	14087	14143	103	1	270	generated	
+101	Const	JsErrorInDisabledState	14144	14201	104	1	271	generated	
+102	Const	JsErrorInExceptionState	14202	14260	105	1	272	generated	
+103	Const	JsErrorInProfileCallback	14261	14320	106	1	273	generated	
+104	Const	JsErrorInThreadServiceCallback	14321	14386	107	1	274	generated	
+105	Const	JsErrorInvalidArgument	14387	14444	108	1	275	generated	
+106	Const	JsErrorNoCurrentContext	14445	14503	109	1	276	generated	
+107	Const	JsErrorNotImplemented	14504	14560	110	1	277	generated	
+108	Const	JsErrorNullArgument	14561	14615	111	1	278	generated	
+109	Const	JsErrorOutOfMemory	14616	14670	112	1	279	generated	
+110	Const	JsErrorRuntimeInUse	14671	14725	113	1	280	generated	
+111	Const	JsErrorScriptCompile	14726	14782	114	1	281	generated	
+112	Const	JsErrorScriptEvalDisabled	14783	14844	115	1	282	generated	
+113	Const	JsErrorScriptException	14845	14903	116	1	283	generated	
+114	Const	JsErrorScriptTerminated	14904	14963	117	1	284	generated	
+115	Const	JsErrorWrongThread	14964	15017	118	1	285	generated	
+116	ItemType	JsFinalizeCallback	15018	15114	119	1	286	unsupported	generic scalar type unsupported
+117	Const	JsFunction	15115	15156	120	1	289	generated	
+118	Const	JsMemoryAllocate	15157	15210	121	1	290	generated	
+119	ItemType	JsMemoryAllocationCallback	15211	15391	122	1	291	unsupported	generic scalar type unsupported
+120	ItemType	JsMemoryEventType	15392	15425	123	1	294	generated	
+121	Const	JsMemoryFailure	15426	15478	124	1	295	generated	
+122	Const	JsMemoryFree	15479	15528	125	1	296	generated	
+123	ItemType	JsNativeFunction	15529	15779	126	1	297	unsupported	generic scalar type unsupported
+124	Const	JsNoError	15780	15820	127	1	300	generated	
+125	Const	JsNull	15821	15858	128	1	301	generated	
+126	Const	JsNumber	15859	15898	129	1	302	generated	
+127	Const	JsObject	15899	15938	130	1	303	generated	
+128	Const	JsRuntimeAttributeAllowScriptInterrupt	15939	16016	131	1	304	generated	
+129	Const	JsRuntimeAttributeDisableBackgroundWork	16017	16095	132	1	305	generated	
+130	Const	JsRuntimeAttributeDisableEval	16096	16165	133	1	306	generated	
+131	Const	JsRuntimeAttributeDisableNativeCodeGeneration	16166	16250	134	1	307	generated	
+132	Const	JsRuntimeAttributeEnableIdleProcessing	16251	16328	135	1	308	generated	
+133	Const	JsRuntimeAttributeNone	16329	16390	136	1	309	generated	
+134	ItemType	JsRuntimeAttributes	16391	16426	137	1	310	generated	
+135	ItemType	JsRuntimeVersion	16427	16459	138	1	311	generated	
+136	Const	JsRuntimeVersion10	16460	16514	139	1	312	generated	
+137	Const	JsRuntimeVersion11	16515	16569	140	1	313	generated	
+138	Const	JsRuntimeVersionEdge	16570	16627	141	1	314	generated	
+139	Const	JsString	16628	16667	142	1	315	generated	
+140	ItemType	JsThreadServiceCallback	16668	16826	143	1	316	unsupported	generic scalar type unsupported
+141	Const	JsUndefined	16827	16869	144	1	319	generated	
+142	ItemType	JsValueType	16870	16897	145	1	320	generated	

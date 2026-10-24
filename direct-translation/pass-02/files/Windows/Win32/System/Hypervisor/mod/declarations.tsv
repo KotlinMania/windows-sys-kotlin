@@ -1,0 +1,1082 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	256	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		257	425	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		426	712	3	1	8	unsupported	declaration Macro has no candidate rule
+3	Macro		713	1033	4	1	11	unsupported	declaration Macro has no candidate rule
+4	Macro		1034	1242	5	1	14	unsupported	declaration Macro has no candidate rule
+5	Macro		1243	1455	6	1	17	unsupported	declaration Macro has no candidate rule
+6	Macro		1456	1707	7	1	20	unsupported	declaration Macro has no candidate rule
+7	Macro		1708	1905	8	1	23	unsupported	declaration Macro has no candidate rule
+8	Macro		1906	2117	9	1	26	unsupported	declaration Macro has no candidate rule
+9	Macro		2118	2333	10	1	29	unsupported	declaration Macro has no candidate rule
+10	Macro		2334	2549	11	1	32	unsupported	declaration Macro has no candidate rule
+11	Macro		2550	2758	12	1	35	unsupported	declaration Macro has no candidate rule
+12	Macro		2759	2975	13	1	38	unsupported	declaration Macro has no candidate rule
+13	Macro		2976	3247	14	1	41	unsupported	declaration Macro has no candidate rule
+14	Macro		3248	3454	15	1	44	unsupported	declaration Macro has no candidate rule
+15	Macro		3455	3657	16	1	47	unsupported	declaration Macro has no candidate rule
+16	Macro		3658	3881	17	1	50	unsupported	declaration Macro has no candidate rule
+17	Macro		3882	4082	18	1	53	unsupported	declaration Macro has no candidate rule
+18	Macro		4083	4322	19	1	56	unsupported	declaration Macro has no candidate rule
+19	Macro		4323	4594	20	1	59	unsupported	declaration Macro has no candidate rule
+20	Macro		4595	4779	21	1	62	unsupported	declaration Macro has no candidate rule
+21	Macro		4780	5017	22	1	65	unsupported	declaration Macro has no candidate rule
+22	Macro		5018	5192	23	1	68	unsupported	declaration Macro has no candidate rule
+23	Macro		5193	5435	24	1	71	unsupported	declaration Macro has no candidate rule
+24	Macro		5436	5709	25	1	74	unsupported	declaration Macro has no candidate rule
+25	Macro		5710	6120	26	1	77	unsupported	declaration Macro has no candidate rule
+26	Macro		6121	6402	27	1	80	unsupported	declaration Macro has no candidate rule
+27	Macro		6403	6748	28	1	83	unsupported	declaration Macro has no candidate rule
+28	Macro		6749	6927	29	1	86	unsupported	declaration Macro has no candidate rule
+29	Macro		6928	7120	30	1	89	unsupported	declaration Macro has no candidate rule
+30	Macro		7121	7328	31	1	92	unsupported	declaration Macro has no candidate rule
+31	Macro		7329	7589	32	1	95	unsupported	declaration Macro has no candidate rule
+32	Macro		7590	7883	34	1	99	unsupported	declaration Macro has no candidate rule
+33	Macro		7884	8086	36	1	103	unsupported	declaration Macro has no candidate rule
+34	Macro		8087	8361	37	1	106	unsupported	declaration Macro has no candidate rule
+35	Macro		8362	8511	38	1	109	unsupported	declaration Macro has no candidate rule
+36	Macro		8512	8737	39	1	112	unsupported	declaration Macro has no candidate rule
+37	Macro		8738	8943	40	1	115	unsupported	declaration Macro has no candidate rule
+38	Macro		8944	9159	41	1	118	unsupported	declaration Macro has no candidate rule
+39	Macro		9160	9411	42	1	121	unsupported	declaration Macro has no candidate rule
+40	Macro		9412	9625	43	1	124	unsupported	declaration Macro has no candidate rule
+41	Macro		9626	9831	44	1	127	unsupported	declaration Macro has no candidate rule
+42	Macro		9832	10074	45	1	130	unsupported	declaration Macro has no candidate rule
+43	Macro		10075	10360	46	1	133	unsupported	declaration Macro has no candidate rule
+44	Macro		10361	10670	47	1	136	unsupported	declaration Macro has no candidate rule
+45	Macro		10671	10917	48	1	139	unsupported	declaration Macro has no candidate rule
+46	Macro		10918	11236	49	1	142	unsupported	declaration Macro has no candidate rule
+47	Macro		11237	11501	50	1	145	unsupported	declaration Macro has no candidate rule
+48	Macro		11502	11770	51	1	148	unsupported	declaration Macro has no candidate rule
+49	Macro		11771	12045	52	1	151	unsupported	declaration Macro has no candidate rule
+50	Macro		12046	12212	53	1	154	unsupported	declaration Macro has no candidate rule
+51	Macro		12213	12388	54	1	157	unsupported	declaration Macro has no candidate rule
+52	Macro		12389	12666	55	1	160	unsupported	declaration Macro has no candidate rule
+53	Macro		12667	13030	56	1	163	unsupported	declaration Macro has no candidate rule
+54	Macro		13031	13228	57	1	166	unsupported	declaration Macro has no candidate rule
+55	Macro		13229	13472	58	1	169	unsupported	declaration Macro has no candidate rule
+56	Macro		13473	13676	59	1	172	unsupported	declaration Macro has no candidate rule
+57	Macro		13677	13985	60	1	175	unsupported	declaration Macro has no candidate rule
+58	Macro		13986	14319	61	1	178	unsupported	declaration Macro has no candidate rule
+59	Macro		14320	14465	62	1	181	unsupported	declaration Macro has no candidate rule
+60	Macro		14466	14640	63	1	184	unsupported	declaration Macro has no candidate rule
+61	Macro		14641	14788	64	1	187	unsupported	declaration Macro has no candidate rule
+62	Macro		14789	15077	65	1	190	unsupported	declaration Macro has no candidate rule
+63	Macro		15078	15219	66	1	193	unsupported	declaration Macro has no candidate rule
+64	Macro		15220	15497	67	1	196	unsupported	declaration Macro has no candidate rule
+65	Macro		15498	15669	68	1	199	unsupported	declaration Macro has no candidate rule
+66	Macro		15670	15902	69	1	202	unsupported	declaration Macro has no candidate rule
+67	Macro		15903	16212	70	1	205	unsupported	declaration Macro has no candidate rule
+68	Macro		16213	16395	71	1	208	unsupported	declaration Macro has no candidate rule
+69	Macro		16396	16532	72	1	211	unsupported	declaration Macro has no candidate rule
+70	Macro		16533	16709	73	1	214	unsupported	declaration Macro has no candidate rule
+71	Macro		16710	16868	74	1	217	unsupported	declaration Macro has no candidate rule
+72	Macro		16869	17029	75	1	220	unsupported	declaration Macro has no candidate rule
+73	Macro		17030	17223	76	1	223	unsupported	declaration Macro has no candidate rule
+74	Macro		17224	17372	77	1	226	unsupported	declaration Macro has no candidate rule
+75	Macro		17373	17707	78	1	229	unsupported	declaration Macro has no candidate rule
+76	Macro		17708	18041	79	1	232	unsupported	declaration Macro has no candidate rule
+77	Macro		18042	18289	80	1	235	unsupported	declaration Macro has no candidate rule
+78	Macro		18290	18566	81	1	238	unsupported	declaration Macro has no candidate rule
+79	Macro		18567	18831	82	1	241	unsupported	declaration Macro has no candidate rule
+80	Macro		18832	19122	83	1	244	unsupported	declaration Macro has no candidate rule
+81	Macro		19123	19409	84	1	247	unsupported	declaration Macro has no candidate rule
+82	Macro		19410	19635	85	1	250	unsupported	declaration Macro has no candidate rule
+83	Macro		19636	19888	86	1	253	unsupported	declaration Macro has no candidate rule
+84	Macro		19889	20142	87	1	256	unsupported	declaration Macro has no candidate rule
+85	Macro		20143	20412	88	1	259	unsupported	declaration Macro has no candidate rule
+86	Macro		20413	20702	89	1	262	unsupported	declaration Macro has no candidate rule
+87	Macro		20703	20951	90	1	265	unsupported	declaration Macro has no candidate rule
+88	Macro		20952	21254	91	1	268	unsupported	declaration Macro has no candidate rule
+89	Macro		21255	21505	92	1	271	unsupported	declaration Macro has no candidate rule
+90	Macro		21506	21822	93	1	274	unsupported	declaration Macro has no candidate rule
+91	Macro		21823	22069	94	1	277	unsupported	declaration Macro has no candidate rule
+92	Macro		22070	22362	95	1	280	unsupported	declaration Macro has no candidate rule
+93	Macro		22363	22648	96	1	283	unsupported	declaration Macro has no candidate rule
+94	Macro		22649	22885	97	1	286	unsupported	declaration Macro has no candidate rule
+95	Macro		22886	23133	98	1	289	unsupported	declaration Macro has no candidate rule
+96	Macro		23134	23367	99	1	292	unsupported	declaration Macro has no candidate rule
+97	Macro		23368	23626	100	1	295	unsupported	declaration Macro has no candidate rule
+98	Macro		23627	23868	101	1	298	unsupported	declaration Macro has no candidate rule
+99	Macro		23869	24113	102	1	301	unsupported	declaration Macro has no candidate rule
+100	Macro		24114	24321	103	1	304	unsupported	declaration Macro has no candidate rule
+101	Macro		24322	24525	104	1	307	unsupported	declaration Macro has no candidate rule
+102	Macro		24526	24661	105	1	310	unsupported	declaration Macro has no candidate rule
+103	Macro		24662	24802	106	1	313	unsupported	declaration Macro has no candidate rule
+104	Macro		24803	25050	107	1	316	unsupported	declaration Macro has no candidate rule
+105	Macro		25051	25274	108	1	319	unsupported	declaration Macro has no candidate rule
+106	Macro		25275	25535	109	1	322	unsupported	declaration Macro has no candidate rule
+107	Macro		25536	25797	110	1	325	unsupported	declaration Macro has no candidate rule
+108	Macro		25798	26028	111	1	328	unsupported	declaration Macro has no candidate rule
+109	Macro		26029	26260	112	1	331	unsupported	declaration Macro has no candidate rule
+110	Macro		26261	26532	113	1	334	unsupported	declaration Macro has no candidate rule
+111	Macro		26533	26799	114	1	337	unsupported	declaration Macro has no candidate rule
+112	Macro		26800	27025	115	1	340	unsupported	declaration Macro has no candidate rule
+113	Macro		27026	27280	116	1	343	unsupported	declaration Macro has no candidate rule
+114	Macro		27281	27416	118	1	347	unsupported	declaration Macro has no candidate rule
+115	Macro		27417	27657	119	1	350	unsupported	declaration Macro has no candidate rule
+116	Macro		27658	27860	120	1	353	unsupported	declaration Macro has no candidate rule
+117	Macro		27861	28002	121	1	356	unsupported	declaration Macro has no candidate rule
+118	Macro		28003	28271	122	1	359	unsupported	declaration Macro has no candidate rule
+119	Macro		28272	28445	123	1	362	unsupported	declaration Macro has no candidate rule
+120	Macro		28446	28627	124	1	365	unsupported	declaration Macro has no candidate rule
+121	Macro		28628	28797	125	1	368	unsupported	declaration Macro has no candidate rule
+122	Macro		28798	28995	126	1	371	unsupported	declaration Macro has no candidate rule
+123	Macro		28996	29226	127	1	374	unsupported	declaration Macro has no candidate rule
+124	Macro		29227	29488	128	1	377	unsupported	declaration Macro has no candidate rule
+125	Macro		29489	29733	129	1	380	unsupported	declaration Macro has no candidate rule
+126	Const	ARM64_RegisterActlrEl1	29734	29789	130	1	383	generated	
+127	Const	ARM64_RegisterAmairEl1	29790	29845	131	1	384	generated	
+128	Const	ARM64_RegisterCntkctlEl1	29846	29903	132	1	385	generated	
+129	Const	ARM64_RegisterCntvCtlEl0	29904	29961	133	1	386	generated	
+130	Const	ARM64_RegisterCntvCvalEl0	29962	30020	134	1	387	generated	
+131	Const	ARM64_RegisterContextIdrEl1	30021	30081	135	1	388	generated	
+132	Const	ARM64_RegisterCpacrEl1	30082	30137	136	1	389	generated	
+133	Const	ARM64_RegisterCpsr	30138	30189	137	1	390	generated	
+134	Const	ARM64_RegisterCsselrEl1	30190	30246	138	1	391	generated	
+135	Const	ARM64_RegisterElrEl1	30247	30300	139	1	392	generated	
+136	Const	ARM64_RegisterEsrEl1	30301	30354	140	1	393	generated	
+137	Const	ARM64_RegisterFarEl1	30355	30408	141	1	394	generated	
+138	Const	ARM64_RegisterFpControl	30409	30465	142	1	395	generated	
+139	Const	ARM64_RegisterFpStatus	30466	30521	143	1	396	generated	
+140	Const	ARM64_RegisterMairEl1	30522	30576	144	1	397	generated	
+141	Const	ARM64_RegisterMax	30577	30627	145	1	398	generated	
+142	Const	ARM64_RegisterParEl1	30628	30681	146	1	399	generated	
+143	Const	ARM64_RegisterPc	30682	30730	147	1	400	generated	
+144	Const	ARM64_RegisterQ0	30731	30780	148	1	401	generated	
+145	Const	ARM64_RegisterQ1	30781	30830	149	1	402	generated	
+146	Const	ARM64_RegisterQ10	30831	30881	150	1	403	generated	
+147	Const	ARM64_RegisterQ11	30882	30932	151	1	404	generated	
+148	Const	ARM64_RegisterQ12	30933	30983	152	1	405	generated	
+149	Const	ARM64_RegisterQ13	30984	31034	153	1	406	generated	
+150	Const	ARM64_RegisterQ14	31035	31085	154	1	407	generated	
+151	Const	ARM64_RegisterQ15	31086	31136	155	1	408	generated	
+152	Const	ARM64_RegisterQ16	31137	31187	156	1	409	generated	
+153	Const	ARM64_RegisterQ17	31188	31238	157	1	410	generated	
+154	Const	ARM64_RegisterQ18	31239	31289	158	1	411	generated	
+155	Const	ARM64_RegisterQ19	31290	31340	159	1	412	generated	
+156	Const	ARM64_RegisterQ2	31341	31390	160	1	413	generated	
+157	Const	ARM64_RegisterQ20	31391	31441	161	1	414	generated	
+158	Const	ARM64_RegisterQ21	31442	31492	162	1	415	generated	
+159	Const	ARM64_RegisterQ22	31493	31543	163	1	416	generated	
+160	Const	ARM64_RegisterQ23	31544	31594	164	1	417	generated	
+161	Const	ARM64_RegisterQ24	31595	31645	165	1	418	generated	
+162	Const	ARM64_RegisterQ25	31646	31696	166	1	419	generated	
+163	Const	ARM64_RegisterQ26	31697	31747	167	1	420	generated	
+164	Const	ARM64_RegisterQ27	31748	31798	168	1	421	generated	
+165	Const	ARM64_RegisterQ28	31799	31849	169	1	422	generated	
+166	Const	ARM64_RegisterQ29	31850	31900	170	1	423	generated	
+167	Const	ARM64_RegisterQ3	31901	31950	171	1	424	generated	
+168	Const	ARM64_RegisterQ30	31951	32001	172	1	425	generated	
+169	Const	ARM64_RegisterQ31	32002	32052	173	1	426	generated	
+170	Const	ARM64_RegisterQ4	32053	32102	174	1	427	generated	
+171	Const	ARM64_RegisterQ5	32103	32152	175	1	428	generated	
+172	Const	ARM64_RegisterQ6	32153	32202	176	1	429	generated	
+173	Const	ARM64_RegisterQ7	32203	32252	177	1	430	generated	
+174	Const	ARM64_RegisterQ8	32253	32302	178	1	431	generated	
+175	Const	ARM64_RegisterQ9	32303	32352	179	1	432	generated	
+176	Const	ARM64_RegisterSctlrEl1	32353	32408	180	1	433	generated	
+177	Const	ARM64_RegisterSpEl0	32409	32460	181	1	434	generated	
+178	Const	ARM64_RegisterSpEl1	32461	32513	182	1	435	generated	
+179	Const	ARM64_RegisterSpsrEl1	32514	32568	183	1	436	generated	
+180	Const	ARM64_RegisterTcrEl1	32569	32622	184	1	437	generated	
+181	Const	ARM64_RegisterTpidrEl0	32623	32678	185	1	438	generated	
+182	Const	ARM64_RegisterTpidrEl1	32679	32734	186	1	439	generated	
+183	Const	ARM64_RegisterTpidrroEl0	32735	32792	187	1	440	generated	
+184	Const	ARM64_RegisterTtbr0El1	32793	32848	188	1	441	generated	
+185	Const	ARM64_RegisterTtbr1El1	32849	32904	189	1	442	generated	
+186	Const	ARM64_RegisterVbarEl1	32905	32959	190	1	443	generated	
+187	Const	ARM64_RegisterX0	32960	33008	191	1	444	generated	
+188	Const	ARM64_RegisterX1	33009	33057	192	1	445	generated	
+189	Const	ARM64_RegisterX10	33058	33107	193	1	446	generated	
+190	Const	ARM64_RegisterX11	33108	33157	194	1	447	generated	
+191	Const	ARM64_RegisterX12	33158	33207	195	1	448	generated	
+192	Const	ARM64_RegisterX13	33208	33257	196	1	449	generated	
+193	Const	ARM64_RegisterX14	33258	33307	197	1	450	generated	
+194	Const	ARM64_RegisterX15	33308	33357	198	1	451	generated	
+195	Const	ARM64_RegisterX16	33358	33407	199	1	452	generated	
+196	Const	ARM64_RegisterX17	33408	33457	200	1	453	generated	
+197	Const	ARM64_RegisterX18	33458	33507	201	1	454	generated	
+198	Const	ARM64_RegisterX19	33508	33557	202	1	455	generated	
+199	Const	ARM64_RegisterX2	33558	33606	203	1	456	generated	
+200	Const	ARM64_RegisterX20	33607	33656	204	1	457	generated	
+201	Const	ARM64_RegisterX21	33657	33706	205	1	458	generated	
+202	Const	ARM64_RegisterX22	33707	33756	206	1	459	generated	
+203	Const	ARM64_RegisterX23	33757	33806	207	1	460	generated	
+204	Const	ARM64_RegisterX24	33807	33856	208	1	461	generated	
+205	Const	ARM64_RegisterX25	33857	33906	209	1	462	generated	
+206	Const	ARM64_RegisterX26	33907	33956	210	1	463	generated	
+207	Const	ARM64_RegisterX27	33957	34006	211	1	464	generated	
+208	Const	ARM64_RegisterX28	34007	34056	212	1	465	generated	
+209	Const	ARM64_RegisterX3	34057	34105	213	1	466	generated	
+210	Const	ARM64_RegisterX4	34106	34154	214	1	467	generated	
+211	Const	ARM64_RegisterX5	34155	34203	215	1	468	generated	
+212	Const	ARM64_RegisterX6	34204	34252	216	1	469	generated	
+213	Const	ARM64_RegisterX7	34253	34301	217	1	470	generated	
+214	Const	ARM64_RegisterX8	34302	34350	218	1	471	generated	
+215	Const	ARM64_RegisterX9	34351	34399	219	1	472	generated	
+216	Const	ARM64_RegisterXFp	34400	34449	220	1	473	generated	
+217	Const	ARM64_RegisterXLr	34450	34499	221	1	474	generated	
+218	Const	Arch_Armv8	34500	34552	222	1	475	generated	
+219	Const	Arch_Unknown	34553	34607	223	1	476	generated	
+220	Const	Arch_x64	34608	34658	224	1	477	generated	
+221	Const	Arch_x86	34659	34709	225	1	478	generated	
+222	Struct	DOS_IMAGE_INFO	34710	34895	226	1	479	unsupported	declaration Struct has no candidate rule
+223	Impl		34896	35003	234	1	489	unsupported	declaration Impl has no candidate rule
+224	ItemType	FOUND_IMAGE_CALLBACK	35004	35166	239	1	496	unsupported	generic scalar type unsupported
+225	Struct	GPA_MEMORY_CHUNK	35167	35307	240	1	499	unsupported	declaration Struct has no candidate rule
+226	Union		35308	35468	246	1	507	unsupported	declaration Union has no candidate rule
+227	Impl		35469	35575	253	1	516	unsupported	declaration Impl has no candidate rule
+228	Struct	GUEST_OS_INFO_0	35576	35673	258	1	523	unsupported	declaration Struct has no candidate rule
+229	Struct	GUEST_OS_INFO_1	35674	35771	263	1	530	unsupported	declaration Struct has no candidate rule
+230	ItemType	GUEST_OS_MICROSOFT_IDS	35772	35810	268	1	537	generated	
+231	ItemType	GUEST_OS_OPENSOURCE_IDS	35811	35850	269	1	538	generated	
+232	ItemType	GUEST_OS_VENDOR	35851	35882	270	1	539	generated	
+233	ItemType	GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK	35883	36010	271	1	540	unsupported	generic scalar type unsupported
+234	Const	GUID_DEVINTERFACE_VM_GENCOUNTER	36011	36155	272	1	543	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+235	Const	GuestOsMicrosoftMSDOS	36156	36219	273	1	546	generated	
+236	Const	GuestOsMicrosoftUndefined	36220	36287	274	1	547	generated	
+237	Const	GuestOsMicrosoftWindows3x	36288	36355	275	1	548	generated	
+238	Const	GuestOsMicrosoftWindows9x	36356	36423	276	1	549	generated	
+239	Const	GuestOsMicrosoftWindowsCE	36424	36491	277	1	550	generated	
+240	Const	GuestOsMicrosoftWindowsNT	36492	36559	278	1	551	generated	
+241	Const	GuestOsOpenSourceFreeBSD	36560	36627	279	1	552	generated	
+242	Const	GuestOsOpenSourceIllumos	36628	36695	280	1	553	generated	
+243	Const	GuestOsOpenSourceLinux	36696	36761	281	1	554	generated	
+244	Const	GuestOsOpenSourceUndefined	36762	36831	282	1	555	generated	
+245	Const	GuestOsOpenSourceXen	36832	36895	283	1	556	generated	
+246	Const	GuestOsVendorHPE	36896	36947	284	1	557	generated	
+247	Const	GuestOsVendorLANCOM	36948	37004	285	1	558	generated	
+248	Const	GuestOsVendorMicrosoft	37005	37062	286	1	559	generated	
+249	Const	GuestOsVendorUndefined	37063	37120	287	1	560	generated	
+250	ItemType	HDV_DEVICE_HOST_FLAGS	37121	37158	288	1	561	generated	
+251	ItemType	HDV_DEVICE_TYPE	37159	37190	289	1	562	generated	
+252	ItemType	HDV_DOORBELL_FLAGS	37191	37225	290	1	563	generated	
+253	Const	HDV_DOORBELL_FLAG_TRIGGER_ANY_VALUE	37226	37309	291	1	564	generated	
+254	Const	HDV_DOORBELL_FLAG_TRIGGER_SIZE_ANY	37310	37382	292	1	565	generated	
+255	Const	HDV_DOORBELL_FLAG_TRIGGER_SIZE_BYTE	37383	37456	293	1	566	generated	
+256	Const	HDV_DOORBELL_FLAG_TRIGGER_SIZE_DWORD	37457	37531	294	1	567	generated	
+257	Const	HDV_DOORBELL_FLAG_TRIGGER_SIZE_QWORD	37532	37606	295	1	568	generated	
+258	Const	HDV_DOORBELL_FLAG_TRIGGER_SIZE_WORD	37607	37680	296	1	569	generated	
+259	ItemType	HDV_MMIO_MAPPING_FLAGS	37681	37719	297	1	570	generated	
+260	Const	HDV_PCI_BAR0	37720	37772	298	1	571	generated	
+261	Const	HDV_PCI_BAR1	37773	37825	299	1	572	generated	
+262	Const	HDV_PCI_BAR2	37826	37878	300	1	573	generated	
+263	Const	HDV_PCI_BAR3	37879	37931	301	1	574	generated	
+264	Const	HDV_PCI_BAR4	37932	37984	302	1	575	generated	
+265	Const	HDV_PCI_BAR5	37985	38037	303	1	576	generated	
+266	Const	HDV_PCI_BAR_COUNT	38038	38078	304	1	577	generated	
+267	ItemType	HDV_PCI_BAR_SELECTOR	38079	38115	305	1	578	generated	
+268	ItemType	HDV_PCI_DEVICE_GET_DETAILS	38116	38331	306	1	579	unsupported	generic scalar type unsupported
+269	ItemType	HDV_PCI_DEVICE_INITIALIZE	38332	38474	307	1	582	unsupported	generic scalar type unsupported
+270	Struct	HDV_PCI_DEVICE_INTERFACE	38475	39107	308	1	585	unsupported	declaration Struct has no candidate rule
+271	ItemType	HDV_PCI_DEVICE_SET_CONFIGURATION	39108	39342	323	1	602	unsupported	generic scalar type unsupported
+272	ItemType	HDV_PCI_DEVICE_START	39343	39480	324	1	605	unsupported	generic scalar type unsupported
+273	ItemType	HDV_PCI_DEVICE_STOP	39481	39587	325	1	608	unsupported	generic scalar type unsupported
+274	ItemType	HDV_PCI_DEVICE_TEARDOWN	39588	39698	326	1	611	unsupported	generic scalar type unsupported
+275	ItemType	HDV_PCI_INTERFACE_VERSION	39699	39740	327	1	614	generated	
+276	Struct	HDV_PCI_PNP_ID	39741	40000	328	1	615	unsupported	declaration Struct has no candidate rule
+277	ItemType	HDV_PCI_READ_CONFIG_SPACE	40001	40173	340	1	629	unsupported	generic scalar type unsupported
+278	ItemType	HDV_PCI_READ_INTERCEPTED_MEMORY	40174	40396	341	1	632	unsupported	generic scalar type unsupported
+279	ItemType	HDV_PCI_WRITE_CONFIG_SPACE	40397	40565	342	1	635	unsupported	generic scalar type unsupported
+280	ItemType	HDV_PCI_WRITE_INTERCEPTED_MEMORY	40566	40791	343	1	638	unsupported	generic scalar type unsupported
+281	Const	HVSOCKET_ADDRESS_FLAG_PASSTHRU	40792	40845	344	1	641	generated	
+282	Struct	HVSOCKET_ADDRESS_INFO	40846	41080	345	1	642	unsupported	declaration Struct has no candidate rule
+283	Const	HVSOCKET_CONNECTED_SUSPEND	41081	41130	353	1	652	generated	
+284	Const	HVSOCKET_CONNECT_TIMEOUT	41131	41178	354	1	653	generated	
+285	Const	HVSOCKET_CONNECT_TIMEOUT_MAX	41179	41235	355	1	654	generated	
+286	Const	HVSOCKET_HIGH_VTL	41236	41276	356	1	655	generated	
+287	Const	HV_GUID_BROADCAST	41277	41407	357	1	656	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+288	Const	HV_GUID_CHILDREN	41408	41537	358	1	659	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+289	Const	HV_GUID_LOOPBACK	41538	41667	359	1	662	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+290	Const	HV_GUID_PARENT	41668	41795	360	1	665	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+291	Const	HV_GUID_SILOHOST	41796	41925	361	1	668	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+292	Const	HV_GUID_VSOCK_TEMPLATE	41926	42061	362	1	671	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+293	Const	HV_GUID_ZERO	42062	42187	363	1	674	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+294	Const	HV_PROTOCOL_RAW	42188	42226	364	1	677	generated	
+295	Const	HdvDeviceHostFlagInitializeComSecurity	42227	42306	365	1	678	generated	
+296	Const	HdvDeviceHostFlagNone	42307	42369	366	1	679	generated	
+297	Const	HdvDeviceTypePCI	42370	42421	367	1	680	generated	
+298	Const	HdvDeviceTypeUndefined	42422	42479	368	1	681	generated	
+299	Const	HdvMmioMappingFlagExecutable	42480	42550	369	1	682	generated	
+300	Const	HdvMmioMappingFlagNone	42551	42615	370	1	683	generated	
+301	Const	HdvMmioMappingFlagWriteable	42616	42685	371	1	684	generated	
+302	Const	HdvPciDeviceInterfaceVersion1	42686	42760	372	1	685	generated	
+303	Const	HdvPciDeviceInterfaceVersionInvalid	42761	42841	373	1	686	generated	
+304	Const	IOCTL_VMGENCOUNTER_READ	42842	42894	374	1	687	generated	
+305	Struct	MODULE_INFO	42895	43038	375	1	688	unsupported	declaration Struct has no candidate rule
+306	Impl		43039	43143	381	1	696	unsupported	declaration Impl has no candidate rule
+307	ItemType	PAGING_MODE	43144	43171	386	1	703	generated	
+308	Const	Paging_32Bit	43172	43215	387	1	704	generated	
+309	Const	Paging_Armv8	43216	43259	388	1	705	generated	
+310	Const	Paging_Invalid	43260	43305	389	1	706	generated	
+311	Const	Paging_Long	43306	43348	390	1	707	generated	
+312	Const	Paging_NonPaged	43349	43395	391	1	708	generated	
+313	Const	Paging_Pae	43396	43437	392	1	709	generated	
+314	Const	ProcessorVendor_Amd	43438	43501	393	1	710	generated	
+315	Const	ProcessorVendor_Arm	43502	43565	394	1	711	generated	
+316	Const	ProcessorVendor_Hygon	43566	43631	395	1	712	generated	
+317	Const	ProcessorVendor_Intel	43632	43697	396	1	713	generated	
+318	Const	ProcessorVendor_Unknown	43698	43765	397	1	714	generated	
+319	ItemType	REGISTER_ID	43766	43793	398	1	715	generated	
+320	Struct	SOCKADDR_HV	43794	44081	399	1	716	unsupported	declaration Struct has no candidate rule
+321	ItemType	VIRTUAL_PROCESSOR_ARCH	44082	44120	408	1	727	generated	
+322	Union		44121	44362	409	1	728	unsupported	declaration Union has no candidate rule
+323	Impl		44363	44482	419	1	740	unsupported	declaration Impl has no candidate rule
+324	Struct	VIRTUAL_PROCESSOR_REGISTER_0	44483	44610	424	1	747	unsupported	declaration Struct has no candidate rule
+325	Union		44611	44898	430	1	755	unsupported	declaration Union has no candidate rule
+326	Impl		44899	45020	438	1	765	unsupported	declaration Impl has no candidate rule
+327	Struct	VIRTUAL_PROCESSOR_REGISTER_1_2	45021	45264	443	1	772	unsupported	declaration Struct has no candidate rule
+328	Impl		45265	45388	453	1	784	unsupported	declaration Impl has no candidate rule
+329	Union		45389	45548	458	1	791	unsupported	declaration Union has no candidate rule
+330	Impl		45549	45674	464	1	799	unsupported	declaration Impl has no candidate rule
+331	Struct	VIRTUAL_PROCESSOR_REGISTER_1_2_0_0	45675	45814	469	1	806	unsupported	declaration Struct has no candidate rule
+332	Struct	VIRTUAL_PROCESSOR_REGISTER_1_0	45815	46009	475	1	814	unsupported	declaration Struct has no candidate rule
+333	Impl		46010	46133	483	1	824	unsupported	declaration Impl has no candidate rule
+334	Union		46134	46294	488	1	831	unsupported	declaration Union has no candidate rule
+335	Impl		46295	46420	494	1	839	unsupported	declaration Impl has no candidate rule
+336	Struct	VIRTUAL_PROCESSOR_REGISTER_1_0_0_0	46421	46537	499	1	846	unsupported	declaration Struct has no candidate rule
+337	Struct	VIRTUAL_PROCESSOR_REGISTER_1_1	46538	46665	504	1	853	unsupported	declaration Struct has no candidate rule
+338	Struct	VIRTUAL_PROCESSOR_REGISTER_1_3	46666	46864	510	1	861	unsupported	declaration Struct has no candidate rule
+339	Impl		46865	46988	517	1	870	unsupported	declaration Impl has no candidate rule
+340	Union		46989	47148	522	1	877	unsupported	declaration Union has no candidate rule
+341	Impl		47149	47274	528	1	885	unsupported	declaration Impl has no candidate rule
+342	Struct	VIRTUAL_PROCESSOR_REGISTER_1_3_0_0	47275	47413	533	1	892	unsupported	declaration Struct has no candidate rule
+343	ItemType	VIRTUAL_PROCESSOR_VENDOR	47414	47454	539	1	900	generated	
+344	Struct	VM_GENCOUNTER	47455	47590	540	1	901	unsupported	declaration Struct has no candidate rule
+345	Const	VM_GENCOUNTER_SYMBOLIC_LINK_NAME	47591	47710	546	1	909	unsupported	non-scalar type Ptr unsupported
+346	Union		47711	47851	547	1	912	unsupported	declaration Union has no candidate rule
+347	Impl		47852	47968	553	1	920	unsupported	declaration Impl has no candidate rule
+348	Struct	WHV_ACCESS_GPA_CONTROLS_0	47969	48110	558	1	927	unsupported	declaration Struct has no candidate rule
+349	Union		48111	48228	564	1	935	unsupported	declaration Union has no candidate rule
+350	Impl		48229	48342	569	1	942	unsupported	declaration Impl has no candidate rule
+351	ItemType	WHV_ADVISE_GPA_RANGE_CODE	48343	48384	574	1	949	generated	
+352	Struct	WHV_ADVISE_GPA_RANGE_POPULATE	48385	48559	575	1	950	unsupported	declaration Struct has no candidate rule
+353	Impl		48560	48682	581	1	958	unsupported	declaration Impl has no candidate rule
+354	Union		48683	48847	586	1	965	unsupported	declaration Union has no candidate rule
+355	Impl		48848	48976	592	1	973	unsupported	declaration Impl has no candidate rule
+356	Struct	WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0	48977	49096	597	1	980	unsupported	declaration Struct has no candidate rule
+357	ItemType	WHV_ALLOCATE_VPCI_RESOURCE_FLAGS	49097	49145	602	1	987	generated	
+358	Const	WHV_ANY_VP	49146	49188	603	1	988	generated	
+359	ItemType	WHV_CACHE_TYPE	49189	49219	604	1	989	generated	
+360	Union		49220	50179	605	1	990	unsupported	declaration Union has no candidate rule
+361	Impl		50180	50287	626	1	1013	unsupported	declaration Impl has no candidate rule
+362	ItemType	WHV_CAPABILITY_CODE	50288	50323	631	1	1020	generated	
+363	Union		50324	50464	632	1	1021	unsupported	declaration Union has no candidate rule
+364	Impl		50465	50581	638	1	1029	unsupported	declaration Impl has no candidate rule
+365	Struct	WHV_CAPABILITY_FEATURES_0	50582	50689	643	1	1036	unsupported	declaration Struct has no candidate rule
+366	Struct	WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP	50690	50942	648	1	1043	unsupported	declaration Struct has no candidate rule
+367	Struct	WHV_CPUID_OUTPUT	50943	51089	657	1	1054	unsupported	declaration Struct has no candidate rule
+368	ItemType	WHV_CREATE_VPCI_DEVICE_FLAGS	51090	51134	665	1	1064	generated	
+369	Struct	WHV_DOORBELL_MATCH_DATA	51135	51308	666	1	1065	unsupported	declaration Struct has no candidate rule
+370	Struct	WHV_EMULATOR_CALLBACKS	51309	51849	674	1	1075	unsupported	declaration Struct has no candidate rule
+371	ItemType	WHV_EMULATOR_GET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK	51850	52116	685	1	1088	unsupported	generic scalar type unsupported
+372	Struct	WHV_EMULATOR_IO_ACCESS_INFO	52117	52288	686	1	1091	unsupported	declaration Struct has no candidate rule
+373	ItemType	WHV_EMULATOR_IO_PORT_CALLBACK	52289	52473	694	1	1101	unsupported	generic scalar type unsupported
+374	Struct	WHV_EMULATOR_MEMORY_ACCESS_INFO	52474	52649	695	1	1104	unsupported	declaration Struct has no candidate rule
+375	Impl		52650	52774	703	1	1114	unsupported	declaration Impl has no candidate rule
+376	ItemType	WHV_EMULATOR_MEMORY_CALLBACK	52775	52966	708	1	1121	unsupported	generic scalar type unsupported
+377	ItemType	WHV_EMULATOR_SET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK	52967	53235	709	1	1124	unsupported	generic scalar type unsupported
+378	Union		53236	53368	710	1	1127	unsupported	declaration Union has no candidate rule
+379	Impl		53369	53481	716	1	1135	unsupported	declaration Impl has no candidate rule
+380	Struct	WHV_EMULATOR_STATUS_0	53482	53585	721	1	1142	unsupported	declaration Struct has no candidate rule
+381	ItemType	WHV_EMULATOR_TRANSLATE_GVA_PAGE_CALLBACK	53586	53858	726	1	1149	unsupported	generic scalar type unsupported
+382	ItemType	WHV_EXCEPTION_TYPE	53859	53893	727	1	1152	generated	
+383	Union		53894	54030	728	1	1153	unsupported	declaration Union has no candidate rule
+384	Impl		54031	54145	734	1	1161	unsupported	declaration Impl has no candidate rule
+385	Struct	WHV_EXTENDED_VM_EXITS_0	54146	54251	739	1	1168	unsupported	declaration Struct has no candidate rule
+386	Struct	WHV_HYPERCALL_CONTEXT	54252	54540	744	1	1175	unsupported	declaration Struct has no candidate rule
+387	Impl		54541	54655	758	1	1191	unsupported	declaration Impl has no candidate rule
+388	Const	WHV_HYPERCALL_CONTEXT_MAX_XMM_REGISTERS	54656	54718	763	1	1198	generated	
+389	Union		54719	54873	764	1	1199	unsupported	declaration Union has no candidate rule
+390	Impl		54874	54997	770	1	1207	unsupported	declaration Impl has no candidate rule
+391	Struct	WHV_INTERNAL_ACTIVITY_REGISTER_0	54998	55112	775	1	1214	unsupported	declaration Struct has no candidate rule
+392	Struct	WHV_INTERRUPT_CONTROL	55113	55263	780	1	1221	unsupported	declaration Struct has no candidate rule
+393	ItemType	WHV_INTERRUPT_DESTINATION_MODE	55264	55310	787	1	1230	generated	
+394	ItemType	WHV_INTERRUPT_TRIGGER_MODE	55311	55353	788	1	1231	generated	
+395	ItemType	WHV_INTERRUPT_TYPE	55354	55388	789	1	1232	generated	
+396	ItemType	WHV_MAP_GPA_RANGE_FLAGS	55389	55428	790	1	1233	generated	
+397	Const	WHV_MAX_DEVICE_ID_SIZE_IN_CHARS	55429	55485	791	1	1234	generated	
+398	Struct	WHV_MEMORY_ACCESS_CONTEXT	55486	55737	792	1	1235	unsupported	declaration Struct has no candidate rule
+399	Impl		55738	55856	802	1	1247	unsupported	declaration Impl has no candidate rule
+400	Union		55857	55995	807	1	1254	unsupported	declaration Union has no candidate rule
+401	Impl		55996	56111	813	1	1262	unsupported	declaration Impl has no candidate rule
+402	Struct	WHV_MEMORY_ACCESS_INFO_0	56112	56218	818	1	1269	unsupported	declaration Struct has no candidate rule
+403	ItemType	WHV_MEMORY_ACCESS_TYPE	56219	56257	823	1	1276	generated	
+404	Struct	WHV_MEMORY_RANGE_ENTRY	56258	56391	824	1	1277	unsupported	declaration Struct has no candidate rule
+405	ItemType	WHV_MSR_ACTION	56392	56422	830	1	1285	generated	
+406	Struct	WHV_MSR_ACTION_ENTRY	56423	56593	831	1	1286	unsupported	declaration Struct has no candidate rule
+407	Struct	WHV_NOTIFICATION_PORT_PARAMETERS	56594	56811	839	1	1296	unsupported	declaration Struct has no candidate rule
+408	Impl		56812	56937	846	1	1305	unsupported	declaration Impl has no candidate rule
+409	Union		56938	57116	851	1	1312	unsupported	declaration Union has no candidate rule
+410	Impl		57117	57244	857	1	1320	unsupported	declaration Impl has no candidate rule
+411	Struct	WHV_NOTIFICATION_PORT_PARAMETERS_0_0	57245	57366	862	1	1327	unsupported	declaration Struct has no candidate rule
+412	ItemType	WHV_NOTIFICATION_PORT_PROPERTY_CODE	57367	57418	867	1	1334	generated	
+413	ItemType	WHV_NOTIFICATION_PORT_TYPE	57419	57461	868	1	1335	generated	
+414	ItemType	WHV_PARTITION_COUNTER_SET	57462	57503	869	1	1336	generated	
+415	ItemType	WHV_PARTITION_HANDLE	57504	57542	870	1	1337	generated	
+416	Struct	WHV_PARTITION_MEMORY_COUNTERS	57543	57726	871	1	1338	unsupported	declaration Struct has no candidate rule
+417	Union		57727	59146	878	1	1347	unsupported	declaration Union has no candidate rule
+418	Impl		59147	59262	912	1	1383	unsupported	declaration Impl has no candidate rule
+419	ItemType	WHV_PARTITION_PROPERTY_CODE	59263	59306	917	1	1390	generated	
+420	Struct	WHV_PROCESSOR_APIC_COUNTERS	59307	59534	918	1	1391	unsupported	declaration Struct has no candidate rule
+421	ItemType	WHV_PROCESSOR_COUNTER_SET	59535	59576	927	1	1402	generated	
+422	Struct	WHV_PROCESSOR_EVENT_COUNTERS	59577	59750	928	1	1403	unsupported	declaration Struct has no candidate rule
+423	Union		59751	59889	935	1	1412	unsupported	declaration Union has no candidate rule
+424	Impl		59890	60005	941	1	1420	unsupported	declaration Impl has no candidate rule
+425	Struct	WHV_PROCESSOR_FEATURES_0	60006	60112	946	1	1427	unsupported	declaration Struct has no candidate rule
+426	Union		60113	60253	951	1	1434	unsupported	declaration Union has no candidate rule
+427	Impl		60254	60370	957	1	1442	unsupported	declaration Impl has no candidate rule
+428	Struct	WHV_PROCESSOR_FEATURES1_0	60371	60478	962	1	1449	unsupported	declaration Struct has no candidate rule
+429	Struct	WHV_PROCESSOR_FEATURES_BANKS	60479	60656	967	1	1456	unsupported	declaration Struct has no candidate rule
+430	Impl		60657	60778	974	1	1465	unsupported	declaration Impl has no candidate rule
+431	Union		60779	60938	979	1	1472	unsupported	declaration Union has no candidate rule
+432	Impl		60939	61062	985	1	1480	unsupported	declaration Impl has no candidate rule
+433	Struct	WHV_PROCESSOR_FEATURES_BANKS_0_0	61063	61223	990	1	1487	unsupported	declaration Struct has no candidate rule
+434	Impl		61224	61349	996	1	1495	unsupported	declaration Impl has no candidate rule
+435	Const	WHV_PROCESSOR_FEATURES_BANKS_COUNT	61350	61407	1001	1	1502	generated	
+436	Struct	WHV_PROCESSOR_INTERCEPT_COUNTER	61408	61541	1002	1	1503	unsupported	declaration Struct has no candidate rule
+437	Struct	WHV_PROCESSOR_INTERCEPT_COUNTERS	61542	62476	1008	1	1511	unsupported	declaration Struct has no candidate rule
+438	Union		62477	62631	1026	1	1531	unsupported	declaration Union has no candidate rule
+439	Impl		62632	62755	1032	1	1539	unsupported	declaration Impl has no candidate rule
+440	Struct	WHV_PROCESSOR_PERFMON_FEATURES_0	62756	62870	1037	1	1546	unsupported	declaration Struct has no candidate rule
+441	Struct	WHV_PROCESSOR_RUNTIME_COUNTERS	62871	63028	1042	1	1553	unsupported	declaration Struct has no candidate rule
+442	Struct	WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS	63029	63378	1048	1	1561	unsupported	declaration Struct has no candidate rule
+443	ItemType	WHV_PROCESSOR_VENDOR	63379	63415	1058	1	1573	generated	
+444	Union		63416	63566	1059	1	1574	unsupported	declaration Union has no candidate rule
+445	Impl		63567	63688	1065	1	1582	unsupported	declaration Impl has no candidate rule
+446	Struct	WHV_PROCESSOR_XSAVE_FEATURES_0	63689	63801	1070	1	1589	unsupported	declaration Struct has no candidate rule
+447	Const	WHV_READ_WRITE_GPA_RANGE_MAX_SIZE	63802	63859	1075	1	1596	generated	
+448	ItemType	WHV_REGISTER_NAME	63860	63893	1076	1	1597	generated	
+449	Union		63894	64747	1077	1	1598	unsupported	declaration Union has no candidate rule
+450	Impl		64748	64859	1098	1	1621	unsupported	declaration Impl has no candidate rule
+451	Struct	WHV_RUN_VP_CANCELED_CONTEXT	64860	64993	1103	1	1628	unsupported	declaration Struct has no candidate rule
+452	ItemType	WHV_RUN_VP_CANCEL_REASON	64994	65034	1108	1	1635	generated	
+453	Struct	WHV_RUN_VP_EXIT_CONTEXT	65035	65260	1109	1	1636	unsupported	declaration Struct has no candidate rule
+454	Impl		65261	65377	1117	1	1646	unsupported	declaration Impl has no candidate rule
+455	Union		65378	66217	1122	1	1653	unsupported	declaration Union has no candidate rule
+456	Impl		66218	66336	1141	1	1674	unsupported	declaration Impl has no candidate rule
+457	ItemType	WHV_RUN_VP_EXIT_REASON	66337	66375	1146	1	1681	generated	
+458	Union		66376	66514	1147	1	1682	unsupported	declaration Union has no candidate rule
+459	Impl		66515	66630	1153	1	1690	unsupported	declaration Impl has no candidate rule
+460	Struct	WHV_SCHEDULER_FEATURES_0	66631	66737	1158	1	1697	unsupported	declaration Struct has no candidate rule
+461	Struct	WHV_SRIOV_RESOURCE_DESCRIPTOR	66738	66968	1163	1	1704	unsupported	declaration Struct has no candidate rule
+462	Impl		66969	67091	1171	1	1714	unsupported	declaration Impl has no candidate rule
+463	Struct	WHV_SYNIC_EVENT_PARAMETERS	67092	67269	1176	1	1721	unsupported	declaration Struct has no candidate rule
+464	Const	WHV_SYNIC_MESSAGE_SIZE	67270	67317	1184	1	1731	generated	
+465	Struct	WHV_SYNIC_SINT_DELIVERABLE_CONTEXT	67318	67489	1185	1	1732	unsupported	declaration Struct has no candidate rule
+466	Union		67490	67648	1192	1	1741	unsupported	declaration Union has no candidate rule
+467	Impl		67649	67774	1198	1	1749	unsupported	declaration Impl has no candidate rule
+468	Struct	WHV_SYNTHETIC_PROCESSOR_FEATURES_0	67775	67891	1203	1	1756	unsupported	declaration Struct has no candidate rule
+469	Struct	WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS	67892	68089	1208	1	1763	unsupported	declaration Struct has no candidate rule
+470	Impl		68090	68221	1215	1	1772	unsupported	declaration Impl has no candidate rule
+471	Union		68222	68401	1220	1	1779	unsupported	declaration Union has no candidate rule
+472	Impl		68402	68535	1226	1	1787	unsupported	declaration Impl has no candidate rule
+473	Struct	WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0	68536	68676	1231	1	1794	unsupported	declaration Struct has no candidate rule
+474	Impl		68677	68812	1236	1	1801	unsupported	declaration Impl has no candidate rule
+475	Const	WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_COUNT	68813	68880	1241	1	1808	generated	
+476	ItemType	WHV_TRANSLATE_GVA_FLAGS	68881	68920	1242	1	1809	generated	
+477	Struct	WHV_TRANSLATE_GVA_RESULT	68921	69077	1243	1	1810	unsupported	declaration Struct has no candidate rule
+478	ItemType	WHV_TRANSLATE_GVA_RESULT_CODE	69078	69123	1249	1	1818	generated	
+479	Struct	WHV_TRIGGER_PARAMETERS	69124	69302	1250	1	1819	unsupported	declaration Struct has no candidate rule
+480	Impl		69303	69418	1257	1	1828	unsupported	declaration Impl has no candidate rule
+481	Union		69419	69634	1262	1	1835	unsupported	declaration Union has no candidate rule
+482	Impl		69635	69752	1269	1	1844	unsupported	declaration Impl has no candidate rule
+483	Struct	WHV_TRIGGER_PARAMETERS_0_0	69753	69937	1274	1	1851	unsupported	declaration Struct has no candidate rule
+484	ItemType	WHV_TRIGGER_TYPE	69938	69970	1282	1	1861	generated	
+485	Union		69971	70089	1283	1	1862	unsupported	declaration Union has no candidate rule
+486	Impl		70090	70194	1289	1	1870	unsupported	declaration Impl has no candidate rule
+487	Struct	WHV_UINT128_0	70195	70307	1294	1	1877	unsupported	declaration Struct has no candidate rule
+488	Struct	WHV_VIRTUAL_PROCESSOR_PROPERTY	70308	70522	1300	1	1885	unsupported	declaration Struct has no candidate rule
+489	Impl		70523	70646	1307	1	1894	unsupported	declaration Impl has no candidate rule
+490	Union		70647	70772	1312	1	1901	unsupported	declaration Union has no candidate rule
+491	Impl		70773	70898	1318	1	1909	unsupported	declaration Impl has no candidate rule
+492	ItemType	WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE	70899	70950	1323	1	1916	generated	
+493	ItemType	WHV_VIRTUAL_PROCESSOR_STATE_TYPE	70951	70999	1324	1	1917	generated	
+494	Struct	WHV_VPCI_DEVICE_NOTIFICATION	71000	71213	1325	1	1918	unsupported	declaration Struct has no candidate rule
+495	Impl		71214	71335	1332	1	1927	unsupported	declaration Impl has no candidate rule
+496	Union		71336	71438	1337	1	1934	unsupported	declaration Union has no candidate rule
+497	Impl		71439	71562	1342	1	1941	unsupported	declaration Impl has no candidate rule
+498	ItemType	WHV_VPCI_DEVICE_NOTIFICATION_TYPE	71563	71612	1347	1	1948	generated	
+499	ItemType	WHV_VPCI_DEVICE_PROPERTY_CODE	71613	71658	1348	1	1949	generated	
+500	Struct	WHV_VPCI_DEVICE_REGISTER	71659	71845	1349	1	1950	unsupported	declaration Struct has no candidate rule
+501	ItemType	WHV_VPCI_DEVICE_REGISTER_SPACE	71846	71892	1356	1	1959	generated	
+502	Struct	WHV_VPCI_HARDWARE_IDS	71893	72159	1357	1	1960	unsupported	declaration Struct has no candidate rule
+503	Struct	WHV_VPCI_INTERRUPT_TARGET	72160	72362	1369	1	1974	unsupported	declaration Struct has no candidate rule
+504	Impl		72363	72481	1377	1	1984	unsupported	declaration Impl has no candidate rule
+505	ItemType	WHV_VPCI_INTERRUPT_TARGET_FLAGS	72482	72529	1382	1	1991	generated	
+506	Struct	WHV_VPCI_MMIO_MAPPING	72530	72794	1383	1	1992	unsupported	declaration Struct has no candidate rule
+507	Impl		72795	72909	1392	1	2003	unsupported	declaration Impl has no candidate rule
+508	ItemType	WHV_VPCI_MMIO_RANGE_FLAGS	72910	72951	1397	1	2010	generated	
+509	Struct	WHV_VPCI_PROBED_BARS	72952	73046	1398	1	2011	unsupported	declaration Struct has no candidate rule
+510	Impl		73047	73160	1403	1	2018	unsupported	declaration Impl has no candidate rule
+511	Const	WHV_VPCI_TYPE0_BAR_COUNT	73161	73208	1408	1	2025	generated	
+512	Struct	WHV_VP_EXCEPTION_CONTEXT	73209	73537	1409	1	2026	unsupported	declaration Struct has no candidate rule
+513	Impl		73538	73655	1421	1	2040	unsupported	declaration Impl has no candidate rule
+514	Union		73656	73792	1426	1	2047	unsupported	declaration Union has no candidate rule
+515	Impl		73793	73907	1432	1	2055	unsupported	declaration Impl has no candidate rule
+516	Struct	WHV_VP_EXCEPTION_INFO_0	73908	74013	1437	1	2062	unsupported	declaration Struct has no candidate rule
+517	Struct	WHV_VP_EXIT_CONTEXT	74014	74280	1442	1	2069	unsupported	declaration Struct has no candidate rule
+518	Impl		74281	74393	1453	1	2082	unsupported	declaration Impl has no candidate rule
+519	Struct	WHV_X64_APIC_EOI_CONTEXT	74394	74506	1458	1	2089	unsupported	declaration Struct has no candidate rule
+520	Struct	WHV_X64_APIC_INIT_SIPI_CONTEXT	74507	74617	1463	1	2096	unsupported	declaration Struct has no candidate rule
+521	Struct	WHV_X64_APIC_SMI_CONTEXT	74618	74722	1468	1	2103	unsupported	declaration Struct has no candidate rule
+522	Struct	WHV_X64_APIC_WRITE_CONTEXT	74723	74894	1473	1	2110	unsupported	declaration Struct has no candidate rule
+523	ItemType	WHV_X64_APIC_WRITE_TYPE	74895	74934	1480	1	2119	generated	
+524	Struct	WHV_X64_CPUID_ACCESS_CONTEXT	74935	75217	1481	1	2120	unsupported	declaration Struct has no candidate rule
+525	Struct	WHV_X64_CPUID_RESULT	75218	75410	1493	1	2134	unsupported	declaration Struct has no candidate rule
+526	Impl		75411	75524	1503	1	2146	unsupported	declaration Impl has no candidate rule
+527	Struct	WHV_X64_CPUID_RESULT2	75525	75779	1508	1	2153	unsupported	declaration Struct has no candidate rule
+528	ItemType	WHV_X64_CPUID_RESULT2_FLAGS	75780	75823	1518	1	2165	generated	
+529	Union		75824	76008	1519	1	2166	unsupported	declaration Union has no candidate rule
+530	Impl		76009	76147	1525	1	2174	unsupported	declaration Impl has no candidate rule
+531	Struct	WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0	76148	76277	1530	1	2181	unsupported	declaration Struct has no candidate rule
+532	Union		76278	76449	1535	1	2188	unsupported	declaration Union has no candidate rule
+533	Impl		76450	76577	1541	1	2196	unsupported	declaration Impl has no candidate rule
+534	Struct	WHV_X64_FP_CONTROL_STATUS_REGISTER_0	76578	76833	1546	1	2203	unsupported	declaration Struct has no candidate rule
+535	Impl		76834	76963	1556	1	2215	unsupported	declaration Impl has no candidate rule
+536	Union		76964	77135	1561	1	2222	unsupported	declaration Union has no candidate rule
+537	Impl		77136	77267	1567	1	2230	unsupported	declaration Impl has no candidate rule
+538	Struct	WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0	77268	77437	1572	1	2237	unsupported	declaration Struct has no candidate rule
+539	Union		77438	77579	1579	1	2246	unsupported	declaration Union has no candidate rule
+540	Impl		77580	77692	1585	1	2254	unsupported	declaration Impl has no candidate rule
+541	Struct	WHV_X64_FP_REGISTER_0	77693	77819	1590	1	2261	unsupported	declaration Struct has no candidate rule
+542	Struct	WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT	77820	77978	1596	1	2269	unsupported	declaration Struct has no candidate rule
+543	Union		77979	78137	1601	1	2276	unsupported	declaration Union has no candidate rule
+544	Impl		78138	78263	1607	1	2284	unsupported	declaration Impl has no candidate rule
+545	Struct	WHV_X64_INTERRUPT_STATE_REGISTER_0	78264	78380	1612	1	2291	unsupported	declaration Struct has no candidate rule
+546	Struct	WHV_X64_IO_PORT_ACCESS_CONTEXT	78381	78808	1617	1	2298	unsupported	declaration Struct has no candidate rule
+547	Impl		78809	78932	1633	1	2316	unsupported	declaration Impl has no candidate rule
+548	Union		78933	79081	1638	1	2323	unsupported	declaration Union has no candidate rule
+549	Impl		79082	79202	1644	1	2331	unsupported	declaration Impl has no candidate rule
+550	Struct	WHV_X64_IO_PORT_ACCESS_INFO_0	79203	79314	1649	1	2338	unsupported	declaration Struct has no candidate rule
+551	ItemType	WHV_X64_LOCAL_APIC_EMULATION_MODE	79315	79364	1654	1	2345	generated	
+552	Struct	WHV_X64_MSR_ACCESS_CONTEXT	79365	79545	1655	1	2346	unsupported	declaration Struct has no candidate rule
+553	Impl		79546	79665	1663	1	2356	unsupported	declaration Impl has no candidate rule
+554	Union		79666	79806	1668	1	2363	unsupported	declaration Union has no candidate rule
+555	Impl		79807	79923	1674	1	2371	unsupported	declaration Impl has no candidate rule
+556	Struct	WHV_X64_MSR_ACCESS_INFO_0	79924	80031	1679	1	2378	unsupported	declaration Struct has no candidate rule
+557	Union		80032	80172	1684	1	2385	unsupported	declaration Union has no candidate rule
+558	Impl		80173	80289	1690	1	2393	unsupported	declaration Impl has no candidate rule
+559	Struct	WHV_X64_MSR_EXIT_BITMAP_0	80290	80397	1695	1	2400	unsupported	declaration Struct has no candidate rule
+560	Union		80398	80554	1700	1	2407	unsupported	declaration Union has no candidate rule
+561	Impl		80555	80679	1706	1	2415	unsupported	declaration Impl has no candidate rule
+562	Struct	WHV_X64_PENDING_DEBUG_EXCEPTION_0	80680	80795	1711	1	2422	unsupported	declaration Struct has no candidate rule
+563	ItemType	WHV_X64_PENDING_EVENT_TYPE	80796	80838	1716	1	2429	generated	
+564	Union		80839	81004	1717	1	2430	unsupported	declaration Union has no candidate rule
+565	Impl		81005	81129	1723	1	2438	unsupported	declaration Impl has no candidate rule
+566	Struct	WHV_X64_PENDING_EXCEPTION_EVENT_0	81130	81302	1728	1	2445	unsupported	declaration Struct has no candidate rule
+567	Union		81303	81464	1735	1	2454	unsupported	declaration Union has no candidate rule
+568	Impl		81465	81587	1741	1	2462	unsupported	declaration Impl has no candidate rule
+569	Struct	WHV_X64_PENDING_EXT_INT_EVENT_0	81588	81725	1746	1	2469	unsupported	declaration Struct has no candidate rule
+570	Union		81726	81894	1752	1	2477	unsupported	declaration Union has no candidate rule
+571	Impl		81895	82025	1758	1	2485	unsupported	declaration Impl has no candidate rule
+572	Struct	WHV_X64_PENDING_INTERRUPTION_REGISTER_0	82026	82171	1763	1	2492	unsupported	declaration Struct has no candidate rule
+573	ItemType	WHV_X64_PENDING_INTERRUPTION_TYPE	82172	82221	1769	1	2500	generated	
+574	Struct	WHV_X64_RDTSC_CONTEXT	82222	82426	1770	1	2501	unsupported	declaration Struct has no candidate rule
+575	Impl		82427	82541	1779	1	2512	unsupported	declaration Impl has no candidate rule
+576	Union		82542	82672	1784	1	2519	unsupported	declaration Union has no candidate rule
+577	Impl		82673	82784	1790	1	2527	unsupported	declaration Impl has no candidate rule
+578	Struct	WHV_X64_RDTSC_INFO_0	82785	82887	1795	1	2534	unsupported	declaration Struct has no candidate rule
+579	Struct	WHV_X64_SEGMENT_REGISTER	82888	83070	1800	1	2541	unsupported	declaration Struct has no candidate rule
+580	Impl		83071	83188	1808	1	2551	unsupported	declaration Impl has no candidate rule
+581	Union		83189	83337	1813	1	2558	unsupported	declaration Union has no candidate rule
+582	Impl		83338	83457	1819	1	2566	unsupported	declaration Impl has no candidate rule
+583	Struct	WHV_X64_SEGMENT_REGISTER_0_0	83458	83568	1824	1	2573	unsupported	declaration Struct has no candidate rule
+584	Struct	WHV_X64_TABLE_REGISTER	83569	83702	1829	1	2580	unsupported	declaration Struct has no candidate rule
+585	Impl		83703	83818	1836	1	2589	unsupported	declaration Impl has no candidate rule
+586	ItemType	WHV_X64_UNSUPPORTED_FEATURE_CODE	83819	83867	1841	1	2596	generated	
+587	Struct	WHV_X64_UNSUPPORTED_FEATURE_CONTEXT	83868	84070	1842	1	2597	unsupported	declaration Struct has no candidate rule
+588	Union		84071	84217	1849	1	2606	unsupported	declaration Union has no candidate rule
+589	Impl		84218	84337	1855	1	2614	unsupported	declaration Impl has no candidate rule
+590	Struct	WHV_X64_VP_EXECUTION_STATE_0	84338	84448	1860	1	2621	unsupported	declaration Struct has no candidate rule
+591	Union		84449	84622	1865	1	2628	unsupported	declaration Union has no candidate rule
+592	Impl		84623	84751	1871	1	2636	unsupported	declaration Impl has no candidate rule
+593	Struct	WHV_X64_XMM_CONTROL_STATUS_REGISTER_0	84752	84964	1876	1	2643	unsupported	declaration Struct has no candidate rule
+594	Impl		84965	85095	1883	1	2652	unsupported	declaration Impl has no candidate rule
+595	Union		85096	85269	1888	1	2659	unsupported	declaration Union has no candidate rule
+596	Impl		85270	85402	1894	1	2667	unsupported	declaration Impl has no candidate rule
+597	Struct	WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0	85403	85571	1899	1	2674	unsupported	declaration Struct has no candidate rule
+598	Const	WHvAdviseGpaRangeCodePin	85572	85641	1906	1	2683	generated	
+599	Const	WHvAdviseGpaRangeCodePopulate	85642	85716	1907	1	2684	generated	
+600	Const	WHvAdviseGpaRangeCodeUnpin	85717	85788	1908	1	2685	generated	
+601	Const	WHvAllocateVpciResourceFlagAllowDirectP2P	85789	85882	1909	1	2686	generated	
+602	Const	WHvAllocateVpciResourceFlagNone	85883	85966	1910	1	2687	generated	
+603	Const	WHvCacheTypeUncached	85967	86021	1911	1	2688	generated	
+604	Const	WHvCacheTypeWriteBack	86022	86077	1912	1	2689	generated	
+605	Const	WHvCacheTypeWriteCombining	86078	86138	1913	1	2690	generated	
+606	Const	WHvCacheTypeWriteThrough	86139	86197	1914	1	2691	generated	
+607	Const	WHvCapabilityCodeExceptionExitBitmap	86198	86273	1915	1	2692	generated	
+608	Const	WHvCapabilityCodeExtendedVmExits	86274	86345	1916	1	2693	generated	
+609	Const	WHvCapabilityCodeFeatures	86346	86410	1917	1	2694	generated	
+610	Const	WHvCapabilityCodeGpaRangePopulateFlags	86411	86488	1918	1	2695	generated	
+611	Const	WHvCapabilityCodeHypervisorPresent	86489	86562	1919	1	2696	generated	
+612	Const	WHvCapabilityCodeInterruptClockFrequency	86563	86645	1920	1	2697	generated	
+613	Const	WHvCapabilityCodeProcessorClFlushSize	86646	86725	1921	1	2698	generated	
+614	Const	WHvCapabilityCodeProcessorClockFrequency	86726	86808	1922	1	2699	generated	
+615	Const	WHvCapabilityCodeProcessorFeatures	86809	86885	1923	1	2700	generated	
+616	Const	WHvCapabilityCodeProcessorFeaturesBanks	86886	86967	1924	1	2701	generated	
+617	Const	WHvCapabilityCodeProcessorFrequencyCap	86968	87048	1925	1	2702	generated	
+618	Const	WHvCapabilityCodeProcessorPerfmonFeatures	87049	87132	1926	1	2703	generated	
+619	Const	WHvCapabilityCodeProcessorVendor	87133	87207	1927	1	2704	generated	
+620	Const	WHvCapabilityCodeProcessorXsaveFeatures	87208	87289	1928	1	2705	generated	
+621	Const	WHvCapabilityCodeSchedulerFeatures	87290	87363	1929	1	2706	generated	
+622	Const	WHvCapabilityCodeSyntheticProcessorFeaturesBanks	87364	87454	1930	1	2707	generated	
+623	Const	WHvCapabilityCodeX64MsrExitBitmap	87455	87527	1931	1	2708	generated	
+624	Const	WHvCreateVpciDeviceFlagNone	87528	87603	1932	1	2709	generated	
+625	Const	WHvCreateVpciDeviceFlagPhysicallyBacked	87604	87691	1933	1	2710	generated	
+626	Const	WHvCreateVpciDeviceFlagUseLogicalInterrupts	87692	87783	1934	1	2711	generated	
+627	Const	WHvMapGpaRangeFlagExecute	87784	87852	1935	1	2712	generated	
+628	Const	WHvMapGpaRangeFlagNone	87853	87918	1936	1	2713	generated	
+629	Const	WHvMapGpaRangeFlagRead	87919	87984	1937	1	2714	generated	
+630	Const	WHvMapGpaRangeFlagTrackDirtyPages	87985	88061	1938	1	2715	generated	
+631	Const	WHvMapGpaRangeFlagWrite	88062	88128	1939	1	2716	generated	
+632	Const	WHvMemoryAccessExecute	88129	88193	1940	1	2717	generated	
+633	Const	WHvMemoryAccessRead	88194	88255	1941	1	2718	generated	
+634	Const	WHvMemoryAccessWrite	88256	88318	1942	1	2719	generated	
+635	Const	WHvMsrActionArchitectureDefault	88319	88384	1943	1	2720	generated	
+636	Const	WHvMsrActionExit	88385	88435	1944	1	2721	generated	
+637	Const	WHvMsrActionIgnoreWriteReadZero	88436	88501	1945	1	2722	generated	
+638	Const	WHvNotificationPortPropertyPreferredTargetDuration	88502	88607	1946	1	2723	generated	
+639	Const	WHvNotificationPortPropertyPreferredTargetVp	88608	88707	1947	1	2724	generated	
+640	Const	WHvNotificationPortTypeDoorbell	88708	88785	1948	1	2725	generated	
+641	Const	WHvNotificationPortTypeEvent	88786	88860	1949	1	2726	generated	
+642	Const	WHvPartitionCounterSetMemory	88861	88934	1950	1	2727	generated	
+643	Const	WHvPartitionPropertyCodeAllowDeviceAssignment	88935	89028	1951	1	2728	generated	
+644	Const	WHvPartitionPropertyCodeApicRemoteReadSupport	89029	89124	1952	1	2729	generated	
+645	Const	WHvPartitionPropertyCodeCpuCap	89125	89202	1953	1	2730	generated	
+646	Const	WHvPartitionPropertyCodeCpuGroupId	89203	89285	1954	1	2731	generated	
+647	Const	WHvPartitionPropertyCodeCpuReserve	89286	89367	1955	1	2732	generated	
+648	Const	WHvPartitionPropertyCodeCpuWeight	89368	89448	1956	1	2733	generated	
+649	Const	WHvPartitionPropertyCodeCpuidExitList	89449	89536	1957	1	2734	generated	
+650	Const	WHvPartitionPropertyCodeCpuidResultList	89537	89626	1958	1	2735	generated	
+651	Const	WHvPartitionPropertyCodeCpuidResultList2	89627	89717	1959	1	2736	generated	
+652	Const	WHvPartitionPropertyCodeDisableSmt	89718	89800	1960	1	2737	generated	
+653	Const	WHvPartitionPropertyCodeExceptionExitBitmap	89801	89891	1961	1	2738	generated	
+654	Const	WHvPartitionPropertyCodeExtendedVmExits	89892	89978	1962	1	2739	generated	
+655	Const	WHvPartitionPropertyCodeInterruptClockFrequency	89979	90076	1963	1	2740	generated	
+656	Const	WHvPartitionPropertyCodeLocalApicEmulationMode	90077	90173	1964	1	2741	generated	
+657	Const	WHvPartitionPropertyCodeMsrActionList	90174	90261	1965	1	2742	generated	
+658	Const	WHvPartitionPropertyCodeNestedVirtualization	90262	90353	1966	1	2743	generated	
+659	Const	WHvPartitionPropertyCodePrimaryNumaNode	90354	90440	1967	1	2744	generated	
+660	Const	WHvPartitionPropertyCodeProcessorClFlushSize	90441	90535	1968	1	2745	generated	
+661	Const	WHvPartitionPropertyCodeProcessorClockFrequency	90536	90633	1969	1	2746	generated	
+662	Const	WHvPartitionPropertyCodeProcessorCount	90634	90722	1970	1	2747	generated	
+663	Const	WHvPartitionPropertyCodeProcessorFeatures	90723	90814	1971	1	2748	generated	
+664	Const	WHvPartitionPropertyCodeProcessorFeaturesBanks	90815	90911	1972	1	2749	generated	
+665	Const	WHvPartitionPropertyCodeProcessorFrequencyCap	90912	91005	1973	1	2750	generated	
+666	Const	WHvPartitionPropertyCodeProcessorPerfmonFeatures	91006	91104	1974	1	2751	generated	
+667	Const	WHvPartitionPropertyCodeProcessorXsaveFeatures	91105	91201	1975	1	2752	generated	
+668	Const	WHvPartitionPropertyCodeReferenceTime	91202	91289	1976	1	2753	generated	
+669	Const	WHvPartitionPropertyCodeSeparateSecurityDomain	91290	91383	1977	1	2754	generated	
+670	Const	WHvPartitionPropertyCodeSyntheticProcessorFeaturesBanks	91384	91489	1978	1	2755	generated	
+671	Const	WHvPartitionPropertyCodeUnimplementedMsrAction	91490	91586	1979	1	2756	generated	
+672	Const	WHvPartitionPropertyCodeX64MsrExitBitmap	91587	91674	1980	1	2757	generated	
+673	Const	WHvProcessorCounterSetApic	91675	91746	1981	1	2758	generated	
+674	Const	WHvProcessorCounterSetEvents	91747	91820	1982	1	2759	generated	
+675	Const	WHvProcessorCounterSetIntercepts	91821	91898	1983	1	2760	generated	
+676	Const	WHvProcessorCounterSetRuntime	91899	91973	1984	1	2761	generated	
+677	Const	WHvProcessorCounterSetSyntheticFeatures	91974	92058	1985	1	2762	generated	
+678	Const	WHvProcessorVendorAmd	92059	92120	1986	1	2763	generated	
+679	Const	WHvProcessorVendorHygon	92121	92184	1987	1	2764	generated	
+680	Const	WHvProcessorVendorIntel	92185	92248	1988	1	2765	generated	
+681	Const	WHvRegisterEom	92249	92304	1989	1	2766	generated	
+682	Const	WHvRegisterGuestOsId	92305	92366	1990	1	2767	generated	
+683	Const	WHvRegisterInternalActivityState	92367	92446	1991	1	2768	generated	
+684	Const	WHvRegisterInterruptState	92447	92519	1992	1	2769	generated	
+685	Const	WHvRegisterPendingEvent	92520	92590	1993	1	2770	generated	
+686	Const	WHvRegisterPendingInterruption	92591	92668	1994	1	2771	generated	
+687	Const	WHvRegisterReferenceTsc	92669	92733	1995	1	2772	generated	
+688	Const	WHvRegisterReferenceTscSequence	92734	92806	1996	1	2773	generated	
+689	Const	WHvRegisterScontrol	92807	92867	1997	1	2774	generated	
+690	Const	WHvRegisterSiefp	92868	92925	1998	1	2775	generated	
+691	Const	WHvRegisterSimp	92926	92982	1999	1	2776	generated	
+692	Const	WHvRegisterSint0	92983	93040	2000	1	2777	generated	
+693	Const	WHvRegisterSint1	93041	93098	2001	1	2778	generated	
+694	Const	WHvRegisterSint10	93099	93157	2002	1	2779	generated	
+695	Const	WHvRegisterSint11	93158	93216	2003	1	2780	generated	
+696	Const	WHvRegisterSint12	93217	93275	2004	1	2781	generated	
+697	Const	WHvRegisterSint13	93276	93334	2005	1	2782	generated	
+698	Const	WHvRegisterSint14	93335	93393	2006	1	2783	generated	
+699	Const	WHvRegisterSint15	93394	93452	2007	1	2784	generated	
+700	Const	WHvRegisterSint2	93453	93510	2008	1	2785	generated	
+701	Const	WHvRegisterSint3	93511	93568	2009	1	2786	generated	
+702	Const	WHvRegisterSint4	93569	93626	2010	1	2787	generated	
+703	Const	WHvRegisterSint5	93627	93684	2011	1	2788	generated	
+704	Const	WHvRegisterSint6	93685	93742	2012	1	2789	generated	
+705	Const	WHvRegisterSint7	93743	93800	2013	1	2790	generated	
+706	Const	WHvRegisterSint8	93801	93858	2014	1	2791	generated	
+707	Const	WHvRegisterSint9	93859	93916	2015	1	2792	generated	
+708	Const	WHvRegisterSversion	93917	93977	2016	1	2793	generated	
+709	Const	WHvRegisterVpAssistPage	93978	94042	2017	1	2794	generated	
+710	Const	WHvRegisterVpRuntime	94043	94104	2018	1	2795	generated	
+711	Const	WHvRunVpCancelReasonUser	94105	94173	2019	1	2796	generated	
+712	Const	WHvRunVpExitReasonCanceled	94174	94245	2020	1	2797	generated	
+713	Const	WHvRunVpExitReasonException	94246	94318	2021	1	2798	generated	
+714	Const	WHvRunVpExitReasonHypercall	94319	94391	2022	1	2799	generated	
+715	Const	WHvRunVpExitReasonInvalidVpRegisterValue	94392	94474	2023	1	2800	generated	
+716	Const	WHvRunVpExitReasonMemoryAccess	94475	94547	2024	1	2801	generated	
+717	Const	WHvRunVpExitReasonNone	94548	94612	2025	1	2802	generated	
+718	Const	WHvRunVpExitReasonSynicSintDeliverable	94613	94694	2026	1	2803	generated	
+719	Const	WHvRunVpExitReasonUnrecoverableException	94695	94777	2027	1	2804	generated	
+720	Const	WHvRunVpExitReasonUnsupportedFeature	94778	94856	2028	1	2805	generated	
+721	Const	WHvRunVpExitReasonX64ApicEoi	94857	94927	2029	1	2806	generated	
+722	Const	WHvRunVpExitReasonX64ApicInitSipiTrap	94928	95010	2030	1	2807	generated	
+723	Const	WHvRunVpExitReasonX64ApicSmiTrap	95011	95088	2031	1	2808	generated	
+724	Const	WHvRunVpExitReasonX64ApicWriteTrap	95089	95168	2032	1	2809	generated	
+725	Const	WHvRunVpExitReasonX64Cpuid	95169	95240	2033	1	2810	generated	
+726	Const	WHvRunVpExitReasonX64Halt	95241	95308	2034	1	2811	generated	
+727	Const	WHvRunVpExitReasonX64InterruptWindow	95309	95387	2035	1	2812	generated	
+728	Const	WHvRunVpExitReasonX64IoPortAccess	95388	95463	2036	1	2813	generated	
+729	Const	WHvRunVpExitReasonX64MsrAccess	95464	95539	2037	1	2814	generated	
+730	Const	WHvRunVpExitReasonX64Rdtsc	95540	95611	2038	1	2815	generated	
+731	Const	WHvTranslateGvaFlagEnforceSmap	95612	95687	2039	1	2816	generated	
+732	Const	WHvTranslateGvaFlagNone	95688	95754	2040	1	2817	generated	
+733	Const	WHvTranslateGvaFlagOverrideSmap	95755	95831	2041	1	2818	generated	
+734	Const	WHvTranslateGvaFlagPrivilegeExempt	95832	95909	2042	1	2819	generated	
+735	Const	WHvTranslateGvaFlagSetPageTableBits	95910	95989	2043	1	2820	generated	
+736	Const	WHvTranslateGvaFlagValidateExecute	95990	96067	2044	1	2821	generated	
+737	Const	WHvTranslateGvaFlagValidateRead	96068	96142	2045	1	2822	generated	
+738	Const	WHvTranslateGvaFlagValidateWrite	96143	96218	2046	1	2823	generated	
+739	Const	WHvTranslateGvaResultGpaIllegalOverlayAccess	96219	96312	2047	1	2824	generated	
+740	Const	WHvTranslateGvaResultGpaNoReadAccess	96313	96398	2048	1	2825	generated	
+741	Const	WHvTranslateGvaResultGpaNoWriteAccess	96399	96485	2049	1	2826	generated	
+742	Const	WHvTranslateGvaResultGpaUnmapped	96486	96567	2050	1	2827	generated	
+743	Const	WHvTranslateGvaResultIntercept	96568	96647	2051	1	2828	generated	
+744	Const	WHvTranslateGvaResultInvalidPageTableFlags	96648	96739	2052	1	2829	generated	
+745	Const	WHvTranslateGvaResultPageNotPresent	96740	96824	2053	1	2830	generated	
+746	Const	WHvTranslateGvaResultPrivilegeViolation	96825	96913	2054	1	2831	generated	
+747	Const	WHvTranslateGvaResultSuccess	96914	96991	2055	1	2832	generated	
+748	Const	WHvTriggerTypeDeviceInterrupt	96992	97057	2056	1	2833	generated	
+749	Const	WHvTriggerTypeInterrupt	97058	97117	2057	1	2834	generated	
+750	Const	WHvTriggerTypeSynicEvent	97118	97178	2058	1	2835	generated	
+751	Const	WHvUnsupportedFeatureIntercept	97179	97261	2059	1	2836	generated	
+752	Const	WHvUnsupportedFeatureTaskSwitchTss	97262	97348	2060	1	2837	generated	
+753	Const	WHvVirtualProcessorPropertyCodeNumaNode	97349	97443	2061	1	2838	generated	
+754	Const	WHvVirtualProcessorStateTypeInterruptControllerState2	97444	97552	2062	1	2839	generated	
+755	Const	WHvVirtualProcessorStateTypeSynicEventFlagPage	97553	97651	2063	1	2840	generated	
+756	Const	WHvVirtualProcessorStateTypeSynicMessagePage	97652	97748	2064	1	2841	generated	
+757	Const	WHvVirtualProcessorStateTypeSynicTimerState	97749	97844	2065	1	2842	generated	
+758	Const	WHvVirtualProcessorStateTypeXsaveState	97845	97938	2066	1	2843	generated	
+759	Const	WHvVpciBar0	97939	98000	2067	1	2844	generated	
+760	Const	WHvVpciBar1	98001	98062	2068	1	2845	generated	
+761	Const	WHvVpciBar2	98063	98124	2069	1	2846	generated	
+762	Const	WHvVpciBar3	98125	98186	2070	1	2847	generated	
+763	Const	WHvVpciBar4	98187	98248	2071	1	2848	generated	
+764	Const	WHvVpciBar5	98249	98310	2072	1	2849	generated	
+765	Const	WHvVpciConfigSpace	98311	98380	2073	1	2850	generated	
+766	Const	WHvVpciDeviceNotificationMmioRemapping	98381	98472	2074	1	2851	generated	
+767	Const	WHvVpciDeviceNotificationSurpriseRemoval	98473	98566	2075	1	2852	generated	
+768	Const	WHvVpciDeviceNotificationUndefined	98567	98654	2076	1	2853	generated	
+769	Const	WHvVpciDevicePropertyCodeHardwareIDs	98655	98740	2077	1	2854	generated	
+770	Const	WHvVpciDevicePropertyCodeProbedBARs	98741	98825	2078	1	2855	generated	
+771	Const	WHvVpciDevicePropertyCodeUndefined	98826	98909	2079	1	2856	generated	
+772	Const	WHvVpciInterruptTargetFlagMulticast	98910	98996	2080	1	2857	generated	
+773	Const	WHvVpciInterruptTargetFlagNone	98997	99078	2081	1	2858	generated	
+774	Const	WHvVpciMmioRangeFlagReadAccess	99079	99154	2082	1	2859	generated	
+775	Const	WHvVpciMmioRangeFlagWriteAccess	99155	99231	2083	1	2860	generated	
+776	Const	WHvX64ApicWriteTypeDfr	99232	99299	2084	1	2861	generated	
+777	Const	WHvX64ApicWriteTypeLdr	99300	99367	2085	1	2862	generated	
+778	Const	WHvX64ApicWriteTypeLint0	99368	99437	2086	1	2863	generated	
+779	Const	WHvX64ApicWriteTypeLint1	99438	99507	2087	1	2864	generated	
+780	Const	WHvX64ApicWriteTypeSvr	99508	99575	2088	1	2865	generated	
+781	Const	WHvX64CpuidResult2FlagSubleafSpecific	99576	99660	2089	1	2866	generated	
+782	Const	WHvX64CpuidResult2FlagVpSpecific	99661	99740	2090	1	2867	generated	
+783	Const	WHvX64ExceptionTypeAlignmentCheckFault	99741	99818	2091	1	2868	generated	
+784	Const	WHvX64ExceptionTypeBoundRangeFault	99819	99891	2092	1	2869	generated	
+785	Const	WHvX64ExceptionTypeBreakpointTrap	99892	99963	2093	1	2870	generated	
+786	Const	WHvX64ExceptionTypeDebugTrapOrFault	99964	100037	2094	1	2871	generated	
+787	Const	WHvX64ExceptionTypeDeviceNotAvailableFault	100038	100118	2095	1	2872	generated	
+788	Const	WHvX64ExceptionTypeDivideErrorFault	100119	100192	2096	1	2873	generated	
+789	Const	WHvX64ExceptionTypeDoubleFaultAbort	100193	100266	2097	1	2874	generated	
+790	Const	WHvX64ExceptionTypeFloatingPointErrorFault	100267	100348	2098	1	2875	generated	
+791	Const	WHvX64ExceptionTypeGeneralProtectionFault	100349	100429	2099	1	2876	generated	
+792	Const	WHvX64ExceptionTypeInvalidOpcodeFault	100430	100505	2100	1	2877	generated	
+793	Const	WHvX64ExceptionTypeInvalidTaskStateSegmentFault	100506	100592	2101	1	2878	generated	
+794	Const	WHvX64ExceptionTypeMachineCheckAbort	100593	100668	2102	1	2879	generated	
+795	Const	WHvX64ExceptionTypeOverflowTrap	100669	100738	2103	1	2880	generated	
+796	Const	WHvX64ExceptionTypePageFault	100739	100806	2104	1	2881	generated	
+797	Const	WHvX64ExceptionTypeSegmentNotPresentFault	100807	100887	2105	1	2882	generated	
+798	Const	WHvX64ExceptionTypeSimdFloatingPointFault	100888	100968	2106	1	2883	generated	
+799	Const	WHvX64ExceptionTypeStackFault	100969	101037	2107	1	2884	generated	
+800	Const	WHvX64InterruptDestinationModeLogical	101038	101125	2108	1	2885	generated	
+801	Const	WHvX64InterruptDestinationModePhysical	101126	101214	2109	1	2886	generated	
+802	Const	WHvX64InterruptTriggerModeEdge	101215	101291	2110	1	2887	generated	
+803	Const	WHvX64InterruptTriggerModeLevel	101292	101369	2111	1	2888	generated	
+804	Const	WHvX64InterruptTypeFixed	101370	101432	2112	1	2889	generated	
+805	Const	WHvX64InterruptTypeInit	101433	101494	2113	1	2890	generated	
+806	Const	WHvX64InterruptTypeLocalInt1	101495	101561	2114	1	2891	generated	
+807	Const	WHvX64InterruptTypeLowestPriority	101562	101633	2115	1	2892	generated	
+808	Const	WHvX64InterruptTypeNmi	101634	101694	2116	1	2893	generated	
+809	Const	WHvX64InterruptTypeSipi	101695	101756	2117	1	2894	generated	
+810	Const	WHvX64LocalApicEmulationModeNone	101757	101842	2118	1	2895	generated	
+811	Const	WHvX64LocalApicEmulationModeX2Apic	101843	101930	2119	1	2896	generated	
+812	Const	WHvX64LocalApicEmulationModeXApic	101931	102017	2120	1	2897	generated	
+813	Const	WHvX64PendingEventException	102018	102091	2121	1	2898	generated	
+814	Const	WHvX64PendingEventExtInt	102092	102162	2122	1	2899	generated	
+815	Const	WHvX64PendingException	102163	102238	2123	1	2900	generated	
+816	Const	WHvX64PendingInterrupt	102239	102314	2124	1	2901	generated	
+817	Const	WHvX64PendingNmi	102315	102384	2125	1	2902	generated	
+818	Const	WHvX64RegisterACount	102385	102445	2126	1	2903	generated	
+819	Const	WHvX64RegisterApicBase	102446	102508	2127	1	2904	generated	
+820	Const	WHvX64RegisterApicCurrentCount	102509	102580	2128	1	2905	generated	
+821	Const	WHvX64RegisterApicDivide	102581	102646	2129	1	2906	generated	
+822	Const	WHvX64RegisterApicEoi	102647	102709	2130	1	2907	generated	
+823	Const	WHvX64RegisterApicEse	102710	102772	2131	1	2908	generated	
+824	Const	WHvX64RegisterApicIcr	102773	102835	2132	1	2909	generated	
+825	Const	WHvX64RegisterApicId	102836	102897	2133	1	2910	generated	
+826	Const	WHvX64RegisterApicInitCount	102898	102966	2134	1	2911	generated	
+827	Const	WHvX64RegisterApicIrr0	102967	103030	2135	1	2912	generated	
+828	Const	WHvX64RegisterApicIrr1	103031	103094	2136	1	2913	generated	
+829	Const	WHvX64RegisterApicIrr2	103095	103158	2137	1	2914	generated	
+830	Const	WHvX64RegisterApicIrr3	103159	103222	2138	1	2915	generated	
+831	Const	WHvX64RegisterApicIrr4	103223	103286	2139	1	2916	generated	
+832	Const	WHvX64RegisterApicIrr5	103287	103350	2140	1	2917	generated	
+833	Const	WHvX64RegisterApicIrr6	103351	103414	2141	1	2918	generated	
+834	Const	WHvX64RegisterApicIrr7	103415	103478	2142	1	2919	generated	
+835	Const	WHvX64RegisterApicIsr0	103479	103542	2143	1	2920	generated	
+836	Const	WHvX64RegisterApicIsr1	103543	103606	2144	1	2921	generated	
+837	Const	WHvX64RegisterApicIsr2	103607	103670	2145	1	2922	generated	
+838	Const	WHvX64RegisterApicIsr3	103671	103734	2146	1	2923	generated	
+839	Const	WHvX64RegisterApicIsr4	103735	103798	2147	1	2924	generated	
+840	Const	WHvX64RegisterApicIsr5	103799	103862	2148	1	2925	generated	
+841	Const	WHvX64RegisterApicIsr6	103863	103926	2149	1	2926	generated	
+842	Const	WHvX64RegisterApicIsr7	103927	103990	2150	1	2927	generated	
+843	Const	WHvX64RegisterApicLdr	103991	104053	2151	1	2928	generated	
+844	Const	WHvX64RegisterApicLvtError	104054	104121	2152	1	2929	generated	
+845	Const	WHvX64RegisterApicLvtLint0	104122	104189	2153	1	2930	generated	
+846	Const	WHvX64RegisterApicLvtLint1	104190	104257	2154	1	2931	generated	
+847	Const	WHvX64RegisterApicLvtPerfmon	104258	104327	2155	1	2932	generated	
+848	Const	WHvX64RegisterApicLvtThermal	104328	104397	2156	1	2933	generated	
+849	Const	WHvX64RegisterApicLvtTimer	104398	104465	2157	1	2934	generated	
+850	Const	WHvX64RegisterApicPpr	104466	104528	2158	1	2935	generated	
+851	Const	WHvX64RegisterApicSelfIpi	104529	104595	2159	1	2936	generated	
+852	Const	WHvX64RegisterApicSpurious	104596	104663	2160	1	2937	generated	
+853	Const	WHvX64RegisterApicTmr0	104664	104727	2161	1	2938	generated	
+854	Const	WHvX64RegisterApicTmr1	104728	104791	2162	1	2939	generated	
+855	Const	WHvX64RegisterApicTmr2	104792	104855	2163	1	2940	generated	
+856	Const	WHvX64RegisterApicTmr3	104856	104919	2164	1	2941	generated	
+857	Const	WHvX64RegisterApicTmr4	104920	104983	2165	1	2942	generated	
+858	Const	WHvX64RegisterApicTmr5	104984	105047	2166	1	2943	generated	
+859	Const	WHvX64RegisterApicTmr6	105048	105111	2167	1	2944	generated	
+860	Const	WHvX64RegisterApicTmr7	105112	105175	2168	1	2945	generated	
+861	Const	WHvX64RegisterApicTpr	105176	105238	2169	1	2946	generated	
+862	Const	WHvX64RegisterApicVersion	105239	105305	2170	1	2947	generated	
+863	Const	WHvX64RegisterBndcfgs	105306	105367	2171	1	2948	generated	
+864	Const	WHvX64RegisterCr0	105368	105423	2172	1	2949	generated	
+865	Const	WHvX64RegisterCr2	105424	105479	2173	1	2950	generated	
+866	Const	WHvX64RegisterCr3	105480	105535	2174	1	2951	generated	
+867	Const	WHvX64RegisterCr4	105536	105591	2175	1	2952	generated	
+868	Const	WHvX64RegisterCr8	105592	105647	2176	1	2953	generated	
+869	Const	WHvX64RegisterCs	105648	105702	2177	1	2954	generated	
+870	Const	WHvX64RegisterCstar	105703	105762	2178	1	2955	generated	
+871	Const	WHvX64RegisterDeliverabilityNotifications	105763	105851	2179	1	2956	generated	
+872	Const	WHvX64RegisterDr0	105852	105907	2180	1	2957	generated	
+873	Const	WHvX64RegisterDr1	105908	105963	2181	1	2958	generated	
+874	Const	WHvX64RegisterDr2	105964	106019	2182	1	2959	generated	
+875	Const	WHvX64RegisterDr3	106020	106075	2183	1	2960	generated	
+876	Const	WHvX64RegisterDr6	106076	106131	2184	1	2961	generated	
+877	Const	WHvX64RegisterDr7	106132	106187	2185	1	2962	generated	
+878	Const	WHvX64RegisterDs	106188	106242	2186	1	2963	generated	
+879	Const	WHvX64RegisterEfer	106243	106301	2187	1	2964	generated	
+880	Const	WHvX64RegisterEs	106302	106356	2188	1	2965	generated	
+881	Const	WHvX64RegisterFpControlStatus	106357	106426	2189	1	2966	generated	
+882	Const	WHvX64RegisterFpMmx0	106427	106487	2190	1	2967	generated	
+883	Const	WHvX64RegisterFpMmx1	106488	106548	2191	1	2968	generated	
+884	Const	WHvX64RegisterFpMmx2	106549	106609	2192	1	2969	generated	
+885	Const	WHvX64RegisterFpMmx3	106610	106670	2193	1	2970	generated	
+886	Const	WHvX64RegisterFpMmx4	106671	106731	2194	1	2971	generated	
+887	Const	WHvX64RegisterFpMmx5	106732	106792	2195	1	2972	generated	
+888	Const	WHvX64RegisterFpMmx6	106793	106853	2196	1	2973	generated	
+889	Const	WHvX64RegisterFpMmx7	106854	106914	2197	1	2974	generated	
+890	Const	WHvX64RegisterFs	106915	106969	2198	1	2975	generated	
+891	Const	WHvX64RegisterGdtr	106970	107026	2199	1	2976	generated	
+892	Const	WHvX64RegisterGs	107027	107081	2200	1	2977	generated	
+893	Const	WHvX64RegisterHypercall	107082	107146	2201	1	2978	generated	
+894	Const	WHvX64RegisterIdtr	107147	107203	2202	1	2979	generated	
+895	Const	WHvX64RegisterInitialApicId	107204	107271	2203	1	2980	generated	
+896	Const	WHvX64RegisterInterruptSspTableAddr	107272	107347	2204	1	2981	generated	
+897	Const	WHvX64RegisterKernelGsBase	107348	107414	2205	1	2982	generated	
+898	Const	WHvX64RegisterLdtr	107415	107471	2206	1	2983	generated	
+899	Const	WHvX64RegisterLstar	107472	107531	2207	1	2984	generated	
+900	Const	WHvX64RegisterMCount	107532	107592	2208	1	2985	generated	
+901	Const	WHvX64RegisterMsrMtrrCap	107593	107657	2209	1	2986	generated	
+902	Const	WHvX64RegisterMsrMtrrDefType	107658	107726	2210	1	2987	generated	
+903	Const	WHvX64RegisterMsrMtrrFix16k80000	107727	107799	2211	1	2988	generated	
+904	Const	WHvX64RegisterMsrMtrrFix16kA0000	107800	107872	2212	1	2989	generated	
+905	Const	WHvX64RegisterMsrMtrrFix4kC0000	107873	107944	2213	1	2990	generated	
+906	Const	WHvX64RegisterMsrMtrrFix4kC8000	107945	108016	2214	1	2991	generated	
+907	Const	WHvX64RegisterMsrMtrrFix4kD0000	108017	108088	2215	1	2992	generated	
+908	Const	WHvX64RegisterMsrMtrrFix4kD8000	108089	108160	2216	1	2993	generated	
+909	Const	WHvX64RegisterMsrMtrrFix4kE0000	108161	108232	2217	1	2994	generated	
+910	Const	WHvX64RegisterMsrMtrrFix4kE8000	108233	108304	2218	1	2995	generated	
+911	Const	WHvX64RegisterMsrMtrrFix4kF0000	108305	108376	2219	1	2996	generated	
+912	Const	WHvX64RegisterMsrMtrrFix4kF8000	108377	108448	2220	1	2997	generated	
+913	Const	WHvX64RegisterMsrMtrrFix64k00000	108449	108521	2221	1	2998	generated	
+914	Const	WHvX64RegisterMsrMtrrPhysBase0	108522	108592	2222	1	2999	generated	
+915	Const	WHvX64RegisterMsrMtrrPhysBase1	108593	108663	2223	1	3000	generated	
+916	Const	WHvX64RegisterMsrMtrrPhysBase2	108664	108734	2224	1	3001	generated	
+917	Const	WHvX64RegisterMsrMtrrPhysBase3	108735	108805	2225	1	3002	generated	
+918	Const	WHvX64RegisterMsrMtrrPhysBase4	108806	108876	2226	1	3003	generated	
+919	Const	WHvX64RegisterMsrMtrrPhysBase5	108877	108947	2227	1	3004	generated	
+920	Const	WHvX64RegisterMsrMtrrPhysBase6	108948	109018	2228	1	3005	generated	
+921	Const	WHvX64RegisterMsrMtrrPhysBase7	109019	109089	2229	1	3006	generated	
+922	Const	WHvX64RegisterMsrMtrrPhysBase8	109090	109160	2230	1	3007	generated	
+923	Const	WHvX64RegisterMsrMtrrPhysBase9	109161	109231	2231	1	3008	generated	
+924	Const	WHvX64RegisterMsrMtrrPhysBaseA	109232	109302	2232	1	3009	generated	
+925	Const	WHvX64RegisterMsrMtrrPhysBaseB	109303	109373	2233	1	3010	generated	
+926	Const	WHvX64RegisterMsrMtrrPhysBaseC	109374	109444	2234	1	3011	generated	
+927	Const	WHvX64RegisterMsrMtrrPhysBaseD	109445	109515	2235	1	3012	generated	
+928	Const	WHvX64RegisterMsrMtrrPhysBaseE	109516	109586	2236	1	3013	generated	
+929	Const	WHvX64RegisterMsrMtrrPhysBaseF	109587	109657	2237	1	3014	generated	
+930	Const	WHvX64RegisterMsrMtrrPhysMask0	109658	109728	2238	1	3015	generated	
+931	Const	WHvX64RegisterMsrMtrrPhysMask1	109729	109799	2239	1	3016	generated	
+932	Const	WHvX64RegisterMsrMtrrPhysMask2	109800	109870	2240	1	3017	generated	
+933	Const	WHvX64RegisterMsrMtrrPhysMask3	109871	109941	2241	1	3018	generated	
+934	Const	WHvX64RegisterMsrMtrrPhysMask4	109942	110012	2242	1	3019	generated	
+935	Const	WHvX64RegisterMsrMtrrPhysMask5	110013	110083	2243	1	3020	generated	
+936	Const	WHvX64RegisterMsrMtrrPhysMask6	110084	110154	2244	1	3021	generated	
+937	Const	WHvX64RegisterMsrMtrrPhysMask7	110155	110225	2245	1	3022	generated	
+938	Const	WHvX64RegisterMsrMtrrPhysMask8	110226	110296	2246	1	3023	generated	
+939	Const	WHvX64RegisterMsrMtrrPhysMask9	110297	110367	2247	1	3024	generated	
+940	Const	WHvX64RegisterMsrMtrrPhysMaskA	110368	110438	2248	1	3025	generated	
+941	Const	WHvX64RegisterMsrMtrrPhysMaskB	110439	110509	2249	1	3026	generated	
+942	Const	WHvX64RegisterMsrMtrrPhysMaskC	110510	110580	2250	1	3027	generated	
+943	Const	WHvX64RegisterMsrMtrrPhysMaskD	110581	110651	2251	1	3028	generated	
+944	Const	WHvX64RegisterMsrMtrrPhysMaskE	110652	110722	2252	1	3029	generated	
+945	Const	WHvX64RegisterMsrMtrrPhysMaskF	110723	110793	2253	1	3030	generated	
+946	Const	WHvX64RegisterPat	110794	110851	2254	1	3031	generated	
+947	Const	WHvX64RegisterPendingDebugException	110852	110934	2255	1	3032	generated	
+948	Const	WHvX64RegisterPl0Ssp	110935	110995	2256	1	3033	generated	
+949	Const	WHvX64RegisterPl1Ssp	110996	111056	2257	1	3034	generated	
+950	Const	WHvX64RegisterPl2Ssp	111057	111117	2258	1	3035	generated	
+951	Const	WHvX64RegisterPl3Ssp	111118	111178	2259	1	3036	generated	
+952	Const	WHvX64RegisterPredCmd	111179	111240	2260	1	3037	generated	
+953	Const	WHvX64RegisterR10	111241	111296	2261	1	3038	generated	
+954	Const	WHvX64RegisterR11	111297	111352	2262	1	3039	generated	
+955	Const	WHvX64RegisterR12	111353	111408	2263	1	3040	generated	
+956	Const	WHvX64RegisterR13	111409	111464	2264	1	3041	generated	
+957	Const	WHvX64RegisterR14	111465	111520	2265	1	3042	generated	
+958	Const	WHvX64RegisterR15	111521	111576	2266	1	3043	generated	
+959	Const	WHvX64RegisterR8	111577	111630	2267	1	3044	generated	
+960	Const	WHvX64RegisterR9	111631	111684	2268	1	3045	generated	
+961	Const	WHvX64RegisterRax	111685	111739	2269	1	3046	generated	
+962	Const	WHvX64RegisterRbp	111740	111794	2270	1	3047	generated	
+963	Const	WHvX64RegisterRbx	111795	111849	2271	1	3048	generated	
+964	Const	WHvX64RegisterRcx	111850	111904	2272	1	3049	generated	
+965	Const	WHvX64RegisterRdi	111905	111959	2273	1	3050	generated	
+966	Const	WHvX64RegisterRdx	111960	112014	2274	1	3051	generated	
+967	Const	WHvX64RegisterRflags	112015	112073	2275	1	3052	generated	
+968	Const	WHvX64RegisterRip	112074	112129	2276	1	3053	generated	
+969	Const	WHvX64RegisterRsi	112130	112184	2277	1	3054	generated	
+970	Const	WHvX64RegisterRsp	112185	112239	2278	1	3055	generated	
+971	Const	WHvX64RegisterSCet	112240	112298	2279	1	3056	generated	
+972	Const	WHvX64RegisterSfmask	112299	112359	2280	1	3057	generated	
+973	Const	WHvX64RegisterSpecCtrl	112360	112422	2281	1	3058	generated	
+974	Const	WHvX64RegisterSs	112423	112477	2282	1	3059	generated	
+975	Const	WHvX64RegisterSsp	112478	112535	2283	1	3060	generated	
+976	Const	WHvX64RegisterStar	112536	112594	2284	1	3061	generated	
+977	Const	WHvX64RegisterSysenterCs	112595	112659	2285	1	3062	generated	
+978	Const	WHvX64RegisterSysenterEip	112660	112725	2286	1	3063	generated	
+979	Const	WHvX64RegisterSysenterEsp	112726	112791	2287	1	3064	generated	
+980	Const	WHvX64RegisterTr	112792	112846	2288	1	3065	generated	
+981	Const	WHvX64RegisterTsc	112847	112904	2289	1	3066	generated	
+982	Const	WHvX64RegisterTscAdjust	112905	112968	2290	1	3067	generated	
+983	Const	WHvX64RegisterTscAux	112969	113029	2291	1	3068	generated	
+984	Const	WHvX64RegisterTscDeadline	113030	113095	2292	1	3069	generated	
+985	Const	WHvX64RegisterTscVirtualOffset	113096	113166	2293	1	3070	generated	
+986	Const	WHvX64RegisterTsxCtrl	113167	113228	2294	1	3071	generated	
+987	Const	WHvX64RegisterUCet	113229	113287	2295	1	3072	generated	
+988	Const	WHvX64RegisterUmwaitControl	113288	113355	2296	1	3073	generated	
+989	Const	WHvX64RegisterVirtualCr0	113356	113418	2297	1	3074	generated	
+990	Const	WHvX64RegisterVirtualCr3	113419	113481	2298	1	3075	generated	
+991	Const	WHvX64RegisterVirtualCr4	113482	113544	2299	1	3076	generated	
+992	Const	WHvX64RegisterVirtualCr8	113545	113607	2300	1	3077	generated	
+993	Const	WHvX64RegisterXCr0	113608	113664	2301	1	3078	generated	
+994	Const	WHvX64RegisterXfd	113665	113722	2302	1	3079	generated	
+995	Const	WHvX64RegisterXfdErr	113723	113783	2303	1	3080	generated	
+996	Const	WHvX64RegisterXmm0	113784	113842	2304	1	3081	generated	
+997	Const	WHvX64RegisterXmm1	113843	113901	2305	1	3082	generated	
+998	Const	WHvX64RegisterXmm10	113902	113961	2306	1	3083	generated	
+999	Const	WHvX64RegisterXmm11	113962	114021	2307	1	3084	generated	
+1000	Const	WHvX64RegisterXmm12	114022	114081	2308	1	3085	generated	
+1001	Const	WHvX64RegisterXmm13	114082	114141	2309	1	3086	generated	
+1002	Const	WHvX64RegisterXmm14	114142	114201	2310	1	3087	generated	
+1003	Const	WHvX64RegisterXmm15	114202	114261	2311	1	3088	generated	
+1004	Const	WHvX64RegisterXmm2	114262	114320	2312	1	3089	generated	
+1005	Const	WHvX64RegisterXmm3	114321	114379	2313	1	3090	generated	
+1006	Const	WHvX64RegisterXmm4	114380	114438	2314	1	3091	generated	
+1007	Const	WHvX64RegisterXmm5	114439	114497	2315	1	3092	generated	
+1008	Const	WHvX64RegisterXmm6	114498	114556	2316	1	3093	generated	
+1009	Const	WHvX64RegisterXmm7	114557	114615	2317	1	3094	generated	
+1010	Const	WHvX64RegisterXmm8	114616	114674	2318	1	3095	generated	
+1011	Const	WHvX64RegisterXmm9	114675	114733	2319	1	3096	generated	
+1012	Const	WHvX64RegisterXmmControlStatus	114734	114804	2320	1	3097	generated	
+1013	Const	WHvX64RegisterXss	114805	114862	2321	1	3098	generated	
+1014	Const	X64_RegisterCr0	114863	114910	2322	1	3099	generated	
+1015	Const	X64_RegisterCr2	114911	114958	2323	1	3100	generated	
+1016	Const	X64_RegisterCr3	114959	115006	2324	1	3101	generated	
+1017	Const	X64_RegisterCr4	115007	115054	2325	1	3102	generated	
+1018	Const	X64_RegisterCr8	115055	115102	2326	1	3103	generated	
+1019	Const	X64_RegisterCs	115103	115149	2327	1	3104	generated	
+1020	Const	X64_RegisterDr0	115150	115197	2328	1	3105	generated	
+1021	Const	X64_RegisterDr1	115198	115245	2329	1	3106	generated	
+1022	Const	X64_RegisterDr2	115246	115293	2330	1	3107	generated	
+1023	Const	X64_RegisterDr3	115294	115341	2331	1	3108	generated	
+1024	Const	X64_RegisterDr6	115342	115389	2332	1	3109	generated	
+1025	Const	X64_RegisterDr7	115390	115437	2333	1	3110	generated	
+1026	Const	X64_RegisterDs	115438	115484	2334	1	3111	generated	
+1027	Const	X64_RegisterEfer	115485	115533	2335	1	3112	generated	
+1028	Const	X64_RegisterEs	115534	115580	2336	1	3113	generated	
+1029	Const	X64_RegisterFpControlStatus	115581	115640	2337	1	3114	generated	
+1030	Const	X64_RegisterFpMmx0	115641	115691	2338	1	3115	generated	
+1031	Const	X64_RegisterFpMmx1	115692	115742	2339	1	3116	generated	
+1032	Const	X64_RegisterFpMmx2	115743	115793	2340	1	3117	generated	
+1033	Const	X64_RegisterFpMmx3	115794	115844	2341	1	3118	generated	
+1034	Const	X64_RegisterFpMmx4	115845	115895	2342	1	3119	generated	
+1035	Const	X64_RegisterFpMmx5	115896	115946	2343	1	3120	generated	
+1036	Const	X64_RegisterFpMmx6	115947	115997	2344	1	3121	generated	
+1037	Const	X64_RegisterFpMmx7	115998	116048	2345	1	3122	generated	
+1038	Const	X64_RegisterFs	116049	116095	2346	1	3123	generated	
+1039	Const	X64_RegisterGdtr	116096	116144	2347	1	3124	generated	
+1040	Const	X64_RegisterGs	116145	116191	2348	1	3125	generated	
+1041	Const	X64_RegisterIdtr	116192	116240	2349	1	3126	generated	
+1042	Const	X64_RegisterLdtr	116241	116289	2350	1	3127	generated	
+1043	Const	X64_RegisterMax	116290	116337	2351	1	3128	generated	
+1044	Const	X64_RegisterR10	116338	116385	2352	1	3129	generated	
+1045	Const	X64_RegisterR11	116386	116433	2353	1	3130	generated	
+1046	Const	X64_RegisterR12	116434	116481	2354	1	3131	generated	
+1047	Const	X64_RegisterR13	116482	116529	2355	1	3132	generated	
+1048	Const	X64_RegisterR14	116530	116577	2356	1	3133	generated	
+1049	Const	X64_RegisterR15	116578	116625	2357	1	3134	generated	
+1050	Const	X64_RegisterR8	116626	116671	2358	1	3135	generated	
+1051	Const	X64_RegisterR9	116672	116717	2359	1	3136	generated	
+1052	Const	X64_RegisterRFlags	116718	116768	2360	1	3137	generated	
+1053	Const	X64_RegisterRax	116769	116815	2361	1	3138	generated	
+1054	Const	X64_RegisterRbp	116816	116862	2362	1	3139	generated	
+1055	Const	X64_RegisterRbx	116863	116909	2363	1	3140	generated	
+1056	Const	X64_RegisterRcx	116910	116956	2364	1	3141	generated	
+1057	Const	X64_RegisterRdi	116957	117003	2365	1	3142	generated	
+1058	Const	X64_RegisterRdx	117004	117050	2366	1	3143	generated	
+1059	Const	X64_RegisterRip	117051	117098	2367	1	3144	generated	
+1060	Const	X64_RegisterRsi	117099	117145	2368	1	3145	generated	
+1061	Const	X64_RegisterRsp	117146	117192	2369	1	3146	generated	
+1062	Const	X64_RegisterSs	117193	117239	2370	1	3147	generated	
+1063	Const	X64_RegisterTr	117240	117286	2371	1	3148	generated	
+1064	Const	X64_RegisterXmm0	117287	117335	2372	1	3149	generated	
+1065	Const	X64_RegisterXmm1	117336	117384	2373	1	3150	generated	
+1066	Const	X64_RegisterXmm10	117385	117434	2374	1	3151	generated	
+1067	Const	X64_RegisterXmm11	117435	117484	2375	1	3152	generated	
+1068	Const	X64_RegisterXmm12	117485	117534	2376	1	3153	generated	
+1069	Const	X64_RegisterXmm13	117535	117584	2377	1	3154	generated	
+1070	Const	X64_RegisterXmm14	117585	117634	2378	1	3155	generated	
+1071	Const	X64_RegisterXmm15	117635	117684	2379	1	3156	generated	
+1072	Const	X64_RegisterXmm2	117685	117733	2380	1	3157	generated	
+1073	Const	X64_RegisterXmm3	117734	117782	2381	1	3158	generated	
+1074	Const	X64_RegisterXmm4	117783	117831	2382	1	3159	generated	
+1075	Const	X64_RegisterXmm5	117832	117880	2383	1	3160	generated	
+1076	Const	X64_RegisterXmm6	117881	117929	2384	1	3161	generated	
+1077	Const	X64_RegisterXmm7	117930	117978	2385	1	3162	generated	
+1078	Const	X64_RegisterXmm8	117979	118027	2386	1	3163	generated	
+1079	Const	X64_RegisterXmm9	118028	118076	2387	1	3164	generated	
+1080	Const	X64_RegisterXmmControlStatus	118077	118137	2388	1	3165	generated	

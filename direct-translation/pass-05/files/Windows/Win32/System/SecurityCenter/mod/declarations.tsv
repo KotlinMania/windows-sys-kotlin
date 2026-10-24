@@ -1,0 +1,41 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro	WscGetAntiMalwareUri	0	138	1	1	2	syntax	External declaration shape only: wire DLL=wscapi.dll, ABI=system, export=WscGetAntiMalwareUri; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1	Macro	WscGetSecurityProviderHealth	139	306	2	1	7	syntax	External declaration shape only: wire DLL=wscapi.dll, ABI=system, export=WscGetSecurityProviderHealth; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+2	Macro	WscQueryAntiMalwareUri	307	408	3	1	12	syntax	External declaration shape only: wire DLL=wscapi.dll, ABI=system, export=WscQueryAntiMalwareUri; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+3	Macro	WscRegisterForChanges	409	748	4	1	16	syntax	External declaration shape only: wire DLL=wscapi.dll, ABI=system, export=WscRegisterForChanges; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+4	Macro	WscRegisterForUserNotifications	749	859	6	1	22	syntax	External declaration shape only: wire DLL=wscapi.dll, ABI=system, export=WscRegisterForUserNotifications; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+5	Macro	WscUnRegisterChanges	860	1014	7	1	26	syntax	External declaration shape only: wire DLL=wscapi.dll, ABI=system, export=WscUnRegisterChanges; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+6	ItemType	SECURITY_PRODUCT_TYPE	1015	1052	8	1	30	generated	
+7	Const	SECURITY_PRODUCT_TYPE_ANTISPYWARE	1053	1127	9	1	31	generated	
+8	Const	SECURITY_PRODUCT_TYPE_ANTIVIRUS	1128	1200	10	1	32	generated	
+9	Const	SECURITY_PRODUCT_TYPE_FIREWALL	1201	1272	11	1	33	generated	
+10	Const	WSCDefaultProduct	1273	1403	12	1	34	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+11	Const	WSCProductList	1404	1531	13	1	37	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+12	Const	WSC_SECURITY_PRODUCT_OUT_OF_DATE	1532	1613	14	1	40	generated	
+13	ItemType	WSC_SECURITY_PRODUCT_STATE	1614	1656	15	1	41	generated	
+14	Const	WSC_SECURITY_PRODUCT_STATE_EXPIRED	1657	1737	16	1	42	generated	
+15	Const	WSC_SECURITY_PRODUCT_STATE_OFF	1738	1814	17	1	43	generated	
+16	Const	WSC_SECURITY_PRODUCT_STATE_ON	1815	1890	18	1	44	generated	
+17	Const	WSC_SECURITY_PRODUCT_STATE_SNOOZED	1891	1971	19	1	45	generated	
+18	ItemType	WSC_SECURITY_PRODUCT_SUBSTATUS	1972	2018	20	1	46	generated	
+19	Const	WSC_SECURITY_PRODUCT_SUBSTATUS_ACTION_NEEDED	2019	2113	21	1	47	generated	
+20	Const	WSC_SECURITY_PRODUCT_SUBSTATUS_ACTION_RECOMMENDED	2114	2213	22	1	48	generated	
+21	Const	WSC_SECURITY_PRODUCT_SUBSTATUS_NOT_SET	2214	2302	23	1	49	generated	
+22	Const	WSC_SECURITY_PRODUCT_SUBSTATUS_NO_ACTION	2303	2393	24	1	50	generated	
+23	Const	WSC_SECURITY_PRODUCT_UP_TO_DATE	2394	2474	25	1	51	generated	
+24	ItemType	WSC_SECURITY_PROVIDER	2475	2512	26	1	52	generated	
+25	Const	WSC_SECURITY_PROVIDER_ALL	2513	2581	27	1	53	generated	
+26	Const	WSC_SECURITY_PROVIDER_ANTISPYWARE	2582	2656	28	1	54	generated	
+27	Const	WSC_SECURITY_PROVIDER_ANTIVIRUS	2657	2729	29	1	55	generated	
+28	Const	WSC_SECURITY_PROVIDER_AUTOUPDATE_SETTINGS	2730	2812	30	1	56	generated	
+29	Const	WSC_SECURITY_PROVIDER_FIREWALL	2813	2884	31	1	57	generated	
+30	ItemType	WSC_SECURITY_PROVIDER_HEALTH	2885	2929	32	1	58	generated	
+31	Const	WSC_SECURITY_PROVIDER_HEALTH_GOOD	2930	3011	33	1	59	generated	
+32	Const	WSC_SECURITY_PROVIDER_HEALTH_NOTMONITORED	3012	3101	34	1	60	generated	
+33	Const	WSC_SECURITY_PROVIDER_HEALTH_POOR	3102	3183	35	1	61	generated	
+34	Const	WSC_SECURITY_PROVIDER_HEALTH_SNOOZE	3184	3267	36	1	62	generated	
+35	Const	WSC_SECURITY_PROVIDER_INTERNET_SETTINGS	3268	3349	37	1	63	generated	
+36	Const	WSC_SECURITY_PROVIDER_NONE	3350	3417	38	1	64	generated	
+37	Const	WSC_SECURITY_PROVIDER_SERVICE	3418	3489	39	1	65	generated	
+38	Const	WSC_SECURITY_PROVIDER_USER_ACCOUNT_CONTROL	3490	3574	40	1	66	generated	
+39	ItemType	WSC_SECURITY_SIGNATURE_STATUS	3575	3620	41	1	67	generated	

@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-05/files/Windows/Win32/Security/WinTrust/mod: 137 generated; 148 syntax candidates; 89 unsupported

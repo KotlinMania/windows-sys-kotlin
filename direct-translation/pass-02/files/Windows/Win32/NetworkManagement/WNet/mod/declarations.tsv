@@ -1,0 +1,265 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	173	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		174	347	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		348	535	3	1	8	unsupported	declaration Macro has no candidate rule
+3	Macro		536	798	4	1	11	unsupported	declaration Macro has no candidate rule
+4	Macro		799	1075	5	1	14	unsupported	declaration Macro has no candidate rule
+5	Macro		1076	1219	6	1	17	unsupported	declaration Macro has no candidate rule
+6	Macro		1220	1380	7	1	20	unsupported	declaration Macro has no candidate rule
+7	Macro		1381	1490	8	1	23	unsupported	declaration Macro has no candidate rule
+8	Macro		1491	1684	9	1	26	unsupported	declaration Macro has no candidate rule
+9	Macro		1685	1928	10	1	29	unsupported	declaration Macro has no candidate rule
+10	Macro		1929	2005	11	1	32	unsupported	declaration Macro has no candidate rule
+11	Macro		2006	2183	12	1	35	unsupported	declaration Macro has no candidate rule
+12	Macro		2184	2372	13	1	38	unsupported	declaration Macro has no candidate rule
+13	Macro		2373	2543	14	1	41	unsupported	declaration Macro has no candidate rule
+14	Macro		2544	2797	15	1	44	unsupported	declaration Macro has no candidate rule
+15	Macro		2798	3018	16	1	47	unsupported	declaration Macro has no candidate rule
+16	Macro		3019	3190	17	1	50	unsupported	declaration Macro has no candidate rule
+17	Macro		3191	3395	18	1	53	unsupported	declaration Macro has no candidate rule
+18	Macro		3396	3560	19	1	56	unsupported	declaration Macro has no candidate rule
+19	Macro		3561	3757	20	1	59	unsupported	declaration Macro has no candidate rule
+20	Macro		3758	4007	21	1	62	unsupported	declaration Macro has no candidate rule
+21	Macro		4008	4259	22	1	65	unsupported	declaration Macro has no candidate rule
+22	Macro		4260	4554	23	1	68	unsupported	declaration Macro has no candidate rule
+23	Macro		4555	4851	24	1	71	unsupported	declaration Macro has no candidate rule
+24	Macro		4852	5174	25	1	74	unsupported	declaration Macro has no candidate rule
+25	Macro		5175	5497	26	1	77	unsupported	declaration Macro has no candidate rule
+26	Macro		5498	5722	27	1	80	unsupported	declaration Macro has no candidate rule
+27	Macro		5723	5950	28	1	83	unsupported	declaration Macro has no candidate rule
+28	Macro		5951	6157	29	1	86	unsupported	declaration Macro has no candidate rule
+29	Macro		6158	6365	30	1	89	unsupported	declaration Macro has no candidate rule
+30	Macro		6366	6542	31	1	92	unsupported	declaration Macro has no candidate rule
+31	Macro		6543	6720	32	1	95	unsupported	declaration Macro has no candidate rule
+32	Macro		6721	6863	33	1	98	unsupported	declaration Macro has no candidate rule
+33	Macro		6864	7024	34	1	101	unsupported	declaration Macro has no candidate rule
+34	Macro		7025	7175	35	1	104	unsupported	declaration Macro has no candidate rule
+35	Macro		7176	7326	36	1	107	unsupported	declaration Macro has no candidate rule
+36	Macro		7327	7487	37	1	110	unsupported	declaration Macro has no candidate rule
+37	Macro		7488	7637	38	1	113	unsupported	declaration Macro has no candidate rule
+38	Macro		7638	7787	39	1	116	unsupported	declaration Macro has no candidate rule
+39	Macro		7788	8015	40	1	119	unsupported	declaration Macro has no candidate rule
+40	Macro		8016	8243	41	1	122	unsupported	declaration Macro has no candidate rule
+41	Macro		8244	8450	42	1	125	unsupported	declaration Macro has no candidate rule
+42	Macro		8451	8659	43	1	128	unsupported	declaration Macro has no candidate rule
+43	Macro		8660	8899	44	1	131	unsupported	declaration Macro has no candidate rule
+44	Macro		8900	9141	45	1	134	unsupported	declaration Macro has no candidate rule
+45	Macro		9142	9331	46	1	137	unsupported	declaration Macro has no candidate rule
+46	Macro		9332	9522	47	1	140	unsupported	declaration Macro has no candidate rule
+47	Macro		9523	9713	48	1	143	unsupported	declaration Macro has no candidate rule
+48	Macro		9714	9905	49	1	146	unsupported	declaration Macro has no candidate rule
+49	Macro		9906	10157	50	1	149	unsupported	declaration Macro has no candidate rule
+50	Macro		10158	10410	51	1	152	unsupported	declaration Macro has no candidate rule
+51	Macro		10411	10614	52	1	155	unsupported	declaration Macro has no candidate rule
+52	Macro		10615	10818	53	1	158	unsupported	declaration Macro has no candidate rule
+53	Macro		10819	11056	54	1	161	unsupported	declaration Macro has no candidate rule
+54	Macro		11057	11295	55	1	164	unsupported	declaration Macro has no candidate rule
+55	Macro		11296	11489	56	1	167	unsupported	declaration Macro has no candidate rule
+56	Macro		11490	11685	57	1	170	unsupported	declaration Macro has no candidate rule
+57	Macro		11686	11962	58	1	173	unsupported	declaration Macro has no candidate rule
+58	Macro		11963	12239	59	1	176	unsupported	declaration Macro has no candidate rule
+59	Macro		12240	12388	60	1	179	unsupported	declaration Macro has no candidate rule
+60	Macro		12389	12539	61	1	182	unsupported	declaration Macro has no candidate rule
+61	Macro		12540	12934	62	1	185	unsupported	declaration Macro has no candidate rule
+62	Macro		12935	13330	63	1	188	unsupported	declaration Macro has no candidate rule
+63	Macro		13331	13708	64	1	191	unsupported	declaration Macro has no candidate rule
+64	Macro		13709	14089	65	1	194	unsupported	declaration Macro has no candidate rule
+65	Const	CONNDLG_CONN_POINT	14090	14150	66	1	197	generated	
+66	Const	CONNDLG_HIDE_BOX	14151	14209	67	1	198	generated	
+67	Const	CONNDLG_NOT_PERSIST	14210	14272	68	1	199	generated	
+68	Const	CONNDLG_PERSIST	14273	14331	69	1	200	generated	
+69	Const	CONNDLG_RO_PATH	14332	14389	70	1	201	generated	
+70	Const	CONNDLG_USE_MRU	14390	14447	71	1	202	generated	
+71	Struct	CONNECTDLGSTRUCTA	14448	14693	72	1	203	unsupported	declaration Struct has no candidate rule
+72	Impl		14694	14804	81	1	214	unsupported	declaration Impl has no candidate rule
+73	Struct	CONNECTDLGSTRUCTW	14805	15050	86	1	221	unsupported	declaration Struct has no candidate rule
+74	Impl		15051	15161	95	1	232	unsupported	declaration Impl has no candidate rule
+75	ItemType	CONNECTDLGSTRUCT_FLAGS	15162	15200	100	1	239	generated	
+76	Const	CONNECT_CMD_SAVECRED	15201	15261	101	1	240	generated	
+77	Const	CONNECT_COMMANDLINE	15262	15321	102	1	241	generated	
+78	Const	CONNECT_CRED_RESET	15322	15380	103	1	242	generated	
+79	Const	CONNECT_CURRENT_MEDIA	15381	15441	104	1	243	generated	
+80	Const	CONNECT_DEFERRED	15442	15498	105	1	244	generated	
+81	Const	CONNECT_GLOBAL_MAPPING	15499	15563	106	1	245	generated	
+82	Const	CONNECT_INTERACTIVE	15564	15620	107	1	246	generated	
+83	Const	CONNECT_LOCALDRIVE	15621	15678	108	1	247	generated	
+84	Const	CONNECT_NEED_DRIVE	15679	15735	109	1	248	generated	
+85	Const	CONNECT_PROMPT	15736	15788	110	1	249	generated	
+86	Const	CONNECT_REDIRECT	15789	15844	111	1	250	generated	
+87	Const	CONNECT_REFCOUNT	15845	15899	112	1	251	generated	
+88	Const	CONNECT_REQUIRE_INTEGRITY	15900	15966	113	1	252	generated	
+89	Const	CONNECT_REQUIRE_PRIVACY	15967	16031	114	1	253	generated	
+90	Const	CONNECT_RESERVED	16032	16094	115	1	254	generated	
+91	Const	CONNECT_TEMPORARY	16095	16149	116	1	255	generated	
+92	Const	CONNECT_UPDATE_PROFILE	16150	16209	117	1	256	generated	
+93	Const	CONNECT_UPDATE_RECENT	16210	16268	118	1	257	generated	
+94	Const	CONNECT_WRITE_THROUGH_SEMANTICS	16269	16341	119	1	258	generated	
+95	Struct	DISCDLGSTRUCTA	16342	16613	120	1	259	unsupported	declaration Struct has no candidate rule
+96	Impl		16614	16721	129	1	270	unsupported	declaration Impl has no candidate rule
+97	Struct	DISCDLGSTRUCTW	16722	16995	134	1	277	unsupported	declaration Struct has no candidate rule
+98	Impl		16996	17103	143	1	288	unsupported	declaration Impl has no candidate rule
+99	ItemType	DISCDLGSTRUCT_FLAGS	17104	17139	148	1	295	generated	
+100	Const	DISC_NO_FORCE	17140	17193	149	1	296	generated	
+101	Const	DISC_UPDATE_PROFILE	17194	17252	150	1	297	generated	
+102	Struct	NETCONNECTINFOSTRUCT	17253	17451	151	1	298	unsupported	declaration Struct has no candidate rule
+103	Struct	NETINFOSTRUCT	17452	17792	160	1	309	unsupported	declaration Struct has no candidate rule
+104	ItemType	NETINFOSTRUCT_CHARACTERISTICS	17793	17838	172	1	323	generated	
+105	Const	NETINFO_DISKRED	17839	17903	173	1	324	generated	
+106	Const	NETINFO_DLL16	17904	17966	174	1	325	generated	
+107	Const	NETINFO_PRINTERRED	17967	18034	175	1	326	generated	
+108	Const	NETPROPERTY_PERSISTENT	18035	18080	176	1	327	generated	
+109	Struct	NETRESOURCEA	18081	18446	177	1	328	unsupported	declaration Struct has no candidate rule
+110	Impl		18447	18552	189	1	342	unsupported	declaration Impl has no candidate rule
+111	Struct	NETRESOURCEW	18553	18922	194	1	349	unsupported	declaration Struct has no candidate rule
+112	Impl		18923	19028	206	1	363	unsupported	declaration Impl has no candidate rule
+113	ItemType	NETWORK_NAME_FORMAT_FLAGS	19029	19070	211	1	370	generated	
+114	ItemType	NET_CONNECT_FLAGS	19071	19104	212	1	371	generated	
+115	ItemType	NET_RESOURCE_SCOPE	19105	19139	213	1	372	generated	
+116	ItemType	NET_RESOURCE_TYPE	19140	19173	214	1	373	generated	
+117	Struct	NOTIFYADD	19174	19357	215	1	374	unsupported	declaration Struct has no candidate rule
+118	Impl		19358	19460	222	1	383	unsupported	declaration Impl has no candidate rule
+119	Struct	NOTIFYCANCEL	19461	19673	227	1	390	unsupported	declaration Struct has no candidate rule
+120	Impl		19674	19779	235	1	400	unsupported	declaration Impl has no candidate rule
+121	Struct	NOTIFYINFO	19780	19943	240	1	407	unsupported	declaration Struct has no candidate rule
+122	Impl		19944	20047	247	1	416	unsupported	declaration Impl has no candidate rule
+123	Const	NOTIFY_POST	20048	20082	252	1	423	generated	
+124	Const	NOTIFY_PRE	20083	20116	253	1	424	generated	
+125	ItemType	NPDIRECTORY_NOTIFY_OPERATION	20117	20161	254	1	425	generated	
+126	ItemType	NP_PROPERTY_DIALOG_SELECTION	20162	20206	255	1	426	generated	
+127	ItemType	PF_AddConnectNotify	20207	20339	256	1	427	unsupported	generic scalar type unsupported
+128	ItemType	PF_CancelConnectNotify	20340	20481	257	1	430	unsupported	generic scalar type unsupported
+129	ItemType	PF_NPAddConnection	20482	20667	258	1	433	unsupported	generic scalar type unsupported
+130	ItemType	PF_NPAddConnection3	20668	20911	259	1	436	unsupported	generic scalar type unsupported
+131	ItemType	PF_NPAddConnection4	20912	21180	260	1	439	unsupported	generic scalar type unsupported
+132	ItemType	PF_NPCancelConnection	21181	21323	261	1	442	unsupported	generic scalar type unsupported
+133	ItemType	PF_NPCancelConnection2	21324	21481	262	1	445	unsupported	generic scalar type unsupported
+134	ItemType	PF_NPCloseEnum	21482	21590	263	1	448	unsupported	generic scalar type unsupported
+135	ItemType	PF_NPDeviceMode	21591	21700	264	1	451	unsupported	generic scalar type unsupported
+136	ItemType	PF_NPDirectoryNotify	21701	21859	265	1	454	unsupported	generic scalar type unsupported
+137	ItemType	PF_NPEnumResource	21860	22049	266	1	457	unsupported	generic scalar type unsupported
+138	ItemType	PF_NPFMXEditPerm	22050	22218	267	1	460	unsupported	generic scalar type unsupported
+139	ItemType	PF_NPFMXGetPermCaps	22219	22331	268	1	463	unsupported	generic scalar type unsupported
+140	ItemType	PF_NPFMXGetPermHelp	22332	22591	269	1	466	unsupported	generic scalar type unsupported
+141	ItemType	PF_NPFormatNetworkName	22592	22809	270	1	469	unsupported	generic scalar type unsupported
+142	ItemType	PF_NPGetCaps	22810	22886	271	1	472	unsupported	generic scalar type unsupported
+143	ItemType	PF_NPGetConnection	22887	23062	272	1	475	unsupported	generic scalar type unsupported
+144	ItemType	PF_NPGetConnection3	23063	23247	273	1	478	unsupported	generic scalar type unsupported
+145	ItemType	PF_NPGetConnectionPerformance	23248	23416	274	1	481	unsupported	generic scalar type unsupported
+146	ItemType	PF_NPGetDirectoryType	23417	23584	275	1	484	unsupported	generic scalar type unsupported
+147	ItemType	PF_NPGetPersistentUseOptionsForConnection	23585	23833	276	1	487	unsupported	generic scalar type unsupported
+148	ItemType	PF_NPGetPropertyText	23834	24044	277	1	490	unsupported	generic scalar type unsupported
+149	ItemType	PF_NPGetResourceInformation	24045	24262	278	1	493	unsupported	generic scalar type unsupported
+150	ItemType	PF_NPGetResourceParent	24263	24432	279	1	496	unsupported	generic scalar type unsupported
+151	ItemType	PF_NPGetUniversalName	24433	24624	280	1	499	unsupported	generic scalar type unsupported
+152	ItemType	PF_NPGetUser	24625	24787	281	1	502	unsupported	generic scalar type unsupported
+153	ItemType	PF_NPLogonNotify	24788	25226	282	1	505	unsupported	generic scalar type unsupported
+154	ItemType	PF_NPOpenEnum	25227	25418	283	1	508	unsupported	generic scalar type unsupported
+155	ItemType	PF_NPPasswordChangeNotify	25419	25789	284	1	511	unsupported	generic scalar type unsupported
+156	ItemType	PF_NPPropertyDialog	25790	25989	285	1	514	unsupported	generic scalar type unsupported
+157	ItemType	PF_NPSearchDialog	25990	26209	286	1	517	unsupported	generic scalar type unsupported
+158	Struct	REMOTE_NAME_INFOA	26210	26427	287	1	520	unsupported	declaration Struct has no candidate rule
+159	Impl		26428	26538	294	1	529	unsupported	declaration Impl has no candidate rule
+160	Struct	REMOTE_NAME_INFOW	26539	26759	299	1	536	unsupported	declaration Struct has no candidate rule
+161	Impl		26760	26870	306	1	545	unsupported	declaration Impl has no candidate rule
+162	Const	REMOTE_NAME_INFO_LEVEL	26871	26927	311	1	552	generated	
+163	Const	RESOURCEDISPLAYTYPE_DIRECTORY	26928	26980	312	1	553	generated	
+164	Const	RESOURCEDISPLAYTYPE_NDSCONTAINER	26981	27037	313	1	554	generated	
+165	Const	RESOURCEDISPLAYTYPE_NETWORK	27038	27088	314	1	555	generated	
+166	Const	RESOURCEDISPLAYTYPE_ROOT	27089	27136	315	1	556	generated	
+167	Const	RESOURCEDISPLAYTYPE_SHAREADMIN	27137	27190	316	1	557	generated	
+168	Const	RESOURCETYPE_ANY	27191	27244	317	1	558	generated	
+169	Const	RESOURCETYPE_DISK	27245	27299	318	1	559	generated	
+170	Const	RESOURCETYPE_PRINT	27300	27355	319	1	560	generated	
+171	Const	RESOURCETYPE_RESERVED	27356	27400	320	1	561	generated	
+172	Const	RESOURCETYPE_UNKNOWN	27401	27453	321	1	562	generated	
+173	Const	RESOURCEUSAGE_ALL	27454	27512	322	1	563	generated	
+174	Const	RESOURCEUSAGE_ATTACHED	27513	27576	323	1	564	generated	
+175	Const	RESOURCEUSAGE_CONNECTABLE	27577	27642	324	1	565	generated	
+176	Const	RESOURCEUSAGE_CONTAINER	27643	27706	325	1	566	generated	
+177	Const	RESOURCEUSAGE_NOLOCALDEVICE	27707	27757	326	1	567	generated	
+178	Const	RESOURCEUSAGE_NONE	27758	27816	327	1	568	generated	
+179	Const	RESOURCEUSAGE_RESERVED	27817	27871	328	1	569	generated	
+180	Const	RESOURCEUSAGE_SIBLING	27872	27916	329	1	570	generated	
+181	Const	RESOURCE_CONNECTED	27917	27973	330	1	571	generated	
+182	Const	RESOURCE_CONTEXT	27974	28028	331	1	572	generated	
+183	Const	RESOURCE_GLOBALNET	28029	28085	332	1	573	generated	
+184	Const	RESOURCE_RECENT	28086	28124	333	1	574	generated	
+185	Const	RESOURCE_REMEMBERED	28125	28182	334	1	575	generated	
+186	ItemType	UNC_INFO_LEVEL	28183	28213	335	1	576	generated	
+187	Struct	UNIVERSAL_NAME_INFOA	28214	28333	336	1	577	unsupported	declaration Struct has no candidate rule
+188	Impl		28334	28447	341	1	584	unsupported	declaration Impl has no candidate rule
+189	Struct	UNIVERSAL_NAME_INFOW	28448	28568	346	1	591	unsupported	declaration Struct has no candidate rule
+190	Impl		28569	28682	351	1	598	unsupported	declaration Impl has no candidate rule
+191	Const	UNIVERSAL_NAME_INFO_LEVEL	28683	28742	356	1	605	generated	
+192	Const	WNCON_DYNAMIC	28743	28779	357	1	606	generated	
+193	Const	WNCON_FORNETCARD	28780	28819	358	1	607	generated	
+194	Const	WNCON_NOTROUTED	28820	28858	359	1	608	generated	
+195	Const	WNCON_SLOWLINK	28859	28896	360	1	609	generated	
+196	Const	WNDN_MKDIR	28897	28955	361	1	610	generated	
+197	Const	WNDN_MVDIR	28956	29014	362	1	611	generated	
+198	Const	WNDN_RMDIR	29015	29073	363	1	612	generated	
+199	Const	WNDT_NETWORK	29074	29109	364	1	613	generated	
+200	Const	WNDT_NORMAL	29110	29144	365	1	614	generated	
+201	ItemType	WNET_OPEN_ENUM_USAGE	29145	29181	366	1	615	generated	
+202	Const	WNFMT_ABBREVIATED	29182	29244	367	1	616	generated	
+203	Const	WNFMT_CONNECTION	29245	29285	368	1	617	generated	
+204	Const	WNFMT_INENUM	29286	29322	369	1	618	generated	
+205	Const	WNFMT_MULTILINE	29323	29383	370	1	619	generated	
+206	Const	WNGETCON_CONNECTED	29384	29425	371	1	620	generated	
+207	Const	WNGETCON_DISCONNECTED	29426	29470	372	1	621	generated	
+208	Const	WNNC_ADMIN	29471	29504	373	1	622	generated	
+209	Const	WNNC_ADM_DIRECTORYNOTIFY	29505	29552	374	1	623	generated	
+210	Const	WNNC_ADM_GETDIRECTORYTYPE	29553	29601	375	1	624	generated	
+211	Const	WNNC_CONNECTION	29602	29640	376	1	625	generated	
+212	Const	WNNC_CONNECTION_FLAGS	29641	29686	377	1	626	generated	
+213	Const	WNNC_CON_ADDCONNECTION	29687	29732	378	1	627	generated	
+214	Const	WNNC_CON_ADDCONNECTION3	29733	29779	379	1	628	generated	
+215	Const	WNNC_CON_ADDCONNECTION4	29780	29827	380	1	629	generated	
+216	Const	WNNC_CON_CANCELCONNECTION	29828	29876	381	1	630	generated	
+217	Const	WNNC_CON_CANCELCONNECTION2	29877	29927	382	1	631	generated	
+218	Const	WNNC_CON_DEFER	29928	29967	383	1	632	generated	
+219	Const	WNNC_CON_GETCONNECTIONS	29968	30014	384	1	633	generated	
+220	Const	WNNC_CON_GETPERFORMANCE	30015	30062	385	1	634	generated	
+221	Const	WNNC_DIALOG	30063	30097	386	1	635	generated	
+222	Const	WNNC_DLG_DEVICEMODE	30098	30140	387	1	636	generated	
+223	Const	WNNC_DLG_FORMATNETWORKNAME	30141	30192	388	1	637	generated	
+224	Const	WNNC_DLG_GETRESOURCEINFORMATION	30193	30250	389	1	638	generated	
+225	Const	WNNC_DLG_GETRESOURCEPARENT	30251	30302	390	1	639	generated	
+226	Const	WNNC_DLG_PERMISSIONEDITOR	30303	30353	391	1	640	generated	
+227	Const	WNNC_DLG_PROPERTYDIALOG	30354	30401	392	1	641	generated	
+228	Const	WNNC_DLG_SEARCHDIALOG	30402	30447	393	1	642	generated	
+229	Const	WNNC_DRIVER_VERSION	30448	30490	394	1	643	generated	
+230	Const	WNNC_ENUMERATION	30491	30531	395	1	644	generated	
+231	Const	WNNC_ENUM_CONTEXT	30532	30572	396	1	645	generated	
+232	Const	WNNC_ENUM_GLOBAL	30573	30612	397	1	646	generated	
+233	Const	WNNC_ENUM_LOCAL	30613	30651	398	1	647	generated	
+234	Const	WNNC_ENUM_SHAREABLE	30652	30694	399	1	648	generated	
+235	Const	WNNC_NET_NONE	30695	30731	400	1	649	generated	
+236	Const	WNNC_NET_TYPE	30732	30768	401	1	650	generated	
+237	Const	WNNC_SPEC_VERSION	30769	30809	402	1	651	generated	
+238	Const	WNNC_SPEC_VERSION51	30810	30857	403	1	652	generated	
+239	Const	WNNC_START	30858	30892	404	1	653	generated	
+240	Const	WNNC_USER	30893	30925	405	1	654	generated	
+241	Const	WNNC_USR_GETUSER	30926	30965	406	1	655	generated	
+242	Const	WNNC_WAIT_FOR_START	30966	31008	407	1	656	generated	
+243	Const	WNPERMC_AUDIT	31009	31045	408	1	657	generated	
+244	Const	WNPERMC_OWNER	31046	31082	409	1	658	generated	
+245	Const	WNPERMC_PERM	31083	31118	410	1	659	generated	
+246	ItemType	WNPERM_DLG	31119	31145	411	1	660	generated	
+247	Const	WNPERM_DLG_AUDIT	31146	31192	412	1	661	generated	
+248	Const	WNPERM_DLG_OWNER	31193	31239	413	1	662	generated	
+249	Const	WNPERM_DLG_PERM	31240	31285	414	1	663	generated	
+250	Const	WNPS_DIR	31286	31342	415	1	664	generated	
+251	Const	WNPS_FILE	31343	31400	416	1	665	generated	
+252	Const	WNPS_MULT	31401	31458	417	1	666	generated	
+253	Const	WNSRCH_REFRESH_FIRST_LEVEL	31459	31508	418	1	667	generated	
+254	Const	WNTYPE_COMM	31509	31543	419	1	668	generated	
+255	Const	WNTYPE_DRIVE	31544	31579	420	1	669	generated	
+256	Const	WNTYPE_FILE	31580	31614	421	1	670	generated	
+257	Const	WNTYPE_PRINTER	31615	31652	422	1	671	generated	
+258	Const	WN_CREDENTIAL_CLASS	31653	31695	423	1	672	generated	
+259	Const	WN_NETWORK_CLASS	31696	31735	424	1	673	generated	
+260	Const	WN_NT_PASSWORD_CHANGED	31736	31781	425	1	674	generated	
+261	Const	WN_PRIMARY_AUTHENT_CLASS	31782	31829	426	1	675	generated	
+262	Const	WN_SERVICE_CLASS	31830	31869	427	1	676	generated	
+263	Const	WN_VALID_LOGON_ACCOUNT	31870	31915	428	1	677	generated	

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="nativeMacosTest.io.github.kotlinmania.rustkotlin.TypedEmissionTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-24T22:19:11.926Z" hostname="EmberHarmony.local" time="0.001">
+  <properties/>
+  <testcase name="shadowingAndNestedScopesKeepInitializerBindings[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.TypedEmissionTest" time="0.0"/>
+  <testcase name="typeProfilesAndCastsAreExplicit[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.TypedEmissionTest" time="0.0"/>
+  <testcase name="knownSignaturesAndNestedOptionsAreTyped[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.TypedEmissionTest" time="0.0"/>
+  <testcase name="nameAllocationAndMappingsRemainDeterministic[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.TypedEmissionTest" time="0.0"/>
+  <testcase name="unsupportedOrIllTypedNodesFailTheWholeFile[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.TypedEmissionTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

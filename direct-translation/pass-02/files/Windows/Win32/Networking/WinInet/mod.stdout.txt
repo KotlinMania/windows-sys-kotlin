@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/Networking/WinInet/mod: 1077 generated; 496 unsupported

@@ -1,0 +1,249 @@
+// DIRECT DECLARATION CANDIDATE: unsupported Rust remains below; not adopted or ABI-validated.
+// UNSUPPORTED Rust 1:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn AddDllDirectory(newdirectory : windows_sys::core::PCWSTR) -> *mut core::ffi::c_void);
+
+// UNSUPPORTED Rust 2:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn BeginUpdateResourceA(pfilename : windows_sys::core::PCSTR, bdeleteexistingresources : windows_sys::core::BOOL) -> super::super::Foundation:: HANDLE);
+
+// UNSUPPORTED Rust 3:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn BeginUpdateResourceW(pfilename : windows_sys::core::PCWSTR, bdeleteexistingresources : windows_sys::core::BOOL) -> super::super::Foundation:: HANDLE);
+
+// UNSUPPORTED Rust 4:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn DisableThreadLibraryCalls(hlibmodule : super::super::Foundation:: HMODULE) -> windows_sys::core::BOOL);
+
+// UNSUPPORTED Rust 5:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn EndUpdateResourceA(hupdate : super::super::Foundation:: HANDLE, fdiscard : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+
+// UNSUPPORTED Rust 6:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn EndUpdateResourceW(hupdate : super::super::Foundation:: HANDLE, fdiscard : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+
+// UNSUPPORTED Rust 7:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn EnumResourceLanguagesA(hmodule : super::super::Foundation:: HMODULE, lptype : windows_sys::core::PCSTR, lpname : windows_sys::core::PCSTR, lpenumfunc : ENUMRESLANGPROCA, lparam : isize) -> windows_sys::core::BOOL);
+
+// UNSUPPORTED Rust 8:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn EnumResourceLanguagesExA(hmodule : super::super::Foundation:: HMODULE, lptype : windows_sys::core::PCSTR, lpname : windows_sys::core::PCSTR, lpenumfunc : ENUMRESLANGPROCA, lparam : isize, dwflags : u32, langid : u16) -> windows_sys::core::BOOL);
+
+// UNSUPPORTED Rust 9:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn EnumResourceLanguagesExW(hmodule : super::super::Foundation:: HMODULE, lptype : windows_sys::core::PCWSTR, lpname : windows_sys::core::PCWSTR, lpenumfunc : ENUMRESLANGPROCW, lparam : isize, dwflags : u32, langid : u16) -> windows_sys::core::BOOL);
+
+// UNSUPPORTED Rust 10:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn EnumResourceLanguagesW(hmodule : super::super::Foundation:: HMODULE, lptype : windows_sys::core::PCWSTR, lpname : windows_sys::core::PCWSTR, lpenumfunc : ENUMRESLANGPROCW, lparam : isize) -> windows_sys::core::BOOL);
+
+// UNSUPPORTED Rust 11:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn EnumResourceNamesA(hmodule : super::super::Foundation:: HMODULE, lptype : windows_sys::core::PCSTR, lpenumfunc : ENUMRESNAMEPROCA, lparam : isize) -> windows_sys::core::BOOL);
+
+// UNSUPPORTED Rust 12:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn EnumResourceNamesExA(hmodule : super::super::Foundation:: HMODULE, lptype : windows_sys::core::PCSTR, lpenumfunc : ENUMRESNAMEPROCA, lparam : isize, dwflags : u32, langid : u16) -> windows_sys::core::BOOL);
+
+// UNSUPPORTED Rust 13:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn EnumResourceNamesExW(hmodule : super::super::Foundation:: HMODULE, lptype : windows_sys::core::PCWSTR, lpenumfunc : ENUMRESNAMEPROCW, lparam : isize, dwflags : u32, langid : u16) -> windows_sys::core::BOOL);
+
+// UNSUPPORTED Rust 14:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn EnumResourceNamesW(hmodule : super::super::Foundation:: HMODULE, lptype : windows_sys::core::PCWSTR, lpenumfunc : ENUMRESNAMEPROCW, lparam : isize) -> windows_sys::core::BOOL);
+
+// UNSUPPORTED Rust 15:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn EnumResourceTypesA(hmodule : super::super::Foundation:: HMODULE, lpenumfunc : ENUMRESTYPEPROCA, lparam : isize) -> windows_sys::core::BOOL);
+
+// UNSUPPORTED Rust 16:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn EnumResourceTypesExA(hmodule : super::super::Foundation:: HMODULE, lpenumfunc : ENUMRESTYPEPROCA, lparam : isize, dwflags : u32, langid : u16) -> windows_sys::core::BOOL);
+
+// UNSUPPORTED Rust 17:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn EnumResourceTypesExW(hmodule : super::super::Foundation:: HMODULE, lpenumfunc : ENUMRESTYPEPROCW, lparam : isize, dwflags : u32, langid : u16) -> windows_sys::core::BOOL);
+
+// UNSUPPORTED Rust 18:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn EnumResourceTypesW(hmodule : super::super::Foundation:: HMODULE, lpenumfunc : ENUMRESTYPEPROCW, lparam : isize) -> windows_sys::core::BOOL);
+
+// UNSUPPORTED Rust 19:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn FindResourceA(hmodule : super::super::Foundation:: HMODULE, lpname : windows_sys::core::PCSTR, lptype : windows_sys::core::PCSTR) -> super::super::Foundation:: HRSRC);
+
+// UNSUPPORTED Rust 20:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn FindResourceExA(hmodule : super::super::Foundation:: HMODULE, lptype : windows_sys::core::PCSTR, lpname : windows_sys::core::PCSTR, wlanguage : u16) -> super::super::Foundation:: HRSRC);
+
+// UNSUPPORTED Rust 21:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn FindResourceExW(hmodule : super::super::Foundation:: HMODULE, lptype : windows_sys::core::PCWSTR, lpname : windows_sys::core::PCWSTR, wlanguage : u16) -> super::super::Foundation:: HRSRC);
+
+// UNSUPPORTED Rust 22:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn FindResourceW(hmodule : super::super::Foundation:: HMODULE, lpname : windows_sys::core::PCWSTR, lptype : windows_sys::core::PCWSTR) -> super::super::Foundation:: HRSRC);
+
+// UNSUPPORTED Rust 23:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn FreeLibraryAndExitThread(hlibmodule : super::super::Foundation:: HMODULE, dwexitcode : u32) -> !);
+
+// UNSUPPORTED Rust 24:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn FreeResource(hresdata : super::super::Foundation:: HGLOBAL) -> windows_sys::core::BOOL);
+
+// UNSUPPORTED Rust 25:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn GetDllDirectoryA(nbufferlength : u32, lpbuffer : windows_sys::core::PSTR) -> u32);
+
+// UNSUPPORTED Rust 26:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn GetDllDirectoryW(nbufferlength : u32, lpbuffer : windows_sys::core::PWSTR) -> u32);
+
+// UNSUPPORTED Rust 27:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn GetModuleFileNameA(hmodule : super::super::Foundation:: HMODULE, lpfilename : windows_sys::core::PSTR, nsize : u32) -> u32);
+
+// UNSUPPORTED Rust 28:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn GetModuleFileNameW(hmodule : super::super::Foundation:: HMODULE, lpfilename : windows_sys::core::PWSTR, nsize : u32) -> u32);
+
+// UNSUPPORTED Rust 29:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn GetModuleHandleA(lpmodulename : windows_sys::core::PCSTR) -> super::super::Foundation:: HMODULE);
+
+// UNSUPPORTED Rust 30:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn GetModuleHandleExA(dwflags : u32, lpmodulename : windows_sys::core::PCSTR, phmodule : *mut super::super::Foundation:: HMODULE) -> windows_sys::core::BOOL);
+
+// UNSUPPORTED Rust 31:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn GetModuleHandleExW(dwflags : u32, lpmodulename : windows_sys::core::PCWSTR, phmodule : *mut super::super::Foundation:: HMODULE) -> windows_sys::core::BOOL);
+
+// UNSUPPORTED Rust 32:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn GetModuleHandleW(lpmodulename : windows_sys::core::PCWSTR) -> super::super::Foundation:: HMODULE);
+
+// UNSUPPORTED Rust 33:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn GetProcAddress(hmodule : super::super::Foundation:: HMODULE, lpprocname : windows_sys::core::PCSTR) -> super::super::Foundation:: FARPROC);
+
+// UNSUPPORTED Rust 34:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn LoadLibraryA(lplibfilename : windows_sys::core::PCSTR) -> super::super::Foundation:: HMODULE);
+
+// UNSUPPORTED Rust 35:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn LoadLibraryExA(lplibfilename : windows_sys::core::PCSTR, hfile : super::super::Foundation:: HANDLE, dwflags : LOAD_LIBRARY_FLAGS) -> super::super::Foundation:: HMODULE);
+
+// UNSUPPORTED Rust 36:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn LoadLibraryExW(lplibfilename : windows_sys::core::PCWSTR, hfile : super::super::Foundation:: HANDLE, dwflags : LOAD_LIBRARY_FLAGS) -> super::super::Foundation:: HMODULE);
+
+// UNSUPPORTED Rust 37:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn LoadLibraryW(lplibfilename : windows_sys::core::PCWSTR) -> super::super::Foundation:: HMODULE);
+
+// UNSUPPORTED Rust 38:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn LoadModule(lpmodulename : windows_sys::core::PCSTR, lpparameterblock : *const core::ffi::c_void) -> u32);
+
+// UNSUPPORTED Rust 39:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn LoadPackagedLibrary(lpwlibfilename : windows_sys::core::PCWSTR, reserved : u32) -> super::super::Foundation:: HMODULE);
+
+// UNSUPPORTED Rust 40:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn LoadResource(hmodule : super::super::Foundation:: HMODULE, hresinfo : super::super::Foundation:: HRSRC) -> super::super::Foundation:: HGLOBAL);
+
+// UNSUPPORTED Rust 41:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn LockResource(hresdata : super::super::Foundation:: HGLOBAL) -> *mut core::ffi::c_void);
+
+// UNSUPPORTED Rust 42:1: declaration Macro has no candidate rule
+// windows_link::link!("api-ms-win-core-libraryloader-l2-1-0.dll" "system" fn QueryOptionalDelayLoadedAPI(hparentmodule : super::super::Foundation:: HMODULE, lpdllname : windows_sys::core::PCSTR, lpprocname : windows_sys::core::PCSTR, reserved : u32) -> windows_sys::core::BOOL);
+
+// UNSUPPORTED Rust 43:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn RemoveDllDirectory(cookie : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+
+// UNSUPPORTED Rust 44:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn SetDefaultDllDirectories(directoryflags : LOAD_LIBRARY_FLAGS) -> windows_sys::core::BOOL);
+
+// UNSUPPORTED Rust 45:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn SetDllDirectoryA(lppathname : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+
+// UNSUPPORTED Rust 46:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn SetDllDirectoryW(lppathname : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+
+// UNSUPPORTED Rust 47:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn SizeofResource(hmodule : super::super::Foundation:: HMODULE, hresinfo : super::super::Foundation:: HRSRC) -> u32);
+
+// UNSUPPORTED Rust 48:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn UpdateResourceA(hupdate : super::super::Foundation:: HANDLE, lptype : windows_sys::core::PCSTR, lpname : windows_sys::core::PCSTR, wlanguage : u16, lpdata : *const core::ffi::c_void, cb : u32) -> windows_sys::core::BOOL);
+
+// UNSUPPORTED Rust 49:1: declaration Macro has no candidate rule
+// windows_link::link!("kernel32.dll" "system" fn UpdateResourceW(hupdate : super::super::Foundation:: HANDLE, lptype : windows_sys::core::PCWSTR, lpname : windows_sys::core::PCWSTR, wlanguage : u16, lpdata : *const core::ffi::c_void, cb : u32) -> windows_sys::core::BOOL);
+
+public const val `CURRENT_IMPORT_REDIRECTION_VERSION`: UInt = 1u;
+public const val `DONT_RESOLVE_DLL_REFERENCES`: `LOAD_LIBRARY_FLAGS` = 1u;
+// UNSUPPORTED Rust 52:1: generic scalar type unsupported
+// pub type ENUMRESLANGPROCA = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HMODULE, lptype: windows_sys::core::PCSTR, lpname: windows_sys::core::PCSTR, wlanguage: u16, lparam: isize) -> windows_sys::core::BOOL>;
+
+// UNSUPPORTED Rust 53:1: generic scalar type unsupported
+// pub type ENUMRESLANGPROCW = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HMODULE, lptype: windows_sys::core::PCWSTR, lpname: windows_sys::core::PCWSTR, wlanguage: u16, lparam: isize) -> windows_sys::core::BOOL>;
+
+// UNSUPPORTED Rust 54:1: generic scalar type unsupported
+// pub type ENUMRESNAMEPROCA = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HMODULE, lptype: windows_sys::core::PCSTR, lpname: windows_sys::core::PCSTR, lparam: isize) -> windows_sys::core::BOOL>;
+
+// UNSUPPORTED Rust 55:1: generic scalar type unsupported
+// pub type ENUMRESNAMEPROCW = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HMODULE, lptype: windows_sys::core::PCWSTR, lpname: windows_sys::core::PCWSTR, lparam: isize) -> windows_sys::core::BOOL>;
+
+// UNSUPPORTED Rust 56:1: generic scalar type unsupported
+// pub type ENUMRESTYPEPROCA = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HMODULE, lptype: windows_sys::core::PCSTR, lparam: isize) -> windows_sys::core::BOOL>;
+
+// UNSUPPORTED Rust 57:1: generic scalar type unsupported
+// pub type ENUMRESTYPEPROCW = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HMODULE, lptype: windows_sys::core::PCWSTR, lparam: isize) -> windows_sys::core::BOOL>;
+
+// UNSUPPORTED Rust 58:1: declaration Struct has no candidate rule
+// #[repr(C)]
+// #[derive(Clone, Copy)]
+// pub struct ENUMUILANG {
+//     pub NumOfEnumUILang: u32,
+//     pub SizeOfEnumUIBuffer: u32,
+//     pub pEnumUIBuffer: *mut u16,
+// }
+
+// UNSUPPORTED Rust 65:1: declaration Impl has no candidate rule
+// impl Default for ENUMUILANG {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+public const val `FIND_RESOURCE_DIRECTORY_LANGUAGES`: UInt = 1024u;
+public const val `FIND_RESOURCE_DIRECTORY_NAMES`: UInt = 512u;
+public const val `FIND_RESOURCE_DIRECTORY_TYPES`: UInt = 256u;
+public const val `GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS`: UInt = 4u;
+public const val `GET_MODULE_HANDLE_EX_FLAG_PIN`: UInt = 1u;
+public const val `GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT`: UInt = 2u;
+public const val `LOAD_IGNORE_CODE_AUTHZ_LEVEL`: `LOAD_LIBRARY_FLAGS` = 16u;
+public const val `LOAD_LIBRARY_AS_DATAFILE`: `LOAD_LIBRARY_FLAGS` = 2u;
+public const val `LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE`: `LOAD_LIBRARY_FLAGS` = 64u;
+public const val `LOAD_LIBRARY_AS_IMAGE_RESOURCE`: `LOAD_LIBRARY_FLAGS` = 32u;
+public typealias `LOAD_LIBRARY_FLAGS` = UInt;
+public const val `LOAD_LIBRARY_OS_INTEGRITY_CONTINUITY`: UInt = 32768u;
+public const val `LOAD_LIBRARY_REQUIRE_SIGNED_TARGET`: `LOAD_LIBRARY_FLAGS` = 128u;
+public const val `LOAD_LIBRARY_SAFE_CURRENT_DIRS`: `LOAD_LIBRARY_FLAGS` = 8192u;
+public const val `LOAD_LIBRARY_SEARCH_APPLICATION_DIR`: `LOAD_LIBRARY_FLAGS` = 512u;
+public const val `LOAD_LIBRARY_SEARCH_DEFAULT_DIRS`: `LOAD_LIBRARY_FLAGS` = 4096u;
+public const val `LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR`: `LOAD_LIBRARY_FLAGS` = 256u;
+public const val `LOAD_LIBRARY_SEARCH_SYSTEM32`: `LOAD_LIBRARY_FLAGS` = 2048u;
+public const val `LOAD_LIBRARY_SEARCH_SYSTEM32_NO_FORWARDER`: `LOAD_LIBRARY_FLAGS` = 16384u;
+public const val `LOAD_LIBRARY_SEARCH_USER_DIRS`: `LOAD_LIBRARY_FLAGS` = 1024u;
+public const val `LOAD_WITH_ALTERED_SEARCH_PATH`: `LOAD_LIBRARY_FLAGS` = 8u;
+// UNSUPPORTED Rust 91:1: generic scalar type unsupported
+// pub type PGET_MODULE_HANDLE_EXA = Option<unsafe extern "system" fn(dwflags: u32, lpmodulename: windows_sys::core::PCSTR, phmodule: *mut super::super::Foundation::HMODULE) -> windows_sys::core::BOOL>;
+
+// UNSUPPORTED Rust 92:1: generic scalar type unsupported
+// pub type PGET_MODULE_HANDLE_EXW = Option<unsafe extern "system" fn(dwflags: u32, lpmodulename: windows_sys::core::PCWSTR, phmodule: *mut super::super::Foundation::HMODULE) -> windows_sys::core::BOOL>;
+
+// UNSUPPORTED Rust 93:1: declaration Struct has no candidate rule
+// #[repr(C)]
+// #[derive(Clone, Copy)]
+// pub struct REDIRECTION_DESCRIPTOR {
+//     pub Version: u32,
+//     pub FunctionCount: u32,
+//     pub Redirections: *mut REDIRECTION_FUNCTION_DESCRIPTOR,
+// }
+
+// UNSUPPORTED Rust 100:1: declaration Impl has no candidate rule
+// impl Default for REDIRECTION_DESCRIPTOR {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 105:1: declaration Struct has no candidate rule
+// #[repr(C)]
+// #[derive(Clone, Copy)]
+// pub struct REDIRECTION_FUNCTION_DESCRIPTOR {
+//     pub DllName: windows_sys::core::PCSTR,
+//     pub FunctionName: windows_sys::core::PCSTR,
+//     pub RedirectionTarget: *mut core::ffi::c_void,
+// }
+
+// UNSUPPORTED Rust 112:1: declaration Impl has no candidate rule
+// impl Default for REDIRECTION_FUNCTION_DESCRIPTOR {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+public const val `RESOURCE_ENUM_LN`: UInt = 1u;
+public const val `RESOURCE_ENUM_MODULE_EXACT`: UInt = 16u;
+public const val `RESOURCE_ENUM_MUI`: UInt = 2u;
+public const val `RESOURCE_ENUM_MUI_SYSTEM`: UInt = 4u;
+public const val `RESOURCE_ENUM_VALIDATE`: UInt = 8u;
+public const val `SUPPORT_LANG_NUMBER`: UInt = 32u;

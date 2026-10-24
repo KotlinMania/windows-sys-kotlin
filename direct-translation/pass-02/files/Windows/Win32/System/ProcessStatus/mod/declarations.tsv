@@ -1,0 +1,86 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	134	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		135	301	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		302	470	3	1	8	unsupported	declaration Macro has no candidate rule
+3	Macro		471	639	4	1	11	unsupported	declaration Macro has no candidate rule
+4	Macro		640	863	5	1	14	unsupported	declaration Macro has no candidate rule
+5	Macro		864	1135	6	1	17	unsupported	declaration Macro has no candidate rule
+6	Macro		1136	1279	7	1	20	unsupported	declaration Macro has no candidate rule
+7	Macro		1280	1446	8	1	23	unsupported	declaration Macro has no candidate rule
+8	Macro		1447	1614	9	1	26	unsupported	declaration Macro has no candidate rule
+9	Macro		1615	1781	10	1	29	unsupported	declaration Macro has no candidate rule
+10	Macro		1782	1949	11	1	32	unsupported	declaration Macro has no candidate rule
+11	Macro		1950	2150	12	1	35	unsupported	declaration Macro has no candidate rule
+12	Macro		2151	2352	13	1	38	unsupported	declaration Macro has no candidate rule
+13	Macro		2353	2567	14	1	41	unsupported	declaration Macro has no candidate rule
+14	Macro		2568	2783	15	1	44	unsupported	declaration Macro has no candidate rule
+15	Macro		2784	3000	16	1	47	unsupported	declaration Macro has no candidate rule
+16	Macro		3001	3218	17	1	50	unsupported	declaration Macro has no candidate rule
+17	Macro		3219	3443	18	1	53	unsupported	declaration Macro has no candidate rule
+18	Macro		3444	3601	19	1	56	unsupported	declaration Macro has no candidate rule
+19	Macro		3602	3781	20	1	59	unsupported	declaration Macro has no candidate rule
+20	Macro		3782	3962	21	1	62	unsupported	declaration Macro has no candidate rule
+21	Macro		3963	4158	22	1	65	unsupported	declaration Macro has no candidate rule
+22	Macro		4159	4347	23	1	68	unsupported	declaration Macro has no candidate rule
+23	Macro		4348	4548	24	1	71	unsupported	declaration Macro has no candidate rule
+24	Macro		4549	4695	25	1	74	unsupported	declaration Macro has no candidate rule
+25	Macro		4696	4836	26	1	77	unsupported	declaration Macro has no candidate rule
+26	Macro		4837	5009	27	1	80	unsupported	declaration Macro has no candidate rule
+27	Macro		5010	5184	28	1	83	unsupported	declaration Macro has no candidate rule
+28	Macro		5185	5359	29	1	86	unsupported	declaration Macro has no candidate rule
+29	Macro		5360	5589	30	1	89	unsupported	declaration Macro has no candidate rule
+30	Macro		5590	5841	31	1	92	unsupported	declaration Macro has no candidate rule
+31	Macro		5842	5991	32	1	95	unsupported	declaration Macro has no candidate rule
+32	Macro		5992	6164	33	1	98	unsupported	declaration Macro has no candidate rule
+33	Macro		6165	6338	34	1	101	unsupported	declaration Macro has no candidate rule
+34	Macro		6339	6511	35	1	104	unsupported	declaration Macro has no candidate rule
+35	Macro		6512	6685	36	1	107	unsupported	declaration Macro has no candidate rule
+36	Macro		6686	6892	37	1	110	unsupported	declaration Macro has no candidate rule
+37	Macro		6893	7100	38	1	113	unsupported	declaration Macro has no candidate rule
+38	Macro		7101	7321	39	1	116	unsupported	declaration Macro has no candidate rule
+39	Macro		7322	7543	40	1	119	unsupported	declaration Macro has no candidate rule
+40	Macro		7544	7766	41	1	122	unsupported	declaration Macro has no candidate rule
+41	Macro		7767	7990	42	1	125	unsupported	declaration Macro has no candidate rule
+42	Macro		7991	8221	43	1	128	unsupported	declaration Macro has no candidate rule
+43	Macro		8222	8385	44	1	131	unsupported	declaration Macro has no candidate rule
+44	Macro		8386	8571	45	1	134	unsupported	declaration Macro has no candidate rule
+45	Macro		8572	8758	46	1	137	unsupported	declaration Macro has no candidate rule
+46	Macro		8759	8960	47	1	140	unsupported	declaration Macro has no candidate rule
+47	Macro		8961	9155	48	1	143	unsupported	declaration Macro has no candidate rule
+48	Macro		9156	9362	49	1	146	unsupported	declaration Macro has no candidate rule
+49	Macro		9363	9515	50	1	149	unsupported	declaration Macro has no candidate rule
+50	Macro		9516	9695	51	1	152	unsupported	declaration Macro has no candidate rule
+51	Macro		9696	9877	52	1	155	unsupported	declaration Macro has no candidate rule
+52	Macro		9878	10051	53	1	158	unsupported	declaration Macro has no candidate rule
+53	Macro		10052	10227	54	1	161	unsupported	declaration Macro has no candidate rule
+54	Struct	ENUM_PAGE_FILE_INFORMATION	10228	10431	55	1	164	unsupported	declaration Struct has no candidate rule
+55	ItemType	ENUM_PROCESS_MODULES_EX_FLAGS	10432	10477	64	1	175	generated	
+56	Const	LIST_MODULES_32BIT	10478	10545	65	1	176	generated	
+57	Const	LIST_MODULES_64BIT	10546	10613	66	1	177	generated	
+58	Const	LIST_MODULES_ALL	10614	10679	67	1	178	generated	
+59	Const	LIST_MODULES_DEFAULT	10680	10749	68	1	179	generated	
+60	Struct	MODULEINFO	10750	10924	69	1	180	unsupported	declaration Struct has no candidate rule
+61	Impl		10925	11028	76	1	189	unsupported	declaration Impl has no candidate rule
+62	ItemType	PENUM_PAGE_FILE_CALLBACKA	11029	11247	81	1	196	unsupported	generic scalar type unsupported
+63	ItemType	PENUM_PAGE_FILE_CALLBACKW	11248	11467	82	1	199	unsupported	generic scalar type unsupported
+64	Struct	PERFORMANCE_INFORMATION	11468	11932	83	1	202	unsupported	declaration Struct has no candidate rule
+65	Struct	PROCESS_MEMORY_COUNTERS	11933	12348	101	1	222	unsupported	declaration Struct has no candidate rule
+66	Struct	PROCESS_MEMORY_COUNTERS_EX	12349	12796	115	1	238	unsupported	declaration Struct has no candidate rule
+67	Struct	PROCESS_MEMORY_COUNTERS_EX2	12797	13315	130	1	255	unsupported	declaration Struct has no candidate rule
+68	Const	PSAPI_VERSION	13316	13352	147	1	274	generated	
+69	Union		13353	13492	148	1	275	unsupported	declaration Union has no candidate rule
+70	Impl		13493	13609	154	1	283	unsupported	declaration Impl has no candidate rule
+71	Struct	PSAPI_WORKING_SET_BLOCK_0	13610	13719	159	1	290	unsupported	declaration Struct has no candidate rule
+72	Union		13720	13865	164	1	297	unsupported	declaration Union has no candidate rule
+73	Impl		13866	13985	170	1	305	unsupported	declaration Impl has no candidate rule
+74	Union		13986	14162	175	1	312	unsupported	declaration Union has no candidate rule
+75	Impl		14163	14284	181	1	320	unsupported	declaration Impl has no candidate rule
+76	Struct	PSAPI_WORKING_SET_EX_BLOCK_0_0	14285	14399	186	1	327	unsupported	declaration Struct has no candidate rule
+77	Struct	PSAPI_WORKING_SET_EX_BLOCK_0_1	14400	14514	191	1	334	unsupported	declaration Struct has no candidate rule
+78	Struct	PSAPI_WORKING_SET_EX_INFORMATION	14515	14699	196	1	341	unsupported	declaration Struct has no candidate rule
+79	Impl		14700	14825	202	1	349	unsupported	declaration Impl has no candidate rule
+80	Struct	PSAPI_WORKING_SET_INFORMATION	14826	14990	207	1	356	unsupported	declaration Struct has no candidate rule
+81	Impl		14991	15113	213	1	364	unsupported	declaration Impl has no candidate rule
+82	Struct	PSAPI_WS_WATCH_INFORMATION	15114	15277	218	1	371	unsupported	declaration Struct has no candidate rule
+83	Impl		15278	15397	224	1	379	unsupported	declaration Impl has no candidate rule
+84	Struct	PSAPI_WS_WATCH_INFORMATION_EX	15398	15587	229	1	386	unsupported	declaration Struct has no candidate rule

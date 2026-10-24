@@ -1,0 +1,14 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	416	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		417	816	3	1	6	unsupported	declaration Macro has no candidate rule
+2	Const	DSSI_IS_ROOT	817	853	4	1	9	generated	
+3	Const	DSSI_NO_ACCESS_CHECK	854	897	5	1	10	generated	
+4	Const	DSSI_NO_EDIT_OWNER	898	939	6	1	11	generated	
+5	Const	DSSI_NO_EDIT_SACL	940	980	7	1	12	generated	
+6	Const	DSSI_NO_FILTER	981	1019	8	1	13	generated	
+7	Const	DSSI_NO_READONLY_MESSAGE	1020	1068	9	1	14	generated	
+8	Const	DSSI_READ_ONLY	1069	1106	10	1	15	generated	
+9	ItemType	PFNDSCREATESECPAGE	1107	1484	11	1	16	unsupported	attribute cfg requires explicit semantics/configuration
+10	ItemType	PFNDSEDITSECURITY	1485	1841	13	1	20	unsupported	generic scalar type unsupported
+11	ItemType	PFNREADOBJECTSECURITY	1842	2071	14	1	23	unsupported	generic scalar type unsupported
+12	ItemType	PFNWRITEOBJECTSECURITY	2072	2297	15	1	26	unsupported	generic scalar type unsupported

@@ -1,0 +1,15 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	358	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		359	511	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		512	722	3	1	8	unsupported	declaration Macro has no candidate rule
+3	Macro		723	1015	4	1	11	unsupported	declaration Macro has no candidate rule
+4	Macro		1016	1209	5	1	14	unsupported	declaration Macro has no candidate rule
+5	Macro		1210	1479	6	1	17	unsupported	declaration Macro has no candidate rule
+6	Macro		1480	1716	7	1	20	unsupported	declaration Macro has no candidate rule
+7	Macro		1717	1936	9	1	24	unsupported	declaration Macro has no candidate rule
+8	Macro		1937	2141	10	1	27	unsupported	declaration Macro has no candidate rule
+9	Macro		2142	2351	11	1	30	unsupported	declaration Macro has no candidate rule
+10	Macro		2352	2585	12	1	33	unsupported	declaration Macro has no candidate rule
+11	Const	IsolatedAppLauncher	2586	2718	13	1	36	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+12	Struct	IsolatedAppLauncherTelemetryParameters	2719	2915	14	1	39	unsupported	declaration Struct has no candidate rule
+13	Const	WDAG_CLIPBOARD_TAG	2916	3031	20	1	47	unsupported	non-scalar type Ptr unsupported

@@ -1,0 +1,67 @@
+{
+  "passed": true,
+  "files": 249,
+  "counts": {
+    "unsupported-only": 38,
+    "complete-candidate": 4,
+    "blocked": 1,
+    "partial-candidate": 206
+  },
+  "generated_kinds": {
+    "ItemType": 5547,
+    "Const": 112467
+  },
+  "syntax_kinds": {},
+  "unsupported_kinds": {
+    "ItemType": 3779,
+    "Mod": 246,
+    "Macro": 20252,
+    "Struct": 13003,
+    "Const": 12132,
+    "Impl": 8938,
+    "Use": 7,
+    "Union": 1500,
+    "Fn": 2
+  },
+  "generated_declarations": 118014,
+  "syntax_declarations": 0,
+  "unsupported_declarations": 59859,
+  "generator_sha256": "ec63844859a517b60aae3a90cda986ce78b239a97ee3ae897552af2b8262ff38",
+  "previous": {
+    "run": "../windows-sys-kotlin/direct-translation/pass-01",
+    "completed": false,
+    "compared_files": 245,
+    "generated_delta": 3152,
+    "syntax_delta": 0,
+    "unsupported_delta": -3152
+  },
+  "diagnostics": {
+    "declaration Macro has no candidate rule": 20252,
+    "declaration Struct has no candidate rule": 13003,
+    "declaration Impl has no candidate rule": 8938,
+    "non-scalar type Ptr unsupported": 6681,
+    "missing/ambiguous source-backed scalar alias windows_sys::core::GUID": 4448,
+    "generic scalar type unsupported": 2915,
+    "declaration Union has no candidate rule": 1500,
+    "qualified type requires source-backed binding: super::super::Foundation::PROPERTYKEY": 748,
+    "attribute cfg requires explicit semantics/configuration": 695,
+    "qualified type requires source-backed binding: super::super::Foundation::DEVPROPKEY": 343,
+    "declaration Mod has no candidate rule": 246,
+    "qualified type requires source-backed binding: super::super::Foundation::NTSTATUS": 34,
+    "qualified type requires source-backed binding: super::super::super::Win32::Foundation::DEVPROPKEY": 14,
+    "unresolved scalar type SID_IDENTIFIER_AUTHORITY": 12,
+    "declaration Use has no candidate rule": 7,
+    "qualified type requires source-backed binding: super::super::Foundation::HWND": 7,
+    "unresolved scalar type f32": 6,
+    "unresolved scalar type GUID": 2,
+    "declaration Fn has no candidate rule": 2,
+    "qualified type requires source-backed binding: super::super::Foundation::HANDLE": 2,
+    "FILE: rust-kotlin: file attributes/shebang require explicit semantics": 1,
+    "unresolved scalar type CONDITION_VARIABLE": 1,
+    "unresolved scalar type INIT_ONCE": 1,
+    "unresolved scalar type SRWLOCK": 1,
+    "unresolved scalar type f64": 1
+  },
+  "adopted": false,
+  "abi_validated": false
+}

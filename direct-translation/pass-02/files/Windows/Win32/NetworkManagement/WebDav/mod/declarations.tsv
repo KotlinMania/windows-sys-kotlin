@@ -1,0 +1,30 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	287	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		288	441	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		442	571	3	1	8	unsupported	declaration Macro has no candidate rule
+3	Macro		572	683	4	1	11	unsupported	declaration Macro has no candidate rule
+4	Macro		684	886	5	1	14	unsupported	declaration Macro has no candidate rule
+5	Macro		887	1052	6	1	17	unsupported	declaration Macro has no candidate rule
+6	Macro		1053	1254	7	1	20	unsupported	declaration Macro has no candidate rule
+7	Macro		1255	1420	8	1	23	unsupported	declaration Macro has no candidate rule
+8	Macro		1421	1531	9	1	26	unsupported	declaration Macro has no candidate rule
+9	Macro		1532	1656	10	1	29	unsupported	declaration Macro has no candidate rule
+10	Macro		1657	1747	11	1	32	unsupported	declaration Macro has no candidate rule
+11	ItemType	AUTHNEXTSTEP	1748	1776	12	1	35	generated	
+12	Const	CancelRequest	1777	1822	13	1	36	generated	
+13	Const	DAV_AUTHN_SCHEME_BASIC	1823	1868	14	1	37	generated	
+14	Const	DAV_AUTHN_SCHEME_CERT	1869	1917	15	1	38	generated	
+15	Const	DAV_AUTHN_SCHEME_DIGEST	1918	1964	16	1	39	generated	
+16	Const	DAV_AUTHN_SCHEME_FBA	1965	2014	17	1	40	generated	
+17	Const	DAV_AUTHN_SCHEME_NEGOTIATE	2015	2065	18	1	41	generated	
+18	Const	DAV_AUTHN_SCHEME_NTLM	2066	2110	19	1	42	generated	
+19	Const	DAV_AUTHN_SCHEME_PASSPORT	2111	2159	20	1	43	generated	
+20	Struct	DAV_CALLBACK_AUTH_BLOB	2160	2314	21	1	44	unsupported	declaration Struct has no candidate rule
+21	Impl		2315	2430	28	1	53	unsupported	declaration Impl has no candidate rule
+22	Struct	DAV_CALLBACK_AUTH_UNP	2431	2657	33	1	60	unsupported	declaration Struct has no candidate rule
+23	Impl		2658	2772	41	1	70	unsupported	declaration Impl has no candidate rule
+24	Struct	DAV_CALLBACK_CRED	2773	3019	46	1	77	unsupported	declaration Struct has no candidate rule
+25	Const	DefaultBehavior	3020	3067	54	1	87	generated	
+26	ItemType	PFNDAVAUTHCALLBACK	3068	3371	55	1	88	unsupported	generic scalar type unsupported
+27	ItemType	PFNDAVAUTHCALLBACK_FREECRED	3372	3487	56	1	91	unsupported	generic scalar type unsupported
+28	Const	RetryRequest	3488	3532	57	1	94	generated	

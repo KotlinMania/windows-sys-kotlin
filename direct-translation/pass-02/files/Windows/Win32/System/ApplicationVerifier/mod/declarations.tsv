@@ -1,0 +1,34 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	282	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Struct	AVRF_BACKTRACE_INFORMATION	283	434	2	1	5	unsupported	declaration Struct has no candidate rule
+2	Impl		435	554	9	1	14	unsupported	declaration Impl has no candidate rule
+3	Const	AVRF_ENUM_RESOURCES_FLAGS_DONT_RESOLVE_TRACES	555	648	14	1	21	generated	
+4	Const	AVRF_ENUM_RESOURCES_FLAGS_SUSPEND	649	730	15	1	22	generated	
+5	ItemType	AVRF_HANDLEOPERATION_ENUMERATE_CALLBACK	731	940	16	1	23	unsupported	generic scalar type unsupported
+6	Struct	AVRF_HANDLE_OPERATION	941	1195	17	1	26	unsupported	declaration Struct has no candidate rule
+7	ItemType	AVRF_HEAPALLOCATION_ENUMERATE_CALLBACK	1196	1402	27	1	38	unsupported	generic scalar type unsupported
+8	Struct	AVRF_HEAP_ALLOCATION	1403	1760	28	1	41	unsupported	declaration Struct has no candidate rule
+9	Impl		1761	1874	41	1	56	unsupported	declaration Impl has no candidate rule
+10	Const	AVRF_MAX_TRACES	1875	1914	46	1	63	generated	
+11	ItemType	AVRF_RESOURCE_ENUMERATE_CALLBACK	1915	2117	47	1	64	unsupported	generic scalar type unsupported
+12	Const	AllocationStateBusy	2118	2177	48	1	67	generated	
+13	Const	AllocationStateFree	2178	2237	49	1	68	generated	
+14	Const	AllocationStateUnknown	2238	2300	50	1	69	generated	
+15	Const	AvrfResourceHandleTrace	2301	2362	51	1	70	generated	
+16	Const	AvrfResourceHeapAllocation	2363	2427	52	1	71	generated	
+17	Const	AvrfResourceMax	2428	2481	53	1	72	generated	
+18	Const	HeapEnumerationEverything	2482	2548	54	1	73	generated	
+19	Const	HeapEnumerationStop	2549	2610	55	1	74	generated	
+20	Const	HeapFullPageHeap	2611	2676	56	1	75	generated	
+21	Const	HeapMetadata	2677	2739	57	1	76	generated	
+22	Const	HeapStateMask	2740	2798	58	1	77	generated	
+23	Const	OperationDbBADREF	2799	2860	59	1	78	generated	
+24	Const	OperationDbCLOSE	2861	2921	60	1	79	generated	
+25	Const	OperationDbOPEN	2922	2981	61	1	80	generated	
+26	Const	OperationDbUnused	2982	3043	62	1	81	generated	
+27	ItemType	VERIFIER_ENUM_RESOURCE_FLAGS	3044	3088	63	1	82	generated	
+28	ItemType	eAvrfResourceTypes	3089	3123	64	1	83	generated	
+29	ItemType	eHANDLE_TRACE_OPERATIONS	3124	3164	65	1	84	generated	
+30	ItemType	eHeapAllocationState	3165	3201	66	1	85	generated	
+31	ItemType	eHeapEnumerationLevel	3202	3239	67	1	86	generated	
+32	ItemType	eUserAllocationState	3240	3276	68	1	87	generated	

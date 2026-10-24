@@ -1,0 +1,976 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	137	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		138	310	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		311	588	3	1	8	unsupported	declaration Macro has no candidate rule
+3	Macro		589	866	5	1	12	unsupported	declaration Macro has no candidate rule
+4	Macro		867	939	7	1	16	unsupported	declaration Macro has no candidate rule
+5	Macro		940	1022	8	1	19	unsupported	declaration Macro has no candidate rule
+6	Macro		1023	1223	9	1	22	unsupported	declaration Macro has no candidate rule
+7	Macro		1224	1329	10	1	25	unsupported	declaration Macro has no candidate rule
+8	Macro		1330	1415	11	1	28	unsupported	declaration Macro has no candidate rule
+9	Macro		1416	1560	12	1	31	unsupported	declaration Macro has no candidate rule
+10	Macro		1561	1661	13	1	34	unsupported	declaration Macro has no candidate rule
+11	Macro		1662	1756	14	1	37	unsupported	declaration Macro has no candidate rule
+12	Macro		1757	1872	15	1	40	unsupported	declaration Macro has no candidate rule
+13	Macro		1873	2052	16	1	43	unsupported	declaration Macro has no candidate rule
+14	Macro		2053	2378	17	1	46	unsupported	declaration Macro has no candidate rule
+15	Macro		2379	2706	19	1	50	unsupported	declaration Macro has no candidate rule
+16	Macro		2707	2969	21	1	54	unsupported	declaration Macro has no candidate rule
+17	Macro		2970	3232	23	1	58	unsupported	declaration Macro has no candidate rule
+18	Macro		3233	3339	25	1	62	unsupported	declaration Macro has no candidate rule
+19	Macro		3340	3492	26	1	65	unsupported	declaration Macro has no candidate rule
+20	Macro		3493	3612	27	1	68	unsupported	declaration Macro has no candidate rule
+21	Macro		3613	3732	28	1	71	unsupported	declaration Macro has no candidate rule
+22	Macro		3733	3885	29	1	74	unsupported	declaration Macro has no candidate rule
+23	Macro		3886	4043	30	1	77	unsupported	declaration Macro has no candidate rule
+24	Macro		4044	4252	31	1	80	unsupported	declaration Macro has no candidate rule
+25	Macro		4253	4461	33	1	84	unsupported	declaration Macro has no candidate rule
+26	Macro		4462	4635	35	1	88	unsupported	declaration Macro has no candidate rule
+27	Macro		4636	4809	36	1	91	unsupported	declaration Macro has no candidate rule
+28	Macro		4810	4956	37	1	94	unsupported	declaration Macro has no candidate rule
+29	Macro		4957	5073	38	1	97	unsupported	declaration Macro has no candidate rule
+30	Macro		5074	5367	39	1	100	unsupported	declaration Macro has no candidate rule
+31	Macro		5368	5662	41	1	104	unsupported	declaration Macro has no candidate rule
+32	Macro		5663	5857	43	1	108	unsupported	declaration Macro has no candidate rule
+33	Macro		5858	6014	44	1	111	unsupported	declaration Macro has no candidate rule
+34	Macro		6015	6236	45	1	114	unsupported	declaration Macro has no candidate rule
+35	Macro		6237	6459	47	1	118	unsupported	declaration Macro has no candidate rule
+36	Macro		6460	6624	49	1	122	unsupported	declaration Macro has no candidate rule
+37	Macro		6625	6790	50	1	125	unsupported	declaration Macro has no candidate rule
+38	Macro		6791	7030	51	1	128	unsupported	declaration Macro has no candidate rule
+39	Macro		7031	7119	53	1	132	unsupported	declaration Macro has no candidate rule
+40	Macro		7120	7203	54	1	135	unsupported	declaration Macro has no candidate rule
+41	Macro		7204	7290	55	1	138	unsupported	declaration Macro has no candidate rule
+42	Macro		7291	7509	56	1	141	unsupported	declaration Macro has no candidate rule
+43	Macro		7510	7729	58	1	145	unsupported	declaration Macro has no candidate rule
+44	Macro		7730	7974	60	1	149	unsupported	declaration Macro has no candidate rule
+45	Macro		7975	8219	62	1	153	unsupported	declaration Macro has no candidate rule
+46	Macro		8220	8324	64	1	157	unsupported	declaration Macro has no candidate rule
+47	Macro		8325	8498	65	1	160	unsupported	declaration Macro has no candidate rule
+48	Macro		8499	8710	67	1	164	unsupported	declaration Macro has no candidate rule
+49	Macro		8711	8922	69	1	168	unsupported	declaration Macro has no candidate rule
+50	Macro		8923	9088	71	1	172	unsupported	declaration Macro has no candidate rule
+51	Macro		9089	9207	72	1	175	unsupported	declaration Macro has no candidate rule
+52	Macro		9208	9440	73	1	178	unsupported	declaration Macro has no candidate rule
+53	Macro		9441	9675	75	1	182	unsupported	declaration Macro has no candidate rule
+54	Macro		9676	9849	77	1	186	unsupported	declaration Macro has no candidate rule
+55	Macro		9850	10103	79	1	190	unsupported	declaration Macro has no candidate rule
+56	Macro		10104	10357	80	1	193	unsupported	declaration Macro has no candidate rule
+57	Macro		10358	10489	81	1	196	unsupported	declaration Macro has no candidate rule
+58	Macro		10490	10589	83	1	200	unsupported	declaration Macro has no candidate rule
+59	Macro		10590	10763	84	1	203	unsupported	declaration Macro has no candidate rule
+60	Macro		10764	10862	85	1	206	unsupported	declaration Macro has no candidate rule
+61	Macro		10863	11139	86	1	209	unsupported	declaration Macro has no candidate rule
+62	Macro		11140	11418	88	1	213	unsupported	declaration Macro has no candidate rule
+63	Macro		11419	11573	90	1	217	unsupported	declaration Macro has no candidate rule
+64	Macro		11574	11800	91	1	220	unsupported	declaration Macro has no candidate rule
+65	Macro		11801	12027	92	1	223	unsupported	declaration Macro has no candidate rule
+66	Macro		12028	12173	93	1	226	unsupported	declaration Macro has no candidate rule
+67	Macro		12174	12384	94	1	229	unsupported	declaration Macro has no candidate rule
+68	Macro		12385	12595	96	1	233	unsupported	declaration Macro has no candidate rule
+69	Macro		12596	12851	98	1	237	unsupported	declaration Macro has no candidate rule
+70	Macro		12852	13107	99	1	240	unsupported	declaration Macro has no candidate rule
+71	Macro		13108	13256	100	1	243	unsupported	declaration Macro has no candidate rule
+72	Macro		13257	13425	101	1	246	unsupported	declaration Macro has no candidate rule
+73	Macro		13426	13645	102	1	249	unsupported	declaration Macro has no candidate rule
+74	Macro		13646	13784	104	1	253	unsupported	declaration Macro has no candidate rule
+75	Macro		13785	13952	105	1	256	unsupported	declaration Macro has no candidate rule
+76	Macro		13953	14108	106	1	259	unsupported	declaration Macro has no candidate rule
+77	Macro		14109	14280	107	1	262	unsupported	declaration Macro has no candidate rule
+78	Macro		14281	14381	108	1	265	unsupported	declaration Macro has no candidate rule
+79	Macro		14382	14484	109	1	268	unsupported	declaration Macro has no candidate rule
+80	Macro		14485	14765	110	1	271	unsupported	declaration Macro has no candidate rule
+81	Macro		14766	15048	112	1	275	unsupported	declaration Macro has no candidate rule
+82	Struct	APPLETIDLIST	15049	15178	114	1	279	unsupported	declaration Struct has no candidate rule
+83	Impl		15179	15284	120	1	287	unsupported	declaration Impl has no candidate rule
+84	Struct	APPLYCANDEXPARAM	15285	15494	125	1	294	unsupported	declaration Struct has no candidate rule
+85	Impl		15495	15604	133	1	304	unsupported	declaration Impl has no candidate rule
+86	Const	ATTR_CONVERTED	15605	15642	138	1	311	generated	
+87	Const	ATTR_FIXEDCONVERTED	15643	15685	139	1	312	generated	
+88	Const	ATTR_INPUT	15686	15719	140	1	313	generated	
+89	Const	ATTR_INPUT_ERROR	15720	15759	141	1	314	generated	
+90	Const	ATTR_TARGET_CONVERTED	15760	15804	142	1	315	generated	
+91	Const	ATTR_TARGET_NOTCONVERTED	15805	15852	143	1	316	generated	
+92	Struct	CANDIDATEFORM	15853	16085	144	1	317	unsupported	declaration Struct has no candidate rule
+93	Struct	CANDIDATEINFO	16086	16278	152	1	327	unsupported	declaration Struct has no candidate rule
+94	Impl		16279	16385	161	1	338	unsupported	declaration Impl has no candidate rule
+95	Struct	CANDIDATELIST	16386	16618	166	1	345	unsupported	declaration Struct has no candidate rule
+96	Impl		16619	16725	177	1	358	unsupported	declaration Impl has no candidate rule
+97	Const	CATID_MSIME_IImePadApplet	16726	16864	182	1	365	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+98	Const	CATID_MSIME_IImePadApplet1000	16865	17007	183	1	368	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+99	Const	CATID_MSIME_IImePadApplet1200	17008	17150	184	1	371	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+100	Const	CATID_MSIME_IImePadApplet900	17151	17292	185	1	374	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+101	Const	CATID_MSIME_IImePadApplet_VER7	17293	17436	186	1	377	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+102	Const	CATID_MSIME_IImePadApplet_VER80	17437	17581	187	1	380	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+103	Const	CATID_MSIME_IImePadApplet_VER81	17582	17726	188	1	383	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+104	Const	CActiveIMM	17727	17850	189	1	386	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+105	Const	CFS_CANDIDATEPOS	17851	17891	190	1	389	generated	
+106	Const	CFS_DEFAULT	17892	17926	191	1	390	generated	
+107	Const	CFS_EXCLUDE	17927	17963	192	1	391	generated	
+108	Const	CFS_FORCE_POSITION	17964	18006	193	1	392	generated	
+109	Const	CFS_POINT	18007	18039	194	1	393	generated	
+110	Const	CFS_RECT	18040	18071	195	1	394	generated	
+111	Const	CHARINFO_APPLETID_MASK	18072	18126	196	1	395	generated	
+112	Const	CHARINFO_CHARID_MASK	18127	18174	197	1	396	generated	
+113	Const	CHARINFO_FEID_MASK	18175	18223	198	1	397	generated	
+114	Const	CLSID_ImePlugInDictDictionaryList_CHS	18224	18374	199	1	398	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+115	Const	CLSID_ImePlugInDictDictionaryList_JPN	18375	18525	200	1	401	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+116	Const	CLSID_VERSION_DEPENDENT_MSIME_JAPANESE	18526	18677	201	1	404	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+117	Struct	COMPOSITIONFORM	18678	18890	202	1	407	unsupported	declaration Struct has no candidate rule
+118	Struct	COMPOSITIONSTRING	18891	19752	209	1	416	unsupported	declaration Struct has no candidate rule
+119	Const	CPS_CANCEL	19753	19799	238	1	447	generated	
+120	Const	CPS_COMPLETE	19800	19848	239	1	448	generated	
+121	Const	CPS_CONVERT	19849	19896	240	1	449	generated	
+122	Const	CPS_REVERT	19897	19943	241	1	450	generated	
+123	Const	CS_INSERTCHAR	19944	19983	242	1	451	generated	
+124	Const	CS_NOMOVECARET	19984	20025	243	1	452	generated	
+125	Const	E_LARGEINPUT	20026	20062	244	1	453	generated	
+126	Const	E_NOCAND	20063	20095	245	1	454	generated	
+127	Const	E_NOTENOUGH_BUFFER	20096	20138	246	1	455	generated	
+128	Const	E_NOTENOUGH_WDD	20139	20178	247	1	456	generated	
+129	Const	FEID_CHINESE_HONGKONG	20179	20223	248	1	457	generated	
+130	Const	FEID_CHINESE_SIMPLIFIED	20224	20270	249	1	458	generated	
+131	Const	FEID_CHINESE_SINGAPORE	20271	20316	250	1	459	generated	
+132	Const	FEID_CHINESE_TRADITIONAL	20317	20364	251	1	460	generated	
+133	Const	FEID_JAPANESE	20365	20401	252	1	461	generated	
+134	Const	FEID_KOREAN	20402	20436	253	1	462	generated	
+135	Const	FEID_KOREAN_JOHAB	20437	20477	254	1	463	generated	
+136	Const	FEID_NONE	20478	20510	255	1	464	generated	
+137	Const	FELANG_CLMN_FIXD	20511	20551	256	1	465	generated	
+138	Const	FELANG_CLMN_FIXR	20552	20592	257	1	466	generated	
+139	Const	FELANG_CLMN_NOPBREAK	20593	20636	258	1	467	generated	
+140	Const	FELANG_CLMN_NOWBREAK	20637	20680	259	1	468	generated	
+141	Const	FELANG_CLMN_PBREAK	20681	20722	260	1	469	generated	
+142	Const	FELANG_CLMN_WBREAK	20723	20764	261	1	470	generated	
+143	Const	FELANG_CMODE_AUTOMATIC	20765	20818	262	1	471	generated	
+144	Const	FELANG_CMODE_BESTFIRST	20819	20868	263	1	472	generated	
+145	Const	FELANG_CMODE_BOPOMOFO	20869	20914	264	1	473	generated	
+146	Const	FELANG_CMODE_CONVERSATION	20915	20971	265	1	474	generated	
+147	Const	FELANG_CMODE_FULLWIDTHOUT	20972	21021	266	1	475	generated	
+148	Const	FELANG_CMODE_HALFWIDTHOUT	21022	21071	267	1	476	generated	
+149	Const	FELANG_CMODE_HANGUL	21072	21116	268	1	477	generated	
+150	Const	FELANG_CMODE_HIRAGANAOUT	21117	21164	269	1	478	generated	
+151	Const	FELANG_CMODE_KATAKANAOUT	21165	21212	270	1	479	generated	
+152	Const	FELANG_CMODE_MERGECAND	21213	21261	271	1	480	generated	
+153	Const	FELANG_CMODE_MONORUBY	21262	21306	272	1	481	generated	
+154	Const	FELANG_CMODE_NAME	21307	21355	273	1	482	generated	
+155	Const	FELANG_CMODE_NOINVISIBLECHAR	21356	21416	274	1	483	generated	
+156	Const	FELANG_CMODE_NONE	21417	21464	275	1	484	generated	
+157	Const	FELANG_CMODE_NOPRUNING	21465	21510	276	1	485	generated	
+158	Const	FELANG_CMODE_PHRASEPREDICT	21511	21568	277	1	486	generated	
+159	Const	FELANG_CMODE_PINYIN	21569	21613	278	1	487	generated	
+160	Const	FELANG_CMODE_PLAURALCLAUSE	21614	21670	279	1	488	generated	
+161	Const	FELANG_CMODE_PRECONV	21671	21716	280	1	489	generated	
+162	Const	FELANG_CMODE_RADICAL	21717	21763	281	1	490	generated	
+163	Const	FELANG_CMODE_ROMAN	21764	21808	282	1	491	generated	
+164	Const	FELANG_CMODE_SINGLECONVERT	21809	21865	283	1	492	generated	
+165	Const	FELANG_CMODE_UNKNOWNREADING	21866	21919	284	1	493	generated	
+166	Const	FELANG_CMODE_USENOREVWORDS	21920	21973	285	1	494	generated	
+167	Const	FELANG_INVALD_PO	21974	22017	286	1	495	generated	
+168	Const	FELANG_REQ_CONV	22018	22060	287	1	496	generated	
+169	Const	FELANG_REQ_RECONV	22061	22106	288	1	497	generated	
+170	Const	FELANG_REQ_REV	22107	22149	289	1	498	generated	
+171	Const	FID_MSIME_KMS_DEL_KEYLIST	22150	22198	290	1	499	generated	
+172	Const	FID_MSIME_KMS_FUNCDESC	22199	22244	291	1	500	generated	
+173	Const	FID_MSIME_KMS_GETMAP	22245	22288	292	1	501	generated	
+174	Const	FID_MSIME_KMS_GETMAPFAST	22289	22337	293	1	502	generated	
+175	Const	FID_MSIME_KMS_GETMAPSEAMLESS	22338	22390	294	1	503	generated	
+176	Const	FID_MSIME_KMS_INIT	22391	22432	295	1	504	generated	
+177	Const	FID_MSIME_KMS_INVOKE	22433	22476	296	1	505	generated	
+178	Const	FID_MSIME_KMS_NOTIFY	22477	22520	297	1	506	generated	
+179	Const	FID_MSIME_KMS_SETMAP	22521	22564	298	1	507	generated	
+180	Const	FID_MSIME_KMS_TERM	22565	22606	299	1	508	generated	
+181	Const	FID_MSIME_KMS_VERSION	22607	22651	300	1	509	generated	
+182	Const	FID_MSIME_VERSION	22652	22692	301	1	510	generated	
+183	Const	FID_RECONVERT_VERSION	22693	22745	302	1	511	generated	
+184	Const	GCL_CONVERSION	22746	22804	303	1	512	generated	
+185	Const	GCL_REVERSECONVERSION	22805	22870	304	1	513	generated	
+186	Const	GCL_REVERSE_LENGTH	22871	22933	305	1	514	generated	
+187	Const	GCSEX_CANCELRECONVERT	22934	22986	306	1	515	generated	
+188	Const	GCS_COMPATTR	22987	23042	307	1	516	generated	
+189	Const	GCS_COMPCLAUSE	23043	23100	308	1	517	generated	
+190	Const	GCS_COMPREADATTR	23101	23159	309	1	518	generated	
+191	Const	GCS_COMPREADCLAUSE	23160	23220	310	1	519	generated	
+192	Const	GCS_COMPREADSTR	23221	23278	311	1	520	generated	
+193	Const	GCS_COMPSTR	23279	23332	312	1	521	generated	
+194	Const	GCS_CURSORPOS	23333	23390	313	1	522	generated	
+195	Const	GCS_DELTASTART	23391	23449	314	1	523	generated	
+196	Const	GCS_RESULTCLAUSE	23450	23511	315	1	524	generated	
+197	Const	GCS_RESULTREADCLAUSE	23512	23577	316	1	525	generated	
+198	Const	GCS_RESULTREADSTR	23578	23639	317	1	526	generated	
+199	Const	GCS_RESULTSTR	23640	23698	318	1	527	generated	
+200	ItemType	GET_CONVERSION_LIST_FLAG	23699	23739	319	1	528	generated	
+201	ItemType	GET_GUIDE_LINE_TYPE	23740	23775	320	1	529	generated	
+202	Const	GGL_INDEX	23776	23824	321	1	530	generated	
+203	Const	GGL_LEVEL	23825	23873	322	1	531	generated	
+204	Const	GGL_PRIVATE	23874	23924	323	1	532	generated	
+205	Const	GGL_STRING	23925	23974	324	1	533	generated	
+206	Const	GL_ID_CANNOTSAVE	23975	24015	325	1	534	generated	
+207	Const	GL_ID_CHOOSECANDIDATE	24016	24061	326	1	535	generated	
+208	Const	GL_ID_INPUTCODE	24062	24101	327	1	536	generated	
+209	Const	GL_ID_INPUTRADICAL	24102	24144	328	1	537	generated	
+210	Const	GL_ID_INPUTREADING	24145	24187	329	1	538	generated	
+211	Const	GL_ID_INPUTSYMBOL	24188	24229	330	1	539	generated	
+212	Const	GL_ID_NOCONVERT	24230	24269	331	1	540	generated	
+213	Const	GL_ID_NODICTIONARY	24270	24312	332	1	541	generated	
+214	Const	GL_ID_NOMODULE	24313	24350	333	1	542	generated	
+215	Const	GL_ID_PRIVATE_FIRST	24351	24397	334	1	543	generated	
+216	Const	GL_ID_PRIVATE_LAST	24398	24443	335	1	544	generated	
+217	Const	GL_ID_READINGCONFLICT	24444	24489	336	1	545	generated	
+218	Const	GL_ID_REVERSECONVERSION	24490	24537	337	1	546	generated	
+219	Const	GL_ID_TOOMANYSTROKE	24538	24581	338	1	547	generated	
+220	Const	GL_ID_TYPINGERROR	24582	24623	339	1	548	generated	
+221	Const	GL_ID_UNKNOWN	24624	24660	340	1	549	generated	
+222	Const	GL_LEVEL_ERROR	24661	24698	341	1	550	generated	
+223	Const	GL_LEVEL_FATAL	24699	24736	342	1	551	generated	
+224	Const	GL_LEVEL_INFORMATION	24737	24780	343	1	552	generated	
+225	Const	GL_LEVEL_NOGUIDELINE	24781	24824	344	1	553	generated	
+226	Const	GL_LEVEL_WARNING	24825	24864	345	1	554	generated	
+227	Struct	GUIDELINE	24865	25104	346	1	555	unsupported	declaration Struct has no candidate rule
+228	ItemType	HIMC	25105	25144	357	1	568	unsupported	non-scalar type Ptr unsupported
+229	ItemType	HIMCC	25145	25185	358	1	571	unsupported	non-scalar type Ptr unsupported
+230	Const	IACE_CHILDREN	25186	25222	359	1	574	generated	
+231	Const	IACE_DEFAULT	25223	25259	360	1	575	generated	
+232	Const	IACE_IGNORENOCONTEXT	25260	25304	361	1	576	generated	
+233	Const	IFEC_S_ALREADY_DEFAULT	25305	25385	362	1	577	generated	
+234	Const	IFED_ACTIVE_DICT	25386	25429	363	1	578	generated	
+235	Const	IFED_ATOK10	25430	25468	364	1	579	generated	
+236	Const	IFED_ATOK9	25469	25506	365	1	580	generated	
+237	Const	IFED_E_INVALID_FORMAT	25507	25589	366	1	581	generated	
+238	Const	IFED_E_NOT_FOUND	25590	25667	367	1	582	generated	
+239	Const	IFED_E_NOT_SUPPORTED	25668	25749	368	1	583	generated	
+240	Const	IFED_E_NOT_USER_DIC	25750	25830	369	1	584	generated	
+241	Const	IFED_E_NO_ENTRY	25831	25907	370	1	585	generated	
+242	Const	IFED_E_OPEN_FAILED	25908	25987	371	1	586	generated	
+243	Const	IFED_E_REGISTER_DISCONNECTED	25988	26077	372	1	587	generated	
+244	Const	IFED_E_REGISTER_FAILED	26078	26161	373	1	588	generated	
+245	Const	IFED_E_REGISTER_ILLEGAL_POS	26162	26250	374	1	589	generated	
+246	Const	IFED_E_REGISTER_IMPROPER_WORD	26251	26341	375	1	590	generated	
+247	Const	IFED_E_USER_COMMENT	26342	26422	376	1	591	generated	
+248	Const	IFED_E_WRITE_FAILED	26423	26503	377	1	592	generated	
+249	Const	IFED_MSIME2_BIN_SYSTEM	26504	26552	378	1	593	generated	
+250	Const	IFED_MSIME2_BIN_USER	26553	26599	379	1	594	generated	
+251	Const	IFED_MSIME2_TEXT_USER	26600	26647	380	1	595	generated	
+252	Const	IFED_MSIME95_BIN_SYSTEM	26648	26697	381	1	596	generated	
+253	Const	IFED_MSIME95_BIN_USER	26698	26745	382	1	597	generated	
+254	Const	IFED_MSIME95_TEXT_USER	26746	26794	383	1	598	generated	
+255	Const	IFED_MSIME97_BIN_SYSTEM	26795	26844	384	1	599	generated	
+256	Const	IFED_MSIME97_BIN_USER	26845	26892	385	1	600	generated	
+257	Const	IFED_MSIME97_TEXT_USER	26893	26941	386	1	601	generated	
+258	Const	IFED_MSIME98_BIN_SYSTEM	26942	26992	387	1	602	generated	
+259	Const	IFED_MSIME98_BIN_USER	26993	27041	388	1	603	generated	
+260	Const	IFED_MSIME98_SYSTEM_CE	27042	27091	389	1	604	generated	
+261	Const	IFED_MSIME98_TEXT_USER	27092	27141	390	1	605	generated	
+262	Const	IFED_MSIME_BIN_SYSTEM	27142	27190	391	1	606	generated	
+263	Const	IFED_MSIME_BIN_USER	27191	27237	392	1	607	generated	
+264	Const	IFED_MSIME_TEXT_USER	27238	27285	393	1	608	generated	
+265	Const	IFED_NEC_AI_	27286	27325	394	1	609	generated	
+266	Const	IFED_PIME2_BIN_STANDARD_SYSTEM	27326	27383	395	1	610	generated	
+267	Const	IFED_PIME2_BIN_SYSTEM	27384	27432	396	1	611	generated	
+268	Const	IFED_PIME2_BIN_USER	27433	27479	397	1	612	generated	
+269	Const	IFED_POS_ADJECTIVE	27480	27521	398	1	613	generated	
+270	Const	IFED_POS_ADJECTIVE_VERB	27522	27568	399	1	614	generated	
+271	Const	IFED_POS_ADNOUN	27569	27608	400	1	615	generated	
+272	Const	IFED_POS_ADVERB	27609	27648	401	1	616	generated	
+273	Const	IFED_POS_AFFIX	27649	27689	402	1	617	generated	
+274	Const	IFED_POS_ALL	27690	27730	403	1	618	generated	
+275	Const	IFED_POS_AUXILIARY_VERB	27731	27781	404	1	619	generated	
+276	Const	IFED_POS_CONJUNCTION	27782	27826	405	1	620	generated	
+277	Const	IFED_POS_DEPENDENT	27827	27873	406	1	621	generated	
+278	Const	IFED_POS_IDIOMS	27874	27915	407	1	622	generated	
+279	Const	IFED_POS_INDEPENDENT	27916	27961	408	1	623	generated	
+280	Const	IFED_POS_INFLECTIONALSUFFIX	27962	28014	409	1	624	generated	
+281	Const	IFED_POS_INTERJECTION	28015	28061	410	1	625	generated	
+282	Const	IFED_POS_NONE	28062	28098	411	1	626	generated	
+283	Const	IFED_POS_NOUN	28099	28135	412	1	627	generated	
+284	Const	IFED_POS_PARTICLE	28136	28180	413	1	628	generated	
+285	Const	IFED_POS_PREFIX	28181	28221	414	1	629	generated	
+286	Const	IFED_POS_SUB_VERB	28222	28266	415	1	630	generated	
+287	Const	IFED_POS_SUFFIX	28267	28308	416	1	631	generated	
+288	Const	IFED_POS_SYMBOLS	28309	28351	417	1	632	generated	
+289	Const	IFED_POS_TANKANJI	28352	28395	418	1	633	generated	
+290	Const	IFED_POS_VERB	28396	28432	419	1	634	generated	
+291	Const	IFED_REG_ALL	28433	28468	420	1	635	generated	
+292	Const	IFED_REG_AUTO	28469	28505	421	1	636	generated	
+293	Const	IFED_REG_DEL	28506	28544	422	1	637	generated	
+294	Const	IFED_REG_GRAMMAR	28545	28584	423	1	638	generated	
+295	Const	IFED_REG_HEAD	28585	28624	424	1	639	generated	
+296	Const	IFED_REG_NONE	28625	28661	425	1	640	generated	
+297	Const	IFED_REG_TAIL	28662	28701	426	1	641	generated	
+298	Const	IFED_REG_USER	28702	28738	427	1	642	generated	
+299	Const	IFED_REL_ALL	28739	28778	428	1	643	generated	
+300	Const	IFED_REL_DE	28779	28816	429	1	644	generated	
+301	Const	IFED_REL_FUKU_YOUGEN	28817	28864	430	1	645	generated	
+302	Const	IFED_REL_GA	28865	28902	431	1	646	generated	
+303	Const	IFED_REL_HE	28903	28940	432	1	647	generated	
+304	Const	IFED_REL_IDEOM	28941	28982	433	1	648	generated	
+305	Const	IFED_REL_KARA	28983	29022	434	1	649	generated	
+306	Const	IFED_REL_KEIDOU1_YOUGEN	29023	29073	435	1	650	generated	
+307	Const	IFED_REL_KEIDOU2_YOUGEN	29074	29124	436	1	651	generated	
+308	Const	IFED_REL_KEIYOU_TARU_YOUGEN	29125	29179	437	1	652	generated	
+309	Const	IFED_REL_KEIYOU_TO_YOUGEN	29180	29232	438	1	653	generated	
+310	Const	IFED_REL_KEIYOU_YOUGEN	29233	29282	439	1	654	generated	
+311	Const	IFED_REL_MADE	29283	29322	440	1	655	generated	
+312	Const	IFED_REL_NI	29323	29360	441	1	656	generated	
+313	Const	IFED_REL_NO	29361	29398	442	1	657	generated	
+314	Const	IFED_REL_NONE	29399	29438	443	1	658	generated	
+315	Const	IFED_REL_RENSOU	29439	29481	444	1	659	generated	
+316	Const	IFED_REL_RENTAI_MEI	29482	29528	445	1	660	generated	
+317	Const	IFED_REL_TAIGEN	29529	29571	446	1	661	generated	
+318	Const	IFED_REL_TO	29572	29610	447	1	662	generated	
+319	Const	IFED_REL_UNKNOWN1	29611	29655	448	1	663	generated	
+320	Const	IFED_REL_UNKNOWN2	29656	29700	449	1	664	generated	
+321	Const	IFED_REL_WO	29701	29738	450	1	665	generated	
+322	Const	IFED_REL_YORI	29739	29778	451	1	666	generated	
+323	Const	IFED_REL_YOUGEN	29779	29821	452	1	667	generated	
+324	Const	IFED_SELECT_ALL	29822	29861	453	1	668	generated	
+325	Const	IFED_SELECT_COMMENT	29862	29904	454	1	669	generated	
+326	Const	IFED_SELECT_DISPLAY	29905	29947	455	1	670	generated	
+327	Const	IFED_SELECT_NONE	29948	29987	456	1	671	generated	
+328	Const	IFED_SELECT_POS	29988	30026	457	1	672	generated	
+329	Const	IFED_SELECT_READING	30027	30069	458	1	673	generated	
+330	Const	IFED_S_COMMENT_CHANGED	30070	30150	459	1	674	generated	
+331	Const	IFED_S_EMPTY_DICTIONARY	30151	30232	460	1	675	generated	
+332	Const	IFED_S_MORE_ENTRIES	30233	30310	461	1	676	generated	
+333	Const	IFED_S_WORD_EXISTS	30311	30387	462	1	677	generated	
+334	Const	IFED_TYPE_ALL	30388	30425	463	1	678	generated	
+335	Const	IFED_TYPE_ENGLISH	30426	30467	464	1	679	generated	
+336	Const	IFED_TYPE_GENERAL	30468	30508	465	1	680	generated	
+337	Const	IFED_TYPE_NAMEPLACE	30509	30551	466	1	681	generated	
+338	Const	IFED_TYPE_NONE	30552	30589	467	1	682	generated	
+339	Const	IFED_TYPE_REVERSE	30590	30630	468	1	683	generated	
+340	Const	IFED_TYPE_SPEECH	30631	30670	469	1	684	generated	
+341	Const	IFED_UCT_MAX	30671	30709	470	1	685	generated	
+342	Const	IFED_UCT_NONE	30710	30749	471	1	686	generated	
+343	Const	IFED_UCT_STRING_SJIS	30750	30796	472	1	687	generated	
+344	Const	IFED_UCT_STRING_UNICODE	30797	30846	473	1	688	generated	
+345	Const	IFED_UCT_USER_DEFINED	30847	30894	474	1	689	generated	
+346	Const	IFED_UNKNOWN	30895	30933	475	1	690	generated	
+347	Const	IFED_VJE_20	30934	30972	476	1	691	generated	
+348	Const	IFED_WX_II	30973	31010	477	1	692	generated	
+349	Const	IFED_WX_III	31011	31049	478	1	693	generated	
+350	Const	IGIMIF_RIGHTMENU	31050	31089	479	1	694	generated	
+351	Const	IGIMII_CMODE	31090	31125	480	1	695	generated	
+352	Const	IGIMII_CONFIGURE	31126	31165	481	1	696	generated	
+353	Const	IGIMII_HELP	31166	31201	482	1	697	generated	
+354	Const	IGIMII_INPUTTOOLS	31202	31243	483	1	698	generated	
+355	Const	IGIMII_OTHER	31244	31280	484	1	699	generated	
+356	Const	IGIMII_SMODE	31281	31316	485	1	700	generated	
+357	Const	IGIMII_TOOLS	31317	31352	486	1	701	generated	
+358	ItemType	IMCENUMPROC	31353	31500	487	1	702	unsupported	generic scalar type unsupported
+359	Const	IMC_CLOSESTATUSWINDOW	31501	31546	488	1	705	generated	
+360	Const	IMC_GETCANDIDATEPOS	31547	31589	489	1	706	generated	
+361	Const	IMC_GETCOMPOSITIONFONT	31590	31635	490	1	707	generated	
+362	Const	IMC_GETCOMPOSITIONWINDOW	31636	31684	491	1	708	generated	
+363	Const	IMC_GETSOFTKBDFONT	31685	31727	492	1	709	generated	
+364	Const	IMC_GETSOFTKBDPOS	31728	31769	493	1	710	generated	
+365	Const	IMC_GETSOFTKBDSUBTYPE	31770	31815	494	1	711	generated	
+366	Const	IMC_GETSTATUSWINDOWPOS	31816	31862	495	1	712	generated	
+367	Const	IMC_OPENSTATUSWINDOW	31863	31907	496	1	713	generated	
+368	Const	IMC_SETCANDIDATEPOS	31908	31950	497	1	714	generated	
+369	Const	IMC_SETCOMPOSITIONFONT	31951	31997	498	1	715	generated	
+370	Const	IMC_SETCOMPOSITIONWINDOW	31998	32046	499	1	716	generated	
+371	Const	IMC_SETCONVERSIONMODE	32047	32091	500	1	717	generated	
+372	Const	IMC_SETOPENSTATUS	32092	32132	501	1	718	generated	
+373	Const	IMC_SETSENTENCEMODE	32133	32175	502	1	719	generated	
+374	Const	IMC_SETSOFTKBDDATA	32176	32218	503	1	720	generated	
+375	Const	IMC_SETSOFTKBDFONT	32219	32261	504	1	721	generated	
+376	Const	IMC_SETSOFTKBDPOS	32262	32303	505	1	722	generated	
+377	Const	IMC_SETSOFTKBDSUBTYPE	32304	32349	506	1	723	generated	
+378	Const	IMC_SETSTATUSWINDOWPOS	32350	32396	507	1	724	generated	
+379	Struct	IMEAPPLETCFG	32397	32803	508	1	725	unsupported	declaration Struct has no candidate rule
+380	Impl		32804	32958	522	1	741	unsupported	declaration Impl has no candidate rule
+381	Struct	IMEAPPLETUI	32959	33351	528	1	749	unsupported	declaration Struct has no candidate rule
+382	Impl		33352	33456	542	1	765	unsupported	declaration Impl has no candidate rule
+383	Struct	IMECHARINFO	33457	33569	547	1	772	unsupported	declaration Struct has no candidate rule
+384	Struct	IMECHARPOSITION	33570	33825	553	1	780	unsupported	declaration Struct has no candidate rule
+385	Struct	IMECOMPOSITIONSTRINGINFO	33826	34058	562	1	791	unsupported	declaration Struct has no candidate rule
+386	Struct	IMEDLG	34059	34268	572	1	803	unsupported	declaration Struct has no candidate rule
+387	Impl		34269	34368	580	1	813	unsupported	declaration Impl has no candidate rule
+388	Struct	IMEDP	34369	34515	585	1	820	unsupported	declaration Struct has no candidate rule
+389	Impl		34516	34614	592	1	829	unsupported	declaration Impl has no candidate rule
+390	Struct	IMEFAREASTINFO	34615	34746	597	1	836	unsupported	declaration Struct has no candidate rule
+391	Impl		34747	34854	604	1	845	unsupported	declaration Impl has no candidate rule
+392	Const	IMEFAREASTINFO_TYPE_COMMENT	34855	34905	609	1	852	generated	
+393	Const	IMEFAREASTINFO_TYPE_COSTTIME	34906	34957	610	1	853	generated	
+394	Const	IMEFAREASTINFO_TYPE_DEFAULT	34958	35008	611	1	854	generated	
+395	Const	IMEFAREASTINFO_TYPE_READING	35009	35059	612	1	855	generated	
+396	ItemType	IMEFMT	35060	35082	613	1	856	generated	
+397	Struct	IMEINFO	35083	35345	614	1	857	unsupported	declaration Struct has no candidate rule
+398	Struct	IMEITEM	35346	35487	625	1	870	unsupported	declaration Struct has no candidate rule
+399	Impl		35488	35588	632	1	879	unsupported	declaration Impl has no candidate rule
+400	Struct	IMEITEMCANDIDATE	35589	35706	637	1	886	unsupported	declaration Struct has no candidate rule
+401	Impl		35707	35816	643	1	894	unsupported	declaration Impl has no candidate rule
+402	Const	IMEKEYCTRLMASK_ALT	35817	35858	648	1	901	generated	
+403	Const	IMEKEYCTRLMASK_CTRL	35859	35901	649	1	902	generated	
+404	Const	IMEKEYCTRLMASK_SHIFT	35902	35945	650	1	903	generated	
+405	Const	IMEKEYCTRL_DOWN	35946	35984	651	1	904	generated	
+406	Const	IMEKEYCTRL_UP	35985	36021	652	1	905	generated	
+407	Struct	IMEKMS	36022	36186	653	1	906	unsupported	declaration Struct has no candidate rule
+408	Impl		36187	36286	661	1	916	unsupported	declaration Impl has no candidate rule
+409	Struct	IMEKMSFUNCDESC	36287	36464	666	1	923	unsupported	declaration Struct has no candidate rule
+410	Impl		36465	36572	674	1	933	unsupported	declaration Impl has no candidate rule
+411	Struct	IMEKMSINIT	36573	36717	679	1	940	unsupported	declaration Struct has no candidate rule
+412	Impl		36718	36821	685	1	948	unsupported	declaration Impl has no candidate rule
+413	Struct	IMEKMSINVK	36822	36957	690	1	955	unsupported	declaration Struct has no candidate rule
+414	Impl		36958	37061	697	1	964	unsupported	declaration Impl has no candidate rule
+415	Struct	IMEKMSKEY	37062	37268	702	1	971	unsupported	declaration Struct has no candidate rule
+416	Impl		37269	37371	711	1	982	unsupported	declaration Impl has no candidate rule
+417	Union		37372	37490	716	1	989	unsupported	declaration Union has no candidate rule
+418	Impl		37491	37595	722	1	997	unsupported	declaration Impl has no candidate rule
+419	Union		37596	37725	727	1	1004	unsupported	declaration Union has no candidate rule
+420	Impl		37726	37830	733	1	1012	unsupported	declaration Impl has no candidate rule
+421	Struct	IMEKMSKMP	37831	38063	738	1	1019	unsupported	declaration Struct has no candidate rule
+422	Impl		38064	38166	749	1	1032	unsupported	declaration Impl has no candidate rule
+423	Struct	IMEKMSNTFY	38167	38320	754	1	1039	unsupported	declaration Struct has no candidate rule
+424	Impl		38321	38424	761	1	1048	unsupported	declaration Impl has no candidate rule
+425	Const	IMEKMS_2NDLEVEL	38425	38463	766	1	1055	generated	
+426	Const	IMEKMS_CANDIDATE	38464	38503	767	1	1056	generated	
+427	Const	IMEKMS_COMPOSITION	38504	38545	768	1	1057	generated	
+428	Const	IMEKMS_IMEOFF	38546	38582	769	1	1058	generated	
+429	Const	IMEKMS_INPTGL	38583	38619	770	1	1059	generated	
+430	Const	IMEKMS_NOCOMPOSITION	38620	38663	771	1	1060	generated	
+431	Const	IMEKMS_SELECTION	38664	38703	772	1	1061	generated	
+432	Const	IMEKMS_TYPECAND	38704	38742	773	1	1062	generated	
+433	Struct	IMEMENUITEMINFOA	38743	39177	774	1	1063	unsupported	declaration Struct has no candidate rule
+434	Impl		39178	39326	788	1	1079	unsupported	declaration Impl has no candidate rule
+435	Struct	IMEMENUITEMINFOW	39327	39762	794	1	1087	unsupported	declaration Struct has no candidate rule
+436	Impl		39763	39911	808	1	1103	unsupported	declaration Impl has no candidate rule
+437	Const	IMEMENUITEM_STRING_SIZE	39912	39959	814	1	1111	generated	
+438	Const	IMEMOUSERET_NOTHANDLED	39960	40006	815	1	1112	generated	
+439	Const	IMEMOUSE_LDOWN	40007	40044	816	1	1113	generated	
+440	Const	IMEMOUSE_MDOWN	40045	40082	817	1	1114	generated	
+441	Const	IMEMOUSE_NONE	40083	40119	818	1	1115	generated	
+442	Const	IMEMOUSE_RDOWN	40120	40157	819	1	1116	generated	
+443	Const	IMEMOUSE_VERSION	40158	40199	820	1	1117	generated	
+444	Const	IMEMOUSE_WDOWN	40200	40238	821	1	1118	generated	
+445	Const	IMEMOUSE_WUP	40239	40275	822	1	1119	generated	
+446	Const	IMEPADCTRL_CARETBACKSPACE	40276	40325	823	1	1120	generated	
+447	Const	IMEPADCTRL_CARETBOTTOM	40326	40371	824	1	1121	generated	
+448	Const	IMEPADCTRL_CARETDELETE	40372	40418	825	1	1122	generated	
+449	Const	IMEPADCTRL_CARETLEFT	40419	40462	826	1	1123	generated	
+450	Const	IMEPADCTRL_CARETRIGHT	40463	40507	827	1	1124	generated	
+451	Const	IMEPADCTRL_CARETSET	40508	40550	828	1	1125	generated	
+452	Const	IMEPADCTRL_CARETTOP	40551	40593	829	1	1126	generated	
+453	Const	IMEPADCTRL_CLEARALL	40594	40636	830	1	1127	generated	
+454	Const	IMEPADCTRL_CONVERTALL	40637	40681	831	1	1128	generated	
+455	Const	IMEPADCTRL_DETERMINALL	40682	40727	832	1	1129	generated	
+456	Const	IMEPADCTRL_DETERMINCHAR	40728	40774	833	1	1130	generated	
+457	Const	IMEPADCTRL_INSERTFULLSPACE	40775	40825	834	1	1131	generated	
+458	Const	IMEPADCTRL_INSERTHALFSPACE	40826	40876	835	1	1132	generated	
+459	Const	IMEPADCTRL_INSERTSPACE	40877	40923	836	1	1133	generated	
+460	Const	IMEPADCTRL_OFFIME	40924	40965	837	1	1134	generated	
+461	Const	IMEPADCTRL_OFFPRECONVERSION	40966	41017	838	1	1135	generated	
+462	Const	IMEPADCTRL_ONIME	41018	41058	839	1	1136	generated	
+463	Const	IMEPADCTRL_ONPRECONVERSION	41059	41109	840	1	1137	generated	
+464	Const	IMEPADCTRL_PHONETICCANDIDATE	41110	41162	841	1	1138	generated	
+465	Const	IMEPADCTRL_PHRASEDELETE	41163	41210	842	1	1139	generated	
+466	Const	IMEPADREQ_CHANGESTRING	41211	41277	843	1	1140	generated	
+467	Const	IMEPADREQ_CHANGESTRINGCANDIDATEINFO	41278	41339	844	1	1141	generated	
+468	Const	IMEPADREQ_CHANGESTRINGINFO	41340	41392	845	1	1142	generated	
+469	Const	IMEPADREQ_DELETESTRING	41393	41459	846	1	1143	generated	
+470	Const	IMEPADREQ_FIRST	41460	41501	847	1	1144	generated	
+471	Const	IMEPADREQ_FORCEIMEPADWINDOWSHOW	41502	41577	848	1	1145	generated	
+472	Const	IMEPADREQ_GETAPPLETDATA	41578	41627	849	1	1146	generated	
+473	Const	IMEPADREQ_GETAPPLETUISTYLE	41628	41698	850	1	1147	generated	
+474	Const	IMEPADREQ_GETAPPLHWND	41699	41764	851	1	1148	generated	
+475	Const	IMEPADREQ_GETCOMPOSITIONSTRING	41765	41839	852	1	1149	generated	
+476	Const	IMEPADREQ_GETCOMPOSITIONSTRINGID	41840	41898	853	1	1150	generated	
+477	Const	IMEPADREQ_GETCOMPOSITIONSTRINGINFO	41899	41977	854	1	1151	generated	
+478	Const	IMEPADREQ_GETCONVERSIONSTATUS	41978	42051	855	1	1152	generated	
+479	Const	IMEPADREQ_GETCURRENTIMEINFO	42052	42123	856	1	1153	generated	
+480	Const	IMEPADREQ_GETCURRENTUILANGID	42124	42178	857	1	1154	generated	
+481	Const	IMEPADREQ_GETDEFAULTUILANGID	42179	42251	858	1	1155	generated	
+482	Const	IMEPADREQ_GETSELECTEDSTRING	42252	42305	859	1	1156	generated	
+483	Const	IMEPADREQ_GETVERSION	42306	42370	860	1	1157	generated	
+484	Const	IMEPADREQ_INSERTITEMCANDIDATE	42371	42426	861	1	1158	generated	
+485	Const	IMEPADREQ_INSERTSTRING	42427	42493	862	1	1159	generated	
+486	Const	IMEPADREQ_INSERTSTRINGCANDIDATE	42494	42551	863	1	1160	generated	
+487	Const	IMEPADREQ_INSERTSTRINGCANDIDATEINFO	42552	42613	864	1	1161	generated	
+488	Const	IMEPADREQ_INSERTSTRINGINFO	42614	42666	865	1	1162	generated	
+489	Const	IMEPADREQ_ISAPPLETACTIVE	42667	42735	866	1	1163	generated	
+490	Const	IMEPADREQ_ISIMEPADWINDOWVISIBLE	42736	42811	867	1	1164	generated	
+491	Const	IMEPADREQ_POSTMODALNOTIFY	42812	42881	868	1	1165	generated	
+492	Const	IMEPADREQ_SENDCONTROL	42882	42947	869	1	1166	generated	
+493	Const	IMEPADREQ_SENDKEYCONTROL	42948	42998	870	1	1167	generated	
+494	Const	IMEPADREQ_SETAPPLETDATA	42999	43048	871	1	1168	generated	
+495	Const	IMEPADREQ_SETAPPLETMINMAXSIZE	43049	43122	872	1	1169	generated	
+496	Const	IMEPADREQ_SETAPPLETSIZE	43123	43190	873	1	1170	generated	
+497	Const	IMEPADREQ_SETAPPLETUISTYLE	43191	43261	874	1	1171	generated	
+498	Const	IMEPADREQ_SETTITLEFONT	43262	43310	875	1	1172	generated	
+499	Const	IMEPN_ACTIVATE	43311	43350	876	1	1173	generated	
+500	Const	IMEPN_APPLYCAND	43351	43391	877	1	1174	generated	
+501	Const	IMEPN_APPLYCANDEX	43392	43434	878	1	1175	generated	
+502	Const	IMEPN_CONFIG	43435	43472	879	1	1176	generated	
+503	Const	IMEPN_FIRST	43473	43509	880	1	1177	generated	
+504	Const	IMEPN_HELP	43510	43545	881	1	1178	generated	
+505	Const	IMEPN_HIDE	43546	43581	882	1	1179	generated	
+506	Const	IMEPN_INACTIVATE	43582	43623	883	1	1180	generated	
+507	Const	IMEPN_QUERYCAND	43624	43664	884	1	1181	generated	
+508	Const	IMEPN_SETTINGCHANGED	43665	43710	885	1	1182	generated	
+509	Const	IMEPN_SHOW	43711	43746	886	1	1183	generated	
+510	Const	IMEPN_SIZECHANGED	43747	43789	887	1	1184	generated	
+511	Const	IMEPN_SIZECHANGING	43790	43833	888	1	1185	generated	
+512	Const	IMEPN_USER	43834	43869	889	1	1186	generated	
+513	ItemType	IMEREG	43870	43892	890	1	1187	generated	
+514	ItemType	IMEREL	43893	43915	891	1	1188	generated	
+515	Struct	IMESHF	43916	44116	892	1	1189	unsupported	declaration Struct has no candidate rule
+516	Impl		44117	44216	901	1	1200	unsupported	declaration Impl has no candidate rule
+517	Struct	IMESTRINGCANDIDATE	44217	44352	906	1	1207	unsupported	declaration Struct has no candidate rule
+518	Impl		44353	44464	912	1	1215	unsupported	declaration Impl has no candidate rule
+519	Struct	IMESTRINGCANDIDATEINFO	44465	44722	917	1	1222	unsupported	declaration Struct has no candidate rule
+520	Impl		44723	44838	927	1	1234	unsupported	declaration Impl has no candidate rule
+521	Struct	IMESTRINGINFO	44839	44969	932	1	1241	unsupported	declaration Struct has no candidate rule
+522	Impl		44970	45076	938	1	1249	unsupported	declaration Impl has no candidate rule
+523	ItemType	IMEUCT	45077	45099	943	1	1256	generated	
+524	Const	IMEVER_0310	45100	45139	944	1	1257	generated	
+525	Const	IMEVER_0400	45140	45179	945	1	1258	generated	
+526	Struct	IMEWRD	45180	45486	946	1	1259	unsupported	declaration Struct has no candidate rule
+527	Impl		45487	45586	957	1	1272	unsupported	declaration Impl has no candidate rule
+528	Union		45587	45705	962	1	1279	unsupported	declaration Union has no candidate rule
+529	Impl		45706	45807	968	1	1287	unsupported	declaration Impl has no candidate rule
+530	Struct	IMEWRD_0_0	45808	45927	973	1	1294	unsupported	declaration Struct has no candidate rule
+531	Const	IME_CAND_CODE	45928	45964	979	1	1302	generated	
+532	Const	IME_CAND_MEANING	45965	46004	980	1	1303	generated	
+533	Const	IME_CAND_RADICAL	46005	46044	981	1	1304	generated	
+534	Const	IME_CAND_READ	46045	46081	982	1	1305	generated	
+535	Const	IME_CAND_STROKE	46082	46120	983	1	1306	generated	
+536	Const	IME_CAND_UNKNOWN	46121	46160	984	1	1307	generated	
+537	Const	IME_CHOTKEY_IME_NONIME_TOGGLE	46161	46232	985	1	1308	generated	
+538	Const	IME_CHOTKEY_SHAPE_TOGGLE	46233	46299	986	1	1309	generated	
+539	Const	IME_CHOTKEY_SYMBOL_TOGGLE	46300	46367	987	1	1310	generated	
+540	Const	IME_CMODE_ALPHANUMERIC	46368	46429	988	1	1311	generated	
+541	Const	IME_CMODE_CHARCODE	46430	46488	989	1	1312	generated	
+542	Const	IME_CMODE_CHINESE	46489	46545	990	1	1313	generated	
+543	Const	IME_CMODE_EUDC	46546	46601	991	1	1314	generated	
+544	Const	IME_CMODE_FIXED	46602	46659	992	1	1315	generated	
+545	Const	IME_CMODE_FULLSHAPE	46660	46718	993	1	1316	generated	
+546	Const	IME_CMODE_HANGEUL	46719	46775	994	1	1317	generated	
+547	Const	IME_CMODE_HANGUL	46776	46831	995	1	1318	generated	
+548	Const	IME_CMODE_HANJACONVERT	46832	46894	996	1	1319	generated	
+549	Const	IME_CMODE_JAPANESE	46895	46952	997	1	1320	generated	
+550	Const	IME_CMODE_KATAKANA	46953	47010	998	1	1321	generated	
+551	Const	IME_CMODE_LANGUAGE	47011	47068	999	1	1322	generated	
+552	Const	IME_CMODE_NATIVE	47069	47124	1000	1	1323	generated	
+553	Const	IME_CMODE_NATIVESYMBOL	47125	47188	1001	1	1324	generated	
+554	Const	IME_CMODE_NOCONVERSION	47189	47252	1002	1	1325	generated	
+555	Const	IME_CMODE_RESERVED	47253	47319	1003	1	1326	generated	
+556	Const	IME_CMODE_ROMAN	47320	47375	1004	1	1327	generated	
+557	Const	IME_CMODE_SOFTKBD	47376	47434	1005	1	1328	generated	
+558	Const	IME_CMODE_SYMBOL	47435	47493	1006	1	1329	generated	
+559	ItemType	IME_COMPOSITION_STRING	47494	47532	1007	1	1330	generated	
+560	Const	IME_CONFIG_GENERAL	47533	47574	1008	1	1331	generated	
+561	Const	IME_CONFIG_REGISTERWORD	47575	47621	1009	1	1332	generated	
+562	Const	IME_CONFIG_SELECTDICTIONARY	47622	47672	1010	1	1333	generated	
+563	ItemType	IME_CONVERSION_MODE	47673	47708	1011	1	1334	generated	
+564	ItemType	IME_ESCAPE	47709	47735	1012	1	1335	generated	
+565	Const	IME_ESC_AUTOMATA	47736	47785	1013	1	1336	generated	
+566	Const	IME_ESC_GETHELPFILENAME	47786	47842	1014	1	1337	generated	
+567	Const	IME_ESC_GET_EUDC_DICTIONARY	47843	47903	1015	1	1338	generated	
+568	Const	IME_ESC_HANJA_MODE	47904	47955	1016	1	1339	generated	
+569	Const	IME_ESC_IME_NAME	47956	48005	1017	1	1340	generated	
+570	Const	IME_ESC_MAX_KEY	48006	48054	1018	1	1341	generated	
+571	Const	IME_ESC_PRIVATE_FIRST	48055	48109	1019	1	1342	generated	
+572	Const	IME_ESC_PRIVATE_HOTKEY	48110	48165	1020	1	1343	generated	
+573	Const	IME_ESC_PRIVATE_LAST	48166	48219	1021	1	1344	generated	
+574	Const	IME_ESC_QUERY_SUPPORT	48220	48271	1022	1	1345	generated	
+575	Const	IME_ESC_RESERVED_FIRST	48272	48324	1023	1	1346	generated	
+576	Const	IME_ESC_RESERVED_LAST	48325	48379	1024	1	1347	generated	
+577	Const	IME_ESC_SEQUENCE_TO_INTERNAL	48380	48441	1025	1	1348	generated	
+578	Const	IME_ESC_SET_EUDC_DICTIONARY	48442	48502	1026	1	1349	generated	
+579	Const	IME_ESC_STRING_BUFFER_SIZE	48503	48553	1027	1	1350	generated	
+580	Const	IME_ESC_SYNC_HOTKEY	48554	48606	1028	1	1351	generated	
+581	Const	IME_HOTKEY_DSWITCH_FIRST	48607	48656	1029	1	1352	generated	
+582	Const	IME_HOTKEY_DSWITCH_LAST	48657	48705	1030	1	1353	generated	
+583	ItemType	IME_HOTKEY_IDENTIFIER	48706	48743	1031	1	1354	generated	
+584	Const	IME_HOTKEY_PRIVATE_FIRST	48744	48793	1032	1	1355	generated	
+585	Const	IME_HOTKEY_PRIVATE_LAST	48794	48842	1033	1	1356	generated	
+586	Const	IME_ITHOTKEY_PREVIOUS_COMPOSITION	48843	48919	1034	1	1357	generated	
+587	Const	IME_ITHOTKEY_RECONVERTSTRING	48920	48991	1035	1	1358	generated	
+588	Const	IME_ITHOTKEY_RESEND_RESULTSTR	48992	49064	1036	1	1359	generated	
+589	Const	IME_ITHOTKEY_UISTYLE_TOGGLE	49065	49135	1037	1	1360	generated	
+590	Const	IME_JHOTKEY_CLOSE_OPEN	49136	49200	1038	1	1361	generated	
+591	Const	IME_KHOTKEY_ENGLISH	49201	49262	1039	1	1362	generated	
+592	Const	IME_KHOTKEY_HANJACONVERT	49263	49329	1040	1	1363	generated	
+593	Const	IME_KHOTKEY_SHAPE_TOGGLE	49330	49396	1041	1	1364	generated	
+594	ItemType	IME_PAD_REQUEST_FLAGS	49397	49434	1042	1	1365	generated	
+595	Const	IME_PROP_ACCEPT_WIDE_VKEY	49435	49484	1043	1	1366	generated	
+596	Const	IME_PROP_AT_CARET	49485	49529	1044	1	1367	generated	
+597	Const	IME_PROP_CANDLIST_START_FROM_1	49530	49588	1045	1	1368	generated	
+598	Const	IME_PROP_COMPLETE_ON_UNSELECT	49589	49647	1046	1	1369	generated	
+599	Const	IME_PROP_END_UNLOAD	49648	49690	1047	1	1370	generated	
+600	Const	IME_PROP_IGNORE_UPKEYS	49691	49736	1048	1	1371	generated	
+601	Const	IME_PROP_KBD_CHAR_FIRST	49737	49783	1049	1	1372	generated	
+602	Const	IME_PROP_NEED_ALTKEY	49784	49827	1050	1	1373	generated	
+603	Const	IME_PROP_NO_KEYS_ON_CLOSE	49828	49877	1051	1	1374	generated	
+604	Const	IME_PROP_SPECIAL_UI	49878	49925	1052	1	1375	generated	
+605	Const	IME_PROP_UNICODE	49926	49970	1053	1	1376	generated	
+606	Const	IME_REGWORD_STYLE_EUDC	49971	50016	1054	1	1377	generated	
+607	Const	IME_REGWORD_STYLE_USER_FIRST	50017	50077	1055	1	1378	generated	
+608	Const	IME_REGWORD_STYLE_USER_LAST	50078	50137	1056	1	1379	generated	
+609	ItemType	IME_SENTENCE_MODE	50138	50171	1057	1	1380	generated	
+610	Const	IME_SMODE_AUTOMATIC	50172	50228	1058	1	1381	generated	
+611	Const	IME_SMODE_CONVERSATION	50229	50289	1059	1	1382	generated	
+612	Const	IME_SMODE_NONE	50290	50341	1060	1	1383	generated	
+613	Const	IME_SMODE_PHRASEPREDICT	50342	50402	1061	1	1384	generated	
+614	Const	IME_SMODE_PLAURALCLAUSE	50403	50463	1062	1	1385	generated	
+615	Const	IME_SMODE_RESERVED	50464	50523	1063	1	1386	generated	
+616	Const	IME_SMODE_SINGLECONVERT	50524	50584	1064	1	1387	generated	
+617	Const	IME_SYSINFO_WINLOGON	50585	50628	1065	1	1388	generated	
+618	Const	IME_THOTKEY_IME_NONIME_TOGGLE	50629	50701	1066	1	1389	generated	
+619	Const	IME_THOTKEY_SHAPE_TOGGLE	50702	50769	1067	1	1390	generated	
+620	Const	IME_THOTKEY_SYMBOL_TOGGLE	50770	50838	1068	1	1391	generated	
+621	Const	IME_UI_CLASS_NAME_SIZE	50839	50885	1069	1	1392	generated	
+622	Const	IMFT_RADIOCHECK	50886	50924	1070	1	1393	generated	
+623	Const	IMFT_SEPARATOR	50925	50962	1071	1	1394	generated	
+624	Const	IMFT_SUBMENU	50963	50998	1072	1	1395	generated	
+625	Const	IMMGWLP_IMC	50999	51033	1073	1	1396	generated	
+626	Const	IMMGWL_IMC	51034	51067	1074	1	1397	generated	
+627	Const	IMM_ERROR_GENERAL	51068	51109	1075	1	1398	generated	
+628	Const	IMM_ERROR_NODATA	51110	51150	1076	1	1399	generated	
+629	Const	IMN_CHANGECANDIDATE	51151	51193	1077	1	1400	generated	
+630	Const	IMN_CLOSECANDIDATE	51194	51235	1078	1	1401	generated	
+631	Const	IMN_CLOSESTATUSWINDOW	51236	51280	1079	1	1402	generated	
+632	Const	IMN_GUIDELINE	51281	51318	1080	1	1403	generated	
+633	Const	IMN_OPENCANDIDATE	51319	51359	1081	1	1404	generated	
+634	Const	IMN_OPENSTATUSWINDOW	51360	51403	1082	1	1405	generated	
+635	Const	IMN_PRIVATE	51404	51439	1083	1	1406	generated	
+636	Const	IMN_SETCANDIDATEPOS	51440	51482	1084	1	1407	generated	
+637	Const	IMN_SETCOMPOSITIONFONT	51483	51529	1085	1	1408	generated	
+638	Const	IMN_SETCOMPOSITIONWINDOW	51530	51578	1086	1	1409	generated	
+639	Const	IMN_SETCONVERSIONMODE	51579	51623	1087	1	1410	generated	
+640	Const	IMN_SETOPENSTATUS	51624	51664	1088	1	1411	generated	
+641	Const	IMN_SETSENTENCEMODE	51665	51707	1089	1	1412	generated	
+642	Const	IMN_SETSTATUSWINDOWPOS	51708	51754	1090	1	1413	generated	
+643	Const	IMN_SOFTKBDDESTROYED	51755	51799	1091	1	1414	generated	
+644	Const	IMR_CANDIDATEWINDOW	51800	51842	1092	1	1415	generated	
+645	Const	IMR_COMPOSITIONFONT	51843	51885	1093	1	1416	generated	
+646	Const	IMR_COMPOSITIONWINDOW	51886	51930	1094	1	1417	generated	
+647	Const	IMR_CONFIRMRECONVERTSTRING	51931	51980	1095	1	1418	generated	
+648	Const	IMR_DOCUMENTFEED	51981	52020	1096	1	1419	generated	
+649	Const	IMR_QUERYCHARPOSITION	52021	52065	1097	1	1420	generated	
+650	Const	IMR_RECONVERTSTRING	52066	52108	1098	1	1421	generated	
+651	Const	INFOMASK_APPLY_CAND	52109	52151	1099	1	1422	generated	
+652	Const	INFOMASK_APPLY_CAND_EX	52152	52197	1100	1	1423	generated	
+653	Const	INFOMASK_BLOCK_CAND	52198	52245	1101	1	1424	generated	
+654	Const	INFOMASK_HIDE_CAND	52246	52292	1102	1	1425	generated	
+655	Const	INFOMASK_NONE	52293	52329	1103	1	1426	generated	
+656	Const	INFOMASK_QUERY_CAND	52330	52372	1104	1	1427	generated	
+657	Const	INFOMASK_STRING_FIX	52373	52419	1105	1	1428	generated	
+658	Const	INIT_COMPFORM	52420	52457	1106	1	1429	generated	
+659	Const	INIT_CONVERSION	52458	52496	1107	1	1430	generated	
+660	Const	INIT_LOGFONT	52497	52532	1108	1	1431	generated	
+661	Const	INIT_SENTENCE	52533	52569	1109	1	1432	generated	
+662	Const	INIT_SOFTKBDPOS	52570	52609	1110	1	1433	generated	
+663	Const	INIT_STATUSWNDPOS	52610	52650	1111	1	1434	generated	
+664	Struct	INPUTCONTEXT	52651	53337	1112	1	1435	unsupported	declaration Struct has no candidate rule
+665	Impl		53338	53482	1134	1	1459	unsupported	declaration Impl has no candidate rule
+666	Union		53483	53698	1140	1	1467	unsupported	declaration Union has no candidate rule
+667	Impl		53699	53845	1147	1	1476	unsupported	declaration Impl has no candidate rule
+668	Const	IPACFG_CATEGORY	53846	53889	1153	1	1484	generated	
+669	Const	IPACFG_HELP	53890	53924	1154	1	1485	generated	
+670	Const	IPACFG_LANG	53925	53960	1155	1	1486	generated	
+671	Const	IPACFG_NONE	53961	53995	1156	1	1487	generated	
+672	Const	IPACFG_PROPERTY	53996	54034	1157	1	1488	generated	
+673	Const	IPACFG_TITLE	54035	54074	1158	1	1489	generated	
+674	Const	IPACFG_TITLEFONTFACE	54075	54123	1159	1	1490	generated	
+675	Const	IPACID_CHARLIST	54124	54162	1160	1	1491	generated	
+676	Const	IPACID_EPWING	54163	54199	1161	1	1492	generated	
+677	Const	IPACID_HANDWRITING	54200	54241	1162	1	1493	generated	
+678	Const	IPACID_NONE	54242	54276	1163	1	1494	generated	
+679	Const	IPACID_OCR	54277	54310	1164	1	1495	generated	
+680	Const	IPACID_RADICALSEARCH	54311	54354	1165	1	1496	generated	
+681	Const	IPACID_SOFTKEY	54355	54392	1166	1	1497	generated	
+682	Const	IPACID_STROKESEARCH	54393	54435	1167	1	1498	generated	
+683	Const	IPACID_SYMBOLSEARCH	54436	54478	1168	1	1499	generated	
+684	Const	IPACID_USER	54479	54515	1169	1	1500	generated	
+685	Const	IPACID_VOICE	54516	54551	1170	1	1501	generated	
+686	Const	IPAWS_ENABLED	54552	54588	1171	1	1502	generated	
+687	Const	IPAWS_HORIZONTALFIXED	54589	54635	1172	1	1503	generated	
+688	Const	IPAWS_MAXHEIGHTFIXED	54636	54682	1173	1	1504	generated	
+689	Const	IPAWS_MAXSIZEFIXED	54683	54728	1174	1	1505	generated	
+690	Const	IPAWS_MAXWIDTHFIXED	54729	54774	1175	1	1506	generated	
+691	Const	IPAWS_MINHEIGHTFIXED	54775	54823	1176	1	1507	generated	
+692	Const	IPAWS_MINSIZEFIXED	54824	54870	1177	1	1508	generated	
+693	Const	IPAWS_MINWIDTHFIXED	54871	54917	1178	1	1509	generated	
+694	Const	IPAWS_SIZEFIXED	54918	54958	1179	1	1510	generated	
+695	Const	IPAWS_SIZINGNOTIFY	54959	55000	1180	1	1511	generated	
+696	Const	IPAWS_VERTICALFIXED	55001	55045	1181	1	1512	generated	
+697	Const	ISC_SHOWUIALL	55046	55091	1182	1	1513	generated	
+698	Const	ISC_SHOWUIALLCANDIDATEWINDOW	55092	55144	1183	1	1514	generated	
+699	Const	ISC_SHOWUICANDIDATEWINDOW	55145	55193	1184	1	1515	generated	
+700	Const	ISC_SHOWUICOMPOSITIONWINDOW	55194	55253	1185	1	1516	generated	
+701	Const	ISC_SHOWUIGUIDELINE	55254	55305	1186	1	1517	generated	
+702	Const	JPOS_1DAN	55306	55340	1187	1	1518	generated	
+703	Const	JPOS_4DAN_HA	55341	55378	1188	1	1519	generated	
+704	Const	JPOS_5DAN_AWA	55379	55417	1189	1	1520	generated	
+705	Const	JPOS_5DAN_AWAUON	55418	55459	1190	1	1521	generated	
+706	Const	JPOS_5DAN_BA	55460	55497	1191	1	1522	generated	
+707	Const	JPOS_5DAN_GA	55498	55535	1192	1	1523	generated	
+708	Const	JPOS_5DAN_KA	55536	55573	1193	1	1524	generated	
+709	Const	JPOS_5DAN_KASOKUON	55574	55617	1194	1	1525	generated	
+710	Const	JPOS_5DAN_MA	55618	55655	1195	1	1526	generated	
+711	Const	JPOS_5DAN_NA	55656	55693	1196	1	1527	generated	
+712	Const	JPOS_5DAN_RA	55694	55731	1197	1	1528	generated	
+713	Const	JPOS_5DAN_RAHEN	55732	55772	1198	1	1529	generated	
+714	Const	JPOS_5DAN_SA	55773	55810	1199	1	1530	generated	
+715	Const	JPOS_5DAN_TA	55811	55848	1200	1	1531	generated	
+716	Const	JPOS_BUPPIN	55849	55885	1201	1	1532	generated	
+717	Const	JPOS_CHIMEI	55886	55922	1202	1	1533	generated	
+718	Const	JPOS_CHIMEI_EKI	55923	55963	1203	1	1534	generated	
+719	Const	JPOS_CHIMEI_GUN	55964	56004	1204	1	1535	generated	
+720	Const	JPOS_CHIMEI_KEN	56005	56045	1205	1	1536	generated	
+721	Const	JPOS_CHIMEI_KU	56046	56085	1206	1	1537	generated	
+722	Const	JPOS_CHIMEI_KUNI	56086	56127	1207	1	1538	generated	
+723	Const	JPOS_CHIMEI_MACHI	56128	56170	1208	1	1539	generated	
+724	Const	JPOS_CHIMEI_MURA	56171	56212	1209	1	1540	generated	
+725	Const	JPOS_CHIMEI_SHI	56213	56253	1210	1	1541	generated	
+726	Const	JPOS_CLOSEBRACE	56254	56294	1211	1	1542	generated	
+727	Const	JPOS_DAIMEISHI	56295	56334	1212	1	1543	generated	
+728	Const	JPOS_DAIMEISHI_NINSHOU	56335	56382	1213	1	1544	generated	
+729	Const	JPOS_DAIMEISHI_SHIJI	56383	56428	1214	1	1545	generated	
+730	Const	JPOS_DOKURITSUGO	56429	56470	1215	1	1546	generated	
+731	Const	JPOS_EIJI	56471	56505	1216	1	1547	generated	
+732	Const	JPOS_FUKUSHI	56506	56543	1217	1	1548	generated	
+733	Const	JPOS_FUKUSHI_DA	56544	56584	1218	1	1549	generated	
+734	Const	JPOS_FUKUSHI_NANO	56585	56627	1219	1	1550	generated	
+735	Const	JPOS_FUKUSHI_NI	56628	56668	1220	1	1551	generated	
+736	Const	JPOS_FUKUSHI_SAHEN	56669	56712	1221	1	1552	generated	
+737	Const	JPOS_FUKUSHI_TO	56713	56753	1222	1	1553	generated	
+738	Const	JPOS_FUKUSHI_TOSURU	56754	56798	1223	1	1554	generated	
+739	Const	JPOS_FUTEIGO	56799	56836	1224	1	1555	generated	
+740	Const	JPOS_HUKUSIMEISHI	56837	56879	1225	1	1556	generated	
+741	Const	JPOS_JINMEI	56880	56916	1226	1	1557	generated	
+742	Const	JPOS_JINMEI_MEI	56917	56957	1227	1	1558	generated	
+743	Const	JPOS_JINMEI_SEI	56958	56998	1228	1	1559	generated	
+744	Const	JPOS_KANDOUSHI	56999	57038	1229	1	1560	generated	
+745	Const	JPOS_KANJI	57039	57074	1230	1	1561	generated	
+746	Const	JPOS_KANYOUKU	57075	57113	1231	1	1562	generated	
+747	Const	JPOS_KAZU	57114	57148	1232	1	1563	generated	
+748	Const	JPOS_KAZU_SURYOU	57149	57190	1233	1	1564	generated	
+749	Const	JPOS_KAZU_SUSHI	57191	57231	1234	1	1565	generated	
+750	Const	JPOS_KEIDOU	57232	57268	1235	1	1566	generated	
+751	Const	JPOS_KEIDOU_GARU	57269	57310	1236	1	1567	generated	
+752	Const	JPOS_KEIDOU_NO	57311	57350	1237	1	1568	generated	
+753	Const	JPOS_KEIDOU_TARU	57351	57392	1238	1	1569	generated	
+754	Const	JPOS_KEIYOU	57393	57429	1239	1	1570	generated	
+755	Const	JPOS_KEIYOU_GARU	57430	57471	1240	1	1571	generated	
+756	Const	JPOS_KEIYOU_GE	57472	57511	1241	1	1572	generated	
+757	Const	JPOS_KEIYOU_ME	57512	57551	1242	1	1573	generated	
+758	Const	JPOS_KEIYOU_U	57552	57590	1243	1	1574	generated	
+759	Const	JPOS_KEIYOU_YUU	57591	57631	1244	1	1575	generated	
+760	Const	JPOS_KENCHIKU	57632	57670	1245	1	1576	generated	
+761	Const	JPOS_KIGOU	57671	57706	1246	1	1577	generated	
+762	Const	JPOS_KURU_KI	57707	57744	1247	1	1578	generated	
+763	Const	JPOS_KURU_KITA	57745	57784	1248	1	1579	generated	
+764	Const	JPOS_KURU_KITARA	57785	57826	1249	1	1580	generated	
+765	Const	JPOS_KURU_KITARI	57827	57868	1250	1	1581	generated	
+766	Const	JPOS_KURU_KITAROU	57869	57911	1251	1	1582	generated	
+767	Const	JPOS_KURU_KITE	57912	57951	1252	1	1583	generated	
+768	Const	JPOS_KURU_KO	57952	57989	1253	1	1584	generated	
+769	Const	JPOS_KURU_KOI	57990	58028	1254	1	1585	generated	
+770	Const	JPOS_KURU_KOYOU	58029	58069	1255	1	1586	generated	
+771	Const	JPOS_KURU_KUREBA	58070	58111	1256	1	1587	generated	
+772	Const	JPOS_KUTEN	58112	58147	1257	1	1588	generated	
+773	Const	JPOS_MEISA_KEIDOU	58148	58190	1258	1	1589	generated	
+774	Const	JPOS_MEISHI_FUTSU	58191	58233	1259	1	1590	generated	
+775	Const	JPOS_MEISHI_KEIYOUDOUSHI	58234	58283	1260	1	1591	generated	
+776	Const	JPOS_MEISHI_SAHEN	58284	58326	1261	1	1592	generated	
+777	Const	JPOS_MEISHI_ZAHEN	58327	58369	1262	1	1593	generated	
+778	Const	JPOS_OPENBRACE	58370	58409	1263	1	1594	generated	
+779	Const	JPOS_RENTAISHI	58410	58449	1264	1	1595	generated	
+780	Const	JPOS_RENTAISHI_SHIJI	58450	58495	1265	1	1596	generated	
+781	Const	JPOS_RENYOU_SETSUBI	58496	58540	1266	1	1597	generated	
+782	Const	JPOS_SETSUBI	58541	58578	1267	1	1598	generated	
+783	Const	JPOS_SETSUBI_CHIMEI	58579	58623	1268	1	1599	generated	
+784	Const	JPOS_SETSUBI_CHOU	58624	58666	1269	1	1600	generated	
+785	Const	JPOS_SETSUBI_CHU	58667	58708	1270	1	1601	generated	
+786	Const	JPOS_SETSUBI_DONO	58709	58751	1271	1	1602	generated	
+787	Const	JPOS_SETSUBI_EKI	58752	58793	1272	1	1603	generated	
+788	Const	JPOS_SETSUBI_FU	58794	58834	1273	1	1604	generated	
+789	Const	JPOS_SETSUBI_FUKUSU	58835	58879	1274	1	1605	generated	
+790	Const	JPOS_SETSUBI_GUN	58880	58921	1275	1	1606	generated	
+791	Const	JPOS_SETSUBI_JIKAN	58922	58965	1276	1	1607	generated	
+792	Const	JPOS_SETSUBI_JIKANPLUS	58966	59013	1277	1	1608	generated	
+793	Const	JPOS_SETSUBI_JINMEI	59014	59058	1278	1	1609	generated	
+794	Const	JPOS_SETSUBI_JOSUSHI	59059	59104	1279	1	1610	generated	
+795	Const	JPOS_SETSUBI_JOSUSHIPLUS	59105	59154	1280	1	1611	generated	
+796	Const	JPOS_SETSUBI_KA	59155	59195	1281	1	1612	generated	
+797	Const	JPOS_SETSUBI_KATA	59196	59238	1282	1	1613	generated	
+798	Const	JPOS_SETSUBI_KEN	59239	59280	1283	1	1614	generated	
+799	Const	JPOS_SETSUBI_KENCHIKU	59281	59327	1284	1	1615	generated	
+800	Const	JPOS_SETSUBI_KU	59328	59368	1285	1	1616	generated	
+801	Const	JPOS_SETSUBI_KUN	59369	59410	1286	1	1617	generated	
+802	Const	JPOS_SETSUBI_KUNI	59411	59453	1287	1	1618	generated	
+803	Const	JPOS_SETSUBI_MACHI	59454	59497	1288	1	1619	generated	
+804	Const	JPOS_SETSUBI_MEISHIRENDAKU	59498	59549	1289	1	1620	generated	
+805	Const	JPOS_SETSUBI_MURA	59550	59592	1290	1	1621	generated	
+806	Const	JPOS_SETSUBI_RA	59593	59633	1291	1	1622	generated	
+807	Const	JPOS_SETSUBI_RYU	59634	59675	1292	1	1623	generated	
+808	Const	JPOS_SETSUBI_SAMA	59676	59718	1293	1	1624	generated	
+809	Const	JPOS_SETSUBI_SAN	59719	59760	1294	1	1625	generated	
+810	Const	JPOS_SETSUBI_SEI	59761	59802	1295	1	1626	generated	
+811	Const	JPOS_SETSUBI_SHAMEI	59803	59847	1296	1	1627	generated	
+812	Const	JPOS_SETSUBI_SHI	59848	59889	1297	1	1628	generated	
+813	Const	JPOS_SETSUBI_SON	59890	59931	1298	1	1629	generated	
+814	Const	JPOS_SETSUBI_SONOTA	59932	59976	1299	1	1630	generated	
+815	Const	JPOS_SETSUBI_SOSHIKI	59977	60022	1300	1	1631	generated	
+816	Const	JPOS_SETSUBI_TACHI	60023	60066	1301	1	1632	generated	
+817	Const	JPOS_SETSUBI_TEINEI	60067	60111	1302	1	1633	generated	
+818	Const	JPOS_SETSUBI_TEKI	60112	60154	1303	1	1634	generated	
+819	Const	JPOS_SETSUBI_YOU	60155	60196	1304	1	1635	generated	
+820	Const	JPOS_SETSUZOKUSHI	60197	60239	1305	1	1636	generated	
+821	Const	JPOS_SETTOU	60240	60276	1306	1	1637	generated	
+822	Const	JPOS_SETTOU_CHIMEI	60277	60320	1307	1	1638	generated	
+823	Const	JPOS_SETTOU_CHOUTAN	60321	60365	1308	1	1639	generated	
+824	Const	JPOS_SETTOU_DAISHOU	60366	60410	1309	1	1640	generated	
+825	Const	JPOS_SETTOU_FUKU	60411	60452	1310	1	1641	generated	
+826	Const	JPOS_SETTOU_JINMEI	60453	60496	1311	1	1642	generated	
+827	Const	JPOS_SETTOU_JOSUSHI	60497	60541	1312	1	1643	generated	
+828	Const	JPOS_SETTOU_KAKU	60542	60583	1313	1	1644	generated	
+829	Const	JPOS_SETTOU_KOUTEI	60584	60627	1314	1	1645	generated	
+830	Const	JPOS_SETTOU_MI	60628	60667	1315	1	1646	generated	
+831	Const	JPOS_SETTOU_SAI	60668	60708	1316	1	1647	generated	
+832	Const	JPOS_SETTOU_SHINKYU	60709	60753	1317	1	1648	generated	
+833	Const	JPOS_SETTOU_SONOTA	60754	60797	1318	1	1649	generated	
+834	Const	JPOS_SETTOU_TEINEI_GO	60798	60844	1319	1	1650	generated	
+835	Const	JPOS_SETTOU_TEINEI_O	60845	60890	1320	1	1651	generated	
+836	Const	JPOS_SETTOU_TEINEI_ON	60891	60937	1321	1	1652	generated	
+837	Const	JPOS_SHAMEI	60938	60974	1322	1	1653	generated	
+838	Const	JPOS_SONOTA	60975	61011	1323	1	1654	generated	
+839	Const	JPOS_SOSHIKI	61012	61049	1324	1	1655	generated	
+840	Const	JPOS_SURU_SA	61050	61087	1325	1	1656	generated	
+841	Const	JPOS_SURU_SE	61088	61125	1326	1	1657	generated	
+842	Const	JPOS_SURU_SEYO	61126	61165	1327	1	1658	generated	
+843	Const	JPOS_SURU_SI	61166	61203	1328	1	1659	generated	
+844	Const	JPOS_SURU_SIATRI	61204	61245	1329	1	1660	generated	
+845	Const	JPOS_SURU_SITA	61246	61285	1330	1	1661	generated	
+846	Const	JPOS_SURU_SITARA	61286	61327	1331	1	1662	generated	
+847	Const	JPOS_SURU_SITAROU	61328	61370	1332	1	1663	generated	
+848	Const	JPOS_SURU_SITE	61371	61410	1333	1	1664	generated	
+849	Const	JPOS_SURU_SIYOU	61411	61451	1334	1	1665	generated	
+850	Const	JPOS_SURU_SUREBA	61452	61493	1335	1	1666	generated	
+851	Const	JPOS_TANKANJI	61494	61532	1336	1	1667	generated	
+852	Const	JPOS_TANKANJI_KAO	61533	61575	1337	1	1668	generated	
+853	Const	JPOS_TANSHUKU	61576	61614	1338	1	1669	generated	
+854	Const	JPOS_TOKUSHU_KAHEN	61615	61658	1339	1	1670	generated	
+855	Const	JPOS_TOKUSHU_NAHEN	61659	61702	1340	1	1671	generated	
+856	Const	JPOS_TOKUSHU_SAHEN	61703	61746	1341	1	1672	generated	
+857	Const	JPOS_TOKUSHU_SAHENSURU	61747	61794	1342	1	1673	generated	
+858	Const	JPOS_TOKUSHU_ZAHEN	61795	61838	1343	1	1674	generated	
+859	Const	JPOS_TOUTEN	61839	61875	1344	1	1675	generated	
+860	Const	JPOS_UNDEFINED	61876	61913	1345	1	1676	generated	
+861	Const	JPOS_YOKUSEI	61914	61951	1346	1	1677	generated	
+862	Const	MAX_APPLETTITLE	61952	61991	1347	1	1678	generated	
+863	Const	MAX_FONTFACE	61992	62028	1348	1	1679	generated	
+864	Const	MODEBIASMODE_DEFAULT	62029	62072	1349	1	1680	generated	
+865	Const	MODEBIASMODE_DIGIT	62073	62114	1350	1	1681	generated	
+866	Const	MODEBIASMODE_FILENAME	62115	62159	1351	1	1682	generated	
+867	Const	MODEBIASMODE_READING	62160	62203	1352	1	1683	generated	
+868	Const	MODEBIAS_GETVALUE	62204	62244	1353	1	1684	generated	
+869	Const	MODEBIAS_GETVERSION	62245	62287	1354	1	1685	generated	
+870	Const	MODEBIAS_SETVALUE	62288	62328	1355	1	1686	generated	
+871	Const	MOD_IGNORE_ALL_MODIFIER	62329	62378	1356	1	1687	generated	
+872	Const	MOD_LEFT	62379	62414	1357	1	1688	generated	
+873	Const	MOD_ON_KEYUP	62415	62453	1358	1	1689	generated	
+874	Const	MOD_RIGHT	62454	62490	1359	1	1690	generated	
+875	Struct	MORRSLT	62491	62953	1360	1	1691	unsupported	declaration Struct has no candidate rule
+876	Impl		62954	63054	1377	1	1710	unsupported	declaration Impl has no candidate rule
+877	Union		63055	63211	1382	1	1717	unsupported	declaration Union has no candidate rule
+878	Impl		63212	63314	1388	1	1725	unsupported	declaration Impl has no candidate rule
+879	Union		63315	63427	1393	1	1732	unsupported	declaration Union has no candidate rule
+880	Impl		63428	63530	1399	1	1740	unsupported	declaration Impl has no candidate rule
+881	Union		63531	63665	1404	1	1747	unsupported	declaration Union has no candidate rule
+882	Impl		63666	63768	1410	1	1755	unsupported	declaration Impl has no candidate rule
+883	Const	NI_CHANGECANDIDATELIST	63769	63829	1415	1	1762	generated	
+884	Const	NI_CLOSECANDIDATE	63830	63885	1416	1	1763	generated	
+885	Const	NI_COMPOSITIONSTR	63886	63941	1417	1	1764	generated	
+886	Const	NI_CONTEXTUPDATED	63942	63982	1418	1	1765	generated	
+887	Const	NI_FINALIZECONVERSIONRESULT	63983	64034	1419	1	1766	generated	
+888	Const	NI_IMEMENUSELECTED	64035	64091	1420	1	1767	generated	
+889	Const	NI_OPENCANDIDATE	64092	64146	1421	1	1768	generated	
+890	Const	NI_SELECTCANDIDATESTR	64147	64206	1422	1	1769	generated	
+891	Const	NI_SETCANDIDATE_PAGESIZE	64207	64269	1423	1	1770	generated	
+892	Const	NI_SETCANDIDATE_PAGESTART	64270	64333	1424	1	1771	generated	
+893	ItemType	NOTIFY_IME_ACTION	64334	64367	1425	1	1772	generated	
+894	ItemType	NOTIFY_IME_INDEX	64368	64400	1426	1	1773	generated	
+895	ItemType	PFNLOG	64401	64536	1427	1	1774	unsupported	generic scalar type unsupported
+896	Struct	POSTBL	64537	64647	1428	1	1777	unsupported	declaration Struct has no candidate rule
+897	Impl		64648	64747	1434	1	1785	unsupported	declaration Impl has no candidate rule
+898	Const	POS_UNDEFINED	64748	64784	1439	1	1792	generated	
+899	Struct	RECONVERTSTRING	64785	65070	1440	1	1793	unsupported	declaration Struct has no candidate rule
+900	Const	RECONVOPT_NONE	65071	65108	1452	1	1807	generated	
+901	Const	RECONVOPT_USECANCELNOTIFY	65109	65157	1453	1	1808	generated	
+902	Struct	REGISTERWORDA	65158	65305	1454	1	1809	unsupported	declaration Struct has no candidate rule
+903	Impl		65306	65412	1460	1	1817	unsupported	declaration Impl has no candidate rule
+904	ItemType	REGISTERWORDENUMPROCA	65413	65609	1465	1	1824	unsupported	generic scalar type unsupported
+905	ItemType	REGISTERWORDENUMPROCW	65610	65808	1466	1	1827	unsupported	generic scalar type unsupported
+906	Struct	REGISTERWORDW	65809	65958	1467	1	1830	unsupported	declaration Struct has no candidate rule
+907	Impl		65959	66065	1473	1	1838	unsupported	declaration Impl has no candidate rule
+908	Const	RWM_CHGKEYMAP	66066	66162	1478	1	1845	unsupported	non-scalar type Ptr unsupported
+909	Const	RWM_DOCUMENTFEED	66163	66262	1479	1	1848	unsupported	non-scalar type Ptr unsupported
+910	Const	RWM_KEYMAP	66263	66350	1480	1	1851	unsupported	non-scalar type Ptr unsupported
+911	Const	RWM_MODEBIAS	66351	66442	1481	1	1854	unsupported	non-scalar type Ptr unsupported
+912	Const	RWM_MOUSE	66443	66537	1482	1	1857	unsupported	non-scalar type Ptr unsupported
+913	Const	RWM_NTFYKEYMAP	66538	66635	1483	1	1860	unsupported	non-scalar type Ptr unsupported
+914	Const	RWM_QUERYPOSITION	66636	66737	1484	1	1863	unsupported	non-scalar type Ptr unsupported
+915	Const	RWM_RECONVERT	66738	66831	1485	1	1866	unsupported	non-scalar type Ptr unsupported
+916	Const	RWM_RECONVERTOPTIONS	66832	66939	1486	1	1869	unsupported	non-scalar type Ptr unsupported
+917	Const	RWM_RECONVERTREQUEST	66940	67047	1487	1	1872	unsupported	non-scalar type Ptr unsupported
+918	Const	RWM_SERVICE	67048	67137	1488	1	1875	unsupported	non-scalar type Ptr unsupported
+919	Const	RWM_SHOWIMEPAD	67138	67233	1489	1	1878	unsupported	non-scalar type Ptr unsupported
+920	Const	RWM_UIREADY	67234	67323	1490	1	1881	unsupported	non-scalar type Ptr unsupported
+921	Const	SCS_CAP_COMPSTR	67324	67362	1491	1	1884	generated	
+922	Const	SCS_CAP_MAKEREAD	67363	67402	1492	1	1885	generated	
+923	Const	SCS_CAP_SETRECONVERTSTRING	67403	67452	1493	1	1886	generated	
+924	Const	SCS_CHANGEATTR	67453	67515	1494	1	1887	generated	
+925	Const	SCS_CHANGECLAUSE	67516	67580	1495	1	1888	generated	
+926	Const	SCS_QUERYRECONVERTSTRING	67581	67657	1496	1	1889	generated	
+927	Const	SCS_SETRECONVERTSTRING	67658	67731	1497	1	1890	generated	
+928	Const	SCS_SETSTR	67732	67789	1498	1	1891	generated	
+929	Const	SELECT_CAP_CONVERSION	67790	67834	1499	1	1892	generated	
+930	Const	SELECT_CAP_SENTENCE	67835	67877	1500	1	1893	generated	
+931	ItemType	SET_COMPOSITION_STRING_TYPE	67878	67921	1501	1	1894	generated	
+932	Const	SHOWIMEPAD_CATEGORY	67922	67964	1502	1	1895	generated	
+933	Const	SHOWIMEPAD_DEFAULT	67965	68006	1503	1	1896	generated	
+934	Const	SHOWIMEPAD_GUID	68007	68045	1504	1	1897	generated	
+935	Struct	SOFTKBDDATA	68046	68154	1505	1	1898	unsupported	declaration Struct has no candidate rule
+936	Impl		68155	68259	1511	1	1906	unsupported	declaration Impl has no candidate rule
+937	Const	SOFTKEYBOARD_TYPE_C1	68260	68303	1516	1	1913	generated	
+938	Const	SOFTKEYBOARD_TYPE_T1	68304	68347	1517	1	1914	generated	
+939	Struct	STYLEBUFA	68348	68461	1518	1	1915	unsupported	declaration Struct has no candidate rule
+940	Impl		68462	68564	1524	1	1923	unsupported	declaration Impl has no candidate rule
+941	Struct	STYLEBUFW	68565	68679	1529	1	1930	unsupported	declaration Struct has no candidate rule
+942	Impl		68680	68782	1535	1	1938	unsupported	declaration Impl has no candidate rule
+943	Const	STYLE_DESCRIPTION_SIZE	68783	68829	1540	1	1945	generated	
+944	Struct	TRANSMSG	68830	69032	1541	1	1946	unsupported	declaration Struct has no candidate rule
+945	Struct	TRANSMSGLIST	69033	69151	1548	1	1955	unsupported	declaration Struct has no candidate rule
+946	Impl		69152	69257	1554	1	1963	unsupported	declaration Impl has no candidate rule
+947	Const	UI_CAP_2700	69258	69292	1559	1	1970	generated	
+948	Const	UI_CAP_ROT90	69293	69328	1560	1	1971	generated	
+949	Const	UI_CAP_ROTANY	69329	69365	1561	1	1972	generated	
+950	Const	UI_CAP_SOFTKBD	69366	69407	1562	1	1973	generated	
+951	Const	VERSION_DOCUMENTFEED	69408	69451	1563	1	1974	generated	
+952	Const	VERSION_ID_CHINESE_SIMPLIFIED	69452	69512	1564	1	1975	generated	
+953	Const	VERSION_ID_CHINESE_TRADITIONAL	69513	69573	1565	1	1976	generated	
+954	Const	VERSION_ID_JAPANESE	69574	69623	1566	1	1977	generated	
+955	Const	VERSION_ID_KOREAN	69624	69671	1567	1	1978	generated	
+956	Const	VERSION_MODEBIAS	69672	69711	1568	1	1979	generated	
+957	Const	VERSION_MOUSE_OPERATION	69712	69758	1569	1	1980	generated	
+958	Const	VERSION_QUERYPOSITION	69759	69803	1570	1	1981	generated	
+959	Const	VERSION_RECONVERSION	69804	69847	1571	1	1982	generated	
+960	Struct	WDD	69848	70124	1572	1	1983	unsupported	declaration Struct has no candidate rule
+961	Impl		70125	70221	1584	1	1997	unsupported	declaration Impl has no candidate rule
+962	Union		70222	70332	1589	1	2004	unsupported	declaration Union has no candidate rule
+963	Impl		70333	70431	1595	1	2012	unsupported	declaration Impl has no candidate rule
+964	Union		70432	70540	1600	1	2019	unsupported	declaration Union has no candidate rule
+965	Impl		70541	70639	1606	1	2027	unsupported	declaration Impl has no candidate rule
+966	Const	cbCommentMax	70640	70677	1611	1	2034	generated	
+967	ItemType	fpCreateIFECommonInstanceType	70678	70820	1612	1	2035	unsupported	generic scalar type unsupported
+968	ItemType	fpCreateIFEDictionaryInstanceType	70821	70967	1613	1	2038	unsupported	generic scalar type unsupported
+969	ItemType	fpCreateIFELanguageInstanceType	70968	71151	1614	1	2041	unsupported	generic scalar type unsupported
+970	Const	szImeChina	71152	71239	1615	1	2044	unsupported	non-scalar type Ptr unsupported
+971	Const	szImeJapan	71240	71327	1616	1	2047	unsupported	non-scalar type Ptr unsupported
+972	Const	szImeKorea	71328	71415	1617	1	2050	unsupported	non-scalar type Ptr unsupported
+973	Const	szImeTaiwan	71416	71505	1618	1	2053	unsupported	non-scalar type Ptr unsupported
+974	Const	wchPrivate1	71506	71544	1619	1	2056	generated	

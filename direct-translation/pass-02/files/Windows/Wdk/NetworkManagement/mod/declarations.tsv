@@ -1,0 +1,3 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Mod	Ndis	0	60	1	1	2	unsupported	declaration Mod has no candidate rule
+1	Mod	WindowsFilteringPlatform	61	161	3	1	6	unsupported	declaration Mod has no candidate rule

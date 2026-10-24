@@ -1,0 +1,10 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	199	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		200	478	3	1	6	unsupported	declaration Macro has no candidate rule
+2	Macro		479	743	5	1	10	unsupported	declaration Macro has no candidate rule
+3	Macro		744	1017	7	1	14	unsupported	declaration Macro has no candidate rule
+4	Macro		1018	1216	9	1	18	unsupported	declaration Macro has no candidate rule
+5	Macro		1217	1468	11	1	22	unsupported	declaration Macro has no candidate rule
+6	Macro		1469	1771	13	1	26	unsupported	declaration Macro has no candidate rule
+7	Struct	NV_MEMORY_RANGE	1772	1904	15	1	30	unsupported	declaration Struct has no candidate rule
+8	Impl		1905	2013	21	1	38	unsupported	declaration Impl has no candidate rule

@@ -1,0 +1,3272 @@
+// DIRECT DECLARATION CANDIDATE: unsupported Rust remains below; not adopted or ABI-validated.
+// UNSUPPORTED Rust 1:1: declaration Macro has no candidate rule
+// #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+// windows_link::link!("mmdevapi.dll" "system" fn ActivateAudioInterfaceAsync(deviceinterfacepath : windows_sys::core::PCWSTR, riid : *const windows_sys::core::GUID, activationparams : *const super::super::System::Com::StructuredStorage:: PROPVARIANT, completionhandler : * mut core::ffi::c_void, activationoperation : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+
+// UNSUPPORTED Rust 3:1: declaration Macro has no candidate rule
+// windows_link::link!("ole32.dll" "system" fn CoRegisterMessageFilter(lpmessagefilter : * mut core::ffi::c_void, lplpmessagefilter : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+
+// UNSUPPORTED Rust 4:1: declaration Macro has no candidate rule
+// windows_link::link!("windows.media.mediacontrol.dll" "system" fn CreateCaptureAudioStateMonitor(audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+
+// UNSUPPORTED Rust 5:1: declaration Macro has no candidate rule
+// windows_link::link!("windows.media.mediacontrol.dll" "system" fn CreateCaptureAudioStateMonitorForCategory(category : AUDIO_STREAM_CATEGORY, audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+
+// UNSUPPORTED Rust 6:1: declaration Macro has no candidate rule
+// windows_link::link!("windows.media.mediacontrol.dll" "system" fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId(category : AUDIO_STREAM_CATEGORY, deviceid : windows_sys::core::PCWSTR, audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+
+// UNSUPPORTED Rust 7:1: declaration Macro has no candidate rule
+// windows_link::link!("windows.media.mediacontrol.dll" "system" fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category : AUDIO_STREAM_CATEGORY, role : ERole, audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+
+// UNSUPPORTED Rust 8:1: declaration Macro has no candidate rule
+// windows_link::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitor(audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+
+// UNSUPPORTED Rust 9:1: declaration Macro has no candidate rule
+// windows_link::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitorForCategory(category : AUDIO_STREAM_CATEGORY, audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+
+// UNSUPPORTED Rust 10:1: declaration Macro has no candidate rule
+// windows_link::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitorForCategoryAndDeviceId(category : AUDIO_STREAM_CATEGORY, deviceid : windows_sys::core::PCWSTR, audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+
+// UNSUPPORTED Rust 11:1: declaration Macro has no candidate rule
+// windows_link::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category : AUDIO_STREAM_CATEGORY, role : ERole, audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+
+// UNSUPPORTED Rust 12:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn PlaySoundA(pszsound : windows_sys::core::PCSTR, hmod : super::super::Foundation:: HMODULE, fdwsound : SND_FLAGS) -> windows_sys::core::BOOL);
+
+// UNSUPPORTED Rust 13:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn PlaySoundW(pszsound : windows_sys::core::PCWSTR, hmod : super::super::Foundation:: HMODULE, fdwsound : SND_FLAGS) -> windows_sys::core::BOOL);
+
+// UNSUPPORTED Rust 14:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmDriverAddA(phadid : *mut HACMDRIVERID, hinstmodule : super::super::Foundation:: HINSTANCE, lparam : super::super::Foundation:: LPARAM, dwpriority : u32, fdwadd : u32) -> u32);
+
+// UNSUPPORTED Rust 15:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmDriverAddW(phadid : *mut HACMDRIVERID, hinstmodule : super::super::Foundation:: HINSTANCE, lparam : super::super::Foundation:: LPARAM, dwpriority : u32, fdwadd : u32) -> u32);
+
+// UNSUPPORTED Rust 16:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmDriverClose(had : HACMDRIVER, fdwclose : u32) -> u32);
+
+// UNSUPPORTED Rust 17:1: declaration Macro has no candidate rule
+// #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+// windows_link::link!("msacm32.dll" "system" fn acmDriverDetailsA(hadid : HACMDRIVERID, padd : *mut ACMDRIVERDETAILSA, fdwdetails : u32) -> u32);
+
+// UNSUPPORTED Rust 19:1: declaration Macro has no candidate rule
+// #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+// windows_link::link!("msacm32.dll" "system" fn acmDriverDetailsW(hadid : HACMDRIVERID, padd : *mut ACMDRIVERDETAILSW, fdwdetails : u32) -> u32);
+
+// UNSUPPORTED Rust 21:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmDriverEnum(fncallback : ACMDRIVERENUMCB, dwinstance : usize, fdwenum : u32) -> u32);
+
+// UNSUPPORTED Rust 22:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmDriverID(hao : HACMOBJ, phadid : *mut HACMDRIVERID, fdwdriverid : u32) -> u32);
+
+// UNSUPPORTED Rust 23:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmDriverMessage(had : HACMDRIVER, umsg : u32, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
+
+// UNSUPPORTED Rust 24:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmDriverOpen(phad : *mut HACMDRIVER, hadid : HACMDRIVERID, fdwopen : u32) -> u32);
+
+// UNSUPPORTED Rust 25:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmDriverPriority(hadid : HACMDRIVERID, dwpriority : u32, fdwpriority : u32) -> u32);
+
+// UNSUPPORTED Rust 26:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmDriverRemove(hadid : HACMDRIVERID, fdwremove : u32) -> u32);
+
+// UNSUPPORTED Rust 27:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmFilterChooseA(pafltrc : *mut ACMFILTERCHOOSEA) -> u32);
+
+// UNSUPPORTED Rust 28:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmFilterChooseW(pafltrc : *mut ACMFILTERCHOOSEW) -> u32);
+
+// UNSUPPORTED Rust 29:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmFilterDetailsA(had : HACMDRIVER, pafd : *mut ACMFILTERDETAILSA, fdwdetails : u32) -> u32);
+
+// UNSUPPORTED Rust 30:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmFilterDetailsW(had : HACMDRIVER, pafd : *mut ACMFILTERDETAILSW, fdwdetails : u32) -> u32);
+
+// UNSUPPORTED Rust 31:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmFilterEnumA(had : HACMDRIVER, pafd : *mut ACMFILTERDETAILSA, fncallback : ACMFILTERENUMCBA, dwinstance : usize, fdwenum : u32) -> u32);
+
+// UNSUPPORTED Rust 32:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmFilterEnumW(had : HACMDRIVER, pafd : *mut ACMFILTERDETAILSW, fncallback : ACMFILTERENUMCBW, dwinstance : usize, fdwenum : u32) -> u32);
+
+// UNSUPPORTED Rust 33:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmFilterTagDetailsA(had : HACMDRIVER, paftd : *mut ACMFILTERTAGDETAILSA, fdwdetails : u32) -> u32);
+
+// UNSUPPORTED Rust 34:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmFilterTagDetailsW(had : HACMDRIVER, paftd : *mut ACMFILTERTAGDETAILSW, fdwdetails : u32) -> u32);
+
+// UNSUPPORTED Rust 35:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmFilterTagEnumA(had : HACMDRIVER, paftd : *mut ACMFILTERTAGDETAILSA, fncallback : ACMFILTERTAGENUMCBA, dwinstance : usize, fdwenum : u32) -> u32);
+
+// UNSUPPORTED Rust 36:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmFilterTagEnumW(had : HACMDRIVER, paftd : *mut ACMFILTERTAGDETAILSW, fncallback : ACMFILTERTAGENUMCBW, dwinstance : usize, fdwenum : u32) -> u32);
+
+// UNSUPPORTED Rust 37:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmFormatChooseA(pafmtc : *mut ACMFORMATCHOOSEA) -> u32);
+
+// UNSUPPORTED Rust 38:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmFormatChooseW(pafmtc : *mut ACMFORMATCHOOSEW) -> u32);
+
+// UNSUPPORTED Rust 39:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmFormatDetailsA(had : HACMDRIVER, pafd : *mut ACMFORMATDETAILSA, fdwdetails : u32) -> u32);
+
+// UNSUPPORTED Rust 40:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmFormatDetailsW(had : HACMDRIVER, pafd : *mut tACMFORMATDETAILSW, fdwdetails : u32) -> u32);
+
+// UNSUPPORTED Rust 41:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmFormatEnumA(had : HACMDRIVER, pafd : *mut ACMFORMATDETAILSA, fncallback : ACMFORMATENUMCBA, dwinstance : usize, fdwenum : u32) -> u32);
+
+// UNSUPPORTED Rust 42:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmFormatEnumW(had : HACMDRIVER, pafd : *mut tACMFORMATDETAILSW, fncallback : ACMFORMATENUMCBW, dwinstance : usize, fdwenum : u32) -> u32);
+
+// UNSUPPORTED Rust 43:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmFormatSuggest(had : HACMDRIVER, pwfxsrc : *mut WAVEFORMATEX, pwfxdst : *mut WAVEFORMATEX, cbwfxdst : u32, fdwsuggest : u32) -> u32);
+
+// UNSUPPORTED Rust 44:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmFormatTagDetailsA(had : HACMDRIVER, paftd : *mut ACMFORMATTAGDETAILSA, fdwdetails : u32) -> u32);
+
+// UNSUPPORTED Rust 45:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmFormatTagDetailsW(had : HACMDRIVER, paftd : *mut ACMFORMATTAGDETAILSW, fdwdetails : u32) -> u32);
+
+// UNSUPPORTED Rust 46:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmFormatTagEnumA(had : HACMDRIVER, paftd : *mut ACMFORMATTAGDETAILSA, fncallback : ACMFORMATTAGENUMCBA, dwinstance : usize, fdwenum : u32) -> u32);
+
+// UNSUPPORTED Rust 47:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmFormatTagEnumW(had : HACMDRIVER, paftd : *mut ACMFORMATTAGDETAILSW, fncallback : ACMFORMATTAGENUMCBW, dwinstance : usize, fdwenum : u32) -> u32);
+
+// UNSUPPORTED Rust 48:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmGetVersion() -> u32);
+
+// UNSUPPORTED Rust 49:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmMetrics(hao : HACMOBJ, umetric : u32, pmetric : *mut core::ffi::c_void) -> u32);
+
+// UNSUPPORTED Rust 50:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmStreamClose(has : HACMSTREAM, fdwclose : u32) -> u32);
+
+// UNSUPPORTED Rust 51:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmStreamConvert(has : HACMSTREAM, pash : *mut ACMSTREAMHEADER, fdwconvert : u32) -> u32);
+
+// UNSUPPORTED Rust 52:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmStreamMessage(has : HACMSTREAM, umsg : u32, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> u32);
+
+// UNSUPPORTED Rust 53:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmStreamOpen(phas : *mut HACMSTREAM, had : HACMDRIVER, pwfxsrc : *mut WAVEFORMATEX, pwfxdst : *mut WAVEFORMATEX, pwfltr : *mut WAVEFILTER, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> u32);
+
+// UNSUPPORTED Rust 54:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmStreamPrepareHeader(has : HACMSTREAM, pash : *mut ACMSTREAMHEADER, fdwprepare : u32) -> u32);
+
+// UNSUPPORTED Rust 55:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmStreamReset(has : HACMSTREAM, fdwreset : u32) -> u32);
+
+// UNSUPPORTED Rust 56:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmStreamSize(has : HACMSTREAM, cbinput : u32, pdwoutputbytes : *mut u32, fdwsize : u32) -> u32);
+
+// UNSUPPORTED Rust 57:1: declaration Macro has no candidate rule
+// windows_link::link!("msacm32.dll" "system" fn acmStreamUnprepareHeader(has : HACMSTREAM, pash : *mut ACMSTREAMHEADER, fdwunprepare : u32) -> u32);
+
+// UNSUPPORTED Rust 58:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn auxGetDevCapsA(udeviceid : usize, pac : *mut AUXCAPSA, cbac : u32) -> u32);
+
+// UNSUPPORTED Rust 59:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn auxGetDevCapsW(udeviceid : usize, pac : *mut AUXCAPSW, cbac : u32) -> u32);
+
+// UNSUPPORTED Rust 60:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn auxGetNumDevs() -> u32);
+
+// UNSUPPORTED Rust 61:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn auxGetVolume(udeviceid : u32, pdwvolume : *mut u32) -> u32);
+
+// UNSUPPORTED Rust 62:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn auxOutMessage(udeviceid : u32, umsg : u32, dw1 : usize, dw2 : usize) -> u32);
+
+// UNSUPPORTED Rust 63:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn auxSetVolume(udeviceid : u32, dwvolume : u32) -> u32);
+
+// UNSUPPORTED Rust 64:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiConnect(hmi : HMIDI, hmo : HMIDIOUT, preserved : *const core::ffi::c_void) -> u32);
+
+// UNSUPPORTED Rust 65:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiDisconnect(hmi : HMIDI, hmo : HMIDIOUT, preserved : *const core::ffi::c_void) -> u32);
+
+// UNSUPPORTED Rust 66:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiInAddBuffer(hmi : HMIDIIN, pmh : *mut MIDIHDR, cbmh : u32) -> u32);
+
+// UNSUPPORTED Rust 67:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiInClose(hmi : HMIDIIN) -> u32);
+
+// UNSUPPORTED Rust 68:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiInGetDevCapsA(udeviceid : usize, pmic : *mut MIDIINCAPSA, cbmic : u32) -> u32);
+
+// UNSUPPORTED Rust 69:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiInGetDevCapsW(udeviceid : usize, pmic : *mut MIDIINCAPSW, cbmic : u32) -> u32);
+
+// UNSUPPORTED Rust 70:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiInGetErrorTextA(mmrerror : u32, psztext : windows_sys::core::PSTR, cchtext : u32) -> u32);
+
+// UNSUPPORTED Rust 71:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiInGetErrorTextW(mmrerror : u32, psztext : windows_sys::core::PWSTR, cchtext : u32) -> u32);
+
+// UNSUPPORTED Rust 72:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiInGetID(hmi : HMIDIIN, pudeviceid : *mut u32) -> u32);
+
+// UNSUPPORTED Rust 73:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiInGetNumDevs() -> u32);
+
+// UNSUPPORTED Rust 74:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiInMessage(hmi : HMIDIIN, umsg : u32, dw1 : usize, dw2 : usize) -> u32);
+
+// UNSUPPORTED Rust 75:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiInOpen(phmi : *mut HMIDIIN, udeviceid : u32, dwcallback : usize, dwinstance : usize, fdwopen : MIDI_WAVE_OPEN_TYPE) -> u32);
+
+// UNSUPPORTED Rust 76:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiInPrepareHeader(hmi : HMIDIIN, pmh : *mut MIDIHDR, cbmh : u32) -> u32);
+
+// UNSUPPORTED Rust 77:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiInReset(hmi : HMIDIIN) -> u32);
+
+// UNSUPPORTED Rust 78:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiInStart(hmi : HMIDIIN) -> u32);
+
+// UNSUPPORTED Rust 79:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiInStop(hmi : HMIDIIN) -> u32);
+
+// UNSUPPORTED Rust 80:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiInUnprepareHeader(hmi : HMIDIIN, pmh : *mut MIDIHDR, cbmh : u32) -> u32);
+
+// UNSUPPORTED Rust 81:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiOutCacheDrumPatches(hmo : HMIDIOUT, upatch : u32, pwkya : *const u16, fucache : u32) -> u32);
+
+// UNSUPPORTED Rust 82:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiOutCachePatches(hmo : HMIDIOUT, ubank : u32, pwpa : *const u16, fucache : u32) -> u32);
+
+// UNSUPPORTED Rust 83:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiOutClose(hmo : HMIDIOUT) -> u32);
+
+// UNSUPPORTED Rust 84:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiOutGetDevCapsA(udeviceid : usize, pmoc : *mut MIDIOUTCAPSA, cbmoc : u32) -> u32);
+
+// UNSUPPORTED Rust 85:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiOutGetDevCapsW(udeviceid : usize, pmoc : *mut MIDIOUTCAPSW, cbmoc : u32) -> u32);
+
+// UNSUPPORTED Rust 86:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiOutGetErrorTextA(mmrerror : u32, psztext : windows_sys::core::PSTR, cchtext : u32) -> u32);
+
+// UNSUPPORTED Rust 87:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiOutGetErrorTextW(mmrerror : u32, psztext : windows_sys::core::PWSTR, cchtext : u32) -> u32);
+
+// UNSUPPORTED Rust 88:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiOutGetID(hmo : HMIDIOUT, pudeviceid : *mut u32) -> u32);
+
+// UNSUPPORTED Rust 89:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiOutGetNumDevs() -> u32);
+
+// UNSUPPORTED Rust 90:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiOutGetVolume(hmo : HMIDIOUT, pdwvolume : *mut u32) -> u32);
+
+// UNSUPPORTED Rust 91:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiOutLongMsg(hmo : HMIDIOUT, pmh : *const MIDIHDR, cbmh : u32) -> u32);
+
+// UNSUPPORTED Rust 92:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiOutMessage(hmo : HMIDIOUT, umsg : u32, dw1 : usize, dw2 : usize) -> u32);
+
+// UNSUPPORTED Rust 93:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiOutOpen(phmo : *mut HMIDIOUT, udeviceid : u32, dwcallback : usize, dwinstance : usize, fdwopen : MIDI_WAVE_OPEN_TYPE) -> u32);
+
+// UNSUPPORTED Rust 94:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiOutPrepareHeader(hmo : HMIDIOUT, pmh : *mut MIDIHDR, cbmh : u32) -> u32);
+
+// UNSUPPORTED Rust 95:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiOutReset(hmo : HMIDIOUT) -> u32);
+
+// UNSUPPORTED Rust 96:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiOutSetVolume(hmo : HMIDIOUT, dwvolume : u32) -> u32);
+
+// UNSUPPORTED Rust 97:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiOutShortMsg(hmo : HMIDIOUT, dwmsg : u32) -> u32);
+
+// UNSUPPORTED Rust 98:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiOutUnprepareHeader(hmo : HMIDIOUT, pmh : *mut MIDIHDR, cbmh : u32) -> u32);
+
+// UNSUPPORTED Rust 99:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiStreamClose(hms : HMIDISTRM) -> u32);
+
+// UNSUPPORTED Rust 100:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiStreamOpen(phms : *mut HMIDISTRM, pudeviceid : *mut u32, cmidi : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> u32);
+
+// UNSUPPORTED Rust 101:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiStreamOut(hms : HMIDISTRM, pmh : *mut MIDIHDR, cbmh : u32) -> u32);
+
+// UNSUPPORTED Rust 102:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiStreamPause(hms : HMIDISTRM) -> u32);
+
+// UNSUPPORTED Rust 103:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiStreamPosition(hms : HMIDISTRM, lpmmt : *mut super:: MMTIME, cbmmt : u32) -> u32);
+
+// UNSUPPORTED Rust 104:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiStreamProperty(hms : HMIDISTRM, lppropdata : *mut u8, dwproperty : u32) -> u32);
+
+// UNSUPPORTED Rust 105:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiStreamRestart(hms : HMIDISTRM) -> u32);
+
+// UNSUPPORTED Rust 106:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn midiStreamStop(hms : HMIDISTRM) -> u32);
+
+// UNSUPPORTED Rust 107:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn mixerClose(hmx : HMIXER) -> u32);
+
+// UNSUPPORTED Rust 108:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn mixerGetControlDetailsA(hmxobj : HMIXEROBJ, pmxcd : *mut MIXERCONTROLDETAILS, fdwdetails : u32) -> u32);
+
+// UNSUPPORTED Rust 109:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn mixerGetControlDetailsW(hmxobj : HMIXEROBJ, pmxcd : *mut MIXERCONTROLDETAILS, fdwdetails : u32) -> u32);
+
+// UNSUPPORTED Rust 110:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn mixerGetDevCapsA(umxid : usize, pmxcaps : *mut MIXERCAPSA, cbmxcaps : u32) -> u32);
+
+// UNSUPPORTED Rust 111:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn mixerGetDevCapsW(umxid : usize, pmxcaps : *mut MIXERCAPSW, cbmxcaps : u32) -> u32);
+
+// UNSUPPORTED Rust 112:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn mixerGetID(hmxobj : HMIXEROBJ, pumxid : *mut u32, fdwid : u32) -> u32);
+
+// UNSUPPORTED Rust 113:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn mixerGetLineControlsA(hmxobj : HMIXEROBJ, pmxlc : *mut MIXERLINECONTROLSA, fdwcontrols : u32) -> u32);
+
+// UNSUPPORTED Rust 114:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn mixerGetLineControlsW(hmxobj : HMIXEROBJ, pmxlc : *mut MIXERLINECONTROLSW, fdwcontrols : u32) -> u32);
+
+// UNSUPPORTED Rust 115:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn mixerGetLineInfoA(hmxobj : HMIXEROBJ, pmxl : *mut MIXERLINEA, fdwinfo : u32) -> u32);
+
+// UNSUPPORTED Rust 116:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn mixerGetLineInfoW(hmxobj : HMIXEROBJ, pmxl : *mut MIXERLINEW, fdwinfo : u32) -> u32);
+
+// UNSUPPORTED Rust 117:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn mixerGetNumDevs() -> u32);
+
+// UNSUPPORTED Rust 118:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn mixerMessage(hmx : HMIXER, umsg : u32, dwparam1 : usize, dwparam2 : usize) -> u32);
+
+// UNSUPPORTED Rust 119:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn mixerOpen(phmx : *mut HMIXER, umxid : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> u32);
+
+// UNSUPPORTED Rust 120:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn mixerSetControlDetails(hmxobj : HMIXEROBJ, pmxcd : *const MIXERCONTROLDETAILS, fdwdetails : u32) -> u32);
+
+// UNSUPPORTED Rust 121:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn sndPlaySoundA(pszsound : windows_sys::core::PCSTR, fusound : u32) -> windows_sys::core::BOOL);
+
+// UNSUPPORTED Rust 122:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn sndPlaySoundW(pszsound : windows_sys::core::PCWSTR, fusound : u32) -> windows_sys::core::BOOL);
+
+// UNSUPPORTED Rust 123:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveInAddBuffer(hwi : HWAVEIN, pwh : *mut WAVEHDR, cbwh : u32) -> u32);
+
+// UNSUPPORTED Rust 124:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveInClose(hwi : HWAVEIN) -> u32);
+
+// UNSUPPORTED Rust 125:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveInGetDevCapsA(udeviceid : usize, pwic : *mut WAVEINCAPSA, cbwic : u32) -> u32);
+
+// UNSUPPORTED Rust 126:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveInGetDevCapsW(udeviceid : usize, pwic : *mut WAVEINCAPSW, cbwic : u32) -> u32);
+
+// UNSUPPORTED Rust 127:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveInGetErrorTextA(mmrerror : u32, psztext : windows_sys::core::PSTR, cchtext : u32) -> u32);
+
+// UNSUPPORTED Rust 128:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveInGetErrorTextW(mmrerror : u32, psztext : windows_sys::core::PWSTR, cchtext : u32) -> u32);
+
+// UNSUPPORTED Rust 129:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveInGetID(hwi : HWAVEIN, pudeviceid : *const u32) -> u32);
+
+// UNSUPPORTED Rust 130:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveInGetNumDevs() -> u32);
+
+// UNSUPPORTED Rust 131:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveInGetPosition(hwi : HWAVEIN, pmmt : *mut super:: MMTIME, cbmmt : u32) -> u32);
+
+// UNSUPPORTED Rust 132:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveInMessage(hwi : HWAVEIN, umsg : u32, dw1 : usize, dw2 : usize) -> u32);
+
+// UNSUPPORTED Rust 133:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveInOpen(phwi : *mut HWAVEIN, udeviceid : u32, pwfx : *const WAVEFORMATEX, dwcallback : usize, dwinstance : usize, fdwopen : MIDI_WAVE_OPEN_TYPE) -> u32);
+
+// UNSUPPORTED Rust 134:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveInPrepareHeader(hwi : HWAVEIN, pwh : *mut WAVEHDR, cbwh : u32) -> u32);
+
+// UNSUPPORTED Rust 135:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveInReset(hwi : HWAVEIN) -> u32);
+
+// UNSUPPORTED Rust 136:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveInStart(hwi : HWAVEIN) -> u32);
+
+// UNSUPPORTED Rust 137:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveInStop(hwi : HWAVEIN) -> u32);
+
+// UNSUPPORTED Rust 138:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveInUnprepareHeader(hwi : HWAVEIN, pwh : *mut WAVEHDR, cbwh : u32) -> u32);
+
+// UNSUPPORTED Rust 139:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveOutBreakLoop(hwo : HWAVEOUT) -> u32);
+
+// UNSUPPORTED Rust 140:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveOutClose(hwo : HWAVEOUT) -> u32);
+
+// UNSUPPORTED Rust 141:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveOutGetDevCapsA(udeviceid : usize, pwoc : *mut WAVEOUTCAPSA, cbwoc : u32) -> u32);
+
+// UNSUPPORTED Rust 142:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveOutGetDevCapsW(udeviceid : usize, pwoc : *mut WAVEOUTCAPSW, cbwoc : u32) -> u32);
+
+// UNSUPPORTED Rust 143:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveOutGetErrorTextA(mmrerror : u32, psztext : windows_sys::core::PSTR, cchtext : u32) -> u32);
+
+// UNSUPPORTED Rust 144:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveOutGetErrorTextW(mmrerror : u32, psztext : windows_sys::core::PWSTR, cchtext : u32) -> u32);
+
+// UNSUPPORTED Rust 145:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveOutGetID(hwo : HWAVEOUT, pudeviceid : *mut u32) -> u32);
+
+// UNSUPPORTED Rust 146:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveOutGetNumDevs() -> u32);
+
+// UNSUPPORTED Rust 147:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveOutGetPitch(hwo : HWAVEOUT, pdwpitch : *mut u32) -> u32);
+
+// UNSUPPORTED Rust 148:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveOutGetPlaybackRate(hwo : HWAVEOUT, pdwrate : *mut u32) -> u32);
+
+// UNSUPPORTED Rust 149:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveOutGetPosition(hwo : HWAVEOUT, pmmt : *mut super:: MMTIME, cbmmt : u32) -> u32);
+
+// UNSUPPORTED Rust 150:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveOutGetVolume(hwo : HWAVEOUT, pdwvolume : *mut u32) -> u32);
+
+// UNSUPPORTED Rust 151:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveOutMessage(hwo : HWAVEOUT, umsg : u32, dw1 : usize, dw2 : usize) -> u32);
+
+// UNSUPPORTED Rust 152:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveOutOpen(phwo : *mut HWAVEOUT, udeviceid : u32, pwfx : *const WAVEFORMATEX, dwcallback : usize, dwinstance : usize, fdwopen : MIDI_WAVE_OPEN_TYPE) -> u32);
+
+// UNSUPPORTED Rust 153:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveOutPause(hwo : HWAVEOUT) -> u32);
+
+// UNSUPPORTED Rust 154:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveOutPrepareHeader(hwo : HWAVEOUT, pwh : *mut WAVEHDR, cbwh : u32) -> u32);
+
+// UNSUPPORTED Rust 155:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveOutReset(hwo : HWAVEOUT) -> u32);
+
+// UNSUPPORTED Rust 156:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveOutRestart(hwo : HWAVEOUT) -> u32);
+
+// UNSUPPORTED Rust 157:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveOutSetPitch(hwo : HWAVEOUT, dwpitch : u32) -> u32);
+
+// UNSUPPORTED Rust 158:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveOutSetPlaybackRate(hwo : HWAVEOUT, dwrate : u32) -> u32);
+
+// UNSUPPORTED Rust 159:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveOutSetVolume(hwo : HWAVEOUT, dwvolume : u32) -> u32);
+
+// UNSUPPORTED Rust 160:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveOutUnprepareHeader(hwo : HWAVEOUT, pwh : *mut WAVEHDR, cbwh : u32) -> u32);
+
+// UNSUPPORTED Rust 161:1: declaration Macro has no candidate rule
+// windows_link::link!("winmm.dll" "system" fn waveOutWrite(hwo : HWAVEOUT, pwh : *mut WAVEHDR, cbwh : u32) -> u32);
+
+public const val `ACMDM_DRIVER_ABOUT`: UInt = 24587u;
+public const val `ACMDM_DRIVER_DETAILS`: UInt = 24586u;
+public const val `ACMDM_DRIVER_NOTIFY`: UInt = 24577u;
+public const val `ACMDM_FILTERTAG_DETAILS`: UInt = 24626u;
+public const val `ACMDM_FILTER_DETAILS`: UInt = 24627u;
+public const val `ACMDM_FORMATTAG_DETAILS`: UInt = 24601u;
+public const val `ACMDM_FORMAT_DETAILS`: UInt = 24602u;
+public const val `ACMDM_FORMAT_SUGGEST`: UInt = 24603u;
+public const val `ACMDM_HARDWARE_WAVE_CAPS_INPUT`: UInt = 24596u;
+public const val `ACMDM_HARDWARE_WAVE_CAPS_OUTPUT`: UInt = 24597u;
+public const val `ACMDM_RESERVED_HIGH`: UInt = 28671u;
+public const val `ACMDM_RESERVED_LOW`: UInt = 24576u;
+public const val `ACMDM_STREAM_CLOSE`: UInt = 24653u;
+public const val `ACMDM_STREAM_CONVERT`: UInt = 24655u;
+public const val `ACMDM_STREAM_OPEN`: UInt = 24652u;
+public const val `ACMDM_STREAM_PREPARE`: UInt = 24657u;
+public const val `ACMDM_STREAM_RESET`: UInt = 24656u;
+public const val `ACMDM_STREAM_SIZE`: UInt = 24654u;
+public const val `ACMDM_STREAM_UNPREPARE`: UInt = 24658u;
+public const val `ACMDM_STREAM_UPDATE`: UInt = 24659u;
+public const val `ACMDM_USER`: UInt = 16384u;
+// UNSUPPORTED Rust 183:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+// #[derive(Clone, Copy)]
+// pub struct ACMDRIVERDETAILSA {
+//     pub cbStruct: u32,
+//     pub fccType: u32,
+//     pub fccComp: u32,
+//     pub wMid: u16,
+//     pub wPid: u16,
+//     pub vdwACM: u32,
+//     pub vdwDriver: u32,
+//     pub fdwSupport: u32,
+//     pub cFormatTags: u32,
+//     pub cFilterTags: u32,
+//     pub hicon: super::super::UI::WindowsAndMessaging::HICON,
+//     pub szShortName: [i8; 32],
+//     pub szLongName: [i8; 128],
+//     pub szCopyright: [i8; 80],
+//     pub szLicensing: [i8; 128],
+//     pub szFeatures: [i8; 512],
+// }
+
+// UNSUPPORTED Rust 204:1: declaration Impl has no candidate rule
+// #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+// impl Default for ACMDRIVERDETAILSA {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 210:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+// #[derive(Clone, Copy)]
+// pub struct ACMDRIVERDETAILSW {
+//     pub cbStruct: u32,
+//     pub fccType: u32,
+//     pub fccComp: u32,
+//     pub wMid: u16,
+//     pub wPid: u16,
+//     pub vdwACM: u32,
+//     pub vdwDriver: u32,
+//     pub fdwSupport: u32,
+//     pub cFormatTags: u32,
+//     pub cFilterTags: u32,
+//     pub hicon: super::super::UI::WindowsAndMessaging::HICON,
+//     pub szShortName: [u16; 32],
+//     pub szLongName: [u16; 128],
+//     pub szCopyright: [u16; 80],
+//     pub szLicensing: [u16; 128],
+//     pub szFeatures: [u16; 512],
+// }
+
+// UNSUPPORTED Rust 231:1: declaration Impl has no candidate rule
+// #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+// impl Default for ACMDRIVERDETAILSW {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+public const val `ACMDRIVERDETAILS_COPYRIGHT_CHARS`: UInt = 80u;
+public const val `ACMDRIVERDETAILS_FEATURES_CHARS`: UInt = 512u;
+public const val `ACMDRIVERDETAILS_LICENSING_CHARS`: UInt = 128u;
+public const val `ACMDRIVERDETAILS_LONGNAME_CHARS`: UInt = 128u;
+public const val `ACMDRIVERDETAILS_SHORTNAME_CHARS`: UInt = 32u;
+public const val `ACMDRIVERDETAILS_SUPPORTF_ASYNC`: Int = 16;
+public const val `ACMDRIVERDETAILS_SUPPORTF_CODEC`: Int = 1;
+public const val `ACMDRIVERDETAILS_SUPPORTF_CONVERTER`: Int = 2;
+public const val `ACMDRIVERDETAILS_SUPPORTF_DISABLED`: Int = -2147483648;
+public const val `ACMDRIVERDETAILS_SUPPORTF_FILTER`: Int = 4;
+public const val `ACMDRIVERDETAILS_SUPPORTF_HARDWARE`: Int = 8;
+public const val `ACMDRIVERDETAILS_SUPPORTF_LOCAL`: Int = 1073741824;
+// UNSUPPORTED Rust 249:1: generic scalar type unsupported
+// pub type ACMDRIVERENUMCB = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
+
+// UNSUPPORTED Rust 250:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct ACMDRVFORMATSUGGEST {
+//     pub cbStruct: u32,
+//     pub fdwSuggest: u32,
+//     pub pwfxSrc: *mut WAVEFORMATEX,
+//     pub cbwfxSrc: u32,
+//     pub pwfxDst: *mut WAVEFORMATEX,
+//     pub cbwfxDst: u32,
+// }
+
+// UNSUPPORTED Rust 260:1: declaration Impl has no candidate rule
+// impl Default for ACMDRVFORMATSUGGEST {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 265:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct ACMDRVOPENDESCA {
+//     pub cbStruct: u32,
+//     pub fccType: u32,
+//     pub fccComp: u32,
+//     pub dwVersion: u32,
+//     pub dwFlags: u32,
+//     pub dwError: u32,
+//     pub pszSectionName: windows_sys::core::PCSTR,
+//     pub pszAliasName: windows_sys::core::PCSTR,
+//     pub dnDevNode: u32,
+// }
+
+// UNSUPPORTED Rust 278:1: declaration Impl has no candidate rule
+// impl Default for ACMDRVOPENDESCA {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 283:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct ACMDRVOPENDESCW {
+//     pub cbStruct: u32,
+//     pub fccType: u32,
+//     pub fccComp: u32,
+//     pub dwVersion: u32,
+//     pub dwFlags: u32,
+//     pub dwError: u32,
+//     pub pszSectionName: windows_sys::core::PCWSTR,
+//     pub pszAliasName: windows_sys::core::PCWSTR,
+//     pub dnDevNode: u32,
+// }
+
+// UNSUPPORTED Rust 296:1: declaration Impl has no candidate rule
+// impl Default for ACMDRVOPENDESCW {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 301:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct ACMDRVSTREAMHEADER {
+//     pub cbStruct: u32,
+//     pub fdwStatus: u32,
+//     pub dwUser: usize,
+//     pub pbSrc: *mut u8,
+//     pub cbSrcLength: u32,
+//     pub cbSrcLengthUsed: u32,
+//     pub dwSrcUser: usize,
+//     pub pbDst: *mut u8,
+//     pub cbDstLength: u32,
+//     pub cbDstLengthUsed: u32,
+//     pub dwDstUser: usize,
+//     pub fdwConvert: u32,
+//     pub padshNext: *mut ACMDRVSTREAMHEADER,
+//     pub fdwDriver: u32,
+//     pub dwDriver: usize,
+//     pub fdwPrepared: u32,
+//     pub dwPrepared: usize,
+//     pub pbPreparedSrc: *mut u8,
+//     pub cbPreparedSrcLength: u32,
+//     pub pbPreparedDst: *mut u8,
+//     pub cbPreparedDstLength: u32,
+// }
+
+// UNSUPPORTED Rust 326:1: declaration Impl has no candidate rule
+// impl Default for ACMDRVSTREAMHEADER {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 331:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct ACMDRVSTREAMINSTANCE {
+//     pub cbStruct: u32,
+//     pub pwfxSrc: *mut WAVEFORMATEX,
+//     pub pwfxDst: *mut WAVEFORMATEX,
+//     pub pwfltr: *mut WAVEFILTER,
+//     pub dwCallback: usize,
+//     pub dwInstance: usize,
+//     pub fdwOpen: u32,
+//     pub fdwDriver: u32,
+//     pub dwDriver: usize,
+//     pub has: HACMSTREAM,
+// }
+
+// UNSUPPORTED Rust 345:1: declaration Impl has no candidate rule
+// impl Default for ACMDRVSTREAMINSTANCE {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 350:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy, Default)]
+// pub struct ACMDRVSTREAMSIZE {
+//     pub cbStruct: u32,
+//     pub fdwSize: u32,
+//     pub cbSrcLength: u32,
+//     pub cbDstLength: u32,
+// }
+
+public const val `ACMERR_BASE`: UInt = 512u;
+public const val `ACMERR_BUSY`: UInt = 513u;
+public const val `ACMERR_CANCELED`: UInt = 515u;
+public const val `ACMERR_NOTPOSSIBLE`: UInt = 512u;
+public const val `ACMERR_UNPREPARED`: UInt = 514u;
+// UNSUPPORTED Rust 363:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct ACMFILTERCHOOSEA {
+//     pub cbStruct: u32,
+//     pub fdwStyle: u32,
+//     pub hwndOwner: super::super::Foundation::HWND,
+//     pub pwfltr: *mut WAVEFILTER,
+//     pub cbwfltr: u32,
+//     pub pszTitle: windows_sys::core::PCSTR,
+//     pub szFilterTag: [i8; 48],
+//     pub szFilter: [i8; 128],
+//     pub pszName: windows_sys::core::PSTR,
+//     pub cchName: u32,
+//     pub fdwEnum: u32,
+//     pub pwfltrEnum: *mut WAVEFILTER,
+//     pub hInstance: super::super::Foundation::HINSTANCE,
+//     pub pszTemplateName: windows_sys::core::PCSTR,
+//     pub lCustData: super::super::Foundation::LPARAM,
+//     pub pfnHook: ACMFILTERCHOOSEHOOKPROCA,
+// }
+
+// UNSUPPORTED Rust 383:1: declaration Impl has no candidate rule
+// impl Default for ACMFILTERCHOOSEA {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 388:1: generic scalar type unsupported
+// pub type ACMFILTERCHOOSEHOOKPROCA = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32>;
+
+// UNSUPPORTED Rust 389:1: generic scalar type unsupported
+// pub type ACMFILTERCHOOSEHOOKPROCW = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32>;
+
+// UNSUPPORTED Rust 390:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct ACMFILTERCHOOSEW {
+//     pub cbStruct: u32,
+//     pub fdwStyle: u32,
+//     pub hwndOwner: super::super::Foundation::HWND,
+//     pub pwfltr: *mut WAVEFILTER,
+//     pub cbwfltr: u32,
+//     pub pszTitle: windows_sys::core::PCWSTR,
+//     pub szFilterTag: [u16; 48],
+//     pub szFilter: [u16; 128],
+//     pub pszName: windows_sys::core::PWSTR,
+//     pub cchName: u32,
+//     pub fdwEnum: u32,
+//     pub pwfltrEnum: *mut WAVEFILTER,
+//     pub hInstance: super::super::Foundation::HINSTANCE,
+//     pub pszTemplateName: windows_sys::core::PCWSTR,
+//     pub lCustData: super::super::Foundation::LPARAM,
+//     pub pfnHook: ACMFILTERCHOOSEHOOKPROCW,
+// }
+
+// UNSUPPORTED Rust 410:1: declaration Impl has no candidate rule
+// impl Default for ACMFILTERCHOOSEW {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+public const val `ACMFILTERCHOOSE_STYLEF_CONTEXTHELP`: Int = 128;
+public const val `ACMFILTERCHOOSE_STYLEF_ENABLEHOOK`: Int = 8;
+public const val `ACMFILTERCHOOSE_STYLEF_ENABLETEMPLATE`: Int = 16;
+public const val `ACMFILTERCHOOSE_STYLEF_ENABLETEMPLATEHANDLE`: Int = 32;
+public const val `ACMFILTERCHOOSE_STYLEF_INITTOFILTERSTRUCT`: Int = 64;
+public const val `ACMFILTERCHOOSE_STYLEF_SHOWHELP`: Int = 4;
+// UNSUPPORTED Rust 421:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct ACMFILTERDETAILSA {
+//     pub cbStruct: u32,
+//     pub dwFilterIndex: u32,
+//     pub dwFilterTag: u32,
+//     pub fdwSupport: u32,
+//     pub pwfltr: *mut WAVEFILTER,
+//     pub cbwfltr: u32,
+//     pub szFilter: [i8; 128],
+// }
+
+// UNSUPPORTED Rust 432:1: declaration Impl has no candidate rule
+// impl Default for ACMFILTERDETAILSA {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 437:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct ACMFILTERDETAILSW {
+//     pub cbStruct: u32,
+//     pub dwFilterIndex: u32,
+//     pub dwFilterTag: u32,
+//     pub fdwSupport: u32,
+//     pub pwfltr: *mut WAVEFILTER,
+//     pub cbwfltr: u32,
+//     pub szFilter: [u16; 128],
+// }
+
+// UNSUPPORTED Rust 448:1: declaration Impl has no candidate rule
+// impl Default for ACMFILTERDETAILSW {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+public const val `ACMFILTERDETAILS_FILTER_CHARS`: UInt = 128u;
+// UNSUPPORTED Rust 454:1: generic scalar type unsupported
+// pub type ACMFILTERENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSA, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
+
+// UNSUPPORTED Rust 455:1: generic scalar type unsupported
+// pub type ACMFILTERENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSW, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
+
+// UNSUPPORTED Rust 456:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct ACMFILTERTAGDETAILSA {
+//     pub cbStruct: u32,
+//     pub dwFilterTagIndex: u32,
+//     pub dwFilterTag: u32,
+//     pub cbFilterSize: u32,
+//     pub fdwSupport: u32,
+//     pub cStandardFilters: u32,
+//     pub szFilterTag: [i8; 48],
+// }
+
+// UNSUPPORTED Rust 467:1: declaration Impl has no candidate rule
+// impl Default for ACMFILTERTAGDETAILSA {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 472:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct ACMFILTERTAGDETAILSW {
+//     pub cbStruct: u32,
+//     pub dwFilterTagIndex: u32,
+//     pub dwFilterTag: u32,
+//     pub cbFilterSize: u32,
+//     pub fdwSupport: u32,
+//     pub cStandardFilters: u32,
+//     pub szFilterTag: [u16; 48],
+// }
+
+// UNSUPPORTED Rust 483:1: declaration Impl has no candidate rule
+// impl Default for ACMFILTERTAGDETAILSW {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+public const val `ACMFILTERTAGDETAILS_FILTERTAG_CHARS`: UInt = 48u;
+// UNSUPPORTED Rust 489:1: generic scalar type unsupported
+// pub type ACMFILTERTAGENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
+
+// UNSUPPORTED Rust 490:1: generic scalar type unsupported
+// pub type ACMFILTERTAGENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
+
+// UNSUPPORTED Rust 491:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct ACMFORMATCHOOSEA {
+//     pub cbStruct: u32,
+//     pub fdwStyle: u32,
+//     pub hwndOwner: super::super::Foundation::HWND,
+//     pub pwfx: *mut WAVEFORMATEX,
+//     pub cbwfx: u32,
+//     pub pszTitle: windows_sys::core::PCSTR,
+//     pub szFormatTag: [i8; 48],
+//     pub szFormat: [i8; 128],
+//     pub pszName: windows_sys::core::PSTR,
+//     pub cchName: u32,
+//     pub fdwEnum: u32,
+//     pub pwfxEnum: *mut WAVEFORMATEX,
+//     pub hInstance: super::super::Foundation::HINSTANCE,
+//     pub pszTemplateName: windows_sys::core::PCSTR,
+//     pub lCustData: super::super::Foundation::LPARAM,
+//     pub pfnHook: ACMFORMATCHOOSEHOOKPROCA,
+// }
+
+// UNSUPPORTED Rust 511:1: declaration Impl has no candidate rule
+// impl Default for ACMFORMATCHOOSEA {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 516:1: generic scalar type unsupported
+// pub type ACMFORMATCHOOSEHOOKPROCA = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32>;
+
+// UNSUPPORTED Rust 517:1: generic scalar type unsupported
+// pub type ACMFORMATCHOOSEHOOKPROCW = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32>;
+
+// UNSUPPORTED Rust 518:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct ACMFORMATCHOOSEW {
+//     pub cbStruct: u32,
+//     pub fdwStyle: u32,
+//     pub hwndOwner: super::super::Foundation::HWND,
+//     pub pwfx: *mut WAVEFORMATEX,
+//     pub cbwfx: u32,
+//     pub pszTitle: windows_sys::core::PCWSTR,
+//     pub szFormatTag: [u16; 48],
+//     pub szFormat: [u16; 128],
+//     pub pszName: windows_sys::core::PWSTR,
+//     pub cchName: u32,
+//     pub fdwEnum: u32,
+//     pub pwfxEnum: *mut WAVEFORMATEX,
+//     pub hInstance: super::super::Foundation::HINSTANCE,
+//     pub pszTemplateName: windows_sys::core::PCWSTR,
+//     pub lCustData: super::super::Foundation::LPARAM,
+//     pub pfnHook: ACMFORMATCHOOSEHOOKPROCW,
+// }
+
+// UNSUPPORTED Rust 538:1: declaration Impl has no candidate rule
+// impl Default for ACMFORMATCHOOSEW {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+public const val `ACMFORMATCHOOSE_STYLEF_CONTEXTHELP`: Int = 128;
+public const val `ACMFORMATCHOOSE_STYLEF_ENABLEHOOK`: Int = 8;
+public const val `ACMFORMATCHOOSE_STYLEF_ENABLETEMPLATE`: Int = 16;
+public const val `ACMFORMATCHOOSE_STYLEF_ENABLETEMPLATEHANDLE`: Int = 32;
+public const val `ACMFORMATCHOOSE_STYLEF_INITTOWFXSTRUCT`: Int = 64;
+public const val `ACMFORMATCHOOSE_STYLEF_SHOWHELP`: Int = 4;
+// UNSUPPORTED Rust 549:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct ACMFORMATDETAILSA {
+//     pub cbStruct: u32,
+//     pub dwFormatIndex: u32,
+//     pub dwFormatTag: u32,
+//     pub fdwSupport: u32,
+//     pub pwfx: *mut WAVEFORMATEX,
+//     pub cbwfx: u32,
+//     pub szFormat: [i8; 128],
+// }
+
+// UNSUPPORTED Rust 560:1: declaration Impl has no candidate rule
+// impl Default for ACMFORMATDETAILSA {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+public const val `ACMFORMATDETAILS_FORMAT_CHARS`: UInt = 128u;
+// UNSUPPORTED Rust 566:1: generic scalar type unsupported
+// pub type ACMFORMATENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFORMATDETAILSA, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
+
+// UNSUPPORTED Rust 567:1: generic scalar type unsupported
+// pub type ACMFORMATENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut tACMFORMATDETAILSW, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
+
+// UNSUPPORTED Rust 568:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct ACMFORMATTAGDETAILSA {
+//     pub cbStruct: u32,
+//     pub dwFormatTagIndex: u32,
+//     pub dwFormatTag: u32,
+//     pub cbFormatSize: u32,
+//     pub fdwSupport: u32,
+//     pub cStandardFormats: u32,
+//     pub szFormatTag: [i8; 48],
+// }
+
+// UNSUPPORTED Rust 579:1: declaration Impl has no candidate rule
+// impl Default for ACMFORMATTAGDETAILSA {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 584:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct ACMFORMATTAGDETAILSW {
+//     pub cbStruct: u32,
+//     pub dwFormatTagIndex: u32,
+//     pub dwFormatTag: u32,
+//     pub cbFormatSize: u32,
+//     pub fdwSupport: u32,
+//     pub cStandardFormats: u32,
+//     pub szFormatTag: [u16; 48],
+// }
+
+// UNSUPPORTED Rust 595:1: declaration Impl has no candidate rule
+// impl Default for ACMFORMATTAGDETAILSW {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+public const val `ACMFORMATTAGDETAILS_FORMATTAG_CHARS`: UInt = 48u;
+// UNSUPPORTED Rust 601:1: generic scalar type unsupported
+// pub type ACMFORMATTAGENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
+
+// UNSUPPORTED Rust 602:1: generic scalar type unsupported
+// pub type ACMFORMATTAGENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
+
+// UNSUPPORTED Rust 603:1: non-scalar type Ptr unsupported
+// pub const ACMHELPMSGCONTEXTHELP: windows_sys::core::PCWSTR = windows_sys::core::w!("acmchoose_contexthelp");
+
+// UNSUPPORTED Rust 604:1: non-scalar type Ptr unsupported
+// pub const ACMHELPMSGCONTEXTHELPA: windows_sys::core::PCSTR = windows_sys::core::s!("acmchoose_contexthelp");
+
+// UNSUPPORTED Rust 605:1: non-scalar type Ptr unsupported
+// pub const ACMHELPMSGCONTEXTHELPW: windows_sys::core::PCWSTR = windows_sys::core::w!("acmchoose_contexthelp");
+
+// UNSUPPORTED Rust 606:1: non-scalar type Ptr unsupported
+// pub const ACMHELPMSGCONTEXTMENU: windows_sys::core::PCWSTR = windows_sys::core::w!("acmchoose_contextmenu");
+
+// UNSUPPORTED Rust 607:1: non-scalar type Ptr unsupported
+// pub const ACMHELPMSGCONTEXTMENUA: windows_sys::core::PCSTR = windows_sys::core::s!("acmchoose_contextmenu");
+
+// UNSUPPORTED Rust 608:1: non-scalar type Ptr unsupported
+// pub const ACMHELPMSGCONTEXTMENUW: windows_sys::core::PCWSTR = windows_sys::core::w!("acmchoose_contextmenu");
+
+// UNSUPPORTED Rust 609:1: non-scalar type Ptr unsupported
+// pub const ACMHELPMSGSTRING: windows_sys::core::PCWSTR = windows_sys::core::w!("acmchoose_help");
+
+// UNSUPPORTED Rust 610:1: non-scalar type Ptr unsupported
+// pub const ACMHELPMSGSTRINGA: windows_sys::core::PCSTR = windows_sys::core::s!("acmchoose_help");
+
+// UNSUPPORTED Rust 611:1: non-scalar type Ptr unsupported
+// pub const ACMHELPMSGSTRINGW: windows_sys::core::PCWSTR = windows_sys::core::w!("acmchoose_help");
+
+// UNSUPPORTED Rust 612:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[cfg(target_arch = "x86")]
+// #[derive(Clone, Copy)]
+// pub struct ACMSTREAMHEADER {
+//     pub cbStruct: u32,
+//     pub fdwStatus: u32,
+//     pub dwUser: usize,
+//     pub pbSrc: *mut u8,
+//     pub cbSrcLength: u32,
+//     pub cbSrcLengthUsed: u32,
+//     pub dwSrcUser: usize,
+//     pub pbDst: *mut u8,
+//     pub cbDstLength: u32,
+//     pub cbDstLengthUsed: u32,
+//     pub dwDstUser: usize,
+//     pub dwReservedDriver: [u32; 10],
+// }
+
+// UNSUPPORTED Rust 629:1: declaration Impl has no candidate rule
+// #[cfg(target_arch = "x86")]
+// impl Default for ACMSTREAMHEADER {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 635:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+// #[derive(Clone, Copy)]
+// pub struct ACMSTREAMHEADER {
+//     pub cbStruct: u32,
+//     pub fdwStatus: u32,
+//     pub dwUser: usize,
+//     pub pbSrc: *mut u8,
+//     pub cbSrcLength: u32,
+//     pub cbSrcLengthUsed: u32,
+//     pub dwSrcUser: usize,
+//     pub pbDst: *mut u8,
+//     pub cbDstLength: u32,
+//     pub cbDstLengthUsed: u32,
+//     pub dwDstUser: usize,
+//     pub dwReservedDriver: [u32; 15],
+// }
+
+// UNSUPPORTED Rust 652:1: declaration Impl has no candidate rule
+// #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+// impl Default for ACMSTREAMHEADER {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+public const val `ACMSTREAMHEADER_STATUSF_DONE`: Int = 65536;
+public const val `ACMSTREAMHEADER_STATUSF_INQUEUE`: Int = 1048576;
+public const val `ACMSTREAMHEADER_STATUSF_PREPARED`: Int = 131072;
+public const val `ACM_DRIVERADDF_FUNCTION`: Int = 3;
+public const val `ACM_DRIVERADDF_GLOBAL`: Int = 8;
+public const val `ACM_DRIVERADDF_LOCAL`: Int = 0;
+public const val `ACM_DRIVERADDF_NAME`: Int = 1;
+public const val `ACM_DRIVERADDF_NOTIFYHWND`: Int = 4;
+public const val `ACM_DRIVERADDF_TYPEMASK`: Int = 7;
+public const val `ACM_DRIVERENUMF_DISABLED`: Int = -2147483648;
+public const val `ACM_DRIVERENUMF_NOLOCAL`: Int = 1073741824;
+public const val `ACM_DRIVERPRIORITYF_ABLEMASK`: Int = 3;
+public const val `ACM_DRIVERPRIORITYF_BEGIN`: Int = 65536;
+public const val `ACM_DRIVERPRIORITYF_DEFERMASK`: Int = 196608;
+public const val `ACM_DRIVERPRIORITYF_DISABLE`: Int = 2;
+public const val `ACM_DRIVERPRIORITYF_ENABLE`: Int = 1;
+public const val `ACM_DRIVERPRIORITYF_END`: Int = 131072;
+public const val `ACM_FILTERDETAILSF_FILTER`: Int = 1;
+public const val `ACM_FILTERDETAILSF_INDEX`: Int = 0;
+public const val `ACM_FILTERDETAILSF_QUERYMASK`: Int = 15;
+public const val `ACM_FILTERENUMF_DWFILTERTAG`: Int = 65536;
+public const val `ACM_FILTERTAGDETAILSF_FILTERTAG`: Int = 1;
+public const val `ACM_FILTERTAGDETAILSF_INDEX`: Int = 0;
+public const val `ACM_FILTERTAGDETAILSF_LARGESTSIZE`: Int = 2;
+public const val `ACM_FILTERTAGDETAILSF_QUERYMASK`: Int = 15;
+public const val `ACM_FORMATDETAILSF_FORMAT`: Int = 1;
+public const val `ACM_FORMATDETAILSF_INDEX`: Int = 0;
+public const val `ACM_FORMATDETAILSF_QUERYMASK`: Int = 15;
+public const val `ACM_FORMATENUMF_CONVERT`: Int = 1048576;
+public const val `ACM_FORMATENUMF_HARDWARE`: Int = 4194304;
+public const val `ACM_FORMATENUMF_INPUT`: Int = 8388608;
+public const val `ACM_FORMATENUMF_NCHANNELS`: Int = 131072;
+public const val `ACM_FORMATENUMF_NSAMPLESPERSEC`: Int = 262144;
+public const val `ACM_FORMATENUMF_OUTPUT`: Int = 16777216;
+public const val `ACM_FORMATENUMF_SUGGEST`: Int = 2097152;
+public const val `ACM_FORMATENUMF_WBITSPERSAMPLE`: Int = 524288;
+public const val `ACM_FORMATENUMF_WFORMATTAG`: Int = 65536;
+public const val `ACM_FORMATSUGGESTF_NCHANNELS`: Int = 131072;
+public const val `ACM_FORMATSUGGESTF_NSAMPLESPERSEC`: Int = 262144;
+public const val `ACM_FORMATSUGGESTF_TYPEMASK`: Int = 16711680;
+public const val `ACM_FORMATSUGGESTF_WBITSPERSAMPLE`: Int = 524288;
+public const val `ACM_FORMATSUGGESTF_WFORMATTAG`: Int = 65536;
+public const val `ACM_FORMATTAGDETAILSF_FORMATTAG`: Int = 1;
+public const val `ACM_FORMATTAGDETAILSF_INDEX`: Int = 0;
+public const val `ACM_FORMATTAGDETAILSF_LARGESTSIZE`: Int = 2;
+public const val `ACM_FORMATTAGDETAILSF_QUERYMASK`: Int = 15;
+public const val `ACM_METRIC_COUNT_CODECS`: UInt = 2u;
+public const val `ACM_METRIC_COUNT_CONVERTERS`: UInt = 3u;
+public const val `ACM_METRIC_COUNT_DISABLED`: UInt = 5u;
+public const val `ACM_METRIC_COUNT_DRIVERS`: UInt = 1u;
+public const val `ACM_METRIC_COUNT_FILTERS`: UInt = 4u;
+public const val `ACM_METRIC_COUNT_HARDWARE`: UInt = 6u;
+public const val `ACM_METRIC_COUNT_LOCAL_CODECS`: UInt = 21u;
+public const val `ACM_METRIC_COUNT_LOCAL_CONVERTERS`: UInt = 22u;
+public const val `ACM_METRIC_COUNT_LOCAL_DISABLED`: UInt = 24u;
+public const val `ACM_METRIC_COUNT_LOCAL_DRIVERS`: UInt = 20u;
+public const val `ACM_METRIC_COUNT_LOCAL_FILTERS`: UInt = 23u;
+public const val `ACM_METRIC_DRIVER_PRIORITY`: UInt = 101u;
+public const val `ACM_METRIC_DRIVER_SUPPORT`: UInt = 100u;
+public const val `ACM_METRIC_HARDWARE_WAVE_INPUT`: UInt = 30u;
+public const val `ACM_METRIC_HARDWARE_WAVE_OUTPUT`: UInt = 31u;
+public const val `ACM_METRIC_MAX_SIZE_FILTER`: UInt = 51u;
+public const val `ACM_METRIC_MAX_SIZE_FORMAT`: UInt = 50u;
+public const val `ACM_STREAMCONVERTF_BLOCKALIGN`: UInt = 4u;
+public const val `ACM_STREAMCONVERTF_END`: UInt = 32u;
+public const val `ACM_STREAMCONVERTF_START`: UInt = 16u;
+public const val `ACM_STREAMOPENF_ASYNC`: UInt = 2u;
+public const val `ACM_STREAMOPENF_NONREALTIME`: UInt = 4u;
+public const val `ACM_STREAMOPENF_QUERY`: UInt = 1u;
+public const val `ACM_STREAMSIZEF_DESTINATION`: Int = 1;
+public const val `ACM_STREAMSIZEF_QUERYMASK`: Int = 15;
+public const val `ACM_STREAMSIZEF_SOURCE`: Int = 0;
+public typealias `AMBISONICS_CHANNEL_ORDERING` = Int;
+public const val `AMBISONICS_CHANNEL_ORDERING_ACN`: `AMBISONICS_CHANNEL_ORDERING` = 0;
+public typealias `AMBISONICS_NORMALIZATION` = Int;
+public const val `AMBISONICS_NORMALIZATION_N3D`: `AMBISONICS_NORMALIZATION` = 1;
+public const val `AMBISONICS_NORMALIZATION_SN3D`: `AMBISONICS_NORMALIZATION` = 0;
+// UNSUPPORTED Rust 735:1: declaration Struct has no candidate rule
+// #[repr(C)]
+// #[derive(Clone, Copy)]
+// pub struct AMBISONICS_PARAMS {
+//     pub u32Size: u32,
+//     pub u32Version: u32,
+//     pub u32Type: AMBISONICS_TYPE,
+//     pub u32ChannelOrdering: AMBISONICS_CHANNEL_ORDERING,
+//     pub u32Normalization: AMBISONICS_NORMALIZATION,
+//     pub u32Order: u32,
+//     pub u32NumChannels: u32,
+//     pub pu32ChannelMap: *mut u32,
+// }
+
+// UNSUPPORTED Rust 747:1: declaration Impl has no candidate rule
+// impl Default for AMBISONICS_PARAMS {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+public const val `AMBISONICS_PARAM_VERSION_1`: UInt = 1u;
+public typealias `AMBISONICS_TYPE` = Int;
+public const val `AMBISONICS_TYPE_FULL3D`: `AMBISONICS_TYPE` = 0;
+public const val `AUDCLNT_BUFFERFLAGS_DATA_DISCONTINUITY`: `_AUDCLNT_BUFFERFLAGS` = 1;
+public const val `AUDCLNT_BUFFERFLAGS_SILENT`: `_AUDCLNT_BUFFERFLAGS` = 2;
+public const val `AUDCLNT_BUFFERFLAGS_TIMESTAMP_ERROR`: `_AUDCLNT_BUFFERFLAGS` = 4;
+public const val `AUDCLNT_E_ALREADY_INITIALIZED`: Int = -2004287486;
+public const val `AUDCLNT_E_BUFDURATION_PERIOD_NOT_EQUAL`: Int = -2004287469;
+public const val `AUDCLNT_E_BUFFER_ERROR`: Int = -2004287464;
+public const val `AUDCLNT_E_BUFFER_OPERATION_PENDING`: Int = -2004287477;
+public const val `AUDCLNT_E_BUFFER_SIZE_ERROR`: Int = -2004287466;
+public const val `AUDCLNT_E_BUFFER_SIZE_NOT_ALIGNED`: Int = -2004287463;
+public const val `AUDCLNT_E_BUFFER_TOO_LARGE`: Int = -2004287482;
+public const val `AUDCLNT_E_CPUUSAGE_EXCEEDED`: Int = -2004287465;
+public const val `AUDCLNT_E_DEVICE_INVALIDATED`: Int = -2004287484;
+public const val `AUDCLNT_E_DEVICE_IN_USE`: Int = -2004287478;
+public const val `AUDCLNT_E_EFFECT_NOT_AVAILABLE`: Int = -2004287423;
+public const val `AUDCLNT_E_EFFECT_STATE_READ_ONLY`: Int = -2004287422;
+public const val `AUDCLNT_E_ENDPOINT_CREATE_FAILED`: Int = -2004287473;
+public const val `AUDCLNT_E_ENDPOINT_OFFLOAD_NOT_CAPABLE`: Int = -2004287454;
+public const val `AUDCLNT_E_ENGINE_FORMAT_LOCKED`: Int = -2004287447;
+public const val `AUDCLNT_E_ENGINE_PERIODICITY_LOCKED`: Int = -2004287448;
+public const val `AUDCLNT_E_EVENTHANDLE_NOT_EXPECTED`: Int = -2004287471;
+public const val `AUDCLNT_E_EVENTHANDLE_NOT_SET`: Int = -2004287468;
+public const val `AUDCLNT_E_EXCLUSIVE_MODE_NOT_ALLOWED`: Int = -2004287474;
+public const val `AUDCLNT_E_EXCLUSIVE_MODE_ONLY`: Int = -2004287470;
+public const val `AUDCLNT_E_HEADTRACKING_ENABLED`: Int = -2004287440;
+public const val `AUDCLNT_E_HEADTRACKING_UNSUPPORTED`: Int = -2004287424;
+public const val `AUDCLNT_E_INCORRECT_BUFFER_SIZE`: Int = -2004287467;
+public const val `AUDCLNT_E_INVALID_DEVICE_PERIOD`: Int = -2004287456;
+public const val `AUDCLNT_E_INVALID_SIZE`: Int = -2004287479;
+public const val `AUDCLNT_E_INVALID_STREAM_FLAG`: Int = -2004287455;
+public const val `AUDCLNT_E_NONOFFLOAD_MODE_ONLY`: Int = -2004287451;
+public const val `AUDCLNT_E_NOT_INITIALIZED`: Int = -2004287487;
+public const val `AUDCLNT_E_NOT_STOPPED`: Int = -2004287483;
+public const val `AUDCLNT_E_OFFLOAD_MODE_ONLY`: Int = -2004287452;
+public const val `AUDCLNT_E_OUT_OF_OFFLOAD_RESOURCES`: Int = -2004287453;
+public const val `AUDCLNT_E_OUT_OF_ORDER`: Int = -2004287481;
+public const val `AUDCLNT_E_RAW_MODE_UNSUPPORTED`: Int = -2004287449;
+public const val `AUDCLNT_E_RESOURCES_INVALIDATED`: Int = -2004287450;
+public const val `AUDCLNT_E_SERVICE_NOT_RUNNING`: Int = -2004287472;
+public const val `AUDCLNT_E_THREAD_NOT_REGISTERED`: Int = -2004287476;
+public const val `AUDCLNT_E_UNSUPPORTED_FORMAT`: Int = -2004287480;
+public const val `AUDCLNT_E_WRONG_ENDPOINT_TYPE`: Int = -2004287485;
+public const val `AUDCLNT_SESSIONFLAGS_DISPLAY_HIDE`: UInt = 536870912u;
+public const val `AUDCLNT_SESSIONFLAGS_DISPLAY_HIDEWHENEXPIRED`: UInt = 1073741824u;
+public const val `AUDCLNT_SESSIONFLAGS_EXPIREWHENUNOWNED`: UInt = 268435456u;
+public typealias `AUDCLNT_SHAREMODE` = Int;
+public const val `AUDCLNT_SHAREMODE_EXCLUSIVE`: `AUDCLNT_SHAREMODE` = 1;
+public const val `AUDCLNT_SHAREMODE_SHARED`: `AUDCLNT_SHAREMODE` = 0;
+public const val `AUDCLNT_STREAMFLAGS_AUTOCONVERTPCM`: UInt = 2147483648u;
+public const val `AUDCLNT_STREAMFLAGS_CROSSPROCESS`: UInt = 65536u;
+public const val `AUDCLNT_STREAMFLAGS_EVENTCALLBACK`: UInt = 262144u;
+public const val `AUDCLNT_STREAMFLAGS_LOOPBACK`: UInt = 131072u;
+public const val `AUDCLNT_STREAMFLAGS_NOPERSIST`: UInt = 524288u;
+public const val `AUDCLNT_STREAMFLAGS_RATEADJUST`: UInt = 1048576u;
+public const val `AUDCLNT_STREAMFLAGS_SRC_DEFAULT_QUALITY`: UInt = 134217728u;
+public typealias `AUDCLNT_STREAMOPTIONS` = Int;
+public const val `AUDCLNT_STREAMOPTIONS_AMBISONICS`: `AUDCLNT_STREAMOPTIONS` = 4;
+public const val `AUDCLNT_STREAMOPTIONS_MATCH_FORMAT`: `AUDCLNT_STREAMOPTIONS` = 2;
+public const val `AUDCLNT_STREAMOPTIONS_NONE`: `AUDCLNT_STREAMOPTIONS` = 0;
+public const val `AUDCLNT_STREAMOPTIONS_RAW`: `AUDCLNT_STREAMOPTIONS` = 1;
+public const val `AUDCLNT_S_BUFFER_EMPTY`: Int = 143196161;
+public const val `AUDCLNT_S_POSITION_STALLED`: Int = 143196163;
+public const val `AUDCLNT_S_THREAD_ALREADY_REGISTERED`: Int = 143196162;
+// UNSUPPORTED Rust 817:1: declaration Struct has no candidate rule
+// #[repr(C)]
+// #[derive(Clone, Copy)]
+// pub struct AUDIOCLIENT_ACTIVATION_PARAMS {
+//     pub ActivationType: AUDIOCLIENT_ACTIVATION_TYPE,
+//     pub Anonymous: AUDIOCLIENT_ACTIVATION_PARAMS_0,
+// }
+
+// UNSUPPORTED Rust 823:1: declaration Impl has no candidate rule
+// impl Default for AUDIOCLIENT_ACTIVATION_PARAMS {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 828:1: declaration Union has no candidate rule
+// #[repr(C)]
+// #[derive(Clone, Copy)]
+// pub union AUDIOCLIENT_ACTIVATION_PARAMS_0 {
+//     pub ProcessLoopbackParams: AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS,
+// }
+
+// UNSUPPORTED Rust 833:1: declaration Impl has no candidate rule
+// impl Default for AUDIOCLIENT_ACTIVATION_PARAMS_0 {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+public typealias `AUDIOCLIENT_ACTIVATION_TYPE` = Int;
+public const val `AUDIOCLIENT_ACTIVATION_TYPE_DEFAULT`: `AUDIOCLIENT_ACTIVATION_TYPE` = 0;
+public const val `AUDIOCLIENT_ACTIVATION_TYPE_PROCESS_LOOPBACK`: `AUDIOCLIENT_ACTIVATION_TYPE` = 1;
+// UNSUPPORTED Rust 841:1: declaration Struct has no candidate rule
+// #[repr(C)]
+// #[derive(Clone, Copy, Default)]
+// pub struct AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS {
+//     pub TargetProcessId: u32,
+//     pub ProcessLoopbackMode: PROCESS_LOOPBACK_MODE,
+// }
+
+public const val `AUDIOCLOCK_CHARACTERISTIC_FIXED_FREQ`: UInt = 1u;
+public typealias `AUDIO_DUCKING_OPTIONS` = Int;
+public const val `AUDIO_DUCKING_OPTIONS_DEFAULT`: `AUDIO_DUCKING_OPTIONS` = 0;
+public const val `AUDIO_DUCKING_OPTIONS_DO_NOT_DUCK_OTHER_STREAMS`: `AUDIO_DUCKING_OPTIONS` = 1;
+// UNSUPPORTED Rust 851:1: declaration Struct has no candidate rule
+// #[repr(C)]
+// #[derive(Clone, Copy, Default)]
+// pub struct AUDIO_EFFECT {
+//     pub id: windows_sys::core::GUID,
+//     pub canSetState: windows_sys::core::BOOL,
+//     pub state: AUDIO_EFFECT_STATE,
+// }
+
+public typealias `AUDIO_EFFECT_STATE` = Int;
+public const val `AUDIO_EFFECT_STATE_OFF`: `AUDIO_EFFECT_STATE` = 0;
+public const val `AUDIO_EFFECT_STATE_ON`: `AUDIO_EFFECT_STATE` = 1;
+public typealias `AUDIO_STREAM_CATEGORY` = Int;
+public typealias `AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE` = Int;
+public const val `AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_DEFAULT`: `AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE` = 0;
+public const val `AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_ENUM_COUNT`: `AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE` = 3;
+public const val `AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_USER`: `AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE` = 1;
+public const val `AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_VOLATILE`: `AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE` = 2;
+// UNSUPPORTED Rust 867:1: declaration Struct has no candidate rule
+// #[repr(C)]
+// #[derive(Clone, Copy)]
+// pub struct AUDIO_VOLUME_NOTIFICATION_DATA {
+//     pub guidEventContext: windows_sys::core::GUID,
+//     pub bMuted: windows_sys::core::BOOL,
+//     pub fMasterVolume: f32,
+//     pub nChannels: u32,
+//     pub afChannelVolumes: [f32; 1],
+// }
+
+// UNSUPPORTED Rust 876:1: declaration Impl has no candidate rule
+// impl Default for AUDIO_VOLUME_NOTIFICATION_DATA {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 881:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct AUXCAPS2A {
+//     pub wMid: u16,
+//     pub wPid: u16,
+//     pub vDriverVersion: u32,
+//     pub szPname: [i8; 32],
+//     pub wTechnology: u16,
+//     pub wReserved1: u16,
+//     pub dwSupport: u32,
+//     pub ManufacturerGuid: windows_sys::core::GUID,
+//     pub ProductGuid: windows_sys::core::GUID,
+//     pub NameGuid: windows_sys::core::GUID,
+// }
+
+// UNSUPPORTED Rust 895:1: declaration Impl has no candidate rule
+// impl Default for AUXCAPS2A {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 900:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct AUXCAPS2W {
+//     pub wMid: u16,
+//     pub wPid: u16,
+//     pub vDriverVersion: u32,
+//     pub szPname: [u16; 32],
+//     pub wTechnology: u16,
+//     pub wReserved1: u16,
+//     pub dwSupport: u32,
+//     pub ManufacturerGuid: windows_sys::core::GUID,
+//     pub ProductGuid: windows_sys::core::GUID,
+//     pub NameGuid: windows_sys::core::GUID,
+// }
+
+// UNSUPPORTED Rust 914:1: declaration Impl has no candidate rule
+// impl Default for AUXCAPS2W {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 919:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct AUXCAPSA {
+//     pub wMid: u16,
+//     pub wPid: u16,
+//     pub vDriverVersion: u32,
+//     pub szPname: [i8; 32],
+//     pub wTechnology: u16,
+//     pub wReserved1: u16,
+//     pub dwSupport: u32,
+// }
+
+// UNSUPPORTED Rust 930:1: declaration Impl has no candidate rule
+// impl Default for AUXCAPSA {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 935:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct AUXCAPSW {
+//     pub wMid: u16,
+//     pub wPid: u16,
+//     pub vDriverVersion: u32,
+//     pub szPname: [u16; 32],
+//     pub wTechnology: u16,
+//     pub wReserved1: u16,
+//     pub dwSupport: u32,
+// }
+
+// UNSUPPORTED Rust 946:1: declaration Impl has no candidate rule
+// impl Default for AUXCAPSW {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+public const val `AUXCAPS_AUXIN`: UInt = 2u;
+public const val `AUXCAPS_CDAUDIO`: UInt = 1u;
+public const val `AUXCAPS_LRVOLUME`: UInt = 2u;
+public const val `AUXCAPS_VOLUME`: UInt = 1u;
+public const val `AudioCategory_Alerts`: `AUDIO_STREAM_CATEGORY` = 4;
+public const val `AudioCategory_Communications`: `AUDIO_STREAM_CATEGORY` = 3;
+public const val `AudioCategory_FarFieldSpeech`: `AUDIO_STREAM_CATEGORY` = 12;
+public const val `AudioCategory_ForegroundOnlyMedia`: `AUDIO_STREAM_CATEGORY` = 1;
+public const val `AudioCategory_GameChat`: `AUDIO_STREAM_CATEGORY` = 8;
+public const val `AudioCategory_GameEffects`: `AUDIO_STREAM_CATEGORY` = 6;
+public const val `AudioCategory_GameMedia`: `AUDIO_STREAM_CATEGORY` = 7;
+public const val `AudioCategory_Media`: `AUDIO_STREAM_CATEGORY` = 11;
+public const val `AudioCategory_Movie`: `AUDIO_STREAM_CATEGORY` = 10;
+public const val `AudioCategory_Other`: `AUDIO_STREAM_CATEGORY` = 0;
+public const val `AudioCategory_SoundEffects`: `AUDIO_STREAM_CATEGORY` = 5;
+public const val `AudioCategory_Speech`: `AUDIO_STREAM_CATEGORY` = 9;
+public const val `AudioCategory_UniformSpeech`: `AUDIO_STREAM_CATEGORY` = 13;
+public const val `AudioCategory_VoiceTyping`: `AUDIO_STREAM_CATEGORY` = 14;
+// UNSUPPORTED Rust 969:1: declaration Struct has no candidate rule
+// #[repr(C)]
+// #[derive(Clone, Copy, Default)]
+// pub struct AudioClient3ActivationParams {
+//     pub tracingContextId: windows_sys::core::GUID,
+// }
+
+// UNSUPPORTED Rust 974:1: declaration Struct has no candidate rule
+// #[repr(C)]
+// #[derive(Clone, Copy, Default)]
+// pub struct AudioClientProperties {
+//     pub cbSize: u32,
+//     pub bIsOffload: windows_sys::core::BOOL,
+//     pub eCategory: AUDIO_STREAM_CATEGORY,
+//     pub Options: AUDCLNT_STREAMOPTIONS,
+// }
+
+// UNSUPPORTED Rust 982:1: declaration Struct has no candidate rule
+// #[repr(C)]
+// #[derive(Clone, Copy)]
+// pub struct AudioExtensionParams {
+//     pub AddPageParam: super::super::Foundation::LPARAM,
+//     pub pEndpoint: *mut core::ffi::c_void,
+//     pub pPnpInterface: *mut core::ffi::c_void,
+//     pub pPnpDevnode: *mut core::ffi::c_void,
+// }
+
+// UNSUPPORTED Rust 990:1: declaration Impl has no candidate rule
+// impl Default for AudioExtensionParams {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+public typealias `AudioObjectType` = Int;
+public const val `AudioObjectType_BackCenter`: `AudioObjectType` = 131072;
+public const val `AudioObjectType_BackLeft`: `AudioObjectType` = 128;
+public const val `AudioObjectType_BackRight`: `AudioObjectType` = 256;
+public const val `AudioObjectType_BottomBackLeft`: `AudioObjectType` = 32768;
+public const val `AudioObjectType_BottomBackRight`: `AudioObjectType` = 65536;
+public const val `AudioObjectType_BottomFrontLeft`: `AudioObjectType` = 8192;
+public const val `AudioObjectType_BottomFrontRight`: `AudioObjectType` = 16384;
+public const val `AudioObjectType_Dynamic`: `AudioObjectType` = 1;
+public const val `AudioObjectType_FrontCenter`: `AudioObjectType` = 8;
+public const val `AudioObjectType_FrontLeft`: `AudioObjectType` = 2;
+public const val `AudioObjectType_FrontRight`: `AudioObjectType` = 4;
+public const val `AudioObjectType_LowFrequency`: `AudioObjectType` = 16;
+public const val `AudioObjectType_None`: `AudioObjectType` = 0;
+public const val `AudioObjectType_SideLeft`: `AudioObjectType` = 32;
+public const val `AudioObjectType_SideRight`: `AudioObjectType` = 64;
+public const val `AudioObjectType_TopBackLeft`: `AudioObjectType` = 2048;
+public const val `AudioObjectType_TopBackRight`: `AudioObjectType` = 4096;
+public const val `AudioObjectType_TopFrontLeft`: `AudioObjectType` = 512;
+public const val `AudioObjectType_TopFrontRight`: `AudioObjectType` = 1024;
+public typealias `AudioSessionDisconnectReason` = Int;
+public typealias `AudioSessionState` = Int;
+public const val `AudioSessionStateActive`: `AudioSessionState` = 1;
+public const val `AudioSessionStateExpired`: `AudioSessionState` = 2;
+public const val `AudioSessionStateInactive`: `AudioSessionState` = 0;
+public typealias `AudioStateMonitorSoundLevel` = Int;
+public const val `CALLBACK_EVENT`: `MIDI_WAVE_OPEN_TYPE` = 327680u;
+public const val `CALLBACK_FUNCTION`: `MIDI_WAVE_OPEN_TYPE` = 196608u;
+public const val `CALLBACK_NULL`: `MIDI_WAVE_OPEN_TYPE` = 0u;
+public const val `CALLBACK_TASK`: `MIDI_WAVE_OPEN_TYPE` = 131072u;
+public const val `CALLBACK_THREAD`: `MIDI_WAVE_OPEN_TYPE` = 131072u;
+public const val `CALLBACK_TYPEMASK`: `MIDI_WAVE_OPEN_TYPE` = 458752u;
+public const val `CALLBACK_WINDOW`: `MIDI_WAVE_OPEN_TYPE` = 65536u;
+public const val `Connector`: `PartType` = 0;
+// UNSUPPORTED Rust 1029:1: declaration Struct has no candidate rule
+// #[repr(transparent)]
+// #[derive(Clone, Copy)]
+// pub struct ConnectorType(pub i32);
+
+// UNSUPPORTED Rust 1032:1: declaration Impl has no candidate rule
+// impl ConnectorType {
+//     pub const Unknown_Connector: Self = Self(0i32);
+//     pub const Physical_Internal: Self = Self(1i32);
+//     pub const Physical_External: Self = Self(2i32);
+//     pub const Software_IO: Self = Self(3i32);
+//     pub const Software_Fixed: Self = Self(4i32);
+//     pub const Network: Self = Self(5i32);
+// }
+
+public typealias `DEVICE_STATE` = UInt;
+public const val `DEVICE_STATEMASK_ALL`: UInt = 15u;
+public const val `DEVICE_STATE_ACTIVE`: `DEVICE_STATE` = 1u;
+public const val `DEVICE_STATE_DISABLED`: `DEVICE_STATE` = 2u;
+public const val `DEVICE_STATE_NOTPRESENT`: `DEVICE_STATE` = 4u;
+public const val `DEVICE_STATE_UNPLUGGED`: `DEVICE_STATE` = 8u;
+// UNSUPPORTED Rust 1046:1: missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+// pub const DEVINTERFACE_AUDIO_CAPTURE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2eef81be_33fa_4800_9670_1cd474972c3f);
+
+// UNSUPPORTED Rust 1047:1: missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+// pub const DEVINTERFACE_AUDIO_RENDER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe6327cad_dcec_4949_ae8a_991e976a79d2);
+
+// UNSUPPORTED Rust 1048:1: missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+// pub const DEVINTERFACE_MIDI_INPUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x504be32c_ccf6_4d2c_b73f_6f8b3747e22b);
+
+// UNSUPPORTED Rust 1049:1: missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+// pub const DEVINTERFACE_MIDI_OUTPUT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6dc23320_ab33_4ce4_80d4_bbb3ebbf2814);
+
+// UNSUPPORTED Rust 1050:1: declaration Struct has no candidate rule
+// #[repr(C)]
+// #[derive(Clone, Copy, Default)]
+// pub struct DIRECTX_AUDIO_ACTIVATION_PARAMS {
+//     pub cbDirectXAudioActivationParams: u32,
+//     pub guidAudioSession: windows_sys::core::GUID,
+//     pub dwAudioStreamFlags: u32,
+// }
+
+public const val `DRVM_MAPPER`: UInt = 8192u;
+public const val `DRVM_MAPPER_STATUS`: UInt = 8192u;
+public const val `DRV_MAPPER_PREFERRED_INPUT_GET`: UInt = 16384u;
+public const val `DRV_MAPPER_PREFERRED_OUTPUT_GET`: UInt = 16386u;
+public typealias `DataFlow` = Int;
+// UNSUPPORTED Rust 1062:1: missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+// pub const DeviceTopology: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1df639d0_5ec1_47aa_9379_828dc1aa8c59);
+
+public const val `DigitalAudioDisplayDevice`: `EndpointFormFactor` = 9;
+public const val `DisconnectReasonDeviceRemoval`: `AudioSessionDisconnectReason` = 0;
+public const val `DisconnectReasonExclusiveModeOverride`: `AudioSessionDisconnectReason` = 5;
+public const val `DisconnectReasonFormatChanged`: `AudioSessionDisconnectReason` = 2;
+public const val `DisconnectReasonServerShutdown`: `AudioSessionDisconnectReason` = 1;
+public const val `DisconnectReasonSessionDisconnected`: `AudioSessionDisconnectReason` = 4;
+public const val `DisconnectReasonSessionLogoff`: `AudioSessionDisconnectReason` = 3;
+// UNSUPPORTED Rust 1070:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy, Default)]
+// pub struct ECHOWAVEFILTER {
+//     pub wfltr: WAVEFILTER,
+//     pub dwVolume: u32,
+//     pub dwDelay: u32,
+// }
+
+public typealias `EDataFlow` = Int;
+public const val `EDataFlow_enum_count`: `EDataFlow` = 3;
+public const val `ENDPOINT_FORMAT_RESET_MIX_ONLY`: UInt = 1u;
+public const val `ENDPOINT_HARDWARE_SUPPORT_METER`: UInt = 4u;
+public const val `ENDPOINT_HARDWARE_SUPPORT_MUTE`: UInt = 2u;
+public const val `ENDPOINT_HARDWARE_SUPPORT_VOLUME`: UInt = 1u;
+public const val `ENDPOINT_SYSFX_DISABLED`: UInt = 1u;
+public const val `ENDPOINT_SYSFX_ENABLED`: UInt = 0u;
+public typealias `ERole` = Int;
+public const val `ERole_enum_count`: `ERole` = 3;
+// UNSUPPORTED Rust 1087:1: missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+// pub const EVENTCONTEXT_VOLUMESLIDER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe2c2e9de_09b1_4b04_84e5_07931225ee04);
+
+public typealias `EndpointFormFactor` = Int;
+public const val `EndpointFormFactor_enum_count`: `EndpointFormFactor` = 11;
+public const val `FILTERCHOOSE_CUSTOM_VERIFY`: UInt = 2u;
+public const val `FILTERCHOOSE_FILTERTAG_VERIFY`: UInt = 0u;
+public const val `FILTERCHOOSE_FILTER_VERIFY`: UInt = 1u;
+public const val `FILTERCHOOSE_MESSAGE`: UInt = 0u;
+public const val `FORMATCHOOSE_CUSTOM_VERIFY`: UInt = 2u;
+public const val `FORMATCHOOSE_FORMATTAG_VERIFY`: UInt = 0u;
+public const val `FORMATCHOOSE_FORMAT_VERIFY`: UInt = 1u;
+public const val `FORMATCHOOSE_MESSAGE`: UInt = 0u;
+public const val `Full`: `AudioStateMonitorSoundLevel` = 2;
+// UNSUPPORTED Rust 1099:1: non-scalar type Ptr unsupported
+// pub type HACMDRIVER = *mut core::ffi::c_void;
+
+// UNSUPPORTED Rust 1100:1: non-scalar type Ptr unsupported
+// pub type HACMDRIVERID = *mut core::ffi::c_void;
+
+// UNSUPPORTED Rust 1101:1: non-scalar type Ptr unsupported
+// pub type HACMOBJ = *mut core::ffi::c_void;
+
+// UNSUPPORTED Rust 1102:1: non-scalar type Ptr unsupported
+// pub type HACMSTREAM = *mut core::ffi::c_void;
+
+// UNSUPPORTED Rust 1103:1: non-scalar type Ptr unsupported
+// pub type HMIDI = *mut core::ffi::c_void;
+
+// UNSUPPORTED Rust 1104:1: non-scalar type Ptr unsupported
+// pub type HMIDIIN = *mut core::ffi::c_void;
+
+// UNSUPPORTED Rust 1105:1: non-scalar type Ptr unsupported
+// pub type HMIDIOUT = *mut core::ffi::c_void;
+
+// UNSUPPORTED Rust 1106:1: non-scalar type Ptr unsupported
+// pub type HMIDISTRM = *mut core::ffi::c_void;
+
+// UNSUPPORTED Rust 1107:1: non-scalar type Ptr unsupported
+// pub type HMIXER = *mut core::ffi::c_void;
+
+// UNSUPPORTED Rust 1108:1: non-scalar type Ptr unsupported
+// pub type HMIXEROBJ = *mut core::ffi::c_void;
+
+// UNSUPPORTED Rust 1109:1: non-scalar type Ptr unsupported
+// pub type HWAVE = *mut core::ffi::c_void;
+
+// UNSUPPORTED Rust 1110:1: non-scalar type Ptr unsupported
+// pub type HWAVEIN = *mut core::ffi::c_void;
+
+// UNSUPPORTED Rust 1111:1: non-scalar type Ptr unsupported
+// pub type HWAVEOUT = *mut core::ffi::c_void;
+
+public const val `Handset`: `EndpointFormFactor` = 6;
+public const val `Headphones`: `EndpointFormFactor` = 3;
+public const val `Headset`: `EndpointFormFactor` = 5;
+public const val `In`: `DataFlow` = 0;
+// UNSUPPORTED Rust 1116:1: generic scalar type unsupported
+// pub type LPACMDRIVERPROC = Option<unsafe extern "system" fn(param0: usize, param1: HACMDRIVERID, param2: u32, param3: super::super::Foundation::LPARAM, param4: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
+
+// UNSUPPORTED Rust 1117:1: attribute cfg requires explicit semantics/configuration
+// #[cfg(feature = "Win32_Media_Multimedia")]
+// pub type LPMIDICALLBACK = Option<unsafe extern "system" fn(hdrvr: super::Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
+
+// UNSUPPORTED Rust 1119:1: attribute cfg requires explicit semantics/configuration
+// #[cfg(feature = "Win32_Media_Multimedia")]
+// pub type LPWAVECALLBACK = Option<unsafe extern "system" fn(hdrvr: super::Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
+
+public const val `LineLevel`: `EndpointFormFactor` = 2;
+public const val `Low`: `AudioStateMonitorSoundLevel` = 1;
+public const val `MEVT_COMMENT`: UByte = 130u;
+public const val `MEVT_F_CALLBACK`: Int = 1073741824;
+public const val `MEVT_F_LONG`: Int = -2147483648;
+public const val `MEVT_F_SHORT`: Int = 0;
+public const val `MEVT_LONGMSG`: UByte = 128u;
+public const val `MEVT_NOP`: UByte = 2u;
+public const val `MEVT_SHORTMSG`: UByte = 0u;
+public const val `MEVT_TEMPO`: UByte = 1u;
+public const val `MEVT_VERSION`: UByte = 132u;
+public const val `MHDR_DONE`: UInt = 1u;
+public const val `MHDR_INQUEUE`: UInt = 4u;
+public const val `MHDR_ISSTRM`: UInt = 8u;
+public const val `MHDR_PREPARED`: UInt = 2u;
+public const val `MIDICAPS_CACHE`: UInt = 4u;
+public const val `MIDICAPS_LRVOLUME`: UInt = 2u;
+public const val `MIDICAPS_STREAM`: UInt = 8u;
+public const val `MIDICAPS_VOLUME`: UInt = 1u;
+public const val `MIDIERR_BADOPENMODE`: UInt = 70u;
+public const val `MIDIERR_DONT_CONTINUE`: UInt = 71u;
+public const val `MIDIERR_INVALIDSETUP`: UInt = 69u;
+public const val `MIDIERR_LASTERROR`: UInt = 71u;
+public const val `MIDIERR_NODEVICE`: UInt = 68u;
+public const val `MIDIERR_NOMAP`: UInt = 66u;
+public const val `MIDIERR_NOTREADY`: UInt = 67u;
+public const val `MIDIERR_STILLPLAYING`: UInt = 65u;
+public const val `MIDIERR_UNPREPARED`: UInt = 64u;
+// UNSUPPORTED Rust 1149:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct MIDIEVENT {
+//     pub dwDeltaTime: u32,
+//     pub dwStreamID: u32,
+//     pub dwEvent: u32,
+//     pub dwParms: [u32; 1],
+// }
+
+// UNSUPPORTED Rust 1157:1: declaration Impl has no candidate rule
+// impl Default for MIDIEVENT {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1162:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct MIDIHDR {
+//     pub lpData: windows_sys::core::PSTR,
+//     pub dwBufferLength: u32,
+//     pub dwBytesRecorded: u32,
+//     pub dwUser: usize,
+//     pub dwFlags: u32,
+//     pub lpNext: *mut MIDIHDR,
+//     pub reserved: usize,
+//     pub dwOffset: u32,
+//     pub dwReserved: [usize; 8],
+// }
+
+// UNSUPPORTED Rust 1175:1: declaration Impl has no candidate rule
+// impl Default for MIDIHDR {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1180:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct MIDIINCAPS2A {
+//     pub wMid: u16,
+//     pub wPid: u16,
+//     pub vDriverVersion: u32,
+//     pub szPname: [i8; 32],
+//     pub dwSupport: u32,
+//     pub ManufacturerGuid: windows_sys::core::GUID,
+//     pub ProductGuid: windows_sys::core::GUID,
+//     pub NameGuid: windows_sys::core::GUID,
+// }
+
+// UNSUPPORTED Rust 1192:1: declaration Impl has no candidate rule
+// impl Default for MIDIINCAPS2A {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1197:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct MIDIINCAPS2W {
+//     pub wMid: u16,
+//     pub wPid: u16,
+//     pub vDriverVersion: u32,
+//     pub szPname: [u16; 32],
+//     pub dwSupport: u32,
+//     pub ManufacturerGuid: windows_sys::core::GUID,
+//     pub ProductGuid: windows_sys::core::GUID,
+//     pub NameGuid: windows_sys::core::GUID,
+// }
+
+// UNSUPPORTED Rust 1209:1: declaration Impl has no candidate rule
+// impl Default for MIDIINCAPS2W {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1214:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct MIDIINCAPSA {
+//     pub wMid: u16,
+//     pub wPid: u16,
+//     pub vDriverVersion: u32,
+//     pub szPname: [i8; 32],
+//     pub dwSupport: u32,
+// }
+
+// UNSUPPORTED Rust 1223:1: declaration Impl has no candidate rule
+// impl Default for MIDIINCAPSA {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1228:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct MIDIINCAPSW {
+//     pub wMid: u16,
+//     pub wPid: u16,
+//     pub vDriverVersion: u32,
+//     pub szPname: [u16; 32],
+//     pub dwSupport: u32,
+// }
+
+// UNSUPPORTED Rust 1237:1: declaration Impl has no candidate rule
+// impl Default for MIDIINCAPSW {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1242:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct MIDIOUTCAPS2A {
+//     pub wMid: u16,
+//     pub wPid: u16,
+//     pub vDriverVersion: u32,
+//     pub szPname: [i8; 32],
+//     pub wTechnology: u16,
+//     pub wVoices: u16,
+//     pub wNotes: u16,
+//     pub wChannelMask: u16,
+//     pub dwSupport: u32,
+//     pub ManufacturerGuid: windows_sys::core::GUID,
+//     pub ProductGuid: windows_sys::core::GUID,
+//     pub NameGuid: windows_sys::core::GUID,
+// }
+
+// UNSUPPORTED Rust 1258:1: declaration Impl has no candidate rule
+// impl Default for MIDIOUTCAPS2A {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1263:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct MIDIOUTCAPS2W {
+//     pub wMid: u16,
+//     pub wPid: u16,
+//     pub vDriverVersion: u32,
+//     pub szPname: [u16; 32],
+//     pub wTechnology: u16,
+//     pub wVoices: u16,
+//     pub wNotes: u16,
+//     pub wChannelMask: u16,
+//     pub dwSupport: u32,
+//     pub ManufacturerGuid: windows_sys::core::GUID,
+//     pub ProductGuid: windows_sys::core::GUID,
+//     pub NameGuid: windows_sys::core::GUID,
+// }
+
+// UNSUPPORTED Rust 1279:1: declaration Impl has no candidate rule
+// impl Default for MIDIOUTCAPS2W {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1284:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct MIDIOUTCAPSA {
+//     pub wMid: u16,
+//     pub wPid: u16,
+//     pub vDriverVersion: u32,
+//     pub szPname: [i8; 32],
+//     pub wTechnology: u16,
+//     pub wVoices: u16,
+//     pub wNotes: u16,
+//     pub wChannelMask: u16,
+//     pub dwSupport: u32,
+// }
+
+// UNSUPPORTED Rust 1297:1: declaration Impl has no candidate rule
+// impl Default for MIDIOUTCAPSA {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1302:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct MIDIOUTCAPSW {
+//     pub wMid: u16,
+//     pub wPid: u16,
+//     pub vDriverVersion: u32,
+//     pub szPname: [u16; 32],
+//     pub wTechnology: u16,
+//     pub wVoices: u16,
+//     pub wNotes: u16,
+//     pub wChannelMask: u16,
+//     pub dwSupport: u32,
+// }
+
+// UNSUPPORTED Rust 1315:1: declaration Impl has no candidate rule
+// impl Default for MIDIOUTCAPSW {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+public const val `MIDIPATCHSIZE`: UInt = 128u;
+// UNSUPPORTED Rust 1321:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy, Default)]
+// pub struct MIDIPROPTEMPO {
+//     pub cbStruct: u32,
+//     pub dwTempo: u32,
+// }
+
+// UNSUPPORTED Rust 1327:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy, Default)]
+// pub struct MIDIPROPTIMEDIV {
+//     pub cbStruct: u32,
+//     pub dwTimeDiv: u32,
+// }
+
+public const val `MIDIPROP_GET`: Int = 1073741824;
+public const val `MIDIPROP_SET`: Int = -2147483648;
+public const val `MIDIPROP_TEMPO`: Int = 2;
+public const val `MIDIPROP_TIMEDIV`: Int = 1;
+// UNSUPPORTED Rust 1337:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy, Default)]
+// pub struct MIDISTRMBUFFVER {
+//     pub dwVersion: u32,
+//     pub dwMid: u32,
+//     pub dwOEMVersion: u32,
+// }
+
+public const val `MIDISTRM_ERROR`: Int = -2;
+public const val `MIDI_CACHE_ALL`: UInt = 1u;
+public const val `MIDI_CACHE_BESTFIT`: UInt = 2u;
+public const val `MIDI_CACHE_QUERY`: UInt = 3u;
+public const val `MIDI_IO_STATUS`: `MIDI_WAVE_OPEN_TYPE` = 32u;
+public const val `MIDI_UNCACHE`: UInt = 4u;
+public typealias `MIDI_WAVE_OPEN_TYPE` = UInt;
+// UNSUPPORTED Rust 1351:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct MIXERCAPS2A {
+//     pub wMid: u16,
+//     pub wPid: u16,
+//     pub vDriverVersion: u32,
+//     pub szPname: [i8; 32],
+//     pub fdwSupport: u32,
+//     pub cDestinations: u32,
+//     pub ManufacturerGuid: windows_sys::core::GUID,
+//     pub ProductGuid: windows_sys::core::GUID,
+//     pub NameGuid: windows_sys::core::GUID,
+// }
+
+// UNSUPPORTED Rust 1364:1: declaration Impl has no candidate rule
+// impl Default for MIXERCAPS2A {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1369:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct MIXERCAPS2W {
+//     pub wMid: u16,
+//     pub wPid: u16,
+//     pub vDriverVersion: u32,
+//     pub szPname: [u16; 32],
+//     pub fdwSupport: u32,
+//     pub cDestinations: u32,
+//     pub ManufacturerGuid: windows_sys::core::GUID,
+//     pub ProductGuid: windows_sys::core::GUID,
+//     pub NameGuid: windows_sys::core::GUID,
+// }
+
+// UNSUPPORTED Rust 1382:1: declaration Impl has no candidate rule
+// impl Default for MIXERCAPS2W {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1387:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct MIXERCAPSA {
+//     pub wMid: u16,
+//     pub wPid: u16,
+//     pub vDriverVersion: u32,
+//     pub szPname: [i8; 32],
+//     pub fdwSupport: u32,
+//     pub cDestinations: u32,
+// }
+
+// UNSUPPORTED Rust 1397:1: declaration Impl has no candidate rule
+// impl Default for MIXERCAPSA {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1402:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct MIXERCAPSW {
+//     pub wMid: u16,
+//     pub wPid: u16,
+//     pub vDriverVersion: u32,
+//     pub szPname: [u16; 32],
+//     pub fdwSupport: u32,
+//     pub cDestinations: u32,
+// }
+
+// UNSUPPORTED Rust 1412:1: declaration Impl has no candidate rule
+// impl Default for MIXERCAPSW {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1417:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct MIXERCONTROLA {
+//     pub cbStruct: u32,
+//     pub dwControlID: u32,
+//     pub dwControlType: u32,
+//     pub fdwControl: u32,
+//     pub cMultipleItems: u32,
+//     pub szShortName: [i8; 16],
+//     pub szName: [i8; 64],
+//     pub Bounds: MIXERCONTROLA_0,
+//     pub Metrics: MIXERCONTROLA_1,
+// }
+
+// UNSUPPORTED Rust 1430:1: declaration Impl has no candidate rule
+// impl Default for MIXERCONTROLA {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1435:1: declaration Union has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub union MIXERCONTROLA_0 {
+//     pub Anonymous1: MIXERCONTROLA_0_0,
+//     pub Anonymous2: MIXERCONTROLA_0_1,
+//     pub dwReserved: [u32; 6],
+// }
+
+// UNSUPPORTED Rust 1442:1: declaration Impl has no candidate rule
+// impl Default for MIXERCONTROLA_0 {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1447:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy, Default)]
+// pub struct MIXERCONTROLA_0_0 {
+//     pub lMinimum: i32,
+//     pub lMaximum: i32,
+// }
+
+// UNSUPPORTED Rust 1453:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy, Default)]
+// pub struct MIXERCONTROLA_0_1 {
+//     pub dwMinimum: u32,
+//     pub dwMaximum: u32,
+// }
+
+// UNSUPPORTED Rust 1459:1: declaration Union has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub union MIXERCONTROLA_1 {
+//     pub cSteps: u32,
+//     pub cbCustomData: u32,
+//     pub dwReserved: [u32; 6],
+// }
+
+// UNSUPPORTED Rust 1466:1: declaration Impl has no candidate rule
+// impl Default for MIXERCONTROLA_1 {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1471:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct MIXERCONTROLDETAILS {
+//     pub cbStruct: u32,
+//     pub dwControlID: u32,
+//     pub cChannels: u32,
+//     pub Anonymous: MIXERCONTROLDETAILS_0,
+//     pub cbDetails: u32,
+//     pub paDetails: *mut core::ffi::c_void,
+// }
+
+// UNSUPPORTED Rust 1481:1: declaration Impl has no candidate rule
+// impl Default for MIXERCONTROLDETAILS {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1486:1: declaration Union has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub union MIXERCONTROLDETAILS_0 {
+//     pub hwndOwner: super::super::Foundation::HWND,
+//     pub cMultipleItems: u32,
+// }
+
+// UNSUPPORTED Rust 1492:1: declaration Impl has no candidate rule
+// impl Default for MIXERCONTROLDETAILS_0 {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1497:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy, Default)]
+// pub struct MIXERCONTROLDETAILS_BOOLEAN {
+//     pub fValue: i32,
+// }
+
+// UNSUPPORTED Rust 1502:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct MIXERCONTROLDETAILS_LISTTEXTA {
+//     pub dwParam1: u32,
+//     pub dwParam2: u32,
+//     pub szName: [i8; 64],
+// }
+
+// UNSUPPORTED Rust 1509:1: declaration Impl has no candidate rule
+// impl Default for MIXERCONTROLDETAILS_LISTTEXTA {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1514:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct MIXERCONTROLDETAILS_LISTTEXTW {
+//     pub dwParam1: u32,
+//     pub dwParam2: u32,
+//     pub szName: [u16; 64],
+// }
+
+// UNSUPPORTED Rust 1521:1: declaration Impl has no candidate rule
+// impl Default for MIXERCONTROLDETAILS_LISTTEXTW {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1526:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy, Default)]
+// pub struct MIXERCONTROLDETAILS_SIGNED {
+//     pub lValue: i32,
+// }
+
+// UNSUPPORTED Rust 1531:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy, Default)]
+// pub struct MIXERCONTROLDETAILS_UNSIGNED {
+//     pub dwValue: u32,
+// }
+
+// UNSUPPORTED Rust 1536:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct MIXERCONTROLW {
+//     pub cbStruct: u32,
+//     pub dwControlID: u32,
+//     pub dwControlType: u32,
+//     pub fdwControl: u32,
+//     pub cMultipleItems: u32,
+//     pub szShortName: [u16; 16],
+//     pub szName: [u16; 64],
+//     pub Bounds: MIXERCONTROLW_0,
+//     pub Metrics: MIXERCONTROLW_1,
+// }
+
+// UNSUPPORTED Rust 1549:1: declaration Impl has no candidate rule
+// impl Default for MIXERCONTROLW {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1554:1: declaration Union has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub union MIXERCONTROLW_0 {
+//     pub Anonymous1: MIXERCONTROLW_0_0,
+//     pub Anonymous2: MIXERCONTROLW_0_1,
+//     pub dwReserved: [u32; 6],
+// }
+
+// UNSUPPORTED Rust 1561:1: declaration Impl has no candidate rule
+// impl Default for MIXERCONTROLW_0 {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1566:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy, Default)]
+// pub struct MIXERCONTROLW_0_0 {
+//     pub lMinimum: i32,
+//     pub lMaximum: i32,
+// }
+
+// UNSUPPORTED Rust 1572:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy, Default)]
+// pub struct MIXERCONTROLW_0_1 {
+//     pub dwMinimum: u32,
+//     pub dwMaximum: u32,
+// }
+
+// UNSUPPORTED Rust 1578:1: declaration Union has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub union MIXERCONTROLW_1 {
+//     pub cSteps: u32,
+//     pub cbCustomData: u32,
+//     pub dwReserved: [u32; 6],
+// }
+
+// UNSUPPORTED Rust 1585:1: declaration Impl has no candidate rule
+// impl Default for MIXERCONTROLW_1 {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+public const val `MIXERCONTROL_CONTROLF_DISABLED`: Int = -2147483648;
+public const val `MIXERCONTROL_CONTROLF_MULTIPLE`: Int = 2;
+public const val `MIXERCONTROL_CONTROLF_UNIFORM`: Int = 1;
+public const val `MIXERCONTROL_CONTROLTYPE_BASS`: UInt = 1342373890u;
+public const val `MIXERCONTROL_CONTROLTYPE_BASS_BOOST`: UInt = 536945271u;
+public const val `MIXERCONTROL_CONTROLTYPE_BOOLEAN`: UInt = 536936448u;
+public const val `MIXERCONTROL_CONTROLTYPE_BOOLEANMETER`: UInt = 268500992u;
+public const val `MIXERCONTROL_CONTROLTYPE_BUTTON`: UInt = 553713664u;
+public const val `MIXERCONTROL_CONTROLTYPE_CUSTOM`: UInt = 0u;
+public const val `MIXERCONTROL_CONTROLTYPE_DECIBELS`: UInt = 805568512u;
+public const val `MIXERCONTROL_CONTROLTYPE_EQUALIZER`: UInt = 1342373892u;
+public const val `MIXERCONTROL_CONTROLTYPE_FADER`: UInt = 1342373888u;
+public const val `MIXERCONTROL_CONTROLTYPE_LOUDNESS`: UInt = 536936452u;
+public const val `MIXERCONTROL_CONTROLTYPE_MICROTIME`: UInt = 1610809344u;
+public const val `MIXERCONTROL_CONTROLTYPE_MILLITIME`: UInt = 1627586560u;
+public const val `MIXERCONTROL_CONTROLTYPE_MIXER`: UInt = 1895890945u;
+public const val `MIXERCONTROL_CONTROLTYPE_MONO`: UInt = 536936451u;
+public const val `MIXERCONTROL_CONTROLTYPE_MULTIPLESELECT`: UInt = 1895890944u;
+public const val `MIXERCONTROL_CONTROLTYPE_MUTE`: UInt = 536936450u;
+public const val `MIXERCONTROL_CONTROLTYPE_MUX`: UInt = 1879113729u;
+public const val `MIXERCONTROL_CONTROLTYPE_ONOFF`: UInt = 536936449u;
+public const val `MIXERCONTROL_CONTROLTYPE_PAN`: UInt = 1073872897u;
+public const val `MIXERCONTROL_CONTROLTYPE_PEAKMETER`: UInt = 268566529u;
+public const val `MIXERCONTROL_CONTROLTYPE_PERCENT`: UInt = 805634048u;
+public const val `MIXERCONTROL_CONTROLTYPE_QSOUNDPAN`: UInt = 1073872898u;
+public const val `MIXERCONTROL_CONTROLTYPE_SIGNED`: UInt = 805437440u;
+public const val `MIXERCONTROL_CONTROLTYPE_SIGNEDMETER`: UInt = 268566528u;
+public const val `MIXERCONTROL_CONTROLTYPE_SINGLESELECT`: UInt = 1879113728u;
+public const val `MIXERCONTROL_CONTROLTYPE_SLIDER`: UInt = 1073872896u;
+public const val `MIXERCONTROL_CONTROLTYPE_STEREOENH`: UInt = 536936453u;
+public const val `MIXERCONTROL_CONTROLTYPE_TREBLE`: UInt = 1342373891u;
+public const val `MIXERCONTROL_CONTROLTYPE_UNSIGNED`: UInt = 805502976u;
+public const val `MIXERCONTROL_CONTROLTYPE_UNSIGNEDMETER`: UInt = 268632064u;
+public const val `MIXERCONTROL_CONTROLTYPE_VOLUME`: UInt = 1342373889u;
+public const val `MIXERCONTROL_CT_CLASS_CUSTOM`: Int = 0;
+public const val `MIXERCONTROL_CT_CLASS_FADER`: Int = 1342177280;
+public const val `MIXERCONTROL_CT_CLASS_LIST`: Int = 1879048192;
+public const val `MIXERCONTROL_CT_CLASS_MASK`: Int = -268435456;
+public const val `MIXERCONTROL_CT_CLASS_METER`: Int = 268435456;
+public const val `MIXERCONTROL_CT_CLASS_NUMBER`: Int = 805306368;
+public const val `MIXERCONTROL_CT_CLASS_SLIDER`: Int = 1073741824;
+public const val `MIXERCONTROL_CT_CLASS_SWITCH`: Int = 536870912;
+public const val `MIXERCONTROL_CT_CLASS_TIME`: Int = 1610612736;
+public const val `MIXERCONTROL_CT_SC_LIST_MULTIPLE`: Int = 16777216;
+public const val `MIXERCONTROL_CT_SC_LIST_SINGLE`: Int = 0;
+public const val `MIXERCONTROL_CT_SC_METER_POLLED`: Int = 0;
+public const val `MIXERCONTROL_CT_SC_SWITCH_BOOLEAN`: Int = 0;
+public const val `MIXERCONTROL_CT_SC_SWITCH_BUTTON`: Int = 16777216;
+public const val `MIXERCONTROL_CT_SC_TIME_MICROSECS`: Int = 0;
+public const val `MIXERCONTROL_CT_SC_TIME_MILLISECS`: Int = 16777216;
+public const val `MIXERCONTROL_CT_SUBCLASS_MASK`: Int = 251658240;
+public const val `MIXERCONTROL_CT_UNITS_BOOLEAN`: Int = 65536;
+public const val `MIXERCONTROL_CT_UNITS_CUSTOM`: Int = 0;
+public const val `MIXERCONTROL_CT_UNITS_DECIBELS`: Int = 262144;
+public const val `MIXERCONTROL_CT_UNITS_MASK`: Int = 16711680;
+public const val `MIXERCONTROL_CT_UNITS_PERCENT`: Int = 327680;
+public const val `MIXERCONTROL_CT_UNITS_SIGNED`: Int = 131072;
+public const val `MIXERCONTROL_CT_UNITS_UNSIGNED`: Int = 196608;
+// UNSUPPORTED Rust 1648:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct MIXERLINEA {
+//     pub cbStruct: u32,
+//     pub dwDestination: u32,
+//     pub dwSource: u32,
+//     pub dwLineID: u32,
+//     pub fdwLine: u32,
+//     pub dwUser: usize,
+//     pub dwComponentType: MIXERLINE_COMPONENTTYPE,
+//     pub cChannels: u32,
+//     pub cConnections: u32,
+//     pub cControls: u32,
+//     pub szShortName: [i8; 16],
+//     pub szName: [i8; 64],
+//     pub Target: MIXERLINEA_0,
+// }
+
+// UNSUPPORTED Rust 1665:1: declaration Impl has no candidate rule
+// impl Default for MIXERLINEA {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1670:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct MIXERLINEA_0 {
+//     pub dwType: u32,
+//     pub dwDeviceID: u32,
+//     pub wMid: u16,
+//     pub wPid: u16,
+//     pub vDriverVersion: u32,
+//     pub szPname: [i8; 32],
+// }
+
+// UNSUPPORTED Rust 1680:1: declaration Impl has no candidate rule
+// impl Default for MIXERLINEA_0 {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1685:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct MIXERLINECONTROLSA {
+//     pub cbStruct: u32,
+//     pub dwLineID: u32,
+//     pub Anonymous: MIXERLINECONTROLSA_0,
+//     pub cControls: u32,
+//     pub cbmxctrl: u32,
+//     pub pamxctrl: *mut MIXERCONTROLA,
+// }
+
+// UNSUPPORTED Rust 1695:1: declaration Impl has no candidate rule
+// impl Default for MIXERLINECONTROLSA {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1700:1: declaration Union has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub union MIXERLINECONTROLSA_0 {
+//     pub dwControlID: u32,
+//     pub dwControlType: u32,
+// }
+
+// UNSUPPORTED Rust 1706:1: declaration Impl has no candidate rule
+// impl Default for MIXERLINECONTROLSA_0 {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1711:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct MIXERLINECONTROLSW {
+//     pub cbStruct: u32,
+//     pub dwLineID: u32,
+//     pub Anonymous: MIXERLINECONTROLSW_0,
+//     pub cControls: u32,
+//     pub cbmxctrl: u32,
+//     pub pamxctrl: *mut MIXERCONTROLW,
+// }
+
+// UNSUPPORTED Rust 1721:1: declaration Impl has no candidate rule
+// impl Default for MIXERLINECONTROLSW {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1726:1: declaration Union has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub union MIXERLINECONTROLSW_0 {
+//     pub dwControlID: u32,
+//     pub dwControlType: u32,
+// }
+
+// UNSUPPORTED Rust 1732:1: declaration Impl has no candidate rule
+// impl Default for MIXERLINECONTROLSW_0 {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1737:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct MIXERLINEW {
+//     pub cbStruct: u32,
+//     pub dwDestination: u32,
+//     pub dwSource: u32,
+//     pub dwLineID: u32,
+//     pub fdwLine: u32,
+//     pub dwUser: usize,
+//     pub dwComponentType: MIXERLINE_COMPONENTTYPE,
+//     pub cChannels: u32,
+//     pub cConnections: u32,
+//     pub cControls: u32,
+//     pub szShortName: [u16; 16],
+//     pub szName: [u16; 64],
+//     pub Target: MIXERLINEW_0,
+// }
+
+// UNSUPPORTED Rust 1754:1: declaration Impl has no candidate rule
+// impl Default for MIXERLINEW {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1759:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct MIXERLINEW_0 {
+//     pub dwType: u32,
+//     pub dwDeviceID: u32,
+//     pub wMid: u16,
+//     pub wPid: u16,
+//     pub vDriverVersion: u32,
+//     pub szPname: [u16; 32],
+// }
+
+// UNSUPPORTED Rust 1769:1: declaration Impl has no candidate rule
+// impl Default for MIXERLINEW_0 {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+public typealias `MIXERLINE_COMPONENTTYPE` = UInt;
+public const val `MIXERLINE_COMPONENTTYPE_DST_DIGITAL`: `MIXERLINE_COMPONENTTYPE` = 1u;
+public const val `MIXERLINE_COMPONENTTYPE_DST_FIRST`: Int = 0;
+public const val `MIXERLINE_COMPONENTTYPE_DST_HEADPHONES`: `MIXERLINE_COMPONENTTYPE` = 5u;
+public const val `MIXERLINE_COMPONENTTYPE_DST_LAST`: UInt = 8u;
+public const val `MIXERLINE_COMPONENTTYPE_DST_LINE`: `MIXERLINE_COMPONENTTYPE` = 2u;
+public const val `MIXERLINE_COMPONENTTYPE_DST_MONITOR`: `MIXERLINE_COMPONENTTYPE` = 3u;
+public const val `MIXERLINE_COMPONENTTYPE_DST_SPEAKERS`: `MIXERLINE_COMPONENTTYPE` = 4u;
+public const val `MIXERLINE_COMPONENTTYPE_DST_TELEPHONE`: `MIXERLINE_COMPONENTTYPE` = 6u;
+public const val `MIXERLINE_COMPONENTTYPE_DST_UNDEFINED`: `MIXERLINE_COMPONENTTYPE` = 0u;
+public const val `MIXERLINE_COMPONENTTYPE_DST_VOICEIN`: `MIXERLINE_COMPONENTTYPE` = 8u;
+public const val `MIXERLINE_COMPONENTTYPE_DST_WAVEIN`: `MIXERLINE_COMPONENTTYPE` = 7u;
+public const val `MIXERLINE_COMPONENTTYPE_SRC_ANALOG`: `MIXERLINE_COMPONENTTYPE` = 4106u;
+public const val `MIXERLINE_COMPONENTTYPE_SRC_AUXILIARY`: `MIXERLINE_COMPONENTTYPE` = 4105u;
+public const val `MIXERLINE_COMPONENTTYPE_SRC_COMPACTDISC`: `MIXERLINE_COMPONENTTYPE` = 4101u;
+public const val `MIXERLINE_COMPONENTTYPE_SRC_DIGITAL`: `MIXERLINE_COMPONENTTYPE` = 4097u;
+public const val `MIXERLINE_COMPONENTTYPE_SRC_FIRST`: Int = 4096;
+public const val `MIXERLINE_COMPONENTTYPE_SRC_LAST`: UInt = 4106u;
+public const val `MIXERLINE_COMPONENTTYPE_SRC_LINE`: `MIXERLINE_COMPONENTTYPE` = 4098u;
+public const val `MIXERLINE_COMPONENTTYPE_SRC_MICROPHONE`: `MIXERLINE_COMPONENTTYPE` = 4099u;
+public const val `MIXERLINE_COMPONENTTYPE_SRC_PCSPEAKER`: `MIXERLINE_COMPONENTTYPE` = 4103u;
+public const val `MIXERLINE_COMPONENTTYPE_SRC_SYNTHESIZER`: `MIXERLINE_COMPONENTTYPE` = 4100u;
+public const val `MIXERLINE_COMPONENTTYPE_SRC_TELEPHONE`: `MIXERLINE_COMPONENTTYPE` = 4102u;
+public const val `MIXERLINE_COMPONENTTYPE_SRC_UNDEFINED`: `MIXERLINE_COMPONENTTYPE` = 4096u;
+public const val `MIXERLINE_COMPONENTTYPE_SRC_WAVEOUT`: `MIXERLINE_COMPONENTTYPE` = 4104u;
+public const val `MIXERLINE_LINEF_ACTIVE`: Int = 1;
+public const val `MIXERLINE_LINEF_DISCONNECTED`: Int = 32768;
+public const val `MIXERLINE_LINEF_SOURCE`: Int = -2147483648;
+public const val `MIXERLINE_TARGETTYPE_AUX`: UInt = 5u;
+public const val `MIXERLINE_TARGETTYPE_MIDIIN`: UInt = 4u;
+public const val `MIXERLINE_TARGETTYPE_MIDIOUT`: UInt = 3u;
+public const val `MIXERLINE_TARGETTYPE_UNDEFINED`: UInt = 0u;
+public const val `MIXERLINE_TARGETTYPE_WAVEIN`: UInt = 2u;
+public const val `MIXERLINE_TARGETTYPE_WAVEOUT`: UInt = 1u;
+public const val `MIXERR_INVALCONTROL`: UInt = 1025u;
+public const val `MIXERR_INVALLINE`: UInt = 1024u;
+public const val `MIXERR_INVALVALUE`: UInt = 1026u;
+public const val `MIXERR_LASTERROR`: UInt = 1026u;
+public const val `MIXER_GETCONTROLDETAILSF_LISTTEXT`: Int = 1;
+public const val `MIXER_GETCONTROLDETAILSF_QUERYMASK`: Int = 15;
+public const val `MIXER_GETCONTROLDETAILSF_VALUE`: Int = 0;
+public const val `MIXER_GETLINECONTROLSF_ALL`: Int = 0;
+public const val `MIXER_GETLINECONTROLSF_ONEBYID`: Int = 1;
+public const val `MIXER_GETLINECONTROLSF_ONEBYTYPE`: Int = 2;
+public const val `MIXER_GETLINECONTROLSF_QUERYMASK`: Int = 15;
+public const val `MIXER_GETLINEINFOF_COMPONENTTYPE`: Int = 3;
+public const val `MIXER_GETLINEINFOF_DESTINATION`: Int = 0;
+public const val `MIXER_GETLINEINFOF_LINEID`: Int = 2;
+public const val `MIXER_GETLINEINFOF_QUERYMASK`: Int = 15;
+public const val `MIXER_GETLINEINFOF_SOURCE`: Int = 1;
+public const val `MIXER_GETLINEINFOF_TARGETTYPE`: Int = 4;
+public const val `MIXER_LONG_NAME_CHARS`: UInt = 64u;
+public const val `MIXER_OBJECTF_AUX`: Int = 1342177280;
+public const val `MIXER_OBJECTF_HANDLE`: Int = -2147483648;
+public const val `MIXER_OBJECTF_MIDIIN`: Int = 1073741824;
+public const val `MIXER_OBJECTF_MIDIOUT`: Int = 805306368;
+public const val `MIXER_OBJECTF_MIXER`: Int = 0;
+public const val `MIXER_OBJECTF_WAVEIN`: Int = 536870912;
+public const val `MIXER_OBJECTF_WAVEOUT`: Int = 268435456;
+public const val `MIXER_SETCONTROLDETAILSF_CUSTOM`: Int = 1;
+public const val `MIXER_SETCONTROLDETAILSF_QUERYMASK`: Int = 15;
+public const val `MIXER_SETCONTROLDETAILSF_VALUE`: Int = 0;
+public const val `MIXER_SHORT_NAME_CHARS`: UInt = 16u;
+// UNSUPPORTED Rust 1837:1: missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+// pub const MMDeviceEnumerator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbcde0395_e52f_467c_8e3d_c4579291692e);
+
+public const val `MM_ACM_FILTERCHOOSE`: UInt = 32768u;
+public const val `MM_ACM_FORMATCHOOSE`: UInt = 32768u;
+public const val `MOD_FMSYNTH`: UInt = 4u;
+public const val `MOD_MAPPER`: UInt = 5u;
+public const val `MOD_MIDIPORT`: UInt = 1u;
+public const val `MOD_SQSYNTH`: UInt = 3u;
+public const val `MOD_SWSYNTH`: UInt = 7u;
+public const val `MOD_SYNTH`: UInt = 2u;
+public const val `MOD_WAVETABLE`: UInt = 6u;
+public const val `Microphone`: `EndpointFormFactor` = 4;
+public const val `Muted`: `AudioStateMonitorSoundLevel` = 0;
+public const val `Out`: `DataFlow` = 1;
+// UNSUPPORTED Rust 1850:1: generic scalar type unsupported
+// pub type PAudioStateMonitorCallback = Option<unsafe extern "system" fn(audiostatemonitor: *mut core::ffi::c_void, context: *const core::ffi::c_void)>;
+
+// UNSUPPORTED Rust 1851:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy, Default)]
+// pub struct PCMWAVEFORMAT {
+//     pub wf: WAVEFORMAT,
+//     pub wBitsPerSample: u16,
+// }
+
+// UNSUPPORTED Rust 1857:1: qualified type requires source-backed binding: super::super::Foundation::PROPERTYKEY
+// pub const PKEY_AudioEndpointLogo_IconEffects: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xf1ab780d_2010_4ed3_a3a6_8b87f0f0c476), pid: 0 };
+
+// UNSUPPORTED Rust 1858:1: qualified type requires source-backed binding: super::super::Foundation::PROPERTYKEY
+// pub const PKEY_AudioEndpointLogo_IconPath: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xf1ab780d_2010_4ed3_a3a6_8b87f0f0c476), pid: 1 };
+
+// UNSUPPORTED Rust 1859:1: qualified type requires source-backed binding: super::super::Foundation::PROPERTYKEY
+// pub const PKEY_AudioEndpointSettings_LaunchContract: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x14242002_0320_4de4_9555_a7d82b73c286), pid: 1 };
+
+// UNSUPPORTED Rust 1860:1: qualified type requires source-backed binding: super::super::Foundation::PROPERTYKEY
+// pub const PKEY_AudioEndpointSettings_MenuText: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x14242002_0320_4de4_9555_a7d82b73c286), pid: 0 };
+
+// UNSUPPORTED Rust 1861:1: qualified type requires source-backed binding: super::super::Foundation::PROPERTYKEY
+// pub const PKEY_AudioEndpoint_Association: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 2 };
+
+// UNSUPPORTED Rust 1862:1: qualified type requires source-backed binding: super::super::Foundation::PROPERTYKEY
+// pub const PKEY_AudioEndpoint_ControlPanelPageProvider: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 1 };
+
+// UNSUPPORTED Rust 1863:1: qualified type requires source-backed binding: super::super::Foundation::PROPERTYKEY
+// pub const PKEY_AudioEndpoint_Default_VolumeInDb: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 9 };
+
+// UNSUPPORTED Rust 1864:1: qualified type requires source-backed binding: super::super::Foundation::PROPERTYKEY
+// pub const PKEY_AudioEndpoint_Disable_SysFx: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 5 };
+
+// UNSUPPORTED Rust 1865:1: qualified type requires source-backed binding: super::super::Foundation::PROPERTYKEY
+// pub const PKEY_AudioEndpoint_FormFactor: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 0 };
+
+// UNSUPPORTED Rust 1866:1: qualified type requires source-backed binding: super::super::Foundation::PROPERTYKEY
+// pub const PKEY_AudioEndpoint_FullRangeSpeakers: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 6 };
+
+// UNSUPPORTED Rust 1867:1: qualified type requires source-backed binding: super::super::Foundation::PROPERTYKEY
+// pub const PKEY_AudioEndpoint_GUID: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 4 };
+
+// UNSUPPORTED Rust 1868:1: qualified type requires source-backed binding: super::super::Foundation::PROPERTYKEY
+// pub const PKEY_AudioEndpoint_JackSubType: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 8 };
+
+// UNSUPPORTED Rust 1869:1: qualified type requires source-backed binding: super::super::Foundation::PROPERTYKEY
+// pub const PKEY_AudioEndpoint_PhysicalSpeakers: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 3 };
+
+// UNSUPPORTED Rust 1870:1: qualified type requires source-backed binding: super::super::Foundation::PROPERTYKEY
+// pub const PKEY_AudioEndpoint_Supports_EventDriven_Mode: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 7 };
+
+// UNSUPPORTED Rust 1871:1: qualified type requires source-backed binding: super::super::Foundation::PROPERTYKEY
+// pub const PKEY_AudioEngine_DeviceFormat: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xf19f064d_082c_4e27_bc73_6882a1bb8e4c), pid: 0 };
+
+// UNSUPPORTED Rust 1872:1: qualified type requires source-backed binding: super::super::Foundation::PROPERTYKEY
+// pub const PKEY_AudioEngine_OEMFormat: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xe4870e26_3cc5_4cd2_ba46_ca0a9a70ed04), pid: 3 };
+
+public typealias `PROCESS_LOOPBACK_MODE` = Int;
+public const val `PROCESS_LOOPBACK_MODE_EXCLUDE_TARGET_PROCESS_TREE`: `PROCESS_LOOPBACK_MODE` = 1;
+public const val `PROCESS_LOOPBACK_MODE_INCLUDE_TARGET_PROCESS_TREE`: `PROCESS_LOOPBACK_MODE` = 0;
+public typealias `PartType` = Int;
+public const val `RemoteNetworkDevice`: `EndpointFormFactor` = 0;
+public const val `SND_ALIAS`: `SND_FLAGS` = 65536u;
+public const val `SND_ALIAS_ID`: `SND_FLAGS` = 1114112u;
+public const val `SND_ALIAS_START`: UInt = 0u;
+public const val `SND_APPLICATION`: `SND_FLAGS` = 128u;
+public const val `SND_ASYNC`: `SND_FLAGS` = 1u;
+public const val `SND_FILENAME`: `SND_FLAGS` = 131072u;
+public typealias `SND_FLAGS` = UInt;
+public const val `SND_LOOP`: `SND_FLAGS` = 8u;
+public const val `SND_MEMORY`: `SND_FLAGS` = 4u;
+public const val `SND_NODEFAULT`: `SND_FLAGS` = 2u;
+public const val `SND_NOSTOP`: `SND_FLAGS` = 16u;
+public const val `SND_NOWAIT`: `SND_FLAGS` = 8192u;
+public const val `SND_PURGE`: `SND_FLAGS` = 64u;
+public const val `SND_RESOURCE`: `SND_FLAGS` = 262148u;
+public const val `SND_RING`: Int = 1048576;
+public const val `SND_SENTRY`: `SND_FLAGS` = 524288u;
+public const val `SND_SYNC`: `SND_FLAGS` = 0u;
+public const val `SND_SYSTEM`: `SND_FLAGS` = 2097152u;
+public const val `SPATIAL_AUDIO_POSITION`: UInt = 200u;
+public const val `SPATIAL_AUDIO_STANDARD_COMMANDS_START`: UInt = 200u;
+public typealias `SPATIAL_AUDIO_STREAM_OPTIONS` = Int;
+public const val `SPATIAL_AUDIO_STREAM_OPTIONS_NONE`: `SPATIAL_AUDIO_STREAM_OPTIONS` = 0;
+public const val `SPATIAL_AUDIO_STREAM_OPTIONS_OFFLOAD`: `SPATIAL_AUDIO_STREAM_OPTIONS` = 1;
+public const val `SPDIF`: `EndpointFormFactor` = 8;
+public const val `SPTLAUDCLNT_E_DESTROYED`: Int = -2004287232;
+public const val `SPTLAUDCLNT_E_ERRORS_IN_OBJECT_CALLS`: Int = -2004287227;
+public const val `SPTLAUDCLNT_E_INTERNAL`: Int = -2004287219;
+public const val `SPTLAUDCLNT_E_INVALID_LICENSE`: Int = -2004287224;
+public const val `SPTLAUDCLNT_E_METADATA_FORMAT_NOT_SUPPORTED`: Int = -2004287226;
+public const val `SPTLAUDCLNT_E_NO_MORE_OBJECTS`: Int = -2004287229;
+public const val `SPTLAUDCLNT_E_OBJECT_ALREADY_ACTIVE`: Int = -2004287220;
+public const val `SPTLAUDCLNT_E_OUT_OF_ORDER`: Int = -2004287231;
+public const val `SPTLAUDCLNT_E_PROPERTY_NOT_SUPPORTED`: Int = -2004287228;
+public const val `SPTLAUDCLNT_E_RESOURCES_INVALIDATED`: Int = -2004287230;
+public const val `SPTLAUDCLNT_E_STATIC_OBJECT_NOT_AVAILABLE`: Int = -2004287221;
+public const val `SPTLAUDCLNT_E_STREAM_NOT_AVAILABLE`: Int = -2004287225;
+public const val `SPTLAUDCLNT_E_STREAM_NOT_STOPPED`: Int = -2004287222;
+public const val `SPTLAUD_MD_CLNT_E_ATTACH_FAILED_INTERNAL_BUFFER`: Int = -2004286956;
+public const val `SPTLAUD_MD_CLNT_E_BUFFER_ALREADY_ATTACHED`: Int = -2004286969;
+public const val `SPTLAUD_MD_CLNT_E_BUFFER_NOT_ATTACHED`: Int = -2004286968;
+public const val `SPTLAUD_MD_CLNT_E_BUFFER_STILL_ATTACHED`: Int = -2004286940;
+public const val `SPTLAUD_MD_CLNT_E_COMMAND_ALREADY_WRITTEN`: Int = -2004286942;
+public const val `SPTLAUD_MD_CLNT_E_COMMAND_NOT_FOUND`: Int = -2004286976;
+public const val `SPTLAUD_MD_CLNT_E_DETACH_FAILED_INTERNAL_BUFFER`: Int = -2004286955;
+public const val `SPTLAUD_MD_CLNT_E_FORMAT_MISMATCH`: Int = -2004286941;
+public const val `SPTLAUD_MD_CLNT_E_FRAMECOUNT_OUT_OF_RANGE`: Int = -2004286967;
+public const val `SPTLAUD_MD_CLNT_E_FRAMEOFFSET_OUT_OF_RANGE`: Int = -2004286952;
+public const val `SPTLAUD_MD_CLNT_E_INVALID_ARGS`: Int = -2004286974;
+public const val `SPTLAUD_MD_CLNT_E_ITEMS_ALREADY_OPEN`: Int = -2004286957;
+public const val `SPTLAUD_MD_CLNT_E_ITEMS_LOCKED_FOR_WRITING`: Int = -2004286939;
+public const val `SPTLAUD_MD_CLNT_E_ITEM_COPY_OVERFLOW`: Int = -2004286959;
+public const val `SPTLAUD_MD_CLNT_E_ITEM_MUST_HAVE_COMMANDS`: Int = -2004286951;
+public const val `SPTLAUD_MD_CLNT_E_MEMORY_BOUNDS`: Int = -2004286971;
+public const val `SPTLAUD_MD_CLNT_E_METADATA_FORMAT_NOT_FOUND`: Int = -2004286973;
+public const val `SPTLAUD_MD_CLNT_E_NO_BUFFER_ATTACHED`: Int = -2004286954;
+public const val `SPTLAUD_MD_CLNT_E_NO_ITEMOFFSET_WRITTEN`: Int = -2004286944;
+public const val `SPTLAUD_MD_CLNT_E_NO_ITEMS_FOUND`: Int = -2004286960;
+public const val `SPTLAUD_MD_CLNT_E_NO_ITEMS_OPEN`: Int = -2004286958;
+public const val `SPTLAUD_MD_CLNT_E_NO_ITEMS_WRITTEN`: Int = -2004286943;
+public const val `SPTLAUD_MD_CLNT_E_NO_MORE_COMMANDS`: Int = -2004286970;
+public const val `SPTLAUD_MD_CLNT_E_NO_MORE_ITEMS`: Int = -2004286953;
+public const val `SPTLAUD_MD_CLNT_E_OBJECT_NOT_INITIALIZED`: Int = -2004286975;
+public const val `SPTLAUD_MD_CLNT_E_VALUE_BUFFER_INCORRECT_SIZE`: Int = -2004286972;
+// UNSUPPORTED Rust 1941:1: declaration Struct has no candidate rule
+// #[repr(C)]
+// #[derive(Clone, Copy, Default)]
+// pub struct SpatialAudioClientActivationParams {
+//     pub tracingContextId: windows_sys::core::GUID,
+//     pub appId: windows_sys::core::GUID,
+//     pub majorVersion: i32,
+//     pub minorVersion1: i32,
+//     pub minorVersion2: i32,
+//     pub minorVersion3: i32,
+// }
+
+// UNSUPPORTED Rust 1951:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct SpatialAudioHrtfActivationParams {
+//     pub ObjectFormat: *const WAVEFORMATEX,
+//     pub StaticObjectTypeMask: AudioObjectType,
+//     pub MinDynamicObjectCount: u32,
+//     pub MaxDynamicObjectCount: u32,
+//     pub Category: AUDIO_STREAM_CATEGORY,
+//     pub EventHandle: super::super::Foundation::HANDLE,
+//     pub NotifyObject: *mut core::ffi::c_void,
+//     pub DistanceDecay: *mut SpatialAudioHrtfDistanceDecay,
+//     pub Directivity: *mut SpatialAudioHrtfDirectivityUnion,
+//     pub Environment: *mut SpatialAudioHrtfEnvironmentType,
+//     pub Orientation: *mut f32,
+// }
+
+// UNSUPPORTED Rust 1966:1: declaration Impl has no candidate rule
+// impl Default for SpatialAudioHrtfActivationParams {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1971:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct SpatialAudioHrtfActivationParams2 {
+//     pub ObjectFormat: *const WAVEFORMATEX,
+//     pub StaticObjectTypeMask: AudioObjectType,
+//     pub MinDynamicObjectCount: u32,
+//     pub MaxDynamicObjectCount: u32,
+//     pub Category: AUDIO_STREAM_CATEGORY,
+//     pub EventHandle: super::super::Foundation::HANDLE,
+//     pub NotifyObject: *mut core::ffi::c_void,
+//     pub DistanceDecay: *mut SpatialAudioHrtfDistanceDecay,
+//     pub Directivity: *mut SpatialAudioHrtfDirectivityUnion,
+//     pub Environment: *mut SpatialAudioHrtfEnvironmentType,
+//     pub Orientation: *mut f32,
+//     pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
+// }
+
+// UNSUPPORTED Rust 1987:1: declaration Impl has no candidate rule
+// impl Default for SpatialAudioHrtfActivationParams2 {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 1992:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy, Default)]
+// pub struct SpatialAudioHrtfDirectivity {
+//     pub Type: SpatialAudioHrtfDirectivityType,
+//     pub Scaling: f32,
+// }
+
+// UNSUPPORTED Rust 1998:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy, Default)]
+// pub struct SpatialAudioHrtfDirectivityCardioid {
+//     pub directivity: SpatialAudioHrtfDirectivity,
+//     pub Order: f32,
+// }
+
+// UNSUPPORTED Rust 2004:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy, Default)]
+// pub struct SpatialAudioHrtfDirectivityCone {
+//     pub directivity: SpatialAudioHrtfDirectivity,
+//     pub InnerAngle: f32,
+//     pub OuterAngle: f32,
+// }
+
+public typealias `SpatialAudioHrtfDirectivityType` = Int;
+// UNSUPPORTED Rust 2012:1: declaration Union has no candidate rule
+// #[repr(C)]
+// #[derive(Clone, Copy)]
+// pub union SpatialAudioHrtfDirectivityUnion {
+//     pub Cone: SpatialAudioHrtfDirectivityCone,
+//     pub Cardiod: SpatialAudioHrtfDirectivityCardioid,
+//     pub Omni: SpatialAudioHrtfDirectivity,
+// }
+
+// UNSUPPORTED Rust 2019:1: declaration Impl has no candidate rule
+// impl Default for SpatialAudioHrtfDirectivityUnion {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+public const val `SpatialAudioHrtfDirectivity_Cardioid`: `SpatialAudioHrtfDirectivityType` = 1;
+public const val `SpatialAudioHrtfDirectivity_Cone`: `SpatialAudioHrtfDirectivityType` = 2;
+public const val `SpatialAudioHrtfDirectivity_OmniDirectional`: `SpatialAudioHrtfDirectivityType` = 0;
+// UNSUPPORTED Rust 2027:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy, Default)]
+// pub struct SpatialAudioHrtfDistanceDecay {
+//     pub Type: SpatialAudioHrtfDistanceDecayType,
+//     pub MaxGain: f32,
+//     pub MinGain: f32,
+//     pub UnityGainDistance: f32,
+//     pub CutoffDistance: f32,
+// }
+
+public typealias `SpatialAudioHrtfDistanceDecayType` = Int;
+public const val `SpatialAudioHrtfDistanceDecay_CustomDecay`: `SpatialAudioHrtfDistanceDecayType` = 1;
+public const val `SpatialAudioHrtfDistanceDecay_NaturalDecay`: `SpatialAudioHrtfDistanceDecayType` = 0;
+public typealias `SpatialAudioHrtfEnvironmentType` = Int;
+public const val `SpatialAudioHrtfEnvironment_Average`: `SpatialAudioHrtfEnvironmentType` = 4;
+public const val `SpatialAudioHrtfEnvironment_Large`: `SpatialAudioHrtfEnvironmentType` = 2;
+public const val `SpatialAudioHrtfEnvironment_Medium`: `SpatialAudioHrtfEnvironmentType` = 1;
+public const val `SpatialAudioHrtfEnvironment_Outdoors`: `SpatialAudioHrtfEnvironmentType` = 3;
+public const val `SpatialAudioHrtfEnvironment_Small`: `SpatialAudioHrtfEnvironmentType` = 0;
+public typealias `SpatialAudioMetadataCopyMode` = Int;
+public const val `SpatialAudioMetadataCopy_Append`: `SpatialAudioMetadataCopyMode` = 1;
+public const val `SpatialAudioMetadataCopy_AppendMergeWithFirst`: `SpatialAudioMetadataCopyMode` = 3;
+public const val `SpatialAudioMetadataCopy_AppendMergeWithLast`: `SpatialAudioMetadataCopyMode` = 2;
+public const val `SpatialAudioMetadataCopy_Overwrite`: `SpatialAudioMetadataCopyMode` = 0;
+// UNSUPPORTED Rust 2050:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy, Default)]
+// pub struct SpatialAudioMetadataItemsInfo {
+//     pub FrameCount: u16,
+//     pub ItemCount: u16,
+//     pub MaxItemCount: u16,
+//     pub MaxValueBufferLength: u32,
+// }
+
+public typealias `SpatialAudioMetadataWriterOverflowMode` = Int;
+public const val `SpatialAudioMetadataWriterOverflow_Fail`: `SpatialAudioMetadataWriterOverflowMode` = 0;
+public const val `SpatialAudioMetadataWriterOverflow_MergeWithLast`: `SpatialAudioMetadataWriterOverflowMode` = 2;
+public const val `SpatialAudioMetadataWriterOverflow_MergeWithNew`: `SpatialAudioMetadataWriterOverflowMode` = 1;
+// UNSUPPORTED Rust 2062:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct SpatialAudioObjectRenderStreamActivationParams {
+//     pub ObjectFormat: *const WAVEFORMATEX,
+//     pub StaticObjectTypeMask: AudioObjectType,
+//     pub MinDynamicObjectCount: u32,
+//     pub MaxDynamicObjectCount: u32,
+//     pub Category: AUDIO_STREAM_CATEGORY,
+//     pub EventHandle: super::super::Foundation::HANDLE,
+//     pub NotifyObject: *mut core::ffi::c_void,
+// }
+
+// UNSUPPORTED Rust 2073:1: declaration Impl has no candidate rule
+// impl Default for SpatialAudioObjectRenderStreamActivationParams {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 2078:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct SpatialAudioObjectRenderStreamActivationParams2 {
+//     pub ObjectFormat: *const WAVEFORMATEX,
+//     pub StaticObjectTypeMask: AudioObjectType,
+//     pub MinDynamicObjectCount: u32,
+//     pub MaxDynamicObjectCount: u32,
+//     pub Category: AUDIO_STREAM_CATEGORY,
+//     pub EventHandle: super::super::Foundation::HANDLE,
+//     pub NotifyObject: *mut core::ffi::c_void,
+//     pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
+// }
+
+// UNSUPPORTED Rust 2090:1: declaration Impl has no candidate rule
+// impl Default for SpatialAudioObjectRenderStreamActivationParams2 {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 2095:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+// #[derive(Clone, Copy)]
+// pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
+//     pub ObjectFormat: *const WAVEFORMATEX,
+//     pub StaticObjectTypeMask: AudioObjectType,
+//     pub MinDynamicObjectCount: u32,
+//     pub MaxDynamicObjectCount: u32,
+//     pub Category: AUDIO_STREAM_CATEGORY,
+//     pub EventHandle: super::super::Foundation::HANDLE,
+//     pub MetadataFormatId: windows_sys::core::GUID,
+//     pub MaxMetadataItemCount: u16,
+//     pub MetadataActivationParams: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
+//     pub NotifyObject: *mut core::ffi::c_void,
+// }
+
+// UNSUPPORTED Rust 2110:1: declaration Impl has no candidate rule
+// #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+// impl Default for SpatialAudioObjectRenderStreamForMetadataActivationParams {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 2116:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+// #[derive(Clone, Copy)]
+// pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
+//     pub ObjectFormat: *const WAVEFORMATEX,
+//     pub StaticObjectTypeMask: AudioObjectType,
+//     pub MinDynamicObjectCount: u32,
+//     pub MaxDynamicObjectCount: u32,
+//     pub Category: AUDIO_STREAM_CATEGORY,
+//     pub EventHandle: super::super::Foundation::HANDLE,
+//     pub MetadataFormatId: windows_sys::core::GUID,
+//     pub MaxMetadataItemCount: u32,
+//     pub MetadataActivationParams: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
+//     pub NotifyObject: *mut core::ffi::c_void,
+//     pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
+// }
+
+// UNSUPPORTED Rust 2132:1: declaration Impl has no candidate rule
+// #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+// impl Default for SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+public const val `Speakers`: `EndpointFormFactor` = 1;
+public const val `Subunit`: `PartType` = 1;
+public const val `UnknownDigitalPassthrough`: `EndpointFormFactor` = 7;
+public const val `UnknownFormFactor`: `EndpointFormFactor` = 10;
+// UNSUPPORTED Rust 2142:1: non-scalar type Ptr unsupported
+// pub const VIRTUAL_AUDIO_DEVICE_PROCESS_LOOPBACK: windows_sys::core::PCWSTR = windows_sys::core::w!("VAD\\Process_Loopback");
+
+// UNSUPPORTED Rust 2143:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy, Default)]
+// pub struct VOLUMEWAVEFILTER {
+//     pub wfltr: WAVEFILTER,
+//     pub dwVolume: u32,
+// }
+
+public const val `WAVECAPS_LRVOLUME`: UInt = 8u;
+public const val `WAVECAPS_PITCH`: UInt = 1u;
+public const val `WAVECAPS_PLAYBACKRATE`: UInt = 2u;
+public const val `WAVECAPS_SAMPLEACCURATE`: UInt = 32u;
+public const val `WAVECAPS_SYNC`: UInt = 16u;
+public const val `WAVECAPS_VOLUME`: UInt = 4u;
+// UNSUPPORTED Rust 2155:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct WAVEFILTER {
+//     pub cbStruct: u32,
+//     pub dwFilterTag: u32,
+//     pub fdwFilter: u32,
+//     pub dwReserved: [u32; 5],
+// }
+
+// UNSUPPORTED Rust 2163:1: declaration Impl has no candidate rule
+// impl Default for WAVEFILTER {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 2168:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy, Default)]
+// pub struct WAVEFORMAT {
+//     pub wFormatTag: u16,
+//     pub nChannels: u16,
+//     pub nSamplesPerSec: u32,
+//     pub nAvgBytesPerSec: u32,
+//     pub nBlockAlign: u16,
+// }
+
+// UNSUPPORTED Rust 2177:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy, Default)]
+// pub struct WAVEFORMATEX {
+//     pub wFormatTag: u16,
+//     pub nChannels: u16,
+//     pub nSamplesPerSec: u32,
+//     pub nAvgBytesPerSec: u32,
+//     pub nBlockAlign: u16,
+//     pub wBitsPerSample: u16,
+//     pub cbSize: u16,
+// }
+
+// UNSUPPORTED Rust 2188:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct WAVEFORMATEXTENSIBLE {
+//     pub Format: WAVEFORMATEX,
+//     pub Samples: WAVEFORMATEXTENSIBLE_0,
+//     pub dwChannelMask: u32,
+//     pub SubFormat: windows_sys::core::GUID,
+// }
+
+// UNSUPPORTED Rust 2196:1: declaration Impl has no candidate rule
+// impl Default for WAVEFORMATEXTENSIBLE {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 2201:1: declaration Union has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub union WAVEFORMATEXTENSIBLE_0 {
+//     pub wValidBitsPerSample: u16,
+//     pub wSamplesPerBlock: u16,
+//     pub wReserved: u16,
+// }
+
+// UNSUPPORTED Rust 2208:1: declaration Impl has no candidate rule
+// impl Default for WAVEFORMATEXTENSIBLE_0 {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 2213:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct WAVEHDR {
+//     pub lpData: windows_sys::core::PSTR,
+//     pub dwBufferLength: u32,
+//     pub dwBytesRecorded: u32,
+//     pub dwUser: usize,
+//     pub dwFlags: u32,
+//     pub dwLoops: u32,
+//     pub lpNext: *mut WAVEHDR,
+//     pub reserved: usize,
+// }
+
+// UNSUPPORTED Rust 2225:1: declaration Impl has no candidate rule
+// impl Default for WAVEHDR {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 2230:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct WAVEINCAPS2A {
+//     pub wMid: u16,
+//     pub wPid: u16,
+//     pub vDriverVersion: u32,
+//     pub szPname: [i8; 32],
+//     pub dwFormats: u32,
+//     pub wChannels: u16,
+//     pub wReserved1: u16,
+//     pub ManufacturerGuid: windows_sys::core::GUID,
+//     pub ProductGuid: windows_sys::core::GUID,
+//     pub NameGuid: windows_sys::core::GUID,
+// }
+
+// UNSUPPORTED Rust 2244:1: declaration Impl has no candidate rule
+// impl Default for WAVEINCAPS2A {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 2249:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct WAVEINCAPS2W {
+//     pub wMid: u16,
+//     pub wPid: u16,
+//     pub vDriverVersion: u32,
+//     pub szPname: [u16; 32],
+//     pub dwFormats: u32,
+//     pub wChannels: u16,
+//     pub wReserved1: u16,
+//     pub ManufacturerGuid: windows_sys::core::GUID,
+//     pub ProductGuid: windows_sys::core::GUID,
+//     pub NameGuid: windows_sys::core::GUID,
+// }
+
+// UNSUPPORTED Rust 2263:1: declaration Impl has no candidate rule
+// impl Default for WAVEINCAPS2W {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 2268:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct WAVEINCAPSA {
+//     pub wMid: u16,
+//     pub wPid: u16,
+//     pub vDriverVersion: u32,
+//     pub szPname: [i8; 32],
+//     pub dwFormats: u32,
+//     pub wChannels: u16,
+//     pub wReserved1: u16,
+// }
+
+// UNSUPPORTED Rust 2279:1: declaration Impl has no candidate rule
+// impl Default for WAVEINCAPSA {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 2284:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct WAVEINCAPSW {
+//     pub wMid: u16,
+//     pub wPid: u16,
+//     pub vDriverVersion: u32,
+//     pub szPname: [u16; 32],
+//     pub dwFormats: u32,
+//     pub wChannels: u16,
+//     pub wReserved1: u16,
+// }
+
+// UNSUPPORTED Rust 2295:1: declaration Impl has no candidate rule
+// impl Default for WAVEINCAPSW {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+public const val `WAVEIN_MAPPER_STATUS_DEVICE`: UInt = 0u;
+public const val `WAVEIN_MAPPER_STATUS_FORMAT`: UInt = 2u;
+public const val `WAVEIN_MAPPER_STATUS_MAPPED`: UInt = 1u;
+// UNSUPPORTED Rust 2303:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct WAVEOUTCAPS2A {
+//     pub wMid: u16,
+//     pub wPid: u16,
+//     pub vDriverVersion: u32,
+//     pub szPname: [i8; 32],
+//     pub dwFormats: u32,
+//     pub wChannels: u16,
+//     pub wReserved1: u16,
+//     pub dwSupport: u32,
+//     pub ManufacturerGuid: windows_sys::core::GUID,
+//     pub ProductGuid: windows_sys::core::GUID,
+//     pub NameGuid: windows_sys::core::GUID,
+// }
+
+// UNSUPPORTED Rust 2318:1: declaration Impl has no candidate rule
+// impl Default for WAVEOUTCAPS2A {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 2323:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct WAVEOUTCAPS2W {
+//     pub wMid: u16,
+//     pub wPid: u16,
+//     pub vDriverVersion: u32,
+//     pub szPname: [u16; 32],
+//     pub dwFormats: u32,
+//     pub wChannels: u16,
+//     pub wReserved1: u16,
+//     pub dwSupport: u32,
+//     pub ManufacturerGuid: windows_sys::core::GUID,
+//     pub ProductGuid: windows_sys::core::GUID,
+//     pub NameGuid: windows_sys::core::GUID,
+// }
+
+// UNSUPPORTED Rust 2338:1: declaration Impl has no candidate rule
+// impl Default for WAVEOUTCAPS2W {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 2343:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct WAVEOUTCAPSA {
+//     pub wMid: u16,
+//     pub wPid: u16,
+//     pub vDriverVersion: u32,
+//     pub szPname: [i8; 32],
+//     pub dwFormats: u32,
+//     pub wChannels: u16,
+//     pub wReserved1: u16,
+//     pub dwSupport: u32,
+// }
+
+// UNSUPPORTED Rust 2355:1: declaration Impl has no candidate rule
+// impl Default for WAVEOUTCAPSA {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+// UNSUPPORTED Rust 2360:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct WAVEOUTCAPSW {
+//     pub wMid: u16,
+//     pub wPid: u16,
+//     pub vDriverVersion: u32,
+//     pub szPname: [u16; 32],
+//     pub dwFormats: u32,
+//     pub wChannels: u16,
+//     pub wReserved1: u16,
+//     pub dwSupport: u32,
+// }
+
+// UNSUPPORTED Rust 2372:1: declaration Impl has no candidate rule
+// impl Default for WAVEOUTCAPSW {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+
+public const val `WAVEOUT_MAPPER_STATUS_DEVICE`: UInt = 0u;
+public const val `WAVEOUT_MAPPER_STATUS_FORMAT`: UInt = 2u;
+public const val `WAVEOUT_MAPPER_STATUS_MAPPED`: UInt = 1u;
+public const val `WAVERR_BADFORMAT`: UInt = 32u;
+public const val `WAVERR_LASTERROR`: UInt = 35u;
+public const val `WAVERR_STILLPLAYING`: UInt = 33u;
+public const val `WAVERR_SYNC`: UInt = 35u;
+public const val `WAVERR_UNPREPARED`: UInt = 34u;
+public const val `WAVE_ALLOWSYNC`: `MIDI_WAVE_OPEN_TYPE` = 2u;
+public const val `WAVE_FORMAT_1M08`: UInt = 1u;
+public const val `WAVE_FORMAT_1M16`: UInt = 4u;
+public const val `WAVE_FORMAT_1S08`: UInt = 2u;
+public const val `WAVE_FORMAT_1S16`: UInt = 8u;
+public const val `WAVE_FORMAT_2M08`: UInt = 16u;
+public const val `WAVE_FORMAT_2M16`: UInt = 64u;
+public const val `WAVE_FORMAT_2S08`: UInt = 32u;
+public const val `WAVE_FORMAT_2S16`: UInt = 128u;
+public const val `WAVE_FORMAT_44M08`: UInt = 256u;
+public const val `WAVE_FORMAT_44M16`: UInt = 1024u;
+public const val `WAVE_FORMAT_44S08`: UInt = 512u;
+public const val `WAVE_FORMAT_44S16`: UInt = 2048u;
+public const val `WAVE_FORMAT_48M08`: UInt = 4096u;
+public const val `WAVE_FORMAT_48M16`: UInt = 16384u;
+public const val `WAVE_FORMAT_48S08`: UInt = 8192u;
+public const val `WAVE_FORMAT_48S16`: UInt = 32768u;
+public const val `WAVE_FORMAT_4M08`: UInt = 256u;
+public const val `WAVE_FORMAT_4M16`: UInt = 1024u;
+public const val `WAVE_FORMAT_4S08`: UInt = 512u;
+public const val `WAVE_FORMAT_4S16`: UInt = 2048u;
+public const val `WAVE_FORMAT_96M08`: UInt = 65536u;
+public const val `WAVE_FORMAT_96M16`: UInt = 262144u;
+public const val `WAVE_FORMAT_96S08`: UInt = 131072u;
+public const val `WAVE_FORMAT_96S16`: UInt = 524288u;
+public const val `WAVE_FORMAT_DIRECT`: `MIDI_WAVE_OPEN_TYPE` = 8u;
+public const val `WAVE_FORMAT_DIRECT_QUERY`: `MIDI_WAVE_OPEN_TYPE` = 9u;
+public const val `WAVE_FORMAT_PCM`: UInt = 1u;
+public const val `WAVE_FORMAT_QUERY`: `MIDI_WAVE_OPEN_TYPE` = 1u;
+public const val `WAVE_INVALIDFORMAT`: UInt = 0u;
+public const val `WAVE_MAPPED`: `MIDI_WAVE_OPEN_TYPE` = 4u;
+public const val `WAVE_MAPPED_DEFAULT_COMMUNICATION_DEVICE`: `MIDI_WAVE_OPEN_TYPE` = 16u;
+public const val `WAVE_MAPPER`: UInt = 4294967295u;
+public const val `WHDR_BEGINLOOP`: UInt = 4u;
+public const val `WHDR_DONE`: UInt = 1u;
+public const val `WHDR_ENDLOOP`: UInt = 8u;
+public const val `WHDR_INQUEUE`: UInt = 16u;
+public const val `WHDR_PREPARED`: UInt = 2u;
+public const val `WIDM_MAPPER_STATUS`: UInt = 8192u;
+public const val `WODM_MAPPER_STATUS`: UInt = 8192u;
+public typealias `_AUDCLNT_BUFFERFLAGS` = Int;
+public const val `eAll`: `EDataFlow` = 2;
+public const val `eCapture`: `EDataFlow` = 1;
+public const val `eCommunications`: `ERole` = 2;
+public const val `eConsole`: `ERole` = 0;
+public const val `eMultimedia`: `ERole` = 1;
+public const val `eRender`: `EDataFlow` = 0;
+// UNSUPPORTED Rust 2432:1: declaration Struct has no candidate rule
+// #[repr(C, packed(1))]
+// #[derive(Clone, Copy)]
+// pub struct tACMFORMATDETAILSW {
+//     pub cbStruct: u32,
+//     pub dwFormatIndex: u32,
+//     pub dwFormatTag: u32,
+//     pub fdwSupport: u32,
+//     pub pwfx: *mut WAVEFORMATEX,
+//     pub cbwfx: u32,
+//     pub szFormat: [u16; 128],
+// }
+
+// UNSUPPORTED Rust 2443:1: declaration Impl has no candidate rule
+// impl Default for tACMFORMATDETAILSW {
+//     fn default() -> Self {
+//         unsafe { core::mem::zeroed() }
+//     }
+// }
+

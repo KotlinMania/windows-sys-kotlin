@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Wdk/Storage/FileSystem/mod: 895 generated; 1157 unsupported

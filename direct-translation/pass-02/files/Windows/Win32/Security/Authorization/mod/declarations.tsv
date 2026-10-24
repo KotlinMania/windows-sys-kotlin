@@ -1,0 +1,704 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	513	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		514	855	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		856	1135	3	1	8	unsupported	declaration Macro has no candidate rule
+3	Macro		1136	1349	4	1	11	unsupported	declaration Macro has no candidate rule
+4	Macro		1350	1667	5	1	14	unsupported	declaration Macro has no candidate rule
+5	Macro		1668	1800	6	1	17	unsupported	declaration Macro has no candidate rule
+6	Macro		1801	1909	7	1	20	unsupported	declaration Macro has no candidate rule
+7	Macro		1910	2050	8	1	23	unsupported	declaration Macro has no candidate rule
+8	Macro		2051	2196	9	1	26	unsupported	declaration Macro has no candidate rule
+9	Macro		2197	2349	10	1	29	unsupported	declaration Macro has no candidate rule
+10	Macro		2350	2626	11	1	32	unsupported	declaration Macro has no candidate rule
+11	Macro		2627	2872	12	1	35	unsupported	declaration Macro has no candidate rule
+12	Macro		2873	3229	13	1	38	unsupported	declaration Macro has no candidate rule
+13	Macro		3230	3602	14	1	41	unsupported	declaration Macro has no candidate rule
+14	Macro		3603	4002	15	1	44	unsupported	declaration Macro has no candidate rule
+15	Macro		4003	4475	16	1	47	unsupported	declaration Macro has no candidate rule
+16	Macro		4476	4951	17	1	50	unsupported	declaration Macro has no candidate rule
+17	Macro		4952	5172	18	1	53	unsupported	declaration Macro has no candidate rule
+18	Macro		5173	5571	19	1	56	unsupported	declaration Macro has no candidate rule
+19	Macro		5572	5817	20	1	59	unsupported	declaration Macro has no candidate rule
+20	Macro		5818	5994	21	1	62	unsupported	declaration Macro has no candidate rule
+21	Macro		5995	6300	22	1	65	unsupported	declaration Macro has no candidate rule
+22	Macro		6301	6571	23	1	68	unsupported	declaration Macro has no candidate rule
+23	Macro		6572	6837	24	1	71	unsupported	declaration Macro has no candidate rule
+24	Macro		6838	7273	25	1	74	unsupported	declaration Macro has no candidate rule
+25	Macro		7274	7619	26	1	77	unsupported	declaration Macro has no candidate rule
+26	Macro		7620	7848	28	1	81	unsupported	declaration Macro has no candidate rule
+27	Macro		7849	8073	29	1	84	unsupported	declaration Macro has no candidate rule
+28	Macro		8074	8324	30	1	87	unsupported	declaration Macro has no candidate rule
+29	Macro		8325	8589	31	1	90	unsupported	declaration Macro has no candidate rule
+30	Macro		8590	8758	32	1	93	unsupported	declaration Macro has no candidate rule
+31	Macro		8759	8931	33	1	96	unsupported	declaration Macro has no candidate rule
+32	Macro		8932	9115	34	1	99	unsupported	declaration Macro has no candidate rule
+33	Macro		9116	9360	35	1	102	unsupported	declaration Macro has no candidate rule
+34	Macro		9361	9606	36	1	105	unsupported	declaration Macro has no candidate rule
+35	Macro		9607	9877	37	1	108	unsupported	declaration Macro has no candidate rule
+36	Macro		9878	10149	38	1	111	unsupported	declaration Macro has no candidate rule
+37	Macro		10150	10290	39	1	114	unsupported	declaration Macro has no candidate rule
+38	Macro		10291	10431	40	1	117	unsupported	declaration Macro has no candidate rule
+39	Macro		10432	10861	41	1	120	unsupported	declaration Macro has no candidate rule
+40	Macro		10862	11291	42	1	123	unsupported	declaration Macro has no candidate rule
+41	Macro		11292	11423	43	1	126	unsupported	declaration Macro has no candidate rule
+42	Macro		11424	11556	44	1	129	unsupported	declaration Macro has no candidate rule
+43	Macro		11557	11859	45	1	132	unsupported	declaration Macro has no candidate rule
+44	Macro		11860	12165	46	1	135	unsupported	declaration Macro has no candidate rule
+45	Macro		12166	12428	47	1	138	unsupported	declaration Macro has no candidate rule
+46	Macro		12429	12691	48	1	141	unsupported	declaration Macro has no candidate rule
+47	Macro		12692	12809	49	1	144	unsupported	declaration Macro has no candidate rule
+48	Macro		12810	12927	50	1	147	unsupported	declaration Macro has no candidate rule
+49	Macro		12928	13296	51	1	150	unsupported	declaration Macro has no candidate rule
+50	Macro		13297	13666	52	1	153	unsupported	declaration Macro has no candidate rule
+51	Macro		13667	13827	53	1	156	unsupported	declaration Macro has no candidate rule
+52	Macro		13828	13989	54	1	159	unsupported	declaration Macro has no candidate rule
+53	Macro		13990	14286	55	1	162	unsupported	declaration Macro has no candidate rule
+54	Macro		14287	14584	56	1	165	unsupported	declaration Macro has no candidate rule
+55	Macro		14585	14746	57	1	168	unsupported	declaration Macro has no candidate rule
+56	Macro		14747	14909	58	1	171	unsupported	declaration Macro has no candidate rule
+57	Macro		14910	15117	59	1	174	unsupported	declaration Macro has no candidate rule
+58	Macro		15118	15362	60	1	177	unsupported	declaration Macro has no candidate rule
+59	Macro		15363	15607	61	1	180	unsupported	declaration Macro has no candidate rule
+60	Macro		15608	15807	62	1	183	unsupported	declaration Macro has no candidate rule
+61	Macro		15808	16007	63	1	186	unsupported	declaration Macro has no candidate rule
+62	Macro		16008	16243	64	1	189	unsupported	declaration Macro has no candidate rule
+63	Macro		16244	16479	65	1	192	unsupported	declaration Macro has no candidate rule
+64	Macro		16480	16981	66	1	195	unsupported	declaration Macro has no candidate rule
+65	Macro		16982	17484	67	1	198	unsupported	declaration Macro has no candidate rule
+66	Macro		17485	17600	68	1	201	unsupported	declaration Macro has no candidate rule
+67	Macro		17601	17737	69	1	204	unsupported	declaration Macro has no candidate rule
+68	Macro		17738	17874	70	1	207	unsupported	declaration Macro has no candidate rule
+69	Macro		17875	17990	71	1	210	unsupported	declaration Macro has no candidate rule
+70	Macro		17991	18410	72	1	213	unsupported	declaration Macro has no candidate rule
+71	Macro		18411	18831	73	1	216	unsupported	declaration Macro has no candidate rule
+72	Macro		18832	19249	74	1	219	unsupported	declaration Macro has no candidate rule
+73	Macro		19250	19359	75	1	222	unsupported	declaration Macro has no candidate rule
+74	Macro		19360	19469	76	1	225	unsupported	declaration Macro has no candidate rule
+75	Macro		19470	19590	77	1	228	unsupported	declaration Macro has no candidate rule
+76	Macro		19591	19712	78	1	231	unsupported	declaration Macro has no candidate rule
+77	Macro		19713	19822	79	1	234	unsupported	declaration Macro has no candidate rule
+78	Macro		19823	19932	80	1	237	unsupported	declaration Macro has no candidate rule
+79	Macro		19933	20326	81	1	240	unsupported	declaration Macro has no candidate rule
+80	Macro		20327	20720	82	1	243	unsupported	declaration Macro has no candidate rule
+81	Macro		20721	20971	83	1	246	unsupported	declaration Macro has no candidate rule
+82	Macro		20972	21222	84	1	249	unsupported	declaration Macro has no candidate rule
+83	Macro		21223	21564	85	1	252	unsupported	declaration Macro has no candidate rule
+84	Macro		21565	21907	86	1	255	unsupported	declaration Macro has no candidate rule
+85	Macro		21908	22247	87	1	258	unsupported	declaration Macro has no candidate rule
+86	Macro		22248	22733	88	1	261	unsupported	declaration Macro has no candidate rule
+87	Macro		22734	23220	89	1	264	unsupported	declaration Macro has no candidate rule
+88	Macro		23221	23690	90	1	267	unsupported	declaration Macro has no candidate rule
+89	Macro		23691	24161	91	1	270	unsupported	declaration Macro has no candidate rule
+90	Const	ACCCTRL_DEFAULT_PROVIDER	24162	24278	92	1	273	unsupported	non-scalar type Ptr unsupported
+91	Const	ACCCTRL_DEFAULT_PROVIDERA	24279	24395	93	1	276	unsupported	non-scalar type Ptr unsupported
+92	Const	ACCCTRL_DEFAULT_PROVIDERW	24396	24513	94	1	279	unsupported	non-scalar type Ptr unsupported
+93	ItemType	ACCESS_MODE	24514	24541	95	1	282	generated	
+94	Struct	ACTRL_ACCESSA	24542	24684	96	1	283	unsupported	declaration Struct has no candidate rule
+95	Impl		24685	24791	102	1	291	unsupported	declaration Impl has no candidate rule
+96	Struct	ACTRL_ACCESSW	24792	24934	107	1	298	unsupported	declaration Struct has no candidate rule
+97	Impl		24935	25041	113	1	306	unsupported	declaration Impl has no candidate rule
+98	Const	ACTRL_ACCESS_ALLOWED	25042	25113	118	1	313	generated	
+99	Const	ACTRL_ACCESS_DENIED	25114	25184	119	1	314	generated	
+100	Struct	ACTRL_ACCESS_ENTRYA	25185	25481	120	1	315	unsupported	declaration Struct has no candidate rule
+101	Impl		25482	25594	130	1	327	unsupported	declaration Impl has no candidate rule
+102	Struct	ACTRL_ACCESS_ENTRYW	25595	25892	135	1	334	unsupported	declaration Struct has no candidate rule
+103	Impl		25893	26005	145	1	346	unsupported	declaration Impl has no candidate rule
+104	ItemType	ACTRL_ACCESS_ENTRY_ACCESS_FLAGS	26006	26053	150	1	353	generated	
+105	Struct	ACTRL_ACCESS_ENTRY_LISTA	26054	26197	151	1	354	unsupported	declaration Struct has no candidate rule
+106	Impl		26198	26315	157	1	362	unsupported	declaration Impl has no candidate rule
+107	Struct	ACTRL_ACCESS_ENTRY_LISTW	26316	26459	162	1	369	unsupported	declaration Struct has no candidate rule
+108	Impl		26460	26577	168	1	377	unsupported	declaration Impl has no candidate rule
+109	Struct	ACTRL_ACCESS_INFOA	26578	26734	173	1	384	unsupported	declaration Struct has no candidate rule
+110	Impl		26735	26846	179	1	392	unsupported	declaration Impl has no candidate rule
+111	Struct	ACTRL_ACCESS_INFOW	26847	27004	184	1	399	unsupported	declaration Struct has no candidate rule
+112	Impl		27005	27116	190	1	407	unsupported	declaration Impl has no candidate rule
+113	Const	ACTRL_ACCESS_NO_OPTIONS	27117	27163	195	1	414	generated	
+114	Const	ACTRL_ACCESS_PROTECTED	27164	27209	196	1	415	generated	
+115	Const	ACTRL_ACCESS_SUPPORTS_OBJECT_ENTRIES	27210	27269	197	1	416	generated	
+116	Const	ACTRL_AUDIT_FAILURE	27270	27340	198	1	417	generated	
+117	Const	ACTRL_AUDIT_SUCCESS	27341	27411	199	1	418	generated	
+118	Const	ACTRL_CHANGE_ACCESS	27412	27462	200	1	419	generated	
+119	Const	ACTRL_CHANGE_OWNER	27463	27513	201	1	420	generated	
+120	Struct	ACTRL_CONTROL_INFOA	27514	27676	202	1	421	unsupported	declaration Struct has no candidate rule
+121	Impl		27677	27789	208	1	429	unsupported	declaration Impl has no candidate rule
+122	Struct	ACTRL_CONTROL_INFOW	27790	27954	213	1	436	unsupported	declaration Struct has no candidate rule
+123	Impl		27955	28067	219	1	444	unsupported	declaration Impl has no candidate rule
+124	Const	ACTRL_DELETE	28068	28111	224	1	451	generated	
+125	Const	ACTRL_DIR_CREATE_CHILD	28112	28157	225	1	452	generated	
+126	Const	ACTRL_DIR_CREATE_OBJECT	28158	28204	226	1	453	generated	
+127	Const	ACTRL_DIR_DELETE_CHILD	28205	28251	227	1	454	generated	
+128	Const	ACTRL_DIR_LIST	28252	28289	228	1	455	generated	
+129	Const	ACTRL_DIR_TRAVERSE	28290	28332	229	1	456	generated	
+130	Const	ACTRL_FILE_APPEND	28333	28373	230	1	457	generated	
+131	Const	ACTRL_FILE_CREATE_PIPE	28374	28421	231	1	458	generated	
+132	Const	ACTRL_FILE_EXECUTE	28422	28464	232	1	459	generated	
+133	Const	ACTRL_FILE_READ	28465	28503	233	1	460	generated	
+134	Const	ACTRL_FILE_READ_ATTRIB	28504	28551	234	1	461	generated	
+135	Const	ACTRL_FILE_READ_PROP	28552	28595	235	1	462	generated	
+136	Const	ACTRL_FILE_WRITE	28596	28635	236	1	463	generated	
+137	Const	ACTRL_FILE_WRITE_ATTRIB	28636	28684	237	1	464	generated	
+138	Const	ACTRL_FILE_WRITE_PROP	28685	28730	238	1	465	generated	
+139	Const	ACTRL_KERNEL_ALERT	28731	28775	239	1	466	generated	
+140	Const	ACTRL_KERNEL_CONTROL	28776	28821	240	1	467	generated	
+141	Const	ACTRL_KERNEL_DIMPERSONATE	28822	28874	241	1	468	generated	
+142	Const	ACTRL_KERNEL_DUP_HANDLE	28875	28922	242	1	469	generated	
+143	Const	ACTRL_KERNEL_GET_CONTEXT	28923	28973	243	1	470	generated	
+144	Const	ACTRL_KERNEL_GET_INFO	28974	29020	244	1	471	generated	
+145	Const	ACTRL_KERNEL_IMPERSONATE	29021	29072	245	1	472	generated	
+146	Const	ACTRL_KERNEL_PROCESS	29073	29117	246	1	473	generated	
+147	Const	ACTRL_KERNEL_SET_CONTEXT	29118	29168	247	1	474	generated	
+148	Const	ACTRL_KERNEL_SET_INFO	29169	29215	248	1	475	generated	
+149	Const	ACTRL_KERNEL_TERMINATE	29216	29261	249	1	476	generated	
+150	Const	ACTRL_KERNEL_THREAD	29262	29304	250	1	477	generated	
+151	Const	ACTRL_KERNEL_TOKEN	29305	29349	251	1	478	generated	
+152	Const	ACTRL_KERNEL_VM	29350	29388	252	1	479	generated	
+153	Const	ACTRL_KERNEL_VM_READ	29389	29432	253	1	480	generated	
+154	Const	ACTRL_KERNEL_VM_WRITE	29433	29478	254	1	481	generated	
+155	Struct	ACTRL_OVERLAPPED	29479	29657	255	1	482	unsupported	declaration Struct has no candidate rule
+156	Impl		29658	29767	262	1	491	unsupported	declaration Impl has no candidate rule
+157	Union		29768	29900	267	1	498	unsupported	declaration Union has no candidate rule
+158	Impl		29901	30012	273	1	506	unsupported	declaration Impl has no candidate rule
+159	Const	ACTRL_PERM_1	30013	30048	278	1	513	generated	
+160	Const	ACTRL_PERM_10	30049	30087	279	1	514	generated	
+161	Const	ACTRL_PERM_11	30088	30127	280	1	515	generated	
+162	Const	ACTRL_PERM_12	30128	30167	281	1	516	generated	
+163	Const	ACTRL_PERM_13	30168	30207	282	1	517	generated	
+164	Const	ACTRL_PERM_14	30208	30247	283	1	518	generated	
+165	Const	ACTRL_PERM_15	30248	30288	284	1	519	generated	
+166	Const	ACTRL_PERM_16	30289	30329	285	1	520	generated	
+167	Const	ACTRL_PERM_17	30330	30370	286	1	521	generated	
+168	Const	ACTRL_PERM_18	30371	30412	287	1	522	generated	
+169	Const	ACTRL_PERM_19	30413	30454	288	1	523	generated	
+170	Const	ACTRL_PERM_2	30455	30490	289	1	524	generated	
+171	Const	ACTRL_PERM_20	30491	30532	290	1	525	generated	
+172	Const	ACTRL_PERM_3	30533	30568	291	1	526	generated	
+173	Const	ACTRL_PERM_4	30569	30604	292	1	527	generated	
+174	Const	ACTRL_PERM_5	30605	30641	293	1	528	generated	
+175	Const	ACTRL_PERM_6	30642	30678	294	1	529	generated	
+176	Const	ACTRL_PERM_7	30679	30715	295	1	530	generated	
+177	Const	ACTRL_PERM_8	30716	30753	296	1	531	generated	
+178	Const	ACTRL_PERM_9	30754	30791	297	1	532	generated	
+179	Const	ACTRL_PRINT_JADMIN	30792	30834	298	1	533	generated	
+180	Const	ACTRL_PRINT_PADMIN	30835	30876	299	1	534	generated	
+181	Const	ACTRL_PRINT_PUSE	30877	30916	300	1	535	generated	
+182	Const	ACTRL_PRINT_SADMIN	30917	30958	301	1	536	generated	
+183	Const	ACTRL_PRINT_SLIST	30959	30999	302	1	537	generated	
+184	Struct	ACTRL_PROPERTY_ENTRYA	31000	31197	303	1	538	unsupported	declaration Struct has no candidate rule
+185	Impl		31198	31312	310	1	547	unsupported	declaration Impl has no candidate rule
+186	Struct	ACTRL_PROPERTY_ENTRYW	31313	31511	315	1	554	unsupported	declaration Struct has no candidate rule
+187	Impl		31512	31626	322	1	563	unsupported	declaration Impl has no candidate rule
+188	Const	ACTRL_READ_CONTROL	31627	31676	327	1	570	generated	
+189	Const	ACTRL_REG_CREATE_CHILD	31677	31722	328	1	571	generated	
+190	Const	ACTRL_REG_LINK	31723	31761	329	1	572	generated	
+191	Const	ACTRL_REG_LIST	31762	31799	330	1	573	generated	
+192	Const	ACTRL_REG_NOTIFY	31800	31840	331	1	574	generated	
+193	Const	ACTRL_REG_QUERY	31841	31879	332	1	575	generated	
+194	Const	ACTRL_REG_SET	31880	31916	333	1	576	generated	
+195	Const	ACTRL_RESERVED	31917	31954	334	1	577	generated	
+196	Const	ACTRL_STD_RIGHTS_ALL	31955	32007	335	1	578	generated	
+197	Const	ACTRL_SVC_GET_INFO	32008	32049	336	1	579	generated	
+198	Const	ACTRL_SVC_INTERROGATE	32050	32096	337	1	580	generated	
+199	Const	ACTRL_SVC_LIST	32097	32134	338	1	581	generated	
+200	Const	ACTRL_SVC_PAUSE	32135	32174	339	1	582	generated	
+201	Const	ACTRL_SVC_SET_INFO	32175	32216	340	1	583	generated	
+202	Const	ACTRL_SVC_START	32217	32256	341	1	584	generated	
+203	Const	ACTRL_SVC_STATUS	32257	32296	342	1	585	generated	
+204	Const	ACTRL_SVC_STOP	32297	32335	343	1	586	generated	
+205	Const	ACTRL_SVC_UCONTROL	32336	32379	344	1	587	generated	
+206	Const	ACTRL_SYNCHRONIZE	32380	32429	345	1	588	generated	
+207	Const	ACTRL_SYSTEM_ACCESS	32430	32479	346	1	589	generated	
+208	Const	ACTRL_WIN_CLIPBRD	32480	32520	347	1	590	generated	
+209	Const	ACTRL_WIN_CREATE	32521	32560	348	1	591	generated	
+210	Const	ACTRL_WIN_EXIT	32561	32600	349	1	592	generated	
+211	Const	ACTRL_WIN_GLOBAL_ATOMS	32601	32646	350	1	593	generated	
+212	Const	ACTRL_WIN_LIST	32647	32685	351	1	594	generated	
+213	Const	ACTRL_WIN_LIST_DESK	32686	32728	352	1	595	generated	
+214	Const	ACTRL_WIN_READ_ATTRIBS	32729	32775	353	1	596	generated	
+215	Const	ACTRL_WIN_SCREEN	32776	32817	354	1	597	generated	
+216	Const	ACTRL_WIN_WRITE_ATTRIBS	32818	32865	355	1	598	generated	
+217	Const	APF_AuditFailure	32866	32905	356	1	599	generated	
+218	Const	APF_AuditSuccess	32906	32945	357	1	600	generated	
+219	Const	APF_ValidFlags	32946	32983	358	1	601	generated	
+220	Const	APT_Guid	32984	33028	359	1	602	generated	
+221	Const	APT_Int64	33029	33075	360	1	603	generated	
+222	Const	APT_IpAddress	33076	33126	361	1	604	generated	
+223	Const	APT_LogonId	33127	33174	362	1	605	generated	
+224	Const	APT_LogonIdWithSid	33175	33230	363	1	606	generated	
+225	Const	APT_Luid	33231	33275	364	1	607	generated	
+226	Const	APT_None	33276	33320	365	1	608	generated	
+227	Const	APT_ObjectTypeList	33321	33375	366	1	609	generated	
+228	Const	APT_Pointer	33376	33423	367	1	610	generated	
+229	Const	APT_Sid	33424	33467	368	1	611	generated	
+230	Const	APT_String	33468	33514	369	1	612	generated	
+231	Const	APT_Time	33515	33560	370	1	613	generated	
+232	Const	APT_Ulong	33561	33606	371	1	614	generated	
+233	Const	AP_ParamTypeBits	33607	33646	372	1	615	generated	
+234	Const	AP_ParamTypeMask	33647	33688	373	1	616	generated	
+235	Struct	AUDIT_IP_ADDRESS	33689	33785	374	1	617	unsupported	declaration Struct has no candidate rule
+236	Impl		33786	33895	379	1	624	unsupported	declaration Impl has no candidate rule
+237	Struct	AUDIT_OBJECT_TYPE	33896	34081	384	1	631	unsupported	declaration Struct has no candidate rule
+238	Struct	AUDIT_OBJECT_TYPES	34082	34235	392	1	641	unsupported	declaration Struct has no candidate rule
+239	Impl		34236	34347	399	1	650	unsupported	declaration Impl has no candidate rule
+240	Struct	AUDIT_PARAM	34348	34551	404	1	657	unsupported	declaration Struct has no candidate rule
+241	Impl		34552	34656	413	1	668	unsupported	declaration Impl has no candidate rule
+242	Union		34657	34996	418	1	675	unsupported	declaration Union has no candidate rule
+243	Impl		34997	35103	430	1	689	unsupported	declaration Impl has no candidate rule
+244	Union		35104	35218	435	1	696	unsupported	declaration Union has no candidate rule
+245	Impl		35219	35325	441	1	704	unsupported	declaration Impl has no candidate rule
+246	Struct	AUDIT_PARAMS	35326	35486	446	1	711	unsupported	declaration Struct has no candidate rule
+247	Impl		35487	35592	454	1	721	unsupported	declaration Impl has no candidate rule
+248	ItemType	AUDIT_PARAM_TYPE	35593	35625	459	1	728	generated	
+249	Const	AUDIT_TYPE_LEGACY	35626	35666	460	1	729	generated	
+250	Const	AUDIT_TYPE_WMI	35667	35704	461	1	730	generated	
+251	Const	AUTHZP_WPD_EVENT	35705	35745	462	1	731	generated	
+252	ItemType	AUTHZ_ACCESS_CHECK_FLAGS	35746	35786	463	1	732	generated	
+253	Const	AUTHZ_ACCESS_CHECK_NO_DEEP_COPY_SD	35787	35865	464	1	733	generated	
+254	ItemType	AUTHZ_ACCESS_CHECK_RESULTS_HANDLE	35866	35934	465	1	734	unsupported	non-scalar type Ptr unsupported
+255	Struct	AUTHZ_ACCESS_REPLY	35935	36155	466	1	737	unsupported	declaration Struct has no candidate rule
+256	Impl		36156	36267	474	1	747	unsupported	declaration Impl has no candidate rule
+257	Struct	AUTHZ_ACCESS_REQUEST	36268	36544	479	1	754	unsupported	declaration Struct has no candidate rule
+258	Impl		36545	36658	488	1	765	unsupported	declaration Impl has no candidate rule
+259	Const	AUTHZ_ALLOW_MULTIPLE_SOURCE_INSTANCES	36659	36719	493	1	772	generated	
+260	ItemType	AUTHZ_AUDIT_EVENT_HANDLE	36720	36779	494	1	773	unsupported	non-scalar type Ptr unsupported
+261	ItemType	AUTHZ_AUDIT_EVENT_INFORMATION_CLASS	36780	36831	495	1	776	generated	
+262	ItemType	AUTHZ_AUDIT_EVENT_TYPE_HANDLE	36832	36896	496	1	777	unsupported	non-scalar type Ptr unsupported
+263	Struct	AUTHZ_AUDIT_EVENT_TYPE_LEGACY	36897	37060	497	1	780	unsupported	declaration Struct has no candidate rule
+264	Struct	AUTHZ_AUDIT_EVENT_TYPE_OLD	37061	37315	504	1	789	unsupported	declaration Struct has no candidate rule
+265	Impl		37316	37435	514	1	801	unsupported	declaration Impl has no candidate rule
+266	Union		37436	37559	519	1	808	unsupported	declaration Union has no candidate rule
+267	Impl		37560	37681	524	1	815	unsupported	declaration Impl has no candidate rule
+268	Const	AUTHZ_AUDIT_INSTANCE_INFORMATION	37682	37737	529	1	822	generated	
+269	ItemType	AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE	37738	37809	530	1	823	unsupported	non-scalar type Ptr unsupported
+270	ItemType	AUTHZ_CLIENT_CONTEXT_HANDLE	37810	37872	531	1	826	unsupported	non-scalar type Ptr unsupported
+271	Const	AUTHZ_COMPUTE_PRIVILEGES	37873	37920	532	1	829	generated	
+272	ItemType	AUTHZ_CONTEXT_INFORMATION_CLASS	37921	37968	533	1	830	generated	
+273	Const	AUTHZ_FLAG_ALLOW_MULTIPLE_SOURCE_INSTANCES	37969	38034	534	1	831	generated	
+274	Const	AUTHZ_GENERATE_FAILURE_AUDIT	38035	38105	535	1	832	generated	
+275	ItemType	AUTHZ_GENERATE_RESULTS	38106	38144	536	1	833	generated	
+276	Const	AUTHZ_GENERATE_SUCCESS_AUDIT	38145	38215	537	1	834	generated	
+277	ItemType	AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS	38216	38280	538	1	835	generated	
+278	Struct	AUTHZ_INIT_INFO	38281	38762	539	1	836	unsupported	declaration Struct has no candidate rule
+279	Impl		38763	38871	550	1	849	unsupported	declaration Impl has no candidate rule
+280	Const	AUTHZ_INIT_INFO_VERSION_V1	38872	38921	555	1	856	generated	
+281	Const	AUTHZ_MIGRATED_LEGACY_PUBLISHER	38922	38976	556	1	857	generated	
+282	Const	AUTHZ_NO_ALLOC_STRINGS	38977	39067	557	1	858	generated	
+283	Const	AUTHZ_NO_FAILURE_AUDIT	39068	39158	558	1	859	generated	
+284	Const	AUTHZ_NO_SUCCESS_AUDIT	39159	39249	559	1	860	generated	
+285	Struct	AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET	39250	39416	560	1	861	unsupported	declaration Struct has no candidate rule
+286	Impl		39417	39552	566	1	869	unsupported	declaration Impl has no candidate rule
+287	Const	AUTHZ_REQUIRE_S4U_LOGON	39553	39599	571	1	876	generated	
+288	ItemType	AUTHZ_RESOURCE_MANAGER_FLAGS	39600	39644	572	1	877	generated	
+289	ItemType	AUTHZ_RESOURCE_MANAGER_HANDLE	39645	39709	573	1	878	unsupported	non-scalar type Ptr unsupported
+290	Const	AUTHZ_RM_FLAG_INITIALIZE_UNDER_IMPERSONATION	39710	39802	574	1	881	generated	
+291	Const	AUTHZ_RM_FLAG_NO_AUDIT	39803	39873	575	1	882	generated	
+292	Const	AUTHZ_RM_FLAG_NO_CENTRAL_ACCESS_POLICIES	39874	39962	576	1	883	generated	
+293	Struct	AUTHZ_RPC_INIT_INFO_CLIENT	39963	40328	577	1	884	unsupported	declaration Struct has no candidate rule
+294	Impl		40329	40448	588	1	897	unsupported	declaration Impl has no candidate rule
+295	Const	AUTHZ_RPC_INIT_INFO_CLIENT_VERSION_V1	40449	40509	593	1	904	generated	
+296	Struct	AUTHZ_SECURITY_ATTRIBUTES_INFORMATION	40510	40730	594	1	905	unsupported	declaration Struct has no candidate rule
+297	Impl		40731	40861	602	1	915	unsupported	declaration Impl has no candidate rule
+298	Union		40862	41005	607	1	922	unsupported	declaration Union has no candidate rule
+299	Impl		41006	41138	612	1	929	unsupported	declaration Impl has no candidate rule
+300	Const	AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION	41139	41207	617	1	936	generated	
+301	Const	AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1	41208	41279	618	1	937	generated	
+302	ItemType	AUTHZ_SECURITY_ATTRIBUTE_FLAGS	41280	41326	619	1	938	generated	
+303	Struct	AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE	41327	41474	620	1	939	unsupported	declaration Struct has no candidate rule
+304	Impl		41475	41603	626	1	947	unsupported	declaration Impl has no candidate rule
+305	Const	AUTHZ_SECURITY_ATTRIBUTE_NON_INHERITABLE	41604	41694	631	1	954	generated	
+306	Struct	AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE	41695	41853	632	1	955	unsupported	declaration Struct has no candidate rule
+307	Impl		41854	41990	638	1	963	unsupported	declaration Impl has no candidate rule
+308	ItemType	AUTHZ_SECURITY_ATTRIBUTE_OPERATION	41991	42041	643	1	970	generated	
+309	Const	AUTHZ_SECURITY_ATTRIBUTE_OPERATION_ADD	42042	42134	644	1	971	generated	
+310	Const	AUTHZ_SECURITY_ATTRIBUTE_OPERATION_DELETE	42135	42230	645	1	972	generated	
+311	Const	AUTHZ_SECURITY_ATTRIBUTE_OPERATION_NONE	42231	42324	646	1	973	generated	
+312	Const	AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE	42325	42421	647	1	974	generated	
+313	Const	AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE_ALL	42422	42522	648	1	975	generated	
+314	Const	AUTHZ_SECURITY_ATTRIBUTE_TYPE_BOOLEAN	42523	42583	649	1	976	generated	
+315	Const	AUTHZ_SECURITY_ATTRIBUTE_TYPE_FQBN	42584	42641	650	1	977	generated	
+316	Const	AUTHZ_SECURITY_ATTRIBUTE_TYPE_INT64	42642	42700	651	1	978	generated	
+317	Const	AUTHZ_SECURITY_ATTRIBUTE_TYPE_INVALID	42701	42761	652	1	979	generated	
+318	Const	AUTHZ_SECURITY_ATTRIBUTE_TYPE_OCTET_STRING	42762	42828	653	1	980	generated	
+319	Const	AUTHZ_SECURITY_ATTRIBUTE_TYPE_SID	42829	42885	654	1	981	generated	
+320	Const	AUTHZ_SECURITY_ATTRIBUTE_TYPE_STRING	42886	42945	655	1	982	generated	
+321	Const	AUTHZ_SECURITY_ATTRIBUTE_TYPE_UINT64	42946	43005	656	1	983	generated	
+322	Struct	AUTHZ_SECURITY_ATTRIBUTE_V1	43006	43289	657	1	984	unsupported	declaration Struct has no candidate rule
+323	Impl		43290	43410	667	1	996	unsupported	declaration Impl has no candidate rule
+324	Union		43411	43719	672	1	1003	unsupported	declaration Union has no candidate rule
+325	Impl		43720	43842	681	1	1014	unsupported	declaration Impl has no candidate rule
+326	Const	AUTHZ_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE	43843	43938	686	1	1021	generated	
+327	ItemType	AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE	43939	44010	687	1	1022	unsupported	non-scalar type Ptr unsupported
+328	ItemType	AUTHZ_SID_OPERATION	44011	44046	688	1	1025	generated	
+329	Const	AUTHZ_SID_OPERATION_ADD	44047	44109	689	1	1026	generated	
+330	Const	AUTHZ_SID_OPERATION_DELETE	44110	44175	690	1	1027	generated	
+331	Const	AUTHZ_SID_OPERATION_NONE	44176	44239	691	1	1028	generated	
+332	Const	AUTHZ_SID_OPERATION_REPLACE	44240	44306	692	1	1029	generated	
+333	Const	AUTHZ_SID_OPERATION_REPLACE_ALL	44307	44377	693	1	1030	generated	
+334	Const	AUTHZ_SKIP_TOKEN_GROUPS	44378	44424	694	1	1031	generated	
+335	Struct	AUTHZ_SOURCE_SCHEMA_REGISTRATION	44425	44979	695	1	1032	unsupported	declaration Struct has no candidate rule
+336	Impl		44980	45105	708	1	1047	unsupported	declaration Impl has no candidate rule
+337	Union		45106	45284	713	1	1054	unsupported	declaration Union has no candidate rule
+338	Impl		45285	45412	719	1	1062	unsupported	declaration Impl has no candidate rule
+339	Const	AUTHZ_WPD_CATEGORY_FLAG	45413	45460	724	1	1069	generated	
+340	Const	AZ_AZSTORE_DEFAULT_DOMAIN_TIMEOUT	45461	45535	725	1	1070	generated	
+341	Const	AZ_AZSTORE_DEFAULT_MAX_SCRIPT_ENGINES	45536	45612	726	1	1071	generated	
+342	Const	AZ_AZSTORE_DEFAULT_SCRIPT_ENGINE_TIMEOUT	45613	45694	727	1	1072	generated	
+343	Const	AZ_AZSTORE_FLAG_AUDIT_IS_CRITICAL	45695	45765	728	1	1073	generated	
+344	Const	AZ_AZSTORE_FLAG_BATCH_UPDATE	45766	45831	729	1	1074	generated	
+345	Const	AZ_AZSTORE_FLAG_CREATE	45832	45891	730	1	1075	generated	
+346	Const	AZ_AZSTORE_FLAG_MANAGE_ONLY_PASSIVE_SUBMIT	45892	45975	731	1	1076	generated	
+347	Const	AZ_AZSTORE_FLAG_MANAGE_STORE_ONLY	45976	46046	732	1	1077	generated	
+348	Const	AZ_AZSTORE_FORCE_APPLICATION_CLOSE	46047	46119	733	1	1078	generated	
+349	Const	AZ_AZSTORE_MIN_DOMAIN_TIMEOUT	46120	46188	734	1	1079	generated	
+350	Const	AZ_AZSTORE_MIN_SCRIPT_ENGINE_TIMEOUT	46189	46265	735	1	1080	generated	
+351	Const	AZ_AZSTORE_NT6_FUNCTION_LEVEL	46266	46333	736	1	1081	generated	
+352	Const	AZ_CLIENT_CONTEXT_GET_GROUPS_STORE_LEVEL_ONLY	46334	46416	737	1	1082	generated	
+353	Const	AZ_CLIENT_CONTEXT_GET_GROUP_RECURSIVE	46417	46491	738	1	1083	generated	
+354	Const	AZ_CLIENT_CONTEXT_SKIP_GROUP	46492	46557	739	1	1084	generated	
+355	Const	AZ_CLIENT_CONTEXT_SKIP_LDAP_QUERY	46558	46628	740	1	1085	generated	
+356	Const	AZ_GROUPTYPE_BASIC	46629	46684	741	1	1086	generated	
+357	Const	AZ_GROUPTYPE_BIZRULE	46685	46742	742	1	1087	generated	
+358	Const	AZ_GROUPTYPE_LDAP_QUERY	46743	46803	743	1	1088	generated	
+359	Const	AZ_MAX_APPLICATION_DATA_LENGTH	46804	46874	744	1	1089	generated	
+360	Const	AZ_MAX_APPLICATION_NAME_LENGTH	46875	46944	745	1	1090	generated	
+361	Const	AZ_MAX_APPLICATION_VERSION_LENGTH	46945	47017	746	1	1091	generated	
+362	Const	AZ_MAX_BIZRULE_STRING	47018	47080	747	1	1092	generated	
+363	Const	AZ_MAX_DESCRIPTION_LENGTH	47081	47146	748	1	1093	generated	
+364	Const	AZ_MAX_GROUP_BIZRULE_IMPORTED_PATH_LENGTH	47147	47227	749	1	1094	generated	
+365	Const	AZ_MAX_GROUP_BIZRULE_LANGUAGE_LENGTH	47228	47302	750	1	1095	generated	
+366	Const	AZ_MAX_GROUP_BIZRULE_LENGTH	47303	47371	751	1	1096	generated	
+367	Const	AZ_MAX_GROUP_LDAP_QUERY_LENGTH	47372	47442	752	1	1097	generated	
+368	Const	AZ_MAX_GROUP_NAME_LENGTH	47443	47505	753	1	1098	generated	
+369	Const	AZ_MAX_NAME_LENGTH	47506	47565	754	1	1099	generated	
+370	Const	AZ_MAX_OPERATION_NAME_LENGTH	47566	47632	755	1	1100	generated	
+371	Const	AZ_MAX_POLICY_URL_LENGTH	47633	47698	756	1	1101	generated	
+372	Const	AZ_MAX_ROLE_NAME_LENGTH	47699	47760	757	1	1102	generated	
+373	Const	AZ_MAX_SCOPE_NAME_LENGTH	47761	47826	758	1	1103	generated	
+374	Const	AZ_MAX_TASK_BIZRULE_IMPORTED_PATH_LENGTH	47827	47906	759	1	1104	generated	
+375	Const	AZ_MAX_TASK_BIZRULE_LANGUAGE_LENGTH	47907	47980	760	1	1105	generated	
+376	Const	AZ_MAX_TASK_BIZRULE_LENGTH	47981	48048	761	1	1106	generated	
+377	Const	AZ_MAX_TASK_NAME_LENGTH	48049	48110	762	1	1107	generated	
+378	Const	AZ_PROP_APPLICATION_AUTHZ_INTERFACE_CLSID	48111	48191	763	1	1108	generated	
+379	Const	AZ_PROP_APPLICATION_BIZRULE_ENABLED	48192	48266	764	1	1109	generated	
+380	Const	AZ_PROP_APPLICATION_DATA	48267	48328	765	1	1110	generated	
+381	Const	AZ_PROP_APPLICATION_NAME	48329	48392	766	1	1111	generated	
+382	Const	AZ_PROP_APPLICATION_VERSION	48393	48459	767	1	1112	generated	
+383	Const	AZ_PROP_APPLY_STORE_SACL	48460	48523	768	1	1113	generated	
+384	Const	AZ_PROP_AZSTORE_DOMAIN_TIMEOUT	48524	48593	769	1	1114	generated	
+385	Const	AZ_PROP_AZSTORE_MAJOR_VERSION	48594	48662	770	1	1115	generated	
+386	Const	AZ_PROP_AZSTORE_MAX_SCRIPT_ENGINES	48663	48736	771	1	1116	generated	
+387	Const	AZ_PROP_AZSTORE_MINOR_VERSION	48737	48805	772	1	1117	generated	
+388	Const	AZ_PROP_AZSTORE_SCRIPT_ENGINE_TIMEOUT	48806	48882	773	1	1118	generated	
+389	Const	AZ_PROP_AZSTORE_TARGET_MACHINE	48883	48952	774	1	1119	generated	
+390	Const	AZ_PROP_AZTORE_IS_ADAM_INSTANCE	48953	49023	775	1	1120	generated	
+391	Const	AZ_PROP_CHILD_CREATE	49024	49081	776	1	1121	generated	
+392	Const	AZ_PROP_CLIENT_CONTEXT_LDAP_QUERY_DN	49082	49157	777	1	1122	generated	
+393	Const	AZ_PROP_CLIENT_CONTEXT_ROLE_FOR_ACCESS_CHECK	49158	49241	778	1	1123	generated	
+394	Const	AZ_PROP_CLIENT_CONTEXT_USER_CANONICAL	49242	49318	779	1	1124	generated	
+395	Const	AZ_PROP_CLIENT_CONTEXT_USER_DISPLAY	49319	49393	780	1	1125	generated	
+396	Const	AZ_PROP_CLIENT_CONTEXT_USER_DN	49394	49463	781	1	1126	generated	
+397	Const	AZ_PROP_CLIENT_CONTEXT_USER_DNS_SAM_COMPAT	49464	49545	782	1	1127	generated	
+398	Const	AZ_PROP_CLIENT_CONTEXT_USER_GUID	49546	49617	783	1	1128	generated	
+399	Const	AZ_PROP_CLIENT_CONTEXT_USER_SAM_COMPAT	49618	49695	784	1	1129	generated	
+400	Const	AZ_PROP_CLIENT_CONTEXT_USER_UPN	49696	49766	785	1	1130	generated	
+401	ItemType	AZ_PROP_CONSTANTS	49767	49800	786	1	1131	generated	
+402	Const	AZ_PROP_DELEGATED_POLICY_USERS	49801	49870	787	1	1132	generated	
+403	Const	AZ_PROP_DELEGATED_POLICY_USERS_NAME	49871	49945	788	1	1133	generated	
+404	Const	AZ_PROP_DESCRIPTION	49946	50002	789	1	1134	generated	
+405	Const	AZ_PROP_GENERATE_AUDITS	50003	50065	790	1	1135	generated	
+406	Const	AZ_PROP_GROUP_APP_MEMBERS	50066	50130	791	1	1136	generated	
+407	Const	AZ_PROP_GROUP_APP_NON_MEMBERS	50131	50199	792	1	1137	generated	
+408	Const	AZ_PROP_GROUP_BIZRULE	50200	50260	793	1	1138	generated	
+409	Const	AZ_PROP_GROUP_BIZRULE_IMPORTED_PATH	50261	50335	794	1	1139	generated	
+410	Const	AZ_PROP_GROUP_BIZRULE_LANGUAGE	50336	50405	795	1	1140	generated	
+411	Const	AZ_PROP_GROUP_LDAP_QUERY	50406	50469	796	1	1141	generated	
+412	Const	AZ_PROP_GROUP_MEMBERS	50470	50530	797	1	1142	generated	
+413	Const	AZ_PROP_GROUP_MEMBERS_NAME	50531	50596	798	1	1143	generated	
+414	Const	AZ_PROP_GROUP_NON_MEMBERS	50597	50661	799	1	1144	generated	
+415	Const	AZ_PROP_GROUP_NON_MEMBERS_NAME	50662	50731	800	1	1145	generated	
+416	Const	AZ_PROP_GROUP_TYPE	50732	50789	801	1	1146	generated	
+417	Const	AZ_PROP_NAME	50790	50839	802	1	1147	generated	
+418	Const	AZ_PROP_OPERATION_ID	50840	50899	803	1	1148	generated	
+419	Const	AZ_PROP_POLICY_ADMINS	50900	50960	804	1	1149	generated	
+420	Const	AZ_PROP_POLICY_ADMINS_NAME	50961	51026	805	1	1150	generated	
+421	Const	AZ_PROP_POLICY_READERS	51027	51088	806	1	1151	generated	
+422	Const	AZ_PROP_POLICY_READERS_NAME	51089	51155	807	1	1152	generated	
+423	Const	AZ_PROP_ROLE_APP_MEMBERS	51156	51219	808	1	1153	generated	
+424	Const	AZ_PROP_ROLE_MEMBERS	51220	51279	809	1	1154	generated	
+425	Const	AZ_PROP_ROLE_MEMBERS_NAME	51280	51344	810	1	1155	generated	
+426	Const	AZ_PROP_ROLE_OPERATIONS	51345	51407	811	1	1156	generated	
+427	Const	AZ_PROP_ROLE_TASKS	51408	51465	812	1	1157	generated	
+428	Const	AZ_PROP_SCOPE_BIZRULES_WRITABLE	51466	51536	813	1	1158	generated	
+429	Const	AZ_PROP_SCOPE_CAN_BE_DELEGATED	51537	51606	814	1	1159	generated	
+430	Const	AZ_PROP_TASK_BIZRULE	51607	51666	815	1	1160	generated	
+431	Const	AZ_PROP_TASK_BIZRULE_IMPORTED_PATH	51667	51740	816	1	1161	generated	
+432	Const	AZ_PROP_TASK_BIZRULE_LANGUAGE	51741	51809	817	1	1162	generated	
+433	Const	AZ_PROP_TASK_IS_ROLE_DEFINITION	51810	51880	818	1	1163	generated	
+434	Const	AZ_PROP_TASK_OPERATIONS	51881	51943	819	1	1164	generated	
+435	Const	AZ_PROP_TASK_TASKS	51944	52001	820	1	1165	generated	
+436	Const	AZ_PROP_WRITABLE	52002	52055	821	1	1166	generated	
+437	Const	AZ_SUBMIT_FLAG_ABORT	52056	52113	822	1	1167	generated	
+438	Const	AZ_SUBMIT_FLAG_FLUSH	52114	52171	823	1	1168	generated	
+439	Const	AuthzAuditEventInfoAdditionalInfo	52172	52260	824	1	1169	generated	
+440	Const	AuthzAuditEventInfoFlags	52261	52340	825	1	1170	generated	
+441	Const	AuthzAuditEventInfoObjectName	52341	52425	826	1	1171	generated	
+442	Const	AuthzAuditEventInfoObjectType	52426	52510	827	1	1172	generated	
+443	Const	AuthzAuditEventInfoOperationType	52511	52598	828	1	1173	generated	
+444	Const	AuthzContextInfoAll	52599	52669	829	1	1174	generated	
+445	Const	AuthzContextInfoAppContainerSid	52670	52753	830	1	1175	generated	
+446	Const	AuthzContextInfoAuthenticationId	52754	52838	831	1	1176	generated	
+447	Const	AuthzContextInfoCapabilitySids	52839	52921	832	1	1177	generated	
+448	Const	AuthzContextInfoDeviceClaims	52922	53002	833	1	1178	generated	
+449	Const	AuthzContextInfoDeviceSids	53003	53081	834	1	1179	generated	
+450	Const	AuthzContextInfoExpirationTime	53082	53163	835	1	1180	generated	
+451	Const	AuthzContextInfoGroupsSids	53164	53241	836	1	1181	generated	
+452	Const	AuthzContextInfoIdentifier	53242	53319	837	1	1182	generated	
+453	Const	AuthzContextInfoPrivileges	53320	53397	838	1	1183	generated	
+454	Const	AuthzContextInfoRestrictedSids	53398	53479	839	1	1184	generated	
+455	Const	AuthzContextInfoSecurityAttributes	53480	53566	840	1	1185	generated	
+456	Const	AuthzContextInfoServerContext	53567	53647	841	1	1186	generated	
+457	Const	AuthzContextInfoSource	53648	53721	842	1	1187	generated	
+458	Const	AuthzContextInfoUserClaims	53722	53800	843	1	1188	generated	
+459	Const	AuthzContextInfoUserSid	53801	53875	844	1	1189	generated	
+460	Const	AzAuthorizationStore	53876	54009	845	1	1190	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+461	Const	AzBizRuleContext	54010	54139	846	1	1193	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+462	Const	AzPrincipalLocator	54140	54271	847	1	1196	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+463	Const	DENY_ACCESS	54272	54314	848	1	1199	generated	
+464	Struct	EXPLICIT_ACCESS_A	54315	54531	849	1	1200	unsupported	declaration Struct has no candidate rule
+465	Struct	EXPLICIT_ACCESS_W	54532	54748	857	1	1210	unsupported	declaration Struct has no candidate rule
+466	Struct	FN_OBJECT_MGR_FUNCTS	54749	54853	865	1	1220	unsupported	declaration Struct has no candidate rule
+467	ItemType	FN_PROGRESS	54854	55076	870	1	1227	unsupported	generic scalar type unsupported
+468	Const	GRANT_ACCESS	55077	55120	871	1	1230	generated	
+469	Const	INHERITED_ACCESS_ENTRY	55121	55167	872	1	1231	generated	
+470	Struct	INHERITED_FROMA	55168	55307	873	1	1232	unsupported	declaration Struct has no candidate rule
+471	Impl		55308	55416	879	1	1240	unsupported	declaration Impl has no candidate rule
+472	Struct	INHERITED_FROMW	55417	55557	884	1	1247	unsupported	declaration Struct has no candidate rule
+473	Impl		55558	55666	890	1	1255	unsupported	declaration Impl has no candidate rule
+474	Const	INHERITED_GRANDPARENT	55667	55719	895	1	1262	generated	
+475	Const	INHERITED_PARENT	55720	55767	896	1	1263	generated	
+476	ItemType	MULTIPLE_TRUSTEE_OPERATION	55768	55810	897	1	1264	generated	
+477	Const	NOT_USED_ACCESS	55811	55857	898	1	1265	generated	
+478	Const	NO_MULTIPLE_TRUSTEE	55858	55923	899	1	1266	generated	
+479	Struct	OBJECTS_AND_NAME_A	55924	56240	900	1	1267	unsupported	declaration Struct has no candidate rule
+480	Impl		56241	56352	909	1	1278	unsupported	declaration Impl has no candidate rule
+481	Struct	OBJECTS_AND_NAME_W	56353	56672	914	1	1285	unsupported	declaration Struct has no candidate rule
+482	Impl		56673	56784	923	1	1296	unsupported	declaration Impl has no candidate rule
+483	Struct	OBJECTS_AND_SID	56785	57049	928	1	1303	unsupported	declaration Struct has no candidate rule
+484	Impl		57050	57158	936	1	1313	unsupported	declaration Impl has no candidate rule
+485	Const	OLESCRIPT_E_SYNTAX	57159	57238	941	1	1320	generated	
+486	ItemType	PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS	57239	57592	942	1	1321	unsupported	generic scalar type unsupported
+487	ItemType	PFN_AUTHZ_DYNAMIC_ACCESS_CHECK	57593	57858	943	1	1324	unsupported	generic scalar type unsupported
+488	ItemType	PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY	57859	57989	944	1	1327	unsupported	generic scalar type unsupported
+489	ItemType	PFN_AUTHZ_FREE_DYNAMIC_GROUPS	57990	58114	945	1	1330	unsupported	generic scalar type unsupported
+490	ItemType	PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY	58115	58440	946	1	1333	unsupported	generic scalar type unsupported
+491	ItemType	PROG_INVOKE_SETTING	58441	58476	947	1	1336	generated	
+492	Const	ProgressCancelOperation	58477	58539	948	1	1337	generated	
+493	Const	ProgressInvokeEveryObject	58540	58604	949	1	1338	generated	
+494	Const	ProgressInvokeNever	58605	58663	950	1	1339	generated	
+495	Const	ProgressInvokeOnError	58664	58724	951	1	1340	generated	
+496	Const	ProgressInvokePrePostError	58725	58790	952	1	1341	generated	
+497	Const	ProgressRetryOperation	58791	58852	953	1	1342	generated	
+498	Const	REVOKE_ACCESS	58853	58897	954	1	1343	generated	
+499	Const	SDDL_ACCESS_ALLOWED	58898	58984	955	1	1344	unsupported	non-scalar type Ptr unsupported
+500	Const	SDDL_ACCESS_CONTROL_ASSISTANCE_OPS	58985	59087	956	1	1347	unsupported	non-scalar type Ptr unsupported
+501	Const	SDDL_ACCESS_DENIED	59088	59173	957	1	1350	unsupported	non-scalar type Ptr unsupported
+502	Const	SDDL_ACCESS_FILTER	59174	59260	958	1	1353	unsupported	non-scalar type Ptr unsupported
+503	Const	SDDL_ACCOUNT_OPERATORS	59261	59351	959	1	1356	unsupported	non-scalar type Ptr unsupported
+504	Const	SDDL_ACE_BEGIN	59352	59433	960	1	1359	unsupported	non-scalar type Ptr unsupported
+505	Const	SDDL_ACE_COND_ATTRIBUTE_PREFIX	59434	59531	961	1	1362	unsupported	non-scalar type Ptr unsupported
+506	Const	SDDL_ACE_COND_BEGIN	59532	59618	962	1	1365	unsupported	non-scalar type Ptr unsupported
+507	Const	SDDL_ACE_COND_BLOB_PREFIX	59619	59711	963	1	1368	unsupported	non-scalar type Ptr unsupported
+508	Const	SDDL_ACE_COND_DEVICE_ATTRIBUTE_PREFIX	59712	59823	964	1	1371	unsupported	non-scalar type Ptr unsupported
+509	Const	SDDL_ACE_COND_END	59824	59908	965	1	1374	unsupported	non-scalar type Ptr unsupported
+510	Const	SDDL_ACE_COND_RESOURCE_ATTRIBUTE_PREFIX	59909	60024	966	1	1377	unsupported	non-scalar type Ptr unsupported
+511	Const	SDDL_ACE_COND_SID_PREFIX	60025	60118	967	1	1380	unsupported	non-scalar type Ptr unsupported
+512	Const	SDDL_ACE_COND_TOKEN_ATTRIBUTE_PREFIX	60119	60228	968	1	1383	unsupported	non-scalar type Ptr unsupported
+513	Const	SDDL_ACE_COND_USER_ATTRIBUTE_PREFIX	60229	60336	969	1	1386	unsupported	non-scalar type Ptr unsupported
+514	Const	SDDL_ACE_END	60337	60416	970	1	1389	unsupported	non-scalar type Ptr unsupported
+515	Const	SDDL_ALARM	60417	60495	971	1	1392	unsupported	non-scalar type Ptr unsupported
+516	Const	SDDL_ALIAS_PREW2KCOMPACC	60496	60588	972	1	1395	unsupported	non-scalar type Ptr unsupported
+517	Const	SDDL_ALIAS_SIZE	60589	60627	973	1	1398	generated	
+518	Const	SDDL_ALL_APP_PACKAGES	60628	60717	974	1	1399	unsupported	non-scalar type Ptr unsupported
+519	Const	SDDL_ANONYMOUS	60718	60800	975	1	1402	unsupported	non-scalar type Ptr unsupported
+520	Const	SDDL_AUDIT	60801	60879	976	1	1405	unsupported	non-scalar type Ptr unsupported
+521	Const	SDDL_AUDIT_FAILURE	60880	60966	977	1	1408	unsupported	non-scalar type Ptr unsupported
+522	Const	SDDL_AUDIT_SUCCESS	60967	61053	978	1	1411	unsupported	non-scalar type Ptr unsupported
+523	Const	SDDL_AUTHENTICATED_USERS	61054	61146	979	1	1414	unsupported	non-scalar type Ptr unsupported
+524	Const	SDDL_AUTHORITY_ASSERTED	61147	61238	980	1	1417	unsupported	non-scalar type Ptr unsupported
+525	Const	SDDL_AUTO_INHERITED	61239	61326	981	1	1420	unsupported	non-scalar type Ptr unsupported
+526	Const	SDDL_AUTO_INHERIT_REQ	61327	61416	982	1	1423	unsupported	non-scalar type Ptr unsupported
+527	Const	SDDL_BACKUP_OPERATORS	61417	61506	983	1	1426	unsupported	non-scalar type Ptr unsupported
+528	Const	SDDL_BLOB	61507	61584	984	1	1429	unsupported	non-scalar type Ptr unsupported
+529	Const	SDDL_BOOLEAN	61585	61665	985	1	1432	unsupported	non-scalar type Ptr unsupported
+530	Const	SDDL_BUILTIN_ADMINISTRATORS	61666	61761	986	1	1435	unsupported	non-scalar type Ptr unsupported
+531	Const	SDDL_BUILTIN_GUESTS	61762	61849	987	1	1438	unsupported	non-scalar type Ptr unsupported
+532	Const	SDDL_BUILTIN_USERS	61850	61936	988	1	1441	unsupported	non-scalar type Ptr unsupported
+533	Const	SDDL_CALLBACK_ACCESS_ALLOWED	61937	62033	989	1	1444	unsupported	non-scalar type Ptr unsupported
+534	Const	SDDL_CALLBACK_ACCESS_DENIED	62034	62129	990	1	1447	unsupported	non-scalar type Ptr unsupported
+535	Const	SDDL_CALLBACK_AUDIT	62130	62217	991	1	1450	unsupported	non-scalar type Ptr unsupported
+536	Const	SDDL_CALLBACK_OBJECT_ACCESS_ALLOWED	62218	62321	992	1	1453	unsupported	non-scalar type Ptr unsupported
+537	Const	SDDL_CERTSVC_DCOM_ACCESS	62322	62414	993	1	1456	unsupported	non-scalar type Ptr unsupported
+538	Const	SDDL_CERT_SERV_ADMINISTRATORS	62415	62512	994	1	1459	unsupported	non-scalar type Ptr unsupported
+539	Const	SDDL_CLONEABLE_CONTROLLERS	62513	62607	995	1	1462	unsupported	non-scalar type Ptr unsupported
+540	Const	SDDL_CONTAINER_INHERIT	62608	62698	996	1	1465	unsupported	non-scalar type Ptr unsupported
+541	Const	SDDL_CONTROL_ACCESS	62699	62786	997	1	1468	unsupported	non-scalar type Ptr unsupported
+542	Const	SDDL_CREATE_CHILD	62787	62872	998	1	1471	unsupported	non-scalar type Ptr unsupported
+543	Const	SDDL_CREATOR_GROUP	62873	62959	999	1	1474	unsupported	non-scalar type Ptr unsupported
+544	Const	SDDL_CREATOR_OWNER	62960	63046	1000	1	1477	unsupported	non-scalar type Ptr unsupported
+545	Const	SDDL_CRITICAL	63047	63128	1001	1	1480	unsupported	non-scalar type Ptr unsupported
+546	Const	SDDL_CRYPTO_OPERATORS	63129	63218	1002	1	1483	unsupported	non-scalar type Ptr unsupported
+547	Const	SDDL_DACL	63219	63295	1003	1	1486	unsupported	non-scalar type Ptr unsupported
+548	Const	SDDL_DELETE_CHILD	63296	63381	1004	1	1489	unsupported	non-scalar type Ptr unsupported
+549	Const	SDDL_DELETE_TREE	63382	63466	1005	1	1492	unsupported	non-scalar type Ptr unsupported
+550	Const	SDDL_DELIMINATOR	63467	63550	1006	1	1495	unsupported	non-scalar type Ptr unsupported
+551	Const	SDDL_DOMAIN_ADMINISTRATORS	63551	63645	1007	1	1498	unsupported	non-scalar type Ptr unsupported
+552	Const	SDDL_DOMAIN_COMPUTERS	63646	63735	1008	1	1501	unsupported	non-scalar type Ptr unsupported
+553	Const	SDDL_DOMAIN_DOMAIN_CONTROLLERS	63736	63834	1009	1	1504	unsupported	non-scalar type Ptr unsupported
+554	Const	SDDL_DOMAIN_GUESTS	63835	63921	1010	1	1507	unsupported	non-scalar type Ptr unsupported
+555	Const	SDDL_DOMAIN_USERS	63922	64007	1011	1	1510	unsupported	non-scalar type Ptr unsupported
+556	Const	SDDL_ENTERPRISE_ADMINS	64008	64098	1012	1	1513	unsupported	non-scalar type Ptr unsupported
+557	Const	SDDL_ENTERPRISE_DOMAIN_CONTROLLERS	64099	64201	1013	1	1516	unsupported	non-scalar type Ptr unsupported
+558	Const	SDDL_ENTERPRISE_KEY_ADMINS	64202	64296	1014	1	1519	unsupported	non-scalar type Ptr unsupported
+559	Const	SDDL_ENTERPRISE_RO_DCs	64297	64387	1015	1	1522	unsupported	non-scalar type Ptr unsupported
+560	Const	SDDL_EVENT_LOG_READERS	64388	64478	1016	1	1525	unsupported	non-scalar type Ptr unsupported
+561	Const	SDDL_EVERYONE	64479	64560	1017	1	1528	unsupported	non-scalar type Ptr unsupported
+562	Const	SDDL_FILE_ALL	64561	64642	1018	1	1531	unsupported	non-scalar type Ptr unsupported
+563	Const	SDDL_FILE_EXECUTE	64643	64728	1019	1	1534	unsupported	non-scalar type Ptr unsupported
+564	Const	SDDL_FILE_READ	64729	64811	1020	1	1537	unsupported	non-scalar type Ptr unsupported
+565	Const	SDDL_FILE_WRITE	64812	64895	1021	1	1540	unsupported	non-scalar type Ptr unsupported
+566	Const	SDDL_GENERIC_ALL	64896	64980	1022	1	1543	unsupported	non-scalar type Ptr unsupported
+567	Const	SDDL_GENERIC_EXECUTE	64981	65069	1023	1	1546	unsupported	non-scalar type Ptr unsupported
+568	Const	SDDL_GENERIC_READ	65070	65155	1024	1	1549	unsupported	non-scalar type Ptr unsupported
+569	Const	SDDL_GENERIC_WRITE	65156	65242	1025	1	1552	unsupported	non-scalar type Ptr unsupported
+570	Const	SDDL_GROUP	65243	65320	1026	1	1555	unsupported	non-scalar type Ptr unsupported
+571	Const	SDDL_GROUP_POLICY_ADMINS	65321	65413	1027	1	1558	unsupported	non-scalar type Ptr unsupported
+572	Const	SDDL_HYPER_V_ADMINS	65414	65501	1028	1	1561	unsupported	non-scalar type Ptr unsupported
+573	Const	SDDL_IIS_USERS	65502	65584	1029	1	1564	unsupported	non-scalar type Ptr unsupported
+574	Const	SDDL_INHERITED	65585	65667	1030	1	1567	unsupported	non-scalar type Ptr unsupported
+575	Const	SDDL_INHERIT_ONLY	65668	65753	1031	1	1570	unsupported	non-scalar type Ptr unsupported
+576	Const	SDDL_INT	65754	65830	1032	1	1573	unsupported	non-scalar type Ptr unsupported
+577	Const	SDDL_INTERACTIVE	65831	65915	1033	1	1576	unsupported	non-scalar type Ptr unsupported
+578	Const	SDDL_KEY_ADMINS	65916	65999	1034	1	1579	unsupported	non-scalar type Ptr unsupported
+579	Const	SDDL_KEY_ALL	66000	66080	1035	1	1582	unsupported	non-scalar type Ptr unsupported
+580	Const	SDDL_KEY_EXECUTE	66081	66165	1036	1	1585	unsupported	non-scalar type Ptr unsupported
+581	Const	SDDL_KEY_READ	66166	66247	1037	1	1588	unsupported	non-scalar type Ptr unsupported
+582	Const	SDDL_KEY_WRITE	66248	66330	1038	1	1591	unsupported	non-scalar type Ptr unsupported
+583	Const	SDDL_LIST_CHILDREN	66331	66417	1039	1	1594	unsupported	non-scalar type Ptr unsupported
+584	Const	SDDL_LIST_OBJECT	66418	66502	1040	1	1597	unsupported	non-scalar type Ptr unsupported
+585	Const	SDDL_LOCAL_ADMIN	66503	66587	1041	1	1600	unsupported	non-scalar type Ptr unsupported
+586	Const	SDDL_LOCAL_GUEST	66588	66672	1042	1	1603	unsupported	non-scalar type Ptr unsupported
+587	Const	SDDL_LOCAL_SERVICE	66673	66759	1043	1	1606	unsupported	non-scalar type Ptr unsupported
+588	Const	SDDL_LOCAL_SYSTEM	66760	66845	1044	1	1609	unsupported	non-scalar type Ptr unsupported
+589	Const	SDDL_MANDATORY_LABEL	66846	66934	1045	1	1612	unsupported	non-scalar type Ptr unsupported
+590	Const	SDDL_ML_HIGH	66935	67015	1046	1	1615	unsupported	non-scalar type Ptr unsupported
+591	Const	SDDL_ML_LOW	67016	67095	1047	1	1618	unsupported	non-scalar type Ptr unsupported
+592	Const	SDDL_ML_MEDIUM	67096	67178	1048	1	1621	unsupported	non-scalar type Ptr unsupported
+593	Const	SDDL_ML_MEDIUM_PLUS	67179	67266	1049	1	1624	unsupported	non-scalar type Ptr unsupported
+594	Const	SDDL_ML_SYSTEM	67267	67349	1050	1	1627	unsupported	non-scalar type Ptr unsupported
+595	Const	SDDL_NETWORK	67350	67430	1051	1	1630	unsupported	non-scalar type Ptr unsupported
+596	Const	SDDL_NETWORK_CONFIGURATION_OPS	67431	67529	1052	1	1633	unsupported	non-scalar type Ptr unsupported
+597	Const	SDDL_NETWORK_SERVICE	67530	67618	1053	1	1636	unsupported	non-scalar type Ptr unsupported
+598	Const	SDDL_NO_EXECUTE_UP	67619	67705	1054	1	1639	unsupported	non-scalar type Ptr unsupported
+599	Const	SDDL_NO_PROPAGATE	67706	67791	1055	1	1642	unsupported	non-scalar type Ptr unsupported
+600	Const	SDDL_NO_READ_UP	67792	67875	1056	1	1645	unsupported	non-scalar type Ptr unsupported
+601	Const	SDDL_NO_WRITE_UP	67876	67960	1057	1	1648	unsupported	non-scalar type Ptr unsupported
+602	Const	SDDL_NULL_ACL	67961	68057	1058	1	1651	unsupported	non-scalar type Ptr unsupported
+603	Const	SDDL_OBJECT_ACCESS_ALLOWED	68058	68152	1059	1	1654	unsupported	non-scalar type Ptr unsupported
+604	Const	SDDL_OBJECT_ACCESS_DENIED	68153	68246	1060	1	1657	unsupported	non-scalar type Ptr unsupported
+605	Const	SDDL_OBJECT_ALARM	68247	68332	1061	1	1660	unsupported	non-scalar type Ptr unsupported
+606	Const	SDDL_OBJECT_AUDIT	68333	68418	1062	1	1663	unsupported	non-scalar type Ptr unsupported
+607	Const	SDDL_OBJECT_INHERIT	68419	68506	1063	1	1666	unsupported	non-scalar type Ptr unsupported
+608	Const	SDDL_OWNER	68507	68584	1064	1	1669	unsupported	non-scalar type Ptr unsupported
+609	Const	SDDL_OWNER_RIGHTS	68585	68670	1065	1	1672	unsupported	non-scalar type Ptr unsupported
+610	Const	SDDL_PERFLOG_USERS	68671	68757	1066	1	1675	unsupported	non-scalar type Ptr unsupported
+611	Const	SDDL_PERFMON_USERS	68758	68844	1067	1	1678	unsupported	non-scalar type Ptr unsupported
+612	Const	SDDL_PERSONAL_SELF	68845	68931	1068	1	1681	unsupported	non-scalar type Ptr unsupported
+613	Const	SDDL_POWER_USERS	68932	69016	1069	1	1684	unsupported	non-scalar type Ptr unsupported
+614	Const	SDDL_PRINTER_OPERATORS	69017	69107	1070	1	1687	unsupported	non-scalar type Ptr unsupported
+615	Const	SDDL_PROCESS_TRUST_LABEL	69108	69200	1071	1	1690	unsupported	non-scalar type Ptr unsupported
+616	Const	SDDL_PROTECTED	69201	69282	1072	1	1693	unsupported	non-scalar type Ptr unsupported
+617	Const	SDDL_PROTECTED_USERS	69283	69371	1073	1	1696	unsupported	non-scalar type Ptr unsupported
+618	Const	SDDL_RAS_SERVERS	69372	69456	1074	1	1699	unsupported	non-scalar type Ptr unsupported
+619	Const	SDDL_RDS_ENDPOINT_SERVERS	69457	69550	1075	1	1702	unsupported	non-scalar type Ptr unsupported
+620	Const	SDDL_RDS_MANAGEMENT_SERVERS	69551	69646	1076	1	1705	unsupported	non-scalar type Ptr unsupported
+621	Const	SDDL_RDS_REMOTE_ACCESS_SERVERS	69647	69745	1077	1	1708	unsupported	non-scalar type Ptr unsupported
+622	Const	SDDL_READ_CONTROL	69746	69831	1078	1	1711	unsupported	non-scalar type Ptr unsupported
+623	Const	SDDL_READ_PROPERTY	69832	69918	1079	1	1714	unsupported	non-scalar type Ptr unsupported
+624	Const	SDDL_REMOTE_DESKTOP	69919	70006	1080	1	1717	unsupported	non-scalar type Ptr unsupported
+625	Const	SDDL_REMOTE_MANAGEMENT_USERS	70007	70103	1081	1	1720	unsupported	non-scalar type Ptr unsupported
+626	Const	SDDL_REPLICATOR	70104	70187	1082	1	1723	unsupported	non-scalar type Ptr unsupported
+627	Const	SDDL_RESOURCE_ATTRIBUTE	70188	70279	1083	1	1726	unsupported	non-scalar type Ptr unsupported
+628	Const	SDDL_RESTRICTED_CODE	70280	70368	1084	1	1729	unsupported	non-scalar type Ptr unsupported
+629	Const	SDDL_REVISION	70369	70405	1085	1	1732	generated	
+630	Const	SDDL_REVISION_1	70406	70444	1086	1	1733	generated	
+631	Const	SDDL_SACL	70445	70521	1087	1	1734	unsupported	non-scalar type Ptr unsupported
+632	Const	SDDL_SCHEMA_ADMINISTRATORS	70522	70616	1088	1	1737	unsupported	non-scalar type Ptr unsupported
+633	Const	SDDL_SCOPED_POLICY_ID	70617	70706	1089	1	1740	unsupported	non-scalar type Ptr unsupported
+634	Const	SDDL_SELF_WRITE	70707	70790	1090	1	1743	unsupported	non-scalar type Ptr unsupported
+635	Const	SDDL_SEPERATOR	70791	70872	1091	1	1746	unsupported	non-scalar type Ptr unsupported
+636	Const	SDDL_SERVER_OPERATORS	70873	70962	1092	1	1749	unsupported	non-scalar type Ptr unsupported
+637	Const	SDDL_SERVICE	70963	71043	1093	1	1752	unsupported	non-scalar type Ptr unsupported
+638	Const	SDDL_SERVICE_ASSERTED	71044	71133	1094	1	1755	unsupported	non-scalar type Ptr unsupported
+639	Const	SDDL_SID	71134	71210	1095	1	1758	unsupported	non-scalar type Ptr unsupported
+640	Const	SDDL_SPACE	71211	71288	1096	1	1761	unsupported	non-scalar type Ptr unsupported
+641	Const	SDDL_STANDARD_DELETE	71289	71377	1097	1	1764	unsupported	non-scalar type Ptr unsupported
+642	Const	SDDL_TRUST_PROTECTED_FILTER	71378	71473	1098	1	1767	unsupported	non-scalar type Ptr unsupported
+643	Const	SDDL_UINT	71474	71551	1099	1	1770	unsupported	non-scalar type Ptr unsupported
+644	Const	SDDL_USER_MODE_DRIVERS	71552	71642	1100	1	1773	unsupported	non-scalar type Ptr unsupported
+645	Const	SDDL_WRITE_DAC	71643	71725	1101	1	1776	unsupported	non-scalar type Ptr unsupported
+646	Const	SDDL_WRITE_OWNER	71726	71810	1102	1	1779	unsupported	non-scalar type Ptr unsupported
+647	Const	SDDL_WRITE_PROPERTY	71811	71898	1103	1	1782	unsupported	non-scalar type Ptr unsupported
+648	Const	SDDL_WRITE_RESTRICTED_CODE	71899	71993	1104	1	1785	unsupported	non-scalar type Ptr unsupported
+649	Const	SDDL_WSTRING	71994	72074	1105	1	1788	unsupported	non-scalar type Ptr unsupported
+650	Const	SET_ACCESS	72075	72116	1106	1	1791	generated	
+651	Const	SET_AUDIT_FAILURE	72117	72165	1107	1	1792	generated	
+652	Const	SET_AUDIT_SUCCESS	72166	72214	1108	1	1793	generated	
+653	Const	SE_DS_OBJECT	72215	72261	1109	1	1794	generated	
+654	Const	SE_DS_OBJECT_ALL	72262	72312	1110	1	1795	generated	
+655	Const	SE_FILE_OBJECT	72313	72361	1111	1	1796	generated	
+656	Const	SE_KERNEL_OBJECT	72362	72412	1112	1	1797	generated	
+657	Const	SE_LMSHARE	72413	72457	1113	1	1798	generated	
+658	ItemType	SE_OBJECT_TYPE	72458	72488	1114	1	1799	generated	
+659	Const	SE_PRINTER	72489	72533	1115	1	1800	generated	
+660	Const	SE_PROVIDER_DEFINED_OBJECT	72534	72595	1116	1	1801	generated	
+661	Const	SE_REGISTRY_KEY	72596	72645	1117	1	1802	generated	
+662	Const	SE_REGISTRY_WOW64_32KEY	72646	72704	1118	1	1803	generated	
+663	Const	SE_REGISTRY_WOW64_64KEY	72705	72763	1119	1	1804	generated	
+664	Const	SE_SERVICE	72764	72808	1120	1	1805	generated	
+665	Const	SE_UNKNOWN_OBJECT_TYPE	72809	72865	1121	1	1806	generated	
+666	Const	SE_WINDOW_OBJECT	72866	72916	1122	1	1807	generated	
+667	Const	SE_WMIGUID_OBJECT	72917	72969	1123	1	1808	generated	
+668	ItemType	TREE_SEC_INFO	72970	72999	1124	1	1809	generated	
+669	Const	TREE_SEC_INFO_RESET	73000	73052	1125	1	1810	generated	
+670	Const	TREE_SEC_INFO_RESET_KEEP_EXPLICIT	73053	73119	1126	1	1811	generated	
+671	Const	TREE_SEC_INFO_SET	73120	73170	1127	1	1812	generated	
+672	Struct	TRUSTEE_A	73171	73447	1128	1	1813	unsupported	declaration Struct has no candidate rule
+673	Impl		73448	73550	1137	1	1824	unsupported	declaration Impl has no candidate rule
+674	Struct	TRUSTEE_ACCESSA	73551	73738	1142	1	1831	unsupported	declaration Struct has no candidate rule
+675	Impl		73739	73847	1150	1	1841	unsupported	declaration Impl has no candidate rule
+676	Struct	TRUSTEE_ACCESSW	73848	74036	1155	1	1848	unsupported	declaration Struct has no candidate rule
+677	Impl		74037	74145	1163	1	1858	unsupported	declaration Impl has no candidate rule
+678	Const	TRUSTEE_ACCESS_ALL	74146	74188	1168	1	1865	generated	
+679	Const	TRUSTEE_ACCESS_ALLOWED	74189	74234	1169	1	1866	generated	
+680	Const	TRUSTEE_ACCESS_EXPLICIT	74235	74281	1170	1	1867	generated	
+681	Const	TRUSTEE_ACCESS_READ	74282	74324	1171	1	1868	generated	
+682	Const	TRUSTEE_ACCESS_WRITE	74325	74368	1172	1	1869	generated	
+683	Const	TRUSTEE_BAD_FORM	74369	74417	1173	1	1870	generated	
+684	ItemType	TRUSTEE_FORM	74418	74446	1174	1	1871	generated	
+685	Const	TRUSTEE_IS_ALIAS	74447	74495	1175	1	1872	generated	
+686	Const	TRUSTEE_IS_COMPUTER	74496	74547	1176	1	1873	generated	
+687	Const	TRUSTEE_IS_DELETED	74548	74598	1177	1	1874	generated	
+688	Const	TRUSTEE_IS_DOMAIN	74599	74648	1178	1	1875	generated	
+689	Const	TRUSTEE_IS_GROUP	74649	74697	1179	1	1876	generated	
+690	Const	TRUSTEE_IS_IMPERSONATE	74698	74766	1180	1	1877	generated	
+691	Const	TRUSTEE_IS_INVALID	74767	74817	1181	1	1878	generated	
+692	Const	TRUSTEE_IS_NAME	74818	74865	1182	1	1879	generated	
+693	Const	TRUSTEE_IS_OBJECTS_AND_NAME	74866	74925	1183	1	1880	generated	
+694	Const	TRUSTEE_IS_OBJECTS_AND_SID	74926	74984	1184	1	1881	generated	
+695	Const	TRUSTEE_IS_SID	74985	75031	1185	1	1882	generated	
+696	Const	TRUSTEE_IS_UNKNOWN	75032	75082	1186	1	1883	generated	
+697	Const	TRUSTEE_IS_USER	75083	75130	1187	1	1884	generated	
+698	Const	TRUSTEE_IS_WELL_KNOWN_GROUP	75131	75190	1188	1	1885	generated	
+699	ItemType	TRUSTEE_TYPE	75191	75219	1189	1	1886	generated	
+700	Struct	TRUSTEE_W	75220	75497	1190	1	1887	unsupported	declaration Struct has no candidate rule
+701	Impl		75498	75600	1199	1	1898	unsupported	declaration Impl has no candidate rule
+702	Const	_AUTHZ_SS_MAXSIZE	75601	75643	1204	1	1905	generated	

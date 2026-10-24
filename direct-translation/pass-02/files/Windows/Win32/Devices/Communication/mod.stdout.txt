@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/Devices/Communication/mod: 171 generated; 42 unsupported

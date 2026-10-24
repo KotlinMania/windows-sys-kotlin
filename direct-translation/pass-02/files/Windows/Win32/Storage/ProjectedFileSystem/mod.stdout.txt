@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/Storage/ProjectedFileSystem/mod: 63 generated; 63 unsupported

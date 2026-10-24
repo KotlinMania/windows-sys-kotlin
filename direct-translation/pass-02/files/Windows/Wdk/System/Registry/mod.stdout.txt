@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Wdk/System/Registry/mod: 29 generated; 64 unsupported

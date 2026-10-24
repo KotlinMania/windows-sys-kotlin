@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/System/Diagnostics/Debug/Extensions/mod: 1911 generated; 342 unsupported

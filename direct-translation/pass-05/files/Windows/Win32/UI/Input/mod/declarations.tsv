@@ -1,0 +1,83 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Mod	Ime	0	51	1	1	2	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+1	Mod	KeyboardAndMouse	52	129	3	1	6	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+2	Mod	Pointer	130	189	5	1	10	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+3	Mod	Touch	190	245	7	1	14	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+4	Mod	XboxController	246	319	9	1	18	unsupported	declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod
+5	Macro	DefRawInputProc	320	491	11	1	22	syntax	External declaration shape only: wire DLL=user32.dll, ABI=system, export=DefRawInputProc; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+6	Macro	GetCIMSSM	492	623	12	1	27	syntax	External declaration shape only: wire DLL=user32.dll, ABI=system, export=GetCIMSSM; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+7	Macro	GetCurrentInputMessageSource	624	774	13	1	32	syntax	External declaration shape only: wire DLL=user32.dll, ABI=system, export=GetCurrentInputMessageSource; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+8	Macro	GetRawInputBuffer	775	909	14	1	37	syntax	External declaration shape only: wire DLL=user32.dll, ABI=system, export=GetRawInputBuffer; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+9	Macro	GetRawInputData	910	1116	15	1	42	syntax	External declaration shape only: wire DLL=user32.dll, ABI=system, export=GetRawInputData; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+10	Macro	GetRawInputDeviceInfoA	1117	1333	16	1	47	syntax	External declaration shape only: wire DLL=user32.dll, ABI=system, export=GetRawInputDeviceInfoA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+11	Macro	GetRawInputDeviceInfoW	1334	1550	17	1	52	syntax	External declaration shape only: wire DLL=user32.dll, ABI=system, export=GetRawInputDeviceInfoW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+12	Macro	GetRawInputDeviceList	1551	1713	18	1	57	syntax	External declaration shape only: wire DLL=user32.dll, ABI=system, export=GetRawInputDeviceList; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+13	Macro	GetRegisteredRawInputDevices	1714	1876	19	1	62	syntax	External declaration shape only: wire DLL=user32.dll, ABI=system, export=GetRegisteredRawInputDevices; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+14	Macro	RegisterRawInputDevices	1877	2050	20	1	67	syntax	External declaration shape only: wire DLL=user32.dll, ABI=system, export=RegisterRawInputDevices; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+15	ItemType	HRAWINPUT	2051	2095	21	1	72	syntax	Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+16	Const	IMDT_KEYBOARD	2096	2154	22	1	76	generated	
+17	Const	IMDT_MOUSE	2155	2210	23	1	77	generated	
+18	Const	IMDT_PEN	2211	2264	24	1	78	generated	
+19	Const	IMDT_TOUCH	2265	2320	25	1	79	generated	
+20	Const	IMDT_TOUCHPAD	2321	2380	26	1	80	generated	
+21	Const	IMDT_UNAVAILABLE	2381	2442	27	1	81	generated	
+22	Const	IMO_HARDWARE	2443	2498	28	1	82	generated	
+23	Const	IMO_INJECTED	2499	2554	29	1	83	generated	
+24	Const	IMO_SYSTEM	2555	2608	30	1	84	generated	
+25	Const	IMO_UNAVAILABLE	2609	2667	31	1	85	generated	
+26	ItemType	INPUT_MESSAGE_DEVICE_TYPE	2668	2709	32	1	86	generated	
+27	ItemType	INPUT_MESSAGE_ORIGIN_ID	2710	2749	33	1	87	generated	
+28	Struct	INPUT_MESSAGE_SOURCE	2750	2918	34	1	88	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+29	Const	MOUSE_ATTRIBUTES_CHANGED	2919	2974	40	1	97	generated	
+30	Const	MOUSE_MOVE_ABSOLUTE	2975	3025	41	1	98	generated	
+31	Const	MOUSE_MOVE_NOCOALESCE	3026	3078	42	1	99	generated	
+32	Const	MOUSE_MOVE_RELATIVE	3079	3129	43	1	100	generated	
+33	ItemType	MOUSE_STATE	3130	3157	44	1	101	generated	
+34	Const	MOUSE_VIRTUAL_DESKTOP	3158	3210	45	1	102	generated	
+35	Struct	RAWHID	3211	3339	46	1	103	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+36	Impl		3340	3439	53	1	113	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+37	Struct	RAWINPUT	3440	3555	58	1	120	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+38	Impl		3556	3657	64	1	129	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+39	Union		3658	3793	69	1	136	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+40	Impl		3794	3897	76	1	145	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+41	Struct	RAWINPUTDEVICE	3898	4100	81	1	152	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+42	Impl		4101	4208	89	1	163	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+43	Struct	RAWINPUTDEVICELIST	4209	4365	94	1	170	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+44	Impl		4366	4477	100	1	179	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+45	ItemType	RAWINPUTDEVICE_FLAGS	4478	4514	105	1	186	generated	
+46	Struct	RAWINPUTHEADER	4515	4721	106	1	187	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+47	Impl		4722	4829	114	1	198	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+48	Struct	RAWKEYBOARD	4830	5037	119	1	205	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+49	Struct	RAWMOUSE	5038	5258	129	1	217	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+50	Impl		5259	5360	139	1	230	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+51	Union		5361	5476	144	1	237	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+52	Impl		5477	5580	150	1	245	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+53	Struct	RAWMOUSE_0_0	5581	5706	155	1	252	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+54	ItemType	RAW_INPUT_DATA_COMMAND_FLAGS	5707	5751	161	1	260	generated	
+55	ItemType	RAW_INPUT_DEVICE_INFO_COMMAND	5752	5797	162	1	261	generated	
+56	Const	RIDEV_APPKEYS	5798	5854	163	1	262	generated	
+57	Const	RIDEV_CAPTUREMOUSE	5855	5915	164	1	263	generated	
+58	Const	RIDEV_DEVNOTIFY	5916	5974	165	1	264	generated	
+59	Const	RIDEV_EXCLUDE	5975	6029	166	1	265	generated	
+60	Const	RIDEV_EXINPUTSINK	6030	6090	167	1	266	generated	
+61	Const	RIDEV_INPUTSINK	6091	6148	168	1	267	generated	
+62	Const	RIDEV_NOHOTKEYS	6149	6206	169	1	268	generated	
+63	Const	RIDEV_NOLEGACY	6207	6262	170	1	269	generated	
+64	Const	RIDEV_PAGEONLY	6263	6318	171	1	270	generated	
+65	Const	RIDEV_REMOVE	6319	6371	172	1	271	generated	
+66	Const	RIDI_DEVICEINFO	6372	6444	173	1	272	generated	
+67	Const	RIDI_DEVICENAME	6445	6517	174	1	273	generated	
+68	Const	RIDI_PREPARSEDDATA	6518	6593	175	1	274	generated	
+69	Struct	RID_DEVICE_INFO	6594	6755	176	1	275	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+70	Impl		6756	6864	183	1	285	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+71	Union		6865	7046	188	1	292	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+72	Impl		7047	7157	195	1	301	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+73	Struct	RID_DEVICE_INFO_HID	7158	7364	200	1	308	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+74	Struct	RID_DEVICE_INFO_KEYBOARD	7365	7627	209	1	319	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+75	Struct	RID_DEVICE_INFO_MOUSE	7628	7839	219	1	331	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+76	ItemType	RID_DEVICE_INFO_TYPE	7840	7876	227	1	342	generated	
+77	Const	RID_HEADER	7877	7943	228	1	343	generated	
+78	Const	RID_INPUT	7944	8009	229	1	344	generated	
+79	Const	RIM_TYPEHID	8010	8061	230	1	345	generated	
+80	Const	RIM_TYPEKEYBOARD	8062	8118	231	1	346	generated	
+81	Const	RIM_TYPEMOUSE	8119	8172	232	1	347	generated	

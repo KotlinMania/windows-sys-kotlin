@@ -1,0 +1,506 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	97	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		98	241	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		242	380	3	1	8	unsupported	declaration Macro has no candidate rule
+3	Macro		381	526	4	1	11	unsupported	declaration Macro has no candidate rule
+4	Macro		527	680	5	1	14	unsupported	declaration Macro has no candidate rule
+5	Macro		681	1066	6	1	17	unsupported	declaration Macro has no candidate rule
+6	Macro		1067	1587	7	1	20	unsupported	declaration Macro has no candidate rule
+7	Macro		1588	1698	8	1	23	unsupported	declaration Macro has no candidate rule
+8	Macro		1699	1942	9	1	26	unsupported	declaration Macro has no candidate rule
+9	Macro		1943	2193	10	1	29	unsupported	declaration Macro has no candidate rule
+10	Macro		2194	2314	11	1	32	unsupported	declaration Macro has no candidate rule
+11	Macro		2315	2431	12	1	35	unsupported	declaration Macro has no candidate rule
+12	Macro		2432	2768	13	1	38	unsupported	declaration Macro has no candidate rule
+13	Macro		2769	3115	14	1	41	unsupported	declaration Macro has no candidate rule
+14	Macro		3116	3299	15	1	44	unsupported	declaration Macro has no candidate rule
+15	Macro		3300	3445	16	1	47	unsupported	declaration Macro has no candidate rule
+16	Macro		3446	3588	17	1	50	unsupported	declaration Macro has no candidate rule
+17	Macro		3589	3818	18	1	53	unsupported	declaration Macro has no candidate rule
+18	Macro		3819	3993	19	1	56	unsupported	declaration Macro has no candidate rule
+19	Macro		3994	4111	20	1	59	unsupported	declaration Macro has no candidate rule
+20	Macro		4112	4249	21	1	62	unsupported	declaration Macro has no candidate rule
+21	Macro		4250	4437	22	1	65	unsupported	declaration Macro has no candidate rule
+22	Macro		4438	4629	23	1	68	unsupported	declaration Macro has no candidate rule
+23	Macro		4630	4858	24	1	71	unsupported	declaration Macro has no candidate rule
+24	Macro		4859	5045	25	1	74	unsupported	declaration Macro has no candidate rule
+25	Macro		5046	5169	26	1	77	unsupported	declaration Macro has no candidate rule
+26	Macro		5170	5380	27	1	80	unsupported	declaration Macro has no candidate rule
+27	Macro		5381	5509	28	1	83	unsupported	declaration Macro has no candidate rule
+28	Macro		5510	5634	29	1	86	unsupported	declaration Macro has no candidate rule
+29	Macro		5635	5803	30	1	89	unsupported	declaration Macro has no candidate rule
+30	Macro		5804	5926	31	1	92	unsupported	declaration Macro has no candidate rule
+31	Macro		5927	6224	32	1	95	unsupported	declaration Macro has no candidate rule
+32	Macro		6225	6435	33	1	98	unsupported	declaration Macro has no candidate rule
+33	Macro		6436	6658	34	1	101	unsupported	declaration Macro has no candidate rule
+34	Macro		6659	6789	35	1	104	unsupported	declaration Macro has no candidate rule
+35	Macro		6790	6904	36	1	107	unsupported	declaration Macro has no candidate rule
+36	Macro		6905	7040	37	1	110	unsupported	declaration Macro has no candidate rule
+37	Macro		7041	7268	38	1	113	unsupported	declaration Macro has no candidate rule
+38	Macro		7269	7395	39	1	116	unsupported	declaration Macro has no candidate rule
+39	Macro		7396	7519	40	1	119	unsupported	declaration Macro has no candidate rule
+40	Macro		7520	7653	41	1	122	unsupported	declaration Macro has no candidate rule
+41	Macro		7654	7913	42	1	125	unsupported	declaration Macro has no candidate rule
+42	Macro		7914	8144	43	1	128	unsupported	declaration Macro has no candidate rule
+43	Macro		8145	8242	44	1	131	unsupported	declaration Macro has no candidate rule
+44	Macro		8243	8348	45	1	134	unsupported	declaration Macro has no candidate rule
+45	Macro		8349	8460	46	1	137	unsupported	declaration Macro has no candidate rule
+46	Macro		8461	8621	47	1	140	unsupported	declaration Macro has no candidate rule
+47	Macro		8622	8834	48	1	143	unsupported	declaration Macro has no candidate rule
+48	Macro		8835	9124	49	1	146	unsupported	declaration Macro has no candidate rule
+49	Macro		9125	9253	50	1	149	unsupported	declaration Macro has no candidate rule
+50	Macro		9254	9380	51	1	152	unsupported	declaration Macro has no candidate rule
+51	Macro		9381	9605	52	1	155	unsupported	declaration Macro has no candidate rule
+52	Macro		9606	9871	53	1	158	unsupported	declaration Macro has no candidate rule
+53	Macro		9872	9980	54	1	161	unsupported	declaration Macro has no candidate rule
+54	Const	FACILITY_NONE	9981	10017	55	1	164	generated	
+55	Const	FACILITY_WINBIO	10018	10056	56	1	165	generated	
+56	Const	GUID_DEVINTERFACE_BIOMETRIC_READER	10057	10204	57	1	166	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+57	Const	IOCTL_BIOMETRIC_VENDOR	10205	10256	58	1	169	generated	
+58	ItemType	PIBIO_ENGINE_ACCEPT_PRIVATE_SENSOR_TYPE_INFO_FN	10257	10509	59	1	170	unsupported	attribute cfg requires explicit semantics/configuration
+59	ItemType	PIBIO_ENGINE_ACCEPT_SAMPLE_DATA_FN	10510	10777	61	1	174	unsupported	attribute cfg requires explicit semantics/configuration
+60	ItemType	PIBIO_ENGINE_ACTIVATE_FN	10778	10946	63	1	178	unsupported	attribute cfg requires explicit semantics/configuration
+61	ItemType	PIBIO_ENGINE_ATTACH_FN	10947	11113	65	1	182	unsupported	attribute cfg requires explicit semantics/configuration
+62	ItemType	PIBIO_ENGINE_CHECK_FOR_DUPLICATE_FN	11114	11367	67	1	186	unsupported	attribute cfg requires explicit semantics/configuration
+63	ItemType	PIBIO_ENGINE_CLEAR_CONTEXT_FN	11368	11541	69	1	190	unsupported	attribute cfg requires explicit semantics/configuration
+64	ItemType	PIBIO_ENGINE_COMMIT_ENROLLMENT_FN	11542	11816	71	1	194	unsupported	attribute cfg requires explicit semantics/configuration
+65	ItemType	PIBIO_ENGINE_CONTROL_UNIT_FN	11817	12159	73	1	198	unsupported	attribute cfg requires explicit semantics/configuration
+66	ItemType	PIBIO_ENGINE_CONTROL_UNIT_PRIVILEGED_FN	12160	12513	75	1	202	unsupported	attribute cfg requires explicit semantics/configuration
+67	ItemType	PIBIO_ENGINE_CREATE_ENROLLMENT_AUTHENTICATED_FN	12514	12749	77	1	206	unsupported	attribute cfg requires explicit semantics/configuration
+68	ItemType	PIBIO_ENGINE_CREATE_ENROLLMENT_FN	12750	12927	79	1	210	unsupported	attribute cfg requires explicit semantics/configuration
+69	ItemType	PIBIO_ENGINE_CREATE_KEY_FN	12928	13204	81	1	214	unsupported	attribute cfg requires explicit semantics/configuration
+70	ItemType	PIBIO_ENGINE_DEACTIVATE_FN	13205	13375	83	1	218	unsupported	attribute cfg requires explicit semantics/configuration
+71	ItemType	PIBIO_ENGINE_DETACH_FN	13376	13542	85	1	222	unsupported	attribute cfg requires explicit semantics/configuration
+72	ItemType	PIBIO_ENGINE_DISCARD_ENROLLMENT_FN	13543	13721	87	1	226	unsupported	attribute cfg requires explicit semantics/configuration
+73	ItemType	PIBIO_ENGINE_EXPORT_ENGINE_DATA_FN	13722	13971	89	1	230	unsupported	attribute cfg requires explicit semantics/configuration
+74	ItemType	PIBIO_ENGINE_GET_ENROLLMENT_HASH_FN	13972	14198	91	1	234	unsupported	attribute cfg requires explicit semantics/configuration
+75	ItemType	PIBIO_ENGINE_GET_ENROLLMENT_STATUS_FN	14199	14404	93	1	238	unsupported	attribute cfg requires explicit semantics/configuration
+76	ItemType	PIBIO_ENGINE_IDENTIFY_ALL_FN	14405	14646	95	1	242	unsupported	attribute cfg requires explicit semantics/configuration
+77	ItemType	PIBIO_ENGINE_IDENTIFY_FEATURE_SET_AUTHENTICATED_FN	14647	15015	97	1	246	unsupported	attribute cfg requires explicit semantics/configuration
+78	ItemType	PIBIO_ENGINE_IDENTIFY_FEATURE_SET_FN	15016	15375	99	1	250	unsupported	attribute cfg requires explicit semantics/configuration
+79	ItemType	PIBIO_ENGINE_IDENTIFY_FEATURE_SET_SECURE_FN	15376	15787	101	1	254	unsupported	attribute cfg requires explicit semantics/configuration
+80	ItemType	PIBIO_ENGINE_NOTIFY_POWER_CHANGE_FN	15788	15988	103	1	258	unsupported	attribute cfg requires explicit semantics/configuration
+81	ItemType	PIBIO_ENGINE_PIPELINE_CLEANUP_FN	15989	16165	105	1	262	unsupported	attribute cfg requires explicit semantics/configuration
+82	ItemType	PIBIO_ENGINE_PIPELINE_INIT_FN	16166	16339	107	1	266	unsupported	attribute cfg requires explicit semantics/configuration
+83	ItemType	PIBIO_ENGINE_QUERY_CALIBRATION_DATA_FN	16340	16643	109	1	270	unsupported	attribute cfg requires explicit semantics/configuration
+84	ItemType	PIBIO_ENGINE_QUERY_EXTENDED_ENROLLMENT_STATUS_FN	16644	16923	111	1	274	unsupported	attribute cfg requires explicit semantics/configuration
+85	ItemType	PIBIO_ENGINE_QUERY_EXTENDED_INFO_FN	16924	17172	113	1	278	unsupported	attribute cfg requires explicit semantics/configuration
+86	ItemType	PIBIO_ENGINE_QUERY_HASH_ALGORITHMS_FN	17173	17446	115	1	282	unsupported	attribute cfg requires explicit semantics/configuration
+87	ItemType	PIBIO_ENGINE_QUERY_INDEX_VECTOR_SIZE_FN	17447	17661	117	1	286	unsupported	attribute cfg requires explicit semantics/configuration
+88	ItemType	PIBIO_ENGINE_QUERY_PREFERRED_FORMAT_FN	17662	17935	119	1	290	unsupported	attribute cfg requires explicit semantics/configuration
+89	ItemType	PIBIO_ENGINE_QUERY_SAMPLE_HINT_FN	17936	18137	121	1	294	unsupported	attribute cfg requires explicit semantics/configuration
+90	ItemType	PIBIO_ENGINE_REFRESH_CACHE_FN	18138	18311	123	1	298	unsupported	attribute cfg requires explicit semantics/configuration
+91	ItemType	PIBIO_ENGINE_RESERVED_1_FN	18312	18514	125	1	302	unsupported	attribute cfg requires explicit semantics/configuration
+92	ItemType	PIBIO_ENGINE_SELECT_CALIBRATION_FORMAT_FN	18515	18838	127	1	306	unsupported	attribute cfg requires explicit semantics/configuration
+93	ItemType	PIBIO_ENGINE_SET_ACCOUNT_POLICY_FN	18839	19088	129	1	310	unsupported	attribute cfg requires explicit semantics/configuration
+94	ItemType	PIBIO_ENGINE_SET_ENROLLMENT_PARAMETERS_FN	19089	19332	131	1	314	unsupported	attribute cfg requires explicit semantics/configuration
+95	ItemType	PIBIO_ENGINE_SET_ENROLLMENT_SELECTOR_FN	19333	19536	133	1	318	unsupported	attribute cfg requires explicit semantics/configuration
+96	ItemType	PIBIO_ENGINE_SET_HASH_ALGORITHM_FN	19537	19771	135	1	322	unsupported	attribute cfg requires explicit semantics/configuration
+97	ItemType	PIBIO_ENGINE_UPDATE_ENROLLMENT_FN	19772	19973	137	1	326	unsupported	attribute cfg requires explicit semantics/configuration
+98	ItemType	PIBIO_ENGINE_VERIFY_FEATURE_SET_FN	19974	20348	139	1	330	unsupported	attribute cfg requires explicit semantics/configuration
+99	ItemType	PIBIO_FRAMEWORK_ALLOCATE_MEMORY_FN	20349	20588	141	1	334	unsupported	attribute cfg requires explicit semantics/configuration
+100	ItemType	PIBIO_FRAMEWORK_FREE_MEMORY_FN	20589	20798	143	1	338	unsupported	attribute cfg requires explicit semantics/configuration
+101	ItemType	PIBIO_FRAMEWORK_GET_PROPERTY_FN	20799	21136	145	1	342	unsupported	attribute cfg requires explicit semantics/configuration
+102	ItemType	PIBIO_FRAMEWORK_LOCK_AND_VALIDATE_SECURE_BUFFER_FN	21137	21460	147	1	346	unsupported	attribute cfg requires explicit semantics/configuration
+103	ItemType	PIBIO_FRAMEWORK_RELEASE_SECURE_BUFFER_FN	21461	21694	149	1	350	unsupported	attribute cfg requires explicit semantics/configuration
+104	ItemType	PIBIO_FRAMEWORK_SET_UNIT_STATUS_FN	21695	21952	151	1	354	unsupported	attribute cfg requires explicit semantics/configuration
+105	ItemType	PIBIO_FRAMEWORK_VSM_CACHE_CLEAR_FN	21953	22131	153	1	358	unsupported	attribute cfg requires explicit semantics/configuration
+106	ItemType	PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_BEGIN_FN	22132	22374	155	1	362	unsupported	attribute cfg requires explicit semantics/configuration
+107	ItemType	PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_END_FN	22375	22558	157	1	366	unsupported	attribute cfg requires explicit semantics/configuration
+108	ItemType	PIBIO_FRAMEWORK_VSM_CACHE_EXPORT_NEXT_FN	22559	22816	159	1	370	unsupported	attribute cfg requires explicit semantics/configuration
+109	ItemType	PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_BEGIN_FN	22817	23054	161	1	374	unsupported	attribute cfg requires explicit semantics/configuration
+110	ItemType	PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_END_FN	23055	23238	163	1	378	unsupported	attribute cfg requires explicit semantics/configuration
+111	ItemType	PIBIO_FRAMEWORK_VSM_CACHE_IMPORT_NEXT_FN	23239	23468	165	1	382	unsupported	attribute cfg requires explicit semantics/configuration
+112	ItemType	PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN	23469	23784	167	1	386	unsupported	attribute cfg requires explicit semantics/configuration
+113	ItemType	PIBIO_FRAMEWORK_VSM_QUERY_AUTHORIZED_ENROLLMENTS_FN	23785	24092	169	1	390	unsupported	attribute cfg requires explicit semantics/configuration
+114	ItemType	PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_1_FN	24093	24323	171	1	394	unsupported	attribute cfg requires explicit semantics/configuration
+115	ItemType	PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_2_FN	24324	24551	173	1	398	unsupported	attribute cfg requires explicit semantics/configuration
+116	ItemType	PIBIO_FRAMEWORK_VSM_STORAGE_RESERVED_3_FN	24552	24739	175	1	402	unsupported	attribute cfg requires explicit semantics/configuration
+117	ItemType	PIBIO_SENSOR_ACCEPT_CALIBRATION_DATA_FN	24740	24983	177	1	406	unsupported	attribute cfg requires explicit semantics/configuration
+118	ItemType	PIBIO_SENSOR_ACTIVATE_FN	24984	25152	179	1	410	unsupported	attribute cfg requires explicit semantics/configuration
+119	ItemType	PIBIO_SENSOR_ASYNC_IMPORT_RAW_BUFFER_FN	25153	25452	181	1	414	unsupported	attribute cfg requires explicit semantics/configuration
+120	ItemType	PIBIO_SENSOR_ASYNC_IMPORT_SECURE_BUFFER_FN	25453	25814	183	1	418	unsupported	attribute cfg requires explicit semantics/configuration
+121	ItemType	PIBIO_SENSOR_ATTACH_FN	25815	25981	185	1	422	unsupported	attribute cfg requires explicit semantics/configuration
+122	ItemType	PIBIO_SENSOR_CANCEL_FN	25982	26148	187	1	426	unsupported	attribute cfg requires explicit semantics/configuration
+123	ItemType	PIBIO_SENSOR_CLEAR_CONTEXT_FN	26149	26322	189	1	430	unsupported	attribute cfg requires explicit semantics/configuration
+124	ItemType	PIBIO_SENSOR_CONNECT_SECURE_FN	26323	26612	191	1	434	unsupported	attribute cfg requires explicit semantics/configuration
+125	ItemType	PIBIO_SENSOR_CONTROL_UNIT_FN	26613	26955	193	1	438	unsupported	attribute cfg requires explicit semantics/configuration
+126	ItemType	PIBIO_SENSOR_CONTROL_UNIT_PRIVILEGED_FN	26956	27309	195	1	442	unsupported	attribute cfg requires explicit semantics/configuration
+127	ItemType	PIBIO_SENSOR_DEACTIVATE_FN	27310	27480	197	1	446	unsupported	attribute cfg requires explicit semantics/configuration
+128	ItemType	PIBIO_SENSOR_DETACH_FN	27481	27647	199	1	450	unsupported	attribute cfg requires explicit semantics/configuration
+129	ItemType	PIBIO_SENSOR_EXPORT_SENSOR_DATA_FN	27648	27886	201	1	454	unsupported	attribute cfg requires explicit semantics/configuration
+130	ItemType	PIBIO_SENSOR_FINISH_CAPTURE_FN	27887	28085	203	1	458	unsupported	attribute cfg requires explicit semantics/configuration
+131	ItemType	PIBIO_SENSOR_FINISH_NOTIFY_WAKE_FN	28086	28282	205	1	462	unsupported	attribute cfg requires explicit semantics/configuration
+132	ItemType	PIBIO_SENSOR_GET_INDICATOR_STATUS_FN	28283	28490	207	1	466	unsupported	attribute cfg requires explicit semantics/configuration
+133	ItemType	PIBIO_SENSOR_NOTIFY_POWER_CHANGE_FN	28491	28691	209	1	470	unsupported	attribute cfg requires explicit semantics/configuration
+134	ItemType	PIBIO_SENSOR_PIPELINE_CLEANUP_FN	28692	28868	211	1	474	unsupported	attribute cfg requires explicit semantics/configuration
+135	ItemType	PIBIO_SENSOR_PIPELINE_INIT_FN	28869	29042	213	1	478	unsupported	attribute cfg requires explicit semantics/configuration
+136	ItemType	PIBIO_SENSOR_PUSH_DATA_TO_ENGINE_FN	29043	29270	215	1	482	unsupported	attribute cfg requires explicit semantics/configuration
+137	ItemType	PIBIO_SENSOR_QUERY_CALIBRATION_FORMATS_FN	29271	29548	217	1	486	unsupported	attribute cfg requires explicit semantics/configuration
+138	ItemType	PIBIO_SENSOR_QUERY_EXTENDED_INFO_FN	29549	29797	219	1	490	unsupported	attribute cfg requires explicit semantics/configuration
+139	ItemType	PIBIO_SENSOR_QUERY_PRIVATE_SENSOR_TYPE_FN	29798	30072	221	1	494	unsupported	attribute cfg requires explicit semantics/configuration
+140	ItemType	PIBIO_SENSOR_QUERY_STATUS_FN	30073	30263	223	1	498	unsupported	attribute cfg requires explicit semantics/configuration
+141	ItemType	PIBIO_SENSOR_RESET_FN	30264	30429	225	1	502	unsupported	attribute cfg requires explicit semantics/configuration
+142	ItemType	PIBIO_SENSOR_SET_CALIBRATION_FORMAT_FN	30430	30652	227	1	506	unsupported	attribute cfg requires explicit semantics/configuration
+143	ItemType	PIBIO_SENSOR_SET_INDICATOR_STATUS_FN	30653	30855	229	1	510	unsupported	attribute cfg requires explicit semantics/configuration
+144	ItemType	PIBIO_SENSOR_SET_MODE_FN	30856	31035	231	1	514	unsupported	attribute cfg requires explicit semantics/configuration
+145	ItemType	PIBIO_SENSOR_START_CAPTURE_EX_FN	31036	31332	233	1	518	unsupported	attribute cfg requires explicit semantics/configuration
+146	ItemType	PIBIO_SENSOR_START_CAPTURE_FN	31333	31579	235	1	522	unsupported	attribute cfg requires explicit semantics/configuration
+147	ItemType	PIBIO_SENSOR_START_NOTIFY_WAKE_FN	31580	31817	237	1	526	unsupported	attribute cfg requires explicit semantics/configuration
+148	ItemType	PIBIO_STORAGE_ACTIVATE_FN	31818	31987	239	1	530	unsupported	attribute cfg requires explicit semantics/configuration
+149	ItemType	PIBIO_STORAGE_ADD_RECORD_FN	31988	32205	241	1	534	unsupported	attribute cfg requires explicit semantics/configuration
+150	ItemType	PIBIO_STORAGE_ATTACH_FN	32206	32373	243	1	538	unsupported	attribute cfg requires explicit semantics/configuration
+151	ItemType	PIBIO_STORAGE_CLEAR_CONTEXT_FN	32374	32548	245	1	542	unsupported	attribute cfg requires explicit semantics/configuration
+152	ItemType	PIBIO_STORAGE_CLOSE_DATABASE_FN	32549	32724	247	1	546	unsupported	attribute cfg requires explicit semantics/configuration
+153	ItemType	PIBIO_STORAGE_CONTROL_UNIT_FN	32725	33068	249	1	550	unsupported	attribute cfg requires explicit semantics/configuration
+154	ItemType	PIBIO_STORAGE_CONTROL_UNIT_PRIVILEGED_FN	33069	33423	251	1	554	unsupported	attribute cfg requires explicit semantics/configuration
+155	ItemType	PIBIO_STORAGE_CREATE_DATABASE_FN	33424	33822	253	1	558	unsupported	attribute cfg requires explicit semantics/configuration
+156	ItemType	PIBIO_STORAGE_DEACTIVATE_FN	33823	33994	255	1	562	unsupported	attribute cfg requires explicit semantics/configuration
+157	ItemType	PIBIO_STORAGE_DELETE_RECORD_FN	33995	34218	257	1	566	unsupported	attribute cfg requires explicit semantics/configuration
+158	ItemType	PIBIO_STORAGE_DETACH_FN	34219	34386	259	1	570	unsupported	attribute cfg requires explicit semantics/configuration
+159	ItemType	PIBIO_STORAGE_ERASE_DATABASE_FN	34387	34685	261	1	574	unsupported	attribute cfg requires explicit semantics/configuration
+160	ItemType	PIBIO_STORAGE_FIRST_RECORD_FN	34686	34859	263	1	578	unsupported	attribute cfg requires explicit semantics/configuration
+161	ItemType	PIBIO_STORAGE_GET_CURRENT_RECORD_FN	34860	35083	265	1	582	unsupported	attribute cfg requires explicit semantics/configuration
+162	ItemType	PIBIO_STORAGE_GET_DATABASE_SIZE_FN	35084	35326	267	1	586	unsupported	attribute cfg requires explicit semantics/configuration
+163	ItemType	PIBIO_STORAGE_GET_DATA_FORMAT_FN	35327	35571	269	1	590	unsupported	attribute cfg requires explicit semantics/configuration
+164	ItemType	PIBIO_STORAGE_GET_RECORD_COUNT_FN	35572	35774	271	1	594	unsupported	attribute cfg requires explicit semantics/configuration
+165	ItemType	PIBIO_STORAGE_NEXT_RECORD_FN	35775	35947	273	1	598	unsupported	attribute cfg requires explicit semantics/configuration
+166	ItemType	PIBIO_STORAGE_NOTIFY_DATABASE_CHANGE_FN	35948	36151	275	1	602	unsupported	attribute cfg requires explicit semantics/configuration
+167	ItemType	PIBIO_STORAGE_NOTIFY_POWER_CHANGE_FN	36152	36353	277	1	606	unsupported	attribute cfg requires explicit semantics/configuration
+168	ItemType	PIBIO_STORAGE_OPEN_DATABASE_FN	36354	36651	279	1	610	unsupported	attribute cfg requires explicit semantics/configuration
+169	ItemType	PIBIO_STORAGE_PIPELINE_CLEANUP_FN	36652	36829	281	1	614	unsupported	attribute cfg requires explicit semantics/configuration
+170	ItemType	PIBIO_STORAGE_PIPELINE_INIT_FN	36830	37004	283	1	618	unsupported	attribute cfg requires explicit semantics/configuration
+171	ItemType	PIBIO_STORAGE_QUERY_BY_CONTENT_FN	37005	37248	285	1	622	unsupported	attribute cfg requires explicit semantics/configuration
+172	ItemType	PIBIO_STORAGE_QUERY_BY_SUBJECT_FN	37249	37475	287	1	626	unsupported	attribute cfg requires explicit semantics/configuration
+173	ItemType	PIBIO_STORAGE_QUERY_EXTENDED_INFO_FN	37476	37728	289	1	630	unsupported	attribute cfg requires explicit semantics/configuration
+174	ItemType	PIBIO_STORAGE_RESERVED_1_FN	37729	37982	291	1	634	unsupported	attribute cfg requires explicit semantics/configuration
+175	ItemType	PIBIO_STORAGE_RESERVED_2_FN	37983	38190	293	1	638	unsupported	attribute cfg requires explicit semantics/configuration
+176	ItemType	PIBIO_STORAGE_UPDATE_RECORD_BEGIN_FN	38191	38464	295	1	642	unsupported	attribute cfg requires explicit semantics/configuration
+177	ItemType	PIBIO_STORAGE_UPDATE_RECORD_COMMIT_FN	38465	38692	297	1	646	unsupported	attribute cfg requires explicit semantics/configuration
+178	ItemType	PWINBIO_ASYNC_COMPLETION_CALLBACK	38693	38813	299	1	650	unsupported	generic scalar type unsupported
+179	ItemType	PWINBIO_CAPTURE_CALLBACK	38814	39057	300	1	653	unsupported	generic scalar type unsupported
+180	ItemType	PWINBIO_ENROLL_CAPTURE_CALLBACK	39058	39248	301	1	656	unsupported	generic scalar type unsupported
+181	ItemType	PWINBIO_EVENT_CALLBACK	39249	39438	302	1	659	unsupported	generic scalar type unsupported
+182	ItemType	PWINBIO_IDENTIFY_CALLBACK	39439	39687	303	1	662	unsupported	generic scalar type unsupported
+183	ItemType	PWINBIO_LOCATE_SENSOR_CALLBACK	39688	39871	304	1	665	unsupported	generic scalar type unsupported
+184	ItemType	PWINBIO_QUERY_ENGINE_INTERFACE_FN	39872	40069	305	1	668	unsupported	attribute cfg requires explicit semantics/configuration
+185	ItemType	PWINBIO_QUERY_SENSOR_INTERFACE_FN	40070	40267	307	1	672	unsupported	attribute cfg requires explicit semantics/configuration
+186	ItemType	PWINBIO_QUERY_STORAGE_INTERFACE_FN	40268	40468	309	1	676	unsupported	attribute cfg requires explicit semantics/configuration
+187	ItemType	PWINBIO_VERIFY_CALLBACK	40469	40679	311	1	680	unsupported	generic scalar type unsupported
+188	Struct	WINBIO_ACCOUNT_POLICY	40680	40845	312	1	683	unsupported	declaration Struct has no candidate rule
+189	Impl		40846	40960	318	1	691	unsupported	declaration Impl has no candidate rule
+190	Struct	WINBIO_ADAPTER_INTERFACE_VERSION	40961	41105	323	1	698	unsupported	declaration Struct has no candidate rule
+191	Const	WINBIO_ANSI_381_IMG_BIT_PACKED	41106	41159	329	1	706	generated	
+192	Const	WINBIO_ANSI_381_IMG_COMPRESSED_JPEG	41160	41218	330	1	707	generated	
+193	Const	WINBIO_ANSI_381_IMG_COMPRESSED_JPEG2000	41219	41281	331	1	708	generated	
+194	Const	WINBIO_ANSI_381_IMG_COMPRESSED_PNG	41282	41339	332	1	709	generated	
+195	Const	WINBIO_ANSI_381_IMG_COMPRESSED_WSQ	41340	41397	333	1	710	generated	
+196	Const	WINBIO_ANSI_381_IMG_UNCOMPRESSED	41398	41453	334	1	711	generated	
+197	Const	WINBIO_ANSI_381_IMP_TYPE_LATENT	41454	41508	335	1	712	generated	
+198	Const	WINBIO_ANSI_381_IMP_TYPE_LIVE_SCAN_CONTACTLESS	41509	41578	336	1	713	generated	
+199	Const	WINBIO_ANSI_381_IMP_TYPE_LIVE_SCAN_PLAIN	41579	41642	337	1	714	generated	
+200	Const	WINBIO_ANSI_381_IMP_TYPE_LIVE_SCAN_ROLLED	41643	41707	338	1	715	generated	
+201	Const	WINBIO_ANSI_381_IMP_TYPE_NONLIVE_SCAN_PLAIN	41708	41774	339	1	716	generated	
+202	Const	WINBIO_ANSI_381_IMP_TYPE_NONLIVE_SCAN_ROLLED	41775	41842	340	1	717	generated	
+203	Const	WINBIO_ANSI_381_IMP_TYPE_SWIPE	41843	41896	341	1	718	generated	
+204	Const	WINBIO_ANSI_381_PIXELS_PER_CM	41897	41949	342	1	719	generated	
+205	Const	WINBIO_ANSI_381_PIXELS_PER_INCH	41950	42004	343	1	720	generated	
+206	Const	WINBIO_ANTI_SPOOF_DISABLE	42005	42081	344	1	721	generated	
+207	Const	WINBIO_ANTI_SPOOF_ENABLE	42082	42157	345	1	722	generated	
+208	Struct	WINBIO_ANTI_SPOOF_POLICY	42158	42327	346	1	723	unsupported	declaration Struct has no candidate rule
+209	ItemType	WINBIO_ANTI_SPOOF_POLICY_ACTION	42328	42375	352	1	731	generated	
+210	Const	WINBIO_ANTI_SPOOF_REMOVE	42376	42451	353	1	732	generated	
+211	ItemType	WINBIO_ASYNC_NOTIFICATION_METHOD	42452	42500	354	1	733	generated	
+212	Const	WINBIO_ASYNC_NOTIFY_CALLBACK	42501	42581	355	1	734	generated	
+213	Const	WINBIO_ASYNC_NOTIFY_MAXIMUM_VALUE	42582	42667	356	1	735	generated	
+214	Const	WINBIO_ASYNC_NOTIFY_MESSAGE	42668	42747	357	1	736	generated	
+215	Const	WINBIO_ASYNC_NOTIFY_NONE	42748	42824	358	1	737	generated	
+216	Struct	WINBIO_ASYNC_RESULT	42825	43151	359	1	738	unsupported	declaration Struct has no candidate rule
+217	Impl		43152	43264	371	1	752	unsupported	declaration Impl has no candidate rule
+218	Union		43265	44378	376	1	759	unsupported	declaration Union has no candidate rule
+219	Impl		44379	44493	401	1	786	unsupported	declaration Impl has no candidate rule
+220	Struct	WINBIO_ASYNC_RESULT_0_6	44494	44653	406	1	793	unsupported	declaration Struct has no candidate rule
+221	Impl		44654	44770	413	1	802	unsupported	declaration Impl has no candidate rule
+222	Struct	WINBIO_ASYNC_RESULT_0_11	44771	45095	418	1	809	unsupported	declaration Struct has no candidate rule
+223	Impl		45096	45213	430	1	823	unsupported	declaration Impl has no candidate rule
+224	Struct	WINBIO_ASYNC_RESULT_0_7	45214	45344	435	1	830	unsupported	declaration Struct has no candidate rule
+225	Impl		45345	45461	441	1	838	unsupported	declaration Impl has no candidate rule
+226	Struct	WINBIO_ASYNC_RESULT_0_2	45462	45566	446	1	845	unsupported	declaration Struct has no candidate rule
+227	Struct	WINBIO_ASYNC_RESULT_0_3	45567	45675	451	1	852	unsupported	declaration Struct has no candidate rule
+228	Struct	WINBIO_ASYNC_RESULT_0_4	45676	45812	456	1	859	unsupported	declaration Struct has no candidate rule
+229	Impl		45813	45929	462	1	867	unsupported	declaration Impl has no candidate rule
+230	Struct	WINBIO_ASYNC_RESULT_0_17	45930	46040	467	1	874	unsupported	declaration Struct has no candidate rule
+231	Struct	WINBIO_ASYNC_RESULT_0_13	46041	46190	472	1	881	unsupported	declaration Struct has no candidate rule
+232	Impl		46191	46308	478	1	889	unsupported	declaration Impl has no candidate rule
+233	Struct	WINBIO_ASYNC_RESULT_0_14	46309	46467	483	1	896	unsupported	declaration Struct has no candidate rule
+234	Impl		46468	46585	489	1	904	unsupported	declaration Impl has no candidate rule
+235	Struct	WINBIO_ASYNC_RESULT_0_5	46586	46757	494	1	911	unsupported	declaration Struct has no candidate rule
+236	Impl		46758	46874	501	1	920	unsupported	declaration Impl has no candidate rule
+237	Struct	WINBIO_ASYNC_RESULT_0_12	46875	47021	506	1	927	unsupported	declaration Struct has no candidate rule
+238	Impl		47022	47139	512	1	935	unsupported	declaration Impl has no candidate rule
+239	Struct	WINBIO_ASYNC_RESULT_0_10	47140	47242	517	1	942	unsupported	declaration Struct has no candidate rule
+240	Impl		47243	47360	522	1	949	unsupported	declaration Impl has no candidate rule
+241	Struct	WINBIO_ASYNC_RESULT_0_8	47361	47626	527	1	956	unsupported	declaration Struct has no candidate rule
+242	Impl		47627	47743	537	1	968	unsupported	declaration Impl has no candidate rule
+243	Struct	WINBIO_ASYNC_RESULT_0_19	47744	47894	542	1	975	unsupported	declaration Struct has no candidate rule
+244	Impl		47895	48012	548	1	983	unsupported	declaration Impl has no candidate rule
+245	Struct	WINBIO_ASYNC_RESULT_0_16	48013	48192	553	1	990	unsupported	declaration Struct has no candidate rule
+246	Impl		48193	48310	561	1	1000	unsupported	declaration Impl has no candidate rule
+247	Struct	WINBIO_ASYNC_RESULT_0_1	48311	48468	566	1	1007	unsupported	declaration Struct has no candidate rule
+248	Impl		48469	48585	573	1	1016	unsupported	declaration Impl has no candidate rule
+249	Struct	WINBIO_ASYNC_RESULT_0_18	48586	48759	578	1	1023	unsupported	declaration Struct has no candidate rule
+250	Impl		48760	48877	585	1	1032	unsupported	declaration Impl has no candidate rule
+251	Struct	WINBIO_ASYNC_RESULT_0_20	48878	49013	590	1	1039	unsupported	declaration Struct has no candidate rule
+252	Struct	WINBIO_ASYNC_RESULT_0_9	49014	49279	595	1	1046	unsupported	declaration Struct has no candidate rule
+253	Impl		49280	49396	605	1	1058	unsupported	declaration Impl has no candidate rule
+254	Struct	WINBIO_ASYNC_RESULT_0_15	49397	49548	610	1	1065	unsupported	declaration Struct has no candidate rule
+255	Struct	WINBIO_ASYNC_RESULT_0_0	49549	49678	617	1	1074	unsupported	declaration Struct has no candidate rule
+256	Struct	WINBIO_BDB_ANSI_381_HEADER	49679	50244	623	1	1082	unsupported	declaration Struct has no candidate rule
+257	Struct	WINBIO_BDB_ANSI_381_RECORD	50245	50571	642	1	1103	unsupported	declaration Struct has no candidate rule
+258	Struct	WINBIO_BIR	50572	50805	655	1	1118	unsupported	declaration Struct has no candidate rule
+259	Const	WINBIO_BIR_ALGIN_SIZE	50806	50850	663	1	1128	generated	
+260	Const	WINBIO_BIR_ALIGN_SIZE	50851	50895	664	1	1129	generated	
+261	Struct	WINBIO_BIR_DATA	50896	51009	665	1	1130	unsupported	declaration Struct has no candidate rule
+262	Struct	WINBIO_BIR_HEADER	51010	51452	671	1	1138	unsupported	declaration Struct has no candidate rule
+263	Struct	WINBIO_BIR_HEADER_0	51453	51576	687	1	1156	unsupported	declaration Struct has no candidate rule
+264	Struct	WINBIO_BLANK_PAYLOAD	51577	51732	693	1	1164	unsupported	declaration Struct has no candidate rule
+265	Struct	WINBIO_BSP_SCHEMA	51733	51963	699	1	1172	unsupported	declaration Struct has no candidate rule
+266	Impl		51964	52074	708	1	1183	unsupported	declaration Impl has no candidate rule
+267	Struct	WINBIO_CALIBRATION_INFO	52075	52271	713	1	1190	unsupported	declaration Struct has no candidate rule
+268	Struct	WINBIO_CAPTURE_DATA	52272	52514	720	1	1199	unsupported	declaration Struct has no candidate rule
+269	Struct	WINBIO_CAPTURE_PARAMETERS	52515	52753	729	1	1210	unsupported	declaration Struct has no candidate rule
+270	ItemType	WINBIO_COMPONENT	52754	52786	738	1	1221	generated	
+271	Const	WINBIO_COMPONENT_ENGINE	52787	52846	739	1	1222	generated	
+272	Const	WINBIO_COMPONENT_SENSOR	52847	52906	740	1	1223	generated	
+273	Const	WINBIO_COMPONENT_STORAGE	52907	52967	741	1	1224	generated	
+274	Const	WINBIO_CREDENTIAL_ALL	52968	53032	742	1	1225	generated	
+275	ItemType	WINBIO_CREDENTIAL_FORMAT	53033	53073	743	1	1226	generated	
+276	Const	WINBIO_CREDENTIAL_NOT_SET	53074	53142	744	1	1227	generated	
+277	Const	WINBIO_CREDENTIAL_PASSWORD	53143	53211	745	1	1228	generated	
+278	Const	WINBIO_CREDENTIAL_SET	53212	53276	746	1	1229	generated	
+279	ItemType	WINBIO_CREDENTIAL_STATE	53277	53316	747	1	1230	generated	
+280	ItemType	WINBIO_CREDENTIAL_TYPE	53317	53355	748	1	1231	generated	
+281	Struct	WINBIO_DATA	53356	53458	749	1	1232	unsupported	declaration Struct has no candidate rule
+282	Impl		53459	53563	755	1	1240	unsupported	declaration Impl has no candidate rule
+283	Const	WINBIO_DATA_FLAG_INTEGRITY	53564	53613	760	1	1247	generated	
+284	Const	WINBIO_DATA_FLAG_INTERMEDIATE	53614	53667	761	1	1248	generated	
+285	Const	WINBIO_DATA_FLAG_OPTION_MASK_PRESENT	53668	53727	762	1	1249	generated	
+286	Const	WINBIO_DATA_FLAG_PRIVACY	53728	53775	763	1	1250	generated	
+287	Const	WINBIO_DATA_FLAG_PROCESSED	53776	53827	764	1	1251	generated	
+288	Const	WINBIO_DATA_FLAG_RAW	53828	53872	765	1	1252	generated	
+289	Const	WINBIO_DATA_FLAG_SIGNED	53873	53919	766	1	1253	generated	
+290	Struct	WINBIO_DIAGNOSTICS	53920	54140	767	1	1254	unsupported	declaration Struct has no candidate rule
+291	Struct	WINBIO_ENCRYPTED_CAPTURE_PARAMS	54141	54409	775	1	1264	unsupported	declaration Struct has no candidate rule
+292	Struct	WINBIO_ENGINE_INTERFACE	54410	57265	785	1	1276	unsupported	declaration Struct has no candidate rule
+293	Struct	WINBIO_EVENT	57266	57382	835	1	1328	unsupported	declaration Struct has no candidate rule
+294	Impl		57383	57488	841	1	1336	unsupported	declaration Impl has no candidate rule
+295	Union		57489	57666	846	1	1343	unsupported	declaration Union has no candidate rule
+296	Impl		57667	57774	853	1	1352	unsupported	declaration Impl has no candidate rule
+297	Struct	WINBIO_EVENT_0_2	57775	57896	858	1	1359	unsupported	declaration Struct has no candidate rule
+298	Struct	WINBIO_EVENT_0_1	57897	58068	863	1	1366	unsupported	declaration Struct has no candidate rule
+299	Impl		58069	58178	871	1	1376	unsupported	declaration Impl has no candidate rule
+300	Struct	WINBIO_EVENT_0_0	58179	58301	876	1	1383	unsupported	declaration Struct has no candidate rule
+301	Struct	WINBIO_EXTENDED_ENGINE_INFO	58302	58488	882	1	1391	unsupported	declaration Struct has no candidate rule
+302	Impl		58489	58609	889	1	1400	unsupported	declaration Impl has no candidate rule
+303	Union		58610	58912	894	1	1407	unsupported	declaration Union has no candidate rule
+304	Impl		58913	59035	903	1	1418	unsupported	declaration Impl has no candidate rule
+305	Struct	WINBIO_EXTENDED_ENGINE_INFO_0_0	59036	59219	908	1	1425	unsupported	declaration Struct has no candidate rule
+306	Struct	WINBIO_EXTENDED_ENGINE_INFO_0_0_0	59220	59330	914	1	1433	unsupported	declaration Struct has no candidate rule
+307	Struct	WINBIO_EXTENDED_ENGINE_INFO_0_1	59331	59514	919	1	1440	unsupported	declaration Struct has no candidate rule
+308	Struct	WINBIO_EXTENDED_ENGINE_INFO_0_1_0	59515	59750	925	1	1448	unsupported	declaration Struct has no candidate rule
+309	Struct	WINBIO_EXTENDED_ENGINE_INFO_0_2	59751	59934	935	1	1460	unsupported	declaration Struct has no candidate rule
+310	Struct	WINBIO_EXTENDED_ENGINE_INFO_0_2_0	59935	60045	941	1	1468	unsupported	declaration Struct has no candidate rule
+311	Struct	WINBIO_EXTENDED_ENGINE_INFO_0_3	60046	60229	946	1	1475	unsupported	declaration Struct has no candidate rule
+312	Struct	WINBIO_EXTENDED_ENGINE_INFO_0_3_0	60230	60340	952	1	1483	unsupported	declaration Struct has no candidate rule
+313	Struct	WINBIO_EXTENDED_ENROLLMENT_PARAMETERS	60341	60480	957	1	1490	unsupported	declaration Struct has no candidate rule
+314	Struct	WINBIO_EXTENDED_ENROLLMENT_STATUS	60481	60771	963	1	1498	unsupported	declaration Struct has no candidate rule
+315	Impl		60772	60898	973	1	1510	unsupported	declaration Impl has no candidate rule
+316	Union		60899	61231	978	1	1517	unsupported	declaration Union has no candidate rule
+317	Impl		61232	61360	987	1	1528	unsupported	declaration Impl has no candidate rule
+318	Struct	WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0	61361	61599	992	1	1535	unsupported	declaration Struct has no candidate rule
+319	Struct	WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0	61600	61757	999	1	1544	unsupported	declaration Struct has no candidate rule
+320	Impl		61758	61890	1005	1	1552	unsupported	declaration Impl has no candidate rule
+321	Struct	WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1	61891	62130	1010	1	1559	unsupported	declaration Struct has no candidate rule
+322	Struct	WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2	62131	62674	1020	1	1571	unsupported	declaration Struct has no candidate rule
+323	Struct	WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0	62675	62820	1033	1	1586	unsupported	declaration Struct has no candidate rule
+324	Struct	WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3	62821	62939	1040	1	1595	unsupported	declaration Struct has no candidate rule
+325	Struct	WINBIO_EXTENDED_SENSOR_INFO	62940	63126	1045	1	1602	unsupported	declaration Struct has no candidate rule
+326	Impl		63127	63247	1052	1	1611	unsupported	declaration Impl has no candidate rule
+327	Union		63248	63550	1057	1	1618	unsupported	declaration Union has no candidate rule
+328	Impl		63551	63673	1066	1	1629	unsupported	declaration Impl has no candidate rule
+329	Struct	WINBIO_EXTENDED_SENSOR_INFO_0_0	63674	63960	1071	1	1636	unsupported	declaration Struct has no candidate rule
+330	Struct	WINBIO_EXTENDED_SENSOR_INFO_0_0_0	63961	64158	1079	1	1646	unsupported	declaration Struct has no candidate rule
+331	Impl		64159	64285	1086	1	1655	unsupported	declaration Impl has no candidate rule
+332	Struct	WINBIO_EXTENDED_SENSOR_INFO_0_1	64286	64398	1091	1	1662	unsupported	declaration Struct has no candidate rule
+333	Struct	WINBIO_EXTENDED_SENSOR_INFO_0_2	64399	64628	1096	1	1669	unsupported	declaration Struct has no candidate rule
+334	Struct	WINBIO_EXTENDED_SENSOR_INFO_0_3	64629	64741	1103	1	1678	unsupported	declaration Struct has no candidate rule
+335	Struct	WINBIO_EXTENDED_STORAGE_INFO	64742	64931	1108	1	1685	unsupported	declaration Struct has no candidate rule
+336	Impl		64932	65053	1115	1	1694	unsupported	declaration Impl has no candidate rule
+337	Union		65054	65361	1120	1	1701	unsupported	declaration Union has no candidate rule
+338	Impl		65362	65485	1129	1	1712	unsupported	declaration Impl has no candidate rule
+339	Struct	WINBIO_EXTENDED_STORAGE_INFO_0_0	65486	65603	1134	1	1719	unsupported	declaration Struct has no candidate rule
+340	Struct	WINBIO_EXTENDED_STORAGE_INFO_0_1	65604	65721	1139	1	1726	unsupported	declaration Struct has no candidate rule
+341	Struct	WINBIO_EXTENDED_STORAGE_INFO_0_2	65722	65839	1144	1	1733	unsupported	declaration Struct has no candidate rule
+342	Struct	WINBIO_EXTENDED_STORAGE_INFO_0_3	65840	65957	1149	1	1740	unsupported	declaration Struct has no candidate rule
+343	Struct	WINBIO_EXTENDED_UNIT_STATUS	65958	66095	1154	1	1747	unsupported	declaration Struct has no candidate rule
+344	Const	WINBIO_E_ADAPTER_INTEGRITY_FAILURE	66096	66191	1160	1	1755	generated	
+345	Const	WINBIO_E_AUTO_LOGON_DISABLED	66192	66281	1161	1	1756	generated	
+346	Const	WINBIO_E_BAD_CAPTURE	66282	66363	1162	1	1757	generated	
+347	Const	WINBIO_E_CALIBRATION_BUFFER_INVALID	66364	66460	1163	1	1758	generated	
+348	Const	WINBIO_E_CALIBRATION_BUFFER_TOO_LARGE	66461	66559	1164	1	1759	generated	
+349	Const	WINBIO_E_CALIBRATION_BUFFER_TOO_SMALL	66560	66658	1165	1	1760	generated	
+350	Const	WINBIO_E_CANCELED	66659	66737	1166	1	1761	generated	
+351	Const	WINBIO_E_CAPTURE_ABORTED	66738	66823	1167	1	1762	generated	
+352	Const	WINBIO_E_CONFIGURATION_FAILURE	66824	66915	1168	1	1763	generated	
+353	Const	WINBIO_E_CRED_PROV_DISABLED	66916	67004	1169	1	1764	generated	
+354	Const	WINBIO_E_CRED_PROV_NO_CREDENTIAL	67005	67098	1170	1	1765	generated	
+355	Const	WINBIO_E_CRED_PROV_SECURITY_LOCKOUT	67099	67195	1171	1	1766	generated	
+356	Const	WINBIO_E_DATABASE_ALREADY_EXISTS	67196	67289	1172	1	1767	generated	
+357	Const	WINBIO_E_DATABASE_BAD_INDEX_VECTOR	67290	67385	1173	1	1768	generated	
+358	Const	WINBIO_E_DATABASE_CANT_CLOSE	67386	67475	1174	1	1769	generated	
+359	Const	WINBIO_E_DATABASE_CANT_CREATE	67476	67566	1175	1	1770	generated	
+360	Const	WINBIO_E_DATABASE_CANT_ERASE	67567	67656	1176	1	1771	generated	
+361	Const	WINBIO_E_DATABASE_CANT_FIND	67657	67745	1177	1	1772	generated	
+362	Const	WINBIO_E_DATABASE_CANT_OPEN	67746	67834	1178	1	1773	generated	
+363	Const	WINBIO_E_DATABASE_CORRUPTED	67835	67923	1179	1	1774	generated	
+364	Const	WINBIO_E_DATABASE_EOF	67924	68006	1180	1	1775	generated	
+365	Const	WINBIO_E_DATABASE_FULL	68007	68090	1181	1	1776	generated	
+366	Const	WINBIO_E_DATABASE_LOCKED	68091	68176	1182	1	1777	generated	
+367	Const	WINBIO_E_DATABASE_NO_MORE_RECORDS	68177	68271	1183	1	1778	generated	
+368	Const	WINBIO_E_DATABASE_NO_RESULTS	68272	68361	1184	1	1779	generated	
+369	Const	WINBIO_E_DATABASE_NO_SUCH_RECORD	68362	68455	1185	1	1780	generated	
+370	Const	WINBIO_E_DATABASE_READ_ERROR	68456	68545	1186	1	1781	generated	
+371	Const	WINBIO_E_DATABASE_WRITE_ERROR	68546	68636	1187	1	1782	generated	
+372	Const	WINBIO_E_DATA_COLLECTION_IN_PROGRESS	68637	68734	1188	1	1783	generated	
+373	Const	WINBIO_E_DATA_PROTECTION_FAILURE	68735	68828	1189	1	1784	generated	
+374	Const	WINBIO_E_DEADLOCK_DETECTED	68829	68916	1190	1	1785	generated	
+375	Const	WINBIO_E_DEVICE_BUSY	68917	68998	1191	1	1786	generated	
+376	Const	WINBIO_E_DEVICE_FAILURE	68999	69083	1192	1	1787	generated	
+377	Const	WINBIO_E_DISABLED	69084	69162	1193	1	1788	generated	
+378	Const	WINBIO_E_DUPLICATE_ENROLLMENT	69163	69253	1194	1	1789	generated	
+379	Const	WINBIO_E_DUPLICATE_TEMPLATE	69254	69342	1195	1	1790	generated	
+380	Const	WINBIO_E_ENROLLMENT_CANCELED_BY_SUSPEND	69343	69443	1196	1	1791	generated	
+381	Const	WINBIO_E_ENROLLMENT_IN_PROGRESS	69444	69536	1197	1	1792	generated	
+382	Const	WINBIO_E_EVENT_MONITOR_ACTIVE	69537	69627	1198	1	1793	generated	
+383	Const	WINBIO_E_FAST_USER_SWITCH_DISABLED	69628	69723	1199	1	1794	generated	
+384	Const	WINBIO_E_INCORRECT_BSP	69724	69807	1200	1	1795	generated	
+385	Const	WINBIO_E_INCORRECT_SENSOR_POOL	69808	69899	1201	1	1796	generated	
+386	Const	WINBIO_E_INCORRECT_SESSION_TYPE	69900	69992	1202	1	1797	generated	
+387	Const	WINBIO_E_INSECURE_SENSOR	69993	70078	1203	1	1798	generated	
+388	Const	WINBIO_E_INVALID_BUFFER	70079	70163	1204	1	1799	generated	
+389	Const	WINBIO_E_INVALID_BUFFER_ID	70164	70251	1205	1	1800	generated	
+390	Const	WINBIO_E_INVALID_CALIBRATION_FORMAT_ARRAY	70252	70354	1206	1	1801	generated	
+391	Const	WINBIO_E_INVALID_CONTROL_CODE	70355	70445	1207	1	1802	generated	
+392	Const	WINBIO_E_INVALID_DEVICE_STATE	70446	70536	1208	1	1803	generated	
+393	Const	WINBIO_E_INVALID_KEY_IDENTIFIER	70537	70629	1209	1	1804	generated	
+394	Const	WINBIO_E_INVALID_OPERATION	70630	70717	1210	1	1805	generated	
+395	Const	WINBIO_E_INVALID_PROPERTY_ID	70718	70807	1211	1	1806	generated	
+396	Const	WINBIO_E_INVALID_PROPERTY_TYPE	70808	70899	1212	1	1807	generated	
+397	Const	WINBIO_E_INVALID_SENSOR_MODE	70900	70989	1213	1	1808	generated	
+398	Const	WINBIO_E_INVALID_SUBFACTOR	70990	71077	1214	1	1809	generated	
+399	Const	WINBIO_E_INVALID_TICKET	71078	71162	1215	1	1810	generated	
+400	Const	WINBIO_E_INVALID_UNIT	71163	71245	1216	1	1811	generated	
+401	Const	WINBIO_E_KEY_CREATION_FAILED	71246	71335	1217	1	1812	generated	
+402	Const	WINBIO_E_KEY_IDENTIFIER_BUFFER_TOO_SMALL	71336	71437	1218	1	1813	generated	
+403	Const	WINBIO_E_LOCK_VIOLATION	71438	71522	1219	1	1814	generated	
+404	Const	WINBIO_E_MAX_ERROR_COUNT_EXCEEDED	71523	71617	1220	1	1815	generated	
+405	Const	WINBIO_E_NOT_ACTIVE_CONSOLE	71618	71706	1221	1	1816	generated	
+406	Const	WINBIO_E_NO_CAPTURE_DATA	71707	71792	1222	1	1817	generated	
+407	Const	WINBIO_E_NO_MATCH	71793	71871	1223	1	1818	generated	
+408	Const	WINBIO_E_NO_PREBOOT_IDENTITY	71872	71961	1224	1	1819	generated	
+409	Const	WINBIO_E_NO_SUPPORTED_CALIBRATION_FORMAT	71962	72063	1225	1	1820	generated	
+410	Const	WINBIO_E_POLICY_PROTECTION_UNAVAILABLE	72064	72163	1226	1	1821	generated	
+411	Const	WINBIO_E_PRESENCE_MONITOR_ACTIVE	72164	72257	1227	1	1822	generated	
+412	Const	WINBIO_E_PROPERTY_UNAVAILABLE	72258	72348	1228	1	1823	generated	
+413	Const	WINBIO_E_SAS_ENABLED	72349	72430	1229	1	1824	generated	
+414	Const	WINBIO_E_SELECTION_REQUIRED	72431	72519	1230	1	1825	generated	
+415	Const	WINBIO_E_SENSOR_UNAVAILABLE	72520	72608	1231	1	1826	generated	
+416	Const	WINBIO_E_SESSION_BUSY	72609	72691	1232	1	1827	generated	
+417	Const	WINBIO_E_SESSION_HANDLE_CLOSED	72692	72783	1233	1	1828	generated	
+418	Const	WINBIO_E_TICKET_QUOTA_EXCEEDED	72784	72875	1234	1	1829	generated	
+419	Const	WINBIO_E_TRUSTLET_INTEGRITY_FAIL	72876	72969	1235	1	1830	generated	
+420	Const	WINBIO_E_UNKNOWN_ID	72970	73050	1236	1	1831	generated	
+421	Const	WINBIO_E_UNSUPPORTED_DATA_FORMAT	73051	73144	1237	1	1832	generated	
+422	Const	WINBIO_E_UNSUPPORTED_DATA_TYPE	73145	73236	1238	1	1833	generated	
+423	Const	WINBIO_E_UNSUPPORTED_FACTOR	73237	73325	1239	1	1834	generated	
+424	Const	WINBIO_E_UNSUPPORTED_POOL_TYPE	73326	73417	1240	1	1835	generated	
+425	Const	WINBIO_E_UNSUPPORTED_PROPERTY	73418	73508	1241	1	1836	generated	
+426	Const	WINBIO_E_UNSUPPORTED_PURPOSE	73509	73598	1242	1	1837	generated	
+427	Const	WINBIO_E_UNSUPPORTED_SENSOR_CALIBRATION_FORMAT	73599	73706	1243	1	1838	generated	
+428	Struct	WINBIO_FP_BU_STATE	73707	73884	1244	1	1839	unsupported	declaration Struct has no candidate rule
+429	Struct	WINBIO_FRAMEWORK_INTERFACE	73885	77023	1250	1	1847	unsupported	declaration Struct has no candidate rule
+430	Struct	WINBIO_GESTURE_METADATA	77024	77207	1303	1	1902	unsupported	declaration Struct has no candidate rule
+431	Struct	WINBIO_GET_INDICATOR	77208	77393	1311	1	1912	unsupported	declaration Struct has no candidate rule
+432	Struct	WINBIO_IDENTITY	77394	77511	1318	1	1921	unsupported	declaration Struct has no candidate rule
+433	Impl		77512	77620	1324	1	1929	unsupported	declaration Impl has no candidate rule
+434	Union		77621	77844	1329	1	1936	unsupported	declaration Union has no candidate rule
+435	Impl		77845	77955	1338	1	1947	unsupported	declaration Impl has no candidate rule
+436	Struct	WINBIO_IDENTITY_0_0	77956	78067	1343	1	1954	unsupported	declaration Struct has no candidate rule
+437	Impl		78068	78180	1349	1	1962	unsupported	declaration Impl has no candidate rule
+438	Const	WINBIO_I_EXTENDED_STATUS_INFORMATION	78181	78275	1354	1	1969	generated	
+439	Const	WINBIO_I_MORE_DATA	78276	78352	1355	1	1970	generated	
+440	Const	WINBIO_MAX_STRING_LEN	78353	78399	1356	1	1971	generated	
+441	Struct	WINBIO_NOTIFY_WAKE	78400	78574	1357	1	1972	unsupported	declaration Struct has no candidate rule
+442	Const	WINBIO_PASSWORD_GENERIC	78575	78642	1364	1	1981	generated	
+443	Const	WINBIO_PASSWORD_PACKED	78643	78709	1365	1	1982	generated	
+444	Const	WINBIO_PASSWORD_PROTECTED	78710	78779	1366	1	1983	generated	
+445	Struct	WINBIO_PIPELINE	78780	79435	1367	1	1984	unsupported	declaration Struct has no candidate rule
+446	Impl		79436	79580	1382	1	2001	unsupported	declaration Impl has no candidate rule
+447	Const	WINBIO_POLICY_ADMIN	79581	79640	1388	1	2009	generated	
+448	Const	WINBIO_POLICY_DEFAULT	79641	79702	1389	1	2010	generated	
+449	Const	WINBIO_POLICY_LOCAL	79703	79762	1390	1	2011	generated	
+450	ItemType	WINBIO_POLICY_SOURCE	79763	79799	1391	1	2012	generated	
+451	Const	WINBIO_POLICY_UNKNOWN	79800	79861	1392	1	2013	generated	
+452	ItemType	WINBIO_POOL	79862	79889	1393	1	2014	generated	
+453	Const	WINBIO_POOL_PRIVATE	79890	79940	1394	1	2015	generated	
+454	Const	WINBIO_POOL_SYSTEM	79941	79990	1395	1	2016	generated	
+455	Struct	WINBIO_PRESENCE	79991	80341	1396	1	2017	unsupported	declaration Struct has no candidate rule
+456	Impl		80342	80450	1409	1	2032	unsupported	declaration Impl has no candidate rule
+457	Struct	WINBIO_PRESENCE_0	80451	80560	1414	1	2039	unsupported	declaration Struct has no candidate rule
+458	Impl		80561	80671	1420	1	2047	unsupported	declaration Impl has no candidate rule
+459	Union		80672	80844	1425	1	2054	unsupported	declaration Union has no candidate rule
+460	Impl		80845	80964	1431	1	2062	unsupported	declaration Impl has no candidate rule
+461	Struct	WINBIO_PRESENCE_PROPERTIES_0	80965	81185	1436	1	2069	unsupported	declaration Struct has no candidate rule
+462	Struct	WINBIO_PRESENCE_PROPERTIES_0_0	81186	81334	1443	1	2078	unsupported	declaration Struct has no candidate rule
+463	Impl		81335	81458	1449	1	2086	unsupported	declaration Impl has no candidate rule
+464	Struct	WINBIO_PRESENCE_PROPERTIES_1	81459	81796	1454	1	2093	unsupported	declaration Struct has no candidate rule
+465	Struct	WINBIO_PRIVATE_SENSOR_TYPE_INFO	81797	82007	1463	1	2104	unsupported	declaration Struct has no candidate rule
+466	Struct	WINBIO_PROTECTION_POLICY	82008	82261	1470	1	2113	unsupported	declaration Struct has no candidate rule
+467	Impl		82262	82379	1480	1	2125	unsupported	declaration Impl has no candidate rule
+468	Struct	WINBIO_REGISTERED_FORMAT	82380	82501	1485	1	2132	unsupported	declaration Struct has no candidate rule
+469	Const	WINBIO_SCP_CURVE_FIELD_SIZE_V1	82502	82556	1491	1	2140	generated	
+470	Const	WINBIO_SCP_DIGEST_SIZE_V1	82557	82606	1492	1	2141	generated	
+471	Const	WINBIO_SCP_ENCRYPTION_BLOCK_SIZE_V1	82607	82666	1493	1	2142	generated	
+472	Const	WINBIO_SCP_ENCRYPTION_KEY_SIZE_V1	82667	82724	1494	1	2143	generated	
+473	Const	WINBIO_SCP_PRIVATE_KEY_SIZE_V1	82725	82779	1495	1	2144	generated	
+474	Const	WINBIO_SCP_PUBLIC_KEY_SIZE_V1	82780	82833	1496	1	2145	generated	
+475	Const	WINBIO_SCP_RANDOM_SIZE_V1	82834	82883	1497	1	2146	generated	
+476	Const	WINBIO_SCP_SIGNATURE_SIZE_V1	82884	82936	1498	1	2147	generated	
+477	Const	WINBIO_SCP_VERSION_1	82937	82980	1499	1	2148	generated	
+478	Struct	WINBIO_SECURE_BUFFER_HEADER_V1	82981	83155	1500	1	2149	unsupported	declaration Struct has no candidate rule
+479	Struct	WINBIO_SECURE_CONNECTION_DATA	83156	83407	1508	1	2159	unsupported	declaration Struct has no candidate rule
+480	Struct	WINBIO_SECURE_CONNECTION_PARAMS	83408	83565	1518	1	2171	unsupported	declaration Struct has no candidate rule
+481	Struct	WINBIO_SENSOR_ATTRIBUTES	83566	84072	1525	1	2180	unsupported	declaration Struct has no candidate rule
+482	Impl		84073	84190	1541	1	2198	unsupported	declaration Impl has no candidate rule
+483	Struct	WINBIO_SENSOR_INTERFACE	84191	86244	1546	1	2205	unsupported	declaration Struct has no candidate rule
+484	ItemType	WINBIO_SETTING_SOURCE	86245	86282	1586	1	2247	generated	
+485	Const	WINBIO_SETTING_SOURCE_DEFAULT	86283	86353	1587	1	2248	generated	
+486	Const	WINBIO_SETTING_SOURCE_INVALID	86354	86424	1588	1	2249	generated	
+487	Const	WINBIO_SETTING_SOURCE_LOCAL	86425	86493	1589	1	2250	generated	
+488	Const	WINBIO_SETTING_SOURCE_POLICY	86494	86563	1590	1	2251	generated	
+489	Struct	WINBIO_SET_INDICATOR	86564	86698	1591	1	2252	unsupported	declaration Struct has no candidate rule
+490	Struct	WINBIO_STORAGE_INTERFACE	86699	88636	1597	1	2260	unsupported	declaration Struct has no candidate rule
+491	Struct	WINBIO_STORAGE_RECORD	88637	88961	1636	1	2301	unsupported	declaration Struct has no candidate rule
+492	Impl		88962	89076	1648	1	2315	unsupported	declaration Impl has no candidate rule
+493	Struct	WINBIO_STORAGE_SCHEMA	89077	89360	1653	1	2322	unsupported	declaration Struct has no candidate rule
+494	Impl		89361	89475	1663	1	2334	unsupported	declaration Impl has no candidate rule
+495	Struct	WINBIO_SUPPORTED_ALGORITHMS	89476	89707	1668	1	2341	unsupported	declaration Struct has no candidate rule
+496	Struct	WINBIO_UNIT_SCHEMA	89708	90111	1676	1	2351	unsupported	declaration Struct has no candidate rule
+497	Impl		90112	90223	1691	1	2368	unsupported	declaration Impl has no candidate rule
+498	Struct	WINBIO_UPDATE_FIRMWARE	90224	90365	1696	1	2375	unsupported	declaration Struct has no candidate rule
+499	Struct	WINBIO_VERSION	90366	90492	1702	1	2383	unsupported	declaration Struct has no candidate rule
+500	Const	WINBIO_WBDI_MAJOR_VERSION	90493	90541	1708	1	2391	generated	
+501	Const	WINBIO_WBDI_MINOR_VERSION	90542	90590	1709	1	2392	generated	
+502	ItemType	WINIBIO_ENGINE_CONTEXT	90591	90631	1710	1	2393	generated	
+503	ItemType	WINIBIO_SENSOR_CONTEXT	90632	90672	1711	1	2394	generated	
+504	ItemType	WINIBIO_STORAGE_CONTEXT	90673	90714	1712	1	2395	generated	

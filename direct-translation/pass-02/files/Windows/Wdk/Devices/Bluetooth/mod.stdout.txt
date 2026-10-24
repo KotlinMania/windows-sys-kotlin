@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Wdk/Devices/Bluetooth/mod: 0 generated; 18 unsupported

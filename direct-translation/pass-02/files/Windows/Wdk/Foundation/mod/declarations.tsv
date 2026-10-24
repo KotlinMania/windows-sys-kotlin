@@ -1,0 +1,376 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	150	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		151	458	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Struct	ACCESS_STATE	459	1307	3	1	8	unsupported	declaration Struct has no candidate rule
+3	Impl		1308	1492	24	1	31	unsupported	declaration Impl has no candidate rule
+4	Union		1493	1785	30	1	39	unsupported	declaration Union has no candidate rule
+5	Impl		1786	1972	37	1	48	unsupported	declaration Impl has no candidate rule
+6	Struct	DEVICE_OBJECT	1973	3068	43	1	56	unsupported	declaration Struct has no candidate rule
+7	Impl		3069	3384	73	1	88	unsupported	declaration Impl has no candidate rule
+8	Union		3385	3789	79	1	96	unsupported	declaration Union has no candidate rule
+9	Impl		3790	4107	86	1	105	unsupported	declaration Impl has no candidate rule
+10	Struct	DEVOBJ_EXTENSION	4108	4929	92	1	113	unsupported	declaration Struct has no candidate rule
+11	Impl		4930	5248	113	1	136	unsupported	declaration Impl has no candidate rule
+12	Struct	DISPATCHER_HEADER	5249	5492	119	1	144	unsupported	declaration Struct has no candidate rule
+13	Impl		5493	5643	127	1	154	unsupported	declaration Impl has no candidate rule
+14	Union		5644	6052	133	1	162	unsupported	declaration Union has no candidate rule
+15	Impl		6053	6205	145	1	176	unsupported	declaration Impl has no candidate rule
+16	Union		6206	6355	151	1	184	unsupported	declaration Union has no candidate rule
+17	Impl		6356	6510	158	1	193	unsupported	declaration Impl has no candidate rule
+18	Struct	DISPATCHER_HEADER_0_1	6511	6713	164	1	201	unsupported	declaration Struct has no candidate rule
+19	Struct	DISPATCHER_HEADER_0_2	6714	6955	173	1	212	unsupported	declaration Struct has no candidate rule
+20	Impl		6956	7110	182	1	223	unsupported	declaration Impl has no candidate rule
+21	Union		7111	7299	188	1	231	unsupported	declaration Union has no candidate rule
+22	Impl		7300	7456	195	1	240	unsupported	declaration Impl has no candidate rule
+23	Struct	DISPATCHER_HEADER_0_2_0_0	7457	7603	201	1	248	unsupported	declaration Struct has no candidate rule
+24	Union		7604	7789	207	1	256	unsupported	declaration Union has no candidate rule
+25	Impl		7790	7946	214	1	265	unsupported	declaration Impl has no candidate rule
+26	Struct	DISPATCHER_HEADER_0_2_1_0	7947	8093	220	1	273	unsupported	declaration Struct has no candidate rule
+27	Struct	DISPATCHER_HEADER_0_3	8094	8333	226	1	281	unsupported	declaration Struct has no candidate rule
+28	Impl		8334	8488	235	1	292	unsupported	declaration Impl has no candidate rule
+29	Union		8489	8671	241	1	300	unsupported	declaration Union has no candidate rule
+30	Impl		8672	8828	248	1	309	unsupported	declaration Impl has no candidate rule
+31	Struct	DISPATCHER_HEADER_0_3_0_0	8829	8975	254	1	317	unsupported	declaration Struct has no candidate rule
+32	Struct	DISPATCHER_HEADER_0_4	8976	9203	260	1	325	unsupported	declaration Struct has no candidate rule
+33	Impl		9204	9358	269	1	336	unsupported	declaration Impl has no candidate rule
+34	Union		9359	9547	275	1	344	unsupported	declaration Union has no candidate rule
+35	Impl		9548	9704	282	1	353	unsupported	declaration Impl has no candidate rule
+36	Struct	DISPATCHER_HEADER_0_4_0_0	9705	9851	288	1	361	unsupported	declaration Struct has no candidate rule
+37	Struct	DISPATCHER_HEADER_0_5	9852	10104	294	1	369	unsupported	declaration Struct has no candidate rule
+38	Impl		10105	10259	303	1	380	unsupported	declaration Impl has no candidate rule
+39	Union		10260	10449	309	1	388	unsupported	declaration Union has no candidate rule
+40	Impl		10450	10606	316	1	397	unsupported	declaration Impl has no candidate rule
+41	Struct	DISPATCHER_HEADER_0_5_0_0	10607	10753	322	1	405	unsupported	declaration Struct has no candidate rule
+42	Union		10754	10890	328	1	413	unsupported	declaration Union has no candidate rule
+43	Impl		10891	11047	334	1	421	unsupported	declaration Impl has no candidate rule
+44	Struct	DISPATCHER_HEADER_0_6	11048	11268	340	1	429	unsupported	declaration Struct has no candidate rule
+45	ItemType	DMA_COMMON_BUFFER_VECTOR	11269	11311	349	1	440	generated	
+46	ItemType	DRIVER_ADD_DEVICE	11312	11709	350	1	441	unsupported	attribute cfg requires explicit semantics/configuration
+47	ItemType	DRIVER_CANCEL	11710	12027	352	1	445	unsupported	attribute cfg requires explicit semantics/configuration
+48	ItemType	DRIVER_CONTROL	12028	12481	354	1	449	unsupported	attribute cfg requires explicit semantics/configuration
+49	ItemType	DRIVER_DISPATCH	12482	12848	356	1	453	unsupported	attribute cfg requires explicit semantics/configuration
+50	ItemType	DRIVER_DISPATCH_PAGED	12849	13221	358	1	457	unsupported	attribute cfg requires explicit semantics/configuration
+51	Struct	DRIVER_EXTENSION	13222	13669	360	1	461	unsupported	declaration Struct has no candidate rule
+52	Impl		13670	13988	369	1	472	unsupported	declaration Impl has no candidate rule
+53	ItemType	DRIVER_FS_NOTIFICATION	13989	14318	375	1	480	unsupported	attribute cfg requires explicit semantics/configuration
+54	ItemType	DRIVER_INITIALIZE	14319	14742	377	1	484	unsupported	attribute cfg requires explicit semantics/configuration
+55	ItemType	DRIVER_NOTIFICATION_CALLBACK_ROUTINE	14743	14952	379	1	488	unsupported	generic scalar type unsupported
+56	Struct	DRIVER_OBJECT	14953	15846	380	1	491	unsupported	declaration Struct has no candidate rule
+57	Impl		15847	16162	400	1	513	unsupported	declaration Impl has no candidate rule
+58	ItemType	DRIVER_REINITIALIZE	16163	16520	406	1	521	unsupported	attribute cfg requires explicit semantics/configuration
+59	ItemType	DRIVER_STARTIO	16521	16839	408	1	525	unsupported	attribute cfg requires explicit semantics/configuration
+60	ItemType	DRIVER_UNLOAD	16840	17144	410	1	529	unsupported	attribute cfg requires explicit semantics/configuration
+61	Const	DontUseThisType	17145	17189	412	1	533	generated	
+62	Const	DontUseThisTypeSession	17190	17242	413	1	534	generated	
+63	ItemType	ECP_HEADER	17243	17271	414	1	535	generated	
+64	ItemType	ECP_LIST	17272	17298	415	1	536	generated	
+65	Struct	ERESOURCE	17299	17893	416	1	537	unsupported	declaration Struct has no candidate rule
+66	Impl		17894	18036	434	1	557	unsupported	declaration Impl has no candidate rule
+67	Union		18037	18189	440	1	565	unsupported	declaration Union has no candidate rule
+68	Impl		18190	18334	447	1	574	unsupported	declaration Impl has no candidate rule
+69	Struct	ERESOURCE_0_0	18335	18504	453	1	582	unsupported	declaration Struct has no candidate rule
+70	Union		18505	18683	460	1	591	unsupported	declaration Union has no candidate rule
+71	Impl		18684	18828	467	1	600	unsupported	declaration Impl has no candidate rule
+72	ItemType	FAST_IO_ACQUIRE_FILE	18829	19136	473	1	608	unsupported	attribute cfg requires explicit semantics/configuration
+73	ItemType	FAST_IO_ACQUIRE_FOR_CCFLUSH	19137	19532	475	1	612	unsupported	attribute cfg requires explicit semantics/configuration
+74	ItemType	FAST_IO_ACQUIRE_FOR_MOD_WRITE	19533	19996	477	1	616	unsupported	attribute cfg requires explicit semantics/configuration
+75	ItemType	FAST_IO_CHECK_IF_POSSIBLE	19997	20510	479	1	620	unsupported	attribute cfg requires explicit semantics/configuration
+76	ItemType	FAST_IO_DETACH_DEVICE	20511	20859	481	1	624	unsupported	attribute cfg requires explicit semantics/configuration
+77	ItemType	FAST_IO_DEVICE_CONTROL	20860	21436	483	1	628	unsupported	attribute cfg requires explicit semantics/configuration
+78	Struct	FAST_IO_DISPATCH	21437	23211	485	1	632	unsupported	declaration Struct has no candidate rule
+79	ItemType	FAST_IO_LOCK	23212	23740	518	1	667	unsupported	attribute cfg requires explicit semantics/configuration
+80	ItemType	FAST_IO_MDL_READ	23741	24229	520	1	671	unsupported	attribute cfg requires explicit semantics/configuration
+81	ItemType	FAST_IO_MDL_READ_COMPLETE	24230	24608	522	1	675	unsupported	attribute cfg requires explicit semantics/configuration
+82	ItemType	FAST_IO_MDL_READ_COMPLETE_COMPRESSED	24609	24998	524	1	679	unsupported	attribute cfg requires explicit semantics/configuration
+83	ItemType	FAST_IO_MDL_WRITE_COMPLETE	24999	25402	526	1	683	unsupported	attribute cfg requires explicit semantics/configuration
+84	ItemType	FAST_IO_MDL_WRITE_COMPLETE_COMPRESSED	25403	25817	528	1	687	unsupported	attribute cfg requires explicit semantics/configuration
+85	ItemType	FAST_IO_PREPARE_MDL_WRITE	25818	26315	530	1	691	unsupported	attribute cfg requires explicit semantics/configuration
+86	ItemType	FAST_IO_QUERY_BASIC_INFO	26316	26813	532	1	695	unsupported	attribute cfg requires explicit semantics/configuration
+87	ItemType	FAST_IO_QUERY_NETWORK_OPEN_INFO	26814	27325	534	1	699	unsupported	attribute cfg requires explicit semantics/configuration
+88	ItemType	FAST_IO_QUERY_OPEN	27326	27742	536	1	703	unsupported	attribute cfg requires explicit semantics/configuration
+89	ItemType	FAST_IO_QUERY_STANDARD_INFO	27743	28246	538	1	707	unsupported	attribute cfg requires explicit semantics/configuration
+90	ItemType	FAST_IO_READ	28247	28750	540	1	711	unsupported	attribute cfg requires explicit semantics/configuration
+91	ItemType	FAST_IO_READ_COMPRESSED	28751	29384	542	1	715	unsupported	attribute cfg requires explicit semantics/configuration
+92	ItemType	FAST_IO_RELEASE_FILE	29385	29692	544	1	719	unsupported	attribute cfg requires explicit semantics/configuration
+93	ItemType	FAST_IO_RELEASE_FOR_CCFLUSH	29693	30088	546	1	723	unsupported	attribute cfg requires explicit semantics/configuration
+94	ItemType	FAST_IO_RELEASE_FOR_MOD_WRITE	30089	30523	548	1	727	unsupported	attribute cfg requires explicit semantics/configuration
+95	ItemType	FAST_IO_UNLOCK_ALL	30524	30960	550	1	731	unsupported	attribute cfg requires explicit semantics/configuration
+96	ItemType	FAST_IO_UNLOCK_ALL_BY_KEY	30961	31429	552	1	735	unsupported	attribute cfg requires explicit semantics/configuration
+97	ItemType	FAST_IO_UNLOCK_SINGLE	31430	31923	554	1	739	unsupported	attribute cfg requires explicit semantics/configuration
+98	ItemType	FAST_IO_WRITE	31924	32430	556	1	743	unsupported	attribute cfg requires explicit semantics/configuration
+99	ItemType	FAST_IO_WRITE_COMPRESSED	32431	33069	558	1	747	unsupported	attribute cfg requires explicit semantics/configuration
+100	Struct	FAST_MUTEX	33070	33298	560	1	751	unsupported	declaration Struct has no candidate rule
+101	Impl		33299	33442	570	1	763	unsupported	declaration Impl has no candidate rule
+102	Struct	FILE_OBJECT	33443	34789	576	1	771	unsupported	declaration Struct has no candidate rule
+103	Impl		34790	35103	611	1	808	unsupported	declaration Impl has no candidate rule
+104	ItemType	IOMMU_DMA_DEVICE	35104	35138	617	1	816	generated	
+105	ItemType	IOMMU_DMA_DOMAIN	35139	35173	618	1	817	generated	
+106	Struct	IO_COMPLETION_CONTEXT	35174	35346	619	1	818	unsupported	declaration Struct has no candidate rule
+107	Impl		35347	35461	626	1	827	unsupported	declaration Impl has no candidate rule
+108	ItemType	IO_PRIORITY_HINT	35462	35494	631	1	834	generated	
+109	Struct	IO_SECURITY_CONTEXT	35495	35828	632	1	835	unsupported	declaration Struct has no candidate rule
+110	Impl		35829	36020	641	1	846	unsupported	declaration Impl has no candidate rule
+111	Struct	IO_STACK_LOCATION	36021	36603	647	1	854	unsupported	declaration Struct has no candidate rule
+112	Impl		36604	36923	661	1	870	unsupported	declaration Impl has no candidate rule
+113	Union		36924	38946	667	1	878	unsupported	declaration Union has no candidate rule
+114	Impl		38947	39268	711	1	924	unsupported	declaration Impl has no candidate rule
+115	Struct	IO_STACK_LOCATION_0_2	39269	39754	717	1	932	unsupported	declaration Struct has no candidate rule
+116	Impl		39755	40078	727	1	944	unsupported	declaration Impl has no candidate rule
+117	Struct	IO_STACK_LOCATION_0_1	40079	40566	733	1	952	unsupported	declaration Struct has no candidate rule
+118	Impl		40567	40890	743	1	964	unsupported	declaration Impl has no candidate rule
+119	Struct	IO_STACK_LOCATION_0_0	40891	41321	749	1	972	unsupported	declaration Struct has no candidate rule
+120	Impl		41322	41645	759	1	984	unsupported	declaration Impl has no candidate rule
+121	Struct	IO_STACK_LOCATION_0_26	41646	42005	765	1	992	unsupported	declaration Struct has no candidate rule
+122	Impl		42006	42330	771	1	1000	unsupported	declaration Impl has no candidate rule
+123	Struct	IO_STACK_LOCATION_0_16	42331	42754	777	1	1008	unsupported	declaration Struct has no candidate rule
+124	Impl		42755	43079	786	1	1019	unsupported	declaration Impl has no candidate rule
+125	Struct	IO_STACK_LOCATION_0_14	43080	43503	792	1	1027	unsupported	declaration Struct has no candidate rule
+126	Impl		43504	43828	801	1	1038	unsupported	declaration Impl has no candidate rule
+127	Struct	IO_STACK_LOCATION_0_27	43829	44211	807	1	1046	unsupported	declaration Struct has no candidate rule
+128	Impl		44212	44536	813	1	1054	unsupported	declaration Impl has no candidate rule
+129	Struct	IO_STACK_LOCATION_0_15	44537	44897	819	1	1062	unsupported	declaration Struct has no candidate rule
+130	Impl		44898	45222	827	1	1072	unsupported	declaration Impl has no candidate rule
+131	Struct	IO_STACK_LOCATION_0_19	45223	45568	833	1	1080	unsupported	declaration Struct has no candidate rule
+132	Impl		45569	45893	840	1	1089	unsupported	declaration Impl has no candidate rule
+133	Struct	IO_STACK_LOCATION_0_7	45894	46342	846	1	1097	unsupported	declaration Struct has no candidate rule
+134	Struct	IO_STACK_LOCATION_0_6	46343	46683	854	1	1107	unsupported	declaration Struct has no candidate rule
+135	Struct	IO_STACK_LOCATION_0_38	46684	47136	861	1	1116	unsupported	declaration Struct has no candidate rule
+136	Impl		47137	47461	870	1	1127	unsupported	declaration Impl has no candidate rule
+137	Struct	IO_STACK_LOCATION_0_34	47462	47817	876	1	1135	unsupported	declaration Struct has no candidate rule
+138	Impl		47818	48142	882	1	1143	unsupported	declaration Impl has no candidate rule
+139	Struct	IO_STACK_LOCATION_0_35	48143	48662	888	1	1151	unsupported	declaration Struct has no candidate rule
+140	Impl		48663	48987	897	1	1162	unsupported	declaration Impl has no candidate rule
+141	Union		48988	49389	903	1	1170	unsupported	declaration Union has no candidate rule
+142	Impl		49390	49716	910	1	1179	unsupported	declaration Impl has no candidate rule
+143	Struct	IO_STACK_LOCATION_0_24	49717	50073	916	1	1187	unsupported	declaration Struct has no candidate rule
+144	Struct	IO_STACK_LOCATION_0_31	50074	50459	922	1	1195	unsupported	declaration Struct has no candidate rule
+145	Struct	IO_STACK_LOCATION_0_5	50460	50938	929	1	1204	unsupported	declaration Struct has no candidate rule
+146	Impl		50939	51262	938	1	1215	unsupported	declaration Impl has no candidate rule
+147	Struct	IO_STACK_LOCATION_0_10	51263	51653	944	1	1223	unsupported	declaration Struct has no candidate rule
+148	Impl		51654	51978	953	1	1234	unsupported	declaration Impl has no candidate rule
+149	Struct	IO_STACK_LOCATION_0_8	51979	52370	959	1	1242	unsupported	declaration Struct has no candidate rule
+150	Struct	IO_STACK_LOCATION_0_30	52371	52726	966	1	1251	unsupported	declaration Struct has no candidate rule
+151	Struct	IO_STACK_LOCATION_0_25	52727	53224	972	1	1259	unsupported	declaration Struct has no candidate rule
+152	Impl		53225	53549	982	1	1271	unsupported	declaration Impl has no candidate rule
+153	Struct	IO_STACK_LOCATION_0_22	53550	54012	988	1	1279	unsupported	declaration Struct has no candidate rule
+154	Impl		54013	54337	997	1	1290	unsupported	declaration Impl has no candidate rule
+155	Struct	IO_STACK_LOCATION_0_17	54338	54682	1003	1	1298	unsupported	declaration Struct has no candidate rule
+156	Struct	IO_STACK_LOCATION_0_12	54683	55071	1010	1	1307	unsupported	declaration Struct has no candidate rule
+157	Struct	IO_STACK_LOCATION_0_28	55072	55459	1017	1	1316	unsupported	declaration Struct has no candidate rule
+158	Impl		55460	55784	1026	1	1327	unsupported	declaration Impl has no candidate rule
+159	Struct	IO_STACK_LOCATION_0_3	55785	56148	1032	1	1335	unsupported	declaration Struct has no candidate rule
+160	Struct	IO_STACK_LOCATION_0_21	56149	56468	1040	1	1345	unsupported	declaration Struct has no candidate rule
+161	Impl		56469	56793	1046	1	1353	unsupported	declaration Impl has no candidate rule
+162	Struct	IO_STACK_LOCATION_0_11	56794	57104	1052	1	1361	unsupported	declaration Struct has no candidate rule
+163	Struct	IO_STACK_LOCATION_0_9	57105	57569	1058	1	1369	unsupported	declaration Struct has no candidate rule
+164	Impl		57570	57893	1067	1	1380	unsupported	declaration Impl has no candidate rule
+165	Union		57894	58310	1073	1	1388	unsupported	declaration Union has no candidate rule
+166	Impl		58311	58636	1081	1	1398	unsupported	declaration Impl has no candidate rule
+167	Struct	IO_STACK_LOCATION_0_9_0_0	58637	58987	1087	1	1406	unsupported	declaration Struct has no candidate rule
+168	Struct	IO_STACK_LOCATION_0_29	58988	59297	1094	1	1415	unsupported	declaration Struct has no candidate rule
+169	Struct	IO_STACK_LOCATION_0_23	59298	59608	1100	1	1423	unsupported	declaration Struct has no candidate rule
+170	Struct	IO_STACK_LOCATION_0_18	59609	60004	1106	1	1431	unsupported	declaration Struct has no candidate rule
+171	Impl		60005	60329	1113	1	1440	unsupported	declaration Impl has no candidate rule
+172	Struct	IO_STACK_LOCATION_0_13	60330	60718	1119	1	1448	unsupported	declaration Struct has no candidate rule
+173	Struct	IO_STACK_LOCATION_0_36	60719	61173	1126	1	1457	unsupported	declaration Struct has no candidate rule
+174	Impl		61174	61498	1133	1	1466	unsupported	declaration Impl has no candidate rule
+175	Struct	IO_STACK_LOCATION_0_32	61499	61907	1139	1	1474	unsupported	declaration Struct has no candidate rule
+176	Impl		61908	62232	1147	1	1484	unsupported	declaration Impl has no candidate rule
+177	Struct	IO_STACK_LOCATION_0_20	62233	62578	1153	1	1492	unsupported	declaration Struct has no candidate rule
+178	Impl		62579	62903	1160	1	1501	unsupported	declaration Impl has no candidate rule
+179	Struct	IO_STACK_LOCATION_0_37	62904	63318	1166	1	1509	unsupported	declaration Struct has no candidate rule
+180	Impl		63319	63643	1175	1	1520	unsupported	declaration Impl has no candidate rule
+181	Struct	IO_STACK_LOCATION_0_33	63644	64009	1181	1	1528	unsupported	declaration Struct has no candidate rule
+182	Struct	IO_STACK_LOCATION_0_4	64010	64373	1187	1	1536	unsupported	declaration Struct has no candidate rule
+183	Struct	IRP	64374	65294	1195	1	1546	unsupported	declaration Struct has no candidate rule
+184	Impl		65295	65600	1221	1	1574	unsupported	declaration Impl has no candidate rule
+185	Union		65601	65983	1227	1	1582	unsupported	declaration Union has no candidate rule
+186	Impl		65984	66291	1234	1	1591	unsupported	declaration Impl has no candidate rule
+187	Union		66292	66652	1240	1	1599	unsupported	declaration Union has no candidate rule
+188	Impl		66653	66960	1248	1	1609	unsupported	declaration Impl has no candidate rule
+189	Union		66961	67293	1254	1	1617	unsupported	declaration Union has no candidate rule
+190	Impl		67294	67601	1261	1	1626	unsupported	declaration Impl has no candidate rule
+191	Struct	IRP_2_0	67602	67929	1267	1	1634	unsupported	declaration Struct has no candidate rule
+192	Impl		67930	68239	1274	1	1643	unsupported	declaration Impl has no candidate rule
+193	Union		68240	68628	1280	1	1651	unsupported	declaration Union has no candidate rule
+194	Impl		68629	68940	1287	1	1660	unsupported	declaration Impl has no candidate rule
+195	Union		68941	69292	1293	1	1668	unsupported	declaration Union has no candidate rule
+196	Impl		69293	69604	1300	1	1677	unsupported	declaration Impl has no candidate rule
+197	Union		69605	69990	1306	1	1685	unsupported	declaration Union has no candidate rule
+198	Impl		69991	70298	1314	1	1695	unsupported	declaration Impl has no candidate rule
+199	Struct	IRP_3_0	70299	70748	1320	1	1703	unsupported	declaration Struct has no candidate rule
+200	Impl		70749	71058	1330	1	1715	unsupported	declaration Impl has no candidate rule
+201	Union		71059	71435	1336	1	1723	unsupported	declaration Union has no candidate rule
+202	Impl		71436	71747	1343	1	1732	unsupported	declaration Impl has no candidate rule
+203	Struct	IRP_3_0_0_0	71748	72069	1349	1	1740	unsupported	declaration Struct has no candidate rule
+204	Impl		72070	72383	1355	1	1748	unsupported	declaration Impl has no candidate rule
+205	Struct	IRP_3_0_1	72384	72751	1361	1	1756	unsupported	declaration Struct has no candidate rule
+206	Impl		72752	73063	1368	1	1765	unsupported	declaration Impl has no candidate rule
+207	Union		73064	73411	1374	1	1773	unsupported	declaration Union has no candidate rule
+208	Impl		73412	73725	1381	1	1782	unsupported	declaration Impl has no candidate rule
+209	Const	IoPriorityCritical	73726	73780	1387	1	1790	generated	
+210	Const	IoPriorityHigh	73781	73831	1388	1	1791	generated	
+211	Const	IoPriorityLow	73832	73881	1389	1	1792	generated	
+212	Const	IoPriorityNormal	73882	73934	1390	1	1793	generated	
+213	Const	IoPriorityVeryLow	73935	73988	1391	1	1794	generated	
+214	Struct	KDEVICE_QUEUE	73989	74252	1392	1	1795	unsupported	declaration Struct has no candidate rule
+215	Struct	KDPC	74253	74717	1402	1	1807	unsupported	declaration Struct has no candidate rule
+216	Impl		74718	74855	1415	1	1822	unsupported	declaration Impl has no candidate rule
+217	Union		74856	75011	1421	1	1830	unsupported	declaration Union has no candidate rule
+218	Impl		75012	75151	1428	1	1839	unsupported	declaration Impl has no candidate rule
+219	Struct	KDPC_0_0	75152	75321	1434	1	1847	unsupported	declaration Struct has no candidate rule
+220	ItemType	KENLISTMENT	75322	75351	1442	1	1857	generated	
+221	Struct	KEVENT	75352	75482	1443	1	1858	unsupported	declaration Struct has no candidate rule
+222	Impl		75483	75622	1449	1	1866	unsupported	declaration Impl has no candidate rule
+223	ItemType	KGDT	75623	75645	1455	1	1874	generated	
+224	ItemType	KIDT	75646	75668	1456	1	1875	generated	
+225	Struct	KMUTANT	75669	75961	1457	1	1876	unsupported	declaration Struct has no candidate rule
+226	Impl		75962	76102	1467	1	1888	unsupported	declaration Impl has no candidate rule
+227	Union		76103	76257	1473	1	1896	unsupported	declaration Union has no candidate rule
+228	Impl		76258	76400	1480	1	1905	unsupported	declaration Impl has no candidate rule
+229	Struct	KMUTANT_0_0	76401	76533	1486	1	1913	unsupported	declaration Struct has no candidate rule
+230	ItemType	KPCR	76534	76556	1492	1	1921	generated	
+231	ItemType	KPRCB	76557	76580	1493	1	1922	generated	
+232	Struct	KQUEUE	76581	76910	1494	1	1923	unsupported	declaration Struct has no candidate rule
+233	Impl		76911	77050	1504	1	1935	unsupported	declaration Impl has no candidate rule
+234	ItemType	KRESOURCEMANAGER	77051	77085	1510	1	1943	generated	
+235	ItemType	KSPIN_LOCK_QUEUE_NUMBER	77086	77125	1511	1	1944	generated	
+236	ItemType	KTM	77126	77147	1512	1	1945	generated	
+237	ItemType	KTRANSACTION	77148	77178	1513	1	1946	generated	
+238	ItemType	KTSS	77179	77201	1514	1	1947	generated	
+239	Struct	KWAIT_BLOCK	77202	77558	1515	1	1948	unsupported	declaration Struct has no candidate rule
+240	Impl		77559	77703	1527	1	1962	unsupported	declaration Impl has no candidate rule
+241	Union		77704	77897	1533	1	1970	unsupported	declaration Union has no candidate rule
+242	Impl		77898	78044	1541	1	1980	unsupported	declaration Impl has no candidate rule
+243	ItemType	LOADER_PARAMETER_BLOCK	78045	78085	1547	1	1988	generated	
+244	Const	LockQueueAfdWorkQueueLock	78086	78155	1548	1	1989	generated	
+245	Const	LockQueueBcbLock	78156	78216	1549	1	1990	generated	
+246	Const	LockQueueIoCancelLock	78217	78281	1550	1	1991	generated	
+247	Const	LockQueueIoCompletionLock	78282	78351	1551	1	1992	generated	
+248	Const	LockQueueIoDatabaseLock	78352	78419	1552	1	1993	generated	
+249	Const	LockQueueIoVpbLock	78420	78481	1553	1	1994	generated	
+250	Const	LockQueueMasterLock	78482	78544	1554	1	1995	generated	
+251	Const	LockQueueMaximumLock	78545	78609	1555	1	1996	generated	
+252	Const	LockQueueNonPagedPoolLock	78610	78678	1556	1	1997	generated	
+253	Const	LockQueueNtfsStructLock	78679	78746	1557	1	1998	generated	
+254	Const	LockQueueUnusedSpare0	78747	78811	1558	1	1999	generated	
+255	Const	LockQueueUnusedSpare1	78812	78876	1559	1	2000	generated	
+256	Const	LockQueueUnusedSpare15	78877	78943	1560	1	2001	generated	
+257	Const	LockQueueUnusedSpare16	78944	79010	1561	1	2002	generated	
+258	Const	LockQueueUnusedSpare2	79011	79075	1562	1	2003	generated	
+259	Const	LockQueueUnusedSpare3	79076	79140	1563	1	2004	generated	
+260	Const	LockQueueUnusedSpare8	79141	79205	1564	1	2005	generated	
+261	Const	LockQueueVacbLock	79206	79266	1565	1	2006	generated	
+262	Struct	MDL	79267	79552	1566	1	2007	unsupported	declaration Struct has no candidate rule
+263	Impl		79553	79649	1578	1	2021	unsupported	declaration Impl has no candidate rule
+264	Const	MaxIoPriorityTypes	79650	79704	1583	1	2028	generated	
+265	Const	MaxPoolType	79705	79745	1584	1	2029	generated	
+266	Const	NTSTRSAFE_MAX_CCH	79746	79795	1585	1	2030	generated	
+267	Const	NTSTRSAFE_MAX_LENGTH	79796	79848	1586	1	2031	generated	
+268	Const	NTSTRSAFE_UNICODE_STRING_MAX_CCH	79849	79908	1587	1	2032	generated	
+269	Const	NTSTRSAFE_USE_SECURE_CRT	79909	79956	1588	1	2033	generated	
+270	Const	NonPagedPool	79957	79998	1589	1	2034	generated	
+271	Const	NonPagedPoolBase	79999	80044	1590	1	2035	generated	
+272	Const	NonPagedPoolBaseCacheAligned	80045	80102	1591	1	2036	generated	
+273	Const	NonPagedPoolBaseCacheAlignedMustS	80103	80165	1592	1	2037	generated	
+274	Const	NonPagedPoolBaseMustSucceed	80166	80222	1593	1	2038	generated	
+275	Const	NonPagedPoolCacheAligned	80223	80276	1594	1	2039	generated	
+276	Const	NonPagedPoolCacheAlignedMustS	80277	80335	1595	1	2040	generated	
+277	Const	NonPagedPoolCacheAlignedMustSSession	80336	80402	1596	1	2041	generated	
+278	Const	NonPagedPoolCacheAlignedSession	80403	80464	1597	1	2042	generated	
+279	Const	NonPagedPoolExecute	80465	80513	1598	1	2043	generated	
+280	Const	NonPagedPoolMustSucceed	80514	80566	1599	1	2044	generated	
+281	Const	NonPagedPoolMustSucceedSession	80567	80627	1600	1	2045	generated	
+282	Const	NonPagedPoolNx	80628	80673	1601	1	2046	generated	
+283	Const	NonPagedPoolNxCacheAligned	80674	80731	1602	1	2047	generated	
+284	Const	NonPagedPoolSession	80732	80781	1603	1	2048	generated	
+285	Const	NonPagedPoolSessionNx	80782	80834	1604	1	2049	generated	
+286	Struct	OBJECT_ATTRIBUTES	80835	81362	1605	1	2050	unsupported	declaration Struct has no candidate rule
+287	Impl		81363	81508	1616	1	2063	unsupported	declaration Impl has no candidate rule
+288	Struct	OBJECT_ATTRIBUTES32	81509	81951	1622	1	2071	unsupported	declaration Struct has no candidate rule
+289	Impl		81952	82099	1633	1	2084	unsupported	declaration Impl has no candidate rule
+290	Struct	OBJECT_ATTRIBUTES64	82100	82542	1639	1	2092	unsupported	declaration Struct has no candidate rule
+291	Impl		82543	82690	1650	1	2105	unsupported	declaration Impl has no candidate rule
+292	ItemType	OBJECT_INFORMATION_CLASS	82691	82731	1656	1	2113	generated	
+293	Struct	OBJECT_NAME_INFORMATION	82732	82876	1657	1	2114	unsupported	declaration Struct has no candidate rule
+294	Struct	OWNER_ENTRY	82877	82999	1662	1	2121	unsupported	declaration Struct has no candidate rule
+295	Impl		83000	83104	1668	1	2129	unsupported	declaration Impl has no candidate rule
+296	Union		83105	83226	1673	1	2136	unsupported	declaration Union has no candidate rule
+297	Impl		83227	83333	1679	1	2144	unsupported	declaration Impl has no candidate rule
+298	Struct	OWNER_ENTRY_0_0	83334	83431	1684	1	2151	unsupported	declaration Struct has no candidate rule
+299	Const	ObjectBasicInformation	83432	83498	1689	1	2158	generated	
+300	Const	ObjectTypeInformation	83499	83564	1690	1	2159	generated	
+301	ItemType	PAFFINITY_TOKEN	83565	83598	1691	1	2160	generated	
+302	ItemType	PBUS_HANDLER	83599	83629	1692	1	2161	generated	
+303	ItemType	PCALLBACK_OBJECT	83630	83664	1693	1	2162	generated	
+304	ItemType	PDEVICE_HANDLER_OBJECT	83665	83705	1694	1	2163	generated	
+305	ItemType	PEJOB	83706	83729	1695	1	2164	generated	
+306	ItemType	PEPROCESS	83730	83757	1696	1	2165	generated	
+307	ItemType	PESILO	83758	83782	1697	1	2166	generated	
+308	ItemType	PETHREAD	83783	83809	1698	1	2167	generated	
+309	ItemType	PEX_RUNDOWN_REF_CACHE_AWARE	83810	83855	1699	1	2168	generated	
+310	ItemType	PEX_TIMER	83856	83883	1700	1	2169	generated	
+311	ItemType	PFREE_FUNCTION	83884	83946	1701	1	2170	unsupported	generic scalar type unsupported
+312	ItemType	PIO_COMPLETION_ROUTINE	83947	84062	1702	1	2173	unsupported	generic scalar type unsupported
+313	ItemType	PIO_REMOVE_LOCK_TRACKING_BLOCK	84063	84111	1703	1	2176	generated	
+314	ItemType	PIO_TIMER	84112	84139	1704	1	2177	generated	
+315	ItemType	PIO_WORKITEM	84140	84170	1705	1	2178	generated	
+316	ItemType	PKDEFERRED_ROUTINE	84171	84237	1706	1	2179	unsupported	generic scalar type unsupported
+317	ItemType	PKINTERRUPT	84238	84267	1707	1	2182	generated	
+318	ItemType	PKPROCESS	84268	84295	1708	1	2183	generated	
+319	ItemType	PKTHREAD	84296	84322	1709	1	2184	generated	
+320	ItemType	PNOTIFY_SYNC	84323	84353	1710	1	2185	generated	
+321	ItemType	POBJECT_TYPE	84354	84384	1711	1	2186	generated	
+322	ItemType	POHANDLE	84385	84428	1712	1	2187	unsupported	non-scalar type Ptr unsupported
+323	ItemType	POOL_TYPE	84429	84454	1713	1	2190	generated	
+324	ItemType	PPCW_BUFFER	84455	84484	1714	1	2191	generated	
+325	ItemType	PPCW_INSTANCE	84485	84516	1715	1	2192	generated	
+326	ItemType	PPCW_REGISTRATION	84517	84552	1716	1	2193	generated	
+327	ItemType	PRKPROCESS	84553	84581	1717	1	2194	generated	
+328	ItemType	PRKTHREAD	84582	84609	1718	1	2195	generated	
+329	ItemType	PSILO_MONITOR	84610	84641	1719	1	2196	generated	
+330	ItemType	PWORKER_THREAD_ROUTINE	84642	84712	1720	1	2197	unsupported	generic scalar type unsupported
+331	Const	PagedPool	84713	84751	1721	1	2200	generated	
+332	Const	PagedPoolCacheAligned	84752	84802	1722	1	2201	generated	
+333	Const	PagedPoolCacheAlignedSession	84803	84861	1723	1	2202	generated	
+334	Const	PagedPoolSession	84862	84908	1724	1	2203	generated	
+335	Struct	RTL_SPLAY_LINKS	84909	85094	1725	1	2204	unsupported	declaration Struct has no candidate rule
+336	Impl		85095	85203	1732	1	2213	unsupported	declaration Impl has no candidate rule
+337	Struct	SECTION_OBJECT_POINTERS	85204	85427	1737	1	2220	unsupported	declaration Struct has no candidate rule
+338	Impl		85428	85544	1744	1	2229	unsupported	declaration Impl has no candidate rule
+339	Struct	SECURITY_SUBJECT_CONTEXT	85545	85881	1749	1	2236	unsupported	declaration Struct has no candidate rule
+340	Impl		85882	86034	1758	1	2247	unsupported	declaration Impl has no candidate rule
+341	Const	STRSAFE_FILL_BEHIND	86035	86079	1764	1	2255	generated	
+342	Const	STRSAFE_FILL_BEHIND_NULL	86080	86129	1765	1	2256	generated	
+343	Const	STRSAFE_FILL_ON_FAILURE	86130	86179	1766	1	2257	generated	
+344	Const	STRSAFE_IGNORE_NULLS	86180	86225	1767	1	2258	generated	
+345	Const	STRSAFE_NO_TRUNCATION	86226	86273	1768	1	2259	generated	
+346	Const	STRSAFE_NULL_ON_FAILURE	86274	86323	1769	1	2260	generated	
+347	Const	STRSAFE_ZERO_LENGTH_ON_FAILURE	86324	86380	1770	1	2261	generated	
+348	ItemType	SspiAsyncContext	86381	86415	1771	1	2262	generated	
+349	Struct	TARGET_DEVICE_CUSTOM_NOTIFICATION	86416	86892	1772	1	2263	unsupported	declaration Struct has no candidate rule
+350	Impl		86893	87228	1783	1	2276	unsupported	declaration Impl has no candidate rule
+351	Struct	VPB	87229	87750	1789	1	2284	unsupported	declaration Struct has no candidate rule
+352	Impl		87751	88056	1803	1	2300	unsupported	declaration Impl has no candidate rule
+353	Struct	WORK_QUEUE_ITEM	88057	88314	1809	1	2308	unsupported	declaration Struct has no candidate rule
+354	Impl		88315	88463	1817	1	2318	unsupported	declaration Impl has no candidate rule
+355	ItemType	_DEVICE_OBJECT_POWER_EXTENSION	88464	88512	1823	1	2326	generated	
+356	ItemType	_IORING_OBJECT	88513	88545	1824	1	2327	generated	
+357	ItemType	_SCSI_REQUEST_BLOCK	88546	88583	1825	1	2328	generated	
+358	Const	__WARNING_BANNED_API_USAGE	88584	88637	1826	1	2329	generated	
+359	Const	__WARNING_CYCLOMATIC_COMPLEXITY	88638	88696	1827	1	2330	generated	
+360	Const	__WARNING_DEREF_NULL_PTR	88697	88747	1828	1	2331	generated	
+361	Const	__WARNING_HIGH_PRIORITY_OVERFLOW_POSTCONDITION	88748	88821	1829	1	2332	generated	
+362	Const	__WARNING_INCORRECT_ANNOTATION	88822	88879	1830	1	2333	generated	
+363	Const	__WARNING_INVALID_PARAM_VALUE_1	88880	88937	1831	1	2334	generated	
+364	Const	__WARNING_INVALID_PARAM_VALUE_3	88938	88996	1832	1	2335	generated	
+365	Const	__WARNING_MISSING_ZERO_TERMINATION2	88997	89058	1833	1	2336	generated	
+366	Const	__WARNING_POSTCONDITION_NULLTERMINATION_VIOLATION	89059	89135	1834	1	2337	generated	
+367	Const	__WARNING_POST_EXPECTED	89136	89186	1835	1	2338	generated	
+368	Const	__WARNING_POTENTIAL_BUFFER_OVERFLOW_HIGH_PRIORITY	89187	89263	1836	1	2339	generated	
+369	Const	__WARNING_POTENTIAL_RANGE_POSTCONDITION_VIOLATION	89264	89340	1837	1	2340	generated	
+370	Const	__WARNING_PRECONDITION_NULLTERMINATION_VIOLATION	89341	89416	1838	1	2341	generated	
+371	Const	__WARNING_RANGE_POSTCONDITION_VIOLATION	89417	89483	1839	1	2342	generated	
+372	Const	__WARNING_RETURNING_BAD_RESULT	89484	89541	1840	1	2343	generated	
+373	Const	__WARNING_RETURN_UNINIT_VAR	89542	89595	1841	1	2344	generated	
+374	Const	__WARNING_USING_UNINIT_VAR	89596	89648	1842	1	2345	generated	

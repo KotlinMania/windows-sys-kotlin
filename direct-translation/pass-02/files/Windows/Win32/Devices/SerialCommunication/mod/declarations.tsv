@@ -1,0 +1,114 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	116	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		117	297	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		298	380	3	1	8	unsupported	declaration Macro has no candidate rule
+3	Macro		381	560	4	1	11	unsupported	declaration Macro has no candidate rule
+4	Macro		561	648	5	1	14	unsupported	declaration Macro has no candidate rule
+5	Macro		649	754	6	1	17	unsupported	declaration Macro has no candidate rule
+6	Macro		755	861	7	1	20	unsupported	declaration Macro has no candidate rule
+7	Const	CDB_REPORT_BITS	862	900	8	1	23	generated	
+8	Const	CDB_REPORT_BYTES	901	940	9	1	24	generated	
+9	Const	COMDB_MAX_PORTS_ARBITRATED	941	993	10	1	25	generated	
+10	Const	COMDB_MIN_PORTS_ARBITRATED	994	1045	11	1	26	generated	
+11	Const	DEVPKEY_DeviceInterface_Serial_PortName	1046	1267	12	1	27	unsupported	qualified type requires source-backed binding: super::super::Foundation::DEVPROPKEY
+12	Const	DEVPKEY_DeviceInterface_Serial_UsbProductId	1268	1493	13	1	30	unsupported	qualified type requires source-backed binding: super::super::Foundation::DEVPROPKEY
+13	Const	DEVPKEY_DeviceInterface_Serial_UsbVendorId	1494	1718	14	1	33	unsupported	qualified type requires source-backed binding: super::super::Foundation::DEVPROPKEY
+14	Const	EVEN_PARITY	1719	1753	15	1	36	generated	
+15	ItemType	HCOMDB	1754	1795	16	1	37	unsupported	non-scalar type Ptr unsupported
+16	Const	IOCTL_INTERNAL_SERENUM_REMOVE_SELF	1796	1859	17	1	40	generated	
+17	Const	IOCTL_SERIAL_APPLY_DEFAULT_CONFIGURATION	1860	1929	18	1	41	generated	
+18	Const	IOCTL_SERIAL_CLEAR_STATS	1930	1983	19	1	42	generated	
+19	Const	IOCTL_SERIAL_CLR_DTR	1984	2033	20	1	43	generated	
+20	Const	IOCTL_SERIAL_CLR_RTS	2034	2083	21	1	44	generated	
+21	Const	IOCTL_SERIAL_CONFIG_SIZE	2084	2137	22	1	45	generated	
+22	Const	IOCTL_SERIAL_GET_BAUD_RATE	2138	2193	23	1	46	generated	
+23	Const	IOCTL_SERIAL_GET_CHARS	2194	2245	24	1	47	generated	
+24	Const	IOCTL_SERIAL_GET_COMMCONFIG	2246	2302	25	1	48	generated	
+25	Const	IOCTL_SERIAL_GET_COMMSTATUS	2303	2359	26	1	49	generated	
+26	Const	IOCTL_SERIAL_GET_DTRRTS	2360	2412	27	1	50	generated	
+27	Const	IOCTL_SERIAL_GET_HANDFLOW	2413	2467	28	1	51	generated	
+28	Const	IOCTL_SERIAL_GET_LINE_CONTROL	2468	2526	29	1	52	generated	
+29	Const	IOCTL_SERIAL_GET_MODEMSTATUS	2527	2584	30	1	53	generated	
+30	Const	IOCTL_SERIAL_GET_MODEM_CONTROL	2585	2644	31	1	54	generated	
+31	Const	IOCTL_SERIAL_GET_PROPERTIES	2645	2701	32	1	55	generated	
+32	Const	IOCTL_SERIAL_GET_STATS	2702	2753	33	1	56	generated	
+33	Const	IOCTL_SERIAL_GET_TIMEOUTS	2754	2808	34	1	57	generated	
+34	Const	IOCTL_SERIAL_GET_WAIT_MASK	2809	2864	35	1	58	generated	
+35	Const	IOCTL_SERIAL_IMMEDIATE_CHAR	2865	2921	36	1	59	generated	
+36	Const	IOCTL_SERIAL_INTERNAL_BASIC_SETTINGS	2922	2987	37	1	60	generated	
+37	Const	IOCTL_SERIAL_INTERNAL_CANCEL_WAIT_WAKE	2988	3055	38	1	61	generated	
+38	Const	IOCTL_SERIAL_INTERNAL_DO_WAIT_WAKE	3056	3119	39	1	62	generated	
+39	Const	IOCTL_SERIAL_INTERNAL_RESTORE_SETTINGS	3120	3187	40	1	63	generated	
+40	Const	IOCTL_SERIAL_PURGE	3188	3235	41	1	64	generated	
+41	Const	IOCTL_SERIAL_RESET_DEVICE	3236	3290	42	1	65	generated	
+42	Const	IOCTL_SERIAL_SET_BAUD_RATE	3291	3346	43	1	66	generated	
+43	Const	IOCTL_SERIAL_SET_BREAK_OFF	3347	3402	44	1	67	generated	
+44	Const	IOCTL_SERIAL_SET_BREAK_ON	3403	3457	45	1	68	generated	
+45	Const	IOCTL_SERIAL_SET_CHARS	3458	3509	46	1	69	generated	
+46	Const	IOCTL_SERIAL_SET_COMMCONFIG	3510	3566	47	1	70	generated	
+47	Const	IOCTL_SERIAL_SET_DTR	3567	3616	48	1	71	generated	
+48	Const	IOCTL_SERIAL_SET_FIFO_CONTROL	3617	3675	49	1	72	generated	
+49	Const	IOCTL_SERIAL_SET_HANDFLOW	3676	3730	50	1	73	generated	
+50	Const	IOCTL_SERIAL_SET_INTERVAL_TIMER_RESOLUTION	3731	3802	51	1	74	generated	
+51	Const	IOCTL_SERIAL_SET_LINE_CONTROL	3803	3861	52	1	75	generated	
+52	Const	IOCTL_SERIAL_SET_MODEM_CONTROL	3862	3921	53	1	76	generated	
+53	Const	IOCTL_SERIAL_SET_QUEUE_SIZE	3922	3978	54	1	77	generated	
+54	Const	IOCTL_SERIAL_SET_RTS	3979	4028	55	1	78	generated	
+55	Const	IOCTL_SERIAL_SET_TIMEOUTS	4029	4083	56	1	79	generated	
+56	Const	IOCTL_SERIAL_SET_WAIT_MASK	4084	4139	57	1	80	generated	
+57	Const	IOCTL_SERIAL_SET_XOFF	4140	4190	58	1	81	generated	
+58	Const	IOCTL_SERIAL_SET_XON	4191	4240	59	1	82	generated	
+59	Const	IOCTL_SERIAL_WAIT_ON_MASK	4241	4295	60	1	83	generated	
+60	Const	IOCTL_SERIAL_XOFF_COUNTER	4296	4350	61	1	84	generated	
+61	Const	MARK_PARITY	4351	4385	62	1	85	generated	
+62	Const	NO_PARITY	4386	4418	63	1	86	generated	
+63	Const	ODD_PARITY	4419	4452	64	1	87	generated	
+64	ItemType	PSERENUM_READPORT	4453	4564	65	1	88	unsupported	generic scalar type unsupported
+65	ItemType	PSERENUM_WRITEPORT	4565	4682	66	1	91	unsupported	generic scalar type unsupported
+66	ItemType	SERENUM_PORTION	4683	4714	67	1	94	generated	
+67	Struct	SERENUM_PORT_DESC	4715	4898	68	1	95	unsupported	declaration Struct has no candidate rule
+68	Impl		4899	5009	76	1	105	unsupported	declaration Impl has no candidate rule
+69	Struct	SERENUM_PORT_PARAMETERS	5010	5368	81	1	112	unsupported	declaration Struct has no candidate rule
+70	Impl		5369	5485	93	1	126	unsupported	declaration Impl has no candidate rule
+71	Struct	SERIALCONFIG	5486	5694	98	1	133	unsupported	declaration Struct has no candidate rule
+72	Impl		5695	5800	108	1	145	unsupported	declaration Impl has no candidate rule
+73	Struct	SERIALPERF_STATS	5801	6071	113	1	152	unsupported	declaration Struct has no candidate rule
+74	Struct	SERIAL_BASIC_SETTINGS	6072	6263	123	1	164	unsupported	declaration Struct has no candidate rule
+75	Struct	SERIAL_BAUD_RATE	6264	6361	131	1	174	unsupported	declaration Struct has no candidate rule
+76	Struct	SERIAL_CHARS	6362	6565	136	1	181	unsupported	declaration Struct has no candidate rule
+77	Struct	SERIAL_COMMPROP	6566	7114	146	1	193	unsupported	declaration Struct has no candidate rule
+78	Impl		7115	7223	168	1	217	unsupported	declaration Impl has no candidate rule
+79	Const	SERIAL_EV_BREAK	7224	7263	173	1	224	generated	
+80	Const	SERIAL_EV_CTS	7264	7300	174	1	225	generated	
+81	Const	SERIAL_EV_DSR	7301	7338	175	1	226	generated	
+82	Const	SERIAL_EV_ERR	7339	7377	176	1	227	generated	
+83	Const	SERIAL_EV_EVENT1	7378	7420	177	1	228	generated	
+84	Const	SERIAL_EV_EVENT2	7421	7463	178	1	229	generated	
+85	Const	SERIAL_EV_PERR	7464	7503	179	1	230	generated	
+86	Const	SERIAL_EV_RING	7504	7543	180	1	231	generated	
+87	Const	SERIAL_EV_RLSD	7544	7582	181	1	232	generated	
+88	Const	SERIAL_EV_RX80FULL	7583	7627	182	1	233	generated	
+89	Const	SERIAL_EV_RXCHAR	7628	7667	183	1	234	generated	
+90	Const	SERIAL_EV_RXFLAG	7668	7707	184	1	235	generated	
+91	Const	SERIAL_EV_TXEMPTY	7708	7748	185	1	236	generated	
+92	Struct	SERIAL_HANDFLOW	7749	7926	186	1	237	unsupported	declaration Struct has no candidate rule
+93	Struct	SERIAL_LINE_CONTROL	7927	8070	194	1	247	unsupported	declaration Struct has no candidate rule
+94	Const	SERIAL_LSRMST_ESCAPE	8071	8114	201	1	256	generated	
+95	Const	SERIAL_LSRMST_LSR_DATA	8115	8160	202	1	257	generated	
+96	Const	SERIAL_LSRMST_LSR_NODATA	8161	8208	203	1	258	generated	
+97	Const	SERIAL_LSRMST_MST	8209	8249	204	1	259	generated	
+98	Const	SERIAL_PURGE_RXABORT	8250	8293	205	1	260	generated	
+99	Const	SERIAL_PURGE_RXCLEAR	8294	8337	206	1	261	generated	
+100	Const	SERIAL_PURGE_TXABORT	8338	8381	207	1	262	generated	
+101	Const	SERIAL_PURGE_TXCLEAR	8382	8425	208	1	263	generated	
+102	Struct	SERIAL_QUEUE_SIZE	8426	8544	209	1	264	unsupported	declaration Struct has no candidate rule
+103	Struct	SERIAL_STATUS	8545	8783	215	1	272	unsupported	declaration Struct has no candidate rule
+104	Struct	SERIAL_TIMEOUTS	8784	9053	225	1	284	unsupported	declaration Struct has no candidate rule
+105	Struct	SERIAL_XOFF_COUNTER	9054	9197	234	1	295	unsupported	declaration Struct has no candidate rule
+106	Const	SPACE_PARITY	9198	9233	241	1	304	generated	
+107	Const	STOP_BITS_1_5	9234	9270	242	1	305	generated	
+108	Const	STOP_BITS_2	9271	9305	243	1	306	generated	
+109	Const	STOP_BIT_1	9306	9339	244	1	307	generated	
+110	Const	SerenumFirstHalf	9340	9391	245	1	308	generated	
+111	Const	SerenumSecondHalf	9392	9444	246	1	309	generated	
+112	Const	SerenumWhole	9445	9492	247	1	310	generated	

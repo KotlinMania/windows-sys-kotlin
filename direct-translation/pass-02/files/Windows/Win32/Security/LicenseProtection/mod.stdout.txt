@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/Security/LicenseProtection/mod: 6 generated; 2 unsupported

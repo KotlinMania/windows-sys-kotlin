@@ -1,0 +1,263 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	217	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		218	548	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		549	769	3	1	8	unsupported	declaration Macro has no candidate rule
+3	Macro		770	1028	4	1	11	unsupported	declaration Macro has no candidate rule
+4	Macro		1029	1324	5	1	14	unsupported	declaration Macro has no candidate rule
+5	Macro		1325	1650	6	1	17	unsupported	declaration Macro has no candidate rule
+6	Macro		1651	1968	8	1	21	unsupported	declaration Macro has no candidate rule
+7	Macro		1969	2372	9	1	24	unsupported	declaration Macro has no candidate rule
+8	Macro		2373	2451	10	1	27	unsupported	declaration Macro has no candidate rule
+9	Macro		2452	2890	11	1	30	unsupported	declaration Macro has no candidate rule
+10	Macro		2891	2966	13	1	34	unsupported	declaration Macro has no candidate rule
+11	Macro		2967	3191	14	1	37	unsupported	declaration Macro has no candidate rule
+12	Macro		3192	3372	15	1	40	unsupported	declaration Macro has no candidate rule
+13	Macro		3373	3546	16	1	43	unsupported	declaration Macro has no candidate rule
+14	Macro		3547	3720	17	1	46	unsupported	declaration Macro has no candidate rule
+15	Macro		3721	3887	18	1	49	unsupported	declaration Macro has no candidate rule
+16	Macro		3888	4095	19	1	52	unsupported	declaration Macro has no candidate rule
+17	Macro		4096	4268	20	1	55	unsupported	declaration Macro has no candidate rule
+18	Macro		4269	4700	21	1	58	unsupported	declaration Macro has no candidate rule
+19	Macro		4701	4914	22	1	61	unsupported	declaration Macro has no candidate rule
+20	Macro		4915	5187	23	1	64	unsupported	declaration Macro has no candidate rule
+21	Macro		5188	5408	24	1	67	unsupported	declaration Macro has no candidate rule
+22	Macro		5409	5669	25	1	70	unsupported	declaration Macro has no candidate rule
+23	Macro		5670	5841	26	1	73	unsupported	declaration Macro has no candidate rule
+24	Macro		5842	6049	27	1	76	unsupported	declaration Macro has no candidate rule
+25	Macro		6050	6276	28	1	79	unsupported	declaration Macro has no candidate rule
+26	Macro		6277	6511	29	1	82	unsupported	declaration Macro has no candidate rule
+27	Const	APPDOMAIN_FORCE_TRIVIAL_WAIT_OPERATIONS	6512	6595	30	1	85	generated	
+28	Const	APPDOMAIN_SECURITY_DEFAULT	6596	6666	31	1	86	generated	
+29	ItemType	APPDOMAIN_SECURITY_FLAGS	6667	6707	32	1	87	generated	
+30	Const	APPDOMAIN_SECURITY_FORBID_CROSSAD_REVERSE_PINVOKE	6708	6801	33	1	88	generated	
+31	Const	APPDOMAIN_SECURITY_SANDBOXED	6802	6874	34	1	89	generated	
+32	Struct	AssemblyBindInfo	6875	7109	35	1	90	unsupported	declaration Struct has no candidate rule
+33	Impl		7110	7219	43	1	100	unsupported	declaration Impl has no candidate rule
+34	Const	BucketParamLength	7220	7262	48	1	107	generated	
+35	ItemType	BucketParameterIndex	7263	7299	49	1	108	generated	
+36	Struct	BucketParameters	7300	7477	50	1	109	unsupported	declaration Struct has no candidate rule
+37	Impl		7478	7587	57	1	118	unsupported	declaration Impl has no candidate rule
+38	Const	BucketParamsCount	7588	7629	62	1	125	generated	
+39	ItemType	CLRCreateInstanceFnPtr	7630	7847	63	1	126	unsupported	generic scalar type unsupported
+40	Const	CLRRuntimeHost	7848	7975	64	1	129	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+41	Const	CLR_ASSEMBLY_BUILD_VERSION	7976	8025	65	1	132	generated	
+42	Const	CLR_ASSEMBLY_IDENTITY_FLAGS_DEFAULT	8026	8106	66	1	133	generated	
+43	Const	CLR_ASSEMBLY_MAJOR_VERSION	8107	8156	67	1	134	generated	
+44	Const	CLR_ASSEMBLY_MINOR_VERSION	8157	8206	68	1	135	generated	
+45	Const	CLR_BUILD_VERSION	8207	8251	69	1	136	generated	
+46	Const	CLR_DEBUGGING_MANAGED_EVENT_DEBUGGER_LAUNCH	8252	8342	70	1	137	generated	
+47	Const	CLR_DEBUGGING_MANAGED_EVENT_PENDING	8343	8425	71	1	138	generated	
+48	ItemType	CLR_DEBUGGING_PROCESS_FLAGS	8426	8469	72	1	139	generated	
+49	Struct	CLR_DEBUGGING_VERSION	8470	8665	73	1	140	unsupported	declaration Struct has no candidate rule
+50	Const	CLR_MAJOR_VERSION	8666	8706	82	1	151	generated	
+51	Const	CLR_MINOR_VERSION	8707	8747	83	1	152	generated	
+52	Const	CLSID_CLRDebugging	8748	8879	84	1	153	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+53	Const	CLSID_CLRDebuggingLegacy	8880	9017	85	1	156	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+54	Const	CLSID_CLRMetaHost	9018	9148	86	1	159	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+55	Const	CLSID_CLRMetaHostPolicy	9149	9285	87	1	162	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+56	Const	CLSID_CLRProfiling	9286	9417	88	1	165	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+57	Const	CLSID_CLRStrongName	9418	9550	89	1	168	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+58	Const	CLSID_RESOLUTION_DEFAULT	9551	9617	90	1	171	generated	
+59	ItemType	CLSID_RESOLUTION_FLAGS	9618	9656	91	1	172	generated	
+60	Const	CLSID_RESOLUTION_REGISTERED	9657	9726	92	1	173	generated	
+61	Const	COR_GC_COUNTS	9727	9777	93	1	174	generated	
+62	Const	COR_GC_MEMORYUSAGE	9778	9833	94	1	175	generated	
+63	Struct	COR_GC_STATS	9834	10276	95	1	176	unsupported	declaration Struct has no candidate rule
+64	Impl		10277	10382	110	1	193	unsupported	declaration Impl has no candidate rule
+65	ItemType	COR_GC_STAT_TYPES	10383	10416	115	1	200	generated	
+66	Const	COR_GC_THREAD_HAS_PROMOTED_BYTES	10417	10494	116	1	201	generated	
+67	Struct	COR_GC_THREAD_STATS	10495	10626	117	1	202	unsupported	declaration Struct has no candidate rule
+68	ItemType	COR_GC_THREAD_STATS_TYPES	10627	10668	123	1	210	generated	
+69	ItemType	CallbackThreadSetFnPtr	10669	10769	124	1	211	unsupported	generic scalar type unsupported
+70	ItemType	CallbackThreadUnsetFnPtr	10770	10872	125	1	214	unsupported	generic scalar type unsupported
+71	Const	ComCallUnmarshal	10873	11002	126	1	217	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+72	Const	ComCallUnmarshalV4	11003	11134	127	1	220	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+73	Const	CorRuntimeHost	11135	11262	128	1	223	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+74	ItemType	CreateInterfaceFnPtr	11263	11478	129	1	226	unsupported	generic scalar type unsupported
+75	Struct	CustomDumpItem	11479	11618	130	1	229	unsupported	declaration Struct has no candidate rule
+76	Impl		11619	11726	136	1	237	unsupported	declaration Impl has no candidate rule
+77	Union		11727	11817	141	1	244	unsupported	declaration Union has no candidate rule
+78	Impl		11818	11927	146	1	251	unsupported	declaration Impl has no candidate rule
+79	Const	DEPRECATED_CLR_API_MESG	11928	12119	151	1	258	unsupported	non-scalar type Ptr unsupported
+80	Const	DUMP_FLAVOR_CriticalCLRState	12120	12185	152	1	261	generated	
+81	Const	DUMP_FLAVOR_Default	12186	12242	153	1	262	generated	
+82	Const	DUMP_FLAVOR_Mini	12243	12296	154	1	263	generated	
+83	Const	DUMP_FLAVOR_NonHeapCLRState	12297	12361	155	1	264	generated	
+84	Const	DUMP_ITEM_None	12362	12415	156	1	265	generated	
+85	ItemType	EApiCategories	12416	12446	157	1	266	generated	
+86	ItemType	EBindPolicyLevels	12447	12480	158	1	267	generated	
+87	ItemType	ECLRAssemblyIdentityFlags	12481	12522	159	1	268	generated	
+88	ItemType	EClrEvent	12523	12548	160	1	269	generated	
+89	ItemType	EClrFailure	12549	12576	161	1	270	generated	
+90	ItemType	EClrOperation	12577	12606	162	1	271	generated	
+91	ItemType	EClrUnhandledException	12607	12645	163	1	272	generated	
+92	ItemType	EContextType	12646	12674	164	1	273	generated	
+93	ItemType	ECustomDumpFlavor	12675	12708	165	1	274	generated	
+94	ItemType	ECustomDumpItemKind	12709	12744	166	1	275	generated	
+95	ItemType	EHostApplicationPolicy	12745	12783	167	1	276	generated	
+96	ItemType	EHostBindingPolicyModifyFlags	12784	12829	168	1	277	generated	
+97	ItemType	EInitializeNewDomainFlags	12830	12871	169	1	278	generated	
+98	ItemType	EMemoryAvailable	12872	12904	170	1	279	generated	
+99	ItemType	EMemoryCriticalLevel	12905	12941	171	1	280	generated	
+100	ItemType	EPolicyAction	12942	12971	172	1	281	generated	
+101	ItemType	ESymbolReadingPolicy	12972	13008	173	1	282	generated	
+102	ItemType	ETaskType	13009	13034	174	1	283	generated	
+103	Const	Event_ClrDisabled	13035	13081	175	1	284	generated	
+104	Const	Event_DomainUnload	13082	13129	176	1	285	generated	
+105	Const	Event_MDAFired	13130	13173	177	1	286	generated	
+106	Const	Event_StackOverflow	13174	13222	178	1	287	generated	
+107	Const	FAIL_AccessViolation	13223	13274	179	1	288	generated	
+108	Const	FAIL_CodeContract	13275	13323	180	1	289	generated	
+109	Const	FAIL_CriticalResource	13324	13376	181	1	290	generated	
+110	Const	FAIL_FatalRuntime	13377	13425	182	1	291	generated	
+111	Const	FAIL_NonCriticalResource	13426	13481	183	1	292	generated	
+112	Const	FAIL_OrphanedLock	13482	13530	184	1	293	generated	
+113	Const	FAIL_StackOverflow	13531	13580	185	1	294	generated	
+114	ItemType	FExecuteInAppDomainCallback	13581	13716	186	1	295	unsupported	generic scalar type unsupported
+115	ItemType	FLockClrVersionCallback	13717	13818	187	1	298	unsupported	generic scalar type unsupported
+116	Const	HOST_APPLICATION_BINDING_POLICY	13819	13892	188	1	301	generated	
+117	Const	HOST_BINDING_POLICY_MODIFY_CHAIN	13893	13974	189	1	302	generated	
+118	Const	HOST_BINDING_POLICY_MODIFY_DEFAULT	13975	14058	190	1	303	generated	
+119	Const	HOST_BINDING_POLICY_MODIFY_MAX	14059	14138	191	1	304	generated	
+120	Const	HOST_BINDING_POLICY_MODIFY_REMOVE	14139	14221	192	1	305	generated	
+121	ItemType	HOST_TYPE	14222	14247	193	1	306	generated	
+122	Const	HOST_TYPE_APPLAUNCH	14248	14296	194	1	307	generated	
+123	Const	HOST_TYPE_CORFLAG	14297	14343	195	1	308	generated	
+124	Const	HOST_TYPE_DEFAULT	14344	14390	196	1	309	generated	
+125	Const	InvalidBucketParamIndex	14391	14454	197	1	310	generated	
+126	Const	LIBID_mscoree	14455	14581	198	1	311	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+127	Const	MALLOC_EXECUTABLE	14582	14630	199	1	314	generated	
+128	Const	MALLOC_THREADSAFE	14631	14679	200	1	315	generated	
+129	ItemType	MALLOC_TYPE	14680	14707	201	1	316	generated	
+130	Struct	MDAInfo	14708	14911	202	1	317	unsupported	declaration Struct has no candidate rule
+131	Impl		14912	15012	209	1	326	unsupported	declaration Impl has no candidate rule
+132	ItemType	METAHOST_CONFIG_FLAGS	15013	15050	214	1	333	generated	
+133	Const	METAHOST_CONFIG_FLAGS_LEGACY_V2_ACTIVATION_POLICY_FALSE	15051	15147	215	1	334	generated	
+134	Const	METAHOST_CONFIG_FLAGS_LEGACY_V2_ACTIVATION_POLICY_MASK	15148	15243	216	1	335	generated	
+135	Const	METAHOST_CONFIG_FLAGS_LEGACY_V2_ACTIVATION_POLICY_TRUE	15244	15339	217	1	336	generated	
+136	Const	METAHOST_CONFIG_FLAGS_LEGACY_V2_ACTIVATION_POLICY_UNSET	15340	15436	218	1	337	generated	
+137	Const	METAHOST_POLICY_APPLY_UPGRADE_POLICY	15437	15514	219	1	338	generated	
+138	Const	METAHOST_POLICY_EMULATE_EXE_LAUNCH	15515	15591	220	1	339	generated	
+139	Const	METAHOST_POLICY_ENSURE_SKU_SUPPORTED	15592	15671	221	1	340	generated	
+140	ItemType	METAHOST_POLICY_FLAGS	15672	15709	222	1	341	generated	
+141	Const	METAHOST_POLICY_HIGHCOMPAT	15710	15777	223	1	342	generated	
+142	Const	METAHOST_POLICY_IGNORE_ERROR_MODE	15778	15855	224	1	343	generated	
+143	Const	METAHOST_POLICY_SHOW_ERROR_DIALOG	15856	15931	225	1	344	generated	
+144	Const	METAHOST_POLICY_USE_PROCESS_IMAGE_PATH	15932	16012	226	1	345	generated	
+145	Const	MaxClrEvent	16013	16053	227	1	346	generated	
+146	Const	MaxClrFailure	16054	16098	228	1	347	generated	
+147	Const	MaxClrOperation	16099	16147	229	1	348	generated	
+148	Const	MaxPolicyAction	16148	16197	230	1	349	generated	
+149	Struct	ModuleBindInfo	16198	16393	231	1	350	unsupported	declaration Struct has no candidate rule
+150	Impl		16394	16501	238	1	359	unsupported	declaration Impl has no candidate rule
+151	Const	OPR_AppDomainRudeUnload	16502	16558	243	1	366	generated	
+152	Const	OPR_AppDomainUnload	16559	16611	244	1	367	generated	
+153	Const	OPR_FinalizerRun	16612	16661	245	1	368	generated	
+154	Const	OPR_ProcessExit	16662	16710	246	1	369	generated	
+155	Const	OPR_ThreadAbort	16711	16759	247	1	370	generated	
+156	Const	OPR_ThreadRudeAbortInCriticalRegion	16760	16828	248	1	371	generated	
+157	Const	OPR_ThreadRudeAbortInNonCriticalRegion	16829	16900	249	1	372	generated	
+158	ItemType	PTLS_CALLBACK_FUNCTION	16901	17035	250	1	373	unsupported	generic scalar type unsupported
+159	Const	Parameter1	17036	17086	251	1	376	generated	
+160	Const	Parameter2	17087	17137	252	1	377	generated	
+161	Const	Parameter3	17138	17188	253	1	378	generated	
+162	Const	Parameter4	17189	17239	254	1	379	generated	
+163	Const	Parameter5	17240	17290	255	1	380	generated	
+164	Const	Parameter6	17291	17341	256	1	381	generated	
+165	Const	Parameter7	17342	17392	257	1	382	generated	
+166	Const	Parameter8	17393	17443	258	1	383	generated	
+167	Const	Parameter9	17444	17494	259	1	384	generated	
+168	Const	RUNTIME_INFO_DONT_RETURN_DIRECTORY	17495	17568	260	1	385	generated	
+169	Const	RUNTIME_INFO_DONT_RETURN_VERSION	17569	17640	261	1	386	generated	
+170	Const	RUNTIME_INFO_DONT_SHOW_ERROR_DIALOG	17641	17715	262	1	387	generated	
+171	ItemType	RUNTIME_INFO_FLAGS	17716	17750	263	1	388	generated	
+172	Const	RUNTIME_INFO_IGNORE_ERROR_MODE	17751	17822	264	1	389	generated	
+173	Const	RUNTIME_INFO_REQUEST_AMD64	17823	17887	265	1	390	generated	
+174	Const	RUNTIME_INFO_REQUEST_ARM64	17888	17955	266	1	391	generated	
+175	Const	RUNTIME_INFO_REQUEST_IA64	17956	18019	267	1	392	generated	
+176	Const	RUNTIME_INFO_REQUEST_X86	18020	18082	268	1	393	generated	
+177	Const	RUNTIME_INFO_UPGRADE_VERSION	18083	18149	269	1	394	generated	
+178	ItemType	RuntimeLoadedCallbackFnPtr	18150	18356	270	1	395	unsupported	generic scalar type unsupported
+179	Const	SO_ClrEngine	18357	18406	271	1	398	generated	
+180	Const	SO_Managed	18407	18454	272	1	399	generated	
+181	Const	SO_Other	18455	18500	273	1	400	generated	
+182	Const	STARTUP_ALWAYSFLOW_IMPERSONATION	18501	18571	274	1	401	generated	
+183	Const	STARTUP_ARM	18572	18622	275	1	402	generated	
+184	Const	STARTUP_CONCURRENT_GC	18623	18677	276	1	403	generated	
+185	Const	STARTUP_DISABLE_COMMITTHREADSTACK	18678	18749	277	1	404	generated	
+186	Const	STARTUP_ETW	18750	18800	278	1	405	generated	
+187	ItemType	STARTUP_FLAGS	18801	18830	279	1	406	generated	
+188	Const	STARTUP_HOARD_GC_VM	18831	18886	280	1	407	generated	
+189	Const	STARTUP_LEGACY_IMPERSONATION	18887	18952	281	1	408	generated	
+190	Const	STARTUP_LOADER_OPTIMIZATION_MASK	18953	19018	282	1	409	generated	
+191	Const	STARTUP_LOADER_OPTIMIZATION_MULTI_DOMAIN	19019	19092	283	1	410	generated	
+192	Const	STARTUP_LOADER_OPTIMIZATION_MULTI_DOMAIN_HOST	19093	19171	284	1	411	generated	
+193	Const	STARTUP_LOADER_OPTIMIZATION_SINGLE_DOMAIN	19172	19246	285	1	412	generated	
+194	Const	STARTUP_LOADER_SAFEMODE	19247	19304	286	1	413	generated	
+195	Const	STARTUP_LOADER_SETPREFERENCE	19305	19368	287	1	414	generated	
+196	Const	STARTUP_SERVER_GC	19369	19422	288	1	415	generated	
+197	Const	STARTUP_SINGLE_VERSION_HOSTING_INTERFACE	19423	19500	289	1	416	generated	
+198	Const	STARTUP_TRIM_GC_COMMIT	19501	19561	290	1	417	generated	
+199	Struct	StackOverflowInfo	19562	19828	291	1	418	unsupported	declaration Struct has no candidate rule
+200	Impl		19829	20028	298	1	427	unsupported	declaration Impl has no candidate rule
+201	ItemType	StackOverflowType	20029	20062	304	1	435	generated	
+202	Const	TT_ADUNLOAD	20063	20105	305	1	436	generated	
+203	Const	TT_DEBUGGERHELPER	20106	20152	306	1	437	generated	
+204	Const	TT_FINALIZER	20153	20194	307	1	438	generated	
+205	Const	TT_GC	20195	20229	308	1	439	generated	
+206	Const	TT_THREADPOOL_GATE	20230	20278	309	1	440	generated	
+207	Const	TT_THREADPOOL_IOCOMPLETION	20279	20335	310	1	441	generated	
+208	Const	TT_THREADPOOL_TIMER	20336	20384	311	1	442	generated	
+209	Const	TT_THREADPOOL_WAIT	20385	20434	312	1	443	generated	
+210	Const	TT_THREADPOOL_WORKER	20435	20485	313	1	444	generated	
+211	Const	TT_UNKNOWN	20486	20535	314	1	445	generated	
+212	Const	TT_USER	20536	20574	315	1	446	generated	
+213	Const	TypeNameFactory	20575	20703	316	1	447	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+214	Const	WAIT_ALERTABLE	20704	20749	317	1	450	generated	
+215	Const	WAIT_MSGPUMP	20750	20793	318	1	451	generated	
+216	Const	WAIT_NOTINDEADLOCK	20794	20843	319	1	452	generated	
+217	ItemType	WAIT_OPTION	20844	20871	320	1	453	generated	
+218	Const	eAbortThread	20872	20917	321	1	454	generated	
+219	Const	eAll	20918	20958	322	1	455	generated	
+220	Const	eAppDomainCritical	20959	21017	323	1	456	generated	
+221	Const	eCurrentContext	21018	21065	324	1	457	generated	
+222	Const	eDisableRuntime	21066	21114	325	1	458	generated	
+223	Const	eExitProcess	21115	21160	326	1	459	generated	
+224	Const	eExternalProcessMgmt	21161	21215	327	1	460	generated	
+225	Const	eExternalThreading	21216	21269	328	1	461	generated	
+226	Const	eFastExitProcess	21270	21319	329	1	462	generated	
+227	Const	eHostDeterminedPolicy	21320	21383	330	1	463	generated	
+228	Const	eInitializeNewDomainFlags_NoSecurityChanges	21384	21472	331	1	464	generated	
+229	Const	eInitializeNewDomainFlags_None	21473	21548	332	1	465	generated	
+230	Const	eMayLeakOnAbort	21549	21600	333	1	466	generated	
+231	Const	eMemoryAvailableHigh	21601	21657	334	1	467	generated	
+232	Const	eMemoryAvailableLow	21658	21713	335	1	468	generated	
+233	Const	eMemoryAvailableNeutral	21714	21773	336	1	469	generated	
+234	Const	eNoAction	21774	21816	337	1	470	generated	
+235	Const	eNoChecks	21817	21860	338	1	471	generated	
+236	Const	ePolicyLevelAdmin	21861	21916	339	1	472	generated	
+237	Const	ePolicyLevelApp	21917	21969	340	1	473	generated	
+238	Const	ePolicyLevelHost	21970	22024	341	1	474	generated	
+239	Const	ePolicyLevelNone	22025	22078	342	1	475	generated	
+240	Const	ePolicyLevelPublisher	22079	22137	343	1	476	generated	
+241	Const	ePolicyLevelRetargetable	22138	22199	344	1	477	generated	
+242	Const	ePolicyPortability	22200	22256	345	1	478	generated	
+243	Const	ePolicyUnifiedToCLR	22257	22313	346	1	479	generated	
+244	Const	eProcessCritical	22314	22370	347	1	480	generated	
+245	Const	eRestrictedContext	22371	22421	348	1	481	generated	
+246	Const	eRudeAbortThread	22422	22471	349	1	482	generated	
+247	Const	eRudeExitProcess	22472	22521	350	1	483	generated	
+248	Const	eRudeUnloadAppDomain	22522	22575	351	1	484	generated	
+249	Const	eRuntimeDeterminedPolicy	22576	22642	352	1	485	generated	
+250	Const	eSecurityInfrastructure	22643	22701	353	1	486	generated	
+251	Const	eSelfAffectingProcessMgmt	22702	22761	354	1	487	generated	
+252	Const	eSelfAffectingThreading	22762	22820	355	1	488	generated	
+253	Const	eSharedState	22821	22867	356	1	489	generated	
+254	Const	eSymbolReadingAlways	22868	22928	357	1	490	generated	
+255	Const	eSymbolReadingFullTrustOnly	22929	22996	358	1	491	generated	
+256	Const	eSymbolReadingNever	22997	23056	359	1	492	generated	
+257	Const	eSynchronization	23057	23107	360	1	493	generated	
+258	Const	eTaskCritical	23108	23161	361	1	494	generated	
+259	Const	eThrowException	23162	23210	362	1	495	generated	
+260	Const	eUI	23211	23250	363	1	496	generated	
+261	Const	eUnloadAppDomain	23251	23300	364	1	497	generated	

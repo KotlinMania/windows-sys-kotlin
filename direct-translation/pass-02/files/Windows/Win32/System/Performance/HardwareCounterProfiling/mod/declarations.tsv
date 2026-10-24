@@ -1,0 +1,11 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	144	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		145	387	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		388	542	3	1	8	unsupported	declaration Macro has no candidate rule
+3	Macro		543	742	4	1	11	unsupported	declaration Macro has no candidate rule
+4	Struct	HARDWARE_COUNTER_DATA	743	902	5	1	14	unsupported	declaration Struct has no candidate rule
+5	ItemType	HARDWARE_COUNTER_TYPE	903	940	12	1	23	generated	
+6	Const	MaxHardwareCounterType	941	1004	13	1	24	generated	
+7	Struct	PERFORMANCE_DATA	1005	1324	14	1	25	unsupported	declaration Struct has no candidate rule
+8	Impl		1325	1434	27	1	40	unsupported	declaration Impl has no candidate rule
+9	Const	PMCCounter	1435	1486	32	1	47	generated	

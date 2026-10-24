@@ -1,0 +1,303 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Mod	NonVolatile	0	72	1	1	2	unsupported	declaration Mod has no candidate rule
+1	Macro		73	222	3	1	6	unsupported	declaration Macro has no candidate rule
+2	Macro		223	422	4	1	9	unsupported	declaration Macro has no candidate rule
+3	Macro		423	728	5	1	12	unsupported	declaration Macro has no candidate rule
+4	Macro		729	952	6	1	15	unsupported	declaration Macro has no candidate rule
+5	Macro		953	1443	7	1	18	unsupported	declaration Macro has no candidate rule
+6	Macro		1444	1824	9	1	22	unsupported	declaration Macro has no candidate rule
+7	Macro		1825	2180	11	1	26	unsupported	declaration Macro has no candidate rule
+8	Macro		2181	2585	13	1	30	unsupported	declaration Macro has no candidate rule
+9	Macro		2586	2991	15	1	34	unsupported	declaration Macro has no candidate rule
+10	Macro		2992	3373	17	1	38	unsupported	declaration Macro has no candidate rule
+11	Macro		3374	3546	19	1	42	unsupported	declaration Macro has no candidate rule
+12	Macro		3547	3678	20	1	45	unsupported	declaration Macro has no candidate rule
+13	Macro		3679	3844	21	1	48	unsupported	declaration Macro has no candidate rule
+14	Macro		3845	4042	22	1	51	unsupported	declaration Macro has no candidate rule
+15	Macro		4043	4122	23	1	54	unsupported	declaration Macro has no candidate rule
+16	Macro		4123	4258	24	1	57	unsupported	declaration Macro has no candidate rule
+17	Macro		4259	4361	25	1	60	unsupported	declaration Macro has no candidate rule
+18	Macro		4362	4509	26	1	63	unsupported	declaration Macro has no candidate rule
+19	Macro		4510	4752	27	1	66	unsupported	declaration Macro has no candidate rule
+20	Macro		4753	4945	28	1	69	unsupported	declaration Macro has no candidate rule
+21	Macro		4946	5189	29	1	72	unsupported	declaration Macro has no candidate rule
+22	Macro		5190	5334	30	1	75	unsupported	declaration Macro has no candidate rule
+23	Macro		5335	5445	31	1	78	unsupported	declaration Macro has no candidate rule
+24	Macro		5446	5578	32	1	81	unsupported	declaration Macro has no candidate rule
+25	Macro		5579	5707	33	1	84	unsupported	declaration Macro has no candidate rule
+26	Macro		5708	5882	34	1	87	unsupported	declaration Macro has no candidate rule
+27	Macro		5883	5994	35	1	90	unsupported	declaration Macro has no candidate rule
+28	Macro		5995	6126	36	1	93	unsupported	declaration Macro has no candidate rule
+29	Macro		6127	6293	37	1	96	unsupported	declaration Macro has no candidate rule
+30	Macro		6294	6428	38	1	99	unsupported	declaration Macro has no candidate rule
+31	Macro		6429	6595	39	1	102	unsupported	declaration Macro has no candidate rule
+32	Macro		6596	6726	40	1	105	unsupported	declaration Macro has no candidate rule
+33	Macro		6727	6910	41	1	108	unsupported	declaration Macro has no candidate rule
+34	Macro		6911	7038	42	1	111	unsupported	declaration Macro has no candidate rule
+35	Macro		7039	7330	43	1	114	unsupported	declaration Macro has no candidate rule
+36	Macro		7331	7533	44	1	117	unsupported	declaration Macro has no candidate rule
+37	Macro		7534	7798	45	1	120	unsupported	declaration Macro has no candidate rule
+38	Macro		7799	7964	46	1	123	unsupported	declaration Macro has no candidate rule
+39	Macro		7965	8141	47	1	126	unsupported	declaration Macro has no candidate rule
+40	Macro		8142	8271	48	1	129	unsupported	declaration Macro has no candidate rule
+41	Macro		8272	8459	49	1	132	unsupported	declaration Macro has no candidate rule
+42	Macro		8460	8622	50	1	135	unsupported	declaration Macro has no candidate rule
+43	Macro		8623	8754	51	1	138	unsupported	declaration Macro has no candidate rule
+44	Macro		8755	8887	52	1	141	unsupported	declaration Macro has no candidate rule
+45	Macro		8888	9029	53	1	144	unsupported	declaration Macro has no candidate rule
+46	Macro		9030	9172	54	1	147	unsupported	declaration Macro has no candidate rule
+47	Macro		9173	9306	55	1	150	unsupported	declaration Macro has no candidate rule
+48	Macro		9307	9447	56	1	153	unsupported	declaration Macro has no candidate rule
+49	Macro		9448	9556	57	1	156	unsupported	declaration Macro has no candidate rule
+50	Macro		9557	9687	58	1	159	unsupported	declaration Macro has no candidate rule
+51	Macro		9688	9814	59	1	162	unsupported	declaration Macro has no candidate rule
+52	Macro		9815	9985	60	1	165	unsupported	declaration Macro has no candidate rule
+53	Macro		9986	10095	61	1	168	unsupported	declaration Macro has no candidate rule
+54	Macro		10096	10225	62	1	171	unsupported	declaration Macro has no candidate rule
+55	Macro		10226	10414	63	1	174	unsupported	declaration Macro has no candidate rule
+56	Macro		10415	10619	64	1	177	unsupported	declaration Macro has no candidate rule
+57	Macro		10620	10873	65	1	180	unsupported	declaration Macro has no candidate rule
+58	Macro		10874	11290	66	1	183	unsupported	declaration Macro has no candidate rule
+59	Macro		11291	11714	67	1	186	unsupported	declaration Macro has no candidate rule
+60	Macro		11715	12012	68	1	189	unsupported	declaration Macro has no candidate rule
+61	Macro		12013	12334	69	1	192	unsupported	declaration Macro has no candidate rule
+62	Macro		12335	12562	70	1	195	unsupported	declaration Macro has no candidate rule
+63	Macro		12563	12924	71	1	198	unsupported	declaration Macro has no candidate rule
+64	Macro		12925	13081	72	1	201	unsupported	declaration Macro has no candidate rule
+65	Macro		13082	13355	73	1	204	unsupported	declaration Macro has no candidate rule
+66	Macro		13356	13558	74	1	207	unsupported	declaration Macro has no candidate rule
+67	Macro		13559	13784	75	1	210	unsupported	declaration Macro has no candidate rule
+68	Macro		13785	13988	76	1	213	unsupported	declaration Macro has no candidate rule
+69	Macro		13989	14222	77	1	216	unsupported	declaration Macro has no candidate rule
+70	Macro		14223	14440	78	1	219	unsupported	declaration Macro has no candidate rule
+71	Macro		14441	14761	79	1	222	unsupported	declaration Macro has no candidate rule
+72	Macro		14762	15133	80	1	225	unsupported	declaration Macro has no candidate rule
+73	Macro		15134	15267	81	1	228	unsupported	declaration Macro has no candidate rule
+74	Macro		15268	15413	82	1	231	unsupported	declaration Macro has no candidate rule
+75	Macro		15414	15566	83	1	234	unsupported	declaration Macro has no candidate rule
+76	Macro		15567	15702	84	1	237	unsupported	declaration Macro has no candidate rule
+77	Macro		15703	15865	85	1	240	unsupported	declaration Macro has no candidate rule
+78	Macro		15866	15994	86	1	243	unsupported	declaration Macro has no candidate rule
+79	Macro		15995	16123	87	1	246	unsupported	declaration Macro has no candidate rule
+80	Macro		16124	16244	88	1	249	unsupported	declaration Macro has no candidate rule
+81	Macro		16245	16547	89	1	252	unsupported	declaration Macro has no candidate rule
+82	Macro		16548	16933	90	1	255	unsupported	declaration Macro has no candidate rule
+83	Macro		16934	17190	91	1	258	unsupported	declaration Macro has no candidate rule
+84	Macro		17191	17362	92	1	261	unsupported	declaration Macro has no candidate rule
+85	Macro		17363	17498	93	1	264	unsupported	declaration Macro has no candidate rule
+86	Macro		17499	17738	94	1	267	unsupported	declaration Macro has no candidate rule
+87	Macro		17739	17913	95	1	270	unsupported	declaration Macro has no candidate rule
+88	Macro		17914	18068	96	1	273	unsupported	declaration Macro has no candidate rule
+89	Macro		18069	18289	97	1	276	unsupported	declaration Macro has no candidate rule
+90	Macro		18290	18634	98	1	279	unsupported	declaration Macro has no candidate rule
+91	Macro		18635	18986	99	1	282	unsupported	declaration Macro has no candidate rule
+92	Macro		18987	19255	100	1	285	unsupported	declaration Macro has no candidate rule
+93	Macro		19256	19530	101	1	288	unsupported	declaration Macro has no candidate rule
+94	Macro		19531	19760	102	1	291	unsupported	declaration Macro has no candidate rule
+95	Macro		19761	19932	103	1	294	unsupported	declaration Macro has no candidate rule
+96	Macro		19933	20152	104	1	297	unsupported	declaration Macro has no candidate rule
+97	Macro		20153	20294	105	1	300	unsupported	declaration Macro has no candidate rule
+98	Macro		20295	20522	106	1	303	unsupported	declaration Macro has no candidate rule
+99	Macro		20523	20798	107	1	306	unsupported	declaration Macro has no candidate rule
+100	Macro		20799	21014	108	1	309	unsupported	declaration Macro has no candidate rule
+101	Macro		21015	21183	109	1	312	unsupported	declaration Macro has no candidate rule
+102	Macro		21184	21400	110	1	315	unsupported	declaration Macro has no candidate rule
+103	Macro		21401	21544	111	1	318	unsupported	declaration Macro has no candidate rule
+104	Macro		21545	21752	112	1	321	unsupported	declaration Macro has no candidate rule
+105	ItemType	AtlThunkData_t	21753	21785	113	1	324	generated	
+106	Struct	CFG_CALL_TARGET_INFO	21786	21909	114	1	325	unsupported	declaration Struct has no candidate rule
+107	Const	FILE_CACHE_MAX_HARD_DISABLE	21910	21960	120	1	333	generated	
+108	Const	FILE_CACHE_MAX_HARD_ENABLE	21961	22010	121	1	334	generated	
+109	Const	FILE_CACHE_MIN_HARD_DISABLE	22011	22061	122	1	335	generated	
+110	Const	FILE_CACHE_MIN_HARD_ENABLE	22062	22111	123	1	336	generated	
+111	ItemType	FILE_MAP	22112	22136	124	1	337	generated	
+112	Const	FILE_MAP_ALL_ACCESS	22137	22189	125	1	338	generated	
+113	Const	FILE_MAP_COPY	22190	22231	126	1	339	generated	
+114	Const	FILE_MAP_EXECUTE	22232	22277	127	1	340	generated	
+115	Const	FILE_MAP_LARGE_PAGES	22278	22334	128	1	341	generated	
+116	Const	FILE_MAP_READ	22335	22376	129	1	342	generated	
+117	Const	FILE_MAP_RESERVE	22377	22430	130	1	343	generated	
+118	Const	FILE_MAP_TARGETS_INVALID	22431	22492	131	1	344	generated	
+119	Const	FILE_MAP_WRITE	22493	22535	132	1	345	generated	
+120	Const	GHND	22536	22579	133	1	346	generated	
+121	ItemType	GLOBAL_ALLOC_FLAGS	22580	22614	134	1	347	generated	
+122	Const	GMEM_FIXED	22615	22663	135	1	348	generated	
+123	Const	GMEM_MOVEABLE	22664	22715	136	1	349	generated	
+124	Const	GMEM_ZEROINIT	22716	22768	137	1	350	generated	
+125	Const	GPTR	22769	22812	138	1	351	generated	
+126	Const	HEAP_CREATE_ALIGN_16	22813	22867	139	1	352	generated	
+127	Const	HEAP_CREATE_ENABLE_EXECUTE	22868	22929	140	1	353	generated	
+128	Const	HEAP_CREATE_ENABLE_TRACING	22930	22991	141	1	354	generated	
+129	Const	HEAP_CREATE_HARDENED	22992	23044	142	1	355	generated	
+130	Const	HEAP_CREATE_SEGMENT_HEAP	23045	23101	143	1	356	generated	
+131	Const	HEAP_DISABLE_COALESCE_ON_FREE	23102	23163	144	1	357	generated	
+132	ItemType	HEAP_FLAGS	23164	23190	145	1	358	generated	
+133	Const	HEAP_FREE_CHECKING_ENABLED	23191	23248	146	1	359	generated	
+134	Const	HEAP_GENERATE_EXCEPTIONS	23249	23303	147	1	360	generated	
+135	Const	HEAP_GROWABLE	23304	23347	148	1	361	generated	
+136	ItemType	HEAP_INFORMATION_CLASS	23348	23386	149	1	362	generated	
+137	Const	HEAP_MAXIMUM_TAG	23387	23436	150	1	363	generated	
+138	Const	HEAP_NONE	23437	23476	151	1	364	generated	
+139	Const	HEAP_NO_SERIALIZE	23477	23524	152	1	365	generated	
+140	Const	HEAP_PSEUDO_TAG_FLAG	23525	23579	153	1	366	generated	
+141	Const	HEAP_REALLOC_IN_PLACE_ONLY	23580	23637	154	1	367	generated	
+142	Struct	HEAP_SUMMARY	23638	23837	155	1	368	unsupported	declaration Struct has no candidate rule
+143	Const	HEAP_TAG_SHIFT	23838	23883	164	1	379	generated	
+144	Const	HEAP_TAIL_CHECKING_ENABLED	23884	23941	165	1	380	generated	
+145	Const	HEAP_ZERO_MEMORY	23942	23988	166	1	381	generated	
+146	Const	HeapCompatibilityInformation	23989	24059	167	1	382	generated	
+147	Const	HeapEnableTerminationOnCorruption	24060	24135	168	1	383	generated	
+148	Const	HeapOptimizeResources	24136	24199	169	1	384	generated	
+149	Const	HeapTag	24200	24249	170	1	385	generated	
+150	Const	HighMemoryResourceNotification	24250	24333	171	1	386	generated	
+151	Const	LHND	24334	24376	172	1	387	generated	
+152	Const	LMEM_FIXED	24377	24424	173	1	388	generated	
+153	Const	LMEM_MOVEABLE	24425	24475	174	1	389	generated	
+154	Const	LMEM_ZEROINIT	24476	24527	175	1	390	generated	
+155	ItemType	LOCAL_ALLOC_FLAGS	24528	24561	176	1	391	generated	
+156	Const	LPTR	24562	24604	177	1	392	generated	
+157	Const	LowMemoryResourceNotification	24605	24687	178	1	393	generated	
+158	Const	MEHC_PATROL_SCRUBBER_PRESENT	24688	24739	179	1	394	generated	
+159	Struct	MEMORY_BASIC_INFORMATION	24740	25116	180	1	395	unsupported	declaration Struct has no candidate rule
+160	Impl		25117	25262	192	1	409	unsupported	declaration Impl has no candidate rule
+161	Struct	MEMORY_BASIC_INFORMATION	25263	25723	198	1	417	unsupported	declaration Struct has no candidate rule
+162	Impl		25724	25927	211	1	432	unsupported	declaration Impl has no candidate rule
+163	Struct	MEMORY_BASIC_INFORMATION32	25928	26247	217	1	440	unsupported	declaration Struct has no candidate rule
+164	Struct	MEMORY_BASIC_INFORMATION64	26248	26621	228	1	453	unsupported	declaration Struct has no candidate rule
+165	Struct	MEMORY_MAPPED_VIEW_ADDRESS	26622	26736	241	1	468	unsupported	declaration Struct has no candidate rule
+166	Impl		26737	26856	246	1	475	unsupported	declaration Impl has no candidate rule
+167	Struct	MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE	26857	27045	251	1	482	unsupported	declaration Struct has no candidate rule
+168	Struct	MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION	27046	27335	258	1	491	unsupported	declaration Struct has no candidate rule
+169	ItemType	MEMORY_RESOURCE_NOTIFICATION_TYPE	27336	27385	269	1	504	generated	
+170	Struct	MEM_ADDRESS_REQUIREMENTS	27386	27594	270	1	505	unsupported	declaration Struct has no candidate rule
+171	Impl		27595	27712	277	1	514	unsupported	declaration Impl has no candidate rule
+172	Const	MEM_COMMIT	27713	27769	282	1	521	generated	
+173	Const	MEM_DECOMMIT	27770	27823	283	1	522	generated	
+174	ItemType	MEM_DEDICATED_ATTRIBUTE_TYPE	27824	27868	284	1	523	generated	
+175	Struct	MEM_EXTENDED_PARAMETER	27869	28032	285	1	524	unsupported	declaration Struct has no candidate rule
+176	Impl		28033	28148	291	1	532	unsupported	declaration Impl has no candidate rule
+177	Struct	MEM_EXTENDED_PARAMETER_0	28149	28255	296	1	539	unsupported	declaration Struct has no candidate rule
+178	Union		28256	28482	301	1	546	unsupported	declaration Union has no candidate rule
+179	Impl		28483	28600	310	1	557	unsupported	declaration Impl has no candidate rule
+180	ItemType	MEM_EXTENDED_PARAMETER_TYPE	28601	28644	315	1	564	generated	
+181	Const	MEM_FREE	28645	28700	316	1	565	generated	
+182	Const	MEM_IMAGE	28701	28746	317	1	566	generated	
+183	Const	MEM_LARGE_PAGES	28747	28813	318	1	567	generated	
+184	Const	MEM_MAPPED	28814	28858	319	1	568	generated	
+185	Const	MEM_PRESERVE_PLACEHOLDER	28859	28927	320	1	569	generated	
+186	Const	MEM_PRIVATE	28928	28973	321	1	570	generated	
+187	Const	MEM_RELEASE	28974	29026	322	1	571	generated	
+188	Const	MEM_REPLACE_PLACEHOLDER	29027	29097	323	1	572	generated	
+189	Const	MEM_RESERVE	29098	29155	324	1	573	generated	
+190	Const	MEM_RESERVE_PLACEHOLDER	29156	29227	325	1	574	generated	
+191	Const	MEM_RESET	29228	29285	326	1	575	generated	
+192	Const	MEM_RESET_UNDO	29286	29350	327	1	576	generated	
+193	ItemType	MEM_SECTION_EXTENDED_PARAMETER_TYPE	29351	29402	328	1	577	generated	
+194	Const	MEM_UNMAP_NONE	29403	29461	329	1	578	generated	
+195	Const	MEM_UNMAP_WITH_TRANSIENT_BOOST	29462	29536	330	1	579	generated	
+196	Const	MemDedicatedAttributeMax	29537	29609	331	1	580	generated	
+197	Const	MemDedicatedAttributeReadBandwidth	29610	29692	332	1	581	generated	
+198	Const	MemDedicatedAttributeReadLatency	29693	29773	333	1	582	generated	
+199	Const	MemDedicatedAttributeWriteBandwidth	29774	29857	334	1	583	generated	
+200	Const	MemDedicatedAttributeWriteLatency	29858	29939	335	1	584	generated	
+201	Const	MemExtendedParameterAddressRequirements	29940	30026	336	1	585	generated	
+202	Const	MemExtendedParameterAttributeFlags	30027	30108	337	1	586	generated	
+203	Const	MemExtendedParameterImageMachine	30109	30188	338	1	587	generated	
+204	Const	MemExtendedParameterInvalidType	30189	30267	339	1	588	generated	
+205	Const	MemExtendedParameterMax	30268	30338	340	1	589	generated	
+206	Const	MemExtendedParameterNumaNode	30339	30414	341	1	590	generated	
+207	Const	MemExtendedParameterPartitionHandle	30415	30497	342	1	591	generated	
+208	Const	MemExtendedParameterUserPhysicalHandle	30498	30583	343	1	592	generated	
+209	Const	MemSectionExtendedParameterInvalidType	30584	30677	344	1	593	generated	
+210	Const	MemSectionExtendedParameterMax	30678	30763	345	1	594	generated	
+211	Const	MemSectionExtendedParameterNumaNode	30764	30854	346	1	595	generated	
+212	Const	MemSectionExtendedParameterSigningLevel	30855	30949	347	1	596	generated	
+213	Const	MemSectionExtendedParameterUserPhysicalFlags	30950	31049	348	1	597	generated	
+214	Const	MemoryPartitionDedicatedMemoryInfo	31050	31144	349	1	598	generated	
+215	Const	MemoryPartitionInfo	31145	31224	350	1	599	generated	
+216	Const	MemoryRegionInfo	31225	31291	351	1	600	generated	
+217	Const	NONZEROLHND	31292	31340	352	1	601	generated	
+218	Const	NONZEROLPTR	31341	31389	353	1	602	generated	
+219	ItemType	OFFER_PRIORITY	31390	31420	354	1	603	generated	
+220	Const	PAGE_ENCLAVE_DECOMMIT	31421	31491	355	1	604	generated	
+221	Const	PAGE_ENCLAVE_MASK	31492	31558	356	1	605	generated	
+222	Const	PAGE_ENCLAVE_SS_FIRST	31559	31629	357	1	606	generated	
+223	Const	PAGE_ENCLAVE_SS_REST	31630	31699	358	1	607	generated	
+224	Const	PAGE_ENCLAVE_THREAD_CONTROL	31700	31777	359	1	608	generated	
+225	Const	PAGE_ENCLAVE_UNVALIDATED	31778	31851	360	1	609	generated	
+226	Const	PAGE_EXECUTE	31852	31906	361	1	610	generated	
+227	Const	PAGE_EXECUTE_READ	31907	31966	362	1	611	generated	
+228	Const	PAGE_EXECUTE_READWRITE	31967	32031	363	1	612	generated	
+229	Const	PAGE_EXECUTE_WRITECOPY	32032	32097	364	1	613	generated	
+230	Const	PAGE_GRAPHICS_COHERENT	32098	32166	365	1	614	generated	
+231	Const	PAGE_GRAPHICS_EXECUTE	32167	32233	366	1	615	generated	
+232	Const	PAGE_GRAPHICS_EXECUTE_READ	32234	32305	367	1	616	generated	
+233	Const	PAGE_GRAPHICS_EXECUTE_READWRITE	32306	32382	368	1	617	generated	
+234	Const	PAGE_GRAPHICS_NOACCESS	32383	32449	369	1	618	generated	
+235	Const	PAGE_GRAPHICS_NOCACHE	32450	32517	370	1	619	generated	
+236	Const	PAGE_GRAPHICS_READONLY	32518	32584	371	1	620	generated	
+237	Const	PAGE_GRAPHICS_READWRITE	32585	32652	372	1	621	generated	
+238	Const	PAGE_GUARD	32653	32706	373	1	622	generated	
+239	Const	PAGE_NOACCESS	32707	32761	374	1	623	generated	
+240	Const	PAGE_NOCACHE	32762	32817	375	1	624	generated	
+241	ItemType	PAGE_PROTECTION_FLAGS	32818	32855	376	1	625	generated	
+242	Const	PAGE_READONLY	32856	32910	377	1	626	generated	
+243	Const	PAGE_READWRITE	32911	32966	378	1	627	generated	
+244	Const	PAGE_REVERT_TO_FILE_MAP	32967	33040	379	1	628	generated	
+245	Const	PAGE_TARGETS_INVALID	33041	33111	380	1	629	generated	
+246	Const	PAGE_TARGETS_NO_UPDATE	33112	33184	381	1	630	generated	
+247	ItemType	PAGE_TYPE	33185	33210	382	1	631	generated	
+248	Const	PAGE_WRITECOMBINE	33211	33272	383	1	632	generated	
+249	Const	PAGE_WRITECOPY	33273	33328	384	1	633	generated	
+250	ItemType	PBAD_MEMORY_CALLBACK_ROUTINE	33329	33405	385	1	634	unsupported	generic scalar type unsupported
+251	Struct	PROCESS_HEAP_ENTRY	33406	33646	386	1	637	unsupported	declaration Struct has no candidate rule
+252	Impl		33647	33758	396	1	649	unsupported	declaration Impl has no candidate rule
+253	Union		33759	33906	401	1	656	unsupported	declaration Union has no candidate rule
+254	Impl		33907	34020	407	1	664	unsupported	declaration Impl has no candidate rule
+255	Struct	PROCESS_HEAP_ENTRY_0_0	34021	34170	412	1	671	unsupported	declaration Struct has no candidate rule
+256	Impl		34171	34286	418	1	679	unsupported	declaration Impl has no candidate rule
+257	Struct	PROCESS_HEAP_ENTRY_0_1	34287	34511	423	1	686	unsupported	declaration Struct has no candidate rule
+258	Impl		34512	34627	431	1	696	unsupported	declaration Impl has no candidate rule
+259	ItemType	PSECURE_MEMORY_CACHE_CALLBACK	34628	34757	436	1	703	unsupported	generic scalar type unsupported
+260	Const	QUOTA_LIMITS_HARDWS_MAX_DISABLE	34758	34841	437	1	706	generated	
+261	Const	QUOTA_LIMITS_HARDWS_MAX_ENABLE	34842	34924	438	1	707	generated	
+262	Const	QUOTA_LIMITS_HARDWS_MIN_DISABLE	34925	35008	439	1	708	generated	
+263	Const	QUOTA_LIMITS_HARDWS_MIN_ENABLE	35009	35091	440	1	709	generated	
+264	Const	SECTION_ALL_ACCESS	35092	35148	441	1	710	generated	
+265	Const	SECTION_EXTEND_SIZE	35149	35202	442	1	711	generated	
+266	ItemType	SECTION_FLAGS	35203	35232	443	1	712	generated	
+267	Const	SECTION_MAP_EXECUTE	35233	35285	444	1	713	generated	
+268	Const	SECTION_MAP_EXECUTE_EXPLICIT	35286	35348	445	1	714	generated	
+269	Const	SECTION_MAP_READ	35349	35398	446	1	715	generated	
+270	Const	SECTION_MAP_WRITE	35399	35449	447	1	716	generated	
+271	Const	SECTION_QUERY	35450	35496	448	1	717	generated	
+272	Const	SEC_64K_PAGES	35497	35556	449	1	718	generated	
+273	Const	SEC_COMMIT	35557	35616	450	1	719	generated	
+274	Const	SEC_FILE	35617	35672	451	1	720	generated	
+275	Const	SEC_IMAGE	35673	35730	452	1	721	generated	
+276	Const	SEC_IMAGE_NO_EXECUTE	35731	35800	453	1	722	generated	
+277	Const	SEC_LARGE_PAGES	35801	35866	454	1	723	generated	
+278	Const	SEC_NOCACHE	35867	35927	455	1	724	generated	
+279	Const	SEC_PARTITION_OWNER_HANDLE	35928	36000	456	1	725	generated	
+280	Const	SEC_PROTECTED_IMAGE	36001	36068	457	1	726	generated	
+281	Const	SEC_RESERVE	36069	36128	458	1	727	generated	
+282	Const	SEC_WRITECOMBINE	36129	36195	459	1	728	generated	
+283	ItemType	SETPROCESSWORKINGSETSIZEEX_FLAGS	36196	36244	460	1	729	generated	
+284	ItemType	UNMAP_VIEW_OF_FILE_FLAGS	36245	36285	461	1	730	generated	
+285	ItemType	VIRTUAL_ALLOCATION_TYPE	36286	36325	462	1	731	generated	
+286	ItemType	VIRTUAL_FREE_TYPE	36326	36359	463	1	732	generated	
+287	Const	VmOfferPriorityBelowNormal	36360	36420	464	1	733	generated	
+288	Const	VmOfferPriorityLow	36421	36473	465	1	734	generated	
+289	Const	VmOfferPriorityNormal	36474	36529	466	1	735	generated	
+290	Const	VmOfferPriorityVeryLow	36530	36586	467	1	736	generated	
+291	ItemType	WIN32_MEMORY_INFORMATION_CLASS	36587	36633	468	1	737	generated	
+292	Struct	WIN32_MEMORY_PARTITION_INFORMATION	36634	37184	469	1	738	unsupported	declaration Struct has no candidate rule
+293	Impl		37185	37312	490	1	761	unsupported	declaration Impl has no candidate rule
+294	ItemType	WIN32_MEMORY_PARTITION_INFORMATION_CLASS	37313	37369	495	1	768	generated	
+295	Struct	WIN32_MEMORY_RANGE_ENTRY	37370	37521	496	1	769	unsupported	declaration Struct has no candidate rule
+296	Impl		37522	37639	502	1	777	unsupported	declaration Impl has no candidate rule
+297	Struct	WIN32_MEMORY_REGION_INFORMATION	37640	37908	507	1	784	unsupported	declaration Struct has no candidate rule
+298	Impl		37909	38033	516	1	795	unsupported	declaration Impl has no candidate rule
+299	Union		38034	38191	521	1	802	unsupported	declaration Union has no candidate rule
+300	Impl		38192	38318	527	1	810	unsupported	declaration Impl has no candidate rule
+301	Struct	WIN32_MEMORY_REGION_INFORMATION_0_0	38319	38436	532	1	817	unsupported	declaration Struct has no candidate rule

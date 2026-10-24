@@ -1,0 +1,371 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	184	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		185	369	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		370	872	3	1	8	unsupported	declaration Macro has no candidate rule
+3	Macro		873	1381	4	1	11	unsupported	declaration Macro has no candidate rule
+4	Macro		1382	1499	5	1	14	unsupported	declaration Macro has no candidate rule
+5	Macro		1500	1668	6	1	17	unsupported	declaration Macro has no candidate rule
+6	Macro		1669	1861	7	1	20	unsupported	declaration Macro has no candidate rule
+7	Macro		1862	2054	8	1	23	unsupported	declaration Macro has no candidate rule
+8	Macro		2055	2604	9	1	26	unsupported	declaration Macro has no candidate rule
+9	Macro		2605	3161	10	1	29	unsupported	declaration Macro has no candidate rule
+10	Macro		3162	3273	11	1	32	unsupported	declaration Macro has no candidate rule
+11	Macro		3274	3546	12	1	35	unsupported	declaration Macro has no candidate rule
+12	Macro		3547	3819	13	1	38	unsupported	declaration Macro has no candidate rule
+13	Macro		3820	4153	14	1	41	unsupported	declaration Macro has no candidate rule
+14	Macro		4154	4538	15	1	44	unsupported	declaration Macro has no candidate rule
+15	Macro		4539	4924	16	1	47	unsupported	declaration Macro has no candidate rule
+16	Macro		4925	5258	17	1	50	unsupported	declaration Macro has no candidate rule
+17	Macro		5259	5543	18	1	53	unsupported	declaration Macro has no candidate rule
+18	Macro		5544	5773	19	1	56	unsupported	declaration Macro has no candidate rule
+19	Macro		5774	6005	20	1	59	unsupported	declaration Macro has no candidate rule
+20	Macro		6006	6231	21	1	62	unsupported	declaration Macro has no candidate rule
+21	Macro		6232	6459	22	1	65	unsupported	declaration Macro has no candidate rule
+22	Macro		6460	6757	23	1	68	unsupported	declaration Macro has no candidate rule
+23	Macro		6758	7031	25	1	72	unsupported	declaration Macro has no candidate rule
+24	Macro		7032	7324	26	1	75	unsupported	declaration Macro has no candidate rule
+25	Macro		7325	7443	28	1	79	unsupported	declaration Macro has no candidate rule
+26	Macro		7444	7584	29	1	82	unsupported	declaration Macro has no candidate rule
+27	Macro		7585	7762	30	1	85	unsupported	declaration Macro has no candidate rule
+28	Macro		7763	7940	31	1	88	unsupported	declaration Macro has no candidate rule
+29	Macro		7941	8125	32	1	91	unsupported	declaration Macro has no candidate rule
+30	Macro		8126	8312	33	1	94	unsupported	declaration Macro has no candidate rule
+31	Macro		8313	8476	34	1	97	unsupported	declaration Macro has no candidate rule
+32	Macro		8477	8641	35	1	100	unsupported	declaration Macro has no candidate rule
+33	Macro		8642	8854	36	1	103	unsupported	declaration Macro has no candidate rule
+34	Macro		8855	9067	37	1	106	unsupported	declaration Macro has no candidate rule
+35	Macro		9068	9275	38	1	109	unsupported	declaration Macro has no candidate rule
+36	Macro		9276	9483	39	1	112	unsupported	declaration Macro has no candidate rule
+37	Macro		9484	9694	40	1	115	unsupported	declaration Macro has no candidate rule
+38	Macro		9695	9910	41	1	118	unsupported	declaration Macro has no candidate rule
+39	Macro		9911	10126	42	1	121	unsupported	declaration Macro has no candidate rule
+40	Macro		10127	10429	43	1	124	unsupported	declaration Macro has no candidate rule
+41	Macro		10430	10585	45	1	128	unsupported	declaration Macro has no candidate rule
+42	Macro		10586	10796	46	1	131	unsupported	declaration Macro has no candidate rule
+43	Macro		10797	10976	47	1	134	unsupported	declaration Macro has no candidate rule
+44	Macro		10977	11199	48	1	137	unsupported	declaration Macro has no candidate rule
+45	Macro		11200	11423	49	1	140	unsupported	declaration Macro has no candidate rule
+46	Macro		11424	11604	50	1	143	unsupported	declaration Macro has no candidate rule
+47	Macro		11605	11840	51	1	146	unsupported	declaration Macro has no candidate rule
+48	Macro		11841	12146	52	1	149	unsupported	declaration Macro has no candidate rule
+49	Macro		12147	12320	54	1	153	unsupported	declaration Macro has no candidate rule
+50	Macro		12321	12511	55	1	156	unsupported	declaration Macro has no candidate rule
+51	Macro		12512	12666	56	1	159	unsupported	declaration Macro has no candidate rule
+52	Macro		12667	12821	57	1	162	unsupported	declaration Macro has no candidate rule
+53	Macro		12822	13013	58	1	165	unsupported	declaration Macro has no candidate rule
+54	Macro		13014	13290	59	1	168	unsupported	declaration Macro has no candidate rule
+55	Macro		13291	13423	60	1	171	unsupported	declaration Macro has no candidate rule
+56	Macro		13424	13556	61	1	174	unsupported	declaration Macro has no candidate rule
+57	Macro		13557	13734	62	1	177	unsupported	declaration Macro has no candidate rule
+58	Const	CUSTOM_SYSTEM_STATE_CHANGE_EVENT_GUID	13735	13885	63	1	180	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+59	Const	DOMAIN_JOIN_GUID	13886	14015	64	1	183	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+60	Const	DOMAIN_LEAVE_GUID	14016	14146	65	1	186	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+61	ItemType	ENUM_SERVICE_STATE	14147	14181	66	1	189	generated	
+62	Struct	ENUM_SERVICE_STATUSA	14182	14386	67	1	190	unsupported	declaration Struct has no candidate rule
+63	Impl		14387	14500	74	1	199	unsupported	declaration Impl has no candidate rule
+64	Struct	ENUM_SERVICE_STATUSW	14501	14707	79	1	206	unsupported	declaration Struct has no candidate rule
+65	Impl		14708	14821	86	1	215	unsupported	declaration Impl has no candidate rule
+66	Struct	ENUM_SERVICE_STATUS_PROCESSA	14822	15049	91	1	222	unsupported	declaration Struct has no candidate rule
+67	Impl		15050	15171	98	1	231	unsupported	declaration Impl has no candidate rule
+68	Struct	ENUM_SERVICE_STATUS_PROCESSW	15172	15401	103	1	238	unsupported	declaration Struct has no candidate rule
+69	Impl		15402	15523	110	1	247	unsupported	declaration Impl has no candidate rule
+70	ItemType	ENUM_SERVICE_TYPE	15524	15557	115	1	254	generated	
+71	Const	FIREWALL_PORT_CLOSE_GUID	15558	15695	116	1	255	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+72	Const	FIREWALL_PORT_OPEN_GUID	15696	15832	117	1	258	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+73	ItemType	HANDLER_FUNCTION	15833	15911	118	1	261	unsupported	generic scalar type unsupported
+74	ItemType	HANDLER_FUNCTION_EX	15912	16090	119	1	264	unsupported	generic scalar type unsupported
+75	ItemType	LPHANDLER_FUNCTION	16091	16171	120	1	267	unsupported	generic scalar type unsupported
+76	ItemType	LPHANDLER_FUNCTION_EX	16172	16352	121	1	270	unsupported	generic scalar type unsupported
+77	ItemType	LPSERVICE_MAIN_FUNCTIONA	16353	16498	122	1	273	unsupported	generic scalar type unsupported
+78	ItemType	LPSERVICE_MAIN_FUNCTIONW	16499	16645	123	1	276	unsupported	generic scalar type unsupported
+79	Const	MACHINE_POLICY_PRESENT_GUID	16646	16786	124	1	279	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+80	Const	MaxServiceRegistryStateType	16787	16861	125	1	282	generated	
+81	Const	NAMED_PIPE_EVENT_GUID	16862	16996	126	1	283	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+82	Const	NETWORK_MANAGER_FIRST_IP_ADDRESS_ARRIVAL_GUID	16997	17155	127	1	286	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+83	Const	NETWORK_MANAGER_LAST_IP_ADDRESS_REMOVAL_GUID	17156	17313	128	1	289	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+84	ItemType	PFN_SC_NOTIFY_CALLBACK	17314	17420	129	1	292	unsupported	generic scalar type unsupported
+85	ItemType	PSC_NOTIFICATION_CALLBACK	17421	17551	130	1	295	unsupported	generic scalar type unsupported
+86	ItemType	PSC_NOTIFICATION_REGISTRATION	17552	17599	131	1	298	generated	
+87	Struct	QUERY_SERVICE_CONFIGA	17600	18066	132	1	299	unsupported	declaration Struct has no candidate rule
+88	Impl		18067	18181	145	1	314	unsupported	declaration Impl has no candidate rule
+89	Struct	QUERY_SERVICE_CONFIGW	18182	18653	150	1	321	unsupported	declaration Struct has no candidate rule
+90	Impl		18654	18768	163	1	336	unsupported	declaration Impl has no candidate rule
+91	Struct	QUERY_SERVICE_LOCK_STATUSA	18769	18943	168	1	343	unsupported	declaration Struct has no candidate rule
+92	Impl		18944	19063	175	1	352	unsupported	declaration Impl has no candidate rule
+93	Struct	QUERY_SERVICE_LOCK_STATUSW	19064	19239	180	1	359	unsupported	declaration Struct has no candidate rule
+94	Impl		19240	19359	187	1	368	unsupported	declaration Impl has no candidate rule
+95	Const	RPC_INTERFACE_EVENT_GUID	19360	19497	192	1	375	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+96	Struct	SC_ACTION	19498	19615	193	1	378	unsupported	declaration Struct has no candidate rule
+97	Const	SC_ACTION_NONE	19616	19664	199	1	386	generated	
+98	Const	SC_ACTION_OWN_RESTART	19665	19720	200	1	387	generated	
+99	Const	SC_ACTION_REBOOT	19721	19771	201	1	388	generated	
+100	Const	SC_ACTION_RESTART	19772	19823	202	1	389	generated	
+101	Const	SC_ACTION_RUN_COMMAND	19824	19879	203	1	390	generated	
+102	ItemType	SC_ACTION_TYPE	19880	19910	204	1	391	generated	
+103	Const	SC_AGGREGATE_STORAGE_KEY	19911	20060	205	1	392	unsupported	non-scalar type Ptr unsupported
+104	Const	SC_ENUM_PROCESS_INFO	20061	20113	206	1	395	generated	
+105	ItemType	SC_ENUM_TYPE	20114	20142	207	1	396	generated	
+106	Const	SC_EVENT_DATABASE_CHANGE	20143	20200	208	1	397	generated	
+107	Const	SC_EVENT_PROPERTY_CHANGE	20201	20258	209	1	398	generated	
+108	Const	SC_EVENT_STATUS_CHANGE	20259	20314	210	1	399	generated	
+109	ItemType	SC_EVENT_TYPE	20315	20344	211	1	400	generated	
+110	ItemType	SC_HANDLE	20345	20389	212	1	401	unsupported	non-scalar type Ptr unsupported
+111	Const	SC_MANAGER_ALL_ACCESS	20390	20439	213	1	404	generated	
+112	Const	SC_MANAGER_CONNECT	20440	20481	214	1	405	generated	
+113	Const	SC_MANAGER_CREATE_SERVICE	20482	20530	215	1	406	generated	
+114	Const	SC_MANAGER_ENUMERATE_SERVICE	20531	20582	216	1	407	generated	
+115	Const	SC_MANAGER_LOCK	20583	20621	217	1	408	generated	
+116	Const	SC_MANAGER_MODIFY_BOOT_CONFIG	20622	20675	218	1	409	generated	
+117	Const	SC_MANAGER_QUERY_LOCK_STATUS	20676	20728	219	1	410	generated	
+118	Const	SC_STATUS_PROCESS_INFO	20729	20785	220	1	411	generated	
+119	ItemType	SC_STATUS_TYPE	20786	20816	221	1	412	generated	
+120	Const	SERVICES_ACTIVE_DATABASE	20817	20921	222	1	413	unsupported	non-scalar type Ptr unsupported
+121	Const	SERVICES_ACTIVE_DATABASEA	20922	21026	223	1	416	unsupported	non-scalar type Ptr unsupported
+122	Const	SERVICES_ACTIVE_DATABASEW	21027	21132	224	1	419	unsupported	non-scalar type Ptr unsupported
+123	Const	SERVICES_FAILED_DATABASE	21133	21237	225	1	422	unsupported	non-scalar type Ptr unsupported
+124	Const	SERVICES_FAILED_DATABASEA	21238	21342	226	1	425	unsupported	non-scalar type Ptr unsupported
+125	Const	SERVICES_FAILED_DATABASEW	21343	21448	227	1	428	unsupported	non-scalar type Ptr unsupported
+126	Const	SERVICE_ACCEPT_HARDWAREPROFILECHANGE	21449	21509	228	1	431	generated	
+127	Const	SERVICE_ACCEPT_LOWRESOURCES	21510	21563	229	1	432	generated	
+128	Const	SERVICE_ACCEPT_NETBINDCHANGE	21564	21616	230	1	433	generated	
+129	Const	SERVICE_ACCEPT_PARAMCHANGE	21617	21666	231	1	434	generated	
+130	Const	SERVICE_ACCEPT_PAUSE_CONTINUE	21667	21719	232	1	435	generated	
+131	Const	SERVICE_ACCEPT_POWEREVENT	21720	21769	233	1	436	generated	
+132	Const	SERVICE_ACCEPT_PRESHUTDOWN	21770	21821	234	1	437	generated	
+133	Const	SERVICE_ACCEPT_SESSIONCHANGE	21822	21875	235	1	438	generated	
+134	Const	SERVICE_ACCEPT_SHUTDOWN	21876	21922	236	1	439	generated	
+135	Const	SERVICE_ACCEPT_STOP	21923	21965	237	1	440	generated	
+136	Const	SERVICE_ACCEPT_SYSTEMLOWRESOURCES	21966	22026	238	1	441	generated	
+137	Const	SERVICE_ACCEPT_TIMECHANGE	22027	22077	239	1	442	generated	
+138	Const	SERVICE_ACCEPT_TRIGGEREVENT	22078	22131	240	1	443	generated	
+139	Const	SERVICE_ACCEPT_USER_LOGOFF	22132	22184	241	1	444	generated	
+140	Const	SERVICE_ACTIVE	22185	22237	242	1	445	generated	
+141	Const	SERVICE_ADAPTER	22238	22290	243	1	446	generated	
+142	Const	SERVICE_ALL_ACCESS	22291	22337	244	1	447	generated	
+143	Const	SERVICE_AUTO_START	22338	22394	245	1	448	generated	
+144	Const	SERVICE_BOOT_START	22395	22451	246	1	449	generated	
+145	Const	SERVICE_CHANGE_CONFIG	22452	22496	247	1	450	generated	
+146	ItemType	SERVICE_CONFIG	22497	22527	248	1	451	generated	
+147	Const	SERVICE_CONFIG_DELAYED_AUTO_START_INFO	22528	22600	249	1	452	generated	
+148	Const	SERVICE_CONFIG_DESCRIPTION	22601	22661	250	1	453	generated	
+149	Const	SERVICE_CONFIG_FAILURE_ACTIONS	22662	22726	251	1	454	generated	
+150	Const	SERVICE_CONFIG_FAILURE_ACTIONS_FLAG	22727	22796	252	1	455	generated	
+151	Const	SERVICE_CONFIG_LAUNCH_PROTECTED	22797	22863	253	1	456	generated	
+152	Const	SERVICE_CONFIG_PREFERRED_NODE	22864	22927	254	1	457	generated	
+153	Const	SERVICE_CONFIG_PRESHUTDOWN_INFO	22928	22993	255	1	458	generated	
+154	Const	SERVICE_CONFIG_REQUIRED_PRIVILEGES_INFO	22994	23067	256	1	459	generated	
+155	Const	SERVICE_CONFIG_SERVICE_SID_INFO	23068	23133	257	1	460	generated	
+156	Const	SERVICE_CONFIG_TRIGGER_INFO	23134	23195	258	1	461	generated	
+157	Const	SERVICE_CONTINUE_PENDING	23196	23268	259	1	462	generated	
+158	Const	SERVICE_CONTROL_CONTINUE	23269	23316	260	1	463	generated	
+159	Const	SERVICE_CONTROL_DEVICEEVENT	23317	23368	261	1	464	generated	
+160	Const	SERVICE_CONTROL_HARDWAREPROFILECHANGE	23369	23430	262	1	465	generated	
+161	Const	SERVICE_CONTROL_INTERROGATE	23431	23481	263	1	466	generated	
+162	Const	SERVICE_CONTROL_LOWRESOURCES	23482	23534	264	1	467	generated	
+163	Const	SERVICE_CONTROL_NETBINDADD	23535	23584	265	1	468	generated	
+164	Const	SERVICE_CONTROL_NETBINDDISABLE	23585	23639	266	1	469	generated	
+165	Const	SERVICE_CONTROL_NETBINDENABLE	23640	23692	267	1	470	generated	
+166	Const	SERVICE_CONTROL_NETBINDREMOVE	23693	23745	268	1	471	generated	
+167	Const	SERVICE_CONTROL_PARAMCHANGE	23746	23796	269	1	472	generated	
+168	Const	SERVICE_CONTROL_PAUSE	23797	23841	270	1	473	generated	
+169	Const	SERVICE_CONTROL_POWEREVENT	23842	23892	271	1	474	generated	
+170	Const	SERVICE_CONTROL_PRESHUTDOWN	23893	23944	272	1	475	generated	
+171	Const	SERVICE_CONTROL_SESSIONCHANGE	23945	23998	273	1	476	generated	
+172	Const	SERVICE_CONTROL_SHUTDOWN	23999	24046	274	1	477	generated	
+173	Const	SERVICE_CONTROL_STATUS_REASON_INFO	24047	24104	275	1	478	generated	
+174	Struct	SERVICE_CONTROL_STATUS_REASON_PARAMSA	24105	24306	276	1	479	unsupported	declaration Struct has no candidate rule
+175	Impl		24307	24437	283	1	488	unsupported	declaration Impl has no candidate rule
+176	Struct	SERVICE_CONTROL_STATUS_REASON_PARAMSW	24438	24640	288	1	495	unsupported	declaration Struct has no candidate rule
+177	Impl		24641	24771	295	1	504	unsupported	declaration Impl has no candidate rule
+178	Const	SERVICE_CONTROL_STOP	24772	24815	300	1	511	generated	
+179	Const	SERVICE_CONTROL_SYSTEMLOWRESOURCES	24816	24874	301	1	512	generated	
+180	Const	SERVICE_CONTROL_TIMECHANGE	24875	24925	302	1	513	generated	
+181	Const	SERVICE_CONTROL_TRIGGEREVENT	24926	24978	303	1	514	generated	
+182	Struct	SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM	24979	25131	304	1	515	unsupported	declaration Struct has no candidate rule
+183	Impl		25132	25269	309	1	522	unsupported	declaration Impl has no candidate rule
+184	Union		25270	25481	314	1	529	unsupported	declaration Union has no candidate rule
+185	Impl		25482	25621	320	1	537	unsupported	declaration Impl has no candidate rule
+186	Struct	SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0	25622	25767	325	1	544	unsupported	declaration Struct has no candidate rule
+187	Impl		25768	25909	331	1	552	unsupported	declaration Impl has no candidate rule
+188	Struct	SERVICE_DELAYED_AUTO_START_INFO	25910	26051	336	1	559	unsupported	declaration Struct has no candidate rule
+189	Const	SERVICE_DEMAND_START	26052	26110	341	1	566	generated	
+190	Struct	SERVICE_DESCRIPTIONA	26111	26228	342	1	567	unsupported	declaration Struct has no candidate rule
+191	Impl		26229	26342	347	1	574	unsupported	declaration Impl has no candidate rule
+192	Struct	SERVICE_DESCRIPTIONW	26343	26461	352	1	581	unsupported	declaration Struct has no candidate rule
+193	Impl		26462	26575	357	1	588	unsupported	declaration Impl has no candidate rule
+194	ItemType	SERVICE_DIRECTORY_TYPE	26576	26614	362	1	595	generated	
+195	Const	SERVICE_DISABLED	26615	26669	363	1	596	generated	
+196	Const	SERVICE_DRIVER	26670	26722	364	1	597	generated	
+197	Const	SERVICE_DYNAMIC_INFORMATION_LEVEL_START_REASON	26723	26792	365	1	598	generated	
+198	Const	SERVICE_ENUMERATE_DEPENDENTS	26793	26844	366	1	599	generated	
+199	ItemType	SERVICE_ERROR	26845	26874	367	1	600	generated	
+200	Const	SERVICE_ERROR_CRITICAL	26875	26930	368	1	601	generated	
+201	Const	SERVICE_ERROR_IGNORE	26931	26984	369	1	602	generated	
+202	Const	SERVICE_ERROR_NORMAL	26985	27038	370	1	603	generated	
+203	Const	SERVICE_ERROR_SEVERE	27039	27092	371	1	604	generated	
+204	Struct	SERVICE_FAILURE_ACTIONSA	27093	27344	372	1	605	unsupported	declaration Struct has no candidate rule
+205	Impl		27345	27462	381	1	616	unsupported	declaration Impl has no candidate rule
+206	Struct	SERVICE_FAILURE_ACTIONSW	27463	27716	386	1	623	unsupported	declaration Struct has no candidate rule
+207	Impl		27717	27834	395	1	634	unsupported	declaration Impl has no candidate rule
+208	Struct	SERVICE_FAILURE_ACTIONS_FLAG	27835	27989	400	1	641	unsupported	declaration Struct has no candidate rule
+209	Const	SERVICE_FILE_SYSTEM_DRIVER	27990	28053	405	1	648	generated	
+210	Const	SERVICE_INACTIVE	28054	28108	406	1	649	generated	
+211	Const	SERVICE_INTERROGATE	28109	28153	407	1	650	generated	
+212	Const	SERVICE_KERNEL_DRIVER	28154	28212	408	1	651	generated	
+213	Const	SERVICE_LAUNCH_PROTECTED_ANTIMALWARE_LIGHT	28213	28278	409	1	652	generated	
+214	Struct	SERVICE_LAUNCH_PROTECTED_INFO	28279	28398	410	1	653	unsupported	declaration Struct has no candidate rule
+215	Const	SERVICE_LAUNCH_PROTECTED_NONE	28399	28451	415	1	660	generated	
+216	Const	SERVICE_LAUNCH_PROTECTED_WINDOWS	28452	28507	416	1	661	generated	
+217	Const	SERVICE_LAUNCH_PROTECTED_WINDOWS_LIGHT	28508	28569	417	1	662	generated	
+218	ItemType	SERVICE_MAIN_FUNCTIONA	28570	28697	418	1	663	unsupported	generic scalar type unsupported
+219	ItemType	SERVICE_MAIN_FUNCTIONW	28698	28842	419	1	666	unsupported	generic scalar type unsupported
+220	ItemType	SERVICE_NOTIFY	28843	28873	420	1	669	generated	
+221	Struct	SERVICE_NOTIFY_1	28874	29138	421	1	670	unsupported	declaration Struct has no candidate rule
+222	Impl		29139	29248	430	1	681	unsupported	declaration Impl has no candidate rule
+223	Struct	SERVICE_NOTIFY_2A	29249	29602	435	1	688	unsupported	declaration Struct has no candidate rule
+224	Impl		29603	29713	446	1	701	unsupported	declaration Impl has no candidate rule
+225	Struct	SERVICE_NOTIFY_2W	29714	30068	451	1	708	unsupported	declaration Struct has no candidate rule
+226	Impl		30069	30179	462	1	721	unsupported	declaration Impl has no candidate rule
+227	Const	SERVICE_NOTIFY_CONTINUE_PENDING	30180	30246	467	1	728	generated	
+228	Const	SERVICE_NOTIFY_CREATED	30247	30305	468	1	729	generated	
+229	Const	SERVICE_NOTIFY_DELETED	30306	30364	469	1	730	generated	
+230	Const	SERVICE_NOTIFY_DELETE_PENDING	30365	30430	470	1	731	generated	
+231	Const	SERVICE_NOTIFY_PAUSED	30431	30487	471	1	732	generated	
+232	Const	SERVICE_NOTIFY_PAUSE_PENDING	30488	30551	472	1	733	generated	
+233	Const	SERVICE_NOTIFY_RUNNING	30552	30608	473	1	734	generated	
+234	Const	SERVICE_NOTIFY_START_PENDING	30609	30671	474	1	735	generated	
+235	Const	SERVICE_NOTIFY_STATUS_CHANGE	30672	30723	475	1	736	generated	
+236	Const	SERVICE_NOTIFY_STATUS_CHANGE_1	30724	30777	476	1	737	generated	
+237	Const	SERVICE_NOTIFY_STATUS_CHANGE_2	30778	30831	477	1	738	generated	
+238	Const	SERVICE_NOTIFY_STOPPED	30832	30888	478	1	739	generated	
+239	Const	SERVICE_NOTIFY_STOP_PENDING	30889	30950	479	1	740	generated	
+240	Const	SERVICE_NO_CHANGE	30951	31000	480	1	741	generated	
+241	Const	SERVICE_PAUSED	31001	31063	481	1	742	generated	
+242	Const	SERVICE_PAUSE_CONTINUE	31064	31110	482	1	743	generated	
+243	Const	SERVICE_PAUSE_PENDING	31111	31180	483	1	744	generated	
+244	Struct	SERVICE_PREFERRED_NODE_INFO	31181	31319	484	1	745	unsupported	declaration Struct has no candidate rule
+245	Struct	SERVICE_PRESHUTDOWN_INFO	31320	31437	490	1	753	unsupported	declaration Struct has no candidate rule
+246	Const	SERVICE_QUERY_CONFIG	31438	31481	495	1	760	generated	
+247	Const	SERVICE_QUERY_STATUS	31482	31525	496	1	761	generated	
+248	Const	SERVICE_RECOGNIZER_DRIVER	31526	31588	497	1	762	generated	
+249	ItemType	SERVICE_REGISTRY_STATE_TYPE	31589	31632	498	1	763	generated	
+250	Struct	SERVICE_REQUIRED_PRIVILEGES_INFOA	31633	31772	499	1	764	unsupported	declaration Struct has no candidate rule
+251	Impl		31773	31899	504	1	771	unsupported	declaration Impl has no candidate rule
+252	Struct	SERVICE_REQUIRED_PRIVILEGES_INFOW	31900	32040	509	1	778	unsupported	declaration Struct has no candidate rule
+253	Impl		32041	32167	514	1	785	unsupported	declaration Impl has no candidate rule
+254	Const	SERVICE_RUNNING	32168	32231	519	1	792	generated	
+255	Const	SERVICE_RUNS_IN_NON_SYSTEM_OR_NOT_RUNNING	32232	32316	520	1	793	generated	
+256	ItemType	SERVICE_RUNS_IN_PROCESS	32317	32356	521	1	794	generated	
+257	Const	SERVICE_RUNS_IN_SYSTEM_PROCESS	32357	32430	522	1	795	generated	
+258	ItemType	SERVICE_SHARED_DIRECTORY_TYPE	32431	32476	523	1	796	generated	
+259	ItemType	SERVICE_SHARED_REGISTRY_STATE_TYPE	32477	32527	524	1	797	generated	
+260	Struct	SERVICE_SID_INFO	32528	32633	525	1	798	unsupported	declaration Struct has no candidate rule
+261	Const	SERVICE_SID_TYPE_NONE	32634	32678	530	1	805	generated	
+262	Const	SERVICE_SID_TYPE_UNRESTRICTED	32679	32731	531	1	806	generated	
+263	Const	SERVICE_START	32732	32769	532	1	807	generated	
+264	Const	SERVICE_START_PENDING	32770	32839	533	1	808	generated	
+265	Struct	SERVICE_START_REASON	32840	32941	534	1	809	unsupported	declaration Struct has no candidate rule
+266	Const	SERVICE_START_REASON_AUTO	32942	32990	539	1	816	generated	
+267	Const	SERVICE_START_REASON_DELAYEDAUTO	32991	33047	540	1	817	generated	
+268	Const	SERVICE_START_REASON_DEMAND	33048	33098	541	1	818	generated	
+269	Const	SERVICE_START_REASON_RESTART_ON_FAILURE	33099	33161	542	1	819	generated	
+270	Const	SERVICE_START_REASON_TRIGGER	33162	33213	543	1	820	generated	
+271	ItemType	SERVICE_START_TYPE	33214	33248	544	1	821	generated	
+272	Const	SERVICE_STATE_ALL	33249	33304	545	1	822	generated	
+273	Struct	SERVICE_STATUS	33305	33628	546	1	823	unsupported	declaration Struct has no candidate rule
+274	ItemType	SERVICE_STATUS_CURRENT_STATE	33629	33673	557	1	836	generated	
+275	ItemType	SERVICE_STATUS_HANDLE	33674	33730	558	1	837	unsupported	non-scalar type Ptr unsupported
+276	Struct	SERVICE_STATUS_PROCESS	33731	34137	559	1	840	unsupported	declaration Struct has no candidate rule
+277	Const	SERVICE_STOP	34138	34174	572	1	855	generated	
+278	Const	SERVICE_STOPPED	34175	34238	573	1	856	generated	
+279	Const	SERVICE_STOP_PENDING	34239	34307	574	1	857	generated	
+280	Const	SERVICE_STOP_REASON_FLAG_CUSTOM	34308	34370	575	1	858	generated	
+281	Const	SERVICE_STOP_REASON_FLAG_MAX	34371	34431	576	1	859	generated	
+282	Const	SERVICE_STOP_REASON_FLAG_MIN	34432	34483	577	1	860	generated	
+283	Const	SERVICE_STOP_REASON_FLAG_PLANNED	34484	34548	578	1	861	generated	
+284	Const	SERVICE_STOP_REASON_FLAG_UNPLANNED	34549	34614	579	1	862	generated	
+285	Const	SERVICE_STOP_REASON_MAJOR_APPLICATION	34615	34680	580	1	863	generated	
+286	Const	SERVICE_STOP_REASON_MAJOR_HARDWARE	34681	34743	581	1	864	generated	
+287	Const	SERVICE_STOP_REASON_MAJOR_MAX	34744	34801	582	1	865	generated	
+288	Const	SERVICE_STOP_REASON_MAJOR_MAX_CUSTOM	34802	34868	583	1	866	generated	
+289	Const	SERVICE_STOP_REASON_MAJOR_MIN	34869	34921	584	1	867	generated	
+290	Const	SERVICE_STOP_REASON_MAJOR_MIN_CUSTOM	34922	34987	585	1	868	generated	
+291	Const	SERVICE_STOP_REASON_MAJOR_NONE	34988	35046	586	1	869	generated	
+292	Const	SERVICE_STOP_REASON_MAJOR_OPERATINGSYSTEM	35047	35116	587	1	870	generated	
+293	Const	SERVICE_STOP_REASON_MAJOR_OTHER	35117	35175	588	1	871	generated	
+294	Const	SERVICE_STOP_REASON_MAJOR_SOFTWARE	35176	35238	589	1	872	generated	
+295	Const	SERVICE_STOP_REASON_MINOR_DISK	35239	35292	590	1	873	generated	
+296	Const	SERVICE_STOP_REASON_MINOR_ENVIRONMENT	35293	35354	591	1	874	generated	
+297	Const	SERVICE_STOP_REASON_MINOR_HARDWARE_DRIVER	35355	35420	592	1	875	generated	
+298	Const	SERVICE_STOP_REASON_MINOR_HUNG	35421	35474	593	1	876	generated	
+299	Const	SERVICE_STOP_REASON_MINOR_INSTALLATION	35475	35536	594	1	877	generated	
+300	Const	SERVICE_STOP_REASON_MINOR_MAINTENANCE	35537	35597	595	1	878	generated	
+301	Const	SERVICE_STOP_REASON_MINOR_MAX	35598	35651	596	1	879	generated	
+302	Const	SERVICE_STOP_REASON_MINOR_MAX_CUSTOM	35652	35715	597	1	880	generated	
+303	Const	SERVICE_STOP_REASON_MINOR_MEMOTYLIMIT	35716	35777	598	1	881	generated	
+304	Const	SERVICE_STOP_REASON_MINOR_MIN	35778	35830	599	1	882	generated	
+305	Const	SERVICE_STOP_REASON_MINOR_MIN_CUSTOM	35831	35892	600	1	883	generated	
+306	Const	SERVICE_STOP_REASON_MINOR_MMC	35893	35946	601	1	884	generated	
+307	Const	SERVICE_STOP_REASON_MINOR_NETWORKCARD	35947	36007	602	1	885	generated	
+308	Const	SERVICE_STOP_REASON_MINOR_NETWORK_CONNECTIVITY	36008	36078	603	1	886	generated	
+309	Const	SERVICE_STOP_REASON_MINOR_NONE	36079	36133	604	1	887	generated	
+310	Const	SERVICE_STOP_REASON_MINOR_OTHER	36134	36188	605	1	888	generated	
+311	Const	SERVICE_STOP_REASON_MINOR_OTHERDRIVER	36189	36250	606	1	889	generated	
+312	Const	SERVICE_STOP_REASON_MINOR_RECONFIG	36251	36308	607	1	890	generated	
+313	Const	SERVICE_STOP_REASON_MINOR_SECURITY	36309	36367	608	1	891	generated	
+314	Const	SERVICE_STOP_REASON_MINOR_SECURITYFIX	36368	36429	609	1	892	generated	
+315	Const	SERVICE_STOP_REASON_MINOR_SECURITYFIX_UNINSTALL	36430	36501	610	1	893	generated	
+316	Const	SERVICE_STOP_REASON_MINOR_SERVICEPACK	36502	36563	611	1	894	generated	
+317	Const	SERVICE_STOP_REASON_MINOR_SERVICEPACK_UNINSTALL	36564	36635	612	1	895	generated	
+318	Const	SERVICE_STOP_REASON_MINOR_SOFTWARE_UPDATE	36636	36701	613	1	896	generated	
+319	Const	SERVICE_STOP_REASON_MINOR_SOFTWARE_UPDATE_UNINSTALL	36702	36777	614	1	897	generated	
+320	Const	SERVICE_STOP_REASON_MINOR_UNSTABLE	36778	36835	615	1	898	generated	
+321	Const	SERVICE_STOP_REASON_MINOR_UPGRADE	36836	36892	616	1	899	generated	
+322	Const	SERVICE_STOP_REASON_MINOR_WMI	36893	36946	617	1	900	generated	
+323	Const	SERVICE_SYSTEM_START	36947	37005	618	1	901	generated	
+324	Struct	SERVICE_TABLE_ENTRYA	37006	37172	619	1	902	unsupported	declaration Struct has no candidate rule
+325	Impl		37173	37286	625	1	910	unsupported	declaration Impl has no candidate rule
+326	Struct	SERVICE_TABLE_ENTRYW	37287	37454	630	1	917	unsupported	declaration Struct has no candidate rule
+327	Impl		37455	37568	636	1	925	unsupported	declaration Impl has no candidate rule
+328	Struct	SERVICE_TIMECHANGE_INFO	37569	37698	641	1	932	unsupported	declaration Struct has no candidate rule
+329	Struct	SERVICE_TRIGGER	37699	37991	647	1	940	unsupported	declaration Struct has no candidate rule
+330	Impl		37992	38100	656	1	951	unsupported	declaration Impl has no candidate rule
+331	ItemType	SERVICE_TRIGGER_ACTION	38101	38139	661	1	958	generated	
+332	Const	SERVICE_TRIGGER_ACTION_SERVICE_START	38140	38218	662	1	959	generated	
+333	Const	SERVICE_TRIGGER_ACTION_SERVICE_STOP	38219	38296	663	1	960	generated	
+334	Struct	SERVICE_TRIGGER_CUSTOM_STATE_ID	38297	38401	664	1	961	unsupported	declaration Struct has no candidate rule
+335	Impl		38402	38526	669	1	968	unsupported	declaration Impl has no candidate rule
+336	Const	SERVICE_TRIGGER_DATA_TYPE_BINARY	38527	38623	674	1	975	generated	
+337	Const	SERVICE_TRIGGER_DATA_TYPE_KEYWORD_ALL	38624	38725	675	1	976	generated	
+338	Const	SERVICE_TRIGGER_DATA_TYPE_KEYWORD_ANY	38726	38827	676	1	977	generated	
+339	Const	SERVICE_TRIGGER_DATA_TYPE_LEVEL	38828	38923	677	1	978	generated	
+340	Const	SERVICE_TRIGGER_DATA_TYPE_STRING	38924	39020	678	1	979	generated	
+341	Struct	SERVICE_TRIGGER_INFO	39021	39183	679	1	980	unsupported	declaration Struct has no candidate rule
+342	Impl		39184	39297	686	1	989	unsupported	declaration Impl has no candidate rule
+343	Struct	SERVICE_TRIGGER_SPECIFIC_DATA_ITEM	39298	39492	691	1	996	unsupported	declaration Struct has no candidate rule
+344	Impl		39493	39620	698	1	1005	unsupported	declaration Impl has no candidate rule
+345	ItemType	SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE	39621	39681	703	1	1012	generated	
+346	Const	SERVICE_TRIGGER_STARTED_ARGUMENT	39682	39794	704	1	1013	unsupported	non-scalar type Ptr unsupported
+347	ItemType	SERVICE_TRIGGER_TYPE	39795	39831	705	1	1016	generated	
+348	Const	SERVICE_TRIGGER_TYPE_AGGREGATE	39832	39886	706	1	1017	generated	
+349	Const	SERVICE_TRIGGER_TYPE_CUSTOM	39887	39955	707	1	1018	generated	
+350	Const	SERVICE_TRIGGER_TYPE_CUSTOM_SYSTEM_STATE_CHANGE	39956	40026	708	1	1019	generated	
+351	Const	SERVICE_TRIGGER_TYPE_DEVICE_INTERFACE_ARRIVAL	40027	40112	709	1	1020	generated	
+352	Const	SERVICE_TRIGGER_TYPE_DOMAIN_JOIN	40113	40185	710	1	1021	generated	
+353	Const	SERVICE_TRIGGER_TYPE_FIREWALL_PORT_EVENT	40186	40266	711	1	1022	generated	
+354	Const	SERVICE_TRIGGER_TYPE_GROUP_POLICY	40267	40340	712	1	1023	generated	
+355	Const	SERVICE_TRIGGER_TYPE_IP_ADDRESS_AVAILABILITY	40341	40425	713	1	1024	generated	
+356	Const	SERVICE_TRIGGER_TYPE_NETWORK_ENDPOINT	40426	40503	714	1	1025	generated	
+357	Const	SERVICE_USER_DEFINED_CONTROL	40504	40557	715	1	1026	generated	
+358	Const	SERVICE_USER_OWN_PROCESS	40558	40620	716	1	1027	generated	
+359	Const	SERVICE_USER_SHARE_PROCESS	40621	40685	717	1	1028	generated	
+360	Const	SERVICE_WIN32	40686	40737	718	1	1029	generated	
+361	Const	SERVICE_WIN32_OWN_PROCESS	40738	40801	719	1	1030	generated	
+362	Const	SERVICE_WIN32_SHARE_PROCESS	40802	40867	720	1	1031	generated	
+363	Const	ServiceDirectoryPersistentState	40868	40941	721	1	1032	generated	
+364	Const	ServiceDirectoryTypeMax	40942	41007	722	1	1033	generated	
+365	Const	ServiceRegistryStateParameters	41008	41085	723	1	1034	generated	
+366	Const	ServiceRegistryStatePersistent	41086	41163	724	1	1035	generated	
+367	Const	ServiceSharedDirectoryPersistentState	41164	41250	725	1	1036	generated	
+368	Const	ServiceSharedRegistryPersistentState	41251	41341	726	1	1037	generated	
+369	Const	USER_POLICY_PRESENT_GUID	41342	41479	727	1	1038	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID

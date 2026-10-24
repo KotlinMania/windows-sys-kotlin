@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/Devices/DeviceAndDriverInstallation/mod: 1296 generated; 1300 unsupported

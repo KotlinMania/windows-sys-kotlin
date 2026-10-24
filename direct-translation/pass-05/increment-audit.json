@@ -1,0 +1,33 @@
+{
+  "disposition_changes": {
+    "Const": 6193
+  },
+  "source_span_corrections": [
+    {
+      "source": "core/literals",
+      "index": "0",
+      "kind": "Macro",
+      "before": [
+        "0",
+        "92"
+      ],
+      "after": [
+        "0",
+        "166"
+      ]
+    },
+    {
+      "source": "core/literals",
+      "index": "1",
+      "kind": "Macro",
+      "before": [
+        "168",
+        "266"
+      ],
+      "after": [
+        "168",
+        "1247"
+      ]
+    }
+  ]
+}

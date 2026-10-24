@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/Networking/ActiveDirectory/mod: 995 generated; 463 unsupported

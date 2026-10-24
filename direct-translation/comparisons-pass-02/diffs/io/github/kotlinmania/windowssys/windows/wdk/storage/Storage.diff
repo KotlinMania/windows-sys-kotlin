@@ -1,0 +1,14 @@
+--- ../windows-sys-kotlin/direct-translation/comparisons-pass-02/port-snapshots/io/github/kotlinmania/windowssys/windows/wdk/storage/Storage.kt	2026-10-24 15:27:52
++++ ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Wdk/Storage/mod/candidate.kt	2026-10-24 13:17:47
+@@ -1,7 +1,5 @@
+-// port-lint: source Windows/Wdk/Storage/mod.rs
+-package io.github.kotlinmania.windowssys.windows.wdk.storage
++// DIRECT DECLARATION CANDIDATE: unsupported Rust remains below; not adopted or ABI-validated.
++// UNSUPPORTED Rust 1:1: declaration Mod has no candidate rule
++// #[cfg(feature = "Wdk_Storage_FileSystem")]
++// pub mod FileSystem;
+ 
+-// Re-export shim — see windows/Windows.kt for the per-AGENTS.md ledger rationale.
+-//
+-// Callers migrated:
+-// (none yet)

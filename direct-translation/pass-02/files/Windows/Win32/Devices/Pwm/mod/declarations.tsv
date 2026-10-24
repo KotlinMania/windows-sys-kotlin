@@ -1,0 +1,35 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Const	GUID_DEVINTERFACE_PWM_CONTROLLER	0	145	1	1	2	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+1	Const	GUID_DEVINTERFACE_PWM_CONTROLLER_WSZ	146	286	2	1	5	unsupported	non-scalar type Ptr unsupported
+2	Const	IOCTL_PWM_CONTROLLER_GET_ACTUAL_PERIOD	287	353	3	1	8	generated	
+3	Const	IOCTL_PWM_CONTROLLER_GET_INFO	354	411	4	1	9	generated	
+4	Const	IOCTL_PWM_CONTROLLER_SET_DESIRED_PERIOD	412	479	5	1	10	generated	
+5	Const	IOCTL_PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE	480	554	6	1	11	generated	
+6	Const	IOCTL_PWM_PIN_GET_POLARITY	555	609	7	1	12	generated	
+7	Const	IOCTL_PWM_PIN_IS_STARTED	610	662	8	1	13	generated	
+8	Const	IOCTL_PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE	663	737	9	1	14	generated	
+9	Const	IOCTL_PWM_PIN_SET_POLARITY	738	792	10	1	15	generated	
+10	Const	IOCTL_PWM_PIN_START	793	840	11	1	16	generated	
+11	Const	IOCTL_PWM_PIN_STOP	841	887	12	1	17	generated	
+12	Const	PWM_ACTIVE_HIGH	888	935	13	1	18	generated	
+13	Const	PWM_ACTIVE_LOW	936	982	14	1	19	generated	
+14	Struct	PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT	983	1107	15	1	20	unsupported	declaration Struct has no candidate rule
+15	Struct	PWM_CONTROLLER_INFO	1108	1285	20	1	27	unsupported	declaration Struct has no candidate rule
+16	Struct	PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT	1286	1411	28	1	37	unsupported	declaration Struct has no candidate rule
+17	Struct	PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT	1412	1537	33	1	44	unsupported	declaration Struct has no candidate rule
+18	Const	PWM_IOCTL_ID_CONTROLLER_GET_ACTUAL_PERIOD	1538	1602	38	1	51	generated	
+19	Const	PWM_IOCTL_ID_CONTROLLER_GET_INFO	1603	1658	39	1	52	generated	
+20	Const	PWM_IOCTL_ID_CONTROLLER_SET_DESIRED_PERIOD	1659	1724	40	1	53	generated	
+21	Const	PWM_IOCTL_ID_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE	1725	1799	41	1	54	generated	
+22	Const	PWM_IOCTL_ID_PIN_GET_POLARITY	1800	1854	42	1	55	generated	
+23	Const	PWM_IOCTL_ID_PIN_IS_STARTED	1855	1907	43	1	56	generated	
+24	Const	PWM_IOCTL_ID_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE	1908	1982	44	1	57	generated	
+25	Const	PWM_IOCTL_ID_PIN_SET_POLARITY	1983	2037	45	1	58	generated	
+26	Const	PWM_IOCTL_ID_PIN_START	2038	2085	46	1	59	generated	
+27	Const	PWM_IOCTL_ID_PIN_STOP	2086	2132	47	1	60	generated	
+28	Struct	PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT	2133	2263	48	1	61	unsupported	declaration Struct has no candidate rule
+29	Struct	PWM_PIN_GET_POLARITY_OUTPUT	2264	2381	53	1	68	unsupported	declaration Struct has no candidate rule
+30	Struct	PWM_PIN_IS_STARTED_OUTPUT	2382	2490	58	1	75	unsupported	declaration Struct has no candidate rule
+31	Struct	PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT	2491	2620	63	1	82	unsupported	declaration Struct has no candidate rule
+32	Struct	PWM_PIN_SET_POLARITY_INPUT	2621	2737	68	1	89	unsupported	declaration Struct has no candidate rule
+33	ItemType	PWM_POLARITY	2738	2766	73	1	96	generated	

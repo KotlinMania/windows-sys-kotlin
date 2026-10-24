@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/UI/Shell/PropertiesSystem/mod: 207 generated; 81 unsupported

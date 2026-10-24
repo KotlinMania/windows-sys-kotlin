@@ -1,0 +1,929 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	198	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		199	312	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		313	536	3	1	8	unsupported	declaration Macro has no candidate rule
+3	Macro		537	729	4	1	11	unsupported	declaration Macro has no candidate rule
+4	Macro		730	927	5	1	14	unsupported	declaration Macro has no candidate rule
+5	Macro		928	1125	6	1	17	unsupported	declaration Macro has no candidate rule
+6	Macro		1126	1335	7	1	20	unsupported	declaration Macro has no candidate rule
+7	Macro		1336	1601	8	1	23	unsupported	declaration Macro has no candidate rule
+8	Macro		1602	1848	9	1	26	unsupported	declaration Macro has no candidate rule
+9	Macro		1849	1915	10	1	29	unsupported	declaration Macro has no candidate rule
+10	Macro		1916	2010	11	1	32	unsupported	declaration Macro has no candidate rule
+11	Macro		2011	2187	12	1	35	unsupported	declaration Macro has no candidate rule
+12	Macro		2188	2369	13	1	38	unsupported	declaration Macro has no candidate rule
+13	Macro		2370	2529	14	1	41	unsupported	declaration Macro has no candidate rule
+14	Macro		2530	2694	15	1	44	unsupported	declaration Macro has no candidate rule
+15	Macro		2695	2859	16	1	47	unsupported	declaration Macro has no candidate rule
+16	Macro		2860	3026	17	1	50	unsupported	declaration Macro has no candidate rule
+17	Macro		3027	3285	18	1	53	unsupported	declaration Macro has no candidate rule
+18	Macro		3286	3544	19	1	56	unsupported	declaration Macro has no candidate rule
+19	Macro		3545	3721	20	1	59	unsupported	declaration Macro has no candidate rule
+20	Macro		3722	3915	21	1	62	unsupported	declaration Macro has no candidate rule
+21	Macro		3916	4097	22	1	65	unsupported	declaration Macro has no candidate rule
+22	Macro		4098	4259	23	1	68	unsupported	declaration Macro has no candidate rule
+23	Macro		4260	4441	24	1	71	unsupported	declaration Macro has no candidate rule
+24	Macro		4442	4625	25	1	74	unsupported	declaration Macro has no candidate rule
+25	Macro		4626	4785	26	1	77	unsupported	declaration Macro has no candidate rule
+26	Macro		4786	4950	27	1	80	unsupported	declaration Macro has no candidate rule
+27	Macro		4951	5115	28	1	83	unsupported	declaration Macro has no candidate rule
+28	Macro		5116	5342	29	1	86	unsupported	declaration Macro has no candidate rule
+29	Macro		5343	5510	30	1	89	unsupported	declaration Macro has no candidate rule
+30	Macro		5511	5694	31	1	92	unsupported	declaration Macro has no candidate rule
+31	Macro		5695	5862	32	1	95	unsupported	declaration Macro has no candidate rule
+32	Macro		5863	5927	33	1	98	unsupported	declaration Macro has no candidate rule
+33	Macro		5928	5996	34	1	101	unsupported	declaration Macro has no candidate rule
+34	Macro		5997	6275	35	1	104	unsupported	declaration Macro has no candidate rule
+35	Macro		6276	6559	36	1	107	unsupported	declaration Macro has no candidate rule
+36	Macro		6560	6875	37	1	110	unsupported	declaration Macro has no candidate rule
+37	Macro		6876	7188	38	1	113	unsupported	declaration Macro has no candidate rule
+38	Macro		7189	7593	39	1	116	unsupported	declaration Macro has no candidate rule
+39	Macro		7594	7999	40	1	119	unsupported	declaration Macro has no candidate rule
+40	Macro		8000	8253	41	1	122	unsupported	declaration Macro has no candidate rule
+41	Macro		8254	8601	42	1	125	unsupported	declaration Macro has no candidate rule
+42	Macro		8602	8949	43	1	128	unsupported	declaration Macro has no candidate rule
+43	Macro		8950	9179	44	1	131	unsupported	declaration Macro has no candidate rule
+44	Macro		9180	9468	45	1	134	unsupported	declaration Macro has no candidate rule
+45	Macro		9469	9787	46	1	137	unsupported	declaration Macro has no candidate rule
+46	Macro		9788	10081	47	1	140	unsupported	declaration Macro has no candidate rule
+47	Macro		10082	10375	48	1	143	unsupported	declaration Macro has no candidate rule
+48	Macro		10376	10697	49	1	146	unsupported	declaration Macro has no candidate rule
+49	Macro		10698	10991	50	1	149	unsupported	declaration Macro has no candidate rule
+50	Macro		10992	11340	51	1	152	unsupported	declaration Macro has no candidate rule
+51	Macro		11341	11694	52	1	155	unsupported	declaration Macro has no candidate rule
+52	Macro		11695	12048	53	1	158	unsupported	declaration Macro has no candidate rule
+53	Macro		12049	12419	54	1	161	unsupported	declaration Macro has no candidate rule
+54	Macro		12420	12672	55	1	164	unsupported	declaration Macro has no candidate rule
+55	Macro		12673	12929	56	1	167	unsupported	declaration Macro has no candidate rule
+56	Macro		12930	13150	57	1	170	unsupported	declaration Macro has no candidate rule
+57	Macro		13151	13374	58	1	173	unsupported	declaration Macro has no candidate rule
+58	Macro		13375	13549	59	1	176	unsupported	declaration Macro has no candidate rule
+59	Macro		13550	13726	60	1	179	unsupported	declaration Macro has no candidate rule
+60	Macro		13727	13956	61	1	182	unsupported	declaration Macro has no candidate rule
+61	Macro		13957	14154	62	1	185	unsupported	declaration Macro has no candidate rule
+62	Macro		14155	14357	63	1	188	unsupported	declaration Macro has no candidate rule
+63	Macro		14358	14563	64	1	191	unsupported	declaration Macro has no candidate rule
+64	Macro		14564	14766	65	1	194	unsupported	declaration Macro has no candidate rule
+65	Macro		14767	14979	66	1	197	unsupported	declaration Macro has no candidate rule
+66	Macro		14980	15145	67	1	200	unsupported	declaration Macro has no candidate rule
+67	Macro		15146	15296	68	1	203	unsupported	declaration Macro has no candidate rule
+68	Macro		15297	15452	69	1	206	unsupported	declaration Macro has no candidate rule
+69	Macro		15453	15608	70	1	209	unsupported	declaration Macro has no candidate rule
+70	Macro		15609	15779	71	1	212	unsupported	declaration Macro has no candidate rule
+71	Macro		15780	16044	72	1	215	unsupported	declaration Macro has no candidate rule
+72	Macro		16045	16309	73	1	218	unsupported	declaration Macro has no candidate rule
+73	Macro		16310	16531	74	1	221	unsupported	declaration Macro has no candidate rule
+74	Macro		16532	16845	75	1	224	unsupported	declaration Macro has no candidate rule
+75	Macro		16846	17160	76	1	227	unsupported	declaration Macro has no candidate rule
+76	Macro		17161	17309	77	1	230	unsupported	declaration Macro has no candidate rule
+77	Macro		17310	17502	78	1	233	unsupported	declaration Macro has no candidate rule
+78	Macro		17503	17699	79	1	236	unsupported	declaration Macro has no candidate rule
+79	Macro		17700	17893	80	1	239	unsupported	declaration Macro has no candidate rule
+80	Macro		17894	18075	81	1	242	unsupported	declaration Macro has no candidate rule
+81	Macro		18076	18256	82	1	245	unsupported	declaration Macro has no candidate rule
+82	Macro		18257	18456	83	1	248	unsupported	declaration Macro has no candidate rule
+83	Macro		18457	18642	84	1	251	unsupported	declaration Macro has no candidate rule
+84	Macro		18643	18819	85	1	254	unsupported	declaration Macro has no candidate rule
+85	Macro		18820	18950	86	1	257	unsupported	declaration Macro has no candidate rule
+86	Macro		18951	19116	87	1	260	unsupported	declaration Macro has no candidate rule
+87	Macro		19117	19447	88	1	263	unsupported	declaration Macro has no candidate rule
+88	Macro		19448	19626	89	1	266	unsupported	declaration Macro has no candidate rule
+89	Macro		19627	19764	90	1	269	unsupported	declaration Macro has no candidate rule
+90	Macro		19765	20105	91	1	272	unsupported	declaration Macro has no candidate rule
+91	Macro		20106	20451	92	1	275	unsupported	declaration Macro has no candidate rule
+92	Macro		20452	20645	93	1	278	unsupported	declaration Macro has no candidate rule
+93	Macro		20646	20752	94	1	281	unsupported	declaration Macro has no candidate rule
+94	Macro		20753	20875	95	1	284	unsupported	declaration Macro has no candidate rule
+95	Macro		20876	20972	96	1	287	unsupported	declaration Macro has no candidate rule
+96	Macro		20973	21085	97	1	290	unsupported	declaration Macro has no candidate rule
+97	Macro		21086	21189	98	1	293	unsupported	declaration Macro has no candidate rule
+98	Macro		21190	21309	99	1	296	unsupported	declaration Macro has no candidate rule
+99	Macro		21310	21441	100	1	299	unsupported	declaration Macro has no candidate rule
+100	Macro		21442	21551	101	1	302	unsupported	declaration Macro has no candidate rule
+101	Macro		21552	21686	102	1	305	unsupported	declaration Macro has no candidate rule
+102	Macro		21687	21828	103	1	308	unsupported	declaration Macro has no candidate rule
+103	Macro		21829	21937	104	1	311	unsupported	declaration Macro has no candidate rule
+104	Macro		21938	22114	105	1	314	unsupported	declaration Macro has no candidate rule
+105	Macro		22115	22296	106	1	317	unsupported	declaration Macro has no candidate rule
+106	Macro		22297	22565	107	1	320	unsupported	declaration Macro has no candidate rule
+107	Macro		22566	22650	108	1	323	unsupported	declaration Macro has no candidate rule
+108	Macro		22651	22784	109	1	326	unsupported	declaration Macro has no candidate rule
+109	Macro		22785	23012	110	1	329	unsupported	declaration Macro has no candidate rule
+110	Macro		23013	23240	111	1	332	unsupported	declaration Macro has no candidate rule
+111	Macro		23241	23422	112	1	335	unsupported	declaration Macro has no candidate rule
+112	Macro		23423	23696	113	1	338	unsupported	declaration Macro has no candidate rule
+113	Macro		23697	23971	114	1	341	unsupported	declaration Macro has no candidate rule
+114	Macro		23972	24199	115	1	344	unsupported	declaration Macro has no candidate rule
+115	Macro		24200	24432	116	1	347	unsupported	declaration Macro has no candidate rule
+116	Macro		24433	24665	117	1	350	unsupported	declaration Macro has no candidate rule
+117	Macro		24666	24910	118	1	353	unsupported	declaration Macro has no candidate rule
+118	Macro		24911	25256	119	1	356	unsupported	declaration Macro has no candidate rule
+119	Macro		25257	25363	120	1	359	unsupported	declaration Macro has no candidate rule
+120	Macro		25364	25554	121	1	362	unsupported	declaration Macro has no candidate rule
+121	Macro		25555	25678	122	1	365	unsupported	declaration Macro has no candidate rule
+122	Macro		25679	25838	123	1	368	unsupported	declaration Macro has no candidate rule
+123	Macro		25839	26007	124	1	371	unsupported	declaration Macro has no candidate rule
+124	Macro		26008	26181	125	1	374	unsupported	declaration Macro has no candidate rule
+125	Macro		26182	26397	126	1	377	unsupported	declaration Macro has no candidate rule
+126	Macro		26398	26571	127	1	380	unsupported	declaration Macro has no candidate rule
+127	Macro		26572	26769	128	1	383	unsupported	declaration Macro has no candidate rule
+128	Macro		26770	27003	129	1	386	unsupported	declaration Macro has no candidate rule
+129	Macro		27004	27241	130	1	389	unsupported	declaration Macro has no candidate rule
+130	Macro		27242	27385	131	1	392	unsupported	declaration Macro has no candidate rule
+131	Macro		27386	27546	132	1	395	unsupported	declaration Macro has no candidate rule
+132	Macro		27547	27729	133	1	398	unsupported	declaration Macro has no candidate rule
+133	Macro		27730	27917	134	1	401	unsupported	declaration Macro has no candidate rule
+134	Macro		27918	28147	135	1	404	unsupported	declaration Macro has no candidate rule
+135	Macro		28148	28335	136	1	407	unsupported	declaration Macro has no candidate rule
+136	Macro		28336	28574	137	1	410	unsupported	declaration Macro has no candidate rule
+137	Macro		28575	28815	138	1	413	unsupported	declaration Macro has no candidate rule
+138	Macro		28816	28972	139	1	416	unsupported	declaration Macro has no candidate rule
+139	Macro		28973	29134	140	1	419	unsupported	declaration Macro has no candidate rule
+140	Macro		29135	29296	141	1	422	unsupported	declaration Macro has no candidate rule
+141	Macro		29297	29458	142	1	425	unsupported	declaration Macro has no candidate rule
+142	Macro		29459	29626	143	1	428	unsupported	declaration Macro has no candidate rule
+143	Macro		29627	29794	144	1	431	unsupported	declaration Macro has no candidate rule
+144	Macro		29795	30054	145	1	434	unsupported	declaration Macro has no candidate rule
+145	Macro		30055	30314	146	1	437	unsupported	declaration Macro has no candidate rule
+146	Macro		30315	30532	147	1	440	unsupported	declaration Macro has no candidate rule
+147	Macro		30533	30840	148	1	443	unsupported	declaration Macro has no candidate rule
+148	Macro		30841	31149	149	1	446	unsupported	declaration Macro has no candidate rule
+149	Macro		31150	31360	150	1	449	unsupported	declaration Macro has no candidate rule
+150	Macro		31361	31661	151	1	452	unsupported	declaration Macro has no candidate rule
+151	Macro		31662	31848	152	1	455	unsupported	declaration Macro has no candidate rule
+152	Macro		31849	32039	153	1	458	unsupported	declaration Macro has no candidate rule
+153	Macro		32040	32216	154	1	461	unsupported	declaration Macro has no candidate rule
+154	Macro		32217	32394	155	1	464	unsupported	declaration Macro has no candidate rule
+155	Macro		32395	32589	156	1	467	unsupported	declaration Macro has no candidate rule
+156	Macro		32590	32772	157	1	470	unsupported	declaration Macro has no candidate rule
+157	Macro		32773	33000	158	1	473	unsupported	declaration Macro has no candidate rule
+158	Macro		33001	33125	159	1	476	unsupported	declaration Macro has no candidate rule
+159	Macro		33126	33336	160	1	479	unsupported	declaration Macro has no candidate rule
+160	Macro		33337	33549	161	1	482	unsupported	declaration Macro has no candidate rule
+161	Macro		33550	33714	162	1	485	unsupported	declaration Macro has no candidate rule
+162	Macro		33715	33881	163	1	488	unsupported	declaration Macro has no candidate rule
+163	Macro		33882	34031	164	1	491	unsupported	declaration Macro has no candidate rule
+164	Macro		34032	34187	165	1	494	unsupported	declaration Macro has no candidate rule
+165	Macro		34188	34409	166	1	497	unsupported	declaration Macro has no candidate rule
+166	Macro		34410	34731	167	1	500	unsupported	declaration Macro has no candidate rule
+167	Macro		34732	35057	168	1	503	unsupported	declaration Macro has no candidate rule
+168	Macro		35058	35351	169	1	506	unsupported	declaration Macro has no candidate rule
+169	Macro		35352	35647	170	1	509	unsupported	declaration Macro has no candidate rule
+170	Macro		35648	35955	171	1	512	unsupported	declaration Macro has no candidate rule
+171	Macro		35956	36144	172	1	515	unsupported	declaration Macro has no candidate rule
+172	Macro		36145	36329	173	1	518	unsupported	declaration Macro has no candidate rule
+173	Macro		36330	36510	174	1	521	unsupported	declaration Macro has no candidate rule
+174	Macro		36511	36704	175	1	524	unsupported	declaration Macro has no candidate rule
+175	Macro		36705	37004	176	1	527	unsupported	declaration Macro has no candidate rule
+176	Macro		37005	37177	177	1	530	unsupported	declaration Macro has no candidate rule
+177	Macro		37178	37396	178	1	533	unsupported	declaration Macro has no candidate rule
+178	Macro		37397	37628	179	1	536	unsupported	declaration Macro has no candidate rule
+179	Macro		37629	37833	180	1	539	unsupported	declaration Macro has no candidate rule
+180	Macro		37834	38027	181	1	542	unsupported	declaration Macro has no candidate rule
+181	Macro		38028	38207	182	1	545	unsupported	declaration Macro has no candidate rule
+182	Macro		38208	38402	183	1	548	unsupported	declaration Macro has no candidate rule
+183	Macro		38403	38581	184	1	551	unsupported	declaration Macro has no candidate rule
+184	Macro		38582	38807	185	1	554	unsupported	declaration Macro has no candidate rule
+185	Macro		38808	39010	186	1	557	unsupported	declaration Macro has no candidate rule
+186	Macro		39011	39215	187	1	560	unsupported	declaration Macro has no candidate rule
+187	Macro		39216	39442	188	1	563	unsupported	declaration Macro has no candidate rule
+188	Macro		39443	39757	189	1	566	unsupported	declaration Macro has no candidate rule
+189	Macro		39758	40008	190	1	569	unsupported	declaration Macro has no candidate rule
+190	Macro		40009	40263	191	1	572	unsupported	declaration Macro has no candidate rule
+191	Macro		40264	40495	192	1	575	unsupported	declaration Macro has no candidate rule
+192	Macro		40496	40770	193	1	578	unsupported	declaration Macro has no candidate rule
+193	Macro		40771	40986	194	1	581	unsupported	declaration Macro has no candidate rule
+194	Macro		40987	41295	195	1	584	unsupported	declaration Macro has no candidate rule
+195	Macro		41296	41597	196	1	587	unsupported	declaration Macro has no candidate rule
+196	Macro		41598	41867	197	1	590	unsupported	declaration Macro has no candidate rule
+197	Macro		41868	42091	198	1	593	unsupported	declaration Macro has no candidate rule
+198	Macro		42092	42365	199	1	596	unsupported	declaration Macro has no candidate rule
+199	Macro		42366	42530	200	1	599	unsupported	declaration Macro has no candidate rule
+200	Macro		42531	42801	201	1	602	unsupported	declaration Macro has no candidate rule
+201	Macro		42802	42982	202	1	605	unsupported	declaration Macro has no candidate rule
+202	Macro		42983	43232	203	1	608	unsupported	declaration Macro has no candidate rule
+203	Macro		43233	43500	204	1	611	unsupported	declaration Macro has no candidate rule
+204	Macro		43501	43570	205	1	614	unsupported	declaration Macro has no candidate rule
+205	Macro		43571	43661	206	1	617	unsupported	declaration Macro has no candidate rule
+206	Macro		43662	43861	207	1	620	unsupported	declaration Macro has no candidate rule
+207	Macro		43862	44115	208	1	623	unsupported	declaration Macro has no candidate rule
+208	Macro		44116	44419	209	1	626	unsupported	declaration Macro has no candidate rule
+209	Macro		44420	44652	210	1	629	unsupported	declaration Macro has no candidate rule
+210	Const	ADDRESS_TYPE_IANA	44653	44693	211	1	632	generated	
+211	Const	ADDRESS_TYPE_IATA	44694	44734	212	1	633	generated	
+212	Const	Allow	44735	44781	213	1	634	generated	
+213	Const	CHANGESTATE	44782	44816	214	1	635	generated	
+214	Const	CLIENT_TYPE_BOOTP	44817	44857	215	1	636	generated	
+215	Const	CLIENT_TYPE_DHCP	44858	44897	216	1	637	generated	
+216	Const	CLIENT_TYPE_NONE	44898	44939	217	1	638	generated	
+217	Const	CLIENT_TYPE_RESERVATION_FLAG	44940	44991	218	1	639	generated	
+218	Const	CLIENT_TYPE_UNSPECIFIED	44992	45038	219	1	640	generated	
+219	Const	COMMUNICATION_INT	45039	45085	220	1	641	generated	
+220	Const	CONFLICT_DONE	45086	45128	221	1	642	generated	
+221	Struct	DATE_TIME	45129	45253	222	1	643	unsupported	declaration Struct has no candidate rule
+222	Const	DEFAULTQUARSETTING	45254	45308	228	1	651	generated	
+223	Struct	DHCPAPI_PARAMS	45309	45506	229	1	652	unsupported	declaration Struct has no candidate rule
+224	Impl		45507	45614	238	1	663	unsupported	declaration Impl has no candidate rule
+225	Struct	DHCPCAPI_CLASSID	45615	45748	243	1	670	unsupported	declaration Struct has no candidate rule
+226	Impl		45749	45858	250	1	679	unsupported	declaration Impl has no candidate rule
+227	Const	DHCPCAPI_DEREGISTER_HANDLE_EVENT	45859	45914	255	1	686	generated	
+228	Struct	DHCPCAPI_PARAMS_ARRAY	45915	46044	256	1	687	unsupported	declaration Struct has no candidate rule
+229	Impl		46045	46159	262	1	695	unsupported	declaration Impl has no candidate rule
+230	Const	DHCPCAPI_REGISTER_HANDLE_EVENT	46160	46213	267	1	702	generated	
+231	Const	DHCPCAPI_REQUEST_ASYNCHRONOUS	46214	46266	268	1	703	generated	
+232	Const	DHCPCAPI_REQUEST_CANCEL	46267	46313	269	1	704	generated	
+233	Const	DHCPCAPI_REQUEST_MASK	46314	46359	270	1	705	generated	
+234	Const	DHCPCAPI_REQUEST_PERSISTENT	46360	46410	271	1	706	generated	
+235	Const	DHCPCAPI_REQUEST_SYNCHRONOUS	46411	46462	272	1	707	generated	
+236	Struct	DHCPDS_SERVER	46463	46731	273	1	708	unsupported	declaration Struct has no candidate rule
+237	Impl		46732	46838	284	1	721	unsupported	declaration Impl has no candidate rule
+238	Struct	DHCPDS_SERVERS	46839	46985	289	1	728	unsupported	declaration Struct has no candidate rule
+239	Impl		46986	47093	296	1	737	unsupported	declaration Impl has no candidate rule
+240	Struct	DHCPV4_FAILOVER_CLIENT_INFO	47094	47876	301	1	744	unsupported	declaration Struct has no candidate rule
+241	Impl		47877	47997	326	1	771	unsupported	declaration Impl has no candidate rule
+242	Struct	DHCPV4_FAILOVER_CLIENT_INFO_ARRAY	47998	48162	331	1	778	unsupported	declaration Struct has no candidate rule
+243	Impl		48163	48289	337	1	786	unsupported	declaration Impl has no candidate rule
+244	Struct	DHCPV4_FAILOVER_CLIENT_INFO_EX	48290	49104	342	1	793	unsupported	declaration Struct has no candidate rule
+245	Impl		49105	49228	368	1	821	unsupported	declaration Impl has no candidate rule
+246	Struct	DHCPV6CAPI_CLASSID	49229	49364	373	1	828	unsupported	declaration Struct has no candidate rule
+247	Impl		49365	49476	380	1	837	unsupported	declaration Impl has no candidate rule
+248	Struct	DHCPV6CAPI_PARAMS	49477	49677	385	1	844	unsupported	declaration Struct has no candidate rule
+249	Impl		49678	49788	394	1	855	unsupported	declaration Impl has no candidate rule
+250	Struct	DHCPV6CAPI_PARAMS_ARRAY	49789	49923	399	1	862	unsupported	declaration Struct has no candidate rule
+251	Impl		49924	50040	405	1	870	unsupported	declaration Impl has no candidate rule
+252	Struct	DHCPV6Prefix	50041	50243	410	1	877	unsupported	declaration Struct has no candidate rule
+253	Impl		50244	50349	419	1	888	unsupported	declaration Impl has no candidate rule
+254	Struct	DHCPV6PrefixLeaseInformation	50350	50692	424	1	895	unsupported	declaration Struct has no candidate rule
+255	Impl		50693	50814	438	1	911	unsupported	declaration Impl has no candidate rule
+256	Struct	DHCPV6_BIND_ELEMENT	50815	51176	443	1	918	unsupported	declaration Struct has no candidate rule
+257	Impl		51177	51289	455	1	932	unsupported	declaration Impl has no candidate rule
+258	Struct	DHCPV6_BIND_ELEMENT_ARRAY	51290	51434	460	1	939	unsupported	declaration Struct has no candidate rule
+259	Impl		51435	51553	466	1	947	unsupported	declaration Impl has no candidate rule
+260	Struct	DHCPV6_IP_ARRAY	51554	51686	471	1	954	unsupported	declaration Struct has no candidate rule
+261	Impl		51687	51795	477	1	962	unsupported	declaration Impl has no candidate rule
+262	Const	DHCPV6_OPTION_CLIENTID	51796	51841	482	1	969	generated	
+263	Const	DHCPV6_OPTION_DNS_SERVERS	51842	51891	483	1	970	generated	
+264	Const	DHCPV6_OPTION_DOMAIN_LIST	51892	51941	484	1	971	generated	
+265	Const	DHCPV6_OPTION_IA_NA	51942	51984	485	1	972	generated	
+266	Const	DHCPV6_OPTION_IA_PD	51985	52028	486	1	973	generated	
+267	Const	DHCPV6_OPTION_IA_TA	52029	52071	487	1	974	generated	
+268	Const	DHCPV6_OPTION_NISP_DOMAIN_NAME	52072	52126	488	1	975	generated	
+269	Const	DHCPV6_OPTION_NISP_SERVERS	52127	52177	489	1	976	generated	
+270	Const	DHCPV6_OPTION_NIS_DOMAIN_NAME	52178	52231	490	1	977	generated	
+271	Const	DHCPV6_OPTION_NIS_SERVERS	52232	52281	491	1	978	generated	
+272	Const	DHCPV6_OPTION_ORO	52282	52322	492	1	979	generated	
+273	Const	DHCPV6_OPTION_PREFERENCE	52323	52370	493	1	980	generated	
+274	Const	DHCPV6_OPTION_RAPID_COMMIT	52371	52421	494	1	981	generated	
+275	Const	DHCPV6_OPTION_RECONF_MSG	52422	52470	495	1	982	generated	
+276	Const	DHCPV6_OPTION_SERVERID	52471	52516	496	1	983	generated	
+277	Const	DHCPV6_OPTION_SIP_SERVERS_ADDRS	52517	52572	497	1	984	generated	
+278	Const	DHCPV6_OPTION_SIP_SERVERS_NAMES	52573	52628	498	1	985	generated	
+279	Const	DHCPV6_OPTION_UNICAST	52629	52674	499	1	986	generated	
+280	Const	DHCPV6_OPTION_USER_CLASS	52675	52723	500	1	987	generated	
+281	Const	DHCPV6_OPTION_VENDOR_CLASS	52724	52774	501	1	988	generated	
+282	Const	DHCPV6_OPTION_VENDOR_OPTS	52775	52824	502	1	989	generated	
+283	Struct	DHCPV6_STATELESS_PARAMS	52825	52975	503	1	990	unsupported	declaration Struct has no candidate rule
+284	ItemType	DHCPV6_STATELESS_PARAM_TYPE	52976	53019	509	1	998	generated	
+285	Struct	DHCPV6_STATELESS_SCOPE_STATS	53020	53228	510	1	999	unsupported	declaration Struct has no candidate rule
+286	Struct	DHCPV6_STATELESS_STATS	53229	53379	517	1	1008	unsupported	declaration Struct has no candidate rule
+287	Impl		53380	53495	523	1	1016	unsupported	declaration Impl has no candidate rule
+288	Struct	DHCP_ADDR_PATTERN	53496	53721	528	1	1023	unsupported	declaration Struct has no candidate rule
+289	Impl		53722	53832	537	1	1034	unsupported	declaration Impl has no candidate rule
+290	Struct	DHCP_ALL_OPTIONS	53833	54047	542	1	1041	unsupported	declaration Struct has no candidate rule
+291	Impl		54048	54157	550	1	1051	unsupported	declaration Impl has no candidate rule
+292	Struct	DHCP_ALL_OPTIONS_0	54158	54345	555	1	1058	unsupported	declaration Struct has no candidate rule
+293	Impl		54346	54457	562	1	1067	unsupported	declaration Impl has no candidate rule
+294	Struct	DHCP_ALL_OPTION_VALUES	54458	54623	567	1	1074	unsupported	declaration Struct has no candidate rule
+295	Impl		54624	54739	574	1	1083	unsupported	declaration Impl has no candidate rule
+296	Struct	DHCP_ALL_OPTION_VALUES_0	54740	54999	579	1	1090	unsupported	declaration Struct has no candidate rule
+297	Impl		55000	55117	587	1	1100	unsupported	declaration Impl has no candidate rule
+298	Struct	DHCP_ALL_OPTION_VALUES_PB	55118	55289	592	1	1107	unsupported	declaration Struct has no candidate rule
+299	Impl		55290	55408	599	1	1116	unsupported	declaration Impl has no candidate rule
+300	Struct	DHCP_ALL_OPTION_VALUES_PB_0	55409	55672	604	1	1123	unsupported	declaration Struct has no candidate rule
+301	Impl		55673	55793	612	1	1133	unsupported	declaration Impl has no candidate rule
+302	Struct	DHCP_ATTRIB	55794	55944	617	1	1140	unsupported	declaration Struct has no candidate rule
+303	Impl		55945	56049	624	1	1149	unsupported	declaration Impl has no candidate rule
+304	Union		56050	56190	629	1	1156	unsupported	declaration Union has no candidate rule
+305	Impl		56191	56297	635	1	1164	unsupported	declaration Impl has no candidate rule
+306	Struct	DHCP_ATTRIB_ARRAY	56298	56429	640	1	1171	unsupported	declaration Struct has no candidate rule
+307	Impl		56430	56540	646	1	1179	unsupported	declaration Impl has no candidate rule
+308	Const	DHCP_ATTRIB_BOOL_IS_ADMIN	56541	56589	651	1	1186	generated	
+309	Const	DHCP_ATTRIB_BOOL_IS_BINDING_AWARE	56590	56646	652	1	1187	generated	
+310	Const	DHCP_ATTRIB_BOOL_IS_DYNBOOTP	56647	56698	653	1	1188	generated	
+311	Const	DHCP_ATTRIB_BOOL_IS_PART_OF_DSDC	56699	56754	654	1	1189	generated	
+312	Const	DHCP_ATTRIB_BOOL_IS_ROGUE	56755	56803	655	1	1190	generated	
+313	Const	DHCP_ATTRIB_TYPE_BOOL	56804	56848	656	1	1191	generated	
+314	Const	DHCP_ATTRIB_TYPE_ULONG	56849	56894	657	1	1192	generated	
+315	Const	DHCP_ATTRIB_ULONG_RESTORE_STATUS	56895	56950	658	1	1193	generated	
+316	Struct	DHCP_BINARY_DATA	56951	57064	659	1	1194	unsupported	declaration Struct has no candidate rule
+317	Impl		57065	57174	665	1	1202	unsupported	declaration Impl has no candidate rule
+318	Struct	DHCP_BIND_ELEMENT	57175	57480	670	1	1209	unsupported	declaration Struct has no candidate rule
+319	Impl		57481	57591	681	1	1222	unsupported	declaration Impl has no candidate rule
+320	Struct	DHCP_BIND_ELEMENT_ARRAY	57592	57732	686	1	1229	unsupported	declaration Struct has no candidate rule
+321	Impl		57733	57849	692	1	1237	unsupported	declaration Impl has no candidate rule
+322	Struct	DHCP_BOOTP_IP_RANGE	57850	58038	697	1	1244	unsupported	declaration Struct has no candidate rule
+323	Const	DHCP_CALLOUT_ENTRY_POINT	58039	58150	705	1	1254	unsupported	non-scalar type Ptr unsupported
+324	Const	DHCP_CALLOUT_LIST_KEY	58151	58297	706	1	1257	unsupported	non-scalar type Ptr unsupported
+325	Const	DHCP_CALLOUT_LIST_VALUE	58298	58398	707	1	1260	unsupported	non-scalar type Ptr unsupported
+326	Struct	DHCP_CALLOUT_TABLE	58399	58931	708	1	1263	unsupported	declaration Struct has no candidate rule
+327	Impl		58932	59043	722	1	1279	unsupported	declaration Impl has no candidate rule
+328	Struct	DHCP_CLASS_INFO	59044	59322	727	1	1286	unsupported	declaration Struct has no candidate rule
+329	Impl		59323	59431	737	1	1298	unsupported	declaration Impl has no candidate rule
+330	Struct	DHCP_CLASS_INFO_ARRAY	59432	59567	742	1	1305	unsupported	declaration Struct has no candidate rule
+331	Impl		59568	59682	748	1	1313	unsupported	declaration Impl has no candidate rule
+332	Struct	DHCP_CLASS_INFO_ARRAY_V6	59683	59824	753	1	1320	unsupported	declaration Struct has no candidate rule
+333	Impl		59825	59942	759	1	1328	unsupported	declaration Impl has no candidate rule
+334	Struct	DHCP_CLASS_INFO_V6	59943	60255	764	1	1335	unsupported	declaration Struct has no candidate rule
+335	Impl		60256	60367	775	1	1348	unsupported	declaration Impl has no candidate rule
+336	Const	DHCP_CLIENT_BOOTP	60368	60416	780	1	1355	generated	
+337	Const	DHCP_CLIENT_DHCP	60417	60464	781	1	1356	generated	
+338	Struct	DHCP_CLIENT_FILTER_STATUS_INFO	60465	61015	782	1	1357	unsupported	declaration Struct has no candidate rule
+339	Impl		61016	61139	799	1	1376	unsupported	declaration Impl has no candidate rule
+340	Struct	DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY	61140	61310	804	1	1383	unsupported	declaration Struct has no candidate rule
+341	Impl		61311	61440	810	1	1391	unsupported	declaration Impl has no candidate rule
+342	Struct	DHCP_CLIENT_INFO	61441	61779	815	1	1398	unsupported	declaration Struct has no candidate rule
+343	Impl		61780	61889	826	1	1411	unsupported	declaration Impl has no candidate rule
+344	Struct	DHCP_CLIENT_INFO_ARRAY	61890	62032	831	1	1418	unsupported	declaration Struct has no candidate rule
+345	Impl		62033	62148	837	1	1426	unsupported	declaration Impl has no candidate rule
+346	Struct	DHCP_CLIENT_INFO_ARRAY_V4	62149	62297	842	1	1433	unsupported	declaration Struct has no candidate rule
+347	Impl		62298	62416	848	1	1441	unsupported	declaration Impl has no candidate rule
+348	Struct	DHCP_CLIENT_INFO_ARRAY_V5	62417	62565	853	1	1448	unsupported	declaration Struct has no candidate rule
+349	Impl		62566	62684	859	1	1456	unsupported	declaration Impl has no candidate rule
+350	Struct	DHCP_CLIENT_INFO_ARRAY_V6	62685	62833	864	1	1463	unsupported	declaration Struct has no candidate rule
+351	Impl		62834	62952	870	1	1471	unsupported	declaration Impl has no candidate rule
+352	Struct	DHCP_CLIENT_INFO_ARRAY_VQ	62953	63101	875	1	1478	unsupported	declaration Struct has no candidate rule
+353	Impl		63102	63220	881	1	1486	unsupported	declaration Impl has no candidate rule
+354	Struct	DHCP_CLIENT_INFO_EX	63221	63852	886	1	1493	unsupported	declaration Struct has no candidate rule
+355	Impl		63853	63965	905	1	1514	unsupported	declaration Impl has no candidate rule
+356	Struct	DHCP_CLIENT_INFO_EX_ARRAY	63966	64114	910	1	1521	unsupported	declaration Struct has no candidate rule
+357	Impl		64115	64233	916	1	1529	unsupported	declaration Impl has no candidate rule
+358	Struct	DHCP_CLIENT_INFO_PB	64234	64819	921	1	1536	unsupported	declaration Struct has no candidate rule
+359	Impl		64820	64932	939	1	1556	unsupported	declaration Impl has no candidate rule
+360	Struct	DHCP_CLIENT_INFO_PB_ARRAY	64933	65081	944	1	1563	unsupported	declaration Struct has no candidate rule
+361	Impl		65082	65200	950	1	1571	unsupported	declaration Impl has no candidate rule
+362	Struct	DHCP_CLIENT_INFO_V4	65201	65567	955	1	1578	unsupported	declaration Struct has no candidate rule
+363	Impl		65568	65680	967	1	1592	unsupported	declaration Impl has no candidate rule
+364	Struct	DHCP_CLIENT_INFO_V5	65681	66073	972	1	1599	unsupported	declaration Struct has no candidate rule
+365	Impl		66074	66186	985	1	1614	unsupported	declaration Impl has no candidate rule
+366	Struct	DHCP_CLIENT_INFO_V6	66187	66602	990	1	1621	unsupported	declaration Struct has no candidate rule
+367	Impl		66603	66715	1003	1	1636	unsupported	declaration Impl has no candidate rule
+368	Struct	DHCP_CLIENT_INFO_VQ	66716	67228	1008	1	1643	unsupported	declaration Struct has no candidate rule
+369	Impl		67229	67341	1024	1	1661	unsupported	declaration Impl has no candidate rule
+370	Const	DHCP_CONTROL_CONTINUE	67342	67386	1029	1	1668	generated	
+371	Const	DHCP_CONTROL_PAUSE	67387	67428	1030	1	1669	generated	
+372	Const	DHCP_CONTROL_START	67429	67470	1031	1	1670	generated	
+373	Const	DHCP_CONTROL_STOP	67471	67511	1032	1	1671	generated	
+374	Const	DHCP_DROP_DUPLICATE	67512	67554	1033	1	1672	generated	
+375	Const	DHCP_DROP_GEN_FAILURE	67555	67601	1034	1	1673	generated	
+376	Const	DHCP_DROP_INTERNAL_ERROR	67602	67649	1035	1	1674	generated	
+377	Const	DHCP_DROP_INVALID	67650	67690	1036	1	1675	generated	
+378	Const	DHCP_DROP_NOADDRESS	67691	67734	1037	1	1676	generated	
+379	Const	DHCP_DROP_NOMEM	67735	67773	1038	1	1677	generated	
+380	Const	DHCP_DROP_NO_SUBNETS	67774	67817	1039	1	1678	generated	
+381	Const	DHCP_DROP_PAUSED	67818	67857	1040	1	1679	generated	
+382	Const	DHCP_DROP_PROCESSED	67858	67901	1041	1	1680	generated	
+383	Const	DHCP_DROP_TIMEOUT	67902	67942	1042	1	1681	generated	
+384	Const	DHCP_DROP_UNAUTH	67943	67982	1043	1	1682	generated	
+385	Const	DHCP_DROP_WRONG_SERVER	67983	68028	1044	1	1683	generated	
+386	Const	DHCP_ENDPOINT_FLAG_CANT_MODIFY	68029	68082	1045	1	1684	generated	
+387	Const	DHCP_FAILOVER_DELETE_SCOPES	68083	68133	1046	1	1685	generated	
+388	Const	DHCP_FAILOVER_MAX_NUM_ADD_SCOPES	68134	68191	1047	1	1686	generated	
+389	Const	DHCP_FAILOVER_MAX_NUM_REL	68192	68241	1048	1	1687	generated	
+390	ItemType	DHCP_FAILOVER_MODE	68242	68276	1049	1	1688	generated	
+391	Struct	DHCP_FAILOVER_RELATIONSHIP	68277	68855	1050	1	1689	unsupported	declaration Struct has no candidate rule
+392	Impl		68856	68975	1068	1	1709	unsupported	declaration Impl has no candidate rule
+393	Struct	DHCP_FAILOVER_RELATIONSHIP_ARRAY	68976	69140	1073	1	1716	unsupported	declaration Struct has no candidate rule
+394	Impl		69141	69266	1079	1	1724	unsupported	declaration Impl has no candidate rule
+395	ItemType	DHCP_FAILOVER_SERVER	69267	69303	1084	1	1731	generated	
+396	Struct	DHCP_FAILOVER_STATISTICS	69304	69571	1085	1	1732	unsupported	declaration Struct has no candidate rule
+397	Struct	DHCP_FILTER_ADD_INFO	69572	69762	1096	1	1745	unsupported	declaration Struct has no candidate rule
+398	Impl		69763	69876	1103	1	1754	unsupported	declaration Impl has no candidate rule
+399	Struct	DHCP_FILTER_ENUM_INFO	69877	70020	1108	1	1761	unsupported	declaration Struct has no candidate rule
+400	Impl		70021	70135	1114	1	1769	unsupported	declaration Impl has no candidate rule
+401	Struct	DHCP_FILTER_GLOBAL_INFO	70136	70318	1119	1	1776	unsupported	declaration Struct has no candidate rule
+402	ItemType	DHCP_FILTER_LIST_TYPE	70319	70356	1125	1	1784	generated	
+403	Struct	DHCP_FILTER_RECORD	70357	70504	1126	1	1785	unsupported	declaration Struct has no candidate rule
+404	Impl		70505	70616	1132	1	1793	unsupported	declaration Impl has no candidate rule
+405	Const	DHCP_FLAGS_DONT_ACCESS_DS	70617	70665	1137	1	1800	generated	
+406	Const	DHCP_FLAGS_DONT_DO_RPC	70666	70711	1138	1	1801	generated	
+407	Const	DHCP_FLAGS_OPTION_IS_VENDOR	70712	70762	1139	1	1802	generated	
+408	ItemType	DHCP_FORCE_FLAG	70763	70794	1140	1	1803	generated	
+409	Const	DHCP_GIVE_ADDRESS_NEW	70795	70847	1141	1	1804	generated	
+410	Const	DHCP_GIVE_ADDRESS_OLD	70848	70900	1142	1	1805	generated	
+411	Struct	DHCP_HOST_INFO	70901	71079	1143	1	1806	unsupported	declaration Struct has no candidate rule
+412	Impl		71080	71187	1150	1	1815	unsupported	declaration Impl has no candidate rule
+413	Struct	DHCP_HOST_INFO_V6	71188	71383	1155	1	1822	unsupported	declaration Struct has no candidate rule
+414	Impl		71384	71494	1162	1	1831	unsupported	declaration Impl has no candidate rule
+415	Struct	DHCP_IPV6_ADDRESS	71495	71625	1167	1	1838	unsupported	declaration Struct has no candidate rule
+416	Struct	DHCP_IP_ARRAY	71626	71742	1173	1	1846	unsupported	declaration Struct has no candidate rule
+417	Impl		71743	71849	1179	1	1854	unsupported	declaration Impl has no candidate rule
+418	Struct	DHCP_IP_CLUSTER	71850	71978	1184	1	1861	unsupported	declaration Struct has no candidate rule
+419	Struct	DHCP_IP_RANGE	71979	72102	1190	1	1869	unsupported	declaration Struct has no candidate rule
+420	Struct	DHCP_IP_RANGE_ARRAY	72103	72235	1196	1	1877	unsupported	declaration Struct has no candidate rule
+421	Impl		72236	72348	1202	1	1885	unsupported	declaration Impl has no candidate rule
+422	Struct	DHCP_IP_RANGE_V6	72349	72503	1207	1	1892	unsupported	declaration Struct has no candidate rule
+423	Struct	DHCP_IP_RESERVATION	72504	72654	1213	1	1900	unsupported	declaration Struct has no candidate rule
+424	Impl		72655	72767	1219	1	1908	unsupported	declaration Impl has no candidate rule
+425	Struct	DHCP_IP_RESERVATION_INFO	72768	73088	1224	1	1915	unsupported	declaration Struct has no candidate rule
+426	Impl		73089	73206	1234	1	1927	unsupported	declaration Impl has no candidate rule
+427	Struct	DHCP_IP_RESERVATION_V4	73207	73393	1239	1	1934	unsupported	declaration Struct has no candidate rule
+428	Impl		73394	73509	1246	1	1943	unsupported	declaration Impl has no candidate rule
+429	Struct	DHCP_IP_RESERVATION_V6	73510	73703	1251	1	1950	unsupported	declaration Struct has no candidate rule
+430	Impl		73704	73819	1258	1	1959	unsupported	declaration Impl has no candidate rule
+431	Const	DHCP_MAX_DELAY	73820	73860	1263	1	1966	generated	
+432	Struct	DHCP_MIB_INFO	73861	74172	1264	1	1967	unsupported	declaration Struct has no candidate rule
+433	Impl		74173	74279	1278	1	1983	unsupported	declaration Impl has no candidate rule
+434	Struct	DHCP_MIB_INFO_V5	74280	74872	1283	1	1990	unsupported	declaration Struct has no candidate rule
+435	Impl		74873	74982	1306	1	2015	unsupported	declaration Impl has no candidate rule
+436	Struct	DHCP_MIB_INFO_V6	74983	75375	1311	1	2022	unsupported	declaration Struct has no candidate rule
+437	Impl		75376	75485	1328	1	2041	unsupported	declaration Impl has no candidate rule
+438	Struct	DHCP_MIB_INFO_VQ	75486	76012	1333	1	2048	unsupported	declaration Struct has no candidate rule
+439	Impl		76013	76122	1354	1	2071	unsupported	declaration Impl has no candidate rule
+440	Const	DHCP_MIN_DELAY	76123	76160	1359	1	2078	generated	
+441	Struct	DHCP_OPTION	76161	76417	1360	1	2079	unsupported	declaration Struct has no candidate rule
+442	Impl		76418	76522	1369	1	2090	unsupported	declaration Impl has no candidate rule
+443	Struct	DHCP_OPTION_ARRAY	76523	76650	1374	1	2097	unsupported	declaration Struct has no candidate rule
+444	Impl		76651	76761	1380	1	2105	unsupported	declaration Impl has no candidate rule
+445	Struct	DHCP_OPTION_DATA	76762	76902	1385	1	2112	unsupported	declaration Struct has no candidate rule
+446	Impl		76903	77012	1391	1	2120	unsupported	declaration Impl has no candidate rule
+447	Struct	DHCP_OPTION_DATA_ELEMENT	77013	77174	1396	1	2127	unsupported	declaration Struct has no candidate rule
+448	Impl		77175	77292	1402	1	2135	unsupported	declaration Impl has no candidate rule
+449	Union		77293	77714	1407	1	2142	unsupported	declaration Union has no candidate rule
+450	Impl		77715	77834	1420	1	2157	unsupported	declaration Impl has no candidate rule
+451	ItemType	DHCP_OPTION_DATA_TYPE	77835	77872	1425	1	2164	generated	
+452	Struct	DHCP_OPTION_LIST	77873	78004	1426	1	2165	unsupported	declaration Struct has no candidate rule
+453	Impl		78005	78114	1432	1	2173	unsupported	declaration Impl has no candidate rule
+454	Struct	DHCP_OPTION_SCOPE_INFO	78115	78274	1437	1	2180	unsupported	declaration Struct has no candidate rule
+455	Impl		78275	78390	1443	1	2188	unsupported	declaration Impl has no candidate rule
+456	Union		78391	78686	1448	1	2195	unsupported	declaration Union has no candidate rule
+457	Impl		78687	78804	1457	1	2206	unsupported	declaration Impl has no candidate rule
+458	Struct	DHCP_OPTION_SCOPE_INFO6	78805	78967	1462	1	2213	unsupported	declaration Struct has no candidate rule
+459	Impl		78968	79084	1468	1	2221	unsupported	declaration Impl has no candidate rule
+460	Union		79085	79301	1473	1	2228	unsupported	declaration Union has no candidate rule
+461	Impl		79302	79420	1480	1	2237	unsupported	declaration Impl has no candidate rule
+462	ItemType	DHCP_OPTION_SCOPE_TYPE	79421	79459	1485	1	2244	generated	
+463	ItemType	DHCP_OPTION_SCOPE_TYPE6	79460	79499	1486	1	2245	generated	
+464	ItemType	DHCP_OPTION_TYPE	79500	79532	1487	1	2246	generated	
+465	Struct	DHCP_OPTION_VALUE	79533	79664	1488	1	2247	unsupported	declaration Struct has no candidate rule
+466	Struct	DHCP_OPTION_VALUE_ARRAY	79665	79803	1494	1	2255	unsupported	declaration Struct has no candidate rule
+467	Impl		79804	79920	1500	1	2263	unsupported	declaration Impl has no candidate rule
+468	Const	DHCP_OPT_ENUM_IGNORE_VENDOR	79921	79971	1505	1	2270	generated	
+469	Const	DHCP_OPT_ENUM_USE_CLASSNAME	79972	80022	1506	1	2271	generated	
+470	Struct	DHCP_PERF_STATS	80023	80796	1507	1	2272	unsupported	declaration Struct has no candidate rule
+471	Struct	DHCP_POLICY	80797	81227	1530	1	2297	unsupported	declaration Struct has no candidate rule
+472	Impl		81228	81332	1543	1	2312	unsupported	declaration Impl has no candidate rule
+473	Struct	DHCP_POLICY_ARRAY	81333	81461	1548	1	2319	unsupported	declaration Struct has no candidate rule
+474	Impl		81462	81572	1554	1	2327	unsupported	declaration Impl has no candidate rule
+475	Struct	DHCP_POLICY_EX	81573	82052	1559	1	2334	unsupported	declaration Struct has no candidate rule
+476	Impl		82053	82160	1573	1	2350	unsupported	declaration Impl has no candidate rule
+477	Struct	DHCP_POLICY_EX_ARRAY	82161	82295	1578	1	2357	unsupported	declaration Struct has no candidate rule
+478	Impl		82296	82409	1584	1	2365	unsupported	declaration Impl has no candidate rule
+479	ItemType	DHCP_POLICY_FIELDS_TO_UPDATE	82410	82454	1589	1	2372	generated	
+480	ItemType	DHCP_POL_ATTR_TYPE	82455	82489	1590	1	2373	generated	
+481	ItemType	DHCP_POL_COMPARATOR	82490	82525	1591	1	2374	generated	
+482	Struct	DHCP_POL_COND	82526	82831	1592	1	2375	unsupported	declaration Struct has no candidate rule
+483	Impl		82832	82938	1604	1	2389	unsupported	declaration Impl has no candidate rule
+484	Struct	DHCP_POL_COND_ARRAY	82939	83071	1609	1	2396	unsupported	declaration Struct has no candidate rule
+485	Impl		83072	83184	1615	1	2404	unsupported	declaration Impl has no candidate rule
+486	Struct	DHCP_POL_EXPR	83185	83320	1620	1	2411	unsupported	declaration Struct has no candidate rule
+487	Struct	DHCP_POL_EXPR_ARRAY	83321	83453	1626	1	2419	unsupported	declaration Struct has no candidate rule
+488	Impl		83454	83566	1632	1	2427	unsupported	declaration Impl has no candidate rule
+489	ItemType	DHCP_POL_LOGIC_OPER	83567	83602	1637	1	2434	generated	
+490	Const	DHCP_PROB_CONFLICT	83603	83652	1638	1	2435	generated	
+491	Const	DHCP_PROB_DECLINE	83653	83701	1639	1	2436	generated	
+492	Const	DHCP_PROB_NACKED	83702	83749	1640	1	2437	generated	
+493	Const	DHCP_PROB_RELEASE	83750	83798	1641	1	2438	generated	
+494	Struct	DHCP_PROPERTY	83799	83957	1642	1	2439	unsupported	declaration Struct has no candidate rule
+495	Impl		83958	84064	1649	1	2448	unsupported	declaration Impl has no candidate rule
+496	Union		84065	84286	1654	1	2455	unsupported	declaration Union has no candidate rule
+497	Impl		84287	84395	1663	1	2466	unsupported	declaration Impl has no candidate rule
+498	Struct	DHCP_PROPERTY_ARRAY	84396	84528	1668	1	2473	unsupported	declaration Struct has no candidate rule
+499	Impl		84529	84641	1674	1	2481	unsupported	declaration Impl has no candidate rule
+500	ItemType	DHCP_PROPERTY_ID	84642	84674	1679	1	2488	generated	
+501	ItemType	DHCP_PROPERTY_TYPE	84675	84709	1680	1	2489	generated	
+502	Struct	DHCP_RESERVATION_INFO_ARRAY	84710	84866	1681	1	2490	unsupported	declaration Struct has no candidate rule
+503	Impl		84867	84987	1687	1	2498	unsupported	declaration Impl has no candidate rule
+504	Struct	DHCP_RESERVED_SCOPE	84988	85135	1692	1	2505	unsupported	declaration Struct has no candidate rule
+505	Struct	DHCP_RESERVED_SCOPE6	85136	85312	1698	1	2513	unsupported	declaration Struct has no candidate rule
+506	ItemType	DHCP_SCAN_FLAG	85313	85343	1704	1	2521	generated	
+507	Struct	DHCP_SCAN_ITEM	85344	85474	1705	1	2522	unsupported	declaration Struct has no candidate rule
+508	Struct	DHCP_SCAN_LIST	85475	85605	1711	1	2530	unsupported	declaration Struct has no candidate rule
+509	Impl		85606	85713	1717	1	2538	unsupported	declaration Impl has no candidate rule
+510	Struct	DHCP_SEARCH_INFO	85714	85862	1722	1	2545	unsupported	declaration Struct has no candidate rule
+511	Impl		85863	85972	1728	1	2553	unsupported	declaration Impl has no candidate rule
+512	Union		85973	86164	1733	1	2560	unsupported	declaration Union has no candidate rule
+513	Impl		86165	86276	1740	1	2569	unsupported	declaration Impl has no candidate rule
+514	ItemType	DHCP_SEARCH_INFO_TYPE	86277	86314	1745	1	2576	generated	
+515	ItemType	DHCP_SEARCH_INFO_TYPE_V6	86315	86355	1746	1	2577	generated	
+516	Struct	DHCP_SEARCH_INFO_V6	86356	86513	1747	1	2578	unsupported	declaration Struct has no candidate rule
+517	Impl		86514	86626	1753	1	2586	unsupported	declaration Impl has no candidate rule
+518	Union		86627	86824	1758	1	2593	unsupported	declaration Union has no candidate rule
+519	Impl		86825	86939	1765	1	2602	unsupported	declaration Impl has no candidate rule
+520	Const	DHCP_SEND_PACKET	86940	86987	1770	1	2609	generated	
+521	Struct	DHCP_SERVER_CONFIG_INFO	86988	87386	1771	1	2610	unsupported	declaration Struct has no candidate rule
+522	Impl		87387	87503	1784	1	2625	unsupported	declaration Impl has no candidate rule
+523	Struct	DHCP_SERVER_CONFIG_INFO_V4	87504	88063	1789	1	2632	unsupported	declaration Struct has no candidate rule
+524	Impl		88064	88183	1806	1	2651	unsupported	declaration Impl has no candidate rule
+525	Struct	DHCP_SERVER_CONFIG_INFO_V6	88184	88570	1811	1	2658	unsupported	declaration Struct has no candidate rule
+526	Struct	DHCP_SERVER_CONFIG_INFO_VQ	88571	89255	1824	1	2673	unsupported	declaration Struct has no candidate rule
+527	Impl		89256	89375	1844	1	2695	unsupported	declaration Impl has no candidate rule
+528	Struct	DHCP_SERVER_OPTIONS	89376	90311	1849	1	2702	unsupported	declaration Struct has no candidate rule
+529	Impl		90312	90424	1878	1	2733	unsupported	declaration Impl has no candidate rule
+530	Struct	DHCP_SERVER_SPECIFIC_STRINGS	90425	90616	1883	1	2740	unsupported	declaration Struct has no candidate rule
+531	Impl		90617	90738	1889	1	2748	unsupported	declaration Impl has no candidate rule
+532	Struct	DHCP_SUBNET_ELEMENT_DATA	90739	90904	1894	1	2755	unsupported	declaration Struct has no candidate rule
+533	Impl		90905	91022	1900	1	2763	unsupported	declaration Impl has no candidate rule
+534	Union		91023	91313	1905	1	2770	unsupported	declaration Union has no candidate rule
+535	Impl		91314	91433	1914	1	2781	unsupported	declaration Impl has no candidate rule
+536	Struct	DHCP_SUBNET_ELEMENT_DATA_V4	91434	91605	1919	1	2788	unsupported	declaration Struct has no candidate rule
+537	Impl		91606	91726	1925	1	2796	unsupported	declaration Impl has no candidate rule
+538	Union		91727	92023	1930	1	2803	unsupported	declaration Union has no candidate rule
+539	Impl		92024	92146	1939	1	2814	unsupported	declaration Impl has no candidate rule
+540	Struct	DHCP_SUBNET_ELEMENT_DATA_V5	92147	92318	1944	1	2821	unsupported	declaration Struct has no candidate rule
+541	Impl		92319	92439	1950	1	2829	unsupported	declaration Impl has no candidate rule
+542	Union		92440	92742	1955	1	2836	unsupported	declaration Union has no candidate rule
+543	Impl		92743	92865	1964	1	2847	unsupported	declaration Impl has no candidate rule
+544	Struct	DHCP_SUBNET_ELEMENT_DATA_V6	92866	93040	1969	1	2854	unsupported	declaration Struct has no candidate rule
+545	Impl		93041	93161	1975	1	2862	unsupported	declaration Impl has no candidate rule
+546	Union		93162	93375	1980	1	2869	unsupported	declaration Union has no candidate rule
+547	Impl		93376	93498	1987	1	2878	unsupported	declaration Impl has no candidate rule
+548	Struct	DHCP_SUBNET_ELEMENT_INFO_ARRAY	93499	93653	1992	1	2885	unsupported	declaration Struct has no candidate rule
+549	Impl		93654	93777	1998	1	2893	unsupported	declaration Impl has no candidate rule
+550	Struct	DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4	93778	93938	2003	1	2900	unsupported	declaration Struct has no candidate rule
+551	Impl		93939	94065	2009	1	2908	unsupported	declaration Impl has no candidate rule
+552	Struct	DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5	94066	94226	2014	1	2915	unsupported	declaration Struct has no candidate rule
+553	Impl		94227	94353	2020	1	2923	unsupported	declaration Impl has no candidate rule
+554	Struct	DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6	94354	94514	2025	1	2930	unsupported	declaration Struct has no candidate rule
+555	Impl		94515	94641	2031	1	2938	unsupported	declaration Impl has no candidate rule
+556	ItemType	DHCP_SUBNET_ELEMENT_TYPE	94642	94682	2036	1	2945	generated	
+557	ItemType	DHCP_SUBNET_ELEMENT_TYPE_V6	94683	94726	2037	1	2946	generated	
+558	Struct	DHCP_SUBNET_INFO	94727	95017	2038	1	2947	unsupported	declaration Struct has no candidate rule
+559	Impl		95018	95127	2048	1	2959	unsupported	declaration Impl has no candidate rule
+560	Struct	DHCP_SUBNET_INFO_V6	95128	95421	2053	1	2966	unsupported	declaration Struct has no candidate rule
+561	Impl		95422	95534	2064	1	2979	unsupported	declaration Impl has no candidate rule
+562	Struct	DHCP_SUBNET_INFO_VQ	95535	95951	2069	1	2986	unsupported	declaration Struct has no candidate rule
+563	Impl		95952	96064	2084	1	3003	unsupported	declaration Impl has no candidate rule
+564	Const	DHCP_SUBNET_INFO_VQ_FLAG_QUARANTINE	96065	96123	2089	1	3010	generated	
+565	ItemType	DHCP_SUBNET_STATE	96124	96157	2090	1	3011	generated	
+566	Struct	DHCP_SUPER_SCOPE_TABLE	96158	96305	2091	1	3012	unsupported	declaration Struct has no candidate rule
+567	Impl		96306	96421	2097	1	3020	unsupported	declaration Impl has no candidate rule
+568	Struct	DHCP_SUPER_SCOPE_TABLE_ENTRY	96422	96639	2102	1	3027	unsupported	declaration Struct has no candidate rule
+569	Impl		96640	96761	2110	1	3037	unsupported	declaration Impl has no candidate rule
+570	Const	DNS_FLAG_CLEANUP_EXPIRED	96762	96809	2115	1	3044	generated	
+571	Const	DNS_FLAG_DISABLE_PTR_UPDATE	96810	96861	2116	1	3045	generated	
+572	Const	DNS_FLAG_ENABLED	96862	96901	2117	1	3046	generated	
+573	Const	DNS_FLAG_HAS_DNS_SUFFIX	96902	96950	2118	1	3047	generated	
+574	Const	DNS_FLAG_UPDATE_BOTH_ALWAYS	96951	97002	2119	1	3048	generated	
+575	Const	DNS_FLAG_UPDATE_DHCID	97003	97048	2120	1	3049	generated	
+576	Const	DNS_FLAG_UPDATE_DOWNLEVEL	97049	97097	2121	1	3050	generated	
+577	Const	DROPPACKET	97098	97144	2122	1	3051	generated	
+578	Struct	DWORD_DWORD	97145	97256	2123	1	3052	unsupported	declaration Struct has no candidate rule
+579	Const	Deny	97257	97302	2129	1	3060	generated	
+580	Const	DhcpArrayTypeOption	97303	97358	2130	1	3061	generated	
+581	Const	DhcpAttrFqdn	97359	97409	2131	1	3062	generated	
+582	Const	DhcpAttrFqdnSingleLabel	97410	97471	2132	1	3063	generated	
+583	Const	DhcpAttrHWAddr	97472	97524	2133	1	3064	generated	
+584	Const	DhcpAttrOption	97525	97577	2134	1	3065	generated	
+585	Const	DhcpAttrSubOption	97578	97633	2135	1	3066	generated	
+586	Const	DhcpBinaryDataOption	97634	97695	2136	1	3067	generated	
+587	Const	DhcpByteOption	97696	97751	2137	1	3068	generated	
+588	Const	DhcpClientHardwareAddress	97752	97818	2138	1	3069	generated	
+589	Const	DhcpClientIpAddress	97819	97879	2139	1	3070	generated	
+590	Const	DhcpClientName	97880	97935	2140	1	3071	generated	
+591	Const	DhcpCompBeginsWith	97936	97993	2141	1	3072	generated	
+592	Const	DhcpCompEndsWith	97994	98049	2142	1	3073	generated	
+593	Const	DhcpCompEqual	98050	98102	2143	1	3074	generated	
+594	Const	DhcpCompNotBeginWith	98103	98162	2144	1	3075	generated	
+595	Const	DhcpCompNotEndWith	98163	98220	2145	1	3076	generated	
+596	Const	DhcpCompNotEqual	98221	98276	2146	1	3077	generated	
+597	Const	DhcpDWordDWordOption	98277	98338	2147	1	3078	generated	
+598	Const	DhcpDWordOption	98339	98395	2148	1	3079	generated	
+599	Const	DhcpDatabaseFix	98396	98445	2149	1	3080	generated	
+600	Const	DhcpDefaultOptions	98446	98506	2150	1	3081	generated	
+601	Const	DhcpDefaultOptions6	98507	98569	2151	1	3082	generated	
+602	Const	DhcpEncapsulatedDataOption	98570	98637	2152	1	3083	generated	
+603	Const	DhcpExcludedIpRanges	98638	98702	2153	1	3084	generated	
+604	Const	DhcpFailoverForce	98703	98755	2154	1	3085	generated	
+605	Const	DhcpFullForce	98756	98804	2155	1	3086	generated	
+606	Const	DhcpGlobalOptions	98805	98864	2156	1	3087	generated	
+607	Const	DhcpGlobalOptions6	98865	98926	2157	1	3088	generated	
+608	Const	DhcpIpAddressOption	98927	98987	2158	1	3089	generated	
+609	Const	DhcpIpRanges	98988	99044	2159	1	3090	generated	
+610	Const	DhcpIpRangesBootpOnly	99045	99110	2160	1	3091	generated	
+611	Const	DhcpIpRangesDhcpBootp	99111	99176	2161	1	3092	generated	
+612	Const	DhcpIpRangesDhcpOnly	99177	99241	2162	1	3093	generated	
+613	Const	DhcpIpUsedClusters	99242	99304	2163	1	3094	generated	
+614	Const	DhcpIpv6AddressOption	99305	99367	2164	1	3095	generated	
+615	Const	DhcpLogicalAnd	99368	99421	2165	1	3096	generated	
+616	Const	DhcpLogicalOr	99422	99474	2166	1	3097	generated	
+617	Const	DhcpMScopeOptions	99475	99534	2167	1	3098	generated	
+618	Const	DhcpNoForce	99535	99581	2168	1	3099	generated	
+619	Const	DhcpPropIdClientAddressStateEx	99582	99648	2169	1	3100	generated	
+620	Const	DhcpPropIdPolicyDnsSuffix	99649	99710	2170	1	3101	generated	
+621	Const	DhcpPropTypeBinary	99711	99767	2171	1	3102	generated	
+622	Const	DhcpPropTypeByte	99768	99822	2172	1	3103	generated	
+623	Const	DhcpPropTypeDword	99823	99878	2173	1	3104	generated	
+624	Const	DhcpPropTypeString	99879	99935	2174	1	3105	generated	
+625	Const	DhcpPropTypeWord	99936	99990	2175	1	3106	generated	
+626	Const	DhcpRegistryFix	99991	100040	2176	1	3107	generated	
+627	Const	DhcpReservedIps	100041	100100	2177	1	3108	generated	
+628	Const	DhcpReservedOptions	100101	100162	2178	1	3109	generated	
+629	Const	DhcpReservedOptions6	100163	100226	2179	1	3110	generated	
+630	Const	DhcpScopeOptions6	100227	100287	2180	1	3111	generated	
+631	Const	DhcpSecondaryHosts	100288	100350	2181	1	3112	generated	
+632	Const	DhcpStatelessPurgeInterval	100351	100424	2182	1	3113	generated	
+633	Const	DhcpStatelessStatus	100425	100491	2183	1	3114	generated	
+634	Const	DhcpStringDataOption	100492	100553	2184	1	3115	generated	
+635	Const	DhcpSubnetDisabled	100554	100609	2185	1	3116	generated	
+636	Const	DhcpSubnetDisabledSwitched	100610	100673	2186	1	3117	generated	
+637	Const	DhcpSubnetEnabled	100674	100728	2187	1	3118	generated	
+638	Const	DhcpSubnetEnabledSwitched	100729	100791	2188	1	3119	generated	
+639	Const	DhcpSubnetInvalidState	100792	100851	2189	1	3120	generated	
+640	Const	DhcpSubnetOptions	100852	100911	2190	1	3121	generated	
+641	Const	DhcpUnaryElementTypeOption	100912	100974	2191	1	3122	generated	
+642	Const	DhcpUpdatePolicyDescr	100975	101045	2192	1	3123	generated	
+643	Const	DhcpUpdatePolicyDnsSuffix	101046	101120	2193	1	3124	generated	
+644	Const	DhcpUpdatePolicyExpr	101121	101189	2194	1	3125	generated	
+645	Const	DhcpUpdatePolicyName	101190	101258	2195	1	3126	generated	
+646	Const	DhcpUpdatePolicyOrder	101259	101328	2196	1	3127	generated	
+647	Const	DhcpUpdatePolicyRanges	101329	101399	2197	1	3128	generated	
+648	Const	DhcpUpdatePolicyStatus	101400	101471	2198	1	3129	generated	
+649	Const	DhcpWordOption	101472	101527	2199	1	3130	generated	
+650	Const	Dhcpv6ClientDUID	101528	101588	2200	1	3131	generated	
+651	Const	Dhcpv6ClientIpAddress	101589	101654	2201	1	3132	generated	
+652	Const	Dhcpv6ClientName	101655	101715	2202	1	3133	generated	
+653	Const	Dhcpv6ExcludedIpRanges	101716	101785	2203	1	3134	generated	
+654	Const	Dhcpv6IpRanges	101786	101847	2204	1	3135	generated	
+655	Const	Dhcpv6ReservedIps	101848	101912	2205	1	3136	generated	
+656	Const	ERROR_DDS_CLASS_DOES_NOT_EXIST	101913	101970	2206	1	3137	generated	
+657	Const	ERROR_DDS_CLASS_EXISTS	101971	102020	2207	1	3138	generated	
+658	Const	ERROR_DDS_DHCP_SERVER_NOT_FOUND	102021	102079	2208	1	3139	generated	
+659	Const	ERROR_DDS_NO_DHCP_ROOT	102080	102129	2209	1	3140	generated	
+660	Const	ERROR_DDS_NO_DS_AVAILABLE	102130	102182	2210	1	3141	generated	
+661	Const	ERROR_DDS_OPTION_ALREADY_EXISTS	102183	102241	2211	1	3142	generated	
+662	Const	ERROR_DDS_OPTION_DOES_NOT_EXIST	102242	102300	2212	1	3143	generated	
+663	Const	ERROR_DDS_POSSIBLE_RANGE_CONFLICT	102301	102361	2213	1	3144	generated	
+664	Const	ERROR_DDS_RANGE_DOES_NOT_EXIST	102362	102419	2214	1	3145	generated	
+665	Const	ERROR_DDS_RESERVATION_CONFLICT	102420	102477	2215	1	3146	generated	
+666	Const	ERROR_DDS_RESERVATION_NOT_PRESENT	102478	102538	2216	1	3147	generated	
+667	Const	ERROR_DDS_SERVER_ADDRESS_MISMATCH	102539	102599	2217	1	3148	generated	
+668	Const	ERROR_DDS_SERVER_ALREADY_EXISTS	102600	102658	2218	1	3149	generated	
+669	Const	ERROR_DDS_SERVER_DOES_NOT_EXIST	102659	102717	2219	1	3150	generated	
+670	Const	ERROR_DDS_SUBNET_EXISTS	102718	102768	2220	1	3151	generated	
+671	Const	ERROR_DDS_SUBNET_HAS_DIFF_SSCOPE	102769	102828	2221	1	3152	generated	
+672	Const	ERROR_DDS_SUBNET_NOT_PRESENT	102829	102884	2222	1	3153	generated	
+673	Const	ERROR_DDS_TOO_MANY_ERRORS	102885	102937	2223	1	3154	generated	
+674	Const	ERROR_DDS_UNEXPECTED_ERROR	102938	102991	2224	1	3155	generated	
+675	Const	ERROR_DHCP_ADDRESS_NOT_AVAILABLE	102992	103051	2225	1	3156	generated	
+676	Const	ERROR_DHCP_CANNOT_MODIFY_BINDINGS	103052	103112	2226	1	3157	generated	
+677	Const	ERROR_DHCP_CANT_CHANGE_ATTRIBUTE	103113	103172	2227	1	3158	generated	
+678	Const	ERROR_DHCP_CLASS_ALREADY_EXISTS	103173	103231	2228	1	3159	generated	
+679	Const	ERROR_DHCP_CLASS_NOT_FOUND	103232	103285	2229	1	3160	generated	
+680	Const	ERROR_DHCP_CLIENT_EXISTS	103286	103337	2230	1	3161	generated	
+681	Const	ERROR_DHCP_DATABASE_INIT_FAILED	103338	103396	2231	1	3162	generated	
+682	Const	ERROR_DHCP_DEFAULT_SCOPE_EXITS	103397	103454	2232	1	3163	generated	
+683	Const	ERROR_DHCP_DELETE_BUILTIN_CLASS	103455	103513	2233	1	3164	generated	
+684	Const	ERROR_DHCP_ELEMENT_CANT_REMOVE	103514	103571	2234	1	3165	generated	
+685	Const	ERROR_DHCP_EXEMPTION_EXISTS	103572	103626	2235	1	3166	generated	
+686	Const	ERROR_DHCP_EXEMPTION_NOT_PRESENT	103627	103686	2236	1	3167	generated	
+687	Const	ERROR_DHCP_FO_ADDSCOPE_LEASES_NOT_SYNCED	103687	103754	2237	1	3168	generated	
+688	Const	ERROR_DHCP_FO_BOOT_NOT_SUPPORTED	103755	103814	2238	1	3169	generated	
+689	Const	ERROR_DHCP_FO_FEATURE_NOT_SUPPORTED	103815	103877	2239	1	3170	generated	
+690	Const	ERROR_DHCP_FO_IPRANGE_TYPE_CONV_ILLEGAL	103878	103944	2240	1	3171	generated	
+691	Const	ERROR_DHCP_FO_MAX_ADD_SCOPES	103945	104000	2241	1	3172	generated	
+692	Const	ERROR_DHCP_FO_MAX_RELATIONSHIPS	104001	104059	2242	1	3173	generated	
+693	Const	ERROR_DHCP_FO_NOT_SUPPORTED	104060	104114	2243	1	3174	generated	
+694	Const	ERROR_DHCP_FO_RANGE_PART_OF_REL	104115	104173	2244	1	3175	generated	
+695	Const	ERROR_DHCP_FO_RELATIONSHIP_DOES_NOT_EXIST	104174	104242	2245	1	3176	generated	
+696	Const	ERROR_DHCP_FO_RELATIONSHIP_EXISTS	104243	104303	2246	1	3177	generated	
+697	Const	ERROR_DHCP_FO_RELATIONSHIP_NAME_TOO_LONG	104304	104371	2247	1	3178	generated	
+698	Const	ERROR_DHCP_FO_RELATION_IS_SECONDARY	104372	104434	2248	1	3179	generated	
+699	Const	ERROR_DHCP_FO_SCOPE_ALREADY_IN_RELATIONSHIP	104435	104505	2249	1	3180	generated	
+700	Const	ERROR_DHCP_FO_SCOPE_NOT_IN_RELATIONSHIP	104506	104572	2250	1	3181	generated	
+701	Const	ERROR_DHCP_FO_SCOPE_SYNC_IN_PROGRESS	104573	104636	2251	1	3182	generated	
+702	Const	ERROR_DHCP_FO_STATE_NOT_NORMAL	104637	104694	2252	1	3183	generated	
+703	Const	ERROR_DHCP_FO_TIME_OUT_OF_SYNC	104695	104752	2253	1	3184	generated	
+704	Const	ERROR_DHCP_HARDWARE_ADDRESS_TYPE_ALREADY_EXEMPT	104753	104827	2254	1	3185	generated	
+705	Const	ERROR_DHCP_INVALID_DELAY	104828	104879	2255	1	3186	generated	
+706	Const	ERROR_DHCP_INVALID_DHCP_CLIENT	104880	104937	2256	1	3187	generated	
+707	Const	ERROR_DHCP_INVALID_DHCP_MESSAGE	104938	104996	2257	1	3188	generated	
+708	Const	ERROR_DHCP_INVALID_PARAMETER_OPTION32	104997	105061	2258	1	3189	generated	
+709	Const	ERROR_DHCP_INVALID_POLICY_EXPRESSION	105062	105125	2259	1	3190	generated	
+710	Const	ERROR_DHCP_INVALID_PROCESSING_ORDER	105126	105188	2260	1	3191	generated	
+711	Const	ERROR_DHCP_INVALID_RANGE	105189	105240	2261	1	3192	generated	
+712	Const	ERROR_DHCP_INVALID_SUBNET_PREFIX	105241	105300	2262	1	3193	generated	
+713	Const	ERROR_DHCP_IPRANGE_CONV_ILLEGAL	105301	105359	2263	1	3194	generated	
+714	Const	ERROR_DHCP_IPRANGE_EXITS	105360	105411	2264	1	3195	generated	
+715	Const	ERROR_DHCP_IP_ADDRESS_IN_USE	105412	105467	2265	1	3196	generated	
+716	Const	ERROR_DHCP_JET97_CONV_REQUIRED	105468	105525	2266	1	3197	generated	
+717	Const	ERROR_DHCP_JET_CONV_REQUIRED	105526	105581	2267	1	3198	generated	
+718	Const	ERROR_DHCP_JET_ERROR	105582	105629	2268	1	3199	generated	
+719	Const	ERROR_DHCP_LINKLAYER_ADDRESS_DOES_NOT_EXIST	105630	105700	2269	1	3200	generated	
+720	Const	ERROR_DHCP_LINKLAYER_ADDRESS_EXISTS	105701	105763	2270	1	3201	generated	
+721	Const	ERROR_DHCP_LINKLAYER_ADDRESS_RESERVATION_EXISTS	105764	105838	2271	1	3202	generated	
+722	Const	ERROR_DHCP_LOG_FILE_PATH_TOO_LONG	105839	105899	2272	1	3203	generated	
+723	Const	ERROR_DHCP_MSCOPE_EXISTS	105900	105951	2273	1	3204	generated	
+724	Const	ERROR_DHCP_NAP_NOT_SUPPORTED	105952	106007	2274	1	3205	generated	
+725	Const	ERROR_DHCP_NETWORK_CHANGED	106008	106061	2275	1	3206	generated	
+726	Const	ERROR_DHCP_NETWORK_INIT_FAILED	106062	106119	2276	1	3207	generated	
+727	Const	ERROR_DHCP_NOT_RESERVED_CLIENT	106120	106177	2277	1	3208	generated	
+728	Const	ERROR_DHCP_NO_ADMIN_PERMISSION	106178	106235	2278	1	3209	generated	
+729	Const	ERROR_DHCP_OPTION_EXITS	106236	106286	2279	1	3210	generated	
+730	Const	ERROR_DHCP_OPTION_NOT_PRESENT	106287	106343	2280	1	3211	generated	
+731	Const	ERROR_DHCP_OPTION_TYPE_MISMATCH	106344	106402	2281	1	3212	generated	
+732	Const	ERROR_DHCP_POLICY_BAD_PARENT_EXPR	106403	106463	2282	1	3213	generated	
+733	Const	ERROR_DHCP_POLICY_EDIT_FQDN_UNSUPPORTED	106464	106530	2283	1	3214	generated	
+734	Const	ERROR_DHCP_POLICY_EXISTS	106531	106582	2284	1	3215	generated	
+735	Const	ERROR_DHCP_POLICY_FQDN_OPTION_UNSUPPORTED	106583	106651	2285	1	3216	generated	
+736	Const	ERROR_DHCP_POLICY_FQDN_RANGE_UNSUPPORTED	106652	106719	2286	1	3217	generated	
+737	Const	ERROR_DHCP_POLICY_NOT_FOUND	106720	106774	2287	1	3218	generated	
+738	Const	ERROR_DHCP_POLICY_RANGE_BAD	106775	106829	2288	1	3219	generated	
+739	Const	ERROR_DHCP_POLICY_RANGE_EXISTS	106830	106887	2289	1	3220	generated	
+740	Const	ERROR_DHCP_PRIMARY_NOT_FOUND	106888	106943	2290	1	3221	generated	
+741	Const	ERROR_DHCP_RANGE_EXTENDED	106944	106996	2291	1	3222	generated	
+742	Const	ERROR_DHCP_RANGE_FULL	106997	107045	2292	1	3223	generated	
+743	Const	ERROR_DHCP_RANGE_INVALID_IN_SERVER_POLICY	107046	107114	2293	1	3224	generated	
+744	Const	ERROR_DHCP_RANGE_TOO_SMALL	107115	107168	2294	1	3225	generated	
+745	Const	ERROR_DHCP_REACHED_END_OF_SELECTION	107169	107231	2295	1	3226	generated	
+746	Const	ERROR_DHCP_REGISTRY_INIT_FAILED	107232	107290	2296	1	3227	generated	
+747	Const	ERROR_DHCP_RESERVEDIP_EXITS	107291	107345	2297	1	3228	generated	
+748	Const	ERROR_DHCP_RESERVED_CLIENT	107346	107399	2298	1	3229	generated	
+749	Const	ERROR_DHCP_ROGUE_DS_CONFLICT	107400	107455	2299	1	3230	generated	
+750	Const	ERROR_DHCP_ROGUE_DS_UNREACHABLE	107456	107514	2300	1	3231	generated	
+751	Const	ERROR_DHCP_ROGUE_INIT_FAILED	107515	107570	2301	1	3232	generated	
+752	Const	ERROR_DHCP_ROGUE_NOT_AUTHORIZED	107571	107629	2302	1	3233	generated	
+753	Const	ERROR_DHCP_ROGUE_NOT_OUR_ENTERPRISE	107630	107692	2303	1	3234	generated	
+754	Const	ERROR_DHCP_ROGUE_SAMSHUTDOWN	107693	107748	2304	1	3235	generated	
+755	Const	ERROR_DHCP_ROGUE_STANDALONE_IN_DS	107749	107809	2305	1	3236	generated	
+756	Const	ERROR_DHCP_RPC_INIT_FAILED	107810	107863	2306	1	3237	generated	
+757	Const	ERROR_DHCP_SCOPE_NAME_TOO_LONG	107864	107921	2307	1	3238	generated	
+758	Const	ERROR_DHCP_SERVER_NAME_NOT_RESOLVED	107922	107984	2308	1	3239	generated	
+759	Const	ERROR_DHCP_SERVER_NOT_REACHABLE	107985	108043	2309	1	3240	generated	
+760	Const	ERROR_DHCP_SERVER_NOT_RUNNING	108044	108100	2310	1	3241	generated	
+761	Const	ERROR_DHCP_SERVICE_PAUSED	108101	108153	2311	1	3242	generated	
+762	Const	ERROR_DHCP_SUBNET_EXISTS	108154	108205	2312	1	3243	generated	
+763	Const	ERROR_DHCP_SUBNET_EXITS	108206	108256	2313	1	3244	generated	
+764	Const	ERROR_DHCP_SUBNET_NOT_PRESENT	108257	108313	2314	1	3245	generated	
+765	Const	ERROR_DHCP_SUPER_SCOPE_NAME_TOO_LONG	108314	108377	2315	1	3246	generated	
+766	Const	ERROR_DHCP_UNDEFINED_HARDWARE_ADDRESS_TYPE	108378	108447	2316	1	3247	generated	
+767	Const	ERROR_DHCP_UNSUPPORTED_CLIENT	108448	108504	2317	1	3248	generated	
+768	Const	ERROR_EXTEND_TOO_SMALL	108505	108554	2318	1	3249	generated	
+769	Const	ERROR_LAST_DHCP_SERVER_ERROR	108555	108610	2319	1	3250	generated	
+770	Const	ERROR_MSCOPE_RANGE_TOO_SMALL	108611	108666	2320	1	3251	generated	
+771	Const	ERROR_SCOPE_RANGE_POLICY_RANGE_CONFLICT	108667	108733	2321	1	3252	generated	
+772	Const	ERROR_SERVER_INVALID_BOOT_FILE_TABLE	108734	108797	2322	1	3253	generated	
+773	Const	ERROR_SERVER_UNKNOWN_BOOT_FILE_NAME	108798	108860	2323	1	3254	generated	
+774	Const	EXEMPT	108861	108903	2324	1	3255	generated	
+775	Const	FILTER_STATUS_FULL_MATCH_IN_ALLOW_LIST	108904	108965	2325	1	3256	generated	
+776	Const	FILTER_STATUS_FULL_MATCH_IN_DENY_LIST	108966	109026	2326	1	3257	generated	
+777	Const	FILTER_STATUS_NONE	109027	109068	2327	1	3258	generated	
+778	Const	FILTER_STATUS_WILDCARD_MATCH_IN_ALLOW_LIST	109069	109134	2328	1	3259	generated	
+779	Const	FILTER_STATUS_WILDCARD_MATCH_IN_DENY_LIST	109135	109200	2329	1	3260	generated	
+780	ItemType	FSM_STATE	109201	109226	2330	1	3261	generated	
+781	Const	HWTYPE_ETHERNET_10MB	109227	109270	2331	1	3262	generated	
+782	Const	HotStandby	109271	109319	2332	1	3263	generated	
+783	Const	INIT	109320	109353	2333	1	3264	generated	
+784	ItemType	LPDHCP_CONTROL	109354	109477	2334	1	3265	unsupported	generic scalar type unsupported
+785	ItemType	LPDHCP_DELETE_CLIENT	109478	109641	2335	1	3268	unsupported	generic scalar type unsupported
+786	ItemType	LPDHCP_DROP_SEND	109642	109859	2336	1	3271	unsupported	generic scalar type unsupported
+787	ItemType	LPDHCP_ENTRY_POINT_FUNC	109860	110032	2337	1	3274	unsupported	generic scalar type unsupported
+788	ItemType	LPDHCP_GIVE_ADDRESS	110033	110291	2338	1	3277	unsupported	generic scalar type unsupported
+789	ItemType	LPDHCP_HANDLE_OPTIONS	110292	110511	2339	1	3280	unsupported	generic scalar type unsupported
+790	ItemType	LPDHCP_NEWPKT	110512	110754	2340	1	3283	unsupported	generic scalar type unsupported
+791	ItemType	LPDHCP_PROB	110755	110974	2341	1	3286	unsupported	generic scalar type unsupported
+792	Const	LoadBalance	110975	111024	2342	1	3289	generated	
+793	Const	MAC_ADDRESS_LENGTH	111025	111066	2343	1	3290	generated	
+794	Const	MAX_PATTERN_LENGTH	111067	111110	2344	1	3291	generated	
+795	Const	MCLT	111111	111138	2345	1	3292	generated	
+796	Const	MODE	111139	111167	2346	1	3293	generated	
+797	Const	NOQUARANTINE	111168	111216	2347	1	3294	generated	
+798	Const	NOQUARINFO	111217	111263	2348	1	3295	generated	
+799	Const	NORMAL	111264	111299	2349	1	3296	generated	
+800	Const	NO_STATE	111300	111337	2350	1	3297	generated	
+801	Const	OPTION_ALL_SUBNETS_MTU	111338	111384	2351	1	3298	generated	
+802	Const	OPTION_ARP_CACHE_TIMEOUT	111385	111433	2352	1	3299	generated	
+803	Const	OPTION_BE_A_MASK_SUPPLIER	111434	111483	2353	1	3300	generated	
+804	Const	OPTION_BE_A_ROUTER	111484	111526	2354	1	3301	generated	
+805	Const	OPTION_BOOTFILE_NAME	111527	111571	2355	1	3302	generated	
+806	Const	OPTION_BOOT_FILE_SIZE	111572	111617	2356	1	3303	generated	
+807	Const	OPTION_BROADCAST_ADDRESS	111618	111666	2357	1	3304	generated	
+808	Const	OPTION_CLIENT_CLASS_INFO	111667	111715	2358	1	3305	generated	
+809	Const	OPTION_CLIENT_ID	111716	111756	2359	1	3306	generated	
+810	Const	OPTION_COOKIE_SERVERS	111757	111801	2360	1	3307	generated	
+811	Const	OPTION_DEFAULT_TTL	111802	111844	2361	1	3308	generated	
+812	Const	OPTION_DOMAIN_NAME	111845	111887	2362	1	3309	generated	
+813	Const	OPTION_DOMAIN_NAME_SERVERS	111888	111937	2363	1	3310	generated	
+814	Const	OPTION_END	111938	111973	2364	1	3311	generated	
+815	Const	OPTION_ETHERNET_ENCAPSULATION	111974	112027	2365	1	3312	generated	
+816	Const	OPTION_EXTENSIONS_PATH	112028	112074	2366	1	3313	generated	
+817	Const	OPTION_HOST_NAME	112075	112115	2367	1	3314	generated	
+818	Const	OPTION_IEN116_NAME_SERVERS	112116	112165	2368	1	3315	generated	
+819	Const	OPTION_IMPRESS_SERVERS	112166	112212	2369	1	3316	generated	
+820	Const	OPTION_KEEP_ALIVE_DATA_SIZE	112213	112264	2370	1	3317	generated	
+821	Const	OPTION_KEEP_ALIVE_INTERVAL	112265	112315	2371	1	3318	generated	
+822	Const	OPTION_LEASE_TIME	112316	112357	2372	1	3319	generated	
+823	Const	OPTION_LOG_SERVERS	112358	112399	2373	1	3320	generated	
+824	Const	OPTION_LPR_SERVERS	112400	112441	2374	1	3321	generated	
+825	Const	OPTION_MAX_REASSEMBLY_SIZE	112442	112492	2375	1	3322	generated	
+826	Const	OPTION_MERIT_DUMP_FILE	112493	112539	2376	1	3323	generated	
+827	Const	OPTION_MESSAGE	112540	112578	2377	1	3324	generated	
+828	Const	OPTION_MESSAGE_LENGTH	112579	112624	2378	1	3325	generated	
+829	Const	OPTION_MESSAGE_TYPE	112625	112668	2379	1	3326	generated	
+830	Const	OPTION_MSFT_IE_PROXY	112669	112714	2380	1	3327	generated	
+831	Const	OPTION_MTU	112715	112749	2381	1	3328	generated	
+832	Const	OPTION_NETBIOS_DATAGRAM_SERVER	112750	112804	2382	1	3329	generated	
+833	Const	OPTION_NETBIOS_NAME_SERVER	112805	112855	2383	1	3330	generated	
+834	Const	OPTION_NETBIOS_NODE_TYPE	112856	112904	2384	1	3331	generated	
+835	Const	OPTION_NETBIOS_SCOPE_OPTION	112905	112956	2385	1	3332	generated	
+836	Const	OPTION_NETWORK_INFO_SERVERS	112957	113008	2386	1	3333	generated	
+837	Const	OPTION_NETWORK_INFO_SERVICE_DOM	113009	113064	2387	1	3334	generated	
+838	Const	OPTION_NETWORK_TIME_SERVERS	113065	113116	2388	1	3335	generated	
+839	Const	OPTION_NON_LOCAL_SOURCE_ROUTING	113117	113172	2389	1	3336	generated	
+840	Const	OPTION_OK_TO_OVERLAY	113173	113217	2390	1	3337	generated	
+841	Const	OPTION_PAD	113218	113251	2391	1	3338	generated	
+842	Const	OPTION_PARAMETER_REQUEST_LIST	113252	113305	2392	1	3339	generated	
+843	Const	OPTION_PERFORM_MASK_DISCOVERY	113306	113359	2393	1	3340	generated	
+844	Const	OPTION_PERFORM_ROUTER_DISCOVERY	113360	113415	2394	1	3341	generated	
+845	Const	OPTION_PMTU_AGING_TIMEOUT	113416	113465	2395	1	3342	generated	
+846	Const	OPTION_PMTU_PLATEAU_TABLE	113466	113515	2396	1	3343	generated	
+847	Const	OPTION_POLICY_FILTER_FOR_NLSR	113516	113569	2397	1	3344	generated	
+848	Const	OPTION_REBIND_TIME	113570	113612	2398	1	3345	generated	
+849	Const	OPTION_RENEWAL_TIME	113613	113656	2399	1	3346	generated	
+850	Const	OPTION_REQUESTED_ADDRESS	113657	113705	2400	1	3347	generated	
+851	Const	OPTION_RLP_SERVERS	113706	113748	2401	1	3348	generated	
+852	Const	OPTION_ROOT_DISK	113749	113789	2402	1	3349	generated	
+853	Const	OPTION_ROUTER_ADDRESS	113790	113834	2403	1	3350	generated	
+854	Const	OPTION_ROUTER_SOLICITATION_ADDR	113835	113890	2404	1	3351	generated	
+855	Const	OPTION_SERVER_IDENTIFIER	113891	113939	2405	1	3352	generated	
+856	Const	OPTION_STATIC_ROUTES	113940	113984	2406	1	3353	generated	
+857	Const	OPTION_SUBNET_MASK	113985	114026	2407	1	3354	generated	
+858	Const	OPTION_SWAP_SERVER	114027	114069	2408	1	3355	generated	
+859	Const	OPTION_TFTP_SERVER_NAME	114070	114117	2409	1	3356	generated	
+860	Const	OPTION_TIME_OFFSET	114118	114159	2410	1	3357	generated	
+861	Const	OPTION_TIME_SERVERS	114160	114202	2411	1	3358	generated	
+862	Const	OPTION_TRAILERS	114203	114242	2412	1	3359	generated	
+863	Const	OPTION_TTL	114243	114277	2413	1	3360	generated	
+864	Const	OPTION_VENDOR_SPEC_INFO	114278	114325	2414	1	3361	generated	
+865	Const	OPTION_XWINDOW_DISPLAY_MANAGER	114326	114380	2415	1	3362	generated	
+866	Const	OPTION_XWINDOW_FONT_SERVER	114381	114431	2416	1	3363	generated	
+867	Const	PARTNER_DOWN	114432	114473	2417	1	3364	generated	
+868	Const	PAUSED	114474	114510	2418	1	3365	generated	
+869	Const	PERCENTAGE	114511	114544	2419	1	3366	generated	
+870	Const	POTENTIAL_CONFLICT	114545	114592	2420	1	3367	generated	
+871	Const	PREVSTATE	114593	114626	2421	1	3368	generated	
+872	Const	PROBATION	114627	114672	2422	1	3369	generated	
+873	Const	PrimaryServer	114673	114726	2423	1	3370	generated	
+874	Const	QUARANTINE_CONFIG_OPTION	114727	114778	2424	1	3371	generated	
+875	Const	QUARANTINE_SCOPE_QUARPROFILE_OPTION	114779	114841	2425	1	3372	generated	
+876	Const	QUARANTIN_OPTION_BASE	114842	114890	2426	1	3373	generated	
+877	ItemType	QuarantineStatus	114891	114923	2427	1	3374	generated	
+878	Const	RECOVER	114924	114960	2428	1	3375	generated	
+879	Const	RECOVER_DONE	114961	115003	2429	1	3376	generated	
+880	Const	RECOVER_WAIT	115004	115046	2430	1	3377	generated	
+881	Const	RESOLUTION_INT	115047	115090	2431	1	3378	generated	
+882	Const	RESTRICTEDACCESS	115091	115143	2432	1	3379	generated	
+883	Const	SAFEPERIOD	115144	115177	2433	1	3380	generated	
+884	Struct	SCOPE_MIB_INFO	115178	115365	2434	1	3381	unsupported	declaration Struct has no candidate rule
+885	Struct	SCOPE_MIB_INFO_V5	115366	115556	2442	1	3391	unsupported	declaration Struct has no candidate rule
+886	Struct	SCOPE_MIB_INFO_V6	115557	115765	2450	1	3401	unsupported	declaration Struct has no candidate rule
+887	Struct	SCOPE_MIB_INFO_VQ	115766	116138	2458	1	3411	unsupported	declaration Struct has no candidate rule
+888	Const	SHAREDSECRET	116139	116175	2472	1	3427	generated	
+889	Const	SHUTDOWN	116176	116214	2473	1	3428	generated	
+890	Const	STARTUP	116215	116251	2474	1	3429	generated	
+891	Const	STATUS_NOPREFIX_AVAIL	116252	116303	2475	1	3430	generated	
+892	Const	STATUS_NO_BINDING	116304	116351	2476	1	3431	generated	
+893	Const	STATUS_NO_ERROR	116352	116397	2477	1	3432	generated	
+894	Const	STATUS_UNSPECIFIED_FAILURE	116398	116454	2478	1	3433	generated	
+895	Const	SecondaryServer	116455	116510	2479	1	3434	generated	
+896	Const	Set_APIProtocolSupport	116511	116556	2480	1	3435	generated	
+897	Const	Set_AuditLogState	116557	116600	2481	1	3436	generated	
+898	Const	Set_BackupInterval	116601	116643	2482	1	3437	generated	
+899	Const	Set_BackupPath	116644	116681	2483	1	3438	generated	
+900	Const	Set_BootFileTable	116682	116725	2484	1	3439	generated	
+901	Const	Set_DatabaseCleanupInterval	116726	116778	2485	1	3440	generated	
+902	Const	Set_DatabaseLoggingFlag	116779	116826	2486	1	3441	generated	
+903	Const	Set_DatabaseName	116827	116866	2487	1	3442	generated	
+904	Const	Set_DatabasePath	116867	116906	2488	1	3443	generated	
+905	Const	Set_DebugFlag	116907	116945	2489	1	3444	generated	
+906	Const	Set_PingRetries	116946	116986	2490	1	3445	generated	
+907	Const	Set_PreferredLifetime	116987	117031	2491	1	3446	generated	
+908	Const	Set_PreferredLifetimeIATA	117032	117081	2492	1	3447	generated	
+909	Const	Set_QuarantineDefFail	117082	117129	2493	1	3448	generated	
+910	Const	Set_QuarantineON	117130	117172	2494	1	3449	generated	
+911	Const	Set_RapidCommitFlag	117173	117215	2495	1	3450	generated	
+912	Const	Set_RestoreFlag	117216	117255	2496	1	3451	generated	
+913	Const	Set_T1	117256	117286	2497	1	3452	generated	
+914	Const	Set_T2	117287	117317	2498	1	3453	generated	
+915	Const	Set_UnicastFlag	117318	117356	2499	1	3454	generated	
+916	Const	Set_ValidLifetime	117357	117397	2500	1	3455	generated	
+917	Const	Set_ValidLifetimeIATA	117398	117444	2501	1	3456	generated	
+918	ItemType	StatusCode	117445	117471	2502	1	3457	generated	
+919	Const	V5_ADDRESS_BIT_BOTH_REC	117472	117519	2503	1	3458	generated	
+920	Const	V5_ADDRESS_BIT_DELETED	117520	117567	2504	1	3459	generated	
+921	Const	V5_ADDRESS_BIT_UNREGISTERED	117568	117619	2505	1	3460	generated	
+922	Const	V5_ADDRESS_EX_BIT_DISABLE_PTR_RR	117620	117675	2506	1	3461	generated	
+923	Const	V5_ADDRESS_STATE_ACTIVE	117676	117722	2507	1	3462	generated	
+924	Const	V5_ADDRESS_STATE_DECLINED	117723	117771	2508	1	3463	generated	
+925	Const	V5_ADDRESS_STATE_DOOM	117772	117816	2509	1	3464	generated	
+926	Const	V5_ADDRESS_STATE_OFFERED	117817	117864	2510	1	3465	generated	
+927	Const	WARNING_EXTENDED_LESS	117865	117913	2511	1	3466	generated	

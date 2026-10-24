@@ -1,0 +1,403 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro	ChooseColorA	0	116	1	1	2	syntax	External declaration shape only: wire DLL=comdlg32.dll, ABI=system, export=ChooseColorA; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1	Macro	ChooseColorW	117	233	2	1	7	syntax	External declaration shape only: wire DLL=comdlg32.dll, ABI=system, export=ChooseColorW; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+2	Macro	ChooseFontA	234	387	3	1	12	syntax	External declaration shape only: wire DLL=comdlg32.dll, ABI=system, export=ChooseFontA; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+3	Macro	ChooseFontW	388	541	5	1	18	syntax	External declaration shape only: wire DLL=comdlg32.dll, ABI=system, export=ChooseFontW; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+4	Macro	CommDlgExtendedError	542	634	7	1	24	syntax	External declaration shape only: wire DLL=comdlg32.dll, ABI=system, export=CommDlgExtendedError; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+5	Macro	FindTextA	635	763	8	1	28	syntax	External declaration shape only: wire DLL=comdlg32.dll, ABI=system, export=FindTextA; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+6	Macro	FindTextW	764	892	9	1	33	syntax	External declaration shape only: wire DLL=comdlg32.dll, ABI=system, export=FindTextW; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+7	Macro	GetFileTitleA	893	1043	10	1	38	syntax	External declaration shape only: wire DLL=comdlg32.dll, ABI=system, export=GetFileTitleA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+8	Macro	GetFileTitleW	1044	1196	11	1	42	syntax	External declaration shape only: wire DLL=comdlg32.dll, ABI=system, export=GetFileTitleW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+9	Macro	GetOpenFileNameA	1197	1318	12	1	46	syntax	External declaration shape only: wire DLL=comdlg32.dll, ABI=system, export=GetOpenFileNameA; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+10	Macro	GetOpenFileNameW	1319	1440	13	1	51	syntax	External declaration shape only: wire DLL=comdlg32.dll, ABI=system, export=GetOpenFileNameW; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+11	Macro	GetSaveFileNameA	1441	1562	14	1	56	syntax	External declaration shape only: wire DLL=comdlg32.dll, ABI=system, export=GetSaveFileNameA; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+12	Macro	GetSaveFileNameW	1563	1684	15	1	61	syntax	External declaration shape only: wire DLL=comdlg32.dll, ABI=system, export=GetSaveFileNameW; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+13	Macro	PageSetupDlgA	1685	1803	16	1	66	syntax	External declaration shape only: wire DLL=comdlg32.dll, ABI=system, export=PageSetupDlgA; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+14	Macro	PageSetupDlgW	1804	1922	17	1	71	syntax	External declaration shape only: wire DLL=comdlg32.dll, ABI=system, export=PageSetupDlgW; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+15	Macro	PrintDlgA	1923	2069	18	1	76	syntax	External declaration shape only: wire DLL=comdlg32.dll, ABI=system, export=PrintDlgA; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+16	Macro	PrintDlgExA	2070	2223	20	1	82	syntax	External declaration shape only: wire DLL=comdlg32.dll, ABI=system, export=PrintDlgExA; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+17	Macro	PrintDlgExW	2224	2377	22	1	88	syntax	External declaration shape only: wire DLL=comdlg32.dll, ABI=system, export=PrintDlgExW; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+18	Macro	PrintDlgW	2378	2524	24	1	94	syntax	External declaration shape only: wire DLL=comdlg32.dll, ABI=system, export=PrintDlgW; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+19	Macro	ReplaceTextA	2525	2656	26	1	100	syntax	External declaration shape only: wire DLL=comdlg32.dll, ABI=system, export=ReplaceTextA; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+20	Macro	ReplaceTextW	2657	2788	27	1	105	syntax	External declaration shape only: wire DLL=comdlg32.dll, ABI=system, export=ReplaceTextW; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+21	Const	BOLD_FONTTYPE	2789	2844	28	1	110	generated	
+22	Const	CCERR_CHOOSECOLORCODES	2845	2908	29	1	111	generated	
+23	Const	CC_ANYCOLOR	2909	2959	30	1	112	generated	
+24	Const	CC_ENABLEHOOK	2960	3011	31	1	113	generated	
+25	Const	CC_ENABLETEMPLATE	3012	3067	32	1	114	generated	
+26	Const	CC_ENABLETEMPLATEHANDLE	3068	3129	33	1	115	generated	
+27	Const	CC_FULLOPEN	3130	3178	34	1	116	generated	
+28	Const	CC_PREVENTFULLOPEN	3179	3234	35	1	117	generated	
+29	Const	CC_RGBINIT	3235	3282	36	1	118	generated	
+30	Const	CC_SHOWHELP	3283	3331	37	1	119	generated	
+31	Const	CC_SOLIDCOLOR	3332	3384	38	1	120	generated	
+32	Const	CDERR_DIALOGFAILURE	3385	3445	39	1	121	generated	
+33	Const	CDERR_FINDRESFAILURE	3446	3503	40	1	122	generated	
+34	Const	CDERR_GENERALCODES	3504	3559	41	1	123	generated	
+35	Const	CDERR_INITIALIZATION	3560	3617	42	1	124	generated	
+36	Const	CDERR_LOADRESFAILURE	3618	3675	43	1	125	generated	
+37	Const	CDERR_LOADSTRFAILURE	3676	3733	44	1	126	generated	
+38	Const	CDERR_LOCKRESFAILURE	3734	3791	45	1	127	generated	
+39	Const	CDERR_MEMALLOCFAILURE	3792	3850	46	1	128	generated	
+40	Const	CDERR_MEMLOCKFAILURE	3851	3909	47	1	129	generated	
+41	Const	CDERR_NOHINSTANCE	3910	3964	48	1	130	generated	
+42	Const	CDERR_NOHOOK	3965	4015	49	1	131	generated	
+43	Const	CDERR_NOTEMPLATE	4016	4069	50	1	132	generated	
+44	Const	CDERR_REGISTERMSGFAIL	4070	4129	51	1	133	generated	
+45	Const	CDERR_STRUCTSIZE	4130	4183	52	1	134	generated	
+46	Const	CDM_FIRST	4184	4219	53	1	135	generated	
+47	Const	CDM_GETFILEPATH	4220	4261	54	1	136	generated	
+48	Const	CDM_GETFOLDERIDLIST	4262	4307	55	1	137	generated	
+49	Const	CDM_GETFOLDERPATH	4308	4351	56	1	138	generated	
+50	Const	CDM_GETSPEC	4352	4389	57	1	139	generated	
+51	Const	CDM_HIDECONTROL	4390	4431	58	1	140	generated	
+52	Const	CDM_LAST	4432	4466	59	1	141	generated	
+53	Const	CDM_SETCONTROLTEXT	4467	4511	60	1	142	generated	
+54	Const	CDM_SETDEFEXT	4512	4551	61	1	143	generated	
+55	Const	CDN_FILEOK	4552	4594	62	1	144	generated	
+56	Const	CDN_FOLDERCHANGE	4595	4643	63	1	145	generated	
+57	Const	CDN_HELP	4644	4684	64	1	146	generated	
+58	Const	CDN_INCLUDEITEM	4685	4732	65	1	147	generated	
+59	Const	CDN_INITDONE	4733	4777	66	1	148	generated	
+60	Const	CDN_SELCHANGE	4778	4823	67	1	149	generated	
+61	Const	CDN_SHAREVIOLATION	4824	4874	68	1	150	generated	
+62	Const	CDN_TYPECHANGE	4875	4921	69	1	151	generated	
+63	Const	CD_LBSELADD	4922	4956	70	1	152	generated	
+64	Const	CD_LBSELCHANGE	4957	4994	71	1	153	generated	
+65	Const	CD_LBSELNOITEMS	4995	5034	72	1	154	generated	
+66	Const	CD_LBSELSUB	5035	5069	73	1	155	generated	
+67	Const	CFERR_CHOOSEFONTCODES	5070	5131	74	1	156	generated	
+68	Const	CFERR_MAXLESSTHANMIN	5132	5192	75	1	157	generated	
+69	Const	CFERR_NOFONTS	5193	5246	76	1	158	generated	
+70	Const	CF_ANSIONLY	5247	5297	77	1	159	generated	
+71	Const	CF_APPLY	5298	5344	78	1	160	generated	
+72	Const	CF_BOTH	5345	5388	79	1	161	generated	
+73	Const	CF_EFFECTS	5389	5437	80	1	162	generated	
+74	Const	CF_ENABLEHOOK	5438	5487	81	1	163	generated	
+75	Const	CF_ENABLETEMPLATE	5488	5542	82	1	164	generated	
+76	Const	CF_ENABLETEMPLATEHANDLE	5543	5603	83	1	165	generated	
+77	Const	CF_FIXEDPITCHONLY	5604	5661	84	1	166	generated	
+78	Const	CF_FORCEFONTEXIST	5662	5719	85	1	167	generated	
+79	Const	CF_INACTIVEFONTS	5720	5779	86	1	168	generated	
+80	Const	CF_INITTOLOGFONTSTRUCT	5780	5839	87	1	169	generated	
+81	Const	CF_LIMITSIZE	5840	5891	88	1	170	generated	
+82	Const	CF_NOFACESEL	5892	5945	89	1	171	generated	
+83	Const	CF_NOOEMFONTS	5946	5998	90	1	172	generated	
+84	Const	CF_NOSCRIPTSEL	5999	6055	91	1	173	generated	
+85	Const	CF_NOSIMULATIONS	6056	6111	92	1	174	generated	
+86	Const	CF_NOSIZESEL	6112	6166	93	1	175	generated	
+87	Const	CF_NOSTYLESEL	6167	6222	94	1	176	generated	
+88	Const	CF_NOVECTORFONTS	6223	6278	95	1	177	generated	
+89	Const	CF_NOVERTFONTS	6279	6336	96	1	178	generated	
+90	Const	CF_PRINTERFONTS	6337	6388	97	1	179	generated	
+91	Const	CF_SCALABLEONLY	6389	6445	98	1	180	generated	
+92	Const	CF_SCREENFONTS	6446	6496	99	1	181	generated	
+93	Const	CF_SCRIPTSONLY	6497	6550	100	1	182	generated	
+94	Const	CF_SELECTSCRIPT	6551	6608	101	1	183	generated	
+95	Const	CF_SHOWHELP	6609	6656	102	1	184	generated	
+96	Const	CF_TTONLY	6657	6707	103	1	185	generated	
+97	Const	CF_USESTYLE	6708	6757	104	1	186	generated	
+98	Const	CF_WYSIWYG	6758	6808	105	1	187	generated	
+99	Struct	CHOOSECOLORA	6809	7359	106	1	188	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+100	Impl		7360	7493	120	1	206	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+101	Struct	CHOOSECOLORA	7494	8091	126	1	214	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+102	Impl		8092	8283	140	1	232	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+103	Struct	CHOOSECOLORW	8284	8835	146	1	240	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+104	Impl		8836	8969	160	1	258	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+105	Struct	CHOOSECOLORW	8970	9568	166	1	266	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+106	Impl		9569	9760	180	1	284	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+107	ItemType	CHOOSECOLOR_FLAGS	9761	9794	186	1	292	generated	
+108	Struct	CHOOSEFONTA	9795	10634	187	1	293	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+109	Impl		10635	10806	209	1	319	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+110	Struct	CHOOSEFONTA	10807	11693	216	1	328	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+111	Impl		11694	11923	238	1	354	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+112	Struct	CHOOSEFONTW	11924	12765	245	1	363	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+113	Impl		12766	12937	267	1	389	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+114	Struct	CHOOSEFONTW	12938	13826	274	1	398	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+115	Impl		13827	14056	296	1	424	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+116	ItemType	CHOOSEFONT_FLAGS	14057	14089	303	1	433	generated	
+117	ItemType	CHOOSEFONT_FONT_TYPE	14090	14126	304	1	434	generated	
+118	Const	COLOROKSTRING	14127	14221	305	1	435	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+119	Const	COLOROKSTRINGA	14222	14316	306	1	440	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+120	Const	COLOROKSTRINGW	14317	14412	307	1	445	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+121	Const	COLOR_ADD	14413	14447	308	1	450	generated	
+122	Const	COLOR_BLUE	14448	14483	309	1	451	generated	
+123	Const	COLOR_BLUEACCEL	14484	14524	310	1	452	generated	
+124	Const	COLOR_BOX1	14525	14560	311	1	453	generated	
+125	Const	COLOR_CURRENT	14561	14599	312	1	454	generated	
+126	Const	COLOR_CUSTOM1	14600	14638	313	1	455	generated	
+127	Const	COLOR_ELEMENT	14639	14677	314	1	456	generated	
+128	Const	COLOR_GREEN	14678	14714	315	1	457	generated	
+129	Const	COLOR_GREENACCEL	14715	14756	316	1	458	generated	
+130	Const	COLOR_HUE	14757	14791	317	1	459	generated	
+131	Const	COLOR_HUEACCEL	14792	14831	318	1	460	generated	
+132	Const	COLOR_HUESCROLL	14832	14872	319	1	461	generated	
+133	Const	COLOR_LUM	14873	14907	320	1	462	generated	
+134	Const	COLOR_LUMACCEL	14908	14947	321	1	463	generated	
+135	Const	COLOR_LUMSCROLL	14948	14988	322	1	464	generated	
+136	Const	COLOR_MIX	14989	15023	323	1	465	generated	
+137	Const	COLOR_PALETTE	15024	15062	324	1	466	generated	
+138	Const	COLOR_RAINBOW	15063	15101	325	1	467	generated	
+139	Const	COLOR_RED	15102	15136	326	1	468	generated	
+140	Const	COLOR_REDACCEL	15137	15176	327	1	469	generated	
+141	Const	COLOR_SAMPLES	15177	15215	328	1	470	generated	
+142	Const	COLOR_SAT	15216	15250	329	1	471	generated	
+143	Const	COLOR_SATACCEL	15251	15290	330	1	472	generated	
+144	Const	COLOR_SATSCROLL	15291	15331	331	1	473	generated	
+145	Const	COLOR_SAVE	15332	15367	332	1	474	generated	
+146	Const	COLOR_SCHEMES	15368	15406	333	1	475	generated	
+147	Const	COLOR_SOLID	15407	15443	334	1	476	generated	
+148	Const	COLOR_SOLID_LEFT	15444	15485	335	1	477	generated	
+149	Const	COLOR_SOLID_RIGHT	15486	15528	336	1	478	generated	
+150	Const	COLOR_TUNE	15529	15564	337	1	479	generated	
+151	ItemType	COMMON_DLG_ERRORS	15565	15598	338	1	480	generated	
+152	Struct	DEVNAMES	15599	15811	339	1	481	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+153	Struct	DEVNAMES	15812	16071	348	1	492	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+154	Const	DLG_COLOR	16072	16105	357	1	503	generated	
+155	Const	DN_DEFAULTPRN	16106	16142	358	1	504	generated	
+156	Const	FILEOKSTRING	16143	16239	359	1	505	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+157	Const	FILEOKSTRINGA	16240	16336	360	1	510	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+158	Const	FILEOKSTRINGW	16337	16434	361	1	515	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+159	Const	FINDMSGSTRING	16435	16533	362	1	520	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+160	Const	FINDMSGSTRINGA	16534	16632	363	1	525	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+161	Const	FINDMSGSTRINGW	16633	16732	364	1	530	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+162	Struct	FINDREPLACEA	16733	17312	365	1	535	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+163	Impl		17313	17446	381	1	554	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+164	Struct	FINDREPLACEA	17447	18073	387	1	562	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+165	Impl		18074	18265	403	1	581	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+166	Struct	FINDREPLACEW	18266	18848	409	1	589	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+167	Impl		18849	18982	425	1	608	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+168	Struct	FINDREPLACEW	18983	19612	431	1	616	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+169	Impl		19613	19804	447	1	635	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+170	ItemType	FINDREPLACE_FLAGS	19805	19838	453	1	643	generated	
+171	Const	FNERR_BUFFERTOOSMALL	19839	19900	454	1	644	generated	
+172	Const	FNERR_FILENAMECODES	19901	19961	455	1	645	generated	
+173	Const	FNERR_INVALIDFILENAME	19962	20024	456	1	646	generated	
+174	Const	FNERR_SUBCLASSFAILURE	20025	20087	457	1	647	generated	
+175	Const	FRERR_BUFFERLENGTHZERO	20088	20151	458	1	648	generated	
+176	Const	FRERR_FINDREPLACECODES	20152	20215	459	1	649	generated	
+177	Const	FRM_FIRST	20216	20251	460	1	650	generated	
+178	Const	FRM_LAST	20252	20286	461	1	651	generated	
+179	Const	FRM_SETOPERATIONRESULT	20287	20335	462	1	652	generated	
+180	Const	FRM_SETOPERATIONRESULTTEXT	20336	20388	463	1	653	generated	
+181	Const	FR_DIALOGTERM	20389	20440	464	1	654	generated	
+182	Const	FR_DOWN	20441	20485	465	1	655	generated	
+183	Const	FR_ENABLEHOOK	20486	20538	466	1	656	generated	
+184	Const	FR_ENABLETEMPLATE	20539	20595	467	1	657	generated	
+185	Const	FR_ENABLETEMPLATEHANDLE	20596	20659	468	1	658	generated	
+186	Const	FR_FINDNEXT	20660	20708	469	1	659	generated	
+187	Const	FR_HIDEMATCHCASE	20709	20766	470	1	660	generated	
+188	Const	FR_HIDEUPDOWN	20767	20821	471	1	661	generated	
+189	Const	FR_HIDEWHOLEWORD	20822	20879	472	1	662	generated	
+190	Const	FR_MATCHALEFHAMZA	20880	20943	473	1	663	generated	
+191	Const	FR_MATCHCASE	20944	20993	474	1	664	generated	
+192	Const	FR_MATCHDIAC	20994	21051	475	1	665	generated	
+193	Const	FR_MATCHKASHIDA	21052	21113	476	1	666	generated	
+194	Const	FR_NOMATCHCASE	21114	21168	477	1	667	generated	
+195	Const	FR_NOUPDOWN	21169	21220	478	1	668	generated	
+196	Const	FR_NOWHOLEWORD	21221	21275	479	1	669	generated	
+197	Const	FR_NOWRAPAROUND	21276	21333	480	1	670	generated	
+198	Const	FR_RAW	21334	21382	481	1	671	generated	
+199	Const	FR_REPLACE	21383	21431	482	1	672	generated	
+200	Const	FR_REPLACEALL	21432	21483	483	1	673	generated	
+201	Const	FR_SHOWHELP	21484	21534	484	1	674	generated	
+202	Const	FR_SHOWWRAPAROUND	21535	21594	485	1	675	generated	
+203	Const	FR_WHOLEWORD	21595	21644	486	1	676	generated	
+204	Const	FR_WRAPAROUND	21645	21701	487	1	677	generated	
+205	Const	HELPMSGSTRING	21702	21793	488	1	678	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+206	Const	HELPMSGSTRINGA	21794	21885	489	1	683	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+207	Const	HELPMSGSTRINGW	21886	21978	490	1	688	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+208	Const	ITALIC_FONTTYPE	21979	22036	491	1	693	generated	
+209	Const	LBSELCHSTRING	22037	22142	492	1	694	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+210	Const	LBSELCHSTRINGA	22143	22248	493	1	699	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+211	Const	LBSELCHSTRINGW	22249	22355	494	1	704	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+212	ItemType	LPCCHOOKPROC	22356	22581	495	1	709	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+213	ItemType	LPCFHOOKPROC	22582	22807	496	1	713	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+214	ItemType	LPFRHOOKPROC	22808	23033	497	1	717	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+215	ItemType	LPOFNHOOKPROC	23034	23260	498	1	721	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+216	ItemType	LPPAGEPAINTHOOK	23261	23489	499	1	725	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+217	ItemType	LPPAGESETUPHOOK	23490	23718	500	1	729	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+218	ItemType	LPPRINTHOOKPROC	23719	23947	501	1	733	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+219	ItemType	LPSETUPHOOKPROC	23948	24176	502	1	737	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+220	Const	NUM_BASIC_COLORS	24177	24217	503	1	741	generated	
+221	Const	NUM_CUSTOM_COLORS	24218	24259	504	1	742	generated	
+222	Struct	OFNOTIFYA	24260	24461	505	1	743	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+223	Impl		24462	24592	513	1	755	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+224	Struct	OFNOTIFYA	24593	24841	519	1	763	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+225	Impl		24842	25030	527	1	775	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+226	Struct	OFNOTIFYEXA	25031	25267	533	1	783	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+227	Impl		25268	25400	542	1	796	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+228	Struct	OFNOTIFYEXA	25401	25684	548	1	804	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+229	Impl		25685	25875	557	1	817	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+230	Struct	OFNOTIFYEXW	25876	26112	563	1	825	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+231	Impl		26113	26245	572	1	838	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+232	Struct	OFNOTIFYEXW	26246	26529	578	1	846	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+233	Impl		26530	26720	587	1	859	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+234	Struct	OFNOTIFYW	26721	26923	593	1	867	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+235	Impl		26924	27054	601	1	879	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+236	Struct	OFNOTIFYW	27055	27304	607	1	887	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+237	Impl		27305	27493	615	1	899	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+238	Const	OFN_ALLOWMULTISELECT	27494	27555	621	1	907	generated	
+239	Const	OFN_CREATEPROMPT	27556	27614	622	1	908	generated	
+240	Const	OFN_DONTADDTORECENT	27615	27680	623	1	909	generated	
+241	Const	OFN_ENABLEHOOK	27681	27735	624	1	910	generated	
+242	Const	OFN_ENABLEINCLUDENOTIFY	27736	27804	625	1	911	generated	
+243	Const	OFN_ENABLESIZING	27805	27866	626	1	912	generated	
+244	Const	OFN_ENABLETEMPLATE	27867	27925	627	1	913	generated	
+245	Const	OFN_ENABLETEMPLATEHANDLE	27926	27991	628	1	914	generated	
+246	Const	OFN_EXPLORER	27992	28048	629	1	915	generated	
+247	Const	OFN_EXTENSIONDIFFERENT	28049	28113	630	1	916	generated	
+248	Const	OFN_EX_NONE	28114	28167	631	1	917	generated	
+249	Const	OFN_EX_NOPLACESBAR	28168	28228	632	1	918	generated	
+250	Const	OFN_FILEMUSTEXIST	28229	28288	633	1	919	generated	
+251	Const	OFN_FORCESHOWHIDDEN	28289	28355	634	1	920	generated	
+252	Const	OFN_HIDEREADONLY	28356	28411	635	1	921	generated	
+253	Const	OFN_LONGNAMES	28412	28470	636	1	922	generated	
+254	Const	OFN_NOCHANGEDIR	28471	28525	637	1	923	generated	
+255	Const	OFN_NODEREFERENCELINKS	28526	28593	638	1	924	generated	
+256	Const	OFN_NOLONGNAMES	28594	28653	639	1	925	generated	
+257	Const	OFN_NONETWORKBUTTON	28654	28717	640	1	926	generated	
+258	Const	OFN_NOREADONLYRETURN	28718	28781	641	1	927	generated	
+259	Const	OFN_NOTESTFILECREATE	28782	28845	642	1	928	generated	
+260	Const	OFN_NOVALIDATE	28846	28901	643	1	929	generated	
+261	Const	OFN_OVERWRITEPROMPT	28902	28960	644	1	930	generated	
+262	Const	OFN_PATHMUSTEXIST	28961	29020	645	1	931	generated	
+263	Const	OFN_READONLY	29021	29072	646	1	932	generated	
+264	Const	OFN_SHAREAWARE	29073	29130	647	1	933	generated	
+265	Const	OFN_SHAREFALLTHROUGH	29131	29174	648	1	934	generated	
+266	Const	OFN_SHARENOWARN	29175	29213	649	1	935	generated	
+267	Const	OFN_SHAREWARN	29214	29250	650	1	936	generated	
+268	Const	OFN_SHOWHELP	29251	29303	651	1	937	generated	
+269	Struct	OPENFILENAMEA	29304	30339	652	1	938	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+270	Impl		30340	30474	680	1	970	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+271	Struct	OPENFILENAMEA	30475	31557	686	1	978	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+272	Impl		31558	31750	714	1	1010	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+273	Struct	OPENFILENAMEW	31751	32794	720	1	1018	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+274	Impl		32795	32929	748	1	1050	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+275	Struct	OPENFILENAMEW	32930	34020	754	1	1058	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+276	Impl		34021	34213	782	1	1090	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+277	Struct	OPENFILENAME_NT4A	34214	35127	788	1	1098	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+278	Impl		35128	35266	813	1	1126	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+279	Struct	OPENFILENAME_NT4A	35267	36227	819	1	1134	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+280	Impl		36228	36424	844	1	1162	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+281	Struct	OPENFILENAME_NT4W	36425	37346	850	1	1170	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+282	Impl		37347	37485	875	1	1198	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+283	Struct	OPENFILENAME_NT4W	37486	38454	881	1	1206	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+284	Impl		38455	38651	906	1	1234	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+285	ItemType	OPEN_FILENAME_FLAGS	38652	38687	912	1	1242	generated	
+286	ItemType	OPEN_FILENAME_FLAGS_EX	38688	38726	913	1	1243	generated	
+287	Struct	PAGESETUPDLGA	38727	39586	914	1	1244	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+288	Impl		39587	39721	933	1	1266	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+289	Struct	PAGESETUPDLGA	39722	40628	939	1	1274	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+290	Impl		40629	40821	958	1	1296	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+291	Struct	PAGESETUPDLGW	40822	41682	964	1	1304	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+292	Impl		41683	41817	983	1	1326	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+293	Struct	PAGESETUPDLGW	41818	42725	989	1	1334	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+294	Impl		42726	42918	1008	1	1356	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+295	ItemType	PAGESETUPDLG_FLAGS	42919	42953	1014	1	1364	generated	
+296	Const	PDERR_CREATEICFAILURE	42954	43015	1015	1	1365	generated	
+297	Const	PDERR_DEFAULTDIFFERENT	43016	43078	1016	1	1366	generated	
+298	Const	PDERR_DNDMMISMATCH	43079	43137	1017	1	1367	generated	
+299	Const	PDERR_GETDEVMODEFAIL	43138	43198	1018	1	1368	generated	
+300	Const	PDERR_INITFAILURE	43199	43256	1019	1	1369	generated	
+301	Const	PDERR_LOADDRVFAILURE	43257	43317	1020	1	1370	generated	
+302	Const	PDERR_NODEFAULTPRN	43318	43376	1021	1	1371	generated	
+303	Const	PDERR_NODEVICES	43377	43432	1022	1	1372	generated	
+304	Const	PDERR_PARSEFAILURE	43433	43491	1023	1	1373	generated	
+305	Const	PDERR_PRINTERCODES	43492	43550	1024	1	1374	generated	
+306	Const	PDERR_PRINTERNOTFOUND	43551	43612	1025	1	1375	generated	
+307	Const	PDERR_RETDEFFAILURE	43613	43672	1026	1	1376	generated	
+308	Const	PDERR_SETUPFAILURE	43673	43731	1027	1	1377	generated	
+309	Const	PD_ALLPAGES	43732	43779	1028	1	1378	generated	
+310	Const	PD_COLLATE	43780	43827	1029	1	1379	generated	
+311	Const	PD_CURRENTPAGE	43828	43884	1030	1	1380	generated	
+312	Const	PD_DISABLEPRINTTOFILE	43885	43947	1031	1	1381	generated	
+313	Const	PD_ENABLEPRINTHOOK	43948	44005	1032	1	1382	generated	
+314	Const	PD_ENABLEPRINTTEMPLATE	44006	44068	1033	1	1383	generated	
+315	Const	PD_ENABLEPRINTTEMPLATEHANDLE	44069	44137	1034	1	1384	generated	
+316	Const	PD_ENABLESETUPHOOK	44138	44195	1035	1	1385	generated	
+317	Const	PD_ENABLESETUPTEMPLATE	44196	44258	1036	1	1386	generated	
+318	Const	PD_ENABLESETUPTEMPLATEHANDLE	44259	44328	1037	1	1387	generated	
+319	Const	PD_EXCLUSIONFLAGS	44329	44389	1038	1	1388	generated	
+320	Const	PD_HIDEPRINTTOFILE	44390	44450	1039	1	1389	generated	
+321	Const	PD_NOCURRENTPAGE	44451	44509	1040	1	1390	generated	
+322	Const	PD_NONETWORKBUTTON	44510	44570	1041	1	1391	generated	
+323	Const	PD_NOPAGENUMS	44571	44620	1042	1	1392	generated	
+324	Const	PD_NOSELECTION	44621	44671	1043	1	1393	generated	
+325	Const	PD_NOWARNING	44672	44722	1044	1	1394	generated	
+326	Const	PD_PAGENUMS	44723	44770	1045	1	1395	generated	
+327	Const	PD_PRINTSETUP	44771	44821	1046	1	1396	generated	
+328	Const	PD_PRINTTOFILE	44822	44873	1047	1	1397	generated	
+329	Const	PD_RESULT_APPLY	44874	44912	1048	1	1398	generated	
+330	Const	PD_RESULT_CANCEL	44913	44952	1049	1	1399	generated	
+331	Const	PD_RESULT_PRINT	44953	44991	1050	1	1400	generated	
+332	Const	PD_RETURNDC	44992	45041	1051	1	1401	generated	
+333	Const	PD_RETURNDEFAULT	45042	45097	1052	1	1402	generated	
+334	Const	PD_RETURNIC	45098	45147	1053	1	1403	generated	
+335	Const	PD_SELECTION	45148	45196	1054	1	1404	generated	
+336	Const	PD_SHOWHELP	45197	45247	1055	1	1405	generated	
+337	Const	PD_USEDEVMODECOPIES	45248	45308	1056	1	1406	generated	
+338	Const	PD_USEDEVMODECOPIESANDCOLLATE	45309	45379	1057	1	1407	generated	
+339	Const	PD_USELARGETEMPLATE	45380	45443	1058	1	1408	generated	
+340	Struct	PRINTDLGA	45444	46431	1059	1	1409	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+341	Impl		46432	46601	1084	1	1437	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+342	Struct	PRINTDLGA	46602	47636	1091	1	1446	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+343	Impl		47637	47864	1116	1	1474	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+344	Struct	PRINTDLGEXA	47865	48810	1123	1	1483	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+345	Impl		48811	48982	1150	1	1514	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+346	Struct	PRINTDLGEXA	48983	49975	1157	1	1523	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+347	Impl		49976	50205	1184	1	1554	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+348	Struct	PRINTDLGEXW	50206	51152	1191	1	1563	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+349	Impl		51153	51324	1218	1	1594	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+350	Struct	PRINTDLGEXW	51325	52318	1225	1	1603	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+351	Impl		52319	52548	1252	1	1634	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+352	ItemType	PRINTDLGEX_FLAGS	52549	52581	1259	1	1643	generated	
+353	Struct	PRINTDLGW	52582	53571	1260	1	1644	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+354	Impl		53572	53741	1285	1	1672	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+355	Struct	PRINTDLGW	53742	54778	1292	1	1681	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+356	Impl		54779	55006	1317	1	1709	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+357	Const	PRINTER_FONTTYPE	55007	55067	1324	1	1718	generated	
+358	Struct	PRINTPAGERANGE	55068	55225	1325	1	1719	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+359	Struct	PRINTPAGERANGE	55226	55430	1332	1	1728	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+360	Const	PSD_DEFAULTMINMARGINS	55431	55490	1339	1	1737	generated	
+361	Const	PSD_DISABLEMARGINS	55491	55548	1340	1	1738	generated	
+362	Const	PSD_DISABLEORIENTATION	55549	55611	1341	1	1739	generated	
+363	Const	PSD_DISABLEPAGEPAINTING	55612	55678	1342	1	1740	generated	
+364	Const	PSD_DISABLEPAPER	55679	55735	1343	1	1741	generated	
+365	Const	PSD_DISABLEPRINTER	55736	55793	1344	1	1742	generated	
+366	Const	PSD_ENABLEPAGEPAINTHOOK	55794	55860	1345	1	1743	generated	
+367	Const	PSD_ENABLEPAGESETUPHOOK	55861	55925	1346	1	1744	generated	
+368	Const	PSD_ENABLEPAGESETUPTEMPLATE	55926	55995	1347	1	1745	generated	
+369	Const	PSD_ENABLEPAGESETUPTEMPLATEHANDLE	55996	56072	1348	1	1746	generated	
+370	Const	PSD_INHUNDREDTHSOFMILLIMETERS	56073	56140	1349	1	1747	generated	
+371	Const	PSD_INTHOUSANDTHSOFINCHES	56141	56204	1350	1	1748	generated	
+372	Const	PSD_INWININIINTLMEASURE	56205	56266	1351	1	1749	generated	
+373	Const	PSD_MARGINS	56267	56316	1352	1	1750	generated	
+374	Const	PSD_MINMARGINS	56317	56369	1353	1	1751	generated	
+375	Const	PSD_NONETWORKBUTTON	56370	56433	1354	1	1752	generated	
+376	Const	PSD_NOWARNING	56434	56487	1355	1	1753	generated	
+377	Const	PSD_RETURNDEFAULT	56488	56546	1356	1	1754	generated	
+378	Const	PSD_SHOWHELP	56547	56600	1357	1	1755	generated	
+379	Const	PS_OPENTYPE_FONTTYPE	56601	56648	1358	1	1756	generated	
+380	Const	REGULAR_FONTTYPE	56649	56708	1359	1	1757	generated	
+381	Const	SCREEN_FONTTYPE	56709	56767	1360	1	1758	generated	
+382	Const	SETRGBSTRING	56768	56865	1361	1	1759	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+383	Const	SETRGBSTRINGA	56866	56963	1362	1	1764	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+384	Const	SETRGBSTRINGW	56964	57062	1363	1	1769	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+385	Const	SHAREVISTRING	57063	57164	1364	1	1774	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+386	Const	SHAREVISTRINGA	57165	57266	1365	1	1779	syntax	Rust windows_sys::core::s! is emitted as a call shape. Supply its source-faithful UTF-8 *const u8 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+387	Const	SHAREVISTRINGW	57267	57369	1366	1	1784	syntax	Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here. Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+388	Const	SIMULATED_FONTTYPE	57370	57432	1367	1	1789	generated	
+389	Const	START_PAGE_GENERAL	57433	57483	1368	1	1790	generated	
+390	Const	SYMBOL_FONTTYPE	57484	57527	1369	1	1791	generated	
+391	Const	TT_OPENTYPE_FONTTYPE	57528	57576	1370	1	1792	generated	
+392	Const	TYPE1_FONTTYPE	57577	57619	1371	1	1793	generated	
+393	Const	WM_CHOOSEFONT_GETLOGFONT	57620	57670	1372	1	1794	generated	
+394	Const	WM_CHOOSEFONT_SETFLAGS	57671	57719	1373	1	1795	generated	
+395	Const	WM_CHOOSEFONT_SETLOGFONT	57720	57770	1374	1	1796	generated	
+396	Const	WM_PSD_ENVSTAMPRECT	57771	57816	1375	1	1797	generated	
+397	Const	WM_PSD_FULLPAGERECT	57817	57862	1376	1	1798	generated	
+398	Const	WM_PSD_GREEKTEXTRECT	57863	57909	1377	1	1799	generated	
+399	Const	WM_PSD_MARGINRECT	57910	57953	1378	1	1800	generated	
+400	Const	WM_PSD_MINMARGINRECT	57954	58000	1379	1	1801	generated	
+401	Const	WM_PSD_YAFULLPAGERECT	58001	58048	1380	1	1802	generated	

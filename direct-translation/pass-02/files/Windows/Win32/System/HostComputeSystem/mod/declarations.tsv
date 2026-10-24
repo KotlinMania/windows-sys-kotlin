@@ -1,0 +1,149 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	239	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		240	430	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		431	558	3	1	8	unsupported	declaration Macro has no candidate rule
+3	Macro		559	660	4	1	11	unsupported	declaration Macro has no candidate rule
+4	Macro		661	757	5	1	14	unsupported	declaration Macro has no candidate rule
+5	Macro		758	848	6	1	17	unsupported	declaration Macro has no candidate rule
+6	Macro		849	1044	7	1	20	unsupported	declaration Macro has no candidate rule
+7	Macro		1045	1393	8	1	23	unsupported	declaration Macro has no candidate rule
+8	Macro		1394	1722	10	1	27	unsupported	declaration Macro has no candidate rule
+9	Macro		1723	1881	11	1	30	unsupported	declaration Macro has no candidate rule
+10	Macro		1882	2044	12	1	33	unsupported	declaration Macro has no candidate rule
+11	Macro		2045	2205	13	1	36	unsupported	declaration Macro has no candidate rule
+12	Macro		2206	2413	14	1	39	unsupported	declaration Macro has no candidate rule
+13	Macro		2414	2751	15	1	42	unsupported	declaration Macro has no candidate rule
+14	Macro		2752	2891	17	1	46	unsupported	declaration Macro has no candidate rule
+15	Macro		2892	3043	18	1	49	unsupported	declaration Macro has no candidate rule
+16	Macro		3044	3214	19	1	52	unsupported	declaration Macro has no candidate rule
+17	Macro		3215	3437	20	1	55	unsupported	declaration Macro has no candidate rule
+18	Macro		3438	3698	21	1	58	unsupported	declaration Macro has no candidate rule
+19	Macro		3699	4002	22	1	61	unsupported	declaration Macro has no candidate rule
+20	Macro		4003	4160	23	1	64	unsupported	declaration Macro has no candidate rule
+21	Macro		4161	4286	24	1	67	unsupported	declaration Macro has no candidate rule
+22	Macro		4287	4496	25	1	70	unsupported	declaration Macro has no candidate rule
+23	Macro		4497	4695	26	1	73	unsupported	declaration Macro has no candidate rule
+24	Macro		4696	4823	27	1	76	unsupported	declaration Macro has no candidate rule
+25	Macro		4824	4927	28	1	79	unsupported	declaration Macro has no candidate rule
+26	Macro		4928	5106	29	1	82	unsupported	declaration Macro has no candidate rule
+27	Macro		5107	5350	30	1	85	unsupported	declaration Macro has no candidate rule
+28	Macro		5351	5471	31	1	88	unsupported	declaration Macro has no candidate rule
+29	Macro		5472	5592	32	1	91	unsupported	declaration Macro has no candidate rule
+30	Macro		5593	5742	33	1	94	unsupported	declaration Macro has no candidate rule
+31	Macro		5743	5941	34	1	97	unsupported	declaration Macro has no candidate rule
+32	Macro		5942	6169	35	1	100	unsupported	declaration Macro has no candidate rule
+33	Macro		6170	6358	36	1	103	unsupported	declaration Macro has no candidate rule
+34	Macro		6359	6529	37	1	106	unsupported	declaration Macro has no candidate rule
+35	Macro		6530	6671	38	1	109	unsupported	declaration Macro has no candidate rule
+36	Macro		6672	6895	39	1	112	unsupported	declaration Macro has no candidate rule
+37	Macro		6896	7194	40	1	115	unsupported	declaration Macro has no candidate rule
+38	Macro		7195	7429	41	1	118	unsupported	declaration Macro has no candidate rule
+39	Macro		7430	7678	42	1	121	unsupported	declaration Macro has no candidate rule
+40	Macro		7679	7865	43	1	124	unsupported	declaration Macro has no candidate rule
+41	Macro		7866	8050	44	1	127	unsupported	declaration Macro has no candidate rule
+42	Macro		8051	8241	45	1	130	unsupported	declaration Macro has no candidate rule
+43	Macro		8242	8484	46	1	133	unsupported	declaration Macro has no candidate rule
+44	Macro		8485	8677	47	1	136	unsupported	declaration Macro has no candidate rule
+45	Macro		8678	8873	48	1	139	unsupported	declaration Macro has no candidate rule
+46	Macro		8874	9070	49	1	142	unsupported	declaration Macro has no candidate rule
+47	Macro		9071	9242	50	1	145	unsupported	declaration Macro has no candidate rule
+48	Macro		9243	9385	51	1	148	unsupported	declaration Macro has no candidate rule
+49	Macro		9386	9580	52	1	151	unsupported	declaration Macro has no candidate rule
+50	Macro		9581	9822	53	1	154	unsupported	declaration Macro has no candidate rule
+51	Macro		9823	10028	54	1	157	unsupported	declaration Macro has no candidate rule
+52	Macro		10029	10196	55	1	160	unsupported	declaration Macro has no candidate rule
+53	Macro		10197	10427	56	1	163	unsupported	declaration Macro has no candidate rule
+54	Macro		10428	10655	57	1	166	unsupported	declaration Macro has no candidate rule
+55	Macro		10656	10877	58	1	169	unsupported	declaration Macro has no candidate rule
+56	Macro		10878	11076	59	1	172	unsupported	declaration Macro has no candidate rule
+57	Macro		11077	11262	60	1	175	unsupported	declaration Macro has no candidate rule
+58	Macro		11263	11458	61	1	178	unsupported	declaration Macro has no candidate rule
+59	Macro		11459	11597	62	1	181	unsupported	declaration Macro has no candidate rule
+60	Macro		11598	11797	63	1	184	unsupported	declaration Macro has no candidate rule
+61	Macro		11798	11986	64	1	187	unsupported	declaration Macro has no candidate rule
+62	Macro		11987	12181	65	1	190	unsupported	declaration Macro has no candidate rule
+63	Macro		12182	12381	66	1	193	unsupported	declaration Macro has no candidate rule
+64	Macro		12382	12646	67	1	196	unsupported	declaration Macro has no candidate rule
+65	Macro		12647	12836	68	1	199	unsupported	declaration Macro has no candidate rule
+66	ItemType	HCS_CREATE_OPTIONS	12837	12871	69	1	202	generated	
+67	Struct	HCS_CREATE_OPTIONS_1	12872	13275	70	1	203	unsupported	declaration Struct has no candidate rule
+68	Impl		13276	13424	81	1	216	unsupported	declaration Impl has no candidate rule
+69	Struct	HCS_EVENT	13425	13593	87	1	224	unsupported	declaration Struct has no candidate rule
+70	Impl		13594	13696	94	1	233	unsupported	declaration Impl has no candidate rule
+71	ItemType	HCS_EVENT_CALLBACK	13697	13821	99	1	240	unsupported	generic scalar type unsupported
+72	ItemType	HCS_EVENT_OPTIONS	13822	13855	100	1	243	generated	
+73	ItemType	HCS_EVENT_TYPE	13856	13886	101	1	244	generated	
+74	ItemType	HCS_NOTIFICATIONS	13887	13920	102	1	245	generated	
+75	ItemType	HCS_NOTIFICATION_CALLBACK	13921	14143	103	1	246	unsupported	generic scalar type unsupported
+76	ItemType	HCS_NOTIFICATION_FLAGS	14144	14182	104	1	249	generated	
+77	ItemType	HCS_OPERATION	14183	14231	105	1	250	unsupported	non-scalar type Ptr unsupported
+78	ItemType	HCS_OPERATION_COMPLETION	14232	14363	106	1	253	unsupported	generic scalar type unsupported
+79	ItemType	HCS_OPERATION_OPTIONS	14364	14401	107	1	256	generated	
+80	ItemType	HCS_OPERATION_TYPE	14402	14436	108	1	257	generated	
+81	ItemType	HCS_PROCESS	14437	14483	109	1	258	unsupported	non-scalar type Ptr unsupported
+82	Struct	HCS_PROCESS_INFORMATION	14484	14760	110	1	261	unsupported	declaration Struct has no candidate rule
+83	Impl		14761	14877	119	1	272	unsupported	declaration Impl has no candidate rule
+84	ItemType	HCS_RESOURCE_TYPE	14878	14911	124	1	279	generated	
+85	ItemType	HCS_SYSTEM	14912	14957	125	1	280	unsupported	non-scalar type Ptr unsupported
+86	Const	HcsCreateOptions_1	14958	15018	126	1	283	generated	
+87	Const	HcsEventGroupOperationInfo	15019	15089	127	1	284	generated	
+88	Const	HcsEventGroupVmLifecycle	15090	15158	128	1	285	generated	
+89	Const	HcsEventInvalid	15159	15208	129	1	286	generated	
+90	Const	HcsEventOperationCallback	15209	15275	130	1	287	generated	
+91	Const	HcsEventOptionEnableOperationCallbacks	15276	15351	131	1	288	generated	
+92	Const	HcsEventOptionEnableVmLifecycle	15352	15420	132	1	289	generated	
+93	Const	HcsEventOptionNone	15421	15476	133	1	290	generated	
+94	Const	HcsEventProcessExited	15477	15536	134	1	291	generated	
+95	Const	HcsEventServiceDisconnect	15537	15603	135	1	292	generated	
+96	Const	HcsEventSystemCrashInitiated	15604	15666	136	1	293	generated	
+97	Const	HcsEventSystemCrashReport	15667	15726	137	1	294	generated	
+98	Const	HcsEventSystemExited	15727	15781	138	1	295	generated	
+99	Const	HcsEventSystemGuestConnectionClosed	15782	15851	139	1	296	generated	
+100	Const	HcsEventSystemRdpEnhancedModeStateChanged	15852	15927	140	1	297	generated	
+101	Const	HcsEventSystemSiloJobCreated	15928	15990	141	1	298	generated	
+102	Const	HcsNotificationFlagFailure	15991	16069	142	1	299	generated	
+103	Const	HcsNotificationFlagSuccess	16070	16138	143	1	300	generated	
+104	Const	HcsNotificationFlagsReserved	16139	16213	144	1	301	generated	
+105	Const	HcsNotificationInvalid	16214	16273	145	1	302	generated	
+106	Const	HcsNotificationOperationProgressUpdate	16274	16351	146	1	303	generated	
+107	Const	HcsNotificationProcessExited	16352	16421	147	1	304	generated	
+108	Const	HcsNotificationServiceDisconnect	16422	16498	148	1	305	generated	
+109	Const	HcsNotificationSystemCrashInitiated	16499	16572	149	1	306	generated	
+110	Const	HcsNotificationSystemCrashReport	16573	16642	150	1	307	generated	
+111	Const	HcsNotificationSystemCreateCompleted	16643	16716	151	1	308	generated	
+112	Const	HcsNotificationSystemExited	16717	16781	152	1	309	generated	
+113	Const	HcsNotificationSystemGetPropertiesCompleted	16782	16863	153	1	310	generated	
+114	Const	HcsNotificationSystemGuestConnectionClosed	16864	16944	154	1	311	generated	
+115	Const	HcsNotificationSystemModifyCompleted	16945	17019	155	1	312	generated	
+116	Const	HcsNotificationSystemOperationCompletion	17020	17098	156	1	313	generated	
+117	Const	HcsNotificationSystemPassThru	17099	17166	157	1	314	generated	
+118	Const	HcsNotificationSystemPauseCompleted	17167	17239	158	1	315	generated	
+119	Const	HcsNotificationSystemRdpEnhancedModeStateChanged	17240	17325	159	1	316	generated	
+120	Const	HcsNotificationSystemResumeCompleted	17326	17399	160	1	317	generated	
+121	Const	HcsNotificationSystemSaveCompleted	17400	17471	161	1	318	generated	
+122	Const	HcsNotificationSystemShutdownCompleted	17472	17548	162	1	319	generated	
+123	Const	HcsNotificationSystemShutdownFailed	17549	17622	163	1	320	generated	
+124	Const	HcsNotificationSystemSiloJobCreated	17623	17695	164	1	321	generated	
+125	Const	HcsNotificationSystemStartCompleted	17696	17768	165	1	322	generated	
+126	Const	HcsOperationOptionNone	17769	17832	166	1	323	generated	
+127	Const	HcsOperationOptionProgressUpdate	17833	17906	167	1	324	generated	
+128	Const	HcsOperationTypeCrash	17907	17967	168	1	325	generated	
+129	Const	HcsOperationTypeCreate	17968	18028	169	1	326	generated	
+130	Const	HcsOperationTypeCreateProcess	18029	18097	170	1	327	generated	
+131	Const	HcsOperationTypeEnumerate	18098	18161	171	1	328	generated	
+132	Const	HcsOperationTypeGetProcessInfo	18162	18231	172	1	329	generated	
+133	Const	HcsOperationTypeGetProcessProperties	18232	18307	173	1	330	generated	
+134	Const	HcsOperationTypeGetProperties	18308	18375	174	1	331	generated	
+135	Const	HcsOperationTypeModify	18376	18436	175	1	332	generated	
+136	Const	HcsOperationTypeModifyProcess	18437	18505	176	1	333	generated	
+137	Const	HcsOperationTypeNone	18506	18565	177	1	334	generated	
+138	Const	HcsOperationTypePause	18566	18625	178	1	335	generated	
+139	Const	HcsOperationTypeResume	18626	18686	179	1	336	generated	
+140	Const	HcsOperationTypeSave	18687	18745	180	1	337	generated	
+141	Const	HcsOperationTypeShutdown	18746	18808	181	1	338	generated	
+142	Const	HcsOperationTypeSignalProcess	18809	18877	182	1	339	generated	
+143	Const	HcsOperationTypeStart	18878	18937	183	1	340	generated	
+144	Const	HcsOperationTypeTerminate	18938	19001	184	1	341	generated	
+145	Const	HcsResourceTypeFile	19002	19058	185	1	342	generated	
+146	Const	HcsResourceTypeJob	19059	19114	186	1	343	generated	
+147	Const	HcsResourceTypeNone	19115	19171	187	1	344	generated	

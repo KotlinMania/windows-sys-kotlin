@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Wdk/System/Threading/mod: 121 generated; 24 unsupported

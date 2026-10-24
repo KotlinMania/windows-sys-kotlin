@@ -1,0 +1,1056 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	430	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		431	546	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		547	735	3	1	8	unsupported	declaration Macro has no candidate rule
+3	Macro		736	904	4	1	11	unsupported	declaration Macro has no candidate rule
+4	Macro		905	1074	5	1	14	unsupported	declaration Macro has no candidate rule
+5	Macro		1075	1264	6	1	17	unsupported	declaration Macro has no candidate rule
+6	Macro		1265	1438	7	1	20	unsupported	declaration Macro has no candidate rule
+7	Macro		1439	1613	8	1	23	unsupported	declaration Macro has no candidate rule
+8	Macro		1614	1791	9	1	26	unsupported	declaration Macro has no candidate rule
+9	Macro		1792	2250	10	1	29	unsupported	declaration Macro has no candidate rule
+10	Macro		2251	2711	12	1	33	unsupported	declaration Macro has no candidate rule
+11	Macro		2712	3275	14	1	37	unsupported	declaration Macro has no candidate rule
+12	Macro		3276	3841	16	1	41	unsupported	declaration Macro has no candidate rule
+13	Macro		3842	4020	18	1	45	unsupported	declaration Macro has no candidate rule
+14	Macro		4021	4175	19	1	48	unsupported	declaration Macro has no candidate rule
+15	Macro		4176	4366	20	1	51	unsupported	declaration Macro has no candidate rule
+16	Macro		4367	4558	21	1	54	unsupported	declaration Macro has no candidate rule
+17	Macro		4559	4854	22	1	57	unsupported	declaration Macro has no candidate rule
+18	Macro		4855	5151	23	1	60	unsupported	declaration Macro has no candidate rule
+19	Macro		5152	5351	24	1	63	unsupported	declaration Macro has no candidate rule
+20	Macro		5352	5553	25	1	66	unsupported	declaration Macro has no candidate rule
+21	Macro		5554	5709	26	1	69	unsupported	declaration Macro has no candidate rule
+22	Macro		5710	5865	27	1	72	unsupported	declaration Macro has no candidate rule
+23	Macro		5866	6022	28	1	75	unsupported	declaration Macro has no candidate rule
+24	Macro		6023	6182	29	1	78	unsupported	declaration Macro has no candidate rule
+25	Macro		6183	6343	30	1	81	unsupported	declaration Macro has no candidate rule
+26	Macro		6344	6462	31	1	84	unsupported	declaration Macro has no candidate rule
+27	Macro		6463	6583	32	1	87	unsupported	declaration Macro has no candidate rule
+28	Macro		6584	6712	33	1	90	unsupported	declaration Macro has no candidate rule
+29	Macro		6713	6840	34	1	93	unsupported	declaration Macro has no candidate rule
+30	Macro		6841	7020	35	1	96	unsupported	declaration Macro has no candidate rule
+31	Macro		7021	7354	36	1	99	unsupported	declaration Macro has no candidate rule
+32	Macro		7355	7690	37	1	102	unsupported	declaration Macro has no candidate rule
+33	Macro		7691	7871	38	1	105	unsupported	declaration Macro has no candidate rule
+34	Macro		7872	8153	39	1	108	unsupported	declaration Macro has no candidate rule
+35	Macro		8154	8436	40	1	111	unsupported	declaration Macro has no candidate rule
+36	Macro		8437	8552	41	1	114	unsupported	declaration Macro has no candidate rule
+37	Macro		8553	8889	42	1	117	unsupported	declaration Macro has no candidate rule
+38	Macro		8890	9192	44	1	121	unsupported	declaration Macro has no candidate rule
+39	Macro		9193	9497	45	1	124	unsupported	declaration Macro has no candidate rule
+40	Macro		9498	9712	46	1	127	unsupported	declaration Macro has no candidate rule
+41	Macro		9713	9928	47	1	130	unsupported	declaration Macro has no candidate rule
+42	Macro		9929	10116	48	1	133	unsupported	declaration Macro has no candidate rule
+43	Macro		10117	10306	49	1	136	unsupported	declaration Macro has no candidate rule
+44	Macro		10307	10592	50	1	139	unsupported	declaration Macro has no candidate rule
+45	Macro		10593	10881	51	1	142	unsupported	declaration Macro has no candidate rule
+46	Macro		10882	11171	52	1	145	unsupported	declaration Macro has no candidate rule
+47	Macro		11172	11322	53	1	148	unsupported	declaration Macro has no candidate rule
+48	Macro		11323	11498	54	1	151	unsupported	declaration Macro has no candidate rule
+49	Macro		11499	11721	55	1	154	unsupported	declaration Macro has no candidate rule
+50	Macro		11722	11945	56	1	157	unsupported	declaration Macro has no candidate rule
+51	Macro		11946	12273	57	1	160	unsupported	declaration Macro has no candidate rule
+52	Macro		12274	12602	58	1	163	unsupported	declaration Macro has no candidate rule
+53	Macro		12603	12779	59	1	166	unsupported	declaration Macro has no candidate rule
+54	Macro		12780	12995	60	1	169	unsupported	declaration Macro has no candidate rule
+55	Macro		12996	13137	61	1	172	unsupported	declaration Macro has no candidate rule
+56	Macro		13138	13600	62	1	175	unsupported	declaration Macro has no candidate rule
+57	Macro		13601	14064	63	1	178	unsupported	declaration Macro has no candidate rule
+58	Macro		14065	14294	64	1	181	unsupported	declaration Macro has no candidate rule
+59	Macro		14295	14525	65	1	184	unsupported	declaration Macro has no candidate rule
+60	Macro		14526	14706	66	1	187	unsupported	declaration Macro has no candidate rule
+61	Macro		14707	14917	67	1	190	unsupported	declaration Macro has no candidate rule
+62	Macro		14918	15172	68	1	193	unsupported	declaration Macro has no candidate rule
+63	Macro		15173	15428	69	1	196	unsupported	declaration Macro has no candidate rule
+64	Macro		15429	15641	70	1	199	unsupported	declaration Macro has no candidate rule
+65	Macro		15642	15842	71	1	202	unsupported	declaration Macro has no candidate rule
+66	Macro		15843	16074	72	1	205	unsupported	declaration Macro has no candidate rule
+67	Macro		16075	16309	73	1	208	unsupported	declaration Macro has no candidate rule
+68	Macro		16310	16478	74	1	211	unsupported	declaration Macro has no candidate rule
+69	Macro		16479	16648	75	1	214	unsupported	declaration Macro has no candidate rule
+70	Macro		16649	16910	76	1	217	unsupported	declaration Macro has no candidate rule
+71	Macro		16911	17199	78	1	221	unsupported	declaration Macro has no candidate rule
+72	Macro		17200	17489	80	1	225	unsupported	declaration Macro has no candidate rule
+73	Macro		17490	17752	82	1	229	unsupported	declaration Macro has no candidate rule
+74	Macro		17753	18054	84	1	233	unsupported	declaration Macro has no candidate rule
+75	Macro		18055	18314	86	1	237	unsupported	declaration Macro has no candidate rule
+76	Macro		18315	18576	87	1	240	unsupported	declaration Macro has no candidate rule
+77	Macro		18577	18804	88	1	243	unsupported	declaration Macro has no candidate rule
+78	Macro		18805	19038	89	1	246	unsupported	declaration Macro has no candidate rule
+79	Macro		19039	19273	90	1	249	unsupported	declaration Macro has no candidate rule
+80	Macro		19274	19503	91	1	252	unsupported	declaration Macro has no candidate rule
+81	Macro		19504	19658	92	1	255	unsupported	declaration Macro has no candidate rule
+82	Macro		19659	19814	93	1	258	unsupported	declaration Macro has no candidate rule
+83	Const	AGP_FLAG_NO_1X_RATE	19815	19857	94	1	261	generated	
+84	Const	AGP_FLAG_NO_2X_RATE	19858	19900	95	1	262	generated	
+85	Const	AGP_FLAG_NO_4X_RATE	19901	19943	96	1	263	generated	
+86	Const	AGP_FLAG_NO_8X_RATE	19944	19986	97	1	264	generated	
+87	Const	AGP_FLAG_NO_FW_ENABLE	19987	20033	98	1	265	generated	
+88	Const	AGP_FLAG_NO_SBA_ENABLE	20034	20081	99	1	266	generated	
+89	Const	AGP_FLAG_REVERSE_INITIALIZATION	20082	20138	100	1	267	generated	
+90	Const	AGP_FLAG_SPECIAL_RESERVE	20139	20192	101	1	268	generated	
+91	Const	AGP_FLAG_SPECIAL_TARGET	20193	20245	102	1	269	generated	
+92	Const	APMMENUSUSPEND_DISABLED	20246	20292	103	1	270	generated	
+93	Const	APMMENUSUSPEND_ENABLED	20293	20338	104	1	271	generated	
+94	Const	APMMENUSUSPEND_NOCHANGE	20339	20387	105	1	272	generated	
+95	Const	APMMENUSUSPEND_UNDOCKED	20388	20434	106	1	273	generated	
+96	Const	APMTIMEOUT_DISABLED	20435	20477	107	1	274	generated	
+97	Const	BIF_RAWDEVICENEEDSDRIVER	20478	20525	108	1	275	generated	
+98	Const	BIF_SHOWSIMILARDRIVERS	20526	20571	109	1	276	generated	
+99	Const	CSCONFIGFLAG_BITS	20572	20612	110	1	277	generated	
+100	Const	CSCONFIGFLAG_DISABLED	20613	20657	111	1	278	generated	
+101	Const	CSCONFIGFLAG_DO_NOT_CREATE	20658	20707	112	1	279	generated	
+102	Const	CSCONFIGFLAG_DO_NOT_START	20708	20756	113	1	280	generated	
+103	Const	DMSTATEFLAG_APPLYTOALL	20757	20802	114	1	281	generated	
+104	Const	DOSOPTF_ALWAYSUSE	20803	20843	115	1	282	generated	
+105	Const	DOSOPTF_DEFAULT	20844	20882	116	1	283	generated	
+106	Const	DOSOPTF_INDOSSTART	20883	20925	117	1	284	generated	
+107	Const	DOSOPTF_MULTIPLE	20926	20967	118	1	285	generated	
+108	Const	DOSOPTF_NEEDSETUP	20968	21009	119	1	286	generated	
+109	Const	DOSOPTF_PROVIDESUMB	21010	21053	120	1	287	generated	
+110	Const	DOSOPTF_SUPPORTED	21054	21094	121	1	288	generated	
+111	Const	DOSOPTF_USESPMODE	21095	21135	122	1	289	generated	
+112	Const	DOSOPTGF_DEFCLEAN	21136	21176	123	1	290	generated	
+113	Const	DRIVERSIGN_BLOCKING	21177	21219	124	1	291	generated	
+114	Const	DRIVERSIGN_NONE	21220	21258	125	1	292	generated	
+115	Const	DRIVERSIGN_WARNING	21259	21300	126	1	293	generated	
+116	Struct	DSKTLSYSTEMTIME	21301	21573	127	1	294	unsupported	declaration Struct has no candidate rule
+117	Const	DTRESULTFIX	21574	21608	140	1	309	generated	
+118	Const	DTRESULTOK	21609	21642	141	1	310	generated	
+119	Const	DTRESULTPART	21643	21678	142	1	311	generated	
+120	Const	DTRESULTPROB	21679	21714	143	1	312	generated	
+121	Const	EISAFLAG_NO_IO_MERGE	21715	21758	144	1	313	generated	
+122	Const	EISAFLAG_SLOT_IO_FIRST	21759	21804	145	1	314	generated	
+123	Const	EISA_NO_MAX_FUNCTION	21805	21850	146	1	315	generated	
+124	ItemType	HKEY	21851	21890	147	1	316	unsupported	non-scalar type Ptr unsupported
+125	Const	HKEY_CLASSES_ROOT	21891	21947	148	1	319	unsupported	non-scalar type Ptr unsupported
+126	Const	HKEY_CURRENT_CONFIG	21948	22006	149	1	322	unsupported	non-scalar type Ptr unsupported
+127	Const	HKEY_CURRENT_USER	22007	22063	150	1	325	unsupported	non-scalar type Ptr unsupported
+128	Const	HKEY_CURRENT_USER_LOCAL_SETTINGS	22064	22135	151	1	328	unsupported	non-scalar type Ptr unsupported
+129	Const	HKEY_DYN_DATA	22136	22188	152	1	331	unsupported	non-scalar type Ptr unsupported
+130	Const	HKEY_LOCAL_MACHINE	22189	22246	153	1	334	unsupported	non-scalar type Ptr unsupported
+131	Const	HKEY_PERFORMANCE_DATA	22247	22307	154	1	337	unsupported	non-scalar type Ptr unsupported
+132	Const	HKEY_PERFORMANCE_NLSTEXT	22308	22371	155	1	340	unsupported	non-scalar type Ptr unsupported
+133	Const	HKEY_PERFORMANCE_TEXT	22372	22432	156	1	343	unsupported	non-scalar type Ptr unsupported
+134	Const	HKEY_USERS	22433	22482	157	1	346	unsupported	non-scalar type Ptr unsupported
+135	Const	IT_COMPACT	22483	22516	158	1	349	generated	
+136	Const	IT_CUSTOM	22517	22549	159	1	350	generated	
+137	Const	IT_PORTABLE	22550	22584	160	1	351	generated	
+138	Const	IT_TYPICAL	22585	22618	161	1	352	generated	
+139	Const	KEY_ALL_ACCESS	22619	22671	162	1	353	generated	
+140	Const	KEY_CREATE_LINK	22672	22721	163	1	354	generated	
+141	Const	KEY_CREATE_SUB_KEY	22722	22773	164	1	355	generated	
+142	Const	KEY_ENUMERATE_SUB_KEYS	22774	22829	165	1	356	generated	
+143	Const	KEY_EXECUTE	22830	22879	166	1	357	generated	
+144	Const	KEY_NOTIFY	22880	22924	167	1	358	generated	
+145	Const	KEY_QUERY_VALUE	22925	22973	168	1	359	generated	
+146	Const	KEY_READ	22974	23020	169	1	360	generated	
+147	Const	KEY_SET_VALUE	23021	23067	170	1	361	generated	
+148	Const	KEY_WOW64_32KEY	23068	23118	171	1	362	generated	
+149	Const	KEY_WOW64_64KEY	23119	23169	172	1	363	generated	
+150	Const	KEY_WOW64_RES	23170	23218	173	1	364	generated	
+151	Const	KEY_WRITE	23219	23266	174	1	365	generated	
+152	Const	LASTGOOD_OPERATION	23267	23310	175	1	366	generated	
+153	Const	LASTGOOD_OPERATION_DELETE	23311	23359	176	1	367	generated	
+154	Const	LASTGOOD_OPERATION_NOPOSTPROC	23360	23412	177	1	368	generated	
+155	Const	MF_FLAGS_CREATE_BUT_NO_SHOW_DISABLED	23413	23472	178	1	369	generated	
+156	Const	MF_FLAGS_EVEN_IF_NO_RESOURCE	23473	23524	179	1	370	generated	
+157	Const	MF_FLAGS_FILL_IN_UNKNOWN_RESOURCE	23525	23581	180	1	371	generated	
+158	Const	MF_FLAGS_NO_CREATE_IF_NO_RESOURCE	23582	23638	181	1	372	generated	
+159	Const	NUM_EISA_RANGES	23639	23677	182	1	373	generated	
+160	Const	NUM_RESOURCE_MAP	23678	23719	183	1	374	generated	
+161	Const	PCIC_DEFAULT_IRQMASK	23720	23767	184	1	375	generated	
+162	Const	PCIC_DEFAULT_NUMSOCKETS	23768	23814	185	1	376	generated	
+163	Const	PCI_OPTIONS_USE_BIOS	23815	23858	186	1	377	generated	
+164	Const	PCI_OPTIONS_USE_IRQ_STEERING	23859	23910	187	1	378	generated	
+165	Const	PCMCIA_DEF_MEMBEGIN	23911	23958	188	1	379	generated	
+166	Const	PCMCIA_DEF_MEMEND	23959	24006	189	1	380	generated	
+167	Const	PCMCIA_DEF_MEMLEN	24007	24050	190	1	381	generated	
+168	Const	PCMCIA_DEF_MIN_REGION	24051	24099	191	1	382	generated	
+169	Const	PCMCIA_OPT_AUTOMEM	24100	24141	192	1	383	generated	
+170	Const	PCMCIA_OPT_HAVE_SOCKET	24142	24187	193	1	384	generated	
+171	Const	PCMCIA_OPT_NO_APMREMOVE	24188	24235	194	1	385	generated	
+172	Const	PCMCIA_OPT_NO_AUDIO	24236	24279	195	1	386	generated	
+173	Const	PCMCIA_OPT_NO_SOUND	24280	24322	196	1	387	generated	
+174	Const	PIR_OPTION_DEFAULT	24323	24365	197	1	388	generated	
+175	Const	PIR_OPTION_ENABLED	24366	24407	198	1	389	generated	
+176	Const	PIR_OPTION_MSSPEC	24408	24448	199	1	390	generated	
+177	Const	PIR_OPTION_REALMODE	24449	24491	200	1	391	generated	
+178	Const	PIR_OPTION_REGISTRY	24492	24534	201	1	392	generated	
+179	Const	PIR_STATUS_DISABLED	24535	24577	202	1	393	generated	
+180	Const	PIR_STATUS_ENABLED	24578	24619	203	1	394	generated	
+181	Const	PIR_STATUS_ERROR	24620	24659	204	1	395	generated	
+182	Const	PIR_STATUS_MAX	24660	24697	205	1	396	generated	
+183	Const	PIR_STATUS_MINIPORT_COMPATIBLE	24698	24751	206	1	397	generated	
+184	Const	PIR_STATUS_MINIPORT_ERROR	24752	24800	207	1	398	generated	
+185	Const	PIR_STATUS_MINIPORT_INVALID	24801	24851	208	1	399	generated	
+186	Const	PIR_STATUS_MINIPORT_MAX	24852	24898	209	1	400	generated	
+187	Const	PIR_STATUS_MINIPORT_NOKEY	24899	24947	210	1	401	generated	
+188	Const	PIR_STATUS_MINIPORT_NONE	24948	24995	211	1	402	generated	
+189	Const	PIR_STATUS_MINIPORT_NORMAL	24996	25045	212	1	403	generated	
+190	Const	PIR_STATUS_MINIPORT_OVERRIDE	25046	25097	213	1	404	generated	
+191	Const	PIR_STATUS_MINIPORT_SUCCESS	25098	25148	214	1	405	generated	
+192	Const	PIR_STATUS_TABLE_BAD	25149	25192	215	1	406	generated	
+193	Const	PIR_STATUS_TABLE_ERROR	25193	25238	216	1	407	generated	
+194	Const	PIR_STATUS_TABLE_MAX	25239	25282	217	1	408	generated	
+195	Const	PIR_STATUS_TABLE_MSSPEC	25283	25329	218	1	409	generated	
+196	Const	PIR_STATUS_TABLE_NONE	25330	25374	219	1	410	generated	
+197	Const	PIR_STATUS_TABLE_REALMODE	25375	25423	220	1	411	generated	
+198	Const	PIR_STATUS_TABLE_REGISTRY	25424	25472	221	1	412	generated	
+199	Const	PIR_STATUS_TABLE_SUCCESS	25473	25520	222	1	413	generated	
+200	ItemType	PQUERYHANDLER	25521	25745	223	1	414	unsupported	generic scalar type unsupported
+201	Const	PROVIDER_KEEPS_VALUE_LENGTH	25746	25796	224	1	417	generated	
+202	Struct	PVALUEA	25797	25998	225	1	418	unsupported	declaration Struct has no candidate rule
+203	Impl		25999	26099	233	1	428	unsupported	declaration Impl has no candidate rule
+204	Struct	PVALUEW	26100	26302	238	1	435	unsupported	declaration Struct has no candidate rule
+205	Impl		26303	26403	246	1	445	unsupported	declaration Impl has no candidate rule
+206	Const	REGDF_CONFLICTDMA	26404	26449	251	1	452	generated	
+207	Const	REGDF_CONFLICTIO	26450	26493	252	1	453	generated	
+208	Const	REGDF_CONFLICTIRQ	26494	26539	253	1	454	generated	
+209	Const	REGDF_CONFLICTMEM	26540	26585	254	1	455	generated	
+210	Const	REGDF_GENFORCEDCONFIG	26586	26631	255	1	456	generated	
+211	Const	REGDF_MAPIRQ2TO9	26632	26677	256	1	457	generated	
+212	Const	REGDF_NEEDFULLCONFIG	26678	26722	257	1	458	generated	
+213	Const	REGDF_NODETCONFIG	26723	26767	258	1	459	generated	
+214	Const	REGDF_NOTDETDMA	26768	26806	259	1	460	generated	
+215	Const	REGDF_NOTDETIO	26807	26844	260	1	461	generated	
+216	Const	REGDF_NOTDETIRQ	26845	26883	261	1	462	generated	
+217	Const	REGDF_NOTDETMEM	26884	26922	262	1	463	generated	
+218	Const	REGDF_NOTVERIFIED	26923	26972	263	1	464	generated	
+219	Const	REGSTR_DATA_NETOS_IPX	26973	27063	264	1	465	unsupported	non-scalar type Ptr unsupported
+220	Const	REGSTR_DATA_NETOS_NDIS	27064	27156	265	1	468	unsupported	non-scalar type Ptr unsupported
+221	Const	REGSTR_DATA_NETOS_ODI	27157	27247	266	1	471	unsupported	non-scalar type Ptr unsupported
+222	Const	REGSTR_DEFAULT_INSTANCE	27248	27341	267	1	474	unsupported	non-scalar type Ptr unsupported
+223	Const	REGSTR_KEY_ACPIENUM	27342	27431	268	1	477	unsupported	non-scalar type Ptr unsupported
+224	Const	REGSTR_KEY_APM	27432	27520	269	1	480	unsupported	non-scalar type Ptr unsupported
+225	Const	REGSTR_KEY_BIOSENUM	27521	27610	270	1	483	unsupported	non-scalar type Ptr unsupported
+226	Const	REGSTR_KEY_CLASS	27611	27698	271	1	486	unsupported	non-scalar type Ptr unsupported
+227	Const	REGSTR_KEY_CONFIG	27699	27788	272	1	489	unsupported	non-scalar type Ptr unsupported
+228	Const	REGSTR_KEY_CONTROL	27789	27880	273	1	492	unsupported	non-scalar type Ptr unsupported
+229	Const	REGSTR_KEY_CRASHES	27881	27972	274	1	495	unsupported	non-scalar type Ptr unsupported
+230	Const	REGSTR_KEY_CURRENT	27973	28064	275	1	498	unsupported	non-scalar type Ptr unsupported
+231	Const	REGSTR_KEY_CURRENT_ENV	28065	28166	276	1	501	unsupported	non-scalar type Ptr unsupported
+232	Const	REGSTR_KEY_DANGERS	28167	28258	277	1	504	unsupported	non-scalar type Ptr unsupported
+233	Const	REGSTR_KEY_DEFAULT	28259	28350	278	1	507	unsupported	non-scalar type Ptr unsupported
+234	Const	REGSTR_KEY_DETMODVARS	28351	28448	279	1	510	unsupported	non-scalar type Ptr unsupported
+235	Const	REGSTR_KEY_DEVICEPARAMETERS	28449	28559	280	1	513	unsupported	non-scalar type Ptr unsupported
+236	Const	REGSTR_KEY_DEVICE_PROPERTIES	28560	28664	281	1	516	unsupported	non-scalar type Ptr unsupported
+237	Const	REGSTR_KEY_DISPLAY_CLASS	28665	28762	282	1	519	unsupported	non-scalar type Ptr unsupported
+238	Const	REGSTR_KEY_DOSOPTCDROM	28763	28857	283	1	522	unsupported	non-scalar type Ptr unsupported
+239	Const	REGSTR_KEY_DOSOPTMOUSE	28858	28951	284	1	525	unsupported	non-scalar type Ptr unsupported
+240	Const	REGSTR_KEY_DRIVERPARAMETERS	28952	29062	285	1	528	unsupported	non-scalar type Ptr unsupported
+241	Const	REGSTR_KEY_DRIVERS	29063	29156	286	1	531	unsupported	non-scalar type Ptr unsupported
+242	Const	REGSTR_KEY_EBDAUTOEXECBATKEYBOARD	29157	29278	287	1	534	unsupported	non-scalar type Ptr unsupported
+243	Const	REGSTR_KEY_EBDAUTOEXECBATLOCAL	29279	29395	288	1	537	unsupported	non-scalar type Ptr unsupported
+244	Const	REGSTR_KEY_EBDCONFIGSYSKEYBOARD	29396	29513	289	1	540	unsupported	non-scalar type Ptr unsupported
+245	Const	REGSTR_KEY_EBDCONFIGSYSLOCAL	29514	29626	290	1	543	unsupported	non-scalar type Ptr unsupported
+246	Const	REGSTR_KEY_EBDFILESKEYBOARD	29627	29736	291	1	546	unsupported	non-scalar type Ptr unsupported
+247	Const	REGSTR_KEY_EBDFILESLOCAL	29737	29841	292	1	549	unsupported	non-scalar type Ptr unsupported
+248	Const	REGSTR_KEY_EISAENUM	29842	29931	293	1	552	unsupported	non-scalar type Ptr unsupported
+249	Const	REGSTR_KEY_ENUM	29932	30017	294	1	555	unsupported	non-scalar type Ptr unsupported
+250	Const	REGSTR_KEY_EXPLORER	30018	30111	295	1	558	unsupported	non-scalar type Ptr unsupported
+251	Const	REGSTR_KEY_FILTERS	30112	30203	296	1	561	unsupported	non-scalar type Ptr unsupported
+252	Const	REGSTR_KEY_INIUPDATE	30204	30299	297	1	564	unsupported	non-scalar type Ptr unsupported
+253	Const	REGSTR_KEY_ISAENUM	30300	30390	298	1	567	unsupported	non-scalar type Ptr unsupported
+254	Const	REGSTR_KEY_JOYCURR	30391	30498	299	1	570	unsupported	non-scalar type Ptr unsupported
+255	Const	REGSTR_KEY_JOYSETTINGS	30499	30603	300	1	573	unsupported	non-scalar type Ptr unsupported
+256	Const	REGSTR_KEY_KEYBOARD_CLASS	30604	30703	301	1	576	unsupported	non-scalar type Ptr unsupported
+257	Const	REGSTR_KEY_KNOWNDOCKINGSTATES	30704	30816	302	1	579	unsupported	non-scalar type Ptr unsupported
+258	Const	REGSTR_KEY_LOGCONFIG	30817	30912	303	1	582	unsupported	non-scalar type Ptr unsupported
+259	Const	REGSTR_KEY_LOGON	30913	31002	304	1	585	unsupported	non-scalar type Ptr unsupported
+260	Const	REGSTR_KEY_LOWER_FILTER_LEVEL_DEFAULT	31003	31112	305	1	588	unsupported	non-scalar type Ptr unsupported
+261	Const	REGSTR_KEY_MEDIA_CLASS	31113	31206	306	1	591	unsupported	non-scalar type Ptr unsupported
+262	Const	REGSTR_KEY_MODEM_CLASS	31207	31300	307	1	594	unsupported	non-scalar type Ptr unsupported
+263	Const	REGSTR_KEY_MODES	31301	31388	308	1	597	unsupported	non-scalar type Ptr unsupported
+264	Const	REGSTR_KEY_MONITOR_CLASS	31389	31486	309	1	600	unsupported	non-scalar type Ptr unsupported
+265	Const	REGSTR_KEY_MOUSE_CLASS	31487	31580	310	1	603	unsupported	non-scalar type Ptr unsupported
+266	Const	REGSTR_KEY_NDISINFO	31581	31674	311	1	606	unsupported	non-scalar type Ptr unsupported
+267	Const	REGSTR_KEY_NETWORK	31675	31766	312	1	609	unsupported	non-scalar type Ptr unsupported
+268	Const	REGSTR_KEY_NETWORKPROVIDER	31767	31876	313	1	612	unsupported	non-scalar type Ptr unsupported
+269	Const	REGSTR_KEY_NETWORK_PERSISTENT	31877	31984	314	1	615	unsupported	non-scalar type Ptr unsupported
+270	Const	REGSTR_KEY_NETWORK_RECENT	31985	32084	315	1	618	unsupported	non-scalar type Ptr unsupported
+271	Const	REGSTR_KEY_OVERRIDE	32085	32178	316	1	621	unsupported	non-scalar type Ptr unsupported
+272	Const	REGSTR_KEY_PCIENUM	32179	32266	317	1	624	unsupported	non-scalar type Ptr unsupported
+273	Const	REGSTR_KEY_PCMCIA	32267	32358	318	1	627	unsupported	non-scalar type Ptr unsupported
+274	Const	REGSTR_KEY_PCMCIAENUM	32359	32452	319	1	630	unsupported	non-scalar type Ptr unsupported
+275	Const	REGSTR_KEY_PCMCIA_CLASS	32453	32548	320	1	633	unsupported	non-scalar type Ptr unsupported
+276	Const	REGSTR_KEY_PCMTD	32549	32635	321	1	636	unsupported	non-scalar type Ptr unsupported
+277	Const	REGSTR_KEY_PCUNKNOWN	32636	32742	322	1	639	unsupported	non-scalar type Ptr unsupported
+278	Const	REGSTR_KEY_POL_COMPUTERS	32743	32842	323	1	642	unsupported	non-scalar type Ptr unsupported
+279	Const	REGSTR_KEY_POL_DEFAULT	32843	32939	324	1	645	unsupported	non-scalar type Ptr unsupported
+280	Const	REGSTR_KEY_POL_USERGROUPDATA	32940	33065	325	1	648	unsupported	non-scalar type Ptr unsupported
+281	Const	REGSTR_KEY_POL_USERGROUPS	33066	33167	326	1	651	unsupported	non-scalar type Ptr unsupported
+282	Const	REGSTR_KEY_POL_USERS	33168	33259	327	1	654	unsupported	non-scalar type Ptr unsupported
+283	Const	REGSTR_KEY_PORTS_CLASS	33260	33353	328	1	657	unsupported	non-scalar type Ptr unsupported
+284	Const	REGSTR_KEY_PRINTERS	33354	33447	329	1	660	unsupported	non-scalar type Ptr unsupported
+285	Const	REGSTR_KEY_PRINT_PROC	33448	33553	330	1	663	unsupported	non-scalar type Ptr unsupported
+286	Const	REGSTR_KEY_ROOTENUM	33554	33643	331	1	666	unsupported	non-scalar type Ptr unsupported
+287	Const	REGSTR_KEY_RUNHISTORY	33644	33741	332	1	669	unsupported	non-scalar type Ptr unsupported
+288	Const	REGSTR_KEY_SCSI_CLASS	33742	33840	333	1	672	unsupported	non-scalar type Ptr unsupported
+289	Const	REGSTR_KEY_SETUP	33841	33930	334	1	675	unsupported	non-scalar type Ptr unsupported
+290	Const	REGSTR_KEY_SHARES	33931	34075	335	1	678	unsupported	non-scalar type Ptr unsupported
+291	Const	REGSTR_KEY_SYSTEM	34076	34165	336	1	681	unsupported	non-scalar type Ptr unsupported
+292	Const	REGSTR_KEY_SYSTEMBOARD	34166	34262	337	1	684	unsupported	non-scalar type Ptr unsupported
+293	Const	REGSTR_KEY_UPPER_FILTER_LEVEL_DEFAULT	34263	34372	338	1	687	unsupported	non-scalar type Ptr unsupported
+294	Const	REGSTR_KEY_USER	34373	34458	339	1	690	unsupported	non-scalar type Ptr unsupported
+295	Const	REGSTR_KEY_VPOWERDENUM	34459	34554	340	1	693	unsupported	non-scalar type Ptr unsupported
+296	Const	REGSTR_KEY_WINOLDAPP	34555	34650	341	1	696	unsupported	non-scalar type Ptr unsupported
+297	Const	REGSTR_MACHTYPE_ATT_PC	34651	34746	342	1	699	unsupported	non-scalar type Ptr unsupported
+298	Const	REGSTR_MACHTYPE_HP_VECTRA	34747	34847	343	1	702	unsupported	non-scalar type Ptr unsupported
+299	Const	REGSTR_MACHTYPE_IBMPC	34848	34941	344	1	705	unsupported	non-scalar type Ptr unsupported
+300	Const	REGSTR_MACHTYPE_IBMPCAT	34942	35040	345	1	708	unsupported	non-scalar type Ptr unsupported
+301	Const	REGSTR_MACHTYPE_IBMPCCONV	35041	35150	346	1	711	unsupported	non-scalar type Ptr unsupported
+302	Const	REGSTR_MACHTYPE_IBMPCJR	35151	35248	347	1	714	unsupported	non-scalar type Ptr unsupported
+303	Const	REGSTR_MACHTYPE_IBMPCXT	35249	35347	348	1	717	unsupported	non-scalar type Ptr unsupported
+304	Const	REGSTR_MACHTYPE_IBMPCXT_286	35348	35454	349	1	720	unsupported	non-scalar type Ptr unsupported
+305	Const	REGSTR_MACHTYPE_IBMPS1	35455	35551	350	1	723	unsupported	non-scalar type Ptr unsupported
+306	Const	REGSTR_MACHTYPE_IBMPS2_25	35552	35654	351	1	726	unsupported	non-scalar type Ptr unsupported
+307	Const	REGSTR_MACHTYPE_IBMPS2_30	35655	35757	352	1	729	unsupported	non-scalar type Ptr unsupported
+308	Const	REGSTR_MACHTYPE_IBMPS2_30_286	35758	35868	353	1	732	unsupported	non-scalar type Ptr unsupported
+309	Const	REGSTR_MACHTYPE_IBMPS2_50	35869	35971	354	1	735	unsupported	non-scalar type Ptr unsupported
+310	Const	REGSTR_MACHTYPE_IBMPS2_50Z	35972	36076	355	1	738	unsupported	non-scalar type Ptr unsupported
+311	Const	REGSTR_MACHTYPE_IBMPS2_55SX	36077	36183	356	1	741	unsupported	non-scalar type Ptr unsupported
+312	Const	REGSTR_MACHTYPE_IBMPS2_60	36184	36286	357	1	744	unsupported	non-scalar type Ptr unsupported
+313	Const	REGSTR_MACHTYPE_IBMPS2_65SX	36287	36393	358	1	747	unsupported	non-scalar type Ptr unsupported
+314	Const	REGSTR_MACHTYPE_IBMPS2_70	36394	36496	359	1	750	unsupported	non-scalar type Ptr unsupported
+315	Const	REGSTR_MACHTYPE_IBMPS2_70_80	36497	36605	360	1	753	unsupported	non-scalar type Ptr unsupported
+316	Const	REGSTR_MACHTYPE_IBMPS2_80	36606	36708	361	1	756	unsupported	non-scalar type Ptr unsupported
+317	Const	REGSTR_MACHTYPE_IBMPS2_90	36709	36811	362	1	759	unsupported	non-scalar type Ptr unsupported
+318	Const	REGSTR_MACHTYPE_IBMPS2_P70	36812	36916	363	1	762	unsupported	non-scalar type Ptr unsupported
+319	Const	REGSTR_MACHTYPE_PHOENIX_PCAT	36917	37035	364	1	765	unsupported	non-scalar type Ptr unsupported
+320	Const	REGSTR_MACHTYPE_UNKNOWN	37036	37132	365	1	768	unsupported	non-scalar type Ptr unsupported
+321	Const	REGSTR_MACHTYPE_ZENITH_PC	37133	37233	366	1	771	unsupported	non-scalar type Ptr unsupported
+322	Const	REGSTR_MAX_VALUE_LENGTH	37234	37282	367	1	774	generated	
+323	Const	REGSTR_PATH_ADDRARB	37283	37425	368	1	775	unsupported	non-scalar type Ptr unsupported
+324	Const	REGSTR_PATH_AEDEBUG	37426	37567	369	1	778	unsupported	non-scalar type Ptr unsupported
+325	Const	REGSTR_PATH_APPEARANCE	37568	37681	370	1	781	unsupported	non-scalar type Ptr unsupported
+326	Const	REGSTR_PATH_APPPATCH	37682	37830	371	1	784	unsupported	non-scalar type Ptr unsupported
+327	Const	REGSTR_PATH_APPPATHS	37831	37972	372	1	787	unsupported	non-scalar type Ptr unsupported
+328	Const	REGSTR_PATH_BIOSINFO	37973	38103	373	1	790	unsupported	non-scalar type Ptr unsupported
+329	Const	REGSTR_PATH_BUSINFORMATION	38104	38251	374	1	793	unsupported	non-scalar type Ptr unsupported
+330	Const	REGSTR_PATH_CDFS	38252	38386	375	1	796	unsupported	non-scalar type Ptr unsupported
+331	Const	REGSTR_PATH_CHECKBADAPPS	38387	38541	376	1	799	unsupported	non-scalar type Ptr unsupported
+332	Const	REGSTR_PATH_CHECKBADAPPS400	38542	38702	377	1	802	unsupported	non-scalar type Ptr unsupported
+333	Const	REGSTR_PATH_CHECKDISK	38703	38856	378	1	805	unsupported	non-scalar type Ptr unsupported
+334	Const	REGSTR_PATH_CHECKDISKSET	38857	38955	379	1	808	unsupported	non-scalar type Ptr unsupported
+335	Const	REGSTR_PATH_CHECKDISKUDRVS	38956	39066	380	1	811	unsupported	non-scalar type Ptr unsupported
+336	Const	REGSTR_PATH_CHECKVERDLLS	39067	39221	381	1	814	unsupported	non-scalar type Ptr unsupported
+337	Const	REGSTR_PATH_CHILD_PREFIX	39222	39317	382	1	817	unsupported	non-scalar type Ptr unsupported
+338	Const	REGSTR_PATH_CHKLASTCHECK	39318	39485	383	1	820	unsupported	non-scalar type Ptr unsupported
+339	Const	REGSTR_PATH_CHKLASTSURFAN	39486	39664	384	1	823	unsupported	non-scalar type Ptr unsupported
+340	Const	REGSTR_PATH_CLASS	39665	39790	385	1	826	unsupported	non-scalar type Ptr unsupported
+341	Const	REGSTR_PATH_CLASS_NT	39791	39918	386	1	829	unsupported	non-scalar type Ptr unsupported
+342	Const	REGSTR_PATH_CODEPAGE	39919	40054	387	1	832	unsupported	non-scalar type Ptr unsupported
+343	Const	REGSTR_PATH_CODEVICEINSTALLERS	40055	40205	388	1	835	unsupported	non-scalar type Ptr unsupported
+344	Const	REGSTR_PATH_COLORS	40206	40311	389	1	838	unsupported	non-scalar type Ptr unsupported
+345	Const	REGSTR_PATH_COMPUTRNAME	40312	40463	390	1	841	unsupported	non-scalar type Ptr unsupported
+346	Const	REGSTR_PATH_CONTROLPANEL	40464	40567	391	1	844	unsupported	non-scalar type Ptr unsupported
+347	Const	REGSTR_PATH_CONTROLSFOLDER	40568	40721	392	1	847	unsupported	non-scalar type Ptr unsupported
+348	Const	REGSTR_PATH_CRITICALDEVICEDATABASE	40722	40880	393	1	850	unsupported	non-scalar type Ptr unsupported
+349	Const	REGSTR_PATH_CURRENTCONTROLSET	40881	41001	394	1	853	unsupported	non-scalar type Ptr unsupported
+350	Const	REGSTR_PATH_CURRENT_CONTROL_SET	41002	41133	395	1	856	unsupported	non-scalar type Ptr unsupported
+351	Const	REGSTR_PATH_CURSORS	41134	41241	396	1	859	unsupported	non-scalar type Ptr unsupported
+352	Const	REGSTR_PATH_CVNETWORK	41242	41382	397	1	862	unsupported	non-scalar type Ptr unsupported
+353	Const	REGSTR_PATH_DESKTOP	41383	41490	398	1	865	unsupported	non-scalar type Ptr unsupported
+354	Const	REGSTR_PATH_DETECT	41491	41627	399	1	868	unsupported	non-scalar type Ptr unsupported
+355	Const	REGSTR_PATH_DEVICEINSTALLER	41628	41783	400	1	871	unsupported	non-scalar type Ptr unsupported
+356	Const	REGSTR_PATH_DEVICE_CLASSES	41784	41925	401	1	874	unsupported	non-scalar type Ptr unsupported
+357	Const	REGSTR_PATH_DIFX	41926	42058	402	1	877	unsupported	non-scalar type Ptr unsupported
+358	Const	REGSTR_PATH_DISPLAYSETTINGS	42059	42169	403	1	880	unsupported	non-scalar type Ptr unsupported
+359	Const	REGSTR_PATH_DMAARB	42170	42310	404	1	883	unsupported	non-scalar type Ptr unsupported
+360	Const	REGSTR_PATH_DRIVERSIGN	42311	42434	405	1	886	unsupported	non-scalar type Ptr unsupported
+361	Const	REGSTR_PATH_DRIVERSIGN_POLICY	42435	42587	406	1	889	unsupported	non-scalar type Ptr unsupported
+362	Const	REGSTR_PATH_ENUM	42588	42674	407	1	892	unsupported	non-scalar type Ptr unsupported
+363	Const	REGSTR_PATH_ENVIRONMENTS	42675	42820	408	1	895	unsupported	non-scalar type Ptr unsupported
+364	Const	REGSTR_PATH_EVENTLABELS	42821	42932	409	1	898	unsupported	non-scalar type Ptr unsupported
+365	Const	REGSTR_PATH_EXPLORER	42933	43073	410	1	901	unsupported	non-scalar type Ptr unsupported
+366	Const	REGSTR_PATH_FAULT	43074	43208	411	1	904	unsupported	non-scalar type Ptr unsupported
+367	Const	REGSTR_PATH_FILESYSTEM	43209	43343	412	1	907	unsupported	non-scalar type Ptr unsupported
+368	Const	REGSTR_PATH_FILESYSTEM_NOVOLTRACK	43344	43501	413	1	910	unsupported	non-scalar type Ptr unsupported
+369	Const	REGSTR_PATH_FLOATINGPOINTPROCESSOR	43502	43655	414	1	913	unsupported	non-scalar type Ptr unsupported
+370	Const	REGSTR_PATH_FLOATINGPOINTPROCESSOR0	43656	43813	415	1	916	unsupported	non-scalar type Ptr unsupported
+371	Const	REGSTR_PATH_FONTS	43814	43911	416	1	919	unsupported	non-scalar type Ptr unsupported
+372	Const	REGSTR_PATH_GRPCONV	43912	44050	417	1	922	unsupported	non-scalar type Ptr unsupported
+373	Const	REGSTR_PATH_HACKINIFILE	44051	44204	418	1	925	unsupported	non-scalar type Ptr unsupported
+374	Const	REGSTR_PATH_HWPROFILES	44205	44337	419	1	928	unsupported	non-scalar type Ptr unsupported
+375	Const	REGSTR_PATH_HWPROFILESCURRENT	44338	44486	420	1	931	unsupported	non-scalar type Ptr unsupported
+376	Const	REGSTR_PATH_ICONS	44487	44590	421	1	934	unsupported	non-scalar type Ptr unsupported
+377	Const	REGSTR_PATH_IDCONFIGDB	44591	44725	422	1	937	unsupported	non-scalar type Ptr unsupported
+378	Const	REGSTR_PATH_INSTALLEDFILES	44726	44868	423	1	940	unsupported	non-scalar type Ptr unsupported
+379	Const	REGSTR_PATH_IOARB	44869	45007	424	1	943	unsupported	non-scalar type Ptr unsupported
+380	Const	REGSTR_PATH_IOS	45008	45134	425	1	946	unsupported	non-scalar type Ptr unsupported
+381	Const	REGSTR_PATH_IRQARB	45135	45275	426	1	949	unsupported	non-scalar type Ptr unsupported
+382	Const	REGSTR_PATH_KEYBOARD	45276	45385	427	1	952	unsupported	non-scalar type Ptr unsupported
+383	Const	REGSTR_PATH_KNOWN16DLLS	45386	45538	428	1	955	unsupported	non-scalar type Ptr unsupported
+384	Const	REGSTR_PATH_KNOWNDLLS	45539	45687	429	1	958	unsupported	non-scalar type Ptr unsupported
+385	Const	REGSTR_PATH_KNOWNVXDS	45688	45836	430	1	961	unsupported	non-scalar type Ptr unsupported
+386	Const	REGSTR_PATH_LASTBACKUP	45837	45991	431	1	964	unsupported	non-scalar type Ptr unsupported
+387	Const	REGSTR_PATH_LASTCHECK	45992	46144	432	1	967	unsupported	non-scalar type Ptr unsupported
+388	Const	REGSTR_PATH_LASTGOOD	46145	46270	433	1	970	unsupported	non-scalar type Ptr unsupported
+389	Const	REGSTR_PATH_LASTGOODTMP	46271	46403	434	1	973	unsupported	non-scalar type Ptr unsupported
+390	Const	REGSTR_PATH_LASTOPTIMIZE	46404	46562	435	1	976	unsupported	non-scalar type Ptr unsupported
+391	Const	REGSTR_PATH_LOOKSCHEMES	46563	46686	436	1	979	unsupported	non-scalar type Ptr unsupported
+392	Const	REGSTR_PATH_METRICS	46687	46809	437	1	982	unsupported	non-scalar type Ptr unsupported
+393	Const	REGSTR_PATH_MONITORS	46810	46947	438	1	985	unsupported	non-scalar type Ptr unsupported
+394	Const	REGSTR_PATH_MOUSE	46948	47051	439	1	988	unsupported	non-scalar type Ptr unsupported
+395	Const	REGSTR_PATH_MSDOSOPTS	47052	47198	440	1	991	unsupported	non-scalar type Ptr unsupported
+396	Const	REGSTR_PATH_MULTIMEDIA_AUDIO	47199	47331	441	1	994	unsupported	non-scalar type Ptr unsupported
+397	Const	REGSTR_PATH_MULTI_FUNCTION	47332	47426	442	1	997	unsupported	non-scalar type Ptr unsupported
+398	Const	REGSTR_PATH_NCPSERVER	47427	47572	443	1	1000	unsupported	non-scalar type Ptr unsupported
+399	Const	REGSTR_PATH_NETEQUIV	47573	47724	444	1	1003	unsupported	non-scalar type Ptr unsupported
+400	Const	REGSTR_PATH_NETWORK_USERSETTINGS	47725	47830	445	1	1006	unsupported	non-scalar type Ptr unsupported
+401	Const	REGSTR_PATH_NEWDOSBOX	47831	47983	446	1	1009	unsupported	non-scalar type Ptr unsupported
+402	Const	REGSTR_PATH_NONDRIVERSIGN	47984	48114	447	1	1012	unsupported	non-scalar type Ptr unsupported
+403	Const	REGSTR_PATH_NONDRIVERSIGN_POLICY	48115	48274	448	1	1015	unsupported	non-scalar type Ptr unsupported
+404	Const	REGSTR_PATH_NOSUGGMSDOS	48275	48421	449	1	1018	unsupported	non-scalar type Ptr unsupported
+405	Const	REGSTR_PATH_NT_CURRENTVERSION	48422	48564	450	1	1021	unsupported	non-scalar type Ptr unsupported
+406	Const	REGSTR_PATH_NWREDIR	48565	48699	451	1	1024	unsupported	non-scalar type Ptr unsupported
+407	Const	REGSTR_PATH_PCIIR	48700	48837	452	1	1027	unsupported	non-scalar type Ptr unsupported
+408	Const	REGSTR_PATH_PER_HW_ID_STORAGE	48838	48996	453	1	1030	unsupported	non-scalar type Ptr unsupported
+409	Const	REGSTR_PATH_PIFCONVERT	48997	49141	454	1	1033	unsupported	non-scalar type Ptr unsupported
+410	Const	REGSTR_PATH_POLICIES	49142	49282	455	1	1036	unsupported	non-scalar type Ptr unsupported
+411	Const	REGSTR_PATH_PRINT	49283	49407	456	1	1039	unsupported	non-scalar type Ptr unsupported
+412	Const	REGSTR_PATH_PRINTERS	49408	49545	457	1	1042	unsupported	non-scalar type Ptr unsupported
+413	Const	REGSTR_PATH_PROPERTYSYSTEM	49546	49698	458	1	1045	unsupported	non-scalar type Ptr unsupported
+414	Const	REGSTR_PATH_PROVIDERS	49699	49838	459	1	1048	unsupported	non-scalar type Ptr unsupported
+415	Const	REGSTR_PATH_PWDPROVIDER	49839	49975	460	1	1051	unsupported	non-scalar type Ptr unsupported
+416	Const	REGSTR_PATH_REALMODENET	49976	50133	461	1	1054	unsupported	non-scalar type Ptr unsupported
+417	Const	REGSTR_PATH_REINSTALL	50134	50276	462	1	1057	unsupported	non-scalar type Ptr unsupported
+418	Const	REGSTR_PATH_RELIABILITY	50277	50423	463	1	1060	unsupported	non-scalar type Ptr unsupported
+419	Const	REGSTR_PATH_RELIABILITY_POLICY	50424	50574	464	1	1063	unsupported	non-scalar type Ptr unsupported
+420	Const	REGSTR_PATH_RELIABILITY_POLICY_REPORTSNAPSHOT	50575	50700	465	1	1066	unsupported	non-scalar type Ptr unsupported
+421	Const	REGSTR_PATH_RELIABILITY_POLICY_SHUTDOWNREASONUI	50701	50830	466	1	1069	unsupported	non-scalar type Ptr unsupported
+422	Const	REGSTR_PATH_RELIABILITY_POLICY_SNAPSHOT	50831	50944	467	1	1072	unsupported	non-scalar type Ptr unsupported
+423	Const	REGSTR_PATH_ROOT	50945	51037	468	1	1075	unsupported	non-scalar type Ptr unsupported
+424	Const	REGSTR_PATH_RUN	51038	51168	469	1	1078	unsupported	non-scalar type Ptr unsupported
+425	Const	REGSTR_PATH_RUNONCE	51169	51307	470	1	1081	unsupported	non-scalar type Ptr unsupported
+426	Const	REGSTR_PATH_RUNONCEEX	51308	51450	471	1	1084	unsupported	non-scalar type Ptr unsupported
+427	Const	REGSTR_PATH_RUNSERVICES	51451	51597	472	1	1087	unsupported	non-scalar type Ptr unsupported
+428	Const	REGSTR_PATH_RUNSERVICESONCE	51598	51752	473	1	1090	unsupported	non-scalar type Ptr unsupported
+429	Const	REGSTR_PATH_SCHEMES	51753	51856	474	1	1093	unsupported	non-scalar type Ptr unsupported
+430	Const	REGSTR_PATH_SCREENSAVE	51857	51967	475	1	1096	unsupported	non-scalar type Ptr unsupported
+431	Const	REGSTR_PATH_SERVICES	51968	52089	476	1	1099	unsupported	non-scalar type Ptr unsupported
+432	Const	REGSTR_PATH_SETUP	52090	52217	477	1	1102	unsupported	non-scalar type Ptr unsupported
+433	Const	REGSTR_PATH_SHUTDOWN	52218	52348	478	1	1105	unsupported	non-scalar type Ptr unsupported
+434	Const	REGSTR_PATH_SOUND	52349	52452	479	1	1108	unsupported	non-scalar type Ptr unsupported
+435	Const	REGSTR_PATH_SYSTEMENUM	52453	52572	480	1	1111	unsupported	non-scalar type Ptr unsupported
+436	Const	REGSTR_PATH_SYSTRAY	52573	52720	481	1	1114	unsupported	non-scalar type Ptr unsupported
+437	Const	REGSTR_PATH_TIMEZONE	52721	52862	482	1	1117	unsupported	non-scalar type Ptr unsupported
+438	Const	REGSTR_PATH_UNINSTALL	52863	53005	483	1	1120	unsupported	non-scalar type Ptr unsupported
+439	Const	REGSTR_PATH_UPDATE	53006	53132	484	1	1123	unsupported	non-scalar type Ptr unsupported
+440	Const	REGSTR_PATH_VCOMM	53133	53263	485	1	1126	unsupported	non-scalar type Ptr unsupported
+441	Const	REGSTR_PATH_VMM	53264	53390	486	1	1129	unsupported	non-scalar type Ptr unsupported
+442	Const	REGSTR_PATH_VMM32FILES	53391	53525	487	1	1132	unsupported	non-scalar type Ptr unsupported
+443	Const	REGSTR_PATH_VNETSUP	53526	53660	488	1	1135	unsupported	non-scalar type Ptr unsupported
+444	Const	REGSTR_PATH_VOLUMECACHE	53661	53818	489	1	1138	unsupported	non-scalar type Ptr unsupported
+445	Const	REGSTR_PATH_VPOWERD	53819	53953	490	1	1141	unsupported	non-scalar type Ptr unsupported
+446	Const	REGSTR_PATH_VXD	53954	54075	491	1	1144	unsupported	non-scalar type Ptr unsupported
+447	Const	REGSTR_PATH_WARNVERDLLS	54076	54228	492	1	1147	unsupported	non-scalar type Ptr unsupported
+448	Const	REGSTR_PATH_WINBOOT	54229	54357	493	1	1150	unsupported	non-scalar type Ptr unsupported
+449	Const	REGSTR_PATH_WINDOWSAPPLETS	54358	54503	494	1	1153	unsupported	non-scalar type Ptr unsupported
+450	Const	REGSTR_PATH_WINLOGON	54504	54644	495	1	1156	unsupported	non-scalar type Ptr unsupported
+451	Const	REGSTR_PATH_WMI_SECURITY	54645	54784	496	1	1159	unsupported	non-scalar type Ptr unsupported
+452	Const	REGSTR_PCI_DUAL_IDE	54785	54880	497	1	1162	unsupported	non-scalar type Ptr unsupported
+453	Const	REGSTR_PCI_OPTIONS	54881	54972	498	1	1165	unsupported	non-scalar type Ptr unsupported
+454	Const	REGSTR_VALUE_DEFAULTLOC	54973	55083	499	1	1168	unsupported	non-scalar type Ptr unsupported
+455	Const	REGSTR_VALUE_ENABLE	55084	55175	500	1	1171	unsupported	non-scalar type Ptr unsupported
+456	Const	REGSTR_VALUE_LOWPOWERACTIVE	55176	55293	501	1	1174	unsupported	non-scalar type Ptr unsupported
+457	Const	REGSTR_VALUE_LOWPOWERTIMEOUT	55294	55413	502	1	1177	unsupported	non-scalar type Ptr unsupported
+458	Const	REGSTR_VALUE_NETPATH	55414	55511	503	1	1180	unsupported	non-scalar type Ptr unsupported
+459	Const	REGSTR_VALUE_POWEROFFACTIVE	55512	55629	504	1	1183	unsupported	non-scalar type Ptr unsupported
+460	Const	REGSTR_VALUE_POWEROFFTIMEOUT	55630	55749	505	1	1186	unsupported	non-scalar type Ptr unsupported
+461	Const	REGSTR_VALUE_SCRPASSWORD	55750	55855	506	1	1189	unsupported	non-scalar type Ptr unsupported
+462	Const	REGSTR_VALUE_USESCRPASSWORD	55856	55970	507	1	1192	unsupported	non-scalar type Ptr unsupported
+463	Const	REGSTR_VALUE_VERBOSE	55971	56064	508	1	1195	unsupported	non-scalar type Ptr unsupported
+464	Const	REGSTR_VAL_ACDRIVESPINDOWN	56065	56172	509	1	1198	unsupported	non-scalar type Ptr unsupported
+465	Const	REGSTR_VAL_ACSPINDOWNPREVIOUS	56173	56286	510	1	1201	unsupported	non-scalar type Ptr unsupported
+466	Const	REGSTR_VAL_ACTIVESERVICE	56287	56390	511	1	1204	unsupported	non-scalar type Ptr unsupported
+467	Const	REGSTR_VAL_ADDRESS	56391	56482	512	1	1207	unsupported	non-scalar type Ptr unsupported
+468	Const	REGSTR_VAL_AEDEBUG_AUTO	56483	56576	513	1	1210	unsupported	non-scalar type Ptr unsupported
+469	Const	REGSTR_VAL_AEDEBUG_DEBUGGER	56577	56678	514	1	1213	unsupported	non-scalar type Ptr unsupported
+470	Const	REGSTR_VAL_ALPHANUMPWDS	56679	56780	515	1	1216	unsupported	non-scalar type Ptr unsupported
+471	Const	REGSTR_VAL_APISUPPORT	56781	56878	516	1	1219	unsupported	non-scalar type Ptr unsupported
+472	Const	REGSTR_VAL_APMACTIMEOUT	56879	56980	517	1	1222	unsupported	non-scalar type Ptr unsupported
+473	Const	REGSTR_VAL_APMBATTIMEOUT	56981	57084	518	1	1225	unsupported	non-scalar type Ptr unsupported
+474	Const	REGSTR_VAL_APMBIOSVER	57085	57182	519	1	1228	unsupported	non-scalar type Ptr unsupported
+475	Const	REGSTR_VAL_APMFLAGS	57183	57276	520	1	1231	unsupported	non-scalar type Ptr unsupported
+476	Const	REGSTR_VAL_APMMENUSUSPEND	57277	57382	521	1	1234	unsupported	non-scalar type Ptr unsupported
+477	Const	REGSTR_VAL_APMSHUTDOWNPOWER	57383	57492	522	1	1237	unsupported	non-scalar type Ptr unsupported
+478	Const	REGSTR_VAL_APPINSTPATH	57493	57595	523	1	1240	unsupported	non-scalar type Ptr unsupported
+479	Const	REGSTR_VAL_ASKFORCONFIG	57596	57697	524	1	1243	unsupported	non-scalar type Ptr unsupported
+480	Const	REGSTR_VAL_ASKFORCONFIGFUNC	57698	57807	525	1	1246	unsupported	non-scalar type Ptr unsupported
+481	Const	REGSTR_VAL_ASYNCFILECOMMIT	57808	57915	526	1	1249	unsupported	non-scalar type Ptr unsupported
+482	Const	REGSTR_VAL_AUDIO_BITMAP	57916	58011	527	1	1252	unsupported	non-scalar type Ptr unsupported
+483	Const	REGSTR_VAL_AUDIO_ICON	58012	58103	528	1	1255	unsupported	non-scalar type Ptr unsupported
+484	Const	REGSTR_VAL_AUTHENT_AGENT	58104	58213	529	1	1258	unsupported	non-scalar type Ptr unsupported
+485	Const	REGSTR_VAL_AUTOEXEC	58214	58311	530	1	1261	unsupported	non-scalar type Ptr unsupported
+486	Const	REGSTR_VAL_AUTOINSNOTE	58312	58422	531	1	1264	unsupported	non-scalar type Ptr unsupported
+487	Const	REGSTR_VAL_AUTOLOGON	58423	58518	532	1	1267	unsupported	non-scalar type Ptr unsupported
+488	Const	REGSTR_VAL_AUTOMOUNT	58519	58620	533	1	1270	unsupported	non-scalar type Ptr unsupported
+489	Const	REGSTR_VAL_AUTOSTART	58621	58716	534	1	1273	unsupported	non-scalar type Ptr unsupported
+490	Const	REGSTR_VAL_BASICPROPERTIES	58717	58824	535	1	1276	unsupported	non-scalar type Ptr unsupported
+491	Const	REGSTR_VAL_BASICPROPERTIES_32	58825	58937	536	1	1279	unsupported	non-scalar type Ptr unsupported
+492	Const	REGSTR_VAL_BATDRIVESPINDOWN	58938	59047	537	1	1282	unsupported	non-scalar type Ptr unsupported
+493	Const	REGSTR_VAL_BATSPINDOWNPREVIOUS	59048	59163	538	1	1285	unsupported	non-scalar type Ptr unsupported
+494	Const	REGSTR_VAL_BEHAVIOR_ON_FAILED_VERIFY	59164	59288	539	1	1288	unsupported	non-scalar type Ptr unsupported
+495	Const	REGSTR_VAL_BIOSDATE	59289	59382	540	1	1291	unsupported	non-scalar type Ptr unsupported
+496	Const	REGSTR_VAL_BIOSNAME	59383	59476	541	1	1294	unsupported	non-scalar type Ptr unsupported
+497	Const	REGSTR_VAL_BIOSVERSION	59477	59576	542	1	1297	unsupported	non-scalar type Ptr unsupported
+498	Const	REGSTR_VAL_BITSPERPIXEL	59577	59678	543	1	1300	unsupported	non-scalar type Ptr unsupported
+499	Const	REGSTR_VAL_BOOTCONFIG	59679	59776	544	1	1303	unsupported	non-scalar type Ptr unsupported
+500	Const	REGSTR_VAL_BOOTCOUNT	59777	59872	545	1	1306	unsupported	non-scalar type Ptr unsupported
+501	Const	REGSTR_VAL_BOOTDIR	59873	59964	546	1	1309	unsupported	non-scalar type Ptr unsupported
+502	Const	REGSTR_VAL_BPP	59965	60048	547	1	1312	unsupported	non-scalar type Ptr unsupported
+503	Const	REGSTR_VAL_BT	60049	60134	548	1	1315	unsupported	non-scalar type Ptr unsupported
+504	Const	REGSTR_VAL_BUFFAGETIMEOUT	60135	60242	549	1	1318	unsupported	non-scalar type Ptr unsupported
+505	Const	REGSTR_VAL_BUFFIDLETIMEOUT	60243	60352	550	1	1321	unsupported	non-scalar type Ptr unsupported
+506	Const	REGSTR_VAL_BUSTYPE	60353	60444	551	1	1324	unsupported	non-scalar type Ptr unsupported
+507	Const	REGSTR_VAL_CAPABILITIES	60445	60546	552	1	1327	unsupported	non-scalar type Ptr unsupported
+508	Const	REGSTR_VAL_CARDSPECIFIC	60547	60648	553	1	1330	unsupported	non-scalar type Ptr unsupported
+509	Const	REGSTR_VAL_CDCACHESIZE	60649	60746	554	1	1333	unsupported	non-scalar type Ptr unsupported
+510	Const	REGSTR_VAL_CDCOMPATNAMES	60747	60854	555	1	1336	unsupported	non-scalar type Ptr unsupported
+511	Const	REGSTR_VAL_CDEXTERRORS	60855	60957	556	1	1339	unsupported	non-scalar type Ptr unsupported
+512	Const	REGSTR_VAL_CDNOREADAHEAD	60958	61059	557	1	1342	unsupported	non-scalar type Ptr unsupported
+513	Const	REGSTR_VAL_CDPREFETCH	61060	61155	558	1	1345	unsupported	non-scalar type Ptr unsupported
+514	Const	REGSTR_VAL_CDPREFETCHTAIL	61156	61259	559	1	1348	unsupported	non-scalar type Ptr unsupported
+515	Const	REGSTR_VAL_CDRAWCACHE	61260	61355	560	1	1351	unsupported	non-scalar type Ptr unsupported
+516	Const	REGSTR_VAL_CDROM	61356	61443	561	1	1354	unsupported	non-scalar type Ptr unsupported
+517	Const	REGSTR_VAL_CDROMCLASSNAME	61444	61540	562	1	1357	unsupported	non-scalar type Ptr unsupported
+518	Const	REGSTR_VAL_CDSHOWVERSIONS	61541	61644	563	1	1360	unsupported	non-scalar type Ptr unsupported
+519	Const	REGSTR_VAL_CDSVDSENSE	61645	61740	564	1	1363	unsupported	non-scalar type Ptr unsupported
+520	Const	REGSTR_VAL_CHECKSUM	61741	61841	565	1	1366	unsupported	non-scalar type Ptr unsupported
+521	Const	REGSTR_VAL_CLASS	61842	61929	566	1	1369	unsupported	non-scalar type Ptr unsupported
+522	Const	REGSTR_VAL_CLASSDESC	61930	62025	567	1	1372	unsupported	non-scalar type Ptr unsupported
+523	Const	REGSTR_VAL_CLASSGUID	62026	62121	568	1	1375	unsupported	non-scalar type Ptr unsupported
+524	Const	REGSTR_VAL_CMDRIVFLAGS	62122	62221	569	1	1378	unsupported	non-scalar type Ptr unsupported
+525	Const	REGSTR_VAL_CMENUMFLAGS	62222	62321	570	1	1381	unsupported	non-scalar type Ptr unsupported
+526	Const	REGSTR_VAL_COINSTALLERS_32	62322	62428	571	1	1384	unsupported	non-scalar type Ptr unsupported
+527	Const	REGSTR_VAL_COMINFO	62429	62520	572	1	1387	unsupported	non-scalar type Ptr unsupported
+528	Const	REGSTR_VAL_COMMENT	62521	62612	573	1	1390	unsupported	non-scalar type Ptr unsupported
+529	Const	REGSTR_VAL_COMPATIBLEIDS	62613	62716	574	1	1393	unsupported	non-scalar type Ptr unsupported
+530	Const	REGSTR_VAL_COMPRESSIONMETHOD	62717	62831	575	1	1396	unsupported	non-scalar type Ptr unsupported
+531	Const	REGSTR_VAL_COMPRESSIONTHRESHOLD	62832	62949	576	1	1399	unsupported	non-scalar type Ptr unsupported
+532	Const	REGSTR_VAL_COMPUTERNAME	62950	63051	577	1	1402	unsupported	non-scalar type Ptr unsupported
+533	Const	REGSTR_VAL_COMPUTRNAME	63052	63152	578	1	1405	unsupported	non-scalar type Ptr unsupported
+534	Const	REGSTR_VAL_COMVERIFYBASE	63153	63256	579	1	1408	unsupported	non-scalar type Ptr unsupported
+535	Const	REGSTR_VAL_CONFIG	63257	63350	580	1	1411	unsupported	non-scalar type Ptr unsupported
+536	Const	REGSTR_VAL_CONFIGFLAGS	63351	63450	581	1	1414	unsupported	non-scalar type Ptr unsupported
+537	Const	REGSTR_VAL_CONFIGMG	63451	63544	582	1	1417	unsupported	non-scalar type Ptr unsupported
+538	Const	REGSTR_VAL_CONFIGSYS	63545	63641	583	1	1420	unsupported	non-scalar type Ptr unsupported
+539	Const	REGSTR_VAL_CONNECTION_TYPE	63642	63748	584	1	1423	unsupported	non-scalar type Ptr unsupported
+540	Const	REGSTR_VAL_CONTAINERID	63749	63848	585	1	1426	unsupported	non-scalar type Ptr unsupported
+541	Const	REGSTR_VAL_CONTIGFILEALLOC	63849	63960	586	1	1429	unsupported	non-scalar type Ptr unsupported
+542	Const	REGSTR_VAL_CONVMEM	63961	64052	587	1	1432	unsupported	non-scalar type Ptr unsupported
+543	Const	REGSTR_VAL_CPU	64053	64136	588	1	1435	unsupported	non-scalar type Ptr unsupported
+544	Const	REGSTR_VAL_CRASHFUNCS	64137	64234	589	1	1438	unsupported	non-scalar type Ptr unsupported
+545	Const	REGSTR_VAL_CSCONFIGFLAGS	64235	64338	590	1	1441	unsupported	non-scalar type Ptr unsupported
+546	Const	REGSTR_VAL_CURCONFIG	64339	64438	591	1	1444	unsupported	non-scalar type Ptr unsupported
+547	Const	REGSTR_VAL_CURDRVLET	64439	64553	592	1	1447	unsupported	non-scalar type Ptr unsupported
+548	Const	REGSTR_VAL_CURRENTCONFIG	64554	64657	593	1	1450	unsupported	non-scalar type Ptr unsupported
+549	Const	REGSTR_VAL_CURRENT_BUILD	64658	64766	594	1	1453	unsupported	non-scalar type Ptr unsupported
+550	Const	REGSTR_VAL_CURRENT_CSDVERSION	64767	64872	595	1	1456	unsupported	non-scalar type Ptr unsupported
+551	Const	REGSTR_VAL_CURRENT_TYPE	64873	64973	596	1	1459	unsupported	non-scalar type Ptr unsupported
+552	Const	REGSTR_VAL_CURRENT_USER	64974	65075	597	1	1462	unsupported	non-scalar type Ptr unsupported
+553	Const	REGSTR_VAL_CURRENT_VERSION	65076	65182	598	1	1465	unsupported	non-scalar type Ptr unsupported
+554	Const	REGSTR_VAL_CUSTOMCOLORS	65183	65284	599	1	1468	unsupported	non-scalar type Ptr unsupported
+555	Const	REGSTR_VAL_CUSTOM_PROPERTY_CACHE_DATE	65285	65411	600	1	1471	unsupported	non-scalar type Ptr unsupported
+556	Const	REGSTR_VAL_CUSTOM_PROPERTY_HW_ID_KEY	65412	65535	601	1	1474	unsupported	non-scalar type Ptr unsupported
+557	Const	REGSTR_VAL_DEFAULT	65536	65627	602	1	1477	unsupported	non-scalar type Ptr unsupported
+558	Const	REGSTR_VAL_DETCONFIG	65628	65723	603	1	1480	unsupported	non-scalar type Ptr unsupported
+559	Const	REGSTR_VAL_DETECT	65724	65813	604	1	1483	unsupported	non-scalar type Ptr unsupported
+560	Const	REGSTR_VAL_DETECTFUNC	65814	65911	605	1	1486	unsupported	non-scalar type Ptr unsupported
+561	Const	REGSTR_VAL_DETFLAGS	65912	66005	606	1	1489	unsupported	non-scalar type Ptr unsupported
+562	Const	REGSTR_VAL_DETFUNC	66006	66097	607	1	1492	unsupported	non-scalar type Ptr unsupported
+563	Const	REGSTR_VAL_DEVDESC	66098	66192	608	1	1495	unsupported	non-scalar type Ptr unsupported
+564	Const	REGSTR_VAL_DEVICEDRIVER	66193	66294	609	1	1498	unsupported	non-scalar type Ptr unsupported
+565	Const	REGSTR_VAL_DEVICEPATH	66295	66392	610	1	1501	unsupported	non-scalar type Ptr unsupported
+566	Const	REGSTR_VAL_DEVICE_CHARACTERISTICS	66393	66513	611	1	1504	unsupported	non-scalar type Ptr unsupported
+567	Const	REGSTR_VAL_DEVICE_EXCLUSIVE	66514	66616	612	1	1507	unsupported	non-scalar type Ptr unsupported
+568	Const	REGSTR_VAL_DEVICE_INSTANCE	66617	66723	613	1	1510	unsupported	non-scalar type Ptr unsupported
+569	Const	REGSTR_VAL_DEVICE_SECURITY_DESCRIPTOR	66724	66835	614	1	1513	unsupported	non-scalar type Ptr unsupported
+570	Const	REGSTR_VAL_DEVICE_TYPE	66836	66934	615	1	1516	unsupported	non-scalar type Ptr unsupported
+571	Const	REGSTR_VAL_DEVLOADER	66935	67030	616	1	1519	unsupported	non-scalar type Ptr unsupported
+572	Const	REGSTR_VAL_DEVTYPE	67031	67125	617	1	1522	unsupported	non-scalar type Ptr unsupported
+573	Const	REGSTR_VAL_DIRECTHOST	67126	67223	618	1	1525	unsupported	non-scalar type Ptr unsupported
+574	Const	REGSTR_VAL_DIRTYSHUTDOWN	67224	67327	619	1	1528	unsupported	non-scalar type Ptr unsupported
+575	Const	REGSTR_VAL_DIRTYSHUTDOWNTIME	67328	67439	620	1	1531	unsupported	non-scalar type Ptr unsupported
+576	Const	REGSTR_VAL_DISABLECOUNT	67440	67541	621	1	1534	unsupported	non-scalar type Ptr unsupported
+577	Const	REGSTR_VAL_DISABLEPWDCACHING	67542	67653	622	1	1537	unsupported	non-scalar type Ptr unsupported
+578	Const	REGSTR_VAL_DISABLEREGTOOLS	67654	67766	623	1	1540	unsupported	non-scalar type Ptr unsupported
+579	Const	REGSTR_VAL_DISCONNECT	67767	67864	624	1	1543	unsupported	non-scalar type Ptr unsupported
+580	Const	REGSTR_VAL_DISK	67865	67953	625	1	1546	unsupported	non-scalar type Ptr unsupported
+581	Const	REGSTR_VAL_DISKCLASSNAME	67954	68053	626	1	1549	unsupported	non-scalar type Ptr unsupported
+582	Const	REGSTR_VAL_DISPCPL_NOAPPEARANCEPAGE	68054	68175	627	1	1552	unsupported	non-scalar type Ptr unsupported
+583	Const	REGSTR_VAL_DISPCPL_NOBACKGROUNDPAGE	68176	68297	628	1	1555	unsupported	non-scalar type Ptr unsupported
+584	Const	REGSTR_VAL_DISPCPL_NODISPCPL	68298	68401	629	1	1558	unsupported	non-scalar type Ptr unsupported
+585	Const	REGSTR_VAL_DISPCPL_NOSCRSAVPAGE	68402	68515	630	1	1561	unsupported	non-scalar type Ptr unsupported
+586	Const	REGSTR_VAL_DISPCPL_NOSETTINGSPAGE	68516	68633	631	1	1564	unsupported	non-scalar type Ptr unsupported
+587	Const	REGSTR_VAL_DISPLAY	68634	68725	632	1	1567	unsupported	non-scalar type Ptr unsupported
+588	Const	REGSTR_VAL_DISPLAYFLAGS	68726	68827	633	1	1570	unsupported	non-scalar type Ptr unsupported
+589	Const	REGSTR_VAL_DOCKED	68828	68929	634	1	1573	unsupported	non-scalar type Ptr unsupported
+590	Const	REGSTR_VAL_DOCKSTATE	68930	69025	635	1	1576	unsupported	non-scalar type Ptr unsupported
+591	Const	REGSTR_VAL_DOES_POLLING	69026	69135	636	1	1579	unsupported	non-scalar type Ptr unsupported
+592	Const	REGSTR_VAL_DONTLOADIFCONFLICT	69136	69249	637	1	1582	unsupported	non-scalar type Ptr unsupported
+593	Const	REGSTR_VAL_DONTUSEMEM	69250	69353	638	1	1585	unsupported	non-scalar type Ptr unsupported
+594	Const	REGSTR_VAL_DOSCP	69354	69441	639	1	1588	unsupported	non-scalar type Ptr unsupported
+595	Const	REGSTR_VAL_DOSOPTFLAGS	69442	69535	640	1	1591	unsupported	non-scalar type Ptr unsupported
+596	Const	REGSTR_VAL_DOSOPTGLOBALFLAGS	69536	69641	641	1	1594	unsupported	non-scalar type Ptr unsupported
+597	Const	REGSTR_VAL_DOSOPTTIP	69642	69735	642	1	1597	unsupported	non-scalar type Ptr unsupported
+598	Const	REGSTR_VAL_DOSPAGER	69736	69829	643	1	1600	unsupported	non-scalar type Ptr unsupported
+599	Const	REGSTR_VAL_DOS_SPOOL_MASK	69830	69933	644	1	1603	unsupported	non-scalar type Ptr unsupported
+600	Const	REGSTR_VAL_DOUBLEBUFFER	69934	70035	645	1	1606	unsupported	non-scalar type Ptr unsupported
+601	Const	REGSTR_VAL_DPI	70036	70119	646	1	1609	unsupported	non-scalar type Ptr unsupported
+602	Const	REGSTR_VAL_DPILOGICALX	70120	70219	647	1	1612	unsupported	non-scalar type Ptr unsupported
+603	Const	REGSTR_VAL_DPILOGICALY	70220	70319	648	1	1615	unsupported	non-scalar type Ptr unsupported
+604	Const	REGSTR_VAL_DPIPHYSICALX	70320	70421	649	1	1618	unsupported	non-scalar type Ptr unsupported
+605	Const	REGSTR_VAL_DPIPHYSICALY	70422	70523	650	1	1621	unsupported	non-scalar type Ptr unsupported
+606	Const	REGSTR_VAL_DPMS	70524	70609	651	1	1624	unsupported	non-scalar type Ptr unsupported
+607	Const	REGSTR_VAL_DRIVER	70610	70699	652	1	1627	unsupported	non-scalar type Ptr unsupported
+608	Const	REGSTR_VAL_DRIVERCACHEPATH	70700	70807	653	1	1630	unsupported	non-scalar type Ptr unsupported
+609	Const	REGSTR_VAL_DRIVERDATE	70808	70905	654	1	1633	unsupported	non-scalar type Ptr unsupported
+610	Const	REGSTR_VAL_DRIVERDATEDATA	70906	71011	655	1	1636	unsupported	non-scalar type Ptr unsupported
+611	Const	REGSTR_VAL_DRIVERVERSION	71012	71115	656	1	1639	unsupported	non-scalar type Ptr unsupported
+612	Const	REGSTR_VAL_DRIVESPINDOWN	71116	71219	657	1	1642	unsupported	non-scalar type Ptr unsupported
+613	Const	REGSTR_VAL_DRIVEWRITEBEHIND	71220	71329	658	1	1645	unsupported	non-scalar type Ptr unsupported
+614	Const	REGSTR_VAL_DRIVE_SPINDOWN	71330	71435	659	1	1648	unsupported	non-scalar type Ptr unsupported
+615	Const	REGSTR_VAL_DRV	71436	71519	660	1	1651	unsupported	non-scalar type Ptr unsupported
+616	Const	REGSTR_VAL_DRVDESC	71520	71614	661	1	1654	unsupported	non-scalar type Ptr unsupported
+617	Const	REGSTR_VAL_DYNAMIC	71615	71706	662	1	1657	unsupported	non-scalar type Ptr unsupported
+618	Const	REGSTR_VAL_EISA_FLAGS	71707	71803	663	1	1660	unsupported	non-scalar type Ptr unsupported
+619	Const	REGSTR_VAL_EISA_FUNCTIONS	71804	71908	664	1	1663	unsupported	non-scalar type Ptr unsupported
+620	Const	REGSTR_VAL_EISA_FUNCTIONS_MASK	71909	72022	665	1	1666	unsupported	non-scalar type Ptr unsupported
+621	Const	REGSTR_VAL_EISA_RANGES	72023	72121	666	1	1669	unsupported	non-scalar type Ptr unsupported
+622	Const	REGSTR_VAL_EISA_SIMULATE_INT15	72122	72235	667	1	1672	unsupported	non-scalar type Ptr unsupported
+623	Const	REGSTR_VAL_EJECT_PRIORITY	72236	72340	668	1	1675	unsupported	non-scalar type Ptr unsupported
+624	Const	REGSTR_VAL_ENABLEINTS	72341	72438	669	1	1678	unsupported	non-scalar type Ptr unsupported
+625	Const	REGSTR_VAL_ENUMERATOR	72439	72536	670	1	1681	unsupported	non-scalar type Ptr unsupported
+626	Const	REGSTR_VAL_ENUMPROPPAGES	72537	72640	671	1	1684	unsupported	non-scalar type Ptr unsupported
+627	Const	REGSTR_VAL_ENUMPROPPAGES_32	72641	72749	672	1	1687	unsupported	non-scalar type Ptr unsupported
+628	Const	REGSTR_VAL_ESDI	72750	72837	673	1	1690	unsupported	non-scalar type Ptr unsupported
+629	Const	REGSTR_VAL_EXISTS	72838	72927	674	1	1693	unsupported	non-scalar type Ptr unsupported
+630	Const	REGSTR_VAL_EXTMEM	72928	73017	675	1	1696	unsupported	non-scalar type Ptr unsupported
+631	Const	REGSTR_VAL_FAULT_LOGFILE	73018	73115	676	1	1699	unsupported	non-scalar type Ptr unsupported
+632	Const	REGSTR_VAL_FIFODEPTH	73116	73211	677	1	1702	unsupported	non-scalar type Ptr unsupported
+633	Const	REGSTR_VAL_FILESHARING	73212	73311	678	1	1705	unsupported	non-scalar type Ptr unsupported
+634	Const	REGSTR_VAL_FIRSTINSTALLDATETIME	73312	73429	679	1	1708	unsupported	non-scalar type Ptr unsupported
+635	Const	REGSTR_VAL_FIRSTNETDRIVE	73430	73537	680	1	1711	unsupported	non-scalar type Ptr unsupported
+636	Const	REGSTR_VAL_FLOP	73538	73625	681	1	1714	unsupported	non-scalar type Ptr unsupported
+637	Const	REGSTR_VAL_FLOPPY	73626	73715	682	1	1717	unsupported	non-scalar type Ptr unsupported
+638	Const	REGSTR_VAL_FONTSIZE	73716	73809	683	1	1720	unsupported	non-scalar type Ptr unsupported
+639	Const	REGSTR_VAL_FORCECL	73810	73909	684	1	1723	unsupported	non-scalar type Ptr unsupported
+640	Const	REGSTR_VAL_FORCEDCONFIG	73910	74011	685	1	1726	unsupported	non-scalar type Ptr unsupported
+641	Const	REGSTR_VAL_FORCEFIFO	74012	74107	686	1	1729	unsupported	non-scalar type Ptr unsupported
+642	Const	REGSTR_VAL_FORCELOAD	74108	74205	687	1	1732	unsupported	non-scalar type Ptr unsupported
+643	Const	REGSTR_VAL_FORCEPMIO	74206	74301	688	1	1735	unsupported	non-scalar type Ptr unsupported
+644	Const	REGSTR_VAL_FORCEREBOOT	74302	74401	689	1	1738	unsupported	non-scalar type Ptr unsupported
+645	Const	REGSTR_VAL_FORCERMIO	74402	74497	690	1	1741	unsupported	non-scalar type Ptr unsupported
+646	Const	REGSTR_VAL_FREESPACERATIO	74498	74603	691	1	1744	unsupported	non-scalar type Ptr unsupported
+647	Const	REGSTR_VAL_FRIENDLYNAME	74604	74705	692	1	1747	unsupported	non-scalar type Ptr unsupported
+648	Const	REGSTR_VAL_FSFILTERCLASS	74706	74809	693	1	1750	unsupported	non-scalar type Ptr unsupported
+649	Const	REGSTR_VAL_FULLTRACE	74810	74905	694	1	1753	unsupported	non-scalar type Ptr unsupported
+650	Const	REGSTR_VAL_FUNCDESC	74906	75003	695	1	1756	unsupported	non-scalar type Ptr unsupported
+651	Const	REGSTR_VAL_GAPTIME	75004	75095	696	1	1759	unsupported	non-scalar type Ptr unsupported
+652	Const	REGSTR_VAL_GRB	75096	75179	697	1	1762	unsupported	non-scalar type Ptr unsupported
+653	Const	REGSTR_VAL_HARDWAREID	75180	75277	698	1	1765	unsupported	non-scalar type Ptr unsupported
+654	Const	REGSTR_VAL_HIDESHAREPWDS	75278	75381	699	1	1768	unsupported	non-scalar type Ptr unsupported
+655	Const	REGSTR_VAL_HRES	75382	75467	700	1	1771	unsupported	non-scalar type Ptr unsupported
+656	Const	REGSTR_VAL_HWDETECT	75468	75567	701	1	1774	unsupported	non-scalar type Ptr unsupported
+657	Const	REGSTR_VAL_HWMECHANISM	75568	75667	702	1	1777	unsupported	non-scalar type Ptr unsupported
+658	Const	REGSTR_VAL_HWREV	75668	75760	703	1	1780	unsupported	non-scalar type Ptr unsupported
+659	Const	REGSTR_VAL_ID	75761	75849	704	1	1783	unsupported	non-scalar type Ptr unsupported
+660	Const	REGSTR_VAL_IDE_FORCE_SERIALIZE	75850	75964	705	1	1786	unsupported	non-scalar type Ptr unsupported
+661	Const	REGSTR_VAL_IDE_NO_SERIALIZE	75965	76072	706	1	1789	unsupported	non-scalar type Ptr unsupported
+662	Const	REGSTR_VAL_INFNAME	76073	76164	707	1	1792	unsupported	non-scalar type Ptr unsupported
+663	Const	REGSTR_VAL_INFPATH	76165	76256	708	1	1795	unsupported	non-scalar type Ptr unsupported
+664	Const	REGSTR_VAL_INFSECTION	76257	76354	709	1	1798	unsupported	non-scalar type Ptr unsupported
+665	Const	REGSTR_VAL_INFSECTIONEXT	76355	76458	710	1	1801	unsupported	non-scalar type Ptr unsupported
+666	Const	REGSTR_VAL_INHIBITRESULTS	76459	76564	711	1	1804	unsupported	non-scalar type Ptr unsupported
+667	Const	REGSTR_VAL_INSICON	76565	76653	712	1	1807	unsupported	non-scalar type Ptr unsupported
+668	Const	REGSTR_VAL_INSTALLER	76654	76749	713	1	1810	unsupported	non-scalar type Ptr unsupported
+669	Const	REGSTR_VAL_INSTALLER_32	76750	76850	714	1	1813	unsupported	non-scalar type Ptr unsupported
+670	Const	REGSTR_VAL_INSTALLTYPE	76851	76950	715	1	1816	unsupported	non-scalar type Ptr unsupported
+671	Const	REGSTR_VAL_INT13	76951	77038	716	1	1819	unsupported	non-scalar type Ptr unsupported
+672	Const	REGSTR_VAL_ISAPNP	77039	77128	717	1	1822	unsupported	non-scalar type Ptr unsupported
+673	Const	REGSTR_VAL_ISAPNP_RDP_OVERRIDE	77129	77236	718	1	1825	unsupported	non-scalar type Ptr unsupported
+674	Const	REGSTR_VAL_JOYCALLOUT	77237	77339	719	1	1828	unsupported	non-scalar type Ptr unsupported
+675	Const	REGSTR_VAL_JOYNCONFIG	77340	77450	720	1	1831	unsupported	non-scalar type Ptr unsupported
+676	Const	REGSTR_VAL_JOYNOEMCALLOUT	77451	77562	721	1	1834	unsupported	non-scalar type Ptr unsupported
+677	Const	REGSTR_VAL_JOYNOEMNAME	77563	77668	722	1	1837	unsupported	non-scalar type Ptr unsupported
+678	Const	REGSTR_VAL_JOYOEMCAL1	77669	77763	723	1	1840	unsupported	non-scalar type Ptr unsupported
+679	Const	REGSTR_VAL_JOYOEMCAL10	77764	77860	724	1	1843	unsupported	non-scalar type Ptr unsupported
+680	Const	REGSTR_VAL_JOYOEMCAL11	77861	77957	725	1	1846	unsupported	non-scalar type Ptr unsupported
+681	Const	REGSTR_VAL_JOYOEMCAL12	77958	78054	726	1	1849	unsupported	non-scalar type Ptr unsupported
+682	Const	REGSTR_VAL_JOYOEMCAL2	78055	78149	727	1	1852	unsupported	non-scalar type Ptr unsupported
+683	Const	REGSTR_VAL_JOYOEMCAL3	78150	78244	728	1	1855	unsupported	non-scalar type Ptr unsupported
+684	Const	REGSTR_VAL_JOYOEMCAL4	78245	78339	729	1	1858	unsupported	non-scalar type Ptr unsupported
+685	Const	REGSTR_VAL_JOYOEMCAL5	78340	78434	730	1	1861	unsupported	non-scalar type Ptr unsupported
+686	Const	REGSTR_VAL_JOYOEMCAL6	78435	78529	731	1	1864	unsupported	non-scalar type Ptr unsupported
+687	Const	REGSTR_VAL_JOYOEMCAL7	78530	78624	732	1	1867	unsupported	non-scalar type Ptr unsupported
+688	Const	REGSTR_VAL_JOYOEMCAL8	78625	78719	733	1	1870	unsupported	non-scalar type Ptr unsupported
+689	Const	REGSTR_VAL_JOYOEMCAL9	78720	78814	734	1	1873	unsupported	non-scalar type Ptr unsupported
+690	Const	REGSTR_VAL_JOYOEMCALCAP	78815	78913	735	1	1876	unsupported	non-scalar type Ptr unsupported
+691	Const	REGSTR_VAL_JOYOEMCALLOUT	78914	79014	736	1	1879	unsupported	non-scalar type Ptr unsupported
+692	Const	REGSTR_VAL_JOYOEMCALWINCAP	79015	79119	737	1	1882	unsupported	non-scalar type Ptr unsupported
+693	Const	REGSTR_VAL_JOYOEMDATA	79120	79214	738	1	1885	unsupported	non-scalar type Ptr unsupported
+694	Const	REGSTR_VAL_JOYOEMNAME	79215	79309	739	1	1888	unsupported	non-scalar type Ptr unsupported
+695	Const	REGSTR_VAL_JOYOEMPOVLABEL	79310	79412	740	1	1891	unsupported	non-scalar type Ptr unsupported
+696	Const	REGSTR_VAL_JOYOEMRLABEL	79413	79511	741	1	1894	unsupported	non-scalar type Ptr unsupported
+697	Const	REGSTR_VAL_JOYOEMTESTBUTTONCAP	79512	79624	742	1	1897	unsupported	non-scalar type Ptr unsupported
+698	Const	REGSTR_VAL_JOYOEMTESTBUTTONDESC	79625	79739	743	1	1900	unsupported	non-scalar type Ptr unsupported
+699	Const	REGSTR_VAL_JOYOEMTESTMOVECAP	79740	79848	744	1	1903	unsupported	non-scalar type Ptr unsupported
+700	Const	REGSTR_VAL_JOYOEMTESTMOVEDESC	79849	79959	745	1	1906	unsupported	non-scalar type Ptr unsupported
+701	Const	REGSTR_VAL_JOYOEMTESTWINCAP	79960	80066	746	1	1909	unsupported	non-scalar type Ptr unsupported
+702	Const	REGSTR_VAL_JOYOEMULABEL	80067	80165	747	1	1912	unsupported	non-scalar type Ptr unsupported
+703	Const	REGSTR_VAL_JOYOEMVLABEL	80166	80264	748	1	1915	unsupported	non-scalar type Ptr unsupported
+704	Const	REGSTR_VAL_JOYOEMXYLABEL	80265	80365	749	1	1918	unsupported	non-scalar type Ptr unsupported
+705	Const	REGSTR_VAL_JOYOEMZLABEL	80366	80464	750	1	1921	unsupported	non-scalar type Ptr unsupported
+706	Const	REGSTR_VAL_JOYUSERVALUES	80465	80573	751	1	1924	unsupported	non-scalar type Ptr unsupported
+707	Const	REGSTR_VAL_LASTALIVEBT	80574	80673	752	1	1927	unsupported	non-scalar type Ptr unsupported
+708	Const	REGSTR_VAL_LASTALIVEINTERVAL	80674	80785	753	1	1930	unsupported	non-scalar type Ptr unsupported
+709	Const	REGSTR_VAL_LASTALIVEPMPOLICY	80786	80897	754	1	1933	unsupported	non-scalar type Ptr unsupported
+710	Const	REGSTR_VAL_LASTALIVESTAMP	80898	81003	755	1	1936	unsupported	non-scalar type Ptr unsupported
+711	Const	REGSTR_VAL_LASTALIVESTAMPFORCED	81004	81121	756	1	1939	unsupported	non-scalar type Ptr unsupported
+712	Const	REGSTR_VAL_LASTALIVESTAMPINTERVAL	81122	81243	757	1	1942	unsupported	non-scalar type Ptr unsupported
+713	Const	REGSTR_VAL_LASTALIVESTAMPPOLICYINTERVAL	81244	81377	758	1	1945	unsupported	non-scalar type Ptr unsupported
+714	Const	REGSTR_VAL_LASTALIVEUPTIME	81378	81485	759	1	1948	unsupported	non-scalar type Ptr unsupported
+715	Const	REGSTR_VAL_LASTBOOTPMDRVS	81486	81591	760	1	1951	unsupported	non-scalar type Ptr unsupported
+716	Const	REGSTR_VAL_LASTCOMPUTERNAME	81592	81701	761	1	1954	unsupported	non-scalar type Ptr unsupported
+717	Const	REGSTR_VAL_LASTPCIBUSNUM	81702	81805	762	1	1957	unsupported	non-scalar type Ptr unsupported
+718	Const	REGSTR_VAL_LAST_UPDATE_TIME	81806	81913	763	1	1960	unsupported	non-scalar type Ptr unsupported
+719	Const	REGSTR_VAL_LEGALNOTICECAPTION	81914	82027	764	1	1963	unsupported	non-scalar type Ptr unsupported
+720	Const	REGSTR_VAL_LEGALNOTICETEXT	82028	82135	765	1	1966	unsupported	non-scalar type Ptr unsupported
+721	Const	REGSTR_VAL_LICENSINGINFO	82136	82239	766	1	1969	unsupported	non-scalar type Ptr unsupported
+722	Const	REGSTR_VAL_LINKED	82240	82329	767	1	1972	unsupported	non-scalar type Ptr unsupported
+723	Const	REGSTR_VAL_LOADHI	82330	82419	768	1	1975	unsupported	non-scalar type Ptr unsupported
+724	Const	REGSTR_VAL_LOADRMDRIVERS	82420	82523	769	1	1978	unsupported	non-scalar type Ptr unsupported
+725	Const	REGSTR_VAL_LOCATION_INFORMATION	82524	82640	770	1	1981	unsupported	non-scalar type Ptr unsupported
+726	Const	REGSTR_VAL_LOCATION_INFORMATION_OVERRIDE	82641	82774	771	1	1984	unsupported	non-scalar type Ptr unsupported
+727	Const	REGSTR_VAL_LOWERFILTERS	82775	82876	772	1	1987	unsupported	non-scalar type Ptr unsupported
+728	Const	REGSTR_VAL_LOWER_FILTER_DEFAULT_LEVEL	82877	83003	773	1	1990	unsupported	non-scalar type Ptr unsupported
+729	Const	REGSTR_VAL_LOWER_FILTER_LEVELS	83004	83117	774	1	1993	unsupported	non-scalar type Ptr unsupported
+730	Const	REGSTR_VAL_MACHINETYPE	83118	83217	775	1	1996	unsupported	non-scalar type Ptr unsupported
+731	Const	REGSTR_VAL_MANUFACTURER	83218	83319	776	1	1999	unsupported	non-scalar type Ptr unsupported
+732	Const	REGSTR_VAL_MAP	83320	83403	777	1	2002	unsupported	non-scalar type Ptr unsupported
+733	Const	REGSTR_VAL_MATCHINGDEVID	83404	83510	778	1	2005	unsupported	non-scalar type Ptr unsupported
+734	Const	REGSTR_VAL_MAXCONNECTIONS	83511	83616	779	1	2008	unsupported	non-scalar type Ptr unsupported
+735	Const	REGSTR_VAL_MAXLIP	83617	83706	780	1	2011	unsupported	non-scalar type Ptr unsupported
+736	Const	REGSTR_VAL_MAXRES	83707	83803	781	1	2014	unsupported	non-scalar type Ptr unsupported
+737	Const	REGSTR_VAL_MAXRETRY	83804	83897	782	1	2017	unsupported	non-scalar type Ptr unsupported
+738	Const	REGSTR_VAL_MAX_HCID_LEN	83898	83947	783	1	2020	generated	
+739	Const	REGSTR_VAL_MEDIA	83948	84039	784	1	2021	unsupported	non-scalar type Ptr unsupported
+740	Const	REGSTR_VAL_MFG	84040	84123	785	1	2024	unsupported	non-scalar type Ptr unsupported
+741	Const	REGSTR_VAL_MF_FLAGS	84124	84216	786	1	2027	unsupported	non-scalar type Ptr unsupported
+742	Const	REGSTR_VAL_MINIPORT_STAT	84217	84321	787	1	2030	unsupported	non-scalar type Ptr unsupported
+743	Const	REGSTR_VAL_MINPWDLEN	84322	84417	788	1	2033	unsupported	non-scalar type Ptr unsupported
+744	Const	REGSTR_VAL_MINRETRY	84418	84511	789	1	2036	unsupported	non-scalar type Ptr unsupported
+745	Const	REGSTR_VAL_MODE	84512	84597	790	1	2039	unsupported	non-scalar type Ptr unsupported
+746	Const	REGSTR_VAL_MODEL	84598	84685	791	1	2042	unsupported	non-scalar type Ptr unsupported
+747	Const	REGSTR_VAL_MSDOSMODE	84686	84781	792	1	2045	unsupported	non-scalar type Ptr unsupported
+748	Const	REGSTR_VAL_MSDOSMODEDISCARD	84782	84882	793	1	2048	unsupported	non-scalar type Ptr unsupported
+749	Const	REGSTR_VAL_MUSTBEVALIDATED	84883	84990	794	1	2051	unsupported	non-scalar type Ptr unsupported
+750	Const	REGSTR_VAL_NAMECACHECOUNT	84991	85091	795	1	2054	unsupported	non-scalar type Ptr unsupported
+751	Const	REGSTR_VAL_NAMENUMERICTAIL	85092	85199	796	1	2057	unsupported	non-scalar type Ptr unsupported
+752	Const	REGSTR_VAL_NCP_BROWSEMASTER	85200	85305	797	1	2060	unsupported	non-scalar type Ptr unsupported
+753	Const	REGSTR_VAL_NCP_USEPEERBROWSING	85306	85418	798	1	2063	unsupported	non-scalar type Ptr unsupported
+754	Const	REGSTR_VAL_NCP_USESAP	85419	85513	799	1	2066	unsupported	non-scalar type Ptr unsupported
+755	Const	REGSTR_VAL_NDP	85514	85597	800	1	2069	unsupported	non-scalar type Ptr unsupported
+756	Const	REGSTR_VAL_NETCARD	85598	85689	801	1	2072	unsupported	non-scalar type Ptr unsupported
+757	Const	REGSTR_VAL_NETCLEAN	85690	85783	802	1	2075	unsupported	non-scalar type Ptr unsupported
+758	Const	REGSTR_VAL_NETOSTYPE	85784	85879	803	1	2078	unsupported	non-scalar type Ptr unsupported
+759	Const	REGSTR_VAL_NETSETUP_DISABLE	85880	85983	804	1	2081	unsupported	non-scalar type Ptr unsupported
+760	Const	REGSTR_VAL_NETSETUP_NOCONFIGPAGE	85984	86102	805	1	2084	unsupported	non-scalar type Ptr unsupported
+761	Const	REGSTR_VAL_NETSETUP_NOIDPAGE	86103	86213	806	1	2087	unsupported	non-scalar type Ptr unsupported
+762	Const	REGSTR_VAL_NETSETUP_NOSECURITYPAGE	86214	86336	807	1	2090	unsupported	non-scalar type Ptr unsupported
+763	Const	REGSTR_VAL_NOCMOSORFDPT	86337	86438	808	1	2093	unsupported	non-scalar type Ptr unsupported
+764	Const	REGSTR_VAL_NODISPLAYCLASS	86439	86544	809	1	2096	unsupported	non-scalar type Ptr unsupported
+765	Const	REGSTR_VAL_NOENTIRENETWORK	86545	86652	810	1	2099	unsupported	non-scalar type Ptr unsupported
+766	Const	REGSTR_VAL_NOFILESHARING	86653	86756	811	1	2102	unsupported	non-scalar type Ptr unsupported
+767	Const	REGSTR_VAL_NOFILESHARINGCTRL	86757	86871	812	1	2105	unsupported	non-scalar type Ptr unsupported
+768	Const	REGSTR_VAL_NOIDE	86872	86959	813	1	2108	unsupported	non-scalar type Ptr unsupported
+769	Const	REGSTR_VAL_NOINSTALLCLASS	86960	87065	814	1	2111	unsupported	non-scalar type Ptr unsupported
+770	Const	REGSTR_VAL_NONSTANDARD_ATAPI	87066	87176	815	1	2114	unsupported	non-scalar type Ptr unsupported
+771	Const	REGSTR_VAL_NOPRINTSHARING	87177	87282	816	1	2117	unsupported	non-scalar type Ptr unsupported
+772	Const	REGSTR_VAL_NOPRINTSHARINGCTRL	87283	87399	817	1	2120	unsupported	non-scalar type Ptr unsupported
+773	Const	REGSTR_VAL_NOUSECLASS	87400	87497	818	1	2123	unsupported	non-scalar type Ptr unsupported
+774	Const	REGSTR_VAL_NOWORKGROUPCONTENTS	87498	87613	819	1	2126	unsupported	non-scalar type Ptr unsupported
+775	Const	REGSTR_VAL_OLDMSDOSVER	87614	87713	820	1	2129	unsupported	non-scalar type Ptr unsupported
+776	Const	REGSTR_VAL_OLDWINDIR	87714	87809	821	1	2132	unsupported	non-scalar type Ptr unsupported
+777	Const	REGSTR_VAL_OPTIMIZESFN	87810	87909	822	1	2135	unsupported	non-scalar type Ptr unsupported
+778	Const	REGSTR_VAL_OPTIONS	87910	88001	823	1	2138	unsupported	non-scalar type Ptr unsupported
+779	Const	REGSTR_VAL_OPTORDER	88002	88092	824	1	2141	unsupported	non-scalar type Ptr unsupported
+780	Const	REGSTR_VAL_P1284MDL	88093	88183	825	1	2144	unsupported	non-scalar type Ptr unsupported
+781	Const	REGSTR_VAL_P1284MFG	88184	88281	826	1	2147	unsupported	non-scalar type Ptr unsupported
+782	Const	REGSTR_VAL_PATHCACHECOUNT	88282	88382	827	1	2150	unsupported	non-scalar type Ptr unsupported
+783	Const	REGSTR_VAL_PCCARD_POWER	88383	88493	828	1	2153	unsupported	non-scalar type Ptr unsupported
+784	Const	REGSTR_VAL_PCI	88494	88577	829	1	2156	unsupported	non-scalar type Ptr unsupported
+785	Const	REGSTR_VAL_PCIBIOSVER	88578	88675	830	1	2159	unsupported	non-scalar type Ptr unsupported
+786	Const	REGSTR_VAL_PCICIRQMAP	88676	88773	831	1	2162	unsupported	non-scalar type Ptr unsupported
+787	Const	REGSTR_VAL_PCICOPTIONS	88774	88873	832	1	2165	unsupported	non-scalar type Ptr unsupported
+788	Const	REGSTR_VAL_PCMCIA_ALLOC	88874	88974	833	1	2168	unsupported	non-scalar type Ptr unsupported
+789	Const	REGSTR_VAL_PCMCIA_ATAD	88975	89071	834	1	2171	unsupported	non-scalar type Ptr unsupported
+790	Const	REGSTR_VAL_PCMCIA_MEM	89072	89165	835	1	2174	unsupported	non-scalar type Ptr unsupported
+791	Const	REGSTR_VAL_PCMCIA_OPT	89166	89260	836	1	2177	unsupported	non-scalar type Ptr unsupported
+792	Const	REGSTR_VAL_PCMCIA_SIZ	89261	89361	837	1	2180	unsupported	non-scalar type Ptr unsupported
+793	Const	REGSTR_VAL_PCMTDRIVER	89362	89452	838	1	2183	unsupported	non-scalar type Ptr unsupported
+794	Const	REGSTR_VAL_PCSSDRIVER	89453	89546	839	1	2186	unsupported	non-scalar type Ptr unsupported
+795	Const	REGSTR_VAL_PHYSICALDEVICEOBJECT	89547	89664	840	1	2189	unsupported	non-scalar type Ptr unsupported
+796	Const	REGSTR_VAL_PMODE_INT13	89665	89763	841	1	2192	unsupported	non-scalar type Ptr unsupported
+797	Const	REGSTR_VAL_PNPBIOSVER	89764	89861	842	1	2195	unsupported	non-scalar type Ptr unsupported
+798	Const	REGSTR_VAL_PNPSTRUCOFFSET	89862	89967	843	1	2198	unsupported	non-scalar type Ptr unsupported
+799	Const	REGSTR_VAL_POLICY	89968	90057	844	1	2201	unsupported	non-scalar type Ptr unsupported
+800	Const	REGSTR_VAL_POLLING	90058	90149	845	1	2204	unsupported	non-scalar type Ptr unsupported
+801	Const	REGSTR_VAL_PORTNAME	90150	90243	846	1	2207	unsupported	non-scalar type Ptr unsupported
+802	Const	REGSTR_VAL_PORTSUBCLASS	90244	90345	847	1	2210	unsupported	non-scalar type Ptr unsupported
+803	Const	REGSTR_VAL_PREFREDIR	90346	90446	848	1	2213	unsupported	non-scalar type Ptr unsupported
+804	Const	REGSTR_VAL_PRESERVECASE	90447	90548	849	1	2216	unsupported	non-scalar type Ptr unsupported
+805	Const	REGSTR_VAL_PRESERVELONGNAMES	90549	90660	850	1	2219	unsupported	non-scalar type Ptr unsupported
+806	Const	REGSTR_VAL_PRINTERS_HIDETABS	90661	90768	851	1	2222	unsupported	non-scalar type Ptr unsupported
+807	Const	REGSTR_VAL_PRINTERS_MASK	90769	90871	852	1	2225	unsupported	non-scalar type Ptr unsupported
+808	Const	REGSTR_VAL_PRINTERS_NOADD	90872	90975	853	1	2228	unsupported	non-scalar type Ptr unsupported
+809	Const	REGSTR_VAL_PRINTERS_NODELETE	90976	91085	854	1	2231	unsupported	non-scalar type Ptr unsupported
+810	Const	REGSTR_VAL_PRINTSHARING	91086	91187	855	1	2234	unsupported	non-scalar type Ptr unsupported
+811	Const	REGSTR_VAL_PRIORITY	91188	91281	856	1	2237	unsupported	non-scalar type Ptr unsupported
+812	Const	REGSTR_VAL_PRIVATE	91282	91373	857	1	2240	unsupported	non-scalar type Ptr unsupported
+813	Const	REGSTR_VAL_PRIVATEFUNC	91374	91473	858	1	2243	unsupported	non-scalar type Ptr unsupported
+814	Const	REGSTR_VAL_PRIVATEPROBLEM	91474	91579	859	1	2246	unsupported	non-scalar type Ptr unsupported
+815	Const	REGSTR_VAL_PRODUCTID	91580	91675	860	1	2249	unsupported	non-scalar type Ptr unsupported
+816	Const	REGSTR_VAL_PRODUCTTYPE	91676	91775	861	1	2252	unsupported	non-scalar type Ptr unsupported
+817	Const	REGSTR_VAL_PROFILEFLAGS	91776	91877	862	1	2255	unsupported	non-scalar type Ptr unsupported
+818	Const	REGSTR_VAL_PROPERTIES	91878	91975	863	1	2258	unsupported	non-scalar type Ptr unsupported
+819	Const	REGSTR_VAL_PROTINIPATH	91976	92075	864	1	2261	unsupported	non-scalar type Ptr unsupported
+820	Const	REGSTR_VAL_PROVIDER_NAME	92076	92178	865	1	2264	unsupported	non-scalar type Ptr unsupported
+821	Const	REGSTR_VAL_PWDEXPIRATION	92179	92282	866	1	2267	unsupported	non-scalar type Ptr unsupported
+822	Const	REGSTR_VAL_PWDPROVIDER_CHANGEORDER	92283	92394	867	1	2270	unsupported	non-scalar type Ptr unsupported
+823	Const	REGSTR_VAL_PWDPROVIDER_CHANGEPWD	92395	92507	868	1	2273	unsupported	non-scalar type Ptr unsupported
+824	Const	REGSTR_VAL_PWDPROVIDER_CHANGEPWDHWND	92508	92628	869	1	2276	unsupported	non-scalar type Ptr unsupported
+825	Const	REGSTR_VAL_PWDPROVIDER_DESC	92629	92733	870	1	2279	unsupported	non-scalar type Ptr unsupported
+826	Const	REGSTR_VAL_PWDPROVIDER_GETPWDSTATUS	92734	92852	871	1	2282	unsupported	non-scalar type Ptr unsupported
+827	Const	REGSTR_VAL_PWDPROVIDER_ISNP	92853	92961	872	1	2285	unsupported	non-scalar type Ptr unsupported
+828	Const	REGSTR_VAL_PWDPROVIDER_PATH	92962	93067	873	1	2288	unsupported	non-scalar type Ptr unsupported
+829	Const	REGSTR_VAL_RDINTTHRESHOLD	93068	93173	874	1	2291	unsupported	non-scalar type Ptr unsupported
+830	Const	REGSTR_VAL_READAHEADTHRESHOLD	93174	93287	875	1	2294	unsupported	non-scalar type Ptr unsupported
+831	Const	REGSTR_VAL_READCACHING	93288	93387	876	1	2297	unsupported	non-scalar type Ptr unsupported
+832	Const	REGSTR_VAL_REALNETSTART	93388	93489	877	1	2300	unsupported	non-scalar type Ptr unsupported
+833	Const	REGSTR_VAL_REASONCODE	93490	93587	878	1	2303	unsupported	non-scalar type Ptr unsupported
+834	Const	REGSTR_VAL_REFRESHRATE	93588	93687	879	1	2306	unsupported	non-scalar type Ptr unsupported
+835	Const	REGSTR_VAL_REGITEMDELETEMESSAGE	93688	93800	880	1	2309	unsupported	non-scalar type Ptr unsupported
+836	Const	REGSTR_VAL_REGORGANIZATION	93801	93915	881	1	2312	unsupported	non-scalar type Ptr unsupported
+837	Const	REGSTR_VAL_REGOWNER	93916	94016	882	1	2315	unsupported	non-scalar type Ptr unsupported
+838	Const	REGSTR_VAL_REINSTALL_DEVICEINSTANCEIDS	94017	94138	883	1	2318	unsupported	non-scalar type Ptr unsupported
+839	Const	REGSTR_VAL_REINSTALL_DISPLAYNAME	94139	94248	884	1	2321	unsupported	non-scalar type Ptr unsupported
+840	Const	REGSTR_VAL_REINSTALL_STRING	94249	94357	885	1	2324	unsupported	non-scalar type Ptr unsupported
+841	Const	REGSTR_VAL_REMOTE_PATH	94358	94456	886	1	2327	unsupported	non-scalar type Ptr unsupported
+842	Const	REGSTR_VAL_REMOVABLE	94457	94552	887	1	2330	unsupported	non-scalar type Ptr unsupported
+843	Const	REGSTR_VAL_REMOVAL_POLICY	94553	94657	888	1	2333	unsupported	non-scalar type Ptr unsupported
+844	Const	REGSTR_VAL_REMOVEROMOKAY	94658	94761	889	1	2336	unsupported	non-scalar type Ptr unsupported
+845	Const	REGSTR_VAL_REMOVEROMOKAYFUNC	94762	94873	890	1	2339	unsupported	non-scalar type Ptr unsupported
+846	Const	REGSTR_VAL_RESERVED_DEVNODE	94874	94985	891	1	2342	unsupported	non-scalar type Ptr unsupported
+847	Const	REGSTR_VAL_RESOLUTION	94986	95083	892	1	2345	unsupported	non-scalar type Ptr unsupported
+848	Const	REGSTR_VAL_RESOURCES	95084	95179	893	1	2348	unsupported	non-scalar type Ptr unsupported
+849	Const	REGSTR_VAL_RESOURCE_MAP	95180	95280	894	1	2351	unsupported	non-scalar type Ptr unsupported
+850	Const	REGSTR_VAL_RESOURCE_PICKER_EXCEPTIONS	95281	95408	895	1	2354	unsupported	non-scalar type Ptr unsupported
+851	Const	REGSTR_VAL_RESOURCE_PICKER_TAGS	95409	95524	896	1	2357	unsupported	non-scalar type Ptr unsupported
+852	Const	REGSTR_VAL_RESTRICTRUN	95525	95624	897	1	2360	unsupported	non-scalar type Ptr unsupported
+853	Const	REGSTR_VAL_RESUMERESET	95625	95724	898	1	2363	unsupported	non-scalar type Ptr unsupported
+854	Const	REGSTR_VAL_REVISION	95725	95818	899	1	2366	unsupported	non-scalar type Ptr unsupported
+855	Const	REGSTR_VAL_REVLEVEL	95819	95917	900	1	2369	unsupported	non-scalar type Ptr unsupported
+856	Const	REGSTR_VAL_ROOT_DEVNODE	95918	96021	901	1	2372	unsupported	non-scalar type Ptr unsupported
+857	Const	REGSTR_VAL_RUNLOGINSCRIPT	96022	96131	902	1	2375	unsupported	non-scalar type Ptr unsupported
+858	Const	REGSTR_VAL_SCANNER	96132	96223	903	1	2378	unsupported	non-scalar type Ptr unsupported
+859	Const	REGSTR_VAL_SCAN_ONLY_FIRST	96224	96334	904	1	2381	unsupported	non-scalar type Ptr unsupported
+860	Const	REGSTR_VAL_SCSI	96335	96422	905	1	2384	unsupported	non-scalar type Ptr unsupported
+861	Const	REGSTR_VAL_SCSILUN	96423	96514	906	1	2387	unsupported	non-scalar type Ptr unsupported
+862	Const	REGSTR_VAL_SCSITID	96515	96611	907	1	2390	unsupported	non-scalar type Ptr unsupported
+863	Const	REGSTR_VAL_SEARCHMODE	96612	96709	908	1	2393	unsupported	non-scalar type Ptr unsupported
+864	Const	REGSTR_VAL_SEARCHOPTIONS	96710	96813	909	1	2396	unsupported	non-scalar type Ptr unsupported
+865	Const	REGSTR_VAL_SECCPL_NOADMINPAGE	96814	96920	910	1	2399	unsupported	non-scalar type Ptr unsupported
+866	Const	REGSTR_VAL_SECCPL_NOPROFILEPAGE	96921	97031	911	1	2402	unsupported	non-scalar type Ptr unsupported
+867	Const	REGSTR_VAL_SECCPL_NOPWDPAGE	97032	97134	912	1	2405	unsupported	non-scalar type Ptr unsupported
+868	Const	REGSTR_VAL_SECCPL_NOSECCPL	97135	97235	913	1	2408	unsupported	non-scalar type Ptr unsupported
+869	Const	REGSTR_VAL_SERVICE	97236	97327	914	1	2411	unsupported	non-scalar type Ptr unsupported
+870	Const	REGSTR_VAL_SETUPFLAGS	97328	97425	915	1	2414	unsupported	non-scalar type Ptr unsupported
+871	Const	REGSTR_VAL_SETUPMACHINETYPE	97426	97535	916	1	2417	unsupported	non-scalar type Ptr unsupported
+872	Const	REGSTR_VAL_SETUPN	97536	97625	917	1	2420	unsupported	non-scalar type Ptr unsupported
+873	Const	REGSTR_VAL_SETUPNPATH	97626	97723	918	1	2423	unsupported	non-scalar type Ptr unsupported
+874	Const	REGSTR_VAL_SETUPPROGRAMRAN	97724	97831	919	1	2426	unsupported	non-scalar type Ptr unsupported
+875	Const	REGSTR_VAL_SHARES_FLAGS	97832	97926	920	1	2429	unsupported	non-scalar type Ptr unsupported
+876	Const	REGSTR_VAL_SHARES_PATH	97927	98019	921	1	2432	unsupported	non-scalar type Ptr unsupported
+877	Const	REGSTR_VAL_SHARES_REMARK	98020	98116	922	1	2435	unsupported	non-scalar type Ptr unsupported
+878	Const	REGSTR_VAL_SHARES_RO_PASS	98117	98213	923	1	2438	unsupported	non-scalar type Ptr unsupported
+879	Const	REGSTR_VAL_SHARES_RW_PASS	98214	98310	924	1	2441	unsupported	non-scalar type Ptr unsupported
+880	Const	REGSTR_VAL_SHARES_TYPE	98311	98403	925	1	2444	unsupported	non-scalar type Ptr unsupported
+881	Const	REGSTR_VAL_SHARE_IRQ	98404	98505	926	1	2447	unsupported	non-scalar type Ptr unsupported
+882	Const	REGSTR_VAL_SHELLVERSION	98506	98607	927	1	2450	unsupported	non-scalar type Ptr unsupported
+883	Const	REGSTR_VAL_SHOWDOTS	98608	98701	928	1	2453	unsupported	non-scalar type Ptr unsupported
+884	Const	REGSTR_VAL_SHOWREASONUI	98702	98807	929	1	2456	unsupported	non-scalar type Ptr unsupported
+885	Const	REGSTR_VAL_SHUTDOWNREASON	98808	98913	930	1	2459	unsupported	non-scalar type Ptr unsupported
+886	Const	REGSTR_VAL_SHUTDOWNREASON_CODE	98914	99028	931	1	2462	unsupported	non-scalar type Ptr unsupported
+887	Const	REGSTR_VAL_SHUTDOWNREASON_COMMENT	99029	99149	932	1	2465	unsupported	non-scalar type Ptr unsupported
+888	Const	REGSTR_VAL_SHUTDOWNREASON_PROCESS	99150	99270	933	1	2468	unsupported	non-scalar type Ptr unsupported
+889	Const	REGSTR_VAL_SHUTDOWNREASON_USERNAME	99271	99393	934	1	2471	unsupported	non-scalar type Ptr unsupported
+890	Const	REGSTR_VAL_SHUTDOWN_FLAGS	99394	99498	935	1	2474	unsupported	non-scalar type Ptr unsupported
+891	Const	REGSTR_VAL_SHUTDOWN_IGNORE_PREDEFINED	99499	99633	936	1	2477	unsupported	non-scalar type Ptr unsupported
+892	Const	REGSTR_VAL_SHUTDOWN_STATE_SNAPSHOT	99634	99755	937	1	2480	unsupported	non-scalar type Ptr unsupported
+893	Const	REGSTR_VAL_SILENTINSTALL	99756	99859	938	1	2483	unsupported	non-scalar type Ptr unsupported
+894	Const	REGSTR_VAL_SLSUPPORT	99860	99955	939	1	2486	unsupported	non-scalar type Ptr unsupported
+895	Const	REGSTR_VAL_SOFTCOMPATMODE	99956	100061	940	1	2489	unsupported	non-scalar type Ptr unsupported
+896	Const	REGSTR_VAL_SRCPATH	100062	100156	941	1	2492	unsupported	non-scalar type Ptr unsupported
+897	Const	REGSTR_VAL_SRVNAMECACHE	100157	100261	942	1	2495	unsupported	non-scalar type Ptr unsupported
+898	Const	REGSTR_VAL_SRVNAMECACHECOUNT	100262	100374	943	1	2498	unsupported	non-scalar type Ptr unsupported
+899	Const	REGSTR_VAL_SRVNAMECACHENETPROV	100375	100493	944	1	2501	unsupported	non-scalar type Ptr unsupported
+900	Const	REGSTR_VAL_START_ON_BOOT	100494	100595	945	1	2504	unsupported	non-scalar type Ptr unsupported
+901	Const	REGSTR_VAL_STAT	100596	100683	946	1	2507	unsupported	non-scalar type Ptr unsupported
+902	Const	REGSTR_VAL_STATICDRIVE	100684	100783	947	1	2510	unsupported	non-scalar type Ptr unsupported
+903	Const	REGSTR_VAL_STATICVXD	100784	100879	948	1	2513	unsupported	non-scalar type Ptr unsupported
+904	Const	REGSTR_VAL_STDDOSOPTION	100880	100978	949	1	2516	unsupported	non-scalar type Ptr unsupported
+905	Const	REGSTR_VAL_SUBMODEL	100979	101072	950	1	2519	unsupported	non-scalar type Ptr unsupported
+906	Const	REGSTR_VAL_SUPPORTBURST	101073	101174	951	1	2522	unsupported	non-scalar type Ptr unsupported
+907	Const	REGSTR_VAL_SUPPORTLFN	101175	101272	952	1	2525	unsupported	non-scalar type Ptr unsupported
+908	Const	REGSTR_VAL_SUPPORTTUNNELLING	101273	101384	953	1	2528	unsupported	non-scalar type Ptr unsupported
+909	Const	REGSTR_VAL_SYMBOLIC_LINK	101385	101487	954	1	2531	unsupported	non-scalar type Ptr unsupported
+910	Const	REGSTR_VAL_SYNCDATAXFER	101488	101589	955	1	2534	unsupported	non-scalar type Ptr unsupported
+911	Const	REGSTR_VAL_SYSDM	101590	101677	956	1	2537	unsupported	non-scalar type Ptr unsupported
+912	Const	REGSTR_VAL_SYSDMFUNC	101678	101773	957	1	2540	unsupported	non-scalar type Ptr unsupported
+913	Const	REGSTR_VAL_SYSTEMCPL_NOCONFIGPAGE	101774	101885	958	1	2543	unsupported	non-scalar type Ptr unsupported
+914	Const	REGSTR_VAL_SYSTEMCPL_NODEVMGRPAGE	101886	101997	959	1	2546	unsupported	non-scalar type Ptr unsupported
+915	Const	REGSTR_VAL_SYSTEMCPL_NOFILESYSPAGE	101998	102111	960	1	2549	unsupported	non-scalar type Ptr unsupported
+916	Const	REGSTR_VAL_SYSTEMCPL_NOVIRTMEMPAGE	102112	102225	961	1	2552	unsupported	non-scalar type Ptr unsupported
+917	Const	REGSTR_VAL_SYSTEMROOT	102226	102323	962	1	2555	unsupported	non-scalar type Ptr unsupported
+918	Const	REGSTR_VAL_SYSTRAYBATFLAGS	102324	102426	963	1	2558	unsupported	non-scalar type Ptr unsupported
+919	Const	REGSTR_VAL_SYSTRAYPCCARDFLAGS	102427	102533	964	1	2561	unsupported	non-scalar type Ptr unsupported
+920	Const	REGSTR_VAL_SYSTRAYSVCS	102534	102630	965	1	2564	unsupported	non-scalar type Ptr unsupported
+921	Const	REGSTR_VAL_TABLE_STAT	102631	102729	966	1	2567	unsupported	non-scalar type Ptr unsupported
+922	Const	REGSTR_VAL_TAPE	102730	102815	967	1	2570	unsupported	non-scalar type Ptr unsupported
+923	Const	REGSTR_VAL_TRANSITION	102816	102913	968	1	2573	unsupported	non-scalar type Ptr unsupported
+924	Const	REGSTR_VAL_TRANSPORT	102914	103009	969	1	2576	unsupported	non-scalar type Ptr unsupported
+925	Const	REGSTR_VAL_TZACTBIAS	103010	103110	970	1	2579	unsupported	non-scalar type Ptr unsupported
+926	Const	REGSTR_VAL_TZBIAS	103111	103198	971	1	2582	unsupported	non-scalar type Ptr unsupported
+927	Const	REGSTR_VAL_TZDLTBIAS	103199	103297	972	1	2585	unsupported	non-scalar type Ptr unsupported
+928	Const	REGSTR_VAL_TZDLTFLAG	103298	103396	973	1	2588	unsupported	non-scalar type Ptr unsupported
+929	Const	REGSTR_VAL_TZDLTNAME	103397	103495	974	1	2591	unsupported	non-scalar type Ptr unsupported
+930	Const	REGSTR_VAL_TZDLTSTART	103496	103596	975	1	2594	unsupported	non-scalar type Ptr unsupported
+931	Const	REGSTR_VAL_TZNOAUTOTIME	103597	103712	976	1	2597	unsupported	non-scalar type Ptr unsupported
+932	Const	REGSTR_VAL_TZNOCHANGEEND	103713	103814	977	1	2600	unsupported	non-scalar type Ptr unsupported
+933	Const	REGSTR_VAL_TZNOCHANGESTART	103815	103920	978	1	2603	unsupported	non-scalar type Ptr unsupported
+934	Const	REGSTR_VAL_TZSTDBIAS	103921	104019	979	1	2606	unsupported	non-scalar type Ptr unsupported
+935	Const	REGSTR_VAL_TZSTDNAME	104020	104118	980	1	2609	unsupported	non-scalar type Ptr unsupported
+936	Const	REGSTR_VAL_TZSTDSTART	104119	104219	981	1	2612	unsupported	non-scalar type Ptr unsupported
+937	Const	REGSTR_VAL_UI_NUMBER	104220	104314	982	1	2615	unsupported	non-scalar type Ptr unsupported
+938	Const	REGSTR_VAL_UI_NUMBER_DESC_FORMAT	104315	104431	983	1	2618	unsupported	non-scalar type Ptr unsupported
+939	Const	REGSTR_VAL_UNDOCK_WITHOUT_LOGON	104432	104547	984	1	2621	unsupported	non-scalar type Ptr unsupported
+940	Const	REGSTR_VAL_UNINSTALLER_COMMANDLINE	104548	104663	985	1	2624	unsupported	non-scalar type Ptr unsupported
+941	Const	REGSTR_VAL_UNINSTALLER_DISPLAYNAME	104664	104775	986	1	2627	unsupported	non-scalar type Ptr unsupported
+942	Const	REGSTR_VAL_UPGRADE	104776	104867	987	1	2630	unsupported	non-scalar type Ptr unsupported
+943	Const	REGSTR_VAL_UPPERFILTERS	104868	104969	988	1	2633	unsupported	non-scalar type Ptr unsupported
+944	Const	REGSTR_VAL_UPPER_FILTER_DEFAULT_LEVEL	104970	105096	989	1	2636	unsupported	non-scalar type Ptr unsupported
+945	Const	REGSTR_VAL_UPPER_FILTER_LEVELS	105097	105210	990	1	2639	unsupported	non-scalar type Ptr unsupported
+946	Const	REGSTR_VAL_USERSETTINGS	105211	105315	991	1	2642	unsupported	non-scalar type Ptr unsupported
+947	Const	REGSTR_VAL_USER_NAME	105316	105410	992	1	2645	unsupported	non-scalar type Ptr unsupported
+948	Const	REGSTR_VAL_USRDRVLET	105411	105522	993	1	2648	unsupported	non-scalar type Ptr unsupported
+949	Const	REGSTR_VAL_VDD	105523	105606	994	1	2651	unsupported	non-scalar type Ptr unsupported
+950	Const	REGSTR_VAL_VER	105607	105690	995	1	2654	unsupported	non-scalar type Ptr unsupported
+951	Const	REGSTR_VAL_VERIFYKEY	105691	105786	996	1	2657	unsupported	non-scalar type Ptr unsupported
+952	Const	REGSTR_VAL_VIRTUALHDIRQ	105787	105888	997	1	2660	unsupported	non-scalar type Ptr unsupported
+953	Const	REGSTR_VAL_VOLIDLETIMEOUT	105889	105997	998	1	2663	unsupported	non-scalar type Ptr unsupported
+954	Const	REGSTR_VAL_VPOWERDFLAGS	105998	106092	999	1	2666	unsupported	non-scalar type Ptr unsupported
+955	Const	REGSTR_VAL_VRES	106093	106178	1000	1	2669	unsupported	non-scalar type Ptr unsupported
+956	Const	REGSTR_VAL_VXDGROUPS	106179	106274	1001	1	2672	unsupported	non-scalar type Ptr unsupported
+957	Const	REGSTR_VAL_WAITFORUNDOCK	106275	106378	1002	1	2675	unsupported	non-scalar type Ptr unsupported
+958	Const	REGSTR_VAL_WAITFORUNDOCKFUNC	106379	106490	1003	1	2678	unsupported	non-scalar type Ptr unsupported
+959	Const	REGSTR_VAL_WIN31FILESYSTEM	106491	106598	1004	1	2681	unsupported	non-scalar type Ptr unsupported
+960	Const	REGSTR_VAL_WIN31PROVIDER	106599	106702	1005	1	2684	unsupported	non-scalar type Ptr unsupported
+961	Const	REGSTR_VAL_WINBOOTDIR	106703	106800	1006	1	2687	unsupported	non-scalar type Ptr unsupported
+962	Const	REGSTR_VAL_WINCP	106801	106886	1007	1	2690	unsupported	non-scalar type Ptr unsupported
+963	Const	REGSTR_VAL_WINDIR	106887	106976	1008	1	2693	unsupported	non-scalar type Ptr unsupported
+964	Const	REGSTR_VAL_WINOLDAPP_DISABLED	106977	107080	1009	1	2696	unsupported	non-scalar type Ptr unsupported
+965	Const	REGSTR_VAL_WINOLDAPP_NOREALMODE	107081	107188	1010	1	2699	unsupported	non-scalar type Ptr unsupported
+966	Const	REGSTR_VAL_WORKGROUP	107189	107284	1011	1	2702	unsupported	non-scalar type Ptr unsupported
+967	Const	REGSTR_VAL_WRAPPER	107285	107376	1012	1	2705	unsupported	non-scalar type Ptr unsupported
+968	Const	REGSTR_VAL_WRINTTHRESHOLD	107377	107482	1013	1	2708	unsupported	non-scalar type Ptr unsupported
+969	Const	REGSTR_VAL_WRKGRP_FORCEMAPPING	107483	107597	1014	1	2711	unsupported	non-scalar type Ptr unsupported
+970	Const	REGSTR_VAL_WRKGRP_REQUIRED	107598	107704	1015	1	2714	unsupported	non-scalar type Ptr unsupported
+971	Const	REG_BINARY	107705	107749	1016	1	2717	generated	
+972	Const	REG_CREATED_NEW_KEY	107750	107815	1017	1	2718	generated	
+973	ItemType	REG_CREATE_KEY_DISPOSITION	107816	107858	1018	1	2719	generated	
+974	Const	REG_DWORD	107859	107902	1019	1	2720	generated	
+975	Const	REG_DWORD_BIG_ENDIAN	107903	107957	1020	1	2721	generated	
+976	Const	REG_DWORD_LITTLE_ENDIAN	107958	108015	1021	1	2722	generated	
+977	Const	REG_EXPAND_SZ	108016	108063	1022	1	2723	generated	
+978	Const	REG_FORCE_RESTORE	108064	108122	1023	1	2724	generated	
+979	Const	REG_FULL_RESOURCE_DESCRIPTOR	108123	108185	1024	1	2725	generated	
+980	Const	REG_KEY_INSTDEV	108186	108276	1025	1	2726	unsupported	non-scalar type Ptr unsupported
+981	Const	REG_LATEST_FORMAT	108277	108329	1026	1	2729	generated	
+982	Const	REG_LINK	108330	108372	1027	1	2730	generated	
+983	Const	REG_MUI_STRING_TRUNCATE	108373	108419	1028	1	2731	generated	
+984	Const	REG_MULTI_SZ	108420	108466	1029	1	2732	generated	
+985	Const	REG_NONE	108467	108509	1030	1	2733	generated	
+986	Const	REG_NOTIFY_CHANGE_ATTRIBUTES	108510	108575	1031	1	2734	generated	
+987	Const	REG_NOTIFY_CHANGE_LAST_SET	108576	108639	1032	1	2735	generated	
+988	Const	REG_NOTIFY_CHANGE_NAME	108640	108699	1033	1	2736	generated	
+989	Const	REG_NOTIFY_CHANGE_SECURITY	108700	108763	1034	1	2737	generated	
+990	ItemType	REG_NOTIFY_FILTER	108764	108797	1035	1	2738	generated	
+991	Const	REG_NOTIFY_THREAD_AGNOSTIC	108798	108869	1036	1	2739	generated	
+992	Const	REG_NO_COMPRESSION	108870	108923	1037	1	2740	generated	
+993	Const	REG_OPENED_EXISTING_KEY	108924	108993	1038	1	2741	generated	
+994	ItemType	REG_OPEN_CREATE_OPTIONS	108994	109033	1039	1	2742	generated	
+995	Const	REG_OPTION_BACKUP_RESTORE	109034	109102	1040	1	2743	generated	
+996	Const	REG_OPTION_CREATE_LINK	109103	109168	1041	1	2744	generated	
+997	Const	REG_OPTION_DONT_VIRTUALIZE	109169	109239	1042	1	2745	generated	
+998	Const	REG_OPTION_NON_VOLATILE	109240	109306	1043	1	2746	generated	
+999	Const	REG_OPTION_OPEN_LINK	109307	109370	1044	1	2747	generated	
+1000	Const	REG_OPTION_RESERVED	109371	109433	1045	1	2748	generated	
+1001	Const	REG_OPTION_VOLATILE	109434	109496	1046	1	2749	generated	
+1002	Const	REG_PROCESS_APPKEY	109497	109538	1047	1	2750	generated	
+1003	Struct	REG_PROVIDER	109539	109817	1048	1	2751	unsupported	declaration Struct has no candidate rule
+1004	Impl		109818	109923	1058	1	2763	unsupported	declaration Impl has no candidate rule
+1005	Const	REG_QWORD	109924	109968	1063	1	2770	generated	
+1006	Const	REG_QWORD_LITTLE_ENDIAN	109969	110027	1064	1	2771	generated	
+1007	Const	REG_RESOURCE_LIST	110028	110079	1065	1	2772	generated	
+1008	Const	REG_RESOURCE_REQUIREMENTS_LIST	110080	110145	1066	1	2773	generated	
+1009	ItemType	REG_RESTORE_KEY_FLAGS	110146	110183	1067	1	2774	generated	
+1010	ItemType	REG_ROUTINE_FLAGS	110184	110217	1068	1	2775	generated	
+1011	ItemType	REG_SAM_FLAGS	110218	110247	1069	1	2776	generated	
+1012	ItemType	REG_SAVE_FORMAT	110248	110279	1070	1	2777	generated	
+1013	Const	REG_SECURE_CONNECTION	110280	110324	1071	1	2778	generated	
+1014	Const	REG_STANDARD_FORMAT	110325	110379	1072	1	2779	generated	
+1015	Const	REG_SZ	110380	110420	1073	1	2780	generated	
+1016	Const	REG_USE_CURRENT_SECURITY_CONTEXT	110421	110476	1074	1	2781	generated	
+1017	ItemType	REG_VALUE_TYPE	110477	110507	1075	1	2782	generated	
+1018	Const	REG_WHOLE_HIVE_VOLATILE	110508	110572	1076	1	2783	generated	
+1019	Const	RRF_NOEXPAND	110573	110630	1077	1	2784	generated	
+1020	Const	RRF_RT_ANY	110631	110682	1078	1	2785	generated	
+1021	Const	RRF_RT_DWORD	110683	110733	1079	1	2786	generated	
+1022	Const	RRF_RT_QWORD	110734	110784	1080	1	2787	generated	
+1023	Const	RRF_RT_REG_BINARY	110785	110839	1081	1	2788	generated	
+1024	Const	RRF_RT_REG_DWORD	110840	110894	1082	1	2789	generated	
+1025	Const	RRF_RT_REG_EXPAND_SZ	110895	110952	1083	1	2790	generated	
+1026	Const	RRF_RT_REG_MULTI_SZ	110953	111010	1084	1	2791	generated	
+1027	Const	RRF_RT_REG_NONE	111011	111063	1085	1	2792	generated	
+1028	Const	RRF_RT_REG_QWORD	111064	111118	1086	1	2793	generated	
+1029	Const	RRF_RT_REG_SZ	111119	111169	1087	1	2794	generated	
+1030	Const	RRF_SUBKEY_WOW6432KEY	111170	111233	1088	1	2795	generated	
+1031	Const	RRF_SUBKEY_WOW6464KEY	111234	111296	1089	1	2796	generated	
+1032	Const	RRF_WOW64_MASK	111297	111353	1090	1	2797	generated	
+1033	Const	RRF_ZEROONFAILURE	111354	111416	1091	1	2798	generated	
+1034	Const	SUF_BATCHINF	111417	111452	1092	1	2799	generated	
+1035	Const	SUF_CLEAN	111453	111485	1093	1	2800	generated	
+1036	Const	SUF_EXPRESS	111486	111520	1094	1	2801	generated	
+1037	Const	SUF_FIRSTTIME	111521	111557	1095	1	2802	generated	
+1038	Const	SUF_INSETUP	111558	111593	1096	1	2803	generated	
+1039	Const	SUF_NETHDBOOT	111594	111631	1097	1	2804	generated	
+1040	Const	SUF_NETRPLBOOT	111632	111671	1098	1	2805	generated	
+1041	Const	SUF_NETSETUP	111672	111708	1099	1	2806	generated	
+1042	Const	SUF_SBSCOPYOK	111709	111747	1100	1	2807	generated	
+1043	Struct	VALENTA	111748	111938	1101	1	2808	unsupported	declaration Struct has no candidate rule
+1044	Impl		111939	112039	1109	1	2818	unsupported	declaration Impl has no candidate rule
+1045	Struct	VALENTW	112040	112231	1114	1	2825	unsupported	declaration Struct has no candidate rule
+1046	Impl		112232	112332	1122	1	2835	unsupported	declaration Impl has no candidate rule
+1047	Const	VPDF_DISABLEPWRMGMT	112333	112375	1127	1	2842	generated	
+1048	Const	VPDF_DISABLEPWRSTATUSPOLL	112376	112424	1128	1	2843	generated	
+1049	Const	VPDF_DISABLERINGRESUME	112425	112471	1129	1	2844	generated	
+1050	Const	VPDF_FORCEAPM10MODE	112472	112514	1130	1	2845	generated	
+1051	Const	VPDF_SHOWMULTIBATT	112515	112557	1131	1	2846	generated	
+1052	Const	VPDF_SKIPINTELSLCHECK	112558	112602	1132	1	2847	generated	
+1053	Struct	val_context	112603	112779	1133	1	2848	unsupported	declaration Struct has no candidate rule
+1054	Impl		112780	112884	1140	1	2857	unsupported	declaration Impl has no candidate rule

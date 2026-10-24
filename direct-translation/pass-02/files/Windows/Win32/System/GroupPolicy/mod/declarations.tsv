@@ -1,0 +1,314 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	124	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		125	319	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		320	527	3	1	8	unsupported	declaration Macro has no candidate rule
+3	Macro		528	663	4	1	11	unsupported	declaration Macro has no candidate rule
+4	Macro		664	830	5	1	14	unsupported	declaration Macro has no candidate rule
+5	Macro		831	978	6	1	17	unsupported	declaration Macro has no candidate rule
+6	Macro		979	1151	7	1	20	unsupported	declaration Macro has no candidate rule
+7	Macro		1152	1279	8	1	23	unsupported	declaration Macro has no candidate rule
+8	Macro		1280	1407	9	1	26	unsupported	declaration Macro has no candidate rule
+9	Macro		1408	1595	10	1	29	unsupported	declaration Macro has no candidate rule
+10	Macro		1596	1895	11	1	32	unsupported	declaration Macro has no candidate rule
+11	Macro		1896	2196	13	1	36	unsupported	declaration Macro has no candidate rule
+12	Macro		2197	2502	15	1	40	unsupported	declaration Macro has no candidate rule
+13	Macro		2503	2811	16	1	43	unsupported	declaration Macro has no candidate rule
+14	Macro		2812	3021	17	1	46	unsupported	declaration Macro has no candidate rule
+15	Macro		3022	3212	18	1	49	unsupported	declaration Macro has no candidate rule
+16	Macro		3213	3420	19	1	52	unsupported	declaration Macro has no candidate rule
+17	Macro		3421	3649	21	1	56	unsupported	declaration Macro has no candidate rule
+18	Macro		3650	3822	22	1	59	unsupported	declaration Macro has no candidate rule
+19	Macro		3823	3932	23	1	62	unsupported	declaration Macro has no candidate rule
+20	Macro		3933	4080	24	1	65	unsupported	declaration Macro has no candidate rule
+21	Macro		4081	4247	25	1	68	unsupported	declaration Macro has no candidate rule
+22	Macro		4248	4457	26	1	71	unsupported	declaration Macro has no candidate rule
+23	Macro		4458	4582	27	1	74	unsupported	declaration Macro has no candidate rule
+24	Macro		4583	4726	28	1	77	unsupported	declaration Macro has no candidate rule
+25	Macro		4727	4904	29	1	80	unsupported	declaration Macro has no candidate rule
+26	Macro		4905	5567	30	1	83	unsupported	declaration Macro has no candidate rule
+27	Macro		5568	5852	32	1	87	unsupported	declaration Macro has no candidate rule
+28	Macro		5853	6092	33	1	90	unsupported	declaration Macro has no candidate rule
+29	Macro		6093	6385	35	1	94	unsupported	declaration Macro has no candidate rule
+30	Macro		6386	6519	37	1	98	unsupported	declaration Macro has no candidate rule
+31	Macro		6520	6663	38	1	101	unsupported	declaration Macro has no candidate rule
+32	Const	ABSENT	6664	6698	39	1	104	generated	
+33	Const	ADMXCOMMENTS_EXTENSION_GUID	6699	6839	40	1	105	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+34	Const	APPNAME	6840	6882	41	1	108	generated	
+35	ItemType	APPSTATE	6883	6907	42	1	109	generated	
+36	Const	ASSIGNED	6908	6944	43	1	110	generated	
+37	Const	CLSID_GPESnapIn	6945	7073	44	1	111	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+38	Const	CLSID_GroupPolicyObject	7074	7210	45	1	114	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+39	Const	CLSID_RSOPSnapIn	7211	7340	46	1	117	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+40	Const	COMCLASS	7341	7384	47	1	120	generated	
+41	Const	FILEEXT	7385	7427	48	1	121	generated	
+42	Const	FLAG_ASSUME_COMP_WQLFILTER_TRUE	7428	7489	49	1	122	generated	
+43	Const	FLAG_ASSUME_SLOW_LINK	7490	7542	50	1	123	generated	
+44	Const	FLAG_ASSUME_USER_WQLFILTER_TRUE	7543	7604	51	1	124	generated	
+45	Const	FLAG_FORCE_CREATENAMESPACE	7605	7654	52	1	125	generated	
+46	Const	FLAG_LOOPBACK_MERGE	7655	7705	53	1	126	generated	
+47	Const	FLAG_LOOPBACK_REPLACE	7706	7758	54	1	127	generated	
+48	Const	FLAG_NO_COMPUTER	7759	7798	55	1	128	generated	
+49	Const	FLAG_NO_CSE_INVOKE	7799	7849	56	1	129	generated	
+50	Const	FLAG_NO_GPO_FILTER	7850	7900	57	1	130	generated	
+51	Const	FLAG_NO_USER	7901	7936	58	1	131	generated	
+52	Const	FLAG_PLANNING_MODE	7937	7985	59	1	132	generated	
+53	Const	GPC_BLOCK_POLICY	7986	8025	60	1	133	generated	
+54	Const	GPHintDomain	8026	8080	61	1	134	generated	
+55	Const	GPHintMachine	8081	8136	62	1	135	generated	
+56	Const	GPHintOrganizationalUnit	8137	8203	63	1	136	generated	
+57	Const	GPHintSite	8204	8256	64	1	137	generated	
+58	Const	GPHintUnknown	8257	8312	65	1	138	generated	
+59	Const	GPLinkDomain	8313	8353	66	1	139	generated	
+60	Const	GPLinkMachine	8354	8395	67	1	140	generated	
+61	Const	GPLinkOrganizationalUnit	8396	8448	68	1	141	generated	
+62	Const	GPLinkSite	8449	8487	69	1	142	generated	
+63	Const	GPLinkUnknown	8488	8529	70	1	143	generated	
+64	Const	GPM	8530	8646	71	1	144	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+65	Const	GPMAsyncCancel	8647	8774	72	1	147	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+66	Const	GPMBackup	8775	8897	73	1	150	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+67	Const	GPMBackupCollection	8898	9030	74	1	153	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+68	Const	GPMBackupDir	9031	9156	75	1	156	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+69	Const	GPMBackupDirEx	9157	9284	76	1	159	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+70	ItemType	GPMBackupType	9285	9314	77	1	162	generated	
+71	Const	GPMCSECollection	9315	9444	78	1	163	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+72	Const	GPMClientSideExtension	9445	9580	79	1	166	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+73	Const	GPMConstants	9581	9706	80	1	169	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+74	ItemType	GPMDestinationOption	9707	9743	81	1	172	generated	
+75	Const	GPMDomain	9744	9866	82	1	173	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+76	ItemType	GPMEntryType	9867	9895	83	1	176	generated	
+77	Const	GPMGPO	9896	10015	84	1	177	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+78	Const	GPMGPOCollection	10016	10145	85	1	180	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+79	Const	GPMGPOLink	10146	10269	86	1	183	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+80	Const	GPMGPOLinksCollection	10270	10404	87	1	186	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+81	Const	GPMMapEntry	10405	10529	88	1	189	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+82	Const	GPMMapEntryCollection	10530	10664	89	1	192	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+83	Const	GPMMigrationTable	10665	10795	90	1	195	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+84	Const	GPMPermission	10796	10922	91	1	198	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+85	ItemType	GPMPermissionType	10923	10956	92	1	201	generated	
+86	Const	GPMRSOP	10957	11077	93	1	202	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+87	ItemType	GPMRSOPMode	11078	11105	94	1	205	generated	
+88	ItemType	GPMReportType	11106	11135	95	1	206	generated	
+89	ItemType	GPMReportingOptions	11136	11171	96	1	207	generated	
+90	Const	GPMResult	11172	11294	97	1	208	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+91	Const	GPMSOM	11295	11414	98	1	211	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+92	Const	GPMSOMCollection	11415	11544	99	1	214	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+93	ItemType	GPMSOMType	11545	11571	100	1	217	generated	
+94	Const	GPMSearchCriteria	11572	11702	101	1	218	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+95	ItemType	GPMSearchOperation	11703	11737	102	1	221	generated	
+96	ItemType	GPMSearchProperty	11738	11771	103	1	222	generated	
+97	Const	GPMSecurityInfo	11772	11900	104	1	223	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+98	Const	GPMSitesContainer	11901	12031	105	1	226	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+99	Const	GPMStarterGPOBackup	12032	12164	106	1	229	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+100	Const	GPMStarterGPOBackupCollection	12165	12307	107	1	232	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+101	Const	GPMStarterGPOCollection	12308	12444	108	1	235	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+102	ItemType	GPMStarterGPOType	12445	12478	109	1	238	generated	
+103	Const	GPMStatusMessage	12479	12608	110	1	239	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+104	Const	GPMStatusMsgCollection	12609	12744	111	1	242	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+105	Const	GPMTemplate	12745	12869	112	1	245	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+106	Const	GPMTrustee	12870	12993	113	1	248	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+107	Const	GPMWMIFilter	12994	13119	114	1	251	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+108	Const	GPMWMIFilterCollection	13120	13255	115	1	254	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+109	Const	GPM_DONOTUSE_W2KDC	13256	13297	116	1	257	generated	
+110	Const	GPM_DONOT_VALIDATEDC	13298	13341	117	1	258	generated	
+111	Const	GPM_MIGRATIONTABLE_ONLY	13342	13388	118	1	259	generated	
+112	Const	GPM_PROCESS_SECURITY	13389	13432	119	1	260	generated	
+113	Const	GPM_USE_ANYDC	13433	13469	120	1	261	generated	
+114	Const	GPM_USE_PDC	13470	13504	121	1	262	generated	
+115	Struct	GPOBROWSEINFO	13505	13973	122	1	263	unsupported	declaration Struct has no candidate rule
+116	Impl		13974	14080	137	1	280	unsupported	declaration Impl has no candidate rule
+117	Const	GPOTypeDS	14081	14134	142	1	287	generated	
+118	Const	GPOTypeLocal	14135	14191	143	1	288	generated	
+119	Const	GPOTypeLocalGroup	14192	14253	144	1	289	generated	
+120	Const	GPOTypeLocalUser	14254	14314	145	1	290	generated	
+121	Const	GPOTypeRemote	14315	14372	146	1	291	generated	
+122	Const	GPO_BROWSE_DISABLENEW	14373	14417	147	1	292	generated	
+123	Const	GPO_BROWSE_INITTOALL	14418	14462	148	1	293	generated	
+124	Const	GPO_BROWSE_NOCOMPUTERS	14463	14508	149	1	294	generated	
+125	Const	GPO_BROWSE_NODSGPOS	14509	14551	150	1	295	generated	
+126	Const	GPO_BROWSE_NOUSERGPOS	14552	14597	151	1	296	generated	
+127	Const	GPO_BROWSE_OPENBUTTON	14598	14642	152	1	297	generated	
+128	Const	GPO_BROWSE_SENDAPPLYONEDIT	14643	14693	153	1	298	generated	
+129	Const	GPO_FLAG_DISABLE	14694	14733	154	1	299	generated	
+130	Const	GPO_FLAG_FORCE	14734	14771	155	1	300	generated	
+131	Const	GPO_INFO_FLAG_ASYNC_FOREGROUND	14772	14828	156	1	301	generated	
+132	Const	GPO_INFO_FLAG_BACKGROUND	14829	14877	157	1	302	generated	
+133	Const	GPO_INFO_FLAG_FORCED_REFRESH	14878	14932	158	1	303	generated	
+134	Const	GPO_INFO_FLAG_LINKTRANSITION	14933	14986	159	1	304	generated	
+135	Const	GPO_INFO_FLAG_LOGRSOP_TRANSITION	14987	15044	160	1	305	generated	
+136	Const	GPO_INFO_FLAG_MACHINE	15045	15089	161	1	306	generated	
+137	Const	GPO_INFO_FLAG_NOCHANGES	15090	15138	162	1	307	generated	
+138	Const	GPO_INFO_FLAG_SAFEMODE_BOOT	15139	15192	163	1	308	generated	
+139	Const	GPO_INFO_FLAG_SLOWLINK	15193	15239	164	1	309	generated	
+140	Const	GPO_INFO_FLAG_VERBOSE	15240	15285	165	1	310	generated	
+141	ItemType	GPO_LINK	15286	15310	166	1	311	generated	
+142	Const	GPO_LIST_FLAG_MACHINE	15311	15355	167	1	312	generated	
+143	Const	GPO_LIST_FLAG_NO_SECURITYFILTERS	15356	15411	168	1	313	generated	
+144	Const	GPO_LIST_FLAG_NO_WMIFILTERS	15412	15462	169	1	314	generated	
+145	Const	GPO_LIST_FLAG_SITEONLY	15463	15508	170	1	315	generated	
+146	ItemType	GPO_OPEN_FLAGS	15509	15539	171	1	316	generated	
+147	Const	GPO_OPEN_LOAD_REGISTRY	15540	15596	172	1	317	generated	
+148	Const	GPO_OPEN_READ_ONLY	15597	15649	173	1	318	generated	
+149	ItemType	GPO_OPTIONS	15650	15677	174	1	319	generated	
+150	Const	GPO_OPTION_DISABLE_MACHINE	15678	15735	175	1	320	generated	
+151	Const	GPO_OPTION_DISABLE_USER	15736	15790	176	1	321	generated	
+152	ItemType	GPO_SECTION	15791	15818	177	1	322	generated	
+153	Const	GPO_SECTION_MACHINE	15819	15869	178	1	323	generated	
+154	Const	GPO_SECTION_ROOT	15870	15917	179	1	324	generated	
+155	Const	GPO_SECTION_USER	15918	15965	180	1	325	generated	
+156	Const	GP_DLLNAME	15966	16049	181	1	326	unsupported	non-scalar type Ptr unsupported
+157	Const	GP_ENABLEASYNCHRONOUSPROCESSING	16050	16175	182	1	329	unsupported	non-scalar type Ptr unsupported
+158	Const	GP_MAXNOGPOLISTCHANGESINTERVAL	16176	16299	183	1	332	unsupported	non-scalar type Ptr unsupported
+159	Const	GP_NOBACKGROUNDPOLICY	16300	16405	184	1	335	unsupported	non-scalar type Ptr unsupported
+160	Const	GP_NOGPOLISTCHANGES	16406	16507	185	1	338	unsupported	non-scalar type Ptr unsupported
+161	Const	GP_NOMACHINEPOLICY	16508	16607	186	1	341	unsupported	non-scalar type Ptr unsupported
+162	Const	GP_NOSLOWLINK	16608	16697	187	1	344	unsupported	non-scalar type Ptr unsupported
+163	Const	GP_NOTIFYLINKTRANSITION	16698	16807	188	1	347	unsupported	non-scalar type Ptr unsupported
+164	Const	GP_NOUSERPOLICY	16808	16901	189	1	350	unsupported	non-scalar type Ptr unsupported
+165	Const	GP_PERUSERLOCALSETTINGS	16902	17011	190	1	353	unsupported	non-scalar type Ptr unsupported
+166	Const	GP_PROCESSGROUPPOLICY	17012	17117	191	1	356	unsupported	non-scalar type Ptr unsupported
+167	Const	GP_REQUIRESSUCCESSFULREGISTRY	17118	17239	192	1	359	unsupported	non-scalar type Ptr unsupported
+168	ItemType	GROUP_POLICY_HINT_TYPE	17240	17278	193	1	362	generated	
+169	Struct	GROUP_POLICY_OBJECTA	17279	17864	194	1	363	unsupported	declaration Struct has no candidate rule
+170	Impl		17865	17978	211	1	382	unsupported	declaration Impl has no candidate rule
+171	Struct	GROUP_POLICY_OBJECTW	17979	18570	216	1	389	unsupported	declaration Struct has no candidate rule
+172	Impl		18571	18684	233	1	408	unsupported	declaration Impl has no candidate rule
+173	ItemType	GROUP_POLICY_OBJECT_TYPE	18685	18725	238	1	415	generated	
+174	Const	GROUP_POLICY_TRIGGER_EVENT_PROVIDER_GUID	18726	18879	239	1	416	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+175	Struct	INSTALLDATA	18880	18998	240	1	419	unsupported	declaration Struct has no candidate rule
+176	Impl		18999	19103	246	1	427	unsupported	declaration Impl has no candidate rule
+177	Union		19104	19313	251	1	434	unsupported	declaration Union has no candidate rule
+178	Impl		19314	19418	259	1	444	unsupported	declaration Impl has no candidate rule
+179	Struct	INSTALLSPEC_0	19419	19561	264	1	451	unsupported	declaration Struct has no candidate rule
+180	Impl		19562	19668	270	1	459	unsupported	declaration Impl has no candidate rule
+181	Struct	INSTALLSPEC_1	19669	19801	275	1	466	unsupported	declaration Struct has no candidate rule
+182	ItemType	INSTALLSPECTYPE	19802	19833	281	1	474	generated	
+183	Struct	LOCALMANAGEDAPPLICATION	19834	20078	282	1	475	unsupported	declaration Struct has no candidate rule
+184	Impl		20079	20195	290	1	485	unsupported	declaration Impl has no candidate rule
+185	Const	LOCALSTATE_ASSIGNED	20196	20238	295	1	492	generated	
+186	Const	LOCALSTATE_ORPHANED	20239	20282	296	1	493	generated	
+187	Const	LOCALSTATE_POLICYREMOVE_ORPHAN	20283	20336	297	1	494	generated	
+188	Const	LOCALSTATE_POLICYREMOVE_UNINSTALL	20337	20394	298	1	495	generated	
+189	Const	LOCALSTATE_PUBLISHED	20395	20438	299	1	496	generated	
+190	Const	LOCALSTATE_UNINSTALLED	20439	20485	300	1	497	generated	
+191	Const	LOCALSTATE_UNINSTALL_UNMANAGED	20486	20539	301	1	498	generated	
+192	Const	MACHINE_POLICY_PRESENT_TRIGGER_GUID	20540	20688	302	1	499	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+193	Struct	MANAGEDAPPLICATION	20689	21389	303	1	502	unsupported	declaration Struct has no candidate rule
+194	Impl		21390	21501	323	1	524	unsupported	declaration Impl has no candidate rule
+195	Const	MANAGED_APPS_FROMCATEGORY	21502	21550	328	1	531	generated	
+196	Const	MANAGED_APPS_INFOLEVEL_DEFAULT	21551	21608	329	1	532	generated	
+197	Const	MANAGED_APPS_USERAPPLICATIONS	21609	21661	330	1	533	generated	
+198	Const	MANAGED_APPTYPE_SETUPEXE	21662	21709	331	1	534	generated	
+199	Const	MANAGED_APPTYPE_UNSUPPORTED	21710	21760	332	1	535	generated	
+200	Const	MANAGED_APPTYPE_WINDOWSINSTALLER	21761	21816	333	1	536	generated	
+201	Const	NODEID_Machine	21817	21944	334	1	537	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+202	Const	NODEID_MachineSWSettings	21945	22082	335	1	540	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+203	Const	NODEID_RSOPMachine	22083	22214	336	1	543	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+204	Const	NODEID_RSOPMachineSWSettings	22215	22356	337	1	546	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+205	Const	NODEID_RSOPUser	22357	22485	338	1	549	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+206	Const	NODEID_RSOPUserSWSettings	22486	22624	339	1	552	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+207	Const	NODEID_User	22625	22749	340	1	555	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+208	Const	NODEID_UserSWSettings	22750	22884	341	1	558	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+209	ItemType	PFNGENERATEGROUPPOLICY	22885	23192	342	1	561	unsupported	attribute cfg requires explicit semantics/configuration
+210	ItemType	PFNPROCESSGROUPPOLICY	23193	23588	344	1	565	unsupported	attribute cfg requires explicit semantics/configuration
+211	ItemType	PFNPROCESSGROUPPOLICYEX	23589	24106	346	1	569	unsupported	attribute cfg requires explicit semantics/configuration
+212	ItemType	PFNSTATUSMESSAGECALLBACK	24107	24257	348	1	573	unsupported	generic scalar type unsupported
+213	Const	PI_APPLYPOLICY	24258	24295	349	1	576	generated	
+214	Const	PI_NOUI	24296	24326	350	1	577	generated	
+215	Struct	POLICYSETTINGSTATUSINFO	24327	24678	351	1	578	unsupported	declaration Struct has no candidate rule
+216	Impl		24679	24795	362	1	591	unsupported	declaration Impl has no candidate rule
+217	Const	PROGID	24796	24837	367	1	598	generated	
+218	Const	PT_MANDATORY	24838	24873	368	1	599	generated	
+219	Const	PT_ROAMING	24874	24907	369	1	600	generated	
+220	Const	PT_ROAMING_PREEXISTING	24908	24953	370	1	601	generated	
+221	Const	PT_TEMPORARY	24954	24989	371	1	602	generated	
+222	Const	PUBLISHED	24990	25027	372	1	603	generated	
+223	Const	REGISTRY_EXTENSION_GUID	25028	25164	373	1	604	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+224	Const	RP_FORCE	25165	25196	374	1	607	generated	
+225	Const	RP_SYNC	25197	25227	375	1	608	generated	
+226	Const	RSOPApplied	25228	25272	376	1	609	generated	
+227	Const	RSOPFailed	25273	25316	377	1	610	generated	
+228	Const	RSOPIgnored	25317	25361	378	1	611	generated	
+229	Const	RSOPSubsettingFailed	25362	25415	379	1	612	generated	
+230	Const	RSOPUnspecified	25416	25464	380	1	613	generated	
+231	Const	RSOP_COMPUTER_ACCESS_DENIED	25465	25515	381	1	614	generated	
+232	Const	RSOP_INFO_FLAG_DIAGNOSTIC_MODE	25516	25569	382	1	615	generated	
+233	Const	RSOP_NO_COMPUTER	25570	25613	383	1	616	generated	
+234	Const	RSOP_NO_USER	25614	25654	384	1	617	generated	
+235	Const	RSOP_PLANNING_ASSUME_COMP_WQLFILTER_TRUE	25655	25719	385	1	618	generated	
+236	Const	RSOP_PLANNING_ASSUME_LOOPBACK_MERGE	25720	25778	386	1	619	generated	
+237	Const	RSOP_PLANNING_ASSUME_LOOPBACK_REPLACE	25779	25839	387	1	620	generated	
+238	Const	RSOP_PLANNING_ASSUME_SLOW_LINK	25840	25893	388	1	621	generated	
+239	Const	RSOP_PLANNING_ASSUME_USER_WQLFILTER_TRUE	25894	25957	389	1	622	generated	
+240	Struct	RSOP_TARGET	25958	26378	390	1	623	unsupported	declaration Struct has no candidate rule
+241	Impl		26379	26555	401	1	636	unsupported	declaration Impl has no candidate rule
+242	Const	RSOP_TEMPNAMESPACE_EXISTS	26556	26604	407	1	644	generated	
+243	Const	RSOP_USER_ACCESS_DENIED	26605	26651	408	1	645	generated	
+244	ItemType	SETTINGSTATUS	26652	26681	409	1	646	generated	
+245	Const	USER_POLICY_PRESENT_TRIGGER_GUID	26682	26827	410	1	647	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+246	Const	backupMostRecent	26828	26881	411	1	650	generated	
+247	Const	gpoComputerExtensions	26882	26940	412	1	651	generated	
+248	Const	gpoDisplayName	26941	26992	413	1	652	generated	
+249	Const	gpoDomain	26993	27039	414	1	653	generated	
+250	Const	gpoEffectivePermissions	27040	27100	415	1	654	generated	
+251	Const	gpoID	27101	27143	416	1	655	generated	
+252	Const	gpoPermissions	27144	27195	417	1	656	generated	
+253	Const	gpoUserExtensions	27196	27250	418	1	657	generated	
+254	Const	gpoWMIFilter	27251	27300	419	1	658	generated	
+255	Const	opContains	27301	27349	420	1	659	generated	
+256	Const	opDestinationByRelativeName	27350	27417	421	1	660	generated	
+257	Const	opDestinationNone	27418	27475	422	1	661	generated	
+258	Const	opDestinationSameAsSource	27476	27541	423	1	662	generated	
+259	Const	opDestinationSet	27542	27598	424	1	663	generated	
+260	Const	opEquals	27599	27645	425	1	664	generated	
+261	Const	opNotContains	27646	27697	426	1	665	generated	
+262	Const	opNotEquals	27698	27747	427	1	666	generated	
+263	Const	opReportComments	27748	27803	428	1	667	generated	
+264	Const	opReportLegacy	27804	27857	429	1	668	generated	
+265	Const	permGPOApply	27858	27911	430	1	669	generated	
+266	Const	permGPOCustom	27912	27966	431	1	670	generated	
+267	Const	permGPOEdit	27967	28019	432	1	671	generated	
+268	Const	permGPOEditSecurityAndDelete	28020	28089	433	1	672	generated	
+269	Const	permGPORead	28090	28142	434	1	673	generated	
+270	Const	permSOMGPOCreate	28143	28202	435	1	674	generated	
+271	Const	permSOMLink	28203	28257	436	1	675	generated	
+272	Const	permSOMLogging	28258	28315	437	1	676	generated	
+273	Const	permSOMPlanning	28316	28374	438	1	677	generated	
+274	Const	permSOMStarterGPOCreate	28375	28441	439	1	678	generated	
+275	Const	permSOMWMICreate	28442	28501	440	1	679	generated	
+276	Const	permSOMWMIFullControl	28502	28566	441	1	680	generated	
+277	Const	permStarterGPOCustom	28567	28629	442	1	681	generated	
+278	Const	permStarterGPOEdit	28630	28690	443	1	682	generated	
+279	Const	permStarterGPOFullControl	28691	28758	444	1	683	generated	
+280	Const	permStarterGPORead	28759	28819	445	1	684	generated	
+281	Const	permWMIFilterCustom	28820	28881	446	1	685	generated	
+282	Const	permWMIFilterEdit	28882	28941	447	1	686	generated	
+283	Const	permWMIFilterFullControl	28942	29008	448	1	687	generated	
+284	Const	repClientHealthRefreshXML	29009	29067	449	1	688	generated	
+285	Const	repClientHealthXML	29068	29119	450	1	689	generated	
+286	Const	repHTML	29120	29160	451	1	690	generated	
+287	Const	repInfraRefreshXML	29161	29212	452	1	691	generated	
+288	Const	repInfraXML	29213	29257	453	1	692	generated	
+289	Const	repXML	29258	29297	454	1	693	generated	
+290	Const	rsopLogging	29298	29340	455	1	694	generated	
+291	Const	rsopPlanning	29341	29384	456	1	695	generated	
+292	Const	rsopUnknown	29385	29427	457	1	696	generated	
+293	Const	somDomain	29428	29467	458	1	697	generated	
+294	Const	somLinks	29468	29513	459	1	698	generated	
+295	Const	somOU	29514	29549	460	1	699	generated	
+296	Const	somSite	29550	29587	461	1	700	generated	
+297	Const	starterGPODisplayName	29588	29647	462	1	701	generated	
+298	Const	starterGPODomain	29648	29702	463	1	702	generated	
+299	Const	starterGPOEffectivePermissions	29703	29771	464	1	703	generated	
+300	Const	starterGPOID	29772	29822	465	1	704	generated	
+301	Const	starterGPOPermissions	29823	29882	466	1	705	generated	
+302	Const	typeComputer	29883	29927	467	1	706	generated	
+303	Const	typeCustom	29928	29975	468	1	707	generated	
+304	Const	typeGPO	29976	30016	469	1	708	generated	
+305	Const	typeGlobalGroup	30017	30064	470	1	709	generated	
+306	Const	typeLocalGroup	30065	30111	471	1	710	generated	
+307	Const	typeStarterGPO	30112	30159	472	1	711	generated	
+308	Const	typeSystem	30160	30207	473	1	712	generated	
+309	Const	typeUNCPath	30208	30251	474	1	713	generated	
+310	Const	typeUniversalGroup	30252	30302	475	1	714	generated	
+311	Const	typeUnknown	30303	30346	476	1	715	generated	
+312	Const	typeUser	30347	30387	477	1	716	generated	

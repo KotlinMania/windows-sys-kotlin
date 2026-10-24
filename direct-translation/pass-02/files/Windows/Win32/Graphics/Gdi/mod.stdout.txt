@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/Graphics/Gdi/mod: 1766 generated; 654 unsupported

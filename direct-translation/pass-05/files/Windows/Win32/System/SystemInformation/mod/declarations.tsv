@@ -1,0 +1,536 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro	DnsHostnameToComputerNameExW	0	201	1	1	2	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=DnsHostnameToComputerNameExW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1	Macro	EnumSystemFirmwareTables	202	394	2	1	7	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=EnumSystemFirmwareTables; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+2	Macro	GetComputerNameExA	395	576	3	1	12	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetComputerNameExA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+3	Macro	GetComputerNameExW	577	759	4	1	17	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetComputerNameExW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+4	Macro	GetDeveloperDriveEnablementState	760	901	5	1	22	syntax	External declaration shape only: wire DLL=api-ms-win-core-sysinfo-l1-2-6.dll, ABI=system, export=GetDeveloperDriveEnablementState; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+5	Macro	GetFirmwareType	902	1028	6	1	26	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetFirmwareType; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+6	Macro	GetIntegratedDisplaySize	1029	1179	7	1	31	syntax	External declaration shape only: wire DLL=api-ms-win-core-sysinfo-l1-2-3.dll, ABI=system, export=GetIntegratedDisplaySize; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+7	Macro	GetLocalTime	1180	1300	8	1	36	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetLocalTime; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+8	Macro	GetLogicalProcessorInformation	1301	1486	9	1	41	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetLogicalProcessorInformation; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+9	Macro	GetLogicalProcessorInformationEx	1487	1728	10	1	46	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetLogicalProcessorInformationEx; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+10	Macro	GetNativeSystemInfo	1729	1830	11	1	51	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetNativeSystemInfo; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+11	Macro	GetOsManufacturingMode	1831	1993	12	1	56	syntax	External declaration shape only: wire DLL=api-ms-win-core-sysinfo-l1-2-3.dll, ABI=system, export=GetOsManufacturingMode; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+12	Macro	GetOsSafeBootMode	1994	2127	13	1	61	syntax	External declaration shape only: wire DLL=api-ms-win-core-sysinfo-l1-2-0.dll, ABI=system, export=GetOsSafeBootMode; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+13	Macro	GetPhysicallyInstalledSystemMemory	2128	2273	14	1	66	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetPhysicallyInstalledSystemMemory; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+14	Macro	GetProcessorSystemCycleTime	2274	2472	15	1	71	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetProcessorSystemCycleTime; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+15	Macro	GetProductInfo	2473	2706	16	1	76	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetProductInfo; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+16	Macro	GetSystemCpuSetInformation	2707	2961	17	1	81	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetSystemCpuSetInformation; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+17	Macro	GetSystemDEPPolicy	2962	3057	18	1	86	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetSystemDEPPolicy; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+18	Macro	GetSystemDirectoryA	3058	3182	19	1	90	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetSystemDirectoryA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+19	Macro	GetSystemDirectoryW	3183	3308	20	1	94	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetSystemDirectoryW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+20	Macro	GetSystemFirmwareTable	3309	3518	21	1	98	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetSystemFirmwareTable; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+21	Macro	GetSystemInfo	3519	3614	22	1	103	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetSystemInfo; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+22	Macro	GetSystemLeapSecondInformation	3615	3779	23	1	108	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetSystemLeapSecondInformation; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+23	Macro	GetSystemTime	3780	3901	24	1	113	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetSystemTime; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+24	Macro	GetSystemTimeAdjustment	3902	4115	25	1	118	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetSystemTimeAdjustment; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+25	Macro	GetSystemTimeAdjustmentPrecise	4116	4358	26	1	123	syntax	External declaration shape only: wire DLL=api-ms-win-core-sysinfo-l1-2-4.dll, ABI=system, export=GetSystemTimeAdjustmentPrecise; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+26	Macro	GetSystemTimeAsFileTime	4359	4498	27	1	128	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetSystemTimeAsFileTime; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+27	Macro	GetSystemTimePreciseAsFileTime	4499	4645	28	1	133	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetSystemTimePreciseAsFileTime; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+28	Macro	GetSystemWindowsDirectoryA	4646	4777	29	1	138	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetSystemWindowsDirectoryA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+29	Macro	GetSystemWindowsDirectoryW	4778	4910	30	1	142	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetSystemWindowsDirectoryW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+30	Macro	GetSystemWow64Directory2A	4911	5104	31	1	146	syntax	External declaration shape only: wire DLL=api-ms-win-core-wow64-l1-1-1.dll, ABI=system, export=GetSystemWow64Directory2A; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+31	Macro	GetSystemWow64Directory2W	5105	5299	32	1	150	syntax	External declaration shape only: wire DLL=api-ms-win-core-wow64-l1-1-1.dll, ABI=system, export=GetSystemWow64Directory2W; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+32	Macro	GetSystemWow64DirectoryA	5300	5429	33	1	154	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetSystemWow64DirectoryA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+33	Macro	GetSystemWow64DirectoryW	5430	5560	34	1	158	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetSystemWow64DirectoryW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+34	Macro	GetTickCount	5561	5631	35	1	162	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetTickCount; preserve Rust unsafe-call contract. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+35	Macro	GetTickCount64	5632	5704	36	1	165	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetTickCount64; preserve Rust unsafe-call contract. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+36	Macro	GetVersion	5705	5773	37	1	168	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetVersion; preserve Rust unsafe-call contract. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+37	Macro	GetVersionExA	5774	5907	38	1	171	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetVersionExA; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+38	Macro	GetVersionExW	5908	6041	39	1	176	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetVersionExW; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+39	Macro	GetWindowsDirectoryA	6042	6167	40	1	181	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetWindowsDirectoryA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+40	Macro	GetWindowsDirectoryW	6168	6294	41	1	185	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GetWindowsDirectoryW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+41	Macro	GlobalMemoryStatus	6295	6392	42	1	189	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GlobalMemoryStatus; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+42	Macro	GlobalMemoryStatusEx	6393	6521	43	1	194	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=GlobalMemoryStatusEx; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+43	Macro	IsUserCetAvailableInEnvironment	6522	6672	44	1	199	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=IsUserCetAvailableInEnvironment; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+44	Macro	IsWow64GuestMachineSupported	6673	6869	45	1	203	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=IsWow64GuestMachineSupported; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+45	Macro	RtlConvertDeviceFamilyInfoToString	6870	7111	46	1	208	syntax	External declaration shape only: wire DLL=ntdll.dll, ABI=system, export=RtlConvertDeviceFamilyInfoToString; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+46	Macro	RtlGetDeviceFamilyInfoEnum	7112	7298	47	1	213	syntax	External declaration shape only: wire DLL=ntdll.dll, ABI=system, export=RtlGetDeviceFamilyInfoEnum; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+47	Macro	RtlGetProductInfo	7299	7490	48	1	218	syntax	External declaration shape only: wire DLL=ntdll.dll, ABI=system, export=RtlGetProductInfo; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+48	Macro	RtlGetSystemGlobalData	7491	7648	49	1	222	syntax	External declaration shape only: wire DLL=ntdllk.dll, ABI=system, export=RtlGetSystemGlobalData; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+49	Macro	RtlOsDeploymentState	7649	7759	50	1	227	syntax	External declaration shape only: wire DLL=ntdll.dll, ABI=system, export=RtlOsDeploymentState; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+50	Macro	RtlSwitchedVVI	7760	7903	51	1	231	syntax	External declaration shape only: wire DLL=ntdll.dll, ABI=system, export=RtlSwitchedVVI; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+51	Macro	SetComputerNameA	7904	8039	52	1	236	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=SetComputerNameA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+52	Macro	SetComputerNameEx2W	8040	8219	53	1	240	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=SetComputerNameEx2W; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+53	Macro	SetComputerNameExA	8220	8384	54	1	244	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=SetComputerNameExA; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+54	Macro	SetComputerNameExW	8385	8550	55	1	248	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=SetComputerNameExW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+55	Macro	SetComputerNameW	8551	8687	56	1	252	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=SetComputerNameW; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+56	Macro	SetLocalTime	8688	8837	57	1	256	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=SetLocalTime; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+57	Macro	SetSystemTime	8838	8988	58	1	261	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=SetSystemTime; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+58	Macro	SetSystemTimeAdjustment	8989	9163	59	1	266	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=SetSystemTimeAdjustment; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+59	Macro	SetSystemTimeAdjustmentPrecise	9164	9367	60	1	270	syntax	External declaration shape only: wire DLL=api-ms-win-core-sysinfo-l1-2-4.dll, ABI=system, export=SetSystemTimeAdjustmentPrecise; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+60	Macro	VerSetConditionMask	9368	9502	61	1	274	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=VerSetConditionMask; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+61	Macro	VerifyVersionInfoA	9503	9691	62	1	278	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=VerifyVersionInfoA; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+62	Macro	VerifyVersionInfoW	9692	9880	63	1	283	syntax	External declaration shape only: wire DLL=kernel32.dll, ABI=system, export=VerifyVersionInfoW; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+63	Const	ACPI	9881	9937	64	1	288	generated	
+64	Struct	CACHE_DESCRIPTOR	9938	10136	65	1	289	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+65	Struct	CACHE_RELATIONSHIP	10137	10427	74	1	301	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Rust fixed array length 18 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+66	Impl		10428	10539	86	1	317	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+67	Union		10540	10684	91	1	324	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+68	Impl		10685	10798	97	1	332	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+69	ItemType	COMPUTER_NAME_FORMAT	10799	10835	102	1	339	generated	
+70	ItemType	CPU_SET_INFORMATION_TYPE	10836	10876	103	1	340	generated	
+71	Const	CacheData	10877	10926	104	1	341	generated	
+72	Const	CacheInstruction	10927	10983	105	1	342	generated	
+73	Const	CacheTrace	10984	11034	106	1	343	generated	
+74	Const	CacheUnified	11035	11087	107	1	344	generated	
+75	Const	ComputerNameDnsDomain	11088	11149	108	1	345	generated	
+76	Const	ComputerNameDnsFullyQualified	11150	11219	109	1	346	generated	
+77	Const	ComputerNameDnsHostname	11220	11283	110	1	347	generated	
+78	Const	ComputerNameMax	11284	11339	111	1	348	generated	
+79	Const	ComputerNameNetBIOS	11340	11399	112	1	349	generated	
+80	Const	ComputerNamePhysicalDnsDomain	11400	11469	113	1	350	generated	
+81	Const	ComputerNamePhysicalDnsFullyQualified	11470	11547	114	1	351	generated	
+82	Const	ComputerNamePhysicalDnsHostname	11548	11619	115	1	352	generated	
+83	Const	ComputerNamePhysicalNetBIOS	11620	11687	116	1	353	generated	
+84	Const	CpuSetInformation	11688	11749	117	1	354	generated	
+85	Const	DEPPolicyAlwaysOff	11750	11810	118	1	355	generated	
+86	Const	DEPPolicyAlwaysOn	11811	11870	119	1	356	generated	
+87	Const	DEPPolicyOptIn	11871	11927	120	1	357	generated	
+88	Const	DEPPolicyOptOut	11928	11985	121	1	358	generated	
+89	Const	DEPTotalPolicyCount	11986	12047	122	1	359	generated	
+90	ItemType	DEP_SYSTEM_POLICY_TYPE	12048	12086	123	1	360	generated	
+91	ItemType	DEVELOPER_DRIVE_ENABLEMENT_STATE	12087	12135	124	1	361	generated	
+92	ItemType	DEVICEFAMILYDEVICEFORM	12136	12174	125	1	362	generated	
+93	Const	DEVICEFAMILYDEVICEFORM_ALLINONE	12175	12248	126	1	363	generated	
+94	Const	DEVICEFAMILYDEVICEFORM_BANKING	12249	12322	127	1	364	generated	
+95	Const	DEVICEFAMILYDEVICEFORM_BUILDING_AUTOMATION	12323	12408	128	1	365	generated	
+96	Const	DEVICEFAMILYDEVICEFORM_CONVERTIBLE	12409	12485	129	1	366	generated	
+97	Const	DEVICEFAMILYDEVICEFORM_DESKTOP	12486	12558	130	1	367	generated	
+98	Const	DEVICEFAMILYDEVICEFORM_DETACHABLE	12559	12634	131	1	368	generated	
+99	Const	DEVICEFAMILYDEVICEFORM_DIGITAL_SIGNAGE	12635	12716	132	1	369	generated	
+100	Const	DEVICEFAMILYDEVICEFORM_GAMING	12717	12789	133	1	370	generated	
+101	Const	DEVICEFAMILYDEVICEFORM_HMD	12790	12859	134	1	371	generated	
+102	Const	DEVICEFAMILYDEVICEFORM_HOME_AUTOMATION	12860	12941	135	1	372	generated	
+103	Const	DEVICEFAMILYDEVICEFORM_INDUSTRIAL_AUTOMATION	12942	13029	136	1	373	generated	
+104	Const	DEVICEFAMILYDEVICEFORM_INDUSTRY_HANDHELD	13030	13113	137	1	374	generated	
+105	Const	DEVICEFAMILYDEVICEFORM_INDUSTRY_OTHER	13114	13194	138	1	375	generated	
+106	Const	DEVICEFAMILYDEVICEFORM_INDUSTRY_TABLET	13195	13276	139	1	376	generated	
+107	Const	DEVICEFAMILYDEVICEFORM_KIOSK	13277	13348	140	1	377	generated	
+108	Const	DEVICEFAMILYDEVICEFORM_LARGESCREEN	13349	13426	141	1	378	generated	
+109	Const	DEVICEFAMILYDEVICEFORM_MAKER_BOARD	13427	13504	142	1	379	generated	
+110	Const	DEVICEFAMILYDEVICEFORM_MAX	13505	13574	143	1	380	generated	
+111	Const	DEVICEFAMILYDEVICEFORM_MEDICAL	13575	13648	144	1	381	generated	
+112	Const	DEVICEFAMILYDEVICEFORM_NETWORKING	13649	13725	145	1	382	generated	
+113	Const	DEVICEFAMILYDEVICEFORM_NOTEBOOK	13726	13799	146	1	383	generated	
+114	Const	DEVICEFAMILYDEVICEFORM_PHONE	13800	13870	147	1	384	generated	
+115	Const	DEVICEFAMILYDEVICEFORM_POINT_OF_SERVICE	13871	13953	148	1	385	generated	
+116	Const	DEVICEFAMILYDEVICEFORM_PRINTING	13954	14028	149	1	386	generated	
+117	Const	DEVICEFAMILYDEVICEFORM_PUCK	14029	14098	150	1	387	generated	
+118	Const	DEVICEFAMILYDEVICEFORM_STICKPC	14099	14171	151	1	388	generated	
+119	Const	DEVICEFAMILYDEVICEFORM_TABLET	14172	14243	152	1	389	generated	
+120	Const	DEVICEFAMILYDEVICEFORM_THIN_CLIENT	14244	14321	153	1	390	generated	
+121	Const	DEVICEFAMILYDEVICEFORM_TOY	14322	14391	154	1	391	generated	
+122	Const	DEVICEFAMILYDEVICEFORM_UNKNOWN	14392	14464	155	1	392	generated	
+123	Const	DEVICEFAMILYDEVICEFORM_VENDING	14465	14538	156	1	393	generated	
+124	Const	DEVICEFAMILYDEVICEFORM_XBOX_ONE	14539	14613	157	1	394	generated	
+125	Const	DEVICEFAMILYDEVICEFORM_XBOX_ONE_S	14614	14690	158	1	395	generated	
+126	Const	DEVICEFAMILYDEVICEFORM_XBOX_ONE_X	14691	14767	159	1	396	generated	
+127	Const	DEVICEFAMILYDEVICEFORM_XBOX_ONE_X_DEVKIT	14768	14851	160	1	397	generated	
+128	Const	DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_01	14852	14934	161	1	398	generated	
+129	Const	DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_02	14935	15017	162	1	399	generated	
+130	Const	DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_03	15018	15100	163	1	400	generated	
+131	Const	DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_04	15101	15183	164	1	401	generated	
+132	Const	DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_05	15184	15266	165	1	402	generated	
+133	Const	DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_06	15267	15349	166	1	403	generated	
+134	Const	DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_07	15350	15432	167	1	404	generated	
+135	Const	DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_08	15433	15515	168	1	405	generated	
+136	Const	DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_09	15516	15598	169	1	406	generated	
+137	Const	DEVICEFAMILYDEVICEFORM_XBOX_SERIES_S	15599	15678	170	1	407	generated	
+138	Const	DEVICEFAMILYDEVICEFORM_XBOX_SERIES_X	15679	15758	171	1	408	generated	
+139	Const	DEVICEFAMILYDEVICEFORM_XBOX_SERIES_X_DEVKIT	15759	15845	172	1	409	generated	
+140	ItemType	DEVICEFAMILYINFOENUM	15846	15882	173	1	410	generated	
+141	Const	DEVICEFAMILYINFOENUM_7067329	15883	15952	174	1	411	generated	
+142	Const	DEVICEFAMILYINFOENUM_8828080	15953	16022	175	1	412	generated	
+143	Const	DEVICEFAMILYINFOENUM_DESKTOP	16023	16091	176	1	413	generated	
+144	Const	DEVICEFAMILYINFOENUM_HOLOGRAPHIC	16092	16165	177	1	414	generated	
+145	Const	DEVICEFAMILYINFOENUM_IOT	16166	16230	178	1	415	generated	
+146	Const	DEVICEFAMILYINFOENUM_IOT_HEADLESS	16231	16304	179	1	416	generated	
+147	Const	DEVICEFAMILYINFOENUM_MAX	16305	16370	180	1	417	generated	
+148	Const	DEVICEFAMILYINFOENUM_MOBILE	16371	16438	181	1	418	generated	
+149	Const	DEVICEFAMILYINFOENUM_SERVER	16439	16506	182	1	419	generated	
+150	Const	DEVICEFAMILYINFOENUM_SERVER_NANO	16507	16580	183	1	420	generated	
+151	Const	DEVICEFAMILYINFOENUM_TEAM	16581	16646	184	1	421	generated	
+152	Const	DEVICEFAMILYINFOENUM_UAP	16647	16711	185	1	422	generated	
+153	Const	DEVICEFAMILYINFOENUM_WINDOWS_8X	16712	16783	186	1	423	generated	
+154	Const	DEVICEFAMILYINFOENUM_WINDOWS_CORE	16784	16858	187	1	424	generated	
+155	Const	DEVICEFAMILYINFOENUM_WINDOWS_CORE_HEADLESS	16859	16942	188	1	425	generated	
+156	Const	DEVICEFAMILYINFOENUM_WINDOWS_PHONE_8X	16943	17020	189	1	426	generated	
+157	Const	DEVICEFAMILYINFOENUM_XBOX	17021	17086	190	1	427	generated	
+158	Const	DEVICEFAMILYINFOENUM_XBOXERA	17087	17156	191	1	428	generated	
+159	Const	DEVICEFAMILYINFOENUM_XBOXSRA	17157	17226	192	1	429	generated	
+160	Const	DeveloperDriveDisabledByGroupPolicy	17227	17314	193	1	430	generated	
+161	Const	DeveloperDriveDisabledBySystemPolicy	17315	17403	194	1	431	generated	
+162	Const	DeveloperDriveEnabled	17404	17477	195	1	432	generated	
+163	Const	DeveloperDriveEnablementStateError	17478	17564	196	1	433	generated	
+164	Const	FIRM	17565	17621	197	1	434	generated	
+165	ItemType	FIRMWARE_TABLE_PROVIDER	17622	17661	198	1	435	generated	
+166	ItemType	FIRMWARE_TYPE	17662	17691	199	1	436	generated	
+167	Const	FirmwareTypeBios	17692	17741	200	1	437	generated	
+168	Const	FirmwareTypeMax	17742	17790	201	1	438	generated	
+169	Const	FirmwareTypeUefi	17791	17840	202	1	439	generated	
+170	Const	FirmwareTypeUnknown	17841	17893	203	1	440	generated	
+171	Struct	GROUP_AFFINITY	17894	18026	204	1	441	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 3 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+172	Impl		18027	18134	211	1	451	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+173	Struct	GROUP_RELATIONSHIP	18135	18339	216	1	458	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 20 and value/layout semantics require coder integration. Rust fixed array length 1 and value/layout semantics require coder integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+174	Impl		18340	18451	224	1	471	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+175	Const	GlobalDataIdConsoleSharedDataFlags	18452	18532	229	1	478	generated	
+176	Const	GlobalDataIdCyclesPerYield	18533	18605	230	1	479	generated	
+177	Const	GlobalDataIdImageNumberHigh	18606	18678	231	1	480	generated	
+178	Const	GlobalDataIdImageNumberLow	18679	18750	232	1	481	generated	
+179	Const	GlobalDataIdInterruptTime	18751	18821	233	1	482	generated	
+180	Const	GlobalDataIdKdDebuggerEnabled	18822	18897	234	1	483	generated	
+181	Const	GlobalDataIdLastSystemRITEventTickCount	18898	18983	235	1	484	generated	
+182	Const	GlobalDataIdNtMajorVersion	18984	19055	236	1	485	generated	
+183	Const	GlobalDataIdNtMinorVersion	19056	19127	237	1	486	generated	
+184	Const	GlobalDataIdNtSystemRootDrive	19128	19203	238	1	487	generated	
+185	Const	GlobalDataIdQpcBias	19204	19269	239	1	488	generated	
+186	Const	GlobalDataIdQpcBypassEnabled	19270	19344	240	1	489	generated	
+187	Const	GlobalDataIdQpcData	19345	19410	241	1	490	generated	
+188	Const	GlobalDataIdQpcShift	19411	19477	242	1	491	generated	
+189	Const	GlobalDataIdRngSeedVersion	19478	19549	243	1	492	generated	
+190	Const	GlobalDataIdSafeBootMode	19550	19620	244	1	493	generated	
+191	Const	GlobalDataIdSystemExpirationDate	19621	19698	245	1	494	generated	
+192	Const	GlobalDataIdTimeZoneBias	19699	19768	246	1	495	generated	
+193	Const	GlobalDataIdTimeZoneId	19769	19836	247	1	496	generated	
+194	Const	GlobalDataIdUnknown	19837	19901	248	1	497	generated	
+195	ItemType	IMAGE_FILE_MACHINE	19902	19936	249	1	498	generated	
+196	Const	IMAGE_FILE_MACHINE_ALPHA	19937	20001	250	1	499	generated	
+197	Const	IMAGE_FILE_MACHINE_ALPHA64	20002	20068	251	1	500	generated	
+198	Const	IMAGE_FILE_MACHINE_AM33	20069	20132	252	1	501	generated	
+199	Const	IMAGE_FILE_MACHINE_AMD64	20133	20199	253	1	502	generated	
+200	Const	IMAGE_FILE_MACHINE_ARM	20200	20262	254	1	503	generated	
+201	Const	IMAGE_FILE_MACHINE_ARM64	20263	20329	255	1	504	generated	
+202	Const	IMAGE_FILE_MACHINE_ARMNT	20330	20394	256	1	505	generated	
+203	Const	IMAGE_FILE_MACHINE_AXP64	20395	20459	257	1	506	generated	
+204	Const	IMAGE_FILE_MACHINE_CEE	20460	20524	258	1	507	generated	
+205	Const	IMAGE_FILE_MACHINE_CEF	20525	20588	259	1	508	generated	
+206	Const	IMAGE_FILE_MACHINE_EBC	20589	20652	260	1	509	generated	
+207	Const	IMAGE_FILE_MACHINE_I386	20653	20716	261	1	510	generated	
+208	Const	IMAGE_FILE_MACHINE_IA64	20717	20780	262	1	511	generated	
+209	Const	IMAGE_FILE_MACHINE_M32R	20781	20846	263	1	512	generated	
+210	Const	IMAGE_FILE_MACHINE_MIPS16	20847	20912	264	1	513	generated	
+211	Const	IMAGE_FILE_MACHINE_MIPSFPU	20913	20979	265	1	514	generated	
+212	Const	IMAGE_FILE_MACHINE_MIPSFPU16	20980	21049	266	1	515	generated	
+213	Const	IMAGE_FILE_MACHINE_POWERPC	21050	21116	267	1	516	generated	
+214	Const	IMAGE_FILE_MACHINE_POWERPCFP	21117	21185	268	1	517	generated	
+215	Const	IMAGE_FILE_MACHINE_R10000	21186	21251	269	1	518	generated	
+216	Const	IMAGE_FILE_MACHINE_R3000	21252	21316	270	1	519	generated	
+217	Const	IMAGE_FILE_MACHINE_R4000	21317	21381	271	1	520	generated	
+218	Const	IMAGE_FILE_MACHINE_SH3	21382	21444	272	1	521	generated	
+219	Const	IMAGE_FILE_MACHINE_SH3DSP	21445	21510	273	1	522	generated	
+220	Const	IMAGE_FILE_MACHINE_SH3E	21511	21574	274	1	523	generated	
+221	Const	IMAGE_FILE_MACHINE_SH4	21575	21637	275	1	524	generated	
+222	Const	IMAGE_FILE_MACHINE_SH5	21638	21700	276	1	525	generated	
+223	Const	IMAGE_FILE_MACHINE_TARGET_HOST	21701	21769	277	1	526	generated	
+224	Const	IMAGE_FILE_MACHINE_THUMB	21770	21834	278	1	527	generated	
+225	Const	IMAGE_FILE_MACHINE_TRICORE	21835	21902	279	1	528	generated	
+226	Const	IMAGE_FILE_MACHINE_UNKNOWN	21903	21967	280	1	529	generated	
+227	Const	IMAGE_FILE_MACHINE_WCEMIPSV2	21968	22036	281	1	530	generated	
+228	ItemType	LOGICAL_PROCESSOR_RELATIONSHIP	22037	22083	282	1	531	generated	
+229	Struct	MEMORYSTATUS	22084	22386	283	1	532	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+230	Struct	MEMORYSTATUSEX	22387	22723	295	1	546	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+231	Const	NTDDI_LONGHORN	22724	22769	308	1	561	generated	
+232	Const	NTDDI_VERSION	22770	22814	309	1	562	generated	
+233	Const	NTDDI_VISTA	22815	22857	310	1	563	generated	
+234	Const	NTDDI_VISTASP1	22858	22903	311	1	564	generated	
+235	Const	NTDDI_VISTASP2	22904	22949	312	1	565	generated	
+236	Const	NTDDI_VISTASP3	22950	22995	313	1	566	generated	
+237	Const	NTDDI_VISTASP4	22996	23041	314	1	567	generated	
+238	Const	NTDDI_WIN10	23042	23084	315	1	568	generated	
+239	Const	NTDDI_WIN10_19H1	23085	23132	316	1	569	generated	
+240	Const	NTDDI_WIN10_CO	23133	23178	317	1	570	generated	
+241	Const	NTDDI_WIN10_FE	23179	23224	318	1	571	generated	
+242	Const	NTDDI_WIN10_MN	23225	23270	319	1	572	generated	
+243	Const	NTDDI_WIN10_NI	23271	23316	320	1	573	generated	
+244	Const	NTDDI_WIN10_RS1	23317	23363	321	1	574	generated	
+245	Const	NTDDI_WIN10_RS2	23364	23410	322	1	575	generated	
+246	Const	NTDDI_WIN10_RS3	23411	23457	323	1	576	generated	
+247	Const	NTDDI_WIN10_RS4	23458	23504	324	1	577	generated	
+248	Const	NTDDI_WIN10_RS5	23505	23551	325	1	578	generated	
+249	Const	NTDDI_WIN10_TH2	23552	23598	326	1	579	generated	
+250	Const	NTDDI_WIN10_VB	23599	23644	327	1	580	generated	
+251	Const	NTDDI_WIN2K	23645	23686	328	1	581	generated	
+252	Const	NTDDI_WIN2KSP1	23687	23731	329	1	582	generated	
+253	Const	NTDDI_WIN2KSP2	23732	23776	330	1	583	generated	
+254	Const	NTDDI_WIN2KSP3	23777	23821	331	1	584	generated	
+255	Const	NTDDI_WIN2KSP4	23822	23866	332	1	585	generated	
+256	Const	NTDDI_WIN4	23867	23907	333	1	586	generated	
+257	Const	NTDDI_WIN6	23908	23949	334	1	587	generated	
+258	Const	NTDDI_WIN6SP1	23950	23994	335	1	588	generated	
+259	Const	NTDDI_WIN6SP2	23995	24039	336	1	589	generated	
+260	Const	NTDDI_WIN6SP3	24040	24084	337	1	590	generated	
+261	Const	NTDDI_WIN6SP4	24085	24129	338	1	591	generated	
+262	Const	NTDDI_WIN7	24130	24171	339	1	592	generated	
+263	Const	NTDDI_WIN8	24172	24213	340	1	593	generated	
+264	Const	NTDDI_WINBLUE	24214	24258	341	1	594	generated	
+265	Const	NTDDI_WINTHRESHOLD	24259	24308	342	1	595	generated	
+266	Const	NTDDI_WINXP	24309	24350	343	1	596	generated	
+267	Const	NTDDI_WINXPSP1	24351	24395	344	1	597	generated	
+268	Const	NTDDI_WINXPSP2	24396	24440	345	1	598	generated	
+269	Const	NTDDI_WINXPSP3	24441	24485	346	1	599	generated	
+270	Const	NTDDI_WINXPSP4	24486	24530	347	1	600	generated	
+271	Const	NTDDI_WS03	24531	24571	348	1	601	generated	
+272	Const	NTDDI_WS03SP1	24572	24615	349	1	602	generated	
+273	Const	NTDDI_WS03SP2	24616	24659	350	1	603	generated	
+274	Const	NTDDI_WS03SP3	24660	24703	351	1	604	generated	
+275	Const	NTDDI_WS03SP4	24704	24747	352	1	605	generated	
+276	Const	NTDDI_WS08	24748	24789	353	1	606	generated	
+277	Const	NTDDI_WS08SP2	24790	24834	354	1	607	generated	
+278	Const	NTDDI_WS08SP3	24835	24879	355	1	608	generated	
+279	Const	NTDDI_WS08SP4	24880	24924	356	1	609	generated	
+280	Struct	NUMA_NODE_RELATIONSHIP	24925	25119	357	1	610	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 18 and value/layout semantics require coder integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+281	Impl		25120	25235	365	1	622	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+282	Union		25236	25384	370	1	629	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+283	Impl		25385	25502	376	1	637	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+284	Struct	OSVERSIONINFOA	25503	25746	381	1	644	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 128 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+285	Impl		25747	25854	391	1	657	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+286	Struct	OSVERSIONINFOEXA	25855	26238	396	1	664	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 128 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+287	Impl		26239	26348	411	1	682	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+288	Struct	OSVERSIONINFOEXW	26349	26733	416	1	689	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 128 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+289	Impl		26734	26843	431	1	707	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+290	Struct	OSVERSIONINFOW	26844	27088	436	1	714	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 128 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+291	Impl		27089	27196	446	1	727	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+292	Const	OSVERSION_MASK	27197	27243	451	1	734	generated	
+293	ItemType	OS_DEPLOYEMENT_STATE_VALUES	27244	27287	452	1	735	generated	
+294	Const	OS_DEPLOYMENT_COMPACT	27288	27356	453	1	736	generated	
+295	Const	OS_DEPLOYMENT_STANDARD	27357	27426	454	1	737	generated	
+296	ItemType	OS_PRODUCT_TYPE	27427	27458	455	1	738	generated	
+297	ItemType	PGET_SYSTEM_WOW64_DIRECTORY_A	27459	27588	456	1	739	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+298	ItemType	PGET_SYSTEM_WOW64_DIRECTORY_W	27589	27719	457	1	743	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+299	ItemType	PROCESSOR_ARCHITECTURE	27720	27758	458	1	747	generated	
+300	Const	PROCESSOR_ARCHITECTURE_ALPHA	27759	27829	459	1	748	generated	
+301	Const	PROCESSOR_ARCHITECTURE_ALPHA64	27830	27902	460	1	749	generated	
+302	Const	PROCESSOR_ARCHITECTURE_AMD64	27903	27973	461	1	750	generated	
+303	Const	PROCESSOR_ARCHITECTURE_ARM	27974	28042	462	1	751	generated	
+304	Const	PROCESSOR_ARCHITECTURE_ARM32_ON_WIN64	28043	28123	463	1	752	generated	
+305	Const	PROCESSOR_ARCHITECTURE_ARM64	28124	28195	464	1	753	generated	
+306	Const	PROCESSOR_ARCHITECTURE_IA32_ON_ARM64	28196	28275	465	1	754	generated	
+307	Const	PROCESSOR_ARCHITECTURE_IA32_ON_WIN64	28276	28355	466	1	755	generated	
+308	Const	PROCESSOR_ARCHITECTURE_IA64	28356	28425	467	1	756	generated	
+309	Const	PROCESSOR_ARCHITECTURE_INTEL	28426	28496	468	1	757	generated	
+310	Const	PROCESSOR_ARCHITECTURE_MIPS	28497	28566	469	1	758	generated	
+311	Const	PROCESSOR_ARCHITECTURE_MSIL	28567	28636	470	1	759	generated	
+312	Const	PROCESSOR_ARCHITECTURE_NEUTRAL	28637	28710	471	1	760	generated	
+313	Const	PROCESSOR_ARCHITECTURE_PPC	28711	28779	472	1	761	generated	
+314	Const	PROCESSOR_ARCHITECTURE_SHX	28780	28848	473	1	762	generated	
+315	Const	PROCESSOR_ARCHITECTURE_UNKNOWN	28849	28925	474	1	763	generated	
+316	ItemType	PROCESSOR_CACHE_TYPE	28926	28962	475	1	764	generated	
+317	Struct	PROCESSOR_GROUP_INFO	28963	29165	476	1	765	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 38 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+318	Impl		29166	29279	484	1	776	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+319	Struct	PROCESSOR_RELATIONSHIP	29280	29492	489	1	783	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 20 and value/layout semantics require coder integration. Rust fixed array length 1 and value/layout semantics require coder integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+320	Impl		29493	29608	498	1	797	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+321	Const	PRODUCT_BUSINESS	29609	29660	503	1	804	generated	
+322	Const	PRODUCT_BUSINESS_N	29661	29715	504	1	805	generated	
+323	Const	PRODUCT_CLUSTER_SERVER	29716	29774	505	1	806	generated	
+324	Const	PRODUCT_CLUSTER_SERVER_V	29775	29835	506	1	807	generated	
+325	Const	PRODUCT_CORE	29836	29885	507	1	808	generated	
+326	Const	PRODUCT_CORE_COUNTRYSPECIFIC	29886	29950	508	1	809	generated	
+327	Const	PRODUCT_CORE_N	29951	30001	509	1	810	generated	
+328	Const	PRODUCT_CORE_SINGLELANGUAGE	30002	30066	510	1	811	generated	
+329	Const	PRODUCT_DATACENTER_A_SERVER_CORE	30067	30136	511	1	812	generated	
+330	Const	PRODUCT_DATACENTER_EVALUATION_SERVER	30137	30209	512	1	813	generated	
+331	Const	PRODUCT_DATACENTER_SERVER	30210	30270	513	1	814	generated	
+332	Const	PRODUCT_DATACENTER_SERVER_CORE	30271	30337	514	1	815	generated	
+333	Const	PRODUCT_DATACENTER_SERVER_CORE_V	30338	30406	515	1	816	generated	
+334	Const	PRODUCT_DATACENTER_SERVER_V	30407	30470	516	1	817	generated	
+335	Const	PRODUCT_EDUCATION	30471	30525	517	1	818	generated	
+336	Const	PRODUCT_EDUCATION_N	30526	30582	518	1	819	generated	
+337	Const	PRODUCT_ENTERPRISE	30583	30636	519	1	820	generated	
+338	Const	PRODUCT_ENTERPRISE_E	30637	30693	520	1	821	generated	
+339	Const	PRODUCT_ENTERPRISE_EVALUATION	30694	30759	521	1	822	generated	
+340	Const	PRODUCT_ENTERPRISE_N	30760	30816	522	1	823	generated	
+341	Const	PRODUCT_ENTERPRISE_N_EVALUATION	30817	30884	523	1	824	generated	
+342	Const	PRODUCT_ENTERPRISE_S	30885	30942	524	1	825	generated	
+343	Const	PRODUCT_ENTERPRISE_SERVER	30943	31004	525	1	826	generated	
+344	Const	PRODUCT_ENTERPRISE_SERVER_CORE	31005	31071	526	1	827	generated	
+345	Const	PRODUCT_ENTERPRISE_SERVER_CORE_V	31072	31140	527	1	828	generated	
+346	Const	PRODUCT_ENTERPRISE_SERVER_IA64	31141	31207	528	1	829	generated	
+347	Const	PRODUCT_ENTERPRISE_SERVER_V	31208	31271	529	1	830	generated	
+348	Const	PRODUCT_ENTERPRISE_S_EVALUATION	31272	31340	530	1	831	generated	
+349	Const	PRODUCT_ENTERPRISE_S_N	31341	31400	531	1	832	generated	
+350	Const	PRODUCT_ENTERPRISE_S_N_EVALUATION	31401	31471	532	1	833	generated	
+351	Const	PRODUCT_ESSENTIALBUSINESS_SERVER_ADDL	31472	31545	533	1	834	generated	
+352	Const	PRODUCT_ESSENTIALBUSINESS_SERVER_ADDLSVC	31546	31622	534	1	835	generated	
+353	Const	PRODUCT_ESSENTIALBUSINESS_SERVER_MGMT	31623	31696	535	1	836	generated	
+354	Const	PRODUCT_ESSENTIALBUSINESS_SERVER_MGMTSVC	31697	31773	536	1	837	generated	
+355	Const	PRODUCT_HOME_BASIC	31774	31827	537	1	838	generated	
+356	Const	PRODUCT_HOME_BASIC_E	31828	31884	538	1	839	generated	
+357	Const	PRODUCT_HOME_BASIC_N	31885	31940	539	1	840	generated	
+358	Const	PRODUCT_HOME_PREMIUM	31941	31996	540	1	841	generated	
+359	Const	PRODUCT_HOME_PREMIUM_E	31997	32055	541	1	842	generated	
+360	Const	PRODUCT_HOME_PREMIUM_N	32056	32114	542	1	843	generated	
+361	Const	PRODUCT_HOME_PREMIUM_SERVER	32115	32178	543	1	844	generated	
+362	Const	PRODUCT_HOME_SERVER	32179	32234	544	1	845	generated	
+363	Const	PRODUCT_HYPERV	32235	32285	545	1	846	generated	
+364	Const	PRODUCT_IOTUAP	32286	32337	546	1	847	generated	
+365	Const	PRODUCT_IOTUAPCOMMERCIAL	32338	32399	547	1	848	generated	
+366	Const	PRODUCT_MEDIUMBUSINESS_SERVER_MANAGEMENT	32400	32476	548	1	849	generated	
+367	Const	PRODUCT_MEDIUMBUSINESS_SERVER_MESSAGING	32477	32552	549	1	850	generated	
+368	Const	PRODUCT_MEDIUMBUSINESS_SERVER_SECURITY	32553	32627	550	1	851	generated	
+369	Const	PRODUCT_MOBILE_CORE	32628	32684	551	1	852	generated	
+370	Const	PRODUCT_MOBILE_ENTERPRISE	32685	32747	552	1	853	generated	
+371	Const	PRODUCT_MULTIPOINT_PREMIUM_SERVER	32748	32817	553	1	854	generated	
+372	Const	PRODUCT_MULTIPOINT_STANDARD_SERVER	32818	32888	554	1	855	generated	
+373	Const	PRODUCT_PROFESSIONAL	32889	32945	555	1	856	generated	
+374	Const	PRODUCT_PROFESSIONAL_E	32946	33004	556	1	857	generated	
+375	Const	PRODUCT_PROFESSIONAL_N	33005	33063	557	1	858	generated	
+376	Const	PRODUCT_PROFESSIONAL_WMC	33064	33125	558	1	859	generated	
+377	Const	PRODUCT_PRO_WORKSTATION	33126	33186	559	1	860	generated	
+378	Const	PRODUCT_PRO_WORKSTATION_N	33187	33249	560	1	861	generated	
+379	Const	PRODUCT_SB_SOLUTION_SERVER	33250	33312	561	1	862	generated	
+380	Const	PRODUCT_SB_SOLUTION_SERVER_EM	33313	33378	562	1	863	generated	
+381	Const	PRODUCT_SERVER_FOR_SB_SOLUTIONS	33379	33446	563	1	864	generated	
+382	Const	PRODUCT_SERVER_FOR_SB_SOLUTIONS_EM	33447	33517	564	1	865	generated	
+383	Const	PRODUCT_SERVER_FOR_SMALLBUSINESS	33518	33586	565	1	866	generated	
+384	Const	PRODUCT_SERVER_FOR_SMALLBUSINESS_V	33587	33657	566	1	867	generated	
+385	Const	PRODUCT_SERVER_FOUNDATION	33658	33719	567	1	868	generated	
+386	Const	PRODUCT_SMALLBUSINESS_SERVER	33720	33783	568	1	869	generated	
+387	Const	PRODUCT_SMALLBUSINESS_SERVER_PREMIUM	33784	33856	569	1	870	generated	
+388	Const	PRODUCT_SMALLBUSINESS_SERVER_PREMIUM_CORE	33857	33934	570	1	871	generated	
+389	Const	PRODUCT_SOLUTION_EMBEDDEDSERVER	33935	34002	571	1	872	generated	
+390	Const	PRODUCT_STANDARD_A_SERVER_CORE	34003	34070	572	1	873	generated	
+391	Const	PRODUCT_STANDARD_EVALUATION_SERVER	34071	34141	573	1	874	generated	
+392	Const	PRODUCT_STANDARD_SERVER	34142	34200	574	1	875	generated	
+393	Const	PRODUCT_STANDARD_SERVER_CORE_	34201	34266	575	1	876	generated	
+394	Const	PRODUCT_STANDARD_SERVER_CORE_V	34267	34333	576	1	877	generated	
+395	Const	PRODUCT_STANDARD_SERVER_SOLUTIONS	34334	34403	577	1	878	generated	
+396	Const	PRODUCT_STANDARD_SERVER_SOLUTIONS_CORE	34404	34478	578	1	879	generated	
+397	Const	PRODUCT_STANDARD_SERVER_V	34479	34540	579	1	880	generated	
+398	Const	PRODUCT_STARTER	34541	34592	580	1	881	generated	
+399	Const	PRODUCT_STARTER_E	34593	34646	581	1	882	generated	
+400	Const	PRODUCT_STARTER_N	34647	34700	582	1	883	generated	
+401	Const	PRODUCT_STORAGE_ENTERPRISE_SERVER	34701	34770	583	1	884	generated	
+402	Const	PRODUCT_STORAGE_ENTERPRISE_SERVER_CORE	34771	34845	584	1	885	generated	
+403	Const	PRODUCT_STORAGE_EXPRESS_SERVER	34846	34912	585	1	886	generated	
+404	Const	PRODUCT_STORAGE_EXPRESS_SERVER_CORE	34913	34984	586	1	887	generated	
+405	Const	PRODUCT_STORAGE_STANDARD_EVALUATION_SERVER	34985	35063	587	1	888	generated	
+406	Const	PRODUCT_STORAGE_STANDARD_SERVER	35064	35131	588	1	889	generated	
+407	Const	PRODUCT_STORAGE_STANDARD_SERVER_CORE	35132	35204	589	1	890	generated	
+408	Const	PRODUCT_STORAGE_WORKGROUP_EVALUATION_SERVER	35205	35284	590	1	891	generated	
+409	Const	PRODUCT_STORAGE_WORKGROUP_SERVER	35285	35353	591	1	892	generated	
+410	Const	PRODUCT_STORAGE_WORKGROUP_SERVER_CORE	35354	35427	592	1	893	generated	
+411	Const	PRODUCT_ULTIMATE	35428	35479	593	1	894	generated	
+412	Const	PRODUCT_ULTIMATE_E	35480	35534	594	1	895	generated	
+413	Const	PRODUCT_ULTIMATE_N	35535	35589	595	1	896	generated	
+414	Const	PRODUCT_UNDEFINED	35590	35642	596	1	897	generated	
+415	Const	PRODUCT_WEB_SERVER	35643	35697	597	1	898	generated	
+416	Const	PRODUCT_WEB_SERVER_CORE	35698	35757	598	1	899	generated	
+417	Const	RSMB	35758	35814	599	1	900	generated	
+418	ItemType	RTL_SYSTEM_GLOBAL_DATA_ID	35815	35856	600	1	901	generated	
+419	Const	RelationAll	35857	35922	601	1	902	generated	
+420	Const	RelationCache	35923	35986	602	1	903	generated	
+421	Const	RelationGroup	35987	36050	603	1	904	generated	
+422	Const	RelationNumaNode	36051	36117	604	1	905	generated	
+423	Const	RelationNumaNodeEx	36118	36186	605	1	906	generated	
+424	Const	RelationProcessorCore	36187	36258	606	1	907	generated	
+425	Const	RelationProcessorDie	36259	36329	607	1	908	generated	
+426	Const	RelationProcessorModule	36330	36403	608	1	909	generated	
+427	Const	RelationProcessorPackage	36404	36478	609	1	910	generated	
+428	Const	SCEX2_ALT_NETBIOS_NAME	36479	36524	610	1	911	generated	
+429	Const	SPVERSION_MASK	36525	36566	611	1	912	generated	
+430	Const	SUBVERSION_MASK	36567	36607	612	1	913	generated	
+431	Struct	SYSTEM_CPU_SET_INFORMATION	36608	36791	613	1	914	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+432	Impl		36792	36911	620	1	924	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+433	Union		36912	37036	625	1	931	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+434	Impl		37037	37158	630	1	938	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+435	Struct	SYSTEM_CPU_SET_INFORMATION_0_0	37159	37558	635	1	945	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+436	Impl		37559	37682	649	1	962	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+437	Union		37683	37840	654	1	969	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+438	Impl		37841	37966	660	1	977	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+439	Struct	SYSTEM_CPU_SET_INFORMATION_0_0_0_0	37967	38082	665	1	984	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+440	Union		38083	38215	670	1	991	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+441	Impl		38216	38341	676	1	999	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+442	Const	SYSTEM_CPU_SET_INFORMATION_ALLOCATED	38342	38401	681	1	1006	generated	
+443	Const	SYSTEM_CPU_SET_INFORMATION_ALLOCATED_TO_TARGET_PROCESS	38402	38479	682	1	1007	generated	
+444	Const	SYSTEM_CPU_SET_INFORMATION_PARKED	38480	38536	683	1	1008	generated	
+445	Const	SYSTEM_CPU_SET_INFORMATION_REALTIME	38537	38595	684	1	1009	generated	
+446	Struct	SYSTEM_INFO	38596	39041	685	1	1010	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+447	Impl		39042	39146	699	1	1028	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+448	Union		39147	39266	704	1	1035	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+449	Impl		39267	39373	710	1	1043	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+450	Struct	SYSTEM_INFO_0_0	39374	39527	715	1	1050	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+451	Struct	SYSTEM_LOGICAL_PROCESSOR_INFORMATION	39528	39756	721	1	1059	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+452	Impl		39757	39886	728	1	1069	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+453	Union		39887	40159	733	1	1076	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+454	Impl		40160	40291	741	1	1086	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+455	Struct	SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1	40292	40415	746	1	1093	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+456	Struct	SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0	40416	40533	751	1	1100	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+457	Struct	SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX	40534	40757	756	1	1107	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+458	Impl		40758	40890	763	1	1117	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+459	Union		40891	41135	768	1	1124	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+460	Impl		41136	41270	776	1	1134	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+461	Struct	SYSTEM_POOL_ZEROING_INFORMATION	41271	41401	781	1	1141	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+462	Struct	SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION	41402	41523	786	1	1148	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+463	Struct	SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION	41524	41658	791	1	1155	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+464	ItemType	USER_CET_ENVIRONMENT	41659	41695	796	1	1162	generated	
+465	Const	USER_CET_ENVIRONMENT_SGX2_ENCLAVE	41696	41769	797	1	1163	generated	
+466	Const	USER_CET_ENVIRONMENT_VBS_BASIC_ENCLAVE	41770	41849	798	1	1164	generated	
+467	Const	USER_CET_ENVIRONMENT_VBS_ENCLAVE	41850	41923	799	1	1165	generated	
+468	Const	USER_CET_ENVIRONMENT_WIN32_PROCESS	41924	41998	800	1	1166	generated	
+469	Const	VER_BUILDNUMBER	41999	42043	801	1	1167	generated	
+470	ItemType	VER_FLAGS	42044	42069	802	1	1168	generated	
+471	Const	VER_MAJORVERSION	42070	42115	803	1	1169	generated	
+472	Const	VER_MINORVERSION	42116	42161	804	1	1170	generated	
+473	Const	VER_PLATFORMID	42162	42205	805	1	1171	generated	
+474	Const	VER_PRODUCT_TYPE	42206	42253	806	1	1172	generated	
+475	Const	VER_SERVICEPACKMAJOR	42254	42304	807	1	1173	generated	
+476	Const	VER_SERVICEPACKMINOR	42305	42355	808	1	1174	generated	
+477	Const	VER_SUITENAME	42356	42399	809	1	1175	generated	
+478	Const	WDK_NTDDI_VERSION	42400	42448	810	1	1176	generated	
+479	Const	_WIN32_IE_IE100	42449	42490	811	1	1177	generated	
+480	Const	_WIN32_IE_IE110	42491	42532	812	1	1178	generated	
+481	Const	_WIN32_IE_IE20	42533	42572	813	1	1179	generated	
+482	Const	_WIN32_IE_IE30	42573	42612	814	1	1180	generated	
+483	Const	_WIN32_IE_IE302	42613	42653	815	1	1181	generated	
+484	Const	_WIN32_IE_IE40	42654	42694	816	1	1182	generated	
+485	Const	_WIN32_IE_IE401	42695	42736	817	1	1183	generated	
+486	Const	_WIN32_IE_IE50	42737	42777	818	1	1184	generated	
+487	Const	_WIN32_IE_IE501	42778	42819	819	1	1185	generated	
+488	Const	_WIN32_IE_IE55	42820	42860	820	1	1186	generated	
+489	Const	_WIN32_IE_IE60	42861	42901	821	1	1187	generated	
+490	Const	_WIN32_IE_IE60SP1	42902	42945	822	1	1188	generated	
+491	Const	_WIN32_IE_IE60SP2	42946	42989	823	1	1189	generated	
+492	Const	_WIN32_IE_IE70	42990	43030	824	1	1190	generated	
+493	Const	_WIN32_IE_IE80	43031	43071	825	1	1191	generated	
+494	Const	_WIN32_IE_IE90	43072	43112	826	1	1192	generated	
+495	Const	_WIN32_IE_LONGHORN	43113	43157	827	1	1193	generated	
+496	Const	_WIN32_IE_NT4	43158	43196	828	1	1194	generated	
+497	Const	_WIN32_IE_NT4SP1	43197	43238	829	1	1195	generated	
+498	Const	_WIN32_IE_NT4SP2	43239	43280	830	1	1196	generated	
+499	Const	_WIN32_IE_NT4SP3	43281	43322	831	1	1197	generated	
+500	Const	_WIN32_IE_NT4SP4	43323	43365	832	1	1198	generated	
+501	Const	_WIN32_IE_NT4SP5	43366	43408	833	1	1199	generated	
+502	Const	_WIN32_IE_NT4SP6	43409	43451	834	1	1200	generated	
+503	Const	_WIN32_IE_WIN10	43452	43493	835	1	1201	generated	
+504	Const	_WIN32_IE_WIN2K	43494	43535	836	1	1202	generated	
+505	Const	_WIN32_IE_WIN2KSP1	43536	43580	837	1	1203	generated	
+506	Const	_WIN32_IE_WIN2KSP2	43581	43625	838	1	1204	generated	
+507	Const	_WIN32_IE_WIN2KSP3	43626	43670	839	1	1205	generated	
+508	Const	_WIN32_IE_WIN2KSP4	43671	43715	840	1	1206	generated	
+509	Const	_WIN32_IE_WIN6	43716	43756	841	1	1207	generated	
+510	Const	_WIN32_IE_WIN7	43757	43797	842	1	1208	generated	
+511	Const	_WIN32_IE_WIN8	43798	43838	843	1	1209	generated	
+512	Const	_WIN32_IE_WIN98	43839	43880	844	1	1210	generated	
+513	Const	_WIN32_IE_WIN98SE	43881	43924	845	1	1211	generated	
+514	Const	_WIN32_IE_WINBLUE	43925	43968	846	1	1212	generated	
+515	Const	_WIN32_IE_WINME	43969	44010	847	1	1213	generated	
+516	Const	_WIN32_IE_WINTHRESHOLD	44011	44059	848	1	1214	generated	
+517	Const	_WIN32_IE_WS03	44060	44100	849	1	1215	generated	
+518	Const	_WIN32_IE_WS03SP1	44101	44144	850	1	1216	generated	
+519	Const	_WIN32_IE_XP	44145	44183	851	1	1217	generated	
+520	Const	_WIN32_IE_XPSP1	44184	44225	852	1	1218	generated	
+521	Const	_WIN32_IE_XPSP2	44226	44267	853	1	1219	generated	
+522	Const	_WIN32_WINNT_LONGHORN	44268	44315	854	1	1220	generated	
+523	Const	_WIN32_WINNT_NT4	44316	44358	855	1	1221	generated	
+524	Const	_WIN32_WINNT_VISTA	44359	44403	856	1	1222	generated	
+525	Const	_WIN32_WINNT_WIN10	44404	44448	857	1	1223	generated	
+526	Const	_WIN32_WINNT_WIN2K	44449	44493	858	1	1224	generated	
+527	Const	_WIN32_WINNT_WIN6	44494	44537	859	1	1225	generated	
+528	Const	_WIN32_WINNT_WIN7	44538	44581	860	1	1226	generated	
+529	Const	_WIN32_WINNT_WIN8	44582	44625	861	1	1227	generated	
+530	Const	_WIN32_WINNT_WINBLUE	44626	44672	862	1	1228	generated	
+531	Const	_WIN32_WINNT_WINTHRESHOLD	44673	44724	863	1	1229	generated	
+532	Const	_WIN32_WINNT_WINXP	44725	44769	864	1	1230	generated	
+533	Const	_WIN32_WINNT_WS03	44770	44813	865	1	1231	generated	
+534	Const	_WIN32_WINNT_WS08	44814	44857	866	1	1232	generated	

@@ -1,0 +1,7 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Mod	Dwm	0	51	1	1	2	unsupported	declaration Mod has no candidate rule
+1	Mod	Gdi	52	103	3	1	6	unsupported	declaration Mod has no candidate rule
+2	Mod	GdiPlus	104	163	5	1	10	unsupported	declaration Mod has no candidate rule
+3	Mod	Hlsl	164	217	7	1	14	unsupported	declaration Mod has no candidate rule
+4	Mod	OpenGL	218	275	9	1	18	unsupported	declaration Mod has no candidate rule
+5	Mod	Printing	276	337	11	1	22	unsupported	declaration Mod has no candidate rule

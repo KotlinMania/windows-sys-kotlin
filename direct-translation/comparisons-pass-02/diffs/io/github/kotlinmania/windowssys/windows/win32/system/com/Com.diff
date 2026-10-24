@@ -1,0 +1,2062 @@
+--- ../windows-sys-kotlin/direct-translation/comparisons-pass-02/port-snapshots/io/github/kotlinmania/windowssys/windows/win32/system/com/Com.kt	2026-10-24 15:27:53
++++ ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/System/Com/mod/candidate.kt	2026-10-24 13:20:22
+@@ -1,7 +1,2052 @@
+-// port-lint: source Windows/Win32/System/Com/mod.rs
+-package io.github.kotlinmania.windowssys.windows.win32.system.com
+-
+-// Module-tracking ledger for upstream `Windows/Win32/System/Com/mod.rs`.
+-//
+-// Symbols parceled:
+-//   - CoTaskMemFree.kt (mingwMain, jvmMain, jsMain, wasmJsMain)
++// DIRECT DECLARATION CANDIDATE: unsupported Rust remains below; not adopted or ABI-validated.
++// UNSUPPORTED Rust 1:1: declaration Mod has no candidate rule
++// #[cfg(feature = "Win32_System_Com_Marshal")]
++// pub mod Marshal;
++
++// UNSUPPORTED Rust 3:1: declaration Mod has no candidate rule
++// #[cfg(feature = "Win32_System_Com_StructuredStorage")]
++// pub mod StructuredStorage;
++
++// UNSUPPORTED Rust 5:1: declaration Mod has no candidate rule
++// #[cfg(feature = "Win32_System_Com_Urlmon")]
++// pub mod Urlmon;
++
++// UNSUPPORTED Rust 7:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn BindMoniker(pmk : * mut core::ffi::c_void, grfopt : u32, iidresult : *const windows_sys::core::GUID, ppvresult : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 8:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CLSIDFromProgID(lpszprogid : windows_sys::core::PCWSTR, lpclsid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 9:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CLSIDFromProgIDEx(lpszprogid : windows_sys::core::PCWSTR, lpclsid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 10:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CLSIDFromString(lpsz : windows_sys::core::PCWSTR, pclsid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 11:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoAddRefServerProcess() -> u32);
++
++// UNSUPPORTED Rust 12:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoAllowSetForegroundWindow(punk : * mut core::ffi::c_void, lpvreserved : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 13:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoAllowUnmarshalerCLSID(clsid : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 14:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoBuildVersion() -> u32);
++
++// UNSUPPORTED Rust 15:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoCancelCall(dwthreadid : u32, ultimeout : u32) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 16:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoCopyProxy(pproxy : * mut core::ffi::c_void, ppcopy : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 17:1: declaration Macro has no candidate rule
++// windows_link::link!("combase.dll" "system" fn CoCreateFreeThreadedMarshaler(punkouter : * mut core::ffi::c_void, ppunkmarshal : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 18:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoCreateGuid(pguid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 19:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoCreateInstance(rclsid : *const windows_sys::core::GUID, punkouter : * mut core::ffi::c_void, dwclscontext : CLSCTX, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 20:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoCreateInstanceEx(clsid : *const windows_sys::core::GUID, punkouter : * mut core::ffi::c_void, dwclsctx : CLSCTX, pserverinfo : *const COSERVERINFO, dwcount : u32, presults : *mut MULTI_QI) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 21:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoCreateInstanceFromApp(clsid : *const windows_sys::core::GUID, punkouter : * mut core::ffi::c_void, dwclsctx : CLSCTX, reserved : *const core::ffi::c_void, dwcount : u32, presults : *mut MULTI_QI) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 22:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoDecrementMTAUsage(cookie : CO_MTA_USAGE_COOKIE) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 23:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoDisableCallCancellation(preserved : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 24:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoDisconnectContext(dwtimeout : u32) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 25:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoDisconnectObject(punk : * mut core::ffi::c_void, dwreserved : u32) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 26:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoDosDateTimeToFileTime(ndosdate : u16, ndostime : u16, lpfiletime : *mut super::super::Foundation:: FILETIME) -> windows_sys::core::BOOL);
++
++// UNSUPPORTED Rust 27:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoEnableCallCancellation(preserved : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 28:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoFileTimeNow(lpfiletime : *mut super::super::Foundation:: FILETIME) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 29:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoFileTimeToDosDateTime(lpfiletime : *const super::super::Foundation:: FILETIME, lpdosdate : *mut u16, lpdostime : *mut u16) -> windows_sys::core::BOOL);
++
++// UNSUPPORTED Rust 30:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoFreeAllLibraries());
++
++// UNSUPPORTED Rust 31:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoFreeLibrary(hinst : super::super::Foundation:: HINSTANCE));
++
++// UNSUPPORTED Rust 32:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoFreeUnusedLibraries());
++
++// UNSUPPORTED Rust 33:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoFreeUnusedLibrariesEx(dwunloaddelay : u32, dwreserved : u32));
++
++// UNSUPPORTED Rust 34:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoGetApartmentType(papttype : *mut APTTYPE, paptqualifier : *mut APTTYPEQUALIFIER) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 35:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoGetCallContext(riid : *const windows_sys::core::GUID, ppinterface : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 36:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoGetCallerTID(lpdwtid : *mut u32) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 37:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoGetCancelObject(dwthreadid : u32, iid : *const windows_sys::core::GUID, ppunk : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 38:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoGetClassObject(rclsid : *const windows_sys::core::GUID, dwclscontext : u32, pvreserved : *const core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 39:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoGetContextToken(ptoken : *mut usize) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 40:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoGetCurrentLogicalThreadId(pguid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 41:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoGetCurrentProcess() -> u32);
++
++// UNSUPPORTED Rust 42:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoGetMalloc(dwmemcontext : u32, ppmalloc : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 43:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoGetObject(pszname : windows_sys::core::PCWSTR, pbindoptions : *const BIND_OPTS, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 44:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoGetObjectContext(riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 45:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoGetPSClsid(riid : *const windows_sys::core::GUID, pclsid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 46:1: declaration Macro has no candidate rule
++// #[cfg(feature = "Win32_Security")]
++// windows_link::link!("ole32.dll" "system" fn CoGetSystemSecurityPermissions(comsdtype : COMSD, ppsd : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 48:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoGetTreatAsClass(clsidold : *const windows_sys::core::GUID, pclsidnew : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 49:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoImpersonateClient() -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 50:1: declaration Macro has no candidate rule
++// windows_link::link!("combase.dll" "system" fn CoIncrementMTAUsage(pcookie : *mut CO_MTA_USAGE_COOKIE) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 51:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoInitialize(pvreserved : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 52:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoInitializeEx(pvreserved : *const core::ffi::c_void, dwcoinit : u32) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 53:1: declaration Macro has no candidate rule
++// #[cfg(feature = "Win32_Security")]
++// windows_link::link!("ole32.dll" "system" fn CoInitializeSecurity(psecdesc : super::super::Security:: PSECURITY_DESCRIPTOR, cauthsvc : i32, asauthsvc : *const SOLE_AUTHENTICATION_SERVICE, preserved1 : *const core::ffi::c_void, dwauthnlevel : RPC_C_AUTHN_LEVEL, dwimplevel : RPC_C_IMP_LEVEL, pauthlist : *const core::ffi::c_void, dwcapabilities : u32, preserved3 : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 55:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoInstall(pbc : * mut core::ffi::c_void, dwflags : u32, pclassspec : *const uCLSSPEC, pquery : *const QUERYCONTEXT, pszcodebase : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 56:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoInvalidateRemoteMachineBindings(pszmachinename : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 57:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoIsHandlerConnected(punk : * mut core::ffi::c_void) -> windows_sys::core::BOOL);
++
++// UNSUPPORTED Rust 58:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoIsOle1Class(rclsid : *const windows_sys::core::GUID) -> windows_sys::core::BOOL);
++
++// UNSUPPORTED Rust 59:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoLoadLibrary(lpszlibname : windows_sys::core::PCWSTR, bautofree : windows_sys::core::BOOL) -> super::super::Foundation:: HINSTANCE);
++
++// UNSUPPORTED Rust 60:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoLockObjectExternal(punk : * mut core::ffi::c_void, flock : windows_sys::core::BOOL, flastunlockreleases : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 61:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoQueryAuthenticationServices(pcauthsvc : *mut u32, asauthsvc : *mut *mut SOLE_AUTHENTICATION_SERVICE) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 62:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoQueryClientBlanket(pauthnsvc : *mut u32, pauthzsvc : *mut u32, pserverprincname : *mut windows_sys::core::PWSTR, pauthnlevel : *mut u32, pimplevel : *mut u32, pprivs : *mut *mut core::ffi::c_void, pcapabilities : *mut u32) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 63:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoQueryProxyBlanket(pproxy : * mut core::ffi::c_void, pwauthnsvc : *mut u32, pauthzsvc : *mut u32, pserverprincname : *mut windows_sys::core::PWSTR, pauthnlevel : *mut u32, pimplevel : *mut u32, pauthinfo : *mut *mut core::ffi::c_void, pcapabilites : *mut u32) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 64:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoRegisterActivationFilter(pactivationfilter : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 65:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoRegisterChannelHook(extensionuuid : *const windows_sys::core::GUID, pchannelhook : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 66:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoRegisterClassObject(rclsid : *const windows_sys::core::GUID, punk : * mut core::ffi::c_void, dwclscontext : CLSCTX, flags : u32, lpdwregister : *mut u32) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 67:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoRegisterDeviceCatalog(deviceinstanceid : windows_sys::core::PCWSTR, cookie : *mut CO_DEVICE_CATALOG_COOKIE) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 68:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoRegisterInitializeSpy(pspy : * mut core::ffi::c_void, pulicookie : *mut u64) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 69:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoRegisterMallocSpy(pmallocspy : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 70:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoRegisterPSClsid(riid : *const windows_sys::core::GUID, rclsid : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 71:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoRegisterSurrogate(psurrogate : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 72:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoReleaseServerProcess() -> u32);
++
++// UNSUPPORTED Rust 73:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoResumeClassObjects() -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 74:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoRevertToSelf() -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 75:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoRevokeClassObject(dwregister : u32) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 76:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoRevokeDeviceCatalog(cookie : CO_DEVICE_CATALOG_COOKIE) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 77:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoRevokeInitializeSpy(ulicookie : u64) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 78:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoRevokeMallocSpy() -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 79:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoSetCancelObject(punk : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 80:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoSetProxyBlanket(pproxy : * mut core::ffi::c_void, dwauthnsvc : u32, dwauthzsvc : u32, pserverprincname : windows_sys::core::PCWSTR, dwauthnlevel : RPC_C_AUTHN_LEVEL, dwimplevel : RPC_C_IMP_LEVEL, pauthinfo : *const core::ffi::c_void, dwcapabilities : u32) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 81:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoSuspendClassObjects() -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 82:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoSwitchCallContext(pnewobject : * mut core::ffi::c_void, ppoldobject : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 83:1: declaration Macro has no candidate rule
++// windows_link::link!("combase.dll" "system" fn CoTaskMemAlloc(cb : usize) -> *mut core::ffi::c_void);
++
++// UNSUPPORTED Rust 84:1: declaration Macro has no candidate rule
++// windows_link::link!("combase.dll" "system" fn CoTaskMemFree(pv : *const core::ffi::c_void));
++
++// UNSUPPORTED Rust 85:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoTaskMemRealloc(pv : *const core::ffi::c_void, cb : usize) -> *mut core::ffi::c_void);
++
++// UNSUPPORTED Rust 86:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoTestCancel() -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 87:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoTreatAsClass(clsidold : *const windows_sys::core::GUID, clsidnew : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 88:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoUninitialize());
++
++// UNSUPPORTED Rust 89:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoWaitForMultipleHandles(dwflags : u32, dwtimeout : u32, chandles : u32, phandles : *const super::super::Foundation:: HANDLE, lpdwindex : *mut u32) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 90:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CoWaitForMultipleObjects(dwflags : u32, dwtimeout : u32, chandles : u32, phandles : *const super::super::Foundation:: HANDLE, lpdwindex : *mut u32) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 91:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CreateAntiMoniker(ppmk : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 92:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CreateBindCtx(reserved : u32, ppbc : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 93:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CreateClassMoniker(rclsid : *const windows_sys::core::GUID, ppmk : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 94:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CreateDataAdviseHolder(ppdaholder : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 95:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CreateDataCache(punkouter : * mut core::ffi::c_void, rclsid : *const windows_sys::core::GUID, iid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 96:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CreateFileMoniker(lpszpathname : windows_sys::core::PCWSTR, ppmk : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 97:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CreateGenericComposite(pmkfirst : * mut core::ffi::c_void, pmkrest : * mut core::ffi::c_void, ppmkcomposite : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 98:1: declaration Macro has no candidate rule
++// windows_link::link!("urlmon.dll" "system" fn CreateIUriBuilder(piuri : * mut core::ffi::c_void, dwflags : u32, dwreserved : usize, ppiuribuilder : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 99:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CreateItemMoniker(lpszdelim : windows_sys::core::PCWSTR, lpszitem : windows_sys::core::PCWSTR, ppmk : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 100:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CreateObjrefMoniker(punk : * mut core::ffi::c_void, ppmk : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 101:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CreatePointerMoniker(punk : * mut core::ffi::c_void, ppmk : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 102:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn CreateStdProgressIndicator(hwndparent : super::super::Foundation:: HWND, psztitle : windows_sys::core::PCWSTR, pibsccaller : * mut core::ffi::c_void, ppibsc : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 103:1: declaration Macro has no candidate rule
++// windows_link::link!("urlmon.dll" "system" fn CreateUri(pwzuri : windows_sys::core::PCWSTR, dwflags : URI_CREATE_FLAGS, dwreserved : usize, ppuri : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 104:1: declaration Macro has no candidate rule
++// windows_link::link!("urlmon.dll" "system" fn CreateUriFromMultiByteString(pszansiinputuri : windows_sys::core::PCSTR, dwencodingflags : u32, dwcodepage : u32, dwcreateflags : u32, dwreserved : usize, ppuri : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 105:1: declaration Macro has no candidate rule
++// windows_link::link!("urlmon.dll" "system" fn CreateUriWithFragment(pwzuri : windows_sys::core::PCWSTR, pwzfragment : windows_sys::core::PCWSTR, dwflags : u32, dwreserved : usize, ppuri : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 106:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn DcomChannelSetHResult(pvreserved : *const core::ffi::c_void, pulreserved : *const u32, appshr : windows_sys::core::HRESULT) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 107:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn GetClassFile(szfilename : windows_sys::core::PCWSTR, pclsid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 108:1: declaration Macro has no candidate rule
++// windows_link::link!("oleaut32.dll" "system" fn GetErrorInfo(dwreserved : u32, pperrinfo : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 109:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn GetRunningObjectTable(reserved : u32, pprot : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 110:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn IIDFromString(lpsz : windows_sys::core::PCWSTR, lpiid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 111:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn MkParseDisplayName(pbc : * mut core::ffi::c_void, szusername : windows_sys::core::PCWSTR, pcheaten : *mut u32, ppmk : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 112:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn MonikerCommonPrefixWith(pmkthis : * mut core::ffi::c_void, pmkother : * mut core::ffi::c_void, ppmkcommon : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 113:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn MonikerRelativePathTo(pmksrc : * mut core::ffi::c_void, pmkdest : * mut core::ffi::c_void, ppmkrelpath : *mut * mut core::ffi::c_void, dwreserved : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 114:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn ProgIDFromCLSID(clsid : *const windows_sys::core::GUID, lplpszprogid : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 115:1: declaration Macro has no candidate rule
++// windows_link::link!("oleaut32.dll" "system" fn SetErrorInfo(dwreserved : u32, perrinfo : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 116:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn StringFromCLSID(rclsid : *const windows_sys::core::GUID, lplpsz : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
++
++// UNSUPPORTED Rust 117:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn StringFromGUID2(rguid : *const windows_sys::core::GUID, lpsz : windows_sys::core::PWSTR, cchmax : i32) -> i32);
++
++// UNSUPPORTED Rust 118:1: declaration Macro has no candidate rule
++// windows_link::link!("ole32.dll" "system" fn StringFromIID(rclsid : *const windows_sys::core::GUID, lplpsz : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
++
++public typealias `ADVANCED_FEATURE_FLAGS` = UShort;
++public typealias `ADVF` = Int;
++public const val `ADVFCACHE_FORCEBUILTIN`: `ADVF` = 16;
++public const val `ADVFCACHE_NOHANDLER`: `ADVF` = 8;
++public const val `ADVFCACHE_ONSAVE`: `ADVF` = 32;
++public const val `ADVF_DATAONSTOP`: `ADVF` = 64;
++public const val `ADVF_NODATA`: `ADVF` = 1;
++public const val `ADVF_ONLYONCE`: `ADVF` = 4;
++public const val `ADVF_PRIMEFIRST`: `ADVF` = 2;
++public const val `APPIDREGFLAGS_AAA_NO_IMPLICIT_ACTIVATE_AS_IU`: UInt = 2048u;
++public const val `APPIDREGFLAGS_ACTIVATE_IUSERVER_INDESKTOP`: UInt = 1u;
++public const val `APPIDREGFLAGS_ISSUE_ACTIVATION_RPC_AT_IDENTIFY`: UInt = 4u;
++public const val `APPIDREGFLAGS_IUSERVER_ACTIVATE_IN_CLIENT_SESSION_ONLY`: UInt = 32u;
++public const val `APPIDREGFLAGS_IUSERVER_SELF_SID_IN_LAUNCH_PERMISSION`: UInt = 16u;
++public const val `APPIDREGFLAGS_IUSERVER_UNMODIFIED_LOGON_TOKEN`: UInt = 8u;
++public const val `APPIDREGFLAGS_RESERVED1`: UInt = 64u;
++public const val `APPIDREGFLAGS_RESERVED2`: UInt = 128u;
++public const val `APPIDREGFLAGS_RESERVED3`: UInt = 256u;
++public const val `APPIDREGFLAGS_RESERVED4`: UInt = 512u;
++public const val `APPIDREGFLAGS_RESERVED5`: UInt = 1024u;
++public const val `APPIDREGFLAGS_RESERVED7`: UInt = 4096u;
++public const val `APPIDREGFLAGS_RESERVED8`: UInt = 8192u;
++public const val `APPIDREGFLAGS_RESERVED9`: UInt = 16384u;
++public const val `APPIDREGFLAGS_SECURE_SERVER_PROCESS_SD_AND_BIND`: UInt = 2u;
++public typealias `APTTYPE` = Int;
++public typealias `APTTYPEQUALIFIER` = Int;
++public const val `APTTYPEQUALIFIER_APPLICATION_STA`: `APTTYPEQUALIFIER` = 6;
++public const val `APTTYPEQUALIFIER_IMPLICIT_MTA`: `APTTYPEQUALIFIER` = 1;
++public const val `APTTYPEQUALIFIER_NA_ON_IMPLICIT_MTA`: `APTTYPEQUALIFIER` = 4;
++public const val `APTTYPEQUALIFIER_NA_ON_MAINSTA`: `APTTYPEQUALIFIER` = 5;
++public const val `APTTYPEQUALIFIER_NA_ON_MTA`: `APTTYPEQUALIFIER` = 2;
++public const val `APTTYPEQUALIFIER_NA_ON_STA`: `APTTYPEQUALIFIER` = 3;
++public const val `APTTYPEQUALIFIER_NONE`: `APTTYPEQUALIFIER` = 0;
++public const val `APTTYPEQUALIFIER_RESERVED_1`: `APTTYPEQUALIFIER` = 7;
++public const val `APTTYPE_CURRENT`: `APTTYPE` = -1;
++public const val `APTTYPE_MAINSTA`: `APTTYPE` = 3;
++public const val `APTTYPE_MTA`: `APTTYPE` = 1;
++public const val `APTTYPE_NA`: `APTTYPE` = 2;
++public const val `APTTYPE_STA`: `APTTYPE` = 0;
++public const val `ASYNC_MODE_COMPATIBILITY`: Int = 1;
++public const val `ASYNC_MODE_DEFAULT`: Int = 0;
++// UNSUPPORTED Rust 160:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy, Default)]
++// pub struct AUTHENTICATEINFO {
++//     pub dwFlags: u32,
++//     pub dwReserved: u32,
++// }
++
++public typealias `ApplicationType` = Int;
++// UNSUPPORTED Rust 167:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
++// #[derive(Clone, Copy)]
++// pub struct BINDINFO {
++//     pub cbSize: u32,
++//     pub szExtraInfo: windows_sys::core::PWSTR,
++//     pub stgmedData: STGMEDIUM,
++//     pub grfBindInfoF: u32,
++//     pub dwBindVerb: u32,
++//     pub szCustomVerb: windows_sys::core::PWSTR,
++//     pub cbstgmedData: u32,
++//     pub dwOptions: u32,
++//     pub dwOptionsFlags: u32,
++//     pub dwCodePage: u32,
++//     pub securityAttributes: super::super::Security::SECURITY_ATTRIBUTES,
++//     pub iid: windows_sys::core::GUID,
++//     pub pUnk: *mut core::ffi::c_void,
++//     pub dwReserved: u32,
++// }
++
++// UNSUPPORTED Rust 186:1: declaration Impl has no candidate rule
++// #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
++// impl Default for BINDINFO {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++public typealias `BINDINFOF` = Int;
++public const val `BINDINFOF_URLENCODEDEXTRAINFO`: `BINDINFOF` = 2;
++public const val `BINDINFOF_URLENCODESTGMEDDATA`: `BINDINFOF` = 1;
++// UNSUPPORTED Rust 195:1: declaration Union has no candidate rule
++// #[repr(C)]
++// #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
++// #[derive(Clone, Copy)]
++// pub union BINDPTR {
++//     pub lpfuncdesc: *mut FUNCDESC,
++//     pub lpvardesc: *mut VARDESC,
++//     pub lptcomp: *mut core::ffi::c_void,
++// }
++
++// UNSUPPORTED Rust 203:1: declaration Impl has no candidate rule
++// #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
++// impl Default for BINDPTR {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++public typealias `BIND_FLAGS` = Int;
++public const val `BIND_JUSTTESTEXISTENCE`: `BIND_FLAGS` = 2;
++public const val `BIND_MAYBOTHERUSER`: `BIND_FLAGS` = 1;
++// UNSUPPORTED Rust 212:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy, Default)]
++// pub struct BIND_OPTS {
++//     pub cbStruct: u32,
++//     pub grfFlags: u32,
++//     pub grfMode: u32,
++//     pub dwTickCountDeadline: u32,
++// }
++
++// UNSUPPORTED Rust 220:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct BIND_OPTS2 {
++//     pub Base: BIND_OPTS,
++//     pub dwTrackFlags: u32,
++//     pub dwClassContext: u32,
++//     pub locale: u32,
++//     pub pServerInfo: *mut COSERVERINFO,
++// }
++
++// UNSUPPORTED Rust 229:1: declaration Impl has no candidate rule
++// impl Default for BIND_OPTS2 {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 234:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct BIND_OPTS3 {
++//     pub Base: BIND_OPTS2,
++//     pub hwnd: super::super::Foundation::HWND,
++// }
++
++// UNSUPPORTED Rust 240:1: declaration Impl has no candidate rule
++// impl Default for BIND_OPTS3 {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 245:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct BLOB {
++//     pub cbSize: u32,
++//     pub pBlobData: *mut u8,
++// }
++
++// UNSUPPORTED Rust 251:1: declaration Impl has no candidate rule
++// impl Default for BLOB {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 256:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct BYTE_BLOB {
++//     pub clSize: u32,
++//     pub abData: [u8; 1],
++// }
++
++// UNSUPPORTED Rust 262:1: declaration Impl has no candidate rule
++// impl Default for BYTE_BLOB {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 267:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct BYTE_SIZEDARR {
++//     pub clSize: u32,
++//     pub pData: *mut u8,
++// }
++
++// UNSUPPORTED Rust 273:1: declaration Impl has no candidate rule
++// impl Default for BYTE_SIZEDARR {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++public typealias `CALLCONV` = Int;
++public typealias `CALLTYPE` = Int;
++public const val `CALLTYPE_ASYNC`: `CALLTYPE` = 3;
++public const val `CALLTYPE_ASYNC_CALLPENDING`: `CALLTYPE` = 5;
++public const val `CALLTYPE_NESTED`: `CALLTYPE` = 2;
++public const val `CALLTYPE_TOPLEVEL`: `CALLTYPE` = 1;
++public const val `CALLTYPE_TOPLEVEL_CALLPENDING`: `CALLTYPE` = 4;
++// UNSUPPORTED Rust 285:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct CATEGORYINFO {
++//     pub catid: windows_sys::core::GUID,
++//     pub lcid: u32,
++//     pub szDescription: [u16; 128],
++// }
++
++// UNSUPPORTED Rust 292:1: declaration Impl has no candidate rule
++// impl Default for CATEGORYINFO {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++public const val `CC_CDECL`: `CALLCONV` = 1;
++public const val `CC_FASTCALL`: `CALLCONV` = 0;
++public const val `CC_FPFASTCALL`: `CALLCONV` = 5;
++public const val `CC_MACPASCAL`: `CALLCONV` = 3;
++public const val `CC_MAX`: `CALLCONV` = 9;
++public const val `CC_MPWCDECL`: `CALLCONV` = 7;
++public const val `CC_MPWPASCAL`: `CALLCONV` = 8;
++public const val `CC_MSCPASCAL`: `CALLCONV` = 2;
++public const val `CC_PASCAL`: `CALLCONV` = 2;
++public const val `CC_STDCALL`: `CALLCONV` = 4;
++public const val `CC_SYSCALL`: `CALLCONV` = 6;
++public typealias `CLSCTX` = UInt;
++public const val `CLSCTX_ACTIVATE_32_BIT_SERVER`: `CLSCTX` = 262144u;
++public const val `CLSCTX_ACTIVATE_64_BIT_SERVER`: `CLSCTX` = 524288u;
++public const val `CLSCTX_ACTIVATE_AAA_AS_IU`: `CLSCTX` = 8388608u;
++public const val `CLSCTX_ACTIVATE_ARM32_SERVER`: `CLSCTX` = 33554432u;
++public const val `CLSCTX_ACTIVATE_X86_SERVER`: `CLSCTX` = 262144u;
++public const val `CLSCTX_ALL`: `CLSCTX` = 23u;
++public const val `CLSCTX_ALLOW_LOWER_TRUST_REGISTRATION`: `CLSCTX` = 67108864u;
++public const val `CLSCTX_APPCONTAINER`: `CLSCTX` = 4194304u;
++public const val `CLSCTX_DISABLE_AAA`: `CLSCTX` = 32768u;
++public const val `CLSCTX_ENABLE_AAA`: `CLSCTX` = 65536u;
++public const val `CLSCTX_ENABLE_CLOAKING`: `CLSCTX` = 1048576u;
++public const val `CLSCTX_ENABLE_CODE_DOWNLOAD`: `CLSCTX` = 8192u;
++public const val `CLSCTX_FROM_DEFAULT_CONTEXT`: `CLSCTX` = 131072u;
++public const val `CLSCTX_INPROC_HANDLER`: `CLSCTX` = 2u;
++public const val `CLSCTX_INPROC_HANDLER16`: `CLSCTX` = 32u;
++public const val `CLSCTX_INPROC_SERVER`: `CLSCTX` = 1u;
++public const val `CLSCTX_INPROC_SERVER16`: `CLSCTX` = 8u;
++public const val `CLSCTX_LOCAL_SERVER`: `CLSCTX` = 4u;
++public const val `CLSCTX_NO_CODE_DOWNLOAD`: `CLSCTX` = 1024u;
++public const val `CLSCTX_NO_CUSTOM_MARSHAL`: `CLSCTX` = 4096u;
++public const val `CLSCTX_NO_FAILURE_LOG`: `CLSCTX` = 16384u;
++public const val `CLSCTX_PS_DLL`: `CLSCTX` = 2147483648u;
++public const val `CLSCTX_REMOTE_SERVER`: `CLSCTX` = 16u;
++public const val `CLSCTX_RESERVED1`: `CLSCTX` = 64u;
++public const val `CLSCTX_RESERVED2`: `CLSCTX` = 128u;
++public const val `CLSCTX_RESERVED3`: `CLSCTX` = 256u;
++public const val `CLSCTX_RESERVED4`: `CLSCTX` = 512u;
++public const val `CLSCTX_RESERVED5`: `CLSCTX` = 2048u;
++public const val `CLSCTX_RESERVED6`: `CLSCTX` = 16777216u;
++public const val `CLSCTX_SERVER`: `CLSCTX` = 21u;
++// UNSUPPORTED Rust 339:1: missing/ambiguous source-backed scalar alias windows_sys::core::GUID
++// pub const CLSID_GlobalOptions: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0000034b_0000_0000_c000_000000000046);
++
++// UNSUPPORTED Rust 340:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct COAUTHIDENTITY {
++//     pub User: *mut u16,
++//     pub UserLength: u32,
++//     pub Domain: *mut u16,
++//     pub DomainLength: u32,
++//     pub Password: *mut u16,
++//     pub PasswordLength: u32,
++//     pub Flags: u32,
++// }
++
++// UNSUPPORTED Rust 351:1: declaration Impl has no candidate rule
++// impl Default for COAUTHIDENTITY {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 356:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct COAUTHINFO {
++//     pub dwAuthnSvc: u32,
++//     pub dwAuthzSvc: u32,
++//     pub pwszServerPrincName: windows_sys::core::PWSTR,
++//     pub dwAuthnLevel: u32,
++//     pub dwImpersonationLevel: u32,
++//     pub pAuthIdentityData: *mut COAUTHIDENTITY,
++//     pub dwCapabilities: u32,
++// }
++
++// UNSUPPORTED Rust 367:1: declaration Impl has no candidate rule
++// impl Default for COAUTHINFO {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++public typealias `COINIT` = Int;
++public typealias `COINITBASE` = Int;
++public const val `COINITBASE_MULTITHREADED`: `COINITBASE` = 0;
++public const val `COINIT_APARTMENTTHREADED`: `COINIT` = 2;
++public const val `COINIT_DISABLE_OLE1DDE`: `COINIT` = 4;
++public const val `COINIT_MULTITHREADED`: `COINIT` = 0;
++public const val `COINIT_SPEED_OVER_MEMORY`: `COINIT` = 8;
++public const val `COLE_DEFAULT_AUTHINFO`: Int = -1;
++// UNSUPPORTED Rust 380:1: non-scalar type Ptr unsupported
++// pub const COLE_DEFAULT_PRINCIPAL: windows_sys::core::PCWSTR = -1i32 as _;
++
++public const val `COMBND_RESERVED1`: `RPCOPT_PROPERTIES` = 4;
++public const val `COMBND_RESERVED2`: `RPCOPT_PROPERTIES` = 5;
++public const val `COMBND_RESERVED3`: `RPCOPT_PROPERTIES` = 8;
++public const val `COMBND_RESERVED4`: `RPCOPT_PROPERTIES` = 16;
++public const val `COMBND_RPCTIMEOUT`: `RPCOPT_PROPERTIES` = 1;
++public const val `COMBND_SERVER_LOCALITY`: `RPCOPT_PROPERTIES` = 2;
++public const val `COMGLB_APPID`: `GLOBALOPT_PROPERTIES` = 2;
++public const val `COMGLB_EXCEPTION_DONOT_HANDLE`: `GLOBALOPT_EH_VALUES` = 1;
++public const val `COMGLB_EXCEPTION_DONOT_HANDLE_ANY`: `GLOBALOPT_EH_VALUES` = 2;
++public const val `COMGLB_EXCEPTION_DONOT_HANDLE_FATAL`: `GLOBALOPT_EH_VALUES` = 1;
++public const val `COMGLB_EXCEPTION_HANDLE`: `GLOBALOPT_EH_VALUES` = 0;
++public const val `COMGLB_EXCEPTION_HANDLING`: `GLOBALOPT_PROPERTIES` = 1;
++public const val `COMGLB_FAST_RUNDOWN`: `GLOBALOPT_RO_FLAGS` = 8;
++public const val `COMGLB_PROPERTIES_RESERVED1`: `GLOBALOPT_PROPERTIES` = 6;
++public const val `COMGLB_PROPERTIES_RESERVED2`: `GLOBALOPT_PROPERTIES` = 7;
++public const val `COMGLB_PROPERTIES_RESERVED3`: `GLOBALOPT_PROPERTIES` = 8;
++public const val `COMGLB_RESERVED1`: `GLOBALOPT_RO_FLAGS` = 16;
++public const val `COMGLB_RESERVED2`: `GLOBALOPT_RO_FLAGS` = 32;
++public const val `COMGLB_RESERVED3`: `GLOBALOPT_RO_FLAGS` = 64;
++public const val `COMGLB_RESERVED4`: `GLOBALOPT_RO_FLAGS` = 256;
++public const val `COMGLB_RESERVED5`: `GLOBALOPT_RO_FLAGS` = 512;
++public const val `COMGLB_RESERVED6`: `GLOBALOPT_RO_FLAGS` = 1024;
++public const val `COMGLB_RO_SETTINGS`: `GLOBALOPT_PROPERTIES` = 4;
++public const val `COMGLB_RPC_THREADPOOL_SETTING`: `GLOBALOPT_PROPERTIES` = 3;
++public const val `COMGLB_RPC_THREADPOOL_SETTING_DEFAULT_POOL`: `GLOBALOPT_RPCTP_VALUES` = 0;
++public const val `COMGLB_RPC_THREADPOOL_SETTING_PRIVATE_POOL`: `GLOBALOPT_RPCTP_VALUES` = 1;
++public const val `COMGLB_STA_MODALLOOP_REMOVE_TOUCH_MESSAGES`: `GLOBALOPT_RO_FLAGS` = 1;
++public const val `COMGLB_STA_MODALLOOP_SHARED_QUEUE_DONOT_REMOVE_INPUT_MESSAGES`: `GLOBALOPT_RO_FLAGS` = 4;
++public const val `COMGLB_STA_MODALLOOP_SHARED_QUEUE_REMOVE_INPUT_MESSAGES`: `GLOBALOPT_RO_FLAGS` = 2;
++public const val `COMGLB_STA_MODALLOOP_SHARED_QUEUE_REORDER_POINTER_MESSAGES`: `GLOBALOPT_RO_FLAGS` = 128;
++public const val `COMGLB_UNMARSHALING_POLICY`: `GLOBALOPT_PROPERTIES` = 5;
++public const val `COMGLB_UNMARSHALING_POLICY_HYBRID`: `GLOBALOPT_UNMARSHALING_POLICY_VALUES` = 2;
++public const val `COMGLB_UNMARSHALING_POLICY_NORMAL`: `GLOBALOPT_UNMARSHALING_POLICY_VALUES` = 0;
++public const val `COMGLB_UNMARSHALING_POLICY_STRONG`: `GLOBALOPT_UNMARSHALING_POLICY_VALUES` = 1;
++public typealias `COMSD` = Int;
++public const val `COM_RIGHTS_ACTIVATE_LOCAL`: UInt = 8u;
++public const val `COM_RIGHTS_ACTIVATE_REMOTE`: UInt = 16u;
++public const val `COM_RIGHTS_EXECUTE`: UInt = 1u;
++public const val `COM_RIGHTS_EXECUTE_LOCAL`: UInt = 2u;
++public const val `COM_RIGHTS_EXECUTE_REMOTE`: UInt = 4u;
++public const val `COM_RIGHTS_RESERVED1`: UInt = 32u;
++public const val `COM_RIGHTS_RESERVED2`: UInt = 64u;
++// UNSUPPORTED Rust 423:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct CONNECTDATA {
++//     pub pUnk: *mut core::ffi::c_void,
++//     pub dwCookie: u32,
++// }
++
++// UNSUPPORTED Rust 429:1: declaration Impl has no candidate rule
++// impl Default for CONNECTDATA {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 434:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct COSERVERINFO {
++//     pub dwReserved1: u32,
++//     pub pwszName: windows_sys::core::PWSTR,
++//     pub pAuthInfo: *mut COAUTHINFO,
++//     pub dwReserved2: u32,
++// }
++
++// UNSUPPORTED Rust 442:1: declaration Impl has no candidate rule
++// impl Default for COSERVERINFO {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++public const val `COWAIT_ALERTABLE`: `COWAIT_FLAGS` = 2;
++public const val `COWAIT_DEFAULT`: `COWAIT_FLAGS` = 0;
++public const val `COWAIT_DISPATCH_CALLS`: `COWAIT_FLAGS` = 8;
++public const val `COWAIT_DISPATCH_WINDOW_MESSAGES`: `COWAIT_FLAGS` = 16;
++public typealias `COWAIT_FLAGS` = Int;
++public const val `COWAIT_INPUTAVAILABLE`: `COWAIT_FLAGS` = 4;
++public const val `COWAIT_WAITALL`: `COWAIT_FLAGS` = 1;
++// UNSUPPORTED Rust 454:1: non-scalar type Ptr unsupported
++// pub type CO_DEVICE_CATALOG_COOKIE = *mut core::ffi::c_void;
++
++public typealias `CO_MARSHALING_CONTEXT_ATTRIBUTES` = Int;
++public const val `CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_1`: `CO_MARSHALING_CONTEXT_ATTRIBUTES` = -2147483648;
++public const val `CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_10`: `CO_MARSHALING_CONTEXT_ATTRIBUTES` = -2147483639;
++public const val `CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_11`: `CO_MARSHALING_CONTEXT_ATTRIBUTES` = -2147483638;
++public const val `CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_12`: `CO_MARSHALING_CONTEXT_ATTRIBUTES` = -2147483637;
++public const val `CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_13`: `CO_MARSHALING_CONTEXT_ATTRIBUTES` = -2147483636;
++public const val `CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_14`: `CO_MARSHALING_CONTEXT_ATTRIBUTES` = -2147483635;
++public const val `CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_15`: `CO_MARSHALING_CONTEXT_ATTRIBUTES` = -2147483634;
++public const val `CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_16`: `CO_MARSHALING_CONTEXT_ATTRIBUTES` = -2147483633;
++public const val `CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_17`: `CO_MARSHALING_CONTEXT_ATTRIBUTES` = -2147483632;
++public const val `CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_18`: `CO_MARSHALING_CONTEXT_ATTRIBUTES` = -2147483631;
++public const val `CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_2`: `CO_MARSHALING_CONTEXT_ATTRIBUTES` = -2147483647;
++public const val `CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_3`: `CO_MARSHALING_CONTEXT_ATTRIBUTES` = -2147483646;
++public const val `CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_4`: `CO_MARSHALING_CONTEXT_ATTRIBUTES` = -2147483645;
++public const val `CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_5`: `CO_MARSHALING_CONTEXT_ATTRIBUTES` = -2147483644;
++public const val `CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_6`: `CO_MARSHALING_CONTEXT_ATTRIBUTES` = -2147483643;
++public const val `CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_7`: `CO_MARSHALING_CONTEXT_ATTRIBUTES` = -2147483642;
++public const val `CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_8`: `CO_MARSHALING_CONTEXT_ATTRIBUTES` = -2147483641;
++public const val `CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_9`: `CO_MARSHALING_CONTEXT_ATTRIBUTES` = -2147483640;
++public const val `CO_MARSHALING_SOURCE_IS_APP_CONTAINER`: `CO_MARSHALING_CONTEXT_ATTRIBUTES` = 0;
++// UNSUPPORTED Rust 475:1: non-scalar type Ptr unsupported
++// pub type CO_MTA_USAGE_COOKIE = *mut core::ffi::c_void;
++
++// UNSUPPORTED Rust 476:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy, Default)]
++// pub struct CSPLATFORM {
++//     pub dwPlatformId: u32,
++//     pub dwVersionHi: u32,
++//     pub dwVersionLo: u32,
++//     pub dwProcessorArch: u32,
++// }
++
++// UNSUPPORTED Rust 484:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
++// #[derive(Clone, Copy)]
++// pub struct CUSTDATA {
++//     pub cCustData: u32,
++//     pub prgCustData: *mut CUSTDATAITEM,
++// }
++
++// UNSUPPORTED Rust 491:1: declaration Impl has no candidate rule
++// #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
++// impl Default for CUSTDATA {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 497:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
++// #[derive(Clone, Copy)]
++// pub struct CUSTDATAITEM {
++//     pub guid: windows_sys::core::GUID,
++//     pub varValue: super::Variant::VARIANT,
++// }
++
++// UNSUPPORTED Rust 504:1: declaration Impl has no candidate rule
++// #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
++// impl Default for CUSTDATAITEM {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++public const val `CWMO_DEFAULT`: `CWMO_FLAGS` = 0;
++public const val `CWMO_DISPATCH_CALLS`: `CWMO_FLAGS` = 1;
++public const val `CWMO_DISPATCH_WINDOW_MESSAGES`: `CWMO_FLAGS` = 2;
++public typealias `CWMO_FLAGS` = Int;
++public const val `CWMO_MAX_HANDLES`: UInt = 56u;
++// UNSUPPORTED Rust 515:1: declaration Union has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub union CY {
++//     pub Anonymous: CY_0,
++//     pub int64: i64,
++// }
++
++// UNSUPPORTED Rust 521:1: declaration Impl has no candidate rule
++// impl Default for CY {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 526:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy, Default)]
++// pub struct CY_0 {
++//     pub Lo: u32,
++//     pub Hi: i32,
++// }
++
++// UNSUPPORTED Rust 532:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct ComCallData {
++//     pub dwDispid: u32,
++//     pub dwReserved: u32,
++//     pub pUserDefined: *mut core::ffi::c_void,
++// }
++
++// UNSUPPORTED Rust 539:1: declaration Impl has no candidate rule
++// impl Default for ComCallData {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 544:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct ContextProperty {
++//     pub policyId: windows_sys::core::GUID,
++//     pub flags: u32,
++//     pub pUnk: *mut core::ffi::c_void,
++// }
++
++// UNSUPPORTED Rust 551:1: declaration Impl has no candidate rule
++// impl Default for ContextProperty {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++public typealias `DATADIR` = Int;
++public const val `DATADIR_GET`: `DATADIR` = 1;
++public const val `DATADIR_SET`: `DATADIR` = 2;
++public const val `DCOMSCM_ACTIVATION_DISALLOW_UNSECURE_CALL`: UInt = 2u;
++public const val `DCOMSCM_ACTIVATION_USE_ALL_AUTHNSERVICES`: UInt = 1u;
++public const val `DCOMSCM_PING_DISALLOW_UNSECURE_CALL`: UInt = 32u;
++public const val `DCOMSCM_PING_USE_MID_AUTHNSERVICE`: UInt = 16u;
++public const val `DCOMSCM_RESOLVE_DISALLOW_UNSECURE_CALL`: UInt = 8u;
++public const val `DCOMSCM_RESOLVE_USE_ALL_AUTHNSERVICES`: UInt = 4u;
++public const val `DCOM_CALL_CANCELED`: `DCOM_CALL_STATE` = 2;
++public const val `DCOM_CALL_COMPLETE`: `DCOM_CALL_STATE` = 1;
++public typealias `DCOM_CALL_STATE` = Int;
++public const val `DCOM_NONE`: `DCOM_CALL_STATE` = 0;
++public typealias `DESCKIND` = Int;
++public const val `DESCKIND_FUNCDESC`: `DESCKIND` = 1;
++public const val `DESCKIND_IMPLICITAPPOBJ`: `DESCKIND` = 4;
++public const val `DESCKIND_MAX`: `DESCKIND` = 5;
++public const val `DESCKIND_NONE`: `DESCKIND` = 0;
++public const val `DESCKIND_TYPECOMP`: `DESCKIND` = 3;
++public const val `DESCKIND_VARDESC`: `DESCKIND` = 2;
++public typealias `DISPATCH_FLAGS` = UShort;
++public const val `DISPATCH_METHOD`: `DISPATCH_FLAGS` = 1u;
++public const val `DISPATCH_PROPERTYGET`: `DISPATCH_FLAGS` = 2u;
++public const val `DISPATCH_PROPERTYPUT`: `DISPATCH_FLAGS` = 4u;
++public const val `DISPATCH_PROPERTYPUTREF`: `DISPATCH_FLAGS` = 8u;
++// UNSUPPORTED Rust 581:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
++// #[derive(Clone, Copy)]
++// pub struct DISPPARAMS {
++//     pub rgvarg: *mut super::Variant::VARIANT,
++//     pub rgdispidNamedArgs: *mut i32,
++//     pub cArgs: u32,
++//     pub cNamedArgs: u32,
++// }
++
++// UNSUPPORTED Rust 590:1: declaration Impl has no candidate rule
++// #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
++// impl Default for DISPPARAMS {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++public const val `DMUS_ERRBASE`: UInt = 4096u;
++public typealias `DVASPECT` = UInt;
++public const val `DVASPECT_CONTENT`: `DVASPECT` = 1u;
++public const val `DVASPECT_DOCPRINT`: `DVASPECT` = 8u;
++public const val `DVASPECT_ICON`: `DVASPECT` = 4u;
++public const val `DVASPECT_OPAQUE`: `DVASPECT` = 16u;
++public const val `DVASPECT_THUMBNAIL`: `DVASPECT` = 2u;
++public const val `DVASPECT_TRANSPARENT`: `DVASPECT` = 32u;
++// UNSUPPORTED Rust 604:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct DVTARGETDEVICE {
++//     pub tdSize: u32,
++//     pub tdDriverNameOffset: u16,
++//     pub tdDeviceNameOffset: u16,
++//     pub tdPortNameOffset: u16,
++//     pub tdExtDevmodeOffset: u16,
++//     pub tdData: [u8; 1],
++// }
++
++// UNSUPPORTED Rust 614:1: declaration Impl has no candidate rule
++// impl Default for DVTARGETDEVICE {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 619:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct DWORD_BLOB {
++//     pub clSize: u32,
++//     pub alData: [u32; 1],
++// }
++
++// UNSUPPORTED Rust 625:1: declaration Impl has no candidate rule
++// impl Default for DWORD_BLOB {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 630:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct DWORD_SIZEDARR {
++//     pub clSize: u32,
++//     pub pData: *mut u32,
++// }
++
++// UNSUPPORTED Rust 636:1: declaration Impl has no candidate rule
++// impl Default for DWORD_SIZEDARR {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 641:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
++// #[derive(Clone, Copy)]
++// pub struct ELEMDESC {
++//     pub tdesc: TYPEDESC,
++//     pub Anonymous: ELEMDESC_0,
++// }
++
++// UNSUPPORTED Rust 648:1: declaration Impl has no candidate rule
++// #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
++// impl Default for ELEMDESC {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 654:1: declaration Union has no candidate rule
++// #[repr(C)]
++// #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
++// #[derive(Clone, Copy)]
++// pub union ELEMDESC_0 {
++//     pub idldesc: IDLDESC,
++//     pub paramdesc: super::Ole::PARAMDESC,
++// }
++
++// UNSUPPORTED Rust 661:1: declaration Impl has no candidate rule
++// #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
++// impl Default for ELEMDESC_0 {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++public const val `EOAC_ACCESS_CONTROL`: `EOLE_AUTHENTICATION_CAPABILITIES` = 4;
++public const val `EOAC_ANY_AUTHORITY`: `EOLE_AUTHENTICATION_CAPABILITIES` = 128;
++public const val `EOAC_APPID`: `EOLE_AUTHENTICATION_CAPABILITIES` = 8;
++public const val `EOAC_AUTO_IMPERSONATE`: `EOLE_AUTHENTICATION_CAPABILITIES` = 1024;
++public const val `EOAC_DEFAULT`: `EOLE_AUTHENTICATION_CAPABILITIES` = 2048;
++public const val `EOAC_DISABLE_AAA`: `EOLE_AUTHENTICATION_CAPABILITIES` = 4096;
++public const val `EOAC_DYNAMIC`: `EOLE_AUTHENTICATION_CAPABILITIES` = 16;
++public const val `EOAC_DYNAMIC_CLOAKING`: `EOLE_AUTHENTICATION_CAPABILITIES` = 64;
++public const val `EOAC_MAKE_FULLSIC`: `EOLE_AUTHENTICATION_CAPABILITIES` = 256;
++public const val `EOAC_MUTUAL_AUTH`: `EOLE_AUTHENTICATION_CAPABILITIES` = 1;
++public const val `EOAC_NONE`: `EOLE_AUTHENTICATION_CAPABILITIES` = 0;
++public const val `EOAC_NO_CUSTOM_MARSHAL`: `EOLE_AUTHENTICATION_CAPABILITIES` = 8192;
++public const val `EOAC_REQUIRE_FULLSIC`: `EOLE_AUTHENTICATION_CAPABILITIES` = 512;
++public const val `EOAC_RESERVED1`: `EOLE_AUTHENTICATION_CAPABILITIES` = 16384;
++public const val `EOAC_SECURE_REFS`: `EOLE_AUTHENTICATION_CAPABILITIES` = 2;
++public const val `EOAC_STATIC_CLOAKING`: `EOLE_AUTHENTICATION_CAPABILITIES` = 32;
++public typealias `EOLE_AUTHENTICATION_CAPABILITIES` = Int;
++// UNSUPPORTED Rust 684:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct EXCEPINFO {
++//     pub wCode: u16,
++//     pub wReserved: u16,
++//     pub bstrSource: windows_sys::core::BSTR,
++//     pub bstrDescription: windows_sys::core::BSTR,
++//     pub bstrHelpFile: windows_sys::core::BSTR,
++//     pub dwHelpContext: u32,
++//     pub pvReserved: *mut core::ffi::c_void,
++//     pub pfnDeferredFillIn: LPEXCEPFINO_DEFERRED_FILLIN,
++//     pub scode: i32,
++// }
++
++// UNSUPPORTED Rust 697:1: declaration Impl has no candidate rule
++// impl Default for EXCEPINFO {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++public typealias `EXTCONN` = Int;
++public const val `EXTCONN_CALLABLE`: `EXTCONN` = 4;
++public const val `EXTCONN_STRONG`: `EXTCONN` = 1;
++public const val `EXTCONN_WEAK`: `EXTCONN` = 2;
++public const val `FADF_AUTO`: `ADVANCED_FEATURE_FLAGS` = 1u;
++public const val `FADF_BSTR`: `ADVANCED_FEATURE_FLAGS` = 256u;
++public const val `FADF_DISPATCH`: `ADVANCED_FEATURE_FLAGS` = 1024u;
++public const val `FADF_EMBEDDED`: `ADVANCED_FEATURE_FLAGS` = 4u;
++public const val `FADF_FIXEDSIZE`: `ADVANCED_FEATURE_FLAGS` = 16u;
++public const val `FADF_HAVEIID`: `ADVANCED_FEATURE_FLAGS` = 64u;
++public const val `FADF_HAVEVARTYPE`: `ADVANCED_FEATURE_FLAGS` = 128u;
++public const val `FADF_RECORD`: `ADVANCED_FEATURE_FLAGS` = 32u;
++public const val `FADF_RESERVED`: `ADVANCED_FEATURE_FLAGS` = 61448u;
++public const val `FADF_STATIC`: `ADVANCED_FEATURE_FLAGS` = 2u;
++public const val `FADF_UNKNOWN`: `ADVANCED_FEATURE_FLAGS` = 512u;
++public const val `FADF_VARIANT`: `ADVANCED_FEATURE_FLAGS` = 2048u;
++// UNSUPPORTED Rust 718:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct FLAGGED_BYTE_BLOB {
++//     pub fFlags: u32,
++//     pub clSize: u32,
++//     pub abData: [u8; 1],
++// }
++
++// UNSUPPORTED Rust 725:1: declaration Impl has no candidate rule
++// impl Default for FLAGGED_BYTE_BLOB {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 730:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct FLAGGED_WORD_BLOB {
++//     pub fFlags: u32,
++//     pub clSize: u32,
++//     pub asData: [u16; 1],
++// }
++
++// UNSUPPORTED Rust 737:1: declaration Impl has no candidate rule
++// impl Default for FLAGGED_WORD_BLOB {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 742:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
++// #[derive(Clone, Copy)]
++// pub struct FLAG_STGMEDIUM {
++//     pub ContextFlags: i32,
++//     pub fPassOwnership: i32,
++//     pub Stgmed: STGMEDIUM,
++// }
++
++// UNSUPPORTED Rust 750:1: declaration Impl has no candidate rule
++// #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
++// impl Default for FLAG_STGMEDIUM {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 756:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct FORMATETC {
++//     pub cfFormat: u16,
++//     pub ptd: *mut DVTARGETDEVICE,
++//     pub dwAspect: u32,
++//     pub lindex: i32,
++//     pub tymed: u32,
++// }
++
++// UNSUPPORTED Rust 765:1: declaration Impl has no candidate rule
++// impl Default for FORMATETC {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 770:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
++// #[derive(Clone, Copy)]
++// pub struct FUNCDESC {
++//     pub memid: i32,
++//     pub lprgscode: *mut i32,
++//     pub lprgelemdescParam: *mut ELEMDESC,
++//     pub funckind: FUNCKIND,
++//     pub invkind: INVOKEKIND,
++//     pub callconv: CALLCONV,
++//     pub cParams: i16,
++//     pub cParamsOpt: i16,
++//     pub oVft: i16,
++//     pub cScodes: i16,
++//     pub elemdescFunc: ELEMDESC,
++//     pub wFuncFlags: FUNCFLAGS,
++// }
++
++// UNSUPPORTED Rust 787:1: declaration Impl has no candidate rule
++// #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
++// impl Default for FUNCDESC {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++public typealias `FUNCFLAGS` = UShort;
++public const val `FUNCFLAG_FBINDABLE`: `FUNCFLAGS` = 4u;
++public const val `FUNCFLAG_FDEFAULTBIND`: `FUNCFLAGS` = 32u;
++public const val `FUNCFLAG_FDEFAULTCOLLELEM`: `FUNCFLAGS` = 256u;
++public const val `FUNCFLAG_FDISPLAYBIND`: `FUNCFLAGS` = 16u;
++public const val `FUNCFLAG_FHIDDEN`: `FUNCFLAGS` = 64u;
++public const val `FUNCFLAG_FIMMEDIATEBIND`: `FUNCFLAGS` = 4096u;
++public const val `FUNCFLAG_FNONBROWSABLE`: `FUNCFLAGS` = 1024u;
++public const val `FUNCFLAG_FREPLACEABLE`: `FUNCFLAGS` = 2048u;
++public const val `FUNCFLAG_FREQUESTEDIT`: `FUNCFLAGS` = 8u;
++public const val `FUNCFLAG_FRESTRICTED`: `FUNCFLAGS` = 1u;
++public const val `FUNCFLAG_FSOURCE`: `FUNCFLAGS` = 2u;
++public const val `FUNCFLAG_FUIDEFAULT`: `FUNCFLAGS` = 512u;
++public const val `FUNCFLAG_FUSESGETLASTERROR`: `FUNCFLAGS` = 128u;
++public typealias `FUNCKIND` = Int;
++public const val `FUNC_DISPATCH`: `FUNCKIND` = 4;
++public const val `FUNC_NONVIRTUAL`: `FUNCKIND` = 2;
++public const val `FUNC_PUREVIRTUAL`: `FUNCKIND` = 1;
++public const val `FUNC_STATIC`: `FUNCKIND` = 3;
++public const val `FUNC_VIRTUAL`: `FUNCKIND` = 0;
++public const val `ForcedShutdown`: `ShutdownType` = 1;
++// UNSUPPORTED Rust 814:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
++// #[derive(Clone, Copy)]
++// pub struct GDI_OBJECT {
++//     pub ObjectType: u32,
++//     pub u: GDI_OBJECT_0,
++// }
++
++// UNSUPPORTED Rust 821:1: declaration Impl has no candidate rule
++// #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
++// impl Default for GDI_OBJECT {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 827:1: declaration Union has no candidate rule
++// #[repr(C)]
++// #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
++// #[derive(Clone, Copy)]
++// pub union GDI_OBJECT_0 {
++//     pub hBitmap: *mut super::SystemServices::userHBITMAP,
++//     pub hPalette: *mut super::SystemServices::userHPALETTE,
++//     pub hGeneric: *mut super::SystemServices::userHGLOBAL,
++// }
++
++// UNSUPPORTED Rust 835:1: declaration Impl has no candidate rule
++// #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
++// impl Default for GDI_OBJECT_0 {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++public typealias `GLOBALOPT_EH_VALUES` = Int;
++public typealias `GLOBALOPT_PROPERTIES` = Int;
++public typealias `GLOBALOPT_RO_FLAGS` = Int;
++public typealias `GLOBALOPT_RPCTP_VALUES` = Int;
++public typealias `GLOBALOPT_UNMARSHALING_POLICY_VALUES` = Int;
++// UNSUPPORTED Rust 846:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct HYPER_SIZEDARR {
++//     pub clSize: u32,
++//     pub pData: *mut i64,
++// }
++
++// UNSUPPORTED Rust 852:1: declaration Impl has no candidate rule
++// impl Default for HYPER_SIZEDARR {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 857:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy, Default)]
++// pub struct IDLDESC {
++//     pub dwReserved: usize,
++//     pub wIDLFlags: IDLFLAGS,
++// }
++
++public typealias `IDLFLAGS` = UShort;
++public const val `IDLFLAG_FIN`: `IDLFLAGS` = 1u;
++public const val `IDLFLAG_FLCID`: `IDLFLAGS` = 4u;
++public const val `IDLFLAG_FOUT`: `IDLFLAGS` = 2u;
++public const val `IDLFLAG_FRETVAL`: `IDLFLAGS` = 8u;
++public const val `IDLFLAG_NONE`: `IDLFLAGS` = 0u;
++public typealias `IMPLTYPEFLAGS` = Int;
++public const val `IMPLTYPEFLAG_FDEFAULT`: `IMPLTYPEFLAGS` = 1;
++public const val `IMPLTYPEFLAG_FDEFAULTVTABLE`: `IMPLTYPEFLAGS` = 8;
++public const val `IMPLTYPEFLAG_FRESTRICTED`: `IMPLTYPEFLAGS` = 4;
++public const val `IMPLTYPEFLAG_FSOURCE`: `IMPLTYPEFLAGS` = 2;
++// UNSUPPORTED Rust 874:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct INTERFACEINFO {
++//     pub pUnk: *mut core::ffi::c_void,
++//     pub iid: windows_sys::core::GUID,
++//     pub wMethod: u16,
++// }
++
++// UNSUPPORTED Rust 881:1: declaration Impl has no candidate rule
++// impl Default for INTERFACEINFO {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++public typealias `INVOKEKIND` = Int;
++public const val `INVOKE_FUNC`: `INVOKEKIND` = 1;
++public const val `INVOKE_PROPERTYGET`: `INVOKEKIND` = 2;
++public const val `INVOKE_PROPERTYPUT`: `INVOKEKIND` = 4;
++public const val `INVOKE_PROPERTYPUTREF`: `INVOKEKIND` = 8;
++public const val `IdleShutdown`: `ShutdownType` = 0;
++public typealias `LOCKTYPE` = Int;
++public const val `LOCK_EXCLUSIVE`: `LOCKTYPE` = 2;
++public const val `LOCK_ONLYONCE`: `LOCKTYPE` = 4;
++public const val `LOCK_WRITE`: `LOCKTYPE` = 1;
++// UNSUPPORTED Rust 896:1: generic scalar type unsupported
++// pub type LPEXCEPFINO_DEFERRED_FILLIN = Option<unsafe extern "system" fn(pexcepinfo: *mut EXCEPINFO) -> windows_sys::core::HRESULT>;
++
++// UNSUPPORTED Rust 897:1: generic scalar type unsupported
++// pub type LPFNCANUNLOADNOW = Option<unsafe extern "system" fn() -> windows_sys::core::HRESULT>;
++
++// UNSUPPORTED Rust 898:1: generic scalar type unsupported
++// pub type LPFNGETCLASSOBJECT = Option<unsafe extern "system" fn(param0: *const windows_sys::core::GUID, param1: *const windows_sys::core::GUID, param2: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
++
++public const val `LibraryApplication`: `ApplicationType` = 1;
++public const val `MARSHALINTERFACE_MIN`: UInt = 500u;
++public const val `MAXLSN`: ULong = 9223372036854775807uL;
++public typealias `MEMCTX` = Int;
++public const val `MEMCTX_MACSYSTEM`: `MEMCTX` = 3;
++public const val `MEMCTX_SAME`: `MEMCTX` = -2;
++public const val `MEMCTX_SHARED`: `MEMCTX` = 2;
++public const val `MEMCTX_TASK`: `MEMCTX` = 1;
++public const val `MEMCTX_UNKNOWN`: `MEMCTX` = -1;
++public typealias `MKRREDUCE` = Int;
++public const val `MKRREDUCE_ALL`: `MKRREDUCE` = 0;
++public const val `MKRREDUCE_ONE`: `MKRREDUCE` = 196608;
++public const val `MKRREDUCE_THROUGHUSER`: `MKRREDUCE` = 65536;
++public const val `MKRREDUCE_TOUSER`: `MKRREDUCE` = 131072;
++public typealias `MKSYS` = Int;
++public const val `MKSYS_ANTIMONIKER`: `MKSYS` = 3;
++public const val `MKSYS_CLASSMONIKER`: `MKSYS` = 7;
++public const val `MKSYS_FILEMONIKER`: `MKSYS` = 2;
++public const val `MKSYS_GENERICCOMPOSITE`: `MKSYS` = 1;
++public const val `MKSYS_ITEMMONIKER`: `MKSYS` = 4;
++public const val `MKSYS_LUAMONIKER`: `MKSYS` = 10;
++public const val `MKSYS_NONE`: `MKSYS` = 0;
++public const val `MKSYS_OBJREFMONIKER`: `MKSYS` = 8;
++public const val `MKSYS_POINTERMONIKER`: `MKSYS` = 5;
++public const val `MKSYS_SESSIONMONIKER`: `MKSYS` = 9;
++public typealias `MSHCTX` = Int;
++public const val `MSHCTX_CONTAINER`: `MSHCTX` = 5;
++public const val `MSHCTX_CROSSCTX`: `MSHCTX` = 4;
++public const val `MSHCTX_DIFFERENTMACHINE`: `MSHCTX` = 2;
++public const val `MSHCTX_INPROC`: `MSHCTX` = 3;
++public const val `MSHCTX_LOCAL`: `MSHCTX` = 0;
++public const val `MSHCTX_NOSHAREDMEM`: `MSHCTX` = 1;
++public typealias `MSHLFLAGS` = Int;
++public const val `MSHLFLAGS_NOPING`: `MSHLFLAGS` = 4;
++public const val `MSHLFLAGS_NORMAL`: `MSHLFLAGS` = 0;
++public const val `MSHLFLAGS_RESERVED1`: `MSHLFLAGS` = 8;
++public const val `MSHLFLAGS_RESERVED2`: `MSHLFLAGS` = 16;
++public const val `MSHLFLAGS_RESERVED3`: `MSHLFLAGS` = 32;
++public const val `MSHLFLAGS_RESERVED4`: `MSHLFLAGS` = 64;
++public const val `MSHLFLAGS_TABLESTRONG`: `MSHLFLAGS` = 1;
++public const val `MSHLFLAGS_TABLEWEAK`: `MSHLFLAGS` = 2;
++// UNSUPPORTED Rust 940:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct MULTI_QI {
++//     pub pIID: *const windows_sys::core::GUID,
++//     pub pItf: *mut core::ffi::c_void,
++//     pub hr: windows_sys::core::HRESULT,
++// }
++
++// UNSUPPORTED Rust 947:1: declaration Impl has no candidate rule
++// impl Default for MULTI_QI {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 952:1: non-scalar type Ptr unsupported
++// pub type MachineGlobalObjectTableRegistrationToken = *mut core::ffi::c_void;
++
++public typealias `PENDINGMSG` = Int;
++public const val `PENDINGMSG_CANCELCALL`: `PENDINGMSG` = 0;
++public const val `PENDINGMSG_WAITDEFPROCESS`: `PENDINGMSG` = 2;
++public const val `PENDINGMSG_WAITNOPROCESS`: `PENDINGMSG` = 1;
++public typealias `PENDINGTYPE` = Int;
++public const val `PENDINGTYPE_NESTED`: `PENDINGTYPE` = 2;
++public const val `PENDINGTYPE_TOPLEVEL`: `PENDINGTYPE` = 1;
++// UNSUPPORTED Rust 960:1: generic scalar type unsupported
++// pub type PFNCONTEXTCALL = Option<unsafe extern "system" fn(pparam: *mut ComCallData) -> windows_sys::core::HRESULT>;
++
++// UNSUPPORTED Rust 961:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy, Default)]
++// pub struct QUERYCONTEXT {
++//     pub dwContext: u32,
++//     pub Platform: CSPLATFORM,
++//     pub Locale: u32,
++//     pub dwVersionHi: u32,
++//     pub dwVersionLo: u32,
++// }
++
++public typealias `REGCLS` = Int;
++public const val `REGCLS_AGILE`: `REGCLS` = 16;
++public const val `REGCLS_MULTIPLEUSE`: `REGCLS` = 1;
++public const val `REGCLS_MULTI_SEPARATE`: `REGCLS` = 2;
++public const val `REGCLS_SINGLEUSE`: `REGCLS` = 0;
++public const val `REGCLS_SURROGATE`: `REGCLS` = 8;
++public const val `REGCLS_SUSPENDED`: `REGCLS` = 4;
++public const val `ROTFLAGS_ALLOWANYCLIENT`: `ROT_FLAGS` = 2u;
++public const val `ROTFLAGS_REGISTRATIONKEEPSALIVE`: `ROT_FLAGS` = 1u;
++public const val `ROTREGFLAGS_ALLOWANYCLIENT`: UInt = 1u;
++public typealias `ROT_FLAGS` = UInt;
++// UNSUPPORTED Rust 981:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct RPCOLEMESSAGE {
++//     pub reserved1: *mut core::ffi::c_void,
++//     pub dataRepresentation: u32,
++//     pub Buffer: *mut core::ffi::c_void,
++//     pub cbBuffer: u32,
++//     pub iMethod: u32,
++//     pub reserved2: [*mut core::ffi::c_void; 5],
++//     pub rpcFlags: u32,
++// }
++
++// UNSUPPORTED Rust 992:1: declaration Impl has no candidate rule
++// impl Default for RPCOLEMESSAGE {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++public typealias `RPCOPT_PROPERTIES` = Int;
++public typealias `RPCOPT_SERVER_LOCALITY_VALUES` = Int;
++public typealias `RPC_C_AUTHN_LEVEL` = UInt;
++public const val `RPC_C_AUTHN_LEVEL_CALL`: `RPC_C_AUTHN_LEVEL` = 3u;
++public const val `RPC_C_AUTHN_LEVEL_CONNECT`: `RPC_C_AUTHN_LEVEL` = 2u;
++public const val `RPC_C_AUTHN_LEVEL_DEFAULT`: `RPC_C_AUTHN_LEVEL` = 0u;
++public const val `RPC_C_AUTHN_LEVEL_NONE`: `RPC_C_AUTHN_LEVEL` = 1u;
++public const val `RPC_C_AUTHN_LEVEL_PKT`: `RPC_C_AUTHN_LEVEL` = 4u;
++public const val `RPC_C_AUTHN_LEVEL_PKT_INTEGRITY`: `RPC_C_AUTHN_LEVEL` = 5u;
++public const val `RPC_C_AUTHN_LEVEL_PKT_PRIVACY`: `RPC_C_AUTHN_LEVEL` = 6u;
++public typealias `RPC_C_IMP_LEVEL` = UInt;
++public const val `RPC_C_IMP_LEVEL_ANONYMOUS`: `RPC_C_IMP_LEVEL` = 1u;
++public const val `RPC_C_IMP_LEVEL_DEFAULT`: `RPC_C_IMP_LEVEL` = 0u;
++public const val `RPC_C_IMP_LEVEL_DELEGATE`: `RPC_C_IMP_LEVEL` = 4u;
++public const val `RPC_C_IMP_LEVEL_IDENTIFY`: `RPC_C_IMP_LEVEL` = 2u;
++public const val `RPC_C_IMP_LEVEL_IMPERSONATE`: `RPC_C_IMP_LEVEL` = 3u;
++// UNSUPPORTED Rust 1013:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct RemSTGMEDIUM {
++//     pub tymed: u32,
++//     pub dwHandleType: u32,
++//     pub pData: u32,
++//     pub pUnkForRelease: u32,
++//     pub cbData: u32,
++//     pub data: [u8; 1],
++// }
++
++// UNSUPPORTED Rust 1023:1: declaration Impl has no candidate rule
++// impl Default for RemSTGMEDIUM {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 1028:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct SAFEARRAY {
++//     pub cDims: u16,
++//     pub fFeatures: ADVANCED_FEATURE_FLAGS,
++//     pub cbElements: u32,
++//     pub cLocks: u32,
++//     pub pvData: *mut core::ffi::c_void,
++//     pub rgsabound: [SAFEARRAYBOUND; 1],
++// }
++
++// UNSUPPORTED Rust 1038:1: declaration Impl has no candidate rule
++// impl Default for SAFEARRAY {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 1043:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy, Default)]
++// pub struct SAFEARRAYBOUND {
++//     pub cElements: u32,
++//     pub lLbound: i32,
++// }
++
++// UNSUPPORTED Rust 1049:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct SChannelHookCallInfo {
++//     pub iid: windows_sys::core::GUID,
++//     pub cbSize: u32,
++//     pub uCausality: windows_sys::core::GUID,
++//     pub dwServerPid: u32,
++//     pub iMethod: u32,
++//     pub pObject: *mut core::ffi::c_void,
++// }
++
++// UNSUPPORTED Rust 1059:1: declaration Impl has no candidate rule
++// impl Default for SChannelHookCallInfo {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++public const val `SD_ACCESSPERMISSIONS`: `COMSD` = 1;
++public const val `SD_ACCESSRESTRICTIONS`: `COMSD` = 3;
++public const val `SD_LAUNCHPERMISSIONS`: `COMSD` = 0;
++public const val `SD_LAUNCHRESTRICTIONS`: `COMSD` = 2;
++public typealias `SERVERCALL` = Int;
++public const val `SERVERCALL_ISHANDLED`: `SERVERCALL` = 0;
++public const val `SERVERCALL_REJECTED`: `SERVERCALL` = 1;
++public const val `SERVERCALL_RETRYLATER`: `SERVERCALL` = 2;
++public const val `SERVER_LOCALITY_MACHINE_LOCAL`: `RPCOPT_SERVER_LOCALITY_VALUES` = 1;
++public const val `SERVER_LOCALITY_PROCESS_LOCAL`: `RPCOPT_SERVER_LOCALITY_VALUES` = 0;
++public const val `SERVER_LOCALITY_REMOTE`: `RPCOPT_SERVER_LOCALITY_VALUES` = 2;
++// UNSUPPORTED Rust 1075:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct SOLE_AUTHENTICATION_INFO {
++//     pub dwAuthnSvc: u32,
++//     pub dwAuthzSvc: u32,
++//     pub pAuthInfo: *mut core::ffi::c_void,
++// }
++
++// UNSUPPORTED Rust 1082:1: declaration Impl has no candidate rule
++// impl Default for SOLE_AUTHENTICATION_INFO {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 1087:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct SOLE_AUTHENTICATION_LIST {
++//     pub cAuthInfo: u32,
++//     pub aAuthInfo: *mut SOLE_AUTHENTICATION_INFO,
++// }
++
++// UNSUPPORTED Rust 1093:1: declaration Impl has no candidate rule
++// impl Default for SOLE_AUTHENTICATION_LIST {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 1098:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct SOLE_AUTHENTICATION_SERVICE {
++//     pub dwAuthnSvc: u32,
++//     pub dwAuthzSvc: u32,
++//     pub pPrincipalName: windows_sys::core::PWSTR,
++//     pub hr: windows_sys::core::HRESULT,
++// }
++
++// UNSUPPORTED Rust 1106:1: declaration Impl has no candidate rule
++// impl Default for SOLE_AUTHENTICATION_SERVICE {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 1111:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct STATDATA {
++//     pub formatetc: FORMATETC,
++//     pub advf: u32,
++//     pub pAdvSink: *mut core::ffi::c_void,
++//     pub dwConnection: u32,
++// }
++
++// UNSUPPORTED Rust 1119:1: declaration Impl has no candidate rule
++// impl Default for STATDATA {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++public typealias `STATFLAG` = Int;
++public const val `STATFLAG_DEFAULT`: `STATFLAG` = 0;
++public const val `STATFLAG_NONAME`: `STATFLAG` = 1;
++public const val `STATFLAG_NOOPEN`: `STATFLAG` = 2;
++// UNSUPPORTED Rust 1128:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct STATSTG {
++//     pub pwcsName: windows_sys::core::PWSTR,
++//     pub r#type: u32,
++//     pub cbSize: u64,
++//     pub mtime: super::super::Foundation::FILETIME,
++//     pub ctime: super::super::Foundation::FILETIME,
++//     pub atime: super::super::Foundation::FILETIME,
++//     pub grfMode: STGM,
++//     pub grfLocksSupported: u32,
++//     pub clsid: windows_sys::core::GUID,
++//     pub grfStateBits: u32,
++//     pub reserved: u32,
++// }
++
++// UNSUPPORTED Rust 1143:1: declaration Impl has no candidate rule
++// impl Default for STATSTG {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++public typealias `STGC` = Int;
++public const val `STGC_CONSOLIDATE`: `STGC` = 8;
++public const val `STGC_DANGEROUSLYCOMMITMERELYTODISKCACHE`: `STGC` = 4;
++public const val `STGC_DEFAULT`: `STGC` = 0;
++public const val `STGC_ONLYIFCURRENT`: `STGC` = 2;
++public const val `STGC_OVERWRITE`: `STGC` = 1;
++public typealias `STGM` = UInt;
++// UNSUPPORTED Rust 1155:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
++// #[derive(Clone, Copy)]
++// pub struct STGMEDIUM {
++//     pub tymed: u32,
++//     pub u: STGMEDIUM_0,
++//     pub pUnkForRelease: *mut core::ffi::c_void,
++// }
++
++// UNSUPPORTED Rust 1163:1: declaration Impl has no candidate rule
++// #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
++// impl Default for STGMEDIUM {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 1169:1: declaration Union has no candidate rule
++// #[repr(C)]
++// #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
++// #[derive(Clone, Copy)]
++// pub union STGMEDIUM_0 {
++//     pub hBitmap: super::super::Graphics::Gdi::HBITMAP,
++//     pub hMetaFilePict: *mut core::ffi::c_void,
++//     pub hEnhMetaFile: super::super::Graphics::Gdi::HENHMETAFILE,
++//     pub hGlobal: super::super::Foundation::HGLOBAL,
++//     pub lpszFileName: windows_sys::core::PWSTR,
++//     pub pstm: *mut core::ffi::c_void,
++//     pub pstg: *mut core::ffi::c_void,
++// }
++
++// UNSUPPORTED Rust 1181:1: declaration Impl has no candidate rule
++// #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
++// impl Default for STGMEDIUM_0 {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++public const val `STGM_CONVERT`: `STGM` = 131072u;
++public const val `STGM_CREATE`: `STGM` = 4096u;
++public const val `STGM_DELETEONRELEASE`: `STGM` = 67108864u;
++public const val `STGM_DIRECT`: `STGM` = 0u;
++public const val `STGM_DIRECT_SWMR`: `STGM` = 4194304u;
++public const val `STGM_FAILIFTHERE`: `STGM` = 0u;
++public const val `STGM_NOSCRATCH`: `STGM` = 1048576u;
++public const val `STGM_NOSNAPSHOT`: `STGM` = 2097152u;
++public const val `STGM_PRIORITY`: `STGM` = 262144u;
++public const val `STGM_READ`: `STGM` = 0u;
++public const val `STGM_READWRITE`: `STGM` = 2u;
++public const val `STGM_SHARE_DENY_NONE`: `STGM` = 64u;
++public const val `STGM_SHARE_DENY_READ`: `STGM` = 48u;
++public const val `STGM_SHARE_DENY_WRITE`: `STGM` = 32u;
++public const val `STGM_SHARE_EXCLUSIVE`: `STGM` = 16u;
++public const val `STGM_SIMPLE`: `STGM` = 134217728u;
++public const val `STGM_TRANSACTED`: `STGM` = 65536u;
++public const val `STGM_WRITE`: `STGM` = 1u;
++public typealias `STGTY` = Int;
++public const val `STGTY_LOCKBYTES`: `STGTY` = 3;
++public const val `STGTY_PROPERTY`: `STGTY` = 4;
++public const val `STGTY_REPEAT`: Int = 256;
++public const val `STGTY_STORAGE`: `STGTY` = 1;
++public const val `STGTY_STREAM`: `STGTY` = 2;
++public const val `STG_LAYOUT_INTERLEAVED`: Int = 1;
++public const val `STG_LAYOUT_SEQUENTIAL`: Int = 0;
++public const val `STG_TOEND`: Int = -1;
++public typealias `STREAM_SEEK` = UInt;
++public const val `STREAM_SEEK_CUR`: `STREAM_SEEK` = 1u;
++public const val `STREAM_SEEK_END`: `STREAM_SEEK` = 2u;
++public const val `STREAM_SEEK_SET`: `STREAM_SEEK` = 0u;
++public typealias `SYSKIND` = Int;
++public const val `SYS_MAC`: `SYSKIND` = 2;
++public const val `SYS_WIN16`: `SYSKIND` = 0;
++public const val `SYS_WIN32`: `SYSKIND` = 1;
++public const val `SYS_WIN64`: `SYSKIND` = 3;
++public const val `ServerApplication`: `ApplicationType` = 0;
++public typealias `ShutdownType` = Int;
++// UNSUPPORTED Rust 1225:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct StorageLayout {
++//     pub LayoutType: u32,
++//     pub pwcsElementName: windows_sys::core::PWSTR,
++//     pub cOffset: i64,
++//     pub cBytes: i64,
++// }
++
++// UNSUPPORTED Rust 1233:1: declaration Impl has no candidate rule
++// impl Default for StorageLayout {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++public typealias `THDTYPE` = Int;
++public const val `THDTYPE_BLOCKMESSAGES`: `THDTYPE` = 0;
++public const val `THDTYPE_PROCESSMESSAGES`: `THDTYPE` = 1;
++public const val `TKIND_ALIAS`: `TYPEKIND` = 6;
++public const val `TKIND_COCLASS`: `TYPEKIND` = 5;
++public const val `TKIND_DISPATCH`: `TYPEKIND` = 4;
++public const val `TKIND_ENUM`: `TYPEKIND` = 0;
++public const val `TKIND_INTERFACE`: `TYPEKIND` = 3;
++public const val `TKIND_MAX`: `TYPEKIND` = 8;
++public const val `TKIND_MODULE`: `TYPEKIND` = 2;
++public const val `TKIND_RECORD`: `TYPEKIND` = 1;
++public const val `TKIND_UNION`: `TYPEKIND` = 7;
++// UNSUPPORTED Rust 1250:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy, Default)]
++// pub struct TLIBATTR {
++//     pub guid: windows_sys::core::GUID,
++//     pub lcid: u32,
++//     pub syskind: SYSKIND,
++//     pub wMajorVerNum: u16,
++//     pub wMinorVerNum: u16,
++//     pub wLibFlags: u16,
++// }
++
++public typealias `TYMED` = Int;
++public const val `TYMED_ENHMF`: `TYMED` = 64;
++public const val `TYMED_FILE`: `TYMED` = 2;
++public const val `TYMED_GDI`: `TYMED` = 16;
++public const val `TYMED_HGLOBAL`: `TYMED` = 1;
++public const val `TYMED_ISTORAGE`: `TYMED` = 8;
++public const val `TYMED_ISTREAM`: `TYMED` = 4;
++public const val `TYMED_MFPICT`: `TYMED` = 32;
++public const val `TYMED_NULL`: `TYMED` = 0;
++// UNSUPPORTED Rust 1269:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
++// #[derive(Clone, Copy)]
++// pub struct TYPEATTR {
++//     pub guid: windows_sys::core::GUID,
++//     pub lcid: u32,
++//     pub dwReserved: u32,
++//     pub memidConstructor: i32,
++//     pub memidDestructor: i32,
++//     pub lpstrSchema: windows_sys::core::PWSTR,
++//     pub cbSizeInstance: u32,
++//     pub typekind: TYPEKIND,
++//     pub cFuncs: u16,
++//     pub cVars: u16,
++//     pub cImplTypes: u16,
++//     pub cbSizeVft: u16,
++//     pub cbAlignment: u16,
++//     pub wTypeFlags: u16,
++//     pub wMajorVerNum: u16,
++//     pub wMinorVerNum: u16,
++//     pub tdescAlias: TYPEDESC,
++//     pub idldescType: IDLDESC,
++// }
++
++// UNSUPPORTED Rust 1292:1: declaration Impl has no candidate rule
++// #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
++// impl Default for TYPEATTR {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 1298:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
++// #[derive(Clone, Copy)]
++// pub struct TYPEDESC {
++//     pub Anonymous: TYPEDESC_0,
++//     pub vt: super::Variant::VARENUM,
++// }
++
++// UNSUPPORTED Rust 1305:1: declaration Impl has no candidate rule
++// #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
++// impl Default for TYPEDESC {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 1311:1: declaration Union has no candidate rule
++// #[repr(C)]
++// #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
++// #[derive(Clone, Copy)]
++// pub union TYPEDESC_0 {
++//     pub lptdesc: *mut TYPEDESC,
++//     pub lpadesc: *mut super::Ole::ARRAYDESC,
++//     pub hreftype: u32,
++// }
++
++// UNSUPPORTED Rust 1319:1: declaration Impl has no candidate rule
++// #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
++// impl Default for TYPEDESC_0 {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++public typealias `TYPEKIND` = Int;
++public typealias `TYSPEC` = Int;
++public const val `TYSPEC_CLSID`: `TYSPEC` = 0;
++public const val `TYSPEC_FILEEXT`: `TYSPEC` = 1;
++public const val `TYSPEC_FILENAME`: `TYSPEC` = 3;
++public const val `TYSPEC_MIMETYPE`: `TYSPEC` = 2;
++public const val `TYSPEC_OBJECTID`: `TYSPEC` = 6;
++public const val `TYSPEC_PACKAGENAME`: `TYSPEC` = 5;
++public const val `TYSPEC_PROGID`: `TYSPEC` = 4;
++public typealias `URI_CREATE_FLAGS` = UInt;
++public const val `Uri_CREATE_ALLOW_IMPLICIT_FILE_SCHEME`: `URI_CREATE_FLAGS` = 4u;
++public const val `Uri_CREATE_ALLOW_IMPLICIT_WILDCARD_SCHEME`: `URI_CREATE_FLAGS` = 2u;
++public const val `Uri_CREATE_ALLOW_RELATIVE`: `URI_CREATE_FLAGS` = 1u;
++public const val `Uri_CREATE_CANONICALIZE`: `URI_CREATE_FLAGS` = 256u;
++public const val `Uri_CREATE_CANONICALIZE_ABSOLUTE`: `URI_CREATE_FLAGS` = 131072u;
++public const val `Uri_CREATE_CRACK_UNKNOWN_SCHEMES`: `URI_CREATE_FLAGS` = 512u;
++public const val `Uri_CREATE_DECODE_EXTRA_INFO`: `URI_CREATE_FLAGS` = 64u;
++public const val `Uri_CREATE_FILE_USE_DOS_PATH`: `URI_CREATE_FLAGS` = 32u;
++public const val `Uri_CREATE_IE_SETTINGS`: `URI_CREATE_FLAGS` = 8192u;
++public const val `Uri_CREATE_NOFRAG`: `URI_CREATE_FLAGS` = 8u;
++public const val `Uri_CREATE_NORMALIZE_INTL_CHARACTERS`: `URI_CREATE_FLAGS` = 65536u;
++public const val `Uri_CREATE_NO_CANONICALIZE`: `URI_CREATE_FLAGS` = 16u;
++public const val `Uri_CREATE_NO_CRACK_UNKNOWN_SCHEMES`: `URI_CREATE_FLAGS` = 1024u;
++public const val `Uri_CREATE_NO_DECODE_EXTRA_INFO`: `URI_CREATE_FLAGS` = 128u;
++public const val `Uri_CREATE_NO_ENCODE_FORBIDDEN_CHARACTERS`: `URI_CREATE_FLAGS` = 32768u;
++public const val `Uri_CREATE_NO_IE_SETTINGS`: `URI_CREATE_FLAGS` = 16384u;
++public const val `Uri_CREATE_NO_PRE_PROCESS_HTML_URI`: `URI_CREATE_FLAGS` = 4096u;
++public const val `Uri_CREATE_PRE_PROCESS_HTML_URI`: `URI_CREATE_FLAGS` = 2048u;
++public typealias `Uri_PROPERTY` = Int;
++public const val `Uri_PROPERTY_ABSOLUTE_URI`: `Uri_PROPERTY` = 0;
++public const val `Uri_PROPERTY_AUTHORITY`: `Uri_PROPERTY` = 1;
++public const val `Uri_PROPERTY_DISPLAY_URI`: `Uri_PROPERTY` = 2;
++public const val `Uri_PROPERTY_DOMAIN`: `Uri_PROPERTY` = 3;
++public const val `Uri_PROPERTY_DWORD_LAST`: `Uri_PROPERTY` = 18;
++public const val `Uri_PROPERTY_DWORD_START`: `Uri_PROPERTY` = 15;
++public const val `Uri_PROPERTY_EXTENSION`: `Uri_PROPERTY` = 4;
++public const val `Uri_PROPERTY_FRAGMENT`: `Uri_PROPERTY` = 5;
++public const val `Uri_PROPERTY_HOST`: `Uri_PROPERTY` = 6;
++public const val `Uri_PROPERTY_HOST_TYPE`: `Uri_PROPERTY` = 15;
++public const val `Uri_PROPERTY_PASSWORD`: `Uri_PROPERTY` = 7;
++public const val `Uri_PROPERTY_PATH`: `Uri_PROPERTY` = 8;
++public const val `Uri_PROPERTY_PATH_AND_QUERY`: `Uri_PROPERTY` = 9;
++public const val `Uri_PROPERTY_PORT`: `Uri_PROPERTY` = 16;
++public const val `Uri_PROPERTY_QUERY`: `Uri_PROPERTY` = 10;
++public const val `Uri_PROPERTY_RAW_URI`: `Uri_PROPERTY` = 11;
++public const val `Uri_PROPERTY_SCHEME`: `Uri_PROPERTY` = 17;
++public const val `Uri_PROPERTY_SCHEME_NAME`: `Uri_PROPERTY` = 12;
++public const val `Uri_PROPERTY_STRING_LAST`: `Uri_PROPERTY` = 14;
++public const val `Uri_PROPERTY_STRING_START`: `Uri_PROPERTY` = 0;
++public const val `Uri_PROPERTY_USER_INFO`: `Uri_PROPERTY` = 13;
++public const val `Uri_PROPERTY_USER_NAME`: `Uri_PROPERTY` = 14;
++public const val `Uri_PROPERTY_ZONE`: `Uri_PROPERTY` = 18;
++// UNSUPPORTED Rust 1377:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
++// #[derive(Clone, Copy)]
++// pub struct VARDESC {
++//     pub memid: i32,
++//     pub lpstrSchema: windows_sys::core::PWSTR,
++//     pub Anonymous: VARDESC_0,
++//     pub elemdescVar: ELEMDESC,
++//     pub wVarFlags: VARFLAGS,
++//     pub varkind: VARKIND,
++// }
++
++// UNSUPPORTED Rust 1388:1: declaration Impl has no candidate rule
++// #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
++// impl Default for VARDESC {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 1394:1: declaration Union has no candidate rule
++// #[repr(C)]
++// #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
++// #[derive(Clone, Copy)]
++// pub union VARDESC_0 {
++//     pub oInst: u32,
++//     pub lpvarValue: *mut super::Variant::VARIANT,
++// }
++
++// UNSUPPORTED Rust 1401:1: declaration Impl has no candidate rule
++// #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
++// impl Default for VARDESC_0 {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++public typealias `VARFLAGS` = UShort;
++public const val `VARFLAG_FBINDABLE`: `VARFLAGS` = 4u;
++public const val `VARFLAG_FDEFAULTBIND`: `VARFLAGS` = 32u;
++public const val `VARFLAG_FDEFAULTCOLLELEM`: `VARFLAGS` = 256u;
++public const val `VARFLAG_FDISPLAYBIND`: `VARFLAGS` = 16u;
++public const val `VARFLAG_FHIDDEN`: `VARFLAGS` = 64u;
++public const val `VARFLAG_FIMMEDIATEBIND`: `VARFLAGS` = 4096u;
++public const val `VARFLAG_FNONBROWSABLE`: `VARFLAGS` = 1024u;
++public const val `VARFLAG_FREADONLY`: `VARFLAGS` = 1u;
++public const val `VARFLAG_FREPLACEABLE`: `VARFLAGS` = 2048u;
++public const val `VARFLAG_FREQUESTEDIT`: `VARFLAGS` = 8u;
++public const val `VARFLAG_FRESTRICTED`: `VARFLAGS` = 128u;
++public const val `VARFLAG_FSOURCE`: `VARFLAGS` = 2u;
++public const val `VARFLAG_FUIDEFAULT`: `VARFLAGS` = 512u;
++public typealias `VARKIND` = Int;
++public const val `VAR_CONST`: `VARKIND` = 2;
++public const val `VAR_DISPATCH`: `VARKIND` = 3;
++public const val `VAR_PERINSTANCE`: `VARKIND` = 0;
++public const val `VAR_STATIC`: `VARKIND` = 1;
++// UNSUPPORTED Rust 1426:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct WORD_BLOB {
++//     pub clSize: u32,
++//     pub asData: [u16; 1],
++// }
++
++// UNSUPPORTED Rust 1432:1: declaration Impl has no candidate rule
++// impl Default for WORD_BLOB {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 1437:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct WORD_SIZEDARR {
++//     pub clSize: u32,
++//     pub pData: *mut u16,
++// }
++
++// UNSUPPORTED Rust 1443:1: declaration Impl has no candidate rule
++// impl Default for WORD_SIZEDARR {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 1448:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct uCLSSPEC {
++//     pub tyspec: u32,
++//     pub tagged_union: uCLSSPEC_0,
++// }
++
++// UNSUPPORTED Rust 1454:1: declaration Impl has no candidate rule
++// impl Default for uCLSSPEC {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 1459:1: declaration Union has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub union uCLSSPEC_0 {
++//     pub clsid: windows_sys::core::GUID,
++//     pub pFileExt: windows_sys::core::PWSTR,
++//     pub pMimeType: windows_sys::core::PWSTR,
++//     pub pProgId: windows_sys::core::PWSTR,
++//     pub pFileName: windows_sys::core::PWSTR,
++//     pub ByName: uCLSSPEC_0_0,
++//     pub ByObjectId: uCLSSPEC_0_1,
++// }
++
++// UNSUPPORTED Rust 1470:1: declaration Impl has no candidate rule
++// impl Default for uCLSSPEC_0 {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 1475:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy)]
++// pub struct uCLSSPEC_0_0 {
++//     pub pPackageName: windows_sys::core::PWSTR,
++//     pub PolicyId: windows_sys::core::GUID,
++// }
++
++// UNSUPPORTED Rust 1481:1: declaration Impl has no candidate rule
++// impl Default for uCLSSPEC_0_0 {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 1486:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[derive(Clone, Copy, Default)]
++// pub struct uCLSSPEC_0_1 {
++//     pub ObjectId: windows_sys::core::GUID,
++//     pub PolicyId: windows_sys::core::GUID,
++// }
++
++// UNSUPPORTED Rust 1492:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
++// #[derive(Clone, Copy)]
++// pub struct userFLAG_STGMEDIUM {
++//     pub ContextFlags: i32,
++//     pub fPassOwnership: i32,
++//     pub Stgmed: userSTGMEDIUM,
++// }
++
++// UNSUPPORTED Rust 1500:1: declaration Impl has no candidate rule
++// #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
++// impl Default for userFLAG_STGMEDIUM {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 1506:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
++// #[derive(Clone, Copy)]
++// pub struct userSTGMEDIUM {
++//     pub u: userSTGMEDIUM_0,
++//     pub pUnkForRelease: *mut core::ffi::c_void,
++// }
++
++// UNSUPPORTED Rust 1513:1: declaration Impl has no candidate rule
++// #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
++// impl Default for userSTGMEDIUM {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 1519:1: declaration Struct has no candidate rule
++// #[repr(C)]
++// #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
++// #[derive(Clone, Copy)]
++// pub struct userSTGMEDIUM_0 {
++//     pub tymed: u32,
++//     pub u: userSTGMEDIUM_0_0,
++// }
++
++// UNSUPPORTED Rust 1526:1: declaration Impl has no candidate rule
++// #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
++// impl Default for userSTGMEDIUM_0 {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++
++// UNSUPPORTED Rust 1532:1: declaration Union has no candidate rule
++// #[repr(C)]
++// #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
++// #[derive(Clone, Copy)]
++// pub union userSTGMEDIUM_0_0 {
++//     pub hMetaFilePict: *mut super::SystemServices::userHMETAFILEPICT,
++//     pub hHEnhMetaFile: *mut super::SystemServices::userHENHMETAFILE,
++//     pub hGdiHandle: *mut GDI_OBJECT,
++//     pub hGlobal: *mut super::SystemServices::userHGLOBAL,
++//     pub lpszFileName: windows_sys::core::PWSTR,
++//     pub pstm: *mut BYTE_BLOB,
++//     pub pstg: *mut BYTE_BLOB,
++// }
++
++// UNSUPPORTED Rust 1544:1: declaration Impl has no candidate rule
++// #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
++// impl Default for userSTGMEDIUM_0_0 {
++//     fn default() -> Self {
++//         unsafe { core::mem::zeroed() }
++//     }
++// }
++

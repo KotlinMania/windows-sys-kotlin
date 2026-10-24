@@ -1,0 +1,839 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	138	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		139	247	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		248	449	3	1	8	unsupported	declaration Macro has no candidate rule
+3	Macro		450	652	4	1	11	unsupported	declaration Macro has no candidate rule
+4	Macro		653	937	5	1	14	unsupported	declaration Macro has no candidate rule
+5	Macro		938	1223	6	1	17	unsupported	declaration Macro has no candidate rule
+6	Macro		1224	1415	7	1	20	unsupported	declaration Macro has no candidate rule
+7	Macro		1416	1549	8	1	23	unsupported	declaration Macro has no candidate rule
+8	Macro		1550	1793	9	1	26	unsupported	declaration Macro has no candidate rule
+9	Macro		1794	2038	10	1	29	unsupported	declaration Macro has no candidate rule
+10	Macro		2039	2312	11	1	32	unsupported	declaration Macro has no candidate rule
+11	Macro		2313	2559	13	1	36	unsupported	declaration Macro has no candidate rule
+12	Macro		2560	2807	14	1	39	unsupported	declaration Macro has no candidate rule
+13	Macro		2808	3081	15	1	42	unsupported	declaration Macro has no candidate rule
+14	Macro		3082	3311	17	1	46	unsupported	declaration Macro has no candidate rule
+15	Macro		3312	3542	18	1	49	unsupported	declaration Macro has no candidate rule
+16	Macro		3543	3780	19	1	52	unsupported	declaration Macro has no candidate rule
+17	Macro		3781	4024	20	1	55	unsupported	declaration Macro has no candidate rule
+18	Macro		4025	4268	21	1	58	unsupported	declaration Macro has no candidate rule
+19	Macro		4269	4506	22	1	61	unsupported	declaration Macro has no candidate rule
+20	Macro		4507	4603	23	1	64	unsupported	declaration Macro has no candidate rule
+21	Macro		4604	4786	24	1	67	unsupported	declaration Macro has no candidate rule
+22	Macro		4787	4969	25	1	70	unsupported	declaration Macro has no candidate rule
+23	Macro		4970	5056	26	1	73	unsupported	declaration Macro has no candidate rule
+24	Macro		5057	5176	27	1	76	unsupported	declaration Macro has no candidate rule
+25	Macro		5177	5640	28	1	79	unsupported	declaration Macro has no candidate rule
+26	Macro		5641	6105	30	1	83	unsupported	declaration Macro has no candidate rule
+27	Macro		6106	6249	32	1	87	unsupported	declaration Macro has no candidate rule
+28	Macro		6250	6437	33	1	90	unsupported	declaration Macro has no candidate rule
+29	Macro		6438	6578	34	1	93	unsupported	declaration Macro has no candidate rule
+30	Macro		6579	6721	35	1	96	unsupported	declaration Macro has no candidate rule
+31	Macro		6722	6865	36	1	99	unsupported	declaration Macro has no candidate rule
+32	Macro		6866	7007	37	1	102	unsupported	declaration Macro has no candidate rule
+33	Macro		7008	7283	38	1	105	unsupported	declaration Macro has no candidate rule
+34	Macro		7284	7560	39	1	108	unsupported	declaration Macro has no candidate rule
+35	Macro		7561	7825	40	1	111	unsupported	declaration Macro has no candidate rule
+36	Macro		7826	8091	41	1	114	unsupported	declaration Macro has no candidate rule
+37	Macro		8092	8368	42	1	117	unsupported	declaration Macro has no candidate rule
+38	Macro		8369	8648	43	1	120	unsupported	declaration Macro has no candidate rule
+39	Macro		8649	8809	44	1	123	unsupported	declaration Macro has no candidate rule
+40	Macro		8810	8971	45	1	126	unsupported	declaration Macro has no candidate rule
+41	Macro		8972	9180	46	1	129	unsupported	declaration Macro has no candidate rule
+42	Macro		9181	9685	47	1	132	unsupported	declaration Macro has no candidate rule
+43	Macro		9686	10192	49	1	136	unsupported	declaration Macro has no candidate rule
+44	Macro		10193	10613	51	1	140	unsupported	declaration Macro has no candidate rule
+45	Macro		10614	11035	53	1	144	unsupported	declaration Macro has no candidate rule
+46	Macro		11036	11271	55	1	148	unsupported	declaration Macro has no candidate rule
+47	Macro		11272	11532	56	1	151	unsupported	declaration Macro has no candidate rule
+48	Macro		11533	11796	57	1	154	unsupported	declaration Macro has no candidate rule
+49	Macro		11797	11955	58	1	157	unsupported	declaration Macro has no candidate rule
+50	Macro		11956	12166	59	1	160	unsupported	declaration Macro has no candidate rule
+51	Macro		12167	12378	60	1	163	unsupported	declaration Macro has no candidate rule
+52	Macro		12379	12497	61	1	166	unsupported	declaration Macro has no candidate rule
+53	Macro		12498	12671	62	1	169	unsupported	declaration Macro has no candidate rule
+54	Macro		12672	12820	63	1	172	unsupported	declaration Macro has no candidate rule
+55	Macro		12821	13016	64	1	175	unsupported	declaration Macro has no candidate rule
+56	Macro		13017	13167	65	1	178	unsupported	declaration Macro has no candidate rule
+57	Macro		13168	13378	66	1	181	unsupported	declaration Macro has no candidate rule
+58	Macro		13379	13559	67	1	184	unsupported	declaration Macro has no candidate rule
+59	Macro		13560	13715	68	1	187	unsupported	declaration Macro has no candidate rule
+60	Macro		13716	13872	69	1	190	unsupported	declaration Macro has no candidate rule
+61	Macro		13873	14118	70	1	193	unsupported	declaration Macro has no candidate rule
+62	Macro		14119	14358	71	1	196	unsupported	declaration Macro has no candidate rule
+63	Macro		14359	14584	72	1	199	unsupported	declaration Macro has no candidate rule
+64	Macro		14585	14765	73	1	202	unsupported	declaration Macro has no candidate rule
+65	Struct	AAAccountingData	14766	15274	74	1	205	unsupported	declaration Struct has no candidate rule
+66	Impl		15275	15384	89	1	222	unsupported	declaration Impl has no candidate rule
+67	ItemType	AAAccountingDataType	15385	15421	94	1	229	generated	
+68	ItemType	AAAuthSchemes	15422	15451	95	1	230	generated	
+69	ItemType	AATrustClassID	15452	15482	96	1	231	generated	
+70	Const	AA_AUTH_ANY	15483	15527	97	1	232	generated	
+71	Const	AA_AUTH_BASIC	15528	15574	98	1	233	generated	
+72	Const	AA_AUTH_CONID	15575	15622	99	1	234	generated	
+73	Const	AA_AUTH_COOKIE	15623	15670	100	1	235	generated	
+74	Const	AA_AUTH_DIGEST	15671	15718	101	1	236	generated	
+75	Const	AA_AUTH_LOGGEDONCREDENTIALS	15719	15779	102	1	237	generated	
+76	Const	AA_AUTH_MAX	15780	15825	103	1	238	generated	
+77	Const	AA_AUTH_MIN	15826	15870	104	1	239	generated	
+78	Const	AA_AUTH_NEGOTIATE	15871	15921	105	1	240	generated	
+79	Const	AA_AUTH_NTLM	15922	15967	106	1	241	generated	
+80	Const	AA_AUTH_ORGID	15968	16014	107	1	242	generated	
+81	Const	AA_AUTH_SC	16015	16058	108	1	243	generated	
+82	Const	AA_AUTH_SSPI_NTLM	16059	16110	109	1	244	generated	
+83	Const	AA_MAIN_SESSION_CLOSED	16111	16173	110	1	245	generated	
+84	Const	AA_MAIN_SESSION_CREATION	16174	16238	111	1	246	generated	
+85	Const	AA_SUB_SESSION_CLOSED	16239	16300	112	1	247	generated	
+86	Const	AA_SUB_SESSION_CREATION	16301	16364	113	1	248	generated	
+87	Const	AA_TRUSTEDUSER_TRUSTEDCLIENT	16365	16427	114	1	249	generated	
+88	Const	AA_TRUSTEDUSER_UNTRUSTEDCLIENT	16428	16492	115	1	250	generated	
+89	Const	AA_UNTRUSTED	16493	16539	116	1	251	generated	
+90	Const	ACQUIRE_TARGET_LOCK_TIMEOUT	16540	16595	117	1	252	generated	
+91	Const	ADsTSUserEx	16596	16720	118	1	253	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+92	Struct	AE_CURRENT_POSITION	16721	16988	119	1	256	unsupported	declaration Struct has no candidate rule
+93	ItemType	AE_POSITION_FLAGS	16989	17022	129	1	268	generated	
+94	Const	AllowOnlySDRServers	17023	17081	130	1	269	generated	
+95	Struct	BITMAP_RENDERER_STATISTICS	17082	17228	131	1	270	unsupported	declaration Struct has no candidate rule
+96	Const	CHANNEL_BUFFER_SIZE	17229	17275	137	1	278	generated	
+97	Const	CHANNEL_CHUNK_LENGTH	17276	17322	138	1	279	generated	
+98	Struct	CHANNEL_DEF	17323	17439	139	1	280	unsupported	declaration Struct has no candidate rule
+99	Impl		17440	17544	145	1	288	unsupported	declaration Impl has no candidate rule
+100	Struct	CHANNEL_ENTRY_POINTS	17545	17878	150	1	295	unsupported	declaration Struct has no candidate rule
+101	Const	CHANNEL_EVENT_CONNECTED	17879	17925	160	1	307	generated	
+102	Const	CHANNEL_EVENT_DATA_RECEIVED	17926	17977	161	1	308	generated	
+103	Const	CHANNEL_EVENT_DISCONNECTED	17978	18027	162	1	309	generated	
+104	Const	CHANNEL_EVENT_INITIALIZED	18028	18076	163	1	310	generated	
+105	Const	CHANNEL_EVENT_TERMINATED	18077	18124	164	1	311	generated	
+106	Const	CHANNEL_EVENT_V1_CONNECTED	18125	18174	165	1	312	generated	
+107	Const	CHANNEL_EVENT_WRITE_CANCELLED	18175	18228	166	1	313	generated	
+108	Const	CHANNEL_EVENT_WRITE_COMPLETE	18229	18281	167	1	314	generated	
+109	Const	CHANNEL_FLAG_FAIL	18282	18324	168	1	315	generated	
+110	Const	CHANNEL_FLAG_FIRST	18325	18366	169	1	316	generated	
+111	Const	CHANNEL_FLAG_LAST	18367	18407	170	1	317	generated	
+112	Const	CHANNEL_FLAG_MIDDLE	18408	18450	171	1	318	generated	
+113	Const	CHANNEL_MAX_COUNT	18451	18492	172	1	319	generated	
+114	Const	CHANNEL_NAME_LEN	18493	18532	173	1	320	generated	
+115	Const	CHANNEL_OPTION_COMPRESS	18533	18585	174	1	321	generated	
+116	Const	CHANNEL_OPTION_COMPRESS_RDP	18586	18642	175	1	322	generated	
+117	Const	CHANNEL_OPTION_ENCRYPT_CS	18643	18699	176	1	323	generated	
+118	Const	CHANNEL_OPTION_ENCRYPT_RDP	18700	18758	177	1	324	generated	
+119	Const	CHANNEL_OPTION_ENCRYPT_SC	18759	18815	178	1	325	generated	
+120	Const	CHANNEL_OPTION_INITIALIZED	18816	18874	179	1	326	generated	
+121	Const	CHANNEL_OPTION_PRI_HIGH	18875	18929	180	1	327	generated	
+122	Const	CHANNEL_OPTION_PRI_LOW	18930	18982	181	1	328	generated	
+123	Const	CHANNEL_OPTION_PRI_MED	18983	19035	182	1	329	generated	
+124	Const	CHANNEL_OPTION_REMOTE_CONTROL_PERSISTENT	19036	19105	183	1	330	generated	
+125	Const	CHANNEL_OPTION_SHOW_PROTOCOL	19106	19163	184	1	331	generated	
+126	Struct	CHANNEL_PDU_HEADER	19164	19281	185	1	332	unsupported	declaration Struct has no candidate rule
+127	Const	CHANNEL_RC_ALREADY_CONNECTED	19282	19333	191	1	340	generated	
+128	Const	CHANNEL_RC_ALREADY_INITIALIZED	19334	19387	192	1	341	generated	
+129	Const	CHANNEL_RC_ALREADY_OPEN	19388	19435	193	1	342	generated	
+130	Const	CHANNEL_RC_BAD_CHANNEL	19436	19481	194	1	343	generated	
+131	Const	CHANNEL_RC_BAD_CHANNEL_HANDLE	19482	19534	195	1	344	generated	
+132	Const	CHANNEL_RC_BAD_INIT_HANDLE	19535	19584	196	1	345	generated	
+133	Const	CHANNEL_RC_BAD_PROC	19585	19628	197	1	346	generated	
+134	Const	CHANNEL_RC_INITIALIZATION_ERROR	19629	19684	198	1	347	generated	
+135	Const	CHANNEL_RC_INVALID_INSTANCE	19685	19736	199	1	348	generated	
+136	Const	CHANNEL_RC_NOT_CONNECTED	19737	19784	200	1	349	generated	
+137	Const	CHANNEL_RC_NOT_INITIALIZED	19785	19834	201	1	350	generated	
+138	Const	CHANNEL_RC_NOT_IN_VIRTUALCHANNELENTRY	19835	19896	202	1	351	generated	
+139	Const	CHANNEL_RC_NOT_OPEN	19897	19940	203	1	352	generated	
+140	Const	CHANNEL_RC_NO_BUFFER	19941	19984	204	1	353	generated	
+141	Const	CHANNEL_RC_NO_MEMORY	19985	20029	205	1	354	generated	
+142	Const	CHANNEL_RC_NULL_DATA	20030	20074	206	1	355	generated	
+143	Const	CHANNEL_RC_OK	20075	20111	207	1	356	generated	
+144	Const	CHANNEL_RC_TOO_MANY_CHANNELS	20112	20163	208	1	357	generated	
+145	Const	CHANNEL_RC_UNKNOWN_CHANNEL_NAME	20164	20219	209	1	358	generated	
+146	Const	CHANNEL_RC_UNSUPPORTED_VERSION	20220	20274	210	1	359	generated	
+147	Const	CHANNEL_RC_ZERO_LENGTH	20275	20321	211	1	360	generated	
+148	Const	CLIENTADDRESS_LENGTH	20322	20366	212	1	361	generated	
+149	Const	CLIENTNAME_LENGTH	20367	20408	213	1	362	generated	
+150	Struct	CLIENT_DISPLAY	20409	20574	214	1	363	unsupported	declaration Struct has no candidate rule
+151	Const	CLIENT_MESSAGE_CONNECTION_ERROR	20575	20645	221	1	372	generated	
+152	Const	CLIENT_MESSAGE_CONNECTION_INVALID	20646	20718	222	1	373	generated	
+153	Const	CLIENT_MESSAGE_CONNECTION_STATUS	20719	20790	223	1	374	generated	
+154	ItemType	CLIENT_MESSAGE_TYPE	20791	20826	224	1	375	generated	
+155	ItemType	CONNECTION_CHANGE_NOTIFICATION	20827	20873	225	1	376	generated	
+156	Const	CONNECTION_PROPERTY_CURSOR_BLINK_DISABLED	20874	21028	226	1	377	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+157	Const	CONNECTION_PROPERTY_IDLE_TIME_WARNING	21029	21179	227	1	380	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+158	Const	CONNECTION_REQUEST_CANCELLED	21180	21258	228	1	383	generated	
+159	Const	CONNECTION_REQUEST_FAILED	21259	21334	229	1	384	generated	
+160	Const	CONNECTION_REQUEST_INVALID	21335	21411	230	1	385	generated	
+161	Const	CONNECTION_REQUEST_LB_COMPLETED	21412	21493	231	1	386	generated	
+162	Const	CONNECTION_REQUEST_ORCH_COMPLETED	21494	21577	232	1	387	generated	
+163	Const	CONNECTION_REQUEST_PENDING	21578	21654	233	1	388	generated	
+164	Const	CONNECTION_REQUEST_QUERY_PL_COMPLETED	21655	21742	234	1	389	generated	
+165	Const	CONNECTION_REQUEST_SUCCEEDED	21743	21821	235	1	390	generated	
+166	Const	CONNECTION_REQUEST_TIMEDOUT	21822	21899	236	1	391	generated	
+167	Const	ClipboardRedirectionDisabled	21900	21967	237	1	392	generated	
+168	Const	DISPID_AX_ADMINMESSAGERECEIVED	21968	22023	238	1	393	generated	
+169	Const	DISPID_AX_AUTORECONNECTED	22024	22074	239	1	394	generated	
+170	Const	DISPID_AX_AUTORECONNECTING	22075	22126	240	1	395	generated	
+171	Const	DISPID_AX_CONNECTED	22127	22171	241	1	396	generated	
+172	Const	DISPID_AX_CONNECTING	22172	22217	242	1	397	generated	
+173	Const	DISPID_AX_DIALOGDISMISSED	22218	22268	243	1	398	generated	
+174	Const	DISPID_AX_DIALOGDISPLAYING	22269	22320	244	1	399	generated	
+175	Const	DISPID_AX_DISCONNECTED	22321	22368	245	1	400	generated	
+176	Const	DISPID_AX_KEYCOMBINATIONPRESSED	22369	22425	246	1	401	generated	
+177	Const	DISPID_AX_LOGINCOMPLETED	22426	22475	247	1	402	generated	
+178	Const	DISPID_AX_NETWORKSTATUSCHANGED	22476	22531	248	1	403	generated	
+179	Const	DISPID_AX_REMOTEDESKTOPSIZECHANGED	22532	22591	249	1	404	generated	
+180	Const	DISPID_AX_STATUSCHANGED	22592	22640	250	1	405	generated	
+181	Const	DISPID_AX_TOUCHPOINTERCURSORMOVED	22641	22699	251	1	406	generated	
+182	Const	DISPID_METHOD_REMOTEDESKTOPCLIENT_APPLY_SETTINGS	22700	22773	252	1	407	generated	
+183	Const	DISPID_METHOD_REMOTEDESKTOPCLIENT_ATTACH_EVENT	22774	22845	253	1	408	generated	
+184	Const	DISPID_METHOD_REMOTEDESKTOPCLIENT_CONNECT	22846	22912	254	1	409	generated	
+185	Const	DISPID_METHOD_REMOTEDESKTOPCLIENT_DELETE_SAVED_CREDENTIALS	22913	22996	255	1	410	generated	
+186	Const	DISPID_METHOD_REMOTEDESKTOPCLIENT_DETACH_EVENT	22997	23068	256	1	411	generated	
+187	Const	DISPID_METHOD_REMOTEDESKTOPCLIENT_DISCONNECT	23069	23138	257	1	412	generated	
+188	Const	DISPID_METHOD_REMOTEDESKTOPCLIENT_EXECUTE_REMOTE_ACTION	23139	23219	258	1	413	generated	
+189	Const	DISPID_METHOD_REMOTEDESKTOPCLIENT_GET_RDPPROPERTY	23220	23294	259	1	414	generated	
+190	Const	DISPID_METHOD_REMOTEDESKTOPCLIENT_GET_SNAPSHOT	23295	23366	260	1	415	generated	
+191	Const	DISPID_METHOD_REMOTEDESKTOPCLIENT_RECONNECT	23367	23435	261	1	416	generated	
+192	Const	DISPID_METHOD_REMOTEDESKTOPCLIENT_RESUME_SCREEN_UPDATES	23436	23516	262	1	417	generated	
+193	Const	DISPID_METHOD_REMOTEDESKTOPCLIENT_RETRIEVE_SETTINGS	23517	23593	263	1	418	generated	
+194	Const	DISPID_METHOD_REMOTEDESKTOPCLIENT_SET_RDPPROPERTY	23594	23668	264	1	419	generated	
+195	Const	DISPID_METHOD_REMOTEDESKTOPCLIENT_SUSPEND_SCREEN_UPDATES	23669	23750	265	1	420	generated	
+196	Const	DISPID_METHOD_REMOTEDESKTOPCLIENT_UPDATE_SESSION_DISPLAYSETTINGS	23751	23840	266	1	421	generated	
+197	Const	DISPID_PROP_REMOTEDESKTOPCLIENT_ACTIONS	23841	23905	267	1	422	generated	
+198	Const	DISPID_PROP_REMOTEDESKTOPCLIENT_SETTINGS	23906	23971	268	1	423	generated	
+199	Const	DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCHPOINTER_ENABLED	23972	24049	269	1	424	generated	
+200	Const	DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCHPOINTER_EVENTSENABLED	24050	24133	270	1	425	generated	
+201	Const	DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCHPOINTER_POINTERSPEED	24134	24216	271	1	426	generated	
+202	Const	DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCH_POINTER	24217	24287	272	1	427	generated	
+203	Const	DOMAIN_LENGTH	24288	24325	273	1	428	generated	
+204	Const	DisableAllRedirections	24326	24387	274	1	429	generated	
+205	Const	DriveRedirectionDisabled	24388	24451	275	1	430	generated	
+206	Const	EnableAllRedirections	24452	24512	276	1	431	generated	
+207	Const	FARM	24513	24548	277	1	432	generated	
+208	Const	FORCE_REJOIN	24549	24584	278	1	433	generated	
+209	Const	FORCE_REJOIN_IN_CLUSTERMODE	24585	24635	279	1	434	generated	
+210	Const	KEEP_EXISTING_SESSIONS	24636	24681	280	1	435	generated	
+211	Const	KeyCombinationDown	24682	24738	281	1	436	generated	
+212	Const	KeyCombinationHome	24739	24795	282	1	437	generated	
+213	Const	KeyCombinationLeft	24796	24852	283	1	438	generated	
+214	Const	KeyCombinationRight	24853	24910	284	1	439	generated	
+215	Const	KeyCombinationScroll	24911	24969	285	1	440	generated	
+216	ItemType	KeyCombinationType	24970	25004	286	1	441	generated	
+217	Const	KeyCombinationUp	25005	25059	287	1	442	generated	
+218	Const	LOAD_BALANCING_PLUGIN	25060	25112	288	1	443	generated	
+219	Const	MAX_DATE_TIME_LENGTH	25113	25157	289	1	444	generated	
+220	Const	MAX_ELAPSED_TIME_LENGTH	25158	25205	290	1	445	generated	
+221	Const	MAX_POLICY_ATTRIBUTES	25206	25251	291	1	446	generated	
+222	Const	MaxAppName_Len	25252	25291	292	1	447	generated	
+223	Const	MaxDomainName_Len	25292	25334	293	1	448	generated	
+224	Const	MaxFQDN_Len	25335	25371	294	1	449	generated	
+225	Const	MaxFarm_Len	25372	25408	295	1	450	generated	
+226	Const	MaxNetBiosName_Len	25409	25451	296	1	451	generated	
+227	Const	MaxNumOfExposed_IPs	25452	25495	297	1	452	generated	
+228	Const	MaxUserName_Len	25496	25536	298	1	453	generated	
+229	Const	NONFARM	25537	25575	299	1	454	generated	
+230	Const	NOTIFY_FOR_ALL_SESSIONS	25576	25622	300	1	455	generated	
+231	Const	NOTIFY_FOR_THIS_SESSION	25623	25669	301	1	456	generated	
+232	Const	ORCHESTRATION_PLUGIN	25670	25722	302	1	457	generated	
+233	Const	OWNER_MS_TS_PLUGIN	25723	25773	303	1	458	generated	
+234	Const	OWNER_MS_VM_PLUGIN	25774	25824	304	1	459	generated	
+235	Const	OWNER_UNKNOWN	25825	25870	305	1	460	generated	
+236	ItemType	PCHANNEL_INIT_EVENT_FN	25871	26036	306	1	461	unsupported	generic scalar type unsupported
+237	ItemType	PCHANNEL_OPEN_EVENT_FN	26037	26216	307	1	464	unsupported	generic scalar type unsupported
+238	Const	PLACEMENT_PLUGIN	26217	26264	308	1	467	generated	
+239	Const	PLUGIN_CAPABILITY_EXTERNAL_REDIRECTION	26265	26326	309	1	468	generated	
+240	ItemType	PLUGIN_TYPE	26327	26354	310	1	469	generated	
+241	Const	POLICY_PLUGIN	26355	26399	311	1	470	generated	
+242	Const	POSITION_CONTINUOUS	26400	26456	312	1	471	generated	
+243	Const	POSITION_DISCONTINUOUS	26457	26516	313	1	472	generated	
+244	Const	POSITION_INVALID	26517	26570	314	1	473	generated	
+245	Const	POSITION_QPC_ERROR	26571	26626	315	1	474	generated	
+246	Const	PRODUCTINFO_COMPANYNAME_LENGTH	26627	26682	316	1	475	generated	
+247	Const	PRODUCTINFO_PRODUCTID_LENGTH	26683	26734	317	1	476	generated	
+248	Struct	PRODUCT_INFOA	26735	26857	318	1	477	unsupported	declaration Struct has no candidate rule
+249	Impl		26858	26964	324	1	485	unsupported	declaration Impl has no candidate rule
+250	Struct	PRODUCT_INFOW	26965	27089	329	1	492	unsupported	declaration Struct has no candidate rule
+251	Impl		27090	27196	335	1	500	unsupported	declaration Impl has no candidate rule
+252	Const	PROPERTY_DYNAMIC_TIME_ZONE_INFORMATION	27197	27348	340	1	507	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+253	Const	PROPERTY_TYPE_ENABLE_UNIVERSAL_APPS_FOR_CUSTOM_SHELL	27349	27514	341	1	510	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+254	Const	PROPERTY_TYPE_GET_FAST_RECONNECT	27515	27660	342	1	513	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+255	Const	PROPERTY_TYPE_GET_FAST_RECONNECT_USER_SID	27661	27815	343	1	516	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+256	Const	PROVISIONING_PLUGIN	27816	27867	344	1	519	generated	
+257	ItemType	PVIRTUALCHANNELCLOSE	27868	27958	345	1	520	unsupported	generic scalar type unsupported
+258	ItemType	PVIRTUALCHANNELENTRY	27959	28093	346	1	523	unsupported	generic scalar type unsupported
+259	ItemType	PVIRTUALCHANNELINIT	28094	28326	347	1	526	unsupported	generic scalar type unsupported
+260	ItemType	PVIRTUALCHANNELOPEN	28327	28546	348	1	529	unsupported	generic scalar type unsupported
+261	ItemType	PVIRTUALCHANNELWRITE	28547	28720	349	1	532	unsupported	generic scalar type unsupported
+262	ItemType	PasswordEncodingType	28721	28757	350	1	535	generated	
+263	Const	PasswordEncodingUTF16BE	28758	28821	351	1	536	generated	
+264	Const	PasswordEncodingUTF16LE	28822	28885	352	1	537	generated	
+265	Const	PasswordEncodingUTF8	28886	28946	353	1	538	generated	
+266	Const	PnpRedirectionDisabled	28947	29008	354	1	539	generated	
+267	ItemType	PolicyAttributeType	29009	29044	355	1	540	generated	
+268	Const	PortRedirectionDisabled	29045	29107	356	1	541	generated	
+269	Const	PrinterRedirectionDisabled	29108	29173	357	1	542	generated	
+270	Const	RDCLIENT_BITMAP_RENDER_SERVICE	29174	29317	358	1	543	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+271	ItemType	RDV_TASK_STATUS	29318	29349	359	1	546	generated	
+272	Const	RDV_TASK_STATUS_APPLYING	29350	29409	360	1	547	generated	
+273	Const	RDV_TASK_STATUS_DOWNLOADING	29410	29472	361	1	548	generated	
+274	Const	RDV_TASK_STATUS_FAILED	29473	29530	362	1	549	generated	
+275	Const	RDV_TASK_STATUS_REBOOTED	29531	29590	363	1	550	generated	
+276	Const	RDV_TASK_STATUS_REBOOTING	29591	29651	364	1	551	generated	
+277	Const	RDV_TASK_STATUS_SEARCHING	29652	29712	365	1	552	generated	
+278	Const	RDV_TASK_STATUS_SUCCESS	29713	29771	366	1	553	generated	
+279	Const	RDV_TASK_STATUS_TIMEOUT	29772	29830	367	1	554	generated	
+280	Const	RDV_TASK_STATUS_UNKNOWN	29831	29889	368	1	555	generated	
+281	Const	RD_FARM_AUTO_PERSONAL_RDSH	29890	29948	369	1	556	generated	
+282	Const	RD_FARM_AUTO_PERSONAL_VM	29949	30005	370	1	557	generated	
+283	Const	RD_FARM_MANUAL_PERSONAL_RDSH	30006	30066	371	1	558	generated	
+284	Const	RD_FARM_MANUAL_PERSONAL_VM	30067	30125	372	1	559	generated	
+285	Const	RD_FARM_RDSH	30126	30170	373	1	560	generated	
+286	Const	RD_FARM_TEMP_VM	30171	30218	374	1	561	generated	
+287	ItemType	RD_FARM_TYPE	30219	30247	375	1	562	generated	
+288	Const	RD_FARM_TYPE_UNKNOWN	30248	30301	376	1	563	generated	
+289	Const	REMOTECONTROL_KBDALT_HOTKEY	30302	30352	377	1	564	generated	
+290	Const	REMOTECONTROL_KBDCTRL_HOTKEY	30353	30404	378	1	565	generated	
+291	Const	REMOTECONTROL_KBDSHIFT_HOTKEY	30405	30457	379	1	566	generated	
+292	Const	RENDER_HINT_CLEAR	30458	30498	380	1	567	generated	
+293	Const	RENDER_HINT_MAPPEDWINDOW	30499	30546	381	1	568	generated	
+294	Const	RENDER_HINT_VIDEO	30547	30587	382	1	569	generated	
+295	Const	RESERVED_FOR_LEGACY	30588	30630	383	1	570	generated	
+296	Const	RESOURCE_PLUGIN	30631	30677	384	1	571	generated	
+297	Const	RFX_CLIENT_ID_LENGTH	30678	30722	385	1	572	generated	
+298	Const	RFX_GFX_MAX_SUPPORTED_MONITORS	30723	30777	386	1	573	generated	
+299	Struct	RFX_GFX_MONITOR_INFO	30778	31070	387	1	574	unsupported	declaration Struct has no candidate rule
+300	Struct	RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST	31071	31208	399	1	588	unsupported	declaration Struct has no candidate rule
+301	Struct	RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE	31209	31483	404	1	595	unsupported	declaration Struct has no candidate rule
+302	Impl		31484	31617	413	1	606	unsupported	declaration Impl has no candidate rule
+303	Struct	RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM	31618	31757	418	1	613	unsupported	declaration Struct has no candidate rule
+304	Struct	RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY	31758	31995	423	1	620	unsupported	declaration Struct has no candidate rule
+305	Struct	RFX_GFX_MSG_DESKTOP_INPUT_RESET	31996	32181	432	1	631	unsupported	declaration Struct has no candidate rule
+306	Struct	RFX_GFX_MSG_DESKTOP_RESEND_REQUEST	32182	32348	439	1	640	unsupported	declaration Struct has no candidate rule
+307	Struct	RFX_GFX_MSG_DISCONNECT_NOTIFY	32349	32518	445	1	648	unsupported	declaration Struct has no candidate rule
+308	Struct	RFX_GFX_MSG_HEADER	32519	32650	451	1	656	unsupported	declaration Struct has no candidate rule
+309	Const	RFX_GFX_MSG_PREFIX	32651	32693	457	1	664	generated	
+310	Const	RFX_GFX_MSG_PREFIX_MASK	32694	32741	458	1	665	generated	
+311	Struct	RFX_GFX_MSG_RDP_DATA	32742	32877	459	1	666	unsupported	declaration Struct has no candidate rule
+312	Impl		32878	32991	465	1	674	unsupported	declaration Impl has no candidate rule
+313	Struct	RFX_GFX_RECT	32992	33151	470	1	681	unsupported	declaration Struct has no candidate rule
+314	Const	RFX_RDP_MSG_PREFIX	33152	33193	478	1	691	generated	
+315	Const	RemoteActionAppSwitch	33194	33251	479	1	692	generated	
+316	Const	RemoteActionAppbar	33252	33306	480	1	693	generated	
+317	Const	RemoteActionCharms	33307	33361	481	1	694	generated	
+318	Const	RemoteActionSnap	33362	33414	482	1	695	generated	
+319	Const	RemoteActionStartScreen	33415	33474	483	1	696	generated	
+320	ItemType	RemoteActionType	33475	33507	484	1	697	generated	
+321	Const	SB_SYNCH_CONFLICT_MAX_WRITE_ATTEMPTS	33508	33569	485	1	698	generated	
+322	Const	SESSION_TIMEOUT_ACTION_DISCONNECT	33570	33650	486	1	699	generated	
+323	Const	SESSION_TIMEOUT_ACTION_SILENT_REAUTH	33651	33734	487	1	700	generated	
+324	ItemType	SESSION_TIMEOUT_ACTION_TYPE	33735	33778	488	1	701	generated	
+325	Const	SINGLE_SESSION	33779	33816	489	1	702	generated	
+326	Const	STATE_ACTIVE	33817	33864	490	1	703	generated	
+327	Const	STATE_CONNECTED	33865	33915	491	1	704	generated	
+328	Const	STATE_CONNECTQUERY	33916	33969	492	1	705	generated	
+329	Const	STATE_DISCONNECTED	33970	34023	493	1	706	generated	
+330	Const	STATE_DOWN	34024	34069	494	1	707	generated	
+331	Const	STATE_IDLE	34070	34115	495	1	708	generated	
+332	Const	STATE_INIT	34116	34161	496	1	709	generated	
+333	Const	STATE_INVALID	34162	34211	497	1	710	generated	
+334	Const	STATE_LISTEN	34212	34259	498	1	711	generated	
+335	Const	STATE_MAX	34260	34305	499	1	712	generated	
+336	Const	STATE_RESET	34306	34352	500	1	713	generated	
+337	Const	STATE_SHADOW	34353	34400	501	1	714	generated	
+338	Const	SnapshotEncodingDataUri	34401	34464	502	1	715	generated	
+339	ItemType	SnapshotEncodingType	34465	34501	503	1	716	generated	
+340	Const	SnapshotFormatBmp	34502	34557	504	1	717	generated	
+341	Const	SnapshotFormatJpeg	34558	34614	505	1	718	generated	
+342	Const	SnapshotFormatPng	34615	34670	506	1	719	generated	
+343	ItemType	SnapshotFormatType	34671	34705	507	1	720	generated	
+344	ItemType	TARGET_CHANGE_TYPE	34706	34740	508	1	721	generated	
+345	Const	TARGET_CHANGE_UNSPEC	34741	34799	509	1	722	generated	
+346	Const	TARGET_CHECKED_OUT	34800	34850	510	1	723	generated	
+347	Const	TARGET_DOWN	34851	34894	511	1	724	generated	
+348	Const	TARGET_EXTERNALIP_CHANGED	34895	34958	512	1	725	generated	
+349	Const	TARGET_FARM_MEMBERSHIP_CHANGED	34959	35030	513	1	726	generated	
+350	Const	TARGET_HIBERNATED	35031	35080	514	1	727	generated	
+351	Const	TARGET_IDLE	35081	35131	515	1	728	generated	
+352	Const	TARGET_INITIALIZING	35132	35183	516	1	729	generated	
+353	Const	TARGET_INTERNALIP_CHANGED	35184	35247	517	1	730	generated	
+354	Const	TARGET_INUSE	35248	35300	518	1	731	generated	
+355	Const	TARGET_INVALID	35301	35347	519	1	732	generated	
+356	Const	TARGET_JOINED	35348	35399	520	1	733	generated	
+357	Const	TARGET_MAXSTATE	35400	35448	521	1	734	generated	
+358	ItemType	TARGET_OWNER	35449	35477	522	1	735	generated	
+359	Const	TARGET_PATCH_COMPLETED	35478	35538	523	1	736	generated	
+360	Const	TARGET_PATCH_FAILED	35539	35596	524	1	737	generated	
+361	Const	TARGET_PATCH_IN_PROGRESS	35597	35659	525	1	738	generated	
+362	Const	TARGET_PATCH_NOT_STARTED	35660	35722	526	1	739	generated	
+363	ItemType	TARGET_PATCH_STATE	35723	35757	527	1	740	generated	
+364	Const	TARGET_PATCH_STATE_CHANGED	35758	35824	528	1	741	generated	
+365	Const	TARGET_PATCH_UNKNOWN	35825	35883	529	1	742	generated	
+366	Const	TARGET_PENDING	35884	35938	530	1	743	generated	
+367	Const	TARGET_REMOVED	35939	35992	531	1	744	generated	
+368	Const	TARGET_RUNNING	35993	36039	532	1	745	generated	
+369	Const	TARGET_STARTING	36040	36087	533	1	746	generated	
+370	ItemType	TARGET_STATE	36088	36116	534	1	747	generated	
+371	Const	TARGET_STATE_CHANGED	36117	36176	535	1	748	generated	
+372	Const	TARGET_STOPPED	36177	36223	536	1	749	generated	
+373	Const	TARGET_STOPPING	36224	36272	537	1	750	generated	
+374	ItemType	TARGET_TYPE	36273	36300	538	1	751	generated	
+375	Const	TARGET_UNKNOWN	36301	36347	539	1	752	generated	
+376	Const	TASK_PLUGIN	36348	36391	540	1	753	generated	
+377	Const	TSPUB_PLUGIN_PD_ASSIGNMENT_EXISTING	36392	36478	541	1	754	generated	
+378	Const	TSPUB_PLUGIN_PD_ASSIGNMENT_NEW	36479	36560	542	1	755	generated	
+379	ItemType	TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE	36561	36608	543	1	756	generated	
+380	Const	TSPUB_PLUGIN_PD_QUERY_EXISTING	36609	36690	544	1	757	generated	
+381	Const	TSPUB_PLUGIN_PD_QUERY_OR_CREATE	36691	36773	545	1	758	generated	
+382	ItemType	TSPUB_PLUGIN_PD_RESOLUTION_TYPE	36774	36821	546	1	759	generated	
+383	ItemType	TSSB_NOTIFICATION_TYPE	36822	36860	547	1	760	generated	
+384	Const	TSSB_NOTIFY_CONNECTION_REQUEST_CHANGE	36861	36940	548	1	761	generated	
+385	Const	TSSB_NOTIFY_INVALID	36941	37002	549	1	762	generated	
+386	Const	TSSB_NOTIFY_SESSION_CHANGE	37003	37071	550	1	763	generated	
+387	Const	TSSB_NOTIFY_TARGET_CHANGE	37072	37139	551	1	764	generated	
+388	Const	TSSD_ADDR_IPv4	37140	37190	552	1	765	generated	
+389	Const	TSSD_ADDR_IPv6	37191	37241	553	1	766	generated	
+390	Const	TSSD_ADDR_UNDEFINED	37242	37297	554	1	767	generated	
+391	ItemType	TSSD_AddrV46Type	37298	37330	555	1	768	generated	
+392	Struct	TSSD_ConnectionPoint	37331	37525	556	1	769	unsupported	declaration Struct has no candidate rule
+393	Impl		37526	37639	564	1	779	unsupported	declaration Impl has no candidate rule
+394	ItemType	TSSESSION_STATE	37640	37671	569	1	786	generated	
+395	Const	TSUserExInterfaces	37672	37803	570	1	787	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+396	ItemType	TS_SB_SORT_BY	37804	37833	571	1	790	generated	
+397	Const	TS_SB_SORT_BY_NAME	37834	37885	572	1	791	generated	
+398	Const	TS_SB_SORT_BY_NONE	37886	37937	573	1	792	generated	
+399	Const	TS_SB_SORT_BY_PROP	37938	37989	574	1	793	generated	
+400	Const	TS_VC_LISTENER_STATIC_CHANNEL	37990	38042	575	1	794	generated	
+401	Const	UNKNOWN	38043	38081	576	1	795	generated	
+402	Const	UNKNOWN_PLUGIN	38082	38127	577	1	796	generated	
+403	Const	USERNAME_LENGTH	38128	38167	578	1	797	generated	
+404	Const	VALIDATIONINFORMATION_HARDWAREID_LENGTH	38168	38231	579	1	798	generated	
+405	Const	VALIDATIONINFORMATION_LICENSE_LENGTH	38232	38295	580	1	799	generated	
+406	Const	VIRTUAL_CHANNEL_VERSION_WIN2000	38296	38350	581	1	800	generated	
+407	ItemType	VM_HOST_NOTIFY_STATUS	38351	38388	582	1	801	generated	
+408	Const	VM_HOST_STATUS_INIT_COMPLETE	38389	38458	583	1	802	generated	
+409	Const	VM_HOST_STATUS_INIT_FAILED	38459	38526	584	1	803	generated	
+410	Const	VM_HOST_STATUS_INIT_IN_PROGRESS	38527	38599	585	1	804	generated	
+411	Const	VM_HOST_STATUS_INIT_PENDING	38600	38668	586	1	805	generated	
+412	Struct	VM_NOTIFY_ENTRY	38669	38789	587	1	806	unsupported	declaration Struct has no candidate rule
+413	Impl		38790	38898	593	1	814	unsupported	declaration Impl has no candidate rule
+414	Struct	VM_NOTIFY_INFO	38899	39037	598	1	821	unsupported	declaration Struct has no candidate rule
+415	Impl		39038	39145	604	1	829	unsupported	declaration Impl has no candidate rule
+416	ItemType	VM_NOTIFY_STATUS	39146	39178	609	1	836	generated	
+417	Const	VM_NOTIFY_STATUS_CANCELED	39179	39240	610	1	837	generated	
+418	Const	VM_NOTIFY_STATUS_COMPLETE	39241	39302	611	1	838	generated	
+419	Const	VM_NOTIFY_STATUS_FAILED	39303	39362	612	1	839	generated	
+420	Const	VM_NOTIFY_STATUS_IN_PROGRESS	39363	39427	613	1	840	generated	
+421	Const	VM_NOTIFY_STATUS_PENDING	39428	39488	614	1	841	generated	
+422	Struct	VM_PATCH_INFO	39489	39627	615	1	842	unsupported	declaration Struct has no candidate rule
+423	Impl		39628	39734	621	1	850	unsupported	declaration Impl has no candidate rule
+424	Const	WINSTATIONNAME_LENGTH	39735	39780	626	1	857	generated	
+425	Const	WKS_FLAG_CLEAR_CREDS_ON_LAST_RESOURCE	39781	39841	627	1	858	generated	
+426	Const	WKS_FLAG_CREDS_AUTHENTICATED	39842	39893	628	1	859	generated	
+427	Const	WKS_FLAG_PASSWORD_ENCRYPTED	39894	39944	629	1	860	generated	
+428	Const	WRDS_CLIENTADDRESS_LENGTH	39945	39994	630	1	861	generated	
+429	Const	WRDS_CLIENTNAME_LENGTH	39995	40041	631	1	862	generated	
+430	Const	WRDS_CLIENT_PRODUCT_ID_LENGTH	40042	40095	632	1	863	generated	
+431	Union		40096	40228	633	1	864	unsupported	declaration Union has no candidate rule
+432	Impl		40229	40345	638	1	871	unsupported	declaration Impl has no candidate rule
+433	Struct	WRDS_CONNECTION_SETTINGS	40346	40542	643	1	878	unsupported	declaration Struct has no candidate rule
+434	Impl		40543	40660	649	1	886	unsupported	declaration Impl has no candidate rule
+435	Struct	WRDS_CONNECTION_SETTINGS_1	40661	42816	654	1	893	unsupported	declaration Struct has no candidate rule
+436	Impl		42817	42936	723	1	964	unsupported	declaration Impl has no candidate rule
+437	ItemType	WRDS_CONNECTION_SETTING_LEVEL	42937	42982	728	1	971	generated	
+438	Const	WRDS_CONNECTION_SETTING_LEVEL_1	42983	43063	729	1	972	generated	
+439	Const	WRDS_CONNECTION_SETTING_LEVEL_INVALID	43064	43150	730	1	973	generated	
+440	Const	WRDS_DEVICE_NAME_LENGTH	43151	43198	731	1	974	generated	
+441	Const	WRDS_DIRECTORY_LENGTH	43199	43245	732	1	975	generated	
+442	Const	WRDS_DOMAIN_LENGTH	43246	43289	733	1	976	generated	
+443	Const	WRDS_DRIVER_NAME_LENGTH	43290	43336	734	1	977	generated	
+444	Struct	WRDS_DYNAMIC_TIME_ZONE_INFORMATION	43337	43714	735	1	978	unsupported	declaration Struct has no candidate rule
+445	Impl		43715	43842	748	1	993	unsupported	declaration Impl has no candidate rule
+446	Const	WRDS_IMEFILENAME_LENGTH	43843	43890	753	1	1000	generated	
+447	Const	WRDS_INITIALPROGRAM_LENGTH	43891	43942	754	1	1001	generated	
+448	Const	WRDS_KEY_EXCHANGE_ALG_DH	43943	43990	755	1	1002	generated	
+449	Const	WRDS_KEY_EXCHANGE_ALG_RSA	43991	44039	756	1	1003	generated	
+450	Const	WRDS_LICENSE_PREAMBLE_VERSION	44040	44092	757	1	1004	generated	
+451	Const	WRDS_LICENSE_PROTOCOL_VERSION	44093	44149	758	1	1005	generated	
+452	Union		44150	44276	759	1	1006	unsupported	declaration Union has no candidate rule
+453	Impl		44277	44391	764	1	1013	unsupported	declaration Impl has no candidate rule
+454	Struct	WRDS_LISTENER_SETTINGS	44392	44578	769	1	1020	unsupported	declaration Struct has no candidate rule
+455	Impl		44579	44694	775	1	1028	unsupported	declaration Impl has no candidate rule
+456	Struct	WRDS_LISTENER_SETTINGS_1	44695	44892	780	1	1035	unsupported	declaration Struct has no candidate rule
+457	Impl		44893	45010	787	1	1044	unsupported	declaration Impl has no candidate rule
+458	ItemType	WRDS_LISTENER_SETTING_LEVEL	45011	45054	792	1	1051	generated	
+459	Const	WRDS_LISTENER_SETTING_LEVEL_1	45055	45131	793	1	1052	generated	
+460	Const	WRDS_LISTENER_SETTING_LEVEL_INVALID	45132	45214	794	1	1053	generated	
+461	Const	WRDS_MAX_CACHE_RESERVED	45215	45262	795	1	1054	generated	
+462	Const	WRDS_MAX_COUNTERS	45263	45305	796	1	1055	generated	
+463	Const	WRDS_MAX_DISPLAY_IOCTL_DATA	45306	45358	797	1	1056	generated	
+464	Const	WRDS_MAX_PROTOCOL_CACHE	45359	45405	798	1	1057	generated	
+465	Const	WRDS_MAX_RESERVED	45406	45448	799	1	1058	generated	
+466	Const	WRDS_PASSWORD_LENGTH	45449	45494	800	1	1059	generated	
+467	Const	WRDS_PERF_DISABLE_CURSORSETTINGS	45495	45551	801	1	1060	generated	
+468	Const	WRDS_PERF_DISABLE_CURSOR_SHADOW	45552	45607	802	1	1061	generated	
+469	Const	WRDS_PERF_DISABLE_FULLWINDOWDRAG	45608	45663	803	1	1062	generated	
+470	Const	WRDS_PERF_DISABLE_MENUANIMATIONS	45664	45719	804	1	1063	generated	
+471	Const	WRDS_PERF_DISABLE_NOTHING	45720	45768	805	1	1064	generated	
+472	Const	WRDS_PERF_DISABLE_THEMING	45769	45817	806	1	1065	generated	
+473	Const	WRDS_PERF_DISABLE_WALLPAPER	45818	45868	807	1	1066	generated	
+474	Const	WRDS_PERF_ENABLE_DESKTOP_COMPOSITION	45869	45930	808	1	1067	generated	
+475	Const	WRDS_PERF_ENABLE_ENHANCED_GRAPHICS	45931	45989	809	1	1068	generated	
+476	Const	WRDS_PERF_ENABLE_FONT_SMOOTHING	45990	46046	810	1	1069	generated	
+477	Const	WRDS_PROTOCOL_NAME_LENGTH	46047	46095	811	1	1070	generated	
+478	Const	WRDS_SERVICE_ID_GRAPHICS_GUID	46096	46238	812	1	1071	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+479	Union		46239	46339	813	1	1074	unsupported	declaration Union has no candidate rule
+480	Impl		46340	46445	818	1	1081	unsupported	declaration Impl has no candidate rule
+481	Struct	WRDS_SETTINGS	46446	46633	823	1	1088	unsupported	declaration Struct has no candidate rule
+482	Impl		46634	46740	830	1	1097	unsupported	declaration Impl has no candidate rule
+483	Struct	WRDS_SETTINGS_1	46741	48203	835	1	1104	unsupported	declaration Struct has no candidate rule
+484	ItemType	WRDS_SETTING_LEVEL	48204	48238	870	1	1141	generated	
+485	Const	WRDS_SETTING_LEVEL_1	48239	48297	871	1	1142	generated	
+486	Const	WRDS_SETTING_LEVEL_INVALID	48298	48362	872	1	1143	generated	
+487	ItemType	WRDS_SETTING_STATUS	48363	48398	873	1	1144	generated	
+488	Const	WRDS_SETTING_STATUS_DISABLED	48399	48466	874	1	1145	generated	
+489	Const	WRDS_SETTING_STATUS_ENABLED	48467	48533	875	1	1146	generated	
+490	Const	WRDS_SETTING_STATUS_NOTAPPLICABLE	48534	48607	876	1	1147	generated	
+491	Const	WRDS_SETTING_STATUS_NOTCONFIGURED	48608	48680	877	1	1148	generated	
+492	ItemType	WRDS_SETTING_TYPE	48681	48714	878	1	1149	generated	
+493	Const	WRDS_SETTING_TYPE_INVALID	48715	48777	879	1	1150	generated	
+494	Const	WRDS_SETTING_TYPE_MACHINE	48778	48840	880	1	1151	generated	
+495	Const	WRDS_SETTING_TYPE_SAM	48841	48899	881	1	1152	generated	
+496	Const	WRDS_SETTING_TYPE_USER	48900	48959	882	1	1153	generated	
+497	Const	WRDS_USERNAME_LENGTH	48960	49005	883	1	1154	generated	
+498	Const	WRDS_VALUE_TYPE_BINARY	49006	49051	884	1	1155	generated	
+499	Const	WRDS_VALUE_TYPE_GUID	49052	49095	885	1	1156	generated	
+500	Const	WRDS_VALUE_TYPE_STRING	49096	49141	886	1	1157	generated	
+501	Const	WRDS_VALUE_TYPE_ULONG	49142	49186	887	1	1158	generated	
+502	ItemType	WRdsGraphicsChannelType	49187	49226	888	1	1159	generated	
+503	Const	WRdsGraphicsChannelType_BestEffortDelivery	49227	49312	889	1	1160	generated	
+504	Const	WRdsGraphicsChannelType_GuaranteedDelivery	49313	49398	890	1	1161	generated	
+505	Const	WRdsGraphicsChannels_LossyChannelMaxMessageSize	49399	49471	891	1	1162	generated	
+506	Const	WTSActive	49472	49523	892	1	1163	generated	
+507	Const	WTSApplicationName	49524	49576	893	1	1164	generated	
+508	Struct	WTSCLIENTA	49577	50196	894	1	1165	unsupported	declaration Struct has no candidate rule
+509	Impl		50197	50300	917	1	1190	unsupported	declaration Impl has no candidate rule
+510	Struct	WTSCLIENTW	50301	50927	922	1	1197	unsupported	declaration Struct has no candidate rule
+511	Impl		50928	51031	945	1	1222	unsupported	declaration Impl has no candidate rule
+512	Struct	WTSCONFIGINFOA	51032	51482	950	1	1229	unsupported	declaration Struct has no candidate rule
+513	Impl		51483	51590	965	1	1246	unsupported	declaration Impl has no candidate rule
+514	Struct	WTSCONFIGINFOW	51591	52046	970	1	1253	unsupported	declaration Struct has no candidate rule
+515	Impl		52047	52154	985	1	1270	unsupported	declaration Impl has no candidate rule
+516	Const	WTSClientAddress	52155	52206	990	1	1277	generated	
+517	Const	WTSClientBuildNumber	52207	52261	991	1	1278	generated	
+518	Const	WTSClientDirectory	52262	52315	992	1	1279	generated	
+519	Const	WTSClientDisplay	52316	52367	993	1	1280	generated	
+520	Const	WTSClientHardwareId	52368	52422	994	1	1281	generated	
+521	Const	WTSClientInfo	52423	52471	995	1	1282	generated	
+522	Const	WTSClientName	52472	52520	996	1	1283	generated	
+523	Const	WTSClientProductId	52521	52574	997	1	1284	generated	
+524	Const	WTSClientProtocolType	52575	52631	998	1	1285	generated	
+525	Const	WTSConfigInfo	52632	52680	999	1	1286	generated	
+526	Const	WTSConnectQuery	52681	52738	1000	1	1287	generated	
+527	Const	WTSConnectState	52739	52788	1001	1	1288	generated	
+528	Const	WTSConnected	52789	52843	1002	1	1289	generated	
+529	Const	WTSDisconnected	52844	52901	1003	1	1290	generated	
+530	Const	WTSDomainName	52902	52949	1004	1	1291	generated	
+531	Const	WTSDown	52950	52999	1005	1	1292	generated	
+532	Struct	WTSINFOA	53000	53528	1006	1	1293	unsupported	declaration Struct has no candidate rule
+533	Impl		53529	53630	1026	1	1315	unsupported	declaration Impl has no candidate rule
+534	Struct	WTSINFOEXA	53631	53743	1031	1	1322	unsupported	declaration Struct has no candidate rule
+535	Impl		53744	53847	1037	1	1330	unsupported	declaration Impl has no candidate rule
+536	Struct	WTSINFOEXW	53848	53960	1042	1	1337	unsupported	declaration Struct has no candidate rule
+537	Impl		53961	54064	1048	1	1345	unsupported	declaration Impl has no candidate rule
+538	Struct	WTSINFOEX_LEVEL1_A	54065	54644	1053	1	1352	unsupported	declaration Struct has no candidate rule
+539	Impl		54645	54756	1074	1	1375	unsupported	declaration Impl has no candidate rule
+540	Struct	WTSINFOEX_LEVEL1_W	54757	55339	1079	1	1382	unsupported	declaration Struct has no candidate rule
+541	Impl		55340	55451	1100	1	1405	unsupported	declaration Impl has no candidate rule
+542	Union		55452	55562	1105	1	1412	unsupported	declaration Union has no candidate rule
+543	Impl		55563	55673	1110	1	1419	unsupported	declaration Impl has no candidate rule
+544	Union		55674	55784	1115	1	1426	unsupported	declaration Union has no candidate rule
+545	Impl		55785	55895	1120	1	1433	unsupported	declaration Impl has no candidate rule
+546	Struct	WTSINFOW	55896	56430	1125	1	1440	unsupported	declaration Struct has no candidate rule
+547	Impl		56431	56532	1145	1	1462	unsupported	declaration Impl has no candidate rule
+548	Const	WTSIdle	56533	56582	1150	1	1469	generated	
+549	Const	WTSIdleTime	56583	56629	1151	1	1470	generated	
+550	Const	WTSIncomingBytes	56630	56681	1152	1	1471	generated	
+551	Const	WTSIncomingFrames	56682	56734	1153	1	1472	generated	
+552	Const	WTSInit	56735	56784	1154	1	1473	generated	
+553	Const	WTSInitialProgram	56785	56836	1155	1	1474	generated	
+554	Const	WTSIsRemoteSession	56837	56890	1156	1	1475	generated	
+555	Struct	WTSLISTENERCONFIGA	56891	58029	1157	1	1476	unsupported	declaration Struct has no candidate rule
+556	Impl		58030	58141	1192	1	1513	unsupported	declaration Impl has no candidate rule
+557	Struct	WTSLISTENERCONFIGW	58142	59285	1197	1	1520	unsupported	declaration Struct has no candidate rule
+558	Impl		59286	59397	1232	1	1557	unsupported	declaration Impl has no candidate rule
+559	Const	WTSListen	59398	59449	1237	1	1564	generated	
+560	Const	WTSLogonTime	59450	59497	1238	1	1565	generated	
+561	Const	WTSOEMId	59498	59540	1239	1	1566	generated	
+562	Const	WTSOutgoingBytes	59541	59592	1240	1	1567	generated	
+563	Const	WTSOutgoingFrames	59593	59645	1241	1	1568	generated	
+564	Const	WTSReset	59646	59696	1242	1	1569	generated	
+565	ItemType	WTSSBX_ADDRESS_FAMILY	59697	59734	1243	1	1570	generated	
+566	Const	WTSSBX_ADDRESS_FAMILY_AF_INET	59735	59805	1244	1	1571	generated	
+567	Const	WTSSBX_ADDRESS_FAMILY_AF_INET6	59806	59877	1245	1	1572	generated	
+568	Const	WTSSBX_ADDRESS_FAMILY_AF_IPX	59878	59947	1246	1	1573	generated	
+569	Const	WTSSBX_ADDRESS_FAMILY_AF_NETBIOS	59948	60021	1247	1	1574	generated	
+570	Const	WTSSBX_ADDRESS_FAMILY_AF_UNSPEC	60022	60094	1248	1	1575	generated	
+571	Struct	WTSSBX_IP_ADDRESS	60095	60281	1249	1	1576	unsupported	declaration Struct has no candidate rule
+572	Impl		60282	60392	1257	1	1586	unsupported	declaration Impl has no candidate rule
+573	Struct	WTSSBX_MACHINE_CONNECT_INFO	60393	60616	1262	1	1593	unsupported	declaration Struct has no candidate rule
+574	Impl		60617	60737	1270	1	1603	unsupported	declaration Impl has no candidate rule
+575	ItemType	WTSSBX_MACHINE_DRAIN	60738	60774	1275	1	1610	generated	
+576	Const	WTSSBX_MACHINE_DRAIN_OFF	60775	60839	1276	1	1611	generated	
+577	Const	WTSSBX_MACHINE_DRAIN_ON	60840	60903	1277	1	1612	generated	
+578	Const	WTSSBX_MACHINE_DRAIN_UNSPEC	60904	60971	1278	1	1613	generated	
+579	Struct	WTSSBX_MACHINE_INFO	60972	61374	1279	1	1614	unsupported	declaration Struct has no candidate rule
+580	Impl		61375	61487	1291	1	1628	unsupported	declaration Impl has no candidate rule
+581	ItemType	WTSSBX_MACHINE_SESSION_MODE	61488	61531	1296	1	1635	generated	
+582	Const	WTSSBX_MACHINE_SESSION_MODE_MULTIPLE	61532	61615	1297	1	1636	generated	
+583	Const	WTSSBX_MACHINE_SESSION_MODE_SINGLE	61616	61697	1298	1	1637	generated	
+584	Const	WTSSBX_MACHINE_SESSION_MODE_UNSPEC	61698	61779	1299	1	1638	generated	
+585	ItemType	WTSSBX_MACHINE_STATE	61780	61816	1300	1	1639	generated	
+586	Const	WTSSBX_MACHINE_STATE_READY	61817	61883	1301	1	1640	generated	
+587	Const	WTSSBX_MACHINE_STATE_SYNCHRONIZING	61884	61958	1302	1	1641	generated	
+588	Const	WTSSBX_MACHINE_STATE_UNSPEC	61959	62026	1303	1	1642	generated	
+589	Const	WTSSBX_NOTIFICATION_ADDED	62027	62096	1304	1	1643	generated	
+590	Const	WTSSBX_NOTIFICATION_CHANGED	62097	62168	1305	1	1644	generated	
+591	Const	WTSSBX_NOTIFICATION_REMOVED	62169	62240	1306	1	1645	generated	
+592	Const	WTSSBX_NOTIFICATION_RESYNC	62241	62311	1307	1	1646	generated	
+593	ItemType	WTSSBX_NOTIFICATION_TYPE	62312	62352	1308	1	1647	generated	
+594	Struct	WTSSBX_SESSION_INFO	62353	62712	1309	1	1648	unsupported	declaration Struct has no candidate rule
+595	Impl		62713	62825	1320	1	1661	unsupported	declaration Impl has no candidate rule
+596	ItemType	WTSSBX_SESSION_STATE	62826	62862	1325	1	1668	generated	
+597	Const	WTSSBX_SESSION_STATE_ACTIVE	62863	62930	1326	1	1669	generated	
+598	Const	WTSSBX_SESSION_STATE_DISCONNECTED	62931	63004	1327	1	1670	generated	
+599	Const	WTSSBX_SESSION_STATE_UNSPEC	63005	63072	1328	1	1671	generated	
+600	Struct	WTSSESSION_NOTIFICATION	63073	63201	1329	1	1672	unsupported	declaration Struct has no candidate rule
+601	Const	WTSSessionAddressV4	63202	63256	1335	1	1680	generated	
+602	Const	WTSSessionId	63257	63303	1336	1	1681	generated	
+603	Const	WTSSessionInfo	63304	63353	1337	1	1682	generated	
+604	Const	WTSSessionInfoEx	63354	63405	1338	1	1683	generated	
+605	Const	WTSShadow	63406	63457	1339	1	1684	generated	
+606	Const	WTSTypeProcessInfoLevel0	63458	63516	1340	1	1685	generated	
+607	Const	WTSTypeProcessInfoLevel1	63517	63575	1341	1	1686	generated	
+608	Const	WTSTypeSessionInfoLevel1	63576	63634	1342	1	1687	generated	
+609	Struct	WTSUSERCONFIGA	63635	64360	1343	1	1688	unsupported	declaration Struct has no candidate rule
+610	Impl		64361	64468	1365	1	1712	unsupported	declaration Impl has no candidate rule
+611	Struct	WTSUSERCONFIGW	64469	65199	1370	1	1719	unsupported	declaration Struct has no candidate rule
+612	Impl		65200	65307	1392	1	1743	unsupported	declaration Impl has no candidate rule
+613	Const	WTSUserConfigBrokenTimeoutSettings	65308	65379	1397	1	1750	generated	
+614	Const	WTSUserConfigInitialProgram	65380	65443	1398	1	1751	generated	
+615	Const	WTSUserConfigModemCallbackPhoneNumber	65444	65518	1399	1	1752	generated	
+616	Const	WTSUserConfigModemCallbackSettings	65519	65590	1400	1	1753	generated	
+617	Const	WTSUserConfigReconnectSettings	65591	65658	1401	1	1754	generated	
+618	Const	WTSUserConfigShadowingSettings	65659	65726	1402	1	1755	generated	
+619	Const	WTSUserConfigSourceSAM	65727	65786	1403	1	1756	generated	
+620	Const	WTSUserConfigTerminalServerHomeDir	65787	65858	1404	1	1757	generated	
+621	Const	WTSUserConfigTerminalServerHomeDirDrive	65859	65935	1405	1	1758	generated	
+622	Const	WTSUserConfigTerminalServerProfilePath	65936	66011	1406	1	1759	generated	
+623	Const	WTSUserConfigTimeoutSettingsConnections	66012	66087	1407	1	1760	generated	
+624	Const	WTSUserConfigTimeoutSettingsDisconnections	66088	66166	1408	1	1761	generated	
+625	Const	WTSUserConfigTimeoutSettingsIdle	66167	66235	1409	1	1762	generated	
+626	Const	WTSUserConfigUser	66236	66290	1410	1	1763	generated	
+627	Const	WTSUserConfigWorkingDirectory	66291	66356	1411	1	1764	generated	
+628	Const	WTSUserConfigfAllowLogonTerminalServer	66357	66431	1412	1	1765	generated	
+629	Const	WTSUserConfigfDeviceClientDefaultPrinter	66432	66508	1413	1	1766	generated	
+630	Const	WTSUserConfigfDeviceClientDrives	66509	66577	1414	1	1767	generated	
+631	Const	WTSUserConfigfDeviceClientPrinters	66578	66648	1415	1	1768	generated	
+632	Const	WTSUserConfigfInheritInitialProgram	66649	66720	1416	1	1769	generated	
+633	Const	WTSUserConfigfTerminalServerRemoteHomeDir	66721	66799	1417	1	1770	generated	
+634	Const	WTSUserName	66800	66845	1418	1	1771	generated	
+635	Const	WTSValidationInfo	66846	66898	1419	1	1772	generated	
+636	Const	WTSVirtualClientData	66899	66956	1420	1	1773	generated	
+637	Const	WTSVirtualFileHandle	66957	67014	1421	1	1774	generated	
+638	Const	WTSWinStationName	67015	67066	1422	1	1775	generated	
+639	Const	WTSWorkingDirectory	67067	67120	1423	1	1776	generated	
+640	Struct	WTS_CACHE_STATS	67121	67290	1424	1	1777	unsupported	declaration Struct has no candidate rule
+641	Impl		67291	67399	1432	1	1787	unsupported	declaration Impl has no candidate rule
+642	Union		67400	67574	1437	1	1794	unsupported	declaration Union has no candidate rule
+643	Impl		67575	67686	1444	1	1803	unsupported	declaration Impl has no candidate rule
+644	ItemType	WTS_CERT_TYPE	67687	67716	1449	1	1810	generated	
+645	Const	WTS_CERT_TYPE_INVALID	67717	67771	1450	1	1811	generated	
+646	Const	WTS_CERT_TYPE_PROPRIETORY	67772	67830	1451	1	1812	generated	
+647	Const	WTS_CERT_TYPE_X509	67831	67882	1452	1	1813	generated	
+648	Const	WTS_CHANNEL_OPTION_DYNAMIC	67883	67932	1453	1	1814	generated	
+649	Const	WTS_CHANNEL_OPTION_DYNAMIC_NO_COMPRESS	67933	67994	1454	1	1815	generated	
+650	Const	WTS_CHANNEL_OPTION_DYNAMIC_PRI_HIGH	67995	68053	1455	1	1816	generated	
+651	Const	WTS_CHANNEL_OPTION_DYNAMIC_PRI_LOW	68054	68111	1456	1	1817	generated	
+652	Const	WTS_CHANNEL_OPTION_DYNAMIC_PRI_MED	68112	68169	1457	1	1818	generated	
+653	Const	WTS_CHANNEL_OPTION_DYNAMIC_PRI_REAL	68170	68228	1458	1	1819	generated	
+654	Const	WTS_CLIENTADDRESS_LENGTH	68229	68277	1459	1	1820	generated	
+655	Const	WTS_CLIENTNAME_LENGTH	68278	68323	1460	1	1821	generated	
+656	Struct	WTS_CLIENT_ADDRESS	68324	68446	1461	1	1822	unsupported	declaration Struct has no candidate rule
+657	Impl		68447	68558	1467	1	1830	unsupported	declaration Impl has no candidate rule
+658	Struct	WTS_CLIENT_DATA	68559	70405	1472	1	1837	unsupported	declaration Struct has no candidate rule
+659	Impl		70406	70514	1531	1	1898	unsupported	declaration Impl has no candidate rule
+660	Struct	WTS_CLIENT_DISPLAY	70515	70684	1536	1	1905	unsupported	declaration Struct has no candidate rule
+661	Const	WTS_CLIENT_PRODUCT_ID_LENGTH	70685	70737	1543	1	1914	generated	
+662	Const	WTS_COMMENT_LENGTH	70738	70780	1544	1	1915	generated	
+663	ItemType	WTS_CONFIG_CLASS	70781	70813	1545	1	1916	generated	
+664	ItemType	WTS_CONFIG_SOURCE	70814	70847	1546	1	1917	generated	
+665	ItemType	WTS_CONNECTSTATE_CLASS	70848	70886	1547	1	1918	generated	
+666	Const	WTS_CURRENT_SERVER	70887	70962	1548	1	1919	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+667	Const	WTS_CURRENT_SERVER_HANDLE	70963	71045	1549	1	1922	unsupported	qualified type requires source-backed binding: super::super::Foundation::HANDLE
+668	Const	WTS_CURRENT_SERVER_NAME	71046	71135	1550	1	1925	unsupported	non-scalar type Ptr unsupported
+669	Const	WTS_CURRENT_SESSION	71136	71187	1551	1	1928	generated	
+670	Const	WTS_DEVICE_NAME_LENGTH	71188	71234	1552	1	1929	generated	
+671	Const	WTS_DIRECTORY_LENGTH	71235	71280	1553	1	1930	generated	
+672	Struct	WTS_DISPLAY_IOCTL	71281	71418	1554	1	1931	unsupported	declaration Struct has no candidate rule
+673	Impl		71419	71529	1560	1	1939	unsupported	declaration Impl has no candidate rule
+674	Const	WTS_DOMAIN_LENGTH	71530	71572	1565	1	1946	generated	
+675	Const	WTS_DRAIN_IN_DRAIN	71573	71630	1566	1	1947	generated	
+676	Const	WTS_DRAIN_NOT_IN_DRAIN	71631	71692	1567	1	1948	generated	
+677	Const	WTS_DRAIN_STATE_NONE	71693	71752	1568	1	1949	generated	
+678	Const	WTS_DRIVER_NAME_LENGTH	71753	71798	1569	1	1950	generated	
+679	Const	WTS_DRIVE_LENGTH	71799	71838	1570	1	1951	generated	
+680	Const	WTS_EVENT_ALL	71839	71884	1571	1	1952	generated	
+681	Const	WTS_EVENT_CONNECT	71885	71925	1572	1	1953	generated	
+682	Const	WTS_EVENT_CREATE	71926	71965	1573	1	1954	generated	
+683	Const	WTS_EVENT_DELETE	71966	72005	1574	1	1955	generated	
+684	Const	WTS_EVENT_DISCONNECT	72006	72050	1575	1	1956	generated	
+685	Const	WTS_EVENT_FLUSH	72051	72098	1576	1	1957	generated	
+686	Const	WTS_EVENT_LICENSE	72099	72141	1577	1	1958	generated	
+687	Const	WTS_EVENT_LOGOFF	72142	72182	1578	1	1959	generated	
+688	Const	WTS_EVENT_LOGON	72183	72222	1579	1	1960	generated	
+689	Const	WTS_EVENT_NONE	72223	72260	1580	1	1961	generated	
+690	Const	WTS_EVENT_RENAME	72261	72300	1581	1	1962	generated	
+691	Const	WTS_EVENT_STATECHANGE	72301	72347	1582	1	1963	generated	
+692	Const	WTS_IMEFILENAME_LENGTH	72348	72394	1583	1	1964	generated	
+693	ItemType	WTS_INFO_CLASS	72395	72425	1584	1	1965	generated	
+694	Const	WTS_INITIALPROGRAM_LENGTH	72426	72476	1585	1	1966	generated	
+695	Const	WTS_KEY_EXCHANGE_ALG_DH	72477	72523	1586	1	1967	generated	
+696	Const	WTS_KEY_EXCHANGE_ALG_RSA	72524	72571	1587	1	1968	generated	
+697	Struct	WTS_LICENSE_CAPABILITIES	72572	72847	1588	1	1969	unsupported	declaration Struct has no candidate rule
+698	Impl		72848	72965	1598	1	1981	unsupported	declaration Impl has no candidate rule
+699	Const	WTS_LICENSE_PREAMBLE_VERSION	72966	73017	1603	1	1988	generated	
+700	Const	WTS_LICENSE_PROTOCOL_VERSION	73018	73073	1604	1	1989	generated	
+701	Const	WTS_LISTENER_CREATE	73074	73116	1605	1	1990	generated	
+702	Const	WTS_LISTENER_NAME_LENGTH	73117	73165	1606	1	1991	generated	
+703	Const	WTS_LISTENER_UPDATE	73166	73209	1607	1	1992	generated	
+704	ItemType	WTS_LOGON_ERROR_REDIRECTOR_RESPONSE	73210	73261	1608	1	1993	generated	
+705	Const	WTS_LOGON_ERR_HANDLED_DONT_SHOW	73262	73348	1609	1	1994	generated	
+706	Const	WTS_LOGON_ERR_HANDLED_DONT_SHOW_START_OVER	73349	73446	1610	1	1995	generated	
+707	Const	WTS_LOGON_ERR_HANDLED_SHOW	73447	73528	1611	1	1996	generated	
+708	Const	WTS_LOGON_ERR_INVALID	73529	73605	1612	1	1997	generated	
+709	Const	WTS_LOGON_ERR_NOT_HANDLED	73606	73686	1613	1	1998	generated	
+710	Const	WTS_MAX_CACHE_RESERVED	73687	73733	1614	1	1999	generated	
+711	Const	WTS_MAX_COUNTERS	73734	73775	1615	1	2000	generated	
+712	Const	WTS_MAX_DISPLAY_IOCTL_DATA	73776	73827	1616	1	2001	generated	
+713	Const	WTS_MAX_PROTOCOL_CACHE	73828	73873	1617	1	2002	generated	
+714	Const	WTS_MAX_RESERVED	73874	73915	1618	1	2003	generated	
+715	Const	WTS_PASSWORD_LENGTH	73916	73960	1619	1	2004	generated	
+716	Const	WTS_PERF_DISABLE_CURSORSETTINGS	73961	74016	1620	1	2005	generated	
+717	Const	WTS_PERF_DISABLE_CURSOR_SHADOW	74017	74071	1621	1	2006	generated	
+718	Const	WTS_PERF_DISABLE_FULLWINDOWDRAG	74072	74126	1622	1	2007	generated	
+719	Const	WTS_PERF_DISABLE_MENUANIMATIONS	74127	74181	1623	1	2008	generated	
+720	Const	WTS_PERF_DISABLE_NOTHING	74182	74229	1624	1	2009	generated	
+721	Const	WTS_PERF_DISABLE_THEMING	74230	74277	1625	1	2010	generated	
+722	Const	WTS_PERF_DISABLE_WALLPAPER	74278	74327	1626	1	2011	generated	
+723	Const	WTS_PERF_ENABLE_DESKTOP_COMPOSITION	74328	74388	1627	1	2012	generated	
+724	Const	WTS_PERF_ENABLE_ENHANCED_GRAPHICS	74389	74446	1628	1	2013	generated	
+725	Const	WTS_PERF_ENABLE_FONT_SMOOTHING	74447	74502	1629	1	2014	generated	
+726	Struct	WTS_POLICY_DATA	74503	74872	1630	1	2015	unsupported	declaration Struct has no candidate rule
+727	Struct	WTS_PROCESS_INFOA	74873	75117	1644	1	2031	unsupported	declaration Struct has no candidate rule
+728	Impl		75118	75263	1653	1	2042	unsupported	declaration Impl has no candidate rule
+729	Struct	WTS_PROCESS_INFOW	75264	75509	1659	1	2050	unsupported	declaration Struct has no candidate rule
+730	Impl		75510	75655	1668	1	2061	unsupported	declaration Impl has no candidate rule
+731	Struct	WTS_PROCESS_INFO_EXA	75656	76129	1674	1	2069	unsupported	declaration Struct has no candidate rule
+732	Impl		76130	76278	1691	1	2088	unsupported	declaration Impl has no candidate rule
+733	Struct	WTS_PROCESS_INFO_EXW	76279	76753	1697	1	2096	unsupported	declaration Struct has no candidate rule
+734	Impl		76754	76902	1714	1	2115	unsupported	declaration Impl has no candidate rule
+735	Const	WTS_PROCESS_INFO_LEVEL_0	76903	76950	1720	1	2123	generated	
+736	Const	WTS_PROCESS_INFO_LEVEL_1	76951	76998	1721	1	2124	generated	
+737	Const	WTS_PROPERTY_DEFAULT_CONFIG	76999	77105	1722	1	2125	unsupported	non-scalar type Ptr unsupported
+738	Struct	WTS_PROPERTY_VALUE	77106	77225	1723	1	2128	unsupported	declaration Struct has no candidate rule
+739	Impl		77226	77337	1729	1	2136	unsupported	declaration Impl has no candidate rule
+740	Union		77338	77546	1734	1	2143	unsupported	declaration Union has no candidate rule
+741	Impl		77547	77660	1742	1	2153	unsupported	declaration Impl has no candidate rule
+742	Struct	WTS_PROPERTY_VALUE_0_1	77661	77791	1747	1	2160	unsupported	declaration Struct has no candidate rule
+743	Impl		77792	77907	1753	1	2168	unsupported	declaration Impl has no candidate rule
+744	Struct	WTS_PROPERTY_VALUE_0_0	77908	78041	1758	1	2175	unsupported	declaration Struct has no candidate rule
+745	Impl		78042	78157	1764	1	2183	unsupported	declaration Impl has no candidate rule
+746	Struct	WTS_PROTOCOL_CACHE	78158	78283	1769	1	2190	unsupported	declaration Struct has no candidate rule
+747	Struct	WTS_PROTOCOL_COUNTERS	78284	78824	1775	1	2198	unsupported	declaration Struct has no candidate rule
+748	Impl		78825	78939	1797	1	2222	unsupported	declaration Impl has no candidate rule
+749	Const	WTS_PROTOCOL_NAME_LENGTH	78940	78987	1802	1	2229	generated	
+750	Struct	WTS_PROTOCOL_STATUS	78988	79251	1803	1	2230	unsupported	declaration Struct has no candidate rule
+751	Impl		79252	79364	1813	1	2242	unsupported	declaration Impl has no candidate rule
+752	Const	WTS_PROTOCOL_TYPE_CONSOLE	79365	79413	1818	1	2249	generated	
+753	Const	WTS_PROTOCOL_TYPE_ICA	79414	79458	1819	1	2250	generated	
+754	Const	WTS_PROTOCOL_TYPE_RDP	79459	79503	1820	1	2251	generated	
+755	Const	WTS_QUERY_ALLOWED_INITIAL_APP	79504	79646	1821	1	2252	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+756	Const	WTS_QUERY_AUDIOENUM_DLL	79647	79783	1822	1	2255	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+757	Const	WTS_QUERY_LOGON_SCREEN_SIZE	79784	79924	1823	1	2258	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+758	Const	WTS_QUERY_MF_FORMAT_SUPPORT	79925	80065	1824	1	2261	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+759	ItemType	WTS_RCM_DRAIN_STATE	80066	80101	1825	1	2264	generated	
+760	ItemType	WTS_RCM_SERVICE_STATE	80102	80139	1826	1	2265	generated	
+761	Const	WTS_SECURITY_ALL_ACCESS	80140	80206	1827	1	2266	generated	
+762	Const	WTS_SECURITY_CONNECT	80207	80267	1828	1	2267	generated	
+763	Const	WTS_SECURITY_CURRENT_GUEST_ACCESS	80268	80340	1829	1	2268	generated	
+764	Const	WTS_SECURITY_CURRENT_USER_ACCESS	80341	80413	1830	1	2269	generated	
+765	Const	WTS_SECURITY_DISCONNECT	80414	80477	1831	1	2270	generated	
+766	ItemType	WTS_SECURITY_FLAGS	80478	80512	1832	1	2271	generated	
+767	Const	WTS_SECURITY_GUEST_ACCESS	80513	80577	1833	1	2272	generated	
+768	Const	WTS_SECURITY_LOGOFF	80578	80636	1834	1	2273	generated	
+769	Const	WTS_SECURITY_LOGON	80637	80694	1835	1	2274	generated	
+770	Const	WTS_SECURITY_MESSAGE	80695	80755	1836	1	2275	generated	
+771	Const	WTS_SECURITY_QUERY_INFORMATION	80756	80824	1837	1	2276	generated	
+772	Const	WTS_SECURITY_REMOTE_CONTROL	80825	80891	1838	1	2277	generated	
+773	Const	WTS_SECURITY_RESET	80892	80948	1839	1	2278	generated	
+774	Const	WTS_SECURITY_SET_INFORMATION	80949	81015	1840	1	2279	generated	
+775	Const	WTS_SECURITY_USER_ACCESS	81016	81080	1841	1	2280	generated	
+776	Const	WTS_SECURITY_VIRTUAL_CHANNELS	81081	81148	1842	1	2281	generated	
+777	Struct	WTS_SERVER_INFOA	81149	81260	1843	1	2282	unsupported	declaration Struct has no candidate rule
+778	Impl		81261	81370	1848	1	2289	unsupported	declaration Impl has no candidate rule
+779	Struct	WTS_SERVER_INFOW	81371	81483	1853	1	2296	unsupported	declaration Struct has no candidate rule
+780	Impl		81484	81593	1858	1	2303	unsupported	declaration Impl has no candidate rule
+781	Const	WTS_SERVICE_NONE	81594	81651	1863	1	2310	generated	
+782	Const	WTS_SERVICE_START	81652	81710	1864	1	2311	generated	
+783	Struct	WTS_SERVICE_STATE	81711	81878	1865	1	2312	unsupported	declaration Struct has no candidate rule
+784	Const	WTS_SERVICE_STOP	81879	81936	1871	1	2320	generated	
+785	Const	WTS_SESSIONSTATE_LOCK	81937	81981	1872	1	2321	generated	
+786	Const	WTS_SESSIONSTATE_UNKNOWN	81982	82038	1873	1	2322	generated	
+787	Const	WTS_SESSIONSTATE_UNLOCK	82039	82085	1874	1	2323	generated	
+788	Struct	WTS_SESSION_ADDRESS	82086	82209	1875	1	2324	unsupported	declaration Struct has no candidate rule
+789	Impl		82210	82322	1881	1	2332	unsupported	declaration Impl has no candidate rule
+790	Struct	WTS_SESSION_ID	82323	82471	1886	1	2339	unsupported	declaration Struct has no candidate rule
+791	Struct	WTS_SESSION_INFOA	82472	82651	1892	1	2347	unsupported	declaration Struct has no candidate rule
+792	Impl		82652	82762	1899	1	2356	unsupported	declaration Impl has no candidate rule
+793	Struct	WTS_SESSION_INFOW	82763	82943	1904	1	2363	unsupported	declaration Struct has no candidate rule
+794	Impl		82944	83054	1911	1	2372	unsupported	declaration Impl has no candidate rule
+795	Struct	WTS_SESSION_INFO_1A	83055	83435	1916	1	2379	unsupported	declaration Struct has no candidate rule
+796	Impl		83436	83548	1928	1	2393	unsupported	declaration Impl has no candidate rule
+797	Struct	WTS_SESSION_INFO_1W	83549	83934	1933	1	2400	unsupported	declaration Struct has no candidate rule
+798	Impl		83935	84047	1945	1	2414	unsupported	declaration Impl has no candidate rule
+799	Struct	WTS_SMALL_RECT	84048	84198	1950	1	2421	unsupported	declaration Struct has no candidate rule
+800	Struct	WTS_SOCKADDR	84199	84312	1958	1	2431	unsupported	declaration Struct has no candidate rule
+801	Impl		84313	84418	1964	1	2439	unsupported	declaration Impl has no candidate rule
+802	Union		84419	84545	1969	1	2446	unsupported	declaration Union has no candidate rule
+803	Impl		84546	84653	1975	1	2454	unsupported	declaration Impl has no candidate rule
+804	Struct	WTS_SOCKADDR_0_0	84654	84791	1980	1	2461	unsupported	declaration Struct has no candidate rule
+805	Impl		84792	84901	1987	1	2470	unsupported	declaration Impl has no candidate rule
+806	Struct	WTS_SOCKADDR_0_1	84902	85076	1992	1	2477	unsupported	declaration Struct has no candidate rule
+807	Impl		85077	85186	2000	1	2487	unsupported	declaration Impl has no candidate rule
+808	Struct	WTS_SYSTEMTIME	85187	85436	2005	1	2494	unsupported	declaration Struct has no candidate rule
+809	Struct	WTS_TIME_ZONE_INFORMATION	85437	85726	2017	1	2508	unsupported	declaration Struct has no candidate rule
+810	Impl		85727	85845	2028	1	2521	unsupported	declaration Impl has no candidate rule
+811	ItemType	WTS_TYPE_CLASS	85846	85876	2033	1	2528	generated	
+812	Const	WTS_USERNAME_LENGTH	85877	85921	2034	1	2529	generated	
+813	Struct	WTS_USER_CREDENTIAL	85922	86078	2035	1	2530	unsupported	declaration Struct has no candidate rule
+814	Impl		86079	86191	2042	1	2539	unsupported	declaration Impl has no candidate rule
+815	Struct	WTS_USER_DATA	86192	86374	2047	1	2546	unsupported	declaration Struct has no candidate rule
+816	Impl		86375	86481	2054	1	2555	unsupported	declaration Impl has no candidate rule
+817	Struct	WTS_VALIDATION_INFORMATIONA	86482	86713	2059	1	2562	unsupported	declaration Struct has no candidate rule
+818	Impl		86714	86834	2068	1	2573	unsupported	declaration Impl has no candidate rule
+819	Struct	WTS_VALIDATION_INFORMATIONW	86835	87066	2073	1	2580	unsupported	declaration Struct has no candidate rule
+820	Impl		87067	87187	2082	1	2591	unsupported	declaration Impl has no candidate rule
+821	Const	WTS_VALUE_TYPE_BINARY	87188	87232	2087	1	2598	generated	
+822	Const	WTS_VALUE_TYPE_GUID	87233	87275	2088	1	2599	generated	
+823	Const	WTS_VALUE_TYPE_STRING	87276	87320	2089	1	2600	generated	
+824	Const	WTS_VALUE_TYPE_ULONG	87321	87364	2090	1	2601	generated	
+825	ItemType	WTS_VIRTUAL_CLASS	87365	87398	2091	1	2602	generated	
+826	Const	WTS_WSD_FASTREBOOT	87399	87441	2092	1	2603	generated	
+827	Const	WTS_WSD_LOGOFF	87442	87479	2093	1	2604	generated	
+828	Const	WTS_WSD_POWEROFF	87480	87519	2094	1	2605	generated	
+829	Const	WTS_WSD_REBOOT	87520	87557	2095	1	2606	generated	
+830	Const	WTS_WSD_SHUTDOWN	87558	87597	2096	1	2607	generated	
+831	Const	Workspace	87598	87720	2097	1	2608	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
+832	Struct	pluginResource	87721	88143	2098	1	2611	unsupported	declaration Struct has no candidate rule
+833	Impl		88144	88251	2113	1	2628	unsupported	declaration Impl has no candidate rule
+834	Struct	pluginResource2	88252	88568	2118	1	2635	unsupported	declaration Struct has no candidate rule
+835	Impl		88569	88677	2128	1	2647	unsupported	declaration Impl has no candidate rule
+836	Struct	pluginResource2FileAssociation	88678	88871	2133	1	2654	unsupported	declaration Struct has no candidate rule
+837	Impl		88872	88995	2141	1	2664	unsupported	declaration Impl has no candidate rule

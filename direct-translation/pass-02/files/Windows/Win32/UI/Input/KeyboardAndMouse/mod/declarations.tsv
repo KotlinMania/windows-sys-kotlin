@@ -1,0 +1,552 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	127	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		128	248	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		249	426	3	1	8	unsupported	declaration Macro has no candidate rule
+3	Macro		427	595	4	1	11	unsupported	declaration Macro has no candidate rule
+4	Macro		596	702	5	1	14	unsupported	declaration Macro has no candidate rule
+5	Macro		703	785	6	1	17	unsupported	declaration Macro has no candidate rule
+6	Macro		786	887	7	1	20	unsupported	declaration Macro has no candidate rule
+7	Macro		888	962	8	1	23	unsupported	declaration Macro has no candidate rule
+8	Macro		963	1062	9	1	26	unsupported	declaration Macro has no candidate rule
+9	Macro		1063	1132	10	1	29	unsupported	declaration Macro has no candidate rule
+10	Macro		1133	1267	11	1	32	unsupported	declaration Macro has no candidate rule
+11	Macro		1268	1403	12	1	35	unsupported	declaration Macro has no candidate rule
+12	Macro		1404	1485	13	1	38	unsupported	declaration Macro has no candidate rule
+13	Macro		1486	1573	14	1	41	unsupported	declaration Macro has no candidate rule
+14	Macro		1574	1681	15	1	44	unsupported	declaration Macro has no candidate rule
+15	Macro		1682	1814	16	1	47	unsupported	declaration Macro has no candidate rule
+16	Macro		1815	1948	17	1	50	unsupported	declaration Macro has no candidate rule
+17	Macro		1949	2061	18	1	53	unsupported	declaration Macro has no candidate rule
+18	Macro		2062	2148	19	1	56	unsupported	declaration Macro has no candidate rule
+19	Macro		2149	2266	20	1	59	unsupported	declaration Macro has no candidate rule
+20	Macro		2267	2484	21	1	62	unsupported	declaration Macro has no candidate rule
+21	Macro		2485	2621	22	1	65	unsupported	declaration Macro has no candidate rule
+22	Macro		2622	2772	23	1	68	unsupported	declaration Macro has no candidate rule
+23	Macro		2773	2924	24	1	71	unsupported	declaration Macro has no candidate rule
+24	Macro		2925	3039	25	1	74	unsupported	declaration Macro has no candidate rule
+25	Macro		3040	3169	26	1	77	unsupported	declaration Macro has no candidate rule
+26	Macro		3170	3299	27	1	80	unsupported	declaration Macro has no candidate rule
+27	Macro		3300	3414	28	1	83	unsupported	declaration Macro has no candidate rule
+28	Macro		3415	3495	29	1	86	unsupported	declaration Macro has no candidate rule
+29	Macro		3496	3684	30	1	89	unsupported	declaration Macro has no candidate rule
+30	Macro		3685	3775	31	1	92	unsupported	declaration Macro has no candidate rule
+31	Macro		3776	3892	32	1	95	unsupported	declaration Macro has no candidate rule
+32	Macro		3893	4044	33	1	98	unsupported	declaration Macro has no candidate rule
+33	Macro		4045	4191	34	1	101	unsupported	declaration Macro has no candidate rule
+34	Macro		4192	4298	35	1	104	unsupported	declaration Macro has no candidate rule
+35	Macro		4299	4443	36	1	107	unsupported	declaration Macro has no candidate rule
+36	Macro		4444	4558	37	1	110	unsupported	declaration Macro has no candidate rule
+37	Macro		4559	4681	38	1	113	unsupported	declaration Macro has no candidate rule
+38	Macro		4682	4833	39	1	116	unsupported	declaration Macro has no candidate rule
+39	Macro		4834	5000	40	1	119	unsupported	declaration Macro has no candidate rule
+40	Macro		5001	5187	41	1	122	unsupported	declaration Macro has no candidate rule
+41	Macro		5188	5389	42	1	125	unsupported	declaration Macro has no candidate rule
+42	Macro		5390	5516	43	1	128	unsupported	declaration Macro has no candidate rule
+43	Macro		5517	5622	44	1	131	unsupported	declaration Macro has no candidate rule
+44	Macro		5623	5770	45	1	134	unsupported	declaration Macro has no candidate rule
+45	Macro		5771	5844	46	1	137	unsupported	declaration Macro has no candidate rule
+46	Macro		5845	5933	47	1	140	unsupported	declaration Macro has no candidate rule
+47	Macro		5934	6023	48	1	143	unsupported	declaration Macro has no candidate rule
+48	Macro		6024	6098	49	1	146	unsupported	declaration Macro has no candidate rule
+49	Macro		6099	6228	50	1	149	unsupported	declaration Macro has no candidate rule
+50	Macro		6229	6359	51	1	152	unsupported	declaration Macro has no candidate rule
+51	Macro		6360	6502	52	1	155	unsupported	declaration Macro has no candidate rule
+52	ItemType	ACTIVATE_KEYBOARD_LAYOUT_FLAGS	6503	6549	53	1	158	generated	
+53	Const	ACUTE	6550	6580	54	1	159	generated	
+54	Const	AX_KBD_DESKTOP_TYPE	6581	6623	55	1	160	generated	
+55	Const	BREVE	6624	6654	56	1	161	generated	
+56	Const	CAPLOK	6655	6684	57	1	162	generated	
+57	Const	CAPLOKALTGR	6685	6719	58	1	163	generated	
+58	Const	CEDILLA	6720	6752	59	1	164	generated	
+59	Const	CIRCUMFLEX	6753	6788	60	1	165	generated	
+60	Struct	DEADKEY	6789	6922	61	1	166	unsupported	declaration Struct has no candidate rule
+61	Const	DEC_KBD_ANSI_LAYOUT_TYPE	6923	6970	68	1	175	generated	
+62	Const	DEC_KBD_JIS_LAYOUT_TYPE	6971	7017	69	1	176	generated	
+63	Const	DIARESIS	7018	7051	70	1	177	generated	
+64	Const	DIARESIS_TONOS	7052	7091	71	1	178	generated	
+65	Const	DKF_DEAD	7092	7123	72	1	179	generated	
+66	Const	DONTCARE_BIT	7124	7166	73	1	180	generated	
+67	Const	DOT_ABOVE	7167	7201	74	1	181	generated	
+68	Const	DOUBLE_ACUTE	7202	7239	75	1	182	generated	
+69	Const	EXTENDED_BIT	7240	7282	76	1	183	generated	
+70	Const	FAKE_KEYSTROKE	7283	7327	77	1	184	generated	
+71	Const	FMR_KBD_JIS_TYPE	7328	7367	78	1	185	generated	
+72	Const	FMR_KBD_OASYS_TYPE	7368	7409	79	1	186	generated	
+73	Const	FMV_KBD_OASYS_TYPE	7410	7451	80	1	187	generated	
+74	ItemType	GET_MOUSE_MOVE_POINTS_EX_RESOLUTION	7452	7503	81	1	188	generated	
+75	Const	GMMP_USE_DISPLAY_POINTS	7504	7582	82	1	189	generated	
+76	Const	GMMP_USE_HIGH_RESOLUTION_POINTS	7583	7669	83	1	190	generated	
+77	Const	GRAVE	7670	7700	84	1	191	generated	
+78	Const	GRPSELTAP	7701	7735	85	1	192	generated	
+79	Const	HACEK	7736	7766	86	1	193	generated	
+80	Struct	HARDWAREINPUT	7767	7901	87	1	194	unsupported	declaration Struct has no candidate rule
+81	ItemType	HKL	7902	7940	94	1	203	unsupported	non-scalar type Ptr unsupported
+82	Const	HOOK_ABOVE	7941	7976	95	1	206	generated	
+83	ItemType	HOT_KEY_MODIFIERS	7977	8010	96	1	207	generated	
+84	Struct	INPUT	8011	8121	97	1	208	unsupported	declaration Struct has no candidate rule
+85	Impl		8122	8220	103	1	216	unsupported	declaration Impl has no candidate rule
+86	Union		8221	8351	108	1	223	unsupported	declaration Union has no candidate rule
+87	Impl		8352	8452	115	1	232	unsupported	declaration Impl has no candidate rule
+88	Const	INPUT_HARDWARE	8453	8497	120	1	239	generated	
+89	Const	INPUT_KEYBOARD	8498	8542	121	1	240	generated	
+90	Const	INPUT_MOUSE	8543	8584	122	1	241	generated	
+91	ItemType	INPUT_TYPE	8585	8611	123	1	242	generated	
+92	Const	KANALOK	8612	8642	124	1	243	generated	
+93	Const	KBDALT	8643	8672	125	1	244	generated	
+94	Const	KBDBASE	8673	8703	126	1	245	generated	
+95	Const	KBDCTRL	8704	8734	127	1	246	generated	
+96	Const	KBDGRPSELTAP	8735	8772	128	1	247	generated	
+97	Const	KBDKANA	8773	8803	129	1	248	generated	
+98	Const	KBDLOYA	8804	8835	130	1	249	generated	
+99	Struct	KBDNLSTABLES	8836	9070	131	1	250	unsupported	declaration Struct has no candidate rule
+100	Impl		9071	9176	141	1	262	unsupported	declaration Impl has no candidate rule
+101	Const	KBDNLS_ALPHANUM	9177	9215	146	1	269	generated	
+102	Const	KBDNLS_CODEINPUT	9216	9256	147	1	270	generated	
+103	Const	KBDNLS_CONV_OR_NONCONV	9257	9303	148	1	271	generated	
+104	Const	KBDNLS_HELP_OR_END	9304	9346	149	1	272	generated	
+105	Const	KBDNLS_HIRAGANA	9347	9385	150	1	273	generated	
+106	Const	KBDNLS_HOME_OR_CLEAR	9386	9430	151	1	274	generated	
+107	Const	KBDNLS_INDEX_ALT	9431	9470	152	1	275	generated	
+108	Const	KBDNLS_INDEX_NORMAL	9471	9513	153	1	276	generated	
+109	Const	KBDNLS_KANAEVENT	9514	9554	154	1	277	generated	
+110	Const	KBDNLS_KANALOCK	9555	9593	155	1	278	generated	
+111	Const	KBDNLS_KATAKANA	9594	9632	156	1	279	generated	
+112	Const	KBDNLS_NOEVENT	9633	9670	157	1	280	generated	
+113	Const	KBDNLS_NULL	9671	9705	158	1	281	generated	
+114	Const	KBDNLS_NUMPAD	9706	9743	159	1	282	generated	
+115	Const	KBDNLS_ROMAN	9744	9779	160	1	283	generated	
+116	Const	KBDNLS_SBCSDBCS	9780	9818	161	1	284	generated	
+117	Const	KBDNLS_SEND_BASE_VK	9819	9861	162	1	285	generated	
+118	Const	KBDNLS_SEND_PARAM_VK	9862	9905	163	1	286	generated	
+119	Const	KBDNLS_TYPE_NORMAL	9906	9947	164	1	287	generated	
+120	Const	KBDNLS_TYPE_NULL	9948	9987	165	1	288	generated	
+121	Const	KBDNLS_TYPE_TOGGLE	9988	10029	166	1	289	generated	
+122	Const	KBDROYA	10030	10061	167	1	290	generated	
+123	Const	KBDSHIFT	10062	10093	168	1	291	generated	
+124	Struct	KBDTABLES	10094	10659	169	1	292	unsupported	declaration Struct has no candidate rule
+125	Impl		10660	10762	189	1	314	unsupported	declaration Impl has no candidate rule
+126	Struct	KBDTABLE_DESC	10763	10901	194	1	321	unsupported	declaration Struct has no candidate rule
+127	Impl		10902	11008	201	1	330	unsupported	declaration Impl has no candidate rule
+128	Struct	KBDTABLE_MULTI	11009	11134	206	1	337	unsupported	declaration Struct has no candidate rule
+129	Impl		11135	11242	212	1	345	unsupported	declaration Impl has no candidate rule
+130	Const	KBDTABLE_MULTI_MAX	11243	11284	217	1	352	generated	
+131	Const	KBD_TYPE	11285	11316	218	1	353	generated	
+132	Struct	KBD_TYPE_INFO	11317	11457	219	1	354	unsupported	declaration Struct has no candidate rule
+133	Const	KBD_VERSION	11458	11492	226	1	363	generated	
+134	Struct	KEYBDINPUT	11493	11690	227	1	364	unsupported	declaration Struct has no candidate rule
+135	ItemType	KEYBD_EVENT_FLAGS	11691	11724	236	1	375	generated	
+136	Const	KEYBOARD_TYPE_GENERIC_101	11725	11773	237	1	376	generated	
+137	Const	KEYBOARD_TYPE_JAPAN	11774	11816	238	1	377	generated	
+138	Const	KEYBOARD_TYPE_KOREA	11817	11859	239	1	378	generated	
+139	Const	KEYBOARD_TYPE_UNKNOWN	11860	11905	240	1	379	generated	
+140	Const	KEYEVENTF_EXTENDEDKEY	11906	11964	241	1	380	generated	
+141	Const	KEYEVENTF_KEYUP	11965	12017	242	1	381	generated	
+142	Const	KEYEVENTF_SCANCODE	12018	12073	243	1	382	generated	
+143	Const	KEYEVENTF_UNICODE	12074	12128	244	1	383	generated	
+144	Const	KLF_ACTIVATE	12129	12191	245	1	384	generated	
+145	Const	KLF_NOTELLSHELL	12192	12259	246	1	385	generated	
+146	Const	KLF_REORDER	12260	12321	247	1	386	generated	
+147	Const	KLF_REPLACELANG	12322	12388	248	1	387	generated	
+148	Const	KLF_RESET	12389	12457	249	1	388	generated	
+149	Const	KLF_SETFORPROCESS	12458	12527	250	1	389	generated	
+150	Const	KLF_SHIFTLOCK	12528	12595	251	1	390	generated	
+151	Const	KLF_SUBSTITUTE_OK	12596	12663	252	1	391	generated	
+152	Const	KLLF_ALTGR	12664	12697	253	1	392	generated	
+153	Const	KLLF_GLOBAL_ATTRS	12698	12738	254	1	393	generated	
+154	Const	KLLF_LRM_RLM	12739	12774	255	1	394	generated	
+155	Const	KLLF_SHIFTLOCK	12775	12812	256	1	395	generated	
+156	Struct	LASTINPUTINFO	12813	12926	257	1	396	unsupported	declaration Struct has no candidate rule
+157	Struct	LIGATURE1	12927	13065	263	1	404	unsupported	declaration Struct has no candidate rule
+158	Impl		13066	13168	270	1	413	unsupported	declaration Impl has no candidate rule
+159	Struct	LIGATURE2	13169	13307	275	1	420	unsupported	declaration Struct has no candidate rule
+160	Impl		13308	13410	282	1	429	unsupported	declaration Impl has no candidate rule
+161	Struct	LIGATURE3	13411	13549	287	1	436	unsupported	declaration Struct has no candidate rule
+162	Impl		13550	13652	294	1	445	unsupported	declaration Impl has no candidate rule
+163	Struct	LIGATURE4	13653	13791	299	1	452	unsupported	declaration Struct has no candidate rule
+164	Impl		13792	13894	306	1	461	unsupported	declaration Impl has no candidate rule
+165	Struct	LIGATURE5	13895	14033	311	1	468	unsupported	declaration Struct has no candidate rule
+166	Impl		14034	14136	318	1	477	unsupported	declaration Impl has no candidate rule
+167	Const	MACRON	14137	14168	323	1	484	generated	
+168	Const	MAPVK_VK_TO_CHAR	14169	14225	324	1	485	generated	
+169	Const	MAPVK_VK_TO_VSC	14226	14281	325	1	486	generated	
+170	Const	MAPVK_VK_TO_VSC_EX	14282	14340	326	1	487	generated	
+171	Const	MAPVK_VSC_TO_VK	14341	14396	327	1	488	generated	
+172	Const	MAPVK_VSC_TO_VK_EX	14397	14455	328	1	489	generated	
+173	ItemType	MAP_VIRTUAL_KEY_TYPE	14456	14492	329	1	490	generated	
+174	Const	MICROSOFT_KBD_001_TYPE	14493	14538	330	1	491	generated	
+175	Const	MICROSOFT_KBD_002_TYPE	14539	14584	331	1	492	generated	
+176	Const	MICROSOFT_KBD_101A_TYPE	14585	14631	332	1	493	generated	
+177	Const	MICROSOFT_KBD_101B_TYPE	14632	14678	333	1	494	generated	
+178	Const	MICROSOFT_KBD_101C_TYPE	14679	14725	334	1	495	generated	
+179	Const	MICROSOFT_KBD_101_TYPE	14726	14771	335	1	496	generated	
+180	Const	MICROSOFT_KBD_103_TYPE	14772	14817	336	1	497	generated	
+181	Const	MICROSOFT_KBD_106_TYPE	14818	14863	337	1	498	generated	
+182	Const	MICROSOFT_KBD_AX_TYPE	14864	14908	338	1	499	generated	
+183	Const	MICROSOFT_KBD_FUNC	14909	14951	339	1	500	generated	
+184	Struct	MODIFIERS	14952	15098	340	1	501	unsupported	declaration Struct has no candidate rule
+185	Impl		15099	15201	347	1	510	unsupported	declaration Impl has no candidate rule
+186	Const	MOD_ALT	15202	15246	352	1	517	generated	
+187	Const	MOD_CONTROL	15247	15295	353	1	518	generated	
+188	Const	MOD_NOREPEAT	15296	15349	354	1	519	generated	
+189	Const	MOD_SHIFT	15350	15396	355	1	520	generated	
+190	Const	MOD_WIN	15397	15441	356	1	521	generated	
+191	Const	MOUSEEVENTF_ABSOLUTE	15442	15503	357	1	522	generated	
+192	Const	MOUSEEVENTF_HWHEEL	15504	15562	358	1	523	generated	
+193	Const	MOUSEEVENTF_LEFTDOWN	15563	15620	359	1	524	generated	
+194	Const	MOUSEEVENTF_LEFTUP	15621	15676	360	1	525	generated	
+195	Const	MOUSEEVENTF_MIDDLEDOWN	15677	15737	361	1	526	generated	
+196	Const	MOUSEEVENTF_MIDDLEUP	15738	15796	362	1	527	generated	
+197	Const	MOUSEEVENTF_MOVE	15797	15850	363	1	528	generated	
+198	Const	MOUSEEVENTF_MOVE_NOCOALESCE	15851	15918	364	1	529	generated	
+199	Const	MOUSEEVENTF_RIGHTDOWN	15919	15977	365	1	530	generated	
+200	Const	MOUSEEVENTF_RIGHTUP	15978	16035	366	1	531	generated	
+201	Const	MOUSEEVENTF_VIRTUALDESK	16036	16100	367	1	532	generated	
+202	Const	MOUSEEVENTF_WHEEL	16101	16158	368	1	533	generated	
+203	Const	MOUSEEVENTF_XDOWN	16159	16215	369	1	534	generated	
+204	Const	MOUSEEVENTF_XUP	16216	16270	370	1	535	generated	
+205	Struct	MOUSEINPUT	16271	16480	371	1	536	unsupported	declaration Struct has no candidate rule
+206	Struct	MOUSEMOVEPOINT	16481	16632	381	1	548	unsupported	declaration Struct has no candidate rule
+207	ItemType	MOUSE_EVENT_FLAGS	16633	16666	389	1	558	generated	
+208	Const	NEC_KBD_106_TYPE	16667	16706	390	1	559	generated	
+209	Const	NEC_KBD_H_MODE_TYPE	16707	16749	391	1	560	generated	
+210	Const	NEC_KBD_LAPTOP_TYPE	16750	16792	392	1	561	generated	
+211	Const	NEC_KBD_NORMAL_TYPE	16793	16835	393	1	562	generated	
+212	Const	NEC_KBD_N_MODE_TYPE	16836	16878	394	1	563	generated	
+213	Const	NLSKBD_INFO_ACCESSIBILITY_KEYMAP	16879	16934	395	1	564	generated	
+214	Const	NLSKBD_INFO_EMURATE_101_KEYBOARD	16935	16991	396	1	565	generated	
+215	Const	NLSKBD_INFO_EMURATE_106_KEYBOARD	16992	17048	397	1	566	generated	
+216	Const	NLSKBD_INFO_SEND_IME_NOTIFICATION	17049	17105	398	1	567	generated	
+217	Const	NLSKBD_OEM_AX	17106	17142	399	1	568	generated	
+218	Const	NLSKBD_OEM_DEC	17143	17181	400	1	569	generated	
+219	Const	NLSKBD_OEM_EPSON	17182	17221	401	1	570	generated	
+220	Const	NLSKBD_OEM_FUJITSU	17222	17263	402	1	571	generated	
+221	Const	NLSKBD_OEM_IBM	17264	17301	403	1	572	generated	
+222	Const	NLSKBD_OEM_MATSUSHITA	17302	17347	404	1	573	generated	
+223	Const	NLSKBD_OEM_MICROSOFT	17348	17391	405	1	574	generated	
+224	Const	NLSKBD_OEM_NEC	17392	17430	406	1	575	generated	
+225	Const	NLSKBD_OEM_TOSHIBA	17431	17473	407	1	576	generated	
+226	Const	OGONEK	17474	17505	408	1	577	generated	
+227	Const	OVERSCORE	17506	17540	409	1	578	generated	
+228	Const	RING	17541	17570	410	1	579	generated	
+229	Const	SCANCODE_ALT	17571	17607	411	1	580	generated	
+230	Const	SCANCODE_CTRL	17608	17645	412	1	581	generated	
+231	Const	SCANCODE_LSHIFT	17646	17685	413	1	582	generated	
+232	Const	SCANCODE_LWIN	17686	17723	414	1	583	generated	
+233	Const	SCANCODE_NUMPAD_FIRST	17724	17769	415	1	584	generated	
+234	Const	SCANCODE_NUMPAD_LAST	17770	17814	416	1	585	generated	
+235	Const	SCANCODE_RSHIFT	17815	17854	417	1	586	generated	
+236	Const	SCANCODE_RWIN	17855	17892	418	1	587	generated	
+237	Const	SCANCODE_THAI_LAYOUT_TOGGLE	17893	17944	419	1	588	generated	
+238	Const	SGCAPS	17945	17974	420	1	589	generated	
+239	Const	SHFT_INVALID	17975	18011	421	1	590	generated	
+240	Const	TILDE	18012	18042	422	1	591	generated	
+241	Const	TME_CANCEL	18043	18103	423	1	592	generated	
+242	Const	TME_HOVER	18104	18154	424	1	593	generated	
+243	Const	TME_LEAVE	18155	18205	425	1	594	generated	
+244	Const	TME_NONCLIENT	18206	18261	426	1	595	generated	
+245	Const	TME_QUERY	18262	18321	427	1	596	generated	
+246	Const	TONOS	18322	18352	428	1	597	generated	
+247	Const	TOSHIBA_KBD_DESKTOP_TYPE	18353	18401	429	1	598	generated	
+248	Const	TOSHIBA_KBD_LAPTOP_TYPE	18402	18449	430	1	599	generated	
+249	Struct	TRACKMOUSEEVENT	18450	18659	431	1	600	unsupported	declaration Struct has no candidate rule
+250	Impl		18660	18768	439	1	610	unsupported	declaration Impl has no candidate rule
+251	ItemType	TRACKMOUSEEVENT_FLAGS	18769	18806	444	1	617	generated	
+252	Const	UMLAUT	18807	18838	445	1	618	generated	
+253	ItemType	VIRTUAL_KEY	18839	18866	446	1	619	generated	
+254	Const	VK_0	18867	18903	447	1	620	generated	
+255	Const	VK_1	18904	18940	448	1	621	generated	
+256	Const	VK_2	18941	18977	449	1	622	generated	
+257	Const	VK_3	18978	19014	450	1	623	generated	
+258	Const	VK_4	19015	19051	451	1	624	generated	
+259	Const	VK_5	19052	19088	452	1	625	generated	
+260	Const	VK_6	19089	19125	453	1	626	generated	
+261	Const	VK_7	19126	19162	454	1	627	generated	
+262	Const	VK_8	19163	19199	455	1	628	generated	
+263	Const	VK_9	19200	19236	456	1	629	generated	
+264	Const	VK_A	19237	19273	457	1	630	generated	
+265	Const	VK_ABNT_C1	19274	19317	458	1	631	generated	
+266	Const	VK_ABNT_C2	19318	19361	459	1	632	generated	
+267	Const	VK_ACCEPT	19362	19403	460	1	633	generated	
+268	Const	VK_ADD	19404	19443	461	1	634	generated	
+269	Const	VK_APPS	19444	19483	462	1	635	generated	
+270	Const	VK_ATTN	19484	19524	463	1	636	generated	
+271	Const	VK_B	19525	19561	464	1	637	generated	
+272	Const	VK_BACK	19562	19600	465	1	638	generated	
+273	Const	VK_BROWSER_BACK	19601	19649	466	1	639	generated	
+274	Const	VK_BROWSER_FAVORITES	19650	19703	467	1	640	generated	
+275	Const	VK_BROWSER_FORWARD	19704	19755	468	1	641	generated	
+276	Const	VK_BROWSER_HOME	19756	19804	469	1	642	generated	
+277	Const	VK_BROWSER_REFRESH	19805	19856	470	1	643	generated	
+278	Const	VK_BROWSER_SEARCH	19857	19907	471	1	644	generated	
+279	Const	VK_BROWSER_STOP	19908	19956	472	1	645	generated	
+280	Const	VK_C	19957	19993	473	1	646	generated	
+281	Const	VK_CANCEL	19994	20034	474	1	647	generated	
+282	Const	VK_CAPITAL	20035	20077	475	1	648	generated	
+283	Const	VK_CLEAR	20078	20118	476	1	649	generated	
+284	Const	VK_CONTROL	20119	20161	477	1	650	generated	
+285	Const	VK_CONVERT	20162	20204	478	1	651	generated	
+286	Const	VK_CRSEL	20205	20246	479	1	652	generated	
+287	Const	VK_D	20247	20283	480	1	653	generated	
+288	Const	VK_DBE_ALPHANUMERIC	20284	20336	481	1	654	generated	
+289	Const	VK_DBE_CODEINPUT	20337	20386	482	1	655	generated	
+290	Const	VK_DBE_DBCSCHAR	20387	20435	483	1	656	generated	
+291	Const	VK_DBE_DETERMINESTRING	20436	20491	484	1	657	generated	
+292	Const	VK_DBE_ENTERDLGCONVERSIONMODE	20492	20554	485	1	658	generated	
+293	Const	VK_DBE_ENTERIMECONFIGMODE	20555	20613	486	1	659	generated	
+294	Const	VK_DBE_ENTERWORDREGISTERMODE	20614	20675	487	1	660	generated	
+295	Const	VK_DBE_FLUSHSTRING	20676	20727	488	1	661	generated	
+296	Const	VK_DBE_HIRAGANA	20728	20776	489	1	662	generated	
+297	Const	VK_DBE_KATAKANA	20777	20825	490	1	663	generated	
+298	Const	VK_DBE_NOCODEINPUT	20826	20877	491	1	664	generated	
+299	Const	VK_DBE_NOROMAN	20878	20925	492	1	665	generated	
+300	Const	VK_DBE_ROMAN	20926	20971	493	1	666	generated	
+301	Const	VK_DBE_SBCSCHAR	20972	21020	494	1	667	generated	
+302	Const	VK_DECIMAL	21021	21064	495	1	668	generated	
+303	Const	VK_DELETE	21065	21106	496	1	669	generated	
+304	Const	VK_DIVIDE	21107	21149	497	1	670	generated	
+305	Const	VK_DOWN	21150	21189	498	1	671	generated	
+306	Const	VK_E	21190	21226	499	1	672	generated	
+307	Const	VK_END	21227	21265	500	1	673	generated	
+308	Const	VK_EREOF	21266	21307	501	1	674	generated	
+309	Const	VK_ESCAPE	21308	21349	502	1	675	generated	
+310	Const	VK_EXECUTE	21350	21392	503	1	676	generated	
+311	Const	VK_EXSEL	21393	21434	504	1	677	generated	
+312	Struct	VK_F	21435	21663	505	1	678	unsupported	declaration Struct has no candidate rule
+313	Impl		21664	21761	515	1	690	unsupported	declaration Impl has no candidate rule
+314	Const	VK_F	21762	21798	520	1	697	generated	
+315	Const	VK_F1	21799	21837	521	1	698	generated	
+316	Const	VK_F10	21838	21877	522	1	699	generated	
+317	Const	VK_F11	21878	21917	523	1	700	generated	
+318	Const	VK_F12	21918	21957	524	1	701	generated	
+319	Const	VK_F13	21958	21997	525	1	702	generated	
+320	Const	VK_F14	21998	22037	526	1	703	generated	
+321	Const	VK_F15	22038	22077	527	1	704	generated	
+322	Const	VK_F16	22078	22117	528	1	705	generated	
+323	Const	VK_F17	22118	22157	529	1	706	generated	
+324	Const	VK_F18	22158	22197	530	1	707	generated	
+325	Const	VK_F19	22198	22237	531	1	708	generated	
+326	Const	VK_F2	22238	22276	532	1	709	generated	
+327	Const	VK_F20	22277	22316	533	1	710	generated	
+328	Const	VK_F21	22317	22356	534	1	711	generated	
+329	Const	VK_F22	22357	22396	535	1	712	generated	
+330	Const	VK_F23	22397	22436	536	1	713	generated	
+331	Const	VK_F24	22437	22476	537	1	714	generated	
+332	Const	VK_F3	22477	22515	538	1	715	generated	
+333	Const	VK_F4	22516	22554	539	1	716	generated	
+334	Const	VK_F5	22555	22593	540	1	717	generated	
+335	Const	VK_F6	22594	22632	541	1	718	generated	
+336	Const	VK_F7	22633	22671	542	1	719	generated	
+337	Const	VK_F8	22672	22710	543	1	720	generated	
+338	Const	VK_F9	22711	22749	544	1	721	generated	
+339	Const	VK_FINAL	22750	22790	545	1	722	generated	
+340	Struct	VK_FPARAM	22791	22915	546	1	723	unsupported	declaration Struct has no candidate rule
+341	Const	VK_G	22916	22952	552	1	731	generated	
+342	Const	VK_GAMEPAD_A	22953	22998	553	1	732	generated	
+343	Const	VK_GAMEPAD_B	22999	23044	554	1	733	generated	
+344	Const	VK_GAMEPAD_DPAD_DOWN	23045	23098	555	1	734	generated	
+345	Const	VK_GAMEPAD_DPAD_LEFT	23099	23152	556	1	735	generated	
+346	Const	VK_GAMEPAD_DPAD_RIGHT	23153	23207	557	1	736	generated	
+347	Const	VK_GAMEPAD_DPAD_UP	23208	23259	558	1	737	generated	
+348	Const	VK_GAMEPAD_LEFT_SHOULDER	23260	23317	559	1	738	generated	
+349	Const	VK_GAMEPAD_LEFT_THUMBSTICK_BUTTON	23318	23384	560	1	739	generated	
+350	Const	VK_GAMEPAD_LEFT_THUMBSTICK_DOWN	23385	23449	561	1	740	generated	
+351	Const	VK_GAMEPAD_LEFT_THUMBSTICK_LEFT	23450	23514	562	1	741	generated	
+352	Const	VK_GAMEPAD_LEFT_THUMBSTICK_RIGHT	23515	23580	563	1	742	generated	
+353	Const	VK_GAMEPAD_LEFT_THUMBSTICK_UP	23581	23643	564	1	743	generated	
+354	Const	VK_GAMEPAD_LEFT_TRIGGER	23644	23700	565	1	744	generated	
+355	Const	VK_GAMEPAD_MENU	23701	23749	566	1	745	generated	
+356	Const	VK_GAMEPAD_RIGHT_SHOULDER	23750	23808	567	1	746	generated	
+357	Const	VK_GAMEPAD_RIGHT_THUMBSTICK_BUTTON	23809	23876	568	1	747	generated	
+358	Const	VK_GAMEPAD_RIGHT_THUMBSTICK_DOWN	23877	23942	569	1	748	generated	
+359	Const	VK_GAMEPAD_RIGHT_THUMBSTICK_LEFT	23943	24008	570	1	749	generated	
+360	Const	VK_GAMEPAD_RIGHT_THUMBSTICK_RIGHT	24009	24075	571	1	750	generated	
+361	Const	VK_GAMEPAD_RIGHT_THUMBSTICK_UP	24076	24139	572	1	751	generated	
+362	Const	VK_GAMEPAD_RIGHT_TRIGGER	24140	24197	573	1	752	generated	
+363	Const	VK_GAMEPAD_VIEW	24198	24246	574	1	753	generated	
+364	Const	VK_GAMEPAD_X	24247	24292	575	1	754	generated	
+365	Const	VK_GAMEPAD_Y	24293	24338	576	1	755	generated	
+366	Const	VK_H	24339	24375	577	1	756	generated	
+367	Const	VK_HANGEUL	24376	24418	578	1	757	generated	
+368	Const	VK_HANGUL	24419	24460	579	1	758	generated	
+369	Const	VK_HANJA	24461	24501	580	1	759	generated	
+370	Const	VK_HELP	24502	24541	581	1	760	generated	
+371	Const	VK_HOME	24542	24581	582	1	761	generated	
+372	Const	VK_I	24582	24618	583	1	762	generated	
+373	Const	VK_ICO_00	24619	24661	584	1	763	generated	
+374	Const	VK_ICO_CLEAR	24662	24707	585	1	764	generated	
+375	Const	VK_ICO_HELP	24708	24752	586	1	765	generated	
+376	Const	VK_IME_OFF	24753	24795	587	1	766	generated	
+377	Const	VK_IME_ON	24796	24837	588	1	767	generated	
+378	Const	VK_INSERT	24838	24879	589	1	768	generated	
+379	Const	VK_J	24880	24916	590	1	769	generated	
+380	Const	VK_JUNJA	24917	24957	591	1	770	generated	
+381	Const	VK_K	24958	24994	592	1	771	generated	
+382	Const	VK_KANA	24995	25034	593	1	772	generated	
+383	Const	VK_KANJI	25035	25075	594	1	773	generated	
+384	Const	VK_L	25076	25112	595	1	774	generated	
+385	Const	VK_LAUNCH_APP1	25113	25160	596	1	775	generated	
+386	Const	VK_LAUNCH_APP2	25161	25208	597	1	776	generated	
+387	Const	VK_LAUNCH_MAIL	25209	25256	598	1	777	generated	
+388	Const	VK_LAUNCH_MEDIA_SELECT	25257	25312	599	1	778	generated	
+389	Const	VK_LBUTTON	25313	25354	600	1	779	generated	
+390	Const	VK_LCONTROL	25355	25399	601	1	780	generated	
+391	Const	VK_LEFT	25400	25439	602	1	781	generated	
+392	Const	VK_LMENU	25440	25481	603	1	782	generated	
+393	Const	VK_LSHIFT	25482	25524	604	1	783	generated	
+394	Const	VK_LWIN	25525	25564	605	1	784	generated	
+395	Const	VK_M	25565	25601	606	1	785	generated	
+396	Const	VK_MBUTTON	25602	25643	607	1	786	generated	
+397	Const	VK_MEDIA_NEXT_TRACK	25644	25696	608	1	787	generated	
+398	Const	VK_MEDIA_PLAY_PAUSE	25697	25749	609	1	788	generated	
+399	Const	VK_MEDIA_PREV_TRACK	25750	25802	610	1	789	generated	
+400	Const	VK_MEDIA_STOP	25803	25849	611	1	790	generated	
+401	Const	VK_MENU	25850	25889	612	1	791	generated	
+402	Const	VK_MODECHANGE	25890	25935	613	1	792	generated	
+403	Const	VK_MULTIPLY	25936	25980	614	1	793	generated	
+404	Const	VK_N	25981	26017	615	1	794	generated	
+405	Const	VK_NAVIGATION_ACCEPT	26018	26071	616	1	795	generated	
+406	Const	VK_NAVIGATION_CANCEL	26072	26125	617	1	796	generated	
+407	Const	VK_NAVIGATION_DOWN	26126	26177	618	1	797	generated	
+408	Const	VK_NAVIGATION_LEFT	26178	26229	619	1	798	generated	
+409	Const	VK_NAVIGATION_MENU	26230	26281	620	1	799	generated	
+410	Const	VK_NAVIGATION_RIGHT	26282	26334	621	1	800	generated	
+411	Const	VK_NAVIGATION_UP	26335	26384	622	1	801	generated	
+412	Const	VK_NAVIGATION_VIEW	26385	26436	623	1	802	generated	
+413	Const	VK_NEXT	26437	26476	624	1	803	generated	
+414	Const	VK_NONAME	26477	26519	625	1	804	generated	
+415	Const	VK_NONCONVERT	26520	26565	626	1	805	generated	
+416	Const	VK_NUMLOCK	26566	26609	627	1	806	generated	
+417	Const	VK_NUMPAD0	26610	26652	628	1	807	generated	
+418	Const	VK_NUMPAD1	26653	26695	629	1	808	generated	
+419	Const	VK_NUMPAD2	26696	26738	630	1	809	generated	
+420	Const	VK_NUMPAD3	26739	26781	631	1	810	generated	
+421	Const	VK_NUMPAD4	26782	26825	632	1	811	generated	
+422	Const	VK_NUMPAD5	26826	26869	633	1	812	generated	
+423	Const	VK_NUMPAD6	26870	26913	634	1	813	generated	
+424	Const	VK_NUMPAD7	26914	26957	635	1	814	generated	
+425	Const	VK_NUMPAD8	26958	27001	636	1	815	generated	
+426	Const	VK_NUMPAD9	27002	27045	637	1	816	generated	
+427	Const	VK_O	27046	27082	638	1	817	generated	
+428	Const	VK_OEM_1	27083	27124	639	1	818	generated	
+429	Const	VK_OEM_102	27125	27168	640	1	819	generated	
+430	Const	VK_OEM_2	27169	27210	641	1	820	generated	
+431	Const	VK_OEM_3	27211	27252	642	1	821	generated	
+432	Const	VK_OEM_4	27253	27294	643	1	822	generated	
+433	Const	VK_OEM_5	27295	27336	644	1	823	generated	
+434	Const	VK_OEM_6	27337	27378	645	1	824	generated	
+435	Const	VK_OEM_7	27379	27420	646	1	825	generated	
+436	Const	VK_OEM_8	27421	27462	647	1	826	generated	
+437	Const	VK_OEM_ATTN	27463	27507	648	1	827	generated	
+438	Const	VK_OEM_AUTO	27508	27552	649	1	828	generated	
+439	Const	VK_OEM_AX	27553	27595	650	1	829	generated	
+440	Const	VK_OEM_BACKTAB	27596	27643	651	1	830	generated	
+441	Const	VK_OEM_CLEAR	27644	27689	652	1	831	generated	
+442	Const	VK_OEM_COMMA	27690	27735	653	1	832	generated	
+443	Const	VK_OEM_COPY	27736	27780	654	1	833	generated	
+444	Const	VK_OEM_CUSEL	27781	27826	655	1	834	generated	
+445	Const	VK_OEM_ENLW	27827	27871	656	1	835	generated	
+446	Const	VK_OEM_FINISH	27872	27918	657	1	836	generated	
+447	Const	VK_OEM_FJ_JISHO	27919	27967	658	1	837	generated	
+448	Const	VK_OEM_FJ_LOYA	27968	28015	659	1	838	generated	
+449	Const	VK_OEM_FJ_MASSHOU	28016	28066	660	1	839	generated	
+450	Const	VK_OEM_FJ_ROYA	28067	28114	661	1	840	generated	
+451	Const	VK_OEM_FJ_TOUROKU	28115	28165	662	1	841	generated	
+452	Const	VK_OEM_JUMP	28166	28210	663	1	842	generated	
+453	Const	VK_OEM_MINUS	28211	28256	664	1	843	generated	
+454	Const	VK_OEM_NEC_EQUAL	28257	28306	665	1	844	generated	
+455	Const	VK_OEM_PA1	28307	28350	666	1	845	generated	
+456	Const	VK_OEM_PA2	28351	28394	667	1	846	generated	
+457	Const	VK_OEM_PA3	28395	28438	668	1	847	generated	
+458	Const	VK_OEM_PERIOD	28439	28485	669	1	848	generated	
+459	Const	VK_OEM_PLUS	28486	28530	670	1	849	generated	
+460	Const	VK_OEM_RESET	28531	28576	671	1	850	generated	
+461	Const	VK_OEM_WSCTRL	28577	28623	672	1	851	generated	
+462	Const	VK_P	28624	28660	673	1	852	generated	
+463	Const	VK_PA1	28661	28700	674	1	853	generated	
+464	Const	VK_PACKET	28701	28743	675	1	854	generated	
+465	Const	VK_PAUSE	28744	28784	676	1	855	generated	
+466	Const	VK_PLAY	28785	28825	677	1	856	generated	
+467	Const	VK_PRINT	28826	28866	678	1	857	generated	
+468	Const	VK_PRIOR	28867	28907	679	1	858	generated	
+469	Const	VK_PROCESSKEY	28908	28954	680	1	859	generated	
+470	Const	VK_Q	28955	28991	681	1	860	generated	
+471	Const	VK_R	28992	29028	682	1	861	generated	
+472	Const	VK_RBUTTON	29029	29070	683	1	862	generated	
+473	Const	VK_RCONTROL	29071	29115	684	1	863	generated	
+474	Const	VK_RETURN	29116	29157	685	1	864	generated	
+475	Const	VK_RIGHT	29158	29198	686	1	865	generated	
+476	Const	VK_RMENU	29199	29240	687	1	866	generated	
+477	Const	VK_RSHIFT	29241	29283	688	1	867	generated	
+478	Const	VK_RWIN	29284	29323	689	1	868	generated	
+479	Const	VK_S	29324	29360	690	1	869	generated	
+480	Const	VK_SCROLL	29361	29403	691	1	870	generated	
+481	Const	VK_SELECT	29404	29445	692	1	871	generated	
+482	Const	VK_SEPARATOR	29446	29491	693	1	872	generated	
+483	Const	VK_SHIFT	29492	29532	694	1	873	generated	
+484	Const	VK_SLEEP	29533	29573	695	1	874	generated	
+485	Const	VK_SNAPSHOT	29574	29617	696	1	875	generated	
+486	Const	VK_SPACE	29618	29658	697	1	876	generated	
+487	Const	VK_SUBTRACT	29659	29703	698	1	877	generated	
+488	Const	VK_T	29704	29740	699	1	878	generated	
+489	Const	VK_TAB	29741	29778	700	1	879	generated	
+490	Struct	VK_TO_BIT	29779	29883	701	1	880	unsupported	declaration Struct has no candidate rule
+491	Struct	VK_TO_WCHARS1	29884	30017	707	1	888	unsupported	declaration Struct has no candidate rule
+492	Impl		30018	30124	714	1	897	unsupported	declaration Impl has no candidate rule
+493	Struct	VK_TO_WCHARS10	30125	30260	719	1	904	unsupported	declaration Struct has no candidate rule
+494	Impl		30261	30368	726	1	913	unsupported	declaration Impl has no candidate rule
+495	Struct	VK_TO_WCHARS2	30369	30502	731	1	920	unsupported	declaration Struct has no candidate rule
+496	Impl		30503	30609	738	1	929	unsupported	declaration Impl has no candidate rule
+497	Struct	VK_TO_WCHARS3	30610	30743	743	1	936	unsupported	declaration Struct has no candidate rule
+498	Impl		30744	30850	750	1	945	unsupported	declaration Impl has no candidate rule
+499	Struct	VK_TO_WCHARS4	30851	30984	755	1	952	unsupported	declaration Struct has no candidate rule
+500	Impl		30985	31091	762	1	961	unsupported	declaration Impl has no candidate rule
+501	Struct	VK_TO_WCHARS5	31092	31225	767	1	968	unsupported	declaration Struct has no candidate rule
+502	Impl		31226	31332	774	1	977	unsupported	declaration Impl has no candidate rule
+503	Struct	VK_TO_WCHARS6	31333	31466	779	1	984	unsupported	declaration Struct has no candidate rule
+504	Impl		31467	31573	786	1	993	unsupported	declaration Impl has no candidate rule
+505	Struct	VK_TO_WCHARS7	31574	31707	791	1	1000	unsupported	declaration Struct has no candidate rule
+506	Impl		31708	31814	798	1	1009	unsupported	declaration Impl has no candidate rule
+507	Struct	VK_TO_WCHARS8	31815	31948	803	1	1016	unsupported	declaration Struct has no candidate rule
+508	Impl		31949	32055	810	1	1025	unsupported	declaration Impl has no candidate rule
+509	Struct	VK_TO_WCHARS9	32056	32189	815	1	1032	unsupported	declaration Struct has no candidate rule
+510	Impl		32190	32296	822	1	1041	unsupported	declaration Impl has no candidate rule
+511	Struct	VK_TO_WCHAR_TABLE	32297	32452	827	1	1048	unsupported	declaration Struct has no candidate rule
+512	Impl		32453	32563	834	1	1057	unsupported	declaration Impl has no candidate rule
+513	Const	VK_U	32564	32600	839	1	1064	generated	
+514	Const	VK_UP	32601	32638	840	1	1065	generated	
+515	Const	VK_V	32639	32675	841	1	1066	generated	
+516	Const	VK_VOLUME_DOWN	32676	32723	842	1	1067	generated	
+517	Const	VK_VOLUME_MUTE	32724	32771	843	1	1068	generated	
+518	Const	VK_VOLUME_UP	32772	32817	844	1	1069	generated	
+519	Struct	VK_VSC	32818	32915	845	1	1070	unsupported	declaration Struct has no candidate rule
+520	Const	VK_W	32916	32952	851	1	1078	generated	
+521	Const	VK_X	32953	32989	852	1	1079	generated	
+522	Const	VK_XBUTTON1	32990	33032	853	1	1080	generated	
+523	Const	VK_XBUTTON2	33033	33075	854	1	1081	generated	
+524	Const	VK_Y	33076	33112	855	1	1082	generated	
+525	Const	VK_Z	33113	33149	856	1	1083	generated	
+526	Const	VK_ZOOM	33150	33190	857	1	1084	generated	
+527	Const	VK__none_	33191	33233	858	1	1085	generated	
+528	Struct	VSC_LPWSTR	33234	33350	859	1	1086	unsupported	declaration Struct has no candidate rule
+529	Impl		33351	33454	865	1	1094	unsupported	declaration Impl has no candidate rule
+530	Struct	VSC_VK	33455	33553	870	1	1101	unsupported	declaration Struct has no candidate rule
+531	Const	WCH_DEAD	33554	33589	876	1	1109	generated	
+532	Const	WCH_LGTR	33590	33625	877	1	1110	generated	
+533	Const	WCH_NONE	33626	33661	878	1	1111	generated	
+534	Const	wszACUTE	33662	33743	879	1	1112	unsupported	non-scalar type Ptr unsupported
+535	Const	wszBREVE	33744	33825	880	1	1115	unsupported	non-scalar type Ptr unsupported
+536	Const	wszCEDILLA	33826	33909	881	1	1118	unsupported	non-scalar type Ptr unsupported
+537	Const	wszCIRCUMFLEX	33910	33996	882	1	1121	unsupported	non-scalar type Ptr unsupported
+538	Const	wszDIARESIS_TONOS	33997	34087	883	1	1124	unsupported	non-scalar type Ptr unsupported
+539	Const	wszDOT_ABOVE	34088	34173	884	1	1127	unsupported	non-scalar type Ptr unsupported
+540	Const	wszDOUBLE_ACUTE	34174	34262	885	1	1130	unsupported	non-scalar type Ptr unsupported
+541	Const	wszGRAVE	34263	34344	886	1	1133	unsupported	non-scalar type Ptr unsupported
+542	Const	wszHACEK	34345	34426	887	1	1136	unsupported	non-scalar type Ptr unsupported
+543	Const	wszHOOK_ABOVE	34427	34513	888	1	1139	unsupported	non-scalar type Ptr unsupported
+544	Const	wszMACRON	34514	34596	889	1	1142	unsupported	non-scalar type Ptr unsupported
+545	Const	wszOGONEK	34597	34679	890	1	1145	unsupported	non-scalar type Ptr unsupported
+546	Const	wszOVERSCORE	34680	34765	891	1	1148	unsupported	non-scalar type Ptr unsupported
+547	Const	wszRING	34766	34846	892	1	1151	unsupported	non-scalar type Ptr unsupported
+548	Const	wszTILDE	34847	34928	893	1	1154	unsupported	non-scalar type Ptr unsupported
+549	Const	wszTONOS	34929	35010	894	1	1157	unsupported	non-scalar type Ptr unsupported
+550	Const	wszUMLAUT	35011	35093	895	1	1160	unsupported	non-scalar type Ptr unsupported

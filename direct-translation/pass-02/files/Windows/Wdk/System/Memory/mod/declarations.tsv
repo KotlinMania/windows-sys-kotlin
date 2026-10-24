@@ -1,0 +1,10 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	457	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		458	801	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		802	1026	4	1	9	unsupported	declaration Macro has no candidate rule
+3	Macro		1027	1484	5	1	12	unsupported	declaration Macro has no candidate rule
+4	Macro		1485	1828	6	1	15	unsupported	declaration Macro has no candidate rule
+5	Macro		1829	2053	8	1	19	unsupported	declaration Macro has no candidate rule
+6	ItemType	SECTION_INHERIT	2054	2085	9	1	22	generated	
+7	Const	ViewShare	2086	2130	10	1	23	generated	
+8	Const	ViewUnmap	2131	2175	11	1	24	generated	

@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Wdk/Storage/FileSystem/Minifilters/mod: 118 generated; 447 unsupported

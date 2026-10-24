@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/NetworkManagement/WindowsFirewall/mod: 171 generated; 46 unsupported

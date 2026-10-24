@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-05/files/Windows/Win32/System/Hypervisor/mod: 693 generated; 250 syntax candidates; 138 unsupported

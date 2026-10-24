@@ -1,0 +1,100 @@
+// DIRECT DECLARATION CANDIDATE: unsupported Rust remains below; not adopted or ABI-validated.
+// UNSUPPORTED Rust 1:1: missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule
+// pub const GUID_DEVINTERFACE_PWM_CONTROLLER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x60824b4c_eed1_4c9c_b49c_1b961461a819);
+
+// INTEGRATION REQUIRED: Rust windows_sys::core::w! is emitted as a call shape. Supply its source-faithful UTF-16 *const u16 static-storage adapter: append one trailing NUL, preserve embedded NULs and keep pointer storage alive. No pointer allocation, adapter implementation or namespace binding is supplied here.
+// INTEGRATION REQUIRED: Rust const use-site value semantics versus Kotlin val initialization must be checked during adapter integration.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+public val `GUID_DEVINTERFACE_PWM_CONTROLLER_WSZ`: `windows_sys`.`core`.`PCWSTR` = `windows_sys`.`core`.`w`("{60824B4C-EED1-4C9C-B49C-1B961461A819}");
+public const val `IOCTL_PWM_CONTROLLER_GET_ACTUAL_PERIOD`: UInt = 262148u;
+public const val `IOCTL_PWM_CONTROLLER_GET_INFO`: UInt = 262144u;
+public const val `IOCTL_PWM_CONTROLLER_SET_DESIRED_PERIOD`: UInt = 294920u;
+public const val `IOCTL_PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE`: UInt = 262544u;
+public const val `IOCTL_PWM_PIN_GET_POLARITY`: UInt = 262552u;
+public const val `IOCTL_PWM_PIN_IS_STARTED`: UInt = 262568u;
+public const val `IOCTL_PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE`: UInt = 295316u;
+public const val `IOCTL_PWM_PIN_SET_POLARITY`: UInt = 295324u;
+public const val `IOCTL_PWM_PIN_START`: UInt = 295331u;
+public const val `IOCTL_PWM_PIN_STOP`: UInt = 295335u;
+public const val `PWM_ACTIVE_HIGH`: `PWM_POLARITY` = 0;
+public const val `PWM_ACTIVE_LOW`: `PWM_POLARITY` = 1;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT` (
+    public var `ActualPeriod`: ULong,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `PWM_CONTROLLER_INFO` (
+    public var `Size`: ULong,
+    public var `PinCount`: UInt,
+    public var `MinimumPeriod`: ULong,
+    public var `MaximumPeriod`: ULong,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT` (
+    public var `DesiredPeriod`: ULong,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT` (
+    public var `ActualPeriod`: ULong,
+)
+public const val `PWM_IOCTL_ID_CONTROLLER_GET_ACTUAL_PERIOD`: Int = 1;
+public const val `PWM_IOCTL_ID_CONTROLLER_GET_INFO`: Int = 0;
+public const val `PWM_IOCTL_ID_CONTROLLER_SET_DESIRED_PERIOD`: Int = 2;
+public const val `PWM_IOCTL_ID_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE`: Int = 100;
+public const val `PWM_IOCTL_ID_PIN_GET_POLARITY`: Int = 102;
+public const val `PWM_IOCTL_ID_PIN_IS_STARTED`: Int = 106;
+public const val `PWM_IOCTL_ID_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE`: Int = 101;
+public const val `PWM_IOCTL_ID_PIN_SET_POLARITY`: Int = 103;
+public const val `PWM_IOCTL_ID_PIN_START`: Int = 104;
+public const val `PWM_IOCTL_ID_PIN_STOP`: Int = 105;
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT` (
+    public var `Percentage`: ULong,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `PWM_PIN_GET_POLARITY_OUTPUT` (
+    public var `Polarity`: `PWM_POLARITY`,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `PWM_PIN_IS_STARTED_OUTPUT` (
+    public var `IsStarted`: Boolean,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT` (
+    public var `Percentage`: ULong,
+)
+// INTEGRATION REQUIRED: Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation.
+// INTEGRATION REQUIRED: Resolve Rust path/import names in the destination module; spelling is preserved, not bound.
+// INTEGRATION REQUIRED: Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+// Rust attribute (integration required): #[repr(C)]
+// Rust attribute (integration required): #[derive(Clone, Copy, Default)]
+public class `PWM_PIN_SET_POLARITY_INPUT` (
+    public var `Polarity`: `PWM_POLARITY`,
+)
+public typealias `PWM_POLARITY` = Int;

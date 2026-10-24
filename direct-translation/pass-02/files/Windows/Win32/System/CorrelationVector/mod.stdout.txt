@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/System/CorrelationVector/mod: 5 generated; 6 unsupported

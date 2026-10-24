@@ -1,0 +1,17 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Mod	literals	0	13	1	1	2	unsupported	declaration Mod has no candidate rule
+1	Use		15	50	3	1	6	unsupported	declaration Use has no candidate rule
+2	ItemType	BOOL	52	72	6	1	11	generated	
+3	ItemType	HRESULT	73	96	7	1	12	generated	
+4	ItemType	PSTR	97	121	8	1	13	unsupported	non-scalar type Ptr unsupported
+5	ItemType	PWSTR	122	148	9	1	16	unsupported	non-scalar type Ptr unsupported
+6	ItemType	PCSTR	149	176	10	1	19	unsupported	non-scalar type Ptr unsupported
+7	ItemType	PCWSTR	177	206	11	1	22	unsupported	non-scalar type Ptr unsupported
+8	ItemType	BSTR	207	234	12	1	25	unsupported	non-scalar type Ptr unsupported
+9	ItemType	HSTRING	235	277	13	1	28	unsupported	non-scalar type Ptr unsupported
+10	Struct	GUID	279	425	15	1	32	unsupported	declaration Struct has no candidate rule
+11	Impl		427	649	24	1	43	unsupported	declaration Impl has no candidate rule
+12	Const	IID_IUnknown	651	738	30	1	51	unsupported	unresolved scalar type GUID
+13	Struct	IUnknown_Vtbl	740	1090	32	1	55	unsupported	declaration Struct has no candidate rule
+14	Const	IID_IInspectable	1092	1183	39	1	64	unsupported	unresolved scalar type GUID
+15	Struct	IInspectable_Vtbl	1185	1624	41	1	68	unsupported	declaration Struct has no candidate rule

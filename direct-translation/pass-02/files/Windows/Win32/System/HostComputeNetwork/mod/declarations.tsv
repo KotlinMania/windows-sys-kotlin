@@ -1,0 +1,70 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	138	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		139	299	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		300	446	3	1	8	unsupported	declaration Macro has no candidate rule
+3	Macro		447	587	4	1	11	unsupported	declaration Macro has no candidate rule
+4	Macro		588	724	5	1	14	unsupported	declaration Macro has no candidate rule
+5	Macro		725	1023	6	1	17	unsupported	declaration Macro has no candidate rule
+6	Macro		1024	1308	7	1	20	unsupported	declaration Macro has no candidate rule
+7	Macro		1309	1579	8	1	23	unsupported	declaration Macro has no candidate rule
+8	Macro		1580	1844	9	1	26	unsupported	declaration Macro has no candidate rule
+9	Macro		1845	2105	10	1	29	unsupported	declaration Macro has no candidate rule
+10	Macro		2106	2290	11	1	32	unsupported	declaration Macro has no candidate rule
+11	Macro		2291	2486	12	1	35	unsupported	declaration Macro has no candidate rule
+12	Macro		2487	2675	13	1	38	unsupported	declaration Macro has no candidate rule
+13	Macro		2676	2861	14	1	41	unsupported	declaration Macro has no candidate rule
+14	Macro		2862	3045	15	1	44	unsupported	declaration Macro has no candidate rule
+15	Macro		3046	3275	16	1	47	unsupported	declaration Macro has no candidate rule
+16	Macro		3276	3471	17	1	50	unsupported	declaration Macro has no candidate rule
+17	Macro		3472	3708	18	1	53	unsupported	declaration Macro has no candidate rule
+18	Macro		3709	3940	19	1	56	unsupported	declaration Macro has no candidate rule
+19	Macro		3941	4168	20	1	59	unsupported	declaration Macro has no candidate rule
+20	Macro		4169	4300	21	1	62	unsupported	declaration Macro has no candidate rule
+21	Macro		4301	4523	22	1	65	unsupported	declaration Macro has no candidate rule
+22	Macro		4524	4768	23	1	68	unsupported	declaration Macro has no candidate rule
+23	Macro		4769	4999	24	1	71	unsupported	declaration Macro has no candidate rule
+24	Macro		5000	5224	25	1	74	unsupported	declaration Macro has no candidate rule
+25	Macro		5225	5445	26	1	77	unsupported	declaration Macro has no candidate rule
+26	Macro		5446	5668	27	1	80	unsupported	declaration Macro has no candidate rule
+27	Macro		5669	5899	28	1	83	unsupported	declaration Macro has no candidate rule
+28	Macro		5900	6124	29	1	86	unsupported	declaration Macro has no candidate rule
+29	Macro		6125	6345	30	1	89	unsupported	declaration Macro has no candidate rule
+30	Macro		6346	6616	31	1	92	unsupported	declaration Macro has no candidate rule
+31	Macro		6617	6889	32	1	95	unsupported	declaration Macro has no candidate rule
+32	Macro		6890	7152	33	1	98	unsupported	declaration Macro has no candidate rule
+33	Macro		7153	7433	34	1	101	unsupported	declaration Macro has no candidate rule
+34	Macro		7434	7708	35	1	104	unsupported	declaration Macro has no candidate rule
+35	Macro		7709	7979	36	1	107	unsupported	declaration Macro has no candidate rule
+36	Macro		7980	8271	37	1	110	unsupported	declaration Macro has no candidate rule
+37	Macro		8272	8503	38	1	113	unsupported	declaration Macro has no candidate rule
+38	Macro		8504	8698	39	1	116	unsupported	declaration Macro has no candidate rule
+39	Macro		8699	8997	40	1	119	unsupported	declaration Macro has no candidate rule
+40	Macro		8998	9306	41	1	122	unsupported	declaration Macro has no candidate rule
+41	Macro		9307	9475	42	1	125	unsupported	declaration Macro has no candidate rule
+42	Macro		9476	9632	43	1	128	unsupported	declaration Macro has no candidate rule
+43	ItemType	HCN_NOTIFICATIONS	9633	9666	44	1	131	generated	
+44	ItemType	HCN_NOTIFICATION_CALLBACK	9667	9889	45	1	132	unsupported	generic scalar type unsupported
+45	ItemType	HCN_PORT_ACCESS	9890	9921	46	1	135	generated	
+46	Const	HCN_PORT_ACCESS_EXCLUSIVE	9922	9982	47	1	136	generated	
+47	Const	HCN_PORT_ACCESS_SHARED	9983	10040	48	1	137	generated	
+48	ItemType	HCN_PORT_PROTOCOL	10041	10074	49	1	138	generated	
+49	Const	HCN_PORT_PROTOCOL_BOTH	10075	10134	50	1	139	generated	
+50	Const	HCN_PORT_PROTOCOL_TCP	10135	10193	51	1	140	generated	
+51	Const	HCN_PORT_PROTOCOL_UDP	10194	10252	52	1	141	generated	
+52	Struct	HCN_PORT_RANGE_ENTRY	10253	10631	53	1	142	unsupported	declaration Struct has no candidate rule
+53	Struct	HCN_PORT_RANGE_RESERVATION	10632	10768	66	1	157	unsupported	declaration Struct has no candidate rule
+54	Const	HcnNotificationFlagsReserved	10769	10843	72	1	165	generated	
+55	Const	HcnNotificationGuestNetworkServiceCreate	10844	10921	73	1	166	generated	
+56	Const	HcnNotificationGuestNetworkServiceDelete	10922	10999	74	1	167	generated	
+57	Const	HcnNotificationGuestNetworkServiceInterfaceStateChanged	11000	11093	75	1	168	generated	
+58	Const	HcnNotificationGuestNetworkServiceStateChanged	11094	11178	76	1	169	generated	
+59	Const	HcnNotificationInvalid	11179	11238	77	1	170	generated	
+60	Const	HcnNotificationNamespaceCreate	11239	11306	78	1	171	generated	
+61	Const	HcnNotificationNamespaceDelete	11307	11374	79	1	172	generated	
+62	Const	HcnNotificationNetworkCreate	11375	11440	80	1	173	generated	
+63	Const	HcnNotificationNetworkDelete	11441	11506	81	1	174	generated	
+64	Const	HcnNotificationNetworkEndpointAttached	11507	11582	82	1	175	generated	
+65	Const	HcnNotificationNetworkEndpointDetached	11583	11659	83	1	176	generated	
+66	Const	HcnNotificationNetworkPreCreate	11660	11728	84	1	177	generated	
+67	Const	HcnNotificationNetworkPreDelete	11729	11797	85	1	178	generated	
+68	Const	HcnNotificationServiceDisconnect	11798	11874	86	1	179	generated	

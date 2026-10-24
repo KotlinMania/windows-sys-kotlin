@@ -1,0 +1,32 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	128	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		129	263	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		264	566	3	1	8	unsupported	declaration Macro has no candidate rule
+3	Macro		567	791	4	1	11	unsupported	declaration Macro has no candidate rule
+4	Macro		792	1022	5	1	14	unsupported	declaration Macro has no candidate rule
+5	Macro		1023	1333	6	1	17	unsupported	declaration Macro has no candidate rule
+6	Macro		1334	1607	7	1	20	unsupported	declaration Macro has no candidate rule
+7	Macro		1608	1887	8	1	23	unsupported	declaration Macro has no candidate rule
+8	Macro		1888	2016	9	1	26	unsupported	declaration Macro has no candidate rule
+9	Macro		2017	2151	10	1	29	unsupported	declaration Macro has no candidate rule
+10	Macro		2152	2425	11	1	32	unsupported	declaration Macro has no candidate rule
+11	Macro		2426	2705	12	1	35	unsupported	declaration Macro has no candidate rule
+12	ItemType	COMPRESSOR_HANDLE	2706	2758	13	1	38	unsupported	non-scalar type Ptr unsupported
+13	ItemType	COMPRESS_ALGORITHM	2759	2793	14	1	41	generated	
+14	Const	COMPRESS_ALGORITHM_INVALID	2794	2843	15	1	42	generated	
+15	Const	COMPRESS_ALGORITHM_LZMS	2844	2905	16	1	43	generated	
+16	Const	COMPRESS_ALGORITHM_MAX	2906	2951	17	1	44	generated	
+17	Const	COMPRESS_ALGORITHM_MSZIP	2952	3014	18	1	45	generated	
+18	Const	COMPRESS_ALGORITHM_NULL	3015	3061	19	1	46	generated	
+19	Const	COMPRESS_ALGORITHM_XPRESS	3062	3125	20	1	47	generated	
+20	Const	COMPRESS_ALGORITHM_XPRESS_HUFF	3126	3194	21	1	48	generated	
+21	Struct	COMPRESS_ALLOCATION_ROUTINES	3195	3391	22	1	49	unsupported	declaration Struct has no candidate rule
+22	Impl		3392	3513	29	1	58	unsupported	declaration Impl has no candidate rule
+23	ItemType	COMPRESS_INFORMATION_CLASS	3514	3556	34	1	65	generated	
+24	Const	COMPRESS_INFORMATION_CLASS_BLOCK_SIZE	3557	3640	35	1	66	generated	
+25	Const	COMPRESS_INFORMATION_CLASS_INVALID	3641	3721	36	1	67	generated	
+26	Const	COMPRESS_INFORMATION_CLASS_LEVEL	3722	3800	37	1	68	generated	
+27	Const	COMPRESS_RAW	3801	3844	38	1	69	generated	
+28	ItemType	DECOMPRESSOR_HANDLE	3845	3899	39	1	70	unsupported	non-scalar type Ptr unsupported
+29	ItemType	PFN_COMPRESS_ALLOCATE	3900	4045	40	1	73	unsupported	generic scalar type unsupported
+30	ItemType	PFN_COMPRESS_FREE	4046	4182	41	1	76	unsupported	generic scalar type unsupported

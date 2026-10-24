@@ -1,0 +1,73 @@
+{
+  "passed": true,
+  "files": 249,
+  "counts": {
+    "unsupported-only": 23,
+    "complete-syntax-candidate": 26,
+    "complete-candidate": 4,
+    "blocked": 1,
+    "partial-candidate": 195
+  },
+  "generated_kinds": {
+    "ItemType": 5547,
+    "Const": 112467
+  },
+  "syntax_kinds": {
+    "ItemType": 3779,
+    "Macro": 20189,
+    "Struct": 12969,
+    "Const": 6193
+  },
+  "unsupported_kinds": {
+    "Mod": 246,
+    "Const": 5939,
+    "Impl": 8938,
+    "Use": 7,
+    "Union": 1500,
+    "Macro": 63,
+    "Fn": 2,
+    "Struct": 34
+  },
+  "generated_declarations": 118014,
+  "syntax_declarations": 43130,
+  "unsupported_declarations": 16729,
+  "generator_sha256": "48587deaffc35820d005660532afaed8601e7381b5a9fa0db858e2521f3c735c",
+  "previous": {
+    "run": "../windows-sys-kotlin/direct-translation/pass-04",
+    "completed": true,
+    "compared_files": 249,
+    "generated_delta": 0,
+    "syntax_delta": 6193,
+    "unsupported_delta": -6193
+  },
+  "diagnostics": {
+    "declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl": 8938,
+    "missing/ambiguous source-backed scalar alias windows_sys::core::GUID; syntax: constant expression has no syntax candidate rule": 4448,
+    "declaration Union has no candidate rule; syntax: no per-file syntax rule for Union": 1500,
+    "qualified type requires source-backed binding: super::super::Foundation::PROPERTYKEY; syntax: constant expression has no syntax candidate rule": 748,
+    "qualified type requires source-backed binding: super::super::Foundation::DEVPROPKEY; syntax: constant expression has no syntax candidate rule": 343,
+    "non-scalar type Ptr unsupported; syntax: constant expression has no syntax candidate rule": 308,
+    "declaration Mod has no candidate rule; syntax: no per-file syntax rule for Mod": 246,
+    "foreign declaration requires explicit native target and interop package; syntax: foreign signature shape unsupported": 49,
+    "qualified type requires source-backed binding: super::super::Foundation::NTSTATUS; syntax: constant expression has no syntax candidate rule": 34,
+    "declaration Struct has no candidate rule; syntax: only named record shapes currently supported": 34,
+    "qualified type requires source-backed binding: super::super::super::Win32::Foundation::DEVPROPKEY; syntax: constant expression has no syntax candidate rule": 14,
+    "unresolved scalar type SID_IDENTIFIER_AUTHORITY; syntax: constant expression has no syntax candidate rule": 12,
+    "attribute cfg requires explicit semantics/configuration; syntax: foreign signature shape unsupported": 12,
+    "attribute cfg requires explicit semantics/configuration; syntax: constant expression has no syntax candidate rule": 11,
+    "declaration Use has no candidate rule; syntax: no per-file syntax rule for Use": 7,
+    "qualified type requires source-backed binding: super::super::Foundation::HWND; syntax: constant expression has no syntax candidate rule": 7,
+    "unresolved scalar type f32; syntax: constant expression has no syntax candidate rule": 6,
+    "unresolved scalar type GUID; syntax: constant expression has no syntax candidate rule": 2,
+    "attribute macro_export requires explicit semantics/configuration; syntax: macro has no recognized windows-link contract": 2,
+    "declaration Fn has no candidate rule; syntax: no per-file syntax rule for Fn": 2,
+    "qualified type requires source-backed binding: super::super::Foundation::HANDLE; syntax: constant expression has no syntax candidate rule": 2,
+    "FILE: rust-kotlin: file attributes/shebang require explicit semantics": 1,
+    "unresolved scalar type CONDITION_VARIABLE; syntax: constant expression has no syntax candidate rule": 1,
+    "unresolved scalar type INIT_ONCE; syntax: constant expression has no syntax candidate rule": 1,
+    "unresolved scalar type SRWLOCK; syntax: constant expression has no syntax candidate rule": 1,
+    "unresolved scalar type f64; syntax: constant expression has no syntax candidate rule": 1
+  },
+  "adopted": false,
+  "abi_validated": false
+}

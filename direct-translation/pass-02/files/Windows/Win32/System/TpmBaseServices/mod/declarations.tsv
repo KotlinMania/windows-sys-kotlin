@@ -1,0 +1,63 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro		0	200	1	1	2	unsupported	declaration Macro has no candidate rule
+1	Macro		201	427	2	1	5	unsupported	declaration Macro has no candidate rule
+2	Macro		428	583	3	1	8	unsupported	declaration Macro has no candidate rule
+3	Macro		584	675	4	1	11	unsupported	declaration Macro has no candidate rule
+4	Macro		676	788	5	1	14	unsupported	declaration Macro has no candidate rule
+5	Macro		789	964	6	1	17	unsupported	declaration Macro has no candidate rule
+6	Macro		965	1117	7	1	20	unsupported	declaration Macro has no candidate rule
+7	Macro		1118	1245	8	1	23	unsupported	declaration Macro has no candidate rule
+8	Macro		1246	1338	9	1	26	unsupported	declaration Macro has no candidate rule
+9	Macro		1339	1537	10	1	29	unsupported	declaration Macro has no candidate rule
+10	Macro		1538	1614	11	1	32	unsupported	declaration Macro has no candidate rule
+11	Macro		1615	1724	12	1	35	unsupported	declaration Macro has no candidate rule
+12	Macro		1725	1832	13	1	38	unsupported	declaration Macro has no candidate rule
+13	Macro		1833	2091	14	1	41	unsupported	declaration Macro has no candidate rule
+14	ItemType	TBS_COMMAND_LOCALITY	2092	2128	15	1	44	generated	
+15	Const	TBS_COMMAND_LOCALITY_FOUR	2129	2194	16	1	45	generated	
+16	Const	TBS_COMMAND_LOCALITY_ONE	2195	2259	17	1	46	generated	
+17	Const	TBS_COMMAND_LOCALITY_THREE	2260	2326	18	1	47	generated	
+18	Const	TBS_COMMAND_LOCALITY_TWO	2327	2391	19	1	48	generated	
+19	Const	TBS_COMMAND_LOCALITY_ZERO	2392	2457	20	1	49	generated	
+20	ItemType	TBS_COMMAND_PRIORITY	2458	2494	21	1	50	generated	
+21	Const	TBS_COMMAND_PRIORITY_HIGH	2495	2562	22	1	51	generated	
+22	Const	TBS_COMMAND_PRIORITY_LOW	2563	2629	23	1	52	generated	
+23	Const	TBS_COMMAND_PRIORITY_MAX	2630	2703	24	1	53	generated	
+24	Const	TBS_COMMAND_PRIORITY_NORMAL	2704	2773	25	1	54	generated	
+25	Const	TBS_COMMAND_PRIORITY_SYSTEM	2774	2843	26	1	55	generated	
+26	Struct	TBS_CONTEXT_PARAMS	2844	2942	27	1	56	unsupported	declaration Struct has no candidate rule
+27	Struct	TBS_CONTEXT_PARAMS2	2943	3075	32	1	63	unsupported	declaration Struct has no candidate rule
+28	Impl		3076	3188	38	1	71	unsupported	declaration Impl has no candidate rule
+29	Union		3189	3325	43	1	78	unsupported	declaration Union has no candidate rule
+30	Impl		3326	3440	49	1	86	unsupported	declaration Impl has no candidate rule
+31	Struct	TBS_CONTEXT_PARAMS2_0_0	3441	3546	54	1	93	unsupported	declaration Struct has no candidate rule
+32	Const	TBS_CONTEXT_VERSION_ONE	3547	3593	59	1	100	generated	
+33	Const	TBS_CONTEXT_VERSION_TWO	3594	3640	60	1	101	generated	
+34	Const	TBS_OWNERAUTH_TYPE_ADMIN	3641	3688	61	1	102	generated	
+35	Const	TBS_OWNERAUTH_TYPE_ENDORSEMENT	3689	3742	62	1	103	generated	
+36	Const	TBS_OWNERAUTH_TYPE_ENDORSEMENT_20	3743	3800	63	1	104	generated	
+37	Const	TBS_OWNERAUTH_TYPE_FULL	3801	3847	64	1	105	generated	
+38	Const	TBS_OWNERAUTH_TYPE_STORAGE_20	3848	3901	65	1	106	generated	
+39	Const	TBS_OWNERAUTH_TYPE_USER	3902	3948	66	1	107	generated	
+40	Const	TBS_SUCCESS	3949	3983	67	1	108	generated	
+41	Const	TBS_TCGLOG_DRTM_BOOT	3984	4027	68	1	109	generated	
+42	Const	TBS_TCGLOG_DRTM_CURRENT	4028	4074	69	1	110	generated	
+43	Const	TBS_TCGLOG_DRTM_RESUME	4075	4120	70	1	111	generated	
+44	Const	TBS_TCGLOG_SRTM_BOOT	4121	4164	71	1	112	generated	
+45	Const	TBS_TCGLOG_SRTM_CURRENT	4165	4211	72	1	113	generated	
+46	Const	TBS_TCGLOG_SRTM_RESUME	4212	4257	73	1	114	generated	
+47	Struct	TPM_DEVICE_INFO	4258	4444	74	1	115	unsupported	declaration Struct has no candidate rule
+48	Const	TPM_IFTYPE_1	4445	4480	82	1	125	generated	
+49	Const	TPM_IFTYPE_EMULATOR	4481	4523	83	1	126	generated	
+50	Const	TPM_IFTYPE_HW	4524	4560	84	1	127	generated	
+51	Const	TPM_IFTYPE_SPB	4561	4598	85	1	128	generated	
+52	Const	TPM_IFTYPE_TRUSTZONE	4599	4642	86	1	129	generated	
+53	Const	TPM_IFTYPE_UNKNOWN	4643	4684	87	1	130	generated	
+54	Const	TPM_VERSION_12	4685	4722	88	1	131	generated	
+55	Const	TPM_VERSION_20	4723	4760	89	1	132	generated	
+56	Const	TPM_VERSION_UNKNOWN	4761	4803	90	1	133	generated	
+57	Const	TPM_WNF_INFO_CLEAR_SUCCESSFUL	4804	4856	91	1	134	generated	
+58	Const	TPM_WNF_INFO_NO_REBOOT_REQUIRED	4857	4911	92	1	135	generated	
+59	Const	TPM_WNF_INFO_OWNERSHIP_SUCCESSFUL	4912	4968	93	1	136	generated	
+60	Struct	TPM_WNF_PROVISIONING	4969	5086	94	1	137	unsupported	declaration Struct has no candidate rule
+61	Impl		5087	5200	100	1	145	unsupported	declaration Impl has no candidate rule

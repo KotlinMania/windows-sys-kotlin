@@ -1,0 +1,695 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Macro	DnsAcquireContextHandle_A	0	193	1	1	2	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsAcquireContextHandle_A; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+1	Macro	DnsAcquireContextHandle_W	194	387	2	1	7	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsAcquireContextHandle_W; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+2	Macro	DnsCancelQuery	388	497	3	1	12	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsCancelQuery; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+3	Macro	DnsCancelQueryRaw	498	613	4	1	17	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsCancelQueryRaw; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+4	Macro	DnsConnectionDeletePolicyEntries	614	744	5	1	22	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsConnectionDeletePolicyEntries; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+5	Macro	DnsConnectionDeleteProxyInfo	745	911	6	1	26	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsConnectionDeleteProxyInfo; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+6	Macro	DnsConnectionFreeNameList	912	1027	7	1	30	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsConnectionFreeNameList; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+7	Macro	DnsConnectionFreeProxyInfo	1028	1146	8	1	35	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsConnectionFreeProxyInfo; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+8	Macro	DnsConnectionFreeProxyInfoEx	1147	1272	9	1	40	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsConnectionFreeProxyInfoEx; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+9	Macro	DnsConnectionFreeProxyList	1273	1391	10	1	45	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsConnectionFreeProxyList; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+10	Macro	DnsConnectionGetNameList	1392	1513	11	1	50	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsConnectionGetNameList; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+11	Macro	DnsConnectionGetProxyInfo	1514	1722	12	1	55	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsConnectionGetProxyInfo; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+12	Macro	DnsConnectionGetProxyInfoForHostUrl	1723	1998	13	1	60	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsConnectionGetProxyInfoForHostUrl; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+13	Macro	DnsConnectionGetProxyInfoForHostUrlEx	1999	2324	14	1	65	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsConnectionGetProxyInfoForHostUrlEx; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+14	Macro	DnsConnectionGetProxyList	2325	2497	15	1	70	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsConnectionGetProxyList; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+15	Macro	DnsConnectionSetPolicyEntries	2498	2685	16	1	75	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsConnectionSetPolicyEntries; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+16	Macro	DnsConnectionSetProxyInfo	2686	2896	17	1	80	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsConnectionSetProxyInfo; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+17	Macro	DnsConnectionUpdateIfIndexTable	2897	3046	18	1	85	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsConnectionUpdateIfIndexTable; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+18	Macro	DnsExtractRecordsFromMessage_UTF8	3047	3230	19	1	90	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsExtractRecordsFromMessage_UTF8; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+19	Macro	DnsExtractRecordsFromMessage_W	3231	3411	20	1	95	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsExtractRecordsFromMessage_W; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+20	Macro	DnsFree	3412	3526	21	1	100	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsFree; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+21	Macro	DnsFreeCustomServers	3527	3657	22	1	105	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsFreeCustomServers; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+22	Macro	DnsFreeProxyName	3658	3760	23	1	110	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsFreeProxyName; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+23	Macro	DnsGetApplicationSettings	3761	3953	24	1	114	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsGetApplicationSettings; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+24	Macro	DnsGetProxyInformation	3954	4265	25	1	119	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsGetProxyInformation; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+25	Macro	DnsModifyRecordsInSet_A	4266	4552	26	1	124	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsModifyRecordsInSet_A; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+26	Macro	DnsModifyRecordsInSet_UTF8	4553	4842	27	1	129	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsModifyRecordsInSet_UTF8; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+27	Macro	DnsModifyRecordsInSet_W	4843	5129	28	1	134	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsModifyRecordsInSet_W; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+28	Macro	DnsNameCompare_A	5130	5290	29	1	139	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsNameCompare_A; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+29	Macro	DnsNameCompare_W	5291	5453	30	1	143	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsNameCompare_W; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+30	Macro	DnsQueryConfig	5454	5696	31	1	147	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsQueryConfig; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+31	Macro	DnsQueryEx	5697	5881	32	1	152	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsQueryEx; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+32	Macro	DnsQueryRaw	5882	6034	33	1	157	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsQueryRaw; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+33	Macro	DnsQueryRawResultFree	6035	6147	34	1	162	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsQueryRawResultFree; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+34	Macro	DnsQuery_A	6148	6444	35	1	167	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsQuery_A; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+35	Macro	DnsQuery_UTF8	6445	6744	36	1	172	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsQuery_UTF8; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+36	Macro	DnsQuery_W	6745	7042	37	1	177	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsQuery_W; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+37	Macro	DnsRecordCompare	7043	7195	38	1	182	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsRecordCompare; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+38	Macro	DnsRecordCopyEx	7196	7359	39	1	187	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsRecordCopyEx; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+39	Macro	DnsRecordSetCompare	7360	7569	40	1	192	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsRecordSetCompare; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+40	Macro	DnsRecordSetCopyEx	7570	7739	41	1	197	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsRecordSetCopyEx; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+41	Macro	DnsRecordSetDetach	7740	7857	42	1	202	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsRecordSetDetach; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+42	Macro	DnsReleaseContextHandle	7858	7974	43	1	207	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsReleaseContextHandle; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+43	Macro	DnsReplaceRecordSetA	7975	8217	44	1	211	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsReplaceRecordSetA; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+44	Macro	DnsReplaceRecordSetUTF8	8218	8463	45	1	216	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsReplaceRecordSetUTF8; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+45	Macro	DnsReplaceRecordSetW	8464	8706	46	1	221	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsReplaceRecordSetW; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+46	Macro	DnsServiceBrowse	8707	8858	47	1	226	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsServiceBrowse; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+47	Macro	DnsServiceBrowseCancel	8859	8978	48	1	231	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsServiceBrowseCancel; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+48	Macro	DnsServiceConstructInstance	8979	9363	49	1	236	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsServiceConstructInstance; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+49	Macro	DnsServiceCopyInstance	9364	9499	50	1	241	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsServiceCopyInstance; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+50	Macro	DnsServiceDeRegister	9500	9657	51	1	246	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsServiceDeRegister; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+51	Macro	DnsServiceFreeInstance	9658	9768	52	1	251	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsServiceFreeInstance; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+52	Macro	DnsServiceRegister	9769	9924	53	1	256	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsServiceRegister; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+53	Macro	DnsServiceRegisterCancel	9925	10046	54	1	261	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsServiceRegisterCancel; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+54	Macro	DnsServiceResolve	10047	10200	55	1	266	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsServiceResolve; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+55	Macro	DnsServiceResolveCancel	10201	10321	56	1	271	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsServiceResolveCancel; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+56	Macro	DnsSetApplicationSettings	10322	10499	57	1	276	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsSetApplicationSettings; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+57	Macro	DnsStartMulticastQuery	10500	10653	58	1	281	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsStartMulticastQuery; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+58	Macro	DnsStopMulticastQuery	10654	10763	59	1	286	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsStopMulticastQuery; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+59	Macro	DnsValidateName_A	10764	10897	60	1	291	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsValidateName_A; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+60	Macro	DnsValidateName_UTF8	10898	11034	61	1	295	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsValidateName_UTF8; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+61	Macro	DnsValidateName_W	11035	11169	62	1	299	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsValidateName_W; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+62	Macro	DnsWriteQuestionToBuffer_UTF8	11170	11442	63	1	303	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsWriteQuestionToBuffer_UTF8; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+63	Macro	DnsWriteQuestionToBuffer_W	11443	11713	64	1	308	syntax	External declaration shape only: wire DLL=dnsapi.dll, ABI=system, export=DnsWriteQuestionToBuffer_W; preserve Rust unsafe-call contract. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+64	Const	DDR_MAX_IP_HINTS	11714	11753	65	1	313	generated	
+65	Const	DNSREC_ADDITIONAL	11754	11794	66	1	314	generated	
+66	Const	DNSREC_ANSWER	11795	11831	67	1	315	generated	
+67	Const	DNSREC_AUTHORITY	11832	11871	68	1	316	generated	
+68	Const	DNSREC_DELETE	11872	11908	69	1	317	generated	
+69	Const	DNSREC_NOEXIST	11909	11946	70	1	318	generated	
+70	Const	DNSREC_PREREQ	11947	11983	71	1	319	generated	
+71	Const	DNSREC_QUESTION	11984	12022	72	1	320	generated	
+72	Const	DNSREC_SECTION	12023	12060	73	1	321	generated	
+73	Const	DNSREC_UPDATE	12061	12097	74	1	322	generated	
+74	Const	DNSREC_ZONE	12098	12132	75	1	323	generated	
+75	Const	DNSSEC_ALGORITHM_ECDSAP256_SHA256	12133	12190	76	1	324	generated	
+76	Const	DNSSEC_ALGORITHM_ECDSAP384_SHA384	12191	12248	77	1	325	generated	
+77	Const	DNSSEC_ALGORITHM_NULL	12249	12295	78	1	326	generated	
+78	Const	DNSSEC_ALGORITHM_PRIVATE	12296	12345	79	1	327	generated	
+79	Const	DNSSEC_ALGORITHM_RSAMD5	12346	12392	80	1	328	generated	
+80	Const	DNSSEC_ALGORITHM_RSASHA1	12393	12440	81	1	329	generated	
+81	Const	DNSSEC_ALGORITHM_RSASHA1_NSEC3	12441	12494	82	1	330	generated	
+82	Const	DNSSEC_ALGORITHM_RSASHA256	12495	12544	83	1	331	generated	
+83	Const	DNSSEC_ALGORITHM_RSASHA512	12545	12595	84	1	332	generated	
+84	Const	DNSSEC_DIGEST_ALGORITHM_SHA1	12596	12647	85	1	333	generated	
+85	Const	DNSSEC_DIGEST_ALGORITHM_SHA256	12648	12701	86	1	334	generated	
+86	Const	DNSSEC_DIGEST_ALGORITHM_SHA384	12702	12755	87	1	335	generated	
+87	Const	DNSSEC_KEY_FLAG_EXTEND	12756	12801	88	1	336	generated	
+88	Const	DNSSEC_KEY_FLAG_FLAG10	12802	12850	89	1	337	generated	
+89	Const	DNSSEC_KEY_FLAG_FLAG11	12851	12899	90	1	338	generated	
+90	Const	DNSSEC_KEY_FLAG_FLAG2	12900	12944	91	1	339	generated	
+91	Const	DNSSEC_KEY_FLAG_FLAG4	12945	12990	92	1	340	generated	
+92	Const	DNSSEC_KEY_FLAG_FLAG5	12991	13036	93	1	341	generated	
+93	Const	DNSSEC_KEY_FLAG_FLAG8	13037	13083	94	1	342	generated	
+94	Const	DNSSEC_KEY_FLAG_FLAG9	13084	13130	95	1	343	generated	
+95	Const	DNSSEC_KEY_FLAG_HOST	13131	13176	96	1	344	generated	
+96	Const	DNSSEC_KEY_FLAG_NOAUTH	13177	13222	97	1	345	generated	
+97	Const	DNSSEC_KEY_FLAG_NOCONF	13223	13268	98	1	346	generated	
+98	Const	DNSSEC_KEY_FLAG_NTPE3	13269	13315	99	1	347	generated	
+99	Const	DNSSEC_KEY_FLAG_SIG0	13316	13359	100	1	348	generated	
+100	Const	DNSSEC_KEY_FLAG_SIG1	13360	13406	101	1	349	generated	
+101	Const	DNSSEC_KEY_FLAG_SIG10	13407	13455	102	1	350	generated	
+102	Const	DNSSEC_KEY_FLAG_SIG11	13456	13504	103	1	351	generated	
+103	Const	DNSSEC_KEY_FLAG_SIG12	13505	13553	104	1	352	generated	
+104	Const	DNSSEC_KEY_FLAG_SIG13	13554	13602	105	1	353	generated	
+105	Const	DNSSEC_KEY_FLAG_SIG14	13603	13651	106	1	354	generated	
+106	Const	DNSSEC_KEY_FLAG_SIG15	13652	13700	107	1	355	generated	
+107	Const	DNSSEC_KEY_FLAG_SIG2	13701	13747	108	1	356	generated	
+108	Const	DNSSEC_KEY_FLAG_SIG3	13748	13795	109	1	357	generated	
+109	Const	DNSSEC_KEY_FLAG_SIG4	13796	13843	110	1	358	generated	
+110	Const	DNSSEC_KEY_FLAG_SIG5	13844	13891	111	1	359	generated	
+111	Const	DNSSEC_KEY_FLAG_SIG6	13892	13939	112	1	360	generated	
+112	Const	DNSSEC_KEY_FLAG_SIG7	13940	13987	113	1	361	generated	
+113	Const	DNSSEC_KEY_FLAG_SIG8	13988	14035	114	1	362	generated	
+114	Const	DNSSEC_KEY_FLAG_SIG9	14036	14083	115	1	363	generated	
+115	Const	DNSSEC_KEY_FLAG_USER	14084	14127	116	1	364	generated	
+116	Const	DNSSEC_KEY_FLAG_ZONE	14128	14172	117	1	365	generated	
+117	Const	DNSSEC_PROTOCOL_DNSSEC	14173	14218	118	1	366	generated	
+118	Const	DNSSEC_PROTOCOL_EMAIL	14219	14263	119	1	367	generated	
+119	Const	DNSSEC_PROTOCOL_IPSEC	14264	14308	120	1	368	generated	
+120	Const	DNSSEC_PROTOCOL_NONE	14309	14352	121	1	369	generated	
+121	Const	DNSSEC_PROTOCOL_TLS	14353	14395	122	1	370	generated	
+122	Struct	DNS_AAAA_DATA	14396	14491	123	1	371	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+123	Impl		14492	14598	128	1	379	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+124	Struct	DNS_ADDR	14599	14707	133	1	386	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 32 and value/layout semantics require coder integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+125	Impl		14708	14809	139	1	396	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+126	Union		14810	14915	144	1	403	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+127	Impl		14916	15019	149	1	410	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+128	Const	DNS_ADDRESS_STRING_LENGTH	15020	15069	154	1	417	generated	
+129	Struct	DNS_ADDR_ARRAY	15070	15383	155	1	418	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 1 and value/layout semantics require coder integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+130	Impl		15384	15491	169	1	436	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+131	Const	DNS_ADDR_MAX_SOCKADDR_LENGTH	15492	15544	174	1	443	generated	
+132	Struct	DNS_APPLICATION_SETTINGS	15545	15669	175	1	444	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+133	Const	DNS_APP_SETTINGS_EXCLUSIVE_SERVERS	15670	15727	181	1	452	generated	
+134	Const	DNS_APP_SETTINGS_VERSION1	15728	15776	182	1	453	generated	
+135	Const	DNS_ATMA_AESA_ADDR_LENGTH	15777	15826	183	1	454	generated	
+136	Struct	DNS_ATMA_DATA	15827	15941	184	1	455	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 20 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+137	Impl		15942	16048	190	1	464	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+138	Const	DNS_ATMA_FORMAT_AESA	16049	16092	195	1	471	generated	
+139	Const	DNS_ATMA_FORMAT_E164	16093	16136	196	1	472	generated	
+140	Const	DNS_ATMA_MAX_ADDR_LENGTH	16137	16185	197	1	473	generated	
+141	Const	DNS_ATMA_MAX_RECORD_LENGTH	16186	16236	198	1	474	generated	
+142	Struct	DNS_A_DATA	16237	16329	199	1	475	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+143	ItemType	DNS_CHARSET	16330	16357	204	1	482	generated	
+144	Const	DNS_CLASS_ALL	16358	16396	205	1	483	generated	
+145	Const	DNS_CLASS_ANY	16397	16435	206	1	484	generated	
+146	Const	DNS_CLASS_CHAOS	16436	16474	207	1	485	generated	
+147	Const	DNS_CLASS_CSNET	16475	16513	208	1	486	generated	
+148	Const	DNS_CLASS_HESIOD	16514	16553	209	1	487	generated	
+149	Const	DNS_CLASS_INTERNET	16554	16595	210	1	488	generated	
+150	Const	DNS_CLASS_NONE	16596	16635	211	1	489	generated	
+151	Const	DNS_CLASS_UNICAST_RESPONSE	16636	16689	212	1	490	generated	
+152	Const	DNS_COMPRESSED_QUESTION_NAME	16690	16745	213	1	491	generated	
+153	Const	DNS_CONFIG_FLAG_ALLOC	16746	16790	214	1	492	generated	
+154	ItemType	DNS_CONFIG_TYPE	16791	16822	215	1	493	generated	
+155	Struct	DNS_CONNECTION_IFINDEX_ENTRY	16823	16979	216	1	494	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+156	Impl		16980	17101	222	1	503	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+157	Struct	DNS_CONNECTION_IFINDEX_LIST	17102	17271	227	1	510	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+158	Impl		17272	17392	233	1	520	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+159	Struct	DNS_CONNECTION_NAME	17393	17489	238	1	527	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 65 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+160	Impl		17490	17602	243	1	535	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+161	Struct	DNS_CONNECTION_NAME_LIST	17603	17739	248	1	542	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+162	Impl		17740	17857	254	1	552	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+163	Const	DNS_CONNECTION_NAME_MAX_LENGTH	17858	17912	259	1	559	generated	
+164	Struct	DNS_CONNECTION_POLICY_ENTRY	17913	18250	260	1	560	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+165	Impl		18251	18371	271	1	575	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+166	Struct	DNS_CONNECTION_POLICY_ENTRY_LIST	18372	18534	276	1	582	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+167	Impl		18535	18660	282	1	592	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+168	Const	DNS_CONNECTION_POLICY_ENTRY_ONDEMAND	18661	18720	287	1	599	generated	
+169	ItemType	DNS_CONNECTION_POLICY_TAG	18721	18762	288	1	600	generated	
+170	Struct	DNS_CONNECTION_PROXY_ELEMENT	18763	18922	289	1	601	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+171	Impl		18923	19044	295	1	610	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+172	Struct	DNS_CONNECTION_PROXY_INFO	19045	19311	300	1	617	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+173	Impl		19312	19430	309	1	629	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+174	Union		19431	19600	314	1	636	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+175	Impl		19601	19721	320	1	644	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+176	Struct	DNS_CONNECTION_PROXY_INFO_0_0	19722	20059	325	1	651	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+177	Impl		20060	20182	335	1	664	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+178	Struct	DNS_CONNECTION_PROXY_INFO_0_1	20183	20403	340	1	671	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+179	Impl		20404	20526	347	1	681	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+180	Const	DNS_CONNECTION_PROXY_INFO_CURRENT_VERSION	20527	20591	352	1	688	generated	
+181	Struct	DNS_CONNECTION_PROXY_INFO_EX	20592	20910	353	1	689	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+182	Impl		20911	21032	362	1	701	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+183	Const	DNS_CONNECTION_PROXY_INFO_EXCEPTION_MAX_LENGTH	21033	21105	367	1	708	generated	
+184	Const	DNS_CONNECTION_PROXY_INFO_EXTRA_INFO_MAX_LENGTH	21106	21179	368	1	709	generated	
+185	Const	DNS_CONNECTION_PROXY_INFO_FLAG_BYPASSLOCAL	21180	21245	369	1	710	generated	
+186	Const	DNS_CONNECTION_PROXY_INFO_FLAG_DISABLED	21246	21308	370	1	711	generated	
+187	Const	DNS_CONNECTION_PROXY_INFO_FRIENDLY_NAME_MAX_LENGTH	21309	21383	371	1	712	generated	
+188	Const	DNS_CONNECTION_PROXY_INFO_PASSWORD_MAX_LENGTH	21384	21454	372	1	713	generated	
+189	Const	DNS_CONNECTION_PROXY_INFO_SERVER_MAX_LENGTH	21455	21523	373	1	714	generated	
+190	ItemType	DNS_CONNECTION_PROXY_INFO_SWITCH	21524	21572	374	1	715	generated	
+191	Const	DNS_CONNECTION_PROXY_INFO_SWITCH_CONFIG	21573	21664	375	1	716	generated	
+192	Const	DNS_CONNECTION_PROXY_INFO_SWITCH_SCRIPT	21665	21756	376	1	717	generated	
+193	Const	DNS_CONNECTION_PROXY_INFO_SWITCH_WPAD	21757	21846	377	1	718	generated	
+194	Const	DNS_CONNECTION_PROXY_INFO_USERNAME_MAX_LENGTH	21847	21917	378	1	719	generated	
+195	Struct	DNS_CONNECTION_PROXY_LIST	21918	22068	379	1	720	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+196	Impl		22069	22187	385	1	730	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+197	ItemType	DNS_CONNECTION_PROXY_TYPE	22188	22229	390	1	737	generated	
+198	Const	DNS_CONNECTION_PROXY_TYPE_HTTP	22230	22305	391	1	738	generated	
+199	Const	DNS_CONNECTION_PROXY_TYPE_NULL	22306	22381	392	1	739	generated	
+200	Const	DNS_CONNECTION_PROXY_TYPE_SOCKS4	22382	22459	393	1	740	generated	
+201	Const	DNS_CONNECTION_PROXY_TYPE_SOCKS5	22460	22537	394	1	741	generated	
+202	Const	DNS_CONNECTION_PROXY_TYPE_WAP	22538	22612	395	1	742	generated	
+203	Struct	DNS_CUSTOM_SERVER	22613	22811	396	1	743	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+204	Impl		22812	22922	404	1	754	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+205	Union		22923	23038	409	1	761	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+206	Impl		23039	23151	414	1	768	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+207	Union		23152	23244	419	1	775	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+208	Impl		23245	23357	424	1	782	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+209	Const	DNS_CUSTOM_SERVER_TYPE_DOH	23358	23407	429	1	789	generated	
+210	Const	DNS_CUSTOM_SERVER_TYPE_UDP	23408	23457	430	1	790	generated	
+211	Const	DNS_CUSTOM_SERVER_UDP_FALLBACK	23458	23511	431	1	791	generated	
+212	Struct	DNS_DHCID_DATA	23512	23625	432	1	792	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+213	Impl		23626	23733	438	1	801	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+214	Struct	DNS_DS_DATA	23734	23939	443	1	808	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+215	Impl		23940	24044	453	1	821	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+216	ItemType	DNS_FREE_TYPE	24045	24074	458	1	828	generated	
+217	Struct	DNS_HEADER	24075	24334	459	1	829	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+218	Struct	DNS_HEADER_EXT	24335	24486	470	1	842	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+219	Struct	DNS_KEY_DATA	24487	24684	477	1	851	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+220	Impl		24685	24790	487	1	864	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+221	Struct	DNS_LOC_DATA	24791	25026	492	1	871	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+222	Const	DNS_MAX_IP4_REVERSE_NAME_BUFFER_LENGTH	25027	25089	503	1	884	generated	
+223	Const	DNS_MAX_IP4_REVERSE_NAME_LENGTH	25090	25145	504	1	885	generated	
+224	Const	DNS_MAX_IP6_REVERSE_NAME_BUFFER_LENGTH	25146	25208	505	1	886	generated	
+225	Const	DNS_MAX_IP6_REVERSE_NAME_LENGTH	25209	25264	506	1	887	generated	
+226	Const	DNS_MAX_LABEL_BUFFER_LENGTH	25265	25316	507	1	888	generated	
+227	Const	DNS_MAX_LABEL_LENGTH	25317	25361	508	1	889	generated	
+228	Const	DNS_MAX_NAME_BUFFER_LENGTH	25362	25413	509	1	890	generated	
+229	Const	DNS_MAX_NAME_LENGTH	25414	25458	510	1	891	generated	
+230	Const	DNS_MAX_REVERSE_NAME_BUFFER_LENGTH	25459	25517	511	1	892	generated	
+231	Const	DNS_MAX_REVERSE_NAME_LENGTH	25518	25569	512	1	893	generated	
+232	Const	DNS_MAX_TEXT_STRING_LENGTH	25570	25621	513	1	894	generated	
+233	Struct	DNS_MESSAGE_BUFFER	25622	25752	514	1	895	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+234	Impl		25753	25864	520	1	905	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+235	Struct	DNS_MINFO_DATAA	25865	26029	525	1	912	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+236	Impl		26030	26138	531	1	921	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+237	Struct	DNS_MINFO_DATAW	26139	26305	536	1	928	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+238	Impl		26306	26414	542	1	937	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+239	Struct	DNS_MX_DATAA	26415	26568	547	1	944	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+240	Impl		26569	26674	554	1	954	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+241	Struct	DNS_MX_DATAW	26675	26829	559	1	961	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+242	Impl		26830	26935	566	1	971	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+243	ItemType	DNS_NAME_FORMAT	26936	26967	571	1	978	generated	
+244	Struct	DNS_NAPTR_DATAA	26968	27263	572	1	979	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+245	Impl		27264	27372	582	1	992	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+246	Struct	DNS_NAPTR_DATAW	27373	27672	587	1	999	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+247	Impl		27673	27781	597	1	1012	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+248	Struct	DNS_NSEC3PARAM_DATA	27782	27994	602	1	1019	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 3 and value/layout semantics require coder integration. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+249	Impl		27995	28107	612	1	1033	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+250	Struct	DNS_NSEC3_DATA	28108	28350	617	1	1040	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+251	Impl		28351	28458	628	1	1054	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+252	Struct	DNS_NSEC_DATAA	28459	28654	633	1	1061	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+253	Impl		28655	28762	641	1	1073	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+254	Struct	DNS_NSEC_DATAW	28763	28959	646	1	1080	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+255	Impl		28960	29067	654	1	1092	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+256	Struct	DNS_NULL_DATA	29068	29179	659	1	1099	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+257	Impl		29180	29286	665	1	1108	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+258	Struct	DNS_NXT_DATAA	29287	29443	670	1	1115	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+259	Impl		29444	29550	677	1	1126	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+260	Struct	DNS_NXT_DATAW	29551	29708	682	1	1133	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+261	Impl		29709	29815	689	1	1144	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+262	Const	DNS_OPCODE_IQUERY	29816	29856	694	1	1151	generated	
+263	Const	DNS_OPCODE_NOTIFY	29857	29897	695	1	1152	generated	
+264	Const	DNS_OPCODE_QUERY	29898	29937	696	1	1153	generated	
+265	Const	DNS_OPCODE_SERVER_STATUS	29938	29985	697	1	1154	generated	
+266	Const	DNS_OPCODE_UNKNOWN	29986	30027	698	1	1155	generated	
+267	Const	DNS_OPCODE_UPDATE	30028	30068	699	1	1156	generated	
+268	Struct	DNS_OPT_DATA	30069	30198	700	1	1157	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+269	Impl		30199	30304	707	1	1167	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+270	Const	DNS_PORT_HOST_ORDER	30305	30348	712	1	1174	generated	
+271	Const	DNS_PORT_NET_ORDER	30349	30394	713	1	1175	generated	
+272	Const	DNS_PROTOCOL_DOH	30395	30434	714	1	1176	generated	
+273	Const	DNS_PROTOCOL_NO_WIRE	30435	30478	715	1	1177	generated	
+274	Const	DNS_PROTOCOL_TCP	30479	30518	716	1	1178	generated	
+275	Const	DNS_PROTOCOL_UDP	30519	30558	717	1	1179	generated	
+276	Const	DNS_PROTOCOL_UNSPECIFIED	30559	30606	718	1	1180	generated	
+277	ItemType	DNS_PROXY_COMPLETION_ROUTINE	30607	30739	719	1	1181	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+278	Struct	DNS_PROXY_INFORMATION	30740	30935	720	1	1186	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+279	Impl		30936	31050	727	1	1196	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+280	Const	DNS_PROXY_INFORMATION_DEFAULT_SETTINGS	31051	31135	732	1	1203	generated	
+281	Const	DNS_PROXY_INFORMATION_DIRECT	31136	31210	733	1	1204	generated	
+282	Const	DNS_PROXY_INFORMATION_DOES_NOT_EXIST	31211	31293	734	1	1205	generated	
+283	Const	DNS_PROXY_INFORMATION_PROXY_NAME	31294	31372	735	1	1206	generated	
+284	ItemType	DNS_PROXY_INFORMATION_TYPE	31373	31415	736	1	1207	generated	
+285	Struct	DNS_PTR_DATAA	31416	31522	737	1	1208	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+286	Impl		31523	31629	742	1	1216	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+287	Struct	DNS_PTR_DATAW	31630	31737	747	1	1223	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+288	Impl		31738	31844	752	1	1231	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+289	Const	DNS_QUERY_ACCEPT_TRUNCATED_RESPONSE	31845	31917	757	1	1238	generated	
+290	Const	DNS_QUERY_ADDRCONFIG	31918	31978	758	1	1239	generated	
+291	Const	DNS_QUERY_APPEND_MULTILABEL	31979	32049	759	1	1240	generated	
+292	Const	DNS_QUERY_BYPASS_CACHE	32050	32109	760	1	1241	generated	
+293	Const	DNS_QUERY_CACHE_ONLY	32110	32168	761	1	1242	generated	
+294	Struct	DNS_QUERY_CANCEL	32169	32262	762	1	1243	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 32 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+295	Impl		32263	32372	767	1	1251	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+296	Const	DNS_QUERY_DISABLE_IDN_ENCODING	32373	32446	772	1	1258	generated	
+297	Const	DNS_QUERY_DNSSEC_CHECKING_DISABLED	32447	32525	773	1	1259	generated	
+298	Const	DNS_QUERY_DNSSEC_OK	32526	32589	774	1	1260	generated	
+299	Const	DNS_QUERY_DONT_RESET_TTL_VALUES	32590	32664	775	1	1261	generated	
+300	Const	DNS_QUERY_DUAL_ADDR	32665	32725	776	1	1262	generated	
+301	Const	DNS_QUERY_MULTICAST_ONLY	32726	32790	777	1	1263	generated	
+302	Const	DNS_QUERY_NO_HOSTS_FILE	32791	32852	778	1	1264	generated	
+303	Const	DNS_QUERY_NO_LOCAL_NAME	32853	32914	779	1	1265	generated	
+304	Const	DNS_QUERY_NO_MULTICAST	32915	32977	780	1	1266	generated	
+305	Const	DNS_QUERY_NO_NETBT	32978	33035	781	1	1267	generated	
+306	Const	DNS_QUERY_NO_RECURSION	33036	33095	782	1	1268	generated	
+307	Const	DNS_QUERY_NO_WIRE_QUERY	33096	33157	783	1	1269	generated	
+308	ItemType	DNS_QUERY_OPTIONS	33158	33191	784	1	1270	generated	
+309	Struct	DNS_QUERY_RAW_CANCEL	33192	33289	785	1	1271	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 32 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+310	Impl		33290	33403	790	1	1279	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+311	ItemType	DNS_QUERY_RAW_COMPLETION_ROUTINE	33404	33565	795	1	1286	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+312	Const	DNS_QUERY_RAW_OPTION_BEST_EFFORT_PARSE	33566	33641	796	1	1291	generated	
+313	Struct	DNS_QUERY_RAW_REQUEST	33642	34243	797	1	1292	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+314	Impl		34244	34358	816	1	1315	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+315	Union		34359	34455	821	1	1322	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+316	Impl		34456	34572	826	1	1329	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+317	Const	DNS_QUERY_RAW_REQUEST_VERSION1	34573	34640	831	1	1336	generated	
+318	Struct	DNS_QUERY_RAW_RESULT	34641	35019	832	1	1337	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+319	Impl		35020	35133	846	1	1355	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+320	Union		35134	35229	851	1	1362	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+321	Impl		35230	35345	856	1	1369	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+322	Const	DNS_QUERY_RAW_RESULTS_VERSION1	35346	35413	861	1	1376	generated	
+323	Struct	DNS_QUERY_REQUEST	35414	35785	862	1	1377	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+324	Impl		35786	35896	874	1	1393	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+325	Struct	DNS_QUERY_REQUEST3	35897	36438	879	1	1400	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+326	Impl		36439	36550	895	1	1420	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+327	Const	DNS_QUERY_REQUEST_VERSION1	36551	36614	900	1	1427	generated	
+328	Const	DNS_QUERY_REQUEST_VERSION2	36615	36678	901	1	1428	generated	
+329	Const	DNS_QUERY_REQUEST_VERSION3	36679	36742	902	1	1429	generated	
+330	Const	DNS_QUERY_RESERVED	36743	36807	903	1	1430	generated	
+331	Struct	DNS_QUERY_RESULT	36808	37031	904	1	1431	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+332	Impl		37032	37141	913	1	1444	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+333	Const	DNS_QUERY_RESULTS_VERSION1	37142	37205	918	1	1451	generated	
+334	Const	DNS_QUERY_RETURN_MESSAGE	37206	37269	919	1	1452	generated	
+335	Const	DNS_QUERY_STANDARD	37270	37325	920	1	1453	generated	
+336	Const	DNS_QUERY_TREAT_AS_FQDN	37326	37389	921	1	1454	generated	
+337	Const	DNS_QUERY_USE_TCP_ONLY	37390	37449	922	1	1455	generated	
+338	Const	DNS_QUERY_WIRE_ONLY	37450	37508	923	1	1456	generated	
+339	Const	DNS_RCLASS_ALL	37509	37550	924	1	1457	generated	
+340	Const	DNS_RCLASS_ANY	37551	37592	925	1	1458	generated	
+341	Const	DNS_RCLASS_CHAOS	37593	37634	926	1	1459	generated	
+342	Const	DNS_RCLASS_CSNET	37635	37676	927	1	1460	generated	
+343	Const	DNS_RCLASS_HESIOD	37677	37720	928	1	1461	generated	
+344	Const	DNS_RCLASS_INTERNET	37721	37765	929	1	1462	generated	
+345	Const	DNS_RCLASS_MDNS_CACHE_FLUSH	37766	37818	930	1	1463	generated	
+346	Const	DNS_RCLASS_NONE	37819	37861	931	1	1464	generated	
+347	Const	DNS_RCLASS_UNICAST_RESPONSE	37862	37914	932	1	1465	generated	
+348	Const	DNS_RCODE_BADKEY	37915	37955	933	1	1466	generated	
+349	Const	DNS_RCODE_BADSIG	37956	37996	934	1	1467	generated	
+350	Const	DNS_RCODE_BADTIME	37997	38038	935	1	1468	generated	
+351	Const	DNS_RCODE_BADVERS	38039	38080	936	1	1469	generated	
+352	Const	DNS_RCODE_FORMAT_ERROR	38081	38126	937	1	1470	generated	
+353	Const	DNS_RCODE_FORMERR	38127	38167	938	1	1471	generated	
+354	Const	DNS_RCODE_MAX	38168	38205	939	1	1472	generated	
+355	Const	DNS_RCODE_NAME_ERROR	38206	38249	940	1	1473	generated	
+356	Const	DNS_RCODE_NOERROR	38250	38290	941	1	1474	generated	
+357	Const	DNS_RCODE_NOTAUTH	38291	38331	942	1	1475	generated	
+358	Const	DNS_RCODE_NOTIMPL	38332	38372	943	1	1476	generated	
+359	Const	DNS_RCODE_NOTZONE	38373	38414	944	1	1477	generated	
+360	Const	DNS_RCODE_NOT_IMPLEMENTED	38415	38463	945	1	1478	generated	
+361	Const	DNS_RCODE_NO_ERROR	38464	38505	946	1	1479	generated	
+362	Const	DNS_RCODE_NXDOMAIN	38506	38547	947	1	1480	generated	
+363	Const	DNS_RCODE_NXRRSET	38548	38588	948	1	1481	generated	
+364	Const	DNS_RCODE_REFUSED	38589	38629	949	1	1482	generated	
+365	Const	DNS_RCODE_SERVER_FAILURE	38630	38677	950	1	1483	generated	
+366	Const	DNS_RCODE_SERVFAIL	38678	38719	951	1	1484	generated	
+367	Const	DNS_RCODE_YXDOMAIN	38720	38761	952	1	1485	generated	
+368	Const	DNS_RCODE_YXRRSET	38762	38802	953	1	1486	generated	
+369	Struct	DNS_RECORDA	38803	39086	954	1	1487	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+370	Impl		39087	39191	966	1	1503	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+371	Union		39192	41754	971	1	1510	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+372	Impl		41755	41861	1061	1	1602	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+373	Union		41862	41969	1066	1	1609	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+374	Impl		41970	42076	1072	1	1617	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+375	Struct	DNS_RECORDW	42077	42361	1077	1	1624	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+376	Impl		42362	42466	1089	1	1640	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+377	Union		42467	45029	1094	1	1647	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+378	Impl		45030	45136	1184	1	1739	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+379	Union		45137	45244	1189	1	1746	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+380	Impl		45245	45351	1195	1	1754	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+381	Struct	DNS_RECORD_FLAGS	45352	45450	1200	1	1761	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+382	Struct	DNS_RECORD_OPTW	45451	45788	1205	1	1768	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+383	Impl		45789	45897	1218	1	1785	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+384	Union		45898	46017	1223	1	1792	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+385	Impl		46018	46128	1229	1	1800	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+386	Union		46129	46240	1234	1	1807	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+387	Impl		46241	46351	1240	1	1815	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+388	Const	DNS_RFC_MAX_UDP_PACKET_LENGTH	46352	46406	1245	1	1822	generated	
+389	Struct	DNS_RRSET	46407	46536	1246	1	1823	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+390	Impl		46537	46639	1252	1	1833	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+391	Const	DNS_RTYPE_A	46640	46676	1257	1	1840	generated	
+392	Const	DNS_RTYPE_A6	46677	46715	1258	1	1841	generated	
+393	Const	DNS_RTYPE_AAAA	46716	46756	1259	1	1842	generated	
+394	Const	DNS_RTYPE_AFSDB	46757	46798	1260	1	1843	generated	
+395	Const	DNS_RTYPE_ALL	46799	46839	1261	1	1844	generated	
+396	Const	DNS_RTYPE_ANY	46840	46880	1262	1	1845	generated	
+397	Const	DNS_RTYPE_ATMA	46881	46921	1263	1	1846	generated	
+398	Const	DNS_RTYPE_AXFR	46922	46963	1264	1	1847	generated	
+399	Const	DNS_RTYPE_CERT	46964	47004	1265	1	1848	generated	
+400	Const	DNS_RTYPE_CNAME	47005	47046	1266	1	1849	generated	
+401	Const	DNS_RTYPE_DHCID	47047	47089	1267	1	1850	generated	
+402	Const	DNS_RTYPE_DNAME	47090	47131	1268	1	1851	generated	
+403	Const	DNS_RTYPE_DNSKEY	47132	47175	1269	1	1852	generated	
+404	Const	DNS_RTYPE_DS	47176	47215	1270	1	1853	generated	
+405	Const	DNS_RTYPE_EID	47216	47255	1271	1	1854	generated	
+406	Const	DNS_RTYPE_GID	47256	47296	1272	1	1855	generated	
+407	Const	DNS_RTYPE_GPOS	47297	47337	1273	1	1856	generated	
+408	Const	DNS_RTYPE_HINFO	47338	47379	1274	1	1857	generated	
+409	Const	DNS_RTYPE_ISDN	47380	47420	1275	1	1858	generated	
+410	Const	DNS_RTYPE_IXFR	47421	47462	1276	1	1859	generated	
+411	Const	DNS_RTYPE_KEY	47463	47502	1277	1	1860	generated	
+412	Const	DNS_RTYPE_KX	47503	47541	1278	1	1861	generated	
+413	Const	DNS_RTYPE_LOC	47542	47581	1279	1	1862	generated	
+414	Const	DNS_RTYPE_MAILA	47582	47624	1280	1	1863	generated	
+415	Const	DNS_RTYPE_MAILB	47625	47667	1281	1	1864	generated	
+416	Const	DNS_RTYPE_MB	47668	47706	1282	1	1865	generated	
+417	Const	DNS_RTYPE_MD	47707	47744	1283	1	1866	generated	
+418	Const	DNS_RTYPE_MF	47745	47783	1284	1	1867	generated	
+419	Const	DNS_RTYPE_MG	47784	47822	1285	1	1868	generated	
+420	Const	DNS_RTYPE_MINFO	47823	47864	1286	1	1869	generated	
+421	Const	DNS_RTYPE_MR	47865	47903	1287	1	1870	generated	
+422	Const	DNS_RTYPE_MX	47904	47942	1288	1	1871	generated	
+423	Const	DNS_RTYPE_NAPTR	47943	47984	1289	1	1872	generated	
+424	Const	DNS_RTYPE_NIMLOC	47985	48027	1290	1	1873	generated	
+425	Const	DNS_RTYPE_NS	48028	48065	1291	1	1874	generated	
+426	Const	DNS_RTYPE_NSAP	48066	48106	1292	1	1875	generated	
+427	Const	DNS_RTYPE_NSAPPTR	48107	48150	1293	1	1876	generated	
+428	Const	DNS_RTYPE_NSEC	48151	48192	1294	1	1877	generated	
+429	Const	DNS_RTYPE_NSEC3	48193	48235	1295	1	1878	generated	
+430	Const	DNS_RTYPE_NSEC3PARAM	48236	48283	1296	1	1879	generated	
+431	Const	DNS_RTYPE_NULL	48284	48324	1297	1	1880	generated	
+432	Const	DNS_RTYPE_NXT	48325	48364	1298	1	1881	generated	
+433	Const	DNS_RTYPE_OPT	48365	48405	1299	1	1882	generated	
+434	Const	DNS_RTYPE_PTR	48406	48445	1300	1	1883	generated	
+435	Const	DNS_RTYPE_PX	48446	48484	1301	1	1884	generated	
+436	Const	DNS_RTYPE_RP	48485	48523	1302	1	1885	generated	
+437	Const	DNS_RTYPE_RRSIG	48524	48566	1303	1	1886	generated	
+438	Const	DNS_RTYPE_RT	48567	48605	1304	1	1887	generated	
+439	Const	DNS_RTYPE_SIG	48606	48645	1305	1	1888	generated	
+440	Const	DNS_RTYPE_SINK	48646	48687	1306	1	1889	generated	
+441	Const	DNS_RTYPE_SOA	48688	48727	1307	1	1890	generated	
+442	Const	DNS_RTYPE_SRV	48728	48767	1308	1	1891	generated	
+443	Const	DNS_RTYPE_TEXT	48768	48808	1309	1	1892	generated	
+444	Const	DNS_RTYPE_TKEY	48809	48850	1310	1	1893	generated	
+445	Const	DNS_RTYPE_TLSA	48851	48892	1311	1	1894	generated	
+446	Const	DNS_RTYPE_TSIG	48893	48934	1312	1	1895	generated	
+447	Const	DNS_RTYPE_UID	48935	48975	1313	1	1896	generated	
+448	Const	DNS_RTYPE_UINFO	48976	49018	1314	1	1897	generated	
+449	Const	DNS_RTYPE_UNSPEC	49019	49062	1315	1	1898	generated	
+450	Const	DNS_RTYPE_WINS	49063	49102	1316	1	1899	generated	
+451	Const	DNS_RTYPE_WINSR	49103	49143	1317	1	1900	generated	
+452	Const	DNS_RTYPE_WKS	49144	49183	1318	1	1901	generated	
+453	Const	DNS_RTYPE_X25	49184	49223	1319	1	1902	generated	
+454	ItemType	DNS_SECTION	49224	49251	1320	1	1903	generated	
+455	Struct	DNS_SERVICE_BROWSE_REQUEST	49252	49520	1321	1	1904	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+456	Impl		49521	49640	1330	1	1917	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+457	Union		49641	49830	1335	1	1924	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+458	Impl		49831	49952	1341	1	1932	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+459	Struct	DNS_SERVICE_CANCEL	49953	50062	1346	1	1939	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+460	Impl		50063	50174	1351	1	1948	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+461	Struct	DNS_SERVICE_INSTANCE	50175	50629	1356	1	1955	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+462	Impl		50630	50743	1371	1	1974	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+463	Struct	DNS_SERVICE_REGISTER_REQUEST	50744	51146	1376	1	1981	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+464	Impl		51147	51268	1387	1	1996	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+465	Struct	DNS_SERVICE_RESOLVE_REQUEST	51269	51555	1392	1	2003	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+466	Impl		51556	51676	1401	1	2016	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+467	Struct	DNS_SIG_DATAA	51677	52026	1406	1	2023	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+468	Impl		52027	52133	1420	1	2041	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+469	Struct	DNS_SIG_DATAW	52134	52484	1425	1	2048	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+470	Impl		52485	52591	1439	1	2066	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+471	Struct	DNS_SOA_DATAA	52592	52881	1444	1	2073	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+472	Impl		52882	52988	1455	1	2087	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+473	Struct	DNS_SOA_DATAW	52989	53280	1460	1	2094	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+474	Impl		53281	53387	1471	1	2108	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+475	Struct	DNS_SRV_DATAA	53388	53580	1476	1	2115	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+476	Impl		53581	53687	1485	1	2127	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+477	Struct	DNS_SRV_DATAW	53688	53881	1490	1	2134	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+478	Impl		53882	53988	1499	1	2146	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+479	Struct	DNS_SVCB_DATA	53989	54192	1504	1	2153	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+480	Impl		54193	54299	1512	1	2165	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+481	Struct	DNS_SVCB_PARAM	54300	54427	1517	1	2172	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+482	Impl		54428	54535	1523	1	2181	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+483	Union		54536	54939	1528	1	2188	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+484	Impl		54940	55049	1540	1	2202	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+485	Struct	DNS_SVCB_PARAM_ALPN	55050	55181	1545	1	2209	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 1 and value/layout semantics require coder integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+486	Impl		55182	55294	1551	1	2219	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+487	Struct	DNS_SVCB_PARAM_ALPN_ID	55295	55409	1556	1	2226	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+488	Impl		55410	55525	1562	1	2235	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+489	Struct	DNS_SVCB_PARAM_IPV4	55526	55638	1567	1	2242	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+490	Impl		55639	55751	1573	1	2251	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+491	Struct	DNS_SVCB_PARAM_IPV6	55752	55872	1578	1	2258	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 1 and value/layout semantics require coder integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+492	Impl		55873	55985	1584	1	2268	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+493	Struct	DNS_SVCB_PARAM_MANDATORY	55986	56124	1589	1	2275	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+494	Impl		56125	56242	1595	1	2284	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+495	ItemType	DNS_SVCB_PARAM_TYPE	56243	56278	1600	1	2291	generated	
+496	Struct	DNS_SVCB_PARAM_UNKNOWN	56279	56405	1601	1	2292	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+497	Impl		56406	56521	1607	1	2301	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+498	Struct	DNS_TKEY_DATAA	56522	56946	1612	1	2308	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+499	Impl		56947	57054	1628	1	2328	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+500	Struct	DNS_TKEY_DATAW	57055	57480	1633	1	2335	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+501	Impl		57481	57588	1649	1	2355	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+502	Const	DNS_TKEY_MODE_DIFFIE_HELLMAN	57589	57640	1654	1	2362	generated	
+503	Const	DNS_TKEY_MODE_GSS	57641	57681	1655	1	2363	generated	
+504	Const	DNS_TKEY_MODE_RESOLVER_ASSIGN	57682	57734	1656	1	2364	generated	
+505	Const	DNS_TKEY_MODE_SERVER_ASSIGN	57735	57785	1657	1	2365	generated	
+506	Struct	DNS_TLSA_DATA	57786	58039	1658	1	2366	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 3 and value/layout semantics require coder integration. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+507	Impl		58040	58146	1668	1	2380	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+508	Struct	DNS_TSIG_DATAA	58147	58583	1673	1	2387	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+509	Impl		58584	58691	1689	1	2407	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+510	Struct	DNS_TSIG_DATAW	58692	59129	1694	1	2414	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+511	Impl		59130	59237	1710	1	2434	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+512	Struct	DNS_TXT_DATAA	59238	59380	1715	1	2441	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 1 and value/layout semantics require coder integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+513	Impl		59381	59487	1721	1	2451	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+514	Struct	DNS_TXT_DATAW	59488	59631	1726	1	2458	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 1 and value/layout semantics require coder integration. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+515	Impl		59632	59738	1732	1	2468	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+516	ItemType	DNS_TYPE	59739	59763	1737	1	2475	generated	
+517	Const	DNS_TYPE_A	59764	59802	1738	1	2476	generated	
+518	Const	DNS_TYPE_A6	59803	59843	1739	1	2477	generated	
+519	Const	DNS_TYPE_AAAA	59844	59886	1740	1	2478	generated	
+520	Const	DNS_TYPE_ADDRS	59887	59931	1741	1	2479	generated	
+521	Const	DNS_TYPE_AFSDB	59932	59975	1742	1	2480	generated	
+522	Const	DNS_TYPE_ALL	59976	60018	1743	1	2481	generated	
+523	Const	DNS_TYPE_ANY	60019	60061	1744	1	2482	generated	
+524	Const	DNS_TYPE_ATMA	60062	60104	1745	1	2483	generated	
+525	Const	DNS_TYPE_AXFR	60105	60148	1746	1	2484	generated	
+526	Const	DNS_TYPE_CERT	60149	60191	1747	1	2485	generated	
+527	Const	DNS_TYPE_CNAME	60192	60234	1748	1	2486	generated	
+528	Const	DNS_TYPE_DHCID	60235	60278	1749	1	2487	generated	
+529	Const	DNS_TYPE_DNAME	60279	60322	1750	1	2488	generated	
+530	Const	DNS_TYPE_DNSKEY	60323	60367	1751	1	2489	generated	
+531	Const	DNS_TYPE_DS	60368	60408	1752	1	2490	generated	
+532	Const	DNS_TYPE_EID	60409	60450	1753	1	2491	generated	
+533	Const	DNS_TYPE_GID	60451	60493	1754	1	2492	generated	
+534	Const	DNS_TYPE_GPOS	60494	60536	1755	1	2493	generated	
+535	Const	DNS_TYPE_HINFO	60537	60580	1756	1	2494	generated	
+536	Const	DNS_TYPE_HTTPS	60581	60624	1757	1	2495	generated	
+537	Const	DNS_TYPE_ISDN	60625	60667	1758	1	2496	generated	
+538	Const	DNS_TYPE_IXFR	60668	60711	1759	1	2497	generated	
+539	Const	DNS_TYPE_KEY	60712	60753	1760	1	2498	generated	
+540	Const	DNS_TYPE_KX	60754	60794	1761	1	2499	generated	
+541	Const	DNS_TYPE_LOC	60795	60836	1762	1	2500	generated	
+542	Const	DNS_TYPE_MAILA	60837	60881	1763	1	2501	generated	
+543	Const	DNS_TYPE_MAILB	60882	60926	1764	1	2502	generated	
+544	Const	DNS_TYPE_MB	60927	60966	1765	1	2503	generated	
+545	Const	DNS_TYPE_MD	60967	61006	1766	1	2504	generated	
+546	Const	DNS_TYPE_MF	61007	61046	1767	1	2505	generated	
+547	Const	DNS_TYPE_MG	61047	61086	1768	1	2506	generated	
+548	Const	DNS_TYPE_MINFO	61087	61130	1769	1	2507	generated	
+549	Const	DNS_TYPE_MR	61131	61170	1770	1	2508	generated	
+550	Const	DNS_TYPE_MX	61171	61211	1771	1	2509	generated	
+551	Const	DNS_TYPE_NAPTR	61212	61255	1772	1	2510	generated	
+552	Const	DNS_TYPE_NBSTAT	61256	61303	1773	1	2511	generated	
+553	Const	DNS_TYPE_NIMLOC	61304	61348	1774	1	2512	generated	
+554	Const	DNS_TYPE_NS	61349	61388	1775	1	2513	generated	
+555	Const	DNS_TYPE_NSAP	61389	61431	1776	1	2514	generated	
+556	Const	DNS_TYPE_NSAPPTR	61432	61477	1777	1	2515	generated	
+557	Const	DNS_TYPE_NSEC	61478	61520	1778	1	2516	generated	
+558	Const	DNS_TYPE_NSEC3	61521	61564	1779	1	2517	generated	
+559	Const	DNS_TYPE_NSEC3PARAM	61565	61613	1780	1	2518	generated	
+560	Const	DNS_TYPE_NULL	61614	61656	1781	1	2519	generated	
+561	Const	DNS_TYPE_NXT	61657	61698	1782	1	2520	generated	
+562	Const	DNS_TYPE_OPT	61699	61740	1783	1	2521	generated	
+563	Const	DNS_TYPE_PTR	61741	61782	1784	1	2522	generated	
+564	Const	DNS_TYPE_PX	61783	61823	1785	1	2523	generated	
+565	Const	DNS_TYPE_RP	61824	61864	1786	1	2524	generated	
+566	Const	DNS_TYPE_RRSIG	61865	61908	1787	1	2525	generated	
+567	Const	DNS_TYPE_RT	61909	61949	1788	1	2526	generated	
+568	Const	DNS_TYPE_SIG	61950	61991	1789	1	2527	generated	
+569	Const	DNS_TYPE_SINK	61992	62034	1790	1	2528	generated	
+570	Const	DNS_TYPE_SOA	62035	62075	1791	1	2529	generated	
+571	Const	DNS_TYPE_SRV	62076	62117	1792	1	2530	generated	
+572	Const	DNS_TYPE_SVCB	62118	62160	1793	1	2531	generated	
+573	Const	DNS_TYPE_TEXT	62161	62203	1794	1	2532	generated	
+574	Const	DNS_TYPE_TKEY	62204	62247	1795	1	2533	generated	
+575	Const	DNS_TYPE_TLSA	62248	62290	1796	1	2534	generated	
+576	Const	DNS_TYPE_TSIG	62291	62334	1797	1	2535	generated	
+577	Const	DNS_TYPE_UID	62335	62377	1798	1	2536	generated	
+578	Const	DNS_TYPE_UINFO	62378	62422	1799	1	2537	generated	
+579	Const	DNS_TYPE_UNSPEC	62423	62468	1800	1	2538	generated	
+580	Const	DNS_TYPE_WINS	62469	62514	1801	1	2539	generated	
+581	Const	DNS_TYPE_WINSR	62515	62561	1802	1	2540	generated	
+582	Const	DNS_TYPE_WKS	62562	62603	1803	1	2541	generated	
+583	Const	DNS_TYPE_X25	62604	62645	1804	1	2542	generated	
+584	Const	DNS_TYPE_ZERO	62646	62687	1805	1	2543	generated	
+585	Struct	DNS_UNKNOWN_DATA	62688	62803	1806	1	2544	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+586	Impl		62804	62913	1812	1	2553	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+587	Const	DNS_UPDATE_CACHE_SECURITY_CONTEXT	62914	62972	1817	1	2560	generated	
+588	Const	DNS_UPDATE_FORCE_SECURITY_NEGO	62973	63029	1818	1	2561	generated	
+589	Const	DNS_UPDATE_REMOTE_SERVER	63030	63081	1819	1	2562	generated	
+590	Const	DNS_UPDATE_RESERVED	63082	63133	1820	1	2563	generated	
+591	Const	DNS_UPDATE_SECURITY_OFF	63134	63181	1821	1	2564	generated	
+592	Const	DNS_UPDATE_SECURITY_ON	63182	63228	1822	1	2565	generated	
+593	Const	DNS_UPDATE_SECURITY_ONLY	63229	63278	1823	1	2566	generated	
+594	Const	DNS_UPDATE_SECURITY_USE_DEFAULT	63279	63333	1824	1	2567	generated	
+595	Const	DNS_UPDATE_SKIP_NO_UPDATE_ADAPTERS	63334	63394	1825	1	2568	generated	
+596	Const	DNS_UPDATE_TEST_USE_LOCAL_SYS_ACCT	63395	63455	1826	1	2569	generated	
+597	Const	DNS_UPDATE_TRY_ALL_MASTER_SERVERS	63456	63515	1827	1	2570	generated	
+598	Const	DNS_VALSVR_ERROR_INVALID_ADDR	63516	63568	1828	1	2571	generated	
+599	Const	DNS_VALSVR_ERROR_INVALID_NAME	63569	63621	1829	1	2572	generated	
+600	Const	DNS_VALSVR_ERROR_NO_AUTH	63622	63669	1830	1	2573	generated	
+601	Const	DNS_VALSVR_ERROR_NO_RESPONSE	63670	63721	1831	1	2574	generated	
+602	Const	DNS_VALSVR_ERROR_NO_TCP	63722	63769	1832	1	2575	generated	
+603	Const	DNS_VALSVR_ERROR_REFUSED	63770	63817	1833	1	2576	generated	
+604	Const	DNS_VALSVR_ERROR_UNKNOWN	63818	63867	1834	1	2577	generated	
+605	Const	DNS_VALSVR_ERROR_UNREACHABLE	63868	63919	1835	1	2578	generated	
+606	Struct	DNS_WINSR_DATAA	63920	64123	1836	1	2579	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+607	Impl		64124	64232	1844	1	2590	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+608	Struct	DNS_WINSR_DATAW	64233	64437	1849	1	2597	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+609	Impl		64438	64546	1857	1	2608	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+610	Struct	DNS_WINS_DATA	64547	64758	1862	1	2615	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+611	Impl		64759	64865	1871	1	2627	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+612	Const	DNS_WINS_FLAG_LOCAL	64866	64912	1876	1	2634	generated	
+613	Const	DNS_WINS_FLAG_SCOPE	64913	64964	1877	1	2635	generated	
+614	Struct	DNS_WIRE_QUESTION	64965	65106	1878	1	2636	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+615	Struct	DNS_WIRE_RECORD	65107	65292	1884	1	2644	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+616	Struct	DNS_WKS_DATA	65293	65428	1892	1	2654	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+617	Impl		65429	65534	1899	1	2664	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+618	Const	DnsCharSetAnsi	65535	65580	1904	1	2671	generated	
+619	Const	DnsCharSetUnicode	65581	65629	1905	1	2672	generated	
+620	Const	DnsCharSetUnknown	65630	65678	1906	1	2673	generated	
+621	Const	DnsCharSetUtf8	65679	65724	1907	1	2674	generated	
+622	Const	DnsConfigAdapterDomainName_A	65725	65788	1908	1	2675	generated	
+623	Const	DnsConfigAdapterDomainName_UTF8	65789	65855	1909	1	2676	generated	
+624	Const	DnsConfigAdapterDomainName_W	65856	65919	1910	1	2677	generated	
+625	Const	DnsConfigAdapterHostNameRegistrationEnabled	65920	65999	1911	1	2678	generated	
+626	Const	DnsConfigAdapterInfo	66000	66055	1912	1	2679	generated	
+627	Const	DnsConfigAddressRegistrationMaxCount	66056	66128	1913	1	2680	generated	
+628	Const	DnsConfigDnsServerList	66129	66186	1914	1	2681	generated	
+629	Const	DnsConfigFullHostName_A	66187	66246	1915	1	2682	generated	
+630	Const	DnsConfigFullHostName_UTF8	66247	66309	1916	1	2683	generated	
+631	Const	DnsConfigFullHostName_W	66310	66369	1917	1	2684	generated	
+632	Const	DnsConfigHostName_A	66370	66425	1918	1	2685	generated	
+633	Const	DnsConfigHostName_UTF8	66426	66484	1919	1	2686	generated	
+634	Const	DnsConfigHostName_W	66485	66540	1920	1	2687	generated	
+635	Const	DnsConfigNameServer	66541	66596	1921	1	2688	generated	
+636	Const	DnsConfigPrimaryDomainName_A	66597	66660	1922	1	2689	generated	
+637	Const	DnsConfigPrimaryDomainName_UTF8	66661	66727	1923	1	2690	generated	
+638	Const	DnsConfigPrimaryDomainName_W	66728	66791	1924	1	2691	generated	
+639	Const	DnsConfigPrimaryHostNameRegistrationEnabled	66792	66870	1925	1	2692	generated	
+640	Const	DnsConfigSearchList	66871	66925	1926	1	2693	generated	
+641	Const	DnsFreeFlat	66926	66970	1927	1	2694	generated	
+642	Const	DnsFreeParsedMessageFields	66971	67030	1928	1	2695	generated	
+643	Const	DnsFreeRecordList	67031	67081	1929	1	2696	generated	
+644	Const	DnsNameDomain	67082	67130	1930	1	2697	generated	
+645	Const	DnsNameDomainLabel	67131	67184	1931	1	2698	generated	
+646	Const	DnsNameHostnameFull	67185	67239	1932	1	2699	generated	
+647	Const	DnsNameHostnameLabel	67240	67295	1933	1	2700	generated	
+648	Const	DnsNameSrvRecord	67296	67347	1934	1	2701	generated	
+649	Const	DnsNameValidateTld	67348	67401	1935	1	2702	generated	
+650	Const	DnsNameWildcard	67402	67452	1936	1	2703	generated	
+651	Const	DnsSectionAddtional	67453	67503	1937	1	2704	generated	
+652	Const	DnsSectionAnswer	67504	67551	1938	1	2705	generated	
+653	Const	DnsSectionAuthority	67552	67602	1939	1	2706	generated	
+654	Const	DnsSectionQuestion	67603	67652	1940	1	2707	generated	
+655	Const	DnsSvcbParamAlpn	67653	67708	1941	1	2708	generated	
+656	Const	DnsSvcbParamDohPath	67709	67767	1942	1	2709	generated	
+657	Const	DnsSvcbParamDohPathOpenDns	67768	67837	1943	1	2710	generated	
+658	Const	DnsSvcbParamDohPathQuad9	67838	67905	1944	1	2711	generated	
+659	Const	DnsSvcbParamEch	67906	67960	1945	1	2712	generated	
+660	Const	DnsSvcbParamIpv4Hint	67961	68020	1946	1	2713	generated	
+661	Const	DnsSvcbParamIpv6Hint	68021	68080	1947	1	2714	generated	
+662	Const	DnsSvcbParamMandatory	68081	68141	1948	1	2715	generated	
+663	Const	DnsSvcbParamNoDefaultAlpn	68142	68206	1949	1	2716	generated	
+664	Const	DnsSvcbParamPort	68207	68262	1950	1	2717	generated	
+665	Const	IP4_ADDRESS_STRING_BUFFER_LENGTH	68263	68319	1951	1	2718	generated	
+666	Const	IP4_ADDRESS_STRING_LENGTH	68320	68369	1952	1	2719	generated	
+667	Struct	IP4_ARRAY	68370	68481	1953	1	2720	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 1 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+668	Impl		68482	68584	1959	1	2729	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+669	Union		68585	68754	1964	1	2736	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+670	Impl		68755	68887	1972	1	2746	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+671	Union		68888	69143	1978	1	2754	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+672	Impl		69144	69334	1987	1	2765	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+673	Const	IP6_ADDRESS_STRING_BUFFER_LENGTH	69335	69391	1993	1	2773	generated	
+674	Const	IP6_ADDRESS_STRING_LENGTH	69392	69441	1994	1	2774	generated	
+675	Struct	MDNS_QUERY_HANDLE	69442	69689	1995	1	2775	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Rust fixed array length 256 and value/layout semantics require coder integration. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Rust fixed array length 2 and value/layout semantics require coder integration. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+676	Impl		69690	69800	2004	1	2790	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+677	Struct	MDNS_QUERY_REQUEST	69801	70208	2009	1	2797	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+678	Impl		70209	70320	2023	1	2815	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+679	ItemType	PDNS_QUERY_COMPLETION_ROUTINE	70321	70475	2028	1	2822	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+680	ItemType	PDNS_SERVICE_BROWSE_CALLBACK	70476	70636	2029	1	2827	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+681	ItemType	PDNS_SERVICE_REGISTER_COMPLETE	70637	70807	2030	1	2832	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+682	ItemType	PDNS_SERVICE_RESOLVE_COMPLETE	70808	70977	2031	1	2837	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+683	ItemType	PMDNS_QUERY_CALLBACK	70978	71161	2032	1	2842	syntax	Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Native callback ABI=system, unsafe=true; integrate the matching native bridge. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+684	Const	SIZEOF_IP4_ADDRESS	71162	71203	2033	1	2847	generated	
+685	Const	TAG_DNS_CONNECTION_POLICY_TAG_CONNECTION_MANAGER	71204	71297	2034	1	2848	generated	
+686	Const	TAG_DNS_CONNECTION_POLICY_TAG_DEFAULT	71298	71380	2035	1	2849	generated	
+687	Const	TAG_DNS_CONNECTION_POLICY_TAG_WWWPT	71381	71461	2036	1	2850	generated	
+688	Struct	_DnsRecordOptA	71462	71795	2037	1	2851	syntax	Record syntax only: integrate Rust layout, cfg, Copy/ownership and mutable-borrow restrictions; Kotlin class storage is not a Rust layout implementation. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
+689	Impl		71796	71903	2050	1	2868	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+690	Union		71904	72022	2055	1	2875	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+691	Impl		72023	72132	2061	1	2883	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl
+692	Union		72133	72243	2066	1	2890	unsupported	declaration Union has no candidate rule; syntax: no per-file syntax rule for Union
+693	Impl		72244	72353	2072	1	2898	unsupported	declaration Impl has no candidate rule; syntax: no per-file syntax rule for Impl

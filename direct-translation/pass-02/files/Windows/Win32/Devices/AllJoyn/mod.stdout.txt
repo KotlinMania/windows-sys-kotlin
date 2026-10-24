@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/Devices/AllJoyn/mod: 530 generated; 623 unsupported

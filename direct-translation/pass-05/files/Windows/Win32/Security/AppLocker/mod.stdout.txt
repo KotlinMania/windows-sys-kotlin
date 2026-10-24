@@ -1,0 +1,1 @@
+candidate ../windows-sys-kotlin/direct-translation/pass-05/files/Windows/Win32/Security/AppLocker/mod: 66 generated; 28 syntax candidates; 5 unsupported

@@ -1,0 +1,7 @@
+index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
+0	Mod	Devices	0	48	1	1	2	unsupported	declaration Mod has no candidate rule
+1	Mod	Foundation	49	103	3	1	6	unsupported	declaration Mod has no candidate rule
+2	Mod	Graphics	104	154	5	1	10	unsupported	declaration Mod has no candidate rule
+3	Mod	NetworkManagement	155	223	7	1	14	unsupported	declaration Mod has no candidate rule
+4	Mod	Storage	224	272	9	1	18	unsupported	declaration Mod has no candidate rule
+5	Mod	System	273	319	11	1	22	unsupported	declaration Mod has no candidate rule
