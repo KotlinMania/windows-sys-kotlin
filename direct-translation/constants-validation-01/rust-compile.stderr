@@ -1,0 +1,258 @@
+warning: module `Windows` should have a snake case name
+ --> /Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/constants-validation-01/main.rs:5:5
+  |
+5 | mod Windows { pub mod Win32 { pub mod Foundation { include!("DEVPROPKEY.rs"); } }
+  |     ^^^^^^^ help: convert the identifier to snake case (notice the capitalization): `windows`
+  |
+  = note: `#[warn(non_snake_case)]` (part of `#[warn(nonstandard_style)]`) on by default
+
+warning: constant `IID_IUnknown` should have an upper case name
+  --> /Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/core/mod.rs:30:11
+   |
+30 | pub const IID_IUnknown: GUID = GUID::from_u128(0x00000000_0000_0000_c000_000000000046);
+   |           ^^^^^^^^^^^^ help: convert the identifier to upper case: `IID_IUNKNOWN`
+   |
+   = note: `#[warn(non_upper_case_globals)]` (part of `#[warn(nonstandard_style)]`) on by default
+
+warning: structure field `QueryInterface` should have a snake case name
+  --> /Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/core/mod.rs:34:9
+   |
+34 |     pub QueryInterface: unsafe extern "system" fn(this: *mut core::ffi::c_void, iid: *const GUID, interface: *mut *mut core::ffi::c_...
+   |         ^^^^^^^^^^^^^^ help: convert the identifier to snake case: `query_interface`
+
+warning: structure field `AddRef` should have a snake case name
+  --> /Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/core/mod.rs:35:9
+   |
+35 |     pub AddRef: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
+   |         ^^^^^^ help: convert the identifier to snake case: `add_ref`
+
+warning: structure field `Release` should have a snake case name
+  --> /Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/core/mod.rs:36:9
+   |
+36 |     pub Release: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
+   |         ^^^^^^^ help: convert the identifier to snake case: `release`
+
+warning: constant `IID_IInspectable` should have an upper case name
+  --> /Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/core/mod.rs:39:11
+   |
+39 | pub const IID_IInspectable: GUID = GUID::from_u128(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90);
+   |           ^^^^^^^^^^^^^^^^ help: convert the identifier to upper case: `IID_IINSPECTABLE`
+
+warning: structure field `GetIids` should have a snake case name
+  --> /Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/core/mod.rs:44:9
+   |
+44 |     pub GetIids: unsafe extern "system" fn(this: *mut core::ffi::c_void, count: *mut u32, values: *mut *mut GUID) -> HRESULT,
+   |         ^^^^^^^ help: convert the identifier to snake case: `get_iids`
+
+warning: structure field `GetRuntimeClassName` should have a snake case name
+  --> /Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/core/mod.rs:45:9
+   |
+45 |     pub GetRuntimeClassName: unsafe extern "system" fn(this: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> HRESULT,
+   |         ^^^^^^^^^^^^^^^^^^^ help: convert the identifier to snake case: `get_runtime_class_name`
+
+warning: structure field `GetTrustLevel` should have a snake case name
+  --> /Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/core/mod.rs:46:9
+   |
+46 |     pub GetTrustLevel: unsafe extern "system" fn(this: *mut core::ffi::c_void, value: *mut i32) -> HRESULT,
+   |         ^^^^^^^^^^^^^ help: convert the identifier to snake case: `get_trust_level`
+
+warning: module `Win32` should have a snake case name
+ --> /Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/constants-validation-01/main.rs:5:23
+  |
+5 | mod Windows { pub mod Win32 { pub mod Foundation { include!("DEVPROPKEY.rs"); } }
+  |                       ^^^^^ help: convert the identifier to snake case (notice the capitalization): `win32`
+
+warning: module `Wdk` should have a snake case name
+ --> /Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/constants-validation-01/main.rs:6:9
+  |
+6 | pub mod Wdk { pub mod Devices { pub mod Bluetooth { include!("/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/...
+  |         ^^^ help: convert the identifier to snake case (notice the capitalization): `wdk`
+
+warning: module `Foundation` should have a snake case name
+ --> /Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/constants-validation-01/main.rs:5:39
+  |
+5 | mod Windows { pub mod Win32 { pub mod Foundation { include!("DEVPROPKEY.rs"); } }
+  |                                       ^^^^^^^^^^ help: convert the identifier to snake case (notice the capitalization): `foundation`
+
+warning: module `Devices` should have a snake case name
+ --> /Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/constants-validation-01/main.rs:6:23
+  |
+6 | pub mod Wdk { pub mod Devices { pub mod Bluetooth { include!("/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/...
+  |                       ^^^^^^^ help: convert the identifier to snake case: `devices`
+
+warning: module `Bluetooth` should have a snake case name
+ --> /Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/constants-validation-01/main.rs:6:41
+  |
+6 | pub mod Wdk { pub mod Devices { pub mod Bluetooth { include!("/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/...
+  |                                         ^^^^^^^^^ help: convert the identifier to snake case: `bluetooth`
+
+warning: constant `DEVPKEY_Bluetooth_ClassOfDevice` should have an upper case name
+ --> /Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/Windows/Wdk/Devices/Bluetooth/mod.rs:1:11
+  |
+1 | pub const DEVPKEY_Bluetooth_ClassOfDevice: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundatio...
+  |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+help: convert the identifier to upper case
+  |
+1 - pub const DEVPKEY_Bluetooth_ClassOfDevice: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a), pid: 10 };
+1 + pub const DEVPKEY_BLUETOOTH_CLASS_OF_DEVICE: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a), pid: 10 };
+  |
+
+warning: constant `DEVPKEY_Bluetooth_ClassOfDevice_Deprecated` should have an upper case name
+ --> /Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/Windows/Wdk/Devices/Bluetooth/mod.rs:2:11
+  |
+2 | pub const DEVPKEY_Bluetooth_ClassOfDevice_Deprecated: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32...
+  |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+help: convert the identifier to upper case
+  |
+2 - pub const DEVPKEY_Bluetooth_ClassOfDevice_Deprecated: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a), pid: 4 };
+2 + pub const DEVPKEY_BLUETOOTH_CLASS_OF_DEVICE_DEPRECATED: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a), pid: 4 };
+  |
+
+warning: constant `DEVPKEY_Bluetooth_DeviceAddress` should have an upper case name
+ --> /Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/Windows/Wdk/Devices/Bluetooth/mod.rs:3:11
+  |
+3 | pub const DEVPKEY_Bluetooth_DeviceAddress: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundatio...
+  |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+help: convert the identifier to upper case
+  |
+3 - pub const DEVPKEY_Bluetooth_DeviceAddress: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a), pid: 1 };
+3 + pub const DEVPKEY_BLUETOOTH_DEVICE_ADDRESS: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a), pid: 1 };
+  |
+
+warning: constant `DEVPKEY_Bluetooth_DeviceFlags` should have an upper case name
+ --> /Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/Windows/Wdk/Devices/Bluetooth/mod.rs:4:11
+  |
+4 | pub const DEVPKEY_Bluetooth_DeviceFlags: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation:...
+  |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+help: convert the identifier to upper case
+  |
+4 - pub const DEVPKEY_Bluetooth_DeviceFlags: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a), pid: 3 };
+4 + pub const DEVPKEY_BLUETOOTH_DEVICE_FLAGS: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a), pid: 3 };
+  |
+
+warning: constant `DEVPKEY_Bluetooth_DeviceManufacturer` should have an upper case name
+ --> /Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/Windows/Wdk/Devices/Bluetooth/mod.rs:5:11
+  |
+5 | pub const DEVPKEY_Bluetooth_DeviceManufacturer: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foun...
+  |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+help: convert the identifier to upper case
+  |
+5 - pub const DEVPKEY_Bluetooth_DeviceManufacturer: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a), pid: 4 };
+5 + pub const DEVPKEY_BLUETOOTH_DEVICE_MANUFACTURER: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a), pid: 4 };
+  |
+
+warning: constant `DEVPKEY_Bluetooth_DeviceModelNumber` should have an upper case name
+ --> /Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/Windows/Wdk/Devices/Bluetooth/mod.rs:6:11
+  |
+6 | pub const DEVPKEY_Bluetooth_DeviceModelNumber: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Found...
+  |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+help: convert the identifier to upper case
+  |
+6 - pub const DEVPKEY_Bluetooth_DeviceModelNumber: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a), pid: 5 };
+6 + pub const DEVPKEY_BLUETOOTH_DEVICE_MODEL_NUMBER: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a), pid: 5 };
+  |
+
+warning: constant `DEVPKEY_Bluetooth_DevicePID` should have an upper case name
+ --> /Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/Windows/Wdk/Devices/Bluetooth/mod.rs:7:11
+  |
+7 | pub const DEVPKEY_Bluetooth_DevicePID: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation::D...
+  |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+help: convert the identifier to upper case
+  |
+7 - pub const DEVPKEY_Bluetooth_DevicePID: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a), pid: 8 };
+7 + pub const DEVPKEY_BLUETOOTH_DEVICE_PID: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a), pid: 8 };
+  |
+
+warning: constant `DEVPKEY_Bluetooth_DeviceProductVersion` should have an upper case name
+ --> /Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/Windows/Wdk/Devices/Bluetooth/mod.rs:8:11
+  |
+8 | pub const DEVPKEY_Bluetooth_DeviceProductVersion: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Fo...
+  |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+help: convert the identifier to upper case
+  |
+8 - pub const DEVPKEY_Bluetooth_DeviceProductVersion: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a), pid: 9 };
+8 + pub const DEVPKEY_BLUETOOTH_DEVICE_PRODUCT_VERSION: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a), pid: 9 };
+  |
+
+warning: constant `DEVPKEY_Bluetooth_DeviceVID` should have an upper case name
+ --> /Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/Windows/Wdk/Devices/Bluetooth/mod.rs:9:11
+  |
+9 | pub const DEVPKEY_Bluetooth_DeviceVID: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation::D...
+  |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+help: convert the identifier to upper case
+  |
+9 - pub const DEVPKEY_Bluetooth_DeviceVID: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a), pid: 7 };
+9 + pub const DEVPKEY_BLUETOOTH_DEVICE_VID: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a), pid: 7 };
+  |
+
+warning: constant `DEVPKEY_Bluetooth_DeviceVIDSource` should have an upper case name
+  --> /Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/Windows/Wdk/Devices/Bluetooth/mod.rs:10:11
+   |
+10 | pub const DEVPKEY_Bluetooth_DeviceVIDSource: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Founda...
+   |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+help: convert the identifier to upper case
+   |
+10 - pub const DEVPKEY_Bluetooth_DeviceVIDSource: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a), pid: 6 };
+10 + pub const DEVPKEY_BLUETOOTH_DEVICE_VIDSOURCE: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a), pid: 6 };
+   |
+
+warning: constant `DEVPKEY_Bluetooth_LastConnectedTime` should have an upper case name
+  --> /Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/Windows/Wdk/Devices/Bluetooth/mod.rs:11:11
+   |
+11 | pub const DEVPKEY_Bluetooth_LastConnectedTime: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foun...
+   |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+help: convert the identifier to upper case
+   |
+11 - pub const DEVPKEY_Bluetooth_LastConnectedTime: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a), pid: 11 };
+11 + pub const DEVPKEY_BLUETOOTH_LAST_CONNECTED_TIME: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a), pid: 11 };
+   |
+
+warning: constant `DEVPKEY_Bluetooth_LastConnectedTime_Deprecated` should have an upper case name
+  --> /Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/Windows/Wdk/Devices/Bluetooth/mod.rs:12:11
+   |
+12 | pub const DEVPKEY_Bluetooth_LastConnectedTime_Deprecated: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::...
+   |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+help: convert the identifier to upper case
+   |
+12 - pub const DEVPKEY_Bluetooth_LastConnectedTime_Deprecated: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a), pid: 5 };
+12 + pub const DEVPKEY_BLUETOOTH_LAST_CONNECTED_TIME_DEPRECATED: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a), pid: 5 };
+   |
+
+warning: constant `DEVPKEY_Bluetooth_LastSeenTime` should have an upper case name
+  --> /Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/Windows/Wdk/Devices/Bluetooth/mod.rs:13:11
+   |
+13 | pub const DEVPKEY_Bluetooth_LastSeenTime: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundatio...
+   |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+help: convert the identifier to upper case
+   |
+13 - pub const DEVPKEY_Bluetooth_LastSeenTime: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a), pid: 12 };
+13 + pub const DEVPKEY_BLUETOOTH_LAST_SEEN_TIME: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a), pid: 12 };
+   |
+
+warning: constant `DEVPKEY_Bluetooth_ServiceGUID` should have an upper case name
+  --> /Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/Windows/Wdk/Devices/Bluetooth/mod.rs:14:11
+   |
+14 | pub const DEVPKEY_Bluetooth_ServiceGUID: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation...
+   |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+help: convert the identifier to upper case
+   |
+14 - pub const DEVPKEY_Bluetooth_ServiceGUID: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a), pid: 2 };
+14 + pub const DEVPKEY_BLUETOOTH_SERVICE_GUID: super::super::super::Win32::Foundation::DEVPROPKEY = super::super::super::Win32::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a), pid: 2 };
+   |
+
+warning: 28 warnings emitted
+

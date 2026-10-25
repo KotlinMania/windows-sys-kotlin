@@ -1,0 +1,123 @@
+[
+  {
+    "command": [
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/constants-validation-01/rust-kotlin.kexe",
+      "candidates",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/constants-validation-01/values.rs",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/constants-validation-01/fixture",
+      "--pointer-width=64",
+      "--syntax-candidates",
+      "--scalar-module=probe=/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/constants-validation-01/probe.rs",
+      "--scalar-module=windows_sys::core=/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/core/mod.rs"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/constants-validation-01/rust-kotlin.kexe",
+      "candidates",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/constants-validation-01/values.rs",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/constants-validation-01/repeat",
+      "--pointer-width=64",
+      "--syntax-candidates",
+      "--scalar-module=probe=/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/constants-validation-01/probe.rs",
+      "--scalar-module=windows_sys::core=/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/core/mod.rs"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/constants-validation-01/rust-kotlin.kexe",
+      "candidates",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/Windows/Wdk/Devices/Bluetooth/mod.rs",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/constants-validation-01/bluetooth",
+      "--pointer-width=64",
+      "--syntax-candidates",
+      "--scalar-module=probe=/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/constants-validation-01/probe.rs",
+      "--scalar-module=windows_sys::core=/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/core/mod.rs",
+      "--scalar-module=super::super::super::Win32::Foundation=/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/Windows/Win32/Foundation/mod.rs"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "/opt/homebrew/bin/rustc",
+      "--edition=2021",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/constants-validation-01/main.rs",
+      "-o",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/constants-validation-01/rust-oracle"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/constants-validation-01/rust-oracle"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "/Users/sydney/.konan/kotlin-native-prebuilt-macos-aarch64-2.4.21/bin/konanc",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/constants-validation-01/fixture/candidate.kt",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/constants-validation-01/bluetooth/candidate.kt",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/constants-validation-01/PortCore.kt",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/constants-validation-01/TestProbe.kt",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/constants-validation-01/TestGuidBinding.kt",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/constants-validation-01/TestFoundation.kt",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/constants-validation-01/Main.kt",
+      "-o",
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/constants-validation-01/kotlin-values",
+      "-library",
+      "/Users/sydney/.gradle/caches/modules-2/files-2.1/io.github.kotlinmania/anyhow-kotlin-macosarm64/0.2.0/f4d2733cf5b56549a14981b858b4d80d44f24ec1/anyhow-kotlin-macosArm64Main-0.2.0.klib",
+      "-library",
+      "/Users/sydney/.gradle/caches/modules-2/files-2.1/io.github.kotlinmania/getrandom-kotlin-macosarm64/0.2.0/9b3fb369cb6fe0ca0fa09b7e28a4b86d5d195863/getrandom-kotlin-macosArm64Main-0.2.0.klib",
+      "-library",
+      "/Users/sydney/.gradle/caches/modules-2/files-2.1/io.github.kotlinmania/num-bigint-kotlin-macosarm64/0.1.2/26c8c4417ab26ed58a1c1abca5e34cc42056bbd8/num-bigint-kotlin-macosArm64Main-0.1.2.klib",
+      "-library",
+      "/Users/sydney/.gradle/caches/modules-2/files-2.1/io.github.kotlinmania/num-traits-kotlin-macosarm64/0.2.15/ea8d7d3d6bcd5c528a08a1abf72d01b99293dd02/num-traits-kotlin-macosArm64Main-0.2.15.klib",
+      "-library",
+      "/Users/sydney/.gradle/caches/modules-2/files-2.1/io.github.kotlinmania/quote-kotlin-macosarm64/0.2.5/92b78014c314f5da1a2c204fafdf7d4e1ce8b701/quote-kotlin-macosArm64Main-0.2.5.klib",
+      "-library",
+      "/Users/sydney/.gradle/caches/modules-2/files-2.1/io.github.kotlinmania/rand-kotlin-macosarm64/0.2.0/42d2d335c6690fa95f6b710aa15c66fd23f9cd1b/rand-kotlin-macosArm64Main-0.2.0.klib",
+      "-library",
+      "/Users/sydney/.gradle/caches/modules-2/files-2.1/io.github.kotlinmania/serde-core-macosarm64/0.1.12/64b853c25de39bef8da478148aca73ba09993b5d/serde-core-macosArm64Main-0.1.12.klib",
+      "-library",
+      "/Users/sydney/.gradle/caches/modules-2/files-2.1/io.github.kotlinmania/serde-derive-macosarm64/0.1.12/4e5c9be837557560a1f8200ffef3bd505debf62b/serde-derive-macosArm64Main-0.1.12.klib",
+      "-library",
+      "/Users/sydney/.gradle/caches/modules-2/files-2.1/io.github.kotlinmania/serde-kotlin-macosarm64/0.1.12/7c27940e4ae3340d94c1f35ab1a4e1490fd4b89d/serde-kotlin-macosArm64Main-0.1.12.klib",
+      "-library",
+      "/Users/sydney/.gradle/caches/modules-2/files-2.1/io.github.kotlinmania/threadlocal-kotlin-macosarm64/0.3.3/f7fa46be3b5855168d3bbc67ff3233b00da01982/threadlocal-kotlin-macosArm64Main-0.3.3.klib",
+      "-library",
+      "/Users/sydney/.gradle/caches/modules-2/files-2.1/io.github.kotlinmania/unicode-ident-kotlin-macosarm64/0.1.1/2af6ecf48a6cc210f9f8cb2ee5cc711026fb37c/unicode-ident-kotlin-macosArm64Main-0.1.1.klib",
+      "-library",
+      "/Users/sydney/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/atomicfu-macosarm64/0.32.1/4a274f829f780c332d10ba8adaf076c5b251ca1/atomicfu-macosArm64Main-0.32.1.klib",
+      "-library",
+      "/Users/sydney/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/atomicfu-macosarm64/0.32.1/a6d990b552bf9396503f8318ae1188aa961de542/atomicfu-macosArm64Cinterop-interopMain-0.32.1.klib",
+      "-library",
+      "/Users/sydney/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-collections-immutable-macosarm64/0.5.2/b09976aca9970c8c0a3808a4a6664000ec045c4a/kotlinx-collections-immutable-macosArm64Main-0.5.2.klib",
+      "-library",
+      "/Users/sydney/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-macosarm64/1.11.0/baededf132ba29f88ec444a7209692951f6bc020/kotlinx-coroutines-core-macosArm64Main-1.11.0.klib",
+      "-library",
+      "/Users/sydney/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-datetime-macosarm64/0.8.0/35281d8b2dad073b4ede91fc70a699c0baeab910/kotlinx-datetime-macosArm64Main-0.8.0.klib",
+      "-library",
+      "/Users/sydney/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-serialization-core-macosarm64/1.11.0/f22385c39763fb7c0cf6e129c511b811d18d224d/kotlinx-serialization-core-macosArm64Main-1.11.0.klib",
+      "-library",
+      "/Users/sydney/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-serialization-json-macosarm64/1.11.0/4e81b4c063ba690bf3cbc23cd4e06291f44d865d/kotlinx-serialization-json-macosArm64Main-1.11.0.klib",
+      "-library",
+      "/Users/sydney/.m2/repository/io/github/kotlinmania/bytes-kotlin-macosarm64/0.2.3/bytes-kotlin-macosarm64-0.2.3.klib",
+      "-library",
+      "/Volumes/stuff/Projects/kotlinmania/rust-kotlin/tmp/token-copy-repair-tkw9djkt/libraries/proc-macro-kotlin.klib",
+      "-library",
+      "/Volumes/stuff/Projects/kotlinmania/rust-kotlin/tmp/windows-lexer-byte-access-01/proc-macro2-kotlin.klib",
+      "-library",
+      "/Volumes/stuff/Projects/kotlinmania/rust-kotlin/tmp/windows-string-macros-01/syn-delimiters.klib"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/constants-validation-01/kotlin-values.kexe"
+    ],
+    "exit_code": 0
+  }
+]

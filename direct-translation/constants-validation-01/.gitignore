@@ -1,0 +1,4 @@
+/rust-oracle
+/*.kexe
+/*.kexe.dSYM/
+/libraries/
