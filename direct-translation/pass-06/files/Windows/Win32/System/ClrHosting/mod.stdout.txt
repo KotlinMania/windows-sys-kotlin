@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-06/files/Windows/Win32/System/ClrHosting/mod: 196 generated; 53 syntax candidates; 13 unsupported

@@ -1,252 +1,249 @@
-// port-lint: source Windows/Win32/System/Environment/mod.rs
+@file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.system.environment
 
 public data class ENCLAVE_IDENTITY(
-    public var ownerId: ByteArray = ByteArray(32),
-    public var uniqueId: ByteArray = ByteArray(32),
-    public var authorId: ByteArray = ByteArray(32),
-    public var familyId: ByteArray = ByteArray(16),
-    public var imageId: ByteArray = ByteArray(16),
-    public var enclaveSvn: UInt = 0u,
-    public var secureKernelSvn: UInt = 0u,
-    public var platformSvn: UInt = 0u,
-    public var flags: UInt = 0u,
-    public var signingLevel: UInt = 0u,
-    public var enclaveType: UInt = 0u,
+    public var OwnerId: UByteArray = UByteArray(32),
+    public var UniqueId: UByteArray = UByteArray(32),
+    public var AuthorId: UByteArray = UByteArray(32),
+    public var FamilyId: UByteArray = UByteArray(16),
+    public var ImageId: UByteArray = UByteArray(16),
+    public var EnclaveSvn: UInt = 0u,
+    public var SecureKernelSvn: UInt = 0u,
+    public var PlatformSvn: UInt = 0u,
+    public var Flags: UInt = 0u,
+    public var SigningLevel: UInt = 0u,
+    public var EnclaveType: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ENCLAVE_IDENTITY) return false
-        if (!ownerId.contentEquals(other.ownerId)) return false
-        if (!uniqueId.contentEquals(other.uniqueId)) return false
-        if (!authorId.contentEquals(other.authorId)) return false
-        if (!familyId.contentEquals(other.familyId)) return false
-        if (!imageId.contentEquals(other.imageId)) return false
-        if (enclaveSvn != other.enclaveSvn) return false
-        if (secureKernelSvn != other.secureKernelSvn) return false
-        if (platformSvn != other.platformSvn) return false
-        if (flags != other.flags) return false
-        if (signingLevel != other.signingLevel) return false
-        if (enclaveType != other.enclaveType) return false
+        if (!this.OwnerId.contentEquals(other.OwnerId)) return false
+        if (!this.UniqueId.contentEquals(other.UniqueId)) return false
+        if (!this.AuthorId.contentEquals(other.AuthorId)) return false
+        if (!this.FamilyId.contentEquals(other.FamilyId)) return false
+        if (!this.ImageId.contentEquals(other.ImageId)) return false
+        if (this.EnclaveSvn != other.EnclaveSvn) return false
+        if (this.SecureKernelSvn != other.SecureKernelSvn) return false
+        if (this.PlatformSvn != other.PlatformSvn) return false
+        if (this.Flags != other.Flags) return false
+        if (this.SigningLevel != other.SigningLevel) return false
+        if (this.EnclaveType != other.EnclaveType) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = ownerId.contentHashCode()
-        result = 31 * result + uniqueId.contentHashCode()
-        result = 31 * result + authorId.contentHashCode()
-        result = 31 * result + familyId.contentHashCode()
-        result = 31 * result + imageId.contentHashCode()
-        result = 31 * result + enclaveSvn.hashCode()
-        result = 31 * result + secureKernelSvn.hashCode()
-        result = 31 * result + platformSvn.hashCode()
-        result = 31 * result + flags.hashCode()
-        result = 31 * result + signingLevel.hashCode()
-        result = 31 * result + enclaveType.hashCode()
+        var result = this.OwnerId.contentHashCode()
+        result = 31 * result + this.UniqueId.contentHashCode()
+        result = 31 * result + this.AuthorId.contentHashCode()
+        result = 31 * result + this.FamilyId.contentHashCode()
+        result = 31 * result + this.ImageId.contentHashCode()
+        result = 31 * result + this.EnclaveSvn.hashCode()
+        result = 31 * result + this.SecureKernelSvn.hashCode()
+        result = 31 * result + this.PlatformSvn.hashCode()
+        result = 31 * result + this.Flags.hashCode()
+        result = 31 * result + this.SigningLevel.hashCode()
+        result = 31 * result + this.EnclaveType.hashCode()
         return result
     }
 }
 
 public data class ENCLAVE_INFORMATION(
-    public var enclaveType: UInt = 0u,
-    public var reserved: UInt = 0u,
-    public var baseAddress: Long = 0L,
-    public var size: ULong = 0uL,
-    public var identity: ENCLAVE_IDENTITY = ENCLAVE_IDENTITY(),
+    public var EnclaveType: UInt = 0u,
+    public var Reserved: UInt = 0u,
+    public var BaseAddress: Long = 0L,
+    public var Size: ULong = 0uL,
+    public var Identity: ENCLAVE_IDENTITY = ENCLAVE_IDENTITY(),
 )
 
 public data class ENCLAVE_VBS_BASIC_KEY_REQUEST(
-    public var requestSize: UInt = 0u,
-    public var flags: UInt = 0u,
-    public var enclaveSvn: UInt = 0u,
-    public var systemKeyId: UInt = 0u,
-    public var currentSystemKeyId: UInt = 0u,
+    public var RequestSize: UInt = 0u,
+    public var Flags: UInt = 0u,
+    public var EnclaveSVN: UInt = 0u,
+    public var SystemKeyID: UInt = 0u,
+    public var CurrentSystemKeyID: UInt = 0u,
 )
 
 public data class VBS_BASIC_ENCLAVE_EXCEPTION_AMD64(
-    public var exceptionCode: UInt = 0u,
-    public var numberParameters: UInt = 0u,
-    public var exceptionInformation: ULongArray = ULongArray(3),
-    public var exceptionRax: ULong = 0uL,
-    public var exceptionRcx: ULong = 0uL,
-    public var exceptionRip: ULong = 0uL,
-    public var exceptionRflags: ULong = 0uL,
-    public var exceptionRsp: ULong = 0uL,
+    public var ExceptionCode: UInt = 0u,
+    public var NumberParameters: UInt = 0u,
+    public var ExceptionInformation: ULongArray = ULongArray(3),
+    public var ExceptionRAX: ULong = 0uL,
+    public var ExceptionRCX: ULong = 0uL,
+    public var ExceptionRIP: ULong = 0uL,
+    public var ExceptionRFLAGS: ULong = 0uL,
+    public var ExceptionRSP: ULong = 0uL,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is VBS_BASIC_ENCLAVE_EXCEPTION_AMD64) return false
-        if (exceptionCode != other.exceptionCode) return false
-        if (numberParameters != other.numberParameters) return false
-        if (!exceptionInformation.contentEquals(other.exceptionInformation)) return false
-        if (exceptionRax != other.exceptionRax) return false
-        if (exceptionRcx != other.exceptionRcx) return false
-        if (exceptionRip != other.exceptionRip) return false
-        if (exceptionRflags != other.exceptionRflags) return false
-        if (exceptionRsp != other.exceptionRsp) return false
+        if (this.ExceptionCode != other.ExceptionCode) return false
+        if (this.NumberParameters != other.NumberParameters) return false
+        if (!this.ExceptionInformation.contentEquals(other.ExceptionInformation)) return false
+        if (this.ExceptionRAX != other.ExceptionRAX) return false
+        if (this.ExceptionRCX != other.ExceptionRCX) return false
+        if (this.ExceptionRIP != other.ExceptionRIP) return false
+        if (this.ExceptionRFLAGS != other.ExceptionRFLAGS) return false
+        if (this.ExceptionRSP != other.ExceptionRSP) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = exceptionCode.hashCode()
-        result = 31 * result + numberParameters.hashCode()
-        result = 31 * result + exceptionInformation.contentHashCode()
-        result = 31 * result + exceptionRax.hashCode()
-        result = 31 * result + exceptionRcx.hashCode()
-        result = 31 * result + exceptionRip.hashCode()
-        result = 31 * result + exceptionRflags.hashCode()
-        result = 31 * result + exceptionRsp.hashCode()
+        var result = this.ExceptionCode.hashCode()
+        result = 31 * result + this.NumberParameters.hashCode()
+        result = 31 * result + this.ExceptionInformation.contentHashCode()
+        result = 31 * result + this.ExceptionRAX.hashCode()
+        result = 31 * result + this.ExceptionRCX.hashCode()
+        result = 31 * result + this.ExceptionRIP.hashCode()
+        result = 31 * result + this.ExceptionRFLAGS.hashCode()
+        result = 31 * result + this.ExceptionRSP.hashCode()
         return result
     }
 }
 
 public data class VBS_BASIC_ENCLAVE_SYSCALL_PAGE(
-    public var returnFromEnclave: VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE? = null,
-    public var returnFromException: VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION? = null,
-    public var terminateThread: VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD? = null,
-    public var interruptThread: VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD? = null,
-    public var commitPages: VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES? = null,
-    public var decommitPages: VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES? = null,
-    public var protectPages: VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES? = null,
-    public var createThread: VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD? = null,
-    public var getEnclaveInformation: VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION? = null,
-    public var generateKey: VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY? = null,
-    public var generateReport: VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT? = null,
-    public var verifyReport: VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT? = null,
-    public var generateRandomData: VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA? = null,
+    public var ReturnFromEnclave: VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE = null,
+    public var ReturnFromException: VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION = null,
+    public var TerminateThread: VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD = null,
+    public var InterruptThread: VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD = null,
+    public var CommitPages: VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES = null,
+    public var DecommitPages: VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES = null,
+    public var ProtectPages: VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES = null,
+    public var CreateThread: VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD = null,
+    public var GetEnclaveInformation: VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION = null,
+    public var GenerateKey: VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY = null,
+    public var GenerateReport: VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT = null,
+    public var VerifyReport: VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT = null,
+    public var GenerateRandomData: VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA = null,
 )
 
 public data class VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32(
-    public var threadContext: UIntArray = UIntArray(4),
-    public var entryPoint: UInt = 0u,
-    public var stackPointer: UInt = 0u,
-    public var exceptionEntryPoint: UInt = 0u,
-    public var exceptionStack: UInt = 0u,
-    public var exceptionActive: UInt = 0u,
+    public var ThreadContext: UIntArray = UIntArray(4),
+    public var EntryPoint: UInt = 0u,
+    public var StackPointer: UInt = 0u,
+    public var ExceptionEntryPoint: UInt = 0u,
+    public var ExceptionStack: UInt = 0u,
+    public var ExceptionActive: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32) return false
-        if (!threadContext.contentEquals(other.threadContext)) return false
-        if (entryPoint != other.entryPoint) return false
-        if (stackPointer != other.stackPointer) return false
-        if (exceptionEntryPoint != other.exceptionEntryPoint) return false
-        if (exceptionStack != other.exceptionStack) return false
-        if (exceptionActive != other.exceptionActive) return false
+        if (!this.ThreadContext.contentEquals(other.ThreadContext)) return false
+        if (this.EntryPoint != other.EntryPoint) return false
+        if (this.StackPointer != other.StackPointer) return false
+        if (this.ExceptionEntryPoint != other.ExceptionEntryPoint) return false
+        if (this.ExceptionStack != other.ExceptionStack) return false
+        if (this.ExceptionActive != other.ExceptionActive) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = threadContext.contentHashCode()
-        result = 31 * result + entryPoint.hashCode()
-        result = 31 * result + stackPointer.hashCode()
-        result = 31 * result + exceptionEntryPoint.hashCode()
-        result = 31 * result + exceptionStack.hashCode()
-        result = 31 * result + exceptionActive.hashCode()
+        var result = this.ThreadContext.contentHashCode()
+        result = 31 * result + this.EntryPoint.hashCode()
+        result = 31 * result + this.StackPointer.hashCode()
+        result = 31 * result + this.ExceptionEntryPoint.hashCode()
+        result = 31 * result + this.ExceptionStack.hashCode()
+        result = 31 * result + this.ExceptionActive.hashCode()
         return result
     }
 }
 
 public data class VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64(
-    public var threadContext: ULongArray = ULongArray(4),
-    public var entryPoint: ULong = 0uL,
-    public var stackPointer: ULong = 0uL,
-    public var exceptionEntryPoint: ULong = 0uL,
-    public var exceptionStack: ULong = 0uL,
-    public var exceptionActive: UInt = 0u,
+    public var ThreadContext: ULongArray = ULongArray(4),
+    public var EntryPoint: ULong = 0uL,
+    public var StackPointer: ULong = 0uL,
+    public var ExceptionEntryPoint: ULong = 0uL,
+    public var ExceptionStack: ULong = 0uL,
+    public var ExceptionActive: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64) return false
-        if (!threadContext.contentEquals(other.threadContext)) return false
-        if (entryPoint != other.entryPoint) return false
-        if (stackPointer != other.stackPointer) return false
-        if (exceptionEntryPoint != other.exceptionEntryPoint) return false
-        if (exceptionStack != other.exceptionStack) return false
-        if (exceptionActive != other.exceptionActive) return false
+        if (!this.ThreadContext.contentEquals(other.ThreadContext)) return false
+        if (this.EntryPoint != other.EntryPoint) return false
+        if (this.StackPointer != other.StackPointer) return false
+        if (this.ExceptionEntryPoint != other.ExceptionEntryPoint) return false
+        if (this.ExceptionStack != other.ExceptionStack) return false
+        if (this.ExceptionActive != other.ExceptionActive) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = threadContext.contentHashCode()
-        result = 31 * result + entryPoint.hashCode()
-        result = 31 * result + stackPointer.hashCode()
-        result = 31 * result + exceptionEntryPoint.hashCode()
-        result = 31 * result + exceptionStack.hashCode()
-        result = 31 * result + exceptionActive.hashCode()
+        var result = this.ThreadContext.contentHashCode()
+        result = 31 * result + this.EntryPoint.hashCode()
+        result = 31 * result + this.StackPointer.hashCode()
+        result = 31 * result + this.ExceptionEntryPoint.hashCode()
+        result = 31 * result + this.ExceptionStack.hashCode()
+        result = 31 * result + this.ExceptionActive.hashCode()
         return result
     }
 }
 
 public data class VBS_ENCLAVE_REPORT(
-    public var reportSize: UInt = 0u,
-    public var reportVersion: UInt = 0u,
-    public var enclaveData: ByteArray = ByteArray(64),
-    public var enclaveIdentity: ENCLAVE_IDENTITY = ENCLAVE_IDENTITY(),
+    public var ReportSize: UInt = 0u,
+    public var ReportVersion: UInt = 0u,
+    public var EnclaveData: UByteArray = UByteArray(64),
+    public var EnclaveIdentity: ENCLAVE_IDENTITY = ENCLAVE_IDENTITY(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is VBS_ENCLAVE_REPORT) return false
-        if (reportSize != other.reportSize) return false
-        if (reportVersion != other.reportVersion) return false
-        if (!enclaveData.contentEquals(other.enclaveData)) return false
-        if (enclaveIdentity != other.enclaveIdentity) return false
+        if (this.ReportSize != other.ReportSize) return false
+        if (this.ReportVersion != other.ReportVersion) return false
+        if (!this.EnclaveData.contentEquals(other.EnclaveData)) return false
+        if (this.EnclaveIdentity != other.EnclaveIdentity) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = reportSize.hashCode()
-        result = 31 * result + reportVersion.hashCode()
-        result = 31 * result + enclaveData.contentHashCode()
-        result = 31 * result + enclaveIdentity.hashCode()
+        var result = this.ReportSize.hashCode()
+        result = 31 * result + this.ReportVersion.hashCode()
+        result = 31 * result + this.EnclaveData.contentHashCode()
+        result = 31 * result + this.EnclaveIdentity.hashCode()
         return result
     }
 }
 
-public data class VBS_ENCLAVE_REPORT_VARDATA_HEADER(
-    public var dataType: UInt = 0u,
-    public var size: UInt = 0u,
-)
-
 public data class VBS_ENCLAVE_REPORT_MODULE(
-    public var header: VBS_ENCLAVE_REPORT_VARDATA_HEADER = VBS_ENCLAVE_REPORT_VARDATA_HEADER(),
-    public var uniqueId: ByteArray = ByteArray(32),
-    public var authorId: ByteArray = ByteArray(32),
-    public var familyId: ByteArray = ByteArray(16),
-    public var imageId: ByteArray = ByteArray(16),
-    public var svn: UInt = 0u,
-    public var moduleName: UShortArray = UShortArray(1),
+    public var Header: VBS_ENCLAVE_REPORT_VARDATA_HEADER = VBS_ENCLAVE_REPORT_VARDATA_HEADER(),
+    public var UniqueId: UByteArray = UByteArray(32),
+    public var AuthorId: UByteArray = UByteArray(32),
+    public var FamilyId: UByteArray = UByteArray(16),
+    public var ImageId: UByteArray = UByteArray(16),
+    public var Svn: UInt = 0u,
+    public var ModuleName: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is VBS_ENCLAVE_REPORT_MODULE) return false
-        if (header != other.header) return false
-        if (!uniqueId.contentEquals(other.uniqueId)) return false
-        if (!authorId.contentEquals(other.authorId)) return false
-        if (!familyId.contentEquals(other.familyId)) return false
-        if (!imageId.contentEquals(other.imageId)) return false
-        if (svn != other.svn) return false
-        if (!moduleName.contentEquals(other.moduleName)) return false
+        if (this.Header != other.Header) return false
+        if (!this.UniqueId.contentEquals(other.UniqueId)) return false
+        if (!this.AuthorId.contentEquals(other.AuthorId)) return false
+        if (!this.FamilyId.contentEquals(other.FamilyId)) return false
+        if (!this.ImageId.contentEquals(other.ImageId)) return false
+        if (this.Svn != other.Svn) return false
+        if (!this.ModuleName.contentEquals(other.ModuleName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = header.hashCode()
-        result = 31 * result + uniqueId.contentHashCode()
-        result = 31 * result + authorId.contentHashCode()
-        result = 31 * result + familyId.contentHashCode()
-        result = 31 * result + imageId.contentHashCode()
-        result = 31 * result + svn.hashCode()
-        result = 31 * result + moduleName.contentHashCode()
+        var result = this.Header.hashCode()
+        result = 31 * result + this.UniqueId.contentHashCode()
+        result = 31 * result + this.AuthorId.contentHashCode()
+        result = 31 * result + this.FamilyId.contentHashCode()
+        result = 31 * result + this.ImageId.contentHashCode()
+        result = 31 * result + this.Svn.hashCode()
+        result = 31 * result + this.ModuleName.contentHashCode()
         return result
     }
 }
 
 public data class VBS_ENCLAVE_REPORT_PKG_HEADER(
-    public var packageSize: UInt = 0u,
-    public var version: UInt = 0u,
-    public var signatureScheme: UInt = 0u,
-    public var signedStatementSize: UInt = 0u,
-    public var signatureSize: UInt = 0u,
-    public var reserved: UInt = 0u,
+    public var PackageSize: UInt = 0u,
+    public var Version: UInt = 0u,
+    public var SignatureScheme: UInt = 0u,
+    public var SignedStatementSize: UInt = 0u,
+    public var SignatureSize: UInt = 0u,
+    public var Reserved: UInt = 0u,
 )
+
+public data class VBS_ENCLAVE_REPORT_VARDATA_HEADER(public var DataType: UInt = 0u, public var Size: UInt = 0u)

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="nativeMacosTest.io.github.kotlinmania.rustkotlin.AssertionDiagnosticTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-24T21:58:28.715Z" hostname="EmberHarmony.local" time="0.005">
-  <properties/>
-  <testcase name="qualifiedPathsCallsAndMultilineArgumentsUseRustDiagnosticSpelling[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.AssertionDiagnosticTest" time="0.002"/>
-  <testcase name="conditionalCallEmissionKeepsOriginalAssertionAndPayload[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.AssertionDiagnosticTest" time="0.0"/>
-  <testcase name="unmappedDiagnosticFormsRejectRatherThanGuessSpelling[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.AssertionDiagnosticTest" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

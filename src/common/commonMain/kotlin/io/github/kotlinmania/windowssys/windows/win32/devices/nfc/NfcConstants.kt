@@ -1,0 +1,255 @@
+package io.github.kotlinmania.windowssys.windows.win32.devices.nfc
+
+import io.github.kotlinmania.windowssys.core.GUID
+
+public val ApplicationSelected: SECURE_ELEMENT_EVENT_TYPE = 2
+
+public val ConnectionOriented: NFC_LLCP_SOCKET_TYPE = 0
+
+public val Connectionless: NFC_LLCP_SOCKET_TYPE = 1
+
+public val DefaultSnepServer: NFC_SNEP_SERVER_TYPE = 0
+
+public val DeviceHost: SECURE_ELEMENT_TYPE = 2
+
+public val Discovery: NFC_RELEASE_TYPE = 2
+
+public val EVT_TRANSACTION_PARAMETER_MAX_LEN: UInt = 255u
+
+public val EVT_TRANSACTION_TAG_AID: UInt = 129u
+
+public val EVT_TRANSACTION_TAG_PARAMETERS: UInt = 130u
+
+public val EmulationDisabled: NFC_SE_EMULATION_MODE = 0
+
+public val EmulationEnabled: NFC_SE_EMULATION_MODE = 1
+
+public val EmulationOff: SECURE_ELEMENT_CARD_EMULATION_MODE = 0
+
+public val EmulationOnPowerDependent: SECURE_ELEMENT_CARD_EMULATION_MODE = 2
+
+public val EmulationOnPowerIndependent: SECURE_ELEMENT_CARD_EMULATION_MODE = 1
+
+public val EmulationStealthListen: SECURE_ELEMENT_CARD_EMULATION_MODE = 3
+
+public val ExtendedSnepServer: NFC_SNEP_SERVER_TYPE = 1
+
+public val External: SECURE_ELEMENT_TYPE = 1
+
+public val ExternalFieldEnter: SECURE_ELEMENT_EVENT_TYPE = 6
+
+public val ExternalFieldExit: SECURE_ELEMENT_EVENT_TYPE = 7
+
+public val ExternalReaderArrival: SECURE_ELEMENT_EVENT_TYPE = 0
+
+public val ExternalReaderDeparture: SECURE_ELEMENT_EVENT_TYPE = 1
+
+public val GUID_DEVINTERFACE_NFCDTA: GUID = GUID.from_u128(0x7fd3f30b5e494be1uL, 0xb3aaaf06260d236auL)
+
+public val GUID_DEVINTERFACE_NFCSE: GUID = GUID.from_u128(0x8dc7c854f5e54beduL, 0x815d0c85ad047725uL)
+
+public val GUID_NFCSE_RADIO_MEDIA_DEVICE_INTERFACE: GUID = GUID.from_u128(0xef8ba08f148d4116uL, 0x83efa2679dfc3fa5uL)
+
+public val GUID_NFC_RADIO_MEDIA_DEVICE_INTERFACE: GUID = GUID.from_u128(0x4d51e930750d4a36uL, 0xa9f791dc540fcd30uL)
+
+public val HceActivated: SECURE_ELEMENT_EVENT_TYPE = 4
+
+public val HceDeactivated: SECURE_ELEMENT_EVENT_TYPE = 5
+
+public val IOCTL_NFCDTA_CONFIG_P2P_PARAM: UInt = 2233376u
+
+public val IOCTL_NFCDTA_CONFIG_RF_DISCOVERY: UInt = 2233344u
+
+public val IOCTL_NFCDTA_LLCP_ACTIVATE: UInt = 2233476u
+
+public val IOCTL_NFCDTA_LLCP_CONFIG: UInt = 2233472u
+
+public val IOCTL_NFCDTA_LLCP_DEACTIVATE: UInt = 2233480u
+
+public val IOCTL_NFCDTA_LLCP_DISCOVER_SERVICES: UInt = 2233484u
+
+public val IOCTL_NFCDTA_LLCP_GET_NEXT_LINK_STATUS: UInt = 2233492u
+
+public val IOCTL_NFCDTA_LLCP_LINK_STATUS_CHECK: UInt = 2233488u
+
+public val IOCTL_NFCDTA_LLCP_SOCKET_ACCEPT: UInt = 2233512u
+
+public val IOCTL_NFCDTA_LLCP_SOCKET_BIND: UInt = 2233504u
+
+public val IOCTL_NFCDTA_LLCP_SOCKET_CLOSE: UInt = 2233500u
+
+public val IOCTL_NFCDTA_LLCP_SOCKET_CONNECT: UInt = 2233516u
+
+public val IOCTL_NFCDTA_LLCP_SOCKET_CREATE: UInt = 2233496u
+
+public val IOCTL_NFCDTA_LLCP_SOCKET_DISCONNECT: UInt = 2233520u
+
+public val IOCTL_NFCDTA_LLCP_SOCKET_GET_NEXT_ERROR: UInt = 2233540u
+
+public val IOCTL_NFCDTA_LLCP_SOCKET_LISTEN: UInt = 2233508u
+
+public val IOCTL_NFCDTA_LLCP_SOCKET_RECV: UInt = 2233524u
+
+public val IOCTL_NFCDTA_LLCP_SOCKET_RECV_FROM: UInt = 2233528u
+
+public val IOCTL_NFCDTA_LLCP_SOCKET_SEND: UInt = 2233532u
+
+public val IOCTL_NFCDTA_LLCP_SOCKET_SNED_TO: UInt = 2233536u
+
+public val IOCTL_NFCDTA_REMOTE_DEV_CHECK_PRESENCE: UInt = 2233372u
+
+public val IOCTL_NFCDTA_REMOTE_DEV_CONNECT: UInt = 2233352u
+
+public val IOCTL_NFCDTA_REMOTE_DEV_DISCONNECT: UInt = 2233356u
+
+public val IOCTL_NFCDTA_REMOTE_DEV_GET_NEXT: UInt = 2233348u
+
+public val IOCTL_NFCDTA_REMOTE_DEV_NDEF_CHECK: UInt = 2233420u
+
+public val IOCTL_NFCDTA_REMOTE_DEV_NDEF_CONVERT_READ_ONLY: UInt = 2233416u
+
+public val IOCTL_NFCDTA_REMOTE_DEV_NDEF_READ: UInt = 2233412u
+
+public val IOCTL_NFCDTA_REMOTE_DEV_NDEF_WRITE: UInt = 2233408u
+
+public val IOCTL_NFCDTA_REMOTE_DEV_RECV: UInt = 2233364u
+
+public val IOCTL_NFCDTA_REMOTE_DEV_SEND: UInt = 2233368u
+
+public val IOCTL_NFCDTA_REMOTE_DEV_TRANSCEIVE: UInt = 2233360u
+
+public val IOCTL_NFCDTA_SET_RF_CONFIG: UInt = 2233380u
+
+public val IOCTL_NFCDTA_SE_ENUMERATE: UInt = 2233728u
+
+public val IOCTL_NFCDTA_SE_GET_NEXT_EVENT: UInt = 2233740u
+
+public val IOCTL_NFCDTA_SE_SET_EMULATION_MODE: UInt = 2233732u
+
+public val IOCTL_NFCDTA_SE_SET_ROUTING_TABLE: UInt = 2233736u
+
+public val IOCTL_NFCDTA_SNEP_CLIENT_GET: UInt = 2233676u
+
+public val IOCTL_NFCDTA_SNEP_CLIENT_PUT: UInt = 2233672u
+
+public val IOCTL_NFCDTA_SNEP_DEINIT_CLIENT: UInt = 2233668u
+
+public val IOCTL_NFCDTA_SNEP_DEINIT_SERVER: UInt = 2233604u
+
+public val IOCTL_NFCDTA_SNEP_INIT_CLIENT: UInt = 2233664u
+
+public val IOCTL_NFCDTA_SNEP_INIT_SERVER: UInt = 2233600u
+
+public val IOCTL_NFCDTA_SNEP_SERVER_ACCEPT: UInt = 2233612u
+
+public val IOCTL_NFCDTA_SNEP_SERVER_GET_NEXT_CONNECTION: UInt = 2233608u
+
+public val IOCTL_NFCDTA_SNEP_SERVER_GET_NEXT_REQUEST: UInt = 2233616u
+
+public val IOCTL_NFCDTA_SNEP_SERVER_SEND_RESPONSE: UInt = 2233620u
+
+public val IOCTL_NFCRM_QUERY_RADIO_STATE: UInt = 5308808u
+
+public val IOCTL_NFCRM_SET_RADIO_STATE: UInt = 5308804u
+
+public val IOCTL_NFCSERM_QUERY_RADIO_STATE: UInt = 5308816u
+
+public val IOCTL_NFCSERM_SET_RADIO_STATE: UInt = 5308812u
+
+public val IOCTL_NFCSE_ENUM_ENDPOINTS: UInt = 2230272u
+
+public val IOCTL_NFCSE_GET_NEXT_EVENT: UInt = 2230280u
+
+public val IOCTL_NFCSE_GET_NFCC_CAPABILITIES: UInt = 2230288u
+
+public val IOCTL_NFCSE_GET_ROUTING_TABLE: UInt = 2230292u
+
+public val IOCTL_NFCSE_HCE_REMOTE_RECV: UInt = 2230592u
+
+public val IOCTL_NFCSE_HCE_REMOTE_SEND: UInt = 2230596u
+
+public val IOCTL_NFCSE_SET_CARD_EMULATION_MODE: UInt = 2230284u
+
+public val IOCTL_NFCSE_SET_POWER_MODE: UInt = 2230600u
+
+public val IOCTL_NFCSE_SET_ROUTING_TABLE: UInt = 2230296u
+
+public val IOCTL_NFCSE_SUBSCRIBE_FOR_EVENT: UInt = 2230276u
+
+public val ISO_7816_MAXIMUM_AID_LENGTH: UInt = 16u
+
+public val ISO_7816_MINIMUM_AID_LENGTH: UInt = 5u
+
+public val IdleMode: NFC_RELEASE_TYPE = 0
+
+public val Integrated: SECURE_ELEMENT_TYPE = 0
+
+public val LinkActivated: NFC_LLCP_LINK_STATUS = 0
+
+public val LinkDeactivated: NFC_LLCP_LINK_STATUS = 1
+
+public val MAX_ATR_LENGTH: UInt = 48u
+
+public val MAX_LLCP_SERVICE_NAME_SIZE: UInt = 256u
+
+public val MAX_SNEP_SERVER_NAME_SIZE: UInt = 256u
+
+public val MAX_UID_SIZE: UInt = 16u
+
+public val NFCRMDDI_IOCTL_BASE: UInt = 80u
+
+public val NfcConnectBySap: NFC_LLCP_SOCKET_CONNECT_TYPE = 0
+
+public val NfcConnectByUri: NFC_LLCP_SOCKET_CONNECT_TYPE = 1
+
+public val NfcDepDefault: NFC_P2P_MODE = 0
+
+public val NfcDepListen: NFC_P2P_MODE = 2
+
+public val NfcDepPoll: NFC_P2P_MODE = 1
+
+public val NfcIP1Initiator: NFC_DEVICE_TYPE = 5
+
+public val NfcIP1Target: NFC_DEVICE_TYPE = 4
+
+public val NfcLlcpErrorBusyCondition: NFC_LLCP_SOCKET_ERROR = 2
+
+public val NfcLlcpErrorDisconnected: NFC_LLCP_SOCKET_ERROR = 0
+
+public val NfcLlcpErrorFrameRejected: NFC_LLCP_SOCKET_ERROR = 1
+
+public val NfcLlcpErrorNotBusyCondition: NFC_LLCP_SOCKET_ERROR = 3
+
+public val NfcReader: NFC_DEVICE_TYPE = 6
+
+public val NfcType1Tag: NFC_DEVICE_TYPE = 0
+
+public val NfcType2Tag: NFC_DEVICE_TYPE = 1
+
+public val NfcType3Tag: NFC_DEVICE_TYPE = 2
+
+public val NfcType4Tag: NFC_DEVICE_TYPE = 3
+
+public val RFDiscoveryResume: NFC_RF_DISCOVERY_MODE = 2
+
+public val RfDiscoveryConfig: NFC_RF_DISCOVERY_MODE = 0
+
+public val RfDiscoveryStart: NFC_RF_DISCOVERY_MODE = 1
+
+public val RoutingTypeAid: SECURE_ELEMENT_ROUTING_TYPE = 2
+
+public val RoutingTypeProtocol: SECURE_ELEMENT_ROUTING_TYPE = 1
+
+public val RoutingTypeTech: SECURE_ELEMENT_ROUTING_TYPE = 0
+
+public val SEPowerMode_AllowOff: SECURE_ELEMENT_POWER_MODE = 1
+
+public val SEPowerMode_ForceOn: SECURE_ELEMENT_POWER_MODE = 0
+
+public val SleepMode: NFC_RELEASE_TYPE = 1
+
+public val SnepRequestGet: NFC_SNEP_REQUEST_TYPE = 0
+
+public val SnepRequestPut: NFC_SNEP_REQUEST_TYPE = 1
+
+public val Transaction: SECURE_ELEMENT_EVENT_TYPE = 3

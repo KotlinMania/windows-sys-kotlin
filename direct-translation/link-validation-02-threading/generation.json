@@ -1,7 +1,0 @@
-{
-  "source": "/Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/tmp/windows-sys/src/Windows/Win32/System/Threading/mod.rs",
-  "exit": 0,
-  "stdout": "candidate /Volumes/stuff/Projects/kotlinmania/windows-sys-kotlin/direct-translation/link-validation-02-threading/threading: 430 generated; 370 unsupported\n",
-  "stderr": "",
-  "seconds": 0.931958207860589
-}

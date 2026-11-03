@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Win32/Networking/WinInet/mod: 1077 generated; 377 syntax candidates; 119 unsupported

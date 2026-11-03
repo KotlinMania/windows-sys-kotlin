@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/System/Com/StructuredStorage/mod: 114 generated; 200 unsupported

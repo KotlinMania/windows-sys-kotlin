@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-06/files/Windows/Win32/UI/InteractionContext/mod: 103 generated; 46 syntax candidates; 2 unsupported

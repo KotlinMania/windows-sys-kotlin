@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Wdk/System/OfflineRegistry/mod: 0 generated; 25 unsupported

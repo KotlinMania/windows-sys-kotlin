@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/System/Mailslots/mod: 0 generated; 4 unsupported

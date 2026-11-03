@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/NetworkManagement/IpHelper/mod: 630 generated; 399 syntax candidates; 167 unsupported

@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-05/files/Windows/Win32/Storage/FileSystem/mod: 1078 generated; 654 syntax candidates; 165 unsupported

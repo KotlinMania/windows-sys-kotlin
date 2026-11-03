@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/System/Ioctl/mod: 1736 generated; 486 syntax candidates; 313 unsupported

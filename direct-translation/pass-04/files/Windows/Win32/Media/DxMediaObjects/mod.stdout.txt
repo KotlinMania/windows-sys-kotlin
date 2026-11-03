@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/Media/DxMediaObjects/mod: 46 generated; 14 syntax candidates; 12 unsupported

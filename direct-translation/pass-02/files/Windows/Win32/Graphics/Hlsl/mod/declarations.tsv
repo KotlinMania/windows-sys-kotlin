@@ -1,3 +1,0 @@
-index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
-0	Const	D3DCOMPILE_OPTIMIZATION_LEVEL2	0	57	1	1	2	generated	
-1	Const	D3D_COMPILE_STANDARD_FILE_INCLUDE	58	114	2	1	3	generated	

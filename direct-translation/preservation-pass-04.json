@@ -1,8 +1,0 @@
-{
-  "checked_at": "2026-10-24T22:06:00.872256+00:00",
-  "preexisting_paths_preserved": 105,
-  "staged_diff_sha256": "a147d957750f49da9a4006483935f9f247e156bd7c5f5a514114daa70eef9082",
-  "generator_commit": "25a4530",
-  "syn_commit": "ef1121f",
-  "scope": "Only direct-translation sources, output and evidence; production untouched"
-}

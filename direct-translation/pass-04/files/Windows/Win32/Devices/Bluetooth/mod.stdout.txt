@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/Devices/Bluetooth/mod: 880 generated; 106 syntax candidates; 74 unsupported

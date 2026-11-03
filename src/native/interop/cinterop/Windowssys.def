@@ -1,0 +1,5 @@
+package = io.github.kotlinmania.windowssys.cinterop
+headers = windowssys_wrapper.h
+headerFilter = windowssys_wrapper.h
+compilerOpts = -Isrc/native/interop/cinterop
+staticLibraries = windowssys_wrapper.a

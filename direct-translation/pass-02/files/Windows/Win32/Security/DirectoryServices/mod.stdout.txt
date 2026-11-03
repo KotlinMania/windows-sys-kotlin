@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/Security/DirectoryServices/mod: 7 generated; 6 unsupported

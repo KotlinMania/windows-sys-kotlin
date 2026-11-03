@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/System/Diagnostics/Ceip/mod: 0 generated; 1 syntax candidates; 0 unsupported

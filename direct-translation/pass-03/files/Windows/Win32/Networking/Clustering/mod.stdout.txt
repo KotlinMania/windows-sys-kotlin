@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Win32/Networking/Clustering/mod: 1490 generated; 890 syntax candidates; 573 unsupported

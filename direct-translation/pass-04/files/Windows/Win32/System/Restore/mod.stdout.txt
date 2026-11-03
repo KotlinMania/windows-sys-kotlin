@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/System/Restore/mod: 32 generated; 7 syntax candidates; 3 unsupported

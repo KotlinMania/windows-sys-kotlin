@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Win32/Networking/Ldap/mod: 211 generated; 264 syntax candidates; 202 unsupported

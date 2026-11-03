@@ -1,5 +1,0 @@
-definition	archive	dll	target
-import-0.def	import-0.a	user32.dll	mingw_x64
-import-1.def	import-1.a	kernel32.dll	mingw_x64
-import-2.def	import-2.a	rtworkq.dll	mingw_x64
-import-3.def	import-3.a	api-ms-win-core-wow64-l1-1-1.dll	mingw_x64

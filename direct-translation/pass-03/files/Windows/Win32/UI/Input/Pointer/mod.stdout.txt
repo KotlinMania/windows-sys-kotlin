@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Win32/UI/Input/Pointer/mod: 36 generated; 34 syntax candidates; 4 unsupported

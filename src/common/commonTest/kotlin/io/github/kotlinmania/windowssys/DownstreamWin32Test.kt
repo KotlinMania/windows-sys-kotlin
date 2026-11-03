@@ -1,4 +1,3 @@
-// port-lint: tests Windows/Win32/UI/Shell/mod.rs
 @file:OptIn(kotlin.ExperimentalUnsignedTypes::class)
 
 package io.github.kotlinmania.windowssys

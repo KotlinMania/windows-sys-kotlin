@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/Storage/Compression/mod: 13 generated; 17 syntax candidates; 1 unsupported

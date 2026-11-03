@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/System/Hypervisor/mod: 693 generated; 388 unsupported

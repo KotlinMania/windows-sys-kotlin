@@ -1,4 +1,3 @@
-// port-lint: tests Windows/Win32/System/Environment/mod.rs
 package io.github.kotlinmania.windowssys
 
 import io.github.kotlinmania.windowssys.windows.win32.system.environment.ENCLAVE_FLAG_DYNAMIC_DEBUG_ACTIVE
@@ -34,39 +33,39 @@ class EnvironmentTest {
 
     @Test
     fun testEnvironmentStructs() {
-        val identity = ENCLAVE_IDENTITY(enclaveSvn = 5u)
-        val info = ENCLAVE_INFORMATION(enclaveType = 1u, identity = identity)
-        assertEquals(5u, info.identity.enclaveSvn)
-        assertEquals(1u, info.enclaveType)
+        val identity = ENCLAVE_IDENTITY(EnclaveSvn = 5u)
+        val info = ENCLAVE_INFORMATION(EnclaveType = 1u, Identity = identity)
+        assertEquals(5u, info.Identity.EnclaveSvn)
+        assertEquals(1u, info.EnclaveType)
 
-        val keyReq = ENCLAVE_VBS_BASIC_KEY_REQUEST(requestSize = 32u, enclaveSvn = 2u)
-        assertEquals(32u, keyReq.requestSize)
-        assertEquals(2u, keyReq.enclaveSvn)
+        val keyReq = ENCLAVE_VBS_BASIC_KEY_REQUEST(RequestSize = 32u, EnclaveSVN = 2u)
+        assertEquals(32u, keyReq.RequestSize)
+        assertEquals(2u, keyReq.EnclaveSVN)
 
-        val exc = VBS_BASIC_ENCLAVE_EXCEPTION_AMD64(exceptionCode = 0xC0000005u)
-        assertEquals(0xC0000005u, exc.exceptionCode)
+        val exc = VBS_BASIC_ENCLAVE_EXCEPTION_AMD64(ExceptionCode = 0xC0000005u)
+        assertEquals(0xC0000005u, exc.ExceptionCode)
 
-        val desc32 = VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32(entryPoint = 0x1000u)
-        assertEquals(0x1000u, desc32.entryPoint)
+        val desc32 = VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32(EntryPoint = 0x1000u)
+        assertEquals(0x1000u, desc32.EntryPoint)
 
-        val desc64 = VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64(entryPoint = 0x2000uL)
-        assertEquals(0x2000uL, desc64.entryPoint)
+        val desc64 = VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64(EntryPoint = 0x2000uL)
+        assertEquals(0x2000uL, desc64.EntryPoint)
 
-        val report = VBS_ENCLAVE_REPORT(reportSize = 128u)
-        assertEquals(128u, report.reportSize)
+        val report = VBS_ENCLAVE_REPORT(ReportSize = 128u)
+        assertEquals(128u, report.ReportSize)
 
-        val mod = VBS_ENCLAVE_REPORT_MODULE(svn = 3u)
-        assertEquals(3u, mod.svn)
+        val mod = VBS_ENCLAVE_REPORT_MODULE(Svn = 3u)
+        assertEquals(3u, mod.Svn)
 
-        val pkg = VBS_ENCLAVE_REPORT_PKG_HEADER(packageSize = 256u)
-        assertEquals(256u, pkg.packageSize)
+        val pkg = VBS_ENCLAVE_REPORT_PKG_HEADER(PackageSize = 256u)
+        assertEquals(256u, pkg.PackageSize)
 
         val syscallPage =
             VBS_BASIC_ENCLAVE_SYSCALL_PAGE(
-                returnFromEnclave = { _ -> },
-                commitPages = { _, _, _, _ -> 0 },
+                ReturnFromEnclave = { _ -> },
+                CommitPages = { _, _, _, _ -> 0 },
             )
-        assertNotNull(syscallPage.returnFromEnclave)
-        assertNotNull(syscallPage.commitPages)
+        assertNotNull(syscallPage.ReturnFromEnclave)
+        assertNotNull(syscallPage.CommitPages)
     }
 }

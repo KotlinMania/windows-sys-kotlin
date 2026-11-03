@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/Graphics/Hlsl/mod: 2 generated; 0 syntax candidates; 0 unsupported

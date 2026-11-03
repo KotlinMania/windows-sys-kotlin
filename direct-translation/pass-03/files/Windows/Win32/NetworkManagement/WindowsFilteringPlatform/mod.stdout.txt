@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Win32/NetworkManagement/WindowsFilteringPlatform/mod: 658 generated; 407 syntax candidates; 617 unsupported

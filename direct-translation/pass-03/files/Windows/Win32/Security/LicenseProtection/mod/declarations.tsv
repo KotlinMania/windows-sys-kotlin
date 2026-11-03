@@ -1,9 +1,0 @@
-index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
-0	Macro	RegisterLicenseKeyWithExpiration	0	221	1	1	2	syntax	External declaration shape only: wire DLL=licenseprotection.dll, ABI=system, export=RegisterLicenseKeyWithExpiration; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
-1	Macro	ValidateLicenseKeyProtection	222	534	2	1	7	syntax	External declaration shape only: wire DLL=licenseprotection.dll, ABI=system, export=ValidateLicenseKeyProtection; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.
-2	Const	LicenseKeyAlreadyExists	535	601	3	1	12	generated	
-3	Const	LicenseKeyCorrupted	602	664	4	1	13	generated	
-4	Const	LicenseKeyNotFound	665	726	5	1	14	generated	
-5	Const	LicenseKeyUnprotected	727	791	6	1	15	generated	
-6	ItemType	LicenseProtectionStatus	792	831	7	1	16	generated	
-7	Const	Success	832	882	8	1	17	generated	

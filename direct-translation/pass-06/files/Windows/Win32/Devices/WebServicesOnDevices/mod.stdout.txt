@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-06/files/Windows/Win32/Devices/WebServicesOnDevices/mod: 95 generated; 176 syntax candidates; 1 unsupported

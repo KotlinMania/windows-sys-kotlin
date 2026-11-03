@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/System/VirtualDosMachines/mod: 95 generated; 43 syntax candidates; 9 unsupported

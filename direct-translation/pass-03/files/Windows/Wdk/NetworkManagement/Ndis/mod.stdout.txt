@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Wdk/NetworkManagement/Ndis/mod: 2336 generated; 287 syntax candidates; 129 unsupported

@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/Devices/Tapi/mod: 1631 generated; 369 syntax candidates; 44 unsupported

@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-06/files/Windows/Win32/Security/Cryptography/Sip/mod: 16 generated; 37 syntax candidates; 2 unsupported

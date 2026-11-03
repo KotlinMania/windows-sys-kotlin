@@ -1,115 +1,3008 @@
-// port-lint: source Windows/Win32/UI/Shell/mod.rs
 package io.github.kotlinmania.windowssys.windows.win32.ui.shell
 
 import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.core.HRESULT
+import io.github.kotlinmania.windowssys.core.PCSTR
+import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.s
+import io.github.kotlinmania.windowssys.core.w
 
-public val FOLDERID_ApplicationShortcuts: GUID =
-    GUID.fromU128(0xa3918781_e5f2_4890uL, 0xb3d9_a7e54332328cuL)
+public val ABE_BOTTOM: UInt = 3u
 
-public val FOLDERID_Desktop: GUID =
-    GUID.fromU128(0xb4bfcc3a_db2c_424cuL, 0xb029_7fe99a87c641uL)
+public val ABE_LEFT: UInt = 0u
 
-public val FOLDERID_Documents: GUID =
-    GUID.fromU128(0xfdd39ad0_238f_46afuL, 0xadb4_6c85480369c7uL)
+public val ABE_RIGHT: UInt = 2u
 
-public val FOLDERID_DocumentsLibrary: GUID =
-    GUID.fromU128(0x7b0db17d_9cd2_4a93uL, 0x9733_46cc89022e7cuL)
+public val ABE_TOP: UInt = 1u
 
-public val FOLDERID_Downloads: GUID =
-    GUID.fromU128(0x374de290_123f_4565uL, 0x9164_39c4925e467buL)
+public val ABM_ACTIVATE: UInt = 6u
 
-public val FOLDERID_Favorites: GUID =
-    GUID.fromU128(0x1777f761_68ad_4d8auL, 0x87bd_30b759fa33dduL)
+public val ABM_GETAUTOHIDEBAR: UInt = 7u
 
-public val FOLDERID_Fonts: GUID =
-    GUID.fromU128(0xfd228cb7_ae11_4ae3uL, 0x864c_16f3910ab8feuL)
+public val ABM_GETAUTOHIDEBAREX: UInt = 11u
 
-public val FOLDERID_LocalAppData: GUID =
-    GUID.fromU128(0xf1b32785_6fba_4fcfuL, 0x9d55_7b8e7f157091uL)
+public val ABM_GETSTATE: UInt = 4u
 
-public val FOLDERID_LocalAppDataLow: GUID =
-    GUID.fromU128(0xa520a1a4_1780_4ff6uL, 0xbd18_167343c5af16uL)
+public val ABM_GETTASKBARPOS: UInt = 5u
 
-public val FOLDERID_Music: GUID =
-    GUID.fromU128(0x4bd8d571_6d19_48d3uL, 0xbe97_422220080e43uL)
+public val ABM_NEW: UInt = 0u
 
-public val FOLDERID_MusicLibrary: GUID =
-    GUID.fromU128(0x2112ab0a_c86a_4ffeuL, 0xa368_0de96e47012euL)
+public val ABM_QUERYPOS: UInt = 2u
 
-public val FOLDERID_Pictures: GUID =
-    GUID.fromU128(0x33e28130_4e1e_4676uL, 0x835a_98395c3bc3bbuL)
+public val ABM_REMOVE: UInt = 1u
 
-public val FOLDERID_PicturesLibrary: GUID =
-    GUID.fromU128(0xa990ae9f_a03b_4e80uL, 0x94bc_9912d7504104uL)
+public val ABM_SETAUTOHIDEBAR: UInt = 8u
 
-public val FOLDERID_Profile: GUID =
-    GUID.fromU128(0x5e6c858f_0e22_4760uL, 0x9afe_ea3317b67173uL)
+public val ABM_SETAUTOHIDEBAREX: UInt = 12u
 
-public val FOLDERID_ProgramData: GUID =
-    GUID.fromU128(0x62ab5d82_fdc1_4dc3uL, 0xa9dd_070d1d495d97uL)
+public val ABM_SETPOS: UInt = 3u
 
-public val FOLDERID_Programs: GUID =
-    GUID.fromU128(0xa77f5d77_2e2b_44c3uL, 0xa6a2_aba601054a51uL)
+public val ABM_SETSTATE: UInt = 10u
 
-public val FOLDERID_Public: GUID =
-    GUID.fromU128(0xdfdf76a2_c82a_4d63uL, 0x906a_5644ac457385uL)
+public val ABM_WINDOWPOSCHANGED: UInt = 9u
 
-public val FOLDERID_PublicDesktop: GUID =
-    GUID.fromU128(0xc4aa340d_f20f_4863uL, 0xafef_f87ef2e6ba25uL)
+public val ABN_FULLSCREENAPP: UInt = 2u
 
-public val FOLDERID_PublicDocuments: GUID =
-    GUID.fromU128(0xed4824af_dce4_45a8uL, 0x81e2_fc7965083634uL)
+public val ABN_POSCHANGED: UInt = 1u
 
-public val FOLDERID_PublicDownloads: GUID =
-    GUID.fromU128(0x3d644c9b_1fb8_4f30uL, 0x9b45_f670235f79c0uL)
+public val ABN_STATECHANGE: UInt = 0u
 
-public val FOLDERID_PublicGameTasks: GUID =
-    GUID.fromU128(0xdebf2536_e1a8_4c59uL, 0xb6a2_414586476aeauL)
+public val ABN_WINDOWARRANGE: UInt = 3u
 
-public val FOLDERID_PublicLibraries: GUID =
-    GUID.fromU128(0x48daf80b_e6cf_4f4euL, 0xb800_0e69d84ee384uL)
+public val ABS_ALWAYSONTOP: UInt = 2u
 
-public val FOLDERID_PublicMusic: GUID =
-    GUID.fromU128(0x3214fab5_9757_4298uL, 0xbb61_92a9deaa44ffuL)
+public val ABS_AUTOHIDE: UInt = 1u
 
-public val FOLDERID_PublicPictures: GUID =
-    GUID.fromU128(0xb6ebfb86_6907_413cuL, 0x9af7_4fc2abf07cc5uL)
+public val ACDD_VISIBLE: UInt = 1u
 
-public val FOLDERID_PublicRingtones: GUID =
-    GUID.fromU128(0xe555ab60_153b_4d17uL, 0x9f04_a5fe99fc15ecuL)
+public val ACEO_FIRSTUNUSED: ACENUMOPTION = 65536
 
-public val FOLDERID_PublicUserTiles: GUID =
-    GUID.fromU128(0x0482af6c_08f1_4c34uL, 0x8c90_e17ec98b1e17uL)
+public val ACEO_MOSTRECENTFIRST: ACENUMOPTION = 1
 
-public val FOLDERID_PublicVideos: GUID =
-    GUID.fromU128(0x2400183a_6185_49fbuL, 0xa2d8_4a392a602ba3uL)
+public val ACEO_NONE: ACENUMOPTION = 0
 
-public val FOLDERID_Recent: GUID =
-    GUID.fromU128(0xae50c081_ebd2_438auL, 0x8655_8a092e34987auL)
+public val ACLO_CURRENTDIR: AUTOCOMPLETELISTOPTIONS = 1
 
-public val FOLDERID_RoamingAppData: GUID =
-    GUID.fromU128(0x3eb685db_65f9_4cf6uL, 0xa03a_e3ef65729f3duL)
+public val ACLO_DESKTOP: AUTOCOMPLETELISTOPTIONS = 4
 
-public val FOLDERID_SavedGames: GUID =
-    GUID.fromU128(0x4c5c32ff_bb9d_43b0uL, 0xb5b4_2d72e54eaaa4uL)
+public val ACLO_FAVORITES: AUTOCOMPLETELISTOPTIONS = 8
 
-public val FOLDERID_SendTo: GUID =
-    GUID.fromU128(0x8983036c_27c0_404buL, 0x8f08_102d10dcfd74uL)
+public val ACLO_FILESYSDIRS: AUTOCOMPLETELISTOPTIONS = 32
 
-public val FOLDERID_StartMenu: GUID =
-    GUID.fromU128(0x625b53c3_ab48_4ec1uL, 0xba1f_a1ef4146fc19uL)
+public val ACLO_FILESYSONLY: AUTOCOMPLETELISTOPTIONS = 16
 
-public val FOLDERID_StartMenuAllPrograms: GUID =
-    GUID.fromU128(0xf26305ef_6948_40b9uL, 0xb255_81453d09c785uL)
+public val ACLO_MYCOMPUTER: AUTOCOMPLETELISTOPTIONS = 2
 
-public val FOLDERID_Startup: GUID =
-    GUID.fromU128(0xb97d20bb_f46a_4c97uL, 0xba10_5e3608430854uL)
+public val ACLO_NONE: AUTOCOMPLETELISTOPTIONS = 0
 
-public val FOLDERID_Templates: GUID =
-    GUID.fromU128(0xa63293e8_664e_48dbuL, 0xa079_df759e0509f7uL)
+public val ACLO_VIRTUALNAMESPACE: AUTOCOMPLETELISTOPTIONS = 64
 
-public val FOLDERID_Videos: GUID =
-    GUID.fromU128(0x18989b1d_99b5_455buL, 0x841c_ab7c74e4ddfcuL)
+public val ACO_AUTOAPPEND: AUTOCOMPLETEOPTIONS = 2
 
-public val FOLDERID_VideosLibrary: GUID =
-    GUID.fromU128(0x491e922f_5643_4af4uL, 0xa7eb_4e7a138d8174uL)
+public val ACO_AUTOSUGGEST: AUTOCOMPLETEOPTIONS = 1
+
+public val ACO_FILTERPREFIXES: AUTOCOMPLETEOPTIONS = 8
+
+public val ACO_NONE: AUTOCOMPLETEOPTIONS = 0
+
+public val ACO_NOPREFIXFILTERING: AUTOCOMPLETEOPTIONS = 256
+
+public val ACO_RTLREADING: AUTOCOMPLETEOPTIONS = 64
+
+public val ACO_SEARCH: AUTOCOMPLETEOPTIONS = 4
+
+public val ACO_UPDOWNKEYDROPSLIST: AUTOCOMPLETEOPTIONS = 32
+
+public val ACO_USETAB: AUTOCOMPLETEOPTIONS = 16
+
+public val ACO_WORD_FILTER: AUTOCOMPLETEOPTIONS = 128
+
+public val ADDURL_SILENT: UInt = 1u
+
+public val ADE_LEFT: ADJACENT_DISPLAY_EDGES = 1
+
+public val ADE_NONE: ADJACENT_DISPLAY_EDGES = 0
+
+public val ADE_RIGHT: ADJACENT_DISPLAY_EDGES = 2
+
+public val ADLT_FREQUENT: APPDOCLISTTYPE = 1
+
+public val ADLT_RECENT: APPDOCLISTTYPE = 0
+
+public val AD_APPLY_BUFFERED_REFRESH: UInt = 16u
+
+public val AD_APPLY_DYNAMICREFRESH: UInt = 32u
+
+public val AD_APPLY_FORCE: UInt = 8u
+
+public val AD_APPLY_HTMLGEN: UInt = 2u
+
+public val AD_APPLY_REFRESH: UInt = 4u
+
+public val AD_APPLY_SAVE: UInt = 1u
+
+public val AD_GETWP_BMP: UInt = 0u
+
+public val AD_GETWP_IMAGE: UInt = 1u
+
+public val AD_GETWP_LAST_APPLIED: UInt = 2u
+
+public val AHE_DESKTOP: AHE_TYPE = 0
+
+public val AHE_IMMERSIVE: AHE_TYPE = 1
+
+public val AHTYPE_ANY_APPLICATION: AHTYPE = 16
+
+public val AHTYPE_ANY_PROGID: AHTYPE = 512
+
+public val AHTYPE_APPLICATION: AHTYPE = 128
+
+public val AHTYPE_CLASS_APPLICATION: AHTYPE = 256
+
+public val AHTYPE_MACHINEDEFAULT: AHTYPE = 32
+
+public val AHTYPE_PROGID: AHTYPE = 64
+
+public val AHTYPE_UNDEFINED: AHTYPE = 0
+
+public val AHTYPE_USER_APPLICATION: AHTYPE = 8
+
+public val AIM_COMMENTS: APPINFODATAFLAGS = 32768
+
+public val AIM_CONTACT: APPINFODATAFLAGS = 16384
+
+public val AIM_DISPLAYNAME: APPINFODATAFLAGS = 1
+
+public val AIM_HELPLINK: APPINFODATAFLAGS = 512
+
+public val AIM_IMAGE: APPINFODATAFLAGS = 131072
+
+public val AIM_INSTALLDATE: APPINFODATAFLAGS = 4096
+
+public val AIM_INSTALLLOCATION: APPINFODATAFLAGS = 1024
+
+public val AIM_INSTALLSOURCE: APPINFODATAFLAGS = 2048
+
+public val AIM_LANGUAGE: APPINFODATAFLAGS = 64
+
+public val AIM_PRODUCTID: APPINFODATAFLAGS = 8
+
+public val AIM_PUBLISHER: APPINFODATAFLAGS = 4
+
+public val AIM_READMEURL: APPINFODATAFLAGS = 262144
+
+public val AIM_REGISTEREDCOMPANY: APPINFODATAFLAGS = 32
+
+public val AIM_REGISTEREDOWNER: APPINFODATAFLAGS = 16
+
+public val AIM_SUPPORTTELEPHONE: APPINFODATAFLAGS = 256
+
+public val AIM_SUPPORTURL: APPINFODATAFLAGS = 128
+
+public val AIM_UPDATEINFOURL: APPINFODATAFLAGS = 524288
+
+public val AIM_VERSION: APPINFODATAFLAGS = 2
+
+public val AL_EFFECTIVE: ASSOCIATIONLEVEL = 1
+
+public val AL_MACHINE: ASSOCIATIONLEVEL = 0
+
+public val AL_USER: ASSOCIATIONLEVEL = 2
+
+public val AO_DESIGNMODE: ACTIVATEOPTIONS = 1
+
+public val AO_NOERRORUI: ACTIVATEOPTIONS = 2
+
+public val AO_NONE: ACTIVATEOPTIONS = 0
+
+public val AO_NOSPLASHSCREEN: ACTIVATEOPTIONS = 4
+
+public val AO_PRELAUNCH: ACTIVATEOPTIONS = 33554432
+
+public val APPACTION_ADDLATER: APPACTIONFLAGS = 256
+
+public val APPACTION_CANGETSIZE: APPACTIONFLAGS = 32
+
+public val APPACTION_INSTALL: APPACTIONFLAGS = 1
+
+public val APPACTION_MODIFY: APPACTIONFLAGS = 4
+
+public val APPACTION_MODIFYREMOVE: APPACTIONFLAGS = 128
+
+public val APPACTION_REPAIR: APPACTIONFLAGS = 8
+
+public val APPACTION_UNINSTALL: APPACTIONFLAGS = 2
+
+public val APPACTION_UNSCHEDULE: APPACTIONFLAGS = 512
+
+public val APPACTION_UPGRADE: APPACTIONFLAGS = 16
+
+public val APPNAMEBUFFERLEN: UInt = 40u
+
+public val ARCONTENT_AUDIOCD: UInt = 4u
+
+public val ARCONTENT_AUTOPLAYMUSIC: UInt = 256u
+
+public val ARCONTENT_AUTOPLAYPIX: UInt = 128u
+
+public val ARCONTENT_AUTOPLAYVIDEO: UInt = 512u
+
+public val ARCONTENT_AUTORUNINF: UInt = 2u
+
+public val ARCONTENT_BLANKBD: UInt = 8192u
+
+public val ARCONTENT_BLANKCD: UInt = 16u
+
+public val ARCONTENT_BLANKDVD: UInt = 32u
+
+public val ARCONTENT_BLURAY: UInt = 16384u
+
+public val ARCONTENT_CAMERASTORAGE: UInt = 32768u
+
+public val ARCONTENT_CUSTOMEVENT: UInt = 65536u
+
+public val ARCONTENT_DVDAUDIO: UInt = 4096u
+
+public val ARCONTENT_DVDMOVIE: UInt = 8u
+
+public val ARCONTENT_MASK: UInt = 131070u
+
+public val ARCONTENT_NONE: UInt = 0u
+
+public val ARCONTENT_PHASE_FINAL: UInt = 1073741824u
+
+public val ARCONTENT_PHASE_MASK: UInt = 1879048192u
+
+public val ARCONTENT_PHASE_PRESNIFF: UInt = 268435456u
+
+public val ARCONTENT_PHASE_SNIFFING: UInt = 536870912u
+
+public val ARCONTENT_PHASE_UNKNOWN: UInt = 0u
+
+public val ARCONTENT_SVCD: UInt = 2048u
+
+public val ARCONTENT_UNKNOWNCONTENT: UInt = 64u
+
+public val ARCONTENT_VCD: UInt = 1024u
+
+public val ASSOCCLASS_APP_KEY: ASSOCCLASS = 5
+
+public val ASSOCCLASS_APP_STR: ASSOCCLASS = 6
+
+public val ASSOCCLASS_CLSID_KEY: ASSOCCLASS = 3
+
+public val ASSOCCLASS_CLSID_STR: ASSOCCLASS = 4
+
+public val ASSOCCLASS_FIXED_PROGID_STR: ASSOCCLASS = 10
+
+public val ASSOCCLASS_FOLDER: ASSOCCLASS = 8
+
+public val ASSOCCLASS_PROGID_KEY: ASSOCCLASS = 1
+
+public val ASSOCCLASS_PROGID_STR: ASSOCCLASS = 2
+
+public val ASSOCCLASS_PROTOCOL_STR: ASSOCCLASS = 11
+
+public val ASSOCCLASS_SHELL_KEY: ASSOCCLASS = 0
+
+public val ASSOCCLASS_STAR: ASSOCCLASS = 9
+
+public val ASSOCCLASS_SYSTEM_STR: ASSOCCLASS = 7
+
+public val ASSOCDATA_EDITFLAGS: ASSOCDATA = 5
+
+public val ASSOCDATA_HASPERUSERASSOC: ASSOCDATA = 4
+
+public val ASSOCDATA_MAX: ASSOCDATA = 7
+
+public val ASSOCDATA_MSIDESCRIPTOR: ASSOCDATA = 1
+
+public val ASSOCDATA_NOACTIVATEHANDLER: ASSOCDATA = 2
+
+public val ASSOCDATA_UNUSED1: ASSOCDATA = 3
+
+public val ASSOCDATA_VALUE: ASSOCDATA = 6
+
+public val ASSOCENUM_NONE: ASSOCENUM = 0
+
+public val ASSOCF_APP_TO_APP: ASSOCF = 65536u
+
+public val ASSOCF_IGNOREBASECLASS: ASSOCF = 512u
+
+public val ASSOCF_INIT_BYEXENAME: ASSOCF = 2u
+
+public val ASSOCF_INIT_DEFAULTTOFOLDER: ASSOCF = 8u
+
+public val ASSOCF_INIT_DEFAULTTOSTAR: ASSOCF = 4u
+
+public val ASSOCF_INIT_FIXED_PROGID: ASSOCF = 2048u
+
+public val ASSOCF_INIT_FOR_FILE: ASSOCF = 8192u
+
+public val ASSOCF_INIT_IGNOREUNKNOWN: ASSOCF = 1024u
+
+public val ASSOCF_INIT_NOREMAPCLSID: ASSOCF = 1u
+
+public val ASSOCF_IS_FULL_URI: ASSOCF = 16384u
+
+public val ASSOCF_IS_PROTOCOL: ASSOCF = 4096u
+
+public val ASSOCF_NOFIXUPS: ASSOCF = 256u
+
+public val ASSOCF_NONE: ASSOCF = 0u
+
+public val ASSOCF_NOTRUNCATE: ASSOCF = 32u
+
+public val ASSOCF_NOUSERSETTINGS: ASSOCF = 16u
+
+public val ASSOCF_OPEN_BYEXENAME: ASSOCF = 2u
+
+public val ASSOCF_PER_MACHINE_ONLY: ASSOCF = 32768u
+
+public val ASSOCF_REMAPRUNDLL: ASSOCF = 128u
+
+public val ASSOCF_VERIFY: ASSOCF = 64u
+
+public val ASSOCKEY_APP: ASSOCKEY = 2
+
+public val ASSOCKEY_BASECLASS: ASSOCKEY = 4
+
+public val ASSOCKEY_CLASS: ASSOCKEY = 3
+
+public val ASSOCKEY_MAX: ASSOCKEY = 5
+
+public val ASSOCKEY_SHELLEXECCLASS: ASSOCKEY = 1
+
+public val ASSOCSTR_APPICONREFERENCE: ASSOCSTR = 23
+
+public val ASSOCSTR_APPID: ASSOCSTR = 21
+
+public val ASSOCSTR_APPPUBLISHER: ASSOCSTR = 22
+
+public val ASSOCSTR_COMMAND: ASSOCSTR = 1
+
+public val ASSOCSTR_CONTENTTYPE: ASSOCSTR = 14
+
+public val ASSOCSTR_DDEAPPLICATION: ASSOCSTR = 9
+
+public val ASSOCSTR_DDECOMMAND: ASSOCSTR = 7
+
+public val ASSOCSTR_DDEIFEXEC: ASSOCSTR = 8
+
+public val ASSOCSTR_DDETOPIC: ASSOCSTR = 10
+
+public val ASSOCSTR_DEFAULTICON: ASSOCSTR = 15
+
+public val ASSOCSTR_DELEGATEEXECUTE: ASSOCSTR = 18
+
+public val ASSOCSTR_DROPTARGET: ASSOCSTR = 17
+
+public val ASSOCSTR_EXECUTABLE: ASSOCSTR = 2
+
+public val ASSOCSTR_FRIENDLYAPPNAME: ASSOCSTR = 4
+
+public val ASSOCSTR_FRIENDLYDOCNAME: ASSOCSTR = 3
+
+public val ASSOCSTR_INFOTIP: ASSOCSTR = 11
+
+public val ASSOCSTR_MAX: ASSOCSTR = 24
+
+public val ASSOCSTR_NOOPEN: ASSOCSTR = 5
+
+public val ASSOCSTR_PROGID: ASSOCSTR = 20
+
+public val ASSOCSTR_QUICKTIP: ASSOCSTR = 12
+
+public val ASSOCSTR_SHELLEXTENSION: ASSOCSTR = 16
+
+public val ASSOCSTR_SHELLNEWVALUE: ASSOCSTR = 6
+
+public val ASSOCSTR_SUPPORTED_URI_PROTOCOLS: ASSOCSTR = 19
+
+public val ASSOCSTR_TILEINFO: ASSOCSTR = 13
+
+public val ASSOC_FILTER_NONE: ASSOC_FILTER = 0
+
+public val ASSOC_FILTER_RECOMMENDED: ASSOC_FILTER = 1
+
+public val ATTACHMENT_ACTION_CANCEL: ATTACHMENT_ACTION = 0
+
+public val ATTACHMENT_ACTION_EXEC: ATTACHMENT_ACTION = 2
+
+public val ATTACHMENT_ACTION_SAVE: ATTACHMENT_ACTION = 1
+
+public val ATTACHMENT_PROMPT_EXEC: ATTACHMENT_PROMPT = 2
+
+public val ATTACHMENT_PROMPT_EXEC_OR_SAVE: ATTACHMENT_PROMPT = 3
+
+public val ATTACHMENT_PROMPT_NONE: ATTACHMENT_PROMPT = 0
+
+public val ATTACHMENT_PROMPT_SAVE: ATTACHMENT_PROMPT = 1
+
+public val AT_FILEEXTENSION: ASSOCIATIONTYPE = 0
+
+public val AT_MIMETYPE: ASSOCIATIONTYPE = 3
+
+public val AT_STARTMENUCLIENT: ASSOCIATIONTYPE = 2
+
+public val AT_URLPROTOCOL: ASSOCIATIONTYPE = 1
+
+public val AVMW_320: APPLICATION_VIEW_MIN_WIDTH = 1
+
+public val AVMW_500: APPLICATION_VIEW_MIN_WIDTH = 2
+
+public val AVMW_DEFAULT: APPLICATION_VIEW_MIN_WIDTH = 0
+
+public val AVO_LANDSCAPE: APPLICATION_VIEW_ORIENTATION = 0
+
+public val AVO_PORTRAIT: APPLICATION_VIEW_ORIENTATION = 1
+
+public val AVSP_CUSTOM: APPLICATION_VIEW_SIZE_PREFERENCE = 6
+
+public val AVSP_DEFAULT: APPLICATION_VIEW_SIZE_PREFERENCE = 0
+
+public val AVSP_USE_HALF: APPLICATION_VIEW_SIZE_PREFERENCE = 2
+
+public val AVSP_USE_LESS: APPLICATION_VIEW_SIZE_PREFERENCE = 1
+
+public val AVSP_USE_MINIMUM: APPLICATION_VIEW_SIZE_PREFERENCE = 4
+
+public val AVSP_USE_MORE: APPLICATION_VIEW_SIZE_PREFERENCE = 3
+
+public val AVSP_USE_NONE: APPLICATION_VIEW_SIZE_PREFERENCE = 5
+
+public val AVS_FILLED: APPLICATION_VIEW_STATE = 1
+
+public val AVS_FULLSCREEN_LANDSCAPE: APPLICATION_VIEW_STATE = 0
+
+public val AVS_FULLSCREEN_PORTRAIT: APPLICATION_VIEW_STATE = 3
+
+public val AVS_SNAPPED: APPLICATION_VIEW_STATE = 2
+
+public val AccessibilityDockingService: GUID = GUID.from_u128(0x29ce1d46b4814aa0uL, 0xa08ad3ebc8aca402uL)
+
+public val AllowSmallerSize: ThumbnailStreamCacheOptions = 4
+
+public val AlphabeticalCategorizer: GUID = GUID.from_u128(0x3c2654c673724f6buL, 0xb31055d6128f49d2uL)
+
+public val AppShellVerbHandler: GUID = GUID.from_u128(0x4ed3a719cea84bd9uL, 0x910de252f997afc2uL)
+
+public val AppStartupLink: GUID = GUID.from_u128(0x273eb5e788b04843uL, 0xbfefe2c81d43aae5uL)
+
+public val AppVisibility: GUID = GUID.from_u128(0x7e5fe3d9985f4908uL, 0x91f9ee19f9fd1514uL)
+
+public val ApplicationActivationManager: GUID = GUID.from_u128(0x45ba127d10a846eauL, 0x8ab756ea9078943cuL)
+
+public val ApplicationAssociationRegistration: GUID = GUID.from_u128(0x591209c7767b42b2uL, 0x9fba44ee4615f2c7uL)
+
+public val ApplicationAssociationRegistrationUI: GUID = GUID.from_u128(0x1968106df3b544cfuL, 0x890e116fcb9ecef1uL)
+
+public val ApplicationDesignModeSettings: GUID = GUID.from_u128(0x958a6fb5dcb24fafuL, 0xaafd7fb054ad1a3buL)
+
+public val ApplicationDestinations: GUID = GUID.from_u128(0x86c140034d6b4ef3uL, 0xa7b40506663b2e68uL)
+
+public val ApplicationDocumentLists: GUID = GUID.from_u128(0x86bec22230f247e0uL, 0x9f2560d11cd75c28uL)
+
+public val AttachmentServices: GUID = GUID.from_u128(0x4125dd96e03a4103uL, 0x8f70e0597d803b9cuL)
+
+public val BFFM_ENABLEOK: UInt = 1125u
+
+public val BFFM_INITIALIZED: UInt = 1u
+
+public val BFFM_IUNKNOWN: UInt = 5u
+
+public val BFFM_SELCHANGED: UInt = 2u
+
+public val BFFM_SETEXPANDED: UInt = 1130u
+
+public val BFFM_SETOKTEXT: UInt = 1129u
+
+public val BFFM_SETSELECTION: UInt = 1127u
+
+public val BFFM_SETSELECTIONA: UInt = 1126u
+
+public val BFFM_SETSELECTIONW: UInt = 1127u
+
+public val BFFM_SETSTATUSTEXT: UInt = 1128u
+
+public val BFFM_SETSTATUSTEXTA: UInt = 1124u
+
+public val BFFM_SETSTATUSTEXTW: UInt = 1128u
+
+public val BFFM_VALIDATEFAILED: UInt = 4u
+
+public val BFFM_VALIDATEFAILEDA: UInt = 3u
+
+public val BFFM_VALIDATEFAILEDW: UInt = 4u
+
+public val BFO_ADD_IE_TOCAPTIONBAR: _BROWSERFRAMEOPTIONS = 512
+
+public val BFO_BOTH_OPTIONS: _BROWSERFRAMEOPTIONS = 4
+
+public val BFO_BROWSER_PERSIST_SETTINGS: _BROWSERFRAMEOPTIONS = 1
+
+public val BFO_BROWSE_NO_IN_NEW_PROCESS: _BROWSERFRAMEOPTIONS = 16
+
+public val BFO_ENABLE_HYPERLINK_TRACKING: _BROWSERFRAMEOPTIONS = 32
+
+public val BFO_GO_HOME_PAGE: _BROWSERFRAMEOPTIONS = 16384
+
+public val BFO_NONE: _BROWSERFRAMEOPTIONS = 0
+
+public val BFO_NO_PARENT_FOLDER_SUPPORT: _BROWSERFRAMEOPTIONS = 4096
+
+public val BFO_NO_REOPEN_NEXT_RESTART: _BROWSERFRAMEOPTIONS = 8192
+
+public val BFO_PREFER_IEPROCESS: _BROWSERFRAMEOPTIONS = 32768
+
+public val BFO_QUERY_ALL: _BROWSERFRAMEOPTIONS = -1
+
+public val BFO_RENAME_FOLDER_OPTIONS_TOINTERNET: _BROWSERFRAMEOPTIONS = 2
+
+public val BFO_SHOW_NAVIGATION_CANCELLED: _BROWSERFRAMEOPTIONS = 65536
+
+public val BFO_SUBSTITUE_INTERNET_START_PAGE: _BROWSERFRAMEOPTIONS = 128
+
+public val BFO_USE_DIALUP_REF: _BROWSERFRAMEOPTIONS = 1024
+
+public val BFO_USE_IE_LOGOBANDING: _BROWSERFRAMEOPTIONS = 256
+
+public val BFO_USE_IE_OFFLINE_SUPPORT: _BROWSERFRAMEOPTIONS = 64
+
+public val BFO_USE_IE_STATUSBAR: _BROWSERFRAMEOPTIONS = 131072
+
+public val BFO_USE_IE_TOOLBAR: _BROWSERFRAMEOPTIONS = 2048
+
+public val BHID_AssociationArray: GUID = GUID.from_u128(0xbea9ef1782f14f60uL, 0x92844f8db75c3be9uL)
+
+public val BHID_DataObject: GUID = GUID.from_u128(0xb8c0bd9fed24455cuL, 0x83e6d5390c4fe8c4uL)
+
+public val BHID_EnumAssocHandlers: GUID = GUID.from_u128(0xb8ab0b9cc2ec4f7auL, 0x918d314900e6280auL)
+
+public val BHID_EnumItems: GUID = GUID.from_u128(0x94f6051928504924uL, 0xaa5ad15e84868039uL)
+
+public val BHID_FilePlaceholder: GUID = GUID.from_u128(0x8677dcebaae04005uL, 0x8d3d547fa852f825uL)
+
+public val BHID_Filter: GUID = GUID.from_u128(0x38d08778f5574690uL, 0x9ebfba54706ad8f7uL)
+
+public val BHID_LinkTargetItem: GUID = GUID.from_u128(0x3981e228f55911d3uL, 0x8e3a00c04f6837d5uL)
+
+public val BHID_PropertyStore: GUID = GUID.from_u128(0x384e1a41523439cuL, 0xa4c8ab911052f586uL)
+
+public val BHID_RandomAccessStream: GUID = GUID.from_u128(0xf16fc93b77ae4cfeuL, 0xbda7a866eea6878duL)
+
+public val BHID_SFObject: GUID = GUID.from_u128(0x3981e224f55911d3uL, 0x8e3a00c04f6837d5uL)
+
+public val BHID_SFUIObject: GUID = GUID.from_u128(0x3981e225f55911d3uL, 0x8e3a00c04f6837d5uL)
+
+public val BHID_SFViewObject: GUID = GUID.from_u128(0x3981e226f55911d3uL, 0x8e3a00c04f6837d5uL)
+
+public val BHID_Storage: GUID = GUID.from_u128(0x3981e227f55911d3uL, 0x8e3a00c04f6837d5uL)
+
+public val BHID_StorageEnum: GUID = GUID.from_u128(0x4621a4e3f0d64773uL, 0x8a9c46e77b174840uL)
+
+public val BHID_StorageItem: GUID = GUID.from_u128(0x404e210977d24699uL, 0xa5a04fdf10db9837uL)
+
+public val BHID_Stream: GUID = GUID.from_u128(0x1cebb3ab7c10499auL, 0xa41792ca16c4cb83uL)
+
+public val BHID_ThumbnailHandler: GUID = GUID.from_u128(0x7b2e650a8e204f4auL, 0xb09e6597afc72fb0uL)
+
+public val BHID_Transfer: GUID = GUID.from_u128(0xd5e346a1f7534932uL, 0xb4034574800e2498uL)
+
+public val BIF_BROWSEFILEJUNCTIONS: UInt = 65536u
+
+public val BIF_BROWSEFORCOMPUTER: UInt = 4096u
+
+public val BIF_BROWSEFORPRINTER: UInt = 8192u
+
+public val BIF_BROWSEINCLUDEFILES: UInt = 16384u
+
+public val BIF_BROWSEINCLUDEURLS: UInt = 128u
+
+public val BIF_DONTGOBELOWDOMAIN: UInt = 2u
+
+public val BIF_EDITBOX: UInt = 16u
+
+public val BIF_NEWDIALOGSTYLE: UInt = 64u
+
+public val BIF_NONEWFOLDERBUTTON: UInt = 512u
+
+public val BIF_NOTRANSLATETARGETS: UInt = 1024u
+
+public val BIF_PREFER_INTERNET_SHORTCUT: _BROWSERFRAMEOPTIONS = 8
+
+public val BIF_RETURNFSANCESTORS: UInt = 8u
+
+public val BIF_RETURNONLYFSDIRS: UInt = 1u
+
+public val BIF_SHAREABLE: UInt = 32768u
+
+public val BIF_STATUSTEXT: UInt = 4u
+
+public val BIF_UAHINT: UInt = 256u
+
+public val BIF_VALIDATE: UInt = 32u
+
+public val BIND_INTERRUPTABLE: UInt = 4294967295u
+
+public val BMICON_LARGE: Int = 0
+
+public val BMICON_SMALL: Int = 1
+
+public val BNE_Button1Clicked: BANNER_NOTIFICATION_EVENT = 4
+
+public val BNE_Button2Clicked: BANNER_NOTIFICATION_EVENT = 5
+
+public val BNE_Closed: BANNER_NOTIFICATION_EVENT = 2
+
+public val BNE_Dismissed: BANNER_NOTIFICATION_EVENT = 3
+
+public val BNE_Hovered: BANNER_NOTIFICATION_EVENT = 1
+
+public val BNE_Rendered: BANNER_NOTIFICATION_EVENT = 0
+
+public val BNS_BEGIN_NAVIGATE: BNSTATE = 1
+
+public val BNS_NAVIGATE: BNSTATE = 2
+
+public val BNS_NORMAL: BNSTATE = 0
+
+public val BSF_CANMAXIMIZE: UInt = 1024u
+
+public val BSF_DELEGATEDNAVIGATION: UInt = 65536u
+
+public val BSF_DONTSHOWNAVCANCELPAGE: UInt = 16384u
+
+public val BSF_FEEDNAVIGATION: UInt = 524288u
+
+public val BSF_FEEDSUBSCRIBED: UInt = 1048576u
+
+public val BSF_HTMLNAVCANCELED: UInt = 8192u
+
+public val BSF_MERGEDMENUS: UInt = 262144u
+
+public val BSF_NAVNOHISTORY: UInt = 4096u
+
+public val BSF_NOLOCALFILEWARNING: UInt = 16u
+
+public val BSF_REGISTERASDROPTARGET: UInt = 1u
+
+public val BSF_RESIZABLE: UInt = 512u
+
+public val BSF_SETNAVIGATABLECODEPAGE: UInt = 32768u
+
+public val BSF_THEATERMODE: UInt = 2u
+
+public val BSF_TOPBROWSER: UInt = 2048u
+
+public val BSF_TRUSTEDFORACTIVEX: UInt = 131072u
+
+public val BSF_UISETBYAUTOMATION: UInt = 256u
+
+public val BSID_BANDADDED: BANDSITECID = 0
+
+public val BSID_BANDREMOVED: BANDSITECID = 1
+
+public val BSIM_STATE: UInt = 1u
+
+public val BSIM_STYLE: UInt = 2u
+
+public val BSIS_ALWAYSGRIPPER: UInt = 2u
+
+public val BSIS_AUTOGRIPPER: UInt = 0u
+
+public val BSIS_FIXEDORDER: UInt = 1024u
+
+public val BSIS_LEFTALIGN: UInt = 4u
+
+public val BSIS_LOCKED: UInt = 256u
+
+public val BSIS_NOCAPTION: UInt = 64u
+
+public val BSIS_NOCONTEXTMENU: UInt = 16u
+
+public val BSIS_NODROPTARGET: UInt = 32u
+
+public val BSIS_NOGRIPPER: UInt = 1u
+
+public val BSIS_PREFERNOLINEBREAK: UInt = 128u
+
+public val BSIS_PRESERVEORDERDURINGLAYOUT: UInt = 512u
+
+public val BSIS_SINGLECLICK: UInt = 8u
+
+public val BSSF_NOTITLE: UInt = 2u
+
+public val BSSF_UNDELETEABLE: UInt = 4096u
+
+public val BSSF_VISIBLE: UInt = 1u
+
+public val BUFFLEN: UInt = 255u
+
+public val CABINETSTATE_VERSION: UInt = 2u
+
+public val CAMERAROLL_E_NO_DOWNSAMPLING_REQUIRED: HRESULT = 0x80270120u.toInt()
+
+public val CATID_BrowsableShellExt: GUID = GUID.from_u128(0x2149000000000uL, 0xc000000000000046uL)
+
+public val CATID_BrowseInPlace: GUID = GUID.from_u128(0x2149100000000uL, 0xc000000000000046uL)
+
+public val CATID_CommBand: GUID = GUID.from_u128(0x2149400000000uL, 0xc000000000000046uL)
+
+public val CATID_DeskBand: GUID = GUID.from_u128(0x2149200000000uL, 0xc000000000000046uL)
+
+public val CATID_FilePlaceholderMergeHandler: GUID = GUID.from_u128(0x3e9c9a51d4aa4870uL, 0xb47c7424b491f1ccuL)
+
+public val CATID_InfoBand: GUID = GUID.from_u128(0x2149300000000uL, 0xc000000000000046uL)
+
+public val CATID_LocationFactory: GUID = GUID.from_u128(0x965c4d518b764e57uL, 0x80b7564d2ea4b55euL)
+
+public val CATID_LocationProvider: GUID = GUID.from_u128(0x1b3ca4742614414buL, 0xb8131aceca3e3dd8uL)
+
+public val CATID_SearchableApplication: GUID = GUID.from_u128(0x366c292ad9b34dbfuL, 0xbb70e62ec3d0bbbfuL)
+
+public val CATINFO_COLLAPSED: CATEGORYINFO_FLAGS = 1
+
+public val CATINFO_EXPANDED: CATEGORYINFO_FLAGS = 4
+
+public val CATINFO_HIDDEN: CATEGORYINFO_FLAGS = 2
+
+public val CATINFO_NOHEADER: CATEGORYINFO_FLAGS = 8
+
+public val CATINFO_NOHEADERCOUNT: CATEGORYINFO_FLAGS = 32
+
+public val CATINFO_NORMAL: CATEGORYINFO_FLAGS = 0
+
+public val CATINFO_NOTCOLLAPSIBLE: CATEGORYINFO_FLAGS = 16
+
+public val CATINFO_SEPARATE_IMAGES: CATEGORYINFO_FLAGS = 128
+
+public val CATINFO_SHOWEMPTY: CATEGORYINFO_FLAGS = 256
+
+public val CATINFO_SUBSETTED: CATEGORYINFO_FLAGS = 64
+
+public val CATSORT_DEFAULT: CATSORT_FLAGS = 0
+
+public val CATSORT_NAME: CATSORT_FLAGS = 1
+
+public val CDB2GVF_ADDSHIELD: UInt = 64u
+
+public val CDB2GVF_ALLOWPREVIEWPANE: UInt = 4u
+
+public val CDB2GVF_ISFILESAVE: UInt = 2u
+
+public val CDB2GVF_ISFOLDERPICKER: UInt = 32u
+
+public val CDB2GVF_NOINCLUDEITEM: UInt = 16u
+
+public val CDB2GVF_NOSELECTVERB: UInt = 8u
+
+public val CDB2GVF_SHOWALLFILES: UInt = 1u
+
+public val CDB2N_CONTEXTMENU_DONE: UInt = 1u
+
+public val CDB2N_CONTEXTMENU_START: UInt = 2u
+
+public val CDBE_RET_DEFAULT: CDBURNINGEXTENSIONRET = 0
+
+public val CDBE_RET_DONTRUNOTHEREXTS: CDBURNINGEXTENSIONRET = 1
+
+public val CDBE_RET_STOPWIZARD: CDBURNINGEXTENSIONRET = 2
+
+public val CDBE_TYPE_ALL: _CDBE_ACTIONS = -1
+
+public val CDBE_TYPE_DATA: _CDBE_ACTIONS = 2
+
+public val CDBE_TYPE_MUSIC: _CDBE_ACTIONS = 1
+
+public val CDBOSC_KILLFOCUS: UInt = 1u
+
+public val CDBOSC_RENAME: UInt = 3u
+
+public val CDBOSC_SELCHANGE: UInt = 2u
+
+public val CDBOSC_SETFOCUS: UInt = 0u
+
+public val CDBOSC_STATECHANGE: UInt = 4u
+
+public val CDBurn: GUID = GUID.from_u128(0xfbeb8a05beee4442uL, 0x804e409d6c4515e9uL)
+
+public val CDCS_ENABLED: CDCONTROLSTATEF = 1
+
+public val CDCS_ENABLEDVISIBLE: CDCONTROLSTATEF = 3
+
+public val CDCS_INACTIVE: CDCONTROLSTATEF = 0
+
+public val CDCS_VISIBLE: CDCONTROLSTATEF = 2
+
+public val CFSTR_AUTOPLAY_SHELLIDLISTS: PCWSTR = w("Autoplay Enumerated IDList Array")
+
+public val CFSTR_DROPDESCRIPTION: PCWSTR = w("DropDescription")
+
+public val CFSTR_FILECONTENTS: PCWSTR = w("FileContents")
+
+public val CFSTR_FILEDESCRIPTOR: PCWSTR = w("FileGroupDescriptorW")
+
+public val CFSTR_FILEDESCRIPTORA: PCWSTR = w("FileGroupDescriptor")
+
+public val CFSTR_FILEDESCRIPTORW: PCWSTR = w("FileGroupDescriptorW")
+
+public val CFSTR_FILENAME: PCWSTR = w("FileNameW")
+
+public val CFSTR_FILENAMEA: PCWSTR = w("FileName")
+
+public val CFSTR_FILENAMEMAP: PCWSTR = w("FileNameMapW")
+
+public val CFSTR_FILENAMEMAPA: PCWSTR = w("FileNameMap")
+
+public val CFSTR_FILENAMEMAPW: PCWSTR = w("FileNameMapW")
+
+public val CFSTR_FILENAMEW: PCWSTR = w("FileNameW")
+
+public val CFSTR_FILE_ATTRIBUTES_ARRAY: PCWSTR = w("File Attributes Array")
+
+public val CFSTR_INDRAGLOOP: PCWSTR = w("InShellDragLoop")
+
+public val CFSTR_INETURL: PCWSTR = w("UniformResourceLocatorW")
+
+public val CFSTR_INETURLA: PCWSTR = w("UniformResourceLocator")
+
+public val CFSTR_INETURLW: PCWSTR = w("UniformResourceLocatorW")
+
+public val CFSTR_INVOKECOMMAND_DROPPARAM: PCWSTR = w("InvokeCommand DropParam")
+
+public val CFSTR_LOGICALPERFORMEDDROPEFFECT: PCWSTR = w("Logical Performed DropEffect")
+
+public val CFSTR_MOUNTEDVOLUME: PCWSTR = w("MountedVolume")
+
+public val CFSTR_NETRESOURCES: PCWSTR = w("Net Resource")
+
+public val CFSTR_PASTESUCCEEDED: PCWSTR = w("Paste Succeeded")
+
+public val CFSTR_PERFORMEDDROPEFFECT: PCWSTR = w("Performed DropEffect")
+
+public val CFSTR_PERSISTEDDATAOBJECT: PCWSTR = w("PersistedDataObject")
+
+public val CFSTR_PREFERREDDROPEFFECT: PCWSTR = w("Preferred DropEffect")
+
+public val CFSTR_PRINTERGROUP: PCWSTR = w("PrinterFriendlyName")
+
+public val CFSTR_SHELLDROPHANDLER: PCWSTR = w("DropHandlerCLSID")
+
+public val CFSTR_SHELLIDLIST: PCWSTR = w("Shell IDList Array")
+
+public val CFSTR_SHELLIDLISTOFFSET: PCWSTR = w("Shell Object Offsets")
+
+public val CFSTR_SHELLURL: PCWSTR = w("UniformResourceLocator")
+
+public val CFSTR_TARGETCLSID: PCWSTR = w("TargetCLSID")
+
+public val CFSTR_UNTRUSTEDDRAGDROP: PCWSTR = w("UntrustedDragDrop")
+
+public val CFSTR_ZONEIDENTIFIER: PCWSTR = w("ZoneIdentifier")
+
+public val CGID_DefView: GUID = GUID.from_u128(0x4af07f10d23111d0uL, 0xb94200a0c90312e1uL)
+
+public val CGID_Explorer: GUID = GUID.from_u128(0x214d000000000uL, 0xc000000000000046uL)
+
+public val CGID_ExplorerBarDoc: GUID = GUID.from_u128(0x214d300000000uL, 0xc000000000000046uL)
+
+public val CGID_MENUDESKBAR: GUID = GUID.from_u128(0x5c9f0a12959e11d0uL, 0xa3a400a0c9082636uL)
+
+public val CGID_ShellDocView: GUID = GUID.from_u128(0x214d100000000uL, 0xc000000000000046uL)
+
+public val CGID_ShellServiceObject: GUID = GUID.from_u128(0x214d200000000uL, 0xc000000000000046uL)
+
+public val CGID_ShortCut: GUID = GUID.from_u128(0x93a68750951a11d1uL, 0x946f000000000000uL)
+
+public val CLOSEPROPS_DISCARD: UInt = 1u
+
+public val CLOSEPROPS_NONE: UInt = 0u
+
+public val CLSID_ACLCustomMRU: GUID = GUID.from_u128(0x6935db9321e84cccuL, 0xbeb99fe3c77a297auL)
+
+public val CLSID_ACLHistory: GUID = GUID.from_u128(0xbb27646a7711d0uL, 0xa53500c04fd7d062uL)
+
+public val CLSID_ACLMRU: GUID = GUID.from_u128(0x6756a641de7111d0uL, 0x831b00aa005b4383uL)
+
+public val CLSID_ACLMulti: GUID = GUID.from_u128(0xbb27656a7711d0uL, 0xa53500c04fd7d062uL)
+
+public val CLSID_ACListISF: GUID = GUID.from_u128(0x3c036f1a18611d0uL, 0x824a00aa005b4383uL)
+
+public val CLSID_ActiveDesktop: GUID = GUID.from_u128(0x75048700ef1f11d0uL, 0x9888006097deacf9uL)
+
+public val CLSID_AutoComplete: GUID = GUID.from_u128(0xbb27636a7711d0uL, 0xa53500c04fd7d062uL)
+
+public val CLSID_CAnchorBrowsePropertyPage: GUID = GUID.from_u128(0x3050f3bb98b511cfuL, 0xbb8200aa00bdce0buL)
+
+public val CLSID_CDocBrowsePropertyPage: GUID = GUID.from_u128(0x3050f3b498b511cfuL, 0xbb8200aa00bdce0buL)
+
+public val CLSID_CFSIconOverlayManager: GUID = GUID.from_u128(0x63b51f81c86811d0uL, 0x999c00c04fd655e1uL)
+
+public val CLSID_CImageBrowsePropertyPage: GUID = GUID.from_u128(0x3050f3b398b511cfuL, 0xbb8200aa00bdce0buL)
+
+public val CLSID_CURLSearchHook: GUID = GUID.from_u128(0xcfbfae0017a611d0uL, 0x99cb00c04fd64497uL)
+
+public val CLSID_CUrlHistory: GUID = GUID.from_u128(0x3c374a40bae411cfuL, 0xbf7d00aa006946eeuL)
+
+public val CLSID_CUrlHistoryBoth: GUID = GUID.from_u128(0x6659983c84764eb4uL, 0xb78ce5968f326ba0uL)
+
+public val CLSID_ControlPanel: GUID = GUID.from_u128(0x21ec20203aea1069uL, 0xa2dd08002b30309duL)
+
+public val CLSID_DarwinAppPublisher: GUID = GUID.from_u128(0xcfccc7a0a28211d1uL, 0x9082006008059382uL)
+
+public val CLSID_DocHostUIHandler: GUID = GUID.from_u128(0x7057e952bd1b11d1uL, 0x891900c04fc2c836uL)
+
+public val CLSID_DragDropHelper: GUID = GUID.from_u128(0x4657278a411b11d2uL, 0x839a00c04fd918d0uL)
+
+public val CLSID_FileTypes: GUID = GUID.from_u128(0xb091e54083e311cfuL, 0xa7130020afd79762uL)
+
+public val CLSID_FolderItemsMultiLevel: GUID = GUID.from_u128(0x53c74826ab994d33uL, 0xaca43117f51d3788uL)
+
+public val CLSID_FolderShortcut: GUID = GUID.from_u128(0xafaced1e82811d1uL, 0x9187b532f1e9575duL)
+
+public val CLSID_HWShellExecute: GUID = GUID.from_u128(0xffb8655f81b94fceuL, 0xb89c9a6ba76d13e7uL)
+
+public val CLSID_ISFBand: GUID = GUID.from_u128(0xd82be2b0576411d0uL, 0xa96e00c04fd705a2uL)
+
+public val CLSID_Internet: GUID = GUID.from_u128(0x871c538042a01069uL, 0xa2ea08002b30309duL)
+
+public val CLSID_InternetButtons: GUID = GUID.from_u128(0x1e7969809cc511d1uL, 0xa83f00c04fc99d61uL)
+
+public val CLSID_InternetShortcut: GUID = GUID.from_u128(0xfbf23b40e3f0101buL, 0x848800aa003e56f8uL)
+
+public val CLSID_LinkColumnProvider: GUID = GUID.from_u128(0x24f14f027b1c11d1uL, 0x838f0000f80461cfuL)
+
+public val CLSID_MSOButtons: GUID = GUID.from_u128(0x178f34b8a28211d2uL, 0x86c500c04f8eea99uL)
+
+public val CLSID_MenuBand: GUID = GUID.from_u128(0x5b4dae26b80711d0uL, 0x981500c04fd91972uL)
+
+public val CLSID_MenuBandSite: GUID = GUID.from_u128(0xe13ef4e4d2f211d0uL, 0x981600c04fd91972uL)
+
+public val CLSID_MenuToolbarBase: GUID = GUID.from_u128(0x40b96610b52211d1uL, 0xb3b400aa006efde7uL)
+
+public val CLSID_MyComputer: GUID = GUID.from_u128(0x20d04fe03aea1069uL, 0xa2d808002b30309duL)
+
+public val CLSID_MyDocuments: GUID = GUID.from_u128(0x450d8fbaad2511d0uL, 0x98a80800361b1103uL)
+
+public val CLSID_NetworkDomain: GUID = GUID.from_u128(0x46e066804bf011d1uL, 0x83ee00a0c90dc849uL)
+
+public val CLSID_NetworkServer: GUID = GUID.from_u128(0xc0542a904bf011d1uL, 0x83ee00a0c90dc849uL)
+
+public val CLSID_NetworkShare: GUID = GUID.from_u128(0x54a754c04bf011d1uL, 0x83ee00a0c90dc849uL)
+
+public val CLSID_NewMenu: GUID = GUID.from_u128(0xd969a300e7ff11d0uL, 0xa93b00a0c90f2719uL)
+
+public val CLSID_Printers: GUID = GUID.from_u128(0x2227a2803aea1069uL, 0xa2de08002b30309duL)
+
+public val CLSID_ProgressDialog: GUID = GUID.from_u128(0xf8383852fcd311d1uL, 0xa6b9006097df5bd4uL)
+
+public val CLSID_QueryAssociations: GUID = GUID.from_u128(0xa07034fd6caa4954uL, 0xac3f97a27216f98auL)
+
+public val CLSID_QuickLinks: GUID = GUID.from_u128(0xe5cbf21d15f11d0uL, 0x830100aa005b4383uL)
+
+public val CLSID_RecycleBin: GUID = GUID.from_u128(0x645ff0405081101buL, 0x9f0800aa002f954euL)
+
+public val CLSID_ShellFldSetExt: GUID = GUID.from_u128(0x6d5313c08c6211d1uL, 0xb2cd006097df8c11uL)
+
+public val CLSID_ShellThumbnailDiskCache: GUID = GUID.from_u128(0x1ebdcf80a20011d0uL, 0xa3a400c04fd706ecuL)
+
+public val CLSID_ToolbarExtButtons: GUID = GUID.from_u128(0x2ce4b5d8a28f11d2uL, 0x86c500c04f8eea99uL)
+
+public val CMDID_INTSHORTCUTCREATE: Int = 1
+
+public val CMDSTR_NEWFOLDER: PCWSTR = w("NewFolder")
+
+public val CMDSTR_NEWFOLDERA: PCSTR = s("NewFolder")
+
+public val CMDSTR_NEWFOLDERW: PCWSTR = w("NewFolder")
+
+public val CMDSTR_VIEWDETAILS: PCWSTR = w("ViewDetails")
+
+public val CMDSTR_VIEWDETAILSA: PCSTR = s("ViewDetails")
+
+public val CMDSTR_VIEWDETAILSW: PCWSTR = w("ViewDetails")
+
+public val CMDSTR_VIEWLIST: PCWSTR = w("ViewList")
+
+public val CMDSTR_VIEWLISTA: PCSTR = s("ViewList")
+
+public val CMDSTR_VIEWLISTW: PCWSTR = w("ViewList")
+
+public val CMF_ASYNCVERBSTATE: UInt = 1024u
+
+public val CMF_CANRENAME: UInt = 16u
+
+public val CMF_DEFAULTONLY: UInt = 1u
+
+public val CMF_DISABLEDVERBS: UInt = 512u
+
+public val CMF_DONOTPICKDEFAULT: UInt = 8192u
+
+public val CMF_EXPLORE: UInt = 4u
+
+public val CMF_EXTENDEDVERBS: UInt = 256u
+
+public val CMF_INCLUDESTATIC: UInt = 64u
+
+public val CMF_ITEMMENU: UInt = 128u
+
+public val CMF_NODEFAULT: UInt = 32u
+
+public val CMF_NORMAL: UInt = 0u
+
+public val CMF_NOVERBS: UInt = 8u
+
+public val CMF_OPTIMIZEFORINVOKE: UInt = 2048u
+
+public val CMF_RESERVED: UInt = 4294901760u
+
+public val CMF_SYNCCASCADEMENU: UInt = 4096u
+
+public val CMF_VERBSONLY: UInt = 2u
+
+public val CMIC_MASK_CONTROL_DOWN: UInt = 1073741824u
+
+public val CMIC_MASK_PTINVOKE: UInt = 536870912u
+
+public val CMIC_MASK_SHIFT_DOWN: UInt = 268435456u
+
+public val CM_ENUM_ALL: CM_ENUM_FLAGS = 1
+
+public val CM_ENUM_VISIBLE: CM_ENUM_FLAGS = 2
+
+public val CM_MASK_DEFAULTWIDTH: CM_MASK = 2
+
+public val CM_MASK_IDEALWIDTH: CM_MASK = 4
+
+public val CM_MASK_NAME: CM_MASK = 8
+
+public val CM_MASK_STATE: CM_MASK = 16
+
+public val CM_MASK_WIDTH: CM_MASK = 1
+
+public val CM_STATE_ALWAYSVISIBLE: CM_STATE = 8
+
+public val CM_STATE_FIXEDWIDTH: CM_STATE = 2
+
+public val CM_STATE_NONE: CM_STATE = 0
+
+public val CM_STATE_NOSORTBYFOLDERNESS: CM_STATE = 4
+
+public val CM_STATE_VISIBLE: CM_STATE = 1
+
+public val CM_WIDTH_AUTOSIZE: CM_SET_WIDTH_VALUE = -2
+
+public val CM_WIDTH_USEDEFAULT: CM_SET_WIDTH_VALUE = -1
+
+public val COMPONENT_DEFAULT_LEFT: UInt = 65535u
+
+public val COMPONENT_DEFAULT_TOP: UInt = 65535u
+
+public val COMPONENT_TOP: UInt = 1073741823u
+
+public val COMP_ELEM_CHECKED: UInt = 2u
+
+public val COMP_ELEM_CURITEMSTATE: UInt = 16384u
+
+public val COMP_ELEM_DIRTY: UInt = 4u
+
+public val COMP_ELEM_FRIENDLYNAME: UInt = 1024u
+
+public val COMP_ELEM_NOSCROLL: UInt = 8u
+
+public val COMP_ELEM_ORIGINAL_CSI: UInt = 4096u
+
+public val COMP_ELEM_POS_LEFT: UInt = 16u
+
+public val COMP_ELEM_POS_TOP: UInt = 32u
+
+public val COMP_ELEM_POS_ZINDEX: UInt = 256u
+
+public val COMP_ELEM_RESTORED_CSI: UInt = 8192u
+
+public val COMP_ELEM_SIZE_HEIGHT: UInt = 128u
+
+public val COMP_ELEM_SIZE_WIDTH: UInt = 64u
+
+public val COMP_ELEM_SOURCE: UInt = 512u
+
+public val COMP_ELEM_SUBSCRIBEDURL: UInt = 2048u
+
+public val COMP_ELEM_TYPE: UInt = 1u
+
+public val COMP_TYPE_CFHTML: UInt = 4u
+
+public val COMP_TYPE_CONTROL: UInt = 3u
+
+public val COMP_TYPE_HTMLDOC: UInt = 0u
+
+public val COMP_TYPE_MAX: UInt = 4u
+
+public val COMP_TYPE_PICTURE: UInt = 1u
+
+public val COMP_TYPE_WEBSITE: UInt = 2u
+
+public val CONFLICT_RESOLUTION_CLSID_KEY: PCWSTR = w("ConflictResolutionCLSID")
+
+public val COPYENGINE_E_ACCESSDENIED_READONLY: HRESULT = 0x8027003Fu.toInt()
+
+public val COPYENGINE_E_ACCESS_DENIED_DEST: HRESULT = 0x80270022u.toInt()
+
+public val COPYENGINE_E_ACCESS_DENIED_SRC: HRESULT = 0x80270021u.toInt()
+
+public val COPYENGINE_E_ALREADY_EXISTS_FOLDER: HRESULT = 0x8027002Cu.toInt()
+
+public val COPYENGINE_E_ALREADY_EXISTS_NORMAL: HRESULT = 0x80270029u.toInt()
+
+public val COPYENGINE_E_ALREADY_EXISTS_READONLY: HRESULT = 0x8027002Au.toInt()
+
+public val COPYENGINE_E_ALREADY_EXISTS_SYSTEM: HRESULT = 0x8027002Bu.toInt()
+
+public val COPYENGINE_E_BLOCKED_BY_DLP_POLICY: HRESULT = 0x8027004Eu.toInt()
+
+public val COPYENGINE_E_BLOCKED_BY_EDP_FOR_REMOVABLE_DRIVE: HRESULT = 0x8027004Au.toInt()
+
+public val COPYENGINE_E_BLOCKED_BY_EDP_POLICY: HRESULT = 0x80270048u.toInt()
+
+public val COPYENGINE_E_CANCELLED: HRESULT = 0x80270001u.toInt()
+
+public val COPYENGINE_E_CANNOT_MOVE_FROM_RECYCLE_BIN: HRESULT = 0x80270043u.toInt()
+
+public val COPYENGINE_E_CANNOT_MOVE_SHARED_FOLDER: HRESULT = 0x80270044u.toInt()
+
+public val COPYENGINE_E_CANT_REACH_SOURCE: HRESULT = 0x80270035u.toInt()
+
+public val COPYENGINE_E_DEST_IS_RO_CD: HRESULT = 0x8027000Fu.toInt()
+
+public val COPYENGINE_E_DEST_IS_RO_DVD: HRESULT = 0x80270012u.toInt()
+
+public val COPYENGINE_E_DEST_IS_RW_CD: HRESULT = 0x80270010u.toInt()
+
+public val COPYENGINE_E_DEST_IS_RW_DVD: HRESULT = 0x80270013u.toInt()
+
+public val COPYENGINE_E_DEST_IS_R_CD: HRESULT = 0x80270011u.toInt()
+
+public val COPYENGINE_E_DEST_IS_R_DVD: HRESULT = 0x80270014u.toInt()
+
+public val COPYENGINE_E_DEST_SAME_TREE: HRESULT = 0x8027000Au.toInt()
+
+public val COPYENGINE_E_DEST_SUBTREE: HRESULT = 0x80270009u.toInt()
+
+public val COPYENGINE_E_DIFF_DIR: HRESULT = 0x80270004u.toInt()
+
+public val COPYENGINE_E_DIR_NOT_EMPTY: HRESULT = 0x8027003Du.toInt()
+
+public val COPYENGINE_E_DISK_FULL: HRESULT = 0x80270032u.toInt()
+
+public val COPYENGINE_E_DISK_FULL_CLEAN: HRESULT = 0x80270033u.toInt()
+
+public val COPYENGINE_E_EA_LOSS: HRESULT = 0x8027002Eu.toInt()
+
+public val COPYENGINE_E_EA_NOT_SUPPORTED: HRESULT = 0x80270034u.toInt()
+
+public val COPYENGINE_E_ENCRYPTION_LOSS: HRESULT = 0x80270031u.toInt()
+
+public val COPYENGINE_E_FAT_MAX_IN_ROOT: HRESULT = 0x8027003Eu.toInt()
+
+public val COPYENGINE_E_FILE_IS_FLD_DEST: HRESULT = 0x8027000Cu.toInt()
+
+public val COPYENGINE_E_FILE_TOO_LARGE: HRESULT = 0x8027000Du.toInt()
+
+public val COPYENGINE_E_FLD_IS_FILE_DEST: HRESULT = 0x8027000Bu.toInt()
+
+public val COPYENGINE_E_INTERNET_ITEM_STORAGE_PROVIDER_ERROR: HRESULT = 0x80270045u.toInt()
+
+public val COPYENGINE_E_INTERNET_ITEM_STORAGE_PROVIDER_PAUSED: HRESULT = 0x80270046u.toInt()
+
+public val COPYENGINE_E_INTERNET_ITEM_UNAVAILABLE: HRESULT = 0x80270042u.toInt()
+
+public val COPYENGINE_E_INVALID_FILES_DEST: HRESULT = 0x8027001Cu.toInt()
+
+public val COPYENGINE_E_INVALID_FILES_SRC: HRESULT = 0x8027001Bu.toInt()
+
+public val COPYENGINE_E_MANY_SRC_1_DEST: HRESULT = 0x80270005u.toInt()
+
+public val COPYENGINE_E_NET_DISCONNECT_DEST: HRESULT = 0x80270026u.toInt()
+
+public val COPYENGINE_E_NET_DISCONNECT_SRC: HRESULT = 0x80270025u.toInt()
+
+public val COPYENGINE_E_NEWFILE_NAME_TOO_LONG: HRESULT = 0x8027003Bu.toInt()
+
+public val COPYENGINE_E_NEWFOLDER_NAME_TOO_LONG: HRESULT = 0x8027003Cu.toInt()
+
+public val COPYENGINE_E_PATH_NOT_FOUND_DEST: HRESULT = 0x80270024u.toInt()
+
+public val COPYENGINE_E_PATH_NOT_FOUND_SRC: HRESULT = 0x80270023u.toInt()
+
+public val COPYENGINE_E_PATH_TOO_DEEP_DEST: HRESULT = 0x8027001Eu.toInt()
+
+public val COPYENGINE_E_PATH_TOO_DEEP_SRC: HRESULT = 0x8027001Du.toInt()
+
+public val COPYENGINE_E_PROPERTIES_LOSS: HRESULT = 0x80270030u.toInt()
+
+public val COPYENGINE_E_PROPERTY_LOSS: HRESULT = 0x8027002Fu.toInt()
+
+public val COPYENGINE_E_RECYCLE_BIN_NOT_FOUND: HRESULT = 0x8027003Au.toInt()
+
+public val COPYENGINE_E_RECYCLE_FORCE_NUKE: HRESULT = 0x80270036u.toInt()
+
+public val COPYENGINE_E_RECYCLE_PATH_TOO_LONG: HRESULT = 0x80270038u.toInt()
+
+public val COPYENGINE_E_RECYCLE_SIZE_TOO_BIG: HRESULT = 0x80270037u.toInt()
+
+public val COPYENGINE_E_RECYCLE_UNKNOWN_ERROR: HRESULT = 0x80270035u.toInt()
+
+public val COPYENGINE_E_REDIRECTED_TO_WEBPAGE: HRESULT = 0x80270040u.toInt()
+
+public val COPYENGINE_E_REMOVABLE_FULL: HRESULT = 0x8027000Eu.toInt()
+
+public val COPYENGINE_E_REQUIRES_EDP_CONSENT: HRESULT = 0x80270047u.toInt()
+
+public val COPYENGINE_E_REQUIRES_EDP_CONSENT_FOR_REMOVABLE_DRIVE: HRESULT = 0x80270049u.toInt()
+
+public val COPYENGINE_E_REQUIRES_ELEVATION: HRESULT = 0x80270002u.toInt()
+
+public val COPYENGINE_E_RMS_BLOCKED_BY_EDP_FOR_REMOVABLE_DRIVE: HRESULT = 0x8027004Cu.toInt()
+
+public val COPYENGINE_E_RMS_REQUIRES_EDP_CONSENT_FOR_REMOVABLE_DRIVE: HRESULT = 0x8027004Bu.toInt()
+
+public val COPYENGINE_E_ROOT_DIR_DEST: HRESULT = 0x80270020u.toInt()
+
+public val COPYENGINE_E_ROOT_DIR_SRC: HRESULT = 0x8027001Fu.toInt()
+
+public val COPYENGINE_E_SAME_FILE: HRESULT = 0x80270003u.toInt()
+
+public val COPYENGINE_E_SERVER_BAD_FILE_TYPE: HRESULT = 0x80270041u.toInt()
+
+public val COPYENGINE_E_SHARING_VIOLATION_DEST: HRESULT = 0x80270028u.toInt()
+
+public val COPYENGINE_E_SHARING_VIOLATION_SRC: HRESULT = 0x80270027u.toInt()
+
+public val COPYENGINE_E_SILENT_FAIL_BY_DLP_POLICY: HRESULT = 0x8027004Fu.toInt()
+
+public val COPYENGINE_E_SRC_IS_RO_CD: HRESULT = 0x80270015u.toInt()
+
+public val COPYENGINE_E_SRC_IS_RO_DVD: HRESULT = 0x80270018u.toInt()
+
+public val COPYENGINE_E_SRC_IS_RW_CD: HRESULT = 0x80270016u.toInt()
+
+public val COPYENGINE_E_SRC_IS_RW_DVD: HRESULT = 0x80270019u.toInt()
+
+public val COPYENGINE_E_SRC_IS_R_CD: HRESULT = 0x80270017u.toInt()
+
+public val COPYENGINE_E_SRC_IS_R_DVD: HRESULT = 0x8027001Au.toInt()
+
+public val COPYENGINE_E_STREAM_LOSS: HRESULT = 0x8027002Du.toInt()
+
+public val COPYENGINE_E_USER_CANCELLED: HRESULT = 0x80270000u.toInt()
+
+public val COPYENGINE_E_WARNED_BY_DLP_POLICY: HRESULT = 0x8027004Du.toInt()
+
+public val COPYENGINE_S_ALREADY_DONE: HRESULT = 0x27000Au.toInt()
+
+public val COPYENGINE_S_CLOSE_PROGRAM: HRESULT = 0x27000Du.toInt()
+
+public val COPYENGINE_S_COLLISIONRESOLVED: HRESULT = 0x27000Eu.toInt()
+
+public val COPYENGINE_S_DONT_PROCESS_CHILDREN: HRESULT = 0x270008u.toInt()
+
+public val COPYENGINE_S_KEEP_BOTH: HRESULT = 0x27000Cu.toInt()
+
+public val COPYENGINE_S_MERGE: HRESULT = 0x270006u.toInt()
+
+public val COPYENGINE_S_NOT_HANDLED: HRESULT = 0x270003u.toInt()
+
+public val COPYENGINE_S_PENDING: HRESULT = 0x27000Bu.toInt()
+
+public val COPYENGINE_S_PENDING_DELETE: HRESULT = 0x270010u.toInt()
+
+public val COPYENGINE_S_PROGRESS_PAUSE: HRESULT = 0x27000Fu.toInt()
+
+public val COPYENGINE_S_USER_IGNORED: HRESULT = 0x270005u.toInt()
+
+public val COPYENGINE_S_USER_RETRY: HRESULT = 0x270004u.toInt()
+
+public val COPYENGINE_S_YES: HRESULT = 0x270001u.toInt()
+
+public val CPAO_EMPTY_CONNECTED: CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = 2
+
+public val CPAO_EMPTY_LOCAL: CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = 1
+
+public val CPAO_NONE: CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = 0
+
+public val CPCFO_ENABLE_PASSWORD_REVEAL: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = 1
+
+public val CPCFO_ENABLE_TOUCH_KEYBOARD_AUTO_INVOKE: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = 4
+
+public val CPCFO_IS_EMAIL_ADDRESS: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = 2
+
+public val CPCFO_NONE: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = 0
+
+public val CPCFO_NUMBERS_ONLY: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = 8
+
+public val CPCFO_SHOW_ENGLISH_KEYBOARD: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = 16
+
+public val CPFG_CREDENTIAL_PROVIDER_LABEL: GUID = GUID.from_u128(0x286bbff3bad4438fuL, 0xb00779b7267c3d48uL)
+
+public val CPFG_CREDENTIAL_PROVIDER_LOGO: GUID = GUID.from_u128(0x2d837775f6cd464euL, 0xa745482fd0b47493uL)
+
+public val CPFG_LOGON_PASSWORD: GUID = GUID.from_u128(0x60624cfaa47747b1uL, 0x8a8e3a4a19981827uL)
+
+public val CPFG_LOGON_USERNAME: GUID = GUID.from_u128(0xda15bbe8954d4fd3uL, 0xb0f41fb5b90b174buL)
+
+public val CPFG_SMARTCARD_PIN: GUID = GUID.from_u128(0x4fe5263b918146c1uL, 0xb0a49dedd4db7deauL)
+
+public val CPFG_SMARTCARD_USERNAME: GUID = GUID.from_u128(0x3e1ecf69568c4d96uL, 0x9d5946444174e2d6uL)
+
+public val CPFG_STANDALONE_SUBMIT_BUTTON: GUID = GUID.from_u128(0xb7b0ad8cc364d59uL, 0x802b82f714fa7022uL)
+
+public val CPFG_STYLE_LINK_AS_BUTTON: GUID = GUID.from_u128(0x88fa50894a64430uL, 0xa4cb6fc6e3c0b9e2uL)
+
+public val CPFIS_DISABLED: CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE = 2
+
+public val CPFIS_FOCUSED: CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE = 3
+
+public val CPFIS_NONE: CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE = 0
+
+public val CPFIS_READONLY: CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE = 1
+
+public val CPFS_DISPLAY_IN_BOTH: CREDENTIAL_PROVIDER_FIELD_STATE = 3
+
+public val CPFS_DISPLAY_IN_DESELECTED_TILE: CREDENTIAL_PROVIDER_FIELD_STATE = 2
+
+public val CPFS_DISPLAY_IN_SELECTED_TILE: CREDENTIAL_PROVIDER_FIELD_STATE = 1
+
+public val CPFS_HIDDEN: CREDENTIAL_PROVIDER_FIELD_STATE = 0
+
+public val CPFT_CHECKBOX: CREDENTIAL_PROVIDER_FIELD_TYPE = 7
+
+public val CPFT_COMBOBOX: CREDENTIAL_PROVIDER_FIELD_TYPE = 8
+
+public val CPFT_COMMAND_LINK: CREDENTIAL_PROVIDER_FIELD_TYPE = 3
+
+public val CPFT_EDIT_TEXT: CREDENTIAL_PROVIDER_FIELD_TYPE = 4
+
+public val CPFT_INVALID: CREDENTIAL_PROVIDER_FIELD_TYPE = 0
+
+public val CPFT_LARGE_TEXT: CREDENTIAL_PROVIDER_FIELD_TYPE = 1
+
+public val CPFT_PASSWORD_TEXT: CREDENTIAL_PROVIDER_FIELD_TYPE = 5
+
+public val CPFT_SMALL_TEXT: CREDENTIAL_PROVIDER_FIELD_TYPE = 2
+
+public val CPFT_SUBMIT_BUTTON: CREDENTIAL_PROVIDER_FIELD_TYPE = 9
+
+public val CPFT_TILE_IMAGE: CREDENTIAL_PROVIDER_FIELD_TYPE = 6
+
+public val CPGSR_NO_CREDENTIAL_FINISHED: CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE = 1
+
+public val CPGSR_NO_CREDENTIAL_NOT_FINISHED: CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE = 0
+
+public val CPGSR_RETURN_CREDENTIAL_FINISHED: CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE = 2
+
+public val CPGSR_RETURN_NO_CREDENTIAL_FINISHED: CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE = 3
+
+public val CPLPAGE_DISPLAY_BACKGROUND: UInt = 1u
+
+public val CPLPAGE_KEYBOARD_SPEED: UInt = 1u
+
+public val CPLPAGE_MOUSE_BUTTONS: UInt = 1u
+
+public val CPLPAGE_MOUSE_PTRMOTION: UInt = 2u
+
+public val CPLPAGE_MOUSE_WHEEL: UInt = 3u
+
+public val CPL_DBLCLK: UInt = 5u
+
+public val CPL_DYNAMIC_RES: UInt = 0u
+
+public val CPL_EXIT: UInt = 7u
+
+public val CPL_GETCOUNT: UInt = 2u
+
+public val CPL_INIT: UInt = 1u
+
+public val CPL_INQUIRE: UInt = 3u
+
+public val CPL_NEWINQUIRE: UInt = 8u
+
+public val CPL_SELECT: UInt = 4u
+
+public val CPL_SETUP: UInt = 200u
+
+public val CPL_STARTWPARMS: UInt = 10u
+
+public val CPL_STARTWPARMSA: UInt = 9u
+
+public val CPL_STARTWPARMSW: UInt = 10u
+
+public val CPL_STOP: UInt = 6u
+
+public val CPSI_ERROR: CREDENTIAL_PROVIDER_STATUS_ICON = 1
+
+public val CPSI_NONE: CREDENTIAL_PROVIDER_STATUS_ICON = 0
+
+public val CPSI_SUCCESS: CREDENTIAL_PROVIDER_STATUS_ICON = 3
+
+public val CPSI_WARNING: CREDENTIAL_PROVIDER_STATUS_ICON = 2
+
+public val CPUS_CHANGE_PASSWORD: CREDENTIAL_PROVIDER_USAGE_SCENARIO = 3
+
+public val CPUS_CREDUI: CREDENTIAL_PROVIDER_USAGE_SCENARIO = 4
+
+public val CPUS_INVALID: CREDENTIAL_PROVIDER_USAGE_SCENARIO = 0
+
+public val CPUS_LOGON: CREDENTIAL_PROVIDER_USAGE_SCENARIO = 1
+
+public val CPUS_PLAP: CREDENTIAL_PROVIDER_USAGE_SCENARIO = 5
+
+public val CPUS_UNLOCK_WORKSTATION: CREDENTIAL_PROVIDER_USAGE_SCENARIO = 2
+
+public val CPVIEW_ALLITEMS: CPVIEW = 0
+
+public val CPVIEW_CATEGORY: CPVIEW = 1
+
+public val CPVIEW_CLASSIC: CPVIEW = 0
+
+public val CPVIEW_HOME: CPVIEW = 1
+
+public val CREDENTIAL_PROVIDER_NO_DEFAULT: UInt = 4294967295u
+
+public val CSC_NAVIGATEBACK: CommandStateChangeConstants = 2
+
+public val CSC_NAVIGATEFORWARD: CommandStateChangeConstants = 1
+
+public val CSC_UPDATECOMMANDS: CommandStateChangeConstants = -1
+
+public val CSIDL_ADMINTOOLS: UInt = 48u
+
+public val CSIDL_ALTSTARTUP: UInt = 29u
+
+public val CSIDL_APPDATA: UInt = 26u
+
+public val CSIDL_BITBUCKET: UInt = 10u
+
+public val CSIDL_CDBURN_AREA: UInt = 59u
+
+public val CSIDL_COMMON_ADMINTOOLS: UInt = 47u
+
+public val CSIDL_COMMON_ALTSTARTUP: UInt = 30u
+
+public val CSIDL_COMMON_APPDATA: UInt = 35u
+
+public val CSIDL_COMMON_DESKTOPDIRECTORY: UInt = 25u
+
+public val CSIDL_COMMON_DOCUMENTS: UInt = 46u
+
+public val CSIDL_COMMON_FAVORITES: UInt = 31u
+
+public val CSIDL_COMMON_MUSIC: UInt = 53u
+
+public val CSIDL_COMMON_OEM_LINKS: UInt = 58u
+
+public val CSIDL_COMMON_PICTURES: UInt = 54u
+
+public val CSIDL_COMMON_PROGRAMS: UInt = 23u
+
+public val CSIDL_COMMON_STARTMENU: UInt = 22u
+
+public val CSIDL_COMMON_STARTUP: UInt = 24u
+
+public val CSIDL_COMMON_TEMPLATES: UInt = 45u
+
+public val CSIDL_COMMON_VIDEO: UInt = 55u
+
+public val CSIDL_COMPUTERSNEARME: UInt = 61u
+
+public val CSIDL_CONNECTIONS: UInt = 49u
+
+public val CSIDL_CONTROLS: UInt = 3u
+
+public val CSIDL_COOKIES: UInt = 33u
+
+public val CSIDL_DESKTOP: UInt = 0u
+
+public val CSIDL_DESKTOPDIRECTORY: UInt = 16u
+
+public val CSIDL_DRIVES: UInt = 17u
+
+public val CSIDL_FAVORITES: UInt = 6u
+
+public val CSIDL_FLAG_CREATE: UInt = 32768u
+
+public val CSIDL_FLAG_DONT_UNEXPAND: UInt = 8192u
+
+public val CSIDL_FLAG_DONT_VERIFY: UInt = 16384u
+
+public val CSIDL_FLAG_MASK: UInt = 65280u
+
+public val CSIDL_FLAG_NO_ALIAS: UInt = 4096u
+
+public val CSIDL_FLAG_PER_USER_INIT: UInt = 2048u
+
+public val CSIDL_FLAG_PFTI_TRACKTARGET: UInt = 16384u
+
+public val CSIDL_FONTS: UInt = 20u
+
+public val CSIDL_HISTORY: UInt = 34u
+
+public val CSIDL_INTERNET: UInt = 1u
+
+public val CSIDL_INTERNET_CACHE: UInt = 32u
+
+public val CSIDL_LOCAL_APPDATA: UInt = 28u
+
+public val CSIDL_MYDOCUMENTS: UInt = 5u
+
+public val CSIDL_MYMUSIC: UInt = 13u
+
+public val CSIDL_MYPICTURES: UInt = 39u
+
+public val CSIDL_MYVIDEO: UInt = 14u
+
+public val CSIDL_NETHOOD: UInt = 19u
+
+public val CSIDL_NETWORK: UInt = 18u
+
+public val CSIDL_PERSONAL: UInt = 5u
+
+public val CSIDL_PRINTERS: UInt = 4u
+
+public val CSIDL_PRINTHOOD: UInt = 27u
+
+public val CSIDL_PROFILE: UInt = 40u
+
+public val CSIDL_PROGRAMS: UInt = 2u
+
+public val CSIDL_PROGRAM_FILES: UInt = 38u
+
+public val CSIDL_PROGRAM_FILESX86: UInt = 42u
+
+public val CSIDL_PROGRAM_FILES_COMMON: UInt = 43u
+
+public val CSIDL_PROGRAM_FILES_COMMONX86: UInt = 44u
+
+public val CSIDL_RECENT: UInt = 8u
+
+public val CSIDL_RESOURCES: UInt = 56u
+
+public val CSIDL_RESOURCES_LOCALIZED: UInt = 57u
+
+public val CSIDL_SENDTO: UInt = 9u
+
+public val CSIDL_STARTMENU: UInt = 11u
+
+public val CSIDL_STARTUP: UInt = 7u
+
+public val CSIDL_SYSTEM: UInt = 37u
+
+public val CSIDL_SYSTEMX86: UInt = 41u
+
+public val CSIDL_TEMPLATES: UInt = 21u
+
+public val CSIDL_WINDOWS: UInt = 36u
+
+public val CScriptErrorList: GUID = GUID.from_u128(0xefd01300160f11d2uL, 0xbb2e00805ff7efcauL)
+
+public val CTF_COINIT: Int = 8
+
+public val CTF_COINIT_MTA: Int = 4096
+
+public val CTF_COINIT_STA: Int = 8
+
+public val CTF_FREELIBANDEXIT: Int = 16
+
+public val CTF_INHERITWOW64: Int = 256
+
+public val CTF_INSIST: Int = 1
+
+public val CTF_KEYBOARD_LOCALE: Int = 1024
+
+public val CTF_NOADDREFLIB: Int = 8192
+
+public val CTF_OLEINITIALIZE: Int = 2048
+
+public val CTF_PROCESS_REF: Int = 4
+
+public val CTF_REF_COUNTED: Int = 32
+
+public val CTF_THREAD_REF: Int = 2
+
+public val CTF_UNUSED: Int = 128
+
+public val CTF_WAIT_ALLOWCOM: Int = 64
+
+public val CTF_WAIT_NO_REENTRANCY: Int = 512
+
+public val ConflictFolder: GUID = GUID.from_u128(0x289978aca1014341uL, 0xa81721eba7fd046duL)
+
+public val DBCID_CLSIDOFBAR: Int = 2
+
+public val DBCID_EMPTY: Int = 0
+
+public val DBCID_GETBAR: Int = 4
+
+public val DBCID_ONDRAG: Int = 1
+
+public val DBCID_RESIZE: Int = 3
+
+public val DBCID_UPDATESIZE: Int = 5
+
+public val DBC_GS_IDEAL: UInt = 0u
+
+public val DBC_GS_SIZEDOWN: UInt = 1u
+
+public val DBC_HIDE: UInt = 0u
+
+public val DBC_SHOW: UInt = 1u
+
+public val DBC_SHOWOBSCURE: UInt = 2u
+
+public val DBID_BANDINFOCHANGED: DESKBANDCID = 0
+
+public val DBID_DELAYINIT: DESKBANDCID = 4
+
+public val DBID_FINISHINIT: DESKBANDCID = 5
+
+public val DBID_MAXIMIZEBAND: DESKBANDCID = 2
+
+public val DBID_PERMITAUTOHIDE: DESKBANDCID = 7
+
+public val DBID_PUSHCHEVRON: DESKBANDCID = 3
+
+public val DBID_SETWINDOWTHEME: DESKBANDCID = 6
+
+public val DBID_SHOWONLY: DESKBANDCID = 1
+
+public val DBIF_VIEWMODE_FLOATING: UInt = 2u
+
+public val DBIF_VIEWMODE_NORMAL: UInt = 0u
+
+public val DBIF_VIEWMODE_TRANSPARENT: UInt = 4u
+
+public val DBIF_VIEWMODE_VERTICAL: UInt = 1u
+
+public val DBIMF_ADDTOFRONT: UInt = 512u
+
+public val DBIMF_ALWAYSGRIPPER: UInt = 4096u
+
+public val DBIMF_BKCOLOR: UInt = 64u
+
+public val DBIMF_BREAK: UInt = 256u
+
+public val DBIMF_DEBOSSED: UInt = 32u
+
+public val DBIMF_FIXED: UInt = 1u
+
+public val DBIMF_FIXEDBMP: UInt = 4u
+
+public val DBIMF_NOGRIPPER: UInt = 2048u
+
+public val DBIMF_NOMARGINS: UInt = 8192u
+
+public val DBIMF_NORMAL: UInt = 0u
+
+public val DBIMF_TOPALIGN: UInt = 1024u
+
+public val DBIMF_UNDELETEABLE: UInt = 16u
+
+public val DBIMF_USECHEVRON: UInt = 128u
+
+public val DBIMF_VARIABLEHEIGHT: UInt = 8u
+
+public val DBIM_ACTUAL: UInt = 8u
+
+public val DBIM_BKCOLOR: UInt = 64u
+
+public val DBIM_INTEGRAL: UInt = 4u
+
+public val DBIM_MAXSIZE: UInt = 2u
+
+public val DBIM_MINSIZE: UInt = 1u
+
+public val DBIM_MODEFLAGS: UInt = 32u
+
+public val DBIM_TITLE: UInt = 16u
+
+public val DBPC_SELECTFIRST: UInt = 4294967295u
+
+public val DEFSHAREID_PUBLIC: DEF_SHARE_ID = 2
+
+public val DEFSHAREID_USERS: DEF_SHARE_ID = 1
+
+public val DEVICE_IMMERSIVE: DISPLAY_DEVICE_TYPE = 1
+
+public val DEVICE_PRIMARY: DISPLAY_DEVICE_TYPE = 0
+
+public val DFMR_DEFAULT: DEFAULT_FOLDER_MENU_RESTRICTIONS = 0
+
+public val DFMR_NO_ASYNC_VERBS: DEFAULT_FOLDER_MENU_RESTRICTIONS = 1024
+
+public val DFMR_NO_NATIVECPU_VERBS: DEFAULT_FOLDER_MENU_RESTRICTIONS = 2048
+
+public val DFMR_NO_NONWOW_VERBS: DEFAULT_FOLDER_MENU_RESTRICTIONS = 4096
+
+public val DFMR_NO_RESOURCE_VERBS: DEFAULT_FOLDER_MENU_RESTRICTIONS = 32
+
+public val DFMR_NO_STATIC_VERBS: DEFAULT_FOLDER_MENU_RESTRICTIONS = 8
+
+public val DFMR_OPTIN_HANDLERS_ONLY: DEFAULT_FOLDER_MENU_RESTRICTIONS = 64
+
+public val DFMR_RESOURCE_AND_FOLDER_VERBS_ONLY: DEFAULT_FOLDER_MENU_RESTRICTIONS = 128
+
+public val DFMR_STATIC_VERBS_ONLY: DEFAULT_FOLDER_MENU_RESTRICTIONS = 16
+
+public val DFMR_USE_SPECIFIED_HANDLERS: DEFAULT_FOLDER_MENU_RESTRICTIONS = 256
+
+public val DFMR_USE_SPECIFIED_VERBS: DEFAULT_FOLDER_MENU_RESTRICTIONS = 512
+
+public val DFM_CMD_COPY: DFM_CMD = -3
+
+public val DFM_CMD_DELETE: DFM_CMD = -1
+
+public val DFM_CMD_LINK: DFM_CMD = -4
+
+public val DFM_CMD_MODALPROP: DFM_CMD = -12
+
+public val DFM_CMD_MOVE: DFM_CMD = -2
+
+public val DFM_CMD_NEWFOLDER: DFM_CMD = -6
+
+public val DFM_CMD_PASTE: DFM_CMD = -7
+
+public val DFM_CMD_PASTELINK: DFM_CMD = -10
+
+public val DFM_CMD_PASTESPECIAL: DFM_CMD = -11
+
+public val DFM_CMD_PROPERTIES: DFM_CMD = -5
+
+public val DFM_CMD_RENAME: DFM_CMD = -13
+
+public val DFM_CMD_VIEWDETAILS: DFM_CMD = -9
+
+public val DFM_CMD_VIEWLIST: DFM_CMD = -8
+
+public val DFM_GETDEFSTATICID: DFM_MESSAGE_ID = 14
+
+public val DFM_GETHELPTEXT: DFM_MESSAGE_ID = 5
+
+public val DFM_GETHELPTEXTW: DFM_MESSAGE_ID = 11
+
+public val DFM_GETVERBA: DFM_MESSAGE_ID = 16
+
+public val DFM_GETVERBW: DFM_MESSAGE_ID = 15
+
+public val DFM_INVOKECOMMAND: DFM_MESSAGE_ID = 2
+
+public val DFM_INVOKECOMMANDEX: DFM_MESSAGE_ID = 12
+
+public val DFM_MAPCOMMANDNAME: DFM_MESSAGE_ID = 13
+
+public val DFM_MERGECONTEXTMENU: DFM_MESSAGE_ID = 1
+
+public val DFM_MERGECONTEXTMENU_BOTTOM: DFM_MESSAGE_ID = 17
+
+public val DFM_MERGECONTEXTMENU_TOP: DFM_MESSAGE_ID = 10
+
+public val DFM_MODIFYQCMFLAGS: DFM_MESSAGE_ID = 18
+
+public val DFM_VALIDATECMD: DFM_MESSAGE_ID = 9
+
+public val DFM_WM_DRAWITEM: DFM_MESSAGE_ID = 7
+
+public val DFM_WM_INITMENUPOPUP: DFM_MESSAGE_ID = 8
+
+public val DFM_WM_MEASUREITEM: DFM_MESSAGE_ID = 6
+
+public val DISPID_BEGINDRAG: UInt = 204u
+
+public val DISPID_CHECKSTATECHANGED: UInt = 209u
+
+public val DISPID_COLUMNSCHANGED: UInt = 212u
+
+public val DISPID_CONTENTSCHANGED: UInt = 207u
+
+public val DISPID_CTRLMOUSEWHEEL: UInt = 213u
+
+public val DISPID_DEFAULTVERBINVOKED: UInt = 203u
+
+public val DISPID_ENTERPRESSED: UInt = 200u
+
+public val DISPID_ENTERPRISEIDCHANGED: UInt = 224u
+
+public val DISPID_EXPLORERWINDOWREADY: UInt = 221u
+
+public val DISPID_FILELISTENUMDONE: UInt = 201u
+
+public val DISPID_FILTERINVOKED: UInt = 218u
+
+public val DISPID_FOCUSCHANGED: UInt = 208u
+
+public val DISPID_FOLDERCHANGED: UInt = 217u
+
+public val DISPID_IADCCTL_DEFAULTCAT: UInt = 262u
+
+public val DISPID_IADCCTL_DIRTY: UInt = 256u
+
+public val DISPID_IADCCTL_FORCEX86: UInt = 259u
+
+public val DISPID_IADCCTL_ONDOMAIN: UInt = 261u
+
+public val DISPID_IADCCTL_PUBCAT: UInt = 257u
+
+public val DISPID_IADCCTL_SHOWPOSTSETUP: UInt = 260u
+
+public val DISPID_IADCCTL_SORT: UInt = 258u
+
+public val DISPID_ICONSIZECHANGED: UInt = 215u
+
+public val DISPID_INITIALENUMERATIONDONE: UInt = 223u
+
+public val DISPID_NOITEMSTATE_CHANGED: UInt = 206u
+
+public val DISPID_ORDERCHANGED: UInt = 210u
+
+public val DISPID_SEARCHCOMMAND_ABORT: UInt = 3u
+
+public val DISPID_SEARCHCOMMAND_COMPLETE: UInt = 2u
+
+public val DISPID_SEARCHCOMMAND_ERROR: UInt = 6u
+
+public val DISPID_SEARCHCOMMAND_PROGRESSTEXT: UInt = 5u
+
+public val DISPID_SEARCHCOMMAND_RESTORE: UInt = 7u
+
+public val DISPID_SEARCHCOMMAND_START: UInt = 1u
+
+public val DISPID_SEARCHCOMMAND_UPDATE: UInt = 4u
+
+public val DISPID_SELECTEDITEMCHANGED: UInt = 220u
+
+public val DISPID_SELECTIONCHANGED: UInt = 200u
+
+public val DISPID_SORTDONE: UInt = 214u
+
+public val DISPID_UPDATEIMAGE: UInt = 222u
+
+public val DISPID_VERBINVOKED: UInt = 202u
+
+public val DISPID_VIEWMODECHANGED: UInt = 205u
+
+public val DISPID_VIEWPAINTDONE: UInt = 211u
+
+public val DISPID_WORDWHEELEDITED: UInt = 219u
+
+public val DI_GETDRAGIMAGE: PCWSTR = w("ShellGetDragImage")
+
+public val DLG_SCRNSAVECONFIGURE: UInt = 2003u
+
+public val DLLVER_BUILD_MASK: ULong = 4294901760uL
+
+public val DLLVER_MAJOR_MASK: ULong = 18446462598732840960uL
+
+public val DLLVER_MINOR_MASK: ULong = 281470681743360uL
+
+public val DLLVER_PLATFORM_NT: UInt = 2u
+
+public val DLLVER_PLATFORM_WINDOWS: UInt = 1u
+
+public val DLLVER_QFE_MASK: ULong = 65535uL
+
+public val DOGIF_DEFAULT: DATAOBJ_GET_ITEM_FLAGS = 0
+
+public val DOGIF_NO_HDROP: DATAOBJ_GET_ITEM_FLAGS = 2
+
+public val DOGIF_NO_URL: DATAOBJ_GET_ITEM_FLAGS = 4
+
+public val DOGIF_ONLY_IF_ONE: DATAOBJ_GET_ITEM_FLAGS = 8
+
+public val DOGIF_TRAVERSE_LINK: DATAOBJ_GET_ITEM_FLAGS = 1
+
+public val DROPIMAGE_COPY: DROPIMAGETYPE = 1
+
+public val DROPIMAGE_INVALID: DROPIMAGETYPE = -1
+
+public val DROPIMAGE_LABEL: DROPIMAGETYPE = 6
+
+public val DROPIMAGE_LINK: DROPIMAGETYPE = 4
+
+public val DROPIMAGE_MOVE: DROPIMAGETYPE = 2
+
+public val DROPIMAGE_NOIMAGE: DROPIMAGETYPE = 8
+
+public val DROPIMAGE_NONE: DROPIMAGETYPE = 0
+
+public val DROPIMAGE_WARNING: DROPIMAGETYPE = 7
+
+public val DSD_BACKWARD: DESKTOP_SLIDESHOW_DIRECTION = 1
+
+public val DSD_FORWARD: DESKTOP_SLIDESHOW_DIRECTION = 0
+
+public val DSFT_DETECT: DEFAULTSAVEFOLDERTYPE = 1
+
+public val DSFT_PRIVATE: DEFAULTSAVEFOLDERTYPE = 2
+
+public val DSFT_PUBLIC: DEFAULTSAVEFOLDERTYPE = 3
+
+public val DSH_ALLOWDROPDESCRIPTIONTEXT: DSH_FLAGS = 1
+
+public val DSO_SHUFFLEIMAGES: DESKTOP_SLIDESHOW_OPTIONS = 1
+
+public val DSS_DISABLED_BY_REMOTE_SESSION: DESKTOP_SLIDESHOW_STATE = 4
+
+public val DSS_ENABLED: DESKTOP_SLIDESHOW_STATE = 1
+
+public val DSS_SLIDESHOW: DESKTOP_SLIDESHOW_STATE = 2
+
+public val DVASPECT_COPY: UInt = 3u
+
+public val DVASPECT_LINK: UInt = 4u
+
+public val DVASPECT_SHORTNAME: UInt = 2u
+
+public val DWFAF_AUTOHIDE: UInt = 16u
+
+public val DWFAF_GROUP1: UInt = 2u
+
+public val DWFAF_GROUP2: UInt = 4u
+
+public val DWFAF_HIDDEN: UInt = 1u
+
+public val DWFRF_DELETECONFIGDATA: UInt = 1u
+
+public val DWFRF_NORMAL: UInt = 0u
+
+public val DWPOS_CENTER: DESKTOP_WALLPAPER_POSITION = 0
+
+public val DWPOS_FILL: DESKTOP_WALLPAPER_POSITION = 4
+
+public val DWPOS_FIT: DESKTOP_WALLPAPER_POSITION = 3
+
+public val DWPOS_SPAN: DESKTOP_WALLPAPER_POSITION = 5
+
+public val DWPOS_STRETCH: DESKTOP_WALLPAPER_POSITION = 2
+
+public val DWPOS_TILE: DESKTOP_WALLPAPER_POSITION = 1
+
+public val DefFolderMenu: GUID = GUID.from_u128(0xc63382be793348d0uL, 0x9ac885fb46be2fdduL)
+
+public val DesktopGadget: GUID = GUID.from_u128(0x924ccc1b65624c85uL, 0x8657d177925222b6uL)
+
+public val DesktopWallpaper: GUID = GUID.from_u128(0xc2cf3110460e4fc1uL, 0xb9d08a1c0c9cc4bduL)
+
+public val DestinationList: GUID = GUID.from_u128(0x77f10cf03db54966uL, 0xb520b7c54fd35ed6uL)
+
+public val DocPropShellExtension: GUID = GUID.from_u128(0x883373c3bf8911d1uL, 0xbe35080036b11a03uL)
+
+public val DriveSizeCategorizer: GUID = GUID.from_u128(0x94357b53ca294b78uL, 0x83aee8fe7409134fuL)
+
+public val DriveTypeCategorizer: GUID = GUID.from_u128(0xb0a8f3cf43334babuL, 0x88731ccb1cada48buL)
+
+public val EBF_NODROPTARGET: EXPLORER_BROWSER_FILL_FLAGS = 512
+
+public val EBF_NONE: EXPLORER_BROWSER_FILL_FLAGS = 0
+
+public val EBF_SELECTFROMDATAOBJECT: EXPLORER_BROWSER_FILL_FLAGS = 256
+
+public val EBO_ALWAYSNAVIGATE: EXPLORER_BROWSER_OPTIONS = 4
+
+public val EBO_HTMLSHAREPOINTVIEW: EXPLORER_BROWSER_OPTIONS = 32
+
+public val EBO_NAVIGATEONCE: EXPLORER_BROWSER_OPTIONS = 1
+
+public val EBO_NOBORDER: EXPLORER_BROWSER_OPTIONS = 64
+
+public val EBO_NONE: EXPLORER_BROWSER_OPTIONS = 0
+
+public val EBO_NOPERSISTVIEWSTATE: EXPLORER_BROWSER_OPTIONS = 128
+
+public val EBO_NOTRAVELLOG: EXPLORER_BROWSER_OPTIONS = 8
+
+public val EBO_NOWRAPPERWINDOW: EXPLORER_BROWSER_OPTIONS = 16
+
+public val EBO_SHOWFRAMES: EXPLORER_BROWSER_OPTIONS = 2
+
+public val ECF_AUTOMENUICONS: _EXPCMDFLAGS = 512
+
+public val ECF_DEFAULT: _EXPCMDFLAGS = 0
+
+public val ECF_HASLUASHIELD: _EXPCMDFLAGS = 16
+
+public val ECF_HASSPLITBUTTON: _EXPCMDFLAGS = 2
+
+public val ECF_HASSUBCOMMANDS: _EXPCMDFLAGS = 1
+
+public val ECF_HIDELABEL: _EXPCMDFLAGS = 4
+
+public val ECF_ISDROPDOWN: _EXPCMDFLAGS = 128
+
+public val ECF_ISSEPARATOR: _EXPCMDFLAGS = 8
+
+public val ECF_SEPARATORAFTER: _EXPCMDFLAGS = 64
+
+public val ECF_SEPARATORBEFORE: _EXPCMDFLAGS = 32
+
+public val ECF_TOGGLEABLE: _EXPCMDFLAGS = 256
+
+public val ECHUIM_DESKTOP: EC_HOST_UI_MODE = 0
+
+public val ECHUIM_IMMERSIVE: EC_HOST_UI_MODE = 1
+
+public val ECHUIM_SYSTEM_LAUNCHER: EC_HOST_UI_MODE = 2
+
+public val ECS_CHECKBOX: _EXPCMDSTATE = 4
+
+public val ECS_CHECKED: _EXPCMDSTATE = 8
+
+public val ECS_DISABLED: _EXPCMDSTATE = 1
+
+public val ECS_ENABLED: _EXPCMDSTATE = 0
+
+public val ECS_HIDDEN: _EXPCMDSTATE = 2
+
+public val ECS_RADIOCHECK: _EXPCMDSTATE = 16
+
+public val EGK_KEYBOARD: EDGE_GESTURE_KIND = 1
+
+public val EGK_MOUSE: EDGE_GESTURE_KIND = 2
+
+public val EGK_TOUCH: EDGE_GESTURE_KIND = 0
+
+public val EPS_DEFAULT_OFF: _EXPLORERPANESTATE = 2
+
+public val EPS_DEFAULT_ON: _EXPLORERPANESTATE = 1
+
+public val EPS_DONTCARE: _EXPLORERPANESTATE = 0
+
+public val EPS_FORCE: _EXPLORERPANESTATE = 131072
+
+public val EPS_INITIALSTATE: _EXPLORERPANESTATE = 65536
+
+public val EPS_STATEMASK: _EXPLORERPANESTATE = 65535
+
+public val EP_AdvQueryPane: GUID = GUID.from_u128(0xb4e9db8b34ba4c39uL, 0xb5cc16a1bd2c411cuL)
+
+public val EP_Commands: GUID = GUID.from_u128(0xd9745868ca5f4a76uL, 0x91cdf5a129fbb076uL)
+
+public val EP_Commands_Organize: GUID = GUID.from_u128(0x72e81700e3ec4660uL, 0xbf243c3b7b648806uL)
+
+public val EP_Commands_View: GUID = GUID.from_u128(0x21f7c32deeaa439buL, 0xbb5137b96fd6a943uL)
+
+public val EP_DetailsPane: GUID = GUID.from_u128(0x43abf98b89b8472duL, 0xb9cee69b8229f019uL)
+
+public val EP_NavPane: GUID = GUID.from_u128(0xcb316b2225f742b8uL, 0x8a09540d23a43c2fuL)
+
+public val EP_PreviewPane: GUID = GUID.from_u128(0x893c63d145c84d17uL, 0xbe19223be71be365uL)
+
+public val EP_QueryPane: GUID = GUID.from_u128(0x65bcde4f4f074f27uL, 0x83a71afca4df7ddduL)
+
+public val EP_Ribbon: GUID = GUID.from_u128(0xd27524a8c9f24834uL, 0xa106df8889fd4f37uL)
+
+public val EP_StatusBar: GUID = GUID.from_u128(0x65fe56ce5cfe4bc4uL, 0xad8a7ae3fe7e8f7cuL)
+
+public val EXECUTE_E_LAUNCH_APPLICATION: HRESULT = 0x80270101u.toInt()
+
+public val EXPPS_FILETYPES: _EXPPS = 1
+
+public val EXP_DARWIN_ID_SIG: UInt = 2684354566u
+
+public val EXP_PROPERTYSTORAGE_SIG: UInt = 2684354569u
+
+public val EXP_SPECIAL_FOLDER_SIG: UInt = 2684354565u
+
+public val EXP_SZ_ICON_SIG: UInt = 2684354567u
+
+public val EXP_SZ_LINK_SIG: UInt = 2684354561u
+
+public val E_ACTIVATIONDENIED_SHELLERROR: HRESULT = 0x80270131u.toInt()
+
+public val E_ACTIVATIONDENIED_SHELLNOTREADY: HRESULT = 0x80270134u.toInt()
+
+public val E_ACTIVATIONDENIED_SHELLRESTART: HRESULT = 0x80270132u.toInt()
+
+public val E_ACTIVATIONDENIED_UNEXPECTED: HRESULT = 0x80270133u.toInt()
+
+public val E_ACTIVATIONDENIED_USERCLOSE: HRESULT = 0x80270130u.toInt()
+
+public val E_FILE_PLACEHOLDER_NOT_INITIALIZED: HRESULT = 0x80270110u.toInt()
+
+public val E_FILE_PLACEHOLDER_SERVER_TIMED_OUT: HRESULT = 0x80270112u.toInt()
+
+public val E_FILE_PLACEHOLDER_STORAGEPROVIDER_NOT_FOUND: HRESULT = 0x80270113u.toInt()
+
+public val E_FILE_PLACEHOLDER_VERSION_MISMATCH: HRESULT = 0x80270111u.toInt()
+
+public val E_FLAGS: HRESULT = 0x80041000u.toInt()
+
+public val E_IMAGEFEED_CHANGEDISABLED: HRESULT = 0x80270310u.toInt()
+
+public val E_NOTVALIDFORANIMATEDIMAGE: HRESULT = 0x80040001u.toInt()
+
+public val E_PREVIEWHANDLER_CORRUPT: HRESULT = 0x86420004u.toInt()
+
+public val E_PREVIEWHANDLER_DRM_FAIL: HRESULT = 0x86420001u.toInt()
+
+public val E_PREVIEWHANDLER_NOAUTH: HRESULT = 0x86420002u.toInt()
+
+public val E_PREVIEWHANDLER_NOTFOUND: HRESULT = 0x86420003u.toInt()
+
+public val E_SHELL_EXTENSION_BLOCKED: HRESULT = 0x80270301u.toInt()
+
+public val E_TILE_NOTIFICATIONS_PLATFORM_FAILURE: HRESULT = 0x80270249u.toInt()
+
+public val E_USERTILE_CHANGEDISABLED: HRESULT = 0x80270211u.toInt()
+
+public val E_USERTILE_FILESIZE: HRESULT = 0x80270214u.toInt()
+
+public val E_USERTILE_LARGEORDYNAMIC: HRESULT = 0x80270212u.toInt()
+
+public val E_USERTILE_UNSUPPORTEDFILETYPE: HRESULT = 0x80270210u.toInt()
+
+public val E_USERTILE_VIDEOFRAMESIZE: HRESULT = 0x80270213u.toInt()
+
+public val EnumerableObjectCollection: GUID = GUID.from_u128(0x2d3468c136a743b6uL, 0xac24d3f02fd9607auL)
+
+public val ExecuteFolder: GUID = GUID.from_u128(0x11dbb47ca525400buL, 0x9e80a54615a090c0uL)
+
+public val ExecuteUnknown: GUID = GUID.from_u128(0xe44e9428bdbc4987uL, 0xa09940dc8fd255e7uL)
+
+public val ExplorerBrowser: GUID = GUID.from_u128(0x71f96385ddd648d3uL, 0xa0c1ae06e8b055fbuL)
+
+public val ExtractIfNotCached: ThumbnailStreamCacheOptions = 0
+
+public val FCIDM_BROWSERFIRST: UInt = 40960u
+
+public val FCIDM_BROWSERLAST: UInt = 48896u
+
+public val FCIDM_GLOBALFIRST: UInt = 32768u
+
+public val FCIDM_GLOBALLAST: UInt = 40959u
+
+public val FCIDM_MENU_EDIT: UInt = 32832u
+
+public val FCIDM_MENU_EXPLORE: UInt = 33104u
+
+public val FCIDM_MENU_FAVORITES: UInt = 33136u
+
+public val FCIDM_MENU_FILE: UInt = 32768u
+
+public val FCIDM_MENU_FIND: UInt = 33088u
+
+public val FCIDM_MENU_HELP: UInt = 33024u
+
+public val FCIDM_MENU_TOOLS: UInt = 32960u
+
+public val FCIDM_MENU_TOOLS_SEP_GOTO: UInt = 32961u
+
+public val FCIDM_MENU_VIEW: UInt = 32896u
+
+public val FCIDM_MENU_VIEW_SEP_OPTIONS: UInt = 32897u
+
+public val FCIDM_SHVIEWFIRST: UInt = 0u
+
+public val FCIDM_SHVIEWLAST: UInt = 32767u
+
+public val FCIDM_STATUS: UInt = 40961u
+
+public val FCIDM_TOOLBAR: UInt = 40960u
+
+public val FCSM_CLSID: UInt = 8u
+
+public val FCSM_FLAGS: UInt = 64u
+
+public val FCSM_ICONFILE: UInt = 16u
+
+public val FCSM_INFOTIP: UInt = 4u
+
+public val FCSM_LOGO: UInt = 32u
+
+public val FCSM_VIEWID: UInt = 1u
+
+public val FCSM_WEBVIEWTEMPLATE: UInt = 2u
+
+public val FCS_FLAG_DRAGDROP: UInt = 2u
+
+public val FCS_FORCEWRITE: UInt = 2u
+
+public val FCS_READ: UInt = 1u
+
+public val FCT_ADDTOEND: UInt = 4u
+
+public val FCT_CONFIGABLE: UInt = 2u
+
+public val FCT_MERGE: UInt = 1u
+
+public val FCW_INTERNETBAR: UInt = 6u
+
+public val FCW_PROGRESS: UInt = 8u
+
+public val FCW_STATUS: UInt = 1u
+
+public val FCW_TOOLBAR: UInt = 2u
+
+public val FCW_TREE: UInt = 3u
+
+public val FDAP_BOTTOM: FDAP = 0
+
+public val FDAP_TOP: FDAP = 1
+
+public val FDEOR_ACCEPT: FDE_OVERWRITE_RESPONSE = 1
+
+public val FDEOR_DEFAULT: FDE_OVERWRITE_RESPONSE = 0
+
+public val FDEOR_REFUSE: FDE_OVERWRITE_RESPONSE = 2
+
+public val FDESVR_ACCEPT: FDE_SHAREVIOLATION_RESPONSE = 1
+
+public val FDESVR_DEFAULT: FDE_SHAREVIOLATION_RESPONSE = 0
+
+public val FDESVR_REFUSE: FDE_SHAREVIOLATION_RESPONSE = 2
+
+public val FDTF_LONGDATE: UInt = 4u
+
+public val FDTF_LONGTIME: UInt = 8u
+
+public val FDTF_LTRDATE: UInt = 256u
+
+public val FDTF_NOAUTOREADINGORDER: UInt = 1024u
+
+public val FDTF_RELATIVE: UInt = 16u
+
+public val FDTF_RTLDATE: UInt = 512u
+
+public val FDTF_SHORTDATE: UInt = 2u
+
+public val FDTF_SHORTTIME: UInt = 1u
+
+public val FD_ACCESSTIME: FD_FLAGS = 16
+
+public val FD_ATTRIBUTES: FD_FLAGS = 4
+
+public val FD_CLSID: FD_FLAGS = 1
+
+public val FD_CREATETIME: FD_FLAGS = 8
+
+public val FD_FILESIZE: FD_FLAGS = 64
+
+public val FD_LINKUI: FD_FLAGS = 32768
+
+public val FD_PROGRESSUI: FD_FLAGS = 16384
+
+public val FD_SIZEPOINT: FD_FLAGS = 2
+
+public val FD_UNICODE: FD_FLAGS = -2147483648
+
+public val FD_WRITESTIME: FD_FLAGS = 32
+
+public val FEM_NAVIGATION: FOLDER_ENUM_MODE = 1
+
+public val FEM_VIEWRESULT: FOLDER_ENUM_MODE = 0
+
+public val FFFP_EXACTMATCH: FFFP_MODE = 0
+
+public val FFFP_NEARESTPARENTMATCH: FFFP_MODE = 1
+
+public val FLVM_CONTENT: FOLDERLOGICALVIEWMODE = 5
+
+public val FLVM_DETAILS: FOLDERLOGICALVIEWMODE = 1
+
+public val FLVM_FIRST: FOLDERLOGICALVIEWMODE = 1
+
+public val FLVM_ICONS: FOLDERLOGICALVIEWMODE = 3
+
+public val FLVM_LAST: FOLDERLOGICALVIEWMODE = 5
+
+public val FLVM_LIST: FOLDERLOGICALVIEWMODE = 4
+
+public val FLVM_TILES: FOLDERLOGICALVIEWMODE = 2
+
+public val FLVM_UNSPECIFIED: FOLDERLOGICALVIEWMODE = -1
+
+public val FMTID_Briefcase: GUID = GUID.from_u128(0x328d8b2177294bfcuL, 0x954c902b329d56b0uL)
+
+public val FMTID_CustomImageProperties: GUID = GUID.from_u128(0x7ecd8b0ec1364a9buL, 0x94114ebd6673ccc3uL)
+
+public val FMTID_DRM: GUID = GUID.from_u128(0xaeac19e489ae4508uL, 0xb9b7bb867abee2eduL)
+
+public val FMTID_Displaced: GUID = GUID.from_u128(0x9b174b3340ff11d2uL, 0xa27e00c04fc30871uL)
+
+public val FMTID_ImageProperties: GUID = GUID.from_u128(0x14b81da101354d31uL, 0x96d96cbfc9671a99uL)
+
+public val FMTID_InternetSite: GUID = GUID.from_u128(0x214a100000000uL, 0xc000000000000046uL)
+
+public val FMTID_Intshcut: GUID = GUID.from_u128(0x214a000000000uL, 0xc000000000000046uL)
+
+public val FMTID_LibraryProperties: GUID = GUID.from_u128(0x5d76b67f9b3d44bbuL, 0xb6ae25da4f638a67uL)
+
+public val FMTID_MUSIC: GUID = GUID.from_u128(0x56a3372ece9c11d2uL, 0x9f0e006097c686f6uL)
+
+public val FMTID_Misc: GUID = GUID.from_u128(0x9b174b3440ff11d2uL, 0xa27e00c04fc30871uL)
+
+public val FMTID_Query: GUID = GUID.from_u128(0x49691c907e17101auL, 0xa91c08002b2ecda9uL)
+
+public val FMTID_ShellDetails: GUID = GUID.from_u128(0x28636aa6953d11d2uL, 0xb5d600c04fd918d0uL)
+
+public val FMTID_Storage: GUID = GUID.from_u128(0xb725f13047ef101auL, 0xa5f102608c9eebacuL)
+
+public val FMTID_Volume: GUID = GUID.from_u128(0x9b174b3540ff11d2uL, 0xa27e00c04fc30871uL)
+
+public val FMTID_WebView: GUID = GUID.from_u128(0xf2275480f7824291uL, 0xbd94f13693513aecuL)
+
+public val FOF2_MERGEFOLDERSONCOLLISION: FILE_OPERATION_FLAGS2 = 1
+
+public val FOF2_NONE: FILE_OPERATION_FLAGS2 = 0
+
+public val FOFX_ADDUNDORECORD: FILEOPERATION_FLAGS = 536870912u
+
+public val FOFX_COPYASDOWNLOAD: FILEOPERATION_FLAGS = 1073741824u
+
+public val FOFX_DONTDISPLAYDESTPATH: FILEOPERATION_FLAGS = 134217728u
+
+public val FOFX_DONTDISPLAYLOCATIONS: FILEOPERATION_FLAGS = 2147483648u
+
+public val FOFX_DONTDISPLAYSOURCEPATH: FILEOPERATION_FLAGS = 67108864u
+
+public val FOFX_EARLYFAILURE: FILEOPERATION_FLAGS = 1048576u
+
+public val FOFX_KEEPNEWERFILE: FILEOPERATION_FLAGS = 4194304u
+
+public val FOFX_MOVEACLSACROSSVOLUMES: FILEOPERATION_FLAGS = 33554432u
+
+public val FOFX_NOCOPYHOOKS: FILEOPERATION_FLAGS = 8388608u
+
+public val FOFX_NOMINIMIZEBOX: FILEOPERATION_FLAGS = 16777216u
+
+public val FOFX_NOSKIPJUNCTIONS: FILEOPERATION_FLAGS = 65536u
+
+public val FOFX_PREFERHARDLINK: FILEOPERATION_FLAGS = 131072u
+
+public val FOFX_PRESERVEFILEEXTENSIONS: FILEOPERATION_FLAGS = 2097152u
+
+public val FOFX_RECYCLEONDELETE: FILEOPERATION_FLAGS = 524288u
+
+public val FOFX_REQUIREELEVATION: FILEOPERATION_FLAGS = 268435456u
+
+public val FOFX_SHOWELEVATIONPROMPT: FILEOPERATION_FLAGS = 262144u
+
+public val FOF_ALLOWUNDO: FILEOPERATION_FLAGS = 64u
+
+public val FOF_CONFIRMMOUSE: FILEOPERATION_FLAGS = 2u
+
+public val FOF_FILESONLY: FILEOPERATION_FLAGS = 128u
+
+public val FOF_MULTIDESTFILES: FILEOPERATION_FLAGS = 1u
+
+public val FOF_NOCONFIRMATION: FILEOPERATION_FLAGS = 16u
+
+public val FOF_NOCONFIRMMKDIR: FILEOPERATION_FLAGS = 512u
+
+public val FOF_NOCOPYSECURITYATTRIBS: FILEOPERATION_FLAGS = 2048u
+
+public val FOF_NOERRORUI: FILEOPERATION_FLAGS = 1024u
+
+public val FOF_NORECURSEREPARSE: FILEOPERATION_FLAGS = 32768u
+
+public val FOF_NORECURSION: FILEOPERATION_FLAGS = 4096u
+
+public val FOF_NO_CONNECTED_ELEMENTS: FILEOPERATION_FLAGS = 8192u
+
+public val FOF_NO_UI: FILEOPERATION_FLAGS = 1556u
+
+public val FOF_RENAMEONCOLLISION: FILEOPERATION_FLAGS = 8u
+
+public val FOF_SILENT: FILEOPERATION_FLAGS = 4u
+
+public val FOF_SIMPLEPROGRESS: FILEOPERATION_FLAGS = 256u
+
+public val FOF_WANTMAPPINGHANDLE: FILEOPERATION_FLAGS = 32u
+
+public val FOF_WANTNUKEWARNING: FILEOPERATION_FLAGS = 16384u
+
+public val FOLDERID_AccountPictures: GUID = GUID.from_u128(0x8ca0b155b44c56uL, 0xb8a84de4b299d3beuL)
+
+public val FOLDERID_AddNewPrograms: GUID = GUID.from_u128(0xde61d9715ebc4f02uL, 0xa3a96c82895e5c04uL)
+
+public val FOLDERID_AdminTools: GUID = GUID.from_u128(0x724ef170a42d4fefuL, 0x9f26b60e846fba4fuL)
+
+public val FOLDERID_AllAppMods: GUID = GUID.from_u128(0x7ad6789966af43bauL, 0x91566aad42e6c596uL)
+
+public val FOLDERID_AppCaptures: GUID = GUID.from_u128(0xedc0fe7198d84f4auL, 0xb920c8dc133cb165uL)
+
+public val FOLDERID_AppDataDesktop: GUID = GUID.from_u128(0xb2c5e2797add439fuL, 0xb28cc41fe1bbf672uL)
+
+public val FOLDERID_AppDataDocuments: GUID = GUID.from_u128(0x7be166101f7f44acuL, 0xbff083e15f2ffca1uL)
+
+public val FOLDERID_AppDataFavorites: GUID = GUID.from_u128(0x7cfbefbcde1f45aauL, 0xb843a542ac536cc9uL)
+
+public val FOLDERID_AppDataProgramData: GUID = GUID.from_u128(0x559d40a3a03640fauL, 0xaf6184cb430a4d34uL)
+
+public val FOLDERID_AppUpdates: GUID = GUID.from_u128(0xa305ce99f527492buL, 0x8b1a7e76fa98d6e4uL)
+
+public val FOLDERID_ApplicationShortcuts: GUID = GUID.from_u128(0xa3918781e5f24890uL, 0xb3d9a7e54332328cuL)
+
+public val FOLDERID_AppsFolder: GUID = GUID.from_u128(0x1e87508d89c242f0uL, 0x8a7e645a0f50ca58uL)
+
+public val FOLDERID_CDBurning: GUID = GUID.from_u128(0x9e52ab10f80d49dfuL, 0xacb84330f5687855uL)
+
+public val FOLDERID_CameraRoll: GUID = GUID.from_u128(0xab5fb87b7ce24f83uL, 0x915d550846c9537buL)
+
+public val FOLDERID_CameraRollLibrary: GUID = GUID.from_u128(0x2b20df751eda4039uL, 0x809738798227d5b7uL)
+
+public val FOLDERID_ChangeRemovePrograms: GUID = GUID.from_u128(0xdf7266ac92744867uL, 0x8d553bd661de872duL)
+
+public val FOLDERID_CommonAdminTools: GUID = GUID.from_u128(0xd0384e7dbac34797uL, 0x8f14cba229b392b5uL)
+
+public val FOLDERID_CommonOEMLinks: GUID = GUID.from_u128(0xc1bae2d010df4334uL, 0xbedd7aa20b227a9duL)
+
+public val FOLDERID_CommonPrograms: GUID = GUID.from_u128(0x139d44e6afe49f2uL, 0x86903dafcae6ffb8uL)
+
+public val FOLDERID_CommonStartMenu: GUID = GUID.from_u128(0xa4115719d62e491duL, 0xaa7ce74b8be3b067uL)
+
+public val FOLDERID_CommonStartMenuPlaces: GUID = GUID.from_u128(0xa440879f87a04f7duL, 0xb7000207b966194auL)
+
+public val FOLDERID_CommonStartup: GUID = GUID.from_u128(0x82a5ea35d9cd47c5uL, 0x9629e15d2f714e6euL)
+
+public val FOLDERID_CommonTemplates: GUID = GUID.from_u128(0xb94237e757ac4347uL, 0x9151b08c6c32d1f7uL)
+
+public val FOLDERID_ComputerFolder: GUID = GUID.from_u128(0xac0837cbbf8452auL, 0x850d79d08e667ca7uL)
+
+public val FOLDERID_ConflictFolder: GUID = GUID.from_u128(0x4bfefb45347d4006uL, 0xa5beac0cb0567192uL)
+
+public val FOLDERID_ConnectionsFolder: GUID = GUID.from_u128(0x6f0cd92b2e9745d1uL, 0x88ffb0d186b8dedduL)
+
+public val FOLDERID_Contacts: GUID = GUID.from_u128(0x56784854c6cb462buL, 0x816988e350acb882uL)
+
+public val FOLDERID_ControlPanelFolder: GUID = GUID.from_u128(0x82a74aebaeb4465cuL, 0xa014d097ee346d63uL)
+
+public val FOLDERID_Cookies: GUID = GUID.from_u128(0x2b0f765dc0e94171uL, 0x908e08a611b84ff6uL)
+
+public val FOLDERID_CurrentAppMods: GUID = GUID.from_u128(0x3db40b202a304dbeuL, 0x917e771dd21dd099uL)
+
+public val FOLDERID_Desktop: GUID = GUID.from_u128(0xb4bfcc3adb2c424cuL, 0xb0297fe99a87c641uL)
+
+public val FOLDERID_DevelopmentFiles: GUID = GUID.from_u128(0xdbe8e08e30534bbcuL, 0xb1832a7b2b191e59uL)
+
+public val FOLDERID_Device: GUID = GUID.from_u128(0x1c2ac1dc43584b6cuL, 0x9733af21156576f0uL)
+
+public val FOLDERID_DeviceMetadataStore: GUID = GUID.from_u128(0x5ce4a5e9e4eb479duL, 0xb89f130c02886155uL)
+
+public val FOLDERID_Documents: GUID = GUID.from_u128(0xfdd39ad0238f46afuL, 0xadb46c85480369c7uL)
+
+public val FOLDERID_DocumentsLibrary: GUID = GUID.from_u128(0x7b0db17d9cd24a93uL, 0x973346cc89022e7cuL)
+
+public val FOLDERID_Downloads: GUID = GUID.from_u128(0x374de290123f4565uL, 0x916439c4925e467buL)
+
+public val FOLDERID_Favorites: GUID = GUID.from_u128(0x1777f76168ad4d8auL, 0x87bd30b759fa33dduL)
+
+public val FOLDERID_Fonts: GUID = GUID.from_u128(0xfd228cb7ae114ae3uL, 0x864c16f3910ab8feuL)
+
+public val FOLDERID_GameTasks: GUID = GUID.from_u128(0x54fae614dd84787uL, 0x80b6090220c4b700uL)
+
+public val FOLDERID_Games: GUID = GUID.from_u128(0xcac52c1ab53d4edcuL, 0x92d76b2e8ac19434uL)
+
+public val FOLDERID_History: GUID = GUID.from_u128(0xd9dc8a3bb784432euL, 0xa7815a1130a75963uL)
+
+public val FOLDERID_HomeGroup: GUID = GUID.from_u128(0x52528a6bb9e34adduL, 0xb60d588c2dba842duL)
+
+public val FOLDERID_HomeGroupCurrentUser: GUID = GUID.from_u128(0x9b74b6a30dfd4f11uL, 0x9e785f7800f2e772uL)
+
+public val FOLDERID_ImplicitAppShortcuts: GUID = GUID.from_u128(0xbcb5256f79f64ceeuL, 0xb725dc34e402fd46uL)
+
+public val FOLDERID_InternetCache: GUID = GUID.from_u128(0x352481e833be4251uL, 0xba856007caedcf9duL)
+
+public val FOLDERID_InternetFolder: GUID = GUID.from_u128(0x4d9f78744e0c4904uL, 0x967b40b0d20c3e4buL)
+
+public val FOLDERID_Libraries: GUID = GUID.from_u128(0x1b3ea5dcb5874786uL, 0xb4efbd1dc332aeaeuL)
+
+public val FOLDERID_Links: GUID = GUID.from_u128(0xbfb9d5e0c6a9404cuL, 0xb2b2ae6db6af4968uL)
+
+public val FOLDERID_LocalAppData: GUID = GUID.from_u128(0xf1b327856fba4fcfuL, 0x9d557b8e7f157091uL)
+
+public val FOLDERID_LocalAppDataLow: GUID = GUID.from_u128(0xa520a1a417804ff6uL, 0xbd18167343c5af16uL)
+
+public val FOLDERID_LocalDocuments: GUID = GUID.from_u128(0xf42ee2d3909f4907uL, 0x88714c22fc0bf756uL)
+
+public val FOLDERID_LocalDownloads: GUID = GUID.from_u128(0x7d83ee9b22444e70uL, 0xb1f55393042af1e4uL)
+
+public val FOLDERID_LocalMusic: GUID = GUID.from_u128(0xa0c69a9921c84671uL, 0x87037934162fcf1duL)
+
+public val FOLDERID_LocalPictures: GUID = GUID.from_u128(0xddd015db06c45d5uL, 0x8c4cf59713854639uL)
+
+public val FOLDERID_LocalStorage: GUID = GUID.from_u128(0xb3eb08d3a1f3496buL, 0x865a42b536cda0ecuL)
+
+public val FOLDERID_LocalVideos: GUID = GUID.from_u128(0x35286a683c5741a1uL, 0xbbb10eae73d76c95uL)
+
+public val FOLDERID_LocalizedResourcesDir: GUID = GUID.from_u128(0x2a00375e224c49deuL, 0xb8d1440df7ef3ddcuL)
+
+public val FOLDERID_Music: GUID = GUID.from_u128(0x4bd8d5716d1948d3uL, 0xbe97422220080e43uL)
+
+public val FOLDERID_MusicLibrary: GUID = GUID.from_u128(0x2112ab0ac86a4ffeuL, 0xa3680de96e47012euL)
+
+public val FOLDERID_NetHood: GUID = GUID.from_u128(0xc5abbf53e17f4121uL, 0x890086626fc2c973uL)
+
+public val FOLDERID_NetworkFolder: GUID = GUID.from_u128(0xd20beec45ca84905uL, 0xae3bbf251ea09b53uL)
+
+public val FOLDERID_Objects3D: GUID = GUID.from_u128(0x31c0dd2594394f12uL, 0xbf417ff4eda38722uL)
+
+public val FOLDERID_OneDrive: GUID = GUID.from_u128(0xa52bba46e9e1435fuL, 0xb3d928daa648c0f6uL)
+
+public val FOLDERID_OriginalImages: GUID = GUID.from_u128(0x2c36c0aa58124b87uL, 0xbfd04cd0dfb19b39uL)
+
+public val FOLDERID_PhotoAlbums: GUID = GUID.from_u128(0x69d2cf90fc334fb7uL, 0x9a0cebb0f0fcb43cuL)
+
+public val FOLDERID_Pictures: GUID = GUID.from_u128(0x33e281304e1e4676uL, 0x835a98395c3bc3bbuL)
+
+public val FOLDERID_PicturesLibrary: GUID = GUID.from_u128(0xa990ae9fa03b4e80uL, 0x94bc9912d7504104uL)
+
+public val FOLDERID_Playlists: GUID = GUID.from_u128(0xde92c1c7837f4f69uL, 0xa3bb86e631204a23uL)
+
+public val FOLDERID_PrintHood: GUID = GUID.from_u128(0x9274bd8dcfd141c3uL, 0xb35eb13f55a758f4uL)
+
+public val FOLDERID_PrintersFolder: GUID = GUID.from_u128(0x76fc4e2dd6ad4519uL, 0xa66337bd56068185uL)
+
+public val FOLDERID_Profile: GUID = GUID.from_u128(0x5e6c858f0e224760uL, 0x9afeea3317b67173uL)
+
+public val FOLDERID_ProgramData: GUID = GUID.from_u128(0x62ab5d82fdc14dc3uL, 0xa9dd070d1d495d97uL)
+
+public val FOLDERID_ProgramFiles: GUID = GUID.from_u128(0x905e63b6c1bf494euL, 0xb29c65b732d3d21auL)
+
+public val FOLDERID_ProgramFilesCommon: GUID = GUID.from_u128(0xf7f1ed059f6d47a2uL, 0xaaae29d317c6f066uL)
+
+public val FOLDERID_ProgramFilesCommonX64: GUID = GUID.from_u128(0x6365d5a70f0d45e5uL, 0x87f60da56b6a4f7duL)
+
+public val FOLDERID_ProgramFilesCommonX86: GUID = GUID.from_u128(0xde974d24d9c64d3euL, 0xbf91f4455120b917uL)
+
+public val FOLDERID_ProgramFilesX64: GUID = GUID.from_u128(0x6d8093776af0444buL, 0x8957a3773f02200euL)
+
+public val FOLDERID_ProgramFilesX86: GUID = GUID.from_u128(0x7c5a40efa0fb4bfcuL, 0x874ac0f2e0b9fa8euL)
+
+public val FOLDERID_Programs: GUID = GUID.from_u128(0xa77f5d772e2b44c3uL, 0xa6a2aba601054a51uL)
+
+public val FOLDERID_Public: GUID = GUID.from_u128(0xdfdf76a2c82a4d63uL, 0x906a5644ac457385uL)
+
+public val FOLDERID_PublicDesktop: GUID = GUID.from_u128(0xc4aa340df20f4863uL, 0xafeff87ef2e6ba25uL)
+
+public val FOLDERID_PublicDocuments: GUID = GUID.from_u128(0xed4824afdce445a8uL, 0x81e2fc7965083634uL)
+
+public val FOLDERID_PublicDownloads: GUID = GUID.from_u128(0x3d644c9b1fb84f30uL, 0x9b45f670235f79c0uL)
+
+public val FOLDERID_PublicGameTasks: GUID = GUID.from_u128(0xdebf2536e1a84c59uL, 0xb6a2414586476aeauL)
+
+public val FOLDERID_PublicLibraries: GUID = GUID.from_u128(0x48daf80be6cf4f4euL, 0xb8000e69d84ee384uL)
+
+public val FOLDERID_PublicMusic: GUID = GUID.from_u128(0x3214fab597574298uL, 0xbb6192a9deaa44ffuL)
+
+public val FOLDERID_PublicPictures: GUID = GUID.from_u128(0xb6ebfb866907413cuL, 0x9af74fc2abf07cc5uL)
+
+public val FOLDERID_PublicRingtones: GUID = GUID.from_u128(0xe555ab60153b4d17uL, 0x9f04a5fe99fc15ecuL)
+
+public val FOLDERID_PublicUserTiles: GUID = GUID.from_u128(0x482af6c08f14c34uL, 0x8c90e17ec98b1e17uL)
+
+public val FOLDERID_PublicVideos: GUID = GUID.from_u128(0x2400183a618549fbuL, 0xa2d84a392a602ba3uL)
+
+public val FOLDERID_QuickLaunch: GUID = GUID.from_u128(0x52a4f0217b7548a9uL, 0x9f6b4b87a210bc8fuL)
+
+public val FOLDERID_Recent: GUID = GUID.from_u128(0xae50c081ebd2438auL, 0x86558a092e34987auL)
+
+public val FOLDERID_RecordedCalls: GUID = GUID.from_u128(0x2f8b40c283ed48eeuL, 0xb383a1f157ec6f9auL)
+
+public val FOLDERID_RecordedTVLibrary: GUID = GUID.from_u128(0x1a6fdba2f42d4358uL, 0xa798b74d745926c5uL)
+
+public val FOLDERID_RecycleBinFolder: GUID = GUID.from_u128(0xb75340463ecb4c18uL, 0xbe4e64cd4cb7d6acuL)
+
+public val FOLDERID_ResourceDir: GUID = GUID.from_u128(0x8ad10c312adb4296uL, 0xa8f7e4701232c972uL)
+
+public val FOLDERID_RetailDemo: GUID = GUID.from_u128(0x12d4c69e24ad4923uL, 0xbe1931321c43a767uL)
+
+public val FOLDERID_Ringtones: GUID = GUID.from_u128(0xc870044bf49e4126uL, 0xa9c3b52a1ff411e8uL)
+
+public val FOLDERID_RoamedTileImages: GUID = GUID.from_u128(0xaaa8d5a5f1d64259uL, 0xbaa878e7ef60835euL)
+
+public val FOLDERID_RoamingAppData: GUID = GUID.from_u128(0x3eb685db65f94cf6uL, 0xa03ae3ef65729f3duL)
+
+public val FOLDERID_RoamingTiles: GUID = GUID.from_u128(0xbcfc5aed944e48uL, 0x96a13f6217f21990uL)
+
+public val FOLDERID_SEARCH_CSC: GUID = GUID.from_u128(0xee32e44631ca4abauL, 0x814fa5ebd2fd6d5euL)
+
+public val FOLDERID_SEARCH_MAPI: GUID = GUID.from_u128(0x98ec0e1820984d44uL, 0x864466979315a281uL)
+
+public val FOLDERID_SampleMusic: GUID = GUID.from_u128(0xb250c668f57d4ee1uL, 0xa63c290ee7d1aa1fuL)
+
+public val FOLDERID_SamplePictures: GUID = GUID.from_u128(0xc490054023794c75uL, 0x844b64e6faf8716buL)
+
+public val FOLDERID_SamplePlaylists: GUID = GUID.from_u128(0x15ca69b330ee49c1uL, 0xace16b5ec372afb5uL)
+
+public val FOLDERID_SampleVideos: GUID = GUID.from_u128(0x859ead942e8548aduL, 0xa71a0969cb56a6cduL)
+
+public val FOLDERID_SavedGames: GUID = GUID.from_u128(0x4c5c32ffbb9d43b0uL, 0xb5b42d72e54eaaa4uL)
+
+public val FOLDERID_SavedPictures: GUID = GUID.from_u128(0x3b193882d3ad4eabuL, 0x965a69829d1fb59fuL)
+
+public val FOLDERID_SavedPicturesLibrary: GUID = GUID.from_u128(0xe25b5812be884bd9uL, 0x94b029233477b6c3uL)
+
+public val FOLDERID_SavedSearches: GUID = GUID.from_u128(0x7d1d3a04debb4115uL, 0x95cf2f29da2920dauL)
+
+public val FOLDERID_Screenshots: GUID = GUID.from_u128(0xb7bede81df944682uL, 0xa7d857a52620b86fuL)
+
+public val FOLDERID_SearchHistory: GUID = GUID.from_u128(0xd4c3db603a3462fuL, 0xa0e608924c41b5d4uL)
+
+public val FOLDERID_SearchHome: GUID = GUID.from_u128(0x190337d1b8ca4121uL, 0xa6396d472d16972auL)
+
+public val FOLDERID_SearchTemplates: GUID = GUID.from_u128(0x7e636bfedfa94d5euL, 0xb456d7b39851d8a9uL)
+
+public val FOLDERID_SendTo: GUID = GUID.from_u128(0x8983036c27c0404buL, 0x8f08102d10dcfd74uL)
+
+public val FOLDERID_SidebarDefaultParts: GUID = GUID.from_u128(0x7b396e549ec54300uL, 0xbe0a2482ebae1a26uL)
+
+public val FOLDERID_SidebarParts: GUID = GUID.from_u128(0xa75d362e50fc4fb7uL, 0xac2ca8beaa314493uL)
+
+public val FOLDERID_SkyDrive: GUID = GUID.from_u128(0xa52bba46e9e1435fuL, 0xb3d928daa648c0f6uL)
+
+public val FOLDERID_SkyDriveCameraRoll: GUID = GUID.from_u128(0x767e681149cb4273uL, 0x87c220f355e1085buL)
+
+public val FOLDERID_SkyDriveDocuments: GUID = GUID.from_u128(0x24d89e242f194534uL, 0x9dde6a6671fbb8feuL)
+
+public val FOLDERID_SkyDriveMusic: GUID = GUID.from_u128(0xc3f2459e80d645dcuL, 0xbfef1f769f2be730uL)
+
+public val FOLDERID_SkyDrivePictures: GUID = GUID.from_u128(0x339719b58c474894uL, 0x94c2d8f77add44a6uL)
+
+public val FOLDERID_StartMenu: GUID = GUID.from_u128(0x625b53c3ab484ec1uL, 0xba1fa1ef4146fc19uL)
+
+public val FOLDERID_StartMenuAllPrograms: GUID = GUID.from_u128(0xf26305ef694840b9uL, 0xb25581453d09c785uL)
+
+public val FOLDERID_Startup: GUID = GUID.from_u128(0xb97d20bbf46a4c97uL, 0xba105e3608430854uL)
+
+public val FOLDERID_SyncManagerFolder: GUID = GUID.from_u128(0x43668bf8c14e49b2uL, 0x97c9747784d784b7uL)
+
+public val FOLDERID_SyncResultsFolder: GUID = GUID.from_u128(0x289a9a43be444057uL, 0xa41b587a76d7e7f9uL)
+
+public val FOLDERID_SyncSetupFolder: GUID = GUID.from_u128(0xf214138b1d34a90uL, 0xbba927cbc0c5389auL)
+
+public val FOLDERID_System: GUID = GUID.from_u128(0x1ac14e7702e74e5duL, 0xb7442eb1ae5198b7uL)
+
+public val FOLDERID_SystemX86: GUID = GUID.from_u128(0xd65231b0b2f14857uL, 0xa4cea8e7c6ea7d27uL)
+
+public val FOLDERID_Templates: GUID = GUID.from_u128(0xa63293e8664e48dbuL, 0xa079df759e0509f7uL)
+
+public val FOLDERID_UserPinned: GUID = GUID.from_u128(0x9e3995ab1f9c4f13uL, 0xb82748b24b6c7174uL)
+
+public val FOLDERID_UserProfiles: GUID = GUID.from_u128(0x762d272c50a4bb0uL, 0xa382697dcd729b80uL)
+
+public val FOLDERID_UserProgramFiles: GUID = GUID.from_u128(0x5cd7aee222194a67uL, 0xb85d6c9ce15660cbuL)
+
+public val FOLDERID_UserProgramFilesCommon: GUID = GUID.from_u128(0xbcbd3057ca5c4622uL, 0xb42dbc56db0ae516uL)
+
+public val FOLDERID_UsersFiles: GUID = GUID.from_u128(0xf3ce0f7c49014accuL, 0x8648d5d44b04ef8fuL)
+
+public val FOLDERID_UsersLibraries: GUID = GUID.from_u128(0xa302545ddeff464buL, 0xabe861c8648d939buL)
+
+public val FOLDERID_Videos: GUID = GUID.from_u128(0x18989b1d99b5455buL, 0x841cab7c74e4ddfcuL)
+
+public val FOLDERID_VideosLibrary: GUID = GUID.from_u128(0x491e922f56434af4uL, 0xa7eb4e7a138d8174uL)
+
+public val FOLDERID_Windows: GUID = GUID.from_u128(0xf38bf4041d4342f2uL, 0x930567de0b28fc23uL)
+
+public val FOLDERTYPEID_AccountPictures: GUID = GUID.from_u128(0xdb2a5d8f06e64007uL, 0xaba6af877d526ea6uL)
+
+public val FOLDERTYPEID_Communications: GUID = GUID.from_u128(0x91475fe5586b4ebauL, 0x8d75d17434b8cdf6uL)
+
+public val FOLDERTYPEID_CompressedFolder: GUID = GUID.from_u128(0x80213e82bcfd4c4fuL, 0x8817bb27601267a9uL)
+
+public val FOLDERTYPEID_Contacts: GUID = GUID.from_u128(0xde2b70ec9bf74a93uL, 0xbd3d243f7881d492uL)
+
+public val FOLDERTYPEID_ControlPanelCategory: GUID = GUID.from_u128(0xde4f0660fa104b8fuL, 0xa494068b20b22307uL)
+
+public val FOLDERTYPEID_ControlPanelClassic: GUID = GUID.from_u128(0xc3794f3b54543aauL, 0xa329c37430c58d2auL)
+
+public val FOLDERTYPEID_Documents: GUID = GUID.from_u128(0x7d49d7263c214f05uL, 0x99aafdc2c9474656uL)
+
+public val FOLDERTYPEID_Downloads: GUID = GUID.from_u128(0x885a186ea4404adauL, 0x812bdb871b942259uL)
+
+public val FOLDERTYPEID_Games: GUID = GUID.from_u128(0xb689b0d076d34cbbuL, 0x87f7585d0e0ce070uL)
+
+public val FOLDERTYPEID_Generic: GUID = GUID.from_u128(0x5c4f28b5f8694e84uL, 0x8e60f11db97c5cc7uL)
+
+public val FOLDERTYPEID_GenericLibrary: GUID = GUID.from_u128(0x5f4eab9a68334f61uL, 0x899d31cf46979d49uL)
+
+public val FOLDERTYPEID_GenericSearchResults: GUID = GUID.from_u128(0x7fde1a1e8b3149a5uL, 0x93b86be14cfa4943uL)
+
+public val FOLDERTYPEID_Invalid: GUID = GUID.from_u128(0x578078988c4f4462uL, 0xbb6371042380b109uL)
+
+public val FOLDERTYPEID_Music: GUID = GUID.from_u128(0x94d6ddcc4a684175uL, 0xa374bd584a510b78uL)
+
+public val FOLDERTYPEID_NetworkExplorer: GUID = GUID.from_u128(0x25cc242b9a7c4f51uL, 0x80e07a2928febe42uL)
+
+public val FOLDERTYPEID_OpenSearch: GUID = GUID.from_u128(0x8faf9629198046ffuL, 0x80239dceab9c3ee3uL)
+
+public val FOLDERTYPEID_OtherUsers: GUID = GUID.from_u128(0xb337fd009dd54635uL, 0xa6d4da33fd102b7auL)
+
+public val FOLDERTYPEID_Pictures: GUID = GUID.from_u128(0xb3690e58e961423buL, 0xb687386ebfd83239uL)
+
+public val FOLDERTYPEID_Printers: GUID = GUID.from_u128(0x2c7bbec6c8444a0auL, 0x91facef6f59cfda1uL)
+
+public val FOLDERTYPEID_PublishedItems: GUID = GUID.from_u128(0x7f2f5b96ff7441dauL, 0xafd81c78a5f3aea2uL)
+
+public val FOLDERTYPEID_RecordedTV: GUID = GUID.from_u128(0x5557a28f5da64f83uL, 0x8809c2c98a11a6fauL)
+
+public val FOLDERTYPEID_RecycleBin: GUID = GUID.from_u128(0xd6d9e004cd87442buL, 0x9d575e0aeb4f6f72uL)
+
+public val FOLDERTYPEID_SavedGames: GUID = GUID.from_u128(0xd036330728cb4106uL, 0x9f232956e3e5e0e7uL)
+
+public val FOLDERTYPEID_SearchConnector: GUID = GUID.from_u128(0x982725ee6f47479euL, 0xb447812bfa7d2e8fuL)
+
+public val FOLDERTYPEID_SearchHome: GUID = GUID.from_u128(0x834d8a4409744ed6uL, 0x866ef203d80b3810uL)
+
+public val FOLDERTYPEID_Searches: GUID = GUID.from_u128(0xb0ba2e3405f415euL, 0xa6eecad625207853uL)
+
+public val FOLDERTYPEID_SoftwareExplorer: GUID = GUID.from_u128(0xd674391b52d94e07uL, 0x834e67c98610f39duL)
+
+public val FOLDERTYPEID_StartMenu: GUID = GUID.from_u128(0xef87b4cbf2ce4785uL, 0x86584ca6c63e38c6uL)
+
+public val FOLDERTYPEID_StorageProviderDocuments: GUID = GUID.from_u128(0xdd61bd6670e848dduL, 0x965565c5e1aac2d1uL)
+
+public val FOLDERTYPEID_StorageProviderGeneric: GUID = GUID.from_u128(0x4f01ebc5238541f2uL, 0xa28e2c5c91fb56e0uL)
+
+public val FOLDERTYPEID_StorageProviderMusic: GUID = GUID.from_u128(0x672ecd7eaf044399uL, 0x875c0290845b6247uL)
+
+public val FOLDERTYPEID_StorageProviderPictures: GUID = GUID.from_u128(0x71d642a9f2b142cduL, 0xad92eb9300c7cc0auL)
+
+public val FOLDERTYPEID_StorageProviderVideos: GUID = GUID.from_u128(0x51294da1d7b1485buL, 0x9e9a17cffe33e187uL)
+
+public val FOLDERTYPEID_UserFiles: GUID = GUID.from_u128(0xcd0fc69b71e246e5uL, 0x96905bcd9f57aab3uL)
+
+public val FOLDERTYPEID_UsersLibraries: GUID = GUID.from_u128(0xc4d98f0961244fe0uL, 0x9942826416082da9uL)
+
+public val FOLDERTYPEID_Videos: GUID = GUID.from_u128(0x5fa964077e77483cuL, 0xac93691d05850de8uL)
+
+public val FOS_ALLNONSTORAGEITEMS: FILEOPENDIALOGOPTIONS = 128u
+
+public val FOS_ALLOWMULTISELECT: FILEOPENDIALOGOPTIONS = 512u
+
+public val FOS_CREATEPROMPT: FILEOPENDIALOGOPTIONS = 8192u
+
+public val FOS_DEFAULTNOMINIMODE: FILEOPENDIALOGOPTIONS = 536870912u
+
+public val FOS_DONTADDTORECENT: FILEOPENDIALOGOPTIONS = 33554432u
+
+public val FOS_FILEMUSTEXIST: FILEOPENDIALOGOPTIONS = 4096u
+
+public val FOS_FORCEFILESYSTEM: FILEOPENDIALOGOPTIONS = 64u
+
+public val FOS_FORCEPREVIEWPANEON: FILEOPENDIALOGOPTIONS = 1073741824u
+
+public val FOS_FORCESHOWHIDDEN: FILEOPENDIALOGOPTIONS = 268435456u
+
+public val FOS_HIDEMRUPLACES: FILEOPENDIALOGOPTIONS = 131072u
+
+public val FOS_HIDEPINNEDPLACES: FILEOPENDIALOGOPTIONS = 262144u
+
+public val FOS_NOCHANGEDIR: FILEOPENDIALOGOPTIONS = 8u
+
+public val FOS_NODEREFERENCELINKS: FILEOPENDIALOGOPTIONS = 1048576u
+
+public val FOS_NOREADONLYRETURN: FILEOPENDIALOGOPTIONS = 32768u
+
+public val FOS_NOTESTFILECREATE: FILEOPENDIALOGOPTIONS = 65536u
+
+public val FOS_NOVALIDATE: FILEOPENDIALOGOPTIONS = 256u
+
+public val FOS_OKBUTTONNEEDSINTERACTION: FILEOPENDIALOGOPTIONS = 2097152u
+
+public val FOS_OVERWRITEPROMPT: FILEOPENDIALOGOPTIONS = 2u
+
+public val FOS_PATHMUSTEXIST: FILEOPENDIALOGOPTIONS = 2048u
+
+public val FOS_PICKFOLDERS: FILEOPENDIALOGOPTIONS = 32u
+
+public val FOS_SHAREAWARE: FILEOPENDIALOGOPTIONS = 16384u
+
+public val FOS_STRICTFILETYPES: FILEOPENDIALOGOPTIONS = 4u
+
+public val FOS_SUPPORTSTREAMABLEITEMS: FILEOPENDIALOGOPTIONS = 2147483648u
+
+public val FO_COPY: UInt = 2u
+
+public val FO_DELETE: UInt = 3u
+
+public val FO_MOVE: UInt = 1u
+
+public val FO_RENAME: UInt = 4u
+
+public val FP_ABOVE: FLYOUT_PLACEMENT = 1
+
+public val FP_BELOW: FLYOUT_PLACEMENT = 2
+
+public val FP_DEFAULT: FLYOUT_PLACEMENT = 0
+
+public val FP_LEFT: FLYOUT_PLACEMENT = 3
+
+public val FP_RIGHT: FLYOUT_PLACEMENT = 4
+
+public val FSCopyHandler: GUID = GUID.from_u128(0xd197380a0a794dc8uL, 0xa033ed882c2fa14buL)
+
+public val FTA_AlwaysUnsafe: FILETYPEATTRIBUTEFLAGS = 131072
+
+public val FTA_AlwaysUseDirectInvoke: FILETYPEATTRIBUTEFLAGS = 4194304
+
+public val FTA_Exclude: FILETYPEATTRIBUTEFLAGS = 1
+
+public val FTA_HasExtension: FILETYPEATTRIBUTEFLAGS = 4
+
+public val FTA_NoDDE: FILETYPEATTRIBUTEFLAGS = 8192
+
+public val FTA_NoEdit: FILETYPEATTRIBUTEFLAGS = 8
+
+public val FTA_NoEditDesc: FILETYPEATTRIBUTEFLAGS = 256
+
+public val FTA_NoEditDflt: FILETYPEATTRIBUTEFLAGS = 1024
+
+public val FTA_NoEditIcon: FILETYPEATTRIBUTEFLAGS = 512
+
+public val FTA_NoEditMIME: FILETYPEATTRIBUTEFLAGS = 32768
+
+public val FTA_NoEditVerb: FILETYPEATTRIBUTEFLAGS = 64
+
+public val FTA_NoEditVerbCmd: FILETYPEATTRIBUTEFLAGS = 2048
+
+public val FTA_NoEditVerbExe: FILETYPEATTRIBUTEFLAGS = 4096
+
+public val FTA_NoNewVerb: FILETYPEATTRIBUTEFLAGS = 32
+
+public val FTA_NoRecentDocs: FILETYPEATTRIBUTEFLAGS = 1048576
+
+public val FTA_NoRemove: FILETYPEATTRIBUTEFLAGS = 16
+
+public val FTA_NoRemoveVerb: FILETYPEATTRIBUTEFLAGS = 128
+
+public val FTA_None: FILETYPEATTRIBUTEFLAGS = 0
+
+public val FTA_OpenIsSafe: FILETYPEATTRIBUTEFLAGS = 65536
+
+public val FTA_SafeForElevation: FILETYPEATTRIBUTEFLAGS = 2097152
+
+public val FTA_Show: FILETYPEATTRIBUTEFLAGS = 2
+
+public val FUT_EDITING: FILE_USAGE_TYPE = 1
+
+public val FUT_GENERIC: FILE_USAGE_TYPE = 2
+
+public val FUT_PLAYING: FILE_USAGE_TYPE = 0
+
+public val FVM_AUTO: FOLDERVIEWMODE = -1
+
+public val FVM_CONTENT: FOLDERVIEWMODE = 8
+
+public val FVM_DETAILS: FOLDERVIEWMODE = 4
+
+public val FVM_FIRST: FOLDERVIEWMODE = 1
+
+public val FVM_ICON: FOLDERVIEWMODE = 1
+
+public val FVM_LAST: FOLDERVIEWMODE = 8
+
+public val FVM_LIST: FOLDERVIEWMODE = 3
+
+public val FVM_SMALLICON: FOLDERVIEWMODE = 2
+
+public val FVM_THUMBNAIL: FOLDERVIEWMODE = 5
+
+public val FVM_THUMBSTRIP: FOLDERVIEWMODE = 7
+
+public val FVM_TILE: FOLDERVIEWMODE = 6
+
+public val FVO_CUSTOMORDERING: FOLDERVIEWOPTIONS = 4
+
+public val FVO_CUSTOMPOSITION: FOLDERVIEWOPTIONS = 2
+
+public val FVO_DEFAULT: FOLDERVIEWOPTIONS = 0
+
+public val FVO_NOANIMATIONS: FOLDERVIEWOPTIONS = 16
+
+public val FVO_NOSCROLLTIPS: FOLDERVIEWOPTIONS = 32
+
+public val FVO_SUPPORTHYPERLINKS: FOLDERVIEWOPTIONS = 8
+
+public val FVO_VISTALAYOUT: FOLDERVIEWOPTIONS = 1
+
+public val FVSIF_CANVIEWIT: UInt = 1073741824u
+
+public val FVSIF_NEWFAILED: UInt = 134217728u
+
+public val FVSIF_NEWFILE: UInt = 2147483648u
+
+public val FVSIF_PINNED: UInt = 2u
+
+public val FVSIF_RECT: UInt = 1u
+
+public val FVST_EMPTYTEXT: FVTEXTTYPE = 0
+
+public val FWF_ABBREVIATEDNAMES: FOLDERFLAGS = 2
+
+public val FWF_ALIGNLEFT: FOLDERFLAGS = 2048
+
+public val FWF_ALLOWRTLREADING: FOLDERFLAGS = -2147483648
+
+public val FWF_AUTOARRANGE: FOLDERFLAGS = 1
+
+public val FWF_AUTOCHECKSELECT: FOLDERFLAGS = 134217728
+
+public val FWF_BESTFITWINDOW: FOLDERFLAGS = 16
+
+public val FWF_CHECKSELECT: FOLDERFLAGS = 262144
+
+public val FWF_DESKTOP: FOLDERFLAGS = 32
+
+public val FWF_EXTENDEDTILES: FOLDERFLAGS = 33554432
+
+public val FWF_FULLROWSELECT: FOLDERFLAGS = 2097152
+
+public val FWF_HIDEFILENAMES: FOLDERFLAGS = 131072
+
+public val FWF_NOBROWSERVIEWSTATE: FOLDERFLAGS = 268435456
+
+public val FWF_NOCLIENTEDGE: FOLDERFLAGS = 512
+
+public val FWF_NOCOLUMNHEADER: FOLDERFLAGS = 8388608
+
+public val FWF_NOENUMREFRESH: FOLDERFLAGS = 524288
+
+public val FWF_NOFILTERS: FOLDERFLAGS = 4194304
+
+public val FWF_NOGROUPING: FOLDERFLAGS = 1048576
+
+public val FWF_NOHEADERINALLVIEWS: FOLDERFLAGS = 16777216
+
+public val FWF_NOICONS: FOLDERFLAGS = 4096
+
+public val FWF_NONE: FOLDERFLAGS = 0
+
+public val FWF_NOSCROLL: FOLDERFLAGS = 1024
+
+public val FWF_NOSUBFOLDERS: FOLDERFLAGS = 128
+
+public val FWF_NOVISIBLE: FOLDERFLAGS = 16384
+
+public val FWF_NOWEBVIEW: FOLDERFLAGS = 65536
+
+public val FWF_OWNERDATA: FOLDERFLAGS = 8
+
+public val FWF_SHOWSELALWAYS: FOLDERFLAGS = 8192
+
+public val FWF_SINGLECLICKACTIVATE: FOLDERFLAGS = 32768
+
+public val FWF_SINGLESEL: FOLDERFLAGS = 64
+
+public val FWF_SNAPTOGRID: FOLDERFLAGS = 4
+
+public val FWF_SUBSETGROUPS: FOLDERFLAGS = 536870912
+
+public val FWF_TRANSPARENT: FOLDERFLAGS = 256
+
+public val FWF_TRICHECKSELECT: FOLDERFLAGS = 67108864
+
+public val FWF_USESEARCHFOLDER: FOLDERFLAGS = 1073741824
+
+public val FileOpenDialog: GUID = GUID.from_u128(0xdc1c5a9ce88a4ddeuL, 0xa5a160f82a20aef7uL)
+
+public val FileOperation: GUID = GUID.from_u128(0x3ad0557588574850uL, 0x927711b85bdb8e09uL)
+
+public val FileSaveDialog: GUID = GUID.from_u128(0xc0b4e2f3ba214773uL, 0x8dba335ec946eb8buL)
+
+public val FileSearchBand: GUID = GUID.from_u128(0xc4ee31f3476811d2uL, 0xbe5c00a0c9a83da1uL)
+
+public val FolderViewHost: GUID = GUID.from_u128(0x20b1cb2369684eb9uL, 0xb7d4a66d00d07ceeuL)
+
+public val FrameworkInputPane: GUID = GUID.from_u128(0xd5120aa346ba44c5uL, 0x822dca8092c1fc72uL)
+
+public val FreeSpaceCategorizer: GUID = GUID.from_u128(0xb560779324ac44c7uL, 0x82e2831726aa6cb7uL)
+
+public val GADOF_DIRTY: UInt = 1u
+
+public val GCS_HELPTEXT: UInt = 5u
+
+public val GCS_HELPTEXTA: UInt = 1u
+
+public val GCS_HELPTEXTW: UInt = 5u
+
+public val GCS_UNICODE: UInt = 4u

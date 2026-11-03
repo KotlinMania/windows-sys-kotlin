@@ -1,4 +1,0 @@
-index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
-0	Const	PERCEPTIONFIELD_StateStream_TimeStamps	0	151	1	1	2	unsupported	missing/ambiguous source-backed scalar alias windows_sys::core::GUID
-1	Struct	PERCEPTION_PAYLOAD_FIELD	152	330	2	1	5	unsupported	declaration Struct has no candidate rule
-2	Struct	PERCEPTION_STATE_STREAM_TIMESTAMPS	331	507	9	1	14	unsupported	declaration Struct has no candidate rule

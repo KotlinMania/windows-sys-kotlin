@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Win32/System/Diagnostics/Debug/Extensions/mod: 1911 generated; 198 syntax candidates; 144 unsupported

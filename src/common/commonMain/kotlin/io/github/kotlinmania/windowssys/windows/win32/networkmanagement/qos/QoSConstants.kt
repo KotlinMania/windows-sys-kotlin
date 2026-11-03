@@ -1,0 +1,1131 @@
+package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos
+
+import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.w
+
+public val ABLE_TO_RECV_RSVP: UInt = 50002u
+
+public val ADM_CTRL_FAILED: UInt = 3u
+
+public val AD_FLAG_BREAK_BIT: UInt = 1u
+
+public val ALLOWED_TO_SEND_DATA: UInt = 50001u
+
+public val ANY_DEST_ADDR: UInt = 4294967295u
+
+public val CONTROLLED_DELAY_SERV: UInt = 4u
+
+public val CONTROLLED_LOAD_SERV: UInt = 5u
+
+public val CREDENTIAL_SUB_TYPE_ASCII_ID: UInt = 1u
+
+public val CREDENTIAL_SUB_TYPE_KERBEROS_TKT: UInt = 3u
+
+public val CREDENTIAL_SUB_TYPE_PGP_CERT: UInt = 5u
+
+public val CREDENTIAL_SUB_TYPE_UNICODE_ID: UInt = 2u
+
+public val CREDENTIAL_SUB_TYPE_X509_V3_CERT: UInt = 4u
+
+public val CURRENT_TCI_VERSION: UInt = 2u
+
+public val DD_TCP_DEVICE_NAME: PCWSTR = w("\\Device\\Tcp")
+
+public val DUP_RESULTS: UInt = 4u
+
+public val END_TO_END_QOSABILITY: UInt = 50006u
+
+public val ERROR_ADDRESS_TYPE_NOT_SUPPORTED: UInt = 7511u
+
+public val ERROR_DS_MAPPING_EXISTS: UInt = 7518u
+
+public val ERROR_DUPLICATE_FILTER: UInt = 7509u
+
+public val ERROR_FILTER_CONFLICT: UInt = 7510u
+
+public val ERROR_INCOMPATABLE_QOS: UInt = 7513u
+
+public val ERROR_INCOMPATIBLE_TCI_VERSION: UInt = 7501u
+
+public val ERROR_INVALID_ADDRESS_TYPE: UInt = 7508u
+
+public val ERROR_INVALID_DIFFSERV_FLOW: UInt = 7517u
+
+public val ERROR_INVALID_DS_CLASS: UInt = 7520u
+
+public val ERROR_INVALID_FLOW_MODE: UInt = 7516u
+
+public val ERROR_INVALID_PEAK_RATE: UInt = 7504u
+
+public val ERROR_INVALID_QOS_PRIORITY: UInt = 7506u
+
+public val ERROR_INVALID_SD_MODE: UInt = 7505u
+
+public val ERROR_INVALID_SERVICE_TYPE: UInt = 7502u
+
+public val ERROR_INVALID_SHAPE_RATE: UInt = 7519u
+
+public val ERROR_INVALID_TOKEN_RATE: UInt = 7503u
+
+public val ERROR_INVALID_TRAFFIC_CLASS: UInt = 7507u
+
+public val ERROR_NO_MORE_INFO: UInt = 1u
+
+public val ERROR_SPECF_InPlace: UInt = 1u
+
+public val ERROR_SPECF_NotGuilty: UInt = 2u
+
+public val ERROR_TC_NOT_SUPPORTED: UInt = 7514u
+
+public val ERROR_TC_OBJECT_LENGTH_INVALID: UInt = 7515u
+
+public val ERROR_TC_SUPPORTED_OBJECTS_EXIST: UInt = 7512u
+
+public val ERROR_TOO_MANY_CLIENTS: UInt = 7521u
+
+public val ERR_FORWARD_OK: UInt = 32768u
+
+public val ERR_Usage_globl: UInt = 0u
+
+public val ERR_Usage_local: UInt = 16u
+
+public val ERR_Usage_serv: UInt = 17u
+
+public val ERR_global_mask: UInt = 4095u
+
+public val EXPIRED_CREDENTIAL: UInt = 4u
+
+public val FILTERSPECV4: FilterType = 1
+
+public val FILTERSPECV4_GPI: FilterType = 4
+
+public val FILTERSPECV6: FilterType = 2
+
+public val FILTERSPECV6_FLOW: FilterType = 3
+
+public val FILTERSPECV6_GPI: FilterType = 5
+
+public val FILTERSPEC_END: FilterType = 6
+
+public val FLOW_DURATION: UInt = 5u
+
+public val FORCE_IMMEDIATE_REFRESH: UInt = 1u
+
+public val FSCTL_TCP_BASE: UInt = 18u
+
+public val FVEB_UNLOCK_FLAG_AUK_OSFVEINFO: UInt = 512u
+
+public val FVEB_UNLOCK_FLAG_CACHED: UInt = 1u
+
+public val FVEB_UNLOCK_FLAG_EXTERNAL: UInt = 32u
+
+public val FVEB_UNLOCK_FLAG_MEDIA: UInt = 2u
+
+public val FVEB_UNLOCK_FLAG_NBP: UInt = 256u
+
+public val FVEB_UNLOCK_FLAG_NONE: UInt = 0u
+
+public val FVEB_UNLOCK_FLAG_PASSPHRASE: UInt = 128u
+
+public val FVEB_UNLOCK_FLAG_PIN: UInt = 16u
+
+public val FVEB_UNLOCK_FLAG_RECOVERY: UInt = 64u
+
+public val FVEB_UNLOCK_FLAG_TPM: UInt = 4u
+
+public val GENERAL_INFO: UInt = 1u
+
+public val GQOS_API: UInt = 56400u
+
+public val GQOS_ERRORCODE_UNKNOWN: UInt = 4294967295u
+
+public val GQOS_ERRORVALUE_UNKNOWN: UInt = 4294967295u
+
+public val GQOS_KERNEL_TC: UInt = 56700u
+
+public val GQOS_KERNEL_TC_SYS: UInt = 56500u
+
+public val GQOS_NET_ADMISSION: UInt = 56100u
+
+public val GQOS_NET_POLICY: UInt = 56200u
+
+public val GQOS_NO_ERRORCODE: UInt = 0u
+
+public val GQOS_NO_ERRORVALUE: UInt = 0u
+
+public val GQOS_RSVP: UInt = 56300u
+
+public val GQOS_RSVP_SYS: UInt = 56600u
+
+public val GUARANTEED_SERV: UInt = 2u
+
+public val GUAR_ADSPARM_C: Int = 131
+
+public val GUAR_ADSPARM_Csum: Int = 135
+
+public val GUAR_ADSPARM_Ctot: Int = 133
+
+public val GUAR_ADSPARM_D: Int = 132
+
+public val GUAR_ADSPARM_Dsum: Int = 136
+
+public val GUAR_ADSPARM_Dtot: Int = 134
+
+public val GUID_QOS_BESTEFFORT_BANDWIDTH: GUID = GUID.from_u128(0xed88529040ec11d1uL, 0x2c9100aa00574915uL)
+
+public val GUID_QOS_ENABLE_AVG_STATS: GUID = GUID.from_u128(0xbafb6d1127c44801uL, 0xa46fef8080c188c8uL)
+
+public val GUID_QOS_ENABLE_WINDOW_ADJUSTMENT: GUID = GUID.from_u128(0xaa966725d3e94c55uL, 0xb3352a00279a1e64uL)
+
+public val GUID_QOS_FLOW_8021P_CONFORMING: GUID = GUID.from_u128(0x8c1e013fcd211d2uL, 0xbe1e00a0c99ee63buL)
+
+public val GUID_QOS_FLOW_8021P_NONCONFORMING: GUID = GUID.from_u128(0x9023f91fcd211d2uL, 0xbe1e00a0c99ee63buL)
+
+public val GUID_QOS_FLOW_COUNT: GUID = GUID.from_u128(0x1147f88040ed11d1uL, 0x2c9100aa00574915uL)
+
+public val GUID_QOS_FLOW_IP_CONFORMING: GUID = GUID.from_u128(0x7f99a8bfcd211d2uL, 0xbe1e00a0c99ee63buL)
+
+public val GUID_QOS_FLOW_IP_NONCONFORMING: GUID = GUID.from_u128(0x87a5987fcd211d2uL, 0xbe1e00a0c99ee63buL)
+
+public val GUID_QOS_FLOW_MODE: GUID = GUID.from_u128(0x5c82290a515a11d2uL, 0x8e5800c04fc9bfcbuL)
+
+public val GUID_QOS_ISSLOW_FLOW: GUID = GUID.from_u128(0xabf273a4ee0711d2uL, 0xbe1b00a0c99ee63buL)
+
+public val GUID_QOS_LATENCY: GUID = GUID.from_u128(0xfc408ef040ec11d1uL, 0x2c9100aa00574915uL)
+
+public val GUID_QOS_MAX_OUTSTANDING_SENDS: GUID = GUID.from_u128(0x161ffa86612011d1uL, 0x2c9100aa00574915uL)
+
+public val GUID_QOS_NON_BESTEFFORT_LIMIT: GUID = GUID.from_u128(0x185c44e040ed11d1uL, 0x2c9100aa00574915uL)
+
+public val GUID_QOS_REMAINING_BANDWIDTH: GUID = GUID.from_u128(0xc4c5172040ec11d1uL, 0x2c9100aa00574915uL)
+
+public val GUID_QOS_STATISTICS_BUFFER: GUID = GUID.from_u128(0xbb2c0980e90011d1uL, 0xb07e0080c71382bfuL)
+
+public val GUID_QOS_TIMER_RESOLUTION: GUID = GUID.from_u128(0xba10cc88f13e11d2uL, 0xbe1b00a0c99ee63buL)
+
+public val HIGHLY_DELAY_SENSITIVE: UInt = 4294967294u
+
+public val IDENTITY_CHANGED: UInt = 5u
+
+public val IF_MIB_STATS_ID: UInt = 1u
+
+public val INFO_NOT_AVAILABLE: UInt = 4294967295u
+
+public val INSUFFICIENT_PRIVILEGES: UInt = 3u
+
+public val INTSERV_VERSION0: UInt = 0u
+
+public val INTSERV_VERS_MASK: UInt = 240u
+
+public val INV_LPM_HANDLE: UInt = 1u
+
+public val INV_REQ_HANDLE: UInt = 3u
+
+public val INV_RESULTS: UInt = 5u
+
+public val IP_INTFC_INFO_ID: UInt = 259u
+
+public val IP_MIB_ADDRTABLE_ENTRY_ID: UInt = 258u
+
+public val IP_MIB_STATS_ID: UInt = 1u
+
+public val ISPH_FLG_INV: UInt = 128u
+
+public val ISSH_BREAK_BIT: UInt = 128u
+
+public val IS_GUAR_RSPEC: Int = 130
+
+public val IS_WKP_COMPOSED_MTU: int_serv_wkp = 10
+
+public val IS_WKP_HOP_CNT: int_serv_wkp = 4
+
+public val IS_WKP_MIN_LATENCY: int_serv_wkp = 8
+
+public val IS_WKP_PATH_BW: int_serv_wkp = 6
+
+public val IS_WKP_Q_TSPEC: int_serv_wkp = 128
+
+public val IS_WKP_TB_TSPEC: int_serv_wkp = 127
+
+public val LINE_RATE: UInt = 50003u
+
+public val LOCAL_QOSABILITY: UInt = 50005u
+
+public val LOCAL_TRAFFIC_CONTROL: UInt = 50004u
+
+public val LPM_API_VERSION_1: UInt = 1u
+
+public val LPM_OK: UInt = 0u
+
+public val LPM_PE_ALL_TYPES: UInt = 0u
+
+public val LPM_PE_APP_IDENTITY: UInt = 3u
+
+public val LPM_PE_USER_IDENTITY: UInt = 2u
+
+public val LPM_RESULT_DEFER: UInt = 1u
+
+public val LPM_RESULT_READY: UInt = 0u
+
+public val LPM_TIME_OUT: UInt = 2u
+
+public val LPV_DONT_CARE: UInt = 65534u
+
+public val LPV_DROP_MSG: UInt = 65533u
+
+public val LPV_MAX_PRIORITY: UInt = 65280u
+
+public val LPV_MIN_PRIORITY: UInt = 1u
+
+public val LPV_REJECT: UInt = 65535u
+
+public val LPV_RESERVED: UInt = 0u
+
+public val MAX_HSP_UPGRADE_FILENAME_LENGTH: UInt = 64u
+
+public val MAX_PHYSADDR_SIZE: UInt = 8u
+
+public val MAX_STRING_LENGTH: UInt = 256u
+
+public val MODERATELY_DELAY_SENSITIVE: UInt = 4294967293u
+
+public val OSDEVICE_TYPE_BLOCKIO_CDROM: UInt = 65539u
+
+public val OSDEVICE_TYPE_BLOCKIO_FILE: UInt = 65541u
+
+public val OSDEVICE_TYPE_BLOCKIO_HARDDISK: UInt = 65537u
+
+public val OSDEVICE_TYPE_BLOCKIO_PARTITION: UInt = 65540u
+
+public val OSDEVICE_TYPE_BLOCKIO_RAMDISK: UInt = 65542u
+
+public val OSDEVICE_TYPE_BLOCKIO_REMOVABLEDISK: UInt = 65538u
+
+public val OSDEVICE_TYPE_BLOCKIO_VIRTUALHARDDISK: UInt = 65543u
+
+public val OSDEVICE_TYPE_CIMFS: UInt = 393216u
+
+public val OSDEVICE_TYPE_COMPOSITE: UInt = 327680u
+
+public val OSDEVICE_TYPE_SERIAL: UInt = 131072u
+
+public val OSDEVICE_TYPE_UDP: UInt = 196608u
+
+public val OSDEVICE_TYPE_UNKNOWN: UInt = 0u
+
+public val OSDEVICE_TYPE_VMBUS: UInt = 262144u
+
+public val Opt_Distinct: UInt = 8u
+
+public val Opt_Explicit: UInt = 2u
+
+public val Opt_Share_mask: UInt = 24u
+
+public val Opt_Shared: UInt = 16u
+
+public val Opt_SndSel_mask: UInt = 7u
+
+public val Opt_Wildcard: UInt = 1u
+
+public val PCM_VERSION_1: UInt = 1u
+
+public val PE_ATTRIB_TYPE_CREDENTIAL: UInt = 2u
+
+public val PE_ATTRIB_TYPE_POLICY_LOCATOR: UInt = 1u
+
+public val PE_TYPE_APPID: UInt = 3u
+
+public val POLICY_ERRV_CRAZY_FLOWSPEC: UInt = 57u
+
+public val POLICY_ERRV_EXPIRED_CREDENTIALS: UInt = 4u
+
+public val POLICY_ERRV_EXPIRED_USER_TOKEN: UInt = 51u
+
+public val POLICY_ERRV_GLOBAL_DEF_FLOW_COUNT: UInt = 1u
+
+public val POLICY_ERRV_GLOBAL_DEF_FLOW_DURATION: UInt = 9u
+
+public val POLICY_ERRV_GLOBAL_DEF_FLOW_RATE: UInt = 17u
+
+public val POLICY_ERRV_GLOBAL_DEF_PEAK_RATE: UInt = 25u
+
+public val POLICY_ERRV_GLOBAL_DEF_SUM_FLOW_RATE: UInt = 33u
+
+public val POLICY_ERRV_GLOBAL_DEF_SUM_PEAK_RATE: UInt = 41u
+
+public val POLICY_ERRV_GLOBAL_GRP_FLOW_COUNT: UInt = 2u
+
+public val POLICY_ERRV_GLOBAL_GRP_FLOW_DURATION: UInt = 10u
+
+public val POLICY_ERRV_GLOBAL_GRP_FLOW_RATE: UInt = 18u
+
+public val POLICY_ERRV_GLOBAL_GRP_PEAK_RATE: UInt = 26u
+
+public val POLICY_ERRV_GLOBAL_GRP_SUM_FLOW_RATE: UInt = 34u
+
+public val POLICY_ERRV_GLOBAL_GRP_SUM_PEAK_RATE: UInt = 42u
+
+public val POLICY_ERRV_GLOBAL_UNAUTH_USER_FLOW_COUNT: UInt = 4u
+
+public val POLICY_ERRV_GLOBAL_UNAUTH_USER_FLOW_DURATION: UInt = 12u
+
+public val POLICY_ERRV_GLOBAL_UNAUTH_USER_FLOW_RATE: UInt = 20u
+
+public val POLICY_ERRV_GLOBAL_UNAUTH_USER_PEAK_RATE: UInt = 28u
+
+public val POLICY_ERRV_GLOBAL_UNAUTH_USER_SUM_FLOW_RATE: UInt = 36u
+
+public val POLICY_ERRV_GLOBAL_UNAUTH_USER_SUM_PEAK_RATE: UInt = 44u
+
+public val POLICY_ERRV_GLOBAL_USER_FLOW_COUNT: UInt = 3u
+
+public val POLICY_ERRV_GLOBAL_USER_FLOW_DURATION: UInt = 11u
+
+public val POLICY_ERRV_GLOBAL_USER_FLOW_RATE: UInt = 19u
+
+public val POLICY_ERRV_GLOBAL_USER_PEAK_RATE: UInt = 27u
+
+public val POLICY_ERRV_GLOBAL_USER_SUM_FLOW_RATE: UInt = 35u
+
+public val POLICY_ERRV_GLOBAL_USER_SUM_PEAK_RATE: UInt = 43u
+
+public val POLICY_ERRV_IDENTITY_CHANGED: UInt = 5u
+
+public val POLICY_ERRV_INSUFFICIENT_PRIVILEGES: UInt = 3u
+
+public val POLICY_ERRV_NO_ACCEPTS: UInt = 55u
+
+public val POLICY_ERRV_NO_MEMORY: UInt = 56u
+
+public val POLICY_ERRV_NO_MORE_INFO: UInt = 1u
+
+public val POLICY_ERRV_NO_PRIVILEGES: UInt = 50u
+
+public val POLICY_ERRV_NO_RESOURCES: UInt = 52u
+
+public val POLICY_ERRV_PRE_EMPTED: UInt = 53u
+
+public val POLICY_ERRV_SUBNET_DEF_FLOW_COUNT: UInt = 5u
+
+public val POLICY_ERRV_SUBNET_DEF_FLOW_DURATION: UInt = 13u
+
+public val POLICY_ERRV_SUBNET_DEF_FLOW_RATE: UInt = 21u
+
+public val POLICY_ERRV_SUBNET_DEF_PEAK_RATE: UInt = 29u
+
+public val POLICY_ERRV_SUBNET_DEF_SUM_FLOW_RATE: UInt = 37u
+
+public val POLICY_ERRV_SUBNET_DEF_SUM_PEAK_RATE: UInt = 45u
+
+public val POLICY_ERRV_SUBNET_GRP_FLOW_COUNT: UInt = 6u
+
+public val POLICY_ERRV_SUBNET_GRP_FLOW_DURATION: UInt = 14u
+
+public val POLICY_ERRV_SUBNET_GRP_FLOW_RATE: UInt = 22u
+
+public val POLICY_ERRV_SUBNET_GRP_PEAK_RATE: UInt = 30u
+
+public val POLICY_ERRV_SUBNET_GRP_SUM_FLOW_RATE: UInt = 38u
+
+public val POLICY_ERRV_SUBNET_GRP_SUM_PEAK_RATE: UInt = 46u
+
+public val POLICY_ERRV_SUBNET_UNAUTH_USER_FLOW_COUNT: UInt = 8u
+
+public val POLICY_ERRV_SUBNET_UNAUTH_USER_FLOW_DURATION: UInt = 16u
+
+public val POLICY_ERRV_SUBNET_UNAUTH_USER_FLOW_RATE: UInt = 24u
+
+public val POLICY_ERRV_SUBNET_UNAUTH_USER_PEAK_RATE: UInt = 32u
+
+public val POLICY_ERRV_SUBNET_UNAUTH_USER_SUM_FLOW_RATE: UInt = 40u
+
+public val POLICY_ERRV_SUBNET_UNAUTH_USER_SUM_PEAK_RATE: UInt = 48u
+
+public val POLICY_ERRV_SUBNET_USER_FLOW_COUNT: UInt = 7u
+
+public val POLICY_ERRV_SUBNET_USER_FLOW_DURATION: UInt = 15u
+
+public val POLICY_ERRV_SUBNET_USER_FLOW_RATE: UInt = 23u
+
+public val POLICY_ERRV_SUBNET_USER_PEAK_RATE: UInt = 31u
+
+public val POLICY_ERRV_SUBNET_USER_SUM_FLOW_RATE: UInt = 39u
+
+public val POLICY_ERRV_SUBNET_USER_SUM_PEAK_RATE: UInt = 47u
+
+public val POLICY_ERRV_UNKNOWN: UInt = 0u
+
+public val POLICY_ERRV_UNKNOWN_USER: UInt = 49u
+
+public val POLICY_ERRV_UNSUPPORTED_CREDENTIAL_TYPE: UInt = 2u
+
+public val POLICY_ERRV_USER_CHANGED: UInt = 54u
+
+public val POLICY_LOCATOR_SUB_TYPE_ASCII_DN: UInt = 1u
+
+public val POLICY_LOCATOR_SUB_TYPE_ASCII_DN_ENC: UInt = 3u
+
+public val POLICY_LOCATOR_SUB_TYPE_UNICODE_DN: UInt = 2u
+
+public val POLICY_LOCATOR_SUB_TYPE_UNICODE_DN_ENC: UInt = 4u
+
+public val POSITIVE_INFINITY_RATE: UInt = 4294967294u
+
+public val PREDICTIVE_SERV: UInt = 3u
+
+public val QOSFlowRateCongestion: QOS_FLOWRATE_REASON = 2
+
+public val QOSFlowRateContentChange: QOS_FLOWRATE_REASON = 1
+
+public val QOSFlowRateHigherContentEncoding: QOS_FLOWRATE_REASON = 3
+
+public val QOSFlowRateNotApplicable: QOS_FLOWRATE_REASON = 0
+
+public val QOSFlowRateUserCaused: QOS_FLOWRATE_REASON = 4
+
+public val QOSNotifyAvailable: QOS_NOTIFY_FLOW = 2
+
+public val QOSNotifyCongested: QOS_NOTIFY_FLOW = 0
+
+public val QOSNotifyUncongested: QOS_NOTIFY_FLOW = 1
+
+public val QOSQueryFlowFundamentals: QOS_QUERY_FLOW = 0
+
+public val QOSQueryOutgoingRate: QOS_QUERY_FLOW = 2
+
+public val QOSQueryPacketPriority: QOS_QUERY_FLOW = 1
+
+public val QOSSPBASE: UInt = 50000u
+
+public val QOSSP_ERR_BASE: UInt = 56000u
+
+public val QOSSetOutgoingDSCPValue: QOS_SET_FLOW = 2
+
+public val QOSSetOutgoingRate: QOS_SET_FLOW = 1
+
+public val QOSSetTrafficType: QOS_SET_FLOW = 0
+
+public val QOSShapeAndMark: QOS_SHAPING = 1
+
+public val QOSShapeOnly: QOS_SHAPING = 0
+
+public val QOSTrafficTypeAudioVideo: QOS_TRAFFIC_TYPE = 3
+
+public val QOSTrafficTypeBackground: QOS_TRAFFIC_TYPE = 1
+
+public val QOSTrafficTypeBestEffort: QOS_TRAFFIC_TYPE = 0
+
+public val QOSTrafficTypeControl: QOS_TRAFFIC_TYPE = 5
+
+public val QOSTrafficTypeExcellentEffort: QOS_TRAFFIC_TYPE = 2
+
+public val QOSTrafficTypeVoice: QOS_TRAFFIC_TYPE = 4
+
+public val QOSUseNonConformantMarkings: QOS_SHAPING = 2
+
+public val QOS_GENERAL_ID_BASE: UInt = 2000u
+
+public val QOS_MAX_OBJECT_STRING_LENGTH: UInt = 256u
+
+public val QOS_NON_ADAPTIVE_FLOW: UInt = 2u
+
+public val QOS_NOT_SPECIFIED: UInt = 4294967295u
+
+public val QOS_OUTGOING_DEFAULT_MINIMUM_BANDWIDTH: UInt = 4294967295u
+
+public val QOS_QUERYFLOW_FRESH: UInt = 1u
+
+public val QOS_TRAFFIC_GENERAL_ID_BASE: UInt = 4000u
+
+public val QUALITATIVE_SERV: UInt = 6u
+
+public val RCVD_PATH_TEAR: UInt = 1u
+
+public val RCVD_RESV_TEAR: UInt = 2u
+
+public val RESOURCES_ALLOCATED: UInt = 1u
+
+public val RESOURCES_MODIFIED: UInt = 2u
+
+public val RSVP_DEFAULT_STYLE: UInt = 0u
+
+public val RSVP_Err_ADMISSION: UInt = 1u
+
+public val RSVP_Err_AMBIG_FILTER: UInt = 9u
+
+public val RSVP_Err_API_ERROR: UInt = 20u
+
+public val RSVP_Err_BAD_DSTPORT: UInt = 7u
+
+public val RSVP_Err_BAD_SNDPORT: UInt = 8u
+
+public val RSVP_Err_BAD_STYLE: UInt = 5u
+
+public val RSVP_Err_NONE: UInt = 0u
+
+public val RSVP_Err_NO_PATH: UInt = 3u
+
+public val RSVP_Err_NO_SENDER: UInt = 4u
+
+public val RSVP_Err_POLICY: UInt = 2u
+
+public val RSVP_Err_PREEMPTED: UInt = 12u
+
+public val RSVP_Err_RSVP_SYS_ERROR: UInt = 23u
+
+public val RSVP_Err_TC_ERROR: UInt = 21u
+
+public val RSVP_Err_TC_SYS_ERROR: UInt = 22u
+
+public val RSVP_Err_UNKNOWN_CTYPE: UInt = 14u
+
+public val RSVP_Err_UNKNOWN_STYLE: UInt = 6u
+
+public val RSVP_Err_UNKN_OBJ_CLASS: UInt = 13u
+
+public val RSVP_Erv_API: UInt = 2u
+
+public val RSVP_Erv_Bandwidth: UInt = 2u
+
+public val RSVP_Erv_Bucket_szie: UInt = 32770u
+
+public val RSVP_Erv_Conflict_Serv: UInt = 1u
+
+public val RSVP_Erv_Crazy_Flowspec: UInt = 3u
+
+public val RSVP_Erv_Crazy_Tspec: UInt = 4u
+
+public val RSVP_Erv_DelayBnd: UInt = 1u
+
+public val RSVP_Erv_Flow_Rate: UInt = 32769u
+
+public val RSVP_Erv_MEMORY: UInt = 1u
+
+public val RSVP_Erv_MTU: UInt = 3u
+
+public val RSVP_Erv_Min_Policied_size: UInt = 32772u
+
+public val RSVP_Erv_No_Serv: UInt = 2u
+
+public val RSVP_Erv_Nonev: UInt = 0u
+
+public val RSVP_Erv_Other: UInt = 0u
+
+public val RSVP_Erv_Peak_Rate: UInt = 32771u
+
+public val RSVP_FIXED_FILTER_STYLE: UInt = 2u
+
+public val RSVP_OBJECT_ID_BASE: UInt = 1000u
+
+public val RSVP_PATH: UInt = 1u
+
+public val RSVP_PATH_ERR: UInt = 3u
+
+public val RSVP_PATH_TEAR: UInt = 5u
+
+public val RSVP_RESV: UInt = 2u
+
+public val RSVP_RESV_ERR: UInt = 4u
+
+public val RSVP_RESV_TEAR: UInt = 6u
+
+public val RSVP_SHARED_EXPLICIT_STYLE: UInt = 3u
+
+public val RSVP_WILDCARD_STYLE: UInt = 1u
+
+public val SERVICETYPE_BESTEFFORT: UInt = 1u
+
+public val SERVICETYPE_CONTROLLEDLOAD: UInt = 2u
+
+public val SERVICETYPE_GENERAL_INFORMATION: UInt = 5u
+
+public val SERVICETYPE_GUARANTEED: UInt = 3u
+
+public val SERVICETYPE_NETWORK_CONTROL: UInt = 10u
+
+public val SERVICETYPE_NETWORK_UNAVAILABLE: UInt = 4u
+
+public val SERVICETYPE_NOCHANGE: UInt = 6u
+
+public val SERVICETYPE_NONCONFORMING: UInt = 9u
+
+public val SERVICETYPE_NOTRAFFIC: UInt = 0u
+
+public val SERVICETYPE_QUALITATIVE: UInt = 13u
+
+public val SERVICE_BESTEFFORT: UInt = 2147549184u
+
+public val SERVICE_CONTROLLEDLOAD: UInt = 2147614720u
+
+public val SERVICE_GUARANTEED: UInt = 2147745792u
+
+public val SERVICE_NO_QOS_SIGNALING: UInt = 1073741824u
+
+public val SERVICE_NO_TRAFFIC_CONTROL: UInt = 2164260864u
+
+public val SERVICE_QUALITATIVE: UInt = 2149580800u
+
+public val SESSFLG_E_Police: UInt = 1u
+
+public val SIPAERROR_FIRMWAREFAILURE: UInt = 196609u
+
+public val SIPAERROR_INTERNALFAILURE: UInt = 196611u
+
+public val SIPAEVENTTYPE_AGGREGATION: UInt = 1073741824u
+
+public val SIPAEVENTTYPE_AUTHORITY: UInt = 393216u
+
+public val SIPAEVENTTYPE_CONTAINER: UInt = 65536u
+
+public val SIPAEVENTTYPE_DRTM: UInt = 786432u
+
+public val SIPAEVENTTYPE_ELAM: UInt = 589824u
+
+public val SIPAEVENTTYPE_ERROR: UInt = 196608u
+
+public val SIPAEVENTTYPE_INFORMATION: UInt = 131072u
+
+public val SIPAEVENTTYPE_KSR: UInt = 720896u
+
+public val SIPAEVENTTYPE_LOADEDMODULE: UInt = 458752u
+
+public val SIPAEVENTTYPE_NONMEASURED: UInt = 2147483648u
+
+public val SIPAEVENTTYPE_OSPARAMETER: UInt = 327680u
+
+public val SIPAEVENTTYPE_PREOSPARAMETER: UInt = 262144u
+
+public val SIPAEVENTTYPE_TRUSTPOINT: UInt = 524288u
+
+public val SIPAEVENTTYPE_VBS: UInt = 655360u
+
+public val SIPAEVENT_APPLICATION_RETURN: UInt = 131076u
+
+public val SIPAEVENT_APPLICATION_SVN: UInt = 131081u
+
+public val SIPAEVENT_AUTHENTICODEHASH: UInt = 458756u
+
+public val SIPAEVENT_AUTHORITYISSUER: UInt = 458757u
+
+public val SIPAEVENT_AUTHORITYPUBKEY: UInt = 393218u
+
+public val SIPAEVENT_AUTHORITYPUBLISHER: UInt = 458760u
+
+public val SIPAEVENT_AUTHORITYSERIAL: UInt = 458758u
+
+public val SIPAEVENT_AUTHORITYSHA1THUMBPRINT: UInt = 458761u
+
+public val SIPAEVENT_BITLOCKER_UNLOCK: UInt = 131077u
+
+public val SIPAEVENT_BOOTCOUNTER: UInt = 131074u
+
+public val SIPAEVENT_BOOTDEBUGGING: UInt = 262145u
+
+public val SIPAEVENT_BOOT_REVOCATION_LIST: UInt = 262146u
+
+public val SIPAEVENT_CODEINTEGRITY: UInt = 327682u
+
+public val SIPAEVENT_COUNTERID: UInt = 131079u
+
+public val SIPAEVENT_DATAEXECUTIONPREVENTION: UInt = 327684u
+
+public val SIPAEVENT_DRIVER_LOAD_POLICY: UInt = 327694u
+
+public val SIPAEVENT_DRTM_AMD_SMM_HASH: UInt = 786435u
+
+public val SIPAEVENT_DRTM_AMD_SMM_SIGNER_KEY: UInt = 786436u
+
+public val SIPAEVENT_DRTM_SMM_LEVEL: UInt = 786434u
+
+public val SIPAEVENT_DRTM_STATE_AUTH: UInt = 786433u
+
+public val SIPAEVENT_DUMPS_DISABLED: UInt = 327717u
+
+public val SIPAEVENT_DUMP_ENCRYPTION_ENABLED: UInt = 327718u
+
+public val SIPAEVENT_DUMP_ENCRYPTION_KEY_DIGEST: UInt = 327719u
+
+public val SIPAEVENT_ELAM_CONFIGURATION: UInt = 589826u
+
+public val SIPAEVENT_ELAM_KEYNAME: UInt = 589825u
+
+public val SIPAEVENT_ELAM_MEASURED: UInt = 589828u
+
+public val SIPAEVENT_ELAM_POLICY: UInt = 589827u
+
+public val SIPAEVENT_EVENTCOUNTER: UInt = 131078u
+
+public val SIPAEVENT_FILEPATH: UInt = 458753u
+
+public val SIPAEVENT_FLIGHTSIGNING: UInt = 327713u
+
+public val SIPAEVENT_HASHALGORITHMID: UInt = 458755u
+
+public val SIPAEVENT_HIBERNATION_DISABLED: UInt = 327716u
+
+public val SIPAEVENT_HYPERVISOR_BOOT_DMA_PROTECTION: UInt = 327728u
+
+public val SIPAEVENT_HYPERVISOR_DEBUG: UInt = 327693u
+
+public val SIPAEVENT_HYPERVISOR_IOMMU_POLICY: UInt = 327692u
+
+public val SIPAEVENT_HYPERVISOR_LAUNCH_TYPE: UInt = 327690u
+
+public val SIPAEVENT_HYPERVISOR_MMIO_NX_POLICY: UInt = 327696u
+
+public val SIPAEVENT_HYPERVISOR_MSR_FILTER_POLICY: UInt = 327697u
+
+public val SIPAEVENT_HYPERVISOR_PATH: UInt = 327691u
+
+public val SIPAEVENT_IMAGEBASE: UInt = 458759u
+
+public val SIPAEVENT_IMAGESIZE: UInt = 458754u
+
+public val SIPAEVENT_IMAGEVALIDATED: UInt = 458762u
+
+public val SIPAEVENT_INFORMATION: UInt = 131073u
+
+public val SIPAEVENT_KSR_SIGNATURE: UInt = 720897u
+
+public val SIPAEVENT_LSAISO_CONFIG: UInt = 327720u
+
+public val SIPAEVENT_MODULE_HSP: UInt = 458764u
+
+public val SIPAEVENT_MODULE_SVN: UInt = 458763u
+
+public val SIPAEVENT_MORBIT_API_STATUS: UInt = 131083u
+
+public val SIPAEVENT_MORBIT_NOT_CANCELABLE: UInt = 131080u
+
+public val SIPAEVENT_NOAUTHORITY: UInt = 393217u
+
+public val SIPAEVENT_OSDEVICE: UInt = 327688u
+
+public val SIPAEVENT_OSKERNELDEBUG: UInt = 327681u
+
+public val SIPAEVENT_OS_REVOCATION_LIST: UInt = 327699u
+
+public val SIPAEVENT_PAGEFILE_ENCRYPTION_ENABLED: UInt = 327714u
+
+public val SIPAEVENT_PHYSICALADDRESSEXTENSION: UInt = 327687u
+
+public val SIPAEVENT_SAFEMODE: UInt = 327685u
+
+public val SIPAEVENT_SBCP_INFO: UInt = 327721u
+
+public val SIPAEVENT_SI_POLICY: UInt = 327695u
+
+public val SIPAEVENT_SMT_STATUS: UInt = 327700u
+
+public val SIPAEVENT_SVN_CHAIN_STATUS: UInt = 131082u
+
+public val SIPAEVENT_SYSTEMROOT: UInt = 327689u
+
+public val SIPAEVENT_TESTSIGNING: UInt = 327683u
+
+public val SIPAEVENT_TRANSFER_CONTROL: UInt = 131075u
+
+public val SIPAEVENT_VBS_DUMP_USES_AMEROOT: UInt = 655369u
+
+public val SIPAEVENT_VBS_HVCI_POLICY: UInt = 655367u
+
+public val SIPAEVENT_VBS_IOMMU_REQUIRED: UInt = 655363u
+
+public val SIPAEVENT_VBS_MANDATORY_ENFORCEMENT: UInt = 655366u
+
+public val SIPAEVENT_VBS_MICROSOFT_BOOT_CHAIN_REQUIRED: UInt = 655368u
+
+public val SIPAEVENT_VBS_MMIO_NX_REQUIRED: UInt = 655364u
+
+public val SIPAEVENT_VBS_MSR_FILTERING_REQUIRED: UInt = 655365u
+
+public val SIPAEVENT_VBS_SECUREBOOT_REQUIRED: UInt = 655362u
+
+public val SIPAEVENT_VBS_VSM_NOSECRETS_ENFORCED: UInt = 655370u
+
+public val SIPAEVENT_VBS_VSM_REQUIRED: UInt = 655361u
+
+public val SIPAEVENT_VSM_IDKS_INFO: UInt = 327715u
+
+public val SIPAEVENT_VSM_IDK_INFO: UInt = 327712u
+
+public val SIPAEVENT_VSM_LAUNCH_TYPE: UInt = 327698u
+
+public val SIPAEVENT_WINPE: UInt = 327686u
+
+public val SIPAEV_ACTION: UInt = 5u
+
+public val SIPAEV_AMD_SL_EVENT_BASE: UInt = 32768u
+
+public val SIPAEV_AMD_SL_LOAD: UInt = 32769u
+
+public val SIPAEV_AMD_SL_LOAD_1: UInt = 32774u
+
+public val SIPAEV_AMD_SL_PSP_FW_SPLT: UInt = 32770u
+
+public val SIPAEV_AMD_SL_PUB_KEY: UInt = 32772u
+
+public val SIPAEV_AMD_SL_SEPARATOR: UInt = 32775u
+
+public val SIPAEV_AMD_SL_SVN: UInt = 32773u
+
+public val SIPAEV_AMD_SL_TSME_RB_FUSE: UInt = 32771u
+
+public val SIPAEV_COMPACT_HASH: UInt = 12u
+
+public val SIPAEV_CPU_MICROCODE: UInt = 9u
+
+public val SIPAEV_EFI_ACTION: UInt = 2147483655u
+
+public val SIPAEV_EFI_BOOT_SERVICES_APPLICATION: UInt = 2147483651u
+
+public val SIPAEV_EFI_BOOT_SERVICES_DRIVER: UInt = 2147483652u
+
+public val SIPAEV_EFI_EVENT_BASE: UInt = 2147483648u
+
+public val SIPAEV_EFI_GPT_EVENT: UInt = 2147483654u
+
+public val SIPAEV_EFI_HANDOFF_TABLES: UInt = 2147483657u
+
+public val SIPAEV_EFI_HANDOFF_TABLES2: UInt = 2147483659u
+
+public val SIPAEV_EFI_HCRTM_EVENT: UInt = 2147483664u
+
+public val SIPAEV_EFI_PLATFORM_FIRMWARE_BLOB: UInt = 2147483656u
+
+public val SIPAEV_EFI_PLATFORM_FIRMWARE_BLOB2: UInt = 2147483658u
+
+public val SIPAEV_EFI_RUNTIME_SERVICES_DRIVER: UInt = 2147483653u
+
+public val SIPAEV_EFI_SPDM_FIRMWARE_BLOB: UInt = 2147483873u
+
+public val SIPAEV_EFI_SPDM_FIRMWARE_CONFIG: UInt = 2147483874u
+
+public val SIPAEV_EFI_VARIABLE_AUTHORITY: UInt = 2147483872u
+
+public val SIPAEV_EFI_VARIABLE_BOOT: UInt = 2147483650u
+
+public val SIPAEV_EFI_VARIABLE_BOOT2: UInt = 2147483660u
+
+public val SIPAEV_EFI_VARIABLE_DRIVER_CONFIG: UInt = 2147483649u
+
+public val SIPAEV_EVENT_TAG: UInt = 6u
+
+public val SIPAEV_IPL: UInt = 13u
+
+public val SIPAEV_IPL_PARTITION_DATA: UInt = 14u
+
+public val SIPAEV_NONHOST_CODE: UInt = 15u
+
+public val SIPAEV_NONHOST_CONFIG: UInt = 16u
+
+public val SIPAEV_NONHOST_INFO: UInt = 17u
+
+public val SIPAEV_NO_ACTION: UInt = 3u
+
+public val SIPAEV_OMIT_BOOT_DEVICE_EVENTS: UInt = 18u
+
+public val SIPAEV_PLATFORM_CONFIG_FLAGS: UInt = 10u
+
+public val SIPAEV_POST_CODE: UInt = 1u
+
+public val SIPAEV_PREBOOT_CERT: UInt = 0u
+
+public val SIPAEV_SEPARATOR: UInt = 4u
+
+public val SIPAEV_S_CRTM_CONTENTS: UInt = 7u
+
+public val SIPAEV_S_CRTM_VERSION: UInt = 8u
+
+public val SIPAEV_TABLE_OF_DEVICES: UInt = 11u
+
+public val SIPAEV_TXT_BIOSAC_REG_DATA: UInt = 1034u
+
+public val SIPAEV_TXT_BOOT_POL_HASH: UInt = 1050u
+
+public val SIPAEV_TXT_BPM_HASH: UInt = 1047u
+
+public val SIPAEV_TXT_BPM_INFO_HASH: UInt = 1049u
+
+public val SIPAEV_TXT_CAP_VALUE: UInt = 1279u
+
+public val SIPAEV_TXT_COLD_BOOT_BIOS_HASH: UInt = 1045u
+
+public val SIPAEV_TXT_COMBINED_HASH: UInt = 1027u
+
+public val SIPAEV_TXT_CPU_SCRTM_STAT: UInt = 1035u
+
+public val SIPAEV_TXT_ELEMENTS_HASH: UInt = 1037u
+
+public val SIPAEV_TXT_EVENT_BASE: UInt = 1024u
+
+public val SIPAEV_TXT_HASH_START: UInt = 1026u
+
+public val SIPAEV_TXT_KM_HASH: UInt = 1046u
+
+public val SIPAEV_TXT_KM_INFO_HASH: UInt = 1048u
+
+public val SIPAEV_TXT_LCP_AUTHORITIES_HASH: UInt = 1043u
+
+public val SIPAEV_TXT_LCP_CONTROL_HASH: UInt = 1036u
+
+public val SIPAEV_TXT_LCP_DETAILS_HASH: UInt = 1042u
+
+public val SIPAEV_TXT_LCP_HASH: UInt = 1041u
+
+public val SIPAEV_TXT_MLE_HASH: UInt = 1028u
+
+public val SIPAEV_TXT_NV_INFO_HASH: UInt = 1044u
+
+public val SIPAEV_TXT_OSSINITDATA_CAP_HASH: UInt = 1039u
+
+public val SIPAEV_TXT_PCR_MAPPING: UInt = 1025u
+
+public val SIPAEV_TXT_RANDOM_VALUE: UInt = 1278u
+
+public val SIPAEV_TXT_SINIT_PUBKEY_HASH: UInt = 1040u
+
+public val SIPAEV_TXT_STM_HASH: UInt = 1038u
+
+public val SIPAEV_UNUSED: UInt = 2u
+
+public val SIPAHDRSIGNATURE: UInt = 1279476311u
+
+public val SIPAKSRHDRSIGNATURE: UInt = 1297240907u
+
+public val SIPALOGVERSION: UInt = 1u
+
+public val STATE_TIMEOUT: UInt = 4u
+
+public val TCBASE: UInt = 7500u
+
+public val TC_NONCONF_BORROW: UInt = 0u
+
+public val TC_NONCONF_BORROW_PLUS: UInt = 3u
+
+public val TC_NONCONF_DISCARD: UInt = 2u
+
+public val TC_NONCONF_SHAPE: UInt = 1u
+
+public val TC_NOTIFY_FLOW_CLOSE: UInt = 5u
+
+public val TC_NOTIFY_IFC_CHANGE: UInt = 3u
+
+public val TC_NOTIFY_IFC_CLOSE: UInt = 2u
+
+public val TC_NOTIFY_IFC_UP: UInt = 1u
+
+public val TC_NOTIFY_PARAM_CHANGED: UInt = 4u
+
+public val UNSUPPORTED_CREDENTIAL_TYPE: UInt = 2u
+
+public val WBCL_DIGEST_ALG_BITMAP_SHA3_256: UInt = 32u
+
+public val WBCL_DIGEST_ALG_BITMAP_SHA3_384: UInt = 64u
+
+public val WBCL_DIGEST_ALG_BITMAP_SHA3_512: UInt = 128u
+
+public val WBCL_DIGEST_ALG_BITMAP_SHA_1: UInt = 1u
+
+public val WBCL_DIGEST_ALG_BITMAP_SHA_2_256: UInt = 2u
+
+public val WBCL_DIGEST_ALG_BITMAP_SHA_2_384: UInt = 4u
+
+public val WBCL_DIGEST_ALG_BITMAP_SHA_2_512: UInt = 8u
+
+public val WBCL_DIGEST_ALG_BITMAP_SM3_256: UInt = 16u
+
+public val WBCL_DIGEST_ALG_ID_SHA3_256: UInt = 39u
+
+public val WBCL_DIGEST_ALG_ID_SHA3_384: UInt = 40u
+
+public val WBCL_DIGEST_ALG_ID_SHA3_512: UInt = 41u
+
+public val WBCL_DIGEST_ALG_ID_SHA_1: UInt = 4u
+
+public val WBCL_DIGEST_ALG_ID_SHA_2_256: UInt = 11u
+
+public val WBCL_DIGEST_ALG_ID_SHA_2_384: UInt = 12u
+
+public val WBCL_DIGEST_ALG_ID_SHA_2_512: UInt = 13u
+
+public val WBCL_DIGEST_ALG_ID_SM3_256: UInt = 18u
+
+public val WBCL_HASH_LEN_SHA1: UInt = 20u
+
+public val WBCL_MAX_HSP_UPGRADE_HASH_LEN: UInt = 64u
+
+public val class_ADSPEC: UInt = 13u
+
+public val class_CONFIRM: UInt = 15u
+
+public val class_ERROR_SPEC: UInt = 6u
+
+public val class_FILTER_SPEC: UInt = 10u
+
+public val class_FLOWSPEC: UInt = 9u
+
+public val class_INTEGRITY: UInt = 4u
+
+public val class_IS_FLOWSPEC: UInt = 9u
+
+public val class_MAX: UInt = 15u
+
+public val class_NULL: UInt = 0u
+
+public val class_POLICY_DATA: UInt = 14u
+
+public val class_RSVP_HOP: UInt = 3u
+
+public val class_SCOPE: UInt = 7u
+
+public val class_SENDER_TEMPLATE: UInt = 11u
+
+public val class_SENDER_TSPEC: UInt = 12u
+
+public val class_SESSION: UInt = 1u
+
+public val class_SESSION_GROUP: UInt = 2u
+
+public val class_STYLE: UInt = 8u
+
+public val class_TIME_VALUES: UInt = 5u
+
+public val ctype_ADSPEC_INTSERV: UInt = 2u
+
+public val ctype_ERROR_SPEC_ipv4: UInt = 1u
+
+public val ctype_FILTER_SPEC_ipv4: UInt = 1u
+
+public val ctype_FILTER_SPEC_ipv4GPI: UInt = 4u
+
+public val ctype_FLOWSPEC_Intserv0: UInt = 2u
+
+public val ctype_POLICY_DATA: UInt = 1u
+
+public val ctype_RSVP_HOP_ipv4: UInt = 1u
+
+public val ctype_SCOPE_list_ipv4: UInt = 1u
+
+public val ctype_SENDER_TEMPLATE_ipv4: UInt = 1u
+
+public val ctype_SENDER_TEMPLATE_ipv4GPI: UInt = 4u
+
+public val ctype_SENDER_TSPEC: UInt = 2u
+
+public val ctype_SESSION_ipv4: UInt = 1u
+
+public val ctype_SESSION_ipv4GPI: UInt = 3u
+
+public val ctype_STYLE: UInt = 1u
+
+public val ioctl_code: UInt = 1u
+
+public val mCOMPANY: UInt = 402653184u
+
+public val mIOC_IN: UInt = 2147483648u
+
+public val mIOC_OUT: UInt = 1073741824u
+
+public val mIOC_VENDOR: UInt = 67108864u

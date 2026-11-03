@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-06/files/Windows/Win32/NetworkManagement/WiFi/mod: 1270 generated; 574 syntax candidates; 109 unsupported

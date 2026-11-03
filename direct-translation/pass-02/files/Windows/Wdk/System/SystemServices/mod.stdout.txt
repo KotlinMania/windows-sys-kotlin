@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Wdk/System/SystemServices/mod: 2690 generated; 3406 unsupported

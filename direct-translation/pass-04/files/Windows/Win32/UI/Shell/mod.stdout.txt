@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/UI/Shell/mod: 3536 generated; 856 syntax candidates; 730 unsupported

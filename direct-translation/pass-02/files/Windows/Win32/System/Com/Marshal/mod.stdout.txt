@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/System/Com/Marshal/mod: 3 generated; 113 unsupported

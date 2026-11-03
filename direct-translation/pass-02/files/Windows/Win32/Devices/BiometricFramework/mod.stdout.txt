@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/Devices/BiometricFramework/mod: 164 generated; 341 unsupported

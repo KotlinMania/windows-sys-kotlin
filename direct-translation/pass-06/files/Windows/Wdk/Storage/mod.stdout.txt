@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-06/files/Windows/Wdk/Storage/mod: 0 generated; 0 syntax candidates; 1 unsupported

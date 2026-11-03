@@ -621,23 +621,6 @@ kotlin {
             }
     }
 
-// kotlinmania:custom-win32extras-cinterop:v1 begin
-
-    targets.withType<KotlinNativeTarget>().matching { it.name == "mingwX64" }.configureEach {
-        val wrapper = FfiBuildSupport.registerNativeWrapperTask(project, "WindowsSys", "windows_sys_wrapper",
-            konanTarget.name, "MingwX64", projectKonanDataDirectory.get())
-        compilations.getByName("main").cinterops.create("win32extras") {
-            defFile(project.file("src/native/interop/cinterop/win32extras.def"))
-            includeDirs(project.file("src/native/interop/cinterop"))
-            extraOpts("-libraryPath", layout.buildDirectory.dir("cinterop-targets/mingw_x64").get().asFile.absolutePath)
-        }
-        tasks.matching { it.name == "cinteropWin32extrasMingwX64" }.configureEach {
-            dependsOn(wrapper)
-            inputs.files(wrapper)
-        }
-    }
-// kotlinmania:custom-win32extras-cinterop:v1 end
-
     // Source set hierarchy and per-source-set dependency declarations aligned with official Kotlin docs:
     //   https://kotlinlang.org/docs/multiplatform/multiplatform-hierarchy.html
     //   https://kotlinlang.org/docs/multiplatform/multiplatform-advanced-project-structure.html#dependson-and-source-set-hierarchies
@@ -1104,36 +1087,6 @@ if (napiFfiEnabled) {
         nodeExecutable,
     )
 }
-
-// kotlinmania:custom-windowssys-binding-producers:v1 begin
-
-// These producers are part of this project's original build, independently of
-// the generic optional FFI channels. Retain its Windows-specific names and links.
-val compileWindowsSysJni = tasks.register<Exec>("compileWindowsSysJni") {
-    val source = layout.projectDirectory.file("src/jvm/jvmMain/c/windows_sys_jni.c")
-    val output = layout.buildDirectory.file("natives/${System.mapLibraryName("windows_sys_jni")}")
-    inputs.file(source)
-    outputs.file(output)
-    doFirst {
-        val os = System.getProperty("os.name").lowercase()
-        val isWindows = os.startsWith("windows")
-        val include = file("${System.getProperty("java.home")}/include")
-        val platform = if (isWindows) "win32" else if (os.contains("mac")) "darwin" else "linux"
-        output.get().asFile.parentFile.mkdirs()
-        val args = mutableListOf("clang", "-shared", "-O2", "-I${include.absolutePath}",
-            "-I${include.resolve(platform).absolutePath}", source.asFile.absolutePath, "-o", output.get().asFile.absolutePath)
-        if (isWindows) args.addAll(listOf("-lkernel32", "-luser32", "-loleaut32")) else args.add(1, "-fPIC")
-        commandLine(args)
-    }
-}
-tasks.named<Test>("jvmTest") {
-    dependsOn(compileWindowsSysJni)
-    systemProperty("java.library.path", layout.buildDirectory.dir("natives").get().asFile.absolutePath)
-}
-FfiBuildSupport.registerNapiTasks(project, "WindowsSys", "windows-sys", "src/js/node-windows-sys/dist",
-    "@kotlinmania/windows-sys-native-bindings", nodeVersion,
-    rootProject.extensions.getByType<NodeJsEnvSpec>().executable)
-// kotlinmania:custom-windowssys-binding-producers:v1 end
 
 FfiBuildSupport.configureIncludedBuildsFfi(project, jvmFfiEnabled)
 

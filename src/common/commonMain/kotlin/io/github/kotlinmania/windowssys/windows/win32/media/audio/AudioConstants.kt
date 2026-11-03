@@ -1,0 +1,1289 @@
+package io.github.kotlinmania.windowssys.windows.win32.media.audio
+
+import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.core.HRESULT
+import io.github.kotlinmania.windowssys.core.PCSTR
+import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.s
+import io.github.kotlinmania.windowssys.core.w
+import io.github.kotlinmania.windowssys.windows.win32.foundation.PROPERTYKEY
+
+public val ACMDM_DRIVER_ABOUT: UInt = 24587u
+
+public val ACMDM_DRIVER_DETAILS: UInt = 24586u
+
+public val ACMDM_DRIVER_NOTIFY: UInt = 24577u
+
+public val ACMDM_FILTERTAG_DETAILS: UInt = 24626u
+
+public val ACMDM_FILTER_DETAILS: UInt = 24627u
+
+public val ACMDM_FORMATTAG_DETAILS: UInt = 24601u
+
+public val ACMDM_FORMAT_DETAILS: UInt = 24602u
+
+public val ACMDM_FORMAT_SUGGEST: UInt = 24603u
+
+public val ACMDM_HARDWARE_WAVE_CAPS_INPUT: UInt = 24596u
+
+public val ACMDM_HARDWARE_WAVE_CAPS_OUTPUT: UInt = 24597u
+
+public val ACMDM_RESERVED_HIGH: UInt = 28671u
+
+public val ACMDM_RESERVED_LOW: UInt = 24576u
+
+public val ACMDM_STREAM_CLOSE: UInt = 24653u
+
+public val ACMDM_STREAM_CONVERT: UInt = 24655u
+
+public val ACMDM_STREAM_OPEN: UInt = 24652u
+
+public val ACMDM_STREAM_PREPARE: UInt = 24657u
+
+public val ACMDM_STREAM_RESET: UInt = 24656u
+
+public val ACMDM_STREAM_SIZE: UInt = 24654u
+
+public val ACMDM_STREAM_UNPREPARE: UInt = 24658u
+
+public val ACMDM_STREAM_UPDATE: UInt = 24659u
+
+public val ACMDM_USER: UInt = 16384u
+
+public val ACMDRIVERDETAILS_COPYRIGHT_CHARS: UInt = 80u
+
+public val ACMDRIVERDETAILS_FEATURES_CHARS: UInt = 512u
+
+public val ACMDRIVERDETAILS_LICENSING_CHARS: UInt = 128u
+
+public val ACMDRIVERDETAILS_LONGNAME_CHARS: UInt = 128u
+
+public val ACMDRIVERDETAILS_SHORTNAME_CHARS: UInt = 32u
+
+public val ACMDRIVERDETAILS_SUPPORTF_ASYNC: Int = 16
+
+public val ACMDRIVERDETAILS_SUPPORTF_CODEC: Int = 1
+
+public val ACMDRIVERDETAILS_SUPPORTF_CONVERTER: Int = 2
+
+public val ACMDRIVERDETAILS_SUPPORTF_DISABLED: Int = -2147483648
+
+public val ACMDRIVERDETAILS_SUPPORTF_FILTER: Int = 4
+
+public val ACMDRIVERDETAILS_SUPPORTF_HARDWARE: Int = 8
+
+public val ACMDRIVERDETAILS_SUPPORTF_LOCAL: Int = 1073741824
+
+public val ACMERR_BASE: UInt = 512u
+
+public val ACMERR_BUSY: UInt = 513u
+
+public val ACMERR_CANCELED: UInt = 515u
+
+public val ACMERR_NOTPOSSIBLE: UInt = 512u
+
+public val ACMERR_UNPREPARED: UInt = 514u
+
+public val ACMFILTERCHOOSE_STYLEF_CONTEXTHELP: Int = 128
+
+public val ACMFILTERCHOOSE_STYLEF_ENABLEHOOK: Int = 8
+
+public val ACMFILTERCHOOSE_STYLEF_ENABLETEMPLATE: Int = 16
+
+public val ACMFILTERCHOOSE_STYLEF_ENABLETEMPLATEHANDLE: Int = 32
+
+public val ACMFILTERCHOOSE_STYLEF_INITTOFILTERSTRUCT: Int = 64
+
+public val ACMFILTERCHOOSE_STYLEF_SHOWHELP: Int = 4
+
+public val ACMFILTERDETAILS_FILTER_CHARS: UInt = 128u
+
+public val ACMFILTERTAGDETAILS_FILTERTAG_CHARS: UInt = 48u
+
+public val ACMFORMATCHOOSE_STYLEF_CONTEXTHELP: Int = 128
+
+public val ACMFORMATCHOOSE_STYLEF_ENABLEHOOK: Int = 8
+
+public val ACMFORMATCHOOSE_STYLEF_ENABLETEMPLATE: Int = 16
+
+public val ACMFORMATCHOOSE_STYLEF_ENABLETEMPLATEHANDLE: Int = 32
+
+public val ACMFORMATCHOOSE_STYLEF_INITTOWFXSTRUCT: Int = 64
+
+public val ACMFORMATCHOOSE_STYLEF_SHOWHELP: Int = 4
+
+public val ACMFORMATDETAILS_FORMAT_CHARS: UInt = 128u
+
+public val ACMFORMATTAGDETAILS_FORMATTAG_CHARS: UInt = 48u
+
+public val ACMHELPMSGCONTEXTHELP: PCWSTR = w("acmchoose_contexthelp")
+
+public val ACMHELPMSGCONTEXTHELPA: PCSTR = s("acmchoose_contexthelp")
+
+public val ACMHELPMSGCONTEXTHELPW: PCWSTR = w("acmchoose_contexthelp")
+
+public val ACMHELPMSGCONTEXTMENU: PCWSTR = w("acmchoose_contextmenu")
+
+public val ACMHELPMSGCONTEXTMENUA: PCSTR = s("acmchoose_contextmenu")
+
+public val ACMHELPMSGCONTEXTMENUW: PCWSTR = w("acmchoose_contextmenu")
+
+public val ACMHELPMSGSTRING: PCWSTR = w("acmchoose_help")
+
+public val ACMHELPMSGSTRINGA: PCSTR = s("acmchoose_help")
+
+public val ACMHELPMSGSTRINGW: PCWSTR = w("acmchoose_help")
+
+public val ACMSTREAMHEADER_STATUSF_DONE: Int = 65536
+
+public val ACMSTREAMHEADER_STATUSF_INQUEUE: Int = 1048576
+
+public val ACMSTREAMHEADER_STATUSF_PREPARED: Int = 131072
+
+public val ACM_DRIVERADDF_FUNCTION: Int = 3
+
+public val ACM_DRIVERADDF_GLOBAL: Int = 8
+
+public val ACM_DRIVERADDF_LOCAL: Int = 0
+
+public val ACM_DRIVERADDF_NAME: Int = 1
+
+public val ACM_DRIVERADDF_NOTIFYHWND: Int = 4
+
+public val ACM_DRIVERADDF_TYPEMASK: Int = 7
+
+public val ACM_DRIVERENUMF_DISABLED: Int = -2147483648
+
+public val ACM_DRIVERENUMF_NOLOCAL: Int = 1073741824
+
+public val ACM_DRIVERPRIORITYF_ABLEMASK: Int = 3
+
+public val ACM_DRIVERPRIORITYF_BEGIN: Int = 65536
+
+public val ACM_DRIVERPRIORITYF_DEFERMASK: Int = 196608
+
+public val ACM_DRIVERPRIORITYF_DISABLE: Int = 2
+
+public val ACM_DRIVERPRIORITYF_ENABLE: Int = 1
+
+public val ACM_DRIVERPRIORITYF_END: Int = 131072
+
+public val ACM_FILTERDETAILSF_FILTER: Int = 1
+
+public val ACM_FILTERDETAILSF_INDEX: Int = 0
+
+public val ACM_FILTERDETAILSF_QUERYMASK: Int = 15
+
+public val ACM_FILTERENUMF_DWFILTERTAG: Int = 65536
+
+public val ACM_FILTERTAGDETAILSF_FILTERTAG: Int = 1
+
+public val ACM_FILTERTAGDETAILSF_INDEX: Int = 0
+
+public val ACM_FILTERTAGDETAILSF_LARGESTSIZE: Int = 2
+
+public val ACM_FILTERTAGDETAILSF_QUERYMASK: Int = 15
+
+public val ACM_FORMATDETAILSF_FORMAT: Int = 1
+
+public val ACM_FORMATDETAILSF_INDEX: Int = 0
+
+public val ACM_FORMATDETAILSF_QUERYMASK: Int = 15
+
+public val ACM_FORMATENUMF_CONVERT: Int = 1048576
+
+public val ACM_FORMATENUMF_HARDWARE: Int = 4194304
+
+public val ACM_FORMATENUMF_INPUT: Int = 8388608
+
+public val ACM_FORMATENUMF_NCHANNELS: Int = 131072
+
+public val ACM_FORMATENUMF_NSAMPLESPERSEC: Int = 262144
+
+public val ACM_FORMATENUMF_OUTPUT: Int = 16777216
+
+public val ACM_FORMATENUMF_SUGGEST: Int = 2097152
+
+public val ACM_FORMATENUMF_WBITSPERSAMPLE: Int = 524288
+
+public val ACM_FORMATENUMF_WFORMATTAG: Int = 65536
+
+public val ACM_FORMATSUGGESTF_NCHANNELS: Int = 131072
+
+public val ACM_FORMATSUGGESTF_NSAMPLESPERSEC: Int = 262144
+
+public val ACM_FORMATSUGGESTF_TYPEMASK: Int = 16711680
+
+public val ACM_FORMATSUGGESTF_WBITSPERSAMPLE: Int = 524288
+
+public val ACM_FORMATSUGGESTF_WFORMATTAG: Int = 65536
+
+public val ACM_FORMATTAGDETAILSF_FORMATTAG: Int = 1
+
+public val ACM_FORMATTAGDETAILSF_INDEX: Int = 0
+
+public val ACM_FORMATTAGDETAILSF_LARGESTSIZE: Int = 2
+
+public val ACM_FORMATTAGDETAILSF_QUERYMASK: Int = 15
+
+public val ACM_METRIC_COUNT_CODECS: UInt = 2u
+
+public val ACM_METRIC_COUNT_CONVERTERS: UInt = 3u
+
+public val ACM_METRIC_COUNT_DISABLED: UInt = 5u
+
+public val ACM_METRIC_COUNT_DRIVERS: UInt = 1u
+
+public val ACM_METRIC_COUNT_FILTERS: UInt = 4u
+
+public val ACM_METRIC_COUNT_HARDWARE: UInt = 6u
+
+public val ACM_METRIC_COUNT_LOCAL_CODECS: UInt = 21u
+
+public val ACM_METRIC_COUNT_LOCAL_CONVERTERS: UInt = 22u
+
+public val ACM_METRIC_COUNT_LOCAL_DISABLED: UInt = 24u
+
+public val ACM_METRIC_COUNT_LOCAL_DRIVERS: UInt = 20u
+
+public val ACM_METRIC_COUNT_LOCAL_FILTERS: UInt = 23u
+
+public val ACM_METRIC_DRIVER_PRIORITY: UInt = 101u
+
+public val ACM_METRIC_DRIVER_SUPPORT: UInt = 100u
+
+public val ACM_METRIC_HARDWARE_WAVE_INPUT: UInt = 30u
+
+public val ACM_METRIC_HARDWARE_WAVE_OUTPUT: UInt = 31u
+
+public val ACM_METRIC_MAX_SIZE_FILTER: UInt = 51u
+
+public val ACM_METRIC_MAX_SIZE_FORMAT: UInt = 50u
+
+public val ACM_STREAMCONVERTF_BLOCKALIGN: UInt = 4u
+
+public val ACM_STREAMCONVERTF_END: UInt = 32u
+
+public val ACM_STREAMCONVERTF_START: UInt = 16u
+
+public val ACM_STREAMOPENF_ASYNC: UInt = 2u
+
+public val ACM_STREAMOPENF_NONREALTIME: UInt = 4u
+
+public val ACM_STREAMOPENF_QUERY: UInt = 1u
+
+public val ACM_STREAMSIZEF_DESTINATION: Int = 1
+
+public val ACM_STREAMSIZEF_QUERYMASK: Int = 15
+
+public val ACM_STREAMSIZEF_SOURCE: Int = 0
+
+public val AMBISONICS_CHANNEL_ORDERING_ACN: AMBISONICS_CHANNEL_ORDERING = 0
+
+public val AMBISONICS_NORMALIZATION_N3D: AMBISONICS_NORMALIZATION = 1
+
+public val AMBISONICS_NORMALIZATION_SN3D: AMBISONICS_NORMALIZATION = 0
+
+public val AMBISONICS_PARAM_VERSION_1: UInt = 1u
+
+public val AMBISONICS_TYPE_FULL3D: AMBISONICS_TYPE = 0
+
+public val AUDCLNT_BUFFERFLAGS_DATA_DISCONTINUITY: _AUDCLNT_BUFFERFLAGS = 1
+
+public val AUDCLNT_BUFFERFLAGS_SILENT: _AUDCLNT_BUFFERFLAGS = 2
+
+public val AUDCLNT_BUFFERFLAGS_TIMESTAMP_ERROR: _AUDCLNT_BUFFERFLAGS = 4
+
+public val AUDCLNT_E_ALREADY_INITIALIZED: HRESULT = 0x88890002u.toInt()
+
+public val AUDCLNT_E_BUFDURATION_PERIOD_NOT_EQUAL: HRESULT = 0x88890013u.toInt()
+
+public val AUDCLNT_E_BUFFER_ERROR: HRESULT = 0x88890018u.toInt()
+
+public val AUDCLNT_E_BUFFER_OPERATION_PENDING: HRESULT = 0x8889000Bu.toInt()
+
+public val AUDCLNT_E_BUFFER_SIZE_ERROR: HRESULT = 0x88890016u.toInt()
+
+public val AUDCLNT_E_BUFFER_SIZE_NOT_ALIGNED: HRESULT = 0x88890019u.toInt()
+
+public val AUDCLNT_E_BUFFER_TOO_LARGE: HRESULT = 0x88890006u.toInt()
+
+public val AUDCLNT_E_CPUUSAGE_EXCEEDED: HRESULT = 0x88890017u.toInt()
+
+public val AUDCLNT_E_DEVICE_INVALIDATED: HRESULT = 0x88890004u.toInt()
+
+public val AUDCLNT_E_DEVICE_IN_USE: HRESULT = 0x8889000Au.toInt()
+
+public val AUDCLNT_E_EFFECT_NOT_AVAILABLE: HRESULT = 0x88890041u.toInt()
+
+public val AUDCLNT_E_EFFECT_STATE_READ_ONLY: HRESULT = 0x88890042u.toInt()
+
+public val AUDCLNT_E_ENDPOINT_CREATE_FAILED: HRESULT = 0x8889000Fu.toInt()
+
+public val AUDCLNT_E_ENDPOINT_OFFLOAD_NOT_CAPABLE: HRESULT = 0x88890022u.toInt()
+
+public val AUDCLNT_E_ENGINE_FORMAT_LOCKED: HRESULT = 0x88890029u.toInt()
+
+public val AUDCLNT_E_ENGINE_PERIODICITY_LOCKED: HRESULT = 0x88890028u.toInt()
+
+public val AUDCLNT_E_EVENTHANDLE_NOT_EXPECTED: HRESULT = 0x88890011u.toInt()
+
+public val AUDCLNT_E_EVENTHANDLE_NOT_SET: HRESULT = 0x88890014u.toInt()
+
+public val AUDCLNT_E_EXCLUSIVE_MODE_NOT_ALLOWED: HRESULT = 0x8889000Eu.toInt()
+
+public val AUDCLNT_E_EXCLUSIVE_MODE_ONLY: HRESULT = 0x88890012u.toInt()
+
+public val AUDCLNT_E_HEADTRACKING_ENABLED: HRESULT = 0x88890030u.toInt()
+
+public val AUDCLNT_E_HEADTRACKING_UNSUPPORTED: HRESULT = 0x88890040u.toInt()
+
+public val AUDCLNT_E_INCORRECT_BUFFER_SIZE: HRESULT = 0x88890015u.toInt()
+
+public val AUDCLNT_E_INVALID_DEVICE_PERIOD: HRESULT = 0x88890020u.toInt()
+
+public val AUDCLNT_E_INVALID_SIZE: HRESULT = 0x88890009u.toInt()
+
+public val AUDCLNT_E_INVALID_STREAM_FLAG: HRESULT = 0x88890021u.toInt()
+
+public val AUDCLNT_E_NONOFFLOAD_MODE_ONLY: HRESULT = 0x88890025u.toInt()
+
+public val AUDCLNT_E_NOT_INITIALIZED: HRESULT = 0x88890001u.toInt()
+
+public val AUDCLNT_E_NOT_STOPPED: HRESULT = 0x88890005u.toInt()
+
+public val AUDCLNT_E_OFFLOAD_MODE_ONLY: HRESULT = 0x88890024u.toInt()
+
+public val AUDCLNT_E_OUT_OF_OFFLOAD_RESOURCES: HRESULT = 0x88890023u.toInt()
+
+public val AUDCLNT_E_OUT_OF_ORDER: HRESULT = 0x88890007u.toInt()
+
+public val AUDCLNT_E_RAW_MODE_UNSUPPORTED: HRESULT = 0x88890027u.toInt()
+
+public val AUDCLNT_E_RESOURCES_INVALIDATED: HRESULT = 0x88890026u.toInt()
+
+public val AUDCLNT_E_SERVICE_NOT_RUNNING: HRESULT = 0x88890010u.toInt()
+
+public val AUDCLNT_E_THREAD_NOT_REGISTERED: HRESULT = 0x8889000Cu.toInt()
+
+public val AUDCLNT_E_UNSUPPORTED_FORMAT: HRESULT = 0x88890008u.toInt()
+
+public val AUDCLNT_E_WRONG_ENDPOINT_TYPE: HRESULT = 0x88890003u.toInt()
+
+public val AUDCLNT_SESSIONFLAGS_DISPLAY_HIDE: UInt = 536870912u
+
+public val AUDCLNT_SESSIONFLAGS_DISPLAY_HIDEWHENEXPIRED: UInt = 1073741824u
+
+public val AUDCLNT_SESSIONFLAGS_EXPIREWHENUNOWNED: UInt = 268435456u
+
+public val AUDCLNT_SHAREMODE_EXCLUSIVE: AUDCLNT_SHAREMODE = 1
+
+public val AUDCLNT_SHAREMODE_SHARED: AUDCLNT_SHAREMODE = 0
+
+public val AUDCLNT_STREAMFLAGS_AUTOCONVERTPCM: UInt = 2147483648u
+
+public val AUDCLNT_STREAMFLAGS_CROSSPROCESS: UInt = 65536u
+
+public val AUDCLNT_STREAMFLAGS_EVENTCALLBACK: UInt = 262144u
+
+public val AUDCLNT_STREAMFLAGS_LOOPBACK: UInt = 131072u
+
+public val AUDCLNT_STREAMFLAGS_NOPERSIST: UInt = 524288u
+
+public val AUDCLNT_STREAMFLAGS_RATEADJUST: UInt = 1048576u
+
+public val AUDCLNT_STREAMFLAGS_SRC_DEFAULT_QUALITY: UInt = 134217728u
+
+public val AUDCLNT_STREAMOPTIONS_AMBISONICS: AUDCLNT_STREAMOPTIONS = 4
+
+public val AUDCLNT_STREAMOPTIONS_MATCH_FORMAT: AUDCLNT_STREAMOPTIONS = 2
+
+public val AUDCLNT_STREAMOPTIONS_NONE: AUDCLNT_STREAMOPTIONS = 0
+
+public val AUDCLNT_STREAMOPTIONS_RAW: AUDCLNT_STREAMOPTIONS = 1
+
+public val AUDCLNT_S_BUFFER_EMPTY: HRESULT = 0x8890001u.toInt()
+
+public val AUDCLNT_S_POSITION_STALLED: HRESULT = 0x8890003u.toInt()
+
+public val AUDCLNT_S_THREAD_ALREADY_REGISTERED: HRESULT = 0x8890002u.toInt()
+
+public val AUDIOCLIENT_ACTIVATION_TYPE_DEFAULT: AUDIOCLIENT_ACTIVATION_TYPE = 0
+
+public val AUDIOCLIENT_ACTIVATION_TYPE_PROCESS_LOOPBACK: AUDIOCLIENT_ACTIVATION_TYPE = 1
+
+public val AUDIOCLOCK_CHARACTERISTIC_FIXED_FREQ: UInt = 1u
+
+public val AUDIO_DUCKING_OPTIONS_DEFAULT: AUDIO_DUCKING_OPTIONS = 0
+
+public val AUDIO_DUCKING_OPTIONS_DO_NOT_DUCK_OTHER_STREAMS: AUDIO_DUCKING_OPTIONS = 1
+
+public val AUDIO_EFFECT_STATE_OFF: AUDIO_EFFECT_STATE = 0
+
+public val AUDIO_EFFECT_STATE_ON: AUDIO_EFFECT_STATE = 1
+
+public val AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_DEFAULT: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = 0
+
+public val AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_ENUM_COUNT: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = 3
+
+public val AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_USER: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = 1
+
+public val AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_VOLATILE: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = 2
+
+public val AUXCAPS_AUXIN: UInt = 2u
+
+public val AUXCAPS_CDAUDIO: UInt = 1u
+
+public val AUXCAPS_LRVOLUME: UInt = 2u
+
+public val AUXCAPS_VOLUME: UInt = 1u
+
+public val AudioCategory_Alerts: AUDIO_STREAM_CATEGORY = 4
+
+public val AudioCategory_Communications: AUDIO_STREAM_CATEGORY = 3
+
+public val AudioCategory_FarFieldSpeech: AUDIO_STREAM_CATEGORY = 12
+
+public val AudioCategory_ForegroundOnlyMedia: AUDIO_STREAM_CATEGORY = 1
+
+public val AudioCategory_GameChat: AUDIO_STREAM_CATEGORY = 8
+
+public val AudioCategory_GameEffects: AUDIO_STREAM_CATEGORY = 6
+
+public val AudioCategory_GameMedia: AUDIO_STREAM_CATEGORY = 7
+
+public val AudioCategory_Media: AUDIO_STREAM_CATEGORY = 11
+
+public val AudioCategory_Movie: AUDIO_STREAM_CATEGORY = 10
+
+public val AudioCategory_Other: AUDIO_STREAM_CATEGORY = 0
+
+public val AudioCategory_SoundEffects: AUDIO_STREAM_CATEGORY = 5
+
+public val AudioCategory_Speech: AUDIO_STREAM_CATEGORY = 9
+
+public val AudioCategory_UniformSpeech: AUDIO_STREAM_CATEGORY = 13
+
+public val AudioCategory_VoiceTyping: AUDIO_STREAM_CATEGORY = 14
+
+public val AudioObjectType_BackCenter: AudioObjectType = 131072
+
+public val AudioObjectType_BackLeft: AudioObjectType = 128
+
+public val AudioObjectType_BackRight: AudioObjectType = 256
+
+public val AudioObjectType_BottomBackLeft: AudioObjectType = 32768
+
+public val AudioObjectType_BottomBackRight: AudioObjectType = 65536
+
+public val AudioObjectType_BottomFrontLeft: AudioObjectType = 8192
+
+public val AudioObjectType_BottomFrontRight: AudioObjectType = 16384
+
+public val AudioObjectType_Dynamic: AudioObjectType = 1
+
+public val AudioObjectType_FrontCenter: AudioObjectType = 8
+
+public val AudioObjectType_FrontLeft: AudioObjectType = 2
+
+public val AudioObjectType_FrontRight: AudioObjectType = 4
+
+public val AudioObjectType_LowFrequency: AudioObjectType = 16
+
+public val AudioObjectType_None: AudioObjectType = 0
+
+public val AudioObjectType_SideLeft: AudioObjectType = 32
+
+public val AudioObjectType_SideRight: AudioObjectType = 64
+
+public val AudioObjectType_TopBackLeft: AudioObjectType = 2048
+
+public val AudioObjectType_TopBackRight: AudioObjectType = 4096
+
+public val AudioObjectType_TopFrontLeft: AudioObjectType = 512
+
+public val AudioObjectType_TopFrontRight: AudioObjectType = 1024
+
+public val AudioSessionStateActive: AudioSessionState = 1
+
+public val AudioSessionStateExpired: AudioSessionState = 2
+
+public val AudioSessionStateInactive: AudioSessionState = 0
+
+public val CALLBACK_EVENT: MIDI_WAVE_OPEN_TYPE = 327680u
+
+public val CALLBACK_FUNCTION: MIDI_WAVE_OPEN_TYPE = 196608u
+
+public val CALLBACK_NULL: MIDI_WAVE_OPEN_TYPE = 0u
+
+public val CALLBACK_TASK: MIDI_WAVE_OPEN_TYPE = 131072u
+
+public val CALLBACK_THREAD: MIDI_WAVE_OPEN_TYPE = 131072u
+
+public val CALLBACK_TYPEMASK: MIDI_WAVE_OPEN_TYPE = 458752u
+
+public val CALLBACK_WINDOW: MIDI_WAVE_OPEN_TYPE = 65536u
+
+public val Connector: PartType = 0
+
+public val DEVICE_STATEMASK_ALL: UInt = 15u
+
+public val DEVICE_STATE_ACTIVE: DEVICE_STATE = 1u
+
+public val DEVICE_STATE_DISABLED: DEVICE_STATE = 2u
+
+public val DEVICE_STATE_NOTPRESENT: DEVICE_STATE = 4u
+
+public val DEVICE_STATE_UNPLUGGED: DEVICE_STATE = 8u
+
+public val DEVINTERFACE_AUDIO_CAPTURE: GUID = GUID.from_u128(0x2eef81be33fa4800uL, 0x96701cd474972c3fuL)
+
+public val DEVINTERFACE_AUDIO_RENDER: GUID = GUID.from_u128(0xe6327caddcec4949uL, 0xae8a991e976a79d2uL)
+
+public val DEVINTERFACE_MIDI_INPUT: GUID = GUID.from_u128(0x504be32cccf64d2cuL, 0xb73f6f8b3747e22buL)
+
+public val DEVINTERFACE_MIDI_OUTPUT: GUID = GUID.from_u128(0x6dc23320ab334ce4uL, 0x80d4bbb3ebbf2814uL)
+
+public val DRVM_MAPPER: UInt = 8192u
+
+public val DRVM_MAPPER_STATUS: UInt = 8192u
+
+public val DRV_MAPPER_PREFERRED_INPUT_GET: UInt = 16384u
+
+public val DRV_MAPPER_PREFERRED_OUTPUT_GET: UInt = 16386u
+
+public val DeviceTopology: GUID = GUID.from_u128(0x1df639d05ec147aauL, 0x9379828dc1aa8c59uL)
+
+public val DigitalAudioDisplayDevice: EndpointFormFactor = 9
+
+public val DisconnectReasonDeviceRemoval: AudioSessionDisconnectReason = 0
+
+public val DisconnectReasonExclusiveModeOverride: AudioSessionDisconnectReason = 5
+
+public val DisconnectReasonFormatChanged: AudioSessionDisconnectReason = 2
+
+public val DisconnectReasonServerShutdown: AudioSessionDisconnectReason = 1
+
+public val DisconnectReasonSessionDisconnected: AudioSessionDisconnectReason = 4
+
+public val DisconnectReasonSessionLogoff: AudioSessionDisconnectReason = 3
+
+public val EDataFlow_enum_count: EDataFlow = 3
+
+public val ENDPOINT_FORMAT_RESET_MIX_ONLY: UInt = 1u
+
+public val ENDPOINT_HARDWARE_SUPPORT_METER: UInt = 4u
+
+public val ENDPOINT_HARDWARE_SUPPORT_MUTE: UInt = 2u
+
+public val ENDPOINT_HARDWARE_SUPPORT_VOLUME: UInt = 1u
+
+public val ENDPOINT_SYSFX_DISABLED: UInt = 1u
+
+public val ENDPOINT_SYSFX_ENABLED: UInt = 0u
+
+public val ERole_enum_count: ERole = 3
+
+public val EVENTCONTEXT_VOLUMESLIDER: GUID = GUID.from_u128(0xe2c2e9de09b14b04uL, 0x84e507931225ee04uL)
+
+public val EndpointFormFactor_enum_count: EndpointFormFactor = 11
+
+public val FILTERCHOOSE_CUSTOM_VERIFY: UInt = 2u
+
+public val FILTERCHOOSE_FILTERTAG_VERIFY: UInt = 0u
+
+public val FILTERCHOOSE_FILTER_VERIFY: UInt = 1u
+
+public val FILTERCHOOSE_MESSAGE: UInt = 0u
+
+public val FORMATCHOOSE_CUSTOM_VERIFY: UInt = 2u
+
+public val FORMATCHOOSE_FORMATTAG_VERIFY: UInt = 0u
+
+public val FORMATCHOOSE_FORMAT_VERIFY: UInt = 1u
+
+public val FORMATCHOOSE_MESSAGE: UInt = 0u
+
+public val Full: AudioStateMonitorSoundLevel = 2
+
+public val Handset: EndpointFormFactor = 6
+
+public val Headphones: EndpointFormFactor = 3
+
+public val Headset: EndpointFormFactor = 5
+
+public val In: DataFlow = 0
+
+public val LineLevel: EndpointFormFactor = 2
+
+public val Low: AudioStateMonitorSoundLevel = 1
+
+public val MEVT_COMMENT: UByte = 130u
+
+public val MEVT_F_CALLBACK: Int = 1073741824
+
+public val MEVT_F_LONG: Int = -2147483648
+
+public val MEVT_F_SHORT: Int = 0
+
+public val MEVT_LONGMSG: UByte = 128u
+
+public val MEVT_NOP: UByte = 2u
+
+public val MEVT_SHORTMSG: UByte = 0u
+
+public val MEVT_TEMPO: UByte = 1u
+
+public val MEVT_VERSION: UByte = 132u
+
+public val MHDR_DONE: UInt = 1u
+
+public val MHDR_INQUEUE: UInt = 4u
+
+public val MHDR_ISSTRM: UInt = 8u
+
+public val MHDR_PREPARED: UInt = 2u
+
+public val MIDICAPS_CACHE: UInt = 4u
+
+public val MIDICAPS_LRVOLUME: UInt = 2u
+
+public val MIDICAPS_STREAM: UInt = 8u
+
+public val MIDICAPS_VOLUME: UInt = 1u
+
+public val MIDIERR_BADOPENMODE: UInt = 70u
+
+public val MIDIERR_DONT_CONTINUE: UInt = 71u
+
+public val MIDIERR_INVALIDSETUP: UInt = 69u
+
+public val MIDIERR_LASTERROR: UInt = 71u
+
+public val MIDIERR_NODEVICE: UInt = 68u
+
+public val MIDIERR_NOMAP: UInt = 66u
+
+public val MIDIERR_NOTREADY: UInt = 67u
+
+public val MIDIERR_STILLPLAYING: UInt = 65u
+
+public val MIDIERR_UNPREPARED: UInt = 64u
+
+public val MIDIPATCHSIZE: UInt = 128u
+
+public val MIDIPROP_GET: Int = 1073741824
+
+public val MIDIPROP_SET: Int = -2147483648
+
+public val MIDIPROP_TEMPO: Int = 2
+
+public val MIDIPROP_TIMEDIV: Int = 1
+
+public val MIDISTRM_ERROR: Int = -2
+
+public val MIDI_CACHE_ALL: UInt = 1u
+
+public val MIDI_CACHE_BESTFIT: UInt = 2u
+
+public val MIDI_CACHE_QUERY: UInt = 3u
+
+public val MIDI_IO_STATUS: MIDI_WAVE_OPEN_TYPE = 32u
+
+public val MIDI_UNCACHE: UInt = 4u
+
+public val MIXERCONTROL_CONTROLF_DISABLED: Int = -2147483648
+
+public val MIXERCONTROL_CONTROLF_MULTIPLE: Int = 2
+
+public val MIXERCONTROL_CONTROLF_UNIFORM: Int = 1
+
+public val MIXERCONTROL_CONTROLTYPE_BASS: UInt = 1342373890u
+
+public val MIXERCONTROL_CONTROLTYPE_BASS_BOOST: UInt = 536945271u
+
+public val MIXERCONTROL_CONTROLTYPE_BOOLEAN: UInt = 536936448u
+
+public val MIXERCONTROL_CONTROLTYPE_BOOLEANMETER: UInt = 268500992u
+
+public val MIXERCONTROL_CONTROLTYPE_BUTTON: UInt = 553713664u
+
+public val MIXERCONTROL_CONTROLTYPE_CUSTOM: UInt = 0u
+
+public val MIXERCONTROL_CONTROLTYPE_DECIBELS: UInt = 805568512u
+
+public val MIXERCONTROL_CONTROLTYPE_EQUALIZER: UInt = 1342373892u
+
+public val MIXERCONTROL_CONTROLTYPE_FADER: UInt = 1342373888u
+
+public val MIXERCONTROL_CONTROLTYPE_LOUDNESS: UInt = 536936452u
+
+public val MIXERCONTROL_CONTROLTYPE_MICROTIME: UInt = 1610809344u
+
+public val MIXERCONTROL_CONTROLTYPE_MILLITIME: UInt = 1627586560u
+
+public val MIXERCONTROL_CONTROLTYPE_MIXER: UInt = 1895890945u
+
+public val MIXERCONTROL_CONTROLTYPE_MONO: UInt = 536936451u
+
+public val MIXERCONTROL_CONTROLTYPE_MULTIPLESELECT: UInt = 1895890944u
+
+public val MIXERCONTROL_CONTROLTYPE_MUTE: UInt = 536936450u
+
+public val MIXERCONTROL_CONTROLTYPE_MUX: UInt = 1879113729u
+
+public val MIXERCONTROL_CONTROLTYPE_ONOFF: UInt = 536936449u
+
+public val MIXERCONTROL_CONTROLTYPE_PAN: UInt = 1073872897u
+
+public val MIXERCONTROL_CONTROLTYPE_PEAKMETER: UInt = 268566529u
+
+public val MIXERCONTROL_CONTROLTYPE_PERCENT: UInt = 805634048u
+
+public val MIXERCONTROL_CONTROLTYPE_QSOUNDPAN: UInt = 1073872898u
+
+public val MIXERCONTROL_CONTROLTYPE_SIGNED: UInt = 805437440u
+
+public val MIXERCONTROL_CONTROLTYPE_SIGNEDMETER: UInt = 268566528u
+
+public val MIXERCONTROL_CONTROLTYPE_SINGLESELECT: UInt = 1879113728u
+
+public val MIXERCONTROL_CONTROLTYPE_SLIDER: UInt = 1073872896u
+
+public val MIXERCONTROL_CONTROLTYPE_STEREOENH: UInt = 536936453u
+
+public val MIXERCONTROL_CONTROLTYPE_TREBLE: UInt = 1342373891u
+
+public val MIXERCONTROL_CONTROLTYPE_UNSIGNED: UInt = 805502976u
+
+public val MIXERCONTROL_CONTROLTYPE_UNSIGNEDMETER: UInt = 268632064u
+
+public val MIXERCONTROL_CONTROLTYPE_VOLUME: UInt = 1342373889u
+
+public val MIXERCONTROL_CT_CLASS_CUSTOM: Int = 0
+
+public val MIXERCONTROL_CT_CLASS_FADER: Int = 1342177280
+
+public val MIXERCONTROL_CT_CLASS_LIST: Int = 1879048192
+
+public val MIXERCONTROL_CT_CLASS_MASK: Int = -268435456
+
+public val MIXERCONTROL_CT_CLASS_METER: Int = 268435456
+
+public val MIXERCONTROL_CT_CLASS_NUMBER: Int = 805306368
+
+public val MIXERCONTROL_CT_CLASS_SLIDER: Int = 1073741824
+
+public val MIXERCONTROL_CT_CLASS_SWITCH: Int = 536870912
+
+public val MIXERCONTROL_CT_CLASS_TIME: Int = 1610612736
+
+public val MIXERCONTROL_CT_SC_LIST_MULTIPLE: Int = 16777216
+
+public val MIXERCONTROL_CT_SC_LIST_SINGLE: Int = 0
+
+public val MIXERCONTROL_CT_SC_METER_POLLED: Int = 0
+
+public val MIXERCONTROL_CT_SC_SWITCH_BOOLEAN: Int = 0
+
+public val MIXERCONTROL_CT_SC_SWITCH_BUTTON: Int = 16777216
+
+public val MIXERCONTROL_CT_SC_TIME_MICROSECS: Int = 0
+
+public val MIXERCONTROL_CT_SC_TIME_MILLISECS: Int = 16777216
+
+public val MIXERCONTROL_CT_SUBCLASS_MASK: Int = 251658240
+
+public val MIXERCONTROL_CT_UNITS_BOOLEAN: Int = 65536
+
+public val MIXERCONTROL_CT_UNITS_CUSTOM: Int = 0
+
+public val MIXERCONTROL_CT_UNITS_DECIBELS: Int = 262144
+
+public val MIXERCONTROL_CT_UNITS_MASK: Int = 16711680
+
+public val MIXERCONTROL_CT_UNITS_PERCENT: Int = 327680
+
+public val MIXERCONTROL_CT_UNITS_SIGNED: Int = 131072
+
+public val MIXERCONTROL_CT_UNITS_UNSIGNED: Int = 196608
+
+public val MIXERLINE_COMPONENTTYPE_DST_DIGITAL: MIXERLINE_COMPONENTTYPE = 1u
+
+public val MIXERLINE_COMPONENTTYPE_DST_FIRST: Int = 0
+
+public val MIXERLINE_COMPONENTTYPE_DST_HEADPHONES: MIXERLINE_COMPONENTTYPE = 5u
+
+public val MIXERLINE_COMPONENTTYPE_DST_LAST: UInt = 8u
+
+public val MIXERLINE_COMPONENTTYPE_DST_LINE: MIXERLINE_COMPONENTTYPE = 2u
+
+public val MIXERLINE_COMPONENTTYPE_DST_MONITOR: MIXERLINE_COMPONENTTYPE = 3u
+
+public val MIXERLINE_COMPONENTTYPE_DST_SPEAKERS: MIXERLINE_COMPONENTTYPE = 4u
+
+public val MIXERLINE_COMPONENTTYPE_DST_TELEPHONE: MIXERLINE_COMPONENTTYPE = 6u
+
+public val MIXERLINE_COMPONENTTYPE_DST_UNDEFINED: MIXERLINE_COMPONENTTYPE = 0u
+
+public val MIXERLINE_COMPONENTTYPE_DST_VOICEIN: MIXERLINE_COMPONENTTYPE = 8u
+
+public val MIXERLINE_COMPONENTTYPE_DST_WAVEIN: MIXERLINE_COMPONENTTYPE = 7u
+
+public val MIXERLINE_COMPONENTTYPE_SRC_ANALOG: MIXERLINE_COMPONENTTYPE = 4106u
+
+public val MIXERLINE_COMPONENTTYPE_SRC_AUXILIARY: MIXERLINE_COMPONENTTYPE = 4105u
+
+public val MIXERLINE_COMPONENTTYPE_SRC_COMPACTDISC: MIXERLINE_COMPONENTTYPE = 4101u
+
+public val MIXERLINE_COMPONENTTYPE_SRC_DIGITAL: MIXERLINE_COMPONENTTYPE = 4097u
+
+public val MIXERLINE_COMPONENTTYPE_SRC_FIRST: Int = 4096
+
+public val MIXERLINE_COMPONENTTYPE_SRC_LAST: UInt = 4106u
+
+public val MIXERLINE_COMPONENTTYPE_SRC_LINE: MIXERLINE_COMPONENTTYPE = 4098u
+
+public val MIXERLINE_COMPONENTTYPE_SRC_MICROPHONE: MIXERLINE_COMPONENTTYPE = 4099u
+
+public val MIXERLINE_COMPONENTTYPE_SRC_PCSPEAKER: MIXERLINE_COMPONENTTYPE = 4103u
+
+public val MIXERLINE_COMPONENTTYPE_SRC_SYNTHESIZER: MIXERLINE_COMPONENTTYPE = 4100u
+
+public val MIXERLINE_COMPONENTTYPE_SRC_TELEPHONE: MIXERLINE_COMPONENTTYPE = 4102u
+
+public val MIXERLINE_COMPONENTTYPE_SRC_UNDEFINED: MIXERLINE_COMPONENTTYPE = 4096u
+
+public val MIXERLINE_COMPONENTTYPE_SRC_WAVEOUT: MIXERLINE_COMPONENTTYPE = 4104u
+
+public val MIXERLINE_LINEF_ACTIVE: Int = 1
+
+public val MIXERLINE_LINEF_DISCONNECTED: Int = 32768
+
+public val MIXERLINE_LINEF_SOURCE: Int = -2147483648
+
+public val MIXERLINE_TARGETTYPE_AUX: UInt = 5u
+
+public val MIXERLINE_TARGETTYPE_MIDIIN: UInt = 4u
+
+public val MIXERLINE_TARGETTYPE_MIDIOUT: UInt = 3u
+
+public val MIXERLINE_TARGETTYPE_UNDEFINED: UInt = 0u
+
+public val MIXERLINE_TARGETTYPE_WAVEIN: UInt = 2u
+
+public val MIXERLINE_TARGETTYPE_WAVEOUT: UInt = 1u
+
+public val MIXERR_INVALCONTROL: UInt = 1025u
+
+public val MIXERR_INVALLINE: UInt = 1024u
+
+public val MIXERR_INVALVALUE: UInt = 1026u
+
+public val MIXERR_LASTERROR: UInt = 1026u
+
+public val MIXER_GETCONTROLDETAILSF_LISTTEXT: Int = 1
+
+public val MIXER_GETCONTROLDETAILSF_QUERYMASK: Int = 15
+
+public val MIXER_GETCONTROLDETAILSF_VALUE: Int = 0
+
+public val MIXER_GETLINECONTROLSF_ALL: Int = 0
+
+public val MIXER_GETLINECONTROLSF_ONEBYID: Int = 1
+
+public val MIXER_GETLINECONTROLSF_ONEBYTYPE: Int = 2
+
+public val MIXER_GETLINECONTROLSF_QUERYMASK: Int = 15
+
+public val MIXER_GETLINEINFOF_COMPONENTTYPE: Int = 3
+
+public val MIXER_GETLINEINFOF_DESTINATION: Int = 0
+
+public val MIXER_GETLINEINFOF_LINEID: Int = 2
+
+public val MIXER_GETLINEINFOF_QUERYMASK: Int = 15
+
+public val MIXER_GETLINEINFOF_SOURCE: Int = 1
+
+public val MIXER_GETLINEINFOF_TARGETTYPE: Int = 4
+
+public val MIXER_LONG_NAME_CHARS: UInt = 64u
+
+public val MIXER_OBJECTF_AUX: Int = 1342177280
+
+public val MIXER_OBJECTF_HANDLE: Int = -2147483648
+
+public val MIXER_OBJECTF_MIDIIN: Int = 1073741824
+
+public val MIXER_OBJECTF_MIDIOUT: Int = 805306368
+
+public val MIXER_OBJECTF_MIXER: Int = 0
+
+public val MIXER_OBJECTF_WAVEIN: Int = 536870912
+
+public val MIXER_OBJECTF_WAVEOUT: Int = 268435456
+
+public val MIXER_SETCONTROLDETAILSF_CUSTOM: Int = 1
+
+public val MIXER_SETCONTROLDETAILSF_QUERYMASK: Int = 15
+
+public val MIXER_SETCONTROLDETAILSF_VALUE: Int = 0
+
+public val MIXER_SHORT_NAME_CHARS: UInt = 16u
+
+public val MMDeviceEnumerator: GUID = GUID.from_u128(0xbcde0395e52f467cuL, 0x8e3dc4579291692euL)
+
+public val MM_ACM_FILTERCHOOSE: UInt = 32768u
+
+public val MM_ACM_FORMATCHOOSE: UInt = 32768u
+
+public val MOD_FMSYNTH: UInt = 4u
+
+public val MOD_MAPPER: UInt = 5u
+
+public val MOD_MIDIPORT: UInt = 1u
+
+public val MOD_SQSYNTH: UInt = 3u
+
+public val MOD_SWSYNTH: UInt = 7u
+
+public val MOD_SYNTH: UInt = 2u
+
+public val MOD_WAVETABLE: UInt = 6u
+
+public val Microphone: EndpointFormFactor = 4
+
+public val Muted: AudioStateMonitorSoundLevel = 0
+
+public val Out: DataFlow = 1
+
+public val PKEY_AudioEndpointLogo_IconEffects: Foundation.PROPERTYKEY = PROPERTYKEY(fmtid = GUID.from_u128(0xf1ab780d20104ed3uL, 0xa3a68b87f0f0c476uL), pid = 0u)
+
+public val PKEY_AudioEndpointLogo_IconPath: Foundation.PROPERTYKEY = PROPERTYKEY(fmtid = GUID.from_u128(0xf1ab780d20104ed3uL, 0xa3a68b87f0f0c476uL), pid = 1u)
+
+public val PKEY_AudioEndpointSettings_LaunchContract: Foundation.PROPERTYKEY = PROPERTYKEY(fmtid = GUID.from_u128(0x1424200203204de4uL, 0x9555a7d82b73c286uL), pid = 1u)
+
+public val PKEY_AudioEndpointSettings_MenuText: Foundation.PROPERTYKEY = PROPERTYKEY(fmtid = GUID.from_u128(0x1424200203204de4uL, 0x9555a7d82b73c286uL), pid = 0u)
+
+public val PKEY_AudioEndpoint_Association: Foundation.PROPERTYKEY = PROPERTYKEY(fmtid = GUID.from_u128(0x1da5d803d4924edduL, 0x8c23e0c0ffee7f0euL), pid = 2u)
+
+public val PKEY_AudioEndpoint_ControlPanelPageProvider: Foundation.PROPERTYKEY = PROPERTYKEY(fmtid = GUID.from_u128(0x1da5d803d4924edduL, 0x8c23e0c0ffee7f0euL), pid = 1u)
+
+public val PKEY_AudioEndpoint_Default_VolumeInDb: Foundation.PROPERTYKEY = PROPERTYKEY(fmtid = GUID.from_u128(0x1da5d803d4924edduL, 0x8c23e0c0ffee7f0euL), pid = 9u)
+
+public val PKEY_AudioEndpoint_Disable_SysFx: Foundation.PROPERTYKEY = PROPERTYKEY(fmtid = GUID.from_u128(0x1da5d803d4924edduL, 0x8c23e0c0ffee7f0euL), pid = 5u)
+
+public val PKEY_AudioEndpoint_FormFactor: Foundation.PROPERTYKEY = PROPERTYKEY(fmtid = GUID.from_u128(0x1da5d803d4924edduL, 0x8c23e0c0ffee7f0euL), pid = 0u)
+
+public val PKEY_AudioEndpoint_FullRangeSpeakers: Foundation.PROPERTYKEY = PROPERTYKEY(fmtid = GUID.from_u128(0x1da5d803d4924edduL, 0x8c23e0c0ffee7f0euL), pid = 6u)
+
+public val PKEY_AudioEndpoint_GUID: Foundation.PROPERTYKEY = PROPERTYKEY(fmtid = GUID.from_u128(0x1da5d803d4924edduL, 0x8c23e0c0ffee7f0euL), pid = 4u)
+
+public val PKEY_AudioEndpoint_JackSubType: Foundation.PROPERTYKEY = PROPERTYKEY(fmtid = GUID.from_u128(0x1da5d803d4924edduL, 0x8c23e0c0ffee7f0euL), pid = 8u)
+
+public val PKEY_AudioEndpoint_PhysicalSpeakers: Foundation.PROPERTYKEY = PROPERTYKEY(fmtid = GUID.from_u128(0x1da5d803d4924edduL, 0x8c23e0c0ffee7f0euL), pid = 3u)
+
+public val PKEY_AudioEndpoint_Supports_EventDriven_Mode: Foundation.PROPERTYKEY = PROPERTYKEY(fmtid = GUID.from_u128(0x1da5d803d4924edduL, 0x8c23e0c0ffee7f0euL), pid = 7u)
+
+public val PKEY_AudioEngine_DeviceFormat: Foundation.PROPERTYKEY = PROPERTYKEY(fmtid = GUID.from_u128(0xf19f064d082c4e27uL, 0xbc736882a1bb8e4cuL), pid = 0u)
+
+public val PKEY_AudioEngine_OEMFormat: Foundation.PROPERTYKEY = PROPERTYKEY(fmtid = GUID.from_u128(0xe4870e263cc54cd2uL, 0xba46ca0a9a70ed04uL), pid = 3u)
+
+public val PROCESS_LOOPBACK_MODE_EXCLUDE_TARGET_PROCESS_TREE: PROCESS_LOOPBACK_MODE = 1
+
+public val PROCESS_LOOPBACK_MODE_INCLUDE_TARGET_PROCESS_TREE: PROCESS_LOOPBACK_MODE = 0
+
+public val RemoteNetworkDevice: EndpointFormFactor = 0
+
+public val SND_ALIAS: SND_FLAGS = 65536u
+
+public val SND_ALIAS_ID: SND_FLAGS = 1114112u
+
+public val SND_ALIAS_START: UInt = 0u
+
+public val SND_APPLICATION: SND_FLAGS = 128u
+
+public val SND_ASYNC: SND_FLAGS = 1u
+
+public val SND_FILENAME: SND_FLAGS = 131072u
+
+public val SND_LOOP: SND_FLAGS = 8u
+
+public val SND_MEMORY: SND_FLAGS = 4u
+
+public val SND_NODEFAULT: SND_FLAGS = 2u
+
+public val SND_NOSTOP: SND_FLAGS = 16u
+
+public val SND_NOWAIT: SND_FLAGS = 8192u
+
+public val SND_PURGE: SND_FLAGS = 64u
+
+public val SND_RESOURCE: SND_FLAGS = 262148u
+
+public val SND_RING: Int = 1048576
+
+public val SND_SENTRY: SND_FLAGS = 524288u
+
+public val SND_SYNC: SND_FLAGS = 0u
+
+public val SND_SYSTEM: SND_FLAGS = 2097152u
+
+public val SPATIAL_AUDIO_POSITION: UInt = 200u
+
+public val SPATIAL_AUDIO_STANDARD_COMMANDS_START: UInt = 200u
+
+public val SPATIAL_AUDIO_STREAM_OPTIONS_NONE: SPATIAL_AUDIO_STREAM_OPTIONS = 0
+
+public val SPATIAL_AUDIO_STREAM_OPTIONS_OFFLOAD: SPATIAL_AUDIO_STREAM_OPTIONS = 1
+
+public val SPDIF: EndpointFormFactor = 8
+
+public val SPTLAUDCLNT_E_DESTROYED: HRESULT = 0x88890100u.toInt()
+
+public val SPTLAUDCLNT_E_ERRORS_IN_OBJECT_CALLS: HRESULT = 0x88890105u.toInt()
+
+public val SPTLAUDCLNT_E_INTERNAL: HRESULT = 0x8889010Du.toInt()
+
+public val SPTLAUDCLNT_E_INVALID_LICENSE: HRESULT = 0x88890108u.toInt()
+
+public val SPTLAUDCLNT_E_METADATA_FORMAT_NOT_SUPPORTED: HRESULT = 0x88890106u.toInt()
+
+public val SPTLAUDCLNT_E_NO_MORE_OBJECTS: HRESULT = 0x88890103u.toInt()
+
+public val SPTLAUDCLNT_E_OBJECT_ALREADY_ACTIVE: HRESULT = 0x8889010Cu.toInt()
+
+public val SPTLAUDCLNT_E_OUT_OF_ORDER: HRESULT = 0x88890101u.toInt()
+
+public val SPTLAUDCLNT_E_PROPERTY_NOT_SUPPORTED: HRESULT = 0x88890104u.toInt()
+
+public val SPTLAUDCLNT_E_RESOURCES_INVALIDATED: HRESULT = 0x88890102u.toInt()
+
+public val SPTLAUDCLNT_E_STATIC_OBJECT_NOT_AVAILABLE: HRESULT = 0x8889010Bu.toInt()
+
+public val SPTLAUDCLNT_E_STREAM_NOT_AVAILABLE: HRESULT = 0x88890107u.toInt()
+
+public val SPTLAUDCLNT_E_STREAM_NOT_STOPPED: HRESULT = 0x8889010Au.toInt()
+
+public val SPTLAUD_MD_CLNT_E_ATTACH_FAILED_INTERNAL_BUFFER: HRESULT = 0x88890214u.toInt()
+
+public val SPTLAUD_MD_CLNT_E_BUFFER_ALREADY_ATTACHED: HRESULT = 0x88890207u.toInt()
+
+public val SPTLAUD_MD_CLNT_E_BUFFER_NOT_ATTACHED: HRESULT = 0x88890208u.toInt()
+
+public val SPTLAUD_MD_CLNT_E_BUFFER_STILL_ATTACHED: HRESULT = 0x88890224u.toInt()
+
+public val SPTLAUD_MD_CLNT_E_COMMAND_ALREADY_WRITTEN: HRESULT = 0x88890222u.toInt()
+
+public val SPTLAUD_MD_CLNT_E_COMMAND_NOT_FOUND: HRESULT = 0x88890200u.toInt()
+
+public val SPTLAUD_MD_CLNT_E_DETACH_FAILED_INTERNAL_BUFFER: HRESULT = 0x88890215u.toInt()
+
+public val SPTLAUD_MD_CLNT_E_FORMAT_MISMATCH: HRESULT = 0x88890223u.toInt()
+
+public val SPTLAUD_MD_CLNT_E_FRAMECOUNT_OUT_OF_RANGE: HRESULT = 0x88890209u.toInt()
+
+public val SPTLAUD_MD_CLNT_E_FRAMEOFFSET_OUT_OF_RANGE: HRESULT = 0x88890218u.toInt()
+
+public val SPTLAUD_MD_CLNT_E_INVALID_ARGS: HRESULT = 0x88890202u.toInt()
+
+public val SPTLAUD_MD_CLNT_E_ITEMS_ALREADY_OPEN: HRESULT = 0x88890213u.toInt()
+
+public val SPTLAUD_MD_CLNT_E_ITEMS_LOCKED_FOR_WRITING: HRESULT = 0x88890225u.toInt()
+
+public val SPTLAUD_MD_CLNT_E_ITEM_COPY_OVERFLOW: HRESULT = 0x88890211u.toInt()
+
+public val SPTLAUD_MD_CLNT_E_ITEM_MUST_HAVE_COMMANDS: HRESULT = 0x88890219u.toInt()
+
+public val SPTLAUD_MD_CLNT_E_MEMORY_BOUNDS: HRESULT = 0x88890205u.toInt()
+
+public val SPTLAUD_MD_CLNT_E_METADATA_FORMAT_NOT_FOUND: HRESULT = 0x88890203u.toInt()
+
+public val SPTLAUD_MD_CLNT_E_NO_BUFFER_ATTACHED: HRESULT = 0x88890216u.toInt()
+
+public val SPTLAUD_MD_CLNT_E_NO_ITEMOFFSET_WRITTEN: HRESULT = 0x88890220u.toInt()
+
+public val SPTLAUD_MD_CLNT_E_NO_ITEMS_FOUND: HRESULT = 0x88890210u.toInt()
+
+public val SPTLAUD_MD_CLNT_E_NO_ITEMS_OPEN: HRESULT = 0x88890212u.toInt()
+
+public val SPTLAUD_MD_CLNT_E_NO_ITEMS_WRITTEN: HRESULT = 0x88890221u.toInt()
+
+public val SPTLAUD_MD_CLNT_E_NO_MORE_COMMANDS: HRESULT = 0x88890206u.toInt()
+
+public val SPTLAUD_MD_CLNT_E_NO_MORE_ITEMS: HRESULT = 0x88890217u.toInt()
+
+public val SPTLAUD_MD_CLNT_E_OBJECT_NOT_INITIALIZED: HRESULT = 0x88890201u.toInt()
+
+public val SPTLAUD_MD_CLNT_E_VALUE_BUFFER_INCORRECT_SIZE: HRESULT = 0x88890204u.toInt()
+
+public val SpatialAudioHrtfDirectivity_Cardioid: SpatialAudioHrtfDirectivityType = 1
+
+public val SpatialAudioHrtfDirectivity_Cone: SpatialAudioHrtfDirectivityType = 2
+
+public val SpatialAudioHrtfDirectivity_OmniDirectional: SpatialAudioHrtfDirectivityType = 0
+
+public val SpatialAudioHrtfDistanceDecay_CustomDecay: SpatialAudioHrtfDistanceDecayType = 1
+
+public val SpatialAudioHrtfDistanceDecay_NaturalDecay: SpatialAudioHrtfDistanceDecayType = 0
+
+public val SpatialAudioHrtfEnvironment_Average: SpatialAudioHrtfEnvironmentType = 4
+
+public val SpatialAudioHrtfEnvironment_Large: SpatialAudioHrtfEnvironmentType = 2
+
+public val SpatialAudioHrtfEnvironment_Medium: SpatialAudioHrtfEnvironmentType = 1
+
+public val SpatialAudioHrtfEnvironment_Outdoors: SpatialAudioHrtfEnvironmentType = 3
+
+public val SpatialAudioHrtfEnvironment_Small: SpatialAudioHrtfEnvironmentType = 0
+
+public val SpatialAudioMetadataCopy_Append: SpatialAudioMetadataCopyMode = 1
+
+public val SpatialAudioMetadataCopy_AppendMergeWithFirst: SpatialAudioMetadataCopyMode = 3
+
+public val SpatialAudioMetadataCopy_AppendMergeWithLast: SpatialAudioMetadataCopyMode = 2
+
+public val SpatialAudioMetadataCopy_Overwrite: SpatialAudioMetadataCopyMode = 0
+
+public val SpatialAudioMetadataWriterOverflow_Fail: SpatialAudioMetadataWriterOverflowMode = 0
+
+public val SpatialAudioMetadataWriterOverflow_MergeWithLast: SpatialAudioMetadataWriterOverflowMode = 2
+
+public val SpatialAudioMetadataWriterOverflow_MergeWithNew: SpatialAudioMetadataWriterOverflowMode = 1
+
+public val Speakers: EndpointFormFactor = 1
+
+public val Subunit: PartType = 1
+
+public val UnknownDigitalPassthrough: EndpointFormFactor = 7
+
+public val UnknownFormFactor: EndpointFormFactor = 10
+
+public val VIRTUAL_AUDIO_DEVICE_PROCESS_LOOPBACK: PCWSTR = w("VAD\\Process_Loopback")
+
+public val WAVECAPS_LRVOLUME: UInt = 8u
+
+public val WAVECAPS_PITCH: UInt = 1u
+
+public val WAVECAPS_PLAYBACKRATE: UInt = 2u
+
+public val WAVECAPS_SAMPLEACCURATE: UInt = 32u
+
+public val WAVECAPS_SYNC: UInt = 16u
+
+public val WAVECAPS_VOLUME: UInt = 4u
+
+public val WAVEIN_MAPPER_STATUS_DEVICE: UInt = 0u
+
+public val WAVEIN_MAPPER_STATUS_FORMAT: UInt = 2u
+
+public val WAVEIN_MAPPER_STATUS_MAPPED: UInt = 1u
+
+public val WAVEOUT_MAPPER_STATUS_DEVICE: UInt = 0u
+
+public val WAVEOUT_MAPPER_STATUS_FORMAT: UInt = 2u
+
+public val WAVEOUT_MAPPER_STATUS_MAPPED: UInt = 1u
+
+public val WAVERR_BADFORMAT: UInt = 32u
+
+public val WAVERR_LASTERROR: UInt = 35u
+
+public val WAVERR_STILLPLAYING: UInt = 33u
+
+public val WAVERR_SYNC: UInt = 35u
+
+public val WAVERR_UNPREPARED: UInt = 34u
+
+public val WAVE_ALLOWSYNC: MIDI_WAVE_OPEN_TYPE = 2u
+
+public val WAVE_FORMAT_1M08: UInt = 1u
+
+public val WAVE_FORMAT_1M16: UInt = 4u
+
+public val WAVE_FORMAT_1S08: UInt = 2u
+
+public val WAVE_FORMAT_1S16: UInt = 8u
+
+public val WAVE_FORMAT_2M08: UInt = 16u
+
+public val WAVE_FORMAT_2M16: UInt = 64u
+
+public val WAVE_FORMAT_2S08: UInt = 32u
+
+public val WAVE_FORMAT_2S16: UInt = 128u
+
+public val WAVE_FORMAT_44M08: UInt = 256u
+
+public val WAVE_FORMAT_44M16: UInt = 1024u
+
+public val WAVE_FORMAT_44S08: UInt = 512u
+
+public val WAVE_FORMAT_44S16: UInt = 2048u
+
+public val WAVE_FORMAT_48M08: UInt = 4096u
+
+public val WAVE_FORMAT_48M16: UInt = 16384u
+
+public val WAVE_FORMAT_48S08: UInt = 8192u
+
+public val WAVE_FORMAT_48S16: UInt = 32768u
+
+public val WAVE_FORMAT_4M08: UInt = 256u
+
+public val WAVE_FORMAT_4M16: UInt = 1024u
+
+public val WAVE_FORMAT_4S08: UInt = 512u
+
+public val WAVE_FORMAT_4S16: UInt = 2048u
+
+public val WAVE_FORMAT_96M08: UInt = 65536u
+
+public val WAVE_FORMAT_96M16: UInt = 262144u
+
+public val WAVE_FORMAT_96S08: UInt = 131072u
+
+public val WAVE_FORMAT_96S16: UInt = 524288u
+
+public val WAVE_FORMAT_DIRECT: MIDI_WAVE_OPEN_TYPE = 8u
+
+public val WAVE_FORMAT_DIRECT_QUERY: MIDI_WAVE_OPEN_TYPE = 9u
+
+public val WAVE_FORMAT_PCM: UInt = 1u
+
+public val WAVE_FORMAT_QUERY: MIDI_WAVE_OPEN_TYPE = 1u
+
+public val WAVE_INVALIDFORMAT: UInt = 0u
+
+public val WAVE_MAPPED: MIDI_WAVE_OPEN_TYPE = 4u
+
+public val WAVE_MAPPED_DEFAULT_COMMUNICATION_DEVICE: MIDI_WAVE_OPEN_TYPE = 16u
+
+public val WAVE_MAPPER: UInt = 4294967295u
+
+public val WHDR_BEGINLOOP: UInt = 4u
+
+public val WHDR_DONE: UInt = 1u
+
+public val WHDR_ENDLOOP: UInt = 8u
+
+public val WHDR_INQUEUE: UInt = 16u
+
+public val WHDR_PREPARED: UInt = 2u
+
+public val WIDM_MAPPER_STATUS: UInt = 8192u
+
+public val WODM_MAPPER_STATUS: UInt = 8192u
+
+public val eAll: EDataFlow = 2
+
+public val eCapture: EDataFlow = 1
+
+public val eCommunications: ERole = 2
+
+public val eConsole: ERole = 0
+
+public val eMultimedia: ERole = 1
+
+public val eRender: EDataFlow = 0

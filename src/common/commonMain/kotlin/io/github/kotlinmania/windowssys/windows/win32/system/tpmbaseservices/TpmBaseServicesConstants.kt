@@ -1,0 +1,75 @@
+package io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices
+
+public val TBS_COMMAND_LOCALITY_FOUR: TBS_COMMAND_LOCALITY = 4u
+
+public val TBS_COMMAND_LOCALITY_ONE: TBS_COMMAND_LOCALITY = 1u
+
+public val TBS_COMMAND_LOCALITY_THREE: TBS_COMMAND_LOCALITY = 3u
+
+public val TBS_COMMAND_LOCALITY_TWO: TBS_COMMAND_LOCALITY = 2u
+
+public val TBS_COMMAND_LOCALITY_ZERO: TBS_COMMAND_LOCALITY = 0u
+
+public val TBS_COMMAND_PRIORITY_HIGH: TBS_COMMAND_PRIORITY = 300u
+
+public val TBS_COMMAND_PRIORITY_LOW: TBS_COMMAND_PRIORITY = 100u
+
+public val TBS_COMMAND_PRIORITY_MAX: TBS_COMMAND_PRIORITY = 2147483648u
+
+public val TBS_COMMAND_PRIORITY_NORMAL: TBS_COMMAND_PRIORITY = 200u
+
+public val TBS_COMMAND_PRIORITY_SYSTEM: TBS_COMMAND_PRIORITY = 400u
+
+public val TBS_CONTEXT_VERSION_ONE: UInt = 1u
+
+public val TBS_CONTEXT_VERSION_TWO: UInt = 2u
+
+public val TBS_OWNERAUTH_TYPE_ADMIN: UInt = 2u
+
+public val TBS_OWNERAUTH_TYPE_ENDORSEMENT: UInt = 4u
+
+public val TBS_OWNERAUTH_TYPE_ENDORSEMENT_20: UInt = 12u
+
+public val TBS_OWNERAUTH_TYPE_FULL: UInt = 1u
+
+public val TBS_OWNERAUTH_TYPE_STORAGE_20: UInt = 13u
+
+public val TBS_OWNERAUTH_TYPE_USER: UInt = 3u
+
+public val TBS_SUCCESS: UInt = 0u
+
+public val TBS_TCGLOG_DRTM_BOOT: UInt = 4u
+
+public val TBS_TCGLOG_DRTM_CURRENT: UInt = 1u
+
+public val TBS_TCGLOG_DRTM_RESUME: UInt = 5u
+
+public val TBS_TCGLOG_SRTM_BOOT: UInt = 2u
+
+public val TBS_TCGLOG_SRTM_CURRENT: UInt = 0u
+
+public val TBS_TCGLOG_SRTM_RESUME: UInt = 3u
+
+public val TPM_IFTYPE_1: UInt = 1u
+
+public val TPM_IFTYPE_EMULATOR: UInt = 4u
+
+public val TPM_IFTYPE_HW: UInt = 3u
+
+public val TPM_IFTYPE_SPB: UInt = 5u
+
+public val TPM_IFTYPE_TRUSTZONE: UInt = 2u
+
+public val TPM_IFTYPE_UNKNOWN: UInt = 0u
+
+public val TPM_VERSION_12: UInt = 1u
+
+public val TPM_VERSION_20: UInt = 2u
+
+public val TPM_VERSION_UNKNOWN: UInt = 0u
+
+public val TPM_WNF_INFO_CLEAR_SUCCESSFUL: UInt = 1u
+
+public val TPM_WNF_INFO_NO_REBOOT_REQUIRED: UInt = 1u
+
+public val TPM_WNF_INFO_OWNERSHIP_SUCCESSFUL: UInt = 2u

@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-05/files/Windows/Win32/NetworkManagement/Rras/mod: 859 generated; 516 syntax candidates; 129 unsupported

@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-05/files/Windows/Win32/NetworkManagement/P2P/mod: 276 generated; 277 syntax candidates; 70 unsupported

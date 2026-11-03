@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Win32/Graphics/Printing/mod: 1484 generated; 424 syntax candidates; 344 unsupported

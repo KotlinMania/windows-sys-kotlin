@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-06/files/Windows/Win32/Storage/Vhd/mod: 202 generated; 129 syntax candidates; 20 unsupported

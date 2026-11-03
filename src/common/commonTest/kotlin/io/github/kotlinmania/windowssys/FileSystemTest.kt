@@ -1,4 +1,3 @@
-// port-lint: tests Windows/Win32/Storage/FileSystem/mod.rs
 package io.github.kotlinmania.windowssys
 
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.CREATE_ALWAYS

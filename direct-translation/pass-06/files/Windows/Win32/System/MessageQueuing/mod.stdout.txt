@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-06/files/Windows/Win32/System/MessageQueuing/mod: 527 generated; 88 syntax candidates; 17 unsupported

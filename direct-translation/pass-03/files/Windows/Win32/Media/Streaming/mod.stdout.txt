@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Win32/Media/Streaming/mod: 7 generated; 12 syntax candidates; 16 unsupported

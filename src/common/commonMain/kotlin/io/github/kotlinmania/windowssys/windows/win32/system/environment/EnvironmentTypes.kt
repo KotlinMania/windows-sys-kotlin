@@ -1,56 +1,81 @@
-// port-lint: source Windows/Win32/System/Environment/mod.rs
 package io.github.kotlinmania.windowssys.windows.win32.system.environment
 
 public typealias ENCLAVE_SEALING_IDENTITY_POLICY = Int
 
-public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES {
-    public fun invoke(enclaveAddress: Long, numberOfBytes: ULong, sourceAddress: Long, pageProtection: UInt): Int
+public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGESFn {
+    public operator fun invoke(enclaveaddress: Long, numberofbytes: ULong, sourceaddress: Long, pageprotection: UInt): Int
 }
 
-public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD {
-    public fun invoke(threadDescriptor: Long): Int
+public typealias VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES = VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGESFn?
+
+public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREADFn {
+    public operator fun invoke(threaddescriptor: Long): Int
 }
 
-public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES {
-    public fun invoke(enclaveAddress: Long, numberOfBytes: ULong): Int
+public typealias VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD = VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREADFn?
+
+public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGESFn {
+    public operator fun invoke(enclaveaddress: Long, numberofbytes: ULong): Int
 }
 
-public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY {
-    public fun invoke(keyRequest: Long, requestedKeySize: UInt, returnedKey: Long): Int
+public typealias VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES = VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGESFn?
+
+public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEYFn {
+    public operator fun invoke(keyrequest: Long, requestedkeysize: UInt, returnedkey: Long): Int
 }
 
-public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA {
-    public fun invoke(buffer: Long, numberOfBytes: UInt, generation: Long): Int
+public typealias VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY = VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEYFn?
+
+public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATAFn {
+    public operator fun invoke(buffer: Long, numberofbytes: UInt, generation: Long): Int
 }
 
-public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT {
-    public fun invoke(enclaveData: Long, report: Long, bufferSize: UInt, outputSize: Long): Int
+public typealias VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA = VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATAFn?
+
+public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORTFn {
+    public operator fun invoke(enclavedata: Long, report: Long, buffersize: UInt, outputsize: Long): Int
 }
 
-public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION {
-    public fun invoke(enclaveInfo: Long): Int
+public typealias VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT = VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORTFn?
+
+public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATIONFn {
+    public operator fun invoke(enclaveinfo: Long): Int
 }
 
-public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD {
-    public fun invoke(threadDescriptor: Long): Int
+public typealias VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION = VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATIONFn?
+
+public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREADFn {
+    public operator fun invoke(threaddescriptor: Long): Int
 }
 
-public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES {
-    public fun invoke(enclaveAddress: Long, numberOfBytes: ULong, pageProtection: UInt): Int
+public typealias VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD = VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREADFn?
+
+public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGESFn {
+    public operator fun invoke(enclaveaddress: Long, numberofytes: ULong, pageprotection: UInt): Int
 }
 
-public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE {
-    public fun invoke(returnValue: ULong)
+public typealias VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES = VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGESFn?
+
+public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVEFn {
+    public operator fun invoke(returnvalue: ULong)
 }
 
-public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION {
-    public fun invoke(exceptionRecord: Long): Int
+public typealias VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE = VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVEFn?
+
+public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTIONFn {
+    public operator fun invoke(exceptionrecord: Long): Int
 }
 
-public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD {
-    public fun invoke(threadDescriptor: Long): Int
+public typealias VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION = VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTIONFn?
+
+public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREADFn {
+    public operator fun invoke(threaddescriptor: Long): Int
 }
 
-public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT {
-    public fun invoke(report: Long, reportSize: UInt): Int
+public typealias VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD = VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREADFn?
+
+public fun interface VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORTFn {
+    public operator fun invoke(report: Long, reportsize: UInt): Int
 }
+
+public typealias VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT = VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORTFn?

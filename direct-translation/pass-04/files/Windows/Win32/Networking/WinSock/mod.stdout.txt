@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/Networking/WinSock/mod: 1651 generated; 592 syntax candidates; 294 unsupported

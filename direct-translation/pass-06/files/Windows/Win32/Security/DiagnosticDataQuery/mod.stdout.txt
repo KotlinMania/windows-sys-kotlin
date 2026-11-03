@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-06/files/Windows/Win32/Security/DiagnosticDataQuery/mod: 4 generated; 62 syntax candidates; 0 unsupported

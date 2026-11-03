@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="nativeMacosTest.io.github.kotlinmania.rustkotlin.CursorLibraryBindingTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-24T22:19:10.297Z" hostname="EmberHarmony.local" time="0.0">
-  <properties/>
-  <testcase name="predicatesResolveAliasesAndRetainWrittenArgumentOrder[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.CursorLibraryBindingTest" time="0.0"/>
-  <testcase name="changedContractsWrongArgumentsAndShadowedCalleesReject[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.CursorLibraryBindingTest" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

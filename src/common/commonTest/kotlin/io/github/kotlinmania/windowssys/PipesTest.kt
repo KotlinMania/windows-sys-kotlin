@@ -1,4 +1,3 @@
-// port-lint: tests Windows/Win32/System/Pipes/mod.rs
 package io.github.kotlinmania.windowssys
 
 import io.github.kotlinmania.windowssys.windows.win32.system.pipes.NMPWAIT_NOWAIT

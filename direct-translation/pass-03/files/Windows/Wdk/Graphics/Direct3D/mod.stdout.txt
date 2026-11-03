@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Wdk/Graphics/Direct3D/mod: 1902 generated; 1097 syntax candidates; 724 unsupported

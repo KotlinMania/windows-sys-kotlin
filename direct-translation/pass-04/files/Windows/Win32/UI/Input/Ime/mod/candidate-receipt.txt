@@ -1,5 +1,0 @@
-DECLARATION CANDIDATE ONLY; not adopted, not ABI-validated, not a complete-translation receipt
-complete input parsed by proc-macro2-kotlin:0.1.7 and syn-kotlin:0.4.0; AST correspondence verified
-757 generated declarations; 81 unsupported declarations retained verbatim as comments
-137 additional syntax candidates requiring coder integration
-TranslationProfile(pointerWidth=64, overflowChecks=null, panic=null, debugAssertions=null, cfgTest=null, cfgFeatures={})

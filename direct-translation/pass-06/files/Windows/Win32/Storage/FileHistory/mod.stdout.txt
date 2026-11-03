@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-06/files/Windows/Win32/Storage/FileHistory/mod: 87 generated; 8 syntax candidates; 2 unsupported

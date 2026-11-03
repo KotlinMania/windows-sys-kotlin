@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/Storage/Nvme/mod: 554 generated; 287 syntax candidates; 332 unsupported

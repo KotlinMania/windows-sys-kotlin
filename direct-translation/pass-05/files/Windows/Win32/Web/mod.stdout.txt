@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-05/files/Windows/Win32/Web/mod: 0 generated; 0 syntax candidates; 1 unsupported

@@ -1,2 +1,0 @@
-index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
-0	Macro	NtDeviceIoControlFile	0	615	1	1	2	syntax	External declaration shape only: wire DLL=ntdll.dll, ABI=system, export=NtDeviceIoControlFile; preserve Rust unsafe-call contract. Resolve Rust path/import names in the destination module; spelling is preserved, not bound. Raw pointer levels/nullability retained; bind native pointee storage and preserve Rust const/mut restrictions. Source structure/type spelling emitted; coder integration and semantic validation remain separate.

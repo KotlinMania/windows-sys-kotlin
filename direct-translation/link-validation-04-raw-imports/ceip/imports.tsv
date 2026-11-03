@@ -1,2 +1,0 @@
-definition	archive	dll	target
-import-0.def	import-0.a	kernel32.dll	mingw_x64

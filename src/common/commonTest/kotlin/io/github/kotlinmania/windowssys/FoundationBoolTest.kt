@@ -1,4 +1,3 @@
-// port-lint: tests Windows/Win32/Foundation/mod.rs
 package io.github.kotlinmania.windowssys
 
 import io.github.kotlinmania.windowssys.windows.win32.foundation.FALSE

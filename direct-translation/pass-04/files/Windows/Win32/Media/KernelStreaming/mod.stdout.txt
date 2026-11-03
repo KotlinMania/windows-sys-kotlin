@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/Media/KernelStreaming/mod: 1638 generated; 376 syntax candidates; 776 unsupported

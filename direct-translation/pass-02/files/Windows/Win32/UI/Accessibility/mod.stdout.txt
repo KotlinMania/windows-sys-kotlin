@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/UI/Accessibility/mod: 907 generated; 613 unsupported

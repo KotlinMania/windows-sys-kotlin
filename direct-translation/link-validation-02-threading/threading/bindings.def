@@ -1,4 +1,0 @@
-headers = bindings.h
-headerFilter = bindings.h
-package = translated.threading.ffi
-linkerOpts = -luser32 -lkernel32 -lrtworkq -lapi-ms-win-core-wow64-l1-1-1

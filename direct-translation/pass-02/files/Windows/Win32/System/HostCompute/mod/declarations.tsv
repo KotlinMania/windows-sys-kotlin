@@ -1,2 +1,0 @@
-index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
-0	ItemType	HCS_CALLBACK	0	47	1	1	2	unsupported	non-scalar type Ptr unsupported

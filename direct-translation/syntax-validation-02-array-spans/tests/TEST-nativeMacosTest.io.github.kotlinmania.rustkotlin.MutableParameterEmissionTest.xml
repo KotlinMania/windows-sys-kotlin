@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="nativeMacosTest.io.github.kotlinmania.rustkotlin.MutableParameterEmissionTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-24T21:58:29.741Z" hostname="EmberHarmony.local" time="0.0">
-  <properties/>
-  <testcase name="parameterReassignmentUsesAnIndependentLocalSlot[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.MutableParameterEmissionTest" time="0.0"/>
-  <testcase name="mutableParametersRetainCommentsScopesAndCollisionSafety[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.MutableParameterEmissionTest" time="0.0"/>
-  <testcase name="unsupportedReferenceAndVisibilityDomainsStillReject[nativeMacos]" classname="nativeMacosTest.io.github.kotlinmania.rustkotlin.MutableParameterEmissionTest" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

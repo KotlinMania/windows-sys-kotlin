@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/NetworkManagement/Dns/mod: 411 generated; 283 unsupported

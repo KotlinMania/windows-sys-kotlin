@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/UI/Input/KeyboardAndMouse/mod: 418 generated; 89 syntax candidates; 44 unsupported

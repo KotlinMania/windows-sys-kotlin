@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/System/EventCollector/mod: 82 generated; 16 syntax candidates; 3 unsupported

@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-05/files/Windows/Win32/System/RemoteManagement/mod: 641 generated; 87 syntax candidates; 37 unsupported

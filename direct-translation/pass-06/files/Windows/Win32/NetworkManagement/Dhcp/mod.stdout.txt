@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-06/files/Windows/Win32/NetworkManagement/Dhcp/mod: 451 generated; 466 syntax candidates; 11 unsupported

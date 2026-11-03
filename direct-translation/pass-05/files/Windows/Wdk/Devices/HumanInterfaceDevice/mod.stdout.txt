@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-05/files/Windows/Wdk/Devices/HumanInterfaceDevice/mod: 0 generated; 10 syntax candidates; 2 unsupported

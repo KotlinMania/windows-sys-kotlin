@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/System/DistributedTransactionCoordinator/mod: 210 generated; 33 unsupported

@@ -1,130 +1,102 @@
 // port-lint: source core/literals.rs
-@file:OptIn(kotlin.ExperimentalUnsignedTypes::class)
-
 package io.github.kotlinmania.windowssys.core
 
-/**
- * A literal UTF-8 string with a trailing null terminator.
- */
-public fun s(value: String): PCSTR = LiteralArena.utf8(value)
-
-/**
- * A literal UTF-16 wide string with a trailing null terminator.
- */
-public fun w(value: String): PCWSTR = LiteralArena.utf16(value)
-
-internal object LiteralArena {
-    private val utf8Literals: MutableList<ByteArray> = mutableListOf()
-    private val utf16Literals: MutableList<CharArray> = mutableListOf()
-
-    fun utf8(value: String): PCSTR {
-        val bytes = value.encodeToByteArray() + 0
-        utf8Literals.add(bytes)
-        return utf8Literals.size.toLong()
-    }
-
-    fun utf16(value: String): PCWSTR {
-        val buffer = CharArray(value.length + 1)
-        var outputPos = 0
-        val bytes = value.encodeToByteArray()
-        var inputPos = 0
-        while (true) {
-            val decoded = decodeUtf8Char(bytes, inputPos) ?: break
-            var codePoint = decoded.first
-            inputPos = decoded.second
-            if (codePoint <= 0xFFFFu) {
-                buffer[outputPos] = codePoint.toInt().toChar()
-                outputPos += 1
-            } else {
-                codePoint -= 0x10000u
-                buffer[outputPos] = (0xD800u + (codePoint shr 10)).toInt().toChar()
-                outputPos += 1
-                buffer[outputPos] = (0xDC00u + (codePoint and 0x3FFu)).toInt().toChar()
-                outputPos += 1
-            }
-        }
-        buffer[outputPos] = '\u0000'
-        utf16Literals.add(buffer)
-        return utf16Literals.size.toLong()
-    }
-}
-
-@PublishedApi
-internal fun decodeUtf8Char(bytes: ByteArray, pos0: Int): Pair<UInt, Int>? {
-    var pos = pos0
+public fun decode_utf8_char(bytes: List<UByte>, pos: Int): Pair<UInt, Int>? {
+    var pos = pos
     if (bytes.size == pos) {
         return null
     }
-    val ch = bytes[pos].toUByte().toUInt()
+    val ch = bytes[pos].toUInt()
     pos += 1
-    if (ch <= 0x7Fu) {
+    if (ch <= 0x7f) {
         return Pair(ch, pos)
     }
-    if ((ch and 0xE0u) == 0xC0u) {
+    if ((ch and 0xe0) == 0xc0) {
         if (bytes.size - pos < 1) {
             return null
         }
-        val ch2 = bytes[pos].toUByte().toUInt()
+        val ch2 = bytes[pos].toUInt()
         pos += 1
-        if ((ch2 and 0xC0u) != 0x80u) {
+        if ((ch2 and 0xc0) != 0x80) {
             return null
         }
-        val result: UInt = ((ch and 0x1Fu) shl 6) or (ch2 and 0x3Fu)
-        if (result <= 0x7Fu) {
+        val result: UInt = ((ch and 0x1fu) shl 6) or (ch2 and 0x3fu)
+        if (result <= 0x7fu) {
             return null
         }
         return Pair(result, pos)
     }
-    if ((ch and 0xF0u) == 0xE0u) {
+    if ((ch and 0xf0) == 0xe0) {
         if (bytes.size - pos < 2) {
             return null
         }
-        val ch2 = bytes[pos].toUByte().toUInt()
+        val ch21 = bytes[pos].toUInt()
         pos += 1
-        val ch3 = bytes[pos].toUByte().toUInt()
+        val ch3 = bytes[pos].toUInt()
         pos += 1
-        if ((ch2 and 0xC0u) != 0x80u || (ch3 and 0xC0u) != 0x80u) {
+        if ((ch21 and 0xc0) != 0x80 || (ch3 and 0xc0) != 0x80) {
             return null
         }
-        val result = ((ch and 0x0Fu) shl 12) or ((ch2 and 0x3Fu) shl 6) or (ch3 and 0x3Fu)
-        if (result <= 0x7FFu || (0xD800u <= result && result <= 0xDFFFu)) {
+        val result1 = ((ch and 0x0f) shl 12) or ((ch21 and 0x3f) shl 6) or (ch3 and 0x3f)
+        if (result1 <= 0x7ff || (0xd800 <= result1 && result1 <= 0xdfff)) {
             return null
         }
-        return Pair(result, pos)
+        return Pair(result1, pos)
     }
-    if ((ch and 0xF8u) == 0xF0u) {
+    if ((ch and 0xf8) == 0xf0) {
         if (bytes.size - pos < 3) {
             return null
         }
-        val ch2 = bytes[pos].toUByte().toUInt()
+        val ch22 = bytes[pos].toUInt()
         pos += 1
-        val ch3 = bytes[pos].toUByte().toUInt()
+        val ch31 = bytes[pos].toUInt()
         pos += 1
-        val ch4 = bytes[pos].toUByte().toUInt()
+        val ch4 = bytes[pos].toUInt()
         pos += 1
-        if ((ch2 and 0xC0u) != 0x80u || (ch3 and 0xC0u) != 0x80u || (ch4 and 0xC0u) != 0x80u) {
+        if ((ch22 and 0xc0) != 0x80 || (ch31 and 0xc0) != 0x80 || (ch4 and 0xc0) != 0x80) {
             return null
         }
-        val result =
-            ((ch and 0x07u) shl 18) or ((ch2 and 0x3Fu) shl 12) or ((ch3 and 0x3Fu) shl 6) or (ch4 and 0x3Fu)
-        if (result <= 0xFFFFu || 0x10FFFFu < result) {
+        val result2 = ((ch and 0x07) shl 18) or ((ch22 and 0x3f) shl 12) or ((ch31 and 0x3f) shl 6) or (ch4 and 0x3f)
+        if (result2 <= 0xffff || 0x10ffff < result2) {
             return null
         }
-        return Pair(result, pos)
+        return Pair(result2, pos)
     }
     return null
 }
 
-@PublishedApi
-internal fun utf16Len(bytes: ByteArray): Int {
+public fun utf16_len(bytes: List<UByte>): Int {
     var pos = 0
     var len = 0
     while (true) {
-        val decoded = decodeUtf8Char(bytes, pos) ?: break
-        val codePoint = decoded.first
-        val newPos = decoded.second
-        pos = newPos
-        len += if (codePoint <= 0xFFFFu) 1 else 2
+        val matchVal = decode_utf8_char(bytes, pos)
+        if (matchVal == null) break
+        val code_point = matchVal.first
+        val new_pos = matchVal.second
+        pos = new_pos
+        len += if (code_point <= 0xffff) {
+            1
+        } else {
+            2
+        }
     }
     return len
 }
+
+private const val s_TEMPLATE: String = ".core.concat(\$s, '\\0').as_ptr()"
+
+private const val w_TEMPLATE: String = "{const INPUT:&[u8]= \$s.as_bytes(); const OUTPUT_LEN: usize= core.utf16_len(INPUT)+ 1; const OUTPUT:&[u16; OUTPUT_LEN]= {val var buffer=[0; OUTPUT_LEN]; val var input_pos= 0; val var output_pos= 0; whileLoop val Some((var code_point, new_pos))= core.decode_utf8_char(INPUT, input_pos) {input_pos= new_pos; ifBranch code_point<= 0xffff {buffer[output_pos]= code_point asTarget u16; output_pos+= 1; } elseBranch {code_point-= 0x10000; buffer[output_pos]= 0xd800+(code_point>> 10) asTarget u16; output_pos+= 1; buffer[output_pos]= 0xdc00+(code_point& 0x3ff) asTarget u16; output_pos+= 1; }}& {buffer}}; OUTPUT.as_ptr()}"
+
+/**
+ * A literal UTF-8 string with a trailing null terminator.
+ */
+
+public fun s(s: String = ""): String =
+    s_TEMPLATE.replace("\$s", s)
+
+/**
+ * A literal UTF-16 wide string with a trailing null terminator.
+ */
+
+public fun w(s: String = ""): String =
+    w_TEMPLATE.replace("\$s", s)

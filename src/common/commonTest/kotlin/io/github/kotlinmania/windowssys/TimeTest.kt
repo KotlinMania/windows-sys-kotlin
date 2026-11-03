@@ -1,4 +1,3 @@
-// port-lint: tests Windows/Win32/System/Time/mod.rs
 package io.github.kotlinmania.windowssys
 
 import io.github.kotlinmania.windowssys.windows.win32.foundation.SYSTEMTIME

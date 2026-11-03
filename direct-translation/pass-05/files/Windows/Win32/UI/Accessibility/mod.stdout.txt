@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-05/files/Windows/Win32/UI/Accessibility/mod: 907 generated; 171 syntax candidates; 442 unsupported

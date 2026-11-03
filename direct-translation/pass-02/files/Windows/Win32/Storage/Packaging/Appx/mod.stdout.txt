@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/Storage/Packaging/Appx/mod: 189 generated; 99 unsupported

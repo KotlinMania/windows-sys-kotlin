@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/System/EventLog/mod: 217 generated; 61 syntax candidates; 5 unsupported

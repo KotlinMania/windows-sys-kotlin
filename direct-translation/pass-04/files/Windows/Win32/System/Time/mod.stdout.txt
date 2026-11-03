@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-04/files/Windows/Win32/System/Time/mod: 5 generated; 17 syntax candidates; 8 unsupported

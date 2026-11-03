@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Win32/Security/Authentication/Identity/mod: 1831 generated; 1198 unsupported

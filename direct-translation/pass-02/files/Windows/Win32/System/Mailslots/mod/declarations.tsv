@@ -1,5 +1,0 @@
-index	kind	name	source_utf16_start	source_utf16_end	line	column	kotlin_line	status	diagnostic
-0	Macro		0	290	1	1	2	unsupported	declaration Macro has no candidate rule
-1	Macro		291	582	3	1	6	unsupported	declaration Macro has no candidate rule
-2	Macro		583	826	5	1	10	unsupported	declaration Macro has no candidate rule
-3	Macro		827	985	6	1	13	unsupported	declaration Macro has no candidate rule

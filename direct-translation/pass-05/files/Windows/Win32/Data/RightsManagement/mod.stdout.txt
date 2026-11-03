@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-05/files/Windows/Win32/Data/RightsManagement/mod: 103 generated; 92 syntax candidates; 5 unsupported

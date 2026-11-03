@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Win32/Storage/CloudFilters/mod: 236 generated; 74 syntax candidates; 30 unsupported

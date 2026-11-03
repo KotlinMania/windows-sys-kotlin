@@ -1,0 +1,239 @@
+package io.github.kotlinmania.windowssys.windows.win32.networking.winsock
+
+import io.github.kotlinmania.windowssys.core.GUID
+
+public val WSAHOST_NOT_FOUND: WSA_ERROR = 11001
+
+public val WSAID_ACCEPTEX: GUID = GUID.from_u128(0xb5367df1cbac11cfuL, 0x95ca00805f48a192uL)
+
+public val WSAID_CONNECTEX: GUID = GUID.from_u128(0x25a207b9ddf34660uL, 0x8ee976e58c74063euL)
+
+public val WSAID_DISCONNECTEX: GUID = GUID.from_u128(0x7fda2e118630436fuL, 0xa031f536a6eec157uL)
+
+public val WSAID_GETACCEPTEXSOCKADDRS: GUID = GUID.from_u128(0xb5367df2cbac11cfuL, 0x95ca00805f48a192uL)
+
+public val WSAID_MULTIPLE_RIO: GUID = GUID.from_u128(0x8509e08196dd4005uL, 0xb1659e2ee8c79e3fuL)
+
+public val WSAID_TRANSMITFILE: GUID = GUID.from_u128(0xb5367df0cbac11cfuL, 0x95ca00805f48a192uL)
+
+public val WSAID_TRANSMITPACKETS: GUID = GUID.from_u128(0xd9689da01f9011d3uL, 0x997100c04f68c876uL)
+
+public val WSAID_WSAPOLL: GUID = GUID.from_u128(0x18c76f85dc664964uL, 0x972e23c27238312buL)
+
+public val WSAID_WSARECVMSG: GUID = GUID.from_u128(0xf689d7c86f1f436buL, 0x8a53e54fe351c322uL)
+
+public val WSAID_WSASENDMSG: GUID = GUID.from_u128(0xa441e712754f43cauL, 0x84a70dee44cf606duL)
+
+public val WSANOTINITIALISED: WSA_ERROR = 10093
+
+public val WSANO_DATA: WSA_ERROR = 11004
+
+public val WSANO_RECOVERY: WSA_ERROR = 11003
+
+public val WSAPROTOCOL_LEN: UInt = 255u
+
+public val WSASERVICE_NOT_FOUND: WSA_ERROR = 10108
+
+public val WSASYSCALLFAILURE: WSA_ERROR = 10107
+
+public val WSASYSNOTREADY: WSA_ERROR = 10091
+
+public val WSASYS_STATUS_LEN: UInt = 128u
+
+public val WSATRY_AGAIN: WSA_ERROR = 11002
+
+public val WSATYPE_NOT_FOUND: WSA_ERROR = 10109
+
+public val WSAVERNOTSUPPORTED: WSA_ERROR = 10092
+
+public val WSA_E_CANCELLED: WSA_ERROR = 10111
+
+public val WSA_E_NO_MORE: WSA_ERROR = 10110
+
+public val WSA_FLAG_ACCESS_SYSTEM_SECURITY: UInt = 64u
+
+public val WSA_FLAG_MULTIPOINT_C_LEAF: UInt = 4u
+
+public val WSA_FLAG_MULTIPOINT_C_ROOT: UInt = 2u
+
+public val WSA_FLAG_MULTIPOINT_D_LEAF: UInt = 16u
+
+public val WSA_FLAG_MULTIPOINT_D_ROOT: UInt = 8u
+
+public val WSA_FLAG_NO_HANDLE_INHERIT: UInt = 128u
+
+public val WSA_FLAG_OVERLAPPED: UInt = 1u
+
+public val WSA_FLAG_REGISTERED_IO: UInt = 256u
+
+public val WSA_INFINITE: UInt = 4294967295u
+
+public val WSA_INVALID_EVENT: WSAEVENT = 0.toLong()
+
+public val WSA_INVALID_HANDLE: WSA_ERROR = 6
+
+public val WSA_INVALID_PARAMETER: WSA_ERROR = 87
+
+public val WSA_IO_INCOMPLETE: WSA_ERROR = 996
+
+public val WSA_IO_PENDING: WSA_ERROR = 997
+
+public val WSA_IPSEC_NAME_POLICY_ERROR: WSA_ERROR = 11033
+
+public val WSA_MAXIMUM_WAIT_EVENTS: UInt = 64u
+
+public val WSA_NOT_ENOUGH_MEMORY: WSA_ERROR = 8
+
+public val WSA_OPERATION_ABORTED: WSA_ERROR = 995
+
+public val WSA_QOS_ADMISSION_FAILURE: WSA_ERROR = 11010
+
+public val WSA_QOS_BAD_OBJECT: WSA_ERROR = 11013
+
+public val WSA_QOS_BAD_STYLE: WSA_ERROR = 11012
+
+public val WSA_QOS_EFILTERCOUNT: WSA_ERROR = 11021
+
+public val WSA_QOS_EFILTERSTYLE: WSA_ERROR = 11019
+
+public val WSA_QOS_EFILTERTYPE: WSA_ERROR = 11020
+
+public val WSA_QOS_EFLOWCOUNT: WSA_ERROR = 11023
+
+public val WSA_QOS_EFLOWDESC: WSA_ERROR = 11026
+
+public val WSA_QOS_EFLOWSPEC: WSA_ERROR = 11017
+
+public val WSA_QOS_EOBJLENGTH: WSA_ERROR = 11022
+
+public val WSA_QOS_EPOLICYOBJ: WSA_ERROR = 11025
+
+public val WSA_QOS_EPROVSPECBUF: WSA_ERROR = 11018
+
+public val WSA_QOS_EPSFILTERSPEC: WSA_ERROR = 11028
+
+public val WSA_QOS_EPSFLOWSPEC: WSA_ERROR = 11027
+
+public val WSA_QOS_ESDMODEOBJ: WSA_ERROR = 11029
+
+public val WSA_QOS_ESERVICETYPE: WSA_ERROR = 11016
+
+public val WSA_QOS_ESHAPERATEOBJ: WSA_ERROR = 11030
+
+public val WSA_QOS_EUNKOWNPSOBJ: WSA_ERROR = 11024
+
+public val WSA_QOS_GENERIC_ERROR: WSA_ERROR = 11015
+
+public val WSA_QOS_NO_RECEIVERS: WSA_ERROR = 11008
+
+public val WSA_QOS_NO_SENDERS: WSA_ERROR = 11007
+
+public val WSA_QOS_POLICY_FAILURE: WSA_ERROR = 11011
+
+public val WSA_QOS_RECEIVERS: WSA_ERROR = 11005
+
+public val WSA_QOS_REQUEST_CONFIRMED: WSA_ERROR = 11009
+
+public val WSA_QOS_RESERVED_PETYPE: WSA_ERROR = 11031
+
+public val WSA_QOS_SENDERS: WSA_ERROR = 11006
+
+public val WSA_QOS_TRAFFIC_CTRL_ERROR: WSA_ERROR = 11014
+
+public val WSA_SECURE_HOST_NOT_FOUND: WSA_ERROR = 11032
+
+public val WSA_WAIT_EVENT_0: WSA_ERROR = 0
+
+public val WSA_WAIT_FAILED: UInt = 4294967295u
+
+public val WSA_WAIT_IO_COMPLETION: WSA_ERROR = 192
+
+public val WSA_WAIT_TIMEOUT: UInt = 258u
+
+public val WSK_SO_BASE: UInt = 16384u
+
+public val WSPDESCRIPTION_LEN: UInt = 255u
+
+public val WSS_OPERATION_IN_PROGRESS: Int = 259
+
+public val WsaBehaviorAll: WSA_COMPATIBILITY_BEHAVIOR_ID = 0
+
+public val WsaBehaviorAutoTuning: WSA_COMPATIBILITY_BEHAVIOR_ID = 2
+
+public val WsaBehaviorReceiveBuffering: WSA_COMPATIBILITY_BEHAVIOR_ID = 1
+
+public val XP1_CONNECTIONLESS: UInt = 1u
+
+public val XP1_CONNECT_DATA: UInt = 128u
+
+public val XP1_DISCONNECT_DATA: UInt = 256u
+
+public val XP1_EXPEDITED_DATA: UInt = 64u
+
+public val XP1_GRACEFUL_CLOSE: UInt = 32u
+
+public val XP1_GUARANTEED_DELIVERY: UInt = 2u
+
+public val XP1_GUARANTEED_ORDER: UInt = 4u
+
+public val XP1_IFS_HANDLES: UInt = 131072u
+
+public val XP1_INTERRUPT: UInt = 16384u
+
+public val XP1_MESSAGE_ORIENTED: UInt = 8u
+
+public val XP1_MULTIPOINT_CONTROL_PLANE: UInt = 2048u
+
+public val XP1_MULTIPOINT_DATA_PLANE: UInt = 4096u
+
+public val XP1_PARTIAL_MESSAGE: UInt = 262144u
+
+public val XP1_PSEUDO_STREAM: UInt = 16u
+
+public val XP1_QOS_SUPPORTED: UInt = 8192u
+
+public val XP1_SAN_SUPPORT_SDP: UInt = 524288u
+
+public val XP1_SUPPORT_BROADCAST: UInt = 512u
+
+public val XP1_SUPPORT_MULTIPOINT: UInt = 1024u
+
+public val XP1_UNI_RECV: UInt = 65536u
+
+public val XP1_UNI_SEND: UInt = 32768u
+
+public val XP_BANDWIDTH_ALLOCATION: UInt = 2048u
+
+public val XP_CONNECTIONLESS: UInt = 1u
+
+public val XP_CONNECT_DATA: UInt = 128u
+
+public val XP_DISCONNECT_DATA: UInt = 256u
+
+public val XP_ENCRYPTS: UInt = 8192u
+
+public val XP_EXPEDITED_DATA: UInt = 64u
+
+public val XP_FRAGMENTATION: UInt = 4096u
+
+public val XP_GRACEFUL_CLOSE: UInt = 32u
+
+public val XP_GUARANTEED_DELIVERY: UInt = 2u
+
+public val XP_GUARANTEED_ORDER: UInt = 4u
+
+public val XP_MESSAGE_ORIENTED: UInt = 8u
+
+public val XP_PSEUDO_STREAM: UInt = 16u
+
+public val XP_SUPPORTS_BROADCAST: UInt = 512u
+
+public val XP_SUPPORTS_MULTICAST: UInt = 1024u
+
+public val _BIG_ENDIAN: UInt = 4321u
+
+public val _LITTLE_ENDIAN: UInt = 1234u
+
+public val _PDP_ENDIAN: UInt = 3412u
+
+public val _SS_MAXSIZE: UInt = 128u

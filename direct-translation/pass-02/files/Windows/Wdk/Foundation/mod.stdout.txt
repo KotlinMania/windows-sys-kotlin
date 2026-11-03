@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-02/files/Windows/Wdk/Foundation/mod: 124 generated; 251 unsupported

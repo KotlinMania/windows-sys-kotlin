@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-05/files/Windows/Win32/Media/Multimedia/mod: 4640 generated; 357 syntax candidates; 90 unsupported

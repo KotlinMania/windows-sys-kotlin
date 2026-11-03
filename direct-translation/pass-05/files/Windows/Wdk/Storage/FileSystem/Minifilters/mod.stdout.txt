@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-05/files/Windows/Wdk/Storage/FileSystem/Minifilters/mod: 118 generated; 371 syntax candidates; 76 unsupported

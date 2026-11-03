@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-03/files/Windows/Win32/Security/ExtensibleAuthenticationProtocol/mod: 480 generated; 66 syntax candidates; 128 unsupported

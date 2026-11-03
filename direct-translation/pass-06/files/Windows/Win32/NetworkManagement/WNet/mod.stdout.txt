@@ -1,1 +1,0 @@
-candidate ../windows-sys-kotlin/direct-translation/pass-06/files/Windows/Win32/NetworkManagement/WNet/mod: 140 generated; 124 syntax candidates; 0 unsupported
