@@ -418,9 +418,63 @@ public final class NodeFfiBuilder {
         String cc = options.cc() != null ? options.cc() : environmentCompiler("CC", windows ? (toolset.isEmpty() ? "cl.exe" : "clang-cl.exe") : "cc");
         String cxx = options.cxx() != null ? options.cxx() : environmentCompiler("CXX", windows ? (toolset.isEmpty() ? "cl.exe" : "clang-cl.exe") : "c++");
         List<Path> objects = new ArrayList<>();
+        List<Path> resolvedSources = new ArrayList<>();
         for (String source : option(target, "sources")) {
-            Path input = resolveInput(addon, source).toRealPath();
-            if (!input.startsWith(project) || !Files.isRegularFile(input)) {
+            Path candidate = resolveInput(addon, source);
+            if (Files.isRegularFile(candidate) && !source.endsWith("_bindings.cpp")) {
+                resolvedSources.add(candidate.toRealPath());
+            } else {
+                Path parentDir = candidate.getParent();
+                if (parentDir != null && Files.isDirectory(parentDir)) {
+                    try (java.util.stream.Stream<Path> stream = Files.list(parentDir)) {
+                        stream.filter(p -> Files.isRegularFile(p) && p.getFileName().toString().endsWith("_bindings.cpp"))
+                              .sorted(Comparator.comparing(p -> p.getFileName().toString()))
+                              .forEach(p -> {
+                                  try {
+                                      resolvedSources.add(p.toRealPath());
+                                  } catch (IOException e) {
+                                      throw new IllegalStateException(e);
+                                  }
+                              });
+                    }
+                }
+                if (resolvedSources.isEmpty() && Files.isRegularFile(candidate)) {
+                    resolvedSources.add(candidate.toRealPath());
+                }
+            }
+        }
+        boolean usesRegistrarHead = false;
+        boolean definesAddonEntry = false;
+        for (Path input : resolvedSources) {
+            String text = Files.readString(input, StandardCharsets.UTF_8);
+            if (text.contains("km_napi_registrar_head")) {
+                usesRegistrarHead = true;
+            }
+            if (text.contains("NODE_API_MODULE(") || text.contains("NAPI_MODULE(")) {
+                definesAddonEntry = true;
+            }
+        }
+        if (usesRegistrarHead && !definesAddonEntry) {
+            Path syntheticEntry = temporary.resolve("km_napi_entry.cpp");
+            Files.writeString(syntheticEntry,
+                "#include <napi.h>\n" +
+                "typedef Napi::Object (*km_napi_registrar_fn)(Napi::Env, Napi::Object);\n" +
+                "struct km_napi_registrar_node { km_napi_registrar_fn fn; km_napi_registrar_node* next; };\n" +
+                "km_napi_registrar_node* km_napi_registrar_head = nullptr;\n" +
+                "static Napi::Object InitAll(Napi::Env env, Napi::Object exports) {\n" +
+                "    for (km_napi_registrar_node* cur = km_napi_registrar_head; cur != nullptr; cur = cur->next) {\n" +
+                "        cur->fn(env, exports);\n" +
+                "    }\n" +
+                "    return exports;\n" +
+                "}\n" +
+                "NODE_API_MODULE(NODE_GYP_MODULE_NAME, InitAll)\n",
+                StandardCharsets.UTF_8
+            );
+            resolvedSources.add(syntheticEntry.toRealPath());
+        }
+        for (Path input : resolvedSources) {
+            String source = input.getFileName().toString();
+            if ((!input.startsWith(project) && !input.startsWith(temporary.toRealPath())) || !Files.isRegularFile(input)) {
                 throw new IllegalArgumentException("Native source must be a file inside the owning project: " + input);
             }
             boolean cpp = source.endsWith(".cc") || source.endsWith(".cpp") || source.endsWith(".cxx");

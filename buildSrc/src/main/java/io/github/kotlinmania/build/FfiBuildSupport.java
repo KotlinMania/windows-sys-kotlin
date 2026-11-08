@@ -53,18 +53,16 @@ public final class FfiBuildSupport {
         String wrapperTaskName = "compile" + ffiName + "WrapperFor" + targetCapitalized;
         return project.getTasks().register(wrapperTaskName, ExecTask.class, task -> {
             task.setGroup("build");
-            task.setDescription("Compiles " + ffiWrapperBase + ".c into a static library for " + konanTargetName);
-            File cSource = project.file("src/native/interop/cinterop/" + ffiWrapperBase + ".c");
-            File hSource = project.file("src/native/interop/cinterop/" + ffiWrapperBase + ".h");
+            task.setDescription("Compiles native C/C++ wrapper sources into static libraries for " + konanTargetName);
+            File cinteropDir = project.file("src/native/interop/cinterop");
             File outDir = project.getLayout().getBuildDirectory().dir("cinterop-targets/" + konanTargetName).get().getAsFile();
             File outFile = new File(outDir, ffiWrapperBase + ".a");
-            task.getInputs().file(cSource);
-            task.getInputs().file(hSource);
+            task.getInputs().files(project.fileTree(cinteropDir, spec -> spec.include("*.c", "*.cpp", "*.h", "*.hpp")));
             if (konanTargetName.startsWith("linux")) {
                 task.getInputs().dir(rootProject.file("buildSrc/src/main/java"));
                 task.getOutputs().file(new File(outDir, "native-archive-verification.json"));
             }
-            task.getOutputs().file(outFile);
+            task.getOutputs().dir(outDir);
 
             task.doLast(t -> {
                 outDir.mkdirs();
@@ -74,147 +72,190 @@ public final class FfiBuildSupport {
                 if (konanTargetName.startsWith("linux")) {
                     new File(outDir, "native-archive-verification.json").delete();
                 }
-                File tempObj = new File(outDir, ffiWrapperBase + ".o");
+                List<File> wrapperSources = new ArrayList<>(
+                    project.fileTree(cinteropDir, spec -> spec.include("*_wrapper.c", "*_wrapper.cpp")).getFiles()
+                );
+                wrapperSources.sort((a, b) -> a.getName().compareTo(b.getName()));
+                if (wrapperSources.isEmpty()) {
+                    File singleC = new File(cinteropDir, ffiWrapperBase + ".c");
+                    File singleCpp = new File(cinteropDir, ffiWrapperBase + ".cpp");
+                    if (singleC.isFile()) {
+                        wrapperSources.add(singleC);
+                    } else if (singleCpp.isFile()) {
+                        wrapperSources.add(singleCpp);
+                    }
+                }
+                if (wrapperSources.isEmpty()) {
+                    throw new GradleException("No native wrapper C/C++ sources found in " + cinteropDir);
+                }
                 File konanDeps = project.getLayout().getBuildDirectory().dir("native-wrapper-dependencies").get().getAsFile();
                 String os = System.getProperty("os.name", "").toLowerCase(Locale.ROOT);
                 boolean isMac = os.contains("mac");
                 boolean isLinux = os.contains("linux");
                 boolean isWindows = os.contains("windows");
                 ExecOperations execOps = task.getExecOperations();
+                List<File> allObjFiles = new ArrayList<>();
 
-                if (isMac && (konanTargetName.startsWith("macos") || konanTargetName.startsWith("ios")
-                    || konanTargetName.startsWith("tvos") || konanTargetName.startsWith("watchos"))) {
-                    String appleTriple;
-                    String sdkName;
-                    switch (konanTargetName) {
-                        case "macos_arm64" -> { appleTriple = "arm64-apple-macos14.0"; sdkName = "macosx"; }
-                        case "macos_x64" -> { appleTriple = "x86_64-apple-macos14.0"; sdkName = "macosx"; }
-                        case "ios_arm64" -> { appleTriple = "arm64-apple-ios14.0"; sdkName = "iphoneos"; }
-                        case "ios_simulator_arm64" -> { appleTriple = "arm64-apple-ios14.0-simulator"; sdkName = "iphonesimulator"; }
-                        case "ios_x64" -> { appleTriple = "x86_64-apple-ios14.0-simulator"; sdkName = "iphonesimulator"; }
-                        case "watchos_device_arm64" -> { appleTriple = "arm64-apple-watchos7.0"; sdkName = "watchos"; }
-                        case "watchos_simulator_arm64" -> { appleTriple = "arm64-apple-watchos7.0-simulator"; sdkName = "watchsimulator"; }
-                        case "tvos_arm64" -> { appleTriple = "arm64-apple-tvos14.0"; sdkName = "appletvos"; }
-                        case "tvos_simulator_arm64" -> { appleTriple = "arm64-apple-tvos14.0-simulator"; sdkName = "appletvsimulator"; }
-                        default -> { appleTriple = "arm64-apple-macos14.0"; sdkName = "macosx"; }
+                for (File srcFile : wrapperSources) {
+                    String srcName = srcFile.getName();
+                    int dotIdx = srcName.lastIndexOf('.');
+                    String stemBase = dotIdx > 0 ? srcName.substring(0, dotIdx) : srcName;
+                    boolean isCpp = srcName.endsWith(".cpp") || srcName.endsWith(".cxx") || srcName.endsWith(".cc");
+                    File tempObj = new File(outDir, stemBase + ".o");
+                    File stemArchive = new File(outDir, stemBase + ".a");
+                    if (stemArchive.exists()) {
+                        stemArchive.delete();
                     }
-                    execOps.exec(s -> s.commandLine(
-                        "xcrun", "-sdk", sdkName, "clang", "-target", appleTriple,
-                        "-Wall", "-Wextra", "-Werror", "-c", "-I" + cSource.getParent(),
-                        cSource.getAbsolutePath(), "-o", tempObj.getAbsolutePath()
-                    )).assertNormalExitValue();
-                    execOps.exec(s -> s.commandLine(
-                        "xcrun", "-sdk", sdkName, "ar", "rcs", outFile.getAbsolutePath(), tempObj.getAbsolutePath()
-                    )).assertNormalExitValue();
-                } else if (konanTargetName.startsWith("android")) {
-                    String hostToolchain = isMac ? "osx" : "linux";
-                    File ndkDir = ensureKonanDependency(
-                        project, "target-toolchain-2-" + hostToolchain + "-android_ndk", konanDataDir, konanDeps, execOps
-                    );
-                    ensureKonanDependency(project, "target-sysroot-1-android_ndk", konanDataDir, konanDeps, execOps);
-                    File sysroot = new File(ndkDir, "sysroot");
-                    File clangBin = konanTargetName.contains("arm64")
-                        ? new File(ndkDir, "bin/aarch64-linux-android21-clang")
-                        : new File(ndkDir, "bin/x86_64-linux-android21-clang");
-                    File arBin = konanTargetName.contains("arm64")
-                        ? new File(ndkDir, "bin/aarch64-linux-android-ar")
-                        : new File(ndkDir, "bin/x86_64-linux-android-ar");
-                    if (clangBin.exists() && sysroot.exists()) {
-                        execOps.exec(s -> s.commandLine(
-                            clangBin.getAbsolutePath(), "--sysroot=" + sysroot.getAbsolutePath(),
-                            "-fPIC", "-Wall", "-Wextra", "-Werror", "-c", "-I" + cSource.getParent(),
-                            cSource.getAbsolutePath(), "-o", tempObj.getAbsolutePath()
-                        )).assertNormalExitValue();
-                        execOps.exec(s -> s.commandLine(
-                            arBin.getAbsolutePath(), "rcs", outFile.getAbsolutePath(), tempObj.getAbsolutePath()
-                        )).assertNormalExitValue();
-                    } else {
-                        copyPrebuilt(project, konanTargetName, ffiWrapperBase, outFile);
-                    }
-                } else if (konanTargetName.startsWith("linux")) {
-                    String targetTriple = konanTargetName.contains("arm64")
-                        ? "aarch64-unknown-linux-gnu" : "x86_64-unknown-linux-gnu";
-                    String gccDirName = konanTargetName.contains("arm64")
-                        ? "aarch64-unknown-linux-gnu-gcc-8.3.0-glibc-2.25-kernel-4.9-2"
-                        : "x86_64-unknown-linux-gnu-gcc-8.3.0-glibc-2.19-kernel-4.9-2";
-                    if (isLinux) {
-                        File gccDirectory = ensureKonanDependency(project, gccDirName, konanDataDir, konanDeps, execOps);
-                        File sysroot = new File(gccDirectory, targetTriple + "/sysroot");
-                        if (!sysroot.isDirectory()) {
-                            throw new GradleException("Missing target sysroot for " + konanTargetName + ": " + sysroot);
+
+                    if (isMac && (konanTargetName.startsWith("macos") || konanTargetName.startsWith("ios")
+                        || konanTargetName.startsWith("tvos") || konanTargetName.startsWith("watchos"))) {
+                        String appleTriple;
+                        String sdkName;
+                        switch (konanTargetName) {
+                            case "macos_arm64" -> { appleTriple = "arm64-apple-macos14.0"; sdkName = "macosx"; }
+                            case "ios_arm64" -> { appleTriple = "arm64-apple-ios14.0"; sdkName = "iphoneos"; }
+                            case "ios_simulator_arm64" -> { appleTriple = "arm64-apple-ios14.0-simulator"; sdkName = "iphonesimulator"; }
+                            case "watchos_device_arm64" -> { appleTriple = "arm64-apple-watchos7.0"; sdkName = "watchos"; }
+                            case "watchos_simulator_arm64" -> { appleTriple = "arm64-apple-watchos7.0-simulator"; sdkName = "watchsimulator"; }
+                            case "tvos_arm64" -> { appleTriple = "arm64-apple-tvos14.0"; sdkName = "appletvos"; }
+                            case "tvos_simulator_arm64" -> { appleTriple = "arm64-apple-tvos14.0-simulator"; sdkName = "appletvsimulator"; }
+                            default -> { appleTriple = "arm64-apple-macos14.0"; sdkName = "macosx"; }
                         }
                         execOps.exec(s -> s.commandLine(
-                            "clang", "--target=" + targetTriple, "--sysroot=" + sysroot.getAbsolutePath(),
-                            "-fPIC", "-Wall", "-Wextra", "-Werror", "-c", "-I" + cSource.getParent(),
-                            cSource.getAbsolutePath(), "-o", tempObj.getAbsolutePath()
+                            "xcrun", "-sdk", sdkName, isCpp ? "clang++" : "clang", "-target", appleTriple,
+                            "-Wall", "-Wextra", "-Werror", "-Wno-unused-parameter", "-c", "-I" + srcFile.getParent(),
+                            srcFile.getAbsolutePath(), "-o", tempObj.getAbsolutePath()
                         )).assertNormalExitValue();
                         execOps.exec(s -> s.commandLine(
-                            "ar", "rcs", outFile.getAbsolutePath(), tempObj.getAbsolutePath()
+                            "xcrun", "-sdk", sdkName, "ar", "rcs", stemArchive.getAbsolutePath(), tempObj.getAbsolutePath()
                         )).assertNormalExitValue();
-                    } else if (isMac) {
-                        File gccDirectory = ensureKonanDependency(project, gccDirName, konanDataDir, konanDeps, execOps);
-                        File ndkDirectory = ensureKonanDependency(
-                            project, "target-toolchain-2-osx-android_ndk", konanDataDir, konanDeps, execOps
+                    } else if (konanTargetName.startsWith("android")) {
+                        String hostToolchain = isMac ? "osx" : "linux";
+                        File ndkDir = ensureKonanDependency(
+                            project, "target-toolchain-2-" + hostToolchain + "-android_ndk", konanDataDir, konanDeps, execOps
                         );
-                        File sysroot = new File(gccDirectory, targetTriple + "/sysroot");
-                        File llvmAr = new File(ndkDirectory, "bin/llvm-ar");
-                        if (sysroot.exists() && llvmAr.exists()) {
+                        ensureKonanDependency(project, "target-sysroot-1-android_ndk", konanDataDir, konanDeps, execOps);
+                        File sysroot = new File(ndkDir, "sysroot");
+                        String clangSuffix = isCpp ? "clang++" : "clang";
+                        File clangBin = konanTargetName.contains("arm64")
+                            ? new File(ndkDir, "bin/aarch64-linux-android21-" + clangSuffix)
+                            : new File(ndkDir, "bin/x86_64-linux-android21-" + clangSuffix);
+                        File arBin = konanTargetName.contains("arm64")
+                            ? new File(ndkDir, "bin/aarch64-linux-android-ar")
+                            : new File(ndkDir, "bin/x86_64-linux-android-ar");
+                        if (clangBin.exists() && sysroot.exists()) {
                             execOps.exec(s -> s.commandLine(
-                                "clang", "--target=" + targetTriple, "--sysroot=" + sysroot.getAbsolutePath(),
-                                "-fPIC", "-Wall", "-Wextra", "-Werror", "-c", "-I" + cSource.getParent(),
-                                cSource.getAbsolutePath(), "-o", tempObj.getAbsolutePath()
+                                clangBin.getAbsolutePath(), "--sysroot=" + sysroot.getAbsolutePath(),
+                                "-fPIC", "-Wall", "-Wextra", "-Werror", "-Wno-unused-parameter", "-c", "-I" + srcFile.getParent(),
+                                srcFile.getAbsolutePath(), "-o", tempObj.getAbsolutePath()
                             )).assertNormalExitValue();
                             execOps.exec(s -> s.commandLine(
-                                llvmAr.getAbsolutePath(), "rcs", outFile.getAbsolutePath(), tempObj.getAbsolutePath()
+                                arBin.getAbsolutePath(), "rcs", stemArchive.getAbsolutePath(), tempObj.getAbsolutePath()
                             )).assertNormalExitValue();
                         } else {
-                            copyPrebuilt(project, konanTargetName, ffiWrapperBase, outFile);
+                            copyPrebuilt(project, konanTargetName, stemBase, stemArchive);
                         }
-                    } else {
-                        copyPrebuilt(project, konanTargetName, ffiWrapperBase, outFile);
-                    }
-                } else if (konanTargetName.startsWith("mingw")) {
-                    File mingwSysroot = ensureKonanDependency(project, "msys2-mingw-w64-x86_64-2", konanDataDir, konanDeps, execOps);
-                    File arExe = new File(mingwSysroot, "bin/ar.exe");
-                    if (isWindows && mingwSysroot.exists()) {
-                        execOps.exec(s -> s.commandLine(
-                            "clang", "--target=x86_64-w64-mingw32", "--sysroot=" + mingwSysroot.getAbsolutePath(),
-                            "-Wall", "-Wextra", "-Werror", "-c", "-I" + cSource.getParent(),
-                            cSource.getAbsolutePath(), "-o", tempObj.getAbsolutePath()
-                        )).assertNormalExitValue();
-                        execOps.exec(s -> s.commandLine(
-                            arExe.exists() ? arExe.getAbsolutePath() : "ar", "rcs", outFile.getAbsolutePath(), tempObj.getAbsolutePath()
-                        )).assertNormalExitValue();
-                    } else if (isMac) {
-                        File ndkDirectory = ensureKonanDependency(
-                            project, "target-toolchain-2-osx-android_ndk", konanDataDir, konanDeps, execOps
-                        );
-                        File llvmAr = new File(ndkDirectory, "bin/llvm-ar");
-                        if (mingwSysroot.exists() && llvmAr.exists()) {
+                    } else if (konanTargetName.startsWith("linux")) {
+                        String targetTriple = konanTargetName.contains("arm64")
+                            ? "aarch64-unknown-linux-gnu" : "x86_64-unknown-linux-gnu";
+                        String gccDirName = konanTargetName.contains("arm64")
+                            ? "aarch64-unknown-linux-gnu-gcc-8.3.0-glibc-2.25-kernel-4.9-2"
+                            : "x86_64-unknown-linux-gnu-gcc-8.3.0-glibc-2.19-kernel-4.9-2";
+                        if (isLinux) {
+                            File gccDirectory = ensureKonanDependency(project, gccDirName, konanDataDir, konanDeps, execOps);
+                            File sysroot = new File(gccDirectory, targetTriple + "/sysroot");
+                            if (!sysroot.isDirectory()) {
+                                throw new GradleException("Missing target sysroot for " + konanTargetName + ": " + sysroot);
+                            }
                             execOps.exec(s -> s.commandLine(
-                                "clang", "--target=x86_64-w64-mingw32", "--sysroot=" + mingwSysroot.getAbsolutePath(),
-                                "-Wall", "-Wextra", "-Werror", "-c", "-I" + cSource.getParent(),
-                                cSource.getAbsolutePath(), "-o", tempObj.getAbsolutePath()
+                                isCpp ? "clang++" : "clang", "--target=" + targetTriple, "--sysroot=" + sysroot.getAbsolutePath(),
+                                "-fPIC", "-Wall", "-Wextra", "-Werror", "-Wno-unused-parameter", "-c", "-I" + srcFile.getParent(),
+                                srcFile.getAbsolutePath(), "-o", tempObj.getAbsolutePath()
                             )).assertNormalExitValue();
                             execOps.exec(s -> s.commandLine(
-                                llvmAr.getAbsolutePath(), "rcs", outFile.getAbsolutePath(), tempObj.getAbsolutePath()
+                                "ar", "rcs", stemArchive.getAbsolutePath(), tempObj.getAbsolutePath()
                             )).assertNormalExitValue();
+                        } else if (isMac) {
+                            File gccDirectory = ensureKonanDependency(project, gccDirName, konanDataDir, konanDeps, execOps);
+                            File ndkDirectory = ensureKonanDependency(
+                                project, "target-toolchain-2-osx-android_ndk", konanDataDir, konanDeps, execOps
+                            );
+                            File sysroot = new File(gccDirectory, targetTriple + "/sysroot");
+                            File llvmAr = new File(ndkDirectory, "bin/llvm-ar");
+                            if (sysroot.exists() && llvmAr.exists()) {
+                                execOps.exec(s -> s.commandLine(
+                                    isCpp ? "clang++" : "clang", "--target=" + targetTriple, "--sysroot=" + sysroot.getAbsolutePath(),
+                                    "-fPIC", "-Wall", "-Wextra", "-Werror", "-Wno-unused-parameter", "-c", "-I" + srcFile.getParent(),
+                                    srcFile.getAbsolutePath(), "-o", tempObj.getAbsolutePath()
+                                )).assertNormalExitValue();
+                                execOps.exec(s -> s.commandLine(
+                                    llvmAr.getAbsolutePath(), "rcs", stemArchive.getAbsolutePath(), tempObj.getAbsolutePath()
+                                )).assertNormalExitValue();
+                            } else {
+                                copyPrebuilt(project, konanTargetName, stemBase, stemArchive);
+                            }
                         } else {
-                            copyPrebuilt(project, "mingw_x64", ffiWrapperBase, outFile);
+                            copyPrebuilt(project, konanTargetName, stemBase, stemArchive);
+                        }
+                    } else if (konanTargetName.startsWith("mingw")) {
+                        File mingwSysroot = ensureKonanDependency(project, "msys2-mingw-w64-x86_64-2", konanDataDir, konanDeps, execOps);
+                        File arExe = new File(mingwSysroot, "bin/ar.exe");
+                        if (isWindows && mingwSysroot.exists()) {
+                            execOps.exec(s -> s.commandLine(
+                                isCpp ? "clang++" : "clang", "--target=x86_64-w64-mingw32", "--sysroot=" + mingwSysroot.getAbsolutePath(),
+                                "-Wall", "-Wextra", "-Werror", "-Wno-unused-parameter", "-c", "-I" + srcFile.getParent(),
+                                srcFile.getAbsolutePath(), "-o", tempObj.getAbsolutePath()
+                            )).assertNormalExitValue();
+                            execOps.exec(s -> s.commandLine(
+                                arExe.exists() ? arExe.getAbsolutePath() : "ar", "rcs", stemArchive.getAbsolutePath(), tempObj.getAbsolutePath()
+                            )).assertNormalExitValue();
+                        } else if (isMac) {
+                            File ndkDirectory = ensureKonanDependency(
+                                project, "target-toolchain-2-osx-android_ndk", konanDataDir, konanDeps, execOps
+                            );
+                            File llvmAr = new File(ndkDirectory, "bin/llvm-ar");
+                            if (mingwSysroot.exists() && llvmAr.exists()) {
+                                execOps.exec(s -> s.commandLine(
+                                    isCpp ? "clang++" : "clang", "--target=x86_64-w64-mingw32", "--sysroot=" + mingwSysroot.getAbsolutePath(),
+                                    "-Wall", "-Wextra", "-Werror", "-Wno-unused-parameter", "-c", "-I" + srcFile.getParent(),
+                                    srcFile.getAbsolutePath(), "-o", tempObj.getAbsolutePath()
+                                )).assertNormalExitValue();
+                                execOps.exec(s -> s.commandLine(
+                                    llvmAr.getAbsolutePath(), "rcs", stemArchive.getAbsolutePath(), tempObj.getAbsolutePath()
+                                )).assertNormalExitValue();
+                            } else {
+                                copyPrebuilt(project, "mingw_x64", stemBase, stemArchive);
+                            }
+                        } else {
+                            copyPrebuilt(project, "mingw_x64", stemBase, stemArchive);
                         }
                     } else {
-                        copyPrebuilt(project, "mingw_x64", ffiWrapperBase, outFile);
+                        copyPrebuilt(project, konanTargetName, stemBase, stemArchive);
                     }
-                } else {
-                    copyPrebuilt(project, konanTargetName, ffiWrapperBase, outFile);
+
+                    if (!stemArchive.exists() || stemArchive.length() == 0L) {
+                        throw new GradleException(
+                            "compile" + ffiName + "Wrapper failed: output library does not exist for " + konanTargetName + " at " + stemArchive
+                        );
+                    }
+                    if (tempObj.exists()) {
+                        allObjFiles.add(tempObj);
+                    }
                 }
 
-                if (!outFile.exists() || outFile.length() == 0L) {
-                    throw new GradleException(
-                        "compile" + ffiName + "Wrapper failed: output library does not exist for " + konanTargetName + " at " + outFile
-                    );
+                if (!outFile.exists() && !wrapperSources.isEmpty()) {
+                    File firstArchive = new File(outDir, wrapperSources.get(0).getName().replaceFirst("\\.[^.]+$", ".a"));
+                    if (firstArchive.exists()) {
+                        try {
+                            Files.copy(firstArchive.toPath(), outFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                        } catch (IOException e) {
+                            throw new GradleException("Failed to create primary wrapper archive " + outFile, e);
+                        }
+                    }
                 }
-                tempObj.delete();
+                for (File obj : allObjFiles) {
+                    obj.delete();
+                }
             });
         });
     }
@@ -233,10 +274,10 @@ public final class FfiBuildSupport {
         String jvmMainCDir = IdeSourceSetSupport.sourceSetDir("jvmMain") + "/c/";
         TaskProvider<ExecTask> compileFfiJni = project.getTasks().register("compile" + ffiName + "Jni", ExecTask.class, task -> {
             task.setGroup("build");
-            task.setDescription("Compiles " + ffiNameLower + "_jni.c into a shared library for JVM JNI binding");
-            File cSource = project.file(jvmMainCDir + ffiNameLower + "_jni.c");
+            task.setDescription("Compiles JNI C sources into a shared library for JVM JNI binding");
+            File cDir = project.file(jvmMainCDir);
             File outDir = project.getLayout().getBuildDirectory().dir("natives").get().getAsFile();
-            task.getInputs().file(cSource);
+            task.getInputs().files(project.fileTree(jvmMainCDir, spec -> spec.include("*.c", "*.h")));
             task.getInputs().files(project.fileTree("src/native/interop/cinterop", spec -> spec.include("*.h")));
             task.getOutputs().dir(outDir);
 
@@ -267,6 +308,11 @@ public final class FfiBuildSupport {
                 if (!new File(javaInclude, "jni.h").isFile() || !new File(javaOsInclude, "jni_md.h").isFile()) {
                     throw new GradleException("JNI headers are required at " + javaInclude + " and " + javaOsInclude);
                 }
+                File[] cSources = cDir.listFiles((d, name) -> name.endsWith(".c"));
+                if (cSources == null || cSources.length == 0) {
+                    throw new GradleException("No JNI C sources found in " + cDir);
+                }
+                java.util.Arrays.sort(cSources, java.util.Comparator.comparing(File::getName));
                 List<String> cmd = new ArrayList<>();
                 cmd.add("clang");
                 cmd.add("-shared");
@@ -276,7 +322,9 @@ public final class FfiBuildSupport {
                 cmd.add("-O2");
                 cmd.add("-I" + javaInclude.getAbsolutePath());
                 cmd.add("-I" + javaOsInclude.getAbsolutePath());
-                cmd.add(cSource.getAbsolutePath());
+                for (File cSrc : cSources) {
+                    cmd.add(cSrc.getAbsolutePath());
+                }
                 cmd.add("-o");
                 cmd.add(outFile.getAbsolutePath());
                 if (isWindowsHost) {
@@ -351,7 +399,7 @@ public final class FfiBuildSupport {
             if (nativeFfiEnabled && nativeFfiCompileWrapper) {
                 task.dependsOn("compile" + ffiName + "WrapperForAndroidNativeArm64", "compile" + ffiName + "WrapperForAndroidNativeX64");
             }
-            task.getInputs().file(jvmMainCDir + ffiNameLower + "_jni.c");
+            task.getInputs().files(project.fileTree(jvmMainCDir, spec -> spec.include("*.c", "*.h")));
             task.getInputs().files(project.fileTree("src/native/interop/cinterop", spec -> spec.include("*.h")));
             task.getNativeDirectory().set(project.getLayout().getBuildDirectory().dir("android-jni"));
             task.doLast(t -> {
@@ -370,7 +418,12 @@ public final class FfiBuildSupport {
                     ndk = project.getLayout().getBuildDirectory()
                         .dir("native-wrapper-dependencies/" + depName).get().getAsFile();
                 }
-                File source = project.file(jvmMainCDir + ffiNameLower + "_jni.c");
+                File cDir = project.file(jvmMainCDir);
+                File[] cSources = cDir.listFiles((d, name) -> name.endsWith(".c"));
+                if (cSources == null || cSources.length == 0) {
+                    throw new GradleException("No JNI C sources found in " + cDir);
+                }
+                java.util.Arrays.sort(cSources, java.util.Comparator.comparing(File::getName));
                 Object minSdkObj = project.findProperty("android.minSdk");
                 String api = minSdkObj != null ? minSdkObj.toString().trim() : "24";
                 String[][] abis = new String[][] {
@@ -386,13 +439,15 @@ public final class FfiBuildSupport {
                     }
                     File output = new File(task.getNativeDirectory().get().getAsFile(), abi + "/lib" + ffiNameLower + "_jni.so");
                     output.getParentFile().mkdirs();
-                    task.getExecOperations().exec(s -> s.commandLine(
-                        compiler.getAbsolutePath(),
-                        "--sysroot=" + new File(ndk, "sysroot").getAbsolutePath(),
-                        "-shared", "-fPIC", "-O2", "-Wall", "-Wextra", "-Werror",
-                        "-Wl,-z,max-page-size=16384",
-                        source.getAbsolutePath(), "-o", output.getAbsolutePath()
-                    )).assertNormalExitValue();
+                    List<String> cmd = new ArrayList<>();
+                    cmd.add(compiler.getAbsolutePath());
+                    cmd.add("--sysroot=" + new File(ndk, "sysroot").getAbsolutePath());
+                    cmd.addAll(List.of("-shared", "-fPIC", "-O2", "-Wall", "-Wextra", "-Werror", "-Wl,-z,max-page-size=16384"));
+                    for (File cSrc : cSources) {
+                        cmd.add(cSrc.getAbsolutePath());
+                    }
+                    cmd.addAll(List.of("-o", output.getAbsolutePath()));
+                    task.getExecOperations().exec(s -> s.commandLine(cmd)).assertNormalExitValue();
                 }
             });
         });
