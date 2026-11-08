@@ -1,6 +1,9 @@
 package io.github.kotlinmania.windowssys.windows.win32.graphics.opengl
 
-public data class EMRPIXELFORMAT(public var emr: Gdi.EMR = Gdi.EMR(), public var pfd: PIXELFORMATDESCRIPTOR = PIXELFORMATDESCRIPTOR())
+import io.github.kotlinmania.windowssys.windows.win32.foundation.COLORREF
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.EMR
+
+public data class EMRPIXELFORMAT(public var emr: EMR = EMR(), public var pfd: PIXELFORMATDESCRIPTOR = PIXELFORMATDESCRIPTOR())
 
 public data class GLYPHMETRICSFLOAT(
     public var gmfBlackBoxX: Float = 0.0f,
@@ -34,7 +37,7 @@ public class LAYERPLANEDESCRIPTOR(
     public var cAuxBuffers: UByte = 0u,
     public var iLayerPlane: UByte = 0u,
     public var bReserved: UByte = 0u,
-    public var crTransparent: Foundation.COLORREF = Foundation.COLORREF(),
+    public var crTransparent: COLORREF = 0u,
 )
 
 public class PIXELFORMATDESCRIPTOR(

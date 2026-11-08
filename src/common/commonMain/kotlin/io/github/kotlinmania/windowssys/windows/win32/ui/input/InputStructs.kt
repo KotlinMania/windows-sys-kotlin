@@ -2,6 +2,9 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.input
 
 import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
 
 public data class INPUT_MESSAGE_SOURCE(public var deviceType: INPUT_MESSAGE_DEVICE_TYPE = 0, public var originId: INPUT_MESSAGE_ORIGIN_ID = 0)
 
@@ -39,16 +42,16 @@ public data class RAWINPUTDEVICE(
     public var usUsagePage: UShort = 0u,
     public var usUsage: UShort = 0u,
     public var dwFlags: RAWINPUTDEVICE_FLAGS = 0u,
-    public var hwndTarget: Foundation.HWND = Foundation.HWND(),
+    public var hwndTarget: HWND = 0L,
 )
 
-public data class RAWINPUTDEVICELIST(public var hDevice: Foundation.HANDLE = Foundation.HANDLE(), public var dwType: RID_DEVICE_INFO_TYPE = 0u)
+public data class RAWINPUTDEVICELIST(public var hDevice: HANDLE = 0L, public var dwType: RID_DEVICE_INFO_TYPE = 0u)
 
 public data class RAWINPUTHEADER(
     public var dwType: UInt = 0u,
     public var dwSize: UInt = 0u,
-    public var hDevice: Foundation.HANDLE = Foundation.HANDLE(),
-    public var wParam: Foundation.WPARAM = Foundation.WPARAM(),
+    public var hDevice: HANDLE = 0L,
+    public var wParam: WPARAM = 0uL,
 )
 
 public data class RAWKEYBOARD(

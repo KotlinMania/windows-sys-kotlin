@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
@@ -26,35 +27,35 @@ public val ActivityContentNone: OpenServiceActivityContentType = -1
 
 public val ActivityContentSelection: OpenServiceActivityContentType = 1
 
-public val AnchorClick: GUID = GUID.from_u128(0x13d5413c33b911d2uL, 0x95a700c04f8ecb02uL)
+public val AnchorClick: GUID = GUID.from_u128(U128(0x13d5413c33b911d2uL, 0x95a700c04f8ecb02uL))
 
-public val CATID_MSOfficeAntiVirus: GUID = GUID.from_u128(0x56ffcc30d39811d0uL, 0xb2ae00a0c908fa49uL)
+public val CATID_MSOfficeAntiVirus: GUID = GUID.from_u128(U128(0x56ffcc30d39811d0uL, 0xb2ae00a0c908fa49uL))
 
-public val CDeviceRect: GUID = GUID.from_u128(0x3050f6d498b511cfuL, 0xbb8200aa00bdce0buL)
+public val CDeviceRect: GUID = GUID.from_u128(U128(0x3050f6d498b511cfuL, 0xbb8200aa00bdce0buL))
 
-public val CDownloadBehavior: GUID = GUID.from_u128(0x3050f5be98b511cfuL, 0xbb8200aa00bdce0buL)
+public val CDownloadBehavior: GUID = GUID.from_u128(U128(0x3050f5be98b511cfuL, 0xbb8200aa00bdce0buL))
 
-public val CHeaderFooter: GUID = GUID.from_u128(0x3050f6cd98b511cfuL, 0xbb8200aa00bdce0buL)
+public val CHeaderFooter: GUID = GUID.from_u128(U128(0x3050f6cd98b511cfuL, 0xbb8200aa00bdce0buL))
 
-public val CLayoutRect: GUID = GUID.from_u128(0x3050f66498b511cfuL, 0xbb8200aa00bdce0buL)
+public val CLayoutRect: GUID = GUID.from_u128(U128(0x3050f66498b511cfuL, 0xbb8200aa00bdce0buL))
 
 public val COLOR_NO_TRANSPARENT: UInt = 4294967295u
 
-public val CPersistDataPeer: GUID = GUID.from_u128(0x3050f48798b511cfuL, 0xbb8200aa00bdce0buL)
+public val CPersistDataPeer: GUID = GUID.from_u128(U128(0x3050f48798b511cfuL, 0xbb8200aa00bdce0buL))
 
-public val CPersistHistory: GUID = GUID.from_u128(0x3050f4c898b511cfuL, 0xbb8200aa00bdce0buL)
+public val CPersistHistory: GUID = GUID.from_u128(U128(0x3050f4c898b511cfuL, 0xbb8200aa00bdce0buL))
 
-public val CPersistShortcut: GUID = GUID.from_u128(0x3050f4c698b511cfuL, 0xbb8200aa00bdce0buL)
+public val CPersistShortcut: GUID = GUID.from_u128(U128(0x3050f4c698b511cfuL, 0xbb8200aa00bdce0buL))
 
-public val CPersistSnapshot: GUID = GUID.from_u128(0x3050f4c998b511cfuL, 0xbb8200aa00bdce0buL)
+public val CPersistSnapshot: GUID = GUID.from_u128(U128(0x3050f4c998b511cfuL, 0xbb8200aa00bdce0buL))
 
-public val CPersistUserData: GUID = GUID.from_u128(0x3050f48e98b511cfuL, 0xbb8200aa00bdce0buL)
+public val CPersistUserData: GUID = GUID.from_u128(U128(0x3050f48e98b511cfuL, 0xbb8200aa00bdce0buL))
 
-public val CoDitherToRGB8: GUID = GUID.from_u128(0xa860ce50391011d0uL, 0x86fc00a0c913f750uL)
+public val CoDitherToRGB8: GUID = GUID.from_u128(U128(0xa860ce50391011d0uL, 0x86fc00a0c913f750uL))
 
-public val CoMapMIMEToCLSID: GUID = GUID.from_u128(0x30c3b08030fb11d0uL, 0xb72400aa006c1a01uL)
+public val CoMapMIMEToCLSID: GUID = GUID.from_u128(U128(0x30c3b08030fb11d0uL, 0xb72400aa006c1a01uL))
 
-public val CoSniffStream: GUID = GUID.from_u128(0x6a01fda030df11d0uL, 0xb72400aa006c1a01uL)
+public val CoSniffStream: GUID = GUID.from_u128(U128(0x6a01fda030df11d0uL, 0xb72400aa006c1a01uL))
 
 public val DISPID_ACTIVEXFILTERINGENABLED: UInt = 61u
 
@@ -514,9 +515,9 @@ public val FRAMEOPTIONS_SCROLL_NO: FRAMEOPTIONS_FLAGS = 2
 
 public val FRAMEOPTIONS_SCROLL_YES: FRAMEOPTIONS_FLAGS = 1
 
-public val HomePage: GUID = GUID.from_u128(0x766bf2aed65011d1uL, 0x981100c04fc31d2euL)
+public val HomePage: GUID = GUID.from_u128(U128(0x766bf2aed65011d1uL, 0x981100c04fc31d2euL))
 
-public val HomePageSetting: GUID = GUID.from_u128(0x374cede0873a4c4fuL, 0xbc86bcc8cf5116a3uL)
+public val HomePageSetting: GUID = GUID.from_u128(U128(0x374cede0873a4c4fuL, 0xbc86bcc8cf5116a3uL))
 
 public val IECMDID_ARG_CLEAR_FORMS_ALL: UInt = 0u
 
@@ -552,7 +553,7 @@ public val IELAUNCHOPTION_SCRIPTDEBUG: IELAUNCHOPTION_FLAGS = 1
 
 public val IEPROCESS_MODULE_NAME: PCWSTR = w("IERtUtil.dll")
 
-public val IEWebDriverManager: GUID = GUID.from_u128(0x90314af2525047b3uL, 0x89d86295fc23bc22uL)
+public val IEWebDriverManager: GUID = GUID.from_u128(U128(0x90314af2525047b3uL, 0x89d86295fc23bc22uL))
 
 public val IE_USE_OE_MAIL_HKEY: Int = -2147483647
 
@@ -592,9 +593,9 @@ public val INTERNETEXPLORERCONFIGURATION_WEB_DRIVER: INTERNETEXPLORERCONFIGURATI
 
 public val INTERNETEXPLORERCONFIGURATION_WEB_DRIVER_EDGE: INTERNETEXPLORERCONFIGURATION = 4
 
-public val IntelliForms: GUID = GUID.from_u128(0x613ab92e16bf11d2uL, 0xbca500c04fd929dbuL)
+public val IntelliForms: GUID = GUID.from_u128(U128(0x613ab92e16bf11d2uL, 0xbca500c04fd929dbuL))
 
-public val InternetExplorerManager: GUID = GUID.from_u128(0xdf4fcc34067a4e0auL, 0x83524a1a5095346euL)
+public val InternetExplorerManager: GUID = GUID.from_u128(U128(0xdf4fcc34067a4e0auL, 0x83524a1a5095346euL))
 
 public val LINKSBAND: UInt = 4u
 
@@ -636,11 +637,11 @@ public val OS_E_NOTFOUND: OpenServiceErrors = -2147287038
 
 public val OS_E_NOTSUPPORTED: OpenServiceErrors = -2147467231
 
-public val OpenServiceActivityManager: GUID = GUID.from_u128(0xc5efd80350f843cduL, 0x9ab8aafc1394c9e0uL)
+public val OpenServiceActivityManager: GUID = GUID.from_u128(U128(0xc5efd80350f843cduL, 0x9ab8aafc1394c9e0uL))
 
-public val OpenServiceManager: GUID = GUID.from_u128(0x98870b639ea480buL, 0xb8b5dd0167c4db59uL)
+public val OpenServiceManager: GUID = GUID.from_u128(U128(0x98870b639ea480buL, 0xb8b5dd0167c4db59uL))
 
-public val PeerFactory: GUID = GUID.from_u128(0x3050f4cf98b511cfuL, 0xbb8200aa00bdce0buL)
+public val PeerFactory: GUID = GUID.from_u128(U128(0x3050f4cf98b511cfuL, 0xbb8200aa00bdce0buL))
 
 public val REGSTRA_VAL_STARTPAGE: PCSTR = s("Start Page")
 
@@ -1048,4 +1049,4 @@ public val msoslNone: UInt = 1u
 
 public val msoslUndefined: UInt = 0u
 
-public val wfolders: GUID = GUID.from_u128(0xbae31f9a1b8111d2uL, 0xa97a00c04f8ecb02uL)
+public val wfolders: GUID = GUID.from_u128(U128(0xbae31f9a1b8111d2uL, 0xa97a00c04f8ecb02uL))

@@ -5,6 +5,13 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.VER_PLATFORM
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.PROCESSOR_ARCHITECTURE
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.HIMAGELIST
 
 public data class BUSNUMBER_DES(
     public var BUSD_Count: UInt = 0u,
@@ -119,7 +126,7 @@ public data class CM_NOTIFY_FILTER_0(
     public var DeviceInstance: CM_NOTIFY_FILTER_0_2 = CM_NOTIFY_FILTER_0_2(),
 )
 
-public data class CM_NOTIFY_FILTER_0_1(public var hTarget: Foundation.HANDLE = Foundation.HANDLE())
+public data class CM_NOTIFY_FILTER_0_1(public var hTarget: HANDLE = 0L)
 
 public data class CM_NOTIFY_FILTER_0_2(public var InstanceId: UShortArray = UShortArray(200)) {
     override fun equals(other: Any?): Boolean {
@@ -620,7 +627,7 @@ public data class SOURCE_MEDIA_W(
 
 public data class SP_ALTPLATFORM_INFO_V1(
     public var cbSize: UInt = 0u,
-    public var Platform: System.Diagnostics.Debug.VER_PLATFORM = System.Diagnostics.Debug.VER_PLATFORM(),
+    public var Platform: VER_PLATFORM = 0u,
     public var MajorVersion: UInt = 0u,
     public var MinorVersion: UInt = 0u,
     public var ProcessorArchitecture: UShort = 0u,
@@ -629,10 +636,10 @@ public data class SP_ALTPLATFORM_INFO_V1(
 
 public data class SP_ALTPLATFORM_INFO_V2(
     public var cbSize: UInt = 0u,
-    public var Platform: System.Diagnostics.Debug.VER_PLATFORM = System.Diagnostics.Debug.VER_PLATFORM(),
+    public var Platform: VER_PLATFORM = 0u,
     public var MajorVersion: UInt = 0u,
     public var MinorVersion: UInt = 0u,
-    public var ProcessorArchitecture: System.SystemInformation.PROCESSOR_ARCHITECTURE = System.SystemInformation.PROCESSOR_ARCHITECTURE(),
+    public var ProcessorArchitecture: PROCESSOR_ARCHITECTURE = 0u,
     public var Anonymous: SP_ALTPLATFORM_INFO_V2_0 = SP_ALTPLATFORM_INFO_V2_0(),
     public var FirstValidatedMajorVersion: UInt = 0u,
     public var FirstValidatedMinorVersion: UInt = 0u,
@@ -752,7 +759,7 @@ public data class SP_BACKUP_QUEUE_PARAMS_V2_W(
 
 public data class SP_CLASSIMAGELIST_DATA(
     public var cbSize: UInt = 0u,
-    public var ImageList: UI.Controls.HIMAGELIST = UI.Controls.HIMAGELIST(),
+    public var ImageList: HIMAGELIST = 0L,
     public var Reserved: ULong = 0uL,
 )
 
@@ -813,7 +820,7 @@ public data class SP_DEVINFO_DATA(
 public data class SP_DEVINFO_LIST_DETAIL_DATA_A(
     public var cbSize: UInt = 0u,
     public var ClassGuid: GUID = GUID(),
-    public var RemoteMachineHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var RemoteMachineHandle: HANDLE = 0L,
     public var RemoteMachineName: ByteArray = ByteArray(263),
 ) {
     override fun equals(other: Any?): Boolean {
@@ -838,7 +845,7 @@ public data class SP_DEVINFO_LIST_DETAIL_DATA_A(
 public data class SP_DEVINFO_LIST_DETAIL_DATA_W(
     public var cbSize: UInt = 0u,
     public var ClassGuid: GUID = GUID(),
-    public var RemoteMachineHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var RemoteMachineHandle: HANDLE = 0L,
     public var RemoteMachineName: UShortArray = UShortArray(263),
 ) {
     override fun equals(other: Any?): Boolean {
@@ -864,7 +871,7 @@ public data class SP_DEVINSTALL_PARAMS_A(
     public var cbSize: UInt = 0u,
     public var Flags: SETUP_DI_DEVICE_INSTALL_FLAGS = 0u,
     public var FlagsEx: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = 0u,
-    public var hwndParent: Foundation.HWND = Foundation.HWND(),
+    public var hwndParent: HWND = 0L,
     public var InstallMsgHandler: PSP_FILE_CALLBACK_A = null,
     public var InstallMsgHandlerContext: Long = 0L,
     public var FileQueue: Long = 0L,
@@ -907,7 +914,7 @@ public data class SP_DEVINSTALL_PARAMS_W(
     public var cbSize: UInt = 0u,
     public var Flags: SETUP_DI_DEVICE_INSTALL_FLAGS = 0u,
     public var FlagsEx: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = 0u,
-    public var hwndParent: Foundation.HWND = Foundation.HWND(),
+    public var hwndParent: HWND = 0L,
     public var InstallMsgHandler: PSP_FILE_CALLBACK_W = null,
     public var InstallMsgHandlerContext: Long = 0L,
     public var FileQueue: Long = 0L,
@@ -1015,7 +1022,7 @@ public data class SP_DRVINFO_DATA_V2_A(
     public var Description: ByteArray = ByteArray(256),
     public var MfgName: ByteArray = ByteArray(256),
     public var ProviderName: ByteArray = ByteArray(256),
-    public var DriverDate: Foundation.FILETIME = Foundation.FILETIME(),
+    public var DriverDate: FILETIME = FILETIME(),
     public var DriverVersion: ULong = 0uL,
 ) {
     override fun equals(other: Any?): Boolean {
@@ -1052,7 +1059,7 @@ public data class SP_DRVINFO_DATA_V2_W(
     public var Description: UShortArray = UShortArray(256),
     public var MfgName: UShortArray = UShortArray(256),
     public var ProviderName: UShortArray = UShortArray(256),
-    public var DriverDate: Foundation.FILETIME = Foundation.FILETIME(),
+    public var DriverDate: FILETIME = FILETIME(),
     public var DriverVersion: ULong = 0uL,
 ) {
     override fun equals(other: Any?): Boolean {
@@ -1084,7 +1091,7 @@ public data class SP_DRVINFO_DATA_V2_W(
 
 public data class SP_DRVINFO_DETAIL_DATA_A(
     public var cbSize: UInt = 0u,
-    public var InfDate: Foundation.FILETIME = Foundation.FILETIME(),
+    public var InfDate: FILETIME = FILETIME(),
     public var CompatIDsOffset: UInt = 0u,
     public var CompatIDsLength: UInt = 0u,
     public var Reserved: ULong = 0uL,
@@ -1124,7 +1131,7 @@ public data class SP_DRVINFO_DETAIL_DATA_A(
 
 public data class SP_DRVINFO_DETAIL_DATA_W(
     public var cbSize: UInt = 0u,
-    public var InfDate: Foundation.FILETIME = Foundation.FILETIME(),
+    public var InfDate: FILETIME = FILETIME(),
     public var CompatIDsOffset: UInt = 0u,
     public var CompatIDsLength: UInt = 0u,
     public var Reserved: ULong = 0uL,
@@ -1337,21 +1344,67 @@ public data class SP_INF_SIGNER_INFO_V2_W(
 public data class SP_INSTALLWIZARD_DATA(
     public var ClassInstallHeader: SP_CLASSINSTALL_HEADER = SP_CLASSINSTALL_HEADER(),
     public var Flags: UInt = 0u,
-    public var DynamicPages: List<UI.Controls.HPROPSHEETPAGE> = List(20) { UI.Controls.HPROPSHEETPAGE() },
+    public var DynamicPages: LongArray = LongArray(20),
     public var NumDynamicPages: UInt = 0u,
     public var DynamicPageFlags: UInt = 0u,
     public var PrivateFlags: UInt = 0u,
-    public var PrivateData: Foundation.LPARAM = Foundation.LPARAM(),
-    public var hwndWizardDlg: Foundation.HWND = Foundation.HWND(),
-)
+    public var PrivateData: LPARAM = 0L,
+    public var hwndWizardDlg: HWND = 0L,
+) {
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is SP_INSTALLWIZARD_DATA) return false
+        if (this.ClassInstallHeader != other.ClassInstallHeader) return false
+        if (this.Flags != other.Flags) return false
+        if (!this.DynamicPages.contentEquals(other.DynamicPages)) return false
+        if (this.NumDynamicPages != other.NumDynamicPages) return false
+        if (this.DynamicPageFlags != other.DynamicPageFlags) return false
+        if (this.PrivateFlags != other.PrivateFlags) return false
+        if (this.PrivateData != other.PrivateData) return false
+        if (this.hwndWizardDlg != other.hwndWizardDlg) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.ClassInstallHeader.hashCode()
+        result = 31 * result + this.Flags.hashCode()
+        result = 31 * result + this.DynamicPages.contentHashCode()
+        result = 31 * result + this.NumDynamicPages.hashCode()
+        result = 31 * result + this.DynamicPageFlags.hashCode()
+        result = 31 * result + this.PrivateFlags.hashCode()
+        result = 31 * result + this.PrivateData.hashCode()
+        result = 31 * result + this.hwndWizardDlg.hashCode()
+        return result
+    }
+}
 
 public data class SP_NEWDEVICEWIZARD_DATA(
     public var ClassInstallHeader: SP_CLASSINSTALL_HEADER = SP_CLASSINSTALL_HEADER(),
     public var Flags: UInt = 0u,
-    public var DynamicPages: List<UI.Controls.HPROPSHEETPAGE> = List(20) { UI.Controls.HPROPSHEETPAGE() },
+    public var DynamicPages: LongArray = LongArray(20),
     public var NumDynamicPages: UInt = 0u,
-    public var hwndWizardDlg: Foundation.HWND = Foundation.HWND(),
-)
+    public var hwndWizardDlg: HWND = 0L,
+) {
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is SP_NEWDEVICEWIZARD_DATA) return false
+        if (this.ClassInstallHeader != other.ClassInstallHeader) return false
+        if (this.Flags != other.Flags) return false
+        if (!this.DynamicPages.contentEquals(other.DynamicPages)) return false
+        if (this.NumDynamicPages != other.NumDynamicPages) return false
+        if (this.hwndWizardDlg != other.hwndWizardDlg) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.ClassInstallHeader.hashCode()
+        result = 31 * result + this.Flags.hashCode()
+        result = 31 * result + this.DynamicPages.contentHashCode()
+        result = 31 * result + this.NumDynamicPages.hashCode()
+        result = 31 * result + this.hwndWizardDlg.hashCode()
+        return result
+    }
+}
 
 public data class SP_ORIGINAL_FILE_INFO_A(
     public var cbSize: UInt = 0u,

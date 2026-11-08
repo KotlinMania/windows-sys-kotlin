@@ -1,10 +1,11 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.pwm
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.w
 
-public val GUID_DEVINTERFACE_PWM_CONTROLLER: GUID = GUID.from_u128(0x60824b4ceed14c9cuL, 0xb49c1b961461a819uL)
+public val GUID_DEVINTERFACE_PWM_CONTROLLER: GUID = GUID.from_u128(U128(0x60824b4ceed14c9cuL, 0xb49c1b961461a819uL))
 
 public val GUID_DEVINTERFACE_PWM_CONTROLLER_WSZ: PCWSTR = w("{60824B4C-EED1-4C9C-B49C-1B961461A819}")
 

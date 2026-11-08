@@ -4,6 +4,8 @@ package io.github.kotlinmania.windowssys.windows.win32.system.componentservices
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.system.com.BLOB
 
 public data class APPDATA(
     public var m_idApp: UInt = 0u,
@@ -40,12 +42,12 @@ public data class APPSTATISTICS(
 public data class ApplicationProcessRecycleInfo(
     public var IsRecyclable: BOOL = 0,
     public var IsRecycled: BOOL = 0,
-    public var TimeRecycled: Foundation.FILETIME = Foundation.FILETIME(),
-    public var TimeToTerminate: Foundation.FILETIME = Foundation.FILETIME(),
+    public var TimeRecycled: FILETIME = FILETIME(),
+    public var TimeToTerminate: FILETIME = FILETIME(),
     public var RecycleReasonCode: Int = 0,
     public var IsPendingRecycle: BOOL = 0,
     public var HasAutomaticLifetimeRecycling: BOOL = 0,
-    public var TimeForAutomaticRecycling: Foundation.FILETIME = Foundation.FILETIME(),
+    public var TimeForAutomaticRecycling: FILETIME = FILETIME(),
     public var MemoryLimitInKB: UInt = 0u,
     public var MemoryUsageInKBLastCheck: UInt = 0u,
     public var ActivationLimit: UInt = 0u,
@@ -158,7 +160,7 @@ public data class ComponentSummary(
 public data class CrmLogRecordRead(
     public var dwCrmFlags: UInt = 0u,
     public var dwSequenceNumber: UInt = 0u,
-    public var blobUserData: Com.BLOB = Com.BLOB(),
+    public var blobUserData: BLOB = BLOB(),
 )
 
 public data class HANG_INFO(

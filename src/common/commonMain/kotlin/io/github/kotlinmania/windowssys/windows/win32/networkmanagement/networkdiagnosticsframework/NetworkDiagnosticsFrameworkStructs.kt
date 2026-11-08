@@ -3,6 +3,7 @@ package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.network
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
 
 public data class DIAG_SOCKADDR(public var family: UShort = 0u, public var data: ByteArray = ByteArray(126)) {
     override fun equals(other: Any?): Boolean {
@@ -56,7 +57,7 @@ public data class HelperAttributeInfo(public var pwszName: PWSTR = 0L, public va
 
 public data class HypothesisResult(public var hypothesis: HYPOTHESIS = HYPOTHESIS(), public var pathStatus: DIAGNOSIS_STATUS = 0)
 
-public data class LIFE_TIME(public var startTime: Foundation.FILETIME = Foundation.FILETIME(), public var endTime: Foundation.FILETIME = Foundation.FILETIME())
+public data class LIFE_TIME(public var startTime: FILETIME = FILETIME(), public var endTime: FILETIME = FILETIME())
 
 public data class OCTET_STRING(public var dwLength: UInt = 0u, public var lpValue: Long = 0L)
 

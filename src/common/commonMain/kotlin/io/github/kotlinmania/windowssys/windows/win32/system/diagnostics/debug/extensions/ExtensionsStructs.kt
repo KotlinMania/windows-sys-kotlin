@@ -7,7 +7,10 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.EXCEPTION_RECORD64
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.LIST_ENTRY32
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.LIST_ENTRY64
 
 public data class ArrayDimension(
     public var LowerBound: Long = 0L,
@@ -30,7 +33,7 @@ public data class CKCL_DATA(
     public var TAnalyzeReturnType: TANALYZE_RETURN = 0,
 )
 
-public data class CKCL_LISTHEAD(public var LogEventListHead: Long = 0L, public var Heap: Foundation.HANDLE = Foundation.HANDLE())
+public data class CKCL_LISTHEAD(public var LogEventListHead: Long = 0L, public var Heap: HANDLE = 0L)
 
 public data class CPU_INFO(
     public var Type: UInt = 0u,
@@ -57,13 +60,13 @@ public data class CPU_INFO_v2(
 )
 
 public data class DBGKD_DEBUG_DATA_HEADER32(
-    public var List: Kernel.LIST_ENTRY32 = Kernel.LIST_ENTRY32(),
+    public var List: LIST_ENTRY32 = LIST_ENTRY32(),
     public var OwnerTag: UInt = 0u,
     public var Size: UInt = 0u,
 )
 
 public data class DBGKD_DEBUG_DATA_HEADER64(
-    public var List: Kernel.LIST_ENTRY64 = Kernel.LIST_ENTRY64(),
+    public var List: LIST_ENTRY64 = LIST_ENTRY64(),
     public var OwnerTag: UInt = 0u,
     public var Size: UInt = 0u,
 )
@@ -1146,7 +1149,7 @@ public data class EXT_FIND_FILE(
     public var Flags: UInt = 0u,
     public var FileMapping: Long = 0L,
     public var FileMappingSize: ULong = 0uL,
-    public var FileHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var FileHandle: HANDLE = 0L,
     public var FoundFileName: PWSTR = 0L,
     public var FoundFileNameChars: UInt = 0u,
 )

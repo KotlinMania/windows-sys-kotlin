@@ -6,6 +6,9 @@ import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.system.com.CY
 
 public data class ADRENTRY(
     public var ulReserved1: UInt = 0u,
@@ -509,14 +512,14 @@ public data class WABEXTDISPLAY(
 public data class WABIMPORTPARAM(
     public var cbSize: UInt = 0u,
     public var lpAdrBook: Long = 0L,
-    public var hWnd: Foundation.HWND = Foundation.HWND(),
+    public var hWnd: HWND = 0L,
     public var ulFlags: UInt = 0u,
     public var lpszFileName: PSTR = 0L,
 )
 
 public data class WAB_PARAM(
     public var cbSize: UInt = 0u,
-    public var hwnd: Foundation.HWND = Foundation.HWND(),
+    public var hwnd: HWND = 0L,
     public var szFileName: PSTR = 0L,
     public var ulFlags: UInt = 0u,
     public var guidPSExt: GUID = GUID(),
@@ -529,9 +532,9 @@ public class __UPV(
     public var flt: Float = 0.0f,
     public var dbl: Double = 0.0,
     public var b: UShort = 0u,
-    public var cur: Com.CY = Com.CY(),
+    public var cur: CY = CY(),
     public var at: Double = 0.0,
-    public var ft: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ft: FILETIME = FILETIME(),
     public var lpszA: PSTR = 0L,
     public var bin: SBinary = SBinary(),
     public var lpszW: PWSTR = 0L,

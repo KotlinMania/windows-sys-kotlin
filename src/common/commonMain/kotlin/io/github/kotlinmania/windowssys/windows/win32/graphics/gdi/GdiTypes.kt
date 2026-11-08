@@ -2,6 +2,10 @@ package io.github.kotlinmania.windowssys.windows.win32.graphics.gdi
 
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
 
 public typealias ARC_DIRECTION = Int
 
@@ -68,7 +72,7 @@ public typealias DISP_CHANGE = Int
 public typealias DRAWEDGE_FLAGS = UInt
 
 public fun interface DRAWSTATEPROCFn {
-    public operator fun invoke(hdc: HDC, ldata: Foundation.LPARAM, wdata: Foundation.WPARAM, cx: Int, cy: Int): BOOL
+    public operator fun invoke(hdc: HDC, ldata: LPARAM, wdata: WPARAM, cx: Int, cy: Int): BOOL
 }
 
 public typealias DRAWSTATEPROC = DRAWSTATEPROCFn?
@@ -88,7 +92,7 @@ public typealias EMBED_FONT_CHARSET = UInt
 public typealias ENHANCED_METAFILE_RECORD_TYPE = UInt
 
 public fun interface ENHMFENUMPROCFn {
-    public operator fun invoke(hdc: HDC, lpht: Long, lpmr: Long, nhandles: Int, data: Foundation.LPARAM): Int
+    public operator fun invoke(hdc: HDC, lpht: Long, lpmr: Long, nhandles: Int, data: LPARAM): Int
 }
 
 public typealias ENHMFENUMPROC = ENHMFENUMPROCFn?
@@ -102,13 +106,13 @@ public typealias ETO_OPTIONS = UInt
 public typealias EXT_FLOOD_FILL_TYPE = UInt
 
 public fun interface FONTENUMPROCAFn {
-    public operator fun invoke(param0: Long, param1: Long, param2: UInt, param3: Foundation.LPARAM): Int
+    public operator fun invoke(param0: Long, param1: Long, param2: UInt, param3: LPARAM): Int
 }
 
 public typealias FONTENUMPROCA = FONTENUMPROCAFn?
 
 public fun interface FONTENUMPROCWFn {
-    public operator fun invoke(param0: Long, param1: Long, param2: UInt, param3: Foundation.LPARAM): Int
+    public operator fun invoke(param0: Long, param1: Long, param2: UInt, param3: LPARAM): Int
 }
 
 public typealias FONTENUMPROCW = FONTENUMPROCWFn?
@@ -144,7 +148,7 @@ public typealias GET_GLYPH_OUTLINE_FORMAT = UInt
 public typealias GET_STOCK_OBJECT_FLAGS = Int
 
 public fun interface GOBJENUMPROCFn {
-    public operator fun invoke(param0: Long, param1: Foundation.LPARAM): Int
+    public operator fun invoke(param0: Long, param1: LPARAM): Int
 }
 
 public typealias GOBJENUMPROC = GOBJENUMPROCFn?
@@ -154,7 +158,7 @@ public typealias GRADIENT_FILL = UInt
 public typealias GRAPHICS_MODE = Int
 
 public fun interface GRAYSTRINGPROCFn {
-    public operator fun invoke(param0: HDC, param1: Foundation.LPARAM, param2: Int): BOOL
+    public operator fun invoke(param0: HDC, param1: LPARAM, param2: Int): BOOL
 }
 
 public typealias GRAYSTRINGPROC = GRAYSTRINGPROCFn?
@@ -186,7 +190,7 @@ public typealias HPEN = Long
 public typealias HRGN = Long
 
 public fun interface LINEDDAPROCFn {
-    public operator fun invoke(param0: Int, param1: Int, param2: Foundation.LPARAM)
+    public operator fun invoke(param0: Int, param1: Int, param2: LPARAM)
 }
 
 public typealias LINEDDAPROC = LINEDDAPROCFn?
@@ -198,13 +202,13 @@ public fun interface LPFNDEVCAPSFn {
 public typealias LPFNDEVCAPS = LPFNDEVCAPSFn?
 
 public fun interface LPFNDEVMODEFn {
-    public operator fun invoke(param0: Foundation.HWND, param1: Foundation.HMODULE, param2: Long, param3: PCSTR, param4: PCSTR, param5: Long, param6: PCSTR, param7: UInt): UInt
+    public operator fun invoke(param0: HWND, param1: HMODULE, param2: Long, param3: PCSTR, param4: PCSTR, param5: Long, param6: PCSTR, param7: UInt): UInt
 }
 
 public typealias LPFNDEVMODE = LPFNDEVMODEFn?
 
 public fun interface MFENUMPROCFn {
-    public operator fun invoke(hdc: HDC, lpht: Long, lpmr: Long, nobj: Int, param4: Foundation.LPARAM): Int
+    public operator fun invoke(hdc: HDC, lpht: Long, lpmr: Long, nobj: Int, param4: LPARAM): Int
 }
 
 public typealias MFENUMPROC = MFENUMPROCFn?
@@ -212,7 +216,7 @@ public typealias MFENUMPROC = MFENUMPROCFn?
 public typealias MODIFY_WORLD_TRANSFORM_MODE = UInt
 
 public fun interface MONITORENUMPROCFn {
-    public operator fun invoke(param0: HMONITOR, param1: HDC, param2: Long, param3: Foundation.LPARAM): BOOL
+    public operator fun invoke(param0: HMONITOR, param1: HDC, param2: Long, param3: LPARAM): BOOL
 }
 
 public typealias MONITORENUMPROC = MONITORENUMPROCFn?

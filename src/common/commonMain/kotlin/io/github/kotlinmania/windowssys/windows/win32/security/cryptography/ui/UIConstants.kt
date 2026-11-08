@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography.ui
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.s
@@ -10,7 +11,7 @@ public val ACTION_REVOCATION_DEFAULT_ONLINE: UInt = 65536u
 
 public val CERTVIEW_CRYPTUI_LPARAM: UInt = 8388608u
 
-public val CERT_CERTIFICATE_ACTION_VERIFY: GUID = GUID.from_u128(0x7801ebd0cf4b11d0uL, 0x851f0060979387eauL)
+public val CERT_CERTIFICATE_ACTION_VERIFY: GUID = GUID.from_u128(U128(0x7801ebd0cf4b11d0uL, 0x851f0060979387eauL))
 
 public val CERT_CREDENTIAL_PROVIDER_ID: Int = -509
 

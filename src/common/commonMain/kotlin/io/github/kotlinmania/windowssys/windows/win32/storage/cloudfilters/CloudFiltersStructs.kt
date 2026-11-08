@@ -4,6 +4,8 @@ package io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_BASIC_INFO
 
 public class CF_CALLBACK_INFO(
     public var StructSize: UInt = 0u,
@@ -88,7 +90,7 @@ public data class CF_CALLBACK_REGISTRATION(public var Type: CF_CALLBACK_TYPE = 0
 
 public data class CF_FILE_RANGE(public var StartingOffset: Long = 0L, public var Length: Long = 0L)
 
-public data class CF_FS_METADATA(public var BasicInfo: FileSystem.FILE_BASIC_INFO = FileSystem.FILE_BASIC_INFO(), public var FileSize: Long = 0L)
+public data class CF_FS_METADATA(public var BasicInfo: FILE_BASIC_INFO = FILE_BASIC_INFO(), public var FileSize: Long = 0L)
 
 public data class CF_HYDRATION_POLICY(public var Primary: CF_HYDRATION_POLICY_PRIMARY = 0u, public var Modifier: CF_HYDRATION_POLICY_MODIFIER = 0u)
 
@@ -117,21 +119,21 @@ public data class CF_OPERATION_PARAMETERS_0(
 
 public data class CF_OPERATION_PARAMETERS_0_2(
     public var Flags: CF_OPERATION_ACK_DATA_FLAGS = 0,
-    public var CompletionStatus: Foundation.NTSTATUS = Foundation.NTSTATUS(),
+    public var CompletionStatus: NTSTATUS = 0,
     public var Offset: Long = 0L,
     public var Length: Long = 0L,
 )
 
 public data class CF_OPERATION_PARAMETERS_0_5(
     public var Flags: CF_OPERATION_ACK_DEHYDRATE_FLAGS = 0,
-    public var CompletionStatus: Foundation.NTSTATUS = Foundation.NTSTATUS(),
+    public var CompletionStatus: NTSTATUS = 0,
     public var FileIdentity: Long = 0L,
     public var FileIdentityLength: UInt = 0u,
 )
 
-public data class CF_OPERATION_PARAMETERS_0_7(public var Flags: CF_OPERATION_ACK_DELETE_FLAGS = 0, public var CompletionStatus: Foundation.NTSTATUS = Foundation.NTSTATUS())
+public data class CF_OPERATION_PARAMETERS_0_7(public var Flags: CF_OPERATION_ACK_DELETE_FLAGS = 0, public var CompletionStatus: NTSTATUS = 0)
 
-public data class CF_OPERATION_PARAMETERS_0_6(public var Flags: CF_OPERATION_ACK_RENAME_FLAGS = 0, public var CompletionStatus: Foundation.NTSTATUS = Foundation.NTSTATUS())
+public data class CF_OPERATION_PARAMETERS_0_6(public var Flags: CF_OPERATION_ACK_RENAME_FLAGS = 0, public var CompletionStatus: NTSTATUS = 0)
 
 public data class CF_OPERATION_PARAMETERS_0_3(
     public var Flags: CF_OPERATION_RESTART_HYDRATION_FLAGS = 0,
@@ -150,7 +152,7 @@ public data class CF_OPERATION_PARAMETERS_0_1(
 
 public data class CF_OPERATION_PARAMETERS_0_0(
     public var Flags: CF_OPERATION_TRANSFER_DATA_FLAGS = 0,
-    public var CompletionStatus: Foundation.NTSTATUS = Foundation.NTSTATUS(),
+    public var CompletionStatus: NTSTATUS = 0,
     public var Buffer: Long = 0L,
     public var Offset: Long = 0L,
     public var Length: Long = 0L,
@@ -158,7 +160,7 @@ public data class CF_OPERATION_PARAMETERS_0_0(
 
 public data class CF_OPERATION_PARAMETERS_0_4(
     public var Flags: CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS = 0,
-    public var CompletionStatus: Foundation.NTSTATUS = Foundation.NTSTATUS(),
+    public var CompletionStatus: NTSTATUS = 0,
     public var PlaceholderTotalCount: Long = 0L,
     public var PlaceholderArray: Long = 0L,
     public var PlaceholderCount: UInt = 0u,

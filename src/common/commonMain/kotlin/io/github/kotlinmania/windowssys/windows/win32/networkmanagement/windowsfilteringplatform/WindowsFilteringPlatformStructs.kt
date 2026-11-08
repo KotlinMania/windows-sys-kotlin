@@ -4,6 +4,7 @@ package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windows
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
 
 public data class FWPM_ACTION0(public var type: FWP_ACTION_TYPE = 0u, public var Anonymous: FWPM_ACTION0_0 = FWPM_ACTION0_0())
 
@@ -51,7 +52,7 @@ public data class FWPM_CONNECTION0(
     public var bytesTransferredIn: ULong = 0uL,
     public var bytesTransferredOut: ULong = 0uL,
     public var bytesTransferredTotal: ULong = 0uL,
-    public var startSysTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var startSysTime: FILETIME = FILETIME(),
 )
 
 public data class FWPM_CONNECTION0_0(public var localV4Address: UInt = 0u, public var localV6Address: UByteArray = UByteArray(16)) {
@@ -353,14 +354,14 @@ public class FWPM_NET_EVENT_CLASSIFY_DROP_MAC0(
 )
 
 public data class FWPM_NET_EVENT_ENUM_TEMPLATE0(
-    public var startTime: Foundation.FILETIME = Foundation.FILETIME(),
-    public var endTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var startTime: FILETIME = FILETIME(),
+    public var endTime: FILETIME = FILETIME(),
     public var numFilterConditions: UInt = 0u,
     public var filterCondition: Long = 0L,
 )
 
 public data class FWPM_NET_EVENT_HEADER0(
-    public var timeStamp: Foundation.FILETIME = Foundation.FILETIME(),
+    public var timeStamp: FILETIME = FILETIME(),
     public var flags: UInt = 0u,
     public var ipVersion: FWP_IP_VERSION = 0,
     public var ipProtocol: UByte = 0u,
@@ -378,7 +379,7 @@ public data class FWPM_NET_EVENT_HEADER0_0(public var localAddrV4: UInt = 0u, pu
 public data class FWPM_NET_EVENT_HEADER0_1(public var remoteAddrV4: UInt = 0u, public var remoteAddrV6: FWP_BYTE_ARRAY16 = FWP_BYTE_ARRAY16())
 
 public data class FWPM_NET_EVENT_HEADER1(
-    public var timeStamp: Foundation.FILETIME = Foundation.FILETIME(),
+    public var timeStamp: FILETIME = FILETIME(),
     public var flags: UInt = 0u,
     public var ipVersion: FWP_IP_VERSION = 0,
     public var ipProtocol: UByte = 0u,
@@ -415,7 +416,7 @@ public data class FWPM_NET_EVENT_HEADER1_2_0_0_0(
 )
 
 public data class FWPM_NET_EVENT_HEADER2(
-    public var timeStamp: Foundation.FILETIME = Foundation.FILETIME(),
+    public var timeStamp: FILETIME = FILETIME(),
     public var flags: UInt = 0u,
     public var ipVersion: FWP_IP_VERSION = 0,
     public var ipProtocol: UByte = 0u,
@@ -435,7 +436,7 @@ public data class FWPM_NET_EVENT_HEADER2_0(public var localAddrV4: UInt = 0u, pu
 public data class FWPM_NET_EVENT_HEADER2_1(public var remoteAddrV4: UInt = 0u, public var remoteAddrV6: FWP_BYTE_ARRAY16 = FWP_BYTE_ARRAY16())
 
 public data class FWPM_NET_EVENT_HEADER3(
-    public var timeStamp: Foundation.FILETIME = Foundation.FILETIME(),
+    public var timeStamp: FILETIME = FILETIME(),
     public var flags: UInt = 0u,
     public var ipVersion: FWP_IP_VERSION = 0,
     public var ipProtocol: UByte = 0u,

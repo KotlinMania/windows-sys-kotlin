@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
@@ -391,7 +392,7 @@ public val CRYPTPROTECT_CRED_REGENERATE: UInt = 128u
 
 public val CRYPTPROTECT_CRED_SYNC: UInt = 8u
 
-public val CRYPTPROTECT_DEFAULT_PROVIDER: GUID = GUID.from_u128(0xdf9d8cd0150111d1uL, 0x8c7a00c04fc297ebuL)
+public val CRYPTPROTECT_DEFAULT_PROVIDER: GUID = GUID.from_u128(U128(0xdf9d8cd0150111d1uL, 0x8c7a00c04fc297ebuL))
 
 public val CRYPTPROTECT_FIRST_RESERVED_FLAGVAL: UInt = 268435455u
 

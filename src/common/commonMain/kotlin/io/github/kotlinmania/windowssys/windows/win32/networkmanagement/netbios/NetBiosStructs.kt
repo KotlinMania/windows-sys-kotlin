@@ -1,6 +1,8 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netbios
 
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+
 public data class ACTION_HEADER(
     public var transport_id: UInt = 0u,
     public var action_code: UShort = 0u,
@@ -127,7 +129,7 @@ public data class NCB(
     public var ncb_lana_num: UByte = 0u,
     public var ncb_cmd_cplt: UByte = 0u,
     public var ncb_reserve: UByteArray = UByteArray(18),
-    public var ncb_event: Foundation.HANDLE = Foundation.HANDLE(),
+    public var ncb_event: HANDLE = 0L,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

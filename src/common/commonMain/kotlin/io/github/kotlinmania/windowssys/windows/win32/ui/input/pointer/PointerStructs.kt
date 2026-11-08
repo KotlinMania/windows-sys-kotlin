@@ -1,5 +1,11 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer
 
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.POINTER_INPUT_TYPE
+
 public data class INPUT_INJECTION_VALUE(
     public var page: UShort = 0u,
     public var usage: UShort = 0u,
@@ -45,16 +51,16 @@ public data class INPUT_TRANSFORM_0_0(
 )
 
 public data class POINTER_INFO(
-    public var pointerType: WindowsAndMessaging.POINTER_INPUT_TYPE = WindowsAndMessaging.POINTER_INPUT_TYPE(),
+    public var pointerType: POINTER_INPUT_TYPE = 0,
     public var pointerId: UInt = 0u,
     public var frameId: UInt = 0u,
     public var pointerFlags: POINTER_FLAGS = 0u,
-    public var sourceDevice: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hwndTarget: Foundation.HWND = Foundation.HWND(),
-    public var ptPixelLocation: Foundation.POINT = Foundation.POINT(),
-    public var ptHimetricLocation: Foundation.POINT = Foundation.POINT(),
-    public var ptPixelLocationRaw: Foundation.POINT = Foundation.POINT(),
-    public var ptHimetricLocationRaw: Foundation.POINT = Foundation.POINT(),
+    public var sourceDevice: HANDLE = 0L,
+    public var hwndTarget: HWND = 0L,
+    public var ptPixelLocation: POINT = POINT(),
+    public var ptHimetricLocation: POINT = POINT(),
+    public var ptPixelLocationRaw: POINT = POINT(),
+    public var ptHimetricLocationRaw: POINT = POINT(),
     public var dwTime: UInt = 0u,
     public var historyCount: UInt = 0u,
     public var InputData: Int = 0,
@@ -77,8 +83,8 @@ public data class POINTER_TOUCH_INFO(
     public var pointerInfo: POINTER_INFO = POINTER_INFO(),
     public var touchFlags: UInt = 0u,
     public var touchMask: UInt = 0u,
-    public var rcContact: Foundation.RECT = Foundation.RECT(),
-    public var rcContactRaw: Foundation.RECT = Foundation.RECT(),
+    public var rcContact: RECT = RECT(),
+    public var rcContactRaw: RECT = RECT(),
     public var orientation: UInt = 0u,
     public var pressure: UInt = 0u,
 )

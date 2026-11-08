@@ -4,6 +4,9 @@ package io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.RECTL
+import io.github.kotlinmania.windowssys.windows.win32.foundation.SIZE
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.METAHEADER
 
 public data class BitmapData(
     public var Width: UInt = 0u,
@@ -411,8 +414,8 @@ public data class ColorPalette(
 public data class ENHMETAHEADER3(
     public var iType: UInt = 0u,
     public var nSize: UInt = 0u,
-    public var rclBounds: Foundation.RECTL = Foundation.RECTL(),
-    public var rclFrame: Foundation.RECTL = Foundation.RECTL(),
+    public var rclBounds: RECTL = RECTL(),
+    public var rclFrame: RECTL = RECTL(),
     public var dSignature: UInt = 0u,
     public var nVersion: UInt = 0u,
     public var nBytes: UInt = 0u,
@@ -422,8 +425,8 @@ public data class ENHMETAHEADER3(
     public var nDescription: UInt = 0u,
     public var offDescription: UInt = 0u,
     public var nPalEntries: UInt = 0u,
-    public var szlDevice: Foundation.SIZE = Foundation.SIZE(),
-    public var szlMillimeters: Foundation.SIZE = Foundation.SIZE(),
+    public var szlDevice: SIZE = SIZE(),
+    public var szlMillimeters: SIZE = SIZE(),
 )
 
 public data class Effect(
@@ -657,7 +660,7 @@ public data class MetafileHeader(
     public var LogicalDpiY: Int = 0,
 )
 
-public data class MetafileHeader_0(public var WmfHeader: Gdi.METAHEADER = Gdi.METAHEADER(), public var EmfHeader: ENHMETAHEADER3 = ENHMETAHEADER3())
+public data class MetafileHeader_0(public var WmfHeader: METAHEADER = METAHEADER(), public var EmfHeader: ENHMETAHEADER3 = ENHMETAHEADER3())
 
 public data class PWMFRect16(
     public var Left: Short = 0,

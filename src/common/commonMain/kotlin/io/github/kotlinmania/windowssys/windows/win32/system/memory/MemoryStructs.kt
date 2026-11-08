@@ -1,6 +1,8 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.system.memory
 
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+
 public data class CFG_CALL_TARGET_INFO(public var Offset: ULong = 0uL, public var Flags: ULong = 0uL)
 
 public data class HEAP_SUMMARY(
@@ -76,7 +78,7 @@ public data class MEM_EXTENDED_PARAMETER_1(
     public var ULong64: ULong = 0uL,
     public var Pointer: Long = 0L,
     public var Size: ULong = 0uL,
-    public var Handle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var Handle: HANDLE = 0L,
     public var ULong: UInt = 0u,
 )
 
@@ -91,7 +93,7 @@ public data class PROCESS_HEAP_ENTRY(
 
 public data class PROCESS_HEAP_ENTRY_0(public var Block: PROCESS_HEAP_ENTRY_0_0 = PROCESS_HEAP_ENTRY_0_0(), public var Region: PROCESS_HEAP_ENTRY_0_1 = PROCESS_HEAP_ENTRY_0_1())
 
-public data class PROCESS_HEAP_ENTRY_0_0(public var hMem: Foundation.HANDLE = Foundation.HANDLE(), public var dwReserved: UIntArray = UIntArray(3)) {
+public data class PROCESS_HEAP_ENTRY_0_0(public var hMem: HANDLE = 0L, public var dwReserved: UIntArray = UIntArray(3)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is PROCESS_HEAP_ENTRY_0_0) return false

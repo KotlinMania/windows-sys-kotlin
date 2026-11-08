@@ -3,6 +3,9 @@ package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.rras
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
 
 public typealias HRASCONN = Long
 
@@ -21,7 +24,7 @@ public typealias MPR_VPN_TS_TYPE = Int
 public typealias MPR_VS = UInt
 
 public fun interface ORASADFUNCFn {
-    public operator fun invoke(param0: Foundation.HWND, param1: PCSTR, param2: UInt, param3: Long): BOOL
+    public operator fun invoke(param0: HWND, param1: PCSTR, param2: UInt, param3: Long): BOOL
 }
 
 public typealias ORASADFUNC = ORASADFUNCFn?
@@ -39,25 +42,25 @@ public fun interface PFNRASGETBUFFERFn {
 public typealias PFNRASGETBUFFER = PFNRASGETBUFFERFn?
 
 public fun interface PFNRASRECEIVEBUFFERFn {
-    public operator fun invoke(hport: Foundation.HANDLE, pbuffer: Long, pdwsize: Long, dwtimeout: UInt, hevent: Foundation.HANDLE): UInt
+    public operator fun invoke(hport: HANDLE, pbuffer: Long, pdwsize: Long, dwtimeout: UInt, hevent: HANDLE): UInt
 }
 
 public typealias PFNRASRECEIVEBUFFER = PFNRASRECEIVEBUFFERFn?
 
 public fun interface PFNRASRETRIEVEBUFFERFn {
-    public operator fun invoke(hport: Foundation.HANDLE, pbuffer: Long, pdwsize: Long): UInt
+    public operator fun invoke(hport: HANDLE, pbuffer: Long, pdwsize: Long): UInt
 }
 
 public typealias PFNRASRETRIEVEBUFFER = PFNRASRETRIEVEBUFFERFn?
 
 public fun interface PFNRASSENDBUFFERFn {
-    public operator fun invoke(hport: Foundation.HANDLE, pbuffer: Long, dwsize: UInt): UInt
+    public operator fun invoke(hport: HANDLE, pbuffer: Long, dwsize: UInt): UInt
 }
 
 public typealias PFNRASSENDBUFFER = PFNRASSENDBUFFERFn?
 
 public fun interface PFNRASSETCOMMSETTINGSFn {
-    public operator fun invoke(hport: Foundation.HANDLE, prascommsettings: Long, pvreserved: Long): UInt
+    public operator fun invoke(hport: HANDLE, prascommsettings: Long, pvreserved: Long): UInt
 }
 
 public typealias PFNRASSETCOMMSETTINGS = PFNRASSETCOMMSETTINGSFn?
@@ -333,19 +336,19 @@ public fun interface RasCustomDeleteEntryNotifyFnFn {
 public typealias RasCustomDeleteEntryNotifyFn = RasCustomDeleteEntryNotifyFnFn?
 
 public fun interface RasCustomDialDlgFnFn {
-    public operator fun invoke(hinstdll: Foundation.HINSTANCE, dwflags: UInt, lpszphonebook: PCWSTR, lpszentry: PCWSTR, lpszphonenumber: PCWSTR, lpinfo: Long, pvinfo: Long): BOOL
+    public operator fun invoke(hinstdll: HINSTANCE, dwflags: UInt, lpszphonebook: PCWSTR, lpszentry: PCWSTR, lpszphonenumber: PCWSTR, lpinfo: Long, pvinfo: Long): BOOL
 }
 
 public typealias RasCustomDialDlgFn = RasCustomDialDlgFnFn?
 
 public fun interface RasCustomDialFnFn {
-    public operator fun invoke(hinstdll: Foundation.HINSTANCE, lprasdialextensions: Long, lpszphonebook: PCWSTR, lprasdialparams: Long, dwnotifiertype: UInt, lpvnotifier: Long, lphrasconn: Long, dwflags: UInt): UInt
+    public operator fun invoke(hinstdll: HINSTANCE, lprasdialextensions: Long, lpszphonebook: PCWSTR, lprasdialparams: Long, dwnotifiertype: UInt, lpvnotifier: Long, lphrasconn: Long, dwflags: UInt): UInt
 }
 
 public typealias RasCustomDialFn = RasCustomDialFnFn?
 
 public fun interface RasCustomEntryDlgFnFn {
-    public operator fun invoke(hinstdll: Foundation.HINSTANCE, lpszphonebook: PCWSTR, lpszentry: PCWSTR, lpinfo: Long, dwflags: UInt): BOOL
+    public operator fun invoke(hinstdll: HINSTANCE, lpszphonebook: PCWSTR, lpszentry: PCWSTR, lpinfo: Long, dwflags: UInt): BOOL
 }
 
 public typealias RasCustomEntryDlgFn = RasCustomEntryDlgFnFn?
@@ -357,7 +360,7 @@ public fun interface RasCustomHangUpFnFn {
 public typealias RasCustomHangUpFn = RasCustomHangUpFnFn?
 
 public fun interface RasCustomScriptExecuteFnFn {
-    public operator fun invoke(hport: Foundation.HANDLE, lpszphonebook: PCWSTR, lpszentryname: PCWSTR, pfnrasgetbuffer: PFNRASGETBUFFER, pfnrasfreebuffer: PFNRASFREEBUFFER, pfnrassendbuffer: PFNRASSENDBUFFER, pfnrasreceivebuffer: PFNRASRECEIVEBUFFER, pfnrasretrievebuffer: PFNRASRETRIEVEBUFFER, hwnd: Foundation.HWND, prasdialparams: Long, pvreserved: Long): UInt
+    public operator fun invoke(hport: HANDLE, lpszphonebook: PCWSTR, lpszentryname: PCWSTR, pfnrasgetbuffer: PFNRASGETBUFFER, pfnrasfreebuffer: PFNRASFREEBUFFER, pfnrassendbuffer: PFNRASSENDBUFFER, pfnrasreceivebuffer: PFNRASRECEIVEBUFFER, pfnrasretrievebuffer: PFNRASRETRIEVEBUFFER, hwnd: HWND, prasdialparams: Long, pvreserved: Long): UInt
 }
 
 public typealias RasCustomScriptExecuteFn = RasCustomScriptExecuteFnFn?

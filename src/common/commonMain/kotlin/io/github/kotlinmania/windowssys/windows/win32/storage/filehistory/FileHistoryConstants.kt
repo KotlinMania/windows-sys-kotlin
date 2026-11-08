@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.filehistory
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 
@@ -149,9 +150,9 @@ public val FH_TARGET_URL: FH_TARGET_PROPERTY_TYPE = 1
 
 public val FH_VALID_TARGET: FH_DEVICE_VALIDATION_RESULT = 6
 
-public val FhConfigMgr: GUID = GUID.from_u128(0xed43bb3c09e9498auL, 0x9df62177244c6db4uL)
+public val FhConfigMgr: GUID = GUID.from_u128(U128(0xed43bb3c09e9498auL, 0x9df62177244c6db4uL))
 
-public val FhReassociation: GUID = GUID.from_u128(0x4d728e3516fa4320uL, 0x9e8bbfd7100a8846uL)
+public val FhReassociation: GUID = GUID.from_u128(U128(0x4d728e3516fa4320uL, 0x9e8bbfd7100a8846uL))
 
 public val MAX_BACKUP_STATUS: FH_BACKUP_STATUS = 4
 

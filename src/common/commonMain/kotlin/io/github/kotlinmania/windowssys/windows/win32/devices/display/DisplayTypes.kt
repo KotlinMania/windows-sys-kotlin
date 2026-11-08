@@ -2,6 +2,11 @@ package io.github.kotlinmania.windowssys.windows.win32.devices.display
 
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.windows.win32.foundation.SIZE
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBITMAP
 
 public typealias AR_STATE = Int
 
@@ -108,7 +113,7 @@ public fun interface PFN_DrvAssertModeFn {
 public typealias PFN_DrvAssertMode = PFN_DrvAssertModeFn?
 
 public fun interface PFN_DrvAssociateSharedSurfaceFn {
-    public operator fun invoke(param0: Long, param1: Foundation.HANDLE, param2: Foundation.HANDLE, param3: Foundation.SIZE): BOOL
+    public operator fun invoke(param0: Long, param1: HANDLE, param2: HANDLE, param3: SIZE): BOOL
 }
 
 public typealias PFN_DrvAssociateSharedSurface = PFN_DrvAssociateSharedSurfaceFn?
@@ -132,13 +137,13 @@ public fun interface PFN_DrvCopyBitsFn {
 public typealias PFN_DrvCopyBits = PFN_DrvCopyBitsFn?
 
 public fun interface PFN_DrvCreateDeviceBitmapFn {
-    public operator fun invoke(param0: DHPDEV, param1: Foundation.SIZE, param2: UInt): Graphics.Gdi.HBITMAP
+    public operator fun invoke(param0: DHPDEV, param1: SIZE, param2: UInt): HBITMAP
 }
 
 public typealias PFN_DrvCreateDeviceBitmap = PFN_DrvCreateDeviceBitmapFn?
 
 public fun interface PFN_DrvCreateDeviceBitmapExFn {
-    public operator fun invoke(param0: DHPDEV, param1: Foundation.SIZE, param2: UInt, param3: UInt, param4: DHSURF, param5: UInt, param6: UInt, param7: Long): Graphics.Gdi.HBITMAP
+    public operator fun invoke(param0: DHPDEV, param1: SIZE, param2: UInt, param3: UInt, param4: DHSURF, param5: UInt, param6: UInt, param7: Long): HBITMAP
 }
 
 public typealias PFN_DrvCreateDeviceBitmapEx = PFN_DrvCreateDeviceBitmapExFn?
@@ -210,7 +215,7 @@ public fun interface PFN_DrvEnableDriverFn {
 public typealias PFN_DrvEnableDriver = PFN_DrvEnableDriverFn?
 
 public fun interface PFN_DrvEnablePDEVFn {
-    public operator fun invoke(param0: Long, param1: PCWSTR, param2: UInt, param3: Long, param4: UInt, param5: Long, param6: UInt, param7: Long, param8: HDEV, param9: PCWSTR, param10: Foundation.HANDLE): DHPDEV
+    public operator fun invoke(param0: Long, param1: PCWSTR, param2: UInt, param3: Long, param4: UInt, param5: Long, param6: UInt, param7: Long, param8: HDEV, param9: PCWSTR, param10: HANDLE): DHPDEV
 }
 
 public typealias PFN_DrvEnablePDEV = PFN_DrvEnablePDEVFn?
@@ -264,7 +269,7 @@ public fun interface PFN_DrvGetGlyphModeFn {
 public typealias PFN_DrvGetGlyphMode = PFN_DrvGetGlyphModeFn?
 
 public fun interface PFN_DrvGetModesFn {
-    public operator fun invoke(param0: Foundation.HANDLE, param1: UInt, param2: Long): UInt
+    public operator fun invoke(param0: HANDLE, param1: UInt, param2: Long): UInt
 }
 
 public typealias PFN_DrvGetModes = PFN_DrvGetModesFn?
@@ -282,19 +287,19 @@ public fun interface PFN_DrvGradientFillFn {
 public typealias PFN_DrvGradientFill = PFN_DrvGradientFillFn?
 
 public fun interface PFN_DrvIcmCheckBitmapBitsFn {
-    public operator fun invoke(param0: DHPDEV, param1: Foundation.HANDLE, param2: Long, param3: Long): BOOL
+    public operator fun invoke(param0: DHPDEV, param1: HANDLE, param2: Long, param3: Long): BOOL
 }
 
 public typealias PFN_DrvIcmCheckBitmapBits = PFN_DrvIcmCheckBitmapBitsFn?
 
 public fun interface PFN_DrvIcmCreateColorTransformFn {
-    public operator fun invoke(param0: DHPDEV, param1: Long, param2: Long, param3: UInt, param4: Long, param5: UInt, param6: Long, param7: UInt, param8: UInt): Foundation.HANDLE
+    public operator fun invoke(param0: DHPDEV, param1: Long, param2: Long, param3: UInt, param4: Long, param5: UInt, param6: Long, param7: UInt, param8: UInt): HANDLE
 }
 
 public typealias PFN_DrvIcmCreateColorTransform = PFN_DrvIcmCreateColorTransformFn?
 
 public fun interface PFN_DrvIcmDeleteColorTransformFn {
-    public operator fun invoke(param0: DHPDEV, param1: Foundation.HANDLE): BOOL
+    public operator fun invoke(param0: DHPDEV, param1: HANDLE): BOOL
 }
 
 public typealias PFN_DrvIcmDeleteColorTransform = PFN_DrvIcmDeleteColorTransformFn?
@@ -474,7 +479,7 @@ public fun interface PFN_DrvSetPaletteFn {
 public typealias PFN_DrvSetPalette = PFN_DrvSetPaletteFn?
 
 public fun interface PFN_DrvSetPixelFormatFn {
-    public operator fun invoke(param0: Long, param1: Int, param2: Foundation.HWND): BOOL
+    public operator fun invoke(param0: Long, param1: Int, param2: HWND): BOOL
 }
 
 public typealias PFN_DrvSetPixelFormat = PFN_DrvSetPixelFormatFn?
@@ -534,7 +539,7 @@ public fun interface PFN_DrvStrokePathFn {
 public typealias PFN_DrvStrokePath = PFN_DrvStrokePathFn?
 
 public fun interface PFN_DrvSurfaceCompleteFn {
-    public operator fun invoke(param0: DHPDEV, param1: Foundation.HANDLE): BOOL
+    public operator fun invoke(param0: DHPDEV, param1: HANDLE): BOOL
 }
 
 public typealias PFN_DrvSurfaceComplete = PFN_DrvSurfaceCompleteFn?
@@ -552,7 +557,7 @@ public fun interface PFN_DrvSynchronizeFn {
 public typealias PFN_DrvSynchronize = PFN_DrvSynchronizeFn?
 
 public fun interface PFN_DrvSynchronizeRedirectionBitmapsFn {
-    public operator fun invoke(param0: DHPDEV, param1: Long): Foundation.NTSTATUS
+    public operator fun invoke(param0: DHPDEV, param1: Long): NTSTATUS
 }
 
 public typealias PFN_DrvSynchronizeRedirectionBitmaps = PFN_DrvSynchronizeRedirectionBitmapsFn?
@@ -588,49 +593,49 @@ public fun interface PFN_DrvUnlockDisplayAreaFn {
 public typealias PFN_DrvUnlockDisplayArea = PFN_DrvUnlockDisplayAreaFn?
 
 public fun interface PFN_EngCombineRgnFn {
-    public operator fun invoke(hrgntrg: Foundation.HANDLE, hrgnsrc1: Foundation.HANDLE, hrgnsrc2: Foundation.HANDLE, imode: Int): Int
+    public operator fun invoke(hrgntrg: HANDLE, hrgnsrc1: HANDLE, hrgnsrc2: HANDLE, imode: Int): Int
 }
 
 public typealias PFN_EngCombineRgn = PFN_EngCombineRgnFn?
 
 public fun interface PFN_EngCopyRgnFn {
-    public operator fun invoke(hrgndst: Foundation.HANDLE, hrgnsrc: Foundation.HANDLE): Int
+    public operator fun invoke(hrgndst: HANDLE, hrgnsrc: HANDLE): Int
 }
 
 public typealias PFN_EngCopyRgn = PFN_EngCopyRgnFn?
 
 public fun interface PFN_EngCreateRectRgnFn {
-    public operator fun invoke(left: Int, top: Int, right: Int, bottom: Int): Foundation.HANDLE
+    public operator fun invoke(left: Int, top: Int, right: Int, bottom: Int): HANDLE
 }
 
 public typealias PFN_EngCreateRectRgn = PFN_EngCreateRectRgnFn?
 
 public fun interface PFN_EngDeleteRgnFn {
-    public operator fun invoke(hrgn: Foundation.HANDLE)
+    public operator fun invoke(hrgn: HANDLE)
 }
 
 public typealias PFN_EngDeleteRgn = PFN_EngDeleteRgnFn?
 
 public fun interface PFN_EngIntersectRgnFn {
-    public operator fun invoke(hrgnresult: Foundation.HANDLE, hrgna: Foundation.HANDLE, hrgnb: Foundation.HANDLE): Int
+    public operator fun invoke(hrgnresult: HANDLE, hrgna: HANDLE, hrgnb: HANDLE): Int
 }
 
 public typealias PFN_EngIntersectRgn = PFN_EngIntersectRgnFn?
 
 public fun interface PFN_EngSubtractRgnFn {
-    public operator fun invoke(hrgnresult: Foundation.HANDLE, hrgna: Foundation.HANDLE, hrgnb: Foundation.HANDLE): Int
+    public operator fun invoke(hrgnresult: HANDLE, hrgna: HANDLE, hrgnb: HANDLE): Int
 }
 
 public typealias PFN_EngSubtractRgn = PFN_EngSubtractRgnFn?
 
 public fun interface PFN_EngUnionRgnFn {
-    public operator fun invoke(hrgnresult: Foundation.HANDLE, hrgna: Foundation.HANDLE, hrgnb: Foundation.HANDLE): Int
+    public operator fun invoke(hrgnresult: HANDLE, hrgna: HANDLE, hrgnb: HANDLE): Int
 }
 
 public typealias PFN_EngUnionRgn = PFN_EngUnionRgnFn?
 
 public fun interface PFN_EngXorRgnFn {
-    public operator fun invoke(hrgnresult: Foundation.HANDLE, hrgna: Foundation.HANDLE, hrgnb: Foundation.HANDLE): Int
+    public operator fun invoke(hrgnresult: HANDLE, hrgna: HANDLE, hrgnb: HANDLE): Int
 }
 
 public typealias PFN_EngXorRgn = PFN_EngXorRgnFn?

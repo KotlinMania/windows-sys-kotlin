@@ -5,6 +5,11 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.SYSTEMTIME
+import io.github.kotlinmania.windowssys.windows.win32.system.com.RPC_C_IMP_LEVEL
 
 public data class ARRAY_INFO(
     public var Dimension: Int = 0,
@@ -724,20 +729,20 @@ public data class RPC_ASYNC_NOTIFICATION_INFO(
     public var APC: RPC_ASYNC_NOTIFICATION_INFO_0 = RPC_ASYNC_NOTIFICATION_INFO_0(),
     public var IOC: RPC_ASYNC_NOTIFICATION_INFO_1 = RPC_ASYNC_NOTIFICATION_INFO_1(),
     public var IntPtr: RPC_ASYNC_NOTIFICATION_INFO_2 = RPC_ASYNC_NOTIFICATION_INFO_2(),
-    public var hEvent: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hEvent: HANDLE = 0L,
     public var NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE = null,
 )
 
-public data class RPC_ASYNC_NOTIFICATION_INFO_0(public var NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE = null, public var hThread: Foundation.HANDLE = Foundation.HANDLE())
+public data class RPC_ASYNC_NOTIFICATION_INFO_0(public var NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE = null, public var hThread: HANDLE = 0L)
 
 public data class RPC_ASYNC_NOTIFICATION_INFO_1(
-    public var hIOPort: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hIOPort: HANDLE = 0L,
     public var dwNumberOfBytesTransferred: UInt = 0u,
     public var dwCompletionKey: ULong = 0uL,
     public var lpOverlapped: Long = 0L,
 )
 
-public data class RPC_ASYNC_NOTIFICATION_INFO_2(public var hWnd: Foundation.HWND = Foundation.HWND(), public var Msg: UInt = 0u)
+public data class RPC_ASYNC_NOTIFICATION_INFO_2(public var hWnd: HWND = 0L, public var Msg: UInt = 0u)
 
 public data class RPC_ASYNC_STATE(
     public var Size: UInt = 0u,
@@ -887,7 +892,7 @@ public class RPC_CALL_ATTRIBUTES_V2_A(
     public var KernelModeCaller: BOOL = 0,
     public var ProtocolSequence: UInt = 0u,
     public var IsClientLocal: UInt = 0u,
-    public var ClientPID: Foundation.HANDLE = Foundation.HANDLE(),
+    public var ClientPID: HANDLE = 0L,
     public var CallStatus: UInt = 0u,
     public var CallType: RpcCallType = 0,
     public var CallLocalAddress: Long = 0L,
@@ -908,7 +913,7 @@ public class RPC_CALL_ATTRIBUTES_V2_W(
     public var KernelModeCaller: BOOL = 0,
     public var ProtocolSequence: UInt = 0u,
     public var IsClientLocal: RpcCallClientLocality = 0,
-    public var ClientPID: Foundation.HANDLE = Foundation.HANDLE(),
+    public var ClientPID: HANDLE = 0L,
     public var CallStatus: UInt = 0u,
     public var CallType: RpcCallType = 0,
     public var CallLocalAddress: Long = 0L,
@@ -929,7 +934,7 @@ public class RPC_CALL_ATTRIBUTES_V3_A(
     public var KernelModeCaller: BOOL = 0,
     public var ProtocolSequence: UInt = 0u,
     public var IsClientLocal: UInt = 0u,
-    public var ClientPID: Foundation.HANDLE = Foundation.HANDLE(),
+    public var ClientPID: HANDLE = 0L,
     public var CallStatus: UInt = 0u,
     public var CallType: RpcCallType = 0,
     public var CallLocalAddress: Long = 0L,
@@ -952,7 +957,7 @@ public class RPC_CALL_ATTRIBUTES_V3_W(
     public var KernelModeCaller: BOOL = 0,
     public var ProtocolSequence: UInt = 0u,
     public var IsClientLocal: RpcCallClientLocality = 0,
-    public var ClientPID: Foundation.HANDLE = Foundation.HANDLE(),
+    public var ClientPID: HANDLE = 0L,
     public var CallStatus: UInt = 0u,
     public var CallType: RpcCallType = 0,
     public var CallLocalAddress: Long = 0L,
@@ -1042,7 +1047,7 @@ public data class RPC_EXTENDED_ERROR_INFO(
     public var Parameters: List<RPC_EE_INFO_PARAM> = List(4) { RPC_EE_INFO_PARAM() },
 )
 
-public data class RPC_EXTENDED_ERROR_INFO_0(public var SystemTime: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(), public var FileTime: Foundation.FILETIME = Foundation.FILETIME())
+public data class RPC_EXTENDED_ERROR_INFO_0(public var SystemTime: SYSTEMTIME = SYSTEMTIME(), public var FileTime: FILETIME = FILETIME())
 
 public data class RPC_HTTP_TRANSPORT_CREDENTIALS_A(
     public var TransportCredentials: Long = 0L,
@@ -1224,14 +1229,14 @@ public data class RPC_SECURITY_QOS(
     public var Version: UInt = 0u,
     public var Capabilities: RPC_C_QOS_CAPABILITIES = 0u,
     public var IdentityTracking: RPC_C_QOS_IDENTITY = 0u,
-    public var ImpersonationType: Com.RPC_C_IMP_LEVEL = Com.RPC_C_IMP_LEVEL(),
+    public var ImpersonationType: RPC_C_IMP_LEVEL = 0u,
 )
 
 public data class RPC_SECURITY_QOS_V2_A(
     public var Version: UInt = 0u,
     public var Capabilities: RPC_C_QOS_CAPABILITIES = 0u,
     public var IdentityTracking: RPC_C_QOS_IDENTITY = 0u,
-    public var ImpersonationType: Com.RPC_C_IMP_LEVEL = Com.RPC_C_IMP_LEVEL(),
+    public var ImpersonationType: RPC_C_IMP_LEVEL = 0u,
     public var AdditionalSecurityInfoType: RPC_C_AUTHN_INFO_TYPE = 0u,
     public var u: RPC_SECURITY_QOS_V2_A_0 = RPC_SECURITY_QOS_V2_A_0(),
 )
@@ -1242,7 +1247,7 @@ public data class RPC_SECURITY_QOS_V2_W(
     public var Version: UInt = 0u,
     public var Capabilities: RPC_C_QOS_CAPABILITIES = 0u,
     public var IdentityTracking: RPC_C_QOS_IDENTITY = 0u,
-    public var ImpersonationType: Com.RPC_C_IMP_LEVEL = Com.RPC_C_IMP_LEVEL(),
+    public var ImpersonationType: RPC_C_IMP_LEVEL = 0u,
     public var AdditionalSecurityInfoType: RPC_C_AUTHN_INFO_TYPE = 0u,
     public var u: RPC_SECURITY_QOS_V2_W_0 = RPC_SECURITY_QOS_V2_W_0(),
 )
@@ -1253,7 +1258,7 @@ public data class RPC_SECURITY_QOS_V3_A(
     public var Version: UInt = 0u,
     public var Capabilities: RPC_C_QOS_CAPABILITIES = 0u,
     public var IdentityTracking: RPC_C_QOS_IDENTITY = 0u,
-    public var ImpersonationType: Com.RPC_C_IMP_LEVEL = Com.RPC_C_IMP_LEVEL(),
+    public var ImpersonationType: RPC_C_IMP_LEVEL = 0u,
     public var AdditionalSecurityInfoType: RPC_C_AUTHN_INFO_TYPE = 0u,
     public var u: RPC_SECURITY_QOS_V3_A_0 = RPC_SECURITY_QOS_V3_A_0(),
     public var Sid: Long = 0L,
@@ -1265,7 +1270,7 @@ public data class RPC_SECURITY_QOS_V3_W(
     public var Version: UInt = 0u,
     public var Capabilities: RPC_C_QOS_CAPABILITIES = 0u,
     public var IdentityTracking: RPC_C_QOS_IDENTITY = 0u,
-    public var ImpersonationType: Com.RPC_C_IMP_LEVEL = Com.RPC_C_IMP_LEVEL(),
+    public var ImpersonationType: RPC_C_IMP_LEVEL = 0u,
     public var AdditionalSecurityInfoType: RPC_C_AUTHN_INFO_TYPE = 0u,
     public var u: RPC_SECURITY_QOS_V3_W_0 = RPC_SECURITY_QOS_V3_W_0(),
     public var Sid: Long = 0L,
@@ -1277,7 +1282,7 @@ public data class RPC_SECURITY_QOS_V4_A(
     public var Version: UInt = 0u,
     public var Capabilities: RPC_C_QOS_CAPABILITIES = 0u,
     public var IdentityTracking: RPC_C_QOS_IDENTITY = 0u,
-    public var ImpersonationType: Com.RPC_C_IMP_LEVEL = Com.RPC_C_IMP_LEVEL(),
+    public var ImpersonationType: RPC_C_IMP_LEVEL = 0u,
     public var AdditionalSecurityInfoType: RPC_C_AUTHN_INFO_TYPE = 0u,
     public var u: RPC_SECURITY_QOS_V4_A_0 = RPC_SECURITY_QOS_V4_A_0(),
     public var Sid: Long = 0L,
@@ -1290,7 +1295,7 @@ public data class RPC_SECURITY_QOS_V4_W(
     public var Version: UInt = 0u,
     public var Capabilities: RPC_C_QOS_CAPABILITIES = 0u,
     public var IdentityTracking: RPC_C_QOS_IDENTITY = 0u,
-    public var ImpersonationType: Com.RPC_C_IMP_LEVEL = Com.RPC_C_IMP_LEVEL(),
+    public var ImpersonationType: RPC_C_IMP_LEVEL = 0u,
     public var AdditionalSecurityInfoType: RPC_C_AUTHN_INFO_TYPE = 0u,
     public var u: RPC_SECURITY_QOS_V4_W_0 = RPC_SECURITY_QOS_V4_W_0(),
     public var Sid: Long = 0L,
@@ -1303,7 +1308,7 @@ public data class RPC_SECURITY_QOS_V5_A(
     public var Version: UInt = 0u,
     public var Capabilities: RPC_C_QOS_CAPABILITIES = 0u,
     public var IdentityTracking: RPC_C_QOS_IDENTITY = 0u,
-    public var ImpersonationType: Com.RPC_C_IMP_LEVEL = Com.RPC_C_IMP_LEVEL(),
+    public var ImpersonationType: RPC_C_IMP_LEVEL = 0u,
     public var AdditionalSecurityInfoType: RPC_C_AUTHN_INFO_TYPE = 0u,
     public var u: RPC_SECURITY_QOS_V5_A_0 = RPC_SECURITY_QOS_V5_A_0(),
     public var Sid: Long = 0L,
@@ -1317,7 +1322,7 @@ public data class RPC_SECURITY_QOS_V5_W(
     public var Version: UInt = 0u,
     public var Capabilities: RPC_C_QOS_CAPABILITIES = 0u,
     public var IdentityTracking: RPC_C_QOS_IDENTITY = 0u,
-    public var ImpersonationType: Com.RPC_C_IMP_LEVEL = Com.RPC_C_IMP_LEVEL(),
+    public var ImpersonationType: RPC_C_IMP_LEVEL = 0u,
     public var AdditionalSecurityInfoType: RPC_C_AUTHN_INFO_TYPE = 0u,
     public var u: RPC_SECURITY_QOS_V5_W_0 = RPC_SECURITY_QOS_V5_W_0(),
     public var Sid: Long = 0L,

@@ -5,19 +5,23 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.ALG_ID
 
 public data class SAFER_CODE_PROPERTIES_V1(
     public var cbSize: UInt = 0u,
     public var dwCheckFlags: UInt = 0u,
     public var ImagePath: PCWSTR = 0L,
-    public var hImageFileHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hImageFileHandle: HANDLE = 0L,
     public var UrlZoneId: UInt = 0u,
     public var ImageHash: UByteArray = UByteArray(64),
     public var dwImageHashSize: UInt = 0u,
     public var ImageSize: Long = 0L,
-    public var HashAlgorithm: Cryptography.ALG_ID = Cryptography.ALG_ID(),
+    public var HashAlgorithm: ALG_ID = 0u,
     public var pByteBlock: Long = 0L,
-    public var hWndParent: Foundation.HWND = Foundation.HWND(),
+    public var hWndParent: HWND = 0L,
     public var dwWVTUIChoice: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
@@ -59,14 +63,14 @@ public class SAFER_CODE_PROPERTIES_V2(
     public var cbSize: UInt = 0u,
     public var dwCheckFlags: UInt = 0u,
     public var ImagePath: PCWSTR = 0L,
-    public var hImageFileHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hImageFileHandle: HANDLE = 0L,
     public var UrlZoneId: UInt = 0u,
     public var ImageHash: UByteArray = UByteArray(64),
     public var dwImageHashSize: UInt = 0u,
     public var ImageSize: Long = 0L,
-    public var HashAlgorithm: Cryptography.ALG_ID = Cryptography.ALG_ID(),
+    public var HashAlgorithm: ALG_ID = 0u,
     public var pByteBlock: Long = 0L,
-    public var hWndParent: Foundation.HWND = Foundation.HWND(),
+    public var hWndParent: HWND = 0L,
     public var dwWVTUIChoice: UInt = 0u,
     public var PackageMoniker: PCWSTR = 0L,
     public var PackagePublisher: PCWSTR = 0L,
@@ -81,7 +85,7 @@ public data class SAFER_HASH_IDENTIFICATION(
     public var FriendlyName: UShortArray = UShortArray(256),
     public var HashSize: UInt = 0u,
     public var ImageHash: UByteArray = UByteArray(64),
-    public var HashAlgorithm: Cryptography.ALG_ID = Cryptography.ALG_ID(),
+    public var HashAlgorithm: ALG_ID = 0u,
     public var ImageSize: Long = 0L,
     public var dwSaferFlags: UInt = 0u,
 ) {
@@ -116,7 +120,7 @@ public data class SAFER_HASH_IDENTIFICATION2(
     public var hashIdentification: SAFER_HASH_IDENTIFICATION = SAFER_HASH_IDENTIFICATION(),
     public var HashSize: UInt = 0u,
     public var ImageHash: UByteArray = UByteArray(64),
-    public var HashAlgorithm: Cryptography.ALG_ID = Cryptography.ALG_ID(),
+    public var HashAlgorithm: ALG_ID = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -141,7 +145,7 @@ public data class SAFER_IDENTIFICATION_HEADER(
     public var dwIdentificationType: SAFER_IDENTIFICATION_TYPES = 0,
     public var cbStructSize: UInt = 0u,
     public var IdentificationGuid: GUID = GUID(),
-    public var lastModified: Foundation.FILETIME = Foundation.FILETIME(),
+    public var lastModified: FILETIME = FILETIME(),
 )
 
 public data class SAFER_PATHNAME_IDENTIFICATION(

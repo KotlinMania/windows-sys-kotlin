@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.clrhosting
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.s
@@ -16,7 +17,7 @@ public val BucketParamLength: UInt = 255u
 
 public val BucketParamsCount: UInt = 10u
 
-public val CLRRuntimeHost: GUID = GUID.from_u128(0x90f1a06e77124762uL, 0x86b57a5eba6bdb02uL)
+public val CLRRuntimeHost: GUID = GUID.from_u128(U128(0x90f1a06e77124762uL, 0x86b57a5eba6bdb02uL))
 
 public val CLR_ASSEMBLY_BUILD_VERSION: UInt = 0u
 
@@ -36,17 +37,17 @@ public val CLR_MAJOR_VERSION: UInt = 4u
 
 public val CLR_MINOR_VERSION: UInt = 0u
 
-public val CLSID_CLRDebugging: GUID = GUID.from_u128(0xbacc578dfbdd48a4uL, 0x969f02d932b74634uL)
+public val CLSID_CLRDebugging: GUID = GUID.from_u128(U128(0xbacc578dfbdd48a4uL, 0x969f02d932b74634uL))
 
-public val CLSID_CLRDebuggingLegacy: GUID = GUID.from_u128(0xdf8395b5a4ba450buL, 0xa77ca9a47762c520uL)
+public val CLSID_CLRDebuggingLegacy: GUID = GUID.from_u128(U128(0xdf8395b5a4ba450buL, 0xa77ca9a47762c520uL))
 
-public val CLSID_CLRMetaHost: GUID = GUID.from_u128(0x9280188d0e8e4867uL, 0xb30c7fa83884e8deuL)
+public val CLSID_CLRMetaHost: GUID = GUID.from_u128(U128(0x9280188d0e8e4867uL, 0xb30c7fa83884e8deuL))
 
-public val CLSID_CLRMetaHostPolicy: GUID = GUID.from_u128(0x2ebcd49a1b474a61uL, 0xb13a4a03701e594buL)
+public val CLSID_CLRMetaHostPolicy: GUID = GUID.from_u128(U128(0x2ebcd49a1b474a61uL, 0xb13a4a03701e594buL))
 
-public val CLSID_CLRProfiling: GUID = GUID.from_u128(0xbd097ed8733e43feuL, 0x8ed7a95ff9a8448cuL)
+public val CLSID_CLRProfiling: GUID = GUID.from_u128(U128(0xbd097ed8733e43feuL, 0x8ed7a95ff9a8448cuL))
 
-public val CLSID_CLRStrongName: GUID = GUID.from_u128(0xb79b0acdf5cd409buL, 0xb5a5a16244610b92uL)
+public val CLSID_CLRStrongName: GUID = GUID.from_u128(U128(0xb79b0acdf5cd409buL, 0xb5a5a16244610b92uL))
 
 public val CLSID_RESOLUTION_DEFAULT: CLSID_RESOLUTION_FLAGS = 0
 
@@ -58,11 +59,11 @@ public val COR_GC_MEMORYUSAGE: COR_GC_STAT_TYPES = 2
 
 public val COR_GC_THREAD_HAS_PROMOTED_BYTES: COR_GC_THREAD_STATS_TYPES = 1
 
-public val ComCallUnmarshal: GUID = GUID.from_u128(0x3f281000e95a11d2uL, 0x886b00c04f869f04uL)
+public val ComCallUnmarshal: GUID = GUID.from_u128(U128(0x3f281000e95a11d2uL, 0x886b00c04f869f04uL))
 
-public val ComCallUnmarshalV4: GUID = GUID.from_u128(0x45fb4600e6e84928uL, 0xb25e50476ff79425uL)
+public val ComCallUnmarshalV4: GUID = GUID.from_u128(U128(0x45fb4600e6e84928uL, 0xb25e50476ff79425uL))
 
-public val CorRuntimeHost: GUID = GUID.from_u128(0xcb2f6723ab3a11d2uL, 0x9c4000c04fa30a3euL)
+public val CorRuntimeHost: GUID = GUID.from_u128(U128(0xcb2f6723ab3a11d2uL, 0x9c4000c04fa30a3euL))
 
 public val DEPRECATED_CLR_API_MESG: PCSTR = s("This API has been deprecated. Refer to https://go.microsoft.com/fwlink/?LinkId=143720 for more details.")
 
@@ -116,7 +117,7 @@ public val HOST_TYPE_DEFAULT: HOST_TYPE = 0
 
 public val InvalidBucketParamIndex: BucketParameterIndex = 9
 
-public val LIBID_mscoree: GUID = GUID.from_u128(0x5477469e83b111d2uL, 0x8b4900a0c9b7c9c4uL)
+public val LIBID_mscoree: GUID = GUID.from_u128(U128(0x5477469e83b111d2uL, 0x8b4900a0c9b7c9c4uL))
 
 public val MALLOC_EXECUTABLE: MALLOC_TYPE = 2
 
@@ -262,7 +263,7 @@ public val TT_UNKNOWN: ETaskType = -2147483648
 
 public val TT_USER: ETaskType = 256
 
-public val TypeNameFactory: GUID = GUID.from_u128(0xb81ff17120f311d2uL, 0x8dcc00a0c9b00525uL)
+public val TypeNameFactory: GUID = GUID.from_u128(U128(0xb81ff17120f311d2uL, 0x8dcc00a0c9b00525uL))
 
 public val WAIT_ALERTABLE: WAIT_OPTION = 2
 

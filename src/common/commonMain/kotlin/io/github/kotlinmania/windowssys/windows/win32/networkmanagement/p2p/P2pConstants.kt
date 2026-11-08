@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
@@ -163,9 +164,9 @@ public val NS_PNRPCLOUD: UInt = 39u
 
 public val NS_PNRPNAME: UInt = 38u
 
-public val NS_PROVIDER_PNRPCLOUD: GUID = GUID.from_u128(0x3fe89ce766d4976uL, 0xb9c1bb9bc42c7b4duL)
+public val NS_PROVIDER_PNRPCLOUD: GUID = GUID.from_u128(U128(0x3fe89ce766d4976uL, 0xb9c1bb9bc42c7b4duL))
 
-public val NS_PROVIDER_PNRPNAME: GUID = GUID.from_u128(0x3fe89cd766d4976uL, 0xb9c1bb9bc42c7b4duL)
+public val NS_PROVIDER_PNRPNAME: GUID = GUID.from_u128(U128(0x3fe89cd766d4976uL, 0xb9c1bb9bc42c7b4duL))
 
 public val PEERDIST_PUBLICATION_OPTIONS_VERSION: Int = 2
 
@@ -199,7 +200,7 @@ public val PEER_CHANGE_DELETED: PEER_CHANGE_TYPE = 1
 
 public val PEER_CHANGE_UPDATED: PEER_CHANGE_TYPE = 2
 
-public val PEER_COLLAB_OBJECTID_USER_PICTURE: GUID = GUID.from_u128(0xdd15f41ffc4e4922uL, 0xb0354c06a754d01duL)
+public val PEER_COLLAB_OBJECTID_USER_PICTURE: GUID = GUID.from_u128(U128(0xdd15f41ffc4e4922uL, 0xb0354c06a754d01duL))
 
 public val PEER_CONNECTED: PEER_CONNECTION_STATUS = 1
 
@@ -319,11 +320,11 @@ public val PEER_GROUP_GMC_AUTHENTICATION: PEER_GROUP_AUTHENTICATION_SCHEME = 1
 
 public val PEER_GROUP_PASSWORD_AUTHENTICATION: PEER_GROUP_AUTHENTICATION_SCHEME = 2
 
-public val PEER_GROUP_ROLE_ADMIN: GUID = GUID.from_u128(0x4387127aa56450auL, 0x8ce54f565c6790f4uL)
+public val PEER_GROUP_ROLE_ADMIN: GUID = GUID.from_u128(U128(0x4387127aa56450auL, 0x8ce54f565c6790f4uL))
 
-public val PEER_GROUP_ROLE_INVITING_MEMBER: GUID = GUID.from_u128(0x4370fd89dc184cfbuL, 0x8dbf9853a8a9f905uL)
+public val PEER_GROUP_ROLE_INVITING_MEMBER: GUID = GUID.from_u128(U128(0x4370fd89dc184cfbuL, 0x8dbf9853a8a9f905uL))
 
-public val PEER_GROUP_ROLE_MEMBER: GUID = GUID.from_u128(0xf12dc4c708574ca0uL, 0x93fcb1bb19a3d8c2uL)
+public val PEER_GROUP_ROLE_MEMBER: GUID = GUID.from_u128(U128(0xf12dc4c708574ca0uL, 0x93fcb1bb19a3d8c2uL))
 
 public val PEER_GROUP_STATUS_HAS_CONNECTIONS: PEER_GROUP_STATUS = 2
 
@@ -471,11 +472,11 @@ public val PNRP_SITE_LOCAL_SCOPE: PNRP_SCOPE = 2
 
 public val PeerDistClientBasicInfo: PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS = 0
 
-public val SVCID_PNRPCLOUD: GUID = GUID.from_u128(0xc2239ce600c04fbfuL, 0xbad618139385a49auL)
+public val SVCID_PNRPCLOUD: GUID = GUID.from_u128(U128(0xc2239ce600c04fbfuL, 0xbad618139385a49auL))
 
-public val SVCID_PNRPNAME_V1: GUID = GUID.from_u128(0xc2239ce500c04fbfuL, 0xbad618139385a49auL)
+public val SVCID_PNRPNAME_V1: GUID = GUID.from_u128(U128(0xc2239ce500c04fbfuL, 0xbad618139385a49auL))
 
-public val SVCID_PNRPNAME_V2: GUID = GUID.from_u128(0xc2239ce700c04fbfuL, 0xbad618139385a49auL)
+public val SVCID_PNRPNAME_V2: GUID = GUID.from_u128(U128(0xc2239ce700c04fbfuL, 0xbad618139385a49auL))
 
 public val WSA_PNRP_CLIENT_INVALID_COMPARTMENT_ID: UInt = 11506u
 

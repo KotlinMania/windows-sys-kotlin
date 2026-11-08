@@ -8,6 +8,13 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.UNICODE_STRING
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.LIST_ENTRY
 
 public data class ACTCTX_SECTION_KEYED_DATA_2600(
     public var cbSize: UInt = 0u,
@@ -18,7 +25,7 @@ public data class ACTCTX_SECTION_KEYED_DATA_2600(
     public var ulSectionGlobalDataLength: UInt = 0u,
     public var lpSectionBase: Long = 0L,
     public var ulSectionTotalLength: UInt = 0u,
-    public var hActCtx: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hActCtx: HANDLE = 0L,
     public var ulAssemblyRosterIndex: UInt = 0u,
 )
 
@@ -30,7 +37,7 @@ public data class ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA(
     public var ulSectionGlobalDataLength: UInt = 0u,
 )
 
-public data class ACTIVATION_CONTEXT_BASIC_INFORMATION(public var hActCtx: Foundation.HANDLE = Foundation.HANDLE(), public var dwFlags: UInt = 0u)
+public data class ACTIVATION_CONTEXT_BASIC_INFORMATION(public var hActCtx: HANDLE = 0L, public var dwFlags: UInt = 0u)
 
 public data class CABINFOA(
     public var pszCab: PSTR = 0L,
@@ -88,7 +95,7 @@ public data class CABINFOW(
     }
 }
 
-public data class CLIENT_ID(public var UniqueProcess: Foundation.HANDLE = Foundation.HANDLE(), public var UniqueThread: Foundation.HANDLE = Foundation.HANDLE())
+public data class CLIENT_ID(public var UniqueProcess: HANDLE = 0L, public var UniqueThread: HANDLE = 0L)
 
 public data class CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG(public var Size: UInt = 0u, public var TriggerId: PCWSTR = 0L)
 
@@ -224,8 +231,8 @@ public data class DCICREATEINPUT(
 
 public data class DCIENUMINPUT(
     public var cmd: DCICMD = DCICMD(),
-    public var rSrc: Foundation.RECT = Foundation.RECT(),
-    public var rDst: Foundation.RECT = Foundation.RECT(),
+    public var rSrc: RECT = RECT(),
+    public var rDst: RECT = RECT(),
     public var EnumCallback: Long = 0L,
     public var lpContext: Long = 0L,
 )
@@ -373,7 +380,7 @@ public data class IMAGE_THUNK_DATA64_0(
 )
 
 public data class IMEPROA(
-    public var hWnd: Foundation.HWND = Foundation.HWND(),
+    public var hWnd: HWND = 0L,
     public var InstDate: DATETIME = DATETIME(),
     public var wVersion: UInt = 0u,
     public var szDescription: UByteArray = UByteArray(50),
@@ -404,7 +411,7 @@ public data class IMEPROA(
 }
 
 public data class IMEPROW(
-    public var hWnd: Foundation.HWND = Foundation.HWND(),
+    public var hWnd: HWND = 0L,
     public var InstDate: DATETIME = DATETIME(),
     public var wVersion: UInt = 0u,
     public var szDescription: UShortArray = UShortArray(50),
@@ -436,13 +443,13 @@ public data class IMEPROW(
 
 public data class IMESTRUCT(
     public var fnc: UInt = 0u,
-    public var wParam: Foundation.WPARAM = Foundation.WPARAM(),
+    public var wParam: WPARAM = 0uL,
     public var wCount: UInt = 0u,
     public var dchSource: UInt = 0u,
     public var dchDest: UInt = 0u,
-    public var lParam1: Foundation.LPARAM = Foundation.LPARAM(),
-    public var lParam2: Foundation.LPARAM = Foundation.LPARAM(),
-    public var lParam3: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam1: LPARAM = 0L,
+    public var lParam2: LPARAM = 0L,
+    public var lParam3: LPARAM = 0L,
 )
 
 public data class JAVA_TRUST(
@@ -472,11 +479,11 @@ public data class JIT_DEBUG_INFO(
 
 public data class LDR_DATA_TABLE_ENTRY(
     public var Reserved1: LongArray = LongArray(2),
-    public var InMemoryOrderLinks: Kernel.LIST_ENTRY = Kernel.LIST_ENTRY(),
+    public var InMemoryOrderLinks: LIST_ENTRY = LIST_ENTRY(),
     public var Reserved2: LongArray = LongArray(2),
     public var DllBase: Long = 0L,
     public var Reserved3: LongArray = LongArray(2),
-    public var FullDllName: Foundation.UNICODE_STRING = Foundation.UNICODE_STRING(),
+    public var FullDllName: UNICODE_STRING = UNICODE_STRING(),
     public var Reserved4: UByteArray = UByteArray(8),
     public var Reserved5: LongArray = LongArray(3),
     public var Anonymous: LDR_DATA_TABLE_ENTRY_0 = LDR_DATA_TABLE_ENTRY_0(),
@@ -617,7 +624,7 @@ public data class PUBLIC_OBJECT_BASIC_INFORMATION(
     }
 }
 
-public data class PUBLIC_OBJECT_TYPE_INFORMATION(public var TypeName: Foundation.UNICODE_STRING = Foundation.UNICODE_STRING(), public var Reserved: UIntArray = UIntArray(22)) {
+public data class PUBLIC_OBJECT_TYPE_INFORMATION(public var TypeName: UNICODE_STRING = UNICODE_STRING(), public var Reserved: UIntArray = UIntArray(22)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is PUBLIC_OBJECT_TYPE_INFORMATION) return false
@@ -773,9 +780,9 @@ public class SYSTEM_PROCESS_INFORMATION(
     public var NextEntryOffset: UInt = 0u,
     public var NumberOfThreads: UInt = 0u,
     public var Reserved1: UByteArray = UByteArray(48),
-    public var ImageName: Foundation.UNICODE_STRING = Foundation.UNICODE_STRING(),
+    public var ImageName: UNICODE_STRING = UNICODE_STRING(),
     public var BasePriority: Int = 0,
-    public var UniqueProcessId: Foundation.HANDLE = Foundation.HANDLE(),
+    public var UniqueProcessId: HANDLE = 0L,
     public var Reserved2: Long = 0L,
     public var HandleCount: UInt = 0u,
     public var SessionId: UInt = 0u,
@@ -945,7 +952,7 @@ public data class TDI_TL_IO_CONTROL_ENDPOINT(
 
 public data class TDI_TL_IO_CONTROL_ENDPOINT_0(public var IoControlCode: UInt = 0u, public var OptionName: UInt = 0u)
 
-public data class THREAD_NAME_INFORMATION(public var ThreadName: Foundation.UNICODE_STRING = Foundation.UNICODE_STRING())
+public data class THREAD_NAME_INFORMATION(public var ThreadName: UNICODE_STRING = UNICODE_STRING())
 
 public data class UNDETERMINESTRUCT(
     public var dwSize: UInt = 0u,
@@ -997,5 +1004,5 @@ public data class WLDP_HOST_INFORMATION(
     public var dwRevision: UInt = 0u,
     public var dwHostId: WLDP_HOST_ID = 0,
     public var szSource: PCWSTR = 0L,
-    public var hSource: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hSource: HANDLE = 0L,
 )

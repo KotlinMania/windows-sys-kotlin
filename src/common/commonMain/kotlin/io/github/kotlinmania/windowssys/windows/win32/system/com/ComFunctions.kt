@@ -6,6 +6,9 @@ import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
 
 public fun BindMoniker(pmk: Long, grfopt: UInt, iidresult: Long, ppvresult: Long): HRESULT {
     return Win32DynamicFfi.invoke("ole32.dll", "BindMoniker", longArrayOf(pmk, grfopt.toLong(), iidresult, ppvresult)).toInt()
@@ -103,8 +106,8 @@ public fun CoFreeAllLibraries() {
     Win32DynamicFfi.invoke("ole32.dll", "CoFreeAllLibraries", longArrayOf())
 }
 
-public fun CoFreeLibrary(hinst: Foundation.HINSTANCE) {
-    Win32DynamicFfi.invoke("ole32.dll", "CoFreeLibrary", longArrayOf(Win32DynamicFfi.objectSlot(hinst)))
+public fun CoFreeLibrary(hinst: HINSTANCE) {
+    Win32DynamicFfi.invoke("ole32.dll", "CoFreeLibrary", longArrayOf(hinst))
 }
 
 public fun CoFreeUnusedLibraries() {
@@ -187,8 +190,8 @@ public fun CoInitializeEx(pvreserved: Long, dwcoinit: UInt): HRESULT {
     return Win32DynamicFfi.invoke("ole32.dll", "CoInitializeEx", longArrayOf(pvreserved, dwcoinit.toLong())).toInt()
 }
 
-public fun CoInitializeSecurity(psecdesc: Security.PSECURITY_DESCRIPTOR, cauthsvc: Int, asauthsvc: Long, preserved1: Long, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthlist: Long, dwcapabilities: UInt, preserved3: Long): HRESULT {
-    return Win32DynamicFfi.invoke("ole32.dll", "CoInitializeSecurity", longArrayOf(Win32DynamicFfi.objectSlot(psecdesc), cauthsvc.toLong(), asauthsvc, preserved1, dwauthnlevel.toLong(), dwimplevel.toLong(), pauthlist, dwcapabilities.toLong(), preserved3)).toInt()
+public fun CoInitializeSecurity(psecdesc: PSECURITY_DESCRIPTOR, cauthsvc: Int, asauthsvc: Long, preserved1: Long, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthlist: Long, dwcapabilities: UInt, preserved3: Long): HRESULT {
+    return Win32DynamicFfi.invoke("ole32.dll", "CoInitializeSecurity", longArrayOf(psecdesc, cauthsvc.toLong(), asauthsvc, preserved1, dwauthnlevel.toLong(), dwimplevel.toLong(), pauthlist, dwcapabilities.toLong(), preserved3)).toInt()
 }
 
 public fun CoInstall(pbc: Long, dwflags: UInt, pclassspec: Long, pquery: Long, pszcodebase: PCWSTR): HRESULT {
@@ -207,9 +210,8 @@ public fun CoIsOle1Class(rclsid: Long): BOOL {
     return Win32DynamicFfi.invoke("ole32.dll", "CoIsOle1Class", longArrayOf(rclsid)).toInt()
 }
 
-public fun CoLoadLibrary(lpszlibname: PCWSTR, bautofree: BOOL): Foundation.HINSTANCE {
-    Win32DynamicFfi.invoke("ole32.dll", "CoLoadLibrary", longArrayOf(lpszlibname, bautofree.toLong()))
-    return Foundation.HINSTANCE()
+public fun CoLoadLibrary(lpszlibname: PCWSTR, bautofree: BOOL): HINSTANCE {
+    return Win32DynamicFfi.invoke("ole32.dll", "CoLoadLibrary", longArrayOf(lpszlibname, bautofree.toLong()))
 }
 
 public fun CoLockObjectExternal(punk: Long, flock: BOOL, flastunlockreleases: BOOL): HRESULT {
@@ -380,8 +382,8 @@ public fun CreatePointerMoniker(punk: Long, ppmk: Long): HRESULT {
     return Win32DynamicFfi.invoke("ole32.dll", "CreatePointerMoniker", longArrayOf(punk, ppmk)).toInt()
 }
 
-public fun CreateStdProgressIndicator(hwndparent: Foundation.HWND, psztitle: PCWSTR, pibsccaller: Long, ppibsc: Long): HRESULT {
-    return Win32DynamicFfi.invoke("ole32.dll", "CreateStdProgressIndicator", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), psztitle, pibsccaller, ppibsc)).toInt()
+public fun CreateStdProgressIndicator(hwndparent: HWND, psztitle: PCWSTR, pibsccaller: Long, ppibsc: Long): HRESULT {
+    return Win32DynamicFfi.invoke("ole32.dll", "CreateStdProgressIndicator", longArrayOf(hwndparent, psztitle, pibsccaller, ppibsc)).toInt()
 }
 
 public fun CreateUri(pwzuri: PCWSTR, dwflags: URI_CREATE_FLAGS, dwreserved: ULong, ppuri: Long): HRESULT {

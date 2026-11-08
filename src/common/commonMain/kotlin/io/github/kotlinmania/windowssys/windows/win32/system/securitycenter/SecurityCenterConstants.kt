@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.securitycenter
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 
 public val SECURITY_PRODUCT_TYPE_ANTISPYWARE: SECURITY_PRODUCT_TYPE = 2
@@ -8,9 +9,9 @@ public val SECURITY_PRODUCT_TYPE_ANTIVIRUS: SECURITY_PRODUCT_TYPE = 0
 
 public val SECURITY_PRODUCT_TYPE_FIREWALL: SECURITY_PRODUCT_TYPE = 1
 
-public val WSCDefaultProduct: GUID = GUID.from_u128(0x2981a36ef22d11e5uL, 0x9ce95e5517507c66uL)
+public val WSCDefaultProduct: GUID = GUID.from_u128(U128(0x2981a36ef22d11e5uL, 0x9ce95e5517507c66uL))
 
-public val WSCProductList: GUID = GUID.from_u128(0x17072f7b9abe4a74uL, 0xa2611eb76b55107auL)
+public val WSCProductList: GUID = GUID.from_u128(U128(0x17072f7b9abe4a74uL, 0xa2611eb76b55107auL))
 
 public val WSC_SECURITY_PRODUCT_OUT_OF_DATE: WSC_SECURITY_SIGNATURE_STATUS = 0
 

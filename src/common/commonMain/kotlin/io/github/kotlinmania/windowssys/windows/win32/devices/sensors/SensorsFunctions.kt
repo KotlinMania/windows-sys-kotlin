@@ -3,20 +3,18 @@ package io.github.kotlinmania.windowssys.windows.win32.devices.sensors
 import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
 
-public fun CollectionsListAllocateBufferAndSerialize(sourcecollection: Long, ptargetbuffersizeinbytes: Long, ptargetbuffer: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("sensorsutilsv2.dll", "CollectionsListAllocateBufferAndSerialize", longArrayOf(sourcecollection, ptargetbuffersizeinbytes, ptargetbuffer))
-    return Foundation.NTSTATUS()
+public fun CollectionsListAllocateBufferAndSerialize(sourcecollection: Long, ptargetbuffersizeinbytes: Long, ptargetbuffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("sensorsutilsv2.dll", "CollectionsListAllocateBufferAndSerialize", longArrayOf(sourcecollection, ptargetbuffersizeinbytes, ptargetbuffer)).toInt()
 }
 
-public fun CollectionsListCopyAndMarshall(target: Long, source: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("sensorsutilsv2.dll", "CollectionsListCopyAndMarshall", longArrayOf(target, source))
-    return Foundation.NTSTATUS()
+public fun CollectionsListCopyAndMarshall(target: Long, source: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("sensorsutilsv2.dll", "CollectionsListCopyAndMarshall", longArrayOf(target, source)).toInt()
 }
 
-public fun CollectionsListDeserializeFromBuffer(sourcebuffersizeinbytes: UInt, sourcebuffer: Long, targetcollection: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("sensorsutilsv2.dll", "CollectionsListDeserializeFromBuffer", longArrayOf(sourcebuffersizeinbytes.toLong(), sourcebuffer, targetcollection))
-    return Foundation.NTSTATUS()
+public fun CollectionsListDeserializeFromBuffer(sourcebuffersizeinbytes: UInt, sourcebuffer: Long, targetcollection: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("sensorsutilsv2.dll", "CollectionsListDeserializeFromBuffer", longArrayOf(sourcebuffersizeinbytes.toLong(), sourcebuffer, targetcollection)).toInt()
 }
 
 public fun CollectionsListGetFillableCount(buffersizebytes: UInt): UInt {
@@ -35,24 +33,20 @@ public fun CollectionsListGetSerializedSize(collection: Long): UInt {
     return Win32DynamicFfi.invoke("sensorsutilsv2.dll", "CollectionsListGetSerializedSize", longArrayOf(collection)).toUInt()
 }
 
-public fun CollectionsListMarshall(target: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("sensorsutilsv2.dll", "CollectionsListMarshall", longArrayOf(target))
-    return Foundation.NTSTATUS()
+public fun CollectionsListMarshall(target: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("sensorsutilsv2.dll", "CollectionsListMarshall", longArrayOf(target)).toInt()
 }
 
-public fun CollectionsListSerializeToBuffer(sourcecollection: Long, targetbuffersizeinbytes: UInt, targetbuffer: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("sensorsutilsv2.dll", "CollectionsListSerializeToBuffer", longArrayOf(sourcecollection, targetbuffersizeinbytes.toLong(), targetbuffer))
-    return Foundation.NTSTATUS()
+public fun CollectionsListSerializeToBuffer(sourcecollection: Long, targetbuffersizeinbytes: UInt, targetbuffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("sensorsutilsv2.dll", "CollectionsListSerializeToBuffer", longArrayOf(sourcecollection, targetbuffersizeinbytes.toLong(), targetbuffer)).toInt()
 }
 
-public fun CollectionsListSortSubscribedActivitiesByConfidence(thresholds: Long, pcollection: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("sensorsutilsv2.dll", "CollectionsListSortSubscribedActivitiesByConfidence", longArrayOf(thresholds, pcollection))
-    return Foundation.NTSTATUS()
+public fun CollectionsListSortSubscribedActivitiesByConfidence(thresholds: Long, pcollection: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("sensorsutilsv2.dll", "CollectionsListSortSubscribedActivitiesByConfidence", longArrayOf(thresholds, pcollection)).toInt()
 }
 
-public fun CollectionsListUpdateMarshalledPointer(collection: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("sensorsutilsv2.dll", "CollectionsListUpdateMarshalledPointer", longArrayOf(collection))
-    return Foundation.NTSTATUS()
+public fun CollectionsListUpdateMarshalledPointer(collection: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("sensorsutilsv2.dll", "CollectionsListUpdateMarshalledPointer", longArrayOf(collection)).toInt()
 }
 
 public fun EvaluateActivityThresholds(newsample: Long, oldsample: Long, thresholds: Long): Boolean {
@@ -60,9 +54,8 @@ public fun EvaluateActivityThresholds(newsample: Long, oldsample: Long, threshol
     return (rawRet and 0xFFL) != 0L
 }
 
-public fun GetPerformanceTime(timems: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("sensorsutilsv2.dll", "GetPerformanceTime", longArrayOf(timems))
-    return Foundation.NTSTATUS()
+public fun GetPerformanceTime(timems: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("sensorsutilsv2.dll", "GetPerformanceTime", longArrayOf(timems)).toInt()
 }
 
 public fun InitPropVariantFromCLSIDArray(members: Long, size: UInt, ppropvar: Long): HRESULT {
@@ -94,102 +87,84 @@ public fun IsKeyPresentInPropertyList(plist: Long, pkey: Long): Boolean {
 }
 
 public fun IsSensorSubscribed(subscriptionlist: Long, currenttype: GUID): Boolean {
-    val rawRet = Win32DynamicFfi.invoke("sensorsutilsv2.dll", "IsSensorSubscribed", longArrayOf(subscriptionlist, Win32DynamicFfi.guidSlot(currenttype.data1, currenttype.data2, currenttype.data3, currenttype.data4)))
+    val rawRet = Win32DynamicFfi.invoke("sensorsutilsv2.dll", "IsSensorSubscribed", longArrayOf(subscriptionlist, run { val buf = ByteArray(16); buf[0] = (currenttype.data1.toInt() and 0xFF).toByte(); buf[1] = ((currenttype.data1.toInt() ushr 8) and 0xFF).toByte(); buf[2] = ((currenttype.data1.toInt() ushr 16) and 0xFF).toByte(); buf[3] = ((currenttype.data1.toInt() ushr 24) and 0xFF).toByte(); buf[4] = (currenttype.data2.toInt() and 0xFF).toByte(); buf[5] = ((currenttype.data2.toInt() ushr 8) and 0xFF).toByte(); buf[6] = (currenttype.data3.toInt() and 0xFF).toByte(); buf[7] = ((currenttype.data3.toInt() ushr 8) and 0xFF).toByte(); for (i in 0 until minOf(8, currenttype.data4.size)) buf[8 + i] = currenttype.data4[i].toByte(); val ptr = Win32DynamicFfi.allocZeroed(16); Win32DynamicFfi.writeBytes(ptr, buf); ptr }))
     return (rawRet and 0xFFL) != 0L
 }
 
-public fun PropKeyFindKeyGetBool(plist: Long, pkey: Long, pretvalue: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropKeyFindKeyGetBool", longArrayOf(plist, pkey, pretvalue))
-    return Foundation.NTSTATUS()
+public fun PropKeyFindKeyGetBool(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropKeyFindKeyGetBool", longArrayOf(plist, pkey, pretvalue)).toInt()
 }
 
-public fun PropKeyFindKeyGetDouble(plist: Long, pkey: Long, pretvalue: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropKeyFindKeyGetDouble", longArrayOf(plist, pkey, pretvalue))
-    return Foundation.NTSTATUS()
+public fun PropKeyFindKeyGetDouble(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropKeyFindKeyGetDouble", longArrayOf(plist, pkey, pretvalue)).toInt()
 }
 
-public fun PropKeyFindKeyGetFileTime(plist: Long, pkey: Long, pretvalue: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropKeyFindKeyGetFileTime", longArrayOf(plist, pkey, pretvalue))
-    return Foundation.NTSTATUS()
+public fun PropKeyFindKeyGetFileTime(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropKeyFindKeyGetFileTime", longArrayOf(plist, pkey, pretvalue)).toInt()
 }
 
-public fun PropKeyFindKeyGetFloat(plist: Long, pkey: Long, pretvalue: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropKeyFindKeyGetFloat", longArrayOf(plist, pkey, pretvalue))
-    return Foundation.NTSTATUS()
+public fun PropKeyFindKeyGetFloat(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropKeyFindKeyGetFloat", longArrayOf(plist, pkey, pretvalue)).toInt()
 }
 
-public fun PropKeyFindKeyGetGuid(plist: Long, pkey: Long, pretvalue: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropKeyFindKeyGetGuid", longArrayOf(plist, pkey, pretvalue))
-    return Foundation.NTSTATUS()
+public fun PropKeyFindKeyGetGuid(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropKeyFindKeyGetGuid", longArrayOf(plist, pkey, pretvalue)).toInt()
 }
 
-public fun PropKeyFindKeyGetInt32(plist: Long, pkey: Long, pretvalue: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropKeyFindKeyGetInt32", longArrayOf(plist, pkey, pretvalue))
-    return Foundation.NTSTATUS()
+public fun PropKeyFindKeyGetInt32(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropKeyFindKeyGetInt32", longArrayOf(plist, pkey, pretvalue)).toInt()
 }
 
-public fun PropKeyFindKeyGetInt64(plist: Long, pkey: Long, pretvalue: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropKeyFindKeyGetInt64", longArrayOf(plist, pkey, pretvalue))
-    return Foundation.NTSTATUS()
+public fun PropKeyFindKeyGetInt64(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropKeyFindKeyGetInt64", longArrayOf(plist, pkey, pretvalue)).toInt()
 }
 
-public fun PropKeyFindKeyGetNthInt64(plist: Long, pkey: Long, occurrence: UInt, pretvalue: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropKeyFindKeyGetNthInt64", longArrayOf(plist, pkey, occurrence.toLong(), pretvalue))
-    return Foundation.NTSTATUS()
+public fun PropKeyFindKeyGetNthInt64(plist: Long, pkey: Long, occurrence: UInt, pretvalue: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropKeyFindKeyGetNthInt64", longArrayOf(plist, pkey, occurrence.toLong(), pretvalue)).toInt()
 }
 
-public fun PropKeyFindKeyGetNthUlong(plist: Long, pkey: Long, occurrence: UInt, pretvalue: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropKeyFindKeyGetNthUlong", longArrayOf(plist, pkey, occurrence.toLong(), pretvalue))
-    return Foundation.NTSTATUS()
+public fun PropKeyFindKeyGetNthUlong(plist: Long, pkey: Long, occurrence: UInt, pretvalue: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropKeyFindKeyGetNthUlong", longArrayOf(plist, pkey, occurrence.toLong(), pretvalue)).toInt()
 }
 
-public fun PropKeyFindKeyGetNthUshort(plist: Long, pkey: Long, occurrence: UInt, pretvalue: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropKeyFindKeyGetNthUshort", longArrayOf(plist, pkey, occurrence.toLong(), pretvalue))
-    return Foundation.NTSTATUS()
+public fun PropKeyFindKeyGetNthUshort(plist: Long, pkey: Long, occurrence: UInt, pretvalue: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropKeyFindKeyGetNthUshort", longArrayOf(plist, pkey, occurrence.toLong(), pretvalue)).toInt()
 }
 
-public fun PropKeyFindKeyGetPropVariant(plist: Long, pkey: Long, typecheck: Boolean, pvalue: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropKeyFindKeyGetPropVariant", longArrayOf(plist, pkey, if (typecheck) 1L else 0L, pvalue))
-    return Foundation.NTSTATUS()
+public fun PropKeyFindKeyGetPropVariant(plist: Long, pkey: Long, typecheck: Boolean, pvalue: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropKeyFindKeyGetPropVariant", longArrayOf(plist, pkey, if (typecheck) 1L else 0L, pvalue)).toInt()
 }
 
-public fun PropKeyFindKeyGetUlong(plist: Long, pkey: Long, pretvalue: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropKeyFindKeyGetUlong", longArrayOf(plist, pkey, pretvalue))
-    return Foundation.NTSTATUS()
+public fun PropKeyFindKeyGetUlong(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropKeyFindKeyGetUlong", longArrayOf(plist, pkey, pretvalue)).toInt()
 }
 
-public fun PropKeyFindKeyGetUshort(plist: Long, pkey: Long, pretvalue: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropKeyFindKeyGetUshort", longArrayOf(plist, pkey, pretvalue))
-    return Foundation.NTSTATUS()
+public fun PropKeyFindKeyGetUshort(plist: Long, pkey: Long, pretvalue: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropKeyFindKeyGetUshort", longArrayOf(plist, pkey, pretvalue)).toInt()
 }
 
-public fun PropKeyFindKeySetPropVariant(plist: Long, pkey: Long, typecheck: Boolean, pvalue: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropKeyFindKeySetPropVariant", longArrayOf(plist, pkey, if (typecheck) 1L else 0L, pvalue))
-    return Foundation.NTSTATUS()
+public fun PropKeyFindKeySetPropVariant(plist: Long, pkey: Long, typecheck: Boolean, pvalue: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropKeyFindKeySetPropVariant", longArrayOf(plist, pkey, if (typecheck) 1L else 0L, pvalue)).toInt()
 }
 
-public fun PropVariantGetInformation(propvariantvalue: Long, propvariantoffset: Long, propvariantsize: Long, propvariantpointer: Long, remappedtype: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropVariantGetInformation", longArrayOf(propvariantvalue, propvariantoffset, propvariantsize, propvariantpointer, remappedtype))
-    return Foundation.NTSTATUS()
+public fun PropVariantGetInformation(propvariantvalue: Long, propvariantoffset: Long, propvariantsize: Long, propvariantpointer: Long, remappedtype: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropVariantGetInformation", longArrayOf(propvariantvalue, propvariantoffset, propvariantsize, propvariantpointer, remappedtype)).toInt()
 }
 
-public fun PropertiesListCopy(target: Long, source: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropertiesListCopy", longArrayOf(target, source))
-    return Foundation.NTSTATUS()
+public fun PropertiesListCopy(target: Long, source: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropertiesListCopy", longArrayOf(target, source)).toInt()
 }
 
 public fun PropertiesListGetFillableCount(buffersizebytes: UInt): UInt {
     return Win32DynamicFfi.invoke("sensorsutilsv2.dll", "PropertiesListGetFillableCount", longArrayOf(buffersizebytes.toLong())).toUInt()
 }
 
-public fun SensorCollectionGetAt(index: UInt, psensorslist: Long, pkey: Long, pvalue: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("sensorsutilsv2.dll", "SensorCollectionGetAt", longArrayOf(index.toLong(), psensorslist, pkey, pvalue))
-    return Foundation.NTSTATUS()
+public fun SensorCollectionGetAt(index: UInt, psensorslist: Long, pkey: Long, pvalue: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("sensorsutilsv2.dll", "SensorCollectionGetAt", longArrayOf(index.toLong(), psensorslist, pkey, pvalue)).toInt()
 }
 
-public fun SerializationBufferAllocate(sizeinbytes: UInt, pbuffer: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("sensorsutilsv2.dll", "SerializationBufferAllocate", longArrayOf(sizeinbytes.toLong(), pbuffer))
-    return Foundation.NTSTATUS()
+public fun SerializationBufferAllocate(sizeinbytes: UInt, pbuffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("sensorsutilsv2.dll", "SerializationBufferAllocate", longArrayOf(sizeinbytes.toLong(), pbuffer)).toInt()
 }
 
 public fun SerializationBufferFree(buffer: Long) {

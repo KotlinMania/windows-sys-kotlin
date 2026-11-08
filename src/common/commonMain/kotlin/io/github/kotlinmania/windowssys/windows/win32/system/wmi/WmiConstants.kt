@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.wmi
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.w
@@ -394,57 +395,57 @@ public val MI_WRITEMESSAGE_CHANNEL_VERBOSE: UInt = 1u
 
 public val MI_WRITEMESSAGE_CHANNEL_WARNING: UInt = 0u
 
-public val MofCompiler: GUID = GUID.from_u128(0x6daf97572e3711d2uL, 0xaec900c04fb68820uL)
+public val MofCompiler: GUID = GUID.from_u128(U128(0x6daf97572e3711d2uL, 0xaec900c04fb68820uL))
 
-public val SWbemDateTime: GUID = GUID.from_u128(0x47dfbe54cf7611d3uL, 0xb38f00105a1f473auL)
+public val SWbemDateTime: GUID = GUID.from_u128(U128(0x47dfbe54cf7611d3uL, 0xb38f00105a1f473auL))
 
-public val SWbemEventSource: GUID = GUID.from_u128(0x4b83d5821ae11d2uL, 0x8b3300600806d9b6uL)
+public val SWbemEventSource: GUID = GUID.from_u128(U128(0x4b83d5821ae11d2uL, 0x8b3300600806d9b6uL))
 
-public val SWbemLastError: GUID = GUID.from_u128(0xc2feeeaccfcd11d1uL, 0x8b0500600806d9b6uL)
+public val SWbemLastError: GUID = GUID.from_u128(U128(0xc2feeeaccfcd11d1uL, 0x8b0500600806d9b6uL))
 
-public val SWbemLocator: GUID = GUID.from_u128(0x76a64158cb4111d1uL, 0x8b0200600806d9b6uL)
+public val SWbemLocator: GUID = GUID.from_u128(U128(0x76a64158cb4111d1uL, 0x8b0200600806d9b6uL))
 
-public val SWbemMethod: GUID = GUID.from_u128(0x4b83d5b21ae11d2uL, 0x8b3300600806d9b6uL)
+public val SWbemMethod: GUID = GUID.from_u128(U128(0x4b83d5b21ae11d2uL, 0x8b3300600806d9b6uL))
 
-public val SWbemMethodSet: GUID = GUID.from_u128(0x4b83d5a21ae11d2uL, 0x8b3300600806d9b6uL)
+public val SWbemMethodSet: GUID = GUID.from_u128(U128(0x4b83d5a21ae11d2uL, 0x8b3300600806d9b6uL))
 
-public val SWbemNamedValue: GUID = GUID.from_u128(0x4b83d6021ae11d2uL, 0x8b3300600806d9b6uL)
+public val SWbemNamedValue: GUID = GUID.from_u128(U128(0x4b83d6021ae11d2uL, 0x8b3300600806d9b6uL))
 
-public val SWbemNamedValueSet: GUID = GUID.from_u128(0x9aed384ece8b11d1uL, 0x8b0500600806d9b6uL)
+public val SWbemNamedValueSet: GUID = GUID.from_u128(U128(0x9aed384ece8b11d1uL, 0x8b0500600806d9b6uL))
 
-public val SWbemObject: GUID = GUID.from_u128(0x4b83d6221ae11d2uL, 0x8b3300600806d9b6uL)
+public val SWbemObject: GUID = GUID.from_u128(U128(0x4b83d6221ae11d2uL, 0x8b3300600806d9b6uL))
 
-public val SWbemObjectEx: GUID = GUID.from_u128(0xd6bdafb29435491fuL, 0xbb876aa0f0bc31a2uL)
+public val SWbemObjectEx: GUID = GUID.from_u128(U128(0xd6bdafb29435491fuL, 0xbb876aa0f0bc31a2uL))
 
-public val SWbemObjectPath: GUID = GUID.from_u128(0x5791bc26ce9c11d1uL, 0x97bf0000f81e849cuL)
+public val SWbemObjectPath: GUID = GUID.from_u128(U128(0x5791bc26ce9c11d1uL, 0x97bf0000f81e849cuL))
 
-public val SWbemObjectSet: GUID = GUID.from_u128(0x4b83d6121ae11d2uL, 0x8b3300600806d9b6uL)
+public val SWbemObjectSet: GUID = GUID.from_u128(U128(0x4b83d6121ae11d2uL, 0x8b3300600806d9b6uL))
 
-public val SWbemPrivilege: GUID = GUID.from_u128(0x26ee67bc580411d2uL, 0x8b4a00600806d9b6uL)
+public val SWbemPrivilege: GUID = GUID.from_u128(U128(0x26ee67bc580411d2uL, 0x8b4a00600806d9b6uL))
 
-public val SWbemPrivilegeSet: GUID = GUID.from_u128(0x26ee67be580411d2uL, 0x8b4a00600806d9b6uL)
+public val SWbemPrivilegeSet: GUID = GUID.from_u128(U128(0x26ee67be580411d2uL, 0x8b4a00600806d9b6uL))
 
-public val SWbemProperty: GUID = GUID.from_u128(0x4b83d5d21ae11d2uL, 0x8b3300600806d9b6uL)
+public val SWbemProperty: GUID = GUID.from_u128(U128(0x4b83d5d21ae11d2uL, 0x8b3300600806d9b6uL))
 
-public val SWbemPropertySet: GUID = GUID.from_u128(0x4b83d5c21ae11d2uL, 0x8b3300600806d9b6uL)
+public val SWbemPropertySet: GUID = GUID.from_u128(U128(0x4b83d5c21ae11d2uL, 0x8b3300600806d9b6uL))
 
-public val SWbemQualifier: GUID = GUID.from_u128(0x4b83d5f21ae11d2uL, 0x8b3300600806d9b6uL)
+public val SWbemQualifier: GUID = GUID.from_u128(U128(0x4b83d5f21ae11d2uL, 0x8b3300600806d9b6uL))
 
-public val SWbemQualifierSet: GUID = GUID.from_u128(0x4b83d5e21ae11d2uL, 0x8b3300600806d9b6uL)
+public val SWbemQualifierSet: GUID = GUID.from_u128(U128(0x4b83d5e21ae11d2uL, 0x8b3300600806d9b6uL))
 
-public val SWbemRefreshableItem: GUID = GUID.from_u128(0x8c6854bcde4b11d3uL, 0xb39000105a1f473auL)
+public val SWbemRefreshableItem: GUID = GUID.from_u128(U128(0x8c6854bcde4b11d3uL, 0xb39000105a1f473auL))
 
-public val SWbemRefresher: GUID = GUID.from_u128(0xd269bf5cd9c111d3uL, 0xb38f00105a1f473auL)
+public val SWbemRefresher: GUID = GUID.from_u128(U128(0xd269bf5cd9c111d3uL, 0xb38f00105a1f473auL))
 
-public val SWbemSecurity: GUID = GUID.from_u128(0xb54d66e9228711d2uL, 0x8b3300600806d9b6uL)
+public val SWbemSecurity: GUID = GUID.from_u128(U128(0xb54d66e9228711d2uL, 0x8b3300600806d9b6uL))
 
-public val SWbemServices: GUID = GUID.from_u128(0x4b83d6321ae11d2uL, 0x8b3300600806d9b6uL)
+public val SWbemServices: GUID = GUID.from_u128(U128(0x4b83d6321ae11d2uL, 0x8b3300600806d9b6uL))
 
-public val SWbemServicesEx: GUID = GUID.from_u128(0x62e522dc8cf340a8uL, 0x8b2e37d595651e40uL)
+public val SWbemServicesEx: GUID = GUID.from_u128(U128(0x62e522dc8cf340a8uL, 0x8b2e37d595651e40uL))
 
-public val SWbemSink: GUID = GUID.from_u128(0x75718c9af02911d1uL, 0xa1ac00c04fb6c223uL)
+public val SWbemSink: GUID = GUID.from_u128(U128(0x75718c9af02911d1uL, 0xa1ac00c04fb6c223uL))
 
-public val UnsecuredApartment: GUID = GUID.from_u128(0x49bd2028152311d1uL, 0xad7900c04fd8fdffuL)
+public val UnsecuredApartment: GUID = GUID.from_u128(U128(0x49bd2028152311d1uL, 0xad7900c04fd8fdffuL))
 
 public val WBEMESS_E_AUTHZ_NOT_PRIVILEGED: WBEMSTATUS = -2147213309
 
@@ -1172,7 +1173,7 @@ public val WBEM_S_TIMEDOUT: WBEMSTATUS = 262148
 
 public val WBEM_WRITE_PROVIDER: WBEM_SECURITY_FLAGS = 16
 
-public val WMIExtension: GUID = GUID.from_u128(0xf0975afe5c7f11d2uL, 0x8b7400104b2afb41uL)
+public val WMIExtension: GUID = GUID.from_u128(U128(0xf0975afe5c7f11d2uL, 0x8b7400104b2afb41uL))
 
 public val WMIQ_ANALYSIS_ASSOC_QUERY: WMIQ_ANALYSIS_TYPE = 2
 
@@ -1410,41 +1411,41 @@ public val WMI_OBJ_TEXT_WMI_EXT8: WMI_OBJ_TEXT = 10
 
 public val WMI_OBJ_TEXT_WMI_EXT9: WMI_OBJ_TEXT = 11
 
-public val WbemAdministrativeLocator: GUID = GUID.from_u128(0xcb8555cc912811d1uL, 0xad9b00c04fd8fdffuL)
+public val WbemAdministrativeLocator: GUID = GUID.from_u128(U128(0xcb8555cc912811d1uL, 0xad9b00c04fd8fdffuL))
 
-public val WbemAuthenticatedLocator: GUID = GUID.from_u128(0xcd184336912811d1uL, 0xad9b00c04fd8fdffuL)
+public val WbemAuthenticatedLocator: GUID = GUID.from_u128(U128(0xcd184336912811d1uL, 0xad9b00c04fd8fdffuL))
 
-public val WbemBackupRestore: GUID = GUID.from_u128(0xc49e32c6bc8b11d2uL, 0x85d400105a1f8304uL)
+public val WbemBackupRestore: GUID = GUID.from_u128(U128(0xc49e32c6bc8b11d2uL, 0x85d400105a1f8304uL))
 
-public val WbemClassObject: GUID = GUID.from_u128(0x9a653086174f11d2uL, 0xb5f900104b703efduL)
+public val WbemClassObject: GUID = GUID.from_u128(U128(0x9a653086174f11d2uL, 0xb5f900104b703efduL))
 
-public val WbemContext: GUID = GUID.from_u128(0x674b6698ee9211d0uL, 0xad7100c04fd8fdffuL)
+public val WbemContext: GUID = GUID.from_u128(U128(0x674b6698ee9211d0uL, 0xad7100c04fd8fdffuL))
 
-public val WbemDCOMTransport: GUID = GUID.from_u128(0xf7ce2e138c9011d1uL, 0x9e7b00c04fc324a8uL)
+public val WbemDCOMTransport: GUID = GUID.from_u128(U128(0xf7ce2e138c9011d1uL, 0x9e7b00c04fc324a8uL))
 
-public val WbemDecoupledBasicEventProvider: GUID = GUID.from_u128(0xf5f7573728434f22uL, 0x933dc76a97cda62fuL)
+public val WbemDecoupledBasicEventProvider: GUID = GUID.from_u128(U128(0xf5f7573728434f22uL, 0x933dc76a97cda62fuL))
 
-public val WbemDecoupledRegistrar: GUID = GUID.from_u128(0x4cfc79320f9d4befuL, 0x9c328ea2a6b56fcbuL)
+public val WbemDecoupledRegistrar: GUID = GUID.from_u128(U128(0x4cfc79320f9d4befuL, 0x9c328ea2a6b56fcbuL))
 
-public val WbemDefPath: GUID = GUID.from_u128(0xcf4cc405e2c54ddduL, 0xb3ce5e7582d8c9fauL)
+public val WbemDefPath: GUID = GUID.from_u128(U128(0xcf4cc405e2c54ddduL, 0xb3ce5e7582d8c9fauL))
 
-public val WbemLevel1Login: GUID = GUID.from_u128(0x8bc3f05ed86b11d0uL, 0xa07500c04fb68820uL)
+public val WbemLevel1Login: GUID = GUID.from_u128(U128(0x8bc3f05ed86b11d0uL, 0xa07500c04fb68820uL))
 
-public val WbemLocalAddrRes: GUID = GUID.from_u128(0xa10448018f7e11d1uL, 0x9e7c00c04fc324a8uL)
+public val WbemLocalAddrRes: GUID = GUID.from_u128(U128(0xa10448018f7e11d1uL, 0x9e7c00c04fc324a8uL))
 
-public val WbemLocator: GUID = GUID.from_u128(0x4590f8111d3a11d0uL, 0x891f00aa004b2e24uL)
+public val WbemLocator: GUID = GUID.from_u128(U128(0x4590f8111d3a11d0uL, 0x891f00aa004b2e24uL))
 
-public val WbemObjectTextSrc: GUID = GUID.from_u128(0x8d1c559d84f04bb3uL, 0xa7d556a7435a9ba6uL)
+public val WbemObjectTextSrc: GUID = GUID.from_u128(U128(0x8d1c559d84f04bb3uL, 0xa7d556a7435a9ba6uL))
 
-public val WbemQuery: GUID = GUID.from_u128(0xeac8a02421e24523uL, 0xad73a71a0aa2f56auL)
+public val WbemQuery: GUID = GUID.from_u128(U128(0xeac8a02421e24523uL, 0xad73a71a0aa2f56auL))
 
-public val WbemRefresher: GUID = GUID.from_u128(0xc71566f2561e11d1uL, 0xad8700c04fd8fdffuL)
+public val WbemRefresher: GUID = GUID.from_u128(U128(0xc71566f2561e11d1uL, 0xad8700c04fd8fdffuL))
 
-public val WbemStatusCodeText: GUID = GUID.from_u128(0xeb87e1bd323311d2uL, 0xaec900c04fb68820uL)
+public val WbemStatusCodeText: GUID = GUID.from_u128(U128(0xeb87e1bd323311d2uL, 0xaec900c04fb68820uL))
 
-public val WbemUnauthenticatedLocator: GUID = GUID.from_u128(0x443e7b79de3111d2uL, 0xb34000104bcc4b4auL)
+public val WbemUnauthenticatedLocator: GUID = GUID.from_u128(U128(0x443e7b79de3111d2uL, 0xb34000104bcc4b4auL))
 
-public val WbemUninitializedClassObject: GUID = GUID.from_u128(0x7a0227f6710811d1uL, 0xad9000c04fd8fdffuL)
+public val WbemUninitializedClassObject: GUID = GUID.from_u128(U128(0x7a0227f6710811d1uL, 0xad9000c04fd8fdffuL))
 
 public val wbemAuthenticationLevelCall: WbemAuthenticationLevelEnum = 3
 

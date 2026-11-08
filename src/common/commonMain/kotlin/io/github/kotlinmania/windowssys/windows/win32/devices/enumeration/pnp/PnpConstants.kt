@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.enumeration.pnp
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
@@ -115,22 +116,22 @@ public val UPNP_E_VARIABLE_VALUE_UNKNOWN: HRESULT = 0x80040212u.toInt()
 
 public val UPNP_SERVICE_DELAY_SCPD_AND_SUBSCRIPTION: UInt = 1u
 
-public val UPnPDescriptionDocument: GUID = GUID.from_u128(0x1d8a9b473a284ce2uL, 0x8a4bbd34e45bceebuL)
+public val UPnPDescriptionDocument: GUID = GUID.from_u128(U128(0x1d8a9b473a284ce2uL, 0x8a4bbd34e45bceebuL))
 
-public val UPnPDescriptionDocumentEx: GUID = GUID.from_u128(0x33fd0563d81a4393uL, 0x83cc0195b1da2f91uL)
+public val UPnPDescriptionDocumentEx: GUID = GUID.from_u128(U128(0x33fd0563d81a4393uL, 0x83cc0195b1da2f91uL))
 
-public val UPnPDevice: GUID = GUID.from_u128(0xa32552c5ba61457auL, 0xb59aa2561e125e33uL)
+public val UPnPDevice: GUID = GUID.from_u128(U128(0xa32552c5ba61457auL, 0xb59aa2561e125e33uL))
 
-public val UPnPDeviceFinder: GUID = GUID.from_u128(0xe2085f28feb7404auL, 0xb8e7e659bdeaaa02uL)
+public val UPnPDeviceFinder: GUID = GUID.from_u128(U128(0xe2085f28feb7404auL, 0xb8e7e659bdeaaa02uL))
 
-public val UPnPDeviceFinderEx: GUID = GUID.from_u128(0x181b54fc380b4a75uL, 0xb3f14ac45e9605b0uL)
+public val UPnPDeviceFinderEx: GUID = GUID.from_u128(U128(0x181b54fc380b4a75uL, 0xb3f14ac45e9605b0uL))
 
-public val UPnPDevices: GUID = GUID.from_u128(0xb9e84ffdad3c40a4uL, 0xb8350882ebcbaaa8uL)
+public val UPnPDevices: GUID = GUID.from_u128(U128(0xb9e84ffdad3c40a4uL, 0xb8350882ebcbaaa8uL))
 
-public val UPnPRegistrar: GUID = GUID.from_u128(0x204810b973b211d4uL, 0xbf4200b0d0118b56uL)
+public val UPnPRegistrar: GUID = GUID.from_u128(U128(0x204810b973b211d4uL, 0xbf4200b0d0118b56uL))
 
-public val UPnPRemoteEndpointInfo: GUID = GUID.from_u128(0x2e5e84e940494244uL, 0xb7282d24227157c7uL)
+public val UPnPRemoteEndpointInfo: GUID = GUID.from_u128(U128(0x2e5e84e940494244uL, 0xb7282d24227157c7uL))
 
-public val UPnPService: GUID = GUID.from_u128(0xc624ba95fbcb4409uL, 0x8c038cceec533ef1uL)
+public val UPnPService: GUID = GUID.from_u128(U128(0xc624ba95fbcb4409uL, 0x8c038cceec533ef1uL))
 
-public val UPnPServices: GUID = GUID.from_u128(0xc0bc4b4aa4064efcuL, 0x932fb8546b8100ccuL)
+public val UPnPServices: GUID = GUID.from_u128(U128(0xc0bc4b4aa4064efcuL, 0x932fb8546b8100ccuL))

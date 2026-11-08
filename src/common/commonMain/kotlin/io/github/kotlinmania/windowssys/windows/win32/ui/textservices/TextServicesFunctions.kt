@@ -3,9 +3,10 @@ package io.github.kotlinmania.windowssys.windows.win32.ui.textservices
 import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 
-public fun DoMsCtfMonitor(dwflags: UInt, heventforservicestop: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("msctfmonitor.dll", "DoMsCtfMonitor", longArrayOf(dwflags.toLong(), Win32DynamicFfi.objectSlot(heventforservicestop))).toInt()
+public fun DoMsCtfMonitor(dwflags: UInt, heventforservicestop: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("msctfmonitor.dll", "DoMsCtfMonitor", longArrayOf(dwflags.toLong(), heventforservicestop)).toInt()
 }
 
 public fun InitLocalMsCtfMonitor(dwflags: UInt): HRESULT {

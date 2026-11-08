@@ -1,37 +1,38 @@
 package io.github.kotlinmania.windowssys.windows.win32.data.htmlhelp
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.w
 
-public val CLSID_IITCmdInt: GUID = GUID.from_u128(0x4662daa2d39311d0uL, 0x9a5600c04fb68bf7uL)
+public val CLSID_IITCmdInt: GUID = GUID.from_u128(U128(0x4662daa2d39311d0uL, 0x9a5600c04fb68bf7uL))
 
-public val CLSID_IITDatabase: GUID = GUID.from_u128(0x666734528c2311d0uL, 0xa84e00aa006c7d01uL)
+public val CLSID_IITDatabase: GUID = GUID.from_u128(U128(0x666734528c2311d0uL, 0xa84e00aa006c7d01uL))
 
-public val CLSID_IITDatabaseLocal: GUID = GUID.from_u128(0x4662daa9d39311d0uL, 0x9a5600c04fb68bf7uL)
+public val CLSID_IITDatabaseLocal: GUID = GUID.from_u128(U128(0x4662daa9d39311d0uL, 0x9a5600c04fb68bf7uL))
 
-public val CLSID_IITGroupUpdate: GUID = GUID.from_u128(0x4662daa4d39311d0uL, 0x9a5600c04fb68bf7uL)
+public val CLSID_IITGroupUpdate: GUID = GUID.from_u128(U128(0x4662daa4d39311d0uL, 0x9a5600c04fb68bf7uL))
 
-public val CLSID_IITIndexBuild: GUID = GUID.from_u128(0x8fa0d5aadedf11d0uL, 0x9a6100c04fb68bf7uL)
+public val CLSID_IITIndexBuild: GUID = GUID.from_u128(U128(0x8fa0d5aadedf11d0uL, 0x9a6100c04fb68bf7uL))
 
-public val CLSID_IITPropList: GUID = GUID.from_u128(0x4662daaed39311d0uL, 0x9a5600c04fb68bf7uL)
+public val CLSID_IITPropList: GUID = GUID.from_u128(U128(0x4662daaed39311d0uL, 0x9a5600c04fb68bf7uL))
 
-public val CLSID_IITResultSet: GUID = GUID.from_u128(0x4662daa7d39311d0uL, 0x9a5600c04fb68bf7uL)
+public val CLSID_IITResultSet: GUID = GUID.from_u128(U128(0x4662daa7d39311d0uL, 0x9a5600c04fb68bf7uL))
 
-public val CLSID_IITSvMgr: GUID = GUID.from_u128(0x4662daa3d39311d0uL, 0x9a5600c04fb68bf7uL)
+public val CLSID_IITSvMgr: GUID = GUID.from_u128(U128(0x4662daa3d39311d0uL, 0x9a5600c04fb68bf7uL))
 
-public val CLSID_IITWWFilterBuild: GUID = GUID.from_u128(0x8fa0d5abdedf11d0uL, 0x9a6100c04fb68bf7uL)
+public val CLSID_IITWWFilterBuild: GUID = GUID.from_u128(U128(0x8fa0d5abdedf11d0uL, 0x9a6100c04fb68bf7uL))
 
-public val CLSID_IITWordWheel: GUID = GUID.from_u128(0xd73725c28c1211d0uL, 0xa84e00aa006c7d01uL)
+public val CLSID_IITWordWheel: GUID = GUID.from_u128(U128(0xd73725c28c1211d0uL, 0xa84e00aa006c7d01uL))
 
-public val CLSID_IITWordWheelLocal: GUID = GUID.from_u128(0x4662daa8d39311d0uL, 0x9a5600c04fb68bf7uL)
+public val CLSID_IITWordWheelLocal: GUID = GUID.from_u128(U128(0x4662daa8d39311d0uL, 0x9a5600c04fb68bf7uL))
 
-public val CLSID_IITWordWheelUpdate: GUID = GUID.from_u128(0x4662daa5d39311d0uL, 0x9a5600c04fb68bf7uL)
+public val CLSID_IITWordWheelUpdate: GUID = GUID.from_u128(U128(0x4662daa5d39311d0uL, 0x9a5600c04fb68bf7uL))
 
-public val CLSID_ITEngStemmer: GUID = GUID.from_u128(0x8fa0d5a8dedf11d0uL, 0x9a6100c04fb68bf7uL)
+public val CLSID_ITEngStemmer: GUID = GUID.from_u128(U128(0x8fa0d5a8dedf11d0uL, 0x9a6100c04fb68bf7uL))
 
-public val CLSID_ITStdBreaker: GUID = GUID.from_u128(0x4662daafd39311d0uL, 0x9a5600c04fb68bf7uL)
+public val CLSID_ITStdBreaker: GUID = GUID.from_u128(U128(0x4662daafd39311d0uL, 0x9a5600c04fb68bf7uL))
 
 public val E_ALL_WILD: HRESULT = 0x80001055u.toInt()
 

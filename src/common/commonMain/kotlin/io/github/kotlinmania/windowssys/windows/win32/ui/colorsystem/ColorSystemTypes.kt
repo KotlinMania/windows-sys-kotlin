@@ -3,6 +3,7 @@ package io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
 
 public typealias BMFORMAT = Int
 
@@ -19,13 +20,13 @@ public typealias COLOR_MATCH_TO_TARGET_ACTION = UInt
 public typealias HCOLORSPACE = Long
 
 public fun interface ICMENUMPROCAFn {
-    public operator fun invoke(param0: PCSTR, param1: Foundation.LPARAM): Int
+    public operator fun invoke(param0: PCSTR, param1: LPARAM): Int
 }
 
 public typealias ICMENUMPROCA = ICMENUMPROCAFn?
 
 public fun interface ICMENUMPROCWFn {
-    public operator fun invoke(param0: PCWSTR, param1: Foundation.LPARAM): Int
+    public operator fun invoke(param0: PCWSTR, param1: LPARAM): Int
 }
 
 public typealias ICMENUMPROCW = ICMENUMPROCWFn?
@@ -37,19 +38,19 @@ public typealias ICM_MODE = Int
 public typealias LCSCSTYPE = Int
 
 public fun interface LPBMCALLBACKFNFn {
-    public operator fun invoke(param0: UInt, param1: UInt, param2: Foundation.LPARAM): BOOL
+    public operator fun invoke(param0: UInt, param1: UInt, param2: LPARAM): BOOL
 }
 
 public typealias LPBMCALLBACKFN = LPBMCALLBACKFNFn?
 
 public fun interface PCMSCALLBACKAFn {
-    public operator fun invoke(param0: Long, param1: Foundation.LPARAM): BOOL
+    public operator fun invoke(param0: Long, param1: LPARAM): BOOL
 }
 
 public typealias PCMSCALLBACKA = PCMSCALLBACKAFn?
 
 public fun interface PCMSCALLBACKWFn {
-    public operator fun invoke(param0: Long, param1: Foundation.LPARAM): BOOL
+    public operator fun invoke(param0: Long, param1: LPARAM): BOOL
 }
 
 public typealias PCMSCALLBACKW = PCMSCALLBACKWFn?

@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.extensions
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
@@ -12,17 +13,17 @@ public val Ambiguous: SignatureComparison = 1
 
 public val CANNOT_ALLOCATE_MEMORY: UInt = 9u
 
-public val CLSID_DebugFailureAnalysisBasic: GUID = GUID.from_u128(0xb74eed7f1c7d4c1buL, 0x959fb96dd9175aa4uL)
+public val CLSID_DebugFailureAnalysisBasic: GUID = GUID.from_u128(U128(0xb74eed7f1c7d4c1buL, 0x959fb96dd9175aa4uL))
 
-public val CLSID_DebugFailureAnalysisKernel: GUID = GUID.from_u128(0xee43307864af4c33uL, 0xab2fecad7f2a002duL)
+public val CLSID_DebugFailureAnalysisKernel: GUID = GUID.from_u128(U128(0xee43307864af4c33uL, 0xab2fecad7f2a002duL))
 
-public val CLSID_DebugFailureAnalysisTarget: GUID = GUID.from_u128(0xba9bfb05ef754bbduL, 0xa745a6b5529458b8uL)
+public val CLSID_DebugFailureAnalysisTarget: GUID = GUID.from_u128(U128(0xba9bfb05ef754bbduL, 0xa745a6b5529458b8uL))
 
-public val CLSID_DebugFailureAnalysisUser: GUID = GUID.from_u128(0xe60b0c93cf494a32uL, 0x81470362202dc56buL)
+public val CLSID_DebugFailureAnalysisUser: GUID = GUID.from_u128(U128(0xe60b0c93cf494a32uL, 0x81470362202dc56buL))
 
-public val CLSID_DebugFailureAnalysisWinCE: GUID = GUID.from_u128(0x67d5e86ff5e2462auL, 0x92331bd616fcc7e8uL)
+public val CLSID_DebugFailureAnalysisWinCE: GUID = GUID.from_u128(U128(0x67d5e86ff5e2462auL, 0x92331bd616fcc7e8uL))
 
-public val CLSID_DebugFailureAnalysisXBox360: GUID = GUID.from_u128(0x901625bb95f14318uL, 0xac809d733cee8c8buL)
+public val CLSID_DebugFailureAnalysisXBox360: GUID = GUID.from_u128(U128(0x901625bb95f14318uL, 0xac809d733cee8c8buL))
 
 public val CROSS_PLATFORM_MAXIMUM_PROCESSORS: UInt = 2048u
 

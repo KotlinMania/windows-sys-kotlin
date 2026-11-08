@@ -7,6 +7,12 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.windows.win32.security.OBJECT_SECURITY_INFORMATION
+import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
+import io.github.kotlinmania.windowssys.windows.win32.security.PSID
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CRYPT_INTEGER_BLOB
 
 public fun interface FnCallback {
     public operator fun invoke(arg: Long, principal: Long, keyver: UInt, key: Long, status: Long)
@@ -49,8 +55,8 @@ public fun AuditComputeEffectivePolicyBySid(psid: PSID, psubcategoryguids: Long,
     return (rawRet and 0xFFL) != 0L
 }
 
-public fun AuditComputeEffectivePolicyByToken(htokenhandle: Foundation.HANDLE, psubcategoryguids: Long, dwpolicycount: UInt, ppauditpolicy: Long): Boolean {
-    val rawRet = Win32DynamicFfi.invoke("advapi32.dll", "AuditComputeEffectivePolicyByToken", longArrayOf(Win32DynamicFfi.objectSlot(htokenhandle), psubcategoryguids, dwpolicycount.toLong(), ppauditpolicy))
+public fun AuditComputeEffectivePolicyByToken(htokenhandle: HANDLE, psubcategoryguids: Long, dwpolicycount: UInt, ppauditpolicy: Long): Boolean {
+    val rawRet = Win32DynamicFfi.invoke("advapi32.dll", "AuditComputeEffectivePolicyByToken", longArrayOf(htokenhandle, psubcategoryguids, dwpolicycount.toLong(), ppauditpolicy))
     return (rawRet and 0xFFL) != 0L
 }
 
@@ -165,14 +171,12 @@ public fun CompleteAuthToken(phcontext: Long, ptoken: Long): HRESULT {
     return Win32DynamicFfi.invoke("secur32.dll", "CompleteAuthToken", longArrayOf(phcontext, ptoken)).toInt()
 }
 
-public fun CredMarshalTargetInfo(intargetinfo: Long, buffer: Long, buffersize: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("secur32.dll", "CredMarshalTargetInfo", longArrayOf(intargetinfo, buffer, buffersize))
-    return Foundation.NTSTATUS()
+public fun CredMarshalTargetInfo(intargetinfo: Long, buffer: Long, buffersize: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("secur32.dll", "CredMarshalTargetInfo", longArrayOf(intargetinfo, buffer, buffersize)).toInt()
 }
 
-public fun CredUnmarshalTargetInfo(buffer: Long, buffersize: UInt, rettargetinfo: Long, retactualsize: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("secur32.dll", "CredUnmarshalTargetInfo", longArrayOf(buffer, buffersize.toLong(), rettargetinfo, retactualsize))
-    return Foundation.NTSTATUS()
+public fun CredUnmarshalTargetInfo(buffer: Long, buffersize: UInt, rettargetinfo: Long, retactualsize: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("secur32.dll", "CredUnmarshalTargetInfo", longArrayOf(buffer, buffersize.toLong(), rettargetinfo, retactualsize)).toInt()
 }
 
 public fun DecryptMessage(phcontext: Long, pmessage: Long, messageseqno: UInt, pfqop: Long): HRESULT {
@@ -263,228 +267,184 @@ public fun InitializeSecurityContextW(phcredential: Long, phcontext: Long, pszta
     return Win32DynamicFfi.invoke("secur32.dll", "InitializeSecurityContextW", longArrayOf(phcredential, phcontext, psztargetname, fcontextreq.toLong(), reserved1.toLong(), targetdatarep.toLong(), pinput, reserved2.toLong(), phnewcontext, poutput, pfcontextattr, ptsexpiry)).toInt()
 }
 
-public fun LsaAddAccountRights(policyhandle: LSA_HANDLE, accountsid: PSID, userrights: Long, countofrights: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaAddAccountRights", longArrayOf(policyhandle, accountsid, userrights, countofrights.toLong()))
-    return Foundation.NTSTATUS()
+public fun LsaAddAccountRights(policyhandle: LSA_HANDLE, accountsid: PSID, userrights: Long, countofrights: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaAddAccountRights", longArrayOf(policyhandle, accountsid, userrights, countofrights.toLong())).toInt()
 }
 
-public fun LsaCallAuthenticationPackage(lsahandle: Foundation.HANDLE, authenticationpackage: UInt, protocolsubmitbuffer: Long, submitbufferlength: UInt, protocolreturnbuffer: Long, returnbufferlength: Long, protocolstatus: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("secur32.dll", "LsaCallAuthenticationPackage", longArrayOf(Win32DynamicFfi.objectSlot(lsahandle), authenticationpackage.toLong(), protocolsubmitbuffer, submitbufferlength.toLong(), protocolreturnbuffer, returnbufferlength, protocolstatus))
-    return Foundation.NTSTATUS()
+public fun LsaCallAuthenticationPackage(lsahandle: HANDLE, authenticationpackage: UInt, protocolsubmitbuffer: Long, submitbufferlength: UInt, protocolreturnbuffer: Long, returnbufferlength: Long, protocolstatus: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("secur32.dll", "LsaCallAuthenticationPackage", longArrayOf(lsahandle, authenticationpackage.toLong(), protocolsubmitbuffer, submitbufferlength.toLong(), protocolreturnbuffer, returnbufferlength, protocolstatus)).toInt()
 }
 
-public fun LsaClose(objecthandle: LSA_HANDLE): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaClose", longArrayOf(objecthandle))
-    return Foundation.NTSTATUS()
+public fun LsaClose(objecthandle: LSA_HANDLE): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaClose", longArrayOf(objecthandle)).toInt()
 }
 
-public fun LsaConnectUntrusted(lsahandle: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("secur32.dll", "LsaConnectUntrusted", longArrayOf(lsahandle))
-    return Foundation.NTSTATUS()
+public fun LsaConnectUntrusted(lsahandle: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("secur32.dll", "LsaConnectUntrusted", longArrayOf(lsahandle)).toInt()
 }
 
-public fun LsaCreateTrustedDomainEx(policyhandle: LSA_HANDLE, trusteddomaininformation: Long, authenticationinformation: Long, desiredaccess: UInt, trusteddomainhandle: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaCreateTrustedDomainEx", longArrayOf(policyhandle, trusteddomaininformation, authenticationinformation, desiredaccess.toLong(), trusteddomainhandle))
-    return Foundation.NTSTATUS()
+public fun LsaCreateTrustedDomainEx(policyhandle: LSA_HANDLE, trusteddomaininformation: Long, authenticationinformation: Long, desiredaccess: UInt, trusteddomainhandle: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaCreateTrustedDomainEx", longArrayOf(policyhandle, trusteddomaininformation, authenticationinformation, desiredaccess.toLong(), trusteddomainhandle)).toInt()
 }
 
-public fun LsaDeleteTrustedDomain(policyhandle: LSA_HANDLE, trusteddomainsid: PSID): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaDeleteTrustedDomain", longArrayOf(policyhandle, trusteddomainsid))
-    return Foundation.NTSTATUS()
+public fun LsaDeleteTrustedDomain(policyhandle: LSA_HANDLE, trusteddomainsid: PSID): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaDeleteTrustedDomain", longArrayOf(policyhandle, trusteddomainsid)).toInt()
 }
 
-public fun LsaDeregisterLogonProcess(lsahandle: Foundation.HANDLE): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("secur32.dll", "LsaDeregisterLogonProcess", longArrayOf(Win32DynamicFfi.objectSlot(lsahandle)))
-    return Foundation.NTSTATUS()
+public fun LsaDeregisterLogonProcess(lsahandle: HANDLE): NTSTATUS {
+    return Win32DynamicFfi.invoke("secur32.dll", "LsaDeregisterLogonProcess", longArrayOf(lsahandle)).toInt()
 }
 
-public fun LsaEnumerateAccountRights(policyhandle: LSA_HANDLE, accountsid: PSID, userrights: Long, countofrights: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaEnumerateAccountRights", longArrayOf(policyhandle, accountsid, userrights, countofrights))
-    return Foundation.NTSTATUS()
+public fun LsaEnumerateAccountRights(policyhandle: LSA_HANDLE, accountsid: PSID, userrights: Long, countofrights: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaEnumerateAccountRights", longArrayOf(policyhandle, accountsid, userrights, countofrights)).toInt()
 }
 
-public fun LsaEnumerateAccountsWithUserRight(policyhandle: LSA_HANDLE, userright: Long, buffer: Long, countreturned: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaEnumerateAccountsWithUserRight", longArrayOf(policyhandle, userright, buffer, countreturned))
-    return Foundation.NTSTATUS()
+public fun LsaEnumerateAccountsWithUserRight(policyhandle: LSA_HANDLE, userright: Long, buffer: Long, countreturned: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaEnumerateAccountsWithUserRight", longArrayOf(policyhandle, userright, buffer, countreturned)).toInt()
 }
 
-public fun LsaEnumerateLogonSessions(logonsessioncount: Long, logonsessionlist: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("secur32.dll", "LsaEnumerateLogonSessions", longArrayOf(logonsessioncount, logonsessionlist))
-    return Foundation.NTSTATUS()
+public fun LsaEnumerateLogonSessions(logonsessioncount: Long, logonsessionlist: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("secur32.dll", "LsaEnumerateLogonSessions", longArrayOf(logonsessioncount, logonsessionlist)).toInt()
 }
 
-public fun LsaEnumerateTrustedDomains(policyhandle: LSA_HANDLE, enumerationcontext: Long, buffer: Long, preferedmaximumlength: UInt, countreturned: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaEnumerateTrustedDomains", longArrayOf(policyhandle, enumerationcontext, buffer, preferedmaximumlength.toLong(), countreturned))
-    return Foundation.NTSTATUS()
+public fun LsaEnumerateTrustedDomains(policyhandle: LSA_HANDLE, enumerationcontext: Long, buffer: Long, preferedmaximumlength: UInt, countreturned: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaEnumerateTrustedDomains", longArrayOf(policyhandle, enumerationcontext, buffer, preferedmaximumlength.toLong(), countreturned)).toInt()
 }
 
-public fun LsaEnumerateTrustedDomainsEx(policyhandle: LSA_HANDLE, enumerationcontext: Long, buffer: Long, preferedmaximumlength: UInt, countreturned: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaEnumerateTrustedDomainsEx", longArrayOf(policyhandle, enumerationcontext, buffer, preferedmaximumlength.toLong(), countreturned))
-    return Foundation.NTSTATUS()
+public fun LsaEnumerateTrustedDomainsEx(policyhandle: LSA_HANDLE, enumerationcontext: Long, buffer: Long, preferedmaximumlength: UInt, countreturned: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaEnumerateTrustedDomainsEx", longArrayOf(policyhandle, enumerationcontext, buffer, preferedmaximumlength.toLong(), countreturned)).toInt()
 }
 
-public fun LsaFreeMemory(buffer: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaFreeMemory", longArrayOf(buffer))
-    return Foundation.NTSTATUS()
+public fun LsaFreeMemory(buffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaFreeMemory", longArrayOf(buffer)).toInt()
 }
 
-public fun LsaFreeReturnBuffer(buffer: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("secur32.dll", "LsaFreeReturnBuffer", longArrayOf(buffer))
-    return Foundation.NTSTATUS()
+public fun LsaFreeReturnBuffer(buffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("secur32.dll", "LsaFreeReturnBuffer", longArrayOf(buffer)).toInt()
 }
 
-public fun LsaGetAppliedCAPIDs(systemname: Long, capids: Long, capidcount: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaGetAppliedCAPIDs", longArrayOf(systemname, capids, capidcount))
-    return Foundation.NTSTATUS()
+public fun LsaGetAppliedCAPIDs(systemname: Long, capids: Long, capidcount: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaGetAppliedCAPIDs", longArrayOf(systemname, capids, capidcount)).toInt()
 }
 
-public fun LsaGetLogonSessionData(logonid: Long, pplogonsessiondata: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("secur32.dll", "LsaGetLogonSessionData", longArrayOf(logonid, pplogonsessiondata))
-    return Foundation.NTSTATUS()
+public fun LsaGetLogonSessionData(logonid: Long, pplogonsessiondata: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("secur32.dll", "LsaGetLogonSessionData", longArrayOf(logonid, pplogonsessiondata)).toInt()
 }
 
-public fun LsaLogonUser(lsahandle: Foundation.HANDLE, originname: Long, logontype: SECURITY_LOGON_TYPE, authenticationpackage: UInt, authenticationinformation: Long, authenticationinformationlength: UInt, localgroups: Long, sourcecontext: Long, profilebuffer: Long, profilebufferlength: Long, logonid: Long, token: Long, quotas: Long, substatus: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("secur32.dll", "LsaLogonUser", longArrayOf(Win32DynamicFfi.objectSlot(lsahandle), originname, Win32DynamicFfi.objectSlot(logontype), authenticationpackage.toLong(), authenticationinformation, authenticationinformationlength.toLong(), localgroups, sourcecontext, profilebuffer, profilebufferlength, logonid, token, quotas, substatus))
-    return Foundation.NTSTATUS()
+public fun LsaLogonUser(lsahandle: HANDLE, originname: Long, logontype: SECURITY_LOGON_TYPE, authenticationpackage: UInt, authenticationinformation: Long, authenticationinformationlength: UInt, localgroups: Long, sourcecontext: Long, profilebuffer: Long, profilebufferlength: Long, logonid: Long, token: Long, quotas: Long, substatus: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("secur32.dll", "LsaLogonUser", longArrayOf(lsahandle, originname, (logontype.value.toLong() and 0xFFFF_FFFFL), authenticationpackage.toLong(), authenticationinformation, authenticationinformationlength.toLong(), localgroups, sourcecontext, profilebuffer, profilebufferlength, logonid, token, quotas, substatus)).toInt()
 }
 
-public fun LsaLookupAuthenticationPackage(lsahandle: Foundation.HANDLE, packagename: Long, authenticationpackage: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("secur32.dll", "LsaLookupAuthenticationPackage", longArrayOf(Win32DynamicFfi.objectSlot(lsahandle), packagename, authenticationpackage))
-    return Foundation.NTSTATUS()
+public fun LsaLookupAuthenticationPackage(lsahandle: HANDLE, packagename: Long, authenticationpackage: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("secur32.dll", "LsaLookupAuthenticationPackage", longArrayOf(lsahandle, packagename, authenticationpackage)).toInt()
 }
 
-public fun LsaLookupNames(policyhandle: LSA_HANDLE, count: UInt, names: Long, referenceddomains: Long, sids: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaLookupNames", longArrayOf(policyhandle, count.toLong(), names, referenceddomains, sids))
-    return Foundation.NTSTATUS()
+public fun LsaLookupNames(policyhandle: LSA_HANDLE, count: UInt, names: Long, referenceddomains: Long, sids: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaLookupNames", longArrayOf(policyhandle, count.toLong(), names, referenceddomains, sids)).toInt()
 }
 
-public fun LsaLookupNames2(policyhandle: LSA_HANDLE, flags: UInt, count: UInt, names: Long, referenceddomains: Long, sids: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaLookupNames2", longArrayOf(policyhandle, flags.toLong(), count.toLong(), names, referenceddomains, sids))
-    return Foundation.NTSTATUS()
+public fun LsaLookupNames2(policyhandle: LSA_HANDLE, flags: UInt, count: UInt, names: Long, referenceddomains: Long, sids: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaLookupNames2", longArrayOf(policyhandle, flags.toLong(), count.toLong(), names, referenceddomains, sids)).toInt()
 }
 
-public fun LsaLookupSids(policyhandle: LSA_HANDLE, count: UInt, sids: Long, referenceddomains: Long, names: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaLookupSids", longArrayOf(policyhandle, count.toLong(), sids, referenceddomains, names))
-    return Foundation.NTSTATUS()
+public fun LsaLookupSids(policyhandle: LSA_HANDLE, count: UInt, sids: Long, referenceddomains: Long, names: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaLookupSids", longArrayOf(policyhandle, count.toLong(), sids, referenceddomains, names)).toInt()
 }
 
-public fun LsaLookupSids2(policyhandle: LSA_HANDLE, lookupoptions: UInt, count: UInt, sids: Long, referenceddomains: Long, names: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaLookupSids2", longArrayOf(policyhandle, lookupoptions.toLong(), count.toLong(), sids, referenceddomains, names))
-    return Foundation.NTSTATUS()
+public fun LsaLookupSids2(policyhandle: LSA_HANDLE, lookupoptions: UInt, count: UInt, sids: Long, referenceddomains: Long, names: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaLookupSids2", longArrayOf(policyhandle, lookupoptions.toLong(), count.toLong(), sids, referenceddomains, names)).toInt()
 }
 
-public fun LsaNtStatusToWinError(status: Foundation.NTSTATUS): UInt {
-    return Win32DynamicFfi.invoke("advapi32.dll", "LsaNtStatusToWinError", longArrayOf(Win32DynamicFfi.objectSlot(status))).toUInt()
+public fun LsaNtStatusToWinError(status: NTSTATUS): UInt {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaNtStatusToWinError", longArrayOf(status.toLong())).toUInt()
 }
 
-public fun LsaOpenPolicy(systemname: Long, objectattributes: Long, desiredaccess: UInt, policyhandle: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaOpenPolicy", longArrayOf(systemname, objectattributes, desiredaccess.toLong(), policyhandle))
-    return Foundation.NTSTATUS()
+public fun LsaOpenPolicy(systemname: Long, objectattributes: Long, desiredaccess: UInt, policyhandle: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaOpenPolicy", longArrayOf(systemname, objectattributes, desiredaccess.toLong(), policyhandle)).toInt()
 }
 
-public fun LsaOpenTrustedDomainByName(policyhandle: LSA_HANDLE, trusteddomainname: Long, desiredaccess: UInt, trusteddomainhandle: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaOpenTrustedDomainByName", longArrayOf(policyhandle, trusteddomainname, desiredaccess.toLong(), trusteddomainhandle))
-    return Foundation.NTSTATUS()
+public fun LsaOpenTrustedDomainByName(policyhandle: LSA_HANDLE, trusteddomainname: Long, desiredaccess: UInt, trusteddomainhandle: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaOpenTrustedDomainByName", longArrayOf(policyhandle, trusteddomainname, desiredaccess.toLong(), trusteddomainhandle)).toInt()
 }
 
-public fun LsaQueryCAPs(capids: Long, capidcount: UInt, caps: Long, capcount: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaQueryCAPs", longArrayOf(capids, capidcount.toLong(), caps, capcount))
-    return Foundation.NTSTATUS()
+public fun LsaQueryCAPs(capids: Long, capidcount: UInt, caps: Long, capcount: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaQueryCAPs", longArrayOf(capids, capidcount.toLong(), caps, capcount)).toInt()
 }
 
-public fun LsaQueryDomainInformationPolicy(policyhandle: LSA_HANDLE, informationclass: POLICY_DOMAIN_INFORMATION_CLASS, buffer: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaQueryDomainInformationPolicy", longArrayOf(policyhandle, informationclass.toLong(), buffer))
-    return Foundation.NTSTATUS()
+public fun LsaQueryDomainInformationPolicy(policyhandle: LSA_HANDLE, informationclass: POLICY_DOMAIN_INFORMATION_CLASS, buffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaQueryDomainInformationPolicy", longArrayOf(policyhandle, informationclass.toLong(), buffer)).toInt()
 }
 
-public fun LsaQueryForestTrustInformation(policyhandle: LSA_HANDLE, trusteddomainname: Long, foresttrustinfo: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaQueryForestTrustInformation", longArrayOf(policyhandle, trusteddomainname, foresttrustinfo))
-    return Foundation.NTSTATUS()
+public fun LsaQueryForestTrustInformation(policyhandle: LSA_HANDLE, trusteddomainname: Long, foresttrustinfo: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaQueryForestTrustInformation", longArrayOf(policyhandle, trusteddomainname, foresttrustinfo)).toInt()
 }
 
-public fun LsaQueryForestTrustInformation2(policyhandle: LSA_HANDLE, trusteddomainname: Long, highestrecordtype: LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaQueryForestTrustInformation2", longArrayOf(policyhandle, trusteddomainname, highestrecordtype.toLong(), foresttrustinfo))
-    return Foundation.NTSTATUS()
+public fun LsaQueryForestTrustInformation2(policyhandle: LSA_HANDLE, trusteddomainname: Long, highestrecordtype: LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaQueryForestTrustInformation2", longArrayOf(policyhandle, trusteddomainname, highestrecordtype.toLong(), foresttrustinfo)).toInt()
 }
 
-public fun LsaQueryInformationPolicy(policyhandle: LSA_HANDLE, informationclass: POLICY_INFORMATION_CLASS, buffer: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaQueryInformationPolicy", longArrayOf(policyhandle, informationclass.toLong(), buffer))
-    return Foundation.NTSTATUS()
+public fun LsaQueryInformationPolicy(policyhandle: LSA_HANDLE, informationclass: POLICY_INFORMATION_CLASS, buffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaQueryInformationPolicy", longArrayOf(policyhandle, informationclass.toLong(), buffer)).toInt()
 }
 
-public fun LsaQueryTrustedDomainInfo(policyhandle: LSA_HANDLE, trusteddomainsid: PSID, informationclass: TRUSTED_INFORMATION_CLASS, buffer: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaQueryTrustedDomainInfo", longArrayOf(policyhandle, trusteddomainsid, informationclass.toLong(), buffer))
-    return Foundation.NTSTATUS()
+public fun LsaQueryTrustedDomainInfo(policyhandle: LSA_HANDLE, trusteddomainsid: PSID, informationclass: TRUSTED_INFORMATION_CLASS, buffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaQueryTrustedDomainInfo", longArrayOf(policyhandle, trusteddomainsid, informationclass.toLong(), buffer)).toInt()
 }
 
-public fun LsaQueryTrustedDomainInfoByName(policyhandle: LSA_HANDLE, trusteddomainname: Long, informationclass: TRUSTED_INFORMATION_CLASS, buffer: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaQueryTrustedDomainInfoByName", longArrayOf(policyhandle, trusteddomainname, informationclass.toLong(), buffer))
-    return Foundation.NTSTATUS()
+public fun LsaQueryTrustedDomainInfoByName(policyhandle: LSA_HANDLE, trusteddomainname: Long, informationclass: TRUSTED_INFORMATION_CLASS, buffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaQueryTrustedDomainInfoByName", longArrayOf(policyhandle, trusteddomainname, informationclass.toLong(), buffer)).toInt()
 }
 
-public fun LsaRegisterLogonProcess(logonprocessname: Long, lsahandle: Long, securitymode: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("secur32.dll", "LsaRegisterLogonProcess", longArrayOf(logonprocessname, lsahandle, securitymode))
-    return Foundation.NTSTATUS()
+public fun LsaRegisterLogonProcess(logonprocessname: Long, lsahandle: Long, securitymode: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("secur32.dll", "LsaRegisterLogonProcess", longArrayOf(logonprocessname, lsahandle, securitymode)).toInt()
 }
 
-public fun LsaRegisterPolicyChangeNotification(informationclass: POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle: Foundation.HANDLE): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("secur32.dll", "LsaRegisterPolicyChangeNotification", longArrayOf(informationclass.toLong(), Win32DynamicFfi.objectSlot(notificationeventhandle)))
-    return Foundation.NTSTATUS()
+public fun LsaRegisterPolicyChangeNotification(informationclass: POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle: HANDLE): NTSTATUS {
+    return Win32DynamicFfi.invoke("secur32.dll", "LsaRegisterPolicyChangeNotification", longArrayOf(informationclass.toLong(), notificationeventhandle)).toInt()
 }
 
-public fun LsaRemoveAccountRights(policyhandle: LSA_HANDLE, accountsid: PSID, allrights: Boolean, userrights: Long, countofrights: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaRemoveAccountRights", longArrayOf(policyhandle, accountsid, if (allrights) 1L else 0L, userrights, countofrights.toLong()))
-    return Foundation.NTSTATUS()
+public fun LsaRemoveAccountRights(policyhandle: LSA_HANDLE, accountsid: PSID, allrights: Boolean, userrights: Long, countofrights: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaRemoveAccountRights", longArrayOf(policyhandle, accountsid, if (allrights) 1L else 0L, userrights, countofrights.toLong())).toInt()
 }
 
-public fun LsaRetrievePrivateData(policyhandle: LSA_HANDLE, keyname: Long, privatedata: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaRetrievePrivateData", longArrayOf(policyhandle, keyname, privatedata))
-    return Foundation.NTSTATUS()
+public fun LsaRetrievePrivateData(policyhandle: LSA_HANDLE, keyname: Long, privatedata: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaRetrievePrivateData", longArrayOf(policyhandle, keyname, privatedata)).toInt()
 }
 
-public fun LsaSetCAPs(capdns: Long, capdncount: UInt, flags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaSetCAPs", longArrayOf(capdns, capdncount.toLong(), flags.toLong()))
-    return Foundation.NTSTATUS()
+public fun LsaSetCAPs(capdns: Long, capdncount: UInt, flags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaSetCAPs", longArrayOf(capdns, capdncount.toLong(), flags.toLong())).toInt()
 }
 
-public fun LsaSetDomainInformationPolicy(policyhandle: LSA_HANDLE, informationclass: POLICY_DOMAIN_INFORMATION_CLASS, buffer: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaSetDomainInformationPolicy", longArrayOf(policyhandle, informationclass.toLong(), buffer))
-    return Foundation.NTSTATUS()
+public fun LsaSetDomainInformationPolicy(policyhandle: LSA_HANDLE, informationclass: POLICY_DOMAIN_INFORMATION_CLASS, buffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaSetDomainInformationPolicy", longArrayOf(policyhandle, informationclass.toLong(), buffer)).toInt()
 }
 
-public fun LsaSetForestTrustInformation(policyhandle: LSA_HANDLE, trusteddomainname: Long, foresttrustinfo: Long, checkonly: Boolean, collisioninfo: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaSetForestTrustInformation", longArrayOf(policyhandle, trusteddomainname, foresttrustinfo, if (checkonly) 1L else 0L, collisioninfo))
-    return Foundation.NTSTATUS()
+public fun LsaSetForestTrustInformation(policyhandle: LSA_HANDLE, trusteddomainname: Long, foresttrustinfo: Long, checkonly: Boolean, collisioninfo: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaSetForestTrustInformation", longArrayOf(policyhandle, trusteddomainname, foresttrustinfo, if (checkonly) 1L else 0L, collisioninfo)).toInt()
 }
 
-public fun LsaSetForestTrustInformation2(policyhandle: LSA_HANDLE, trusteddomainname: Long, highestrecordtype: LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo: Long, checkonly: Boolean, collisioninfo: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaSetForestTrustInformation2", longArrayOf(policyhandle, trusteddomainname, highestrecordtype.toLong(), foresttrustinfo, if (checkonly) 1L else 0L, collisioninfo))
-    return Foundation.NTSTATUS()
+public fun LsaSetForestTrustInformation2(policyhandle: LSA_HANDLE, trusteddomainname: Long, highestrecordtype: LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo: Long, checkonly: Boolean, collisioninfo: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaSetForestTrustInformation2", longArrayOf(policyhandle, trusteddomainname, highestrecordtype.toLong(), foresttrustinfo, if (checkonly) 1L else 0L, collisioninfo)).toInt()
 }
 
-public fun LsaSetInformationPolicy(policyhandle: LSA_HANDLE, informationclass: POLICY_INFORMATION_CLASS, buffer: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaSetInformationPolicy", longArrayOf(policyhandle, informationclass.toLong(), buffer))
-    return Foundation.NTSTATUS()
+public fun LsaSetInformationPolicy(policyhandle: LSA_HANDLE, informationclass: POLICY_INFORMATION_CLASS, buffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaSetInformationPolicy", longArrayOf(policyhandle, informationclass.toLong(), buffer)).toInt()
 }
 
-public fun LsaSetTrustedDomainInfoByName(policyhandle: LSA_HANDLE, trusteddomainname: Long, informationclass: TRUSTED_INFORMATION_CLASS, buffer: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaSetTrustedDomainInfoByName", longArrayOf(policyhandle, trusteddomainname, informationclass.toLong(), buffer))
-    return Foundation.NTSTATUS()
+public fun LsaSetTrustedDomainInfoByName(policyhandle: LSA_HANDLE, trusteddomainname: Long, informationclass: TRUSTED_INFORMATION_CLASS, buffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaSetTrustedDomainInfoByName", longArrayOf(policyhandle, trusteddomainname, informationclass.toLong(), buffer)).toInt()
 }
 
-public fun LsaSetTrustedDomainInformation(policyhandle: LSA_HANDLE, trusteddomainsid: PSID, informationclass: TRUSTED_INFORMATION_CLASS, buffer: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaSetTrustedDomainInformation", longArrayOf(policyhandle, trusteddomainsid, informationclass.toLong(), buffer))
-    return Foundation.NTSTATUS()
+public fun LsaSetTrustedDomainInformation(policyhandle: LSA_HANDLE, trusteddomainsid: PSID, informationclass: TRUSTED_INFORMATION_CLASS, buffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaSetTrustedDomainInformation", longArrayOf(policyhandle, trusteddomainsid, informationclass.toLong(), buffer)).toInt()
 }
 
-public fun LsaStorePrivateData(policyhandle: LSA_HANDLE, keyname: Long, privatedata: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "LsaStorePrivateData", longArrayOf(policyhandle, keyname, privatedata))
-    return Foundation.NTSTATUS()
+public fun LsaStorePrivateData(policyhandle: LSA_HANDLE, keyname: Long, privatedata: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LsaStorePrivateData", longArrayOf(policyhandle, keyname, privatedata)).toInt()
 }
 
-public fun LsaUnregisterPolicyChangeNotification(informationclass: POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle: Foundation.HANDLE): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("secur32.dll", "LsaUnregisterPolicyChangeNotification", longArrayOf(informationclass.toLong(), Win32DynamicFfi.objectSlot(notificationeventhandle)))
-    return Foundation.NTSTATUS()
+public fun LsaUnregisterPolicyChangeNotification(informationclass: POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle: HANDLE): NTSTATUS {
+    return Win32DynamicFfi.invoke("secur32.dll", "LsaUnregisterPolicyChangeNotification", longArrayOf(informationclass.toLong(), notificationeventhandle)).toInt()
 }
 
 public fun MakeSignature(phcontext: Long, fqop: UInt, pmessage: Long, messageseqno: UInt): HRESULT {
@@ -539,14 +499,12 @@ public fun RevertSecurityContext(phcontext: Long): HRESULT {
     return Win32DynamicFfi.invoke("secur32.dll", "RevertSecurityContext", longArrayOf(phcontext)).toInt()
 }
 
-public fun RtlDecryptMemory(memory: Long, memorysize: UInt, optionflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "SystemFunction041", longArrayOf(memory, memorysize.toLong(), optionflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun RtlDecryptMemory(memory: Long, memorysize: UInt, optionflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "SystemFunction041", longArrayOf(memory, memorysize.toLong(), optionflags.toLong())).toInt()
 }
 
-public fun RtlEncryptMemory(memory: Long, memorysize: UInt, optionflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("advapi32.dll", "SystemFunction040", longArrayOf(memory, memorysize.toLong(), optionflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun RtlEncryptMemory(memory: Long, memorysize: UInt, optionflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("advapi32.dll", "SystemFunction040", longArrayOf(memory, memorysize.toLong(), optionflags.toLong())).toInt()
 }
 
 public fun RtlGenRandom(randombuffer: Long, randombufferlength: UInt): Boolean {
@@ -682,8 +640,8 @@ public fun SLQueryLicenseValueFromApp(valuename: PCWSTR, valuetype: Long, databu
     return Win32DynamicFfi.invoke("api-ms-win-core-slapi-l1-1-0.dll", "SLQueryLicenseValueFromApp", longArrayOf(valuename, valuetype, databuffer, datasize.toLong(), resultdatasize)).toInt()
 }
 
-public fun SLRegisterEvent(hslc: Long, pwszeventid: PCWSTR, papplicationid: Long, hevent: Foundation.HANDLE): HRESULT {
-    return Win32DynamicFfi.invoke("slc.dll", "SLRegisterEvent", longArrayOf(hslc, pwszeventid, papplicationid, Win32DynamicFfi.objectSlot(hevent))).toInt()
+public fun SLRegisterEvent(hslc: Long, pwszeventid: PCWSTR, papplicationid: Long, hevent: HANDLE): HRESULT {
+    return Win32DynamicFfi.invoke("slc.dll", "SLRegisterEvent", longArrayOf(hslc, pwszeventid, papplicationid, hevent)).toInt()
 }
 
 public fun SLSetCurrentProductKey(hslc: Long, pproductskuid: Long, pproductkeyid: Long): HRESULT {
@@ -702,8 +660,8 @@ public fun SLUninstallProofOfPurchase(hslc: Long, ppkeyid: Long): HRESULT {
     return Win32DynamicFfi.invoke("slc.dll", "SLUninstallProofOfPurchase", longArrayOf(hslc, ppkeyid)).toInt()
 }
 
-public fun SLUnregisterEvent(hslc: Long, pwszeventid: PCWSTR, papplicationid: Long, hevent: Foundation.HANDLE): HRESULT {
-    return Win32DynamicFfi.invoke("slc.dll", "SLUnregisterEvent", longArrayOf(hslc, pwszeventid, papplicationid, Win32DynamicFfi.objectSlot(hevent))).toInt()
+public fun SLUnregisterEvent(hslc: Long, pwszeventid: PCWSTR, papplicationid: Long, hevent: HANDLE): HRESULT {
+    return Win32DynamicFfi.invoke("slc.dll", "SLUnregisterEvent", longArrayOf(hslc, pwszeventid, papplicationid, hevent)).toInt()
 }
 
 public fun SaslAcceptSecurityContext(phcredential: Long, phcontext: Long, pinput: Long, fcontextreq: ASC_REQ_FLAGS, targetdatarep: UInt, phnewcontext: Long, poutput: Long, pfcontextattr: Long, ptsexpiry: Long): HRESULT {
@@ -774,8 +732,8 @@ public fun SslCrackCertificate(pbcertificate: Long, cbcertificate: UInt, dwflags
     return Win32DynamicFfi.invoke("schannel.dll", "SslCrackCertificate", longArrayOf(pbcertificate, cbcertificate.toLong(), dwflags.toLong(), ppcertificate)).toInt()
 }
 
-public fun SslDeserializeCertificateStore(serializedcertificatestore: Cryptography.CRYPT_INTEGER_BLOB, ppcertcontext: Long): HRESULT {
-    return Win32DynamicFfi.invoke("schannel.dll", "SslDeserializeCertificateStore", longArrayOf(Win32DynamicFfi.objectSlot(serializedcertificatestore), ppcertcontext)).toInt()
+public fun SslDeserializeCertificateStore(serializedcertificatestore: CRYPT_INTEGER_BLOB, ppcertcontext: Long): HRESULT {
+    return Win32DynamicFfi.invoke("schannel.dll", "SslDeserializeCertificateStore", longArrayOf(run { val buf = ByteArray(16); buf[0] = (serializedcertificatestore.cbData.toInt() and 0xFF).toByte(); buf[1] = ((serializedcertificatestore.cbData.toInt() ushr 8) and 0xFF).toByte(); buf[2] = ((serializedcertificatestore.cbData.toInt() ushr 16) and 0xFF).toByte(); buf[3] = ((serializedcertificatestore.cbData.toInt() ushr 24) and 0xFF).toByte(); buf[8] = (serializedcertificatestore.pbData and 0xFF).toByte(); buf[9] = ((serializedcertificatestore.pbData ushr 8) and 0xFF).toByte(); buf[10] = ((serializedcertificatestore.pbData ushr 16) and 0xFF).toByte(); buf[11] = ((serializedcertificatestore.pbData ushr 24) and 0xFF).toByte(); buf[12] = ((serializedcertificatestore.pbData ushr 32) and 0xFF).toByte(); buf[13] = ((serializedcertificatestore.pbData ushr 40) and 0xFF).toByte(); buf[14] = ((serializedcertificatestore.pbData ushr 48) and 0xFF).toByte(); buf[15] = ((serializedcertificatestore.pbData ushr 56) and 0xFF).toByte(); val ptr = Win32DynamicFfi.allocZeroed(16); Win32DynamicFfi.writeBytes(ptr, buf); ptr }, ppcertcontext)).toInt()
 }
 
 public fun SslEmptyCacheA(psztargetname: PCSTR, dwflags: UInt): BOOL {

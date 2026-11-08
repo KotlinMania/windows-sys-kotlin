@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.componentservices
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.w
@@ -12,9 +13,9 @@ public val APPTYPE_SWC: COMPLUS_APPTYPE = 2
 
 public val APPTYPE_UNKNOWN: COMPLUS_APPTYPE = -1
 
-public val AppDomainHelper: GUID = GUID.from_u128(0xef24f68914f84d92uL, 0xb4afd7b1f0e70fd4uL)
+public val AppDomainHelper: GUID = GUID.from_u128(U128(0xef24f68914f84d92uL, 0xb4afd7b1f0e70fd4uL))
 
-public val ByotServerEx: GUID = GUID.from_u128(0xecabb0aa7f1911d2uL, 0x978e0000f8757e2auL)
+public val ByotServerEx: GUID = GUID.from_u128(U128(0xecabb0aa7f1911d2uL, 0x978e0000f8757e2auL))
 
 public val COMAdmin32BitComponent: COMAdminComponentType = 1
 
@@ -50,11 +51,11 @@ public val COMAdminAuthenticationPacket: COMAdminAuthenticationLevelOptions = 4
 
 public val COMAdminAuthenticationPrivacy: COMAdminAuthenticationLevelOptions = 6
 
-public val COMAdminCatalog: GUID = GUID.from_u128(0xf618c514dfb811d1uL, 0xa2cf00805fc79235uL)
+public val COMAdminCatalog: GUID = GUID.from_u128(U128(0xf618c514dfb811d1uL, 0xa2cf00805fc79235uL))
 
-public val COMAdminCatalogCollection: GUID = GUID.from_u128(0xf618c516dfb811d1uL, 0xa2cf00805fc79235uL)
+public val COMAdminCatalogCollection: GUID = GUID.from_u128(U128(0xf618c516dfb811d1uL, 0xa2cf00805fc79235uL))
 
-public val COMAdminCatalogObject: GUID = GUID.from_u128(0xf618c515dfb811d1uL, 0xa2cf00805fc79235uL)
+public val COMAdminCatalogObject: GUID = GUID.from_u128(U128(0xf618c515dfb811d1uL, 0xa2cf00805fc79235uL))
 
 public val COMAdminCompFlagAlreadyInstalled: COMAdminComponentFlags = 16
 
@@ -458,9 +459,9 @@ public val COMAdminTxIsolationLevelRepeatableRead: COMAdminTxIsolationLevelOptio
 
 public val COMAdminTxIsolationLevelSerializable: COMAdminTxIsolationLevelOptions = 4
 
-public val COMEvents: GUID = GUID.from_u128(0xecabb0ab7f1911d2uL, 0x978e0000f8757e2auL)
+public val COMEvents: GUID = GUID.from_u128(U128(0xecabb0ab7f1911d2uL, 0x978e0000f8757e2auL))
 
-public val CRMClerk: GUID = GUID.from_u128(0xecabb0bd7f1911d2uL, 0x978e0000f8757e2auL)
+public val CRMClerk: GUID = GUID.from_u128(U128(0xecabb0bd7f1911d2uL, 0x978e0000f8757e2auL))
 
 public val CRMFLAG_FORGETTARGET: CRMFLAGS = 1
 
@@ -486,7 +487,7 @@ public val CRMREGFLAG_FAILIFINDOUBTSREMAIN: CRMREGFLAGS = 16
 
 public val CRMREGFLAG_PREPAREPHASE: CRMREGFLAGS = 1
 
-public val CRMRecoveryClerk: GUID = GUID.from_u128(0xecabb0be7f1911d2uL, 0x978e0000f8757e2auL)
+public val CRMRecoveryClerk: GUID = GUID.from_u128(U128(0xecabb0be7f1911d2uL, 0x978e0000f8757e2auL))
 
 public val CRR_ACTIVATION_LIMIT: UInt = 4294967294u
 
@@ -556,15 +557,15 @@ public val CSC_ThreadPoolNone: CSC_ThreadPool = 0
 
 public val CSC_UseTracker: CSC_TrackerConfig = 1
 
-public val CServiceConfig: GUID = GUID.from_u128(0xecabb0c87f1911d2uL, 0x978e0000f8757e2auL)
+public val CServiceConfig: GUID = GUID.from_u128(U128(0xecabb0c87f1911d2uL, 0x978e0000f8757e2auL))
 
-public val ClrAssemblyLocator: GUID = GUID.from_u128(0x458aa3b5265a4b75uL, 0xbc059bea4630cf18uL)
+public val ClrAssemblyLocator: GUID = GUID.from_u128(U128(0x458aa3b5265a4b75uL, 0xbc059bea4630cf18uL))
 
-public val CoMTSLocator: GUID = GUID.from_u128(0xecabb0ac7f1911d2uL, 0x978e0000f8757e2auL)
+public val CoMTSLocator: GUID = GUID.from_u128(U128(0xecabb0ac7f1911d2uL, 0x978e0000f8757e2auL))
 
-public val ComServiceEvents: GUID = GUID.from_u128(0xecabb0c37f1911d2uL, 0x978e0000f8757e2auL)
+public val ComServiceEvents: GUID = GUID.from_u128(U128(0xecabb0c37f1911d2uL, 0x978e0000f8757e2auL))
 
-public val ComSystemAppEventData: GUID = GUID.from_u128(0xecabb0c67f1911d2uL, 0x978e0000f8757e2auL)
+public val ComSystemAppEventData: GUID = GUID.from_u128(U128(0xecabb0c67f1911d2uL, 0x978e0000f8757e2auL))
 
 public val DATA_NOT_AVAILABLE: UInt = 4294967295u
 
@@ -574,11 +575,11 @@ public val DUMPTYPE_MINI: DUMPTYPE = 1
 
 public val DUMPTYPE_NONE: DUMPTYPE = 2
 
-public val DispenserManager: GUID = GUID.from_u128(0xecabb0c07f1911d2uL, 0x978e0000f8757e2auL)
+public val DispenserManager: GUID = GUID.from_u128(U128(0xecabb0c07f1911d2uL, 0x978e0000f8757e2auL))
 
-public val Dummy30040732: GUID = GUID.from_u128(0xecabb0a97f1911d2uL, 0x978e0000f8757e2auL)
+public val Dummy30040732: GUID = GUID.from_u128(U128(0xecabb0a97f1911d2uL, 0x978e0000f8757e2auL))
 
-public val EventServer: GUID = GUID.from_u128(0xecabafbc7f1911d2uL, 0x978e0000f8757e2auL)
+public val EventServer: GUID = GUID.from_u128(U128(0xecabafbc7f1911d2uL, 0x978e0000f8757e2auL))
 
 public val GATD_INCLUDE_APPLICATION_NAME: GetAppTrackerDataFlags = 16
 
@@ -592,9 +593,9 @@ public val GATD_INCLUDE_SWC: GetAppTrackerDataFlags = 4
 
 public val GUID_STRING_SIZE: UInt = 40u
 
-public val GetSecurityCallContextAppObject: GUID = GUID.from_u128(0xecabb0a87f1911d2uL, 0x978e0000f8757e2auL)
+public val GetSecurityCallContextAppObject: GUID = GUID.from_u128(U128(0xecabb0a87f1911d2uL, 0x978e0000f8757e2auL))
 
-public val LBEvents: GUID = GUID.from_u128(0xecabb0c17f1911d2uL, 0x978e0000f8757e2auL)
+public val LBEvents: GUID = GUID.from_u128(U128(0xecabb0c17f1911d2uL, 0x978e0000f8757e2auL))
 
 public val LockMethod: LockModes = 1
 
@@ -602,29 +603,29 @@ public val LockSetGet: LockModes = 0
 
 public val MTXDM_E_ENLISTRESOURCEFAILED: UInt = 2147803392u
 
-public val MessageMover: GUID = GUID.from_u128(0xecabb0bf7f1911d2uL, 0x978e0000f8757e2auL)
+public val MessageMover: GUID = GUID.from_u128(U128(0xecabb0bf7f1911d2uL, 0x978e0000f8757e2auL))
 
-public val MtsGrp: GUID = GUID.from_u128(0x4b2e958d039311d1uL, 0xb1ab00aa00ba3258uL)
+public val MtsGrp: GUID = GUID.from_u128(U128(0x4b2e958d039311d1uL, 0xb1ab00aa00ba3258uL))
 
-public val PoolMgr: GUID = GUID.from_u128(0xecabafb57f1911d2uL, 0x978e0000f8757e2auL)
+public val PoolMgr: GUID = GUID.from_u128(U128(0xecabafb57f1911d2uL, 0x978e0000f8757e2auL))
 
 public val Process: ReleaseModes = 1
 
-public val SecurityCallContext: GUID = GUID.from_u128(0xecabb0a77f1911d2uL, 0x978e0000f8757e2auL)
+public val SecurityCallContext: GUID = GUID.from_u128(U128(0xecabb0a77f1911d2uL, 0x978e0000f8757e2auL))
 
-public val SecurityCallers: GUID = GUID.from_u128(0xecabb0a67f1911d2uL, 0x978e0000f8757e2auL)
+public val SecurityCallers: GUID = GUID.from_u128(U128(0xecabb0a67f1911d2uL, 0x978e0000f8757e2auL))
 
-public val SecurityIdentity: GUID = GUID.from_u128(0xecabb0a57f1911d2uL, 0x978e0000f8757e2auL)
+public val SecurityIdentity: GUID = GUID.from_u128(U128(0xecabb0a57f1911d2uL, 0x978e0000f8757e2auL))
 
-public val ServicePool: GUID = GUID.from_u128(0xecabb0c97f1911d2uL, 0x978e0000f8757e2auL)
+public val ServicePool: GUID = GUID.from_u128(U128(0xecabb0c97f1911d2uL, 0x978e0000f8757e2auL))
 
-public val ServicePoolConfig: GUID = GUID.from_u128(0xecabb0ca7f1911d2uL, 0x978e0000f8757e2auL)
+public val ServicePoolConfig: GUID = GUID.from_u128(U128(0xecabb0ca7f1911d2uL, 0x978e0000f8757e2auL))
 
-public val SharedProperty: GUID = GUID.from_u128(0x2a005c05a5de11cfuL, 0x9e6600aa00a3f464uL)
+public val SharedProperty: GUID = GUID.from_u128(U128(0x2a005c05a5de11cfuL, 0x9e6600aa00a3f464uL))
 
-public val SharedPropertyGroup: GUID = GUID.from_u128(0x2a005c0ba5de11cfuL, 0x9e6600aa00a3f464uL)
+public val SharedPropertyGroup: GUID = GUID.from_u128(U128(0x2a005c0ba5de11cfuL, 0x9e6600aa00a3f464uL))
 
-public val SharedPropertyGroupManager: GUID = GUID.from_u128(0x2a005c11a5de11cfuL, 0x9e6600aa00a3f464uL)
+public val SharedPropertyGroupManager: GUID = GUID.from_u128(U128(0x2a005c11a5de11cfuL, 0x9e6600aa00a3f464uL))
 
 public val Standard: ReleaseModes = 0
 
@@ -638,11 +639,11 @@ public val TRKCOLL_COMPONENTS: TRACKING_COLL_TYPE = 2
 
 public val TRKCOLL_PROCESSES: TRACKING_COLL_TYPE = 0
 
-public val TrackerServer: GUID = GUID.from_u128(0xecabafb97f1911d2uL, 0x978e0000f8757e2auL)
+public val TrackerServer: GUID = GUID.from_u128(U128(0xecabafb97f1911d2uL, 0x978e0000f8757e2auL))
 
-public val TransactionContext: GUID = GUID.from_u128(0x7999fc25d3c611cfuL, 0xacab00a024a55aefuL)
+public val TransactionContext: GUID = GUID.from_u128(U128(0x7999fc25d3c611cfuL, 0xacab00a024a55aefuL))
 
-public val TransactionContextEx: GUID = GUID.from_u128(0x5cb66670d3d411cfuL, 0xacab00a024a55aefuL)
+public val TransactionContextEx: GUID = GUID.from_u128(U128(0x5cb66670d3d411cfuL, 0xacab00a024a55aefuL))
 
 public val TxAbort: TransactionVote = 1
 

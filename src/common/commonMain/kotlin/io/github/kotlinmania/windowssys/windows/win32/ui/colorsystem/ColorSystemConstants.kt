@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 
 public val ATTRIB_MATTE: UInt = 2u
@@ -90,7 +91,7 @@ public val BM_xG3CHQUADS: BMFORMAT = 772
 
 public val BM_xRGBQUADS: BMFORMAT = 8
 
-public val CATID_WcsPlugin: GUID = GUID.from_u128(0xa0b402e08240405fuL, 0x8a168a5b4df2f0dduL)
+public val CATID_WcsPlugin: GUID = GUID.from_u128(U128(0xa0b402e08240405fuL, 0x8a168a5b4df2f0dduL))
 
 public val CMM_DESCRIPTION: UInt = 5u
 

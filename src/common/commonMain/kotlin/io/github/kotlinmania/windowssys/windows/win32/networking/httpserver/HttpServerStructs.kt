@@ -7,6 +7,9 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SOCKADDR_STORAGE
+import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
 
 public data class HTTP2_SETTINGS_LIMITS_PARAM(public var Http2MaxSettingsPerFrame: UInt = 0u, public var Http2MaxSettingsPerMinute: UInt = 0u)
 
@@ -16,7 +19,7 @@ public data class HTTPAPI_VERSION(public var HttpApiMajorVersion: UShort = 0u, p
 
 public data class HTTP_BANDWIDTH_LIMIT_INFO(public var Flags: HTTP_PROPERTY_FLAGS = HTTP_PROPERTY_FLAGS(), public var MaxBandwidth: UInt = 0u)
 
-public data class HTTP_BINDING_INFO(public var Flags: HTTP_PROPERTY_FLAGS = HTTP_PROPERTY_FLAGS(), public var RequestQueueHandle: Foundation.HANDLE = Foundation.HANDLE())
+public data class HTTP_BINDING_INFO(public var Flags: HTTP_PROPERTY_FLAGS = HTTP_PROPERTY_FLAGS(), public var RequestQueueHandle: HANDLE = 0L)
 
 public data class HTTP_BYTE_RANGE(public var StartingOffset: ULong = 0uL, public var Length: ULong = 0uL)
 
@@ -58,7 +61,7 @@ public data class HTTP_DATA_CHUNK_0(
     public var Trailers: HTTP_DATA_CHUNK_0_4 = HTTP_DATA_CHUNK_0_4(),
 )
 
-public data class HTTP_DATA_CHUNK_0_1(public var ByteRange: HTTP_BYTE_RANGE = HTTP_BYTE_RANGE(), public var FileHandle: Foundation.HANDLE = Foundation.HANDLE())
+public data class HTTP_DATA_CHUNK_0_1(public var ByteRange: HTTP_BYTE_RANGE = HTTP_BYTE_RANGE(), public var FileHandle: HANDLE = 0L)
 
 public data class HTTP_DATA_CHUNK_0_3(public var ByteRange: HTTP_BYTE_RANGE = HTTP_BYTE_RANGE(), public var pFragmentName: PCWSTR = 0L)
 
@@ -105,7 +108,7 @@ public data class HTTP_LOGGING_INFO(
     public var MaxRecordSize: UShort = 0u,
     public var RolloverType: HTTP_LOGGING_ROLLOVER_TYPE = 0,
     public var RolloverSize: UInt = 0u,
-    public var pSecurityDescriptor: Security.PSECURITY_DESCRIPTOR = Security.PSECURITY_DESCRIPTOR(),
+    public var pSecurityDescriptor: PSECURITY_DESCRIPTOR = 0L,
 )
 
 public data class HTTP_LOG_DATA(public var Type: HTTP_LOG_DATA_TYPE = 0)
@@ -221,7 +224,7 @@ public data class HTTP_REQUEST_AUTH_INFO(
     public var SecStatus: HRESULT = 0,
     public var Flags: UInt = 0u,
     public var AuthType: HTTP_REQUEST_AUTH_TYPE = 0,
-    public var AccessToken: Foundation.HANDLE = Foundation.HANDLE(),
+    public var AccessToken: HANDLE = 0L,
     public var ContextAttributes: UInt = 0u,
     public var PackedContextLength: UInt = 0u,
     public var PackedContextType: UInt = 0u,
@@ -416,11 +419,11 @@ public data class HTTP_SERVICE_CONFIG_CACHE_SET(public var KeyDesc: HTTP_SERVICE
 
 public data class HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM(public var AddrLength: UShort = 0u, public var pAddress: Long = 0L)
 
-public data class HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY(public var AddrCount: UInt = 0u, public var AddrList: List<WinSock.SOCKADDR_STORAGE> = List(1) { WinSock.SOCKADDR_STORAGE() })
+public data class HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY(public var AddrCount: UInt = 0u, public var AddrList: List<SOCKADDR_STORAGE> = List(1) { SOCKADDR_STORAGE() })
 
 public data class HTTP_SERVICE_CONFIG_SETTING_SET(public var KeyDesc: HTTP_SERVICE_CONFIG_SETTING_KEY = 0, public var ParamDesc: UInt = 0u)
 
-public data class HTTP_SERVICE_CONFIG_SSL_CCS_KEY(public var LocalAddress: WinSock.SOCKADDR_STORAGE = WinSock.SOCKADDR_STORAGE())
+public data class HTTP_SERVICE_CONFIG_SSL_CCS_KEY(public var LocalAddress: SOCKADDR_STORAGE = SOCKADDR_STORAGE())
 
 public data class HTTP_SERVICE_CONFIG_SSL_CCS_QUERY(
     public var QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE = 0,
@@ -441,7 +444,7 @@ public data class HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX(public var KeyDesc: HTTP_SE
 
 public data class HTTP_SERVICE_CONFIG_SSL_KEY(public var pIpPort: Long = 0L)
 
-public data class HTTP_SERVICE_CONFIG_SSL_KEY_EX(public var IpPort: WinSock.SOCKADDR_STORAGE = WinSock.SOCKADDR_STORAGE())
+public data class HTTP_SERVICE_CONFIG_SSL_KEY_EX(public var IpPort: SOCKADDR_STORAGE = SOCKADDR_STORAGE())
 
 public data class HTTP_SERVICE_CONFIG_SSL_PARAM(
     public var SslHashLength: UInt = 0u,
@@ -488,7 +491,7 @@ public data class HTTP_SERVICE_CONFIG_SSL_SET(public var KeyDesc: HTTP_SERVICE_C
 
 public data class HTTP_SERVICE_CONFIG_SSL_SET_EX(public var KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY_EX = HTTP_SERVICE_CONFIG_SSL_KEY_EX(), public var ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX = HTTP_SERVICE_CONFIG_SSL_PARAM_EX())
 
-public data class HTTP_SERVICE_CONFIG_SSL_SNI_KEY(public var IpPort: WinSock.SOCKADDR_STORAGE = WinSock.SOCKADDR_STORAGE(), public var Host: PWSTR = 0L)
+public data class HTTP_SERVICE_CONFIG_SSL_SNI_KEY(public var IpPort: SOCKADDR_STORAGE = SOCKADDR_STORAGE(), public var Host: PWSTR = 0L)
 
 public data class HTTP_SERVICE_CONFIG_SSL_SNI_QUERY(
     public var QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE = 0,
@@ -525,7 +528,7 @@ public data class HTTP_SSL_CLIENT_CERT_INFO(
     public var CertFlags: UInt = 0u,
     public var CertEncodedSize: UInt = 0u,
     public var pCertEncoded: Long = 0L,
-    public var Token: Foundation.HANDLE = Foundation.HANDLE(),
+    public var Token: HANDLE = 0L,
     public var CertDeniedByMapper: Boolean = false,
 )
 

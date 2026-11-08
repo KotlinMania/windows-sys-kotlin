@@ -187,7 +187,7 @@ public fun WinHttpSetProxySettingsPerUser(fproxysettingsperuser: BOOL): UInt {
 
 public fun WinHttpSetStatusCallback(hinternet: Long, lpfninternetcallback: WINHTTP_STATUS_CALLBACK, dwnotificationflags: UInt, dwreserved: ULong): WINHTTP_STATUS_CALLBACK {
     val rawRet = Win32DynamicFfi.invoke("winhttp.dll", "WinHttpSetStatusCallback", longArrayOf(hinternet, Win32DynamicFfi.objectSlot(lpfninternetcallback), dwnotificationflags.toLong(), dwreserved.toLong()))
-    return if (rawRet == 0L) null else WINHTTP_STATUS_CALLBACKFn { _, _, _, _, _ ->  }
+    return if (rawRet == 0L) null else WINHTTP_STATUS_CALLBACKFn { p0, p1, p2, p3, p4 -> Win32DynamicFfi.invokePtr(rawRet, longArrayOf(p0, p1.toLong(), p2.toLong(), p3, p4.toLong())) }
 }
 
 public fun WinHttpSetTimeouts(hinternet: Long, nresolvetimeout: Int, nconnecttimeout: Int, nsendtimeout: Int, nreceivetimeout: Int): BOOL {

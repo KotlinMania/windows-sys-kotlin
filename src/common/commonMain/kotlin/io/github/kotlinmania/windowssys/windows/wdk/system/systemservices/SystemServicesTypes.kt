@@ -3,9 +3,21 @@ package io.github.kotlinmania.windowssys.windows.wdk.system.systemservices
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.DRIVER_CONTROL
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PBUS_HANDLER
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PEPROCESS
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PESILO
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PEX_TIMER
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PIO_WORKITEM
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.POOL_TYPE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
+import io.github.kotlinmania.windowssys.windows.win32.system.power.SYSTEM_POWER_STATE
+import io.github.kotlinmania.windowssys.windows.win32.system.systemservices.TRANSACTION_INFORMATION_CLASS
 
 public fun interface ALLOCATE_FUNCTIONFn {
-    public operator fun invoke(pooltype: Foundation.POOL_TYPE, numberofbytes: ULong, tag: UInt): Long
+    public operator fun invoke(pooltype: POOL_TYPE, numberofbytes: ULong, tag: UInt): Long
 }
 
 public typealias ALLOCATE_FUNCTION = ALLOCATE_FUNCTIONFn?
@@ -51,7 +63,7 @@ public typealias CREATE_FILE_TYPE = Int
 public typealias D3COLD_LAST_TRANSITION_STATUS = Int
 
 public fun interface D3COLD_REQUEST_AUX_POWERFn {
-    public operator fun invoke(context: Long, auxpowerinmilliwatts: UInt, retryinseconds: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, auxpowerinmilliwatts: UInt, retryinseconds: Long): NTSTATUS
 }
 
 public typealias D3COLD_REQUEST_AUX_POWER = D3COLD_REQUEST_AUX_POWERFn?
@@ -63,13 +75,13 @@ public fun interface D3COLD_REQUEST_CORE_POWER_RAILFn {
 public typealias D3COLD_REQUEST_CORE_POWER_RAIL = D3COLD_REQUEST_CORE_POWER_RAILFn?
 
 public fun interface D3COLD_REQUEST_PERST_DELAYFn {
-    public operator fun invoke(context: Long, delayinmicroseconds: UInt): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, delayinmicroseconds: UInt): NTSTATUS
 }
 
 public typealias D3COLD_REQUEST_PERST_DELAY = D3COLD_REQUEST_PERST_DELAYFn?
 
 public fun interface DEVICE_BUS_SPECIFIC_RESET_HANDLERFn {
-    public operator fun invoke(interfacecontext: Long, bustype: Long, resettypeselected: DEVICE_BUS_SPECIFIC_RESET_TYPE, flags: Long, resetparameters: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(interfacecontext: Long, bustype: Long, resettypeselected: DEVICE_BUS_SPECIFIC_RESET_TYPE, flags: Long, resetparameters: Long): NTSTATUS
 }
 
 public typealias DEVICE_BUS_SPECIFIC_RESET_HANDLER = DEVICE_BUS_SPECIFIC_RESET_HANDLERFn?
@@ -85,7 +97,7 @@ public typealias DEVICE_DIRECTORY_TYPE = Int
 public typealias DEVICE_INSTALL_STATE = Int
 
 public fun interface DEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLERFn {
-    public operator fun invoke(interfacecontext: Long, resetinfocount: Long, resetinfosupported: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(interfacecontext: Long, resetinfocount: Long, resetinfosupported: Long): NTSTATUS
 }
 
 public typealias DEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER = DEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLERFn?
@@ -97,13 +109,13 @@ public typealias DEVICE_RELATION_TYPE = Int
 public typealias DEVICE_REMOVAL_POLICY = Int
 
 public fun interface DEVICE_RESET_COMPLETIONFn {
-    public operator fun invoke(status: Win32.Foundation.NTSTATUS, context: Long)
+    public operator fun invoke(status: NTSTATUS, context: Long)
 }
 
 public typealias DEVICE_RESET_COMPLETION = DEVICE_RESET_COMPLETIONFn?
 
 public fun interface DEVICE_RESET_HANDLERFn {
-    public operator fun invoke(interfacecontext: Long, resettype: DEVICE_RESET_TYPE, flags: UInt, resetparameters: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(interfacecontext: Long, resettype: DEVICE_RESET_TYPE, flags: UInt, resetparameters: Long): NTSTATUS
 }
 
 public typealias DEVICE_RESET_HANDLER = DEVICE_RESET_HANDLERFn?
@@ -149,7 +161,7 @@ public typealias DRIVER_REGKEY_TYPE = Int
 public typealias DRIVER_RUNTIME_INIT_FLAGS = Int
 
 public fun interface ENABLE_VIRTUALIZATIONFn {
-    public operator fun invoke(context: Long, numvfs: UShort, enablevfmigration: Boolean, enablemigrationinterrupt: Boolean, enablevirtualization: Boolean): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, numvfs: UShort, enablevfmigration: Boolean, enablemigrationinterrupt: Boolean, enablevirtualization: Boolean): NTSTATUS
 }
 
 public typealias ENABLE_VIRTUALIZATION = ENABLE_VIRTUALIZATIONFn?
@@ -169,7 +181,7 @@ public typealias EXPAND_STACK_CALLOUT = EXPAND_STACK_CALLOUTFn?
 public typealias EXTENDED_AGP_REGISTER = Int
 
 public fun interface EXT_CALLBACKFn {
-    public operator fun invoke(timer: Foundation.PEX_TIMER, context: Long)
+    public operator fun invoke(timer: PEX_TIMER, context: Long)
 }
 
 public typealias EXT_CALLBACK = EXT_CALLBACKFn?
@@ -181,7 +193,7 @@ public fun interface EXT_DELETE_CALLBACKFn {
 public typealias EXT_DELETE_CALLBACK = EXT_DELETE_CALLBACKFn?
 
 public fun interface EX_CALLBACK_FUNCTIONFn {
-    public operator fun invoke(callbackcontext: Long, argument1: Long, argument2: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(callbackcontext: Long, argument1: Long, argument2: Long): NTSTATUS
 }
 
 public typealias EX_CALLBACK_FUNCTION = EX_CALLBACK_FUNCTIONFn?
@@ -199,19 +211,19 @@ public fun interface FPGA_BUS_SCANFn {
 public typealias FPGA_BUS_SCAN = FPGA_BUS_SCANFn?
 
 public fun interface FPGA_CONTROL_CONFIG_SPACEFn {
-    public operator fun invoke(context: Long, enable: Boolean): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, enable: Boolean): NTSTATUS
 }
 
 public typealias FPGA_CONTROL_CONFIG_SPACE = FPGA_CONTROL_CONFIG_SPACEFn?
 
 public fun interface FPGA_CONTROL_ERROR_REPORTINGFn {
-    public operator fun invoke(context: Long, uncorrectablemask: UInt, correctablemask: UInt, disableerrorreporting: Boolean): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, uncorrectablemask: UInt, correctablemask: UInt, disableerrorreporting: Boolean): NTSTATUS
 }
 
 public typealias FPGA_CONTROL_ERROR_REPORTING = FPGA_CONTROL_ERROR_REPORTINGFn?
 
 public fun interface FPGA_CONTROL_LINKFn {
-    public operator fun invoke(context: Long, enable: Boolean): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, enable: Boolean): NTSTATUS
 }
 
 public typealias FPGA_CONTROL_LINK = FPGA_CONTROL_LINKFn?
@@ -229,7 +241,7 @@ public fun interface FWMI_NOTIFICATION_CALLBACKFn {
 public typealias FWMI_NOTIFICATION_CALLBACK = FWMI_NOTIFICATION_CALLBACKFn?
 
 public fun interface GET_D3COLD_CAPABILITYFn {
-    public operator fun invoke(context: Long, d3coldsupported: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, d3coldsupported: Long): NTSTATUS
 }
 
 public typealias GET_D3COLD_CAPABILITY = GET_D3COLD_CAPABILITYFn?
@@ -241,7 +253,7 @@ public fun interface GET_D3COLD_LAST_TRANSITION_STATUSFn {
 public typealias GET_D3COLD_LAST_TRANSITION_STATUS = GET_D3COLD_LAST_TRANSITION_STATUSFn?
 
 public fun interface GET_DEVICE_RESET_STATUSFn {
-    public operator fun invoke(interfacecontext: Long, isresetting: Long, resettypeselected: Long, flags: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(interfacecontext: Long, isresetting: Long, resettypeselected: Long, flags: Long): NTSTATUS
 }
 
 public typealias GET_DEVICE_RESET_STATUS = GET_DEVICE_RESET_STATUSFn?
@@ -253,7 +265,7 @@ public fun interface GET_DMA_ADAPTERFn {
 public typealias GET_DMA_ADAPTER = GET_DMA_ADAPTERFn?
 
 public fun interface GET_IDLE_WAKE_INFOFn {
-    public operator fun invoke(context: Long, systempowerstate: Win32.System.Power.SYSTEM_POWER_STATE, deepestwakeabledstate: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, systempowerstate: SYSTEM_POWER_STATE, deepestwakeabledstate: Long): NTSTATUS
 }
 
 public typealias GET_IDLE_WAKE_INFO = GET_IDLE_WAKE_INFOFn?
@@ -271,7 +283,7 @@ public fun interface GET_SET_DEVICE_DATAFn {
 public typealias GET_SET_DEVICE_DATA = GET_SET_DEVICE_DATAFn?
 
 public fun interface GET_UPDATED_BUS_RESOURCEFn {
-    public operator fun invoke(context: Long, updatedresourcelist: Long, updatedtranslatedresourcelist: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, updatedresourcelist: Long, updatedtranslatedresourcelist: Long): NTSTATUS
 }
 
 public typealias GET_UPDATED_BUS_RESOURCE = GET_UPDATED_BUS_RESOURCEFn?
@@ -283,7 +295,7 @@ public fun interface GET_VIRTUAL_DEVICE_DATAFn {
 public typealias GET_VIRTUAL_DEVICE_DATA = GET_VIRTUAL_DEVICE_DATAFn?
 
 public fun interface GET_VIRTUAL_DEVICE_LOCATIONFn {
-    public operator fun invoke(context: Long, virtualfunction: UShort, segmentnumber: Long, busnumber: Long, functionnumber: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, virtualfunction: UShort, segmentnumber: Long, busnumber: Long, functionnumber: Long): NTSTATUS
 }
 
 public typealias GET_VIRTUAL_DEVICE_LOCATION = GET_VIRTUAL_DEVICE_LOCATIONFn?
@@ -295,7 +307,7 @@ public fun interface GET_VIRTUAL_DEVICE_RESOURCESFn {
 public typealias GET_VIRTUAL_DEVICE_RESOURCES = GET_VIRTUAL_DEVICE_RESOURCESFn?
 
 public fun interface GET_VIRTUAL_FUNCTION_PROBED_BARSFn {
-    public operator fun invoke(context: Long, baseregistervalues: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, baseregistervalues: Long): NTSTATUS
 }
 
 public typealias GET_VIRTUAL_FUNCTION_PROBED_BARS = GET_VIRTUAL_FUNCTION_PROBED_BARSFn?
@@ -313,7 +325,7 @@ public typealias HAL_SET_INFORMATION_CLASS = Int
 public typealias HARDWARE_COUNTER_TYPE = Int
 
 public fun interface HVL_WHEA_ERROR_NOTIFICATIONFn {
-    public operator fun invoke(recoverycontext: Long, platformdirected: Boolean, poisoned: Boolean): Win32.Foundation.NTSTATUS
+    public operator fun invoke(recoverycontext: Long, platformdirected: Boolean, poisoned: Boolean): NTSTATUS
 }
 
 public typealias HVL_WHEA_ERROR_NOTIFICATION = HVL_WHEA_ERROR_NOTIFICATIONFn?
@@ -325,7 +337,7 @@ public typealias INTERFACE_TYPE = Int
 public typealias INTERLOCKED_RESULT = Int
 
 public fun interface IOMMU_DEVICE_CREATEFn {
-    public operator fun invoke(deviceobject: Long, deviceconfig: Long, dmadeviceout: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(deviceobject: Long, deviceconfig: Long, dmadeviceout: Long): NTSTATUS
 }
 
 public typealias IOMMU_DEVICE_CREATE = IOMMU_DEVICE_CREATEFn?
@@ -333,7 +345,7 @@ public typealias IOMMU_DEVICE_CREATE = IOMMU_DEVICE_CREATEFn?
 public typealias IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = Int
 
 public fun interface IOMMU_DEVICE_DELETEFn {
-    public operator fun invoke(dmadevice: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(dmadevice: Long): NTSTATUS
 }
 
 public typealias IOMMU_DEVICE_DELETE = IOMMU_DEVICE_DELETEFn?
@@ -355,67 +367,67 @@ public typealias IOMMU_DMA_DOMAIN_TYPE = Int
 public typealias IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE = Int
 
 public fun interface IOMMU_DOMAIN_ATTACH_DEVICEFn {
-    public operator fun invoke(domain: Long, physicaldeviceobject: Long, inputmappingidbase: UInt, mappingcount: UInt): Win32.Foundation.NTSTATUS
+    public operator fun invoke(domain: Long, physicaldeviceobject: Long, inputmappingidbase: UInt, mappingcount: UInt): NTSTATUS
 }
 
 public typealias IOMMU_DOMAIN_ATTACH_DEVICE = IOMMU_DOMAIN_ATTACH_DEVICEFn?
 
 public fun interface IOMMU_DOMAIN_ATTACH_DEVICE_EXFn {
-    public operator fun invoke(domain: Long, dmadevice: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(domain: Long, dmadevice: Long): NTSTATUS
 }
 
 public typealias IOMMU_DOMAIN_ATTACH_DEVICE_EX = IOMMU_DOMAIN_ATTACH_DEVICE_EXFn?
 
 public fun interface IOMMU_DOMAIN_CONFIGUREFn {
-    public operator fun invoke(domain: Long, configuration: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(domain: Long, configuration: Long): NTSTATUS
 }
 
 public typealias IOMMU_DOMAIN_CONFIGURE = IOMMU_DOMAIN_CONFIGUREFn?
 
 public fun interface IOMMU_DOMAIN_CREATEFn {
-    public operator fun invoke(osmanagedpagetable: Boolean, domainout: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(osmanagedpagetable: Boolean, domainout: Long): NTSTATUS
 }
 
 public typealias IOMMU_DOMAIN_CREATE = IOMMU_DOMAIN_CREATEFn?
 
 public fun interface IOMMU_DOMAIN_CREATE_EXFn {
-    public operator fun invoke(domaintype: IOMMU_DMA_DOMAIN_TYPE, flags: IOMMU_DMA_DOMAIN_CREATION_FLAGS, logicalallocatorconfig: Long, reservedregions: Long, domainout: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(domaintype: IOMMU_DMA_DOMAIN_TYPE, flags: IOMMU_DMA_DOMAIN_CREATION_FLAGS, logicalallocatorconfig: Long, reservedregions: Long, domainout: Long): NTSTATUS
 }
 
 public typealias IOMMU_DOMAIN_CREATE_EX = IOMMU_DOMAIN_CREATE_EXFn?
 
 public fun interface IOMMU_DOMAIN_DELETEFn {
-    public operator fun invoke(domain: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(domain: Long): NTSTATUS
 }
 
 public typealias IOMMU_DOMAIN_DELETE = IOMMU_DOMAIN_DELETEFn?
 
 public fun interface IOMMU_DOMAIN_DETACH_DEVICEFn {
-    public operator fun invoke(domain: Long, physicaldeviceobject: Long, inputmappingid: UInt): Win32.Foundation.NTSTATUS
+    public operator fun invoke(domain: Long, physicaldeviceobject: Long, inputmappingid: UInt): NTSTATUS
 }
 
 public typealias IOMMU_DOMAIN_DETACH_DEVICE = IOMMU_DOMAIN_DETACH_DEVICEFn?
 
 public fun interface IOMMU_DOMAIN_DETACH_DEVICE_EXFn {
-    public operator fun invoke(dmadevice: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(dmadevice: Long): NTSTATUS
 }
 
 public typealias IOMMU_DOMAIN_DETACH_DEVICE_EX = IOMMU_DOMAIN_DETACH_DEVICE_EXFn?
 
 public fun interface IOMMU_FLUSH_DOMAINFn {
-    public operator fun invoke(domain: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(domain: Long): NTSTATUS
 }
 
 public typealias IOMMU_FLUSH_DOMAIN = IOMMU_FLUSH_DOMAINFn?
 
 public fun interface IOMMU_FLUSH_DOMAIN_VA_LISTFn {
-    public operator fun invoke(domain: Long, lastlevel: Boolean, number: UInt, valist: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(domain: Long, lastlevel: Boolean, number: UInt, valist: Long): NTSTATUS
 }
 
 public typealias IOMMU_FLUSH_DOMAIN_VA_LIST = IOMMU_FLUSH_DOMAIN_VA_LISTFn?
 
 public fun interface IOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGEFn {
-    public operator fun invoke(logicaladdresstoken: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(logicaladdresstoken: Long): NTSTATUS
 }
 
 public typealias IOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGE = IOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGEFn?
@@ -427,25 +439,25 @@ public fun interface IOMMU_INTERFACE_STATE_CHANGE_CALLBACKFn {
 public typealias IOMMU_INTERFACE_STATE_CHANGE_CALLBACK = IOMMU_INTERFACE_STATE_CHANGE_CALLBACKFn?
 
 public fun interface IOMMU_MAP_IDENTITY_RANGEFn {
-    public operator fun invoke(domain: Long, permissions: UInt, mdl: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(domain: Long, permissions: UInt, mdl: Long): NTSTATUS
 }
 
 public typealias IOMMU_MAP_IDENTITY_RANGE = IOMMU_MAP_IDENTITY_RANGEFn?
 
 public fun interface IOMMU_MAP_IDENTITY_RANGE_EXFn {
-    public operator fun invoke(domain: Long, permissions: UInt, physicaladdresstomap: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(domain: Long, permissions: UInt, physicaladdresstomap: Long): NTSTATUS
 }
 
 public typealias IOMMU_MAP_IDENTITY_RANGE_EX = IOMMU_MAP_IDENTITY_RANGE_EXFn?
 
 public fun interface IOMMU_MAP_LOGICAL_RANGEFn {
-    public operator fun invoke(domain: Long, permissions: UInt, mdl: Long, logicaladdress: ULong): Win32.Foundation.NTSTATUS
+    public operator fun invoke(domain: Long, permissions: UInt, mdl: Long, logicaladdress: ULong): NTSTATUS
 }
 
 public typealias IOMMU_MAP_LOGICAL_RANGE = IOMMU_MAP_LOGICAL_RANGEFn?
 
 public fun interface IOMMU_MAP_LOGICAL_RANGE_EXFn {
-    public operator fun invoke(domain: Long, permissions: UInt, physicaladdresstomap: Long, explicitlogicaladdress: Long, minlogicaladdress: Long, maxlogicaladdress: Long, logicaladdressout: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(domain: Long, permissions: UInt, physicaladdresstomap: Long, explicitlogicaladdress: Long, minlogicaladdress: Long, maxlogicaladdress: Long, logicaladdressout: Long): NTSTATUS
 }
 
 public typealias IOMMU_MAP_LOGICAL_RANGE_EX = IOMMU_MAP_LOGICAL_RANGE_EXFn?
@@ -453,67 +465,67 @@ public typealias IOMMU_MAP_LOGICAL_RANGE_EX = IOMMU_MAP_LOGICAL_RANGE_EXFn?
 public typealias IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = Int
 
 public fun interface IOMMU_MAP_RESERVED_LOGICAL_RANGEFn {
-    public operator fun invoke(logicaladdresstoken: Long, offset: ULong, permissions: UInt, physicaladdresstomap: Long, mappedsegment: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(logicaladdresstoken: Long, offset: ULong, permissions: UInt, physicaladdresstomap: Long, mappedsegment: Long): NTSTATUS
 }
 
 public typealias IOMMU_MAP_RESERVED_LOGICAL_RANGE = IOMMU_MAP_RESERVED_LOGICAL_RANGEFn?
 
 public fun interface IOMMU_QUERY_INPUT_MAPPINGSFn {
-    public operator fun invoke(physicaldeviceobject: Long, buffer: Long, bufferlength: UInt, returnlength: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(physicaldeviceobject: Long, buffer: Long, bufferlength: UInt, returnlength: Long): NTSTATUS
 }
 
 public typealias IOMMU_QUERY_INPUT_MAPPINGS = IOMMU_QUERY_INPUT_MAPPINGSFn?
 
 public fun interface IOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACKFn {
-    public operator fun invoke(statechangecallback: PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK, context: Long, dmadevice: Long, statefields: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(statechangecallback: PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK, context: Long, dmadevice: Long, statefields: Long): NTSTATUS
 }
 
 public typealias IOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACK = IOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACKFn?
 
 public fun interface IOMMU_RESERVE_LOGICAL_ADDRESS_RANGEFn {
-    public operator fun invoke(domain: Long, size: ULong, explicitlogicaladdress: Long, minlogicaladdress: Long, maxlogicaladdress: Long, logicaladdresstoken: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(domain: Long, size: ULong, explicitlogicaladdress: Long, minlogicaladdress: Long, maxlogicaladdress: Long, logicaladdresstoken: Long): NTSTATUS
 }
 
 public typealias IOMMU_RESERVE_LOGICAL_ADDRESS_RANGE = IOMMU_RESERVE_LOGICAL_ADDRESS_RANGEFn?
 
 public fun interface IOMMU_SET_DEVICE_FAULT_REPORTINGFn {
-    public operator fun invoke(physicaldeviceobject: Long, inputmappingidbase: UInt, enable: Boolean, faultconfig: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(physicaldeviceobject: Long, inputmappingidbase: UInt, enable: Boolean, faultconfig: Long): NTSTATUS
 }
 
 public typealias IOMMU_SET_DEVICE_FAULT_REPORTING = IOMMU_SET_DEVICE_FAULT_REPORTINGFn?
 
 public fun interface IOMMU_SET_DEVICE_FAULT_REPORTING_EXFn {
-    public operator fun invoke(dmadevice: Long, inputmappingidbase: UInt, enable: Boolean, faultconfig: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(dmadevice: Long, inputmappingidbase: UInt, enable: Boolean, faultconfig: Long): NTSTATUS
 }
 
 public typealias IOMMU_SET_DEVICE_FAULT_REPORTING_EX = IOMMU_SET_DEVICE_FAULT_REPORTING_EXFn?
 
 public fun interface IOMMU_UNMAP_IDENTITY_RANGEFn {
-    public operator fun invoke(domain: Long, mdl: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(domain: Long, mdl: Long): NTSTATUS
 }
 
 public typealias IOMMU_UNMAP_IDENTITY_RANGE = IOMMU_UNMAP_IDENTITY_RANGEFn?
 
 public fun interface IOMMU_UNMAP_IDENTITY_RANGE_EXFn {
-    public operator fun invoke(domain: Long, mappedphysicaladdress: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(domain: Long, mappedphysicaladdress: Long): NTSTATUS
 }
 
 public typealias IOMMU_UNMAP_IDENTITY_RANGE_EX = IOMMU_UNMAP_IDENTITY_RANGE_EXFn?
 
 public fun interface IOMMU_UNMAP_LOGICAL_RANGEFn {
-    public operator fun invoke(domain: Long, logicaladdress: ULong, numberofpages: ULong): Win32.Foundation.NTSTATUS
+    public operator fun invoke(domain: Long, logicaladdress: ULong, numberofpages: ULong): NTSTATUS
 }
 
 public typealias IOMMU_UNMAP_LOGICAL_RANGE = IOMMU_UNMAP_LOGICAL_RANGEFn?
 
 public fun interface IOMMU_UNMAP_RESERVED_LOGICAL_RANGEFn {
-    public operator fun invoke(mappedsegment: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(mappedsegment: Long): NTSTATUS
 }
 
 public typealias IOMMU_UNMAP_RESERVED_LOGICAL_RANGE = IOMMU_UNMAP_RESERVED_LOGICAL_RANGEFn?
 
 public fun interface IOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACKFn {
-    public operator fun invoke(statechangecallback: PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK, dmadevice: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(statechangecallback: PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK, dmadevice: Long): NTSTATUS
 }
 
 public typealias IOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACK = IOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACKFn?
@@ -525,7 +537,7 @@ public typealias IO_ACCESS_TYPE = Int
 public typealias IO_ALLOCATION_ACTION = Int
 
 public fun interface IO_COMPLETION_ROUTINEFn {
-    public operator fun invoke(deviceobject: Long, irp: Long, context: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(deviceobject: Long, irp: Long, context: Long): NTSTATUS
 }
 
 public typealias IO_COMPLETION_ROUTINE = IO_COMPLETION_ROUTINEFn?
@@ -555,7 +567,7 @@ public fun interface IO_CSQ_INSERT_IRPFn {
 public typealias IO_CSQ_INSERT_IRP = IO_CSQ_INSERT_IRPFn?
 
 public fun interface IO_CSQ_INSERT_IRP_EXFn {
-    public operator fun invoke(csq: Long, irp: Long, insertcontext: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(csq: Long, irp: Long, insertcontext: Long): NTSTATUS
 }
 
 public typealias IO_CSQ_INSERT_IRP_EX = IO_CSQ_INSERT_IRP_EXFn?
@@ -589,7 +601,7 @@ public typealias IO_NOTIFICATION_EVENT_CATEGORY = Int
 public typealias IO_PAGING_PRIORITY = Int
 
 public fun interface IO_PERSISTED_MEMORY_ENUMERATION_CALLBACKFn {
-    public operator fun invoke(driverobject: Long, physicaldeviceobject: Long, physicaldeviceid: Long, datatag: Long, dataversion: Long, context: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(driverobject: Long, physicaldeviceobject: Long, physicaldeviceid: Long, datatag: Long, dataversion: Long, context: Long): NTSTATUS
 }
 
 public typealias IO_PERSISTED_MEMORY_ENUMERATION_CALLBACK = IO_PERSISTED_MEMORY_ENUMERATION_CALLBACKFn?
@@ -599,7 +611,7 @@ public typealias IO_QUERY_DEVICE_DATA_FORMAT = Int
 public typealias IO_SESSION_EVENT = Int
 
 public fun interface IO_SESSION_NOTIFICATION_FUNCTIONFn {
-    public operator fun invoke(sessionobject: Long, ioobject: Long, event: UInt, context: Long, notificationpayload: Long, payloadlength: UInt): Win32.Foundation.NTSTATUS
+    public operator fun invoke(sessionobject: Long, ioobject: Long, event: UInt, context: Long, notificationpayload: Long, payloadlength: UInt): NTSTATUS
 }
 
 public typealias IO_SESSION_NOTIFICATION_FUNCTION = IO_SESSION_NOTIFICATION_FUNCTIONFn?
@@ -619,7 +631,7 @@ public fun interface IO_WORKITEM_ROUTINEFn {
 public typealias IO_WORKITEM_ROUTINE = IO_WORKITEM_ROUTINEFn?
 
 public fun interface IO_WORKITEM_ROUTINE_EXFn {
-    public operator fun invoke(ioobject: Long, context: Long, ioworkitem: Foundation.PIO_WORKITEM)
+    public operator fun invoke(ioobject: Long, context: Long, ioworkitem: PIO_WORKITEM)
 }
 
 public typealias IO_WORKITEM_ROUTINE_EX = IO_WORKITEM_ROUTINE_EXFn?
@@ -737,7 +749,7 @@ public fun interface NMI_CALLBACKFn {
 public typealias NMI_CALLBACK = NMI_CALLBACKFn?
 
 public fun interface NPEM_CONTROL_ENABLE_DISABLEFn {
-    public operator fun invoke(context: Long, enablenpem: Boolean): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, enablenpem: Boolean): NTSTATUS
 }
 
 public typealias NPEM_CONTROL_ENABLE_DISABLE = NPEM_CONTROL_ENABLE_DISABLEFn?
@@ -749,13 +761,13 @@ public fun interface NPEM_CONTROL_QUERY_CONTROLFn {
 public typealias NPEM_CONTROL_QUERY_CONTROL = NPEM_CONTROL_QUERY_CONTROLFn?
 
 public fun interface NPEM_CONTROL_QUERY_STANDARD_CAPABILITIESFn {
-    public operator fun invoke(context: Long, standardcapabilities: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, standardcapabilities: Long): NTSTATUS
 }
 
 public typealias NPEM_CONTROL_QUERY_STANDARD_CAPABILITIES = NPEM_CONTROL_QUERY_STANDARD_CAPABILITIESFn?
 
 public fun interface NPEM_CONTROL_SET_STANDARD_CONTROLFn {
-    public operator fun invoke(context: Long, standardcontrol: NPEM_CONTROL_STANDARD_CONTROL_BIT, set: Boolean): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, standardcontrol: NPEM_CONTROL_STANDARD_CONTROL_BIT, set: Boolean): NTSTATUS
 }
 
 public typealias NPEM_CONTROL_SET_STANDARD_CONTROL = NPEM_CONTROL_SET_STANDARD_CONTROLFn?
@@ -763,7 +775,7 @@ public typealias NPEM_CONTROL_SET_STANDARD_CONTROL = NPEM_CONTROL_SET_STANDARD_C
 public typealias NPEM_CONTROL_STANDARD_CONTROL_BIT = Int
 
 public fun interface NTFS_DEREF_EXPORTED_SECURITY_DESCRIPTORFn {
-    public operator fun invoke(vcb: Long, securitydescriptor: Win32.Security.PSECURITY_DESCRIPTOR)
+    public operator fun invoke(vcb: Long, securitydescriptor: PSECURITY_DESCRIPTOR)
 }
 
 public typealias NTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR = NTFS_DEREF_EXPORTED_SECURITY_DESCRIPTORFn?
@@ -771,13 +783,13 @@ public typealias NTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR = NTFS_DEREF_EXPORTED_S
 public typealias OB_PREOP_CALLBACK_STATUS = Int
 
 public fun interface PALLOCATE_ADAPTER_CHANNELFn {
-    public operator fun invoke(dmaadapter: Long, deviceobject: Long, numberofmapregisters: UInt, executionroutine: Foundation.DRIVER_CONTROL, context: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(dmaadapter: Long, deviceobject: Long, numberofmapregisters: UInt, executionroutine: DRIVER_CONTROL, context: Long): NTSTATUS
 }
 
 public typealias PALLOCATE_ADAPTER_CHANNEL = PALLOCATE_ADAPTER_CHANNELFn?
 
 public fun interface PALLOCATE_ADAPTER_CHANNEL_EXFn {
-    public operator fun invoke(dmaadapter: Long, deviceobject: Long, dmatransfercontext: Long, numberofmapregisters: UInt, flags: UInt, executionroutine: Foundation.DRIVER_CONTROL, executioncontext: Long, mapregisterbase: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(dmaadapter: Long, deviceobject: Long, dmatransfercontext: Long, numberofmapregisters: UInt, flags: UInt, executionroutine: DRIVER_CONTROL, executioncontext: Long, mapregisterbase: Long): NTSTATUS
 }
 
 public typealias PALLOCATE_ADAPTER_CHANNEL_EX = PALLOCATE_ADAPTER_CHANNEL_EXFn?
@@ -795,7 +807,7 @@ public fun interface PALLOCATE_COMMON_BUFFER_EXFn {
 public typealias PALLOCATE_COMMON_BUFFER_EX = PALLOCATE_COMMON_BUFFER_EXFn?
 
 public fun interface PALLOCATE_COMMON_BUFFER_VECTORFn {
-    public operator fun invoke(dmaadapter: Long, lowaddress: Long, highaddress: Long, cachetype: MEMORY_CACHING_TYPE, idealnode: UInt, flags: UInt, numberofelements: UInt, sizeofelements: ULong, vectorout: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(dmaadapter: Long, lowaddress: Long, highaddress: Long, cachetype: MEMORY_CACHING_TYPE, idealnode: UInt, flags: UInt, numberofelements: UInt, sizeofelements: ULong, vectorout: Long): NTSTATUS
 }
 
 public typealias PALLOCATE_COMMON_BUFFER_VECTOR = PALLOCATE_COMMON_BUFFER_VECTORFn?
@@ -807,7 +819,7 @@ public fun interface PALLOCATE_COMMON_BUFFER_WITH_BOUNDSFn {
 public typealias PALLOCATE_COMMON_BUFFER_WITH_BOUNDS = PALLOCATE_COMMON_BUFFER_WITH_BOUNDSFn?
 
 public fun interface PALLOCATE_DOMAIN_COMMON_BUFFERFn {
-    public operator fun invoke(dmaadapter: Long, domainhandle: Win32.Foundation.HANDLE, maximumaddress: Long, length: UInt, flags: UInt, cachetype: Long, preferrednode: UInt, logicaladdress: Long, virtualaddress: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(dmaadapter: Long, domainhandle: HANDLE, maximumaddress: Long, length: UInt, flags: UInt, cachetype: Long, preferrednode: UInt, logicaladdress: Long, virtualaddress: Long): NTSTATUS
 }
 
 public typealias PALLOCATE_DOMAIN_COMMON_BUFFER = PALLOCATE_DOMAIN_COMMON_BUFFERFn?
@@ -825,7 +837,7 @@ public fun interface PALLOCATE_FUNCTION_EXFn {
 public typealias PALLOCATE_FUNCTION_EX = PALLOCATE_FUNCTION_EXFn?
 
 public fun interface PARBITER_HANDLERFn {
-    public operator fun invoke(context: Long, action: ARBITER_ACTION, parameters: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, action: ARBITER_ACTION, parameters: Long): NTSTATUS
 }
 
 public typealias PARBITER_HANDLER = PARBITER_HANDLERFn?
@@ -845,25 +857,25 @@ public fun interface PBOUND_CALLBACKFn {
 public typealias PBOUND_CALLBACK = PBOUND_CALLBACKFn?
 
 public fun interface PBUILD_MDL_FROM_SCATTER_GATHER_LISTFn {
-    public operator fun invoke(dmaadapter: Long, scattergather: Long, originalmdl: Long, targetmdl: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(dmaadapter: Long, scattergather: Long, originalmdl: Long, targetmdl: Long): NTSTATUS
 }
 
 public typealias PBUILD_MDL_FROM_SCATTER_GATHER_LIST = PBUILD_MDL_FROM_SCATTER_GATHER_LISTFn?
 
 public fun interface PBUILD_SCATTER_GATHER_LISTFn {
-    public operator fun invoke(dmaadapter: Long, deviceobject: Long, mdl: Long, currentva: Long, length: UInt, executionroutine: DRIVER_LIST_CONTROL, context: Long, writetodevice: Boolean, scattergatherbuffer: Long, scattergatherlength: UInt): Win32.Foundation.NTSTATUS
+    public operator fun invoke(dmaadapter: Long, deviceobject: Long, mdl: Long, currentva: Long, length: UInt, executionroutine: DRIVER_LIST_CONTROL, context: Long, writetodevice: Boolean, scattergatherbuffer: Long, scattergatherlength: UInt): NTSTATUS
 }
 
 public typealias PBUILD_SCATTER_GATHER_LIST = PBUILD_SCATTER_GATHER_LISTFn?
 
 public fun interface PBUILD_SCATTER_GATHER_LIST_EXFn {
-    public operator fun invoke(dmaadapter: Long, deviceobject: Long, dmatransfercontext: Long, mdl: Long, offset: ULong, length: UInt, flags: UInt, executionroutine: DRIVER_LIST_CONTROL, context: Long, writetodevice: Boolean, scattergatherbuffer: Long, scattergatherlength: UInt, dmacompletionroutine: PDMA_COMPLETION_ROUTINE, completioncontext: Long, scattergatherlist: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(dmaadapter: Long, deviceobject: Long, dmatransfercontext: Long, mdl: Long, offset: ULong, length: UInt, flags: UInt, executionroutine: DRIVER_LIST_CONTROL, context: Long, writetodevice: Boolean, scattergatherbuffer: Long, scattergatherlength: UInt, dmacompletionroutine: PDMA_COMPLETION_ROUTINE, completioncontext: Long, scattergatherlist: Long): NTSTATUS
 }
 
 public typealias PBUILD_SCATTER_GATHER_LIST_EX = PBUILD_SCATTER_GATHER_LIST_EXFn?
 
 public fun interface PCALCULATE_SCATTER_GATHER_LIST_SIZEFn {
-    public operator fun invoke(dmaadapter: Long, mdl: Long, currentva: Long, length: UInt, scattergatherlistsize: Long, pnumberofmapregisters: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(dmaadapter: Long, mdl: Long, currentva: Long, length: UInt, scattergatherlistsize: Long, pnumberofmapregisters: Long): NTSTATUS
 }
 
 public typealias PCALCULATE_SCATTER_GATHER_LIST_SIZE = PCALCULATE_SCATTER_GATHER_LIST_SIZEFn?
@@ -881,7 +893,7 @@ public fun interface PCANCEL_ADAPTER_CHANNELFn {
 public typealias PCANCEL_ADAPTER_CHANNEL = PCANCEL_ADAPTER_CHANNELFn?
 
 public fun interface PCANCEL_MAPPED_TRANSFERFn {
-    public operator fun invoke(dmaadapter: Long, dmatransfercontext: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(dmaadapter: Long, dmatransfercontext: Long): NTSTATUS
 }
 
 public typealias PCANCEL_MAPPED_TRANSFER = PCANCEL_MAPPED_TRANSFERFn?
@@ -907,13 +919,13 @@ public typealias PCI_EXPRESS_CARD_PRESENCE = Int
 public typealias PCI_EXPRESS_DEVICE_TYPE = Int
 
 public fun interface PCI_EXPRESS_ENTER_LINK_QUIESCENT_MODEFn {
-    public operator fun invoke(context: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long): NTSTATUS
 }
 
 public typealias PCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE = PCI_EXPRESS_ENTER_LINK_QUIESCENT_MODEFn?
 
 public fun interface PCI_EXPRESS_EXIT_LINK_QUIESCENT_MODEFn {
-    public operator fun invoke(context: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long): NTSTATUS
 }
 
 public typealias PCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE = PCI_EXPRESS_EXIT_LINK_QUIESCENT_MODEFn?
@@ -961,25 +973,25 @@ public fun interface PCI_LINE_TO_PINFn {
 public typealias PCI_LINE_TO_PIN = PCI_LINE_TO_PINFn?
 
 public fun interface PCI_MSIX_GET_ENTRYFn {
-    public operator fun invoke(context: Long, tableentry: UInt, messagenumber: Long, masked: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, tableentry: UInt, messagenumber: Long, masked: Long): NTSTATUS
 }
 
 public typealias PCI_MSIX_GET_ENTRY = PCI_MSIX_GET_ENTRYFn?
 
 public fun interface PCI_MSIX_GET_TABLE_SIZEFn {
-    public operator fun invoke(context: Long, tablesize: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, tablesize: Long): NTSTATUS
 }
 
 public typealias PCI_MSIX_GET_TABLE_SIZE = PCI_MSIX_GET_TABLE_SIZEFn?
 
 public fun interface PCI_MSIX_MASKUNMASK_ENTRYFn {
-    public operator fun invoke(context: Long, tableentry: UInt): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, tableentry: UInt): NTSTATUS
 }
 
 public typealias PCI_MSIX_MASKUNMASK_ENTRY = PCI_MSIX_MASKUNMASK_ENTRYFn?
 
 public fun interface PCI_MSIX_SET_ENTRYFn {
-    public operator fun invoke(context: Long, tableentry: UInt, messagenumber: UInt): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, tableentry: UInt, messagenumber: UInt): NTSTATUS
 }
 
 public typealias PCI_MSIX_SET_ENTRY = PCI_MSIX_SET_ENTRYFn?
@@ -1009,31 +1021,31 @@ public fun interface PCI_ROOT_BUS_CAPABILITYFn {
 public typealias PCI_ROOT_BUS_CAPABILITY = PCI_ROOT_BUS_CAPABILITYFn?
 
 public fun interface PCI_SET_ACSFn {
-    public operator fun invoke(context: Long, enablesourcevalidation: PCI_ACS_BIT, enabletranslationblocking: PCI_ACS_BIT, enablep2prequestredirect: PCI_ACS_BIT, enablecompletionredirect: PCI_ACS_BIT, enableupstreamforwarding: PCI_ACS_BIT, enableegresscontrol: PCI_ACS_BIT, enabledirecttranslatedp2p: PCI_ACS_BIT): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, enablesourcevalidation: PCI_ACS_BIT, enabletranslationblocking: PCI_ACS_BIT, enablep2prequestredirect: PCI_ACS_BIT, enablecompletionredirect: PCI_ACS_BIT, enableupstreamforwarding: PCI_ACS_BIT, enableegresscontrol: PCI_ACS_BIT, enabledirecttranslatedp2p: PCI_ACS_BIT): NTSTATUS
 }
 
 public typealias PCI_SET_ACS = PCI_SET_ACSFn?
 
 public fun interface PCI_SET_ACS2Fn {
-    public operator fun invoke(context: Long, scenariostomodify: UInt, scenariostate: UInt): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, scenariostomodify: UInt, scenariostate: UInt): NTSTATUS
 }
 
 public typealias PCI_SET_ACS2 = PCI_SET_ACS2Fn?
 
 public fun interface PCI_SET_ATSFn {
-    public operator fun invoke(context: Long, enableats: Boolean): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, enableats: Boolean): NTSTATUS
 }
 
 public typealias PCI_SET_ATS = PCI_SET_ATSFn?
 
 public fun interface PCLFS_CLIENT_ADVANCE_TAIL_CALLBACKFn {
-    public operator fun invoke(logfile: Long, targetlsn: Long, clientdata: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(logfile: Long, targetlsn: Long, clientdata: Long): NTSTATUS
 }
 
 public typealias PCLFS_CLIENT_ADVANCE_TAIL_CALLBACK = PCLFS_CLIENT_ADVANCE_TAIL_CALLBACKFn?
 
 public fun interface PCLFS_CLIENT_LFF_HANDLER_COMPLETE_CALLBACKFn {
-    public operator fun invoke(logfile: Long, operationstatus: Win32.Foundation.NTSTATUS, logispinned: Boolean, clientdata: Long)
+    public operator fun invoke(logfile: Long, operationstatus: NTSTATUS, logispinned: Boolean, clientdata: Long)
 }
 
 public typealias PCLFS_CLIENT_LFF_HANDLER_COMPLETE_CALLBACK = PCLFS_CLIENT_LFF_HANDLER_COMPLETE_CALLBACKFn?
@@ -1045,49 +1057,49 @@ public fun interface PCLFS_CLIENT_LOG_UNPINNED_CALLBACKFn {
 public typealias PCLFS_CLIENT_LOG_UNPINNED_CALLBACK = PCLFS_CLIENT_LOG_UNPINNED_CALLBACKFn?
 
 public fun interface PCLFS_SET_LOG_SIZE_COMPLETE_CALLBACKFn {
-    public operator fun invoke(logfile: Long, operationstatus: Win32.Foundation.NTSTATUS, clientdata: Long)
+    public operator fun invoke(logfile: Long, operationstatus: NTSTATUS, clientdata: Long)
 }
 
 public typealias PCLFS_SET_LOG_SIZE_COMPLETE_CALLBACK = PCLFS_SET_LOG_SIZE_COMPLETE_CALLBACKFn?
 
 public fun interface PCONFIGURE_ADAPTER_CHANNELFn {
-    public operator fun invoke(dmaadapter: Long, functionnumber: UInt, context: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(dmaadapter: Long, functionnumber: UInt, context: Long): NTSTATUS
 }
 
 public typealias PCONFIGURE_ADAPTER_CHANNEL = PCONFIGURE_ADAPTER_CHANNELFn?
 
 public fun interface PCRASHDUMP_POWER_ONFn {
-    public operator fun invoke(context: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long): NTSTATUS
 }
 
 public typealias PCRASHDUMP_POWER_ON = PCRASHDUMP_POWER_ONFn?
 
 public fun interface PCREATE_COMMON_BUFFER_FROM_MDLFn {
-    public operator fun invoke(dmaadapter: Long, mdl: Long, extendedconfigs: Long, extendedconfigscount: UInt, logicaladdress: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(dmaadapter: Long, mdl: Long, extendedconfigs: Long, extendedconfigscount: UInt, logicaladdress: Long): NTSTATUS
 }
 
 public typealias PCREATE_COMMON_BUFFER_FROM_MDL = PCREATE_COMMON_BUFFER_FROM_MDLFn?
 
 public fun interface PCREATE_PROCESS_NOTIFY_ROUTINEFn {
-    public operator fun invoke(parentid: Win32.Foundation.HANDLE, processid: Win32.Foundation.HANDLE, create: Boolean)
+    public operator fun invoke(parentid: HANDLE, processid: HANDLE, create: Boolean)
 }
 
 public typealias PCREATE_PROCESS_NOTIFY_ROUTINE = PCREATE_PROCESS_NOTIFY_ROUTINEFn?
 
 public fun interface PCREATE_PROCESS_NOTIFY_ROUTINE_EXFn {
-    public operator fun invoke(process: Foundation.PEPROCESS, processid: Win32.Foundation.HANDLE, createinfo: Long)
+    public operator fun invoke(process: PEPROCESS, processid: HANDLE, createinfo: Long)
 }
 
 public typealias PCREATE_PROCESS_NOTIFY_ROUTINE_EX = PCREATE_PROCESS_NOTIFY_ROUTINE_EXFn?
 
 public fun interface PCREATE_THREAD_NOTIFY_ROUTINEFn {
-    public operator fun invoke(processid: Win32.Foundation.HANDLE, threadid: Win32.Foundation.HANDLE, create: Boolean)
+    public operator fun invoke(processid: HANDLE, threadid: HANDLE, create: Boolean)
 }
 
 public typealias PCREATE_THREAD_NOTIFY_ROUTINE = PCREATE_THREAD_NOTIFY_ROUTINEFn?
 
 public fun interface PCW_CALLBACKFn {
-    public operator fun invoke(type: PCW_CALLBACK_TYPE, info: Long, context: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(type: PCW_CALLBACK_TYPE, info: Long, context: Long): NTSTATUS
 }
 
 public typealias PCW_CALLBACK = PCW_CALLBACKFn?
@@ -1097,7 +1109,7 @@ public typealias PCW_CALLBACK_TYPE = Int
 public typealias PCW_REGISTRATION_FLAGS = Int
 
 public fun interface PD3COLD_REQUEST_AUX_POWERFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PD3COLD_REQUEST_AUX_POWER = PD3COLD_REQUEST_AUX_POWERFn?
@@ -1109,7 +1121,7 @@ public fun interface PD3COLD_REQUEST_CORE_POWER_RAILFn {
 public typealias PD3COLD_REQUEST_CORE_POWER_RAIL = PD3COLD_REQUEST_CORE_POWER_RAILFn?
 
 public fun interface PD3COLD_REQUEST_PERST_DELAYFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PD3COLD_REQUEST_PERST_DELAY = PD3COLD_REQUEST_PERST_DELAYFn?
@@ -1127,7 +1139,7 @@ public fun interface PDEBUG_PRINT_CALLBACKFn {
 public typealias PDEBUG_PRINT_CALLBACK = PDEBUG_PRINT_CALLBACKFn?
 
 public fun interface PDEVICE_BUS_SPECIFIC_RESET_HANDLERFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PDEVICE_BUS_SPECIFIC_RESET_HANDLER = PDEVICE_BUS_SPECIFIC_RESET_HANDLERFn?
@@ -1151,7 +1163,7 @@ public fun interface PDEVICE_NOTIFY_CALLBACK2Fn {
 public typealias PDEVICE_NOTIFY_CALLBACK2 = PDEVICE_NOTIFY_CALLBACK2Fn?
 
 public fun interface PDEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLERFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PDEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER = PDEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLERFn?
@@ -1163,7 +1175,7 @@ public fun interface PDEVICE_RESET_COMPLETIONFn {
 public typealias PDEVICE_RESET_COMPLETION = PDEVICE_RESET_COMPLETIONFn?
 
 public fun interface PDEVICE_RESET_HANDLERFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PDEVICE_RESET_HANDLER = PDEVICE_RESET_HANDLERFn?
@@ -1199,7 +1211,7 @@ public fun interface PDRIVER_VERIFIER_THUNK_ROUTINEFn {
 public typealias PDRIVER_VERIFIER_THUNK_ROUTINE = PDRIVER_VERIFIER_THUNK_ROUTINEFn?
 
 public fun interface PENABLE_VIRTUALIZATIONFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PENABLE_VIRTUALIZATION = PENABLE_VIRTUALIZATIONFn?
@@ -1229,7 +1241,7 @@ public fun interface PEXT_DELETE_CALLBACKFn {
 public typealias PEXT_DELETE_CALLBACK = PEXT_DELETE_CALLBACKFn?
 
 public fun interface PEX_CALLBACK_FUNCTIONFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PEX_CALLBACK_FUNCTION = PEX_CALLBACK_FUNCTIONFn?
@@ -1241,19 +1253,19 @@ public fun interface PFLUSH_ADAPTER_BUFFERSFn {
 public typealias PFLUSH_ADAPTER_BUFFERS = PFLUSH_ADAPTER_BUFFERSFn?
 
 public fun interface PFLUSH_ADAPTER_BUFFERS_EXFn {
-    public operator fun invoke(dmaadapter: Long, mdl: Long, mapregisterbase: Long, offset: ULong, length: UInt, writetodevice: Boolean): Win32.Foundation.NTSTATUS
+    public operator fun invoke(dmaadapter: Long, mdl: Long, mapregisterbase: Long, offset: ULong, length: UInt, writetodevice: Boolean): NTSTATUS
 }
 
 public typealias PFLUSH_ADAPTER_BUFFERS_EX = PFLUSH_ADAPTER_BUFFERS_EXFn?
 
 public fun interface PFLUSH_DMA_BUFFERFn {
-    public operator fun invoke(dmaadapter: Long, mdl: Long, readoperation: Boolean): Win32.Foundation.NTSTATUS
+    public operator fun invoke(dmaadapter: Long, mdl: Long, readoperation: Boolean): NTSTATUS
 }
 
 public typealias PFLUSH_DMA_BUFFER = PFLUSH_DMA_BUFFERFn?
 
 public fun interface PFNFTHFn {
-    public operator fun invoke(systemfirmwaretableinfo: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(systemfirmwaretableinfo: Long): NTSTATUS
 }
 
 public typealias PFNFTH = PFNFTHFn?
@@ -1265,37 +1277,37 @@ public fun interface PFN_IN_USE_PAGE_OFFLINE_NOTIFYFn {
 public typealias PFN_IN_USE_PAGE_OFFLINE_NOTIFY = PFN_IN_USE_PAGE_OFFLINE_NOTIFYFn?
 
 public fun interface PFN_NT_COMMIT_TRANSACTIONFn {
-    public operator fun invoke(transactionhandle: Win32.Foundation.HANDLE, wait: Boolean): Win32.Foundation.NTSTATUS
+    public operator fun invoke(transactionhandle: HANDLE, wait: Boolean): NTSTATUS
 }
 
 public typealias PFN_NT_COMMIT_TRANSACTION = PFN_NT_COMMIT_TRANSACTIONFn?
 
 public fun interface PFN_NT_CREATE_TRANSACTIONFn {
-    public operator fun invoke(transactionhandle: Long, desiredaccess: UInt, objectattributes: Long, uow: Long, tmhandle: Win32.Foundation.HANDLE, createoptions: UInt, isolationlevel: UInt, isolationflags: UInt, timeout: Long, description: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(transactionhandle: Long, desiredaccess: UInt, objectattributes: Long, uow: Long, tmhandle: HANDLE, createoptions: UInt, isolationlevel: UInt, isolationflags: UInt, timeout: Long, description: Long): NTSTATUS
 }
 
 public typealias PFN_NT_CREATE_TRANSACTION = PFN_NT_CREATE_TRANSACTIONFn?
 
 public fun interface PFN_NT_OPEN_TRANSACTIONFn {
-    public operator fun invoke(transactionhandle: Long, desiredaccess: UInt, objectattributes: Long, uow: Long, tmhandle: Win32.Foundation.HANDLE): Win32.Foundation.NTSTATUS
+    public operator fun invoke(transactionhandle: Long, desiredaccess: UInt, objectattributes: Long, uow: Long, tmhandle: HANDLE): NTSTATUS
 }
 
 public typealias PFN_NT_OPEN_TRANSACTION = PFN_NT_OPEN_TRANSACTIONFn?
 
 public fun interface PFN_NT_QUERY_INFORMATION_TRANSACTIONFn {
-    public operator fun invoke(transactionhandle: Win32.Foundation.HANDLE, transactioninformationclass: Win32.System.SystemServices.TRANSACTION_INFORMATION_CLASS, transactioninformation: Long, transactioninformationlength: UInt, returnlength: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(transactionhandle: HANDLE, transactioninformationclass: TRANSACTION_INFORMATION_CLASS, transactioninformation: Long, transactioninformationlength: UInt, returnlength: Long): NTSTATUS
 }
 
 public typealias PFN_NT_QUERY_INFORMATION_TRANSACTION = PFN_NT_QUERY_INFORMATION_TRANSACTIONFn?
 
 public fun interface PFN_NT_ROLLBACK_TRANSACTIONFn {
-    public operator fun invoke(transactionhandle: Win32.Foundation.HANDLE, wait: Boolean): Win32.Foundation.NTSTATUS
+    public operator fun invoke(transactionhandle: HANDLE, wait: Boolean): NTSTATUS
 }
 
 public typealias PFN_NT_ROLLBACK_TRANSACTION = PFN_NT_ROLLBACK_TRANSACTIONFn?
 
 public fun interface PFN_NT_SET_INFORMATION_TRANSACTIONFn {
-    public operator fun invoke(transactionhandle: Win32.Foundation.HANDLE, transactioninformationclass: Win32.System.SystemServices.TRANSACTION_INFORMATION_CLASS, transactioninformation: Long, transactioninformationlength: UInt): Win32.Foundation.NTSTATUS
+    public operator fun invoke(transactionhandle: HANDLE, transactioninformationclass: TRANSACTION_INFORMATION_CLASS, transactioninformation: Long, transactioninformationlength: UInt): NTSTATUS
 }
 
 public typealias PFN_NT_SET_INFORMATION_TRANSACTION = PFN_NT_SET_INFORMATION_TRANSACTIONFn?
@@ -1313,7 +1325,7 @@ public fun interface PFN_RTL_IS_SERVICE_PACK_VERSION_INSTALLEDFn {
 public typealias PFN_RTL_IS_SERVICE_PACK_VERSION_INSTALLED = PFN_RTL_IS_SERVICE_PACK_VERSION_INSTALLEDFn?
 
 public fun interface PFN_WHEA_HIGH_IRQL_LOG_SEL_EVENT_HANDLERFn {
-    public operator fun invoke(context: Long, osselrecord: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, osselrecord: Long): NTSTATUS
 }
 
 public typealias PFN_WHEA_HIGH_IRQL_LOG_SEL_EVENT_HANDLER = PFN_WHEA_HIGH_IRQL_LOG_SEL_EVENT_HANDLERFn?
@@ -1325,19 +1337,19 @@ public fun interface PFPGA_BUS_SCANFn {
 public typealias PFPGA_BUS_SCAN = PFPGA_BUS_SCANFn?
 
 public fun interface PFPGA_CONTROL_CONFIG_SPACEFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PFPGA_CONTROL_CONFIG_SPACE = PFPGA_CONTROL_CONFIG_SPACEFn?
 
 public fun interface PFPGA_CONTROL_ERROR_REPORTINGFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PFPGA_CONTROL_ERROR_REPORTING = PFPGA_CONTROL_ERROR_REPORTINGFn?
 
 public fun interface PFPGA_CONTROL_LINKFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PFPGA_CONTROL_LINK = PFPGA_CONTROL_LINKFn?
@@ -1391,7 +1403,7 @@ public fun interface PGET_COMMON_BUFFER_FROM_VECTOR_BY_INDEXFn {
 public typealias PGET_COMMON_BUFFER_FROM_VECTOR_BY_INDEX = PGET_COMMON_BUFFER_FROM_VECTOR_BY_INDEXFn?
 
 public fun interface PGET_D3COLD_CAPABILITYFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PGET_D3COLD_CAPABILITY = PGET_D3COLD_CAPABILITYFn?
@@ -1403,7 +1415,7 @@ public fun interface PGET_D3COLD_LAST_TRANSITION_STATUSFn {
 public typealias PGET_D3COLD_LAST_TRANSITION_STATUS = PGET_D3COLD_LAST_TRANSITION_STATUSFn?
 
 public fun interface PGET_DEVICE_RESET_STATUSFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PGET_DEVICE_RESET_STATUS = PGET_DEVICE_RESET_STATUSFn?
@@ -1415,7 +1427,7 @@ public fun interface PGET_DMA_ADAPTERFn {
 public typealias PGET_DMA_ADAPTER = PGET_DMA_ADAPTERFn?
 
 public fun interface PGET_DMA_ADAPTER_INFOFn {
-    public operator fun invoke(dmaadapter: Long, adapterinfo: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(dmaadapter: Long, adapterinfo: Long): NTSTATUS
 }
 
 public typealias PGET_DMA_ADAPTER_INFO = PGET_DMA_ADAPTER_INFOFn?
@@ -1427,37 +1439,37 @@ public fun interface PGET_DMA_ALIGNMENTFn {
 public typealias PGET_DMA_ALIGNMENT = PGET_DMA_ALIGNMENTFn?
 
 public fun interface PGET_DMA_DOMAINFn {
-    public operator fun invoke(dmaadapter: Long): Win32.Foundation.HANDLE
+    public operator fun invoke(dmaadapter: Long): HANDLE
 }
 
 public typealias PGET_DMA_DOMAIN = PGET_DMA_DOMAINFn?
 
 public fun interface PGET_DMA_TRANSFER_INFOFn {
-    public operator fun invoke(dmaadapter: Long, mdl: Long, offset: ULong, length: UInt, writeonly: Boolean, transferinfo: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(dmaadapter: Long, mdl: Long, offset: ULong, length: UInt, writeonly: Boolean, transferinfo: Long): NTSTATUS
 }
 
 public typealias PGET_DMA_TRANSFER_INFO = PGET_DMA_TRANSFER_INFOFn?
 
 public fun interface PGET_IDLE_WAKE_INFOFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PGET_IDLE_WAKE_INFO = PGET_IDLE_WAKE_INFOFn?
 
 public fun interface PGET_LOCATION_STRINGFn {
-    public operator fun invoke(context: Long, locationstrings: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, locationstrings: Long): NTSTATUS
 }
 
 public typealias PGET_LOCATION_STRING = PGET_LOCATION_STRINGFn?
 
 public fun interface PGET_SCATTER_GATHER_LISTFn {
-    public operator fun invoke(dmaadapter: Long, deviceobject: Long, mdl: Long, currentva: Long, length: UInt, executionroutine: DRIVER_LIST_CONTROL, context: Long, writetodevice: Boolean): Win32.Foundation.NTSTATUS
+    public operator fun invoke(dmaadapter: Long, deviceobject: Long, mdl: Long, currentva: Long, length: UInt, executionroutine: DRIVER_LIST_CONTROL, context: Long, writetodevice: Boolean): NTSTATUS
 }
 
 public typealias PGET_SCATTER_GATHER_LIST = PGET_SCATTER_GATHER_LISTFn?
 
 public fun interface PGET_SCATTER_GATHER_LIST_EXFn {
-    public operator fun invoke(dmaadapter: Long, deviceobject: Long, dmatransfercontext: Long, mdl: Long, offset: ULong, length: UInt, flags: UInt, executionroutine: DRIVER_LIST_CONTROL, context: Long, writetodevice: Boolean, dmacompletionroutine: PDMA_COMPLETION_ROUTINE, completioncontext: Long, scattergatherlist: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(dmaadapter: Long, deviceobject: Long, dmatransfercontext: Long, mdl: Long, offset: ULong, length: UInt, flags: UInt, executionroutine: DRIVER_LIST_CONTROL, context: Long, writetodevice: Boolean, dmacompletionroutine: PDMA_COMPLETION_ROUTINE, completioncontext: Long, scattergatherlist: Long): NTSTATUS
 }
 
 public typealias PGET_SCATTER_GATHER_LIST_EX = PGET_SCATTER_GATHER_LIST_EXFn?
@@ -1475,7 +1487,7 @@ public fun interface PGET_SET_DEVICE_DATAFn {
 public typealias PGET_SET_DEVICE_DATA = PGET_SET_DEVICE_DATAFn?
 
 public fun interface PGET_UPDATED_BUS_RESOURCEFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PGET_UPDATED_BUS_RESOURCE = PGET_UPDATED_BUS_RESOURCEFn?
@@ -1487,7 +1499,7 @@ public fun interface PGET_VIRTUAL_DEVICE_DATAFn {
 public typealias PGET_VIRTUAL_DEVICE_DATA = PGET_VIRTUAL_DEVICE_DATAFn?
 
 public fun interface PGET_VIRTUAL_DEVICE_LOCATIONFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PGET_VIRTUAL_DEVICE_LOCATION = PGET_VIRTUAL_DEVICE_LOCATIONFn?
@@ -1499,67 +1511,67 @@ public fun interface PGET_VIRTUAL_DEVICE_RESOURCESFn {
 public typealias PGET_VIRTUAL_DEVICE_RESOURCES = PGET_VIRTUAL_DEVICE_RESOURCESFn?
 
 public fun interface PGET_VIRTUAL_FUNCTION_PROBED_BARSFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PGET_VIRTUAL_FUNCTION_PROBED_BARS = PGET_VIRTUAL_FUNCTION_PROBED_BARSFn?
 
 public fun interface PGPE_CLEAR_STATUSFn {
-    public operator fun invoke(param0: Long, param1: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(param0: Long, param1: Long): NTSTATUS
 }
 
 public typealias PGPE_CLEAR_STATUS = PGPE_CLEAR_STATUSFn?
 
 public fun interface PGPE_CLEAR_STATUS2Fn {
-    public operator fun invoke(context: Long, objectcontext: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, objectcontext: Long): NTSTATUS
 }
 
 public typealias PGPE_CLEAR_STATUS2 = PGPE_CLEAR_STATUS2Fn?
 
 public fun interface PGPE_CONNECT_VECTORFn {
-    public operator fun invoke(param0: Long, param1: UInt, param2: KINTERRUPT_MODE, param3: Boolean, param4: PGPE_SERVICE_ROUTINE, param5: Long, param6: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(param0: Long, param1: UInt, param2: KINTERRUPT_MODE, param3: Boolean, param4: PGPE_SERVICE_ROUTINE, param5: Long, param6: Long): NTSTATUS
 }
 
 public typealias PGPE_CONNECT_VECTOR = PGPE_CONNECT_VECTORFn?
 
 public fun interface PGPE_CONNECT_VECTOR2Fn {
-    public operator fun invoke(context: Long, gpenumber: UInt, mode: KINTERRUPT_MODE, shareable: Boolean, serviceroutine: PGPE_SERVICE_ROUTINE, servicecontext: Long, objectcontext: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, gpenumber: UInt, mode: KINTERRUPT_MODE, shareable: Boolean, serviceroutine: PGPE_SERVICE_ROUTINE, servicecontext: Long, objectcontext: Long): NTSTATUS
 }
 
 public typealias PGPE_CONNECT_VECTOR2 = PGPE_CONNECT_VECTOR2Fn?
 
 public fun interface PGPE_DISABLE_EVENTFn {
-    public operator fun invoke(param0: Long, param1: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(param0: Long, param1: Long): NTSTATUS
 }
 
 public typealias PGPE_DISABLE_EVENT = PGPE_DISABLE_EVENTFn?
 
 public fun interface PGPE_DISABLE_EVENT2Fn {
-    public operator fun invoke(context: Long, objectcontext: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, objectcontext: Long): NTSTATUS
 }
 
 public typealias PGPE_DISABLE_EVENT2 = PGPE_DISABLE_EVENT2Fn?
 
 public fun interface PGPE_DISCONNECT_VECTORFn {
-    public operator fun invoke(param0: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(param0: Long): NTSTATUS
 }
 
 public typealias PGPE_DISCONNECT_VECTOR = PGPE_DISCONNECT_VECTORFn?
 
 public fun interface PGPE_DISCONNECT_VECTOR2Fn {
-    public operator fun invoke(context: Long, objectcontext: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, objectcontext: Long): NTSTATUS
 }
 
 public typealias PGPE_DISCONNECT_VECTOR2 = PGPE_DISCONNECT_VECTOR2Fn?
 
 public fun interface PGPE_ENABLE_EVENTFn {
-    public operator fun invoke(param0: Long, param1: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(param0: Long, param1: Long): NTSTATUS
 }
 
 public typealias PGPE_ENABLE_EVENT = PGPE_ENABLE_EVENTFn?
 
 public fun interface PGPE_ENABLE_EVENT2Fn {
-    public operator fun invoke(context: Long, objectcontext: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, objectcontext: Long): NTSTATUS
 }
 
 public typealias PGPE_ENABLE_EVENT2 = PGPE_ENABLE_EVENT2Fn?
@@ -1577,7 +1589,7 @@ public fun interface PGPE_SERVICE_ROUTINE2Fn {
 public typealias PGPE_SERVICE_ROUTINE2 = PGPE_SERVICE_ROUTINE2Fn?
 
 public fun interface PHALIOREADWRITEHANDLERFn {
-    public operator fun invoke(fread: Boolean, dwaddr: UInt, dwsize: UInt, pdwdata: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(fread: Boolean, dwaddr: UInt, dwsize: UInt, pdwdata: Long): NTSTATUS
 }
 
 public typealias PHALIOREADWRITEHANDLER = PHALIOREADWRITEHANDLERFn?
@@ -1589,7 +1601,7 @@ public fun interface PHALMCAINTERFACELOCKFn {
 public typealias PHALMCAINTERFACELOCK = PHALMCAINTERFACELOCKFn?
 
 public fun interface PHALMCAINTERFACEREADREGISTERFn {
-    public operator fun invoke(banknumber: UByte, exception: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(banknumber: UByte, exception: Long): NTSTATUS
 }
 
 public typealias PHALMCAINTERFACEREADREGISTER = PHALMCAINTERFACEREADREGISTERFn?
@@ -1607,7 +1619,7 @@ public fun interface PHAL_RESET_DISPLAY_PARAMETERSFn {
 public typealias PHAL_RESET_DISPLAY_PARAMETERS = PHAL_RESET_DISPLAY_PARAMETERSFn?
 
 public fun interface PHVL_WHEA_ERROR_NOTIFICATIONFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PHVL_WHEA_ERROR_NOTIFICATION = PHVL_WHEA_ERROR_NOTIFICATIONFn?
@@ -1615,7 +1627,7 @@ public typealias PHVL_WHEA_ERROR_NOTIFICATION = PHVL_WHEA_ERROR_NOTIFICATIONFn?
 public typealias PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = Int
 
 public fun interface PINITIALIZE_DMA_TRANSFER_CONTEXTFn {
-    public operator fun invoke(dmaadapter: Long, dmatransfercontext: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(dmaadapter: Long, dmatransfercontext: Long): NTSTATUS
 }
 
 public typealias PINITIALIZE_DMA_TRANSFER_CONTEXT = PINITIALIZE_DMA_TRANSFER_CONTEXTFn?
@@ -1633,13 +1645,13 @@ public fun interface PINTERFACE_REFERENCEFn {
 public typealias PINTERFACE_REFERENCE = PINTERFACE_REFERENCEFn?
 
 public fun interface PIOMMU_DEVICE_CREATEFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIOMMU_DEVICE_CREATE = PIOMMU_DEVICE_CREATEFn?
 
 public fun interface PIOMMU_DEVICE_DELETEFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIOMMU_DEVICE_DELETE = PIOMMU_DEVICE_DELETEFn?
@@ -1657,67 +1669,67 @@ public fun interface PIOMMU_DEVICE_QUERY_DOMAIN_TYPESFn {
 public typealias PIOMMU_DEVICE_QUERY_DOMAIN_TYPES = PIOMMU_DEVICE_QUERY_DOMAIN_TYPESFn?
 
 public fun interface PIOMMU_DOMAIN_ATTACH_DEVICEFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIOMMU_DOMAIN_ATTACH_DEVICE = PIOMMU_DOMAIN_ATTACH_DEVICEFn?
 
 public fun interface PIOMMU_DOMAIN_ATTACH_DEVICE_EXFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIOMMU_DOMAIN_ATTACH_DEVICE_EX = PIOMMU_DOMAIN_ATTACH_DEVICE_EXFn?
 
 public fun interface PIOMMU_DOMAIN_CONFIGUREFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIOMMU_DOMAIN_CONFIGURE = PIOMMU_DOMAIN_CONFIGUREFn?
 
 public fun interface PIOMMU_DOMAIN_CREATEFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIOMMU_DOMAIN_CREATE = PIOMMU_DOMAIN_CREATEFn?
 
 public fun interface PIOMMU_DOMAIN_CREATE_EXFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIOMMU_DOMAIN_CREATE_EX = PIOMMU_DOMAIN_CREATE_EXFn?
 
 public fun interface PIOMMU_DOMAIN_DELETEFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIOMMU_DOMAIN_DELETE = PIOMMU_DOMAIN_DELETEFn?
 
 public fun interface PIOMMU_DOMAIN_DETACH_DEVICEFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIOMMU_DOMAIN_DETACH_DEVICE = PIOMMU_DOMAIN_DETACH_DEVICEFn?
 
 public fun interface PIOMMU_DOMAIN_DETACH_DEVICE_EXFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIOMMU_DOMAIN_DETACH_DEVICE_EX = PIOMMU_DOMAIN_DETACH_DEVICE_EXFn?
 
 public fun interface PIOMMU_FLUSH_DOMAINFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIOMMU_FLUSH_DOMAIN = PIOMMU_FLUSH_DOMAINFn?
 
 public fun interface PIOMMU_FLUSH_DOMAIN_VA_LISTFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIOMMU_FLUSH_DOMAIN_VA_LIST = PIOMMU_FLUSH_DOMAIN_VA_LISTFn?
 
 public fun interface PIOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGEFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGE = PIOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGEFn?
@@ -1729,97 +1741,97 @@ public fun interface PIOMMU_INTERFACE_STATE_CHANGE_CALLBACKFn {
 public typealias PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK = PIOMMU_INTERFACE_STATE_CHANGE_CALLBACKFn?
 
 public fun interface PIOMMU_MAP_IDENTITY_RANGEFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIOMMU_MAP_IDENTITY_RANGE = PIOMMU_MAP_IDENTITY_RANGEFn?
 
 public fun interface PIOMMU_MAP_IDENTITY_RANGE_EXFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIOMMU_MAP_IDENTITY_RANGE_EX = PIOMMU_MAP_IDENTITY_RANGE_EXFn?
 
 public fun interface PIOMMU_MAP_LOGICAL_RANGEFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIOMMU_MAP_LOGICAL_RANGE = PIOMMU_MAP_LOGICAL_RANGEFn?
 
 public fun interface PIOMMU_MAP_LOGICAL_RANGE_EXFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIOMMU_MAP_LOGICAL_RANGE_EX = PIOMMU_MAP_LOGICAL_RANGE_EXFn?
 
 public fun interface PIOMMU_MAP_RESERVED_LOGICAL_RANGEFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIOMMU_MAP_RESERVED_LOGICAL_RANGE = PIOMMU_MAP_RESERVED_LOGICAL_RANGEFn?
 
 public fun interface PIOMMU_QUERY_INPUT_MAPPINGSFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIOMMU_QUERY_INPUT_MAPPINGS = PIOMMU_QUERY_INPUT_MAPPINGSFn?
 
 public fun interface PIOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACKFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACK = PIOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACKFn?
 
 public fun interface PIOMMU_RESERVE_LOGICAL_ADDRESS_RANGEFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIOMMU_RESERVE_LOGICAL_ADDRESS_RANGE = PIOMMU_RESERVE_LOGICAL_ADDRESS_RANGEFn?
 
 public fun interface PIOMMU_SET_DEVICE_FAULT_REPORTINGFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIOMMU_SET_DEVICE_FAULT_REPORTING = PIOMMU_SET_DEVICE_FAULT_REPORTINGFn?
 
 public fun interface PIOMMU_SET_DEVICE_FAULT_REPORTING_EXFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIOMMU_SET_DEVICE_FAULT_REPORTING_EX = PIOMMU_SET_DEVICE_FAULT_REPORTING_EXFn?
 
 public fun interface PIOMMU_UNMAP_IDENTITY_RANGEFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIOMMU_UNMAP_IDENTITY_RANGE = PIOMMU_UNMAP_IDENTITY_RANGEFn?
 
 public fun interface PIOMMU_UNMAP_IDENTITY_RANGE_EXFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIOMMU_UNMAP_IDENTITY_RANGE_EX = PIOMMU_UNMAP_IDENTITY_RANGE_EXFn?
 
 public fun interface PIOMMU_UNMAP_LOGICAL_RANGEFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIOMMU_UNMAP_LOGICAL_RANGE = PIOMMU_UNMAP_LOGICAL_RANGEFn?
 
 public fun interface PIOMMU_UNMAP_RESERVED_LOGICAL_RANGEFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIOMMU_UNMAP_RESERVED_LOGICAL_RANGE = PIOMMU_UNMAP_RESERVED_LOGICAL_RANGEFn?
 
 public fun interface PIOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACKFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACK = PIOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACKFn?
 
 public fun interface PIO_CONTAINER_NOTIFICATION_FUNCTIONFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIO_CONTAINER_NOTIFICATION_FUNCTION = PIO_CONTAINER_NOTIFICATION_FUNCTIONFn?
@@ -1843,7 +1855,7 @@ public fun interface PIO_CSQ_INSERT_IRPFn {
 public typealias PIO_CSQ_INSERT_IRP = PIO_CSQ_INSERT_IRPFn?
 
 public fun interface PIO_CSQ_INSERT_IRP_EXFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIO_CSQ_INSERT_IRP_EX = PIO_CSQ_INSERT_IRP_EXFn?
@@ -1867,7 +1879,7 @@ public fun interface PIO_CSQ_REMOVE_IRPFn {
 public typealias PIO_CSQ_REMOVE_IRP = PIO_CSQ_REMOVE_IRPFn?
 
 public fun interface PIO_DEVICE_EJECT_CALLBACKFn {
-    public operator fun invoke(status: Win32.Foundation.NTSTATUS, context: Long)
+    public operator fun invoke(status: NTSTATUS, context: Long)
 }
 
 public typealias PIO_DEVICE_EJECT_CALLBACK = PIO_DEVICE_EJECT_CALLBACKFn?
@@ -1879,19 +1891,19 @@ public fun interface PIO_DPC_ROUTINEFn {
 public typealias PIO_DPC_ROUTINE = PIO_DPC_ROUTINEFn?
 
 public fun interface PIO_PERSISTED_MEMORY_ENUMERATION_CALLBACKFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIO_PERSISTED_MEMORY_ENUMERATION_CALLBACK = PIO_PERSISTED_MEMORY_ENUMERATION_CALLBACKFn?
 
 public fun interface PIO_QUERY_DEVICE_ROUTINEFn {
-    public operator fun invoke(context: Long, pathname: Long, bustype: INTERFACE_TYPE, busnumber: UInt, businformation: Long, controllertype: CONFIGURATION_TYPE, controllernumber: UInt, controllerinformation: Long, peripheraltype: CONFIGURATION_TYPE, peripheralnumber: UInt, peripheralinformation: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, pathname: Long, bustype: INTERFACE_TYPE, busnumber: UInt, businformation: Long, controllertype: CONFIGURATION_TYPE, controllernumber: UInt, controllerinformation: Long, peripheraltype: CONFIGURATION_TYPE, peripheralnumber: UInt, peripheralinformation: Long): NTSTATUS
 }
 
 public typealias PIO_QUERY_DEVICE_ROUTINE = PIO_QUERY_DEVICE_ROUTINEFn?
 
 public fun interface PIO_SESSION_NOTIFICATION_FUNCTIONFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIO_SESSION_NOTIFICATION_FUNCTION = PIO_SESSION_NOTIFICATION_FUNCTIONFn?
@@ -1915,7 +1927,7 @@ public fun interface PIO_WORKITEM_ROUTINE_EXFn {
 public typealias PIO_WORKITEM_ROUTINE_EX = PIO_WORKITEM_ROUTINE_EXFn?
 
 public fun interface PJOIN_DMA_DOMAINFn {
-    public operator fun invoke(dmaadapter: Long, domainhandle: Win32.Foundation.HANDLE): Win32.Foundation.NTSTATUS
+    public operator fun invoke(dmaadapter: Long, domainhandle: HANDLE): NTSTATUS
 }
 
 public typealias PJOIN_DMA_DOMAIN = PJOIN_DMA_DOMAINFn?
@@ -1963,13 +1975,13 @@ public fun interface PKSYNCHRONIZE_ROUTINEFn {
 public typealias PKSYNCHRONIZE_ROUTINE = PKSYNCHRONIZE_ROUTINEFn?
 
 public fun interface PLEAVE_DMA_DOMAINFn {
-    public operator fun invoke(dmaadapter: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(dmaadapter: Long): NTSTATUS
 }
 
 public typealias PLEAVE_DMA_DOMAIN = PLEAVE_DMA_DOMAINFn?
 
 public fun interface PLOAD_IMAGE_NOTIFY_ROUTINEFn {
-    public operator fun invoke(fullimagename: Long, processid: Win32.Foundation.HANDLE, imageinfo: Long)
+    public operator fun invoke(fullimagename: Long, processid: HANDLE, imageinfo: Long)
 }
 
 public typealias PLOAD_IMAGE_NOTIFY_ROUTINE = PLOAD_IMAGE_NOTIFY_ROUTINEFn?
@@ -1981,19 +1993,19 @@ public fun interface PMAP_TRANSFERFn {
 public typealias PMAP_TRANSFER = PMAP_TRANSFERFn?
 
 public fun interface PMAP_TRANSFER_EXFn {
-    public operator fun invoke(dmaadapter: Long, mdl: Long, mapregisterbase: Long, offset: ULong, deviceoffset: UInt, length: Long, writetodevice: Boolean, scattergatherbuffer: Long, scattergatherbufferlength: UInt, dmacompletionroutine: PDMA_COMPLETION_ROUTINE, completioncontext: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(dmaadapter: Long, mdl: Long, mapregisterbase: Long, offset: ULong, deviceoffset: UInt, length: Long, writetodevice: Boolean, scattergatherbuffer: Long, scattergatherbufferlength: UInt, dmacompletionroutine: PDMA_COMPLETION_ROUTINE, completioncontext: Long): NTSTATUS
 }
 
 public typealias PMAP_TRANSFER_EX = PMAP_TRANSFER_EXFn?
 
 public fun interface PMM_DLL_INITIALIZEFn {
-    public operator fun invoke(registrypath: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(registrypath: Long): NTSTATUS
 }
 
 public typealias PMM_DLL_INITIALIZE = PMM_DLL_INITIALIZEFn?
 
 public fun interface PMM_DLL_UNLOADFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PMM_DLL_UNLOAD = PMM_DLL_UNLOADFn?
@@ -2011,7 +2023,7 @@ public fun interface PMM_MDL_ROUTINEFn {
 public typealias PMM_MDL_ROUTINE = PMM_MDL_ROUTINEFn?
 
 public fun interface PMM_ROTATE_COPY_CALLBACK_FUNCTIONFn {
-    public operator fun invoke(destinationmdl: Long, sourcemdl: Long, context: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(destinationmdl: Long, sourcemdl: Long, context: Long): NTSTATUS
 }
 
 public typealias PMM_ROTATE_COPY_CALLBACK_FUNCTION = PMM_ROTATE_COPY_CALLBACK_FUNCTIONFn?
@@ -2023,7 +2035,7 @@ public fun interface PNMI_CALLBACKFn {
 public typealias PNMI_CALLBACK = PNMI_CALLBACKFn?
 
 public fun interface PNPEM_CONTROL_ENABLE_DISABLEFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PNPEM_CONTROL_ENABLE_DISABLE = PNPEM_CONTROL_ENABLE_DISABLEFn?
@@ -2035,13 +2047,13 @@ public fun interface PNPEM_CONTROL_QUERY_CONTROLFn {
 public typealias PNPEM_CONTROL_QUERY_CONTROL = PNPEM_CONTROL_QUERY_CONTROLFn?
 
 public fun interface PNPEM_CONTROL_QUERY_STANDARD_CAPABILITIESFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PNPEM_CONTROL_QUERY_STANDARD_CAPABILITIES = PNPEM_CONTROL_QUERY_STANDARD_CAPABILITIESFn?
 
 public fun interface PNPEM_CONTROL_SET_STANDARD_CONTROLFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PNPEM_CONTROL_SET_STANDARD_CONTROL = PNPEM_CONTROL_SET_STANDARD_CONTROLFn?
@@ -2073,7 +2085,7 @@ public typealias POWER_MONITOR_REQUEST_TYPE = Int
 public typealias POWER_PLATFORM_ROLE = Int
 
 public fun interface POWER_SETTING_CALLBACKFn {
-    public operator fun invoke(settingguid: Long, value: Long, valuelength: UInt, context: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(settingguid: Long, value: Long, valuelength: UInt, context: Long): NTSTATUS
 }
 
 public typealias POWER_SETTING_CALLBACK = POWER_SETTING_CALLBACKFn?
@@ -2147,7 +2159,7 @@ public typealias PO_FX_PERF_STATE_TYPE = Int
 public typealias PO_FX_PERF_STATE_UNIT = Int
 
 public fun interface PO_FX_POWER_CONTROL_CALLBACKFn {
-    public operator fun invoke(devicecontext: Long, powercontrolcode: Long, inbuffer: Long, inbuffersize: ULong, outbuffer: Long, outbuffersize: ULong, bytesreturned: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(devicecontext: Long, powercontrolcode: Long, inbuffer: Long, inbuffersize: ULong, outbuffer: Long, outbuffersize: ULong, bytesreturned: Long): NTSTATUS
 }
 
 public typealias PO_FX_POWER_CONTROL_CALLBACK = PO_FX_POWER_CONTROL_CALLBACKFn?
@@ -2155,13 +2167,13 @@ public typealias PO_FX_POWER_CONTROL_CALLBACK = PO_FX_POWER_CONTROL_CALLBACKFn?
 public typealias PO_THERMAL_REQUEST_TYPE = Int
 
 public fun interface PPCI_EXPRESS_ENTER_LINK_QUIESCENT_MODEFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PPCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE = PPCI_EXPRESS_ENTER_LINK_QUIESCENT_MODEFn?
 
 public fun interface PPCI_EXPRESS_EXIT_LINK_QUIESCENT_MODEFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PPCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE = PPCI_EXPRESS_EXIT_LINK_QUIESCENT_MODEFn?
@@ -2203,25 +2215,25 @@ public fun interface PPCI_LINE_TO_PINFn {
 public typealias PPCI_LINE_TO_PIN = PPCI_LINE_TO_PINFn?
 
 public fun interface PPCI_MSIX_GET_ENTRYFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PPCI_MSIX_GET_ENTRY = PPCI_MSIX_GET_ENTRYFn?
 
 public fun interface PPCI_MSIX_GET_TABLE_SIZEFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PPCI_MSIX_GET_TABLE_SIZE = PPCI_MSIX_GET_TABLE_SIZEFn?
 
 public fun interface PPCI_MSIX_MASKUNMASK_ENTRYFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PPCI_MSIX_MASKUNMASK_ENTRY = PPCI_MSIX_MASKUNMASK_ENTRYFn?
 
 public fun interface PPCI_MSIX_SET_ENTRYFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PPCI_MSIX_SET_ENTRY = PPCI_MSIX_SET_ENTRYFn?
@@ -2251,43 +2263,43 @@ public fun interface PPCI_ROOT_BUS_CAPABILITYFn {
 public typealias PPCI_ROOT_BUS_CAPABILITY = PPCI_ROOT_BUS_CAPABILITYFn?
 
 public fun interface PPCI_SET_ACSFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PPCI_SET_ACS = PPCI_SET_ACSFn?
 
 public fun interface PPCI_SET_ACS2Fn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PPCI_SET_ACS2 = PPCI_SET_ACS2Fn?
 
 public fun interface PPCI_SET_ATSFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PPCI_SET_ATS = PPCI_SET_ATSFn?
 
 public fun interface PPCW_CALLBACKFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PPCW_CALLBACK = PPCW_CALLBACKFn?
 
 public fun interface PPHYSICAL_COUNTER_EVENT_BUFFER_OVERFLOW_HANDLERFn {
-    public operator fun invoke(eventbuffer: Long, entrysize: ULong, numberofentries: ULong, owninghandle: Win32.Foundation.HANDLE)
+    public operator fun invoke(eventbuffer: Long, entrysize: ULong, numberofentries: ULong, owninghandle: HANDLE)
 }
 
 public typealias PPHYSICAL_COUNTER_EVENT_BUFFER_OVERFLOW_HANDLER = PPHYSICAL_COUNTER_EVENT_BUFFER_OVERFLOW_HANDLERFn?
 
 public fun interface PPHYSICAL_COUNTER_OVERFLOW_HANDLERFn {
-    public operator fun invoke(overflowbits: ULong, owninghandle: Win32.Foundation.HANDLE)
+    public operator fun invoke(overflowbits: ULong, owninghandle: HANDLE)
 }
 
 public typealias PPHYSICAL_COUNTER_OVERFLOW_HANDLER = PPHYSICAL_COUNTER_OVERFLOW_HANDLERFn?
 
 public fun interface PPOWER_SETTING_CALLBACKFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PPOWER_SETTING_CALLBACK = PPOWER_SETTING_CALLBACKFn?
@@ -2353,7 +2365,7 @@ public fun interface PPO_FX_DRIPS_WATCHDOG_CALLBACKFn {
 public typealias PPO_FX_DRIPS_WATCHDOG_CALLBACK = PPO_FX_DRIPS_WATCHDOG_CALLBACKFn?
 
 public fun interface PPO_FX_POWER_CONTROL_CALLBACKFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PPO_FX_POWER_CONTROL_CALLBACK = PPO_FX_POWER_CONTROL_CALLBACKFn?
@@ -2365,31 +2377,31 @@ public fun interface PPROCESSOR_CALLBACK_FUNCTIONFn {
 public typealias PPROCESSOR_CALLBACK_FUNCTION = PPROCESSOR_CALLBACK_FUNCTIONFn?
 
 public fun interface PPROCESSOR_HALT_ROUTINEFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PPROCESSOR_HALT_ROUTINE = PPROCESSOR_HALT_ROUTINEFn?
 
 public fun interface PPTM_DEVICE_DISABLEFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PPTM_DEVICE_DISABLE = PPTM_DEVICE_DISABLEFn?
 
 public fun interface PPTM_DEVICE_ENABLEFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PPTM_DEVICE_ENABLE = PPTM_DEVICE_ENABLEFn?
 
 public fun interface PPTM_DEVICE_QUERY_GRANULARITYFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PPTM_DEVICE_QUERY_GRANULARITY = PPTM_DEVICE_QUERY_GRANULARITYFn?
 
 public fun interface PPTM_DEVICE_QUERY_TIME_SOURCEFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PPTM_DEVICE_QUERY_TIME_SOURCE = PPTM_DEVICE_QUERY_TIME_SOURCEFn?
@@ -2425,79 +2437,79 @@ public fun interface PREENUMERATE_SELFFn {
 public typealias PREENUMERATE_SELF = PREENUMERATE_SELFFn?
 
 public fun interface PREGISTER_FOR_DEVICE_NOTIFICATIONSFn {
-    public operator fun invoke(param0: Long, param1: PDEVICE_NOTIFY_CALLBACK, param2: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(param0: Long, param1: PDEVICE_NOTIFY_CALLBACK, param2: Long): NTSTATUS
 }
 
 public typealias PREGISTER_FOR_DEVICE_NOTIFICATIONS = PREGISTER_FOR_DEVICE_NOTIFICATIONSFn?
 
 public fun interface PREGISTER_FOR_DEVICE_NOTIFICATIONS2Fn {
-    public operator fun invoke(context: Long, notificationhandler: PDEVICE_NOTIFY_CALLBACK2, notificationcontext: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, notificationhandler: PDEVICE_NOTIFY_CALLBACK2, notificationcontext: Long): NTSTATUS
 }
 
 public typealias PREGISTER_FOR_DEVICE_NOTIFICATIONS2 = PREGISTER_FOR_DEVICE_NOTIFICATIONS2Fn?
 
 public fun interface PREPLACE_BEGINFn {
-    public operator fun invoke(parameters: Long, context: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(parameters: Long, context: Long): NTSTATUS
 }
 
 public typealias PREPLACE_BEGIN = PREPLACE_BEGINFn?
 
 public fun interface PREPLACE_DRIVER_INITFn {
-    public operator fun invoke(iface: Long, unused: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(iface: Long, unused: Long): NTSTATUS
 }
 
 public typealias PREPLACE_DRIVER_INIT = PREPLACE_DRIVER_INITFn?
 
 public fun interface PREPLACE_ENABLE_DISABLE_HARDWARE_QUIESCEFn {
-    public operator fun invoke(context: Long, enable: Boolean): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, enable: Boolean): NTSTATUS
 }
 
 public typealias PREPLACE_ENABLE_DISABLE_HARDWARE_QUIESCE = PREPLACE_ENABLE_DISABLE_HARDWARE_QUIESCEFn?
 
 public fun interface PREPLACE_ENDFn {
-    public operator fun invoke(context: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long): NTSTATUS
 }
 
 public typealias PREPLACE_END = PREPLACE_ENDFn?
 
 public fun interface PREPLACE_GET_MEMORY_DESTINATIONFn {
-    public operator fun invoke(context: Long, sourceaddress: Long, destinationaddress: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, sourceaddress: Long, destinationaddress: Long): NTSTATUS
 }
 
 public typealias PREPLACE_GET_MEMORY_DESTINATION = PREPLACE_GET_MEMORY_DESTINATIONFn?
 
 public fun interface PREPLACE_INITIATE_HARDWARE_MIRRORFn {
-    public operator fun invoke(context: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long): NTSTATUS
 }
 
 public typealias PREPLACE_INITIATE_HARDWARE_MIRROR = PREPLACE_INITIATE_HARDWARE_MIRRORFn?
 
 public fun interface PREPLACE_MAP_MEMORYFn {
-    public operator fun invoke(targetphysicaladdress: Long, sparephysicaladdress: Long, numberofbytes: Long, targetaddress: Long, spareaddress: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(targetphysicaladdress: Long, sparephysicaladdress: Long, numberofbytes: Long, targetaddress: Long, spareaddress: Long): NTSTATUS
 }
 
 public typealias PREPLACE_MAP_MEMORY = PREPLACE_MAP_MEMORYFn?
 
 public fun interface PREPLACE_MIRROR_PHYSICAL_MEMORYFn {
-    public operator fun invoke(context: Long, physicaladdress: Long, bytecount: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, physicaladdress: Long, bytecount: Long): NTSTATUS
 }
 
 public typealias PREPLACE_MIRROR_PHYSICAL_MEMORY = PREPLACE_MIRROR_PHYSICAL_MEMORYFn?
 
 public fun interface PREPLACE_MIRROR_PLATFORM_MEMORYFn {
-    public operator fun invoke(context: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long): NTSTATUS
 }
 
 public typealias PREPLACE_MIRROR_PLATFORM_MEMORY = PREPLACE_MIRROR_PLATFORM_MEMORYFn?
 
 public fun interface PREPLACE_SET_PROCESSOR_IDFn {
-    public operator fun invoke(context: Long, apicid: UInt, target: Boolean): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, apicid: UInt, target: Boolean): NTSTATUS
 }
 
 public typealias PREPLACE_SET_PROCESSOR_ID = PREPLACE_SET_PROCESSOR_IDFn?
 
 public fun interface PREPLACE_SWAPFn {
-    public operator fun invoke(context: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long): NTSTATUS
 }
 
 public typealias PREPLACE_SWAP = PREPLACE_SWAPFn?
@@ -2521,7 +2533,7 @@ public fun interface PROCESSOR_CALLBACK_FUNCTIONFn {
 public typealias PROCESSOR_CALLBACK_FUNCTION = PROCESSOR_CALLBACK_FUNCTIONFn?
 
 public fun interface PROCESSOR_HALT_ROUTINEFn {
-    public operator fun invoke(context: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long): NTSTATUS
 }
 
 public typealias PROCESSOR_HALT_ROUTINE = PROCESSOR_HALT_ROUTINEFn?
@@ -2545,7 +2557,7 @@ public fun interface PRTL_AVL_FREE_ROUTINEFn {
 public typealias PRTL_AVL_FREE_ROUTINE = PRTL_AVL_FREE_ROUTINEFn?
 
 public fun interface PRTL_AVL_MATCH_FUNCTIONFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PRTL_AVL_MATCH_FUNCTION = PRTL_AVL_MATCH_FUNCTIONFn?
@@ -2569,7 +2581,7 @@ public fun interface PRTL_GENERIC_FREE_ROUTINEFn {
 public typealias PRTL_GENERIC_FREE_ROUTINE = PRTL_GENERIC_FREE_ROUTINEFn?
 
 public fun interface PRTL_QUERY_REGISTRY_ROUTINEFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PRTL_QUERY_REGISTRY_ROUTINE = PRTL_QUERY_REGISTRY_ROUTINEFn?
@@ -2591,7 +2603,7 @@ public fun interface PSECURE_DRIVER_PROCESS_DEREFERENCEFn {
 public typealias PSECURE_DRIVER_PROCESS_DEREFERENCE = PSECURE_DRIVER_PROCESS_DEREFERENCEFn?
 
 public fun interface PSECURE_DRIVER_PROCESS_REFERENCEFn {
-    public operator fun invoke(): Foundation.PEPROCESS
+    public operator fun invoke(): PEPROCESS
 }
 
 public typealias PSECURE_DRIVER_PROCESS_REFERENCE = PSECURE_DRIVER_PROCESS_REFERENCEFn?
@@ -2615,31 +2627,31 @@ public fun interface PSE_IMAGE_VERIFICATION_CALLBACK_FUNCTIONFn {
 public typealias PSE_IMAGE_VERIFICATION_CALLBACK_FUNCTION = PSE_IMAGE_VERIFICATION_CALLBACK_FUNCTIONFn?
 
 public fun interface PSHED_PI_ATTEMPT_ERROR_RECOVERYFn {
-    public operator fun invoke(plugincontext: Long, bufferlength: UInt, errorrecord: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(plugincontext: Long, bufferlength: UInt, errorrecord: Long): NTSTATUS
 }
 
 public typealias PSHED_PI_ATTEMPT_ERROR_RECOVERY = PSHED_PI_ATTEMPT_ERROR_RECOVERYFn?
 
 public fun interface PSHED_PI_CLEAR_ERROR_RECORDFn {
-    public operator fun invoke(plugincontext: Long, flags: UInt, errorrecordid: ULong): Win32.Foundation.NTSTATUS
+    public operator fun invoke(plugincontext: Long, flags: UInt, errorrecordid: ULong): NTSTATUS
 }
 
 public typealias PSHED_PI_CLEAR_ERROR_RECORD = PSHED_PI_CLEAR_ERROR_RECORDFn?
 
 public fun interface PSHED_PI_CLEAR_ERROR_STATUSFn {
-    public operator fun invoke(plugincontext: Long, errorsource: Long, bufferlength: UInt, errorrecord: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(plugincontext: Long, errorsource: Long, bufferlength: UInt, errorrecord: Long): NTSTATUS
 }
 
 public typealias PSHED_PI_CLEAR_ERROR_STATUS = PSHED_PI_CLEAR_ERROR_STATUSFn?
 
 public fun interface PSHED_PI_DISABLE_ERROR_SOURCEFn {
-    public operator fun invoke(plugincontext: Long, errorsource: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(plugincontext: Long, errorsource: Long): NTSTATUS
 }
 
 public typealias PSHED_PI_DISABLE_ERROR_SOURCE = PSHED_PI_DISABLE_ERROR_SOURCEFn?
 
 public fun interface PSHED_PI_ENABLE_ERROR_SOURCEFn {
-    public operator fun invoke(plugincontext: Long, errorsource: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(plugincontext: Long, errorsource: Long): NTSTATUS
 }
 
 public typealias PSHED_PI_ENABLE_ERROR_SOURCE = PSHED_PI_ENABLE_ERROR_SOURCEFn?
@@ -2647,55 +2659,55 @@ public typealias PSHED_PI_ENABLE_ERROR_SOURCE = PSHED_PI_ENABLE_ERROR_SOURCEFn?
 public typealias PSHED_PI_ERR_READING_PCIE_OVERRIDES = Int
 
 public fun interface PSHED_PI_FINALIZE_ERROR_RECORDFn {
-    public operator fun invoke(plugincontext: Long, errorsource: Long, bufferlength: UInt, errorrecord: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(plugincontext: Long, errorsource: Long, bufferlength: UInt, errorrecord: Long): NTSTATUS
 }
 
 public typealias PSHED_PI_FINALIZE_ERROR_RECORD = PSHED_PI_FINALIZE_ERROR_RECORDFn?
 
 public fun interface PSHED_PI_GET_ALL_ERROR_SOURCESFn {
-    public operator fun invoke(plugincontext: Long, count: Long, errorsrcs: Long, length: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(plugincontext: Long, count: Long, errorsrcs: Long, length: Long): NTSTATUS
 }
 
 public typealias PSHED_PI_GET_ALL_ERROR_SOURCES = PSHED_PI_GET_ALL_ERROR_SOURCESFn?
 
 public fun interface PSHED_PI_GET_ERROR_SOURCE_INFOFn {
-    public operator fun invoke(plugincontext: Long, errorsource: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(plugincontext: Long, errorsource: Long): NTSTATUS
 }
 
 public typealias PSHED_PI_GET_ERROR_SOURCE_INFO = PSHED_PI_GET_ERROR_SOURCE_INFOFn?
 
 public fun interface PSHED_PI_GET_INJECTION_CAPABILITIESFn {
-    public operator fun invoke(plugincontext: Long, capabilities: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(plugincontext: Long, capabilities: Long): NTSTATUS
 }
 
 public typealias PSHED_PI_GET_INJECTION_CAPABILITIES = PSHED_PI_GET_INJECTION_CAPABILITIESFn?
 
 public fun interface PSHED_PI_INJECT_ERRORFn {
-    public operator fun invoke(plugincontext: Long, errortype: ULong, parameter1: ULong, parameter2: ULong, parameter3: ULong, parameter4: ULong): Win32.Foundation.NTSTATUS
+    public operator fun invoke(plugincontext: Long, errortype: ULong, parameter1: ULong, parameter2: ULong, parameter3: ULong, parameter4: ULong): NTSTATUS
 }
 
 public typealias PSHED_PI_INJECT_ERROR = PSHED_PI_INJECT_ERRORFn?
 
 public fun interface PSHED_PI_READ_ERROR_RECORDFn {
-    public operator fun invoke(plugincontext: Long, flags: UInt, errorrecordid: ULong, nexterrorrecordid: Long, recordlength: Long, errorrecord: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(plugincontext: Long, flags: UInt, errorrecordid: ULong, nexterrorrecordid: Long, recordlength: Long, errorrecord: Long): NTSTATUS
 }
 
 public typealias PSHED_PI_READ_ERROR_RECORD = PSHED_PI_READ_ERROR_RECORDFn?
 
 public fun interface PSHED_PI_RETRIEVE_ERROR_INFOFn {
-    public operator fun invoke(plugincontext: Long, errorsource: Long, bufferlength: ULong, packet: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(plugincontext: Long, errorsource: Long, bufferlength: ULong, packet: Long): NTSTATUS
 }
 
 public typealias PSHED_PI_RETRIEVE_ERROR_INFO = PSHED_PI_RETRIEVE_ERROR_INFOFn?
 
 public fun interface PSHED_PI_SET_ERROR_SOURCE_INFOFn {
-    public operator fun invoke(plugincontext: Long, errorsource: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(plugincontext: Long, errorsource: Long): NTSTATUS
 }
 
 public typealias PSHED_PI_SET_ERROR_SOURCE_INFO = PSHED_PI_SET_ERROR_SOURCE_INFOFn?
 
 public fun interface PSHED_PI_WRITE_ERROR_RECORDFn {
-    public operator fun invoke(plugincontext: Long, flags: UInt, recordlength: UInt, errorrecord: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(plugincontext: Long, flags: UInt, recordlength: UInt, errorrecord: Long): NTSTATUS
 }
 
 public typealias PSHED_PI_WRITE_ERROR_RECORD = PSHED_PI_WRITE_ERROR_RECORDFn?
@@ -2707,37 +2719,37 @@ public fun interface PTIMER_APC_ROUTINEFn {
 public typealias PTIMER_APC_ROUTINE = PTIMER_APC_ROUTINEFn?
 
 public fun interface PTM_DEVICE_DISABLEFn {
-    public operator fun invoke(context: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long): NTSTATUS
 }
 
 public typealias PTM_DEVICE_DISABLE = PTM_DEVICE_DISABLEFn?
 
 public fun interface PTM_DEVICE_ENABLEFn {
-    public operator fun invoke(context: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long): NTSTATUS
 }
 
 public typealias PTM_DEVICE_ENABLE = PTM_DEVICE_ENABLEFn?
 
 public fun interface PTM_DEVICE_QUERY_GRANULARITYFn {
-    public operator fun invoke(context: Long, granularity: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, granularity: Long): NTSTATUS
 }
 
 public typealias PTM_DEVICE_QUERY_GRANULARITY = PTM_DEVICE_QUERY_GRANULARITYFn?
 
 public fun interface PTM_DEVICE_QUERY_TIME_SOURCEFn {
-    public operator fun invoke(context: Long, timesource: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, timesource: Long): NTSTATUS
 }
 
 public typealias PTM_DEVICE_QUERY_TIME_SOURCE = PTM_DEVICE_QUERY_TIME_SOURCEFn?
 
 public fun interface PTM_PROPAGATE_ROUTINEFn {
-    public operator fun invoke(propagationcookie: Long, callbackdata: Long, propagationstatus: Win32.Foundation.NTSTATUS, transactionguid: GUID): Win32.Foundation.NTSTATUS
+    public operator fun invoke(propagationcookie: Long, callbackdata: Long, propagationstatus: NTSTATUS, transactionguid: GUID): NTSTATUS
 }
 
 public typealias PTM_PROPAGATE_ROUTINE = PTM_PROPAGATE_ROUTINEFn?
 
 public fun interface PTM_RM_NOTIFICATIONFn {
-    public operator fun invoke(enlistmentobject: Long, rmcontext: Long, transactioncontext: Long, transactionnotification: UInt, tmvirtualclock: Long, argumentlength: UInt, argument: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(enlistmentobject: Long, rmcontext: Long, transactioncontext: Long, transactionnotification: UInt, tmvirtualclock: Long, argumentlength: UInt, argument: Long): NTSTATUS
 }
 
 public typealias PTM_RM_NOTIFICATION = PTM_RM_NOTIFICATIONFn?
@@ -2749,13 +2761,13 @@ public fun interface PTRANSLATE_BUS_ADDRESSFn {
 public typealias PTRANSLATE_BUS_ADDRESS = PTRANSLATE_BUS_ADDRESSFn?
 
 public fun interface PTRANSLATE_RESOURCE_HANDLERFn {
-    public operator fun invoke(context: Long, source: Long, direction: RESOURCE_TRANSLATION_DIRECTION, alternativescount: UInt, alternatives: Long, physicaldeviceobject: Long, target: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, source: Long, direction: RESOURCE_TRANSLATION_DIRECTION, alternativescount: UInt, alternatives: Long, physicaldeviceobject: Long, target: Long): NTSTATUS
 }
 
 public typealias PTRANSLATE_RESOURCE_HANDLER = PTRANSLATE_RESOURCE_HANDLERFn?
 
 public fun interface PTRANSLATE_RESOURCE_REQUIREMENTS_HANDLERFn {
-    public operator fun invoke(context: Long, source: Long, physicaldeviceobject: Long, targetcount: Long, target: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, source: Long, physicaldeviceobject: Long, targetcount: Long, target: Long): NTSTATUS
 }
 
 public typealias PTRANSLATE_RESOURCE_REQUIREMENTS_HANDLER = PTRANSLATE_RESOURCE_REQUIREMENTS_HANDLERFn?
@@ -2819,7 +2831,7 @@ public fun interface RTL_AVL_FREE_ROUTINEFn {
 public typealias RTL_AVL_FREE_ROUTINE = RTL_AVL_FREE_ROUTINEFn?
 
 public fun interface RTL_AVL_MATCH_FUNCTIONFn {
-    public operator fun invoke(table: Long, userdata: Long, matchdata: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(table: Long, userdata: Long, matchdata: Long): NTSTATUS
 }
 
 public typealias RTL_AVL_MATCH_FUNCTION = RTL_AVL_MATCH_FUNCTIONFn?
@@ -2845,7 +2857,7 @@ public fun interface RTL_GENERIC_FREE_ROUTINEFn {
 public typealias RTL_GENERIC_FREE_ROUTINE = RTL_GENERIC_FREE_ROUTINEFn?
 
 public fun interface RTL_QUERY_REGISTRY_ROUTINEFn {
-    public operator fun invoke(valuename: PCWSTR, valuetype: UInt, valuedata: Long, valuelength: UInt, context: Long, entrycontext: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(valuename: PCWSTR, valuetype: UInt, valuedata: Long, valuelength: UInt, context: Long, entrycontext: Long): NTSTATUS
 }
 
 public typealias RTL_QUERY_REGISTRY_ROUTINE = RTL_QUERY_REGISTRY_ROUTINEFn?
@@ -2857,13 +2869,13 @@ public fun interface RTL_RUN_ONCE_INIT_FNFn {
 public typealias RTL_RUN_ONCE_INIT_FN = RTL_RUN_ONCE_INIT_FNFn?
 
 public fun interface SECURE_DRIVER_PROCESS_DEREFERENCEFn {
-    public operator fun invoke(interfacecontext: Long, process: Foundation.PEPROCESS)
+    public operator fun invoke(interfacecontext: Long, process: PEPROCESS)
 }
 
 public typealias SECURE_DRIVER_PROCESS_DEREFERENCE = SECURE_DRIVER_PROCESS_DEREFERENCEFn?
 
 public fun interface SECURE_DRIVER_PROCESS_REFERENCEFn {
-    public operator fun invoke(interfacecontext: Long): Foundation.PEPROCESS
+    public operator fun invoke(interfacecontext: Long): PEPROCESS
 }
 
 public typealias SECURE_DRIVER_PROCESS_REFERENCE = SECURE_DRIVER_PROCESS_REFERENCEFn?
@@ -2901,13 +2913,13 @@ public fun interface SILO_CONTEXT_CLEANUP_CALLBACKFn {
 public typealias SILO_CONTEXT_CLEANUP_CALLBACK = SILO_CONTEXT_CLEANUP_CALLBACKFn?
 
 public fun interface SILO_MONITOR_CREATE_CALLBACKFn {
-    public operator fun invoke(silo: Foundation.PESILO): Win32.Foundation.NTSTATUS
+    public operator fun invoke(silo: PESILO): NTSTATUS
 }
 
 public typealias SILO_MONITOR_CREATE_CALLBACK = SILO_MONITOR_CREATE_CALLBACKFn?
 
 public fun interface SILO_MONITOR_TERMINATE_CALLBACKFn {
-    public operator fun invoke(silo: Foundation.PESILO)
+    public operator fun invoke(silo: PESILO)
 }
 
 public typealias SILO_MONITOR_TERMINATE_CALLBACK = SILO_MONITOR_TERMINATE_CALLBACKFn?
@@ -2945,25 +2957,25 @@ public typealias WHEA_ERROR_PACKET_DATA_FORMAT = Int
 public typealias WHEA_ERROR_SEVERITY = Int
 
 public fun interface WHEA_ERROR_SOURCE_CORRECTFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias WHEA_ERROR_SOURCE_CORRECT = WHEA_ERROR_SOURCE_CORRECTFn?
 
 public fun interface WHEA_ERROR_SOURCE_CREATE_RECORDFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias WHEA_ERROR_SOURCE_CREATE_RECORD = WHEA_ERROR_SOURCE_CREATE_RECORDFn?
 
 public fun interface WHEA_ERROR_SOURCE_INITIALIZEFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias WHEA_ERROR_SOURCE_INITIALIZE = WHEA_ERROR_SOURCE_INITIALIZEFn?
 
 public fun interface WHEA_ERROR_SOURCE_RECOVERFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias WHEA_ERROR_SOURCE_RECOVER = WHEA_ERROR_SOURCE_RECOVERFn?
@@ -3021,25 +3033,25 @@ public typealias WORKER_THREAD_ROUTINE = WORKER_THREAD_ROUTINEFn?
 public typealias WORK_QUEUE_TYPE = Int
 
 public fun interface _WHEA_ERROR_SOURCE_CORRECTFn {
-    public operator fun invoke(errorsource: Long, maximumsectionlength: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(errorsource: Long, maximumsectionlength: Long): NTSTATUS
 }
 
 public typealias _WHEA_ERROR_SOURCE_CORRECT = _WHEA_ERROR_SOURCE_CORRECTFn?
 
 public fun interface _WHEA_ERROR_SOURCE_CREATE_RECORDFn {
-    public operator fun invoke(errorsource: Long, errorpacket: Long, errorrecord: Long, buffersize: UInt, context: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(errorsource: Long, errorpacket: Long, errorrecord: Long, buffersize: UInt, context: Long): NTSTATUS
 }
 
 public typealias _WHEA_ERROR_SOURCE_CREATE_RECORD = _WHEA_ERROR_SOURCE_CREATE_RECORDFn?
 
 public fun interface _WHEA_ERROR_SOURCE_INITIALIZEFn {
-    public operator fun invoke(phase: UInt, errorsource: Long, context: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(phase: UInt, errorsource: Long, context: Long): NTSTATUS
 }
 
 public typealias _WHEA_ERROR_SOURCE_INITIALIZE = _WHEA_ERROR_SOURCE_INITIALIZEFn?
 
 public fun interface _WHEA_ERROR_SOURCE_RECOVERFn {
-    public operator fun invoke(recoverycontext: Long, severity: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(recoverycontext: Long, severity: Long): NTSTATUS
 }
 
 public typealias _WHEA_ERROR_SOURCE_RECOVER = _WHEA_ERROR_SOURCE_RECOVERFn?
@@ -3057,13 +3069,13 @@ public fun interface _WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACKFn {
 public typealias _WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACK = _WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACKFn?
 
 public fun interface pHalAssignSlotResourcesFn {
-    public operator fun invoke(registrypath: Long, driverclassname: Long, driverobject: Long, deviceobject: Long, bustype: INTERFACE_TYPE, busnumber: UInt, slotnumber: UInt, allocatedresources: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(registrypath: Long, driverclassname: Long, driverobject: Long, deviceobject: Long, bustype: INTERFACE_TYPE, busnumber: UInt, slotnumber: UInt, allocatedresources: Long): NTSTATUS
 }
 
 public typealias pHalAssignSlotResources = pHalAssignSlotResourcesFn?
 
 public fun interface pHalEndMirroringFn {
-    public operator fun invoke(passnumber: UInt): Win32.Foundation.NTSTATUS
+    public operator fun invoke(passnumber: UInt): NTSTATUS
 }
 
 public typealias pHalEndMirroring = pHalEndMirroringFn?
@@ -3099,7 +3111,7 @@ public fun interface pHalGetDmaAdapterFn {
 public typealias pHalGetDmaAdapter = pHalGetDmaAdapterFn?
 
 public fun interface pHalGetInterruptTranslatorFn {
-    public operator fun invoke(parentinterfacetype: INTERFACE_TYPE, parentbusnumber: UInt, bridgeinterfacetype: INTERFACE_TYPE, size: UShort, version: UShort, translator: Long, bridgebusnumber: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(parentinterfacetype: INTERFACE_TYPE, parentbusnumber: UInt, bridgeinterfacetype: INTERFACE_TYPE, size: UShort, version: UShort, translator: Long, bridgebusnumber: Long): NTSTATUS
 }
 
 public typealias pHalGetInterruptTranslator = pHalGetInterruptTranslatorFn?
@@ -3117,67 +3129,67 @@ public fun interface pHalHaltSystemFn {
 public typealias pHalHaltSystem = pHalHaltSystemFn?
 
 public fun interface pHalHandlerForBusFn {
-    public operator fun invoke(interfacetype: INTERFACE_TYPE, busnumber: UInt): Foundation.PBUS_HANDLER
+    public operator fun invoke(interfacetype: INTERFACE_TYPE, busnumber: UInt): PBUS_HANDLER
 }
 
 public typealias pHalHandlerForBus = pHalHandlerForBusFn?
 
 public fun interface pHalInitPnpDriverFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias pHalInitPnpDriver = pHalInitPnpDriverFn?
 
 public fun interface pHalInitPowerManagementFn {
-    public operator fun invoke(pmdriverdispatchtable: Long, pmhaldispatchtable: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(pmdriverdispatchtable: Long, pmhaldispatchtable: Long): NTSTATUS
 }
 
 public typealias pHalInitPowerManagement = pHalInitPowerManagementFn?
 
 public fun interface pHalIoReadPartitionTableFn {
-    public operator fun invoke(deviceobject: Long, sectorsize: UInt, returnrecognizedpartitions: Boolean, partitionbuffer: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(deviceobject: Long, sectorsize: UInt, returnrecognizedpartitions: Boolean, partitionbuffer: Long): NTSTATUS
 }
 
 public typealias pHalIoReadPartitionTable = pHalIoReadPartitionTableFn?
 
 public fun interface pHalIoSetPartitionInformationFn {
-    public operator fun invoke(deviceobject: Long, sectorsize: UInt, partitionnumber: UInt, partitiontype: UInt): Win32.Foundation.NTSTATUS
+    public operator fun invoke(deviceobject: Long, sectorsize: UInt, partitionnumber: UInt, partitiontype: UInt): NTSTATUS
 }
 
 public typealias pHalIoSetPartitionInformation = pHalIoSetPartitionInformationFn?
 
 public fun interface pHalIoWritePartitionTableFn {
-    public operator fun invoke(deviceobject: Long, sectorsize: UInt, sectorspertrack: UInt, numberofheads: UInt, partitionbuffer: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(deviceobject: Long, sectorsize: UInt, sectorspertrack: UInt, numberofheads: UInt, partitionbuffer: Long): NTSTATUS
 }
 
 public typealias pHalIoWritePartitionTable = pHalIoWritePartitionTableFn?
 
 public fun interface pHalMirrorPhysicalMemoryFn {
-    public operator fun invoke(physicaladdress: Long, numberofbytes: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(physicaladdress: Long, numberofbytes: Long): NTSTATUS
 }
 
 public typealias pHalMirrorPhysicalMemory = pHalMirrorPhysicalMemoryFn?
 
 public fun interface pHalMirrorVerifyFn {
-    public operator fun invoke(physicaladdress: Long, numberofbytes: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(physicaladdress: Long, numberofbytes: Long): NTSTATUS
 }
 
 public typealias pHalMirrorVerify = pHalMirrorVerifyFn?
 
 public fun interface pHalQueryBusSlotsFn {
-    public operator fun invoke(bushandler: Foundation.PBUS_HANDLER, buffersize: UInt, slotnumbers: Long, returnedlength: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(bushandler: PBUS_HANDLER, buffersize: UInt, slotnumbers: Long, returnedlength: Long): NTSTATUS
 }
 
 public typealias pHalQueryBusSlots = pHalQueryBusSlotsFn?
 
 public fun interface pHalQuerySystemInformationFn {
-    public operator fun invoke(informationclass: HAL_QUERY_INFORMATION_CLASS, buffersize: UInt, buffer: Long, returnedlength: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(informationclass: HAL_QUERY_INFORMATION_CLASS, buffersize: UInt, buffer: Long, returnedlength: Long): NTSTATUS
 }
 
 public typealias pHalQuerySystemInformation = pHalQuerySystemInformationFn?
 
 public fun interface pHalReferenceBusHandlerFn {
-    public operator fun invoke(bushandler: Foundation.PBUS_HANDLER)
+    public operator fun invoke(bushandler: PBUS_HANDLER)
 }
 
 public typealias pHalReferenceBusHandler = pHalReferenceBusHandlerFn?
@@ -3195,13 +3207,13 @@ public fun interface pHalSetPciErrorHandlerCallbackFn {
 public typealias pHalSetPciErrorHandlerCallback = pHalSetPciErrorHandlerCallbackFn?
 
 public fun interface pHalSetSystemInformationFn {
-    public operator fun invoke(informationclass: HAL_SET_INFORMATION_CLASS, buffersize: UInt, buffer: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(informationclass: HAL_SET_INFORMATION_CLASS, buffersize: UInt, buffer: Long): NTSTATUS
 }
 
 public typealias pHalSetSystemInformation = pHalSetSystemInformationFn?
 
 public fun interface pHalStartMirroringFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias pHalStartMirroring = pHalStartMirroringFn?
@@ -3225,7 +3237,7 @@ public fun interface pKdCheckPowerButtonFn {
 public typealias pKdCheckPowerButton = pKdCheckPowerButtonFn?
 
 public fun interface pKdEnumerateDebuggingDevicesFn {
-    public operator fun invoke(loaderblock: Long, device: Long, callback: PDEBUG_DEVICE_FOUND_FUNCTION): Win32.Foundation.NTSTATUS
+    public operator fun invoke(loaderblock: Long, device: Long, callback: PDEBUG_DEVICE_FOUND_FUNCTION): NTSTATUS
 }
 
 public typealias pKdEnumerateDebuggingDevices = pKdEnumerateDebuggingDevicesFn?
@@ -3249,13 +3261,13 @@ public fun interface pKdMapPhysicalMemory64Fn {
 public typealias pKdMapPhysicalMemory64 = pKdMapPhysicalMemory64Fn?
 
 public fun interface pKdReleaseIntegratedDeviceForDebuggingFn {
-    public operator fun invoke(integrateddevice: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(integrateddevice: Long): NTSTATUS
 }
 
 public typealias pKdReleaseIntegratedDeviceForDebugging = pKdReleaseIntegratedDeviceForDebuggingFn?
 
 public fun interface pKdReleasePciDeviceForDebuggingFn {
-    public operator fun invoke(pcidevice: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(pcidevice: Long): NTSTATUS
 }
 
 public typealias pKdReleasePciDeviceForDebugging = pKdReleasePciDeviceForDebuggingFn?
@@ -3267,13 +3279,13 @@ public fun interface pKdSetPciDataByOffsetFn {
 public typealias pKdSetPciDataByOffset = pKdSetPciDataByOffsetFn?
 
 public fun interface pKdSetupIntegratedDeviceForDebuggingFn {
-    public operator fun invoke(loaderblock: Long, integrateddevice: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(loaderblock: Long, integrateddevice: Long): NTSTATUS
 }
 
 public typealias pKdSetupIntegratedDeviceForDebugging = pKdSetupIntegratedDeviceForDebuggingFn?
 
 public fun interface pKdSetupPciDeviceForDebuggingFn {
-    public operator fun invoke(loaderblock: Long, pcidevice: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(loaderblock: Long, pcidevice: Long): NTSTATUS
 }
 
 public typealias pKdSetupPciDeviceForDebugging = pKdSetupPciDeviceForDebuggingFn?

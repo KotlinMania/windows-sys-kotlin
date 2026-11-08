@@ -3,6 +3,8 @@ package io.github.kotlinmania.windowssys.windows.win32.security.enterprisedata
 import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
 
 public fun ProtectFileToEnterpriseIdentity(fileorfolderpath: PCWSTR, identity: PCWSTR): HRESULT {
     return Win32DynamicFfi.invoke("efswrt.dll", "ProtectFileToEnterpriseIdentity", longArrayOf(fileorfolderpath, identity)).toInt()
@@ -28,12 +30,12 @@ public fun SrpEnablePermissiveModeFileEncryption(enterpriseid: PCWSTR): HRESULT 
     return Win32DynamicFfi.invoke("srpapi.dll", "SrpEnablePermissiveModeFileEncryption", longArrayOf(enterpriseid)).toInt()
 }
 
-public fun SrpGetEnterpriseIds(tokenhandle: Foundation.HANDLE, numberofbytes: Long, enterpriseids: Long, enterpriseidcount: Long): HRESULT {
-    return Win32DynamicFfi.invoke("srpapi.dll", "SrpGetEnterpriseIds", longArrayOf(Win32DynamicFfi.objectSlot(tokenhandle), numberofbytes, enterpriseids, enterpriseidcount)).toInt()
+public fun SrpGetEnterpriseIds(tokenhandle: HANDLE, numberofbytes: Long, enterpriseids: Long, enterpriseidcount: Long): HRESULT {
+    return Win32DynamicFfi.invoke("srpapi.dll", "SrpGetEnterpriseIds", longArrayOf(tokenhandle, numberofbytes, enterpriseids, enterpriseidcount)).toInt()
 }
 
-public fun SrpGetEnterprisePolicy(tokenhandle: Foundation.HANDLE, policyflags: Long): HRESULT {
-    return Win32DynamicFfi.invoke("srpapi.dll", "SrpGetEnterprisePolicy", longArrayOf(Win32DynamicFfi.objectSlot(tokenhandle), policyflags)).toInt()
+public fun SrpGetEnterprisePolicy(tokenhandle: HANDLE, policyflags: Long): HRESULT {
+    return Win32DynamicFfi.invoke("srpapi.dll", "SrpGetEnterprisePolicy", longArrayOf(tokenhandle, policyflags)).toInt()
 }
 
 public fun SrpHostingInitialize(version: SRPHOSTING_VERSION, type: SRPHOSTING_TYPE, pvdata: Long, cbdata: UInt): HRESULT {
@@ -44,13 +46,12 @@ public fun SrpHostingTerminate(type: SRPHOSTING_TYPE) {
     Win32DynamicFfi.invoke("srpapi.dll", "SrpHostingTerminate", longArrayOf(type.toLong()))
 }
 
-public fun SrpIsTokenService(tokenhandle: Foundation.HANDLE, istokenservice: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("srpapi.dll", "SrpIsTokenService", longArrayOf(Win32DynamicFfi.objectSlot(tokenhandle), istokenservice))
-    return Foundation.NTSTATUS()
+public fun SrpIsTokenService(tokenhandle: HANDLE, istokenservice: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("srpapi.dll", "SrpIsTokenService", longArrayOf(tokenhandle, istokenservice)).toInt()
 }
 
-public fun SrpSetTokenEnterpriseId(tokenhandle: Foundation.HANDLE, enterpriseid: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("srpapi.dll", "SrpSetTokenEnterpriseId", longArrayOf(Win32DynamicFfi.objectSlot(tokenhandle), enterpriseid)).toInt()
+public fun SrpSetTokenEnterpriseId(tokenhandle: HANDLE, enterpriseid: PCWSTR): HRESULT {
+    return Win32DynamicFfi.invoke("srpapi.dll", "SrpSetTokenEnterpriseId", longArrayOf(tokenhandle, enterpriseid)).toInt()
 }
 
 public fun UnprotectFile(fileorfolderpath: PCWSTR, options: Long): HRESULT {

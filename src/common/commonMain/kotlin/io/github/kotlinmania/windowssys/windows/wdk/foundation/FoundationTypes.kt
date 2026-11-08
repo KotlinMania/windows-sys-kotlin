@@ -1,9 +1,12 @@
 package io.github.kotlinmania.windowssys.windows.wdk.foundation
 
+import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.IO_ALLOCATION_ACTION
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+
 public typealias DMA_COMMON_BUFFER_VECTOR = Long
 
 public fun interface DRIVER_ADD_DEVICEFn {
-    public operator fun invoke(driverobject: Long, physicaldeviceobject: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(driverobject: Long, physicaldeviceobject: Long): NTSTATUS
 }
 
 public typealias DRIVER_ADD_DEVICE = DRIVER_ADD_DEVICEFn?
@@ -15,19 +18,19 @@ public fun interface DRIVER_CANCELFn {
 public typealias DRIVER_CANCEL = DRIVER_CANCELFn?
 
 public fun interface DRIVER_CONTROLFn {
-    public operator fun invoke(deviceobject: Long, irp: Long, mapregisterbase: Long, context: Long): System.SystemServices.IO_ALLOCATION_ACTION
+    public operator fun invoke(deviceobject: Long, irp: Long, mapregisterbase: Long, context: Long): IO_ALLOCATION_ACTION
 }
 
 public typealias DRIVER_CONTROL = DRIVER_CONTROLFn?
 
 public fun interface DRIVER_DISPATCHFn {
-    public operator fun invoke(deviceobject: Long, irp: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(deviceobject: Long, irp: Long): NTSTATUS
 }
 
 public typealias DRIVER_DISPATCH = DRIVER_DISPATCHFn?
 
 public fun interface DRIVER_DISPATCH_PAGEDFn {
-    public operator fun invoke(deviceobject: Long, irp: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(deviceobject: Long, irp: Long): NTSTATUS
 }
 
 public typealias DRIVER_DISPATCH_PAGED = DRIVER_DISPATCH_PAGEDFn?
@@ -39,13 +42,13 @@ public fun interface DRIVER_FS_NOTIFICATIONFn {
 public typealias DRIVER_FS_NOTIFICATION = DRIVER_FS_NOTIFICATIONFn?
 
 public fun interface DRIVER_INITIALIZEFn {
-    public operator fun invoke(driverobject: Long, registrypath: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(driverobject: Long, registrypath: Long): NTSTATUS
 }
 
 public typealias DRIVER_INITIALIZE = DRIVER_INITIALIZEFn?
 
 public fun interface DRIVER_NOTIFICATION_CALLBACK_ROUTINEFn {
-    public operator fun invoke(notificationstructure: Long, context: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(notificationstructure: Long, context: Long): NTSTATUS
 }
 
 public typealias DRIVER_NOTIFICATION_CALLBACK_ROUTINE = DRIVER_NOTIFICATION_CALLBACK_ROUTINEFn?
@@ -79,13 +82,13 @@ public fun interface FAST_IO_ACQUIRE_FILEFn {
 public typealias FAST_IO_ACQUIRE_FILE = FAST_IO_ACQUIRE_FILEFn?
 
 public fun interface FAST_IO_ACQUIRE_FOR_CCFLUSHFn {
-    public operator fun invoke(fileobject: Long, deviceobject: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(fileobject: Long, deviceobject: Long): NTSTATUS
 }
 
 public typealias FAST_IO_ACQUIRE_FOR_CCFLUSH = FAST_IO_ACQUIRE_FOR_CCFLUSHFn?
 
 public fun interface FAST_IO_ACQUIRE_FOR_MOD_WRITEFn {
-    public operator fun invoke(fileobject: Long, endingoffset: Long, resourcetorelease: Long, deviceobject: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(fileobject: Long, endingoffset: Long, resourcetorelease: Long, deviceobject: Long): NTSTATUS
 }
 
 public typealias FAST_IO_ACQUIRE_FOR_MOD_WRITE = FAST_IO_ACQUIRE_FOR_MOD_WRITEFn?
@@ -193,13 +196,13 @@ public fun interface FAST_IO_RELEASE_FILEFn {
 public typealias FAST_IO_RELEASE_FILE = FAST_IO_RELEASE_FILEFn?
 
 public fun interface FAST_IO_RELEASE_FOR_CCFLUSHFn {
-    public operator fun invoke(fileobject: Long, deviceobject: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(fileobject: Long, deviceobject: Long): NTSTATUS
 }
 
 public typealias FAST_IO_RELEASE_FOR_CCFLUSH = FAST_IO_RELEASE_FOR_CCFLUSHFn?
 
 public fun interface FAST_IO_RELEASE_FOR_MOD_WRITEFn {
-    public operator fun invoke(fileobject: Long, resourcetorelease: Long, deviceobject: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(fileobject: Long, resourcetorelease: Long, deviceobject: Long): NTSTATUS
 }
 
 public typealias FAST_IO_RELEASE_FOR_MOD_WRITE = FAST_IO_RELEASE_FOR_MOD_WRITEFn?
@@ -291,7 +294,7 @@ public fun interface PFREE_FUNCTIONFn {
 public typealias PFREE_FUNCTION = PFREE_FUNCTIONFn?
 
 public fun interface PIO_COMPLETION_ROUTINEFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PIO_COMPLETION_ROUTINE = PIO_COMPLETION_ROUTINEFn?

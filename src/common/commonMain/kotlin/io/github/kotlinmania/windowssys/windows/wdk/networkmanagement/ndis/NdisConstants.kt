@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.w
@@ -56,9 +57,9 @@ public val ERRED_PACKET_INDICATION: UInt = 1u
 
 public val ETHERNET_LENGTH_OF_ADDRESS: UInt = 6u
 
-public val GUID_NDIS_NDK_CAPABILITIES: GUID = GUID.from_u128(0x7969ba4ddd804bc7uL, 0xb3e668043997e519uL)
+public val GUID_NDIS_NDK_CAPABILITIES: GUID = GUID.from_u128(U128(0x7969ba4ddd804bc7uL, 0xb3e668043997e519uL))
 
-public val GUID_NDIS_NDK_STATE: GUID = GUID.from_u128(0x530c69c92f5149deuL, 0xa1af088d54ffa474uL)
+public val GUID_NDIS_NDK_STATE: GUID = GUID.from_u128(U128(0x530c69c92f5149deuL, 0xa1af088d54ffa474uL))
 
 public val INDICATE_END_OF_TX: UInt = 32u
 

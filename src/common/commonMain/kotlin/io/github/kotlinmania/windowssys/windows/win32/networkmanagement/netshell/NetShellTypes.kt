@@ -2,6 +2,7 @@ package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netshel
 
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 
 public typealias NS_CMD_FLAGS = Int
 
@@ -12,7 +13,7 @@ public typealias NS_MODE_CHANGE = Int
 public typealias NS_REQS = Int
 
 public fun interface PFN_CUSTOM_HELPFn {
-    public operator fun invoke(hmodule: Foundation.HANDLE, pwszcmdtoken: PCWSTR)
+    public operator fun invoke(hmodule: HANDLE, pwszcmdtoken: PCWSTR)
 }
 
 public typealias PFN_CUSTOM_HELP = PFN_CUSTOM_HELPFn?

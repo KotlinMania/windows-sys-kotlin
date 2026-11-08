@@ -7,6 +7,11 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FARPROC
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FARPROCFn
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WAIT_EVENT
 
 public fun interface FnCallback {
     public operator fun invoke(dwerror: UInt, dwbytes: UInt, lpoverlapped: Long)
@@ -116,8 +121,8 @@ public fun InetPtonW(family: Int, pszaddrstring: PCWSTR, paddrbuf: Long): Int {
     return Win32DynamicFfi.invoke("ws2_32.dll", "InetPtonW", longArrayOf(family.toLong(), pszaddrstring, paddrbuf)).toInt()
 }
 
-public fun ProcessSocketNotifications(completionport: Foundation.HANDLE, registrationcount: UInt, registrationinfos: Long, timeoutms: UInt, completioncount: UInt, completionportentries: Long, receivedentrycount: Long): UInt {
-    return Win32DynamicFfi.invoke("ws2_32.dll", "ProcessSocketNotifications", longArrayOf(Win32DynamicFfi.objectSlot(completionport), registrationcount.toLong(), registrationinfos, timeoutms.toLong(), completioncount.toLong(), completionportentries, receivedentrycount)).toUInt()
+public fun ProcessSocketNotifications(completionport: HANDLE, registrationcount: UInt, registrationinfos: Long, timeoutms: UInt, completioncount: UInt, completionportentries: Long, receivedentrycount: Long): UInt {
+    return Win32DynamicFfi.invoke("ws2_32.dll", "ProcessSocketNotifications", longArrayOf(completionport, registrationcount.toLong(), registrationinfos, timeoutms.toLong(), completioncount.toLong(), completionportentries, receivedentrycount)).toUInt()
 }
 
 public fun RtlEthernetAddressToStringA(addr: Long, s: PSTR): PSTR {
@@ -220,8 +225,8 @@ public fun SetSocketMediaStreamingMode(value: BOOL): HRESULT {
     return Win32DynamicFfi.invoke("windows.networking.dll", "SetSocketMediaStreamingMode", longArrayOf(value.toLong())).toInt()
 }
 
-public fun TransmitFile(hsocket: SOCKET, hfile: Foundation.HANDLE, nnumberofbytestowrite: UInt, nnumberofbytespersend: UInt, lpoverlapped: Long, lptransmitbuffers: Long, dwreserved: UInt): BOOL {
-    return Win32DynamicFfi.invoke("mswsock.dll", "TransmitFile", longArrayOf(hsocket.toLong(), Win32DynamicFfi.objectSlot(hfile), nnumberofbytestowrite.toLong(), nnumberofbytespersend.toLong(), lpoverlapped, lptransmitbuffers, dwreserved.toLong())).toInt()
+public fun TransmitFile(hsocket: SOCKET, hfile: HANDLE, nnumberofbytestowrite: UInt, nnumberofbytespersend: UInt, lpoverlapped: Long, lptransmitbuffers: Long, dwreserved: UInt): BOOL {
+    return Win32DynamicFfi.invoke("mswsock.dll", "TransmitFile", longArrayOf(hsocket.toLong(), hfile, nnumberofbytestowrite.toLong(), nnumberofbytespersend.toLong(), lpoverlapped, lptransmitbuffers, dwreserved.toLong())).toInt()
 }
 
 public fun WPUCompleteOverlappedRequest(s: SOCKET, lpoverlapped: Long, dwerror: UInt, cbtransferred: UInt, lperrno: Long): Int {
@@ -244,42 +249,36 @@ public fun WSAAdvertiseProvider(puuidproviderid: Long, pnspv2routine: Long): Int
     return Win32DynamicFfi.invoke("ws2_32.dll", "WSAAdvertiseProvider", longArrayOf(puuidproviderid, pnspv2routine)).toInt()
 }
 
-public fun WSAAsyncGetHostByAddr(hwnd: Foundation.HWND, wmsg: UInt, addr: PCSTR, len: Int, type: Int, buf: PSTR, buflen: Int): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("ws2_32.dll", "WSAAsyncGetHostByAddr", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), wmsg.toLong(), addr, len.toLong(), type.toLong(), buf, buflen.toLong()))
-    return Foundation.HANDLE()
+public fun WSAAsyncGetHostByAddr(hwnd: HWND, wmsg: UInt, addr: PCSTR, len: Int, type: Int, buf: PSTR, buflen: Int): HANDLE {
+    return Win32DynamicFfi.invoke("ws2_32.dll", "WSAAsyncGetHostByAddr", longArrayOf(hwnd, wmsg.toLong(), addr, len.toLong(), type.toLong(), buf, buflen.toLong()))
 }
 
-public fun WSAAsyncGetHostByName(hwnd: Foundation.HWND, wmsg: UInt, name: PCSTR, buf: PSTR, buflen: Int): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("ws2_32.dll", "WSAAsyncGetHostByName", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), wmsg.toLong(), name, buf, buflen.toLong()))
-    return Foundation.HANDLE()
+public fun WSAAsyncGetHostByName(hwnd: HWND, wmsg: UInt, name: PCSTR, buf: PSTR, buflen: Int): HANDLE {
+    return Win32DynamicFfi.invoke("ws2_32.dll", "WSAAsyncGetHostByName", longArrayOf(hwnd, wmsg.toLong(), name, buf, buflen.toLong()))
 }
 
-public fun WSAAsyncGetProtoByName(hwnd: Foundation.HWND, wmsg: UInt, name: PCSTR, buf: PSTR, buflen: Int): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("ws2_32.dll", "WSAAsyncGetProtoByName", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), wmsg.toLong(), name, buf, buflen.toLong()))
-    return Foundation.HANDLE()
+public fun WSAAsyncGetProtoByName(hwnd: HWND, wmsg: UInt, name: PCSTR, buf: PSTR, buflen: Int): HANDLE {
+    return Win32DynamicFfi.invoke("ws2_32.dll", "WSAAsyncGetProtoByName", longArrayOf(hwnd, wmsg.toLong(), name, buf, buflen.toLong()))
 }
 
-public fun WSAAsyncGetProtoByNumber(hwnd: Foundation.HWND, wmsg: UInt, number: Int, buf: PSTR, buflen: Int): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("ws2_32.dll", "WSAAsyncGetProtoByNumber", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), wmsg.toLong(), number.toLong(), buf, buflen.toLong()))
-    return Foundation.HANDLE()
+public fun WSAAsyncGetProtoByNumber(hwnd: HWND, wmsg: UInt, number: Int, buf: PSTR, buflen: Int): HANDLE {
+    return Win32DynamicFfi.invoke("ws2_32.dll", "WSAAsyncGetProtoByNumber", longArrayOf(hwnd, wmsg.toLong(), number.toLong(), buf, buflen.toLong()))
 }
 
-public fun WSAAsyncGetServByName(hwnd: Foundation.HWND, wmsg: UInt, name: PCSTR, proto: PCSTR, buf: PSTR, buflen: Int): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("ws2_32.dll", "WSAAsyncGetServByName", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), wmsg.toLong(), name, proto, buf, buflen.toLong()))
-    return Foundation.HANDLE()
+public fun WSAAsyncGetServByName(hwnd: HWND, wmsg: UInt, name: PCSTR, proto: PCSTR, buf: PSTR, buflen: Int): HANDLE {
+    return Win32DynamicFfi.invoke("ws2_32.dll", "WSAAsyncGetServByName", longArrayOf(hwnd, wmsg.toLong(), name, proto, buf, buflen.toLong()))
 }
 
-public fun WSAAsyncGetServByPort(hwnd: Foundation.HWND, wmsg: UInt, port: Int, proto: PCSTR, buf: PSTR, buflen: Int): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("ws2_32.dll", "WSAAsyncGetServByPort", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), wmsg.toLong(), port.toLong(), proto, buf, buflen.toLong()))
-    return Foundation.HANDLE()
+public fun WSAAsyncGetServByPort(hwnd: HWND, wmsg: UInt, port: Int, proto: PCSTR, buf: PSTR, buflen: Int): HANDLE {
+    return Win32DynamicFfi.invoke("ws2_32.dll", "WSAAsyncGetServByPort", longArrayOf(hwnd, wmsg.toLong(), port.toLong(), proto, buf, buflen.toLong()))
 }
 
-public fun WSAAsyncSelect(s: SOCKET, hwnd: Foundation.HWND, wmsg: UInt, levent: Int): Int {
-    return Win32DynamicFfi.invoke("ws2_32.dll", "WSAAsyncSelect", longArrayOf(s.toLong(), Win32DynamicFfi.objectSlot(hwnd), wmsg.toLong(), levent.toLong())).toInt()
+public fun WSAAsyncSelect(s: SOCKET, hwnd: HWND, wmsg: UInt, levent: Int): Int {
+    return Win32DynamicFfi.invoke("ws2_32.dll", "WSAAsyncSelect", longArrayOf(s.toLong(), hwnd, wmsg.toLong(), levent.toLong())).toInt()
 }
 
-public fun WSACancelAsyncRequest(hasynctaskhandle: Foundation.HANDLE): Int {
-    return Win32DynamicFfi.invoke("ws2_32.dll", "WSACancelAsyncRequest", longArrayOf(Win32DynamicFfi.objectSlot(hasynctaskhandle))).toInt()
+public fun WSACancelAsyncRequest(hasynctaskhandle: HANDLE): Int {
+    return Win32DynamicFfi.invoke("ws2_32.dll", "WSACancelAsyncRequest", longArrayOf(hasynctaskhandle)).toInt()
 }
 
 public fun WSACancelBlockingCall(): Int {
@@ -426,20 +425,20 @@ public fun WSALookupServiceBeginW(lpqsrestrictions: Long, dwcontrolflags: UInt, 
     return Win32DynamicFfi.invoke("ws2_32.dll", "WSALookupServiceBeginW", longArrayOf(lpqsrestrictions, dwcontrolflags.toLong(), lphlookup)).toInt()
 }
 
-public fun WSALookupServiceEnd(hlookup: Foundation.HANDLE): Int {
-    return Win32DynamicFfi.invoke("ws2_32.dll", "WSALookupServiceEnd", longArrayOf(Win32DynamicFfi.objectSlot(hlookup))).toInt()
+public fun WSALookupServiceEnd(hlookup: HANDLE): Int {
+    return Win32DynamicFfi.invoke("ws2_32.dll", "WSALookupServiceEnd", longArrayOf(hlookup)).toInt()
 }
 
-public fun WSALookupServiceNextA(hlookup: Foundation.HANDLE, dwcontrolflags: UInt, lpdwbufferlength: Long, lpqsresults: Long): Int {
-    return Win32DynamicFfi.invoke("ws2_32.dll", "WSALookupServiceNextA", longArrayOf(Win32DynamicFfi.objectSlot(hlookup), dwcontrolflags.toLong(), lpdwbufferlength, lpqsresults)).toInt()
+public fun WSALookupServiceNextA(hlookup: HANDLE, dwcontrolflags: UInt, lpdwbufferlength: Long, lpqsresults: Long): Int {
+    return Win32DynamicFfi.invoke("ws2_32.dll", "WSALookupServiceNextA", longArrayOf(hlookup, dwcontrolflags.toLong(), lpdwbufferlength, lpqsresults)).toInt()
 }
 
-public fun WSALookupServiceNextW(hlookup: Foundation.HANDLE, dwcontrolflags: UInt, lpdwbufferlength: Long, lpqsresults: Long): Int {
-    return Win32DynamicFfi.invoke("ws2_32.dll", "WSALookupServiceNextW", longArrayOf(Win32DynamicFfi.objectSlot(hlookup), dwcontrolflags.toLong(), lpdwbufferlength, lpqsresults)).toInt()
+public fun WSALookupServiceNextW(hlookup: HANDLE, dwcontrolflags: UInt, lpdwbufferlength: Long, lpqsresults: Long): Int {
+    return Win32DynamicFfi.invoke("ws2_32.dll", "WSALookupServiceNextW", longArrayOf(hlookup, dwcontrolflags.toLong(), lpdwbufferlength, lpqsresults)).toInt()
 }
 
-public fun WSANSPIoctl(hlookup: Foundation.HANDLE, dwcontrolcode: UInt, lpvinbuffer: Long, cbinbuffer: UInt, lpvoutbuffer: Long, cboutbuffer: UInt, lpcbbytesreturned: Long, lpcompletion: Long): Int {
-    return Win32DynamicFfi.invoke("ws2_32.dll", "WSANSPIoctl", longArrayOf(Win32DynamicFfi.objectSlot(hlookup), dwcontrolcode.toLong(), lpvinbuffer, cbinbuffer.toLong(), lpvoutbuffer, cboutbuffer.toLong(), lpcbbytesreturned, lpcompletion)).toInt()
+public fun WSANSPIoctl(hlookup: HANDLE, dwcontrolcode: UInt, lpvinbuffer: Long, cbinbuffer: UInt, lpvoutbuffer: Long, cboutbuffer: UInt, lpcbbytesreturned: Long, lpcompletion: Long): Int {
+    return Win32DynamicFfi.invoke("ws2_32.dll", "WSANSPIoctl", longArrayOf(hlookup, dwcontrolcode.toLong(), lpvinbuffer, cbinbuffer.toLong(), lpvoutbuffer, cboutbuffer.toLong(), lpcbbytesreturned, lpcompletion)).toInt()
 }
 
 public fun WSANtohl(s: SOCKET, netlong: UInt, lphostlong: Long): Int {
@@ -454,8 +453,8 @@ public fun WSAPoll(fdarray: Long, fds: UInt, timeout: Int): Int {
     return Win32DynamicFfi.invoke("ws2_32.dll", "WSAPoll", longArrayOf(fdarray, fds.toLong(), timeout.toLong())).toInt()
 }
 
-public fun WSAProviderCompleteAsyncCall(hasynccall: Foundation.HANDLE, iretcode: Int): Int {
-    return Win32DynamicFfi.invoke("ws2_32.dll", "WSAProviderCompleteAsyncCall", longArrayOf(Win32DynamicFfi.objectSlot(hasynccall), iretcode.toLong())).toInt()
+public fun WSAProviderCompleteAsyncCall(hasynccall: HANDLE, iretcode: Int): Int {
+    return Win32DynamicFfi.invoke("ws2_32.dll", "WSAProviderCompleteAsyncCall", longArrayOf(hasynccall, iretcode.toLong())).toInt()
 }
 
 public fun WSAProviderConfigChange(lpnotificationhandle: Long, lpoverlapped: Long, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE): Int {
@@ -510,9 +509,9 @@ public fun WSASendTo(s: SOCKET, lpbuffers: Long, dwbuffercount: UInt, lpnumberof
     return Win32DynamicFfi.invoke("ws2_32.dll", "WSASendTo", longArrayOf(s.toLong(), lpbuffers, dwbuffercount.toLong(), lpnumberofbytessent, dwflags.toLong(), lpto, itolen.toLong(), lpoverlapped, Win32DynamicFfi.objectSlot(lpcompletionroutine))).toInt()
 }
 
-public fun WSASetBlockingHook(lpblockfunc: Foundation.FARPROC): Foundation.FARPROC {
-    Win32DynamicFfi.invoke("ws2_32.dll", "WSASetBlockingHook", longArrayOf(Win32DynamicFfi.objectSlot(lpblockfunc)))
-    return Foundation.FARPROC()
+public fun WSASetBlockingHook(lpblockfunc: FARPROC): FARPROC {
+    val rawRet = Win32DynamicFfi.invoke("ws2_32.dll", "WSASetBlockingHook", longArrayOf(Win32DynamicFfi.objectSlot(lpblockfunc)))
+    return if (rawRet == 0L) null else FARPROCFn { Win32DynamicFfi.invokePtr(rawRet, longArrayOf()) }
 }
 
 public fun WSASetEvent(hevent: WSAEVENT): BOOL {
@@ -567,9 +566,8 @@ public fun WSAUnhookBlockingHook(): Int {
     return Win32DynamicFfi.invoke("ws2_32.dll", "WSAUnhookBlockingHook", longArrayOf()).toInt()
 }
 
-public fun WSAWaitForMultipleEvents(cevents: UInt, lphevents: Long, fwaitall: BOOL, dwtimeout: UInt, falertable: BOOL): Foundation.WAIT_EVENT {
-    Win32DynamicFfi.invoke("ws2_32.dll", "WSAWaitForMultipleEvents", longArrayOf(cevents.toLong(), lphevents, fwaitall.toLong(), dwtimeout.toLong(), falertable.toLong()))
-    return Foundation.WAIT_EVENT()
+public fun WSAWaitForMultipleEvents(cevents: UInt, lphevents: Long, fwaitall: BOOL, dwtimeout: UInt, falertable: BOOL): WAIT_EVENT {
+    return Win32DynamicFfi.invoke("ws2_32.dll", "WSAWaitForMultipleEvents", longArrayOf(cevents.toLong(), lphevents, fwaitall.toLong(), dwtimeout.toLong(), falertable.toLong())).toUInt()
 }
 
 public fun WSCDeinstallProvider(lpproviderid: Long, lperrno: Long): Int {
@@ -781,7 +779,7 @@ public fun inet_addr(cp: PCSTR): UInt {
 }
 
 public fun inet_ntoa(input: IN_ADDR): PSTR {
-    return Win32DynamicFfi.invoke("ws2_32.dll", "inet_ntoa", longArrayOf(Win32DynamicFfi.objectSlot(input)))
+    return Win32DynamicFfi.invoke("ws2_32.dll", "inet_ntoa", longArrayOf((((input.S_un.S_un_b.s_b1.toLong() and 0xFFL) or ((input.S_un.S_un_b.s_b2.toLong() and 0xFFL) shl 8) or ((input.S_un.S_un_b.s_b3.toLong() and 0xFFL) shl 16) or ((input.S_un.S_un_b.s_b4.toLong() and 0xFFL) shl 24)) or ((input.S_un.S_un_w.s_w1.toLong() and 0xFFFFL) or ((input.S_un.S_un_w.s_w2.toLong() and 0xFFFFL) shl 16)) or (input.S_un.S_addr.toLong() and 0xFFFF_FFFFL))))
 }
 
 public fun inet_ntop(family: Int, paddr: Long, pstringbuf: PSTR, stringbufsize: ULong): PCSTR {

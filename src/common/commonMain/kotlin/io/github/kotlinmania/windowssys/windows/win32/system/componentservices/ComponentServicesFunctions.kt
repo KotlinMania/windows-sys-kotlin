@@ -2,6 +2,7 @@ package io.github.kotlinmania.windowssys.windows.win32.system.componentservices
 
 import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.HRESULT
+import io.github.kotlinmania.windowssys.windows.win32.system.com.APTTYPE
 
 public fun CoCreateActivity(piunknown: Long, riid: Long, ppobj: Long): HRESULT {
     return Win32DynamicFfi.invoke("comsvcs.dll", "CoCreateActivity", longArrayOf(piunknown, riid, ppobj)).toInt()
@@ -11,8 +12,8 @@ public fun CoEnterServiceDomain(pconfigobject: Long): HRESULT {
     return Win32DynamicFfi.invoke("comsvcs.dll", "CoEnterServiceDomain", longArrayOf(pconfigobject)).toInt()
 }
 
-public fun CoGetDefaultContext(apttype: Com.APTTYPE, riid: Long, ppv: Long): HRESULT {
-    return Win32DynamicFfi.invoke("ole32.dll", "CoGetDefaultContext", longArrayOf(Win32DynamicFfi.objectSlot(apttype), riid, ppv)).toInt()
+public fun CoGetDefaultContext(apttype: APTTYPE, riid: Long, ppv: Long): HRESULT {
+    return Win32DynamicFfi.invoke("ole32.dll", "CoGetDefaultContext", longArrayOf(apttype.toLong(), riid, ppv)).toInt()
 }
 
 public fun CoLeaveServiceDomain(punkstatus: Long) {

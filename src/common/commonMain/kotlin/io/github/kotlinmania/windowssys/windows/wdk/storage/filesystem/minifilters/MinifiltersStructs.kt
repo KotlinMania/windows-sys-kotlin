@@ -2,15 +2,29 @@
 package io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.minifilters
 
 import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PEPROCESS
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PETHREAD
 import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.FILE_INFORMATION_CLASS
 import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.FS_FILTER_SECTION_SYNC_TYPE
 import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.FS_INFORMATION_CLASS
+import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.BUS_QUERY_ID_TYPE
+import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.DEVICE_RELATION_TYPE
+import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.DEVICE_TEXT_TYPE
+import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.DEVICE_USAGE_NOTIFICATION_TYPE
+import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.DIRECTORY_NOTIFY_INFORMATION_CLASS
+import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.IO_CSQ
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.UNICODE_STRING
+import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
+import io.github.kotlinmania.windowssys.windows.win32.security.PSID
+import io.github.kotlinmania.windowssys.windows.win32.system.io.IO_STATUS_BLOCK
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.LIST_ENTRY
 
 public data class FLT_CALLBACK_DATA(
     public var Flags: UInt = 0u,
-    public var Thread: Foundation.PETHREAD = Foundation.PETHREAD(),
+    public var Thread: PETHREAD = 0L,
     public var Iopb: Long = 0L,
-    public var IoStatus: Win32.System.IO.IO_STATUS_BLOCK = Win32.System.IO.IO_STATUS_BLOCK(),
+    public var IoStatus: IO_STATUS_BLOCK = IO_STATUS_BLOCK(),
     public var TagData: Long = 0L,
     public var Anonymous: FLT_CALLBACK_DATA_0 = FLT_CALLBACK_DATA_0(),
     public var RequestorMode: Byte = 0,
@@ -32,7 +46,7 @@ public data class FLT_CALLBACK_DATA_0(public var Anonymous: FLT_CALLBACK_DATA_0_
     }
 }
 
-public data class FLT_CALLBACK_DATA_0_0(public var QueueLinks: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(), public var QueueContext: LongArray = LongArray(2)) {
+public data class FLT_CALLBACK_DATA_0_0(public var QueueLinks: LIST_ENTRY = LIST_ENTRY(), public var QueueContext: LongArray = LongArray(2)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is FLT_CALLBACK_DATA_0_0) return false
@@ -49,7 +63,7 @@ public data class FLT_CALLBACK_DATA_0_0(public var QueueLinks: Win32.System.Kern
 }
 
 public data class FLT_CALLBACK_DATA_QUEUE(
-    public var Csq: System.SystemServices.IO_CSQ = System.SystemServices.IO_CSQ(),
+    public var Csq: IO_CSQ = IO_CSQ(),
     public var Flags: FLT_CALLBACK_DATA_QUEUE_FLAGS = 0,
     public var Instance: PFLT_INSTANCE = 0L,
     public var InsertIo: PFLT_CALLBACK_DATA_QUEUE_INSERT_IO = null,
@@ -82,13 +96,13 @@ public data class FLT_FILE_NAME_INFORMATION(
     public var Size: UShort = 0u,
     public var NamesParsed: UShort = 0u,
     public var Format: UInt = 0u,
-    public var Name: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
-    public var Volume: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
-    public var Share: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
-    public var Extension: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
-    public var Stream: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
-    public var FinalComponent: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
-    public var ParentDir: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
+    public var Name: UNICODE_STRING = UNICODE_STRING(),
+    public var Volume: UNICODE_STRING = UNICODE_STRING(),
+    public var Share: UNICODE_STRING = UNICODE_STRING(),
+    public var Extension: UNICODE_STRING = UNICODE_STRING(),
+    public var Stream: UNICODE_STRING = UNICODE_STRING(),
+    public var FinalComponent: UNICODE_STRING = UNICODE_STRING(),
+    public var ParentDir: UNICODE_STRING = UNICODE_STRING(),
 )
 
 public data class FLT_IO_PARAMETER_BLOCK(
@@ -102,7 +116,7 @@ public data class FLT_IO_PARAMETER_BLOCK(
     public var Parameters: FLT_PARAMETERS = FLT_PARAMETERS(),
 )
 
-public data class FLT_NAME_CONTROL(public var Name: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING())
+public data class FLT_NAME_CONTROL(public var Name: UNICODE_STRING = UNICODE_STRING())
 
 public data class FLT_OPERATION_REGISTRATION(
     public var MajorFunction: UByte = 0u,
@@ -240,7 +254,7 @@ public data class FLT_PARAMETERS_11(
 public data class FLT_PARAMETERS_11_2(
     public var Length: UInt = 0u,
     public var CompletionFilter: UInt = 0u,
-    public var DirectoryNotifyInformationClass: System.SystemServices.DIRECTORY_NOTIFY_INFORMATION_CLASS = System.SystemServices.DIRECTORY_NOTIFY_INFORMATION_CLASS(),
+    public var DirectoryNotifyInformationClass: DIRECTORY_NOTIFY_INFORMATION_CLASS = 0,
     public var Spare2: UInt = 0u,
     public var DirectoryBuffer: Long = 0L,
     public var MdlAddress: Long = 0L,
@@ -316,7 +330,7 @@ public data class FLT_PARAMETERS_14(
     public var Length: Long = 0L,
     public var Key: UInt = 0u,
     public var ByteOffset: Long = 0L,
-    public var ProcessId: Foundation.PEPROCESS = Foundation.PEPROCESS(),
+    public var ProcessId: PEPROCESS = 0L,
     public var FailImmediately: Boolean = false,
     public var ExclusiveLock: Boolean = false,
 )
@@ -362,11 +376,11 @@ public data class FLT_PARAMETERS_20_3(public var Capabilities: Long = 0L)
 
 public data class FLT_PARAMETERS_20_4(public var IoResourceRequirementList: Long = 0L)
 
-public data class FLT_PARAMETERS_20_1(public var Type: System.SystemServices.DEVICE_RELATION_TYPE = System.SystemServices.DEVICE_RELATION_TYPE())
+public data class FLT_PARAMETERS_20_1(public var Type: DEVICE_RELATION_TYPE = 0)
 
-public data class FLT_PARAMETERS_20_8(public var DeviceTextType: System.SystemServices.DEVICE_TEXT_TYPE = System.SystemServices.DEVICE_TEXT_TYPE(), public var LocaleId: UInt = 0u)
+public data class FLT_PARAMETERS_20_8(public var DeviceTextType: DEVICE_TEXT_TYPE = 0, public var LocaleId: UInt = 0u)
 
-public data class FLT_PARAMETERS_20_7(public var IdType: System.SystemServices.BUS_QUERY_ID_TYPE = System.SystemServices.BUS_QUERY_ID_TYPE())
+public data class FLT_PARAMETERS_20_7(public var IdType: BUS_QUERY_ID_TYPE = 0)
 
 public data class FLT_PARAMETERS_20_2(
     public var InterfaceType: Long = 0L,
@@ -390,7 +404,7 @@ public data class FLT_PARAMETERS_20_0(public var AllocatedResources: Long = 0L, 
 public data class FLT_PARAMETERS_20_9(
     public var InPath: Boolean = false,
     public var Reserved: BooleanArray = BooleanArray(3),
-    public var Type: System.SystemServices.DEVICE_USAGE_NOTIFICATION_TYPE = System.SystemServices.DEVICE_USAGE_NOTIFICATION_TYPE(),
+    public var Type: DEVICE_USAGE_NOTIFICATION_TYPE = 0,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -440,7 +454,7 @@ public data class FLT_PARAMETERS_24(
 
 public data class FLT_PARAMETERS_18(
     public var Length: UInt = 0u,
-    public var StartSid: Win32.Security.PSID = Win32.Security.PSID(),
+    public var StartSid: PSID = 0L,
     public var SidList: Long = 0L,
     public var SidListLength: UInt = 0u,
     public var QuotaBuffer: Long = 0L,
@@ -487,7 +501,7 @@ public data class FLT_PARAMETERS_6(
 public data class FLT_PARAMETERS_6_0(
     public var Anonymous: FLT_PARAMETERS_6_0_0 = FLT_PARAMETERS_6_0_0(),
     public var ClusterCount: UInt = 0u,
-    public var DeleteHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var DeleteHandle: HANDLE = 0L,
 )
 
 public data class FLT_PARAMETERS_6_0_0(public var ReplaceIfExists: Boolean = false, public var AdvanceOnly: Boolean = false)
@@ -498,7 +512,7 @@ public data class FLT_PARAMETERS_19(
     public var MdlAddress: Long = 0L,
 )
 
-public data class FLT_PARAMETERS_16(public var SecurityInformation: UInt = 0u, public var SecurityDescriptor: Win32.Security.PSECURITY_DESCRIPTOR = Win32.Security.PSECURITY_DESCRIPTOR())
+public data class FLT_PARAMETERS_16(public var SecurityInformation: UInt = 0u, public var SecurityDescriptor: PSECURITY_DESCRIPTOR = 0L)
 
 public data class FLT_PARAMETERS_10(
     public var Length: UInt = 0u,
@@ -678,7 +692,7 @@ public data class FLT_VOLUME_PROPERTIES(
     public var AlignmentRequirement: UInt = 0u,
     public var SectorSize: UShort = 0u,
     public var Flags: UShort = 0u,
-    public var FileSystemDriverName: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
-    public var FileSystemDeviceName: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
-    public var RealDeviceName: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
+    public var FileSystemDriverName: UNICODE_STRING = UNICODE_STRING(),
+    public var FileSystemDeviceName: UNICODE_STRING = UNICODE_STRING(),
+    public var RealDeviceName: UNICODE_STRING = UNICODE_STRING(),
 )

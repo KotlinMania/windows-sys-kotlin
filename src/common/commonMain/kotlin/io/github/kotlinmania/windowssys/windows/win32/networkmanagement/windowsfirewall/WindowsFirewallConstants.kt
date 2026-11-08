@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfirewall
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 
@@ -285,22 +286,22 @@ public val NET_FW_SERVICE_TYPE_MAX: NET_FW_SERVICE_TYPE = 4
 
 public val NET_FW_SERVICE_UPNP: NET_FW_SERVICE_TYPE = 1
 
-public val NetFwAuthorizedApplication: GUID = GUID.from_u128(0xec9846b327624a6buL, 0xa2146acb603462d2uL)
+public val NetFwAuthorizedApplication: GUID = GUID.from_u128(U128(0xec9846b327624a6buL, 0xa2146acb603462d2uL))
 
-public val NetFwMgr: GUID = GUID.from_u128(0x304ce9426e3940d8uL, 0x943ab913c40c9cd4uL)
+public val NetFwMgr: GUID = GUID.from_u128(U128(0x304ce9426e3940d8uL, 0x943ab913c40c9cd4uL))
 
-public val NetFwOpenPort: GUID = GUID.from_u128(0xca545c637ad4a6cuL, 0xbf929f7610067ef5uL)
+public val NetFwOpenPort: GUID = GUID.from_u128(U128(0xca545c637ad4a6cuL, 0xbf929f7610067ef5uL))
 
-public val NetFwPolicy2: GUID = GUID.from_u128(0xe2b3c97f6ae141acuL, 0x817af6f92166d7dduL)
+public val NetFwPolicy2: GUID = GUID.from_u128(U128(0xe2b3c97f6ae141acuL, 0x817af6f92166d7dduL))
 
-public val NetFwProduct: GUID = GUID.from_u128(0x9d745ed8c5144d1duL, 0xbf42751fed2d5ac7uL)
+public val NetFwProduct: GUID = GUID.from_u128(U128(0x9d745ed8c5144d1duL, 0xbf42751fed2d5ac7uL))
 
-public val NetFwProducts: GUID = GUID.from_u128(0xcc19079b82724d73uL, 0xbb70cdb533527b61uL)
+public val NetFwProducts: GUID = GUID.from_u128(U128(0xcc19079b82724d73uL, 0xbb70cdb533527b61uL))
 
-public val NetFwRule: GUID = GUID.from_u128(0x2c5bc43e33694c33uL, 0xab0cbe9469677af4uL)
+public val NetFwRule: GUID = GUID.from_u128(U128(0x2c5bc43e33694c33uL, 0xab0cbe9469677af4uL))
 
-public val NetSharingManager: GUID = GUID.from_u128(0x5c63c1ad39564ff8uL, 0x848640034758315buL)
+public val NetSharingManager: GUID = GUID.from_u128(U128(0x5c63c1ad39564ff8uL, 0x848640034758315buL))
 
 public val S_OBJECT_NO_LONGER_VALID: HRESULT = 0x2u.toInt()
 
-public val UPnPNAT: GUID = GUID.from_u128(0xae1e00aa3fd5403cuL, 0x8a272bbdc30cd0e1uL)
+public val UPnPNAT: GUID = GUID.from_u128(U128(0xae1e00aa3fd5403cuL, 0x8a272bbdc30cd0e1uL))

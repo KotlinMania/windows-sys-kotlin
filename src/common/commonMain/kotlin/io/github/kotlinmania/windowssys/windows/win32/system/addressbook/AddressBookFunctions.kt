@@ -4,6 +4,8 @@ import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
 
 public fun interface FnCallback {
     public operator fun invoke(cbsize: UInt, lppbuffer: Long): Int
@@ -25,8 +27,8 @@ public fun interface FnCallback4 {
     public operator fun invoke(lpvcontext: Long, cnotification: UInt, lpnotifications: Long): Int
 }
 
-public fun BuildDisplayTable(lpallocatebuffer: LPALLOCATEBUFFER, lpallocatemore: LPALLOCATEMORE, lpfreebuffer: LPFREEBUFFER, lpmalloc: Long, hinstance: Foundation.HINSTANCE, cpages: UInt, lppage: Long, ulflags: UInt, lpptable: Long, lpptbldata: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mapi32.dll", "BuildDisplayTable", longArrayOf(Win32DynamicFfi.objectSlot(lpallocatebuffer), Win32DynamicFfi.objectSlot(lpallocatemore), Win32DynamicFfi.objectSlot(lpfreebuffer), lpmalloc, Win32DynamicFfi.objectSlot(hinstance), cpages.toLong(), lppage, ulflags.toLong(), lpptable, lpptbldata)).toInt()
+public fun BuildDisplayTable(lpallocatebuffer: LPALLOCATEBUFFER, lpallocatemore: LPALLOCATEMORE, lpfreebuffer: LPFREEBUFFER, lpmalloc: Long, hinstance: HINSTANCE, cpages: UInt, lppage: Long, ulflags: UInt, lpptable: Long, lpptbldata: Long): HRESULT {
+    return Win32DynamicFfi.invoke("mapi32.dll", "BuildDisplayTable", longArrayOf(Win32DynamicFfi.objectSlot(lpallocatebuffer), Win32DynamicFfi.objectSlot(lpallocatemore), Win32DynamicFfi.objectSlot(lpfreebuffer), lpmalloc, hinstance, cpages.toLong(), lppage, ulflags.toLong(), lpptable, lpptbldata)).toInt()
 }
 
 public fun ChangeIdleRoutine(ftg: Long, lpfnidle: PFNIDLE, lpvidleparam: Long, priidle: Short, csecidle: UInt, iroidle: UShort, ircidle: UShort) {
@@ -77,29 +79,29 @@ public fun FreeProws(lprows: Long) {
     Win32DynamicFfi.invoke("mapi32.dll", "FreeProws", longArrayOf(lprows))
 }
 
-public fun FtAddFt(ftaddend1: Foundation.FILETIME, ftaddend2: Foundation.FILETIME): Foundation.FILETIME {
-    Win32DynamicFfi.invoke("mapi32.dll", "FtAddFt", longArrayOf(Win32DynamicFfi.objectSlot(ftaddend1), Win32DynamicFfi.objectSlot(ftaddend2)))
-    return Foundation.FILETIME()
+public fun FtAddFt(ftaddend1: FILETIME, ftaddend2: FILETIME): FILETIME {
+    val rawRet = Win32DynamicFfi.invoke("mapi32.dll", "FtAddFt", longArrayOf(((ftaddend1.dwLowDateTime.toLong() and 0xFFFF_FFFFL) or ((ftaddend1.dwHighDateTime.toLong() and 0xFFFF_FFFFL) shl 32)), ((ftaddend2.dwLowDateTime.toLong() and 0xFFFF_FFFFL) or ((ftaddend2.dwHighDateTime.toLong() and 0xFFFF_FFFFL) shl 32))))
+    return FILETIME(dwLowDateTime = rawRet.toUInt(), dwHighDateTime = (rawRet ushr 32).toUInt())
 }
 
-public fun FtMulDw(ftmultiplier: UInt, ftmultiplicand: Foundation.FILETIME): Foundation.FILETIME {
-    Win32DynamicFfi.invoke("mapi32.dll", "FtMulDw", longArrayOf(ftmultiplier.toLong(), Win32DynamicFfi.objectSlot(ftmultiplicand)))
-    return Foundation.FILETIME()
+public fun FtMulDw(ftmultiplier: UInt, ftmultiplicand: FILETIME): FILETIME {
+    val rawRet = Win32DynamicFfi.invoke("mapi32.dll", "FtMulDw", longArrayOf(ftmultiplier.toLong(), ((ftmultiplicand.dwLowDateTime.toLong() and 0xFFFF_FFFFL) or ((ftmultiplicand.dwHighDateTime.toLong() and 0xFFFF_FFFFL) shl 32))))
+    return FILETIME(dwLowDateTime = rawRet.toUInt(), dwHighDateTime = (rawRet ushr 32).toUInt())
 }
 
-public fun FtMulDwDw(ftmultiplicand: UInt, ftmultiplier: UInt): Foundation.FILETIME {
-    Win32DynamicFfi.invoke("mapi32.dll", "FtMulDwDw", longArrayOf(ftmultiplicand.toLong(), ftmultiplier.toLong()))
-    return Foundation.FILETIME()
+public fun FtMulDwDw(ftmultiplicand: UInt, ftmultiplier: UInt): FILETIME {
+    val rawRet = Win32DynamicFfi.invoke("mapi32.dll", "FtMulDwDw", longArrayOf(ftmultiplicand.toLong(), ftmultiplier.toLong()))
+    return FILETIME(dwLowDateTime = rawRet.toUInt(), dwHighDateTime = (rawRet ushr 32).toUInt())
 }
 
-public fun FtNegFt(ft: Foundation.FILETIME): Foundation.FILETIME {
-    Win32DynamicFfi.invoke("mapi32.dll", "FtNegFt", longArrayOf(Win32DynamicFfi.objectSlot(ft)))
-    return Foundation.FILETIME()
+public fun FtNegFt(ft: FILETIME): FILETIME {
+    val rawRet = Win32DynamicFfi.invoke("mapi32.dll", "FtNegFt", longArrayOf(((ft.dwLowDateTime.toLong() and 0xFFFF_FFFFL) or ((ft.dwHighDateTime.toLong() and 0xFFFF_FFFFL) shl 32))))
+    return FILETIME(dwLowDateTime = rawRet.toUInt(), dwHighDateTime = (rawRet ushr 32).toUInt())
 }
 
-public fun FtSubFt(ftminuend: Foundation.FILETIME, ftsubtrahend: Foundation.FILETIME): Foundation.FILETIME {
-    Win32DynamicFfi.invoke("mapi32.dll", "FtSubFt", longArrayOf(Win32DynamicFfi.objectSlot(ftminuend), Win32DynamicFfi.objectSlot(ftsubtrahend)))
-    return Foundation.FILETIME()
+public fun FtSubFt(ftminuend: FILETIME, ftsubtrahend: FILETIME): FILETIME {
+    val rawRet = Win32DynamicFfi.invoke("mapi32.dll", "FtSubFt", longArrayOf(((ftminuend.dwLowDateTime.toLong() and 0xFFFF_FFFFL) or ((ftminuend.dwHighDateTime.toLong() and 0xFFFF_FFFFL) shl 32)), ((ftsubtrahend.dwLowDateTime.toLong() and 0xFFFF_FFFFL) or ((ftsubtrahend.dwHighDateTime.toLong() and 0xFFFF_FFFFL) shl 32))))
+    return FILETIME(dwLowDateTime = rawRet.toUInt(), dwHighDateTime = (rawRet ushr 32).toUInt())
 }
 
 public fun FtgRegisterIdleRoutine(lpfnidle: PFNIDLE, lpvidleparam: Long, priidle: Short, csecidle: UInt, iroidle: UShort): Long {

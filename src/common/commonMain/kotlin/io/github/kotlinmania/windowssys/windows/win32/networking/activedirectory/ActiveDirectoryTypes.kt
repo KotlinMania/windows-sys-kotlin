@@ -2,6 +2,9 @@ package io.github.kotlinmania.windowssys.windows.win32.networking.activedirector
 
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
 
 public typealias ADSI_DIALECT_ENUM = Int
 
@@ -96,25 +99,25 @@ public typealias DS_SPN_NAME_TYPE = Int
 public typealias DS_SPN_WRITE_OP = Int
 
 public fun interface LPCQADDFORMSPROCFn {
-    public operator fun invoke(lparam: Foundation.LPARAM, pform: Long): HRESULT
+    public operator fun invoke(lparam: LPARAM, pform: Long): HRESULT
 }
 
 public typealias LPCQADDFORMSPROC = LPCQADDFORMSPROCFn?
 
 public fun interface LPCQADDPAGESPROCFn {
-    public operator fun invoke(lparam: Foundation.LPARAM, clsidform: Long, ppage: Long): HRESULT
+    public operator fun invoke(lparam: LPARAM, clsidform: Long, ppage: Long): HRESULT
 }
 
 public typealias LPCQADDPAGESPROC = LPCQADDPAGESPROCFn?
 
 public fun interface LPCQPAGEPROCFn {
-    public operator fun invoke(ppage: Long, hwnd: Foundation.HWND, umsg: UInt, wparam: Foundation.WPARAM, lparam: Foundation.LPARAM): HRESULT
+    public operator fun invoke(ppage: Long, hwnd: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): HRESULT
 }
 
 public typealias LPCQPAGEPROC = LPCQPAGEPROCFn?
 
 public fun interface LPDSENUMATTRIBUTESFn {
-    public operator fun invoke(lparam: Foundation.LPARAM, pszattributename: PCWSTR, pszdisplayname: PCWSTR, dwflags: UInt): HRESULT
+    public operator fun invoke(lparam: LPARAM, pszattributename: PCWSTR, pszdisplayname: PCWSTR, dwflags: UInt): HRESULT
 }
 
 public typealias LPDSENUMATTRIBUTES = LPDSENUMATTRIBUTESFn?

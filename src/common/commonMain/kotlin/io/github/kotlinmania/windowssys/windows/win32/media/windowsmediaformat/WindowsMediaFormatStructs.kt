@@ -6,6 +6,8 @@ import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.BITMAPINFOHEADER
 
 public data class AM_WMT_EVENT_DATA(public var hrStatus: HRESULT = 0, public var pData: Long = 0L)
 
@@ -218,17 +220,17 @@ public data class WMT_WEBSTREAM_SAMPLE_HEADER(
 }
 
 public data class WMVIDEOINFOHEADER(
-    public var rcSource: Foundation.RECT = Foundation.RECT(),
-    public var rcTarget: Foundation.RECT = Foundation.RECT(),
+    public var rcSource: RECT = RECT(),
+    public var rcTarget: RECT = RECT(),
     public var dwBitRate: UInt = 0u,
     public var dwBitErrorRate: UInt = 0u,
     public var AvgTimePerFrame: Long = 0L,
-    public var bmiHeader: Graphics.Gdi.BITMAPINFOHEADER = Graphics.Gdi.BITMAPINFOHEADER(),
+    public var bmiHeader: BITMAPINFOHEADER = BITMAPINFOHEADER(),
 )
 
 public data class WMVIDEOINFOHEADER2(
-    public var rcSource: Foundation.RECT = Foundation.RECT(),
-    public var rcTarget: Foundation.RECT = Foundation.RECT(),
+    public var rcSource: RECT = RECT(),
+    public var rcTarget: RECT = RECT(),
     public var dwBitRate: UInt = 0u,
     public var dwBitErrorRate: UInt = 0u,
     public var AvgTimePerFrame: Long = 0L,
@@ -238,7 +240,7 @@ public data class WMVIDEOINFOHEADER2(
     public var dwPictAspectRatioY: UInt = 0u,
     public var dwReserved1: UInt = 0u,
     public var dwReserved2: UInt = 0u,
-    public var bmiHeader: Graphics.Gdi.BITMAPINFOHEADER = Graphics.Gdi.BITMAPINFOHEADER(),
+    public var bmiHeader: BITMAPINFOHEADER = BITMAPINFOHEADER(),
 )
 
 public data class WM_ADDRESS_ACCESSENTRY(public var dwIPAddress: UInt = 0u, public var dwMask: UInt = 0u)

@@ -5,6 +5,8 @@ import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
 
 public typealias ADDRESS_MODE = Int
 
@@ -165,37 +167,37 @@ public fun interface PFINDFILEINPATHCALLBACKWFn {
 public typealias PFINDFILEINPATHCALLBACKW = PFINDFILEINPATHCALLBACKWFn?
 
 public fun interface PFIND_DEBUG_FILE_CALLBACKFn {
-    public operator fun invoke(filehandle: Foundation.HANDLE, filename: PCSTR, callerdata: Long): BOOL
+    public operator fun invoke(filehandle: HANDLE, filename: PCSTR, callerdata: Long): BOOL
 }
 
 public typealias PFIND_DEBUG_FILE_CALLBACK = PFIND_DEBUG_FILE_CALLBACKFn?
 
 public fun interface PFIND_DEBUG_FILE_CALLBACKWFn {
-    public operator fun invoke(filehandle: Foundation.HANDLE, filename: PCWSTR, callerdata: Long): BOOL
+    public operator fun invoke(filehandle: HANDLE, filename: PCWSTR, callerdata: Long): BOOL
 }
 
 public typealias PFIND_DEBUG_FILE_CALLBACKW = PFIND_DEBUG_FILE_CALLBACKWFn?
 
 public fun interface PFIND_EXE_FILE_CALLBACKFn {
-    public operator fun invoke(filehandle: Foundation.HANDLE, filename: PCSTR, callerdata: Long): BOOL
+    public operator fun invoke(filehandle: HANDLE, filename: PCSTR, callerdata: Long): BOOL
 }
 
 public typealias PFIND_EXE_FILE_CALLBACK = PFIND_EXE_FILE_CALLBACKFn?
 
 public fun interface PFIND_EXE_FILE_CALLBACKWFn {
-    public operator fun invoke(filehandle: Foundation.HANDLE, filename: PCWSTR, callerdata: Long): BOOL
+    public operator fun invoke(filehandle: HANDLE, filename: PCWSTR, callerdata: Long): BOOL
 }
 
 public typealias PFIND_EXE_FILE_CALLBACKW = PFIND_EXE_FILE_CALLBACKWFn?
 
 public fun interface PFUNCTION_TABLE_ACCESS_ROUTINE64Fn {
-    public operator fun invoke(ahprocess: Foundation.HANDLE, addrbase: ULong): Long
+    public operator fun invoke(ahprocess: HANDLE, addrbase: ULong): Long
 }
 
 public typealias PFUNCTION_TABLE_ACCESS_ROUTINE64 = PFUNCTION_TABLE_ACCESS_ROUTINE64Fn?
 
 public fun interface PGET_MODULE_BASE_ROUTINE64Fn {
-    public operator fun invoke(hprocess: Foundation.HANDLE, address: ULong): ULong
+    public operator fun invoke(hprocess: HANDLE, address: ULong): ULong
 }
 
 public typealias PGET_MODULE_BASE_ROUTINE64 = PGET_MODULE_BASE_ROUTINE64Fn?
@@ -207,7 +209,7 @@ public fun interface PGET_RUNTIME_FUNCTION_CALLBACKFn {
 public typealias PGET_RUNTIME_FUNCTION_CALLBACK = PGET_RUNTIME_FUNCTION_CALLBACKFn?
 
 public fun interface PGET_TARGET_ATTRIBUTE_VALUE64Fn {
-    public operator fun invoke(hprocess: Foundation.HANDLE, attribute: UInt, attributedata: ULong, attributevalue: Long): BOOL
+    public operator fun invoke(hprocess: HANDLE, attribute: UInt, attributedata: ULong, attributevalue: Long): BOOL
 }
 
 public typealias PGET_TARGET_ATTRIBUTE_VALUE64 = PGET_TARGET_ATTRIBUTE_VALUE64Fn?
@@ -231,7 +233,7 @@ public fun interface PIMAGEHLP_STATUS_ROUTINE64Fn {
 public typealias PIMAGEHLP_STATUS_ROUTINE64 = PIMAGEHLP_STATUS_ROUTINE64Fn?
 
 public fun interface PREAD_PROCESS_MEMORY_ROUTINE64Fn {
-    public operator fun invoke(hprocess: Foundation.HANDLE, qwbaseaddress: ULong, lpbuffer: Long, nsize: UInt, lpnumberofbytesread: Long): BOOL
+    public operator fun invoke(hprocess: HANDLE, qwbaseaddress: ULong, lpbuffer: Long, nsize: UInt, lpnumberofbytesread: Long): BOOL
 }
 
 public typealias PREAD_PROCESS_MEMORY_ROUTINE64 = PREAD_PROCESS_MEMORY_ROUTINE64Fn?
@@ -443,19 +445,19 @@ public fun interface PSYMBOLSERVERWEXPROCFn {
 public typealias PSYMBOLSERVERWEXPROC = PSYMBOLSERVERWEXPROCFn?
 
 public fun interface PSYMBOL_FUNCENTRY_CALLBACKFn {
-    public operator fun invoke(hprocess: Foundation.HANDLE, addrbase: UInt, usercontext: Long): Long
+    public operator fun invoke(hprocess: HANDLE, addrbase: UInt, usercontext: Long): Long
 }
 
 public typealias PSYMBOL_FUNCENTRY_CALLBACK = PSYMBOL_FUNCENTRY_CALLBACKFn?
 
 public fun interface PSYMBOL_FUNCENTRY_CALLBACK64Fn {
-    public operator fun invoke(hprocess: Foundation.HANDLE, addrbase: ULong, usercontext: ULong): Long
+    public operator fun invoke(hprocess: HANDLE, addrbase: ULong, usercontext: ULong): Long
 }
 
 public typealias PSYMBOL_FUNCENTRY_CALLBACK64 = PSYMBOL_FUNCENTRY_CALLBACK64Fn?
 
 public fun interface PSYMBOL_REGISTERED_CALLBACK64Fn {
-    public operator fun invoke(hprocess: Foundation.HANDLE, actioncode: UInt, callbackdata: ULong, usercontext: ULong): BOOL
+    public operator fun invoke(hprocess: HANDLE, actioncode: UInt, callbackdata: ULong, usercontext: ULong): BOOL
 }
 
 public typealias PSYMBOL_REGISTERED_CALLBACK64 = PSYMBOL_REGISTERED_CALLBACK64Fn?
@@ -497,7 +499,7 @@ public fun interface PSYM_ENUMMODULES_CALLBACKW64Fn {
 public typealias PSYM_ENUMMODULES_CALLBACKW64 = PSYM_ENUMMODULES_CALLBACKW64Fn?
 
 public fun interface PSYM_ENUMPROCESSES_CALLBACKFn {
-    public operator fun invoke(hprocess: Foundation.HANDLE, usercontext: Long): BOOL
+    public operator fun invoke(hprocess: HANDLE, usercontext: Long): BOOL
 }
 
 public typealias PSYM_ENUMPROCESSES_CALLBACK = PSYM_ENUMPROCESSES_CALLBACKFn?
@@ -527,7 +529,7 @@ public fun interface PSYM_ENUMSYMBOLS_CALLBACK64WFn {
 public typealias PSYM_ENUMSYMBOLS_CALLBACK64W = PSYM_ENUMSYMBOLS_CALLBACK64WFn?
 
 public fun interface PTRANSLATE_ADDRESS_ROUTINE64Fn {
-    public operator fun invoke(hprocess: Foundation.HANDLE, hthread: Foundation.HANDLE, lpaddr: Long): ULong
+    public operator fun invoke(hprocess: HANDLE, hthread: HANDLE, lpaddr: Long): ULong
 }
 
 public typealias PTRANSLATE_ADDRESS_ROUTINE64 = PTRANSLATE_ADDRESS_ROUTINE64Fn?
@@ -549,13 +551,13 @@ public typealias RIP_INFO_TYPE = UInt
 public typealias RTL_VIRTUAL_UNWIND_HANDLER_TYPE = UInt
 
 public fun interface SYMADDSOURCESTREAMFn {
-    public operator fun invoke(param0: Foundation.HANDLE, param1: ULong, param2: PCSTR, param3: Long, param4: ULong): BOOL
+    public operator fun invoke(param0: HANDLE, param1: ULong, param2: PCSTR, param3: Long, param4: ULong): BOOL
 }
 
 public typealias SYMADDSOURCESTREAM = SYMADDSOURCESTREAMFn?
 
 public fun interface SYMADDSOURCESTREAMAFn {
-    public operator fun invoke(param0: Foundation.HANDLE, param1: ULong, param2: PCSTR, param3: Long, param4: ULong): BOOL
+    public operator fun invoke(param0: HANDLE, param1: ULong, param2: PCSTR, param3: Long, param4: ULong): BOOL
 }
 
 public typealias SYMADDSOURCESTREAMA = SYMADDSOURCESTREAMAFn?
@@ -583,13 +585,13 @@ public typealias WCT_OBJECT_STATUS = Int
 public typealias WCT_OBJECT_TYPE = Int
 
 public fun interface WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVERFn {
-    public operator fun invoke(errorsourcedesc: Long, maximumsectionlength: Long): Foundation.NTSTATUS
+    public operator fun invoke(errorsourcedesc: Long, maximumsectionlength: Long): NTSTATUS
 }
 
 public typealias WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER = WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVERFn?
 
 public fun interface WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVERFn {
-    public operator fun invoke(context: Long, errorsourceid: UInt): Foundation.NTSTATUS
+    public operator fun invoke(context: Long, errorsourceid: UInt): NTSTATUS
 }
 
 public typealias WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER = WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVERFn?

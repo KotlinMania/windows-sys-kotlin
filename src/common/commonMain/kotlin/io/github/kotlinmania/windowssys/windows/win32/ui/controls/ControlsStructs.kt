@@ -7,6 +7,27 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.COLORREF
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.SIZE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.SYSTEMTIME
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBITMAP
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBRUSH
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HMONITOR
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HPALETTE
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HPEN
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.HKEY
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.POINTER_PEN_INFO
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer.POINTER_TOUCH_INFO
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.DLGPROC
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HICON
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.POINTER_INPUT_TYPE
 
 public data class BP_ANIMATIONPARAMS(
     public var cbSize: UInt = 0u,
@@ -24,7 +45,7 @@ public data class BP_PAINTPARAMS(
 
 public data class BUTTON_IMAGELIST(
     public var himl: HIMAGELIST = 0L,
-    public var margin: Foundation.RECT = Foundation.RECT(),
+    public var margin: RECT = RECT(),
     public var uAlign: BUTTON_IMAGELIST_ALIGN = 0u,
 )
 
@@ -32,7 +53,7 @@ public data class BUTTON_SPLITINFO(
     public var mask: UInt = 0u,
     public var himlGlyph: HIMAGELIST = 0L,
     public var uSplitStyle: UInt = 0u,
-    public var size: Foundation.SIZE = Foundation.SIZE(),
+    public var size: SIZE = SIZE(),
 )
 
 public data class CCINFOA(
@@ -219,12 +240,12 @@ public data class CCSTYLEW(
     }
 }
 
-public data class COLORMAP(public var from: Foundation.COLORREF = Foundation.COLORREF(), public var to: Foundation.COLORREF = Foundation.COLORREF())
+public data class COLORMAP(public var from: COLORREF = 0u, public var to: COLORREF = 0u)
 
 public data class COLORSCHEME(
     public var dwSize: UInt = 0u,
-    public var clrBtnHighlight: Foundation.COLORREF = Foundation.COLORREF(),
-    public var clrBtnShadow: Foundation.COLORREF = Foundation.COLORREF(),
+    public var clrBtnHighlight: COLORREF = 0u,
+    public var clrBtnShadow: COLORREF = 0u,
 )
 
 public data class COMBOBOXEXITEMA(
@@ -236,7 +257,7 @@ public data class COMBOBOXEXITEMA(
     public var iSelectedImage: Int = 0,
     public var iOverlay: Int = 0,
     public var iIndent: Int = 0,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
 )
 
 public data class COMBOBOXEXITEMW(
@@ -248,23 +269,23 @@ public data class COMBOBOXEXITEMW(
     public var iSelectedImage: Int = 0,
     public var iOverlay: Int = 0,
     public var iIndent: Int = 0,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
 )
 
 public data class COMBOBOXINFO(
     public var cbSize: UInt = 0u,
-    public var rcItem: Foundation.RECT = Foundation.RECT(),
-    public var rcButton: Foundation.RECT = Foundation.RECT(),
+    public var rcItem: RECT = RECT(),
+    public var rcButton: RECT = RECT(),
     public var stateButton: COMBOBOXINFO_BUTTON_STATE = 0u,
-    public var hwndCombo: Foundation.HWND = Foundation.HWND(),
-    public var hwndItem: Foundation.HWND = Foundation.HWND(),
-    public var hwndList: Foundation.HWND = Foundation.HWND(),
+    public var hwndCombo: HWND = 0L,
+    public var hwndItem: HWND = 0L,
+    public var hwndList: HWND = 0L,
 )
 
 public data class COMPAREITEMSTRUCT(
     public var CtlType: DRAWITEMSTRUCT_CTL_TYPE = 0u,
     public var CtlID: UInt = 0u,
-    public var hwndItem: Foundation.HWND = Foundation.HWND(),
+    public var hwndItem: HWND = 0L,
     public var itemID1: UInt = 0u,
     public var itemData1: ULong = 0uL,
     public var itemID2: UInt = 0u,
@@ -274,20 +295,20 @@ public data class COMPAREITEMSTRUCT(
 
 public data class DATETIMEPICKERINFO(
     public var cbSize: UInt = 0u,
-    public var rcCheck: Foundation.RECT = Foundation.RECT(),
+    public var rcCheck: RECT = RECT(),
     public var stateCheck: UInt = 0u,
-    public var rcButton: Foundation.RECT = Foundation.RECT(),
+    public var rcButton: RECT = RECT(),
     public var stateButton: UInt = 0u,
-    public var hwndEdit: Foundation.HWND = Foundation.HWND(),
-    public var hwndUD: Foundation.HWND = Foundation.HWND(),
-    public var hwndDropDown: Foundation.HWND = Foundation.HWND(),
+    public var hwndEdit: HWND = 0L,
+    public var hwndUD: HWND = 0L,
+    public var hwndDropDown: HWND = 0L,
 )
 
 public data class DELETEITEMSTRUCT(
     public var CtlType: DRAWITEMSTRUCT_CTL_TYPE = 0u,
     public var CtlID: UInt = 0u,
     public var itemID: UInt = 0u,
-    public var hwndItem: Foundation.HWND = Foundation.HWND(),
+    public var hwndItem: HWND = 0L,
     public var itemData: ULong = 0uL,
 )
 
@@ -295,8 +316,8 @@ public data class DPASTREAMINFO(public var iPos: Int = 0, public var pvItem: Lon
 
 public data class DRAGLISTINFO(
     public var uNotification: DRAGLISTINFO_NOTIFICATION_FLAGS = 0u,
-    public var hWnd: Foundation.HWND = Foundation.HWND(),
-    public var ptCursor: Foundation.POINT = Foundation.POINT(),
+    public var hWnd: HWND = 0L,
+    public var ptCursor: POINT = POINT(),
 )
 
 public data class DRAWITEMSTRUCT(
@@ -305,26 +326,26 @@ public data class DRAWITEMSTRUCT(
     public var itemID: UInt = 0u,
     public var itemAction: ODA_FLAGS = 0u,
     public var itemState: ODS_FLAGS = 0u,
-    public var hwndItem: Foundation.HWND = Foundation.HWND(),
-    public var hDC: Graphics.Gdi.HDC = Graphics.Gdi.HDC(),
-    public var rcItem: Foundation.RECT = Foundation.RECT(),
+    public var hwndItem: HWND = 0L,
+    public var hDC: HDC = 0L,
+    public var rcItem: RECT = RECT(),
     public var itemData: ULong = 0uL,
 )
 
 public data class DTBGOPTS(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var rcClip: Foundation.RECT = Foundation.RECT(),
+    public var rcClip: RECT = RECT(),
 )
 
 public data class DTTOPTS(
     public var dwSize: UInt = 0u,
     public var dwFlags: DTTOPTS_FLAGS = 0u,
-    public var crText: Foundation.COLORREF = Foundation.COLORREF(),
-    public var crBorder: Foundation.COLORREF = Foundation.COLORREF(),
-    public var crShadow: Foundation.COLORREF = Foundation.COLORREF(),
+    public var crText: COLORREF = 0u,
+    public var crBorder: COLORREF = 0u,
+    public var crShadow: COLORREF = 0u,
     public var iTextShadowType: Int = 0,
-    public var ptShadowOffset: Foundation.POINT = Foundation.POINT(),
+    public var ptShadowOffset: POINT = POINT(),
     public var iBorderSize: Int = 0,
     public var iFontPropId: Int = 0,
     public var iColorPropId: Int = 0,
@@ -332,7 +353,7 @@ public data class DTTOPTS(
     public var fApplyOverlay: BOOL = 0,
     public var iGlowSize: Int = 0,
     public var pfnDrawTextCallback: DTT_CALLBACK_PROC = null,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
 )
 
 public data class EDITBALLOONTIP(
@@ -343,7 +364,7 @@ public data class EDITBALLOONTIP(
 )
 
 public data class HDHITTESTINFO(
-    public var pt: Foundation.POINT = Foundation.POINT(),
+    public var pt: POINT = POINT(),
     public var flags: HEADER_HITTEST_INFO_FLAGS = 0u,
     public var iItem: Int = 0,
 )
@@ -352,10 +373,10 @@ public data class HDITEMA(
     public var mask: HDI_MASK = 0u,
     public var cxy: Int = 0,
     public var pszText: PSTR = 0L,
-    public var hbm: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(),
+    public var hbm: HBITMAP = 0L,
     public var cchTextMax: Int = 0,
     public var fmt: HEADER_CONTROL_FORMAT_FLAGS = 0,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
     public var iImage: Int = 0,
     public var iOrder: Int = 0,
     public var type: HEADER_CONTROL_FORMAT_TYPE = 0u,
@@ -367,10 +388,10 @@ public data class HDITEMW(
     public var mask: HDI_MASK = 0u,
     public var cxy: Int = 0,
     public var pszText: PWSTR = 0L,
-    public var hbm: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(),
+    public var hbm: HBITMAP = 0L,
     public var cchTextMax: Int = 0,
     public var fmt: HEADER_CONTROL_FORMAT_FLAGS = 0,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
     public var iImage: Int = 0,
     public var iOrder: Int = 0,
     public var type: HEADER_CONTROL_FORMAT_TYPE = 0u,
@@ -385,31 +406,31 @@ public data class HD_TEXTFILTERA(public var pszText: PSTR = 0L, public var cchTe
 public data class HD_TEXTFILTERW(public var pszText: PWSTR = 0L, public var cchTextMax: Int = 0)
 
 public data class IMAGEINFO(
-    public var hbmImage: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(),
-    public var hbmMask: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(),
+    public var hbmImage: HBITMAP = 0L,
+    public var hbmMask: HBITMAP = 0L,
     public var Unused1: Int = 0,
     public var Unused2: Int = 0,
-    public var rcImage: Foundation.RECT = Foundation.RECT(),
+    public var rcImage: RECT = RECT(),
 )
 
 public class IMAGELISTDRAWPARAMS(
     public var cbSize: UInt = 0u,
     public var himl: HIMAGELIST = 0L,
     public var i: Int = 0,
-    public var hdcDst: Graphics.Gdi.HDC = Graphics.Gdi.HDC(),
+    public var hdcDst: HDC = 0L,
     public var x: Int = 0,
     public var y: Int = 0,
     public var cx: Int = 0,
     public var cy: Int = 0,
     public var xBitmap: Int = 0,
     public var yBitmap: Int = 0,
-    public var rgbBk: Foundation.COLORREF = Foundation.COLORREF(),
-    public var rgbFg: Foundation.COLORREF = Foundation.COLORREF(),
+    public var rgbBk: COLORREF = 0u,
+    public var rgbFg: COLORREF = 0u,
     public var fStyle: UInt = 0u,
     public var dwRop: UInt = 0u,
     public var fState: UInt = 0u,
     public var Frame: UInt = 0u,
-    public var crEffect: Foundation.COLORREF = Foundation.COLORREF(),
+    public var crEffect: COLORREF = 0u,
 )
 
 public data class IMAGELISTSTATS(
@@ -437,7 +458,7 @@ public data class INTLIST(public var iValueCount: Int = 0, public var iValues: I
     }
 }
 
-public data class LHITTESTINFO(public var pt: Foundation.POINT = Foundation.POINT(), public var item: LITEM = LITEM())
+public data class LHITTESTINFO(public var pt: POINT = POINT(), public var item: LITEM = LITEM())
 
 public data class LITEM(
     public var mask: LIST_ITEM_FLAGS = 0u,
@@ -472,7 +493,7 @@ public data class LITEM(
 
 public data class LVBKIMAGEA(
     public var ulFlags: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = 0u,
-    public var hbm: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(),
+    public var hbm: HBITMAP = 0L,
     public var pszImage: PSTR = 0L,
     public var cchImageMax: UInt = 0u,
     public var xOffsetPercent: Int = 0,
@@ -481,7 +502,7 @@ public data class LVBKIMAGEA(
 
 public data class LVBKIMAGEW(
     public var ulFlags: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = 0u,
-    public var hbm: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(),
+    public var hbm: HBITMAP = 0L,
     public var pszImage: PWSTR = 0L,
     public var cchImageMax: UInt = 0u,
     public var xOffsetPercent: Int = 0,
@@ -519,16 +540,16 @@ public data class LVCOLUMNW(
 public data class LVFINDINFOA(
     public var flags: LVFINDINFOW_FLAGS = 0u,
     public var psz: PCSTR = 0L,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
-    public var pt: Foundation.POINT = Foundation.POINT(),
+    public var lParam: LPARAM = 0L,
+    public var pt: POINT = POINT(),
     public var vkDirection: UInt = 0u,
 )
 
 public data class LVFINDINFOW(
     public var flags: LVFINDINFOW_FLAGS = 0u,
     public var psz: PCWSTR = 0L,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
-    public var pt: Foundation.POINT = Foundation.POINT(),
+    public var lParam: LPARAM = 0L,
+    public var pt: POINT = POINT(),
     public var vkDirection: UInt = 0u,
 )
 
@@ -582,16 +603,16 @@ public data class LVGROUPMETRICS(
     public var Top: UInt = 0u,
     public var Right: UInt = 0u,
     public var Bottom: UInt = 0u,
-    public var crLeft: Foundation.COLORREF = Foundation.COLORREF(),
-    public var crTop: Foundation.COLORREF = Foundation.COLORREF(),
-    public var crRight: Foundation.COLORREF = Foundation.COLORREF(),
-    public var crBottom: Foundation.COLORREF = Foundation.COLORREF(),
-    public var crHeader: Foundation.COLORREF = Foundation.COLORREF(),
-    public var crFooter: Foundation.COLORREF = Foundation.COLORREF(),
+    public var crLeft: COLORREF = 0u,
+    public var crTop: COLORREF = 0u,
+    public var crRight: COLORREF = 0u,
+    public var crBottom: COLORREF = 0u,
+    public var crHeader: COLORREF = 0u,
+    public var crFooter: COLORREF = 0u,
 )
 
 public data class LVHITTESTINFO(
-    public var pt: Foundation.POINT = Foundation.POINT(),
+    public var pt: POINT = POINT(),
     public var flags: LVHITTESTINFO_FLAGS = 0u,
     public var iItem: Int = 0,
     public var iSubItem: Int = 0,
@@ -620,7 +641,7 @@ public data class LVITEMA(
     public var pszText: PSTR = 0L,
     public var cchTextMax: Int = 0,
     public var iImage: Int = 0,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
     public var iIndent: Int = 0,
     public var iGroupId: Int = 0,
     public var cColumns: UInt = 0u,
@@ -640,7 +661,7 @@ public data class LVITEMW(
     public var pszText: PWSTR = 0L,
     public var cchTextMax: Int = 0,
     public var iImage: Int = 0,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
     public var iIndent: Int = 0,
     public var iGroupId: Int = 0,
     public var cColumns: UInt = 0u,
@@ -669,9 +690,9 @@ public data class LVTILEVIEWINFO(
     public var cbSize: UInt = 0u,
     public var dwMask: LVTILEVIEWINFO_MASK = 0u,
     public var dwFlags: LVTILEVIEWINFO_FLAGS = 0u,
-    public var sizeTile: Foundation.SIZE = Foundation.SIZE(),
+    public var sizeTile: SIZE = SIZE(),
     public var cLines: Int = 0,
-    public var rcLabelMargin: Foundation.RECT = Foundation.RECT(),
+    public var rcLabelMargin: RECT = RECT(),
 )
 
 public data class MARGINS(
@@ -689,19 +710,19 @@ public data class MCGRIDINFO(
     public var iRow: Int = 0,
     public var iCol: Int = 0,
     public var bSelected: BOOL = 0,
-    public var stStart: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
-    public var stEnd: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
-    public var rc: Foundation.RECT = Foundation.RECT(),
+    public var stStart: SYSTEMTIME = SYSTEMTIME(),
+    public var stEnd: SYSTEMTIME = SYSTEMTIME(),
+    public var rc: RECT = RECT(),
     public var pszName: PWSTR = 0L,
     public var cchName: ULong = 0uL,
 )
 
 public data class MCHITTESTINFO(
     public var cbSize: UInt = 0u,
-    public var pt: Foundation.POINT = Foundation.POINT(),
+    public var pt: POINT = POINT(),
     public var uHit: MCHITTESTINFO_HIT_FLAGS = 0u,
-    public var st: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
-    public var rc: Foundation.RECT = Foundation.RECT(),
+    public var st: SYSTEMTIME = SYSTEMTIME(),
+    public var rc: RECT = RECT(),
     public var iOffset: Int = 0,
     public var iRow: Int = 0,
     public var iCol: Int = 0,
@@ -716,7 +737,7 @@ public data class MEASUREITEMSTRUCT(
     public var itemData: ULong = 0uL,
 )
 
-public data class NMBCDROPDOWN(public var hdr: NMHDR = NMHDR(), public var rcButton: Foundation.RECT = Foundation.RECT())
+public data class NMBCDROPDOWN(public var hdr: NMHDR = NMHDR(), public var rcButton: RECT = RECT())
 
 public data class NMBCHOTITEM(public var hdr: NMHDR = NMHDR(), public var dwFlags: NMTBHOTITEM_FLAGS = 0u)
 
@@ -834,23 +855,23 @@ public data class NMCOMBOBOXEXW(public var hdr: NMHDR = NMHDR(), public var ceIt
 public data class NMCUSTOMDRAW(
     public var hdr: NMHDR = NMHDR(),
     public var dwDrawStage: NMCUSTOMDRAW_DRAW_STAGE = 0u,
-    public var hdc: Graphics.Gdi.HDC = Graphics.Gdi.HDC(),
-    public var rc: Foundation.RECT = Foundation.RECT(),
+    public var hdc: HDC = 0L,
+    public var rc: RECT = RECT(),
     public var dwItemSpec: ULong = 0uL,
     public var uItemState: NMCUSTOMDRAW_DRAW_STATE_FLAGS = 0u,
-    public var lItemlParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lItemlParam: LPARAM = 0L,
 )
 
 public data class NMCUSTOMSPLITRECTINFO(
     public var hdr: NMHDR = NMHDR(),
-    public var rcClient: Foundation.RECT = Foundation.RECT(),
-    public var rcButton: Foundation.RECT = Foundation.RECT(),
-    public var rcSplit: Foundation.RECT = Foundation.RECT(),
+    public var rcClient: RECT = RECT(),
+    public var rcButton: RECT = RECT(),
+    public var rcSplit: RECT = RECT(),
 )
 
 public data class NMCUSTOMTEXT(
     public var hdr: NMHDR = NMHDR(),
-    public var hDC: Graphics.Gdi.HDC = Graphics.Gdi.HDC(),
+    public var hDC: HDC = 0L,
     public var lpString: PCWSTR = 0L,
     public var nCount: Int = 0,
     public var lpRect: Long = 0L,
@@ -861,13 +882,13 @@ public data class NMCUSTOMTEXT(
 public data class NMDATETIMECHANGE(
     public var nmhdr: NMHDR = NMHDR(),
     public var dwFlags: NMDATETIMECHANGE_FLAGS = 0u,
-    public var st: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var st: SYSTEMTIME = SYSTEMTIME(),
 )
 
 public data class NMDATETIMEFORMATA(
     public var nmhdr: NMHDR = NMHDR(),
     public var pszFormat: PCSTR = 0L,
-    public var st: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var st: SYSTEMTIME = SYSTEMTIME(),
     public var pszDisplay: PCSTR = 0L,
     public var szDisplay: ByteArray = ByteArray(64),
 ) {
@@ -895,19 +916,19 @@ public data class NMDATETIMEFORMATA(
 public data class NMDATETIMEFORMATQUERYA(
     public var nmhdr: NMHDR = NMHDR(),
     public var pszFormat: PCSTR = 0L,
-    public var szMax: Foundation.SIZE = Foundation.SIZE(),
+    public var szMax: SIZE = SIZE(),
 )
 
 public data class NMDATETIMEFORMATQUERYW(
     public var nmhdr: NMHDR = NMHDR(),
     public var pszFormat: PCWSTR = 0L,
-    public var szMax: Foundation.SIZE = Foundation.SIZE(),
+    public var szMax: SIZE = SIZE(),
 )
 
 public data class NMDATETIMEFORMATW(
     public var nmhdr: NMHDR = NMHDR(),
     public var pszFormat: PCWSTR = 0L,
-    public var st: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var st: SYSTEMTIME = SYSTEMTIME(),
     public var pszDisplay: PCWSTR = 0L,
     public var szDisplay: UShortArray = UShortArray(64),
 ) {
@@ -935,14 +956,14 @@ public data class NMDATETIMEFORMATW(
 public data class NMDATETIMESTRINGA(
     public var nmhdr: NMHDR = NMHDR(),
     public var pszUserString: PCSTR = 0L,
-    public var st: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var st: SYSTEMTIME = SYSTEMTIME(),
     public var dwFlags: UInt = 0u,
 )
 
 public data class NMDATETIMESTRINGW(
     public var nmhdr: NMHDR = NMHDR(),
     public var pszUserString: PCWSTR = 0L,
-    public var st: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var st: SYSTEMTIME = SYSTEMTIME(),
     public var dwFlags: UInt = 0u,
 )
 
@@ -950,19 +971,19 @@ public data class NMDATETIMEWMKEYDOWNA(
     public var nmhdr: NMHDR = NMHDR(),
     public var nVirtKey: Int = 0,
     public var pszFormat: PCSTR = 0L,
-    public var st: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var st: SYSTEMTIME = SYSTEMTIME(),
 )
 
 public data class NMDATETIMEWMKEYDOWNW(
     public var nmhdr: NMHDR = NMHDR(),
     public var nVirtKey: Int = 0,
     public var pszFormat: PCWSTR = 0L,
-    public var st: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var st: SYSTEMTIME = SYSTEMTIME(),
 )
 
 public data class NMDAYSTATE(
     public var nmhdr: NMHDR = NMHDR(),
-    public var stStart: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var stStart: SYSTEMTIME = SYSTEMTIME(),
     public var cDayState: Int = 0,
     public var prgDayState: Long = 0L,
 )
@@ -974,7 +995,7 @@ public data class NMHDDISPINFOA(
     public var pszText: PSTR = 0L,
     public var cchTextMax: Int = 0,
     public var iImage: Int = 0,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
 )
 
 public data class NMHDDISPINFOW(
@@ -984,17 +1005,17 @@ public data class NMHDDISPINFOW(
     public var pszText: PWSTR = 0L,
     public var cchTextMax: Int = 0,
     public var iImage: Int = 0,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
 )
 
 public data class NMHDFILTERBTNCLICK(
     public var hdr: NMHDR = NMHDR(),
     public var iItem: Int = 0,
-    public var rc: Foundation.RECT = Foundation.RECT(),
+    public var rc: RECT = RECT(),
 )
 
 public data class NMHDR(
-    public var hwndFrom: Foundation.HWND = Foundation.HWND(),
+    public var hwndFrom: HWND = 0L,
     public var idFrom: ULong = 0uL,
     public var code: UInt = 0u,
 )
@@ -1026,8 +1047,8 @@ public data class NMITEMACTIVATE(
     public var uNewState: UInt = 0u,
     public var uOldState: UInt = 0u,
     public var uChanged: UInt = 0u,
-    public var ptAction: Foundation.POINT = Foundation.POINT(),
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var ptAction: POINT = POINT(),
+    public var lParam: LPARAM = 0L,
     public var uKeyFlags: UInt = 0u,
 )
 
@@ -1046,8 +1067,8 @@ public data class NMLISTVIEW(
     public var uNewState: UInt = 0u,
     public var uOldState: UInt = 0u,
     public var uChanged: LIST_VIEW_ITEM_FLAGS = 0u,
-    public var ptAction: Foundation.POINT = Foundation.POINT(),
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var ptAction: POINT = POINT(),
+    public var lParam: LPARAM = 0L,
 )
 
 public data class NMLVCACHEHINT(
@@ -1058,16 +1079,16 @@ public data class NMLVCACHEHINT(
 
 public data class NMLVCUSTOMDRAW(
     public var nmcd: NMCUSTOMDRAW = NMCUSTOMDRAW(),
-    public var clrText: Foundation.COLORREF = Foundation.COLORREF(),
-    public var clrTextBk: Foundation.COLORREF = Foundation.COLORREF(),
+    public var clrText: COLORREF = 0u,
+    public var clrTextBk: COLORREF = 0u,
     public var iSubItem: Int = 0,
     public var dwItemType: NMLVCUSTOMDRAW_ITEM_TYPE = 0u,
-    public var clrFace: Foundation.COLORREF = Foundation.COLORREF(),
+    public var clrFace: COLORREF = 0u,
     public var iIconEffect: Int = 0,
     public var iIconPhase: Int = 0,
     public var iPartId: Int = 0,
     public var iStateId: Int = 0,
-    public var rcText: Foundation.RECT = Foundation.RECT(),
+    public var rcText: RECT = RECT(),
     public var uAlign: LIST_VIEW_GROUP_ALIGN_FLAGS = 0u,
 )
 
@@ -1116,7 +1137,7 @@ public data class NMLVGETINFOTIPA(
     public var cchTextMax: Int = 0,
     public var iItem: Int = 0,
     public var iSubItem: Int = 0,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
 )
 
 public data class NMLVGETINFOTIPW(
@@ -1126,7 +1147,7 @@ public data class NMLVGETINFOTIPW(
     public var cchTextMax: Int = 0,
     public var iItem: Int = 0,
     public var iSubItem: Int = 0,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
 )
 
 public data class NMLVKEYDOWN(
@@ -1160,8 +1181,8 @@ public data class NMMOUSE(
     public var hdr: NMHDR = NMHDR(),
     public var dwItemSpec: ULong = 0uL,
     public var dwItemData: ULong = 0uL,
-    public var pt: Foundation.POINT = Foundation.POINT(),
-    public var dwHitInfo: Foundation.LPARAM = Foundation.LPARAM(),
+    public var pt: POINT = POINT(),
+    public var dwHitInfo: LPARAM = 0L,
 )
 
 public data class NMOBJECTNOTIFY(
@@ -1190,7 +1211,7 @@ public data class NMPGHOTITEM(
 public data class NMPGSCROLL(
     public var hdr: NMHDR = NMHDR(),
     public var fwKeys: NMPGSCROLL_KEYS = 0u,
-    public var rcParent: Foundation.RECT = Foundation.RECT(),
+    public var rcParent: RECT = RECT(),
     public var iDir: NMPGSCROLL_DIR = 0,
     public var iXpos: Int = 0,
     public var iYpos: Int = 0,
@@ -1200,8 +1221,8 @@ public data class NMPGSCROLL(
 public data class NMRBAUTOSIZE(
     public var hdr: NMHDR = NMHDR(),
     public var fChanged: BOOL = 0,
-    public var rcTarget: Foundation.RECT = Foundation.RECT(),
-    public var rcActual: Foundation.RECT = Foundation.RECT(),
+    public var rcTarget: RECT = RECT(),
+    public var rcActual: RECT = RECT(),
 )
 
 public data class NMREBAR(
@@ -1210,14 +1231,14 @@ public data class NMREBAR(
     public var uBand: UInt = 0u,
     public var fStyle: UInt = 0u,
     public var wID: UInt = 0u,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
 )
 
 public data class NMREBARAUTOBREAK(
     public var hdr: NMHDR = NMHDR(),
     public var uBand: UInt = 0u,
     public var wID: UInt = 0u,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
     public var uMsg: UInt = 0u,
     public var fStyleCurrent: UInt = 0u,
     public var fAutoBreak: BOOL = 0,
@@ -1227,20 +1248,20 @@ public data class NMREBARCHEVRON(
     public var hdr: NMHDR = NMHDR(),
     public var uBand: UInt = 0u,
     public var wID: UInt = 0u,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
-    public var rc: Foundation.RECT = Foundation.RECT(),
-    public var lParamNM: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
+    public var rc: RECT = RECT(),
+    public var lParamNM: LPARAM = 0L,
 )
 
 public data class NMREBARCHILDSIZE(
     public var hdr: NMHDR = NMHDR(),
     public var uBand: UInt = 0u,
     public var wID: UInt = 0u,
-    public var rcChild: Foundation.RECT = Foundation.RECT(),
-    public var rcBand: Foundation.RECT = Foundation.RECT(),
+    public var rcChild: RECT = RECT(),
+    public var rcBand: RECT = RECT(),
 )
 
-public data class NMREBARSPLITTER(public var hdr: NMHDR = NMHDR(), public var rcSizing: Foundation.RECT = Foundation.RECT())
+public data class NMREBARSPLITTER(public var hdr: NMHDR = NMHDR(), public var rcSizing: RECT = RECT())
 
 public data class NMSEARCHWEB(
     public var hdr: NMHDR = NMHDR(),
@@ -1251,22 +1272,22 @@ public data class NMSEARCHWEB(
 
 public data class NMSELCHANGE(
     public var nmhdr: NMHDR = NMHDR(),
-    public var stSelStart: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
-    public var stSelEnd: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var stSelStart: SYSTEMTIME = SYSTEMTIME(),
+    public var stSelEnd: SYSTEMTIME = SYSTEMTIME(),
 )
 
 public data class NMTBCUSTOMDRAW(
     public var nmcd: NMCUSTOMDRAW = NMCUSTOMDRAW(),
-    public var hbrMonoDither: Graphics.Gdi.HBRUSH = Graphics.Gdi.HBRUSH(),
-    public var hbrLines: Graphics.Gdi.HBRUSH = Graphics.Gdi.HBRUSH(),
-    public var hpenLines: Graphics.Gdi.HPEN = Graphics.Gdi.HPEN(),
-    public var clrText: Foundation.COLORREF = Foundation.COLORREF(),
-    public var clrMark: Foundation.COLORREF = Foundation.COLORREF(),
-    public var clrTextHighlight: Foundation.COLORREF = Foundation.COLORREF(),
-    public var clrBtnFace: Foundation.COLORREF = Foundation.COLORREF(),
-    public var clrBtnHighlight: Foundation.COLORREF = Foundation.COLORREF(),
-    public var clrHighlightHotTrack: Foundation.COLORREF = Foundation.COLORREF(),
-    public var rcText: Foundation.RECT = Foundation.RECT(),
+    public var hbrMonoDither: HBRUSH = 0L,
+    public var hbrLines: HBRUSH = 0L,
+    public var hpenLines: HPEN = 0L,
+    public var clrText: COLORREF = 0u,
+    public var clrMark: COLORREF = 0u,
+    public var clrTextHighlight: COLORREF = 0u,
+    public var clrBtnFace: COLORREF = 0u,
+    public var clrBtnHighlight: COLORREF = 0u,
+    public var clrHighlightHotTrack: COLORREF = 0u,
+    public var rcText: RECT = RECT(),
     public var nStringBkMode: Int = 0,
     public var nHLStringBkMode: Int = 0,
     public var iListGap: Int = 0,
@@ -1297,7 +1318,7 @@ public data class NMTBGETINFOTIPA(
     public var pszText: PSTR = 0L,
     public var cchTextMax: Int = 0,
     public var iItem: Int = 0,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
 )
 
 public data class NMTBGETINFOTIPW(
@@ -1305,7 +1326,7 @@ public data class NMTBGETINFOTIPW(
     public var pszText: PWSTR = 0L,
     public var cchTextMax: Int = 0,
     public var iItem: Int = 0,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
 )
 
 public data class NMTBHOTITEM(
@@ -1348,7 +1369,7 @@ public data class NMTOOLBARA(
     public var tbButton: TBBUTTON = TBBUTTON(),
     public var cchText: Int = 0,
     public var pszText: PSTR = 0L,
-    public var rcButton: Foundation.RECT = Foundation.RECT(),
+    public var rcButton: RECT = RECT(),
 )
 
 public data class NMTOOLBARW(
@@ -1357,10 +1378,10 @@ public data class NMTOOLBARW(
     public var tbButton: TBBUTTON = TBBUTTON(),
     public var cchText: Int = 0,
     public var pszText: PWSTR = 0L,
-    public var rcButton: Foundation.RECT = Foundation.RECT(),
+    public var rcButton: RECT = RECT(),
 )
 
-public data class NMTOOLTIPSCREATED(public var hdr: NMHDR = NMHDR(), public var hwndToolTips: Foundation.HWND = Foundation.HWND())
+public data class NMTOOLTIPSCREATED(public var hdr: NMHDR = NMHDR(), public var hwndToolTips: HWND = 0L)
 
 public data class NMTRBTHUMBPOSCHANGING(
     public var hdr: NMHDR = NMHDR(),
@@ -1373,7 +1394,7 @@ public data class NMTREEVIEWA(
     public var action: NM_TREEVIEW_ACTION = 0u,
     public var itemOld: TVITEMA = TVITEMA(),
     public var itemNew: TVITEMA = TVITEMA(),
-    public var ptDrag: Foundation.POINT = Foundation.POINT(),
+    public var ptDrag: POINT = POINT(),
 )
 
 public data class NMTREEVIEWW(
@@ -1381,7 +1402,7 @@ public data class NMTREEVIEWW(
     public var action: NM_TREEVIEW_ACTION = 0u,
     public var itemOld: TVITEMW = TVITEMW(),
     public var itemNew: TVITEMW = TVITEMW(),
-    public var ptDrag: Foundation.POINT = Foundation.POINT(),
+    public var ptDrag: POINT = POINT(),
 )
 
 public data class NMTTCUSTOMDRAW(public var nmcd: NMCUSTOMDRAW = NMCUSTOMDRAW(), public var uDrawFlags: UInt = 0u)
@@ -1390,9 +1411,9 @@ public data class NMTTDISPINFOA(
     public var hdr: NMHDR = NMHDR(),
     public var lpszText: PSTR = 0L,
     public var szText: ByteArray = ByteArray(80),
-    public var hinst: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hinst: HINSTANCE = 0L,
     public var uFlags: TOOLTIP_FLAGS = 0u,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1421,9 +1442,9 @@ public data class NMTTDISPINFOW(
     public var hdr: NMHDR = NMHDR(),
     public var lpszText: PWSTR = 0L,
     public var szText: UShortArray = UShortArray(80),
-    public var hinst: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hinst: HINSTANCE = 0L,
     public var uFlags: TOOLTIP_FLAGS = 0u,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1453,15 +1474,15 @@ public data class NMTVASYNCDRAW(
     public var pimldp: Long = 0L,
     public var hr: HRESULT = 0,
     public var hItem: HTREEITEM = 0L,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
     public var dwRetFlags: UInt = 0u,
     public var iRetImageIndex: Int = 0,
 )
 
 public data class NMTVCUSTOMDRAW(
     public var nmcd: NMCUSTOMDRAW = NMCUSTOMDRAW(),
-    public var clrText: Foundation.COLORREF = Foundation.COLORREF(),
-    public var clrTextBk: Foundation.COLORREF = Foundation.COLORREF(),
+    public var clrText: COLORREF = 0u,
+    public var clrTextBk: COLORREF = 0u,
     public var iLevel: Int = 0,
 )
 
@@ -1478,7 +1499,7 @@ public data class NMTVGETINFOTIPA(
     public var pszText: PSTR = 0L,
     public var cchTextMax: Int = 0,
     public var hItem: HTREEITEM = 0L,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
 )
 
 public data class NMTVGETINFOTIPW(
@@ -1486,7 +1507,7 @@ public data class NMTVGETINFOTIPW(
     public var pszText: PWSTR = 0L,
     public var cchTextMax: Int = 0,
     public var hItem: HTREEITEM = 0L,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
 )
 
 public data class NMTVITEMCHANGE(
@@ -1495,7 +1516,7 @@ public data class NMTVITEMCHANGE(
     public var hItem: HTREEITEM = 0L,
     public var uStateNew: UInt = 0u,
     public var uStateOld: UInt = 0u,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
 )
 
 public data class NMTVKEYDOWN(
@@ -1529,9 +1550,9 @@ public data class POINTER_DEVICE_CURSOR_INFO(public var cursorId: UInt = 0u, pub
 
 public data class POINTER_DEVICE_INFO(
     public var displayOrientation: UInt = 0u,
-    public var device: Foundation.HANDLE = Foundation.HANDLE(),
+    public var device: HANDLE = 0L,
     public var pointerDeviceType: POINTER_DEVICE_TYPE = 0,
-    public var monitor: Graphics.Gdi.HMONITOR = Graphics.Gdi.HMONITOR(),
+    public var monitor: HMONITOR = 0L,
     public var startingCursorId: UInt = 0u,
     public var maxActiveContacts: UShort = 0u,
     public var productString: UShortArray = UShortArray(520),
@@ -1572,15 +1593,15 @@ public data class POINTER_DEVICE_PROPERTY(
     public var usageId: UShort = 0u,
 )
 
-public data class POINTER_TYPE_INFO(public var type: WindowsAndMessaging.POINTER_INPUT_TYPE = WindowsAndMessaging.POINTER_INPUT_TYPE(), public var Anonymous: POINTER_TYPE_INFO_0 = POINTER_TYPE_INFO_0())
+public data class POINTER_TYPE_INFO(public var type: POINTER_INPUT_TYPE = 0, public var Anonymous: POINTER_TYPE_INFO_0 = POINTER_TYPE_INFO_0())
 
-public data class POINTER_TYPE_INFO_0(public var touchInfo: Input.Pointer.POINTER_TOUCH_INFO = Input.Pointer.POINTER_TOUCH_INFO(), public var penInfo: Input.Pointer.POINTER_PEN_INFO = Input.Pointer.POINTER_PEN_INFO())
+public data class POINTER_TYPE_INFO_0(public var touchInfo: POINTER_TOUCH_INFO = POINTER_TOUCH_INFO(), public var penInfo: POINTER_PEN_INFO = POINTER_PEN_INFO())
 
 public data class PROPSHEETHEADERA_V1(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hwndParent: Foundation.HWND = Foundation.HWND(),
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hwndParent: HWND = 0L,
+    public var hInstance: HINSTANCE = 0L,
     public var Anonymous1: PROPSHEETHEADERA_V1_0 = PROPSHEETHEADERA_V1_0(),
     public var pszCaption: PCSTR = 0L,
     public var nPages: UInt = 0u,
@@ -1589,7 +1610,7 @@ public data class PROPSHEETHEADERA_V1(
     public var pfnCallback: PFNPROPSHEETCALLBACK = null,
 )
 
-public data class PROPSHEETHEADERA_V1_0(public var hIcon: WindowsAndMessaging.HICON = WindowsAndMessaging.HICON(), public var pszIcon: PCSTR = 0L)
+public data class PROPSHEETHEADERA_V1_0(public var hIcon: HICON = 0L, public var pszIcon: PCSTR = 0L)
 
 public data class PROPSHEETHEADERA_V1_1(public var nStartPage: UInt = 0u, public var pStartPage: PCSTR = 0L)
 
@@ -1598,8 +1619,8 @@ public data class PROPSHEETHEADERA_V1_2(public var ppsp: Long = 0L, public var p
 public data class PROPSHEETHEADERA_V2(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hwndParent: Foundation.HWND = Foundation.HWND(),
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hwndParent: HWND = 0L,
+    public var hInstance: HINSTANCE = 0L,
     public var Anonymous1: PROPSHEETHEADERA_V2_0 = PROPSHEETHEADERA_V2_0(),
     public var pszCaption: PCSTR = 0L,
     public var nPages: UInt = 0u,
@@ -1607,25 +1628,25 @@ public data class PROPSHEETHEADERA_V2(
     public var Anonymous3: PROPSHEETHEADERA_V2_2 = PROPSHEETHEADERA_V2_2(),
     public var pfnCallback: PFNPROPSHEETCALLBACK = null,
     public var Anonymous4: PROPSHEETHEADERA_V2_3 = PROPSHEETHEADERA_V2_3(),
-    public var hplWatermark: Graphics.Gdi.HPALETTE = Graphics.Gdi.HPALETTE(),
+    public var hplWatermark: HPALETTE = 0L,
     public var Anonymous5: PROPSHEETHEADERA_V2_4 = PROPSHEETHEADERA_V2_4(),
 )
 
-public data class PROPSHEETHEADERA_V2_0(public var hIcon: WindowsAndMessaging.HICON = WindowsAndMessaging.HICON(), public var pszIcon: PCSTR = 0L)
+public data class PROPSHEETHEADERA_V2_0(public var hIcon: HICON = 0L, public var pszIcon: PCSTR = 0L)
 
 public data class PROPSHEETHEADERA_V2_1(public var nStartPage: UInt = 0u, public var pStartPage: PCSTR = 0L)
 
 public data class PROPSHEETHEADERA_V2_2(public var ppsp: Long = 0L, public var phpage: Long = 0L)
 
-public data class PROPSHEETHEADERA_V2_3(public var hbmWatermark: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(), public var pszbmWatermark: PCSTR = 0L)
+public data class PROPSHEETHEADERA_V2_3(public var hbmWatermark: HBITMAP = 0L, public var pszbmWatermark: PCSTR = 0L)
 
-public data class PROPSHEETHEADERA_V2_4(public var hbmHeader: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(), public var pszbmHeader: PCSTR = 0L)
+public data class PROPSHEETHEADERA_V2_4(public var hbmHeader: HBITMAP = 0L, public var pszbmHeader: PCSTR = 0L)
 
 public data class PROPSHEETHEADERW_V1(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hwndParent: Foundation.HWND = Foundation.HWND(),
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hwndParent: HWND = 0L,
+    public var hInstance: HINSTANCE = 0L,
     public var Anonymous1: PROPSHEETHEADERW_V1_0 = PROPSHEETHEADERW_V1_0(),
     public var pszCaption: PCWSTR = 0L,
     public var nPages: UInt = 0u,
@@ -1634,7 +1655,7 @@ public data class PROPSHEETHEADERW_V1(
     public var pfnCallback: PFNPROPSHEETCALLBACK = null,
 )
 
-public data class PROPSHEETHEADERW_V1_0(public var hIcon: WindowsAndMessaging.HICON = WindowsAndMessaging.HICON(), public var pszIcon: PCWSTR = 0L)
+public data class PROPSHEETHEADERW_V1_0(public var hIcon: HICON = 0L, public var pszIcon: PCWSTR = 0L)
 
 public data class PROPSHEETHEADERW_V1_1(public var nStartPage: UInt = 0u, public var pStartPage: PCWSTR = 0L)
 
@@ -1643,8 +1664,8 @@ public data class PROPSHEETHEADERW_V1_2(public var ppsp: Long = 0L, public var p
 public data class PROPSHEETHEADERW_V2(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hwndParent: Foundation.HWND = Foundation.HWND(),
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hwndParent: HWND = 0L,
+    public var hInstance: HINSTANCE = 0L,
     public var Anonymous1: PROPSHEETHEADERW_V2_0 = PROPSHEETHEADERW_V2_0(),
     public var pszCaption: PCWSTR = 0L,
     public var nPages: UInt = 0u,
@@ -1652,69 +1673,69 @@ public data class PROPSHEETHEADERW_V2(
     public var Anonymous3: PROPSHEETHEADERW_V2_2 = PROPSHEETHEADERW_V2_2(),
     public var pfnCallback: PFNPROPSHEETCALLBACK = null,
     public var Anonymous4: PROPSHEETHEADERW_V2_3 = PROPSHEETHEADERW_V2_3(),
-    public var hplWatermark: Graphics.Gdi.HPALETTE = Graphics.Gdi.HPALETTE(),
+    public var hplWatermark: HPALETTE = 0L,
     public var Anonymous5: PROPSHEETHEADERW_V2_4 = PROPSHEETHEADERW_V2_4(),
 )
 
-public data class PROPSHEETHEADERW_V2_0(public var hIcon: WindowsAndMessaging.HICON = WindowsAndMessaging.HICON(), public var pszIcon: PCWSTR = 0L)
+public data class PROPSHEETHEADERW_V2_0(public var hIcon: HICON = 0L, public var pszIcon: PCWSTR = 0L)
 
 public data class PROPSHEETHEADERW_V2_1(public var nStartPage: UInt = 0u, public var pStartPage: PCWSTR = 0L)
 
 public data class PROPSHEETHEADERW_V2_2(public var ppsp: Long = 0L, public var phpage: Long = 0L)
 
-public data class PROPSHEETHEADERW_V2_3(public var hbmWatermark: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(), public var pszbmWatermark: PCWSTR = 0L)
+public data class PROPSHEETHEADERW_V2_3(public var hbmWatermark: HBITMAP = 0L, public var pszbmWatermark: PCWSTR = 0L)
 
-public data class PROPSHEETHEADERW_V2_4(public var hbmHeader: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(), public var pszbmHeader: PCWSTR = 0L)
+public data class PROPSHEETHEADERW_V2_4(public var hbmHeader: HBITMAP = 0L, public var pszbmHeader: PCWSTR = 0L)
 
 public data class PROPSHEETPAGEA(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hInstance: HINSTANCE = 0L,
     public var Anonymous1: PROPSHEETPAGEA_0 = PROPSHEETPAGEA_0(),
     public var Anonymous2: PROPSHEETPAGEA_1 = PROPSHEETPAGEA_1(),
     public var pszTitle: PCSTR = 0L,
-    public var pfnDlgProc: WindowsAndMessaging.DLGPROC = WindowsAndMessaging.DLGPROC(),
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var pfnDlgProc: DLGPROC = null,
+    public var lParam: LPARAM = 0L,
     public var pfnCallback: LPFNPSPCALLBACKA = null,
     public var pcRefParent: Long = 0L,
     public var pszHeaderTitle: PCSTR = 0L,
     public var pszHeaderSubTitle: PCSTR = 0L,
-    public var hActCtx: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hActCtx: HANDLE = 0L,
     public var Anonymous3: PROPSHEETPAGEA_2 = PROPSHEETPAGEA_2(),
 )
 
 public data class PROPSHEETPAGEA_0(public var pszTemplate: PCSTR = 0L, public var pResource: Long = 0L)
 
-public data class PROPSHEETPAGEA_1(public var hIcon: WindowsAndMessaging.HICON = WindowsAndMessaging.HICON(), public var pszIcon: PCSTR = 0L)
+public data class PROPSHEETPAGEA_1(public var hIcon: HICON = 0L, public var pszIcon: PCSTR = 0L)
 
-public data class PROPSHEETPAGEA_2(public var hbmHeader: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(), public var pszbmHeader: PCSTR = 0L)
+public data class PROPSHEETPAGEA_2(public var hbmHeader: HBITMAP = 0L, public var pszbmHeader: PCSTR = 0L)
 
 public data class PROPSHEETPAGEA_V1(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hInstance: HINSTANCE = 0L,
     public var Anonymous1: PROPSHEETPAGEA_V1_0 = PROPSHEETPAGEA_V1_0(),
     public var Anonymous2: PROPSHEETPAGEA_V1_1 = PROPSHEETPAGEA_V1_1(),
     public var pszTitle: PCSTR = 0L,
-    public var pfnDlgProc: WindowsAndMessaging.DLGPROC = WindowsAndMessaging.DLGPROC(),
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var pfnDlgProc: DLGPROC = null,
+    public var lParam: LPARAM = 0L,
     public var pfnCallback: LPFNPSPCALLBACKA = null,
     public var pcRefParent: Long = 0L,
 )
 
 public data class PROPSHEETPAGEA_V1_0(public var pszTemplate: PCSTR = 0L, public var pResource: Long = 0L)
 
-public data class PROPSHEETPAGEA_V1_1(public var hIcon: WindowsAndMessaging.HICON = WindowsAndMessaging.HICON(), public var pszIcon: PCSTR = 0L)
+public data class PROPSHEETPAGEA_V1_1(public var hIcon: HICON = 0L, public var pszIcon: PCSTR = 0L)
 
 public data class PROPSHEETPAGEA_V2(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hInstance: HINSTANCE = 0L,
     public var Anonymous1: PROPSHEETPAGEA_V2_0 = PROPSHEETPAGEA_V2_0(),
     public var Anonymous2: PROPSHEETPAGEA_V2_1 = PROPSHEETPAGEA_V2_1(),
     public var pszTitle: PCSTR = 0L,
-    public var pfnDlgProc: WindowsAndMessaging.DLGPROC = WindowsAndMessaging.DLGPROC(),
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var pfnDlgProc: DLGPROC = null,
+    public var lParam: LPARAM = 0L,
     public var pfnCallback: LPFNPSPCALLBACKA = null,
     public var pcRefParent: Long = 0L,
     public var pszHeaderTitle: PCSTR = 0L,
@@ -1723,77 +1744,77 @@ public data class PROPSHEETPAGEA_V2(
 
 public data class PROPSHEETPAGEA_V2_0(public var pszTemplate: PCSTR = 0L, public var pResource: Long = 0L)
 
-public data class PROPSHEETPAGEA_V2_1(public var hIcon: WindowsAndMessaging.HICON = WindowsAndMessaging.HICON(), public var pszIcon: PCSTR = 0L)
+public data class PROPSHEETPAGEA_V2_1(public var hIcon: HICON = 0L, public var pszIcon: PCSTR = 0L)
 
 public data class PROPSHEETPAGEA_V3(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hInstance: HINSTANCE = 0L,
     public var Anonymous1: PROPSHEETPAGEA_V3_0 = PROPSHEETPAGEA_V3_0(),
     public var Anonymous2: PROPSHEETPAGEA_V3_1 = PROPSHEETPAGEA_V3_1(),
     public var pszTitle: PCSTR = 0L,
-    public var pfnDlgProc: WindowsAndMessaging.DLGPROC = WindowsAndMessaging.DLGPROC(),
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var pfnDlgProc: DLGPROC = null,
+    public var lParam: LPARAM = 0L,
     public var pfnCallback: LPFNPSPCALLBACKA = null,
     public var pcRefParent: Long = 0L,
     public var pszHeaderTitle: PCSTR = 0L,
     public var pszHeaderSubTitle: PCSTR = 0L,
-    public var hActCtx: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hActCtx: HANDLE = 0L,
 )
 
 public data class PROPSHEETPAGEA_V3_0(public var pszTemplate: PCSTR = 0L, public var pResource: Long = 0L)
 
-public data class PROPSHEETPAGEA_V3_1(public var hIcon: WindowsAndMessaging.HICON = WindowsAndMessaging.HICON(), public var pszIcon: PCSTR = 0L)
+public data class PROPSHEETPAGEA_V3_1(public var hIcon: HICON = 0L, public var pszIcon: PCSTR = 0L)
 
 public data class PROPSHEETPAGEW(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hInstance: HINSTANCE = 0L,
     public var Anonymous1: PROPSHEETPAGEW_0 = PROPSHEETPAGEW_0(),
     public var Anonymous2: PROPSHEETPAGEW_1 = PROPSHEETPAGEW_1(),
     public var pszTitle: PCWSTR = 0L,
-    public var pfnDlgProc: WindowsAndMessaging.DLGPROC = WindowsAndMessaging.DLGPROC(),
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var pfnDlgProc: DLGPROC = null,
+    public var lParam: LPARAM = 0L,
     public var pfnCallback: LPFNPSPCALLBACKW = null,
     public var pcRefParent: Long = 0L,
     public var pszHeaderTitle: PCWSTR = 0L,
     public var pszHeaderSubTitle: PCWSTR = 0L,
-    public var hActCtx: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hActCtx: HANDLE = 0L,
     public var Anonymous3: PROPSHEETPAGEW_2 = PROPSHEETPAGEW_2(),
 )
 
 public data class PROPSHEETPAGEW_0(public var pszTemplate: PCWSTR = 0L, public var pResource: Long = 0L)
 
-public data class PROPSHEETPAGEW_1(public var hIcon: WindowsAndMessaging.HICON = WindowsAndMessaging.HICON(), public var pszIcon: PCWSTR = 0L)
+public data class PROPSHEETPAGEW_1(public var hIcon: HICON = 0L, public var pszIcon: PCWSTR = 0L)
 
-public data class PROPSHEETPAGEW_2(public var hbmHeader: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(), public var pszbmHeader: PCWSTR = 0L)
+public data class PROPSHEETPAGEW_2(public var hbmHeader: HBITMAP = 0L, public var pszbmHeader: PCWSTR = 0L)
 
 public data class PROPSHEETPAGEW_V1(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hInstance: HINSTANCE = 0L,
     public var Anonymous1: PROPSHEETPAGEW_V1_0 = PROPSHEETPAGEW_V1_0(),
     public var Anonymous2: PROPSHEETPAGEW_V1_1 = PROPSHEETPAGEW_V1_1(),
     public var pszTitle: PCWSTR = 0L,
-    public var pfnDlgProc: WindowsAndMessaging.DLGPROC = WindowsAndMessaging.DLGPROC(),
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var pfnDlgProc: DLGPROC = null,
+    public var lParam: LPARAM = 0L,
     public var pfnCallback: LPFNPSPCALLBACKW = null,
     public var pcRefParent: Long = 0L,
 )
 
 public data class PROPSHEETPAGEW_V1_0(public var pszTemplate: PCWSTR = 0L, public var pResource: Long = 0L)
 
-public data class PROPSHEETPAGEW_V1_1(public var hIcon: WindowsAndMessaging.HICON = WindowsAndMessaging.HICON(), public var pszIcon: PCWSTR = 0L)
+public data class PROPSHEETPAGEW_V1_1(public var hIcon: HICON = 0L, public var pszIcon: PCWSTR = 0L)
 
 public data class PROPSHEETPAGEW_V2(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hInstance: HINSTANCE = 0L,
     public var Anonymous1: PROPSHEETPAGEW_V2_0 = PROPSHEETPAGEW_V2_0(),
     public var Anonymous2: PROPSHEETPAGEW_V2_1 = PROPSHEETPAGEW_V2_1(),
     public var pszTitle: PCWSTR = 0L,
-    public var pfnDlgProc: WindowsAndMessaging.DLGPROC = WindowsAndMessaging.DLGPROC(),
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var pfnDlgProc: DLGPROC = null,
+    public var lParam: LPARAM = 0L,
     public var pfnCallback: LPFNPSPCALLBACKW = null,
     public var pcRefParent: Long = 0L,
     public var pszHeaderTitle: PCWSTR = 0L,
@@ -1802,32 +1823,32 @@ public data class PROPSHEETPAGEW_V2(
 
 public data class PROPSHEETPAGEW_V2_0(public var pszTemplate: PCWSTR = 0L, public var pResource: Long = 0L)
 
-public data class PROPSHEETPAGEW_V2_1(public var hIcon: WindowsAndMessaging.HICON = WindowsAndMessaging.HICON(), public var pszIcon: PCWSTR = 0L)
+public data class PROPSHEETPAGEW_V2_1(public var hIcon: HICON = 0L, public var pszIcon: PCWSTR = 0L)
 
 public data class PROPSHEETPAGEW_V3(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hInstance: HINSTANCE = 0L,
     public var Anonymous1: PROPSHEETPAGEW_V3_0 = PROPSHEETPAGEW_V3_0(),
     public var Anonymous2: PROPSHEETPAGEW_V3_1 = PROPSHEETPAGEW_V3_1(),
     public var pszTitle: PCWSTR = 0L,
-    public var pfnDlgProc: WindowsAndMessaging.DLGPROC = WindowsAndMessaging.DLGPROC(),
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var pfnDlgProc: DLGPROC = null,
+    public var lParam: LPARAM = 0L,
     public var pfnCallback: LPFNPSPCALLBACKW = null,
     public var pcRefParent: Long = 0L,
     public var pszHeaderTitle: PCWSTR = 0L,
     public var pszHeaderSubTitle: PCWSTR = 0L,
-    public var hActCtx: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hActCtx: HANDLE = 0L,
 )
 
 public data class PROPSHEETPAGEW_V3_0(public var pszTemplate: PCWSTR = 0L, public var pResource: Long = 0L)
 
-public data class PROPSHEETPAGEW_V3_1(public var hIcon: WindowsAndMessaging.HICON = WindowsAndMessaging.HICON(), public var pszIcon: PCWSTR = 0L)
+public data class PROPSHEETPAGEW_V3_1(public var hIcon: HICON = 0L, public var pszIcon: PCWSTR = 0L)
 
-public data class PSHNOTIFY(public var hdr: NMHDR = NMHDR(), public var lParam: Foundation.LPARAM = Foundation.LPARAM())
+public data class PSHNOTIFY(public var hdr: NMHDR = NMHDR(), public var lParam: LPARAM = 0L)
 
 public data class RBHITTESTINFO(
-    public var pt: Foundation.POINT = Foundation.POINT(),
+    public var pt: POINT = POINT(),
     public var flags: UInt = 0u,
     public var iBand: Int = 0,
 )
@@ -1836,24 +1857,24 @@ public class REBARBANDINFOA(
     public var cbSize: UInt = 0u,
     public var fMask: UInt = 0u,
     public var fStyle: UInt = 0u,
-    public var clrFore: Foundation.COLORREF = Foundation.COLORREF(),
-    public var clrBack: Foundation.COLORREF = Foundation.COLORREF(),
+    public var clrFore: COLORREF = 0u,
+    public var clrBack: COLORREF = 0u,
     public var lpText: PSTR = 0L,
     public var cch: UInt = 0u,
     public var iImage: Int = 0,
-    public var hwndChild: Foundation.HWND = Foundation.HWND(),
+    public var hwndChild: HWND = 0L,
     public var cxMinChild: UInt = 0u,
     public var cyMinChild: UInt = 0u,
     public var cx: UInt = 0u,
-    public var hbmBack: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(),
+    public var hbmBack: HBITMAP = 0L,
     public var wID: UInt = 0u,
     public var cyChild: UInt = 0u,
     public var cyMaxChild: UInt = 0u,
     public var cyIntegral: UInt = 0u,
     public var cxIdeal: UInt = 0u,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
     public var cxHeader: UInt = 0u,
-    public var rcChevronLocation: Foundation.RECT = Foundation.RECT(),
+    public var rcChevronLocation: RECT = RECT(),
     public var uChevronState: UInt = 0u,
 )
 
@@ -1861,24 +1882,24 @@ public class REBARBANDINFOW(
     public var cbSize: UInt = 0u,
     public var fMask: UInt = 0u,
     public var fStyle: UInt = 0u,
-    public var clrFore: Foundation.COLORREF = Foundation.COLORREF(),
-    public var clrBack: Foundation.COLORREF = Foundation.COLORREF(),
+    public var clrFore: COLORREF = 0u,
+    public var clrBack: COLORREF = 0u,
     public var lpText: PWSTR = 0L,
     public var cch: UInt = 0u,
     public var iImage: Int = 0,
-    public var hwndChild: Foundation.HWND = Foundation.HWND(),
+    public var hwndChild: HWND = 0L,
     public var cxMinChild: UInt = 0u,
     public var cyMinChild: UInt = 0u,
     public var cx: UInt = 0u,
-    public var hbmBack: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(),
+    public var hbmBack: HBITMAP = 0L,
     public var wID: UInt = 0u,
     public var cyChild: UInt = 0u,
     public var cyMaxChild: UInt = 0u,
     public var cyIntegral: UInt = 0u,
     public var cxIdeal: UInt = 0u,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
     public var cxHeader: UInt = 0u,
-    public var rcChevronLocation: Foundation.RECT = Foundation.RECT(),
+    public var rcChevronLocation: RECT = RECT(),
     public var uChevronState: UInt = 0u,
 )
 
@@ -1890,8 +1911,8 @@ public data class REBARINFO(
 
 public class TASKDIALOGCONFIG(
     public var cbSize: UInt = 0u,
-    public var hwndParent: Foundation.HWND = Foundation.HWND(),
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hwndParent: HWND = 0L,
+    public var hInstance: HINSTANCE = 0L,
     public var dwFlags: TASKDIALOG_FLAGS = 0,
     public var dwCommonButtons: TASKDIALOG_COMMON_BUTTON_FLAGS = 0,
     public var pszWindowTitle: PCWSTR = 0L,
@@ -1915,9 +1936,9 @@ public class TASKDIALOGCONFIG(
     public var cxWidth: UInt = 0u,
 )
 
-public data class TASKDIALOGCONFIG_0(public var hMainIcon: WindowsAndMessaging.HICON = WindowsAndMessaging.HICON(), public var pszMainIcon: PCWSTR = 0L)
+public data class TASKDIALOGCONFIG_0(public var hMainIcon: HICON = 0L, public var pszMainIcon: PCWSTR = 0L)
 
-public data class TASKDIALOGCONFIG_1(public var hFooterIcon: WindowsAndMessaging.HICON = WindowsAndMessaging.HICON(), public var pszFooterIcon: PCWSTR = 0L)
+public data class TASKDIALOGCONFIG_1(public var hFooterIcon: HICON = 0L, public var pszFooterIcon: PCWSTR = 0L)
 
 public data class TASKDIALOG_BUTTON(public var nButtonID: Int = 0, public var pszButtonText: PCWSTR = 0L)
 
@@ -1967,7 +1988,7 @@ public data class TA_TRANSFORM_OPACITY(
     public var rInitialOpacity: Float = 0.0f,
 )
 
-public data class TBADDBITMAP(public var hInst: Foundation.HINSTANCE = Foundation.HINSTANCE(), public var nID: ULong = 0uL)
+public data class TBADDBITMAP(public var hInst: HINSTANCE = 0L, public var nID: ULong = 0uL)
 
 public data class TBBUTTON(
     public var iBitmap: Int = 0,
@@ -2043,26 +2064,26 @@ public data class TBMETRICS(
 )
 
 public data class TBREPLACEBITMAP(
-    public var hInstOld: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hInstOld: HINSTANCE = 0L,
     public var nIDOld: ULong = 0uL,
-    public var hInstNew: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hInstNew: HINSTANCE = 0L,
     public var nIDNew: ULong = 0uL,
     public var nButtons: Int = 0,
 )
 
 public data class TBSAVEPARAMSA(
-    public var hkr: System.Registry.HKEY = System.Registry.HKEY(),
+    public var hkr: HKEY = 0L,
     public var pszSubKey: PCSTR = 0L,
     public var pszValueName: PCSTR = 0L,
 )
 
 public data class TBSAVEPARAMSW(
-    public var hkr: System.Registry.HKEY = System.Registry.HKEY(),
+    public var hkr: HKEY = 0L,
     public var pszSubKey: PCWSTR = 0L,
     public var pszValueName: PCWSTR = 0L,
 )
 
-public data class TCHITTESTINFO(public var pt: Foundation.POINT = Foundation.POINT(), public var flags: TCHITTESTINFO_FLAGS = 0u)
+public data class TCHITTESTINFO(public var pt: POINT = POINT(), public var flags: TCHITTESTINFO_FLAGS = 0u)
 
 public data class TCITEMA(
     public var mask: TCITEMHEADERA_MASK = 0u,
@@ -2071,7 +2092,7 @@ public data class TCITEMA(
     public var pszText: PSTR = 0L,
     public var cchTextMax: Int = 0,
     public var iImage: Int = 0,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
 )
 
 public data class TCITEMHEADERA(
@@ -2099,18 +2120,18 @@ public data class TCITEMW(
     public var pszText: PWSTR = 0L,
     public var cchTextMax: Int = 0,
     public var iImage: Int = 0,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
 )
 
 public data class TOUCH_HIT_TESTING_INPUT(
     public var pointerId: UInt = 0u,
-    public var point: Foundation.POINT = Foundation.POINT(),
-    public var boundingBox: Foundation.RECT = Foundation.RECT(),
-    public var nonOccludedBoundingBox: Foundation.RECT = Foundation.RECT(),
+    public var point: POINT = POINT(),
+    public var boundingBox: RECT = RECT(),
+    public var nonOccludedBoundingBox: RECT = RECT(),
     public var orientation: UInt = 0u,
 )
 
-public data class TOUCH_HIT_TESTING_PROXIMITY_EVALUATION(public var score: UShort = 0u, public var adjustedPoint: Foundation.POINT = Foundation.POINT())
+public data class TOUCH_HIT_TESTING_PROXIMITY_EVALUATION(public var score: UShort = 0u, public var adjustedPoint: POINT = POINT())
 
 public data class TTGETTITLE(
     public var dwSize: UInt = 0u,
@@ -2120,38 +2141,38 @@ public data class TTGETTITLE(
 )
 
 public data class TTHITTESTINFOA(
-    public var hwnd: Foundation.HWND = Foundation.HWND(),
-    public var pt: Foundation.POINT = Foundation.POINT(),
+    public var hwnd: HWND = 0L,
+    public var pt: POINT = POINT(),
     public var ti: TTTOOLINFOA = TTTOOLINFOA(),
 )
 
 public data class TTHITTESTINFOW(
-    public var hwnd: Foundation.HWND = Foundation.HWND(),
-    public var pt: Foundation.POINT = Foundation.POINT(),
+    public var hwnd: HWND = 0L,
+    public var pt: POINT = POINT(),
     public var ti: TTTOOLINFOW = TTTOOLINFOW(),
 )
 
 public data class TTTOOLINFOA(
     public var cbSize: UInt = 0u,
     public var uFlags: TOOLTIP_FLAGS = 0u,
-    public var hwnd: Foundation.HWND = Foundation.HWND(),
+    public var hwnd: HWND = 0L,
     public var uId: ULong = 0uL,
-    public var rect: Foundation.RECT = Foundation.RECT(),
-    public var hinst: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var rect: RECT = RECT(),
+    public var hinst: HINSTANCE = 0L,
     public var lpszText: PSTR = 0L,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
     public var lpReserved: Long = 0L,
 )
 
 public data class TTTOOLINFOW(
     public var cbSize: UInt = 0u,
     public var uFlags: TOOLTIP_FLAGS = 0u,
-    public var hwnd: Foundation.HWND = Foundation.HWND(),
+    public var hwnd: HWND = 0L,
     public var uId: ULong = 0uL,
-    public var rect: Foundation.RECT = Foundation.RECT(),
-    public var hinst: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var rect: RECT = RECT(),
+    public var hinst: HINSTANCE = 0L,
     public var lpszText: PWSTR = 0L,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
     public var lpReserved: Long = 0L,
 )
 
@@ -2162,7 +2183,7 @@ public data class TVGETITEMPARTRECTINFO(
 )
 
 public data class TVHITTESTINFO(
-    public var pt: Foundation.POINT = Foundation.POINT(),
+    public var pt: POINT = POINT(),
     public var flags: TVHITTESTINFO_FLAGS = 0u,
     public var hItem: HTREEITEM = 0L,
 )
@@ -2193,7 +2214,7 @@ public data class TVITEMA(
     public var iImage: Int = 0,
     public var iSelectedImage: Int = 0,
     public var cChildren: TVITEMEXW_CHILDREN = 0,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
 )
 
 public data class TVITEMEXA(
@@ -2206,10 +2227,10 @@ public data class TVITEMEXA(
     public var iImage: Int = 0,
     public var iSelectedImage: Int = 0,
     public var cChildren: TVITEMEXW_CHILDREN = 0,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
     public var iIntegral: Int = 0,
     public var uStateEx: UInt = 0u,
-    public var hwnd: Foundation.HWND = Foundation.HWND(),
+    public var hwnd: HWND = 0L,
     public var iExpandedImage: Int = 0,
     public var iReserved: Int = 0,
 )
@@ -2224,10 +2245,10 @@ public data class TVITEMEXW(
     public var iImage: Int = 0,
     public var iSelectedImage: Int = 0,
     public var cChildren: TVITEMEXW_CHILDREN = 0,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
     public var iIntegral: Int = 0,
     public var uStateEx: UInt = 0u,
-    public var hwnd: Foundation.HWND = Foundation.HWND(),
+    public var hwnd: HWND = 0L,
     public var iExpandedImage: Int = 0,
     public var iReserved: Int = 0,
 )
@@ -2242,13 +2263,13 @@ public data class TVITEMW(
     public var iImage: Int = 0,
     public var iSelectedImage: Int = 0,
     public var cChildren: TVITEMEXW_CHILDREN = 0,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
 )
 
 public data class TVSORTCB(
     public var hParent: HTREEITEM = 0L,
     public var lpfnCompare: PFNTVCOMPARE = null,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
 )
 
 public data class UDACCEL(public var nSec: UInt = 0u, public var nInc: UInt = 0u)

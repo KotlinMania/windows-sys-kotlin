@@ -4,17 +4,49 @@ import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.DRIVER_CANCEL
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.DRIVER_CONTROL
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.DRIVER_NOTIFICATION_CALLBACK_ROUTINE
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.DRIVER_REINITIALIZE
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.IO_PRIORITY_HINT
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PCALLBACK_OBJECT
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PEPROCESS
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PESILO
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PEX_RUNDOWN_REF_CACHE_AWARE
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PEX_TIMER
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PFREE_FUNCTION
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PIO_COMPLETION_ROUTINE
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PIO_WORKITEM
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PKDEFERRED_ROUTINE
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PKINTERRUPT
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PKTHREAD
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.POOL_TYPE
+import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.FILE_INFORMATION_CLASS
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.CLFS_CONTEXT_MODE
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.CLFS_IOSTATS_CLASS
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.CLFS_MGMT_POLICY_TYPE
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.CLS_LOG_INFORMATION_CLASS
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.CLS_LSN
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.BUGCHECK_ERROR
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.EVENT_INFO_CLASS
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.REGHANDLE
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.EVENT_TYPE
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.SUITE_TYPE
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.FIRMWARE_TYPE
 
 public fun interface FnCallback {
     public operator fun invoke(): Long
 }
 
 public fun interface FnCallback1 {
-    public operator fun invoke(logfile: Long, operationstatus: Win32.Foundation.NTSTATUS, clientdata: Long)
+    public operator fun invoke(logfile: Long, operationstatus: NTSTATUS, clientdata: Long)
 }
 
 public fun interface FnCallback2 {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public fun interface FnCallback3 {
@@ -34,130 +66,109 @@ public fun interface FnCallback6 {
 }
 
 public fun interface FnCallback7 {
-    public operator fun invoke(context: Long, pathname: Long, bustype: INTERFACE_TYPE, busnumber: UInt, businformation: Long, controllertype: CONFIGURATION_TYPE, controllernumber: UInt, controllerinformation: Long, peripheraltype: CONFIGURATION_TYPE, peripheralnumber: UInt, peripheralinformation: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, pathname: Long, bustype: INTERFACE_TYPE, busnumber: UInt, businformation: Long, controllertype: CONFIGURATION_TYPE, controllernumber: UInt, controllerinformation: Long, peripheraltype: CONFIGURATION_TYPE, peripheralnumber: UInt, peripheralinformation: Long): NTSTATUS
 }
 
 public fun interface FnCallback8 {
-    public operator fun invoke(status: Win32.Foundation.NTSTATUS, context: Long)
+    public operator fun invoke(status: NTSTATUS, context: Long)
 }
 
-public fun ClfsAddLogContainer(plfolog: Long, pcbcontainer: Long, puszcontainerpath: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsAddLogContainer", longArrayOf(plfolog, pcbcontainer, puszcontainerpath))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsAddLogContainer(plfolog: Long, pcbcontainer: Long, puszcontainerpath: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsAddLogContainer", longArrayOf(plfolog, pcbcontainer, puszcontainerpath)).toInt()
 }
 
-public fun ClfsAddLogContainerSet(plfolog: Long, ccontainers: UShort, pcbcontainer: Long, rguszcontainerpath: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsAddLogContainerSet", longArrayOf(plfolog, ccontainers.toLong(), pcbcontainer, rguszcontainerpath))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsAddLogContainerSet(plfolog: Long, ccontainers: UShort, pcbcontainer: Long, rguszcontainerpath: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsAddLogContainerSet", longArrayOf(plfolog, ccontainers.toLong(), pcbcontainer, rguszcontainerpath)).toInt()
 }
 
-public fun ClfsAdvanceLogBase(pvmarshalcontext: Long, plsnbase: Long, fflags: UInt): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsAdvanceLogBase", longArrayOf(pvmarshalcontext, plsnbase, fflags.toLong()))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsAdvanceLogBase(pvmarshalcontext: Long, plsnbase: Long, fflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsAdvanceLogBase", longArrayOf(pvmarshalcontext, plsnbase, fflags.toLong())).toInt()
 }
 
-public fun ClfsAlignReservedLog(pvmarshalcontext: Long, crecords: UInt, rgcbreservation: Long, pcbalignreservation: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsAlignReservedLog", longArrayOf(pvmarshalcontext, crecords.toLong(), rgcbreservation, pcbalignreservation))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsAlignReservedLog(pvmarshalcontext: Long, crecords: UInt, rgcbreservation: Long, pcbalignreservation: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsAlignReservedLog", longArrayOf(pvmarshalcontext, crecords.toLong(), rgcbreservation, pcbalignreservation)).toInt()
 }
 
-public fun ClfsAllocReservedLog(pvmarshalcontext: Long, crecords: UInt, pcbadjustment: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsAllocReservedLog", longArrayOf(pvmarshalcontext, crecords.toLong(), pcbadjustment))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsAllocReservedLog(pvmarshalcontext: Long, crecords: UInt, pcbadjustment: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsAllocReservedLog", longArrayOf(pvmarshalcontext, crecords.toLong(), pcbadjustment)).toInt()
 }
 
-public fun ClfsCloseAndResetLogFile(plfolog: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsCloseAndResetLogFile", longArrayOf(plfolog))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsCloseAndResetLogFile(plfolog: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsCloseAndResetLogFile", longArrayOf(plfolog)).toInt()
 }
 
-public fun ClfsCloseLogFileObject(plfolog: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsCloseLogFileObject", longArrayOf(plfolog))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsCloseLogFileObject(plfolog: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsCloseLogFileObject", longArrayOf(plfolog)).toInt()
 }
 
-public fun ClfsCreateLogFile(pplfolog: Long, puszlogfilename: Long, fdesiredaccess: UInt, dwsharemode: UInt, psdlogfile: Win32.Security.PSECURITY_DESCRIPTOR, fcreatedisposition: UInt, fcreateoptions: UInt, fflagsandattributes: UInt, flogoptionflag: UInt, pvcontext: Long, cbcontext: UInt): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsCreateLogFile", longArrayOf(pplfolog, puszlogfilename, fdesiredaccess.toLong(), dwsharemode.toLong(), Win32DynamicFfi.objectSlot(psdlogfile), fcreatedisposition.toLong(), fcreateoptions.toLong(), fflagsandattributes.toLong(), flogoptionflag.toLong(), pvcontext, cbcontext.toLong()))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsCreateLogFile(pplfolog: Long, puszlogfilename: Long, fdesiredaccess: UInt, dwsharemode: UInt, psdlogfile: PSECURITY_DESCRIPTOR, fcreatedisposition: UInt, fcreateoptions: UInt, fflagsandattributes: UInt, flogoptionflag: UInt, pvcontext: Long, cbcontext: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsCreateLogFile", longArrayOf(pplfolog, puszlogfilename, fdesiredaccess.toLong(), dwsharemode.toLong(), psdlogfile, fcreatedisposition.toLong(), fcreateoptions.toLong(), fflagsandattributes.toLong(), flogoptionflag.toLong(), pvcontext, cbcontext.toLong())).toInt()
 }
 
-public fun ClfsCreateMarshallingArea(plfolog: Long, epooltype: Foundation.POOL_TYPE, pfnallocbuffer: PALLOCATE_FUNCTION, pfnfreebuffer: Foundation.PFREE_FUNCTION, cbmarshallingbuffer: UInt, cmaxwritebuffers: UInt, cmaxreadbuffers: UInt, ppvmarshalcontext: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsCreateMarshallingArea", longArrayOf(plfolog, Win32DynamicFfi.objectSlot(epooltype), Win32DynamicFfi.objectSlot(pfnallocbuffer), Win32DynamicFfi.objectSlot(pfnfreebuffer), cbmarshallingbuffer.toLong(), cmaxwritebuffers.toLong(), cmaxreadbuffers.toLong(), ppvmarshalcontext))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsCreateMarshallingArea(plfolog: Long, epooltype: POOL_TYPE, pfnallocbuffer: PALLOCATE_FUNCTION, pfnfreebuffer: PFREE_FUNCTION, cbmarshallingbuffer: UInt, cmaxwritebuffers: UInt, cmaxreadbuffers: UInt, ppvmarshalcontext: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsCreateMarshallingArea", longArrayOf(plfolog, epooltype.toLong(), Win32DynamicFfi.objectSlot(pfnallocbuffer), Win32DynamicFfi.objectSlot(pfnfreebuffer), cbmarshallingbuffer.toLong(), cmaxwritebuffers.toLong(), cmaxreadbuffers.toLong(), ppvmarshalcontext)).toInt()
 }
 
-public fun ClfsCreateMarshallingAreaEx(plfolog: Long, epooltype: Foundation.POOL_TYPE, pfnallocbuffer: PALLOCATE_FUNCTION, pfnfreebuffer: Foundation.PFREE_FUNCTION, cbmarshallingbuffer: UInt, cmaxwritebuffers: UInt, cmaxreadbuffers: UInt, calignmentsize: UInt, fflags: ULong, ppvmarshalcontext: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsCreateMarshallingAreaEx", longArrayOf(plfolog, Win32DynamicFfi.objectSlot(epooltype), Win32DynamicFfi.objectSlot(pfnallocbuffer), Win32DynamicFfi.objectSlot(pfnfreebuffer), cbmarshallingbuffer.toLong(), cmaxwritebuffers.toLong(), cmaxreadbuffers.toLong(), calignmentsize.toLong(), fflags.toLong(), ppvmarshalcontext))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsCreateMarshallingAreaEx(plfolog: Long, epooltype: POOL_TYPE, pfnallocbuffer: PALLOCATE_FUNCTION, pfnfreebuffer: PFREE_FUNCTION, cbmarshallingbuffer: UInt, cmaxwritebuffers: UInt, cmaxreadbuffers: UInt, calignmentsize: UInt, fflags: ULong, ppvmarshalcontext: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsCreateMarshallingAreaEx", longArrayOf(plfolog, epooltype.toLong(), Win32DynamicFfi.objectSlot(pfnallocbuffer), Win32DynamicFfi.objectSlot(pfnfreebuffer), cbmarshallingbuffer.toLong(), cmaxwritebuffers.toLong(), cmaxreadbuffers.toLong(), calignmentsize.toLong(), fflags.toLong(), ppvmarshalcontext)).toInt()
 }
 
-public fun ClfsCreateScanContext(plfolog: Long, cfromcontainer: UInt, ccontainers: UInt, escanmode: UByte, pcxscan: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsCreateScanContext", longArrayOf(plfolog, cfromcontainer.toLong(), ccontainers.toLong(), escanmode.toLong(), pcxscan))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsCreateScanContext(plfolog: Long, cfromcontainer: UInt, ccontainers: UInt, escanmode: UByte, pcxscan: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsCreateScanContext", longArrayOf(plfolog, cfromcontainer.toLong(), ccontainers.toLong(), escanmode.toLong(), pcxscan)).toInt()
 }
 
-public fun ClfsDeleteLogByPointer(plfolog: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsDeleteLogByPointer", longArrayOf(plfolog))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsDeleteLogByPointer(plfolog: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsDeleteLogByPointer", longArrayOf(plfolog)).toInt()
 }
 
-public fun ClfsDeleteLogFile(puszlogfilename: Long, pvreserved: Long, flogoptionflag: UInt, pvcontext: Long, cbcontext: UInt): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsDeleteLogFile", longArrayOf(puszlogfilename, pvreserved, flogoptionflag.toLong(), pvcontext, cbcontext.toLong()))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsDeleteLogFile(puszlogfilename: Long, pvreserved: Long, flogoptionflag: UInt, pvcontext: Long, cbcontext: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsDeleteLogFile", longArrayOf(puszlogfilename, pvreserved, flogoptionflag.toLong(), pvcontext, cbcontext.toLong())).toInt()
 }
 
-public fun ClfsDeleteMarshallingArea(pvmarshalcontext: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsDeleteMarshallingArea", longArrayOf(pvmarshalcontext))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsDeleteMarshallingArea(pvmarshalcontext: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsDeleteMarshallingArea", longArrayOf(pvmarshalcontext)).toInt()
 }
 
-public fun ClfsEarlierLsn(plsn: Long): Win32.Storage.FileSystem.CLS_LSN {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsEarlierLsn", longArrayOf(plsn))
-    return Win32.Storage.FileSystem.CLS_LSN()
+public fun ClfsEarlierLsn(plsn: Long): CLS_LSN {
+    val rawRet = Win32DynamicFfi.invoke("clfs.sys", "ClfsEarlierLsn", longArrayOf(plsn))
+    return CLS_LSN(Internal = rawRet.toULong())
 }
 
 public fun ClfsFinalize() {
     Win32DynamicFfi.invoke("clfs.sys", "ClfsFinalize", longArrayOf())
 }
 
-public fun ClfsFlushBuffers(pvmarshalcontext: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsFlushBuffers", longArrayOf(pvmarshalcontext))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsFlushBuffers(pvmarshalcontext: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsFlushBuffers", longArrayOf(pvmarshalcontext)).toInt()
 }
 
-public fun ClfsFlushToLsn(pvmarshalcontext: Long, plsnflush: Long, plsnlastflushed: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsFlushToLsn", longArrayOf(pvmarshalcontext, plsnflush, plsnlastflushed))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsFlushToLsn(pvmarshalcontext: Long, plsnflush: Long, plsnlastflushed: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsFlushToLsn", longArrayOf(pvmarshalcontext, plsnflush, plsnlastflushed)).toInt()
 }
 
-public fun ClfsFreeReservedLog(pvmarshalcontext: Long, crecords: UInt, pcbadjustment: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsFreeReservedLog", longArrayOf(pvmarshalcontext, crecords.toLong(), pcbadjustment))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsFreeReservedLog(pvmarshalcontext: Long, crecords: UInt, pcbadjustment: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsFreeReservedLog", longArrayOf(pvmarshalcontext, crecords.toLong(), pcbadjustment)).toInt()
 }
 
-public fun ClfsGetContainerName(plfolog: Long, cidlogicalcontainer: UInt, puszcontainername: Long, pcactuallencontainername: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsGetContainerName", longArrayOf(plfolog, cidlogicalcontainer.toLong(), puszcontainername, pcactuallencontainername))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsGetContainerName(plfolog: Long, cidlogicalcontainer: UInt, puszcontainername: Long, pcactuallencontainername: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsGetContainerName", longArrayOf(plfolog, cidlogicalcontainer.toLong(), puszcontainername, pcactuallencontainername)).toInt()
 }
 
-public fun ClfsGetIoStatistics(plfolog: Long, pvstatsbuffer: Long, cbstatsbuffer: UInt, estatsclass: Win32.Storage.FileSystem.CLFS_IOSTATS_CLASS, pcbstatswritten: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsGetIoStatistics", longArrayOf(plfolog, pvstatsbuffer, cbstatsbuffer.toLong(), Win32DynamicFfi.objectSlot(estatsclass), pcbstatswritten))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsGetIoStatistics(plfolog: Long, pvstatsbuffer: Long, cbstatsbuffer: UInt, estatsclass: CLFS_IOSTATS_CLASS, pcbstatswritten: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsGetIoStatistics", longArrayOf(plfolog, pvstatsbuffer, cbstatsbuffer.toLong(), estatsclass.toLong(), pcbstatswritten)).toInt()
 }
 
-public fun ClfsGetLogFileInformation(plfolog: Long, pinfobuffer: Long, pcbinfobuffer: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsGetLogFileInformation", longArrayOf(plfolog, pinfobuffer, pcbinfobuffer))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsGetLogFileInformation(plfolog: Long, pinfobuffer: Long, pcbinfobuffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsGetLogFileInformation", longArrayOf(plfolog, pinfobuffer, pcbinfobuffer)).toInt()
 }
 
-public fun ClfsInitialize(): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsInitialize", longArrayOf())
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsInitialize(): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsInitialize", longArrayOf()).toInt()
 }
 
-public fun ClfsLaterLsn(plsn: Long): Win32.Storage.FileSystem.CLS_LSN {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsLaterLsn", longArrayOf(plsn))
-    return Win32.Storage.FileSystem.CLS_LSN()
+public fun ClfsLaterLsn(plsn: Long): CLS_LSN {
+    val rawRet = Win32DynamicFfi.invoke("clfs.sys", "ClfsLaterLsn", longArrayOf(plsn))
+    return CLS_LSN(Internal = rawRet.toULong())
 }
 
 public fun ClfsLsnBlockOffset(plsn: Long): UInt {
@@ -168,14 +179,13 @@ public fun ClfsLsnContainer(plsn: Long): UInt {
     return Win32DynamicFfi.invoke("clfs.sys", "ClfsLsnContainer", longArrayOf(plsn)).toUInt()
 }
 
-public fun ClfsLsnCreate(cidcontainer: UInt, offblock: UInt, crecord: UInt): Win32.Storage.FileSystem.CLS_LSN {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsLsnCreate", longArrayOf(cidcontainer.toLong(), offblock.toLong(), crecord.toLong()))
-    return Win32.Storage.FileSystem.CLS_LSN()
+public fun ClfsLsnCreate(cidcontainer: UInt, offblock: UInt, crecord: UInt): CLS_LSN {
+    val rawRet = Win32DynamicFfi.invoke("clfs.sys", "ClfsLsnCreate", longArrayOf(cidcontainer.toLong(), offblock.toLong(), crecord.toLong()))
+    return CLS_LSN(Internal = rawRet.toULong())
 }
 
-public fun ClfsLsnDifference(plsnstart: Long, plsnfinish: Long, cbcontainer: UInt, cbmaxblock: UInt, pcbdifference: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsLsnDifference", longArrayOf(plsnstart, plsnfinish, cbcontainer.toLong(), cbmaxblock.toLong(), pcbdifference))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsLsnDifference(plsnstart: Long, plsnfinish: Long, cbcontainer: UInt, cbmaxblock: UInt, pcbdifference: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsLsnDifference", longArrayOf(plsnstart, plsnfinish, cbcontainer.toLong(), cbmaxblock.toLong(), pcbdifference)).toInt()
 }
 
 public fun ClfsLsnEqual(plsn1: Long, plsn2: Long): Boolean {
@@ -207,134 +217,108 @@ public fun ClfsLsnRecordSequence(plsn: Long): UInt {
     return Win32DynamicFfi.invoke("clfs.sys", "ClfsLsnRecordSequence", longArrayOf(plsn)).toUInt()
 }
 
-public fun ClfsMgmtDeregisterManagedClient(clientcookie: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsMgmtDeregisterManagedClient", longArrayOf(clientcookie))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsMgmtDeregisterManagedClient(clientcookie: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsMgmtDeregisterManagedClient", longArrayOf(clientcookie)).toInt()
 }
 
-public fun ClfsMgmtHandleLogFileFull(client: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsMgmtHandleLogFileFull", longArrayOf(client))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsMgmtHandleLogFileFull(client: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsMgmtHandleLogFileFull", longArrayOf(client)).toInt()
 }
 
-public fun ClfsMgmtInstallPolicy(logfile: Long, policy: Long, policylength: UInt): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsMgmtInstallPolicy", longArrayOf(logfile, policy, policylength.toLong()))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsMgmtInstallPolicy(logfile: Long, policy: Long, policylength: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsMgmtInstallPolicy", longArrayOf(logfile, policy, policylength.toLong())).toInt()
 }
 
-public fun ClfsMgmtQueryPolicy(logfile: Long, policytype: Win32.Storage.FileSystem.CLFS_MGMT_POLICY_TYPE, policy: Long, policylength: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsMgmtQueryPolicy", longArrayOf(logfile, Win32DynamicFfi.objectSlot(policytype), policy, policylength))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsMgmtQueryPolicy(logfile: Long, policytype: CLFS_MGMT_POLICY_TYPE, policy: Long, policylength: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsMgmtQueryPolicy", longArrayOf(logfile, policytype.toLong(), policy, policylength)).toInt()
 }
 
-public fun ClfsMgmtRegisterManagedClient(logfile: Long, registrationdata: Long, clientcookie: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsMgmtRegisterManagedClient", longArrayOf(logfile, registrationdata, clientcookie))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsMgmtRegisterManagedClient(logfile: Long, registrationdata: Long, clientcookie: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsMgmtRegisterManagedClient", longArrayOf(logfile, registrationdata, clientcookie)).toInt()
 }
 
-public fun ClfsMgmtRemovePolicy(logfile: Long, policytype: Win32.Storage.FileSystem.CLFS_MGMT_POLICY_TYPE): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsMgmtRemovePolicy", longArrayOf(logfile, Win32DynamicFfi.objectSlot(policytype)))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsMgmtRemovePolicy(logfile: Long, policytype: CLFS_MGMT_POLICY_TYPE): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsMgmtRemovePolicy", longArrayOf(logfile, policytype.toLong())).toInt()
 }
 
-public fun ClfsMgmtSetLogFileSize(logfile: Long, newsizeincontainers: Long, resultingsizeincontainers: Long, completionroutine: PCLFS_SET_LOG_SIZE_COMPLETE_CALLBACK, completionroutinedata: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsMgmtSetLogFileSize", longArrayOf(logfile, newsizeincontainers, resultingsizeincontainers, Win32DynamicFfi.objectSlot(completionroutine), completionroutinedata))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsMgmtSetLogFileSize(logfile: Long, newsizeincontainers: Long, resultingsizeincontainers: Long, completionroutine: PCLFS_SET_LOG_SIZE_COMPLETE_CALLBACK, completionroutinedata: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsMgmtSetLogFileSize", longArrayOf(logfile, newsizeincontainers, resultingsizeincontainers, Win32DynamicFfi.objectSlot(completionroutine), completionroutinedata)).toInt()
 }
 
-public fun ClfsMgmtSetLogFileSizeAsClient(logfile: Long, clientcookie: Long, newsizeincontainers: Long, resultingsizeincontainers: Long, completionroutine: PCLFS_SET_LOG_SIZE_COMPLETE_CALLBACK, completionroutinedata: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsMgmtSetLogFileSizeAsClient", longArrayOf(logfile, clientcookie, newsizeincontainers, resultingsizeincontainers, Win32DynamicFfi.objectSlot(completionroutine), completionroutinedata))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsMgmtSetLogFileSizeAsClient(logfile: Long, clientcookie: Long, newsizeincontainers: Long, resultingsizeincontainers: Long, completionroutine: PCLFS_SET_LOG_SIZE_COMPLETE_CALLBACK, completionroutinedata: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsMgmtSetLogFileSizeAsClient", longArrayOf(logfile, clientcookie, newsizeincontainers, resultingsizeincontainers, Win32DynamicFfi.objectSlot(completionroutine), completionroutinedata)).toInt()
 }
 
-public fun ClfsMgmtTailAdvanceFailure(client: Long, reason: Win32.Foundation.NTSTATUS): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsMgmtTailAdvanceFailure", longArrayOf(client, Win32DynamicFfi.objectSlot(reason)))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsMgmtTailAdvanceFailure(client: Long, reason: NTSTATUS): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsMgmtTailAdvanceFailure", longArrayOf(client, reason.toLong())).toInt()
 }
 
-public fun ClfsQueryLogFileInformation(plfolog: Long, einformationclass: Win32.Storage.FileSystem.CLS_LOG_INFORMATION_CLASS, pinfoinputbuffer: Long, cbinfoinputbuffer: UInt, pinfobuffer: Long, pcbinfobuffer: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsQueryLogFileInformation", longArrayOf(plfolog, Win32DynamicFfi.objectSlot(einformationclass), pinfoinputbuffer, cbinfoinputbuffer.toLong(), pinfobuffer, pcbinfobuffer))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsQueryLogFileInformation(plfolog: Long, einformationclass: CLS_LOG_INFORMATION_CLASS, pinfoinputbuffer: Long, cbinfoinputbuffer: UInt, pinfobuffer: Long, pcbinfobuffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsQueryLogFileInformation", longArrayOf(plfolog, einformationclass.toLong(), pinfoinputbuffer, cbinfoinputbuffer.toLong(), pinfobuffer, pcbinfobuffer)).toInt()
 }
 
-public fun ClfsReadLogRecord(pvmarshalcontext: Long, plsnfirst: Long, pecontextmode: Win32.Storage.FileSystem.CLFS_CONTEXT_MODE, ppvreadbuffer: Long, pcbreadbuffer: Long, perecordtype: Long, plsnundonext: Long, plsnprevious: Long, ppvreadcontext: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsReadLogRecord", longArrayOf(pvmarshalcontext, plsnfirst, Win32DynamicFfi.objectSlot(pecontextmode), ppvreadbuffer, pcbreadbuffer, perecordtype, plsnundonext, plsnprevious, ppvreadcontext))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsReadLogRecord(pvmarshalcontext: Long, plsnfirst: Long, pecontextmode: CLFS_CONTEXT_MODE, ppvreadbuffer: Long, pcbreadbuffer: Long, perecordtype: Long, plsnundonext: Long, plsnprevious: Long, ppvreadcontext: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsReadLogRecord", longArrayOf(pvmarshalcontext, plsnfirst, pecontextmode.toLong(), ppvreadbuffer, pcbreadbuffer, perecordtype, plsnundonext, plsnprevious, ppvreadcontext)).toInt()
 }
 
-public fun ClfsReadNextLogRecord(pvreadcontext: Long, ppvbuffer: Long, pcbbuffer: Long, perecordtype: Long, plsnuser: Long, plsnundonext: Long, plsnprevious: Long, plsnrecord: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsReadNextLogRecord", longArrayOf(pvreadcontext, ppvbuffer, pcbbuffer, perecordtype, plsnuser, plsnundonext, plsnprevious, plsnrecord))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsReadNextLogRecord(pvreadcontext: Long, ppvbuffer: Long, pcbbuffer: Long, perecordtype: Long, plsnuser: Long, plsnundonext: Long, plsnprevious: Long, plsnrecord: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsReadNextLogRecord", longArrayOf(pvreadcontext, ppvbuffer, pcbbuffer, perecordtype, plsnuser, plsnundonext, plsnprevious, plsnrecord)).toInt()
 }
 
-public fun ClfsReadPreviousRestartArea(pvreadcontext: Long, ppvrestartbuffer: Long, pcbrestartbuffer: Long, plsnrestart: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsReadPreviousRestartArea", longArrayOf(pvreadcontext, ppvrestartbuffer, pcbrestartbuffer, plsnrestart))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsReadPreviousRestartArea(pvreadcontext: Long, ppvrestartbuffer: Long, pcbrestartbuffer: Long, plsnrestart: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsReadPreviousRestartArea", longArrayOf(pvreadcontext, ppvrestartbuffer, pcbrestartbuffer, plsnrestart)).toInt()
 }
 
-public fun ClfsReadRestartArea(pvmarshalcontext: Long, ppvrestartbuffer: Long, pcbrestartbuffer: Long, plsn: Long, ppvreadcontext: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsReadRestartArea", longArrayOf(pvmarshalcontext, ppvrestartbuffer, pcbrestartbuffer, plsn, ppvreadcontext))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsReadRestartArea(pvmarshalcontext: Long, ppvrestartbuffer: Long, pcbrestartbuffer: Long, plsn: Long, ppvreadcontext: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsReadRestartArea", longArrayOf(pvmarshalcontext, ppvrestartbuffer, pcbrestartbuffer, plsn, ppvreadcontext)).toInt()
 }
 
-public fun ClfsRemoveLogContainer(plfolog: Long, puszcontainerpath: Long, fforce: Boolean): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsRemoveLogContainer", longArrayOf(plfolog, puszcontainerpath, if (fforce) 1L else 0L))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsRemoveLogContainer(plfolog: Long, puszcontainerpath: Long, fforce: Boolean): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsRemoveLogContainer", longArrayOf(plfolog, puszcontainerpath, if (fforce) 1L else 0L)).toInt()
 }
 
-public fun ClfsRemoveLogContainerSet(plfolog: Long, ccontainers: UShort, rgwszcontainerpath: Long, fforce: Boolean): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsRemoveLogContainerSet", longArrayOf(plfolog, ccontainers.toLong(), rgwszcontainerpath, if (fforce) 1L else 0L))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsRemoveLogContainerSet(plfolog: Long, ccontainers: UShort, rgwszcontainerpath: Long, fforce: Boolean): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsRemoveLogContainerSet", longArrayOf(plfolog, ccontainers.toLong(), rgwszcontainerpath, if (fforce) 1L else 0L)).toInt()
 }
 
-public fun ClfsReserveAndAppendLog(pvmarshalcontext: Long, rgwriteentries: Long, cwriteentries: UInt, plsnundonext: Long, plsnprevious: Long, creserverecords: UInt, rgcbreservation: Long, fflags: UInt, plsn: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsReserveAndAppendLog", longArrayOf(pvmarshalcontext, rgwriteentries, cwriteentries.toLong(), plsnundonext, plsnprevious, creserverecords.toLong(), rgcbreservation, fflags.toLong(), plsn))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsReserveAndAppendLog(pvmarshalcontext: Long, rgwriteentries: Long, cwriteentries: UInt, plsnundonext: Long, plsnprevious: Long, creserverecords: UInt, rgcbreservation: Long, fflags: UInt, plsn: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsReserveAndAppendLog", longArrayOf(pvmarshalcontext, rgwriteentries, cwriteentries.toLong(), plsnundonext, plsnprevious, creserverecords.toLong(), rgcbreservation, fflags.toLong(), plsn)).toInt()
 }
 
-public fun ClfsReserveAndAppendLogAligned(pvmarshalcontext: Long, rgwriteentries: Long, cwriteentries: UInt, cbentryalignment: UInt, plsnundonext: Long, plsnprevious: Long, creserverecords: UInt, rgcbreservation: Long, fflags: UInt, plsn: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsReserveAndAppendLogAligned", longArrayOf(pvmarshalcontext, rgwriteentries, cwriteentries.toLong(), cbentryalignment.toLong(), plsnundonext, plsnprevious, creserverecords.toLong(), rgcbreservation, fflags.toLong(), plsn))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsReserveAndAppendLogAligned(pvmarshalcontext: Long, rgwriteentries: Long, cwriteentries: UInt, cbentryalignment: UInt, plsnundonext: Long, plsnprevious: Long, creserverecords: UInt, rgcbreservation: Long, fflags: UInt, plsn: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsReserveAndAppendLogAligned", longArrayOf(pvmarshalcontext, rgwriteentries, cwriteentries.toLong(), cbentryalignment.toLong(), plsnundonext, plsnprevious, creserverecords.toLong(), rgcbreservation, fflags.toLong(), plsn)).toInt()
 }
 
-public fun ClfsScanLogContainers(pcxscan: Long, escanmode: UByte): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsScanLogContainers", longArrayOf(pcxscan, escanmode.toLong()))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsScanLogContainers(pcxscan: Long, escanmode: UByte): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsScanLogContainers", longArrayOf(pcxscan, escanmode.toLong())).toInt()
 }
 
-public fun ClfsSetArchiveTail(plfolog: Long, plsnarchivetail: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsSetArchiveTail", longArrayOf(plfolog, plsnarchivetail))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsSetArchiveTail(plfolog: Long, plsnarchivetail: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsSetArchiveTail", longArrayOf(plfolog, plsnarchivetail)).toInt()
 }
 
-public fun ClfsSetEndOfLog(plfolog: Long, plsnend: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsSetEndOfLog", longArrayOf(plfolog, plsnend))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsSetEndOfLog(plfolog: Long, plsnend: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsSetEndOfLog", longArrayOf(plfolog, plsnend)).toInt()
 }
 
-public fun ClfsSetLogFileInformation(plfolog: Long, einformationclass: Win32.Storage.FileSystem.CLS_LOG_INFORMATION_CLASS, pinfobuffer: Long, cbbuffer: UInt): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsSetLogFileInformation", longArrayOf(plfolog, Win32DynamicFfi.objectSlot(einformationclass), pinfobuffer, cbbuffer.toLong()))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsSetLogFileInformation(plfolog: Long, einformationclass: CLS_LOG_INFORMATION_CLASS, pinfobuffer: Long, cbbuffer: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsSetLogFileInformation", longArrayOf(plfolog, einformationclass.toLong(), pinfobuffer, cbbuffer.toLong())).toInt()
 }
 
-public fun ClfsTerminateReadLog(pvcursorcontext: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsTerminateReadLog", longArrayOf(pvcursorcontext))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsTerminateReadLog(pvcursorcontext: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsTerminateReadLog", longArrayOf(pvcursorcontext)).toInt()
 }
 
-public fun ClfsWriteRestartArea(pvmarshalcontext: Long, pvrestartbuffer: Long, cbrestartbuffer: UInt, plsnbase: Long, fflags: UInt, pcbwritten: Long, plsnnext: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("clfs.sys", "ClfsWriteRestartArea", longArrayOf(pvmarshalcontext, pvrestartbuffer, cbrestartbuffer.toLong(), plsnbase, fflags.toLong(), pcbwritten, plsnnext))
-    return Win32.Foundation.NTSTATUS()
+public fun ClfsWriteRestartArea(pvmarshalcontext: Long, pvrestartbuffer: Long, cbrestartbuffer: UInt, plsnbase: Long, fflags: UInt, pcbwritten: Long, plsnnext: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("clfs.sys", "ClfsWriteRestartArea", longArrayOf(pvmarshalcontext, pvrestartbuffer, cbrestartbuffer.toLong(), plsnbase, fflags.toLong(), pcbwritten, plsnnext)).toInt()
 }
 
-public fun CmCallbackGetKeyObjectID(cookie: Long, obj: Long, objectid: Long, objectname: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "CmCallbackGetKeyObjectID", longArrayOf(cookie, obj, objectid, objectname))
-    return Win32.Foundation.NTSTATUS()
+public fun CmCallbackGetKeyObjectID(cookie: Long, obj: Long, objectid: Long, objectname: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "CmCallbackGetKeyObjectID", longArrayOf(cookie, obj, objectid, objectname)).toInt()
 }
 
-public fun CmCallbackGetKeyObjectIDEx(cookie: Long, obj: Long, objectid: Long, objectname: Long, flags: UInt): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "CmCallbackGetKeyObjectIDEx", longArrayOf(cookie, obj, objectid, objectname, flags.toLong()))
-    return Win32.Foundation.NTSTATUS()
+public fun CmCallbackGetKeyObjectIDEx(cookie: Long, obj: Long, objectid: Long, objectname: Long, flags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "CmCallbackGetKeyObjectIDEx", longArrayOf(cookie, obj, objectid, objectname, flags.toLong())).toInt()
 }
 
 public fun CmCallbackReleaseKeyObjectIDEx(objectname: Long) {
@@ -349,24 +333,20 @@ public fun CmGetCallbackVersion(major: Long, minor: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "CmGetCallbackVersion", longArrayOf(major, minor))
 }
 
-public fun CmRegisterCallback(function: PEX_CALLBACK_FUNCTION, context: Long, cookie: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "CmRegisterCallback", longArrayOf(Win32DynamicFfi.objectSlot(function), context, cookie))
-    return Win32.Foundation.NTSTATUS()
+public fun CmRegisterCallback(function: PEX_CALLBACK_FUNCTION, context: Long, cookie: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "CmRegisterCallback", longArrayOf(Win32DynamicFfi.objectSlot(function), context, cookie)).toInt()
 }
 
-public fun CmRegisterCallbackEx(function: PEX_CALLBACK_FUNCTION, altitude: Long, driver: Long, context: Long, cookie: Long, reserved: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "CmRegisterCallbackEx", longArrayOf(Win32DynamicFfi.objectSlot(function), altitude, driver, context, cookie, reserved))
-    return Win32.Foundation.NTSTATUS()
+public fun CmRegisterCallbackEx(function: PEX_CALLBACK_FUNCTION, altitude: Long, driver: Long, context: Long, cookie: Long, reserved: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "CmRegisterCallbackEx", longArrayOf(Win32DynamicFfi.objectSlot(function), altitude, driver, context, cookie, reserved)).toInt()
 }
 
-public fun CmSetCallbackObjectContext(obj: Long, cookie: Long, newcontext: Long, oldcontext: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "CmSetCallbackObjectContext", longArrayOf(obj, cookie, newcontext, oldcontext))
-    return Win32.Foundation.NTSTATUS()
+public fun CmSetCallbackObjectContext(obj: Long, cookie: Long, newcontext: Long, oldcontext: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "CmSetCallbackObjectContext", longArrayOf(obj, cookie, newcontext, oldcontext)).toInt()
 }
 
-public fun CmUnRegisterCallback(cookie: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "CmUnRegisterCallback", longArrayOf(cookie))
-    return Win32.Foundation.NTSTATUS()
+public fun CmUnRegisterCallback(cookie: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "CmUnRegisterCallback", longArrayOf(cookie)).toInt()
 }
 
 public fun DbgBreakPointWithStatus(status: UInt) {
@@ -389,69 +369,58 @@ public fun DbgPrompt(prompt: PCSTR, response: PSTR, length: UInt): UInt {
     return Win32DynamicFfi.invoke("ntdll.dll", "DbgPrompt", longArrayOf(prompt, response, length.toLong())).toUInt()
 }
 
-public fun DbgQueryDebugFilterState(componentid: UInt, level: UInt): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntdll.dll", "DbgQueryDebugFilterState", longArrayOf(componentid.toLong(), level.toLong()))
-    return Win32.Foundation.NTSTATUS()
+public fun DbgQueryDebugFilterState(componentid: UInt, level: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntdll.dll", "DbgQueryDebugFilterState", longArrayOf(componentid.toLong(), level.toLong())).toInt()
 }
 
-public fun DbgSetDebugFilterState(componentid: UInt, level: UInt, state: Boolean): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntdll.dll", "DbgSetDebugFilterState", longArrayOf(componentid.toLong(), level.toLong(), if (state) 1L else 0L))
-    return Win32.Foundation.NTSTATUS()
+public fun DbgSetDebugFilterState(componentid: UInt, level: UInt, state: Boolean): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntdll.dll", "DbgSetDebugFilterState", longArrayOf(componentid.toLong(), level.toLong(), if (state) 1L else 0L)).toInt()
 }
 
-public fun DbgSetDebugPrintCallback(debugprintcallback: PDEBUG_PRINT_CALLBACK, enable: Boolean): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "DbgSetDebugPrintCallback", longArrayOf(Win32DynamicFfi.objectSlot(debugprintcallback), if (enable) 1L else 0L))
-    return Win32.Foundation.NTSTATUS()
+public fun DbgSetDebugPrintCallback(debugprintcallback: PDEBUG_PRINT_CALLBACK, enable: Boolean): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "DbgSetDebugPrintCallback", longArrayOf(Win32DynamicFfi.objectSlot(debugprintcallback), if (enable) 1L else 0L)).toInt()
 }
 
-public fun EtwActivityIdControl(controlcode: UInt, activityid: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "EtwActivityIdControl", longArrayOf(controlcode.toLong(), activityid))
-    return Win32.Foundation.NTSTATUS()
+public fun EtwActivityIdControl(controlcode: UInt, activityid: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "EtwActivityIdControl", longArrayOf(controlcode.toLong(), activityid)).toInt()
 }
 
-public fun EtwEventEnabled(reghandle: Win32.System.Diagnostics.Etw.REGHANDLE, eventdescriptor: Long): Boolean {
-    val rawRet = Win32DynamicFfi.invoke("ntdll.dll", "EtwEventEnabled", longArrayOf(Win32DynamicFfi.objectSlot(reghandle), eventdescriptor))
+public fun EtwEventEnabled(reghandle: REGHANDLE, eventdescriptor: Long): Boolean {
+    val rawRet = Win32DynamicFfi.invoke("ntdll.dll", "EtwEventEnabled", longArrayOf(reghandle, eventdescriptor))
     return (rawRet and 0xFFL) != 0L
 }
 
-public fun EtwProviderEnabled(reghandle: Win32.System.Diagnostics.Etw.REGHANDLE, level: UByte, keyword: ULong): Boolean {
-    val rawRet = Win32DynamicFfi.invoke("ntoskrnl.exe", "EtwProviderEnabled", longArrayOf(Win32DynamicFfi.objectSlot(reghandle), level.toLong(), keyword.toLong()))
+public fun EtwProviderEnabled(reghandle: REGHANDLE, level: UByte, keyword: ULong): Boolean {
+    val rawRet = Win32DynamicFfi.invoke("ntoskrnl.exe", "EtwProviderEnabled", longArrayOf(reghandle, level.toLong(), keyword.toLong()))
     return (rawRet and 0xFFL) != 0L
 }
 
-public fun EtwRegister(providerid: Long, enablecallback: PETWENABLECALLBACK, callbackcontext: Long, reghandle: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "EtwRegister", longArrayOf(providerid, Win32DynamicFfi.objectSlot(enablecallback), callbackcontext, reghandle))
-    return Win32.Foundation.NTSTATUS()
+public fun EtwRegister(providerid: Long, enablecallback: PETWENABLECALLBACK, callbackcontext: Long, reghandle: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "EtwRegister", longArrayOf(providerid, Win32DynamicFfi.objectSlot(enablecallback), callbackcontext, reghandle)).toInt()
 }
 
-public fun EtwSetInformation(reghandle: Win32.System.Diagnostics.Etw.REGHANDLE, informationclass: Win32.System.Diagnostics.Etw.EVENT_INFO_CLASS, eventinformation: Long, informationlength: UInt): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "EtwSetInformation", longArrayOf(Win32DynamicFfi.objectSlot(reghandle), Win32DynamicFfi.objectSlot(informationclass), eventinformation, informationlength.toLong()))
-    return Win32.Foundation.NTSTATUS()
+public fun EtwSetInformation(reghandle: REGHANDLE, informationclass: EVENT_INFO_CLASS, eventinformation: Long, informationlength: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "EtwSetInformation", longArrayOf(reghandle, informationclass.toLong(), eventinformation, informationlength.toLong())).toInt()
 }
 
-public fun EtwUnregister(reghandle: Win32.System.Diagnostics.Etw.REGHANDLE): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "EtwUnregister", longArrayOf(Win32DynamicFfi.objectSlot(reghandle)))
-    return Win32.Foundation.NTSTATUS()
+public fun EtwUnregister(reghandle: REGHANDLE): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "EtwUnregister", longArrayOf(reghandle)).toInt()
 }
 
-public fun EtwWrite(reghandle: Win32.System.Diagnostics.Etw.REGHANDLE, eventdescriptor: Long, activityid: Long, userdatacount: UInt, userdata: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "EtwWrite", longArrayOf(Win32DynamicFfi.objectSlot(reghandle), eventdescriptor, activityid, userdatacount.toLong(), userdata))
-    return Win32.Foundation.NTSTATUS()
+public fun EtwWrite(reghandle: REGHANDLE, eventdescriptor: Long, activityid: Long, userdatacount: UInt, userdata: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "EtwWrite", longArrayOf(reghandle, eventdescriptor, activityid, userdatacount.toLong(), userdata)).toInt()
 }
 
-public fun EtwWriteEx(reghandle: Win32.System.Diagnostics.Etw.REGHANDLE, eventdescriptor: Long, filter: ULong, flags: UInt, activityid: Long, relatedactivityid: Long, userdatacount: UInt, userdata: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "EtwWriteEx", longArrayOf(Win32DynamicFfi.objectSlot(reghandle), eventdescriptor, filter.toLong(), flags.toLong(), activityid, relatedactivityid, userdatacount.toLong(), userdata))
-    return Win32.Foundation.NTSTATUS()
+public fun EtwWriteEx(reghandle: REGHANDLE, eventdescriptor: Long, filter: ULong, flags: UInt, activityid: Long, relatedactivityid: Long, userdatacount: UInt, userdata: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "EtwWriteEx", longArrayOf(reghandle, eventdescriptor, filter.toLong(), flags.toLong(), activityid, relatedactivityid, userdatacount.toLong(), userdata)).toInt()
 }
 
-public fun EtwWriteString(reghandle: Win32.System.Diagnostics.Etw.REGHANDLE, level: UByte, keyword: ULong, activityid: Long, string: PCWSTR): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "EtwWriteString", longArrayOf(Win32DynamicFfi.objectSlot(reghandle), level.toLong(), keyword.toLong(), activityid, string))
-    return Win32.Foundation.NTSTATUS()
+public fun EtwWriteString(reghandle: REGHANDLE, level: UByte, keyword: ULong, activityid: Long, string: PCWSTR): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "EtwWriteString", longArrayOf(reghandle, level.toLong(), keyword.toLong(), activityid, string)).toInt()
 }
 
-public fun EtwWriteTransfer(reghandle: Win32.System.Diagnostics.Etw.REGHANDLE, eventdescriptor: Long, activityid: Long, relatedactivityid: Long, userdatacount: UInt, userdata: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "EtwWriteTransfer", longArrayOf(Win32DynamicFfi.objectSlot(reghandle), eventdescriptor, activityid, relatedactivityid, userdatacount.toLong(), userdata))
-    return Win32.Foundation.NTSTATUS()
+public fun EtwWriteTransfer(reghandle: REGHANDLE, eventdescriptor: Long, activityid: Long, relatedactivityid: Long, userdatacount: UInt, userdata: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "EtwWriteTransfer", longArrayOf(reghandle, eventdescriptor, activityid, relatedactivityid, userdatacount.toLong(), userdata)).toInt()
 }
 
 public fun ExAcquireFastMutex(fastmutex: Long) {
@@ -485,13 +454,13 @@ public fun ExAcquireRundownProtection(runref: Long): Boolean {
     return (rawRet and 0xFFL) != 0L
 }
 
-public fun ExAcquireRundownProtectionCacheAware(runrefcacheaware: Foundation.PEX_RUNDOWN_REF_CACHE_AWARE): Boolean {
-    val rawRet = Win32DynamicFfi.invoke("ntoskrnl.exe", "ExAcquireRundownProtectionCacheAware", longArrayOf(Win32DynamicFfi.objectSlot(runrefcacheaware)))
+public fun ExAcquireRundownProtectionCacheAware(runrefcacheaware: PEX_RUNDOWN_REF_CACHE_AWARE): Boolean {
+    val rawRet = Win32DynamicFfi.invoke("ntoskrnl.exe", "ExAcquireRundownProtectionCacheAware", longArrayOf(runrefcacheaware))
     return (rawRet and 0xFFL) != 0L
 }
 
-public fun ExAcquireRundownProtectionCacheAwareEx(runrefcacheaware: Foundation.PEX_RUNDOWN_REF_CACHE_AWARE, count: UInt): Boolean {
-    val rawRet = Win32DynamicFfi.invoke("ntoskrnl.exe", "ExAcquireRundownProtectionCacheAwareEx", longArrayOf(Win32DynamicFfi.objectSlot(runrefcacheaware), count.toLong()))
+public fun ExAcquireRundownProtectionCacheAwareEx(runrefcacheaware: PEX_RUNDOWN_REF_CACHE_AWARE, count: UInt): Boolean {
+    val rawRet = Win32DynamicFfi.invoke("ntoskrnl.exe", "ExAcquireRundownProtectionCacheAwareEx", longArrayOf(runrefcacheaware, count.toLong()))
     return (rawRet and 0xFFL) != 0L
 }
 
@@ -526,13 +495,12 @@ public fun ExAcquireSpinLockSharedAtDpcLevel(spinlock: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "ExAcquireSpinLockSharedAtDpcLevel", longArrayOf(spinlock))
 }
 
-public fun ExAllocateCacheAwareRundownProtection(pooltype: Foundation.POOL_TYPE, pooltag: UInt): Foundation.PEX_RUNDOWN_REF_CACHE_AWARE {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExAllocateCacheAwareRundownProtection", longArrayOf(Win32DynamicFfi.objectSlot(pooltype), pooltag.toLong()))
-    return Foundation.PEX_RUNDOWN_REF_CACHE_AWARE()
+public fun ExAllocateCacheAwareRundownProtection(pooltype: POOL_TYPE, pooltag: UInt): PEX_RUNDOWN_REF_CACHE_AWARE {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExAllocateCacheAwareRundownProtection", longArrayOf(pooltype.toLong(), pooltag.toLong()))
 }
 
-public fun ExAllocatePool(pooltype: Foundation.POOL_TYPE, numberofbytes: ULong): Long {
-    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExAllocatePool", longArrayOf(Win32DynamicFfi.objectSlot(pooltype), numberofbytes.toLong()))
+public fun ExAllocatePool(pooltype: POOL_TYPE, numberofbytes: ULong): Long {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExAllocatePool", longArrayOf(pooltype.toLong(), numberofbytes.toLong()))
 }
 
 public fun ExAllocatePool2(flags: ULong, numberofbytes: ULong, tag: UInt): Long {
@@ -543,62 +511,58 @@ public fun ExAllocatePool3(flags: ULong, numberofbytes: ULong, tag: UInt, extend
     return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExAllocatePool3", longArrayOf(flags.toLong(), numberofbytes.toLong(), tag.toLong(), extendedparameters, extendedparameterscount.toLong()))
 }
 
-public fun ExAllocatePoolWithQuota(pooltype: Foundation.POOL_TYPE, numberofbytes: ULong): Long {
-    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExAllocatePoolWithQuota", longArrayOf(Win32DynamicFfi.objectSlot(pooltype), numberofbytes.toLong()))
+public fun ExAllocatePoolWithQuota(pooltype: POOL_TYPE, numberofbytes: ULong): Long {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExAllocatePoolWithQuota", longArrayOf(pooltype.toLong(), numberofbytes.toLong()))
 }
 
-public fun ExAllocatePoolWithQuotaTag(pooltype: Foundation.POOL_TYPE, numberofbytes: ULong, tag: UInt): Long {
-    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExAllocatePoolWithQuotaTag", longArrayOf(Win32DynamicFfi.objectSlot(pooltype), numberofbytes.toLong(), tag.toLong()))
+public fun ExAllocatePoolWithQuotaTag(pooltype: POOL_TYPE, numberofbytes: ULong, tag: UInt): Long {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExAllocatePoolWithQuotaTag", longArrayOf(pooltype.toLong(), numberofbytes.toLong(), tag.toLong()))
 }
 
-public fun ExAllocatePoolWithTag(pooltype: Foundation.POOL_TYPE, numberofbytes: ULong, tag: UInt): Long {
-    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExAllocatePoolWithTag", longArrayOf(Win32DynamicFfi.objectSlot(pooltype), numberofbytes.toLong(), tag.toLong()))
+public fun ExAllocatePoolWithTag(pooltype: POOL_TYPE, numberofbytes: ULong, tag: UInt): Long {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExAllocatePoolWithTag", longArrayOf(pooltype.toLong(), numberofbytes.toLong(), tag.toLong()))
 }
 
-public fun ExAllocatePoolWithTagPriority(pooltype: Foundation.POOL_TYPE, numberofbytes: ULong, tag: UInt, priority: EX_POOL_PRIORITY): Long {
-    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExAllocatePoolWithTagPriority", longArrayOf(Win32DynamicFfi.objectSlot(pooltype), numberofbytes.toLong(), tag.toLong(), priority.toLong()))
+public fun ExAllocatePoolWithTagPriority(pooltype: POOL_TYPE, numberofbytes: ULong, tag: UInt, priority: EX_POOL_PRIORITY): Long {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExAllocatePoolWithTagPriority", longArrayOf(pooltype.toLong(), numberofbytes.toLong(), tag.toLong(), priority.toLong()))
 }
 
-public fun ExAllocateTimer(callback: PEXT_CALLBACK, callbackcontext: Long, attributes: UInt): Foundation.PEX_TIMER {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExAllocateTimer", longArrayOf(Win32DynamicFfi.objectSlot(callback), callbackcontext, attributes.toLong()))
-    return Foundation.PEX_TIMER()
+public fun ExAllocateTimer(callback: PEXT_CALLBACK, callbackcontext: Long, attributes: UInt): PEX_TIMER {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExAllocateTimer", longArrayOf(Win32DynamicFfi.objectSlot(callback), callbackcontext, attributes.toLong()))
 }
 
-public fun ExCancelTimer(timer: Foundation.PEX_TIMER, parameters: Long): Boolean {
-    val rawRet = Win32DynamicFfi.invoke("ntoskrnl.exe", "ExCancelTimer", longArrayOf(Win32DynamicFfi.objectSlot(timer), parameters))
+public fun ExCancelTimer(timer: PEX_TIMER, parameters: Long): Boolean {
+    val rawRet = Win32DynamicFfi.invoke("ntoskrnl.exe", "ExCancelTimer", longArrayOf(timer, parameters))
     return (rawRet and 0xFFL) != 0L
 }
 
-public fun ExCleanupRundownProtectionCacheAware(runrefcacheaware: Foundation.PEX_RUNDOWN_REF_CACHE_AWARE) {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExCleanupRundownProtectionCacheAware", longArrayOf(Win32DynamicFfi.objectSlot(runrefcacheaware)))
+public fun ExCleanupRundownProtectionCacheAware(runrefcacheaware: PEX_RUNDOWN_REF_CACHE_AWARE) {
+    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExCleanupRundownProtectionCacheAware", longArrayOf(runrefcacheaware))
 }
 
 public fun ExConvertExclusiveToSharedLite(resource: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "ExConvertExclusiveToSharedLite", longArrayOf(resource))
 }
 
-public fun ExCreateCallback(callbackobject: Long, objectattributes: Long, create: Boolean, allowmultiplecallbacks: Boolean): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExCreateCallback", longArrayOf(callbackobject, objectattributes, if (create) 1L else 0L, if (allowmultiplecallbacks) 1L else 0L))
-    return Win32.Foundation.NTSTATUS()
+public fun ExCreateCallback(callbackobject: Long, objectattributes: Long, create: Boolean, allowmultiplecallbacks: Boolean): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExCreateCallback", longArrayOf(callbackobject, objectattributes, if (create) 1L else 0L, if (allowmultiplecallbacks) 1L else 0L)).toInt()
 }
 
-public fun ExCreatePool(flags: UInt, tag: ULong, params: Long, poolhandle: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExCreatePool", longArrayOf(flags.toLong(), tag.toLong(), params, poolhandle))
-    return Win32.Foundation.NTSTATUS()
+public fun ExCreatePool(flags: UInt, tag: ULong, params: Long, poolhandle: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExCreatePool", longArrayOf(flags.toLong(), tag.toLong(), params, poolhandle)).toInt()
 }
 
-public fun ExDeleteResourceLite(resource: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExDeleteResourceLite", longArrayOf(resource))
-    return Win32.Foundation.NTSTATUS()
+public fun ExDeleteResourceLite(resource: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExDeleteResourceLite", longArrayOf(resource)).toInt()
 }
 
-public fun ExDeleteTimer(timer: Foundation.PEX_TIMER, cancel: Boolean, wait: Boolean, parameters: Long): Boolean {
-    val rawRet = Win32DynamicFfi.invoke("ntoskrnl.exe", "ExDeleteTimer", longArrayOf(Win32DynamicFfi.objectSlot(timer), if (cancel) 1L else 0L, if (wait) 1L else 0L, parameters))
+public fun ExDeleteTimer(timer: PEX_TIMER, cancel: Boolean, wait: Boolean, parameters: Long): Boolean {
+    val rawRet = Win32DynamicFfi.invoke("ntoskrnl.exe", "ExDeleteTimer", longArrayOf(timer, if (cancel) 1L else 0L, if (wait) 1L else 0L, parameters))
     return (rawRet and 0xFFL) != 0L
 }
 
-public fun ExDestroyPool(poolhandle: Win32.Foundation.HANDLE) {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExDestroyPool", longArrayOf(Win32DynamicFfi.objectSlot(poolhandle)))
+public fun ExDestroyPool(poolhandle: HANDLE) {
+    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExDestroyPool", longArrayOf(poolhandle))
 }
 
 public fun ExEnterCriticalRegionAndAcquireResourceExclusive(resource: Long): Long {
@@ -613,18 +577,16 @@ public fun ExEnterCriticalRegionAndAcquireSharedWaitForExclusive(resource: Long)
     return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExEnterCriticalRegionAndAcquireSharedWaitForExclusive", longArrayOf(resource))
 }
 
-public fun ExEnumerateSystemFirmwareTables(firmwaretableprovidersignature: UInt, firmwaretablebuffer: Long, bufferlength: UInt, returnlength: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExEnumerateSystemFirmwareTables", longArrayOf(firmwaretableprovidersignature.toLong(), firmwaretablebuffer, bufferlength.toLong(), returnlength))
-    return Win32.Foundation.NTSTATUS()
+public fun ExEnumerateSystemFirmwareTables(firmwaretableprovidersignature: UInt, firmwaretablebuffer: Long, bufferlength: UInt, returnlength: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExEnumerateSystemFirmwareTables", longArrayOf(firmwaretableprovidersignature.toLong(), firmwaretablebuffer, bufferlength.toLong(), returnlength)).toInt()
 }
 
-public fun ExExtendZone(zone: Long, segment: Long, segmentsize: UInt): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExExtendZone", longArrayOf(zone, segment, segmentsize.toLong()))
-    return Win32.Foundation.NTSTATUS()
+public fun ExExtendZone(zone: Long, segment: Long, segmentsize: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExExtendZone", longArrayOf(zone, segment, segmentsize.toLong())).toInt()
 }
 
-public fun ExFreeCacheAwareRundownProtection(runrefcacheaware: Foundation.PEX_RUNDOWN_REF_CACHE_AWARE) {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExFreeCacheAwareRundownProtection", longArrayOf(Win32DynamicFfi.objectSlot(runrefcacheaware)))
+public fun ExFreeCacheAwareRundownProtection(runrefcacheaware: PEX_RUNDOWN_REF_CACHE_AWARE) {
+    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExFreeCacheAwareRundownProtection", longArrayOf(runrefcacheaware))
 }
 
 public fun ExFreePool(p: Long) {
@@ -643,14 +605,12 @@ public fun ExGetExclusiveWaiterCount(resource: Long): UInt {
     return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExGetExclusiveWaiterCount", longArrayOf(resource)).toUInt()
 }
 
-public fun ExGetFirmwareEnvironmentVariable(variablename: Long, vendorguid: Long, value: Long, valuelength: Long, attributes: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExGetFirmwareEnvironmentVariable", longArrayOf(variablename, vendorguid, value, valuelength, attributes))
-    return Win32.Foundation.NTSTATUS()
+public fun ExGetFirmwareEnvironmentVariable(variablename: Long, vendorguid: Long, value: Long, valuelength: Long, attributes: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExGetFirmwareEnvironmentVariable", longArrayOf(variablename, vendorguid, value, valuelength, attributes)).toInt()
 }
 
-public fun ExGetFirmwareType(): Win32.System.SystemInformation.FIRMWARE_TYPE {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExGetFirmwareType", longArrayOf())
-    return Win32.System.SystemInformation.FIRMWARE_TYPE()
+public fun ExGetFirmwareType(): FIRMWARE_TYPE {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExGetFirmwareType", longArrayOf()).toInt()
 }
 
 public fun ExGetPreviousMode(): Byte {
@@ -661,44 +621,40 @@ public fun ExGetSharedWaiterCount(resource: Long): UInt {
     return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExGetSharedWaiterCount", longArrayOf(resource)).toUInt()
 }
 
-public fun ExGetSystemFirmwareTable(firmwaretableprovidersignature: UInt, firmwaretableid: UInt, firmwaretablebuffer: Long, bufferlength: UInt, returnlength: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExGetSystemFirmwareTable", longArrayOf(firmwaretableprovidersignature.toLong(), firmwaretableid.toLong(), firmwaretablebuffer, bufferlength.toLong(), returnlength))
-    return Win32.Foundation.NTSTATUS()
+public fun ExGetSystemFirmwareTable(firmwaretableprovidersignature: UInt, firmwaretableid: UInt, firmwaretablebuffer: Long, bufferlength: UInt, returnlength: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExGetSystemFirmwareTable", longArrayOf(firmwaretableprovidersignature.toLong(), firmwaretableid.toLong(), firmwaretablebuffer, bufferlength.toLong(), returnlength)).toInt()
 }
 
 public fun ExInitializePushLock(pushlock: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "ExInitializePushLock", longArrayOf(pushlock))
 }
 
-public fun ExInitializeResourceLite(resource: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExInitializeResourceLite", longArrayOf(resource))
-    return Win32.Foundation.NTSTATUS()
+public fun ExInitializeResourceLite(resource: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExInitializeResourceLite", longArrayOf(resource)).toInt()
 }
 
 public fun ExInitializeRundownProtection(runref: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "ExInitializeRundownProtection", longArrayOf(runref))
 }
 
-public fun ExInitializeRundownProtectionCacheAware(runrefcacheaware: Foundation.PEX_RUNDOWN_REF_CACHE_AWARE, runrefsize: ULong) {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExInitializeRundownProtectionCacheAware", longArrayOf(Win32DynamicFfi.objectSlot(runrefcacheaware), runrefsize.toLong()))
+public fun ExInitializeRundownProtectionCacheAware(runrefcacheaware: PEX_RUNDOWN_REF_CACHE_AWARE, runrefsize: ULong) {
+    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExInitializeRundownProtectionCacheAware", longArrayOf(runrefcacheaware, runrefsize.toLong()))
 }
 
-public fun ExInitializeRundownProtectionCacheAwareEx(runrefcacheaware: Foundation.PEX_RUNDOWN_REF_CACHE_AWARE, flags: UInt) {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExInitializeRundownProtectionCacheAwareEx", longArrayOf(Win32DynamicFfi.objectSlot(runrefcacheaware), flags.toLong()))
+public fun ExInitializeRundownProtectionCacheAwareEx(runrefcacheaware: PEX_RUNDOWN_REF_CACHE_AWARE, flags: UInt) {
+    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExInitializeRundownProtectionCacheAwareEx", longArrayOf(runrefcacheaware, flags.toLong()))
 }
 
-public fun ExInitializeZone(zone: Long, blocksize: UInt, initialsegment: Long, initialsegmentsize: UInt): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExInitializeZone", longArrayOf(zone, blocksize.toLong(), initialsegment, initialsegmentsize.toLong()))
-    return Win32.Foundation.NTSTATUS()
+public fun ExInitializeZone(zone: Long, blocksize: UInt, initialsegment: Long, initialsegmentsize: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExInitializeZone", longArrayOf(zone, blocksize.toLong(), initialsegment, initialsegmentsize.toLong())).toInt()
 }
 
 public fun ExInterlockedAddLargeInteger(addend: Long, increment: Long, lock: Long): Long {
     return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExInterlockedAddLargeInteger", longArrayOf(addend, increment, lock))
 }
 
-public fun ExInterlockedExtendZone(zone: Long, segment: Long, segmentsize: UInt, lock: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExInterlockedExtendZone", longArrayOf(zone, segment, segmentsize.toLong(), lock))
-    return Win32.Foundation.NTSTATUS()
+public fun ExInterlockedExtendZone(zone: Long, segment: Long, segmentsize: UInt, lock: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExInterlockedExtendZone", longArrayOf(zone, segment, segmentsize.toLong(), lock)).toInt()
 }
 
 public fun ExIsManufacturingModeEnabled(): Boolean {
@@ -749,25 +705,24 @@ public fun ExRaiseDatatypeMisalignment() {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "ExRaiseDatatypeMisalignment", longArrayOf())
 }
 
-public fun ExRaiseStatus(status: Win32.Foundation.NTSTATUS) {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExRaiseStatus", longArrayOf(Win32DynamicFfi.objectSlot(status)))
+public fun ExRaiseStatus(status: NTSTATUS) {
+    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExRaiseStatus", longArrayOf(status.toLong()))
 }
 
 public fun ExReInitializeRundownProtection(runref: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "ExReInitializeRundownProtection", longArrayOf(runref))
 }
 
-public fun ExReInitializeRundownProtectionCacheAware(runrefcacheaware: Foundation.PEX_RUNDOWN_REF_CACHE_AWARE) {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExReInitializeRundownProtectionCacheAware", longArrayOf(Win32DynamicFfi.objectSlot(runrefcacheaware)))
+public fun ExReInitializeRundownProtectionCacheAware(runrefcacheaware: PEX_RUNDOWN_REF_CACHE_AWARE) {
+    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExReInitializeRundownProtectionCacheAware", longArrayOf(runrefcacheaware))
 }
 
-public fun ExRegisterCallback(callbackobject: Foundation.PCALLBACK_OBJECT, callbackfunction: PCALLBACK_FUNCTION, callbackcontext: Long): Long {
-    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExRegisterCallback", longArrayOf(Win32DynamicFfi.objectSlot(callbackobject), Win32DynamicFfi.objectSlot(callbackfunction), callbackcontext))
+public fun ExRegisterCallback(callbackobject: PCALLBACK_OBJECT, callbackfunction: PCALLBACK_FUNCTION, callbackcontext: Long): Long {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExRegisterCallback", longArrayOf(callbackobject, Win32DynamicFfi.objectSlot(callbackfunction), callbackcontext))
 }
 
-public fun ExReinitializeResourceLite(resource: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExReinitializeResourceLite", longArrayOf(resource))
-    return Win32.Foundation.NTSTATUS()
+public fun ExReinitializeResourceLite(resource: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExReinitializeResourceLite", longArrayOf(resource)).toInt()
 }
 
 public fun ExReleaseFastMutex(fastmutex: Long) {
@@ -802,12 +757,12 @@ public fun ExReleaseRundownProtection(runref: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "ExReleaseRundownProtection", longArrayOf(runref))
 }
 
-public fun ExReleaseRundownProtectionCacheAware(runrefcacheaware: Foundation.PEX_RUNDOWN_REF_CACHE_AWARE) {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExReleaseRundownProtectionCacheAware", longArrayOf(Win32DynamicFfi.objectSlot(runrefcacheaware)))
+public fun ExReleaseRundownProtectionCacheAware(runrefcacheaware: PEX_RUNDOWN_REF_CACHE_AWARE) {
+    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExReleaseRundownProtectionCacheAware", longArrayOf(runrefcacheaware))
 }
 
-public fun ExReleaseRundownProtectionCacheAwareEx(runref: Foundation.PEX_RUNDOWN_REF_CACHE_AWARE, count: UInt) {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExReleaseRundownProtectionCacheAwareEx", longArrayOf(Win32DynamicFfi.objectSlot(runref), count.toLong()))
+public fun ExReleaseRundownProtectionCacheAwareEx(runref: PEX_RUNDOWN_REF_CACHE_AWARE, count: UInt) {
+    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExReleaseRundownProtectionCacheAwareEx", longArrayOf(runref, count.toLong()))
 }
 
 public fun ExReleaseRundownProtectionEx(runref: Long, count: UInt) {
@@ -834,22 +789,20 @@ public fun ExRundownCompleted(runref: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "ExRundownCompleted", longArrayOf(runref))
 }
 
-public fun ExRundownCompletedCacheAware(runrefcacheaware: Foundation.PEX_RUNDOWN_REF_CACHE_AWARE) {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExRundownCompletedCacheAware", longArrayOf(Win32DynamicFfi.objectSlot(runrefcacheaware)))
+public fun ExRundownCompletedCacheAware(runrefcacheaware: PEX_RUNDOWN_REF_CACHE_AWARE) {
+    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExRundownCompletedCacheAware", longArrayOf(runrefcacheaware))
 }
 
-public fun ExSecurePoolUpdate(securepoolhandle: Win32.Foundation.HANDLE, tag: UInt, allocation: Long, cookie: ULong, offset: ULong, size: ULong, buffer: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExSecurePoolUpdate", longArrayOf(Win32DynamicFfi.objectSlot(securepoolhandle), tag.toLong(), allocation, cookie.toLong(), offset.toLong(), size.toLong(), buffer))
-    return Win32.Foundation.NTSTATUS()
+public fun ExSecurePoolUpdate(securepoolhandle: HANDLE, tag: UInt, allocation: Long, cookie: ULong, offset: ULong, size: ULong, buffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExSecurePoolUpdate", longArrayOf(securepoolhandle, tag.toLong(), allocation, cookie.toLong(), offset.toLong(), size.toLong(), buffer)).toInt()
 }
 
-public fun ExSecurePoolValidate(securepoolhandle: Win32.Foundation.HANDLE, tag: UInt, allocation: Long, cookie: ULong): UInt {
-    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExSecurePoolValidate", longArrayOf(Win32DynamicFfi.objectSlot(securepoolhandle), tag.toLong(), allocation, cookie.toLong())).toUInt()
+public fun ExSecurePoolValidate(securepoolhandle: HANDLE, tag: UInt, allocation: Long, cookie: ULong): UInt {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExSecurePoolValidate", longArrayOf(securepoolhandle, tag.toLong(), allocation, cookie.toLong())).toUInt()
 }
 
-public fun ExSetFirmwareEnvironmentVariable(variablename: Long, vendorguid: Long, value: Long, valuelength: UInt, attributes: UInt): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExSetFirmwareEnvironmentVariable", longArrayOf(variablename, vendorguid, value, valuelength.toLong(), attributes.toLong()))
-    return Win32.Foundation.NTSTATUS()
+public fun ExSetFirmwareEnvironmentVariable(variablename: Long, vendorguid: Long, value: Long, valuelength: UInt, attributes: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExSetFirmwareEnvironmentVariable", longArrayOf(variablename, vendorguid, value, valuelength.toLong(), attributes.toLong())).toInt()
 }
 
 public fun ExSetResourceOwnerPointer(resource: Long, ownerpointer: Long) {
@@ -860,8 +813,8 @@ public fun ExSetResourceOwnerPointerEx(resource: Long, ownerpointer: Long, flags
     Win32DynamicFfi.invoke("ntoskrnl.exe", "ExSetResourceOwnerPointerEx", longArrayOf(resource, ownerpointer, flags.toLong()))
 }
 
-public fun ExSetTimer(timer: Foundation.PEX_TIMER, duetime: Long, period: Long, parameters: Long): Boolean {
-    val rawRet = Win32DynamicFfi.invoke("ntoskrnl.exe", "ExSetTimer", longArrayOf(Win32DynamicFfi.objectSlot(timer), duetime, period, parameters))
+public fun ExSetTimer(timer: PEX_TIMER, duetime: Long, period: Long, parameters: Long): Boolean {
+    val rawRet = Win32DynamicFfi.invoke("ntoskrnl.exe", "ExSetTimer", longArrayOf(timer, duetime, period, parameters))
     return (rawRet and 0xFFL) != 0L
 }
 
@@ -898,13 +851,12 @@ public fun ExUnregisterCallback(callbackregistration: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "ExUnregisterCallback", longArrayOf(callbackregistration))
 }
 
-public fun ExUuidCreate(uuid: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExUuidCreate", longArrayOf(uuid))
-    return Win32.Foundation.NTSTATUS()
+public fun ExUuidCreate(uuid: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "ExUuidCreate", longArrayOf(uuid)).toInt()
 }
 
-public fun ExVerifySuite(suitetype: Win32.System.Kernel.SUITE_TYPE): Boolean {
-    val rawRet = Win32DynamicFfi.invoke("ntoskrnl.exe", "ExVerifySuite", longArrayOf(Win32DynamicFfi.objectSlot(suitetype)))
+public fun ExVerifySuite(suitetype: SUITE_TYPE): Boolean {
+    val rawRet = Win32DynamicFfi.invoke("ntoskrnl.exe", "ExVerifySuite", longArrayOf(suitetype.toLong()))
     return (rawRet and 0xFFL) != 0L
 }
 
@@ -912,12 +864,12 @@ public fun ExWaitForRundownProtectionRelease(runref: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "ExWaitForRundownProtectionRelease", longArrayOf(runref))
 }
 
-public fun ExWaitForRundownProtectionReleaseCacheAware(runref: Foundation.PEX_RUNDOWN_REF_CACHE_AWARE) {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExWaitForRundownProtectionReleaseCacheAware", longArrayOf(Win32DynamicFfi.objectSlot(runref)))
+public fun ExWaitForRundownProtectionReleaseCacheAware(runref: PEX_RUNDOWN_REF_CACHE_AWARE) {
+    Win32DynamicFfi.invoke("ntoskrnl.exe", "ExWaitForRundownProtectionReleaseCacheAware", longArrayOf(runref))
 }
 
-public fun FsRtlIsTotalDeviceFailure(status: Win32.Foundation.NTSTATUS): Boolean {
-    val rawRet = Win32DynamicFfi.invoke("ntoskrnl.exe", "FsRtlIsTotalDeviceFailure", longArrayOf(Win32DynamicFfi.objectSlot(status)))
+public fun FsRtlIsTotalDeviceFailure(status: NTSTATUS): Boolean {
+    val rawRet = Win32DynamicFfi.invoke("ntoskrnl.exe", "FsRtlIsTotalDeviceFailure", longArrayOf(status.toLong()))
     return (rawRet and 0xFFL) != 0L
 }
 
@@ -925,9 +877,8 @@ public fun HalAcquireDisplayOwnership(resetdisplayparameters: PHAL_RESET_DISPLAY
     Win32DynamicFfi.invoke("hal.dll", "HalAcquireDisplayOwnership", longArrayOf(Win32DynamicFfi.objectSlot(resetdisplayparameters)))
 }
 
-public fun HalAllocateAdapterChannel(adapterobject: Long, wcb: Long, numberofmapregisters: UInt, executionroutine: Foundation.DRIVER_CONTROL): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("hal.dll", "HalAllocateAdapterChannel", longArrayOf(adapterobject, wcb, numberofmapregisters.toLong(), Win32DynamicFfi.objectSlot(executionroutine)))
-    return Win32.Foundation.NTSTATUS()
+public fun HalAllocateAdapterChannel(adapterobject: Long, wcb: Long, numberofmapregisters: UInt, executionroutine: DRIVER_CONTROL): NTSTATUS {
+    return Win32DynamicFfi.invoke("hal.dll", "HalAllocateAdapterChannel", longArrayOf(adapterobject, wcb, numberofmapregisters.toLong(), Win32DynamicFfi.objectSlot(executionroutine))).toInt()
 }
 
 public fun HalAllocateCommonBuffer(adapterobject: Long, length: UInt, logicaladdress: Long, cacheenabled: Boolean): Long {
@@ -938,28 +889,24 @@ public fun HalAllocateCrashDumpRegisters(adapterobject: Long, numberofmapregiste
     return Win32DynamicFfi.invoke("hal.dll", "HalAllocateCrashDumpRegisters", longArrayOf(adapterobject, numberofmapregisters))
 }
 
-public fun HalAllocateHardwareCounters(groupaffinty: Long, groupcount: UInt, resourcelist: Long, countersethandle: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("hal.dll", "HalAllocateHardwareCounters", longArrayOf(groupaffinty, groupcount.toLong(), resourcelist, countersethandle))
-    return Win32.Foundation.NTSTATUS()
+public fun HalAllocateHardwareCounters(groupaffinty: Long, groupcount: UInt, resourcelist: Long, countersethandle: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("hal.dll", "HalAllocateHardwareCounters", longArrayOf(groupaffinty, groupcount.toLong(), resourcelist, countersethandle)).toInt()
 }
 
-public fun HalAssignSlotResources(registrypath: Long, driverclassname: Long, driverobject: Long, deviceobject: Long, bustype: INTERFACE_TYPE, busnumber: UInt, slotnumber: UInt, allocatedresources: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("hal.dll", "HalAssignSlotResources", longArrayOf(registrypath, driverclassname, driverobject, deviceobject, bustype.toLong(), busnumber.toLong(), slotnumber.toLong(), allocatedresources))
-    return Win32.Foundation.NTSTATUS()
+public fun HalAssignSlotResources(registrypath: Long, driverclassname: Long, driverobject: Long, deviceobject: Long, bustype: INTERFACE_TYPE, busnumber: UInt, slotnumber: UInt, allocatedresources: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("hal.dll", "HalAssignSlotResources", longArrayOf(registrypath, driverclassname, driverobject, deviceobject, bustype.toLong(), busnumber.toLong(), slotnumber.toLong(), allocatedresources)).toInt()
 }
 
 public fun HalBugCheckSystem(errorsource: Long, errorrecord: Long) {
     Win32DynamicFfi.invoke("hal.dll", "HalBugCheckSystem", longArrayOf(errorsource, errorrecord))
 }
 
-public fun HalDmaAllocateCrashDumpRegistersEx(adapter: Long, numberofmapregisters: UInt, type: HAL_DMA_CRASH_DUMP_REGISTER_TYPE, mapregisterbase: Long, mapregistersavailable: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("hal.dll", "HalDmaAllocateCrashDumpRegistersEx", longArrayOf(adapter, numberofmapregisters.toLong(), type.toLong(), mapregisterbase, mapregistersavailable))
-    return Win32.Foundation.NTSTATUS()
+public fun HalDmaAllocateCrashDumpRegistersEx(adapter: Long, numberofmapregisters: UInt, type: HAL_DMA_CRASH_DUMP_REGISTER_TYPE, mapregisterbase: Long, mapregistersavailable: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("hal.dll", "HalDmaAllocateCrashDumpRegistersEx", longArrayOf(adapter, numberofmapregisters.toLong(), type.toLong(), mapregisterbase, mapregistersavailable)).toInt()
 }
 
-public fun HalDmaFreeCrashDumpRegistersEx(adapter: Long, type: HAL_DMA_CRASH_DUMP_REGISTER_TYPE): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("hal.dll", "HalDmaFreeCrashDumpRegistersEx", longArrayOf(adapter, type.toLong()))
-    return Win32.Foundation.NTSTATUS()
+public fun HalDmaFreeCrashDumpRegistersEx(adapter: Long, type: HAL_DMA_CRASH_DUMP_REGISTER_TYPE): NTSTATUS {
+    return Win32DynamicFfi.invoke("hal.dll", "HalDmaFreeCrashDumpRegistersEx", longArrayOf(adapter, type.toLong())).toInt()
 }
 
 public fun HalExamineMBR(deviceobject: Long, sectorsize: UInt, mbrtypeidentifier: UInt, buffer: Long) {
@@ -970,9 +917,8 @@ public fun HalFreeCommonBuffer(adapterobject: Long, length: UInt, logicaladdress
     Win32DynamicFfi.invoke("hal.dll", "HalFreeCommonBuffer", longArrayOf(adapterobject, length.toLong(), logicaladdress, virtualaddress, if (cacheenabled) 1L else 0L))
 }
 
-public fun HalFreeHardwareCounters(countersethandle: Win32.Foundation.HANDLE): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("hal.dll", "HalFreeHardwareCounters", longArrayOf(Win32DynamicFfi.objectSlot(countersethandle)))
-    return Win32.Foundation.NTSTATUS()
+public fun HalFreeHardwareCounters(countersethandle: HANDLE): NTSTATUS {
+    return Win32DynamicFfi.invoke("hal.dll", "HalFreeHardwareCounters", longArrayOf(countersethandle)).toInt()
 }
 
 public fun HalGetAdapter(devicedescription: Long, numberofmapregisters: Long): Long {
@@ -1013,47 +959,40 @@ public fun HalTranslateBusAddress(interfacetype: INTERFACE_TYPE, busnumber: UInt
     return (rawRet and 0xFFL) != 0L
 }
 
-public fun HvlRegisterWheaErrorNotification(callback: PHVL_WHEA_ERROR_NOTIFICATION): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "HvlRegisterWheaErrorNotification", longArrayOf(Win32DynamicFfi.objectSlot(callback)))
-    return Win32.Foundation.NTSTATUS()
+public fun HvlRegisterWheaErrorNotification(callback: PHVL_WHEA_ERROR_NOTIFICATION): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "HvlRegisterWheaErrorNotification", longArrayOf(Win32DynamicFfi.objectSlot(callback))).toInt()
 }
 
-public fun HvlUnregisterWheaErrorNotification(callback: PHVL_WHEA_ERROR_NOTIFICATION): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "HvlUnregisterWheaErrorNotification", longArrayOf(Win32DynamicFfi.objectSlot(callback)))
-    return Win32.Foundation.NTSTATUS()
+public fun HvlUnregisterWheaErrorNotification(callback: PHVL_WHEA_ERROR_NOTIFICATION): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "HvlUnregisterWheaErrorNotification", longArrayOf(Win32DynamicFfi.objectSlot(callback))).toInt()
 }
 
 public fun IoAcquireCancelSpinLock(irql: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "IoAcquireCancelSpinLock", longArrayOf(irql))
 }
 
-public fun IoAcquireKsrPersistentMemory(driverobject: Long, physicaldeviceobject: Long, buffer: Long, size: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoAcquireKsrPersistentMemory", longArrayOf(driverobject, physicaldeviceobject, buffer, size))
-    return Win32.Foundation.NTSTATUS()
+public fun IoAcquireKsrPersistentMemory(driverobject: Long, physicaldeviceobject: Long, buffer: Long, size: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoAcquireKsrPersistentMemory", longArrayOf(driverobject, physicaldeviceobject, buffer, size)).toInt()
 }
 
-public fun IoAcquireKsrPersistentMemoryEx(driverobject: Long, physicaldeviceobject: Long, physicaldeviceid: Long, datatag: Long, dataversion: Long, buffer: Long, size: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoAcquireKsrPersistentMemoryEx", longArrayOf(driverobject, physicaldeviceobject, physicaldeviceid, datatag, dataversion, buffer, size))
-    return Win32.Foundation.NTSTATUS()
+public fun IoAcquireKsrPersistentMemoryEx(driverobject: Long, physicaldeviceobject: Long, physicaldeviceid: Long, datatag: Long, dataversion: Long, buffer: Long, size: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoAcquireKsrPersistentMemoryEx", longArrayOf(driverobject, physicaldeviceobject, physicaldeviceid, datatag, dataversion, buffer, size)).toInt()
 }
 
-public fun IoAcquireRemoveLockEx(removelock: Long, tag: Long, file: PCSTR, line: UInt, remlocksize: UInt): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoAcquireRemoveLockEx", longArrayOf(removelock, tag, file, line.toLong(), remlocksize.toLong()))
-    return Win32.Foundation.NTSTATUS()
+public fun IoAcquireRemoveLockEx(removelock: Long, tag: Long, file: PCSTR, line: UInt, remlocksize: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoAcquireRemoveLockEx", longArrayOf(removelock, tag, file, line.toLong(), remlocksize.toLong())).toInt()
 }
 
-public fun IoAllocateAdapterChannel(adapterobject: Long, deviceobject: Long, numberofmapregisters: UInt, executionroutine: Foundation.DRIVER_CONTROL, context: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoAllocateAdapterChannel", longArrayOf(adapterobject, deviceobject, numberofmapregisters.toLong(), Win32DynamicFfi.objectSlot(executionroutine), context))
-    return Win32.Foundation.NTSTATUS()
+public fun IoAllocateAdapterChannel(adapterobject: Long, deviceobject: Long, numberofmapregisters: UInt, executionroutine: DRIVER_CONTROL, context: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoAllocateAdapterChannel", longArrayOf(adapterobject, deviceobject, numberofmapregisters.toLong(), Win32DynamicFfi.objectSlot(executionroutine), context)).toInt()
 }
 
-public fun IoAllocateController(controllerobject: Long, deviceobject: Long, executionroutine: Foundation.DRIVER_CONTROL, context: Long) {
+public fun IoAllocateController(controllerobject: Long, deviceobject: Long, executionroutine: DRIVER_CONTROL, context: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "IoAllocateController", longArrayOf(controllerobject, deviceobject, Win32DynamicFfi.objectSlot(executionroutine), context))
 }
 
-public fun IoAllocateDriverObjectExtension(driverobject: Long, clientidentificationaddress: Long, driverobjectextensionsize: UInt, driverobjectextension: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoAllocateDriverObjectExtension", longArrayOf(driverobject, clientidentificationaddress, driverobjectextensionsize.toLong(), driverobjectextension))
-    return Win32.Foundation.NTSTATUS()
+public fun IoAllocateDriverObjectExtension(driverobject: Long, clientidentificationaddress: Long, driverobjectextensionsize: UInt, driverobjectextension: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoAllocateDriverObjectExtension", longArrayOf(driverobject, clientidentificationaddress, driverobjectextensionsize.toLong(), driverobjectextension)).toInt()
 }
 
 public fun IoAllocateErrorLogEntry(ioobject: Long, entrysize: UByte): Long {
@@ -1072,38 +1011,32 @@ public fun IoAllocateMdl(virtualaddress: Long, length: UInt, secondarybuffer: Bo
     return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoAllocateMdl", longArrayOf(virtualaddress, length.toLong(), if (secondarybuffer) 1L else 0L, if (chargequota) 1L else 0L, irp))
 }
 
-public fun IoAllocateSfioStreamIdentifier(fileobject: Long, length: UInt, signature: Long, streamidentifier: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoAllocateSfioStreamIdentifier", longArrayOf(fileobject, length.toLong(), signature, streamidentifier))
-    return Win32.Foundation.NTSTATUS()
+public fun IoAllocateSfioStreamIdentifier(fileobject: Long, length: UInt, signature: Long, streamidentifier: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoAllocateSfioStreamIdentifier", longArrayOf(fileobject, length.toLong(), signature, streamidentifier)).toInt()
 }
 
-public fun IoAllocateWorkItem(deviceobject: Long): Foundation.PIO_WORKITEM {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoAllocateWorkItem", longArrayOf(deviceobject))
-    return Foundation.PIO_WORKITEM()
+public fun IoAllocateWorkItem(deviceobject: Long): PIO_WORKITEM {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoAllocateWorkItem", longArrayOf(deviceobject))
 }
 
-public fun IoAssignResources(registrypath: Long, driverclassname: Long, driverobject: Long, deviceobject: Long, requestedresources: Long, allocatedresources: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoAssignResources", longArrayOf(registrypath, driverclassname, driverobject, deviceobject, requestedresources, allocatedresources))
-    return Win32.Foundation.NTSTATUS()
+public fun IoAssignResources(registrypath: Long, driverclassname: Long, driverobject: Long, deviceobject: Long, requestedresources: Long, allocatedresources: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoAssignResources", longArrayOf(registrypath, driverclassname, driverobject, deviceobject, requestedresources, allocatedresources)).toInt()
 }
 
-public fun IoAttachDevice(sourcedevice: Long, targetdevice: Long, attacheddevice: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoAttachDevice", longArrayOf(sourcedevice, targetdevice, attacheddevice))
-    return Win32.Foundation.NTSTATUS()
+public fun IoAttachDevice(sourcedevice: Long, targetdevice: Long, attacheddevice: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoAttachDevice", longArrayOf(sourcedevice, targetdevice, attacheddevice)).toInt()
 }
 
-public fun IoAttachDeviceByPointer(sourcedevice: Long, targetdevice: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoAttachDeviceByPointer", longArrayOf(sourcedevice, targetdevice))
-    return Win32.Foundation.NTSTATUS()
+public fun IoAttachDeviceByPointer(sourcedevice: Long, targetdevice: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoAttachDeviceByPointer", longArrayOf(sourcedevice, targetdevice)).toInt()
 }
 
 public fun IoAttachDeviceToDeviceStack(sourcedevice: Long, targetdevice: Long): Long {
     return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoAttachDeviceToDeviceStack", longArrayOf(sourcedevice, targetdevice))
 }
 
-public fun IoAttachDeviceToDeviceStackSafe(sourcedevice: Long, targetdevice: Long, attachedtodeviceobject: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoAttachDeviceToDeviceStackSafe", longArrayOf(sourcedevice, targetdevice, attachedtodeviceobject))
-    return Win32.Foundation.NTSTATUS()
+public fun IoAttachDeviceToDeviceStackSafe(sourcedevice: Long, targetdevice: Long, attachedtodeviceobject: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoAttachDeviceToDeviceStackSafe", longArrayOf(sourcedevice, targetdevice, attachedtodeviceobject)).toInt()
 }
 
 public fun IoBuildAsynchronousFsdRequest(majorfunction: UInt, deviceobject: Long, buffer: Long, length: UInt, startingoffset: Long, iostatusblock: Long): Long {
@@ -1131,19 +1064,16 @@ public fun IoCancelIrp(irp: Long): Boolean {
     return (rawRet and 0xFFL) != 0L
 }
 
-public fun IoCheckLinkShareAccess(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: Long, shareaccess: Long, linkshareaccess: Long, ioshareaccessflags: UInt): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCheckLinkShareAccess", longArrayOf(desiredaccess.toLong(), desiredshareaccess.toLong(), fileobject, shareaccess, linkshareaccess, ioshareaccessflags.toLong()))
-    return Win32.Foundation.NTSTATUS()
+public fun IoCheckLinkShareAccess(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: Long, shareaccess: Long, linkshareaccess: Long, ioshareaccessflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCheckLinkShareAccess", longArrayOf(desiredaccess.toLong(), desiredshareaccess.toLong(), fileobject, shareaccess, linkshareaccess, ioshareaccessflags.toLong())).toInt()
 }
 
-public fun IoCheckShareAccess(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: Long, shareaccess: Long, update: Boolean): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCheckShareAccess", longArrayOf(desiredaccess.toLong(), desiredshareaccess.toLong(), fileobject, shareaccess, if (update) 1L else 0L))
-    return Win32.Foundation.NTSTATUS()
+public fun IoCheckShareAccess(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: Long, shareaccess: Long, update: Boolean): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCheckShareAccess", longArrayOf(desiredaccess.toLong(), desiredshareaccess.toLong(), fileobject, shareaccess, if (update) 1L else 0L)).toInt()
 }
 
-public fun IoCheckShareAccessEx(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: Long, shareaccess: Long, update: Boolean, writepermission: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCheckShareAccessEx", longArrayOf(desiredaccess.toLong(), desiredshareaccess.toLong(), fileobject, shareaccess, if (update) 1L else 0L, writepermission))
-    return Win32.Foundation.NTSTATUS()
+public fun IoCheckShareAccessEx(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: Long, shareaccess: Long, update: Boolean, writepermission: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCheckShareAccessEx", longArrayOf(desiredaccess.toLong(), desiredshareaccess.toLong(), fileobject, shareaccess, if (update) 1L else 0L, writepermission)).toInt()
 }
 
 public fun IoCleanupIrp(irp: Long) {
@@ -1158,85 +1088,72 @@ public fun IoClearIrpExtraCreateParameter(irp: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "IoClearIrpExtraCreateParameter", longArrayOf(irp))
 }
 
-public fun IoConnectInterrupt(interruptobject: Long, serviceroutine: PKSERVICE_ROUTINE, servicecontext: Long, spinlock: Long, vector: UInt, irql: UByte, synchronizeirql: UByte, interruptmode: KINTERRUPT_MODE, sharevector: Boolean, processorenablemask: ULong, floatingsave: Boolean): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoConnectInterrupt", longArrayOf(interruptobject, Win32DynamicFfi.objectSlot(serviceroutine), servicecontext, spinlock, vector.toLong(), irql.toLong(), synchronizeirql.toLong(), interruptmode.toLong(), if (sharevector) 1L else 0L, processorenablemask.toLong(), if (floatingsave) 1L else 0L))
-    return Win32.Foundation.NTSTATUS()
+public fun IoConnectInterrupt(interruptobject: Long, serviceroutine: PKSERVICE_ROUTINE, servicecontext: Long, spinlock: Long, vector: UInt, irql: UByte, synchronizeirql: UByte, interruptmode: KINTERRUPT_MODE, sharevector: Boolean, processorenablemask: ULong, floatingsave: Boolean): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoConnectInterrupt", longArrayOf(interruptobject, Win32DynamicFfi.objectSlot(serviceroutine), servicecontext, spinlock, vector.toLong(), irql.toLong(), synchronizeirql.toLong(), interruptmode.toLong(), if (sharevector) 1L else 0L, processorenablemask.toLong(), if (floatingsave) 1L else 0L)).toInt()
 }
 
-public fun IoConnectInterruptEx(parameters: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoConnectInterruptEx", longArrayOf(parameters))
-    return Win32.Foundation.NTSTATUS()
+public fun IoConnectInterruptEx(parameters: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoConnectInterruptEx", longArrayOf(parameters)).toInt()
 }
 
 public fun IoCreateController(size: UInt): Long {
     return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCreateController", longArrayOf(size.toLong()))
 }
 
-public fun IoCreateDevice(driverobject: Long, deviceextensionsize: UInt, devicename: Long, devicetype: UInt, devicecharacteristics: UInt, exclusive: Boolean, deviceobject: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCreateDevice", longArrayOf(driverobject, deviceextensionsize.toLong(), devicename, devicetype.toLong(), devicecharacteristics.toLong(), if (exclusive) 1L else 0L, deviceobject))
-    return Win32.Foundation.NTSTATUS()
+public fun IoCreateDevice(driverobject: Long, deviceextensionsize: UInt, devicename: Long, devicetype: UInt, devicecharacteristics: UInt, exclusive: Boolean, deviceobject: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCreateDevice", longArrayOf(driverobject, deviceextensionsize.toLong(), devicename, devicetype.toLong(), devicecharacteristics.toLong(), if (exclusive) 1L else 0L, deviceobject)).toInt()
 }
 
-public fun IoCreateDisk(deviceobject: Long, disk: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCreateDisk", longArrayOf(deviceobject, disk))
-    return Win32.Foundation.NTSTATUS()
+public fun IoCreateDisk(deviceobject: Long, disk: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCreateDisk", longArrayOf(deviceobject, disk)).toInt()
 }
 
-public fun IoCreateFile(filehandle: Long, desiredaccess: UInt, objectattributes: Long, iostatusblock: Long, allocationsize: Long, fileattributes: UInt, shareaccess: UInt, disposition: UInt, createoptions: UInt, eabuffer: Long, ealength: UInt, createfiletype: CREATE_FILE_TYPE, internalparameters: Long, options: UInt): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCreateFile", longArrayOf(filehandle, desiredaccess.toLong(), objectattributes, iostatusblock, allocationsize, fileattributes.toLong(), shareaccess.toLong(), disposition.toLong(), createoptions.toLong(), eabuffer, ealength.toLong(), createfiletype.toLong(), internalparameters, options.toLong()))
-    return Win32.Foundation.NTSTATUS()
+public fun IoCreateFile(filehandle: Long, desiredaccess: UInt, objectattributes: Long, iostatusblock: Long, allocationsize: Long, fileattributes: UInt, shareaccess: UInt, disposition: UInt, createoptions: UInt, eabuffer: Long, ealength: UInt, createfiletype: CREATE_FILE_TYPE, internalparameters: Long, options: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCreateFile", longArrayOf(filehandle, desiredaccess.toLong(), objectattributes, iostatusblock, allocationsize, fileattributes.toLong(), shareaccess.toLong(), disposition.toLong(), createoptions.toLong(), eabuffer, ealength.toLong(), createfiletype.toLong(), internalparameters, options.toLong())).toInt()
 }
 
-public fun IoCreateFileEx(filehandle: Long, desiredaccess: UInt, objectattributes: Long, iostatusblock: Long, allocationsize: Long, fileattributes: UInt, shareaccess: UInt, disposition: UInt, createoptions: UInt, eabuffer: Long, ealength: UInt, createfiletype: CREATE_FILE_TYPE, internalparameters: Long, options: UInt, drivercontext: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCreateFileEx", longArrayOf(filehandle, desiredaccess.toLong(), objectattributes, iostatusblock, allocationsize, fileattributes.toLong(), shareaccess.toLong(), disposition.toLong(), createoptions.toLong(), eabuffer, ealength.toLong(), createfiletype.toLong(), internalparameters, options.toLong(), drivercontext))
-    return Win32.Foundation.NTSTATUS()
+public fun IoCreateFileEx(filehandle: Long, desiredaccess: UInt, objectattributes: Long, iostatusblock: Long, allocationsize: Long, fileattributes: UInt, shareaccess: UInt, disposition: UInt, createoptions: UInt, eabuffer: Long, ealength: UInt, createfiletype: CREATE_FILE_TYPE, internalparameters: Long, options: UInt, drivercontext: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCreateFileEx", longArrayOf(filehandle, desiredaccess.toLong(), objectattributes, iostatusblock, allocationsize, fileattributes.toLong(), shareaccess.toLong(), disposition.toLong(), createoptions.toLong(), eabuffer, ealength.toLong(), createfiletype.toLong(), internalparameters, options.toLong(), drivercontext)).toInt()
 }
 
-public fun IoCreateFileSpecifyDeviceObjectHint(filehandle: Long, desiredaccess: UInt, objectattributes: Long, iostatusblock: Long, allocationsize: Long, fileattributes: UInt, shareaccess: UInt, disposition: UInt, createoptions: UInt, eabuffer: Long, ealength: UInt, createfiletype: CREATE_FILE_TYPE, internalparameters: Long, options: UInt, deviceobject: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCreateFileSpecifyDeviceObjectHint", longArrayOf(filehandle, desiredaccess.toLong(), objectattributes, iostatusblock, allocationsize, fileattributes.toLong(), shareaccess.toLong(), disposition.toLong(), createoptions.toLong(), eabuffer, ealength.toLong(), createfiletype.toLong(), internalparameters, options.toLong(), deviceobject))
-    return Win32.Foundation.NTSTATUS()
+public fun IoCreateFileSpecifyDeviceObjectHint(filehandle: Long, desiredaccess: UInt, objectattributes: Long, iostatusblock: Long, allocationsize: Long, fileattributes: UInt, shareaccess: UInt, disposition: UInt, createoptions: UInt, eabuffer: Long, ealength: UInt, createfiletype: CREATE_FILE_TYPE, internalparameters: Long, options: UInt, deviceobject: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCreateFileSpecifyDeviceObjectHint", longArrayOf(filehandle, desiredaccess.toLong(), objectattributes, iostatusblock, allocationsize, fileattributes.toLong(), shareaccess.toLong(), disposition.toLong(), createoptions.toLong(), eabuffer, ealength.toLong(), createfiletype.toLong(), internalparameters, options.toLong(), deviceobject)).toInt()
 }
 
 public fun IoCreateNotificationEvent(eventname: Long, eventhandle: Long): Long {
     return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCreateNotificationEvent", longArrayOf(eventname, eventhandle))
 }
 
-public fun IoCreateSymbolicLink(symboliclinkname: Long, devicename: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCreateSymbolicLink", longArrayOf(symboliclinkname, devicename))
-    return Win32.Foundation.NTSTATUS()
+public fun IoCreateSymbolicLink(symboliclinkname: Long, devicename: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCreateSymbolicLink", longArrayOf(symboliclinkname, devicename)).toInt()
 }
 
 public fun IoCreateSynchronizationEvent(eventname: Long, eventhandle: Long): Long {
     return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCreateSynchronizationEvent", longArrayOf(eventname, eventhandle))
 }
 
-public fun IoCreateSystemThread(ioobject: Long, threadhandle: Long, desiredaccess: UInt, objectattributes: Long, processhandle: Win32.Foundation.HANDLE, clientid: Long, startroutine: PKSTART_ROUTINE, startcontext: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCreateSystemThread", longArrayOf(ioobject, threadhandle, desiredaccess.toLong(), objectattributes, Win32DynamicFfi.objectSlot(processhandle), clientid, Win32DynamicFfi.objectSlot(startroutine), startcontext))
-    return Win32.Foundation.NTSTATUS()
+public fun IoCreateSystemThread(ioobject: Long, threadhandle: Long, desiredaccess: UInt, objectattributes: Long, processhandle: HANDLE, clientid: Long, startroutine: PKSTART_ROUTINE, startcontext: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCreateSystemThread", longArrayOf(ioobject, threadhandle, desiredaccess.toLong(), objectattributes, processhandle, clientid, Win32DynamicFfi.objectSlot(startroutine), startcontext)).toInt()
 }
 
-public fun IoCreateUnprotectedSymbolicLink(symboliclinkname: Long, devicename: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCreateUnprotectedSymbolicLink", longArrayOf(symboliclinkname, devicename))
-    return Win32.Foundation.NTSTATUS()
+public fun IoCreateUnprotectedSymbolicLink(symboliclinkname: Long, devicename: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCreateUnprotectedSymbolicLink", longArrayOf(symboliclinkname, devicename)).toInt()
 }
 
-public fun IoCsqInitialize(csq: Long, csqinsertirp: PIO_CSQ_INSERT_IRP, csqremoveirp: PIO_CSQ_REMOVE_IRP, csqpeeknextirp: PIO_CSQ_PEEK_NEXT_IRP, csqacquirelock: PIO_CSQ_ACQUIRE_LOCK, csqreleaselock: PIO_CSQ_RELEASE_LOCK, csqcompletecanceledirp: PIO_CSQ_COMPLETE_CANCELED_IRP): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCsqInitialize", longArrayOf(csq, Win32DynamicFfi.objectSlot(csqinsertirp), Win32DynamicFfi.objectSlot(csqremoveirp), Win32DynamicFfi.objectSlot(csqpeeknextirp), Win32DynamicFfi.objectSlot(csqacquirelock), Win32DynamicFfi.objectSlot(csqreleaselock), Win32DynamicFfi.objectSlot(csqcompletecanceledirp)))
-    return Win32.Foundation.NTSTATUS()
+public fun IoCsqInitialize(csq: Long, csqinsertirp: PIO_CSQ_INSERT_IRP, csqremoveirp: PIO_CSQ_REMOVE_IRP, csqpeeknextirp: PIO_CSQ_PEEK_NEXT_IRP, csqacquirelock: PIO_CSQ_ACQUIRE_LOCK, csqreleaselock: PIO_CSQ_RELEASE_LOCK, csqcompletecanceledirp: PIO_CSQ_COMPLETE_CANCELED_IRP): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCsqInitialize", longArrayOf(csq, Win32DynamicFfi.objectSlot(csqinsertirp), Win32DynamicFfi.objectSlot(csqremoveirp), Win32DynamicFfi.objectSlot(csqpeeknextirp), Win32DynamicFfi.objectSlot(csqacquirelock), Win32DynamicFfi.objectSlot(csqreleaselock), Win32DynamicFfi.objectSlot(csqcompletecanceledirp))).toInt()
 }
 
-public fun IoCsqInitializeEx(csq: Long, csqinsertirp: PIO_CSQ_INSERT_IRP_EX, csqremoveirp: PIO_CSQ_REMOVE_IRP, csqpeeknextirp: PIO_CSQ_PEEK_NEXT_IRP, csqacquirelock: PIO_CSQ_ACQUIRE_LOCK, csqreleaselock: PIO_CSQ_RELEASE_LOCK, csqcompletecanceledirp: PIO_CSQ_COMPLETE_CANCELED_IRP): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCsqInitializeEx", longArrayOf(csq, Win32DynamicFfi.objectSlot(csqinsertirp), Win32DynamicFfi.objectSlot(csqremoveirp), Win32DynamicFfi.objectSlot(csqpeeknextirp), Win32DynamicFfi.objectSlot(csqacquirelock), Win32DynamicFfi.objectSlot(csqreleaselock), Win32DynamicFfi.objectSlot(csqcompletecanceledirp)))
-    return Win32.Foundation.NTSTATUS()
+public fun IoCsqInitializeEx(csq: Long, csqinsertirp: PIO_CSQ_INSERT_IRP_EX, csqremoveirp: PIO_CSQ_REMOVE_IRP, csqpeeknextirp: PIO_CSQ_PEEK_NEXT_IRP, csqacquirelock: PIO_CSQ_ACQUIRE_LOCK, csqreleaselock: PIO_CSQ_RELEASE_LOCK, csqcompletecanceledirp: PIO_CSQ_COMPLETE_CANCELED_IRP): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCsqInitializeEx", longArrayOf(csq, Win32DynamicFfi.objectSlot(csqinsertirp), Win32DynamicFfi.objectSlot(csqremoveirp), Win32DynamicFfi.objectSlot(csqpeeknextirp), Win32DynamicFfi.objectSlot(csqacquirelock), Win32DynamicFfi.objectSlot(csqreleaselock), Win32DynamicFfi.objectSlot(csqcompletecanceledirp))).toInt()
 }
 
 public fun IoCsqInsertIrp(csq: Long, irp: Long, context: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCsqInsertIrp", longArrayOf(csq, irp, context))
 }
 
-public fun IoCsqInsertIrpEx(csq: Long, irp: Long, context: Long, insertcontext: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCsqInsertIrpEx", longArrayOf(csq, irp, context, insertcontext))
-    return Win32.Foundation.NTSTATUS()
+public fun IoCsqInsertIrpEx(csq: Long, irp: Long, context: Long, insertcontext: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCsqInsertIrpEx", longArrayOf(csq, irp, context, insertcontext)).toInt()
 }
 
 public fun IoCsqRemoveIrp(csq: Long, context: Long): Long {
@@ -1247,9 +1164,8 @@ public fun IoCsqRemoveNextIrp(csq: Long, peekcontext: Long): Long {
     return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoCsqRemoveNextIrp", longArrayOf(csq, peekcontext))
 }
 
-public fun IoDecrementKeepAliveCount(fileobject: Long, process: Foundation.PEPROCESS): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoDecrementKeepAliveCount", longArrayOf(fileobject, Win32DynamicFfi.objectSlot(process)))
-    return Win32.Foundation.NTSTATUS()
+public fun IoDecrementKeepAliveCount(fileobject: Long, process: PEPROCESS): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoDecrementKeepAliveCount", longArrayOf(fileobject, process)).toInt()
 }
 
 public fun IoDeleteController(controllerobject: Long) {
@@ -1260,26 +1176,24 @@ public fun IoDeleteDevice(deviceobject: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "IoDeleteDevice", longArrayOf(deviceobject))
 }
 
-public fun IoDeleteSymbolicLink(symboliclinkname: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoDeleteSymbolicLink", longArrayOf(symboliclinkname))
-    return Win32.Foundation.NTSTATUS()
+public fun IoDeleteSymbolicLink(symboliclinkname: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoDeleteSymbolicLink", longArrayOf(symboliclinkname)).toInt()
 }
 
 public fun IoDetachDevice(targetdevice: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "IoDetachDevice", longArrayOf(targetdevice))
 }
 
-public fun IoDisconnectInterrupt(interruptobject: Foundation.PKINTERRUPT) {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoDisconnectInterrupt", longArrayOf(Win32DynamicFfi.objectSlot(interruptobject)))
+public fun IoDisconnectInterrupt(interruptobject: PKINTERRUPT) {
+    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoDisconnectInterrupt", longArrayOf(interruptobject))
 }
 
 public fun IoDisconnectInterruptEx(parameters: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "IoDisconnectInterruptEx", longArrayOf(parameters))
 }
 
-public fun IoEnumerateKsrPersistentMemoryEx(driverobject: Long, physicaldeviceobject: Long, physicaldeviceid: Long, callback: PIO_PERSISTED_MEMORY_ENUMERATION_CALLBACK, callbackcontext: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoEnumerateKsrPersistentMemoryEx", longArrayOf(driverobject, physicaldeviceobject, physicaldeviceid, Win32DynamicFfi.objectSlot(callback), callbackcontext))
-    return Win32.Foundation.NTSTATUS()
+public fun IoEnumerateKsrPersistentMemoryEx(driverobject: Long, physicaldeviceobject: Long, physicaldeviceid: Long, callback: PIO_PERSISTED_MEMORY_ENUMERATION_CALLBACK, callbackcontext: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoEnumerateKsrPersistentMemoryEx", longArrayOf(driverobject, physicaldeviceobject, physicaldeviceid, Win32DynamicFfi.objectSlot(callback), callbackcontext)).toInt()
 }
 
 public fun IoFlushAdapterBuffers(adapterobject: Long, mdl: Long, mapregisterbase: Long, currentva: Long, length: UInt, writetodevice: Boolean): Boolean {
@@ -1308,9 +1222,8 @@ public fun IoFreeIrp(irp: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "IoFreeIrp", longArrayOf(irp))
 }
 
-public fun IoFreeKsrPersistentMemory(datahandle: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoFreeKsrPersistentMemory", longArrayOf(datahandle))
-    return Win32.Foundation.NTSTATUS()
+public fun IoFreeKsrPersistentMemory(datahandle: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoFreeKsrPersistentMemory", longArrayOf(datahandle)).toInt()
 }
 
 public fun IoFreeMapRegisters(adapterobject: Long, mapregisterbase: Long, numberofmapregisters: UInt) {
@@ -1321,104 +1234,88 @@ public fun IoFreeMdl(mdl: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "IoFreeMdl", longArrayOf(mdl))
 }
 
-public fun IoFreeSfioStreamIdentifier(fileobject: Long, signature: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoFreeSfioStreamIdentifier", longArrayOf(fileobject, signature))
-    return Win32.Foundation.NTSTATUS()
+public fun IoFreeSfioStreamIdentifier(fileobject: Long, signature: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoFreeSfioStreamIdentifier", longArrayOf(fileobject, signature)).toInt()
 }
 
-public fun IoFreeWorkItem(ioworkitem: Foundation.PIO_WORKITEM) {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoFreeWorkItem", longArrayOf(Win32DynamicFfi.objectSlot(ioworkitem)))
+public fun IoFreeWorkItem(ioworkitem: PIO_WORKITEM) {
+    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoFreeWorkItem", longArrayOf(ioworkitem))
 }
 
-public fun IoGetActivityIdIrp(irp: Long, guid: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetActivityIdIrp", longArrayOf(irp, guid))
-    return Win32.Foundation.NTSTATUS()
+public fun IoGetActivityIdIrp(irp: Long, guid: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetActivityIdIrp", longArrayOf(irp, guid)).toInt()
 }
 
 public fun IoGetActivityIdThread(): Long {
     return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetActivityIdThread", longArrayOf())
 }
 
-public fun IoGetAffinityInterrupt(interruptobject: Foundation.PKINTERRUPT, groupaffinity: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetAffinityInterrupt", longArrayOf(Win32DynamicFfi.objectSlot(interruptobject), groupaffinity))
-    return Win32.Foundation.NTSTATUS()
+public fun IoGetAffinityInterrupt(interruptobject: PKINTERRUPT, groupaffinity: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetAffinityInterrupt", longArrayOf(interruptobject, groupaffinity)).toInt()
 }
 
 public fun IoGetAttachedDeviceReference(deviceobject: Long): Long {
     return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetAttachedDeviceReference", longArrayOf(deviceobject))
 }
 
-public fun IoGetBootDiskInformation(bootdiskinformation: Long, size: UInt): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetBootDiskInformation", longArrayOf(bootdiskinformation, size.toLong()))
-    return Win32.Foundation.NTSTATUS()
+public fun IoGetBootDiskInformation(bootdiskinformation: Long, size: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetBootDiskInformation", longArrayOf(bootdiskinformation, size.toLong())).toInt()
 }
 
-public fun IoGetBootDiskInformationLite(bootdiskinformation: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetBootDiskInformationLite", longArrayOf(bootdiskinformation))
-    return Win32.Foundation.NTSTATUS()
+public fun IoGetBootDiskInformationLite(bootdiskinformation: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetBootDiskInformationLite", longArrayOf(bootdiskinformation)).toInt()
 }
 
 public fun IoGetConfigurationInformation(): Long {
     return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetConfigurationInformation", longArrayOf())
 }
 
-public fun IoGetContainerInformation(informationclass: IO_CONTAINER_INFORMATION_CLASS, containerobject: Long, buffer: Long, bufferlength: UInt): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetContainerInformation", longArrayOf(informationclass.toLong(), containerobject, buffer, bufferlength.toLong()))
-    return Win32.Foundation.NTSTATUS()
+public fun IoGetContainerInformation(informationclass: IO_CONTAINER_INFORMATION_CLASS, containerobject: Long, buffer: Long, bufferlength: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetContainerInformation", longArrayOf(informationclass.toLong(), containerobject, buffer, bufferlength.toLong())).toInt()
 }
 
-public fun IoGetCurrentProcess(): Foundation.PEPROCESS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetCurrentProcess", longArrayOf())
-    return Foundation.PEPROCESS()
+public fun IoGetCurrentProcess(): PEPROCESS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetCurrentProcess", longArrayOf())
 }
 
-public fun IoGetDeviceDirectory(physicaldeviceobject: Long, directorytype: DEVICE_DIRECTORY_TYPE, flags: UInt, reserved: Long, devicedirectoryhandle: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetDeviceDirectory", longArrayOf(physicaldeviceobject, directorytype.toLong(), flags.toLong(), reserved, devicedirectoryhandle))
-    return Win32.Foundation.NTSTATUS()
+public fun IoGetDeviceDirectory(physicaldeviceobject: Long, directorytype: DEVICE_DIRECTORY_TYPE, flags: UInt, reserved: Long, devicedirectoryhandle: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetDeviceDirectory", longArrayOf(physicaldeviceobject, directorytype.toLong(), flags.toLong(), reserved, devicedirectoryhandle)).toInt()
 }
 
-public fun IoGetDeviceInterfaceAlias(symboliclinkname: Long, aliasinterfaceclassguid: Long, aliassymboliclinkname: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetDeviceInterfaceAlias", longArrayOf(symboliclinkname, aliasinterfaceclassguid, aliassymboliclinkname))
-    return Win32.Foundation.NTSTATUS()
+public fun IoGetDeviceInterfaceAlias(symboliclinkname: Long, aliasinterfaceclassguid: Long, aliassymboliclinkname: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetDeviceInterfaceAlias", longArrayOf(symboliclinkname, aliasinterfaceclassguid, aliassymboliclinkname)).toInt()
 }
 
-public fun IoGetDeviceInterfacePropertyData(symboliclinkname: Long, propertykey: Long, lcid: UInt, flags: UInt, size: UInt, data: Long, requiredsize: Long, type: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetDeviceInterfacePropertyData", longArrayOf(symboliclinkname, propertykey, lcid.toLong(), flags.toLong(), size.toLong(), data, requiredsize, type))
-    return Win32.Foundation.NTSTATUS()
+public fun IoGetDeviceInterfacePropertyData(symboliclinkname: Long, propertykey: Long, lcid: UInt, flags: UInt, size: UInt, data: Long, requiredsize: Long, type: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetDeviceInterfacePropertyData", longArrayOf(symboliclinkname, propertykey, lcid.toLong(), flags.toLong(), size.toLong(), data, requiredsize, type)).toInt()
 }
 
-public fun IoGetDeviceInterfaces(interfaceclassguid: Long, physicaldeviceobject: Long, flags: UInt, symboliclinklist: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetDeviceInterfaces", longArrayOf(interfaceclassguid, physicaldeviceobject, flags.toLong(), symboliclinklist))
-    return Win32.Foundation.NTSTATUS()
+public fun IoGetDeviceInterfaces(interfaceclassguid: Long, physicaldeviceobject: Long, flags: UInt, symboliclinklist: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetDeviceInterfaces", longArrayOf(interfaceclassguid, physicaldeviceobject, flags.toLong(), symboliclinklist)).toInt()
 }
 
-public fun IoGetDeviceNumaNode(pdo: Long, nodenumber: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetDeviceNumaNode", longArrayOf(pdo, nodenumber))
-    return Win32.Foundation.NTSTATUS()
+public fun IoGetDeviceNumaNode(pdo: Long, nodenumber: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetDeviceNumaNode", longArrayOf(pdo, nodenumber)).toInt()
 }
 
-public fun IoGetDeviceObjectPointer(objectname: Long, desiredaccess: UInt, fileobject: Long, deviceobject: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetDeviceObjectPointer", longArrayOf(objectname, desiredaccess.toLong(), fileobject, deviceobject))
-    return Win32.Foundation.NTSTATUS()
+public fun IoGetDeviceObjectPointer(objectname: Long, desiredaccess: UInt, fileobject: Long, deviceobject: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetDeviceObjectPointer", longArrayOf(objectname, desiredaccess.toLong(), fileobject, deviceobject)).toInt()
 }
 
-public fun IoGetDeviceProperty(deviceobject: Long, deviceproperty: DEVICE_REGISTRY_PROPERTY, bufferlength: UInt, propertybuffer: Long, resultlength: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetDeviceProperty", longArrayOf(deviceobject, deviceproperty.toLong(), bufferlength.toLong(), propertybuffer, resultlength))
-    return Win32.Foundation.NTSTATUS()
+public fun IoGetDeviceProperty(deviceobject: Long, deviceproperty: DEVICE_REGISTRY_PROPERTY, bufferlength: UInt, propertybuffer: Long, resultlength: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetDeviceProperty", longArrayOf(deviceobject, deviceproperty.toLong(), bufferlength.toLong(), propertybuffer, resultlength)).toInt()
 }
 
-public fun IoGetDevicePropertyData(pdo: Long, propertykey: Long, lcid: UInt, flags: UInt, size: UInt, data: Long, requiredsize: Long, type: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetDevicePropertyData", longArrayOf(pdo, propertykey, lcid.toLong(), flags.toLong(), size.toLong(), data, requiredsize, type))
-    return Win32.Foundation.NTSTATUS()
+public fun IoGetDevicePropertyData(pdo: Long, propertykey: Long, lcid: UInt, flags: UInt, size: UInt, data: Long, requiredsize: Long, type: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetDevicePropertyData", longArrayOf(pdo, propertykey, lcid.toLong(), flags.toLong(), size.toLong(), data, requiredsize, type)).toInt()
 }
 
 public fun IoGetDmaAdapter(physicaldeviceobject: Long, devicedescription: Long, numberofmapregisters: Long): Long {
     return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetDmaAdapter", longArrayOf(physicaldeviceobject, devicedescription, numberofmapregisters))
 }
 
-public fun IoGetDriverDirectory(driverobject: Long, directorytype: DRIVER_DIRECTORY_TYPE, flags: UInt, driverdirectoryhandle: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetDriverDirectory", longArrayOf(driverobject, directorytype.toLong(), flags.toLong(), driverdirectoryhandle))
-    return Win32.Foundation.NTSTATUS()
+public fun IoGetDriverDirectory(driverobject: Long, directorytype: DRIVER_DIRECTORY_TYPE, flags: UInt, driverdirectoryhandle: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetDriverDirectory", longArrayOf(driverobject, directorytype.toLong(), flags.toLong(), driverdirectoryhandle)).toInt()
 }
 
 public fun IoGetDriverObjectExtension(driverobject: Long, clientidentificationaddress: Long): Long {
@@ -1429,43 +1326,36 @@ public fun IoGetFileObjectGenericMapping(): Long {
     return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetFileObjectGenericMapping", longArrayOf())
 }
 
-public fun IoGetFsZeroingOffset(irp: Long, zeroingoffset: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetFsZeroingOffset", longArrayOf(irp, zeroingoffset))
-    return Win32.Foundation.NTSTATUS()
+public fun IoGetFsZeroingOffset(irp: Long, zeroingoffset: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetFsZeroingOffset", longArrayOf(irp, zeroingoffset)).toInt()
 }
 
 public fun IoGetInitialStack(): Long {
     return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetInitialStack", longArrayOf())
 }
 
-public fun IoGetInitiatorProcess(fileobject: Long): Foundation.PEPROCESS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetInitiatorProcess", longArrayOf(fileobject))
-    return Foundation.PEPROCESS()
+public fun IoGetInitiatorProcess(fileobject: Long): PEPROCESS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetInitiatorProcess", longArrayOf(fileobject))
 }
 
-public fun IoGetIoAttributionHandle(irp: Long, ioattributionhandle: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetIoAttributionHandle", longArrayOf(irp, ioattributionhandle))
-    return Win32.Foundation.NTSTATUS()
+public fun IoGetIoAttributionHandle(irp: Long, ioattributionhandle: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetIoAttributionHandle", longArrayOf(irp, ioattributionhandle)).toInt()
 }
 
-public fun IoGetIoPriorityHint(irp: Long): Foundation.IO_PRIORITY_HINT {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetIoPriorityHint", longArrayOf(irp))
-    return Foundation.IO_PRIORITY_HINT()
+public fun IoGetIoPriorityHint(irp: Long): IO_PRIORITY_HINT {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetIoPriorityHint", longArrayOf(irp)).toInt()
 }
 
-public fun IoGetIommuInterface(version: UInt, interfaceout: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetIommuInterface", longArrayOf(version.toLong(), interfaceout))
-    return Win32.Foundation.NTSTATUS()
+public fun IoGetIommuInterface(version: UInt, interfaceout: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetIommuInterface", longArrayOf(version.toLong(), interfaceout)).toInt()
 }
 
-public fun IoGetIommuInterfaceEx(version: UInt, flags: ULong, interfaceout: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetIommuInterfaceEx", longArrayOf(version.toLong(), flags.toLong(), interfaceout))
-    return Win32.Foundation.NTSTATUS()
+public fun IoGetIommuInterfaceEx(version: UInt, flags: ULong, interfaceout: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetIommuInterfaceEx", longArrayOf(version.toLong(), flags.toLong(), interfaceout)).toInt()
 }
 
-public fun IoGetIrpExtraCreateParameter(irp: Long, extracreateparameter: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetIrpExtraCreateParameter", longArrayOf(irp, extracreateparameter))
-    return Win32.Foundation.NTSTATUS()
+public fun IoGetIrpExtraCreateParameter(irp: Long, extracreateparameter: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetIrpExtraCreateParameter", longArrayOf(irp, extracreateparameter)).toInt()
 }
 
 public fun IoGetPagingIoPriority(irp: Long): IO_PAGING_PRIORITY {
@@ -1480,9 +1370,8 @@ public fun IoGetSfioStreamIdentifier(fileobject: Long, signature: Long): Long {
     return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetSfioStreamIdentifier", longArrayOf(fileobject, signature))
 }
 
-public fun IoGetSilo(fileobject: Long): Foundation.PESILO {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetSilo", longArrayOf(fileobject))
-    return Foundation.PESILO()
+public fun IoGetSilo(fileobject: Long): PESILO {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetSilo", longArrayOf(fileobject))
 }
 
 public fun IoGetSiloParameters(fileobject: Long): Long {
@@ -1501,9 +1390,8 @@ public fun IoGetTransactionParameterBlock(fileobject: Long): Long {
     return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoGetTransactionParameterBlock", longArrayOf(fileobject))
 }
 
-public fun IoIncrementKeepAliveCount(fileobject: Long, process: Foundation.PEPROCESS): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoIncrementKeepAliveCount", longArrayOf(fileobject, Win32DynamicFfi.objectSlot(process)))
-    return Win32.Foundation.NTSTATUS()
+public fun IoIncrementKeepAliveCount(fileobject: Long, process: PEPROCESS): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoIncrementKeepAliveCount", longArrayOf(fileobject, process)).toInt()
 }
 
 public fun IoInitializeIrp(irp: Long, packetsize: UShort, stacksize: Byte) {
@@ -1518,13 +1406,12 @@ public fun IoInitializeRemoveLockEx(lock: Long, allocatetag: UInt, maxlockedminu
     Win32DynamicFfi.invoke("ntoskrnl.exe", "IoInitializeRemoveLockEx", longArrayOf(lock, allocatetag.toLong(), maxlockedminutes.toLong(), highwatermark.toLong(), remlocksize.toLong()))
 }
 
-public fun IoInitializeTimer(deviceobject: Long, timerroutine: PIO_TIMER_ROUTINE, context: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoInitializeTimer", longArrayOf(deviceobject, Win32DynamicFfi.objectSlot(timerroutine), context))
-    return Win32.Foundation.NTSTATUS()
+public fun IoInitializeTimer(deviceobject: Long, timerroutine: PIO_TIMER_ROUTINE, context: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoInitializeTimer", longArrayOf(deviceobject, Win32DynamicFfi.objectSlot(timerroutine), context)).toInt()
 }
 
-public fun IoInitializeWorkItem(ioobject: Long, ioworkitem: Foundation.PIO_WORKITEM) {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoInitializeWorkItem", longArrayOf(ioobject, Win32DynamicFfi.objectSlot(ioworkitem)))
+public fun IoInitializeWorkItem(ioobject: Long, ioworkitem: PIO_WORKITEM) {
+    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoInitializeWorkItem", longArrayOf(ioobject, ioworkitem))
 }
 
 public fun IoInvalidateDeviceRelations(deviceobject: Long, type: DEVICE_RELATION_TYPE) {
@@ -1555,8 +1442,8 @@ public fun IoIsInitiator32bitProcess(irp: Long): Boolean {
     return (rawRet and 0xFFL) != 0L
 }
 
-public fun IoIsValidIrpStatus(status: Win32.Foundation.NTSTATUS): UInt {
-    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoIsValidIrpStatus", longArrayOf(Win32DynamicFfi.objectSlot(status))).toUInt()
+public fun IoIsValidIrpStatus(status: NTSTATUS): UInt {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoIsValidIrpStatus", longArrayOf(status.toLong())).toUInt()
 }
 
 public fun IoIsWdmVersionAvailable(majorversion: UByte, minorversion: UByte): Boolean {
@@ -1576,123 +1463,105 @@ public fun IoMapTransfer(adapterobject: Long, mdl: Long, mapregisterbase: Long, 
     return Win32DynamicFfi.invoke("hal.dll", "IoMapTransfer", longArrayOf(adapterobject, mdl, mapregisterbase, currentva, length, if (writetodevice) 1L else 0L))
 }
 
-public fun IoOpenDeviceInterfaceRegistryKey(symboliclinkname: Long, desiredaccess: UInt, deviceinterfaceregkey: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoOpenDeviceInterfaceRegistryKey", longArrayOf(symboliclinkname, desiredaccess.toLong(), deviceinterfaceregkey))
-    return Win32.Foundation.NTSTATUS()
+public fun IoOpenDeviceInterfaceRegistryKey(symboliclinkname: Long, desiredaccess: UInt, deviceinterfaceregkey: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoOpenDeviceInterfaceRegistryKey", longArrayOf(symboliclinkname, desiredaccess.toLong(), deviceinterfaceregkey)).toInt()
 }
 
-public fun IoOpenDeviceRegistryKey(deviceobject: Long, devinstkeytype: UInt, desiredaccess: UInt, deviceregkey: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoOpenDeviceRegistryKey", longArrayOf(deviceobject, devinstkeytype.toLong(), desiredaccess.toLong(), deviceregkey))
-    return Win32.Foundation.NTSTATUS()
+public fun IoOpenDeviceRegistryKey(deviceobject: Long, devinstkeytype: UInt, desiredaccess: UInt, deviceregkey: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoOpenDeviceRegistryKey", longArrayOf(deviceobject, devinstkeytype.toLong(), desiredaccess.toLong(), deviceregkey)).toInt()
 }
 
-public fun IoOpenDriverRegistryKey(driverobject: Long, regkeytype: DRIVER_REGKEY_TYPE, desiredaccess: UInt, flags: UInt, driverregkey: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoOpenDriverRegistryKey", longArrayOf(driverobject, regkeytype.toLong(), desiredaccess.toLong(), flags.toLong(), driverregkey))
-    return Win32.Foundation.NTSTATUS()
+public fun IoOpenDriverRegistryKey(driverobject: Long, regkeytype: DRIVER_REGKEY_TYPE, desiredaccess: UInt, flags: UInt, driverregkey: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoOpenDriverRegistryKey", longArrayOf(driverobject, regkeytype.toLong(), desiredaccess.toLong(), flags.toLong(), driverregkey)).toInt()
 }
 
-public fun IoPropagateActivityIdToThread(irp: Long, propagatedid: Long, originalid: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoPropagateActivityIdToThread", longArrayOf(irp, propagatedid, originalid))
-    return Win32.Foundation.NTSTATUS()
+public fun IoPropagateActivityIdToThread(irp: Long, propagatedid: Long, originalid: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoPropagateActivityIdToThread", longArrayOf(irp, propagatedid, originalid)).toInt()
 }
 
-public fun IoQueryDeviceDescription(bustype: Long, busnumber: Long, controllertype: Long, controllernumber: Long, peripheraltype: Long, peripheralnumber: Long, calloutroutine: PIO_QUERY_DEVICE_ROUTINE, context: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoQueryDeviceDescription", longArrayOf(bustype, busnumber, controllertype, controllernumber, peripheraltype, peripheralnumber, Win32DynamicFfi.objectSlot(calloutroutine), context))
-    return Win32.Foundation.NTSTATUS()
+public fun IoQueryDeviceDescription(bustype: Long, busnumber: Long, controllertype: Long, controllernumber: Long, peripheraltype: Long, peripheralnumber: Long, calloutroutine: PIO_QUERY_DEVICE_ROUTINE, context: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoQueryDeviceDescription", longArrayOf(bustype, busnumber, controllertype, controllernumber, peripheraltype, peripheralnumber, Win32DynamicFfi.objectSlot(calloutroutine), context)).toInt()
 }
 
-public fun IoQueryFullDriverPath(driverobject: Long, fullpath: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoQueryFullDriverPath", longArrayOf(driverobject, fullpath))
-    return Win32.Foundation.NTSTATUS()
+public fun IoQueryFullDriverPath(driverobject: Long, fullpath: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoQueryFullDriverPath", longArrayOf(driverobject, fullpath)).toInt()
 }
 
-public fun IoQueryInformationByName(objectattributes: Long, iostatusblock: Long, fileinformation: Long, length: UInt, fileinformationclass: Storage.FileSystem.FILE_INFORMATION_CLASS, options: UInt, drivercontext: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoQueryInformationByName", longArrayOf(objectattributes, iostatusblock, fileinformation, length.toLong(), Win32DynamicFfi.objectSlot(fileinformationclass), options.toLong(), drivercontext))
-    return Win32.Foundation.NTSTATUS()
+public fun IoQueryInformationByName(objectattributes: Long, iostatusblock: Long, fileinformation: Long, length: UInt, fileinformationclass: FILE_INFORMATION_CLASS, options: UInt, drivercontext: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoQueryInformationByName", longArrayOf(objectattributes, iostatusblock, fileinformation, length.toLong(), fileinformationclass.toLong(), options.toLong(), drivercontext)).toInt()
 }
 
-public fun IoQueryKsrPersistentMemorySize(driverobject: Long, physicaldeviceobject: Long, buffersize: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoQueryKsrPersistentMemorySize", longArrayOf(driverobject, physicaldeviceobject, buffersize))
-    return Win32.Foundation.NTSTATUS()
+public fun IoQueryKsrPersistentMemorySize(driverobject: Long, physicaldeviceobject: Long, buffersize: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoQueryKsrPersistentMemorySize", longArrayOf(driverobject, physicaldeviceobject, buffersize)).toInt()
 }
 
-public fun IoQueryKsrPersistentMemorySizeEx(driverobject: Long, physicaldeviceobject: Long, physicaldeviceid: Long, datatag: Long, dataversion: Long, buffersize: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoQueryKsrPersistentMemorySizeEx", longArrayOf(driverobject, physicaldeviceobject, physicaldeviceid, datatag, dataversion, buffersize))
-    return Win32.Foundation.NTSTATUS()
+public fun IoQueryKsrPersistentMemorySizeEx(driverobject: Long, physicaldeviceobject: Long, physicaldeviceid: Long, datatag: Long, dataversion: Long, buffersize: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoQueryKsrPersistentMemorySizeEx", longArrayOf(driverobject, physicaldeviceobject, physicaldeviceid, datatag, dataversion, buffersize)).toInt()
 }
 
-public fun IoQueueWorkItem(ioworkitem: Foundation.PIO_WORKITEM, workerroutine: PIO_WORKITEM_ROUTINE, queuetype: WORK_QUEUE_TYPE, context: Long) {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoQueueWorkItem", longArrayOf(Win32DynamicFfi.objectSlot(ioworkitem), Win32DynamicFfi.objectSlot(workerroutine), queuetype.toLong(), context))
+public fun IoQueueWorkItem(ioworkitem: PIO_WORKITEM, workerroutine: PIO_WORKITEM_ROUTINE, queuetype: WORK_QUEUE_TYPE, context: Long) {
+    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoQueueWorkItem", longArrayOf(ioworkitem, Win32DynamicFfi.objectSlot(workerroutine), queuetype.toLong(), context))
 }
 
-public fun IoQueueWorkItemEx(ioworkitem: Foundation.PIO_WORKITEM, workerroutine: PIO_WORKITEM_ROUTINE_EX, queuetype: WORK_QUEUE_TYPE, context: Long) {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoQueueWorkItemEx", longArrayOf(Win32DynamicFfi.objectSlot(ioworkitem), Win32DynamicFfi.objectSlot(workerroutine), queuetype.toLong(), context))
+public fun IoQueueWorkItemEx(ioworkitem: PIO_WORKITEM, workerroutine: PIO_WORKITEM_ROUTINE_EX, queuetype: WORK_QUEUE_TYPE, context: Long) {
+    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoQueueWorkItemEx", longArrayOf(ioworkitem, Win32DynamicFfi.objectSlot(workerroutine), queuetype.toLong(), context))
 }
 
 public fun IoRaiseHardError(irp: Long, vpb: Long, realdeviceobject: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "IoRaiseHardError", longArrayOf(irp, vpb, realdeviceobject))
 }
 
-public fun IoRaiseInformationalHardError(errorstatus: Win32.Foundation.NTSTATUS, string: Long, thread: Foundation.PKTHREAD): Boolean {
-    val rawRet = Win32DynamicFfi.invoke("ntoskrnl.exe", "IoRaiseInformationalHardError", longArrayOf(Win32DynamicFfi.objectSlot(errorstatus), string, Win32DynamicFfi.objectSlot(thread)))
+public fun IoRaiseInformationalHardError(errorstatus: NTSTATUS, string: Long, thread: PKTHREAD): Boolean {
+    val rawRet = Win32DynamicFfi.invoke("ntoskrnl.exe", "IoRaiseInformationalHardError", longArrayOf(errorstatus.toLong(), string, thread))
     return (rawRet and 0xFFL) != 0L
 }
 
-public fun IoReadDiskSignature(deviceobject: Long, bytespersector: UInt, signature: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoReadDiskSignature", longArrayOf(deviceobject, bytespersector.toLong(), signature))
-    return Win32.Foundation.NTSTATUS()
+public fun IoReadDiskSignature(deviceobject: Long, bytespersector: UInt, signature: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoReadDiskSignature", longArrayOf(deviceobject, bytespersector.toLong(), signature)).toInt()
 }
 
-public fun IoReadPartitionTable(deviceobject: Long, sectorsize: UInt, returnrecognizedpartitions: Boolean, partitionbuffer: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoReadPartitionTable", longArrayOf(deviceobject, sectorsize.toLong(), if (returnrecognizedpartitions) 1L else 0L, partitionbuffer))
-    return Win32.Foundation.NTSTATUS()
+public fun IoReadPartitionTable(deviceobject: Long, sectorsize: UInt, returnrecognizedpartitions: Boolean, partitionbuffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoReadPartitionTable", longArrayOf(deviceobject, sectorsize.toLong(), if (returnrecognizedpartitions) 1L else 0L, partitionbuffer)).toInt()
 }
 
-public fun IoReadPartitionTableEx(deviceobject: Long, drivelayout: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoReadPartitionTableEx", longArrayOf(deviceobject, drivelayout))
-    return Win32.Foundation.NTSTATUS()
+public fun IoReadPartitionTableEx(deviceobject: Long, drivelayout: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoReadPartitionTableEx", longArrayOf(deviceobject, drivelayout)).toInt()
 }
 
-public fun IoRecordIoAttribution(opaquehandle: Long, attributioninformation: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoRecordIoAttribution", longArrayOf(opaquehandle, attributioninformation))
-    return Win32.Foundation.NTSTATUS()
+public fun IoRecordIoAttribution(opaquehandle: Long, attributioninformation: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoRecordIoAttribution", longArrayOf(opaquehandle, attributioninformation)).toInt()
 }
 
 public fun IoRegisterBootDriverCallback(callbackfunction: PBOOT_DRIVER_CALLBACK_FUNCTION, callbackcontext: Long): Long {
     return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoRegisterBootDriverCallback", longArrayOf(Win32DynamicFfi.objectSlot(callbackfunction), callbackcontext))
 }
 
-public fun IoRegisterBootDriverReinitialization(driverobject: Long, driverreinitializationroutine: Foundation.DRIVER_REINITIALIZE, context: Long) {
+public fun IoRegisterBootDriverReinitialization(driverobject: Long, driverreinitializationroutine: DRIVER_REINITIALIZE, context: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "IoRegisterBootDriverReinitialization", longArrayOf(driverobject, Win32DynamicFfi.objectSlot(driverreinitializationroutine), context))
 }
 
-public fun IoRegisterContainerNotification(notificationclass: IO_CONTAINER_NOTIFICATION_CLASS, callbackfunction: PIO_CONTAINER_NOTIFICATION_FUNCTION, notificationinformation: Long, notificationinformationlength: UInt, callbackregistration: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoRegisterContainerNotification", longArrayOf(notificationclass.toLong(), Win32DynamicFfi.objectSlot(callbackfunction), notificationinformation, notificationinformationlength.toLong(), callbackregistration))
-    return Win32.Foundation.NTSTATUS()
+public fun IoRegisterContainerNotification(notificationclass: IO_CONTAINER_NOTIFICATION_CLASS, callbackfunction: PIO_CONTAINER_NOTIFICATION_FUNCTION, notificationinformation: Long, notificationinformationlength: UInt, callbackregistration: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoRegisterContainerNotification", longArrayOf(notificationclass.toLong(), Win32DynamicFfi.objectSlot(callbackfunction), notificationinformation, notificationinformationlength.toLong(), callbackregistration)).toInt()
 }
 
-public fun IoRegisterDeviceInterface(physicaldeviceobject: Long, interfaceclassguid: Long, referencestring: Long, symboliclinkname: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoRegisterDeviceInterface", longArrayOf(physicaldeviceobject, interfaceclassguid, referencestring, symboliclinkname))
-    return Win32.Foundation.NTSTATUS()
+public fun IoRegisterDeviceInterface(physicaldeviceobject: Long, interfaceclassguid: Long, referencestring: Long, symboliclinkname: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoRegisterDeviceInterface", longArrayOf(physicaldeviceobject, interfaceclassguid, referencestring, symboliclinkname)).toInt()
 }
 
-public fun IoRegisterDriverReinitialization(driverobject: Long, driverreinitializationroutine: Foundation.DRIVER_REINITIALIZE, context: Long) {
+public fun IoRegisterDriverReinitialization(driverobject: Long, driverreinitializationroutine: DRIVER_REINITIALIZE, context: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "IoRegisterDriverReinitialization", longArrayOf(driverobject, Win32DynamicFfi.objectSlot(driverreinitializationroutine), context))
 }
 
-public fun IoRegisterLastChanceShutdownNotification(deviceobject: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoRegisterLastChanceShutdownNotification", longArrayOf(deviceobject))
-    return Win32.Foundation.NTSTATUS()
+public fun IoRegisterLastChanceShutdownNotification(deviceobject: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoRegisterLastChanceShutdownNotification", longArrayOf(deviceobject)).toInt()
 }
 
-public fun IoRegisterPlugPlayNotification(eventcategory: IO_NOTIFICATION_EVENT_CATEGORY, eventcategoryflags: UInt, eventcategorydata: Long, driverobject: Long, callbackroutine: Foundation.DRIVER_NOTIFICATION_CALLBACK_ROUTINE, context: Long, notificationentry: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoRegisterPlugPlayNotification", longArrayOf(eventcategory.toLong(), eventcategoryflags.toLong(), eventcategorydata, driverobject, Win32DynamicFfi.objectSlot(callbackroutine), context, notificationentry))
-    return Win32.Foundation.NTSTATUS()
+public fun IoRegisterPlugPlayNotification(eventcategory: IO_NOTIFICATION_EVENT_CATEGORY, eventcategoryflags: UInt, eventcategorydata: Long, driverobject: Long, callbackroutine: DRIVER_NOTIFICATION_CALLBACK_ROUTINE, context: Long, notificationentry: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoRegisterPlugPlayNotification", longArrayOf(eventcategory.toLong(), eventcategoryflags.toLong(), eventcategorydata, driverobject, Win32DynamicFfi.objectSlot(callbackroutine), context, notificationentry)).toInt()
 }
 
-public fun IoRegisterShutdownNotification(deviceobject: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoRegisterShutdownNotification", longArrayOf(deviceobject))
-    return Win32.Foundation.NTSTATUS()
+public fun IoRegisterShutdownNotification(deviceobject: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoRegisterShutdownNotification", longArrayOf(deviceobject)).toInt()
 }
 
 public fun IoReleaseCancelSpinLock(irql: UByte) {
@@ -1719,14 +1588,12 @@ public fun IoRemoveShareAccess(fileobject: Long, shareaccess: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "IoRemoveShareAccess", longArrayOf(fileobject, shareaccess))
 }
 
-public fun IoReplacePartitionUnit(targetpdo: Long, sparepdo: Long, flags: UInt): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoReplacePartitionUnit", longArrayOf(targetpdo, sparepdo, flags.toLong()))
-    return Win32.Foundation.NTSTATUS()
+public fun IoReplacePartitionUnit(targetpdo: Long, sparepdo: Long, flags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoReplacePartitionUnit", longArrayOf(targetpdo, sparepdo, flags.toLong())).toInt()
 }
 
-public fun IoReportDetectedDevice(driverobject: Long, legacybustype: INTERFACE_TYPE, busnumber: UInt, slotnumber: UInt, resourcelist: Long, resourcerequirements: Long, resourceassigned: Boolean, deviceobject: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoReportDetectedDevice", longArrayOf(driverobject, legacybustype.toLong(), busnumber.toLong(), slotnumber.toLong(), resourcelist, resourcerequirements, if (resourceassigned) 1L else 0L, deviceobject))
-    return Win32.Foundation.NTSTATUS()
+public fun IoReportDetectedDevice(driverobject: Long, legacybustype: INTERFACE_TYPE, busnumber: UInt, slotnumber: UInt, resourcelist: Long, resourcerequirements: Long, resourceassigned: Boolean, deviceobject: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoReportDetectedDevice", longArrayOf(driverobject, legacybustype.toLong(), busnumber.toLong(), slotnumber.toLong(), resourcelist, resourcerequirements, if (resourceassigned) 1L else 0L, deviceobject)).toInt()
 }
 
 public fun IoReportInterruptActive(parameters: Long) {
@@ -1737,138 +1604,116 @@ public fun IoReportInterruptInactive(parameters: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "IoReportInterruptInactive", longArrayOf(parameters))
 }
 
-public fun IoReportResourceForDetection(driverobject: Long, driverlist: Long, driverlistsize: UInt, deviceobject: Long, devicelist: Long, devicelistsize: UInt, conflictdetected: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoReportResourceForDetection", longArrayOf(driverobject, driverlist, driverlistsize.toLong(), deviceobject, devicelist, devicelistsize.toLong(), conflictdetected))
-    return Win32.Foundation.NTSTATUS()
+public fun IoReportResourceForDetection(driverobject: Long, driverlist: Long, driverlistsize: UInt, deviceobject: Long, devicelist: Long, devicelistsize: UInt, conflictdetected: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoReportResourceForDetection", longArrayOf(driverobject, driverlist, driverlistsize.toLong(), deviceobject, devicelist, devicelistsize.toLong(), conflictdetected)).toInt()
 }
 
-public fun IoReportResourceUsage(driverclassname: Long, driverobject: Long, driverlist: Long, driverlistsize: UInt, deviceobject: Long, devicelist: Long, devicelistsize: UInt, overrideconflict: Boolean, conflictdetected: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoReportResourceUsage", longArrayOf(driverclassname, driverobject, driverlist, driverlistsize.toLong(), deviceobject, devicelist, devicelistsize.toLong(), if (overrideconflict) 1L else 0L, conflictdetected))
-    return Win32.Foundation.NTSTATUS()
+public fun IoReportResourceUsage(driverclassname: Long, driverobject: Long, driverlist: Long, driverlistsize: UInt, deviceobject: Long, devicelist: Long, devicelistsize: UInt, overrideconflict: Boolean, conflictdetected: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoReportResourceUsage", longArrayOf(driverclassname, driverobject, driverlist, driverlistsize.toLong(), deviceobject, devicelist, devicelistsize.toLong(), if (overrideconflict) 1L else 0L, conflictdetected)).toInt()
 }
 
-public fun IoReportRootDevice(driverobject: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoReportRootDevice", longArrayOf(driverobject))
-    return Win32.Foundation.NTSTATUS()
+public fun IoReportRootDevice(driverobject: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoReportRootDevice", longArrayOf(driverobject)).toInt()
 }
 
-public fun IoReportTargetDeviceChange(physicaldeviceobject: Long, notificationstructure: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoReportTargetDeviceChange", longArrayOf(physicaldeviceobject, notificationstructure))
-    return Win32.Foundation.NTSTATUS()
+public fun IoReportTargetDeviceChange(physicaldeviceobject: Long, notificationstructure: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoReportTargetDeviceChange", longArrayOf(physicaldeviceobject, notificationstructure)).toInt()
 }
 
-public fun IoReportTargetDeviceChangeAsynchronous(physicaldeviceobject: Long, notificationstructure: Long, callback: PDEVICE_CHANGE_COMPLETE_CALLBACK, context: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoReportTargetDeviceChangeAsynchronous", longArrayOf(physicaldeviceobject, notificationstructure, Win32DynamicFfi.objectSlot(callback), context))
-    return Win32.Foundation.NTSTATUS()
+public fun IoReportTargetDeviceChangeAsynchronous(physicaldeviceobject: Long, notificationstructure: Long, callback: PDEVICE_CHANGE_COMPLETE_CALLBACK, context: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoReportTargetDeviceChangeAsynchronous", longArrayOf(physicaldeviceobject, notificationstructure, Win32DynamicFfi.objectSlot(callback), context)).toInt()
 }
 
 public fun IoRequestDeviceEject(physicaldeviceobject: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "IoRequestDeviceEject", longArrayOf(physicaldeviceobject))
 }
 
-public fun IoRequestDeviceEjectEx(physicaldeviceobject: Long, callback: PIO_DEVICE_EJECT_CALLBACK, context: Long, driverobject: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoRequestDeviceEjectEx", longArrayOf(physicaldeviceobject, Win32DynamicFfi.objectSlot(callback), context, driverobject))
-    return Win32.Foundation.NTSTATUS()
+public fun IoRequestDeviceEjectEx(physicaldeviceobject: Long, callback: PIO_DEVICE_EJECT_CALLBACK, context: Long, driverobject: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoRequestDeviceEjectEx", longArrayOf(physicaldeviceobject, Win32DynamicFfi.objectSlot(callback), context, driverobject)).toInt()
 }
 
-public fun IoReserveKsrPersistentMemory(driverobject: Long, physicaldeviceobject: Long, size: ULong, flags: UInt, datahandle: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoReserveKsrPersistentMemory", longArrayOf(driverobject, physicaldeviceobject, size.toLong(), flags.toLong(), datahandle))
-    return Win32.Foundation.NTSTATUS()
+public fun IoReserveKsrPersistentMemory(driverobject: Long, physicaldeviceobject: Long, size: ULong, flags: UInt, datahandle: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoReserveKsrPersistentMemory", longArrayOf(driverobject, physicaldeviceobject, size.toLong(), flags.toLong(), datahandle)).toInt()
 }
 
-public fun IoReserveKsrPersistentMemoryEx(driverobject: Long, physicaldeviceobject: Long, physicaldeviceid: Long, datatag: Long, dataversion: UInt, size: ULong, flags: UInt, datahandle: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoReserveKsrPersistentMemoryEx", longArrayOf(driverobject, physicaldeviceobject, physicaldeviceid, datatag, dataversion.toLong(), size.toLong(), flags.toLong(), datahandle))
-    return Win32.Foundation.NTSTATUS()
+public fun IoReserveKsrPersistentMemoryEx(driverobject: Long, physicaldeviceobject: Long, physicaldeviceid: Long, datatag: Long, dataversion: UInt, size: ULong, flags: UInt, datahandle: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoReserveKsrPersistentMemoryEx", longArrayOf(driverobject, physicaldeviceobject, physicaldeviceid, datatag, dataversion.toLong(), size.toLong(), flags.toLong(), datahandle)).toInt()
 }
 
-public fun IoReuseIrp(irp: Long, iostatus: Win32.Foundation.NTSTATUS) {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoReuseIrp", longArrayOf(irp, Win32DynamicFfi.objectSlot(iostatus)))
+public fun IoReuseIrp(irp: Long, iostatus: NTSTATUS) {
+    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoReuseIrp", longArrayOf(irp, iostatus.toLong()))
 }
 
-public fun IoSetActivityIdIrp(irp: Long, guid: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetActivityIdIrp", longArrayOf(irp, guid))
-    return Win32.Foundation.NTSTATUS()
+public fun IoSetActivityIdIrp(irp: Long, guid: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetActivityIdIrp", longArrayOf(irp, guid)).toInt()
 }
 
 public fun IoSetActivityIdThread(activityid: Long): Long {
     return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetActivityIdThread", longArrayOf(activityid))
 }
 
-public fun IoSetCompletionRoutineEx(deviceobject: Long, irp: Long, completionroutine: Foundation.PIO_COMPLETION_ROUTINE, context: Long, invokeonsuccess: Boolean, invokeonerror: Boolean, invokeoncancel: Boolean): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetCompletionRoutineEx", longArrayOf(deviceobject, irp, Win32DynamicFfi.objectSlot(completionroutine), context, if (invokeonsuccess) 1L else 0L, if (invokeonerror) 1L else 0L, if (invokeoncancel) 1L else 0L))
-    return Win32.Foundation.NTSTATUS()
+public fun IoSetCompletionRoutineEx(deviceobject: Long, irp: Long, completionroutine: PIO_COMPLETION_ROUTINE, context: Long, invokeonsuccess: Boolean, invokeonerror: Boolean, invokeoncancel: Boolean): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetCompletionRoutineEx", longArrayOf(deviceobject, irp, Win32DynamicFfi.objectSlot(completionroutine), context, if (invokeonsuccess) 1L else 0L, if (invokeonerror) 1L else 0L, if (invokeoncancel) 1L else 0L)).toInt()
 }
 
-public fun IoSetDeviceInterfacePropertyData(symboliclinkname: Long, propertykey: Long, lcid: UInt, flags: UInt, type: UInt, size: UInt, data: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetDeviceInterfacePropertyData", longArrayOf(symboliclinkname, propertykey, lcid.toLong(), flags.toLong(), type.toLong(), size.toLong(), data))
-    return Win32.Foundation.NTSTATUS()
+public fun IoSetDeviceInterfacePropertyData(symboliclinkname: Long, propertykey: Long, lcid: UInt, flags: UInt, type: UInt, size: UInt, data: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetDeviceInterfacePropertyData", longArrayOf(symboliclinkname, propertykey, lcid.toLong(), flags.toLong(), type.toLong(), size.toLong(), data)).toInt()
 }
 
-public fun IoSetDeviceInterfaceState(symboliclinkname: Long, enable: Boolean): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetDeviceInterfaceState", longArrayOf(symboliclinkname, if (enable) 1L else 0L))
-    return Win32.Foundation.NTSTATUS()
+public fun IoSetDeviceInterfaceState(symboliclinkname: Long, enable: Boolean): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetDeviceInterfaceState", longArrayOf(symboliclinkname, if (enable) 1L else 0L)).toInt()
 }
 
-public fun IoSetDevicePropertyData(pdo: Long, propertykey: Long, lcid: UInt, flags: UInt, type: UInt, size: UInt, data: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetDevicePropertyData", longArrayOf(pdo, propertykey, lcid.toLong(), flags.toLong(), type.toLong(), size.toLong(), data))
-    return Win32.Foundation.NTSTATUS()
+public fun IoSetDevicePropertyData(pdo: Long, propertykey: Long, lcid: UInt, flags: UInt, type: UInt, size: UInt, data: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetDevicePropertyData", longArrayOf(pdo, propertykey, lcid.toLong(), flags.toLong(), type.toLong(), size.toLong(), data)).toInt()
 }
 
-public fun IoSetFileObjectIgnoreSharing(fileobject: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetFileObjectIgnoreSharing", longArrayOf(fileobject))
-    return Win32.Foundation.NTSTATUS()
+public fun IoSetFileObjectIgnoreSharing(fileobject: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetFileObjectIgnoreSharing", longArrayOf(fileobject)).toInt()
 }
 
-public fun IoSetFileOrigin(fileobject: Long, remote: Boolean): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetFileOrigin", longArrayOf(fileobject, if (remote) 1L else 0L))
-    return Win32.Foundation.NTSTATUS()
+public fun IoSetFileOrigin(fileobject: Long, remote: Boolean): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetFileOrigin", longArrayOf(fileobject, if (remote) 1L else 0L)).toInt()
 }
 
-public fun IoSetFsZeroingOffset(irp: Long, zeroingoffset: UInt): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetFsZeroingOffset", longArrayOf(irp, zeroingoffset.toLong()))
-    return Win32.Foundation.NTSTATUS()
+public fun IoSetFsZeroingOffset(irp: Long, zeroingoffset: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetFsZeroingOffset", longArrayOf(irp, zeroingoffset.toLong())).toInt()
 }
 
-public fun IoSetFsZeroingOffsetRequired(irp: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetFsZeroingOffsetRequired", longArrayOf(irp))
-    return Win32.Foundation.NTSTATUS()
+public fun IoSetFsZeroingOffsetRequired(irp: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetFsZeroingOffsetRequired", longArrayOf(irp)).toInt()
 }
 
 public fun IoSetHardErrorOrVerifyDevice(irp: Long, deviceobject: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetHardErrorOrVerifyDevice", longArrayOf(irp, deviceobject))
 }
 
-public fun IoSetIoAttributionIrp(irp: Long, attributionsource: Long, flags: UInt): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetIoAttributionIrp", longArrayOf(irp, attributionsource, flags.toLong()))
-    return Win32.Foundation.NTSTATUS()
+public fun IoSetIoAttributionIrp(irp: Long, attributionsource: Long, flags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetIoAttributionIrp", longArrayOf(irp, attributionsource, flags.toLong())).toInt()
 }
 
-public fun IoSetIoPriorityHint(irp: Long, priorityhint: Foundation.IO_PRIORITY_HINT): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetIoPriorityHint", longArrayOf(irp, Win32DynamicFfi.objectSlot(priorityhint)))
-    return Win32.Foundation.NTSTATUS()
+public fun IoSetIoPriorityHint(irp: Long, priorityhint: IO_PRIORITY_HINT): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetIoPriorityHint", longArrayOf(irp, priorityhint.toLong())).toInt()
 }
 
-public fun IoSetIrpExtraCreateParameter(irp: Long, extracreateparameter: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetIrpExtraCreateParameter", longArrayOf(irp, extracreateparameter))
-    return Win32.Foundation.NTSTATUS()
+public fun IoSetIrpExtraCreateParameter(irp: Long, extracreateparameter: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetIrpExtraCreateParameter", longArrayOf(irp, extracreateparameter)).toInt()
 }
 
 public fun IoSetLinkShareAccess(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: Long, shareaccess: Long, linkshareaccess: Long, ioshareaccessflags: UInt) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetLinkShareAccess", longArrayOf(desiredaccess.toLong(), desiredshareaccess.toLong(), fileobject, shareaccess, linkshareaccess, ioshareaccessflags.toLong()))
 }
 
-public fun IoSetMasterIrpStatus(masterirp: Long, status: Win32.Foundation.NTSTATUS) {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetMasterIrpStatus", longArrayOf(masterirp, Win32DynamicFfi.objectSlot(status)))
+public fun IoSetMasterIrpStatus(masterirp: Long, status: NTSTATUS) {
+    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetMasterIrpStatus", longArrayOf(masterirp, status.toLong()))
 }
 
-public fun IoSetPartitionInformation(deviceobject: Long, sectorsize: UInt, partitionnumber: UInt, partitiontype: UInt): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetPartitionInformation", longArrayOf(deviceobject, sectorsize.toLong(), partitionnumber.toLong(), partitiontype.toLong()))
-    return Win32.Foundation.NTSTATUS()
+public fun IoSetPartitionInformation(deviceobject: Long, sectorsize: UInt, partitionnumber: UInt, partitiontype: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetPartitionInformation", longArrayOf(deviceobject, sectorsize.toLong(), partitionnumber.toLong(), partitiontype.toLong())).toInt()
 }
 
-public fun IoSetPartitionInformationEx(deviceobject: Long, partitionnumber: UInt, partitioninfo: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetPartitionInformationEx", longArrayOf(deviceobject, partitionnumber.toLong(), partitioninfo))
-    return Win32.Foundation.NTSTATUS()
+public fun IoSetPartitionInformationEx(deviceobject: Long, partitionnumber: UInt, partitioninfo: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetPartitionInformationEx", longArrayOf(deviceobject, partitionnumber.toLong(), partitioninfo)).toInt()
 }
 
 public fun IoSetShareAccess(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: Long, shareaccess: Long) {
@@ -1883,9 +1728,8 @@ public fun IoSetStartIoAttributes(deviceobject: Long, deferredstartio: Boolean, 
     Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetStartIoAttributes", longArrayOf(deviceobject, if (deferredstartio) 1L else 0L, if (noncancelable) 1L else 0L))
 }
 
-public fun IoSetSystemPartition(volumenamestring: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetSystemPartition", longArrayOf(volumenamestring))
-    return Win32.Foundation.NTSTATUS()
+public fun IoSetSystemPartition(volumenamestring: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSetSystemPartition", longArrayOf(volumenamestring)).toInt()
 }
 
 public fun IoSetThreadHardErrorMode(enableharderrors: Boolean): Boolean {
@@ -1913,7 +1757,7 @@ public fun IoStartNextPacketByKey(deviceobject: Long, cancelable: Boolean, key: 
     Win32DynamicFfi.invoke("ntoskrnl.exe", "IoStartNextPacketByKey", longArrayOf(deviceobject, if (cancelable) 1L else 0L, key.toLong()))
 }
 
-public fun IoStartPacket(deviceobject: Long, irp: Long, key: Long, cancelfunction: Foundation.DRIVER_CANCEL) {
+public fun IoStartPacket(deviceobject: Long, irp: Long, key: Long, cancelfunction: DRIVER_CANCEL) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "IoStartPacket", longArrayOf(deviceobject, irp, key, Win32DynamicFfi.objectSlot(cancelfunction)))
 }
 
@@ -1925,9 +1769,8 @@ public fun IoStopTimer(deviceobject: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "IoStopTimer", longArrayOf(deviceobject))
 }
 
-public fun IoSynchronousCallDriver(deviceobject: Long, irp: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSynchronousCallDriver", longArrayOf(deviceobject, irp))
-    return Win32.Foundation.NTSTATUS()
+public fun IoSynchronousCallDriver(deviceobject: Long, irp: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoSynchronousCallDriver", longArrayOf(deviceobject, irp)).toInt()
 }
 
 public fun IoTransferActivityId(activityid: Long, relatedactivityid: Long) {
@@ -1939,13 +1782,13 @@ public fun IoTranslateBusAddress(interfacetype: INTERFACE_TYPE, busnumber: UInt,
     return (rawRet and 0xFFL) != 0L
 }
 
-public fun IoTryQueueWorkItem(ioworkitem: Foundation.PIO_WORKITEM, workerroutine: PIO_WORKITEM_ROUTINE_EX, queuetype: WORK_QUEUE_TYPE, context: Long): Boolean {
-    val rawRet = Win32DynamicFfi.invoke("ntoskrnl.exe", "IoTryQueueWorkItem", longArrayOf(Win32DynamicFfi.objectSlot(ioworkitem), Win32DynamicFfi.objectSlot(workerroutine), queuetype.toLong(), context))
+public fun IoTryQueueWorkItem(ioworkitem: PIO_WORKITEM, workerroutine: PIO_WORKITEM_ROUTINE_EX, queuetype: WORK_QUEUE_TYPE, context: Long): Boolean {
+    val rawRet = Win32DynamicFfi.invoke("ntoskrnl.exe", "IoTryQueueWorkItem", longArrayOf(ioworkitem, Win32DynamicFfi.objectSlot(workerroutine), queuetype.toLong(), context))
     return (rawRet and 0xFFL) != 0L
 }
 
-public fun IoUninitializeWorkItem(ioworkitem: Foundation.PIO_WORKITEM) {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoUninitializeWorkItem", longArrayOf(Win32DynamicFfi.objectSlot(ioworkitem)))
+public fun IoUninitializeWorkItem(ioworkitem: PIO_WORKITEM) {
+    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoUninitializeWorkItem", longArrayOf(ioworkitem))
 }
 
 public fun IoUnregisterBootDriverCallback(callbackhandle: Long) {
@@ -1956,14 +1799,12 @@ public fun IoUnregisterContainerNotification(callbackregistration: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "IoUnregisterContainerNotification", longArrayOf(callbackregistration))
 }
 
-public fun IoUnregisterPlugPlayNotification(notificationentry: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoUnregisterPlugPlayNotification", longArrayOf(notificationentry))
-    return Win32.Foundation.NTSTATUS()
+public fun IoUnregisterPlugPlayNotification(notificationentry: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoUnregisterPlugPlayNotification", longArrayOf(notificationentry)).toInt()
 }
 
-public fun IoUnregisterPlugPlayNotificationEx(notificationentry: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoUnregisterPlugPlayNotificationEx", longArrayOf(notificationentry))
-    return Win32.Foundation.NTSTATUS()
+public fun IoUnregisterPlugPlayNotificationEx(notificationentry: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoUnregisterPlugPlayNotificationEx", longArrayOf(notificationentry)).toInt()
 }
 
 public fun IoUnregisterShutdownNotification(deviceobject: Long) {
@@ -1982,114 +1823,92 @@ public fun IoUpdateShareAccess(fileobject: Long, shareaccess: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "IoUpdateShareAccess", longArrayOf(fileobject, shareaccess))
 }
 
-public fun IoValidateDeviceIoControlAccess(irp: Long, requiredaccess: UInt): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoValidateDeviceIoControlAccess", longArrayOf(irp, requiredaccess.toLong()))
-    return Win32.Foundation.NTSTATUS()
+public fun IoValidateDeviceIoControlAccess(irp: Long, requiredaccess: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoValidateDeviceIoControlAccess", longArrayOf(irp, requiredaccess.toLong())).toInt()
 }
 
-public fun IoVerifyPartitionTable(deviceobject: Long, fixerrors: Boolean): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoVerifyPartitionTable", longArrayOf(deviceobject, if (fixerrors) 1L else 0L))
-    return Win32.Foundation.NTSTATUS()
+public fun IoVerifyPartitionTable(deviceobject: Long, fixerrors: Boolean): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoVerifyPartitionTable", longArrayOf(deviceobject, if (fixerrors) 1L else 0L)).toInt()
 }
 
-public fun IoVolumeDeviceNameToGuid(volumedevicename: Long, guid: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoVolumeDeviceNameToGuid", longArrayOf(volumedevicename, guid))
-    return Win32.Foundation.NTSTATUS()
+public fun IoVolumeDeviceNameToGuid(volumedevicename: Long, guid: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoVolumeDeviceNameToGuid", longArrayOf(volumedevicename, guid)).toInt()
 }
 
-public fun IoVolumeDeviceNameToGuidPath(volumedevicename: Long, guidpath: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoVolumeDeviceNameToGuidPath", longArrayOf(volumedevicename, guidpath))
-    return Win32.Foundation.NTSTATUS()
+public fun IoVolumeDeviceNameToGuidPath(volumedevicename: Long, guidpath: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoVolumeDeviceNameToGuidPath", longArrayOf(volumedevicename, guidpath)).toInt()
 }
 
-public fun IoVolumeDeviceToDosName(volumedeviceobject: Long, dosname: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoVolumeDeviceToDosName", longArrayOf(volumedeviceobject, dosname))
-    return Win32.Foundation.NTSTATUS()
+public fun IoVolumeDeviceToDosName(volumedeviceobject: Long, dosname: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoVolumeDeviceToDosName", longArrayOf(volumedeviceobject, dosname)).toInt()
 }
 
-public fun IoVolumeDeviceToGuid(volumedeviceobject: Long, guid: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoVolumeDeviceToGuid", longArrayOf(volumedeviceobject, guid))
-    return Win32.Foundation.NTSTATUS()
+public fun IoVolumeDeviceToGuid(volumedeviceobject: Long, guid: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoVolumeDeviceToGuid", longArrayOf(volumedeviceobject, guid)).toInt()
 }
 
-public fun IoVolumeDeviceToGuidPath(volumedeviceobject: Long, guidpath: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoVolumeDeviceToGuidPath", longArrayOf(volumedeviceobject, guidpath))
-    return Win32.Foundation.NTSTATUS()
+public fun IoVolumeDeviceToGuidPath(volumedeviceobject: Long, guidpath: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoVolumeDeviceToGuidPath", longArrayOf(volumedeviceobject, guidpath)).toInt()
 }
 
-public fun IoWMIAllocateInstanceIds(guid: Long, instancecount: UInt, firstinstanceid: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWMIAllocateInstanceIds", longArrayOf(guid, instancecount.toLong(), firstinstanceid))
-    return Win32.Foundation.NTSTATUS()
+public fun IoWMIAllocateInstanceIds(guid: Long, instancecount: UInt, firstinstanceid: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWMIAllocateInstanceIds", longArrayOf(guid, instancecount.toLong(), firstinstanceid)).toInt()
 }
 
-public fun IoWMIDeviceObjectToInstanceName(datablockobject: Long, deviceobject: Long, instancename: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWMIDeviceObjectToInstanceName", longArrayOf(datablockobject, deviceobject, instancename))
-    return Win32.Foundation.NTSTATUS()
+public fun IoWMIDeviceObjectToInstanceName(datablockobject: Long, deviceobject: Long, instancename: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWMIDeviceObjectToInstanceName", longArrayOf(datablockobject, deviceobject, instancename)).toInt()
 }
 
-public fun IoWMIExecuteMethod(datablockobject: Long, instancename: Long, methodid: UInt, inbuffersize: UInt, outbuffersize: Long, inoutbuffer: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWMIExecuteMethod", longArrayOf(datablockobject, instancename, methodid.toLong(), inbuffersize.toLong(), outbuffersize, inoutbuffer))
-    return Win32.Foundation.NTSTATUS()
+public fun IoWMIExecuteMethod(datablockobject: Long, instancename: Long, methodid: UInt, inbuffersize: UInt, outbuffersize: Long, inoutbuffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWMIExecuteMethod", longArrayOf(datablockobject, instancename, methodid.toLong(), inbuffersize.toLong(), outbuffersize, inoutbuffer)).toInt()
 }
 
-public fun IoWMIHandleToInstanceName(datablockobject: Long, filehandle: Win32.Foundation.HANDLE, instancename: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWMIHandleToInstanceName", longArrayOf(datablockobject, Win32DynamicFfi.objectSlot(filehandle), instancename))
-    return Win32.Foundation.NTSTATUS()
+public fun IoWMIHandleToInstanceName(datablockobject: Long, filehandle: HANDLE, instancename: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWMIHandleToInstanceName", longArrayOf(datablockobject, filehandle, instancename)).toInt()
 }
 
-public fun IoWMIOpenBlock(guid: Long, desiredaccess: UInt, datablockobject: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWMIOpenBlock", longArrayOf(guid, desiredaccess.toLong(), datablockobject))
-    return Win32.Foundation.NTSTATUS()
+public fun IoWMIOpenBlock(guid: Long, desiredaccess: UInt, datablockobject: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWMIOpenBlock", longArrayOf(guid, desiredaccess.toLong(), datablockobject)).toInt()
 }
 
-public fun IoWMIQueryAllData(datablockobject: Long, inoutbuffersize: Long, outbuffer: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWMIQueryAllData", longArrayOf(datablockobject, inoutbuffersize, outbuffer))
-    return Win32.Foundation.NTSTATUS()
+public fun IoWMIQueryAllData(datablockobject: Long, inoutbuffersize: Long, outbuffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWMIQueryAllData", longArrayOf(datablockobject, inoutbuffersize, outbuffer)).toInt()
 }
 
-public fun IoWMIQueryAllDataMultiple(datablockobjectlist: Long, objectcount: UInt, inoutbuffersize: Long, outbuffer: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWMIQueryAllDataMultiple", longArrayOf(datablockobjectlist, objectcount.toLong(), inoutbuffersize, outbuffer))
-    return Win32.Foundation.NTSTATUS()
+public fun IoWMIQueryAllDataMultiple(datablockobjectlist: Long, objectcount: UInt, inoutbuffersize: Long, outbuffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWMIQueryAllDataMultiple", longArrayOf(datablockobjectlist, objectcount.toLong(), inoutbuffersize, outbuffer)).toInt()
 }
 
-public fun IoWMIQuerySingleInstance(datablockobject: Long, instancename: Long, inoutbuffersize: Long, outbuffer: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWMIQuerySingleInstance", longArrayOf(datablockobject, instancename, inoutbuffersize, outbuffer))
-    return Win32.Foundation.NTSTATUS()
+public fun IoWMIQuerySingleInstance(datablockobject: Long, instancename: Long, inoutbuffersize: Long, outbuffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWMIQuerySingleInstance", longArrayOf(datablockobject, instancename, inoutbuffersize, outbuffer)).toInt()
 }
 
-public fun IoWMIQuerySingleInstanceMultiple(datablockobjectlist: Long, instancenames: Long, objectcount: UInt, inoutbuffersize: Long, outbuffer: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWMIQuerySingleInstanceMultiple", longArrayOf(datablockobjectlist, instancenames, objectcount.toLong(), inoutbuffersize, outbuffer))
-    return Win32.Foundation.NTSTATUS()
+public fun IoWMIQuerySingleInstanceMultiple(datablockobjectlist: Long, instancenames: Long, objectcount: UInt, inoutbuffersize: Long, outbuffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWMIQuerySingleInstanceMultiple", longArrayOf(datablockobjectlist, instancenames, objectcount.toLong(), inoutbuffersize, outbuffer)).toInt()
 }
 
-public fun IoWMIRegistrationControl(deviceobject: Long, action: UInt): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWMIRegistrationControl", longArrayOf(deviceobject, action.toLong()))
-    return Win32.Foundation.NTSTATUS()
+public fun IoWMIRegistrationControl(deviceobject: Long, action: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWMIRegistrationControl", longArrayOf(deviceobject, action.toLong())).toInt()
 }
 
-public fun IoWMISetNotificationCallback(obj: Long, callback: WMI_NOTIFICATION_CALLBACK, context: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWMISetNotificationCallback", longArrayOf(obj, Win32DynamicFfi.objectSlot(callback), context))
-    return Win32.Foundation.NTSTATUS()
+public fun IoWMISetNotificationCallback(obj: Long, callback: WMI_NOTIFICATION_CALLBACK, context: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWMISetNotificationCallback", longArrayOf(obj, Win32DynamicFfi.objectSlot(callback), context)).toInt()
 }
 
-public fun IoWMISetSingleInstance(datablockobject: Long, instancename: Long, version: UInt, valuebuffersize: UInt, valuebuffer: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWMISetSingleInstance", longArrayOf(datablockobject, instancename, version.toLong(), valuebuffersize.toLong(), valuebuffer))
-    return Win32.Foundation.NTSTATUS()
+public fun IoWMISetSingleInstance(datablockobject: Long, instancename: Long, version: UInt, valuebuffersize: UInt, valuebuffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWMISetSingleInstance", longArrayOf(datablockobject, instancename, version.toLong(), valuebuffersize.toLong(), valuebuffer)).toInt()
 }
 
-public fun IoWMISetSingleItem(datablockobject: Long, instancename: Long, dataitemid: UInt, version: UInt, valuebuffersize: UInt, valuebuffer: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWMISetSingleItem", longArrayOf(datablockobject, instancename, dataitemid.toLong(), version.toLong(), valuebuffersize.toLong(), valuebuffer))
-    return Win32.Foundation.NTSTATUS()
+public fun IoWMISetSingleItem(datablockobject: Long, instancename: Long, dataitemid: UInt, version: UInt, valuebuffersize: UInt, valuebuffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWMISetSingleItem", longArrayOf(datablockobject, instancename, dataitemid.toLong(), version.toLong(), valuebuffersize.toLong(), valuebuffer)).toInt()
 }
 
-public fun IoWMISuggestInstanceName(physicaldeviceobject: Long, symboliclinkname: Long, combinenames: Boolean, suggestedinstancename: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWMISuggestInstanceName", longArrayOf(physicaldeviceobject, symboliclinkname, if (combinenames) 1L else 0L, suggestedinstancename))
-    return Win32.Foundation.NTSTATUS()
+public fun IoWMISuggestInstanceName(physicaldeviceobject: Long, symboliclinkname: Long, combinenames: Boolean, suggestedinstancename: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWMISuggestInstanceName", longArrayOf(physicaldeviceobject, symboliclinkname, if (combinenames) 1L else 0L, suggestedinstancename)).toInt()
 }
 
-public fun IoWMIWriteEvent(wnodeeventitem: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWMIWriteEvent", longArrayOf(wnodeeventitem))
-    return Win32.Foundation.NTSTATUS()
+public fun IoWMIWriteEvent(wnodeeventitem: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWMIWriteEvent", longArrayOf(wnodeeventitem)).toInt()
 }
 
 public fun IoWithinStackLimits(regionstart: ULong, regionsize: ULong): UInt {
@@ -2100,43 +1919,36 @@ public fun IoWriteErrorLogEntry(elentry: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWriteErrorLogEntry", longArrayOf(elentry))
 }
 
-public fun IoWriteKsrPersistentMemory(datahandle: Long, buffer: Long, size: ULong): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWriteKsrPersistentMemory", longArrayOf(datahandle, buffer, size.toLong()))
-    return Win32.Foundation.NTSTATUS()
+public fun IoWriteKsrPersistentMemory(datahandle: Long, buffer: Long, size: ULong): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWriteKsrPersistentMemory", longArrayOf(datahandle, buffer, size.toLong())).toInt()
 }
 
-public fun IoWritePartitionTable(deviceobject: Long, sectorsize: UInt, sectorspertrack: UInt, numberofheads: UInt, partitionbuffer: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWritePartitionTable", longArrayOf(deviceobject, sectorsize.toLong(), sectorspertrack.toLong(), numberofheads.toLong(), partitionbuffer))
-    return Win32.Foundation.NTSTATUS()
+public fun IoWritePartitionTable(deviceobject: Long, sectorsize: UInt, sectorspertrack: UInt, numberofheads: UInt, partitionbuffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWritePartitionTable", longArrayOf(deviceobject, sectorsize.toLong(), sectorspertrack.toLong(), numberofheads.toLong(), partitionbuffer)).toInt()
 }
 
-public fun IoWritePartitionTableEx(deviceobject: Long, drivelayout: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWritePartitionTableEx", longArrayOf(deviceobject, drivelayout))
-    return Win32.Foundation.NTSTATUS()
+public fun IoWritePartitionTableEx(deviceobject: Long, drivelayout: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IoWritePartitionTableEx", longArrayOf(deviceobject, drivelayout)).toInt()
 }
 
-public fun IofCallDriver(deviceobject: Long, irp: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "IofCallDriver", longArrayOf(deviceobject, irp))
-    return Win32.Foundation.NTSTATUS()
+public fun IofCallDriver(deviceobject: Long, irp: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "IofCallDriver", longArrayOf(deviceobject, irp)).toInt()
 }
 
 public fun IofCompleteRequest(irp: Long, priorityboost: Byte) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "IofCompleteRequest", longArrayOf(irp, priorityboost.toLong()))
 }
 
-public fun KdChangeOption(option: KD_OPTION, inbufferbytes: UInt, inbuffer: Long, outbufferbytes: UInt, outbuffer: Long, outbufferneeded: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "KdChangeOption", longArrayOf(option.toLong(), inbufferbytes.toLong(), inbuffer, outbufferbytes.toLong(), outbuffer, outbufferneeded))
-    return Win32.Foundation.NTSTATUS()
+public fun KdChangeOption(option: KD_OPTION, inbufferbytes: UInt, inbuffer: Long, outbufferbytes: UInt, outbuffer: Long, outbufferneeded: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "KdChangeOption", longArrayOf(option.toLong(), inbufferbytes.toLong(), inbuffer, outbufferbytes.toLong(), outbuffer, outbufferneeded)).toInt()
 }
 
-public fun KdDisableDebugger(): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "KdDisableDebugger", longArrayOf())
-    return Win32.Foundation.NTSTATUS()
+public fun KdDisableDebugger(): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "KdDisableDebugger", longArrayOf()).toInt()
 }
 
-public fun KdEnableDebugger(): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "KdEnableDebugger", longArrayOf())
-    return Win32.Foundation.NTSTATUS()
+public fun KdEnableDebugger(): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "KdEnableDebugger", longArrayOf()).toInt()
 }
 
 public fun KdRefreshDebuggerNotPresent(): Boolean {
@@ -2164,17 +1976,16 @@ public fun KeAcquireInStackQueuedSpinLockForDpc(spinlock: Long, lockhandle: Long
     Win32DynamicFfi.invoke("ntoskrnl.exe", "KeAcquireInStackQueuedSpinLockForDpc", longArrayOf(spinlock, lockhandle))
 }
 
-public fun KeAcquireInterruptSpinLock(interrupt: Foundation.PKINTERRUPT): UByte {
-    return Win32DynamicFfi.invoke("ntoskrnl.exe", "KeAcquireInterruptSpinLock", longArrayOf(Win32DynamicFfi.objectSlot(interrupt))).toUByte()
+public fun KeAcquireInterruptSpinLock(interrupt: PKINTERRUPT): UByte {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "KeAcquireInterruptSpinLock", longArrayOf(interrupt)).toUByte()
 }
 
 public fun KeAcquireSpinLockForDpc(spinlock: Long): UByte {
     return Win32DynamicFfi.invoke("ntoskrnl.exe", "KeAcquireSpinLockForDpc", longArrayOf(spinlock)).toUByte()
 }
 
-public fun KeAddTriageDumpDataBlock(ktriagedumpdataarray: Long, address: Long, size: ULong): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "KeAddTriageDumpDataBlock", longArrayOf(ktriagedumpdataarray, address, size.toLong()))
-    return Win32.Foundation.NTSTATUS()
+public fun KeAddTriageDumpDataBlock(ktriagedumpdataarray: Long, address: Long, size: ULong): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "KeAddTriageDumpDataBlock", longArrayOf(ktriagedumpdataarray, address, size.toLong())).toInt()
 }
 
 public fun KeAreAllApcsDisabled(): Boolean {
@@ -2187,12 +1998,12 @@ public fun KeAreApcsDisabled(): Boolean {
     return (rawRet and 0xFFL) != 0L
 }
 
-public fun KeBugCheck(bugcheckcode: Win32.System.Diagnostics.Debug.BUGCHECK_ERROR) {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "KeBugCheck", longArrayOf(Win32DynamicFfi.objectSlot(bugcheckcode)))
+public fun KeBugCheck(bugcheckcode: BUGCHECK_ERROR) {
+    Win32DynamicFfi.invoke("ntoskrnl.exe", "KeBugCheck", longArrayOf(bugcheckcode.toLong()))
 }
 
-public fun KeBugCheckEx(bugcheckcode: Win32.System.Diagnostics.Debug.BUGCHECK_ERROR, bugcheckparameter1: ULong, bugcheckparameter2: ULong, bugcheckparameter3: ULong, bugcheckparameter4: ULong) {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "KeBugCheckEx", longArrayOf(Win32DynamicFfi.objectSlot(bugcheckcode), bugcheckparameter1.toLong(), bugcheckparameter2.toLong(), bugcheckparameter3.toLong(), bugcheckparameter4.toLong()))
+public fun KeBugCheckEx(bugcheckcode: BUGCHECK_ERROR, bugcheckparameter1: ULong, bugcheckparameter2: ULong, bugcheckparameter3: ULong, bugcheckparameter4: ULong) {
+    Win32DynamicFfi.invoke("ntoskrnl.exe", "KeBugCheckEx", longArrayOf(bugcheckcode.toLong(), bugcheckparameter1.toLong(), bugcheckparameter2.toLong(), bugcheckparameter3.toLong(), bugcheckparameter4.toLong()))
 }
 
 public fun KeCancelTimer(param0: Long): Boolean {
@@ -2204,24 +2015,20 @@ public fun KeClearEvent(event: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "KeClearEvent", longArrayOf(event))
 }
 
-public fun KeConvertAuxiliaryCounterToPerformanceCounter(auxiliarycountervalue: ULong, performancecountervalue: Long, conversionerror: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "KeConvertAuxiliaryCounterToPerformanceCounter", longArrayOf(auxiliarycountervalue.toLong(), performancecountervalue, conversionerror))
-    return Win32.Foundation.NTSTATUS()
+public fun KeConvertAuxiliaryCounterToPerformanceCounter(auxiliarycountervalue: ULong, performancecountervalue: Long, conversionerror: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "KeConvertAuxiliaryCounterToPerformanceCounter", longArrayOf(auxiliarycountervalue.toLong(), performancecountervalue, conversionerror)).toInt()
 }
 
-public fun KeConvertPerformanceCounterToAuxiliaryCounter(performancecountervalue: ULong, auxiliarycountervalue: Long, conversionerror: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "KeConvertPerformanceCounterToAuxiliaryCounter", longArrayOf(performancecountervalue.toLong(), auxiliarycountervalue, conversionerror))
-    return Win32.Foundation.NTSTATUS()
+public fun KeConvertPerformanceCounterToAuxiliaryCounter(performancecountervalue: ULong, auxiliarycountervalue: Long, conversionerror: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "KeConvertPerformanceCounterToAuxiliaryCounter", longArrayOf(performancecountervalue.toLong(), auxiliarycountervalue, conversionerror)).toInt()
 }
 
-public fun KeDelayExecutionThread(waitmode: Byte, alertable: Boolean, interval: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "KeDelayExecutionThread", longArrayOf(waitmode.toLong(), if (alertable) 1L else 0L, interval))
-    return Win32.Foundation.NTSTATUS()
+public fun KeDelayExecutionThread(waitmode: Byte, alertable: Boolean, interval: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "KeDelayExecutionThread", longArrayOf(waitmode.toLong(), if (alertable) 1L else 0L, interval)).toInt()
 }
 
-public fun KeDeregisterBoundCallback(handle: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "KeDeregisterBoundCallback", longArrayOf(handle))
-    return Win32.Foundation.NTSTATUS()
+public fun KeDeregisterBoundCallback(handle: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "KeDeregisterBoundCallback", longArrayOf(handle)).toInt()
 }
 
 public fun KeDeregisterBugCheckCallback(callbackrecord: Long): Boolean {
@@ -2234,9 +2041,8 @@ public fun KeDeregisterBugCheckReasonCallback(callbackrecord: Long): Boolean {
     return (rawRet and 0xFFL) != 0L
 }
 
-public fun KeDeregisterNmiCallback(handle: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "KeDeregisterNmiCallback", longArrayOf(handle))
-    return Win32.Foundation.NTSTATUS()
+public fun KeDeregisterNmiCallback(handle: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "KeDeregisterNmiCallback", longArrayOf(handle)).toInt()
 }
 
 public fun KeDeregisterProcessorChangeCallback(callbackhandle: Long) {
@@ -2251,14 +2057,12 @@ public fun KeEnterGuardedRegion() {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "KeEnterGuardedRegion", longArrayOf())
 }
 
-public fun KeExpandKernelStackAndCallout(callout: PEXPAND_STACK_CALLOUT, parameter: Long, size: ULong): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "KeExpandKernelStackAndCallout", longArrayOf(Win32DynamicFfi.objectSlot(callout), parameter, size.toLong()))
-    return Win32.Foundation.NTSTATUS()
+public fun KeExpandKernelStackAndCallout(callout: PEXPAND_STACK_CALLOUT, parameter: Long, size: ULong): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "KeExpandKernelStackAndCallout", longArrayOf(Win32DynamicFfi.objectSlot(callout), parameter, size.toLong())).toInt()
 }
 
-public fun KeExpandKernelStackAndCalloutEx(callout: PEXPAND_STACK_CALLOUT, parameter: Long, size: ULong, wait: Boolean, context: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "KeExpandKernelStackAndCalloutEx", longArrayOf(Win32DynamicFfi.objectSlot(callout), parameter, size.toLong(), if (wait) 1L else 0L, context))
-    return Win32.Foundation.NTSTATUS()
+public fun KeExpandKernelStackAndCalloutEx(callout: PEXPAND_STACK_CALLOUT, parameter: Long, size: ULong, wait: Boolean, context: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "KeExpandKernelStackAndCalloutEx", longArrayOf(Win32DynamicFfi.objectSlot(callout), parameter, size.toLong(), if (wait) 1L else 0L, context)).toInt()
 }
 
 public fun KeFlushIoBuffers(mdl: Long, readoperation: Boolean, dmaoperation: Boolean) {
@@ -2289,30 +2093,28 @@ public fun KeGetProcessorIndexFromNumber(procnumber: Long): UInt {
     return Win32DynamicFfi.invoke("ntoskrnl.exe", "KeGetProcessorIndexFromNumber", longArrayOf(procnumber)).toUInt()
 }
 
-public fun KeGetProcessorNumberFromIndex(procindex: UInt, procnumber: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "KeGetProcessorNumberFromIndex", longArrayOf(procindex.toLong(), procnumber))
-    return Win32.Foundation.NTSTATUS()
+public fun KeGetProcessorNumberFromIndex(procindex: UInt, procnumber: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "KeGetProcessorNumberFromIndex", longArrayOf(procindex.toLong(), procnumber)).toInt()
 }
 
 public fun KeGetRecommendedSharedDataAlignment(): UInt {
     return Win32DynamicFfi.invoke("ntoskrnl.exe", "KeGetRecommendedSharedDataAlignment", longArrayOf()).toUInt()
 }
 
-public fun KeInitializeCrashDumpHeader(dumptype: UInt, flags: UInt, buffer: Long, buffersize: UInt, bufferneeded: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "KeInitializeCrashDumpHeader", longArrayOf(dumptype.toLong(), flags.toLong(), buffer, buffersize.toLong(), bufferneeded))
-    return Win32.Foundation.NTSTATUS()
+public fun KeInitializeCrashDumpHeader(dumptype: UInt, flags: UInt, buffer: Long, buffersize: UInt, bufferneeded: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntoskrnl.exe", "KeInitializeCrashDumpHeader", longArrayOf(dumptype.toLong(), flags.toLong(), buffer, buffersize.toLong(), bufferneeded)).toInt()
 }
 
 public fun KeInitializeDeviceQueue(devicequeue: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "KeInitializeDeviceQueue", longArrayOf(devicequeue))
 }
 
-public fun KeInitializeDpc(dpc: Long, deferredroutine: Foundation.PKDEFERRED_ROUTINE, deferredcontext: Long) {
+public fun KeInitializeDpc(dpc: Long, deferredroutine: PKDEFERRED_ROUTINE, deferredcontext: Long) {
     Win32DynamicFfi.invoke("ntoskrnl.exe", "KeInitializeDpc", longArrayOf(dpc, Win32DynamicFfi.objectSlot(deferredroutine), deferredcontext))
 }
 
-public fun KeInitializeEvent(event: Long, type: Win32.System.Kernel.EVENT_TYPE, state: Boolean) {
-    Win32DynamicFfi.invoke("ntoskrnl.exe", "KeInitializeEvent", longArrayOf(event, Win32DynamicFfi.objectSlot(type), if (state) 1L else 0L))
+public fun KeInitializeEvent(event: Long, type: EVENT_TYPE, state: Boolean) {
+    Win32DynamicFfi.invoke("ntoskrnl.exe", "KeInitializeEvent", longArrayOf(event, type.toLong(), if (state) 1L else 0L))
 }
 
 public fun KeInitializeGuardedMutex(mutex: Long) {

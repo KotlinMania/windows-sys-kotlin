@@ -5,6 +5,7 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
 
 public data class DIAGNOSTIC_DATA_EVENT_BINARY_STATS(
     public var moduleName: PWSTR = 0L,
@@ -71,7 +72,7 @@ public class DIAGNOSTIC_REPORT_DATA(
     public var signature: DIAGNOSTIC_REPORT_SIGNATURE = DIAGNOSTIC_REPORT_SIGNATURE(),
     public var bucketId: GUID = GUID(),
     public var reportId: GUID = GUID(),
-    public var creationTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var creationTime: FILETIME = FILETIME(),
     public var sizeInBytes: ULong = 0uL,
     public var cabId: PWSTR = 0L,
     public var reportStatus: UInt = 0u,

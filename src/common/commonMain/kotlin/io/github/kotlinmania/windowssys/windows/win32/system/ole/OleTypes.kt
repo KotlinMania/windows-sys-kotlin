@@ -2,6 +2,9 @@ package io.github.kotlinmania.windowssys.windows.win32.system.ole
 
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
 
 public typealias ACTIVATEFLAGS = Int
 
@@ -54,7 +57,7 @@ public typealias LIBFLAGS = Int
 public typealias LOAD_PICTURE_FLAGS = UInt
 
 public fun interface LPFNOLEUIHOOKFn {
-    public operator fun invoke(param0: Foundation.HWND, param1: UInt, param2: Foundation.WPARAM, param3: Foundation.LPARAM): UInt
+    public operator fun invoke(param0: HWND, param1: UInt, param2: WPARAM, param3: LPARAM): UInt
 }
 
 public typealias LPFNOLEUIHOOK = LPFNOLEUIHOOKFn?

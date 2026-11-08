@@ -5,6 +5,10 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
 
 public typealias AAL_TYPE = Int
 
@@ -153,7 +157,7 @@ public fun interface LPFN_RIOSENDEXFn {
 public typealias LPFN_RIOSENDEX = LPFN_RIOSENDEXFn?
 
 public fun interface LPFN_TRANSMITFILEFn {
-    public operator fun invoke(hsocket: SOCKET, hfile: Foundation.HANDLE, nnumberofbytestowrite: UInt, nnumberofbytespersend: UInt, lpoverlapped: Long, lptransmitbuffers: Long, dwreserved: UInt): BOOL
+    public operator fun invoke(hsocket: SOCKET, hfile: HANDLE, nnumberofbytestowrite: UInt, nnumberofbytespersend: UInt, lpoverlapped: Long, lptransmitbuffers: Long, dwreserved: UInt): BOOL
 }
 
 public typealias LPFN_TRANSMITFILE = LPFN_TRANSMITFILEFn?
@@ -207,7 +211,7 @@ public fun interface LPNSPINSTALLSERVICECLASSFn {
 public typealias LPNSPINSTALLSERVICECLASS = LPNSPINSTALLSERVICECLASSFn?
 
 public fun interface LPNSPIOCTLFn {
-    public operator fun invoke(hlookup: Foundation.HANDLE, dwcontrolcode: UInt, lpvinbuffer: Long, cbinbuffer: UInt, lpvoutbuffer: Long, cboutbuffer: UInt, lpcbbytesreturned: Long, lpcompletion: Long, lpthreadid: Long): Int
+    public operator fun invoke(hlookup: HANDLE, dwcontrolcode: UInt, lpvinbuffer: Long, cbinbuffer: UInt, lpvoutbuffer: Long, cboutbuffer: UInt, lpcbbytesreturned: Long, lpcompletion: Long, lpthreadid: Long): Int
 }
 
 public typealias LPNSPIOCTL = LPNSPIOCTLFn?
@@ -219,13 +223,13 @@ public fun interface LPNSPLOOKUPSERVICEBEGINFn {
 public typealias LPNSPLOOKUPSERVICEBEGIN = LPNSPLOOKUPSERVICEBEGINFn?
 
 public fun interface LPNSPLOOKUPSERVICEENDFn {
-    public operator fun invoke(hlookup: Foundation.HANDLE): Int
+    public operator fun invoke(hlookup: HANDLE): Int
 }
 
 public typealias LPNSPLOOKUPSERVICEEND = LPNSPLOOKUPSERVICEENDFn?
 
 public fun interface LPNSPLOOKUPSERVICENEXTFn {
-    public operator fun invoke(hlookup: Foundation.HANDLE, dwcontrolflags: UInt, lpdwbufferlength: Long, lpqsresults: Long): Int
+    public operator fun invoke(hlookup: HANDLE, dwcontrolflags: UInt, lpdwbufferlength: Long, lpqsresults: Long): Int
 }
 
 public typealias LPNSPLOOKUPSERVICENEXT = LPNSPLOOKUPSERVICENEXTFn?
@@ -267,19 +271,19 @@ public fun interface LPNSPV2LOOKUPSERVICEBEGINFn {
 public typealias LPNSPV2LOOKUPSERVICEBEGIN = LPNSPV2LOOKUPSERVICEBEGINFn?
 
 public fun interface LPNSPV2LOOKUPSERVICEENDFn {
-    public operator fun invoke(hlookup: Foundation.HANDLE): Int
+    public operator fun invoke(hlookup: HANDLE): Int
 }
 
 public typealias LPNSPV2LOOKUPSERVICEEND = LPNSPV2LOOKUPSERVICEENDFn?
 
 public fun interface LPNSPV2LOOKUPSERVICENEXTEXFn {
-    public operator fun invoke(hasynccall: Foundation.HANDLE, hlookup: Foundation.HANDLE, dwcontrolflags: UInt, lpdwbufferlength: Long, lpqsresults: Long)
+    public operator fun invoke(hasynccall: HANDLE, hlookup: HANDLE, dwcontrolflags: UInt, lpdwbufferlength: Long, lpqsresults: Long)
 }
 
 public typealias LPNSPV2LOOKUPSERVICENEXTEX = LPNSPV2LOOKUPSERVICENEXTEXFn?
 
 public fun interface LPNSPV2SETSERVICEEXFn {
-    public operator fun invoke(hasynccall: Foundation.HANDLE, lpproviderid: Long, lpqsreginfo: Long, essoperation: WSAESETSERVICEOP, dwcontrolflags: UInt, lpvclientsessionarg: Long)
+    public operator fun invoke(hasynccall: HANDLE, lpproviderid: Long, lpqsreginfo: Long, essoperation: WSAESETSERVICEOP, dwcontrolflags: UInt, lpvclientsessionarg: Long)
 }
 
 public typealias LPNSPV2SETSERVICEEX = LPNSPV2SETSERVICEEXFn?
@@ -291,7 +295,7 @@ public fun interface LPNSPV2STARTUPFn {
 public typealias LPNSPV2STARTUP = LPNSPV2STARTUPFn?
 
 public fun interface LPSERVICE_CALLBACK_PROCFn {
-    public operator fun invoke(lparam: Foundation.LPARAM, hasynctaskhandle: Foundation.HANDLE)
+    public operator fun invoke(lparam: LPARAM, hasynctaskhandle: HANDLE)
 }
 
 public typealias LPSERVICE_CALLBACK_PROC = LPSERVICE_CALLBACK_PROCFn?
@@ -357,7 +361,7 @@ public fun interface LPWPUOPENCURRENTTHREADFn {
 public typealias LPWPUOPENCURRENTTHREAD = LPWPUOPENCURRENTTHREADFn?
 
 public fun interface LPWPUPOSTMESSAGEFn {
-    public operator fun invoke(hwnd: Foundation.HWND, msg: UInt, wparam: Foundation.WPARAM, lparam: Foundation.LPARAM): BOOL
+    public operator fun invoke(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL
 }
 
 public typealias LPWPUPOSTMESSAGE = LPWPUPOSTMESSAGEFn?
@@ -477,7 +481,7 @@ public fun interface LPWSPADDRESSTOSTRINGFn {
 public typealias LPWSPADDRESSTOSTRING = LPWSPADDRESSTOSTRINGFn?
 
 public fun interface LPWSPASYNCSELECTFn {
-    public operator fun invoke(s: SOCKET, hwnd: Foundation.HWND, wmsg: UInt, levent: Int, lperrno: Long): Int
+    public operator fun invoke(s: SOCKET, hwnd: HWND, wmsg: UInt, levent: Int, lperrno: Long): Int
 }
 
 public typealias LPWSPASYNCSELECT = LPWSPASYNCSELECTFn?
@@ -519,7 +523,7 @@ public fun interface LPWSPDUPLICATESOCKETFn {
 public typealias LPWSPDUPLICATESOCKET = LPWSPDUPLICATESOCKETFn?
 
 public fun interface LPWSPENUMNETWORKEVENTSFn {
-    public operator fun invoke(s: SOCKET, heventobject: Foundation.HANDLE, lpnetworkevents: Long, lperrno: Long): Int
+    public operator fun invoke(s: SOCKET, heventobject: HANDLE, lpnetworkevents: Long, lperrno: Long): Int
 }
 
 public typealias LPWSPENUMNETWORKEVENTS = LPWSPENUMNETWORKEVENTSFn?

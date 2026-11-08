@@ -4,13 +4,15 @@ import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
 
-public fun OpenPersonalTrustDBDialog(hwndparent: Foundation.HWND): BOOL {
-    return Win32DynamicFfi.invoke("wintrust.dll", "OpenPersonalTrustDBDialog", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent))).toInt()
+public fun OpenPersonalTrustDBDialog(hwndparent: HWND): BOOL {
+    return Win32DynamicFfi.invoke("wintrust.dll", "OpenPersonalTrustDBDialog", longArrayOf(hwndparent)).toInt()
 }
 
-public fun OpenPersonalTrustDBDialogEx(hwndparent: Foundation.HWND, dwflags: UInt, pvreserved: Long): BOOL {
-    return Win32DynamicFfi.invoke("wintrust.dll", "OpenPersonalTrustDBDialogEx", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), dwflags.toLong(), pvreserved)).toInt()
+public fun OpenPersonalTrustDBDialogEx(hwndparent: HWND, dwflags: UInt, pvreserved: Long): BOOL {
+    return Win32DynamicFfi.invoke("wintrust.dll", "OpenPersonalTrustDBDialogEx", longArrayOf(hwndparent, dwflags.toLong(), pvreserved)).toInt()
 }
 
 public fun WTHelperCertCheckValidSignature(pprovdata: Long): HRESULT {
@@ -33,16 +35,16 @@ public fun WTHelperGetProvSignerFromChain(pprovdata: Long, idxsigner: UInt, fcou
     return Win32DynamicFfi.invoke("wintrust.dll", "WTHelperGetProvSignerFromChain", longArrayOf(pprovdata, idxsigner.toLong(), fcountersigner.toLong(), idxcountersigner.toLong()))
 }
 
-public fun WTHelperProvDataFromStateData(hstatedata: Foundation.HANDLE): Long {
-    return Win32DynamicFfi.invoke("wintrust.dll", "WTHelperProvDataFromStateData", longArrayOf(Win32DynamicFfi.objectSlot(hstatedata)))
+public fun WTHelperProvDataFromStateData(hstatedata: HANDLE): Long {
+    return Win32DynamicFfi.invoke("wintrust.dll", "WTHelperProvDataFromStateData", longArrayOf(hstatedata))
 }
 
-public fun WinVerifyTrust(hwnd: Foundation.HWND, pgactionid: Long, pwvtdata: Long): Int {
-    return Win32DynamicFfi.invoke("wintrust.dll", "WinVerifyTrust", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), pgactionid, pwvtdata)).toInt()
+public fun WinVerifyTrust(hwnd: HWND, pgactionid: Long, pwvtdata: Long): Int {
+    return Win32DynamicFfi.invoke("wintrust.dll", "WinVerifyTrust", longArrayOf(hwnd, pgactionid, pwvtdata)).toInt()
 }
 
-public fun WinVerifyTrustEx(hwnd: Foundation.HWND, pgactionid: Long, pwintrustdata: Long): Int {
-    return Win32DynamicFfi.invoke("wintrust.dll", "WinVerifyTrustEx", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), pgactionid, pwintrustdata)).toInt()
+public fun WinVerifyTrustEx(hwnd: HWND, pgactionid: Long, pwintrustdata: Long): Int {
+    return Win32DynamicFfi.invoke("wintrust.dll", "WinVerifyTrustEx", longArrayOf(hwnd, pgactionid, pwintrustdata)).toInt()
 }
 
 public fun WintrustAddActionID(pgactionid: Long, fdwflags: UInt, psprovinfo: Long): BOOL {

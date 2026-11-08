@@ -599,7 +599,7 @@ kotlin {
                     cinterops {
                         create(ffiNameLower) {
                             defFile(project.file(ffiDefFile))
-                            packageName("$ffiNameLower.cinterop")
+                            packageName("$projectNamespace.cinterop")
                             if (wrapperTask != null) {
                                 extraOpts(
                                     "-libraryPath",

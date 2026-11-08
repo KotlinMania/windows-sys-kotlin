@@ -4,6 +4,15 @@ package io.github.kotlinmania.windowssys.windows.win32.ui.input.ime
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBITMAP
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.LOGFONTA
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.LOGFONTW
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HICON
 
 public data class APPLETIDLIST(public var count: Int = 0, public var pIIDList: Long = 0L)
 
@@ -17,8 +26,8 @@ public data class APPLYCANDEXPARAM(
 public data class CANDIDATEFORM(
     public var dwIndex: UInt = 0u,
     public var dwStyle: UInt = 0u,
-    public var ptCurrentPos: Foundation.POINT = Foundation.POINT(),
-    public var rcArea: Foundation.RECT = Foundation.RECT(),
+    public var ptCurrentPos: POINT = POINT(),
+    public var rcArea: RECT = RECT(),
 )
 
 public data class CANDIDATEINFO(
@@ -85,8 +94,8 @@ public data class CANDIDATELIST(
 
 public data class COMPOSITIONFORM(
     public var dwStyle: UInt = 0u,
-    public var ptCurrentPos: Foundation.POINT = Foundation.POINT(),
-    public var rcArea: Foundation.RECT = Foundation.RECT(),
+    public var ptCurrentPos: POINT = POINT(),
+    public var rcArea: RECT = RECT(),
 )
 
 public class COMPOSITIONSTRING(
@@ -133,10 +142,10 @@ public data class IMEAPPLETCFG(
     public var wchTitleFontFace: UShortArray = UShortArray(32),
     public var dwCharSet: UInt = 0u,
     public var iCategory: Int = 0,
-    public var hIcon: WindowsAndMessaging.HICON = WindowsAndMessaging.HICON(),
+    public var hIcon: HICON = 0L,
     public var langID: UShort = 0u,
     public var dummy: UShort = 0u,
-    public var lReserved1: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lReserved1: LPARAM = 0L,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -168,7 +177,7 @@ public data class IMEAPPLETCFG(
 }
 
 public data class IMEAPPLETUI(
-    public var hwnd: Foundation.HWND = Foundation.HWND(),
+    public var hwnd: HWND = 0L,
     public var dwStyle: UInt = 0u,
     public var width: Int = 0,
     public var height: Int = 0,
@@ -176,8 +185,8 @@ public data class IMEAPPLETUI(
     public var minHeight: Int = 0,
     public var maxWidth: Int = 0,
     public var maxHeight: Int = 0,
-    public var lReserved1: Foundation.LPARAM = Foundation.LPARAM(),
-    public var lReserved2: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lReserved1: LPARAM = 0L,
+    public var lReserved2: LPARAM = 0L,
 )
 
 public data class IMECHARINFO(public var wch: UShort = 0u, public var dwCharInfo: UInt = 0u)
@@ -185,9 +194,9 @@ public data class IMECHARINFO(public var wch: UShort = 0u, public var dwCharInfo
 public data class IMECHARPOSITION(
     public var dwSize: UInt = 0u,
     public var dwCharPos: UInt = 0u,
-    public var pt: Foundation.POINT = Foundation.POINT(),
+    public var pt: POINT = POINT(),
     public var cLineHeight: UInt = 0u,
-    public var rcDocument: Foundation.RECT = Foundation.RECT(),
+    public var rcDocument: RECT = RECT(),
 )
 
 public data class IMECOMPOSITIONSTRINGINFO(
@@ -201,7 +210,7 @@ public data class IMECOMPOSITIONSTRINGINFO(
 
 public data class IMEDLG(
     public var cbIMEDLG: Int = 0,
-    public var hwnd: Foundation.HWND = Foundation.HWND(),
+    public var hwnd: HWND = 0L,
     public var lpwstrWord: PWSTR = 0L,
     public var nTabId: Int = 0,
 )
@@ -284,7 +293,7 @@ public data class IMEKMSFUNCDESC(
     }
 }
 
-public data class IMEKMSINIT(public var cbSize: Int = 0, public var hWnd: Foundation.HWND = Foundation.HWND())
+public data class IMEKMSINIT(public var cbSize: Int = 0, public var hWnd: HWND = 0L)
 
 public data class IMEKMSINVK(
     public var cbSize: Int = 0,
@@ -339,11 +348,11 @@ public data class IMEMENUITEMINFOA(
     public var fType: UInt = 0u,
     public var fState: UInt = 0u,
     public var wID: UInt = 0u,
-    public var hbmpChecked: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(),
-    public var hbmpUnchecked: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(),
+    public var hbmpChecked: HBITMAP = 0L,
+    public var hbmpUnchecked: HBITMAP = 0L,
     public var dwItemData: UInt = 0u,
     public var szString: ByteArray = ByteArray(80),
-    public var hbmpItem: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(),
+    public var hbmpItem: HBITMAP = 0L,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -379,11 +388,11 @@ public data class IMEMENUITEMINFOW(
     public var fType: UInt = 0u,
     public var fState: UInt = 0u,
     public var wID: UInt = 0u,
-    public var hbmpChecked: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(),
-    public var hbmpUnchecked: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(),
+    public var hbmpChecked: HBITMAP = 0L,
+    public var hbmpUnchecked: HBITMAP = 0L,
     public var dwItemData: UInt = 0u,
     public var szString: UShortArray = UShortArray(80),
-    public var hbmpItem: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(),
+    public var hbmpItem: HBITMAP = 0L,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -530,10 +539,10 @@ public data class IMEWRD_0(public var ulPos: UInt = 0u, public var Anonymous: IM
 public data class IMEWRD_0_0(public var nPos1: UShort = 0u, public var nPos2: UShort = 0u)
 
 public class INPUTCONTEXT(
-    public var hWnd: Foundation.HWND = Foundation.HWND(),
+    public var hWnd: HWND = 0L,
     public var fOpen: BOOL = 0,
-    public var ptStatusWndPos: Foundation.POINT = Foundation.POINT(),
-    public var ptSoftKbdPos: Foundation.POINT = Foundation.POINT(),
+    public var ptStatusWndPos: POINT = POINT(),
+    public var ptSoftKbdPos: POINT = POINT(),
     public var fdwConversion: UInt = 0u,
     public var fdwSentence: UInt = 0u,
     public var lfFont: INPUTCONTEXT_0 = INPUTCONTEXT_0(),
@@ -549,7 +558,7 @@ public class INPUTCONTEXT(
     public var dwReserve: UIntArray = UIntArray(3),
 )
 
-public data class INPUTCONTEXT_0(public var A: Graphics.Gdi.LOGFONTA = Graphics.Gdi.LOGFONTA(), public var W: Graphics.Gdi.LOGFONTW = Graphics.Gdi.LOGFONTW())
+public data class INPUTCONTEXT_0(public var A: LOGFONTA = LOGFONTA(), public var W: LOGFONTW = LOGFONTW())
 
 public data class MORRSLT(
     public var dwSize: UInt = 0u,
@@ -676,8 +685,8 @@ public data class STYLEBUFW(public var dwStyle: UInt = 0u, public var szDescript
 
 public data class TRANSMSG(
     public var message: UInt = 0u,
-    public var wParam: Foundation.WPARAM = Foundation.WPARAM(),
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var wParam: WPARAM = 0uL,
+    public var lParam: LPARAM = 0L,
 )
 
 public data class TRANSMSGLIST(public var uMsgCount: UInt = 0u, public var TransMsg: List<TRANSMSG> = List(1) { TRANSMSG() })

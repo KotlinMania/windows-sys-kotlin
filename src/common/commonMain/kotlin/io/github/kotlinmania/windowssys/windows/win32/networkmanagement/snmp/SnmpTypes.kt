@@ -1,6 +1,9 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.snmp
 
 import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
 
 public fun interface PFNSNMPCLEANUPEXFn {
     public operator fun invoke(): UInt
@@ -57,7 +60,7 @@ public fun interface PFNSNMPSTARTUPEXFn {
 public typealias PFNSNMPSTARTUPEX = PFNSNMPSTARTUPEXFn?
 
 public fun interface SNMPAPI_CALLBACKFn {
-    public operator fun invoke(hsession: Long, hwnd: Foundation.HWND, wmsg: UInt, wparam: Foundation.WPARAM, lparam: Foundation.LPARAM, lpclientdata: Long): UInt
+    public operator fun invoke(hsession: Long, hwnd: HWND, wmsg: UInt, wparam: WPARAM, lparam: LPARAM, lpclientdata: Long): UInt
 }
 
 public typealias SNMPAPI_CALLBACK = SNMPAPI_CALLBACKFn?

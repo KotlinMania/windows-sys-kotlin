@@ -3,6 +3,7 @@ package io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus
 import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HRGN
 
 public fun GdipScaleTextureTransform(brush: Long, sx: Float, sy: Float, order: MatrixOrder): Status {
     return Win32DynamicFfi.invokeFp("gdiplus.dll", "GdipScaleTextureTransform", 20, false, longArrayOf(brush, (sx.toRawBits().toLong() and 0xFFFF_FFFFL), (sy.toRawBits().toLong() and 0xFFFF_FFFFL), order.toLong())).toLong().toInt()
@@ -32,8 +33,8 @@ public fun GdipSetClipGraphics(graphics: Long, srcgraphics: Long, combinemode: C
     return Win32DynamicFfi.invoke("gdiplus.dll", "GdipSetClipGraphics", longArrayOf(graphics, srcgraphics, combinemode.toLong())).toInt()
 }
 
-public fun GdipSetClipHrgn(graphics: Long, hrgn: Gdi.HRGN, combinemode: CombineMode): Status {
-    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipSetClipHrgn", longArrayOf(graphics, Win32DynamicFfi.objectSlot(hrgn), combinemode.toLong())).toInt()
+public fun GdipSetClipHrgn(graphics: Long, hrgn: HRGN, combinemode: CombineMode): Status {
+    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipSetClipHrgn", longArrayOf(graphics, hrgn, combinemode.toLong())).toInt()
 }
 
 public fun GdipSetClipPath(graphics: Long, path: Long, combinemode: CombineMode): Status {

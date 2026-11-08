@@ -4,9 +4,12 @@ import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.security.OBJECT_SECURITY_INFORMATION
+import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
 
 public fun interface FnCallback {
-    public operator fun invoke(hrstatus: HRESULT, hsource: Long, dwtimeout: UInt, dwaction: UInt, pmessageprops: Long, lpoverlapped: Long, hcursor: Foundation.HANDLE)
+    public operator fun invoke(hrstatus: HRESULT, hsource: Long, dwtimeout: UInt, dwaction: UInt, pmessageprops: Long, lpoverlapped: Long, hcursor: HANDLE)
 }
 
 public fun MQADsPathToFormatName(lpwcsadspath: PCWSTR, lpwcsformatname: PWSTR, lpdwformatnamelength: Long): HRESULT {
@@ -17,8 +20,8 @@ public fun MQBeginTransaction(pptransaction: Long): HRESULT {
     return Win32DynamicFfi.invoke("mqrt.dll", "MQBeginTransaction", longArrayOf(pptransaction)).toInt()
 }
 
-public fun MQCloseCursor(hcursor: Foundation.HANDLE): HRESULT {
-    return Win32DynamicFfi.invoke("mqrt.dll", "MQCloseCursor", longArrayOf(Win32DynamicFfi.objectSlot(hcursor))).toInt()
+public fun MQCloseCursor(hcursor: HANDLE): HRESULT {
+    return Win32DynamicFfi.invoke("mqrt.dll", "MQCloseCursor", longArrayOf(hcursor)).toInt()
 }
 
 public fun MQCloseQueue(hqueue: Long): HRESULT {
@@ -29,8 +32,8 @@ public fun MQCreateCursor(hqueue: Long, phcursor: Long): HRESULT {
     return Win32DynamicFfi.invoke("mqrt.dll", "MQCreateCursor", longArrayOf(hqueue, phcursor)).toInt()
 }
 
-public fun MQCreateQueue(psecuritydescriptor: Security.PSECURITY_DESCRIPTOR, pqueueprops: Long, lpwcsformatname: PWSTR, lpdwformatnamelength: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mqrt.dll", "MQCreateQueue", longArrayOf(Win32DynamicFfi.objectSlot(psecuritydescriptor), pqueueprops, lpwcsformatname, lpdwformatnamelength)).toInt()
+public fun MQCreateQueue(psecuritydescriptor: PSECURITY_DESCRIPTOR, pqueueprops: Long, lpwcsformatname: PWSTR, lpdwformatnamelength: Long): HRESULT {
+    return Win32DynamicFfi.invoke("mqrt.dll", "MQCreateQueue", longArrayOf(psecuritydescriptor, pqueueprops, lpwcsformatname, lpdwformatnamelength)).toInt()
 }
 
 public fun MQDeleteQueue(lpwcsformatname: PCWSTR): HRESULT {
@@ -41,8 +44,8 @@ public fun MQFreeMemory(pvmemory: Long) {
     Win32DynamicFfi.invoke("mqrt.dll", "MQFreeMemory", longArrayOf(pvmemory))
 }
 
-public fun MQFreeSecurityContext(hsecuritycontext: Foundation.HANDLE) {
-    Win32DynamicFfi.invoke("mqrt.dll", "MQFreeSecurityContext", longArrayOf(Win32DynamicFfi.objectSlot(hsecuritycontext)))
+public fun MQFreeSecurityContext(hsecuritycontext: HANDLE) {
+    Win32DynamicFfi.invoke("mqrt.dll", "MQFreeSecurityContext", longArrayOf(hsecuritycontext))
 }
 
 public fun MQGetMachineProperties(lpwcsmachinename: PCWSTR, pguidmachineid: Long, pqmprops: Long): HRESULT {
@@ -61,8 +64,8 @@ public fun MQGetQueueProperties(lpwcsformatname: PCWSTR, pqueueprops: Long): HRE
     return Win32DynamicFfi.invoke("mqrt.dll", "MQGetQueueProperties", longArrayOf(lpwcsformatname, pqueueprops)).toInt()
 }
 
-public fun MQGetQueueSecurity(lpwcsformatname: PCWSTR, requestedinformation: UInt, psecuritydescriptor: Security.PSECURITY_DESCRIPTOR, nlength: UInt, lpnlengthneeded: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mqrt.dll", "MQGetQueueSecurity", longArrayOf(lpwcsformatname, requestedinformation.toLong(), Win32DynamicFfi.objectSlot(psecuritydescriptor), nlength.toLong(), lpnlengthneeded)).toInt()
+public fun MQGetQueueSecurity(lpwcsformatname: PCWSTR, requestedinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: UInt, lpnlengthneeded: Long): HRESULT {
+    return Win32DynamicFfi.invoke("mqrt.dll", "MQGetQueueSecurity", longArrayOf(lpwcsformatname, requestedinformation.toLong(), psecuritydescriptor, nlength.toLong(), lpnlengthneeded)).toInt()
 }
 
 public fun MQGetSecurityContext(lpcertbuffer: Long, dwcertbufferlength: UInt, phsecuritycontext: Long): HRESULT {
@@ -85,16 +88,16 @@ public fun MQLocateBegin(lpwcscontext: PCWSTR, prestriction: Long, pcolumns: Lon
     return Win32DynamicFfi.invoke("mqrt.dll", "MQLocateBegin", longArrayOf(lpwcscontext, prestriction, pcolumns, psort, phenum)).toInt()
 }
 
-public fun MQLocateEnd(henum: Foundation.HANDLE): HRESULT {
-    return Win32DynamicFfi.invoke("mqrt.dll", "MQLocateEnd", longArrayOf(Win32DynamicFfi.objectSlot(henum))).toInt()
+public fun MQLocateEnd(henum: HANDLE): HRESULT {
+    return Win32DynamicFfi.invoke("mqrt.dll", "MQLocateEnd", longArrayOf(henum)).toInt()
 }
 
-public fun MQLocateNext(henum: Foundation.HANDLE, pcprops: Long, apropvar: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mqrt.dll", "MQLocateNext", longArrayOf(Win32DynamicFfi.objectSlot(henum), pcprops, apropvar)).toInt()
+public fun MQLocateNext(henum: HANDLE, pcprops: Long, apropvar: Long): HRESULT {
+    return Win32DynamicFfi.invoke("mqrt.dll", "MQLocateNext", longArrayOf(henum, pcprops, apropvar)).toInt()
 }
 
-public fun MQMarkMessageRejected(hqueue: Foundation.HANDLE, ulllookupid: ULong): HRESULT {
-    return Win32DynamicFfi.invoke("mqrt.dll", "MQMarkMessageRejected", longArrayOf(Win32DynamicFfi.objectSlot(hqueue), ulllookupid.toLong())).toInt()
+public fun MQMarkMessageRejected(hqueue: HANDLE, ulllookupid: ULong): HRESULT {
+    return Win32DynamicFfi.invoke("mqrt.dll", "MQMarkMessageRejected", longArrayOf(hqueue, ulllookupid.toLong())).toInt()
 }
 
 public fun MQMgmtAction(pcomputername: PCWSTR, pobjectname: PCWSTR, paction: PCWSTR): HRESULT {
@@ -121,8 +124,8 @@ public fun MQPurgeQueue(hqueue: Long): HRESULT {
     return Win32DynamicFfi.invoke("mqrt.dll", "MQPurgeQueue", longArrayOf(hqueue)).toInt()
 }
 
-public fun MQReceiveMessage(hsource: Long, dwtimeout: UInt, dwaction: UInt, pmessageprops: Long, lpoverlapped: Long, fnreceivecallback: PMQRECEIVECALLBACK, hcursor: Foundation.HANDLE, ptransaction: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mqrt.dll", "MQReceiveMessage", longArrayOf(hsource, dwtimeout.toLong(), dwaction.toLong(), pmessageprops, lpoverlapped, Win32DynamicFfi.objectSlot(fnreceivecallback), Win32DynamicFfi.objectSlot(hcursor), ptransaction)).toInt()
+public fun MQReceiveMessage(hsource: Long, dwtimeout: UInt, dwaction: UInt, pmessageprops: Long, lpoverlapped: Long, fnreceivecallback: PMQRECEIVECALLBACK, hcursor: HANDLE, ptransaction: Long): HRESULT {
+    return Win32DynamicFfi.invoke("mqrt.dll", "MQReceiveMessage", longArrayOf(hsource, dwtimeout.toLong(), dwaction.toLong(), pmessageprops, lpoverlapped, Win32DynamicFfi.objectSlot(fnreceivecallback), hcursor, ptransaction)).toInt()
 }
 
 public fun MQReceiveMessageByLookupId(hsource: Long, ulllookupid: ULong, dwlookupaction: UInt, pmessageprops: Long, lpoverlapped: Long, fnreceivecallback: PMQRECEIVECALLBACK, ptransaction: Long): HRESULT {
@@ -141,6 +144,6 @@ public fun MQSetQueueProperties(lpwcsformatname: PCWSTR, pqueueprops: Long): HRE
     return Win32DynamicFfi.invoke("mqrt.dll", "MQSetQueueProperties", longArrayOf(lpwcsformatname, pqueueprops)).toInt()
 }
 
-public fun MQSetQueueSecurity(lpwcsformatname: PCWSTR, securityinformation: Security.OBJECT_SECURITY_INFORMATION, psecuritydescriptor: Security.PSECURITY_DESCRIPTOR): HRESULT {
-    return Win32DynamicFfi.invoke("mqrt.dll", "MQSetQueueSecurity", longArrayOf(lpwcsformatname, Win32DynamicFfi.objectSlot(securityinformation), Win32DynamicFfi.objectSlot(psecuritydescriptor))).toInt()
+public fun MQSetQueueSecurity(lpwcsformatname: PCWSTR, securityinformation: OBJECT_SECURITY_INFORMATION, psecuritydescriptor: PSECURITY_DESCRIPTOR): HRESULT {
+    return Win32DynamicFfi.invoke("mqrt.dll", "MQSetQueueSecurity", longArrayOf(lpwcsformatname, securityinformation.toLong(), psecuritydescriptor)).toInt()
 }

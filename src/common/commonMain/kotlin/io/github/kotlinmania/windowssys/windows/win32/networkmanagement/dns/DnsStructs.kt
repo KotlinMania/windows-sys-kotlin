@@ -5,6 +5,7 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 
 public data class DNS_AAAA_DATA(public var Ip6Address: IP6_ADDRESS = IP6_ADDRESS())
 
@@ -133,7 +134,7 @@ public data class DNS_CONNECTION_PROXY_INFO_EX(
     public var dwInterfaceIndex: UInt = 0u,
     public var pwszConnectionName: PWSTR = 0L,
     public var fDirectConfiguration: BOOL = 0,
-    public var hConnection: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hConnection: HANDLE = 0L,
 )
 
 public data class DNS_CONNECTION_PROXY_LIST(public var cProxies: UInt = 0u, public var pProxies: Long = 0L)
@@ -1064,7 +1065,7 @@ public data class DNS_SERVICE_REGISTER_REQUEST(
     public var pServiceInstance: Long = 0L,
     public var pRegisterCompletionCallback: PDNS_SERVICE_REGISTER_COMPLETE = null,
     public var pQueryContext: Long = 0L,
-    public var hCredentials: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hCredentials: HANDLE = 0L,
     public var unicastEnabled: BOOL = 0,
 )
 

@@ -5,6 +5,7 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 import io.github.kotlinmania.windowssys.windows.win32.security.PSID
 
 public fun CreateAppContainerProfile(pszappcontainername: PCWSTR, pszdisplayname: PCWSTR, pszdescription: PCWSTR, pcapabilities: Long, dwcapabilitycount: UInt, ppsidappcontainersid: Long): HRESULT {
@@ -27,8 +28,8 @@ public fun GetAppContainerFolderPath(pszappcontainersid: PCWSTR, ppszpath: Long)
     return Win32DynamicFfi.invoke("userenv.dll", "GetAppContainerFolderPath", longArrayOf(pszappcontainersid, ppszpath)).toInt()
 }
 
-public fun GetAppContainerNamedObjectPath(token: Foundation.HANDLE, appcontainersid: PSID, objectpathlength: UInt, objectpath: PWSTR, returnlength: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetAppContainerNamedObjectPath", longArrayOf(Win32DynamicFfi.objectSlot(token), appcontainersid, objectpathlength.toLong(), objectpath, returnlength)).toInt()
+public fun GetAppContainerNamedObjectPath(token: HANDLE, appcontainersid: PSID, objectpathlength: UInt, objectpath: PWSTR, returnlength: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetAppContainerNamedObjectPath", longArrayOf(token, appcontainersid, objectpathlength.toLong(), objectpath, returnlength)).toInt()
 }
 
 public fun GetAppContainerRegistryLocation(desiredaccess: UInt, phappcontainerkey: Long): HRESULT {

@@ -7,6 +7,10 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LRESULT
 
 public fun interface FnCallback {
     public operator fun invoke(hadid: HACMDRIVERID, dwinstance: ULong, fdwsupport: UInt): BOOL
@@ -56,20 +60,20 @@ public fun CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO
     return Win32DynamicFfi.invoke("windows.media.mediacontrol.dll", "CreateRenderAudioStateMonitorForCategoryAndDeviceRole", longArrayOf(category.toLong(), role.toLong(), audiostatemonitor)).toInt()
 }
 
-public fun PlaySoundA(pszsound: PCSTR, hmod: Foundation.HMODULE, fdwsound: SND_FLAGS): BOOL {
-    return Win32DynamicFfi.invoke("winmm.dll", "PlaySoundA", longArrayOf(pszsound, Win32DynamicFfi.objectSlot(hmod), fdwsound.toLong())).toInt()
+public fun PlaySoundA(pszsound: PCSTR, hmod: HMODULE, fdwsound: SND_FLAGS): BOOL {
+    return Win32DynamicFfi.invoke("winmm.dll", "PlaySoundA", longArrayOf(pszsound, hmod, fdwsound.toLong())).toInt()
 }
 
-public fun PlaySoundW(pszsound: PCWSTR, hmod: Foundation.HMODULE, fdwsound: SND_FLAGS): BOOL {
-    return Win32DynamicFfi.invoke("winmm.dll", "PlaySoundW", longArrayOf(pszsound, Win32DynamicFfi.objectSlot(hmod), fdwsound.toLong())).toInt()
+public fun PlaySoundW(pszsound: PCWSTR, hmod: HMODULE, fdwsound: SND_FLAGS): BOOL {
+    return Win32DynamicFfi.invoke("winmm.dll", "PlaySoundW", longArrayOf(pszsound, hmod, fdwsound.toLong())).toInt()
 }
 
-public fun acmDriverAddA(phadid: Long, hinstmodule: Foundation.HINSTANCE, lparam: Foundation.LPARAM, dwpriority: UInt, fdwadd: UInt): UInt {
-    return Win32DynamicFfi.invoke("msacm32.dll", "acmDriverAddA", longArrayOf(phadid, Win32DynamicFfi.objectSlot(hinstmodule), Win32DynamicFfi.objectSlot(lparam), dwpriority.toLong(), fdwadd.toLong())).toUInt()
+public fun acmDriverAddA(phadid: Long, hinstmodule: HINSTANCE, lparam: LPARAM, dwpriority: UInt, fdwadd: UInt): UInt {
+    return Win32DynamicFfi.invoke("msacm32.dll", "acmDriverAddA", longArrayOf(phadid, hinstmodule, lparam, dwpriority.toLong(), fdwadd.toLong())).toUInt()
 }
 
-public fun acmDriverAddW(phadid: Long, hinstmodule: Foundation.HINSTANCE, lparam: Foundation.LPARAM, dwpriority: UInt, fdwadd: UInt): UInt {
-    return Win32DynamicFfi.invoke("msacm32.dll", "acmDriverAddW", longArrayOf(phadid, Win32DynamicFfi.objectSlot(hinstmodule), Win32DynamicFfi.objectSlot(lparam), dwpriority.toLong(), fdwadd.toLong())).toUInt()
+public fun acmDriverAddW(phadid: Long, hinstmodule: HINSTANCE, lparam: LPARAM, dwpriority: UInt, fdwadd: UInt): UInt {
+    return Win32DynamicFfi.invoke("msacm32.dll", "acmDriverAddW", longArrayOf(phadid, hinstmodule, lparam, dwpriority.toLong(), fdwadd.toLong())).toUInt()
 }
 
 public fun acmDriverClose(had: HACMDRIVER, fdwclose: UInt): UInt {
@@ -92,9 +96,8 @@ public fun acmDriverID(hao: HACMOBJ, phadid: Long, fdwdriverid: UInt): UInt {
     return Win32DynamicFfi.invoke("msacm32.dll", "acmDriverID", longArrayOf(hao, phadid, fdwdriverid.toLong())).toUInt()
 }
 
-public fun acmDriverMessage(had: HACMDRIVER, umsg: UInt, lparam1: Foundation.LPARAM, lparam2: Foundation.LPARAM): Foundation.LRESULT {
-    Win32DynamicFfi.invoke("msacm32.dll", "acmDriverMessage", longArrayOf(had, umsg.toLong(), Win32DynamicFfi.objectSlot(lparam1), Win32DynamicFfi.objectSlot(lparam2)))
-    return Foundation.LRESULT()
+public fun acmDriverMessage(had: HACMDRIVER, umsg: UInt, lparam1: LPARAM, lparam2: LPARAM): LRESULT {
+    return Win32DynamicFfi.invoke("msacm32.dll", "acmDriverMessage", longArrayOf(had, umsg.toLong(), lparam1, lparam2))
 }
 
 public fun acmDriverOpen(phad: Long, hadid: HACMDRIVERID, fdwopen: UInt): UInt {
@@ -209,8 +212,8 @@ public fun acmStreamConvert(has: HACMSTREAM, pash: Long, fdwconvert: UInt): UInt
     return Win32DynamicFfi.invoke("msacm32.dll", "acmStreamConvert", longArrayOf(has, pash, fdwconvert.toLong())).toUInt()
 }
 
-public fun acmStreamMessage(has: HACMSTREAM, umsg: UInt, lparam1: Foundation.LPARAM, lparam2: Foundation.LPARAM): UInt {
-    return Win32DynamicFfi.invoke("msacm32.dll", "acmStreamMessage", longArrayOf(has, umsg.toLong(), Win32DynamicFfi.objectSlot(lparam1), Win32DynamicFfi.objectSlot(lparam2))).toUInt()
+public fun acmStreamMessage(has: HACMSTREAM, umsg: UInt, lparam1: LPARAM, lparam2: LPARAM): UInt {
+    return Win32DynamicFfi.invoke("msacm32.dll", "acmStreamMessage", longArrayOf(has, umsg.toLong(), lparam1, lparam2)).toUInt()
 }
 
 public fun acmStreamOpen(phas: Long, had: HACMDRIVER, pwfxsrc: Long, pwfxdst: Long, pwfltr: Long, dwcallback: ULong, dwinstance: ULong, fdwopen: UInt): UInt {

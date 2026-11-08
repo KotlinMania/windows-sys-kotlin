@@ -6,6 +6,7 @@ import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.SYSTEMTIME
 
 public data class CODEBASEHOLD(
     public var cbSize: UInt = 0u,
@@ -32,8 +33,8 @@ public data class DATAINFO(
 public data class HIT_LOGGING_INFO(
     public var dwStructSize: UInt = 0u,
     public var lpszLoggedUrlName: PSTR = 0L,
-    public var StartTime: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
-    public var EndTime: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var StartTime: SYSTEMTIME = SYSTEMTIME(),
+    public var EndTime: SYSTEMTIME = SYSTEMTIME(),
     public var lpszExtendedInfo: PSTR = 0L,
 )
 

@@ -2,6 +2,10 @@ package io.github.kotlinmania.windowssys.windows.win32.ui.shell
 
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LRESULT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
 
 public typealias ACENUMOPTION = Int
 
@@ -20,7 +24,7 @@ public typealias APPDOCLISTTYPE = Int
 public typealias APPINFODATAFLAGS = Int
 
 public fun interface APPLET_PROCFn {
-    public operator fun invoke(hwndcpl: Foundation.HWND, msg: UInt, lparam1: Foundation.LPARAM, lparam2: Foundation.LPARAM): Int
+    public operator fun invoke(hwndcpl: HWND, msg: UInt, lparam1: LPARAM, lparam2: LPARAM): Int
 }
 
 public typealias APPLET_PROC = APPLET_PROCFn?
@@ -64,7 +68,7 @@ public typealias BANDSITECID = Int
 public typealias BANNER_NOTIFICATION_EVENT = Int
 
 public fun interface BFFCALLBACKFn {
-    public operator fun invoke(hwnd: Foundation.HWND, umsg: UInt, lparam: Foundation.LPARAM, lpdata: Foundation.LPARAM): Int
+    public operator fun invoke(hwnd: HWND, umsg: UInt, lparam: LPARAM, lpdata: LPARAM): Int
 }
 
 public typealias BFFCALLBACK = BFFCALLBACKFn?
@@ -244,13 +248,13 @@ public typealias LIBRARYOPTIONFLAGS = Int
 public typealias LIBRARYSAVEFLAGS = Int
 
 public fun interface LPFNDFMCALLBACKFn {
-    public operator fun invoke(psf: Long, hwnd: Foundation.HWND, pdtobj: Long, umsg: UInt, wparam: Foundation.WPARAM, lparam: Foundation.LPARAM): HRESULT
+    public operator fun invoke(psf: Long, hwnd: HWND, pdtobj: Long, umsg: UInt, wparam: WPARAM, lparam: LPARAM): HRESULT
 }
 
 public typealias LPFNDFMCALLBACK = LPFNDFMCALLBACKFn?
 
 public fun interface LPFNVIEWCALLBACKFn {
-    public operator fun invoke(psvouter: Long, psf: Long, hwndmain: Foundation.HWND, umsg: UInt, wparam: Foundation.WPARAM, lparam: Foundation.LPARAM): HRESULT
+    public operator fun invoke(psvouter: Long, psf: Long, hwndmain: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): HRESULT
 }
 
 public typealias LPFNVIEWCALLBACK = LPFNVIEWCALLBACKFn?
@@ -326,7 +330,7 @@ public fun interface PFNCANSHAREFOLDERWFn {
 public typealias PFNCANSHAREFOLDERW = PFNCANSHAREFOLDERWFn?
 
 public fun interface PFNSHOWSHAREFOLDERUIWFn {
-    public operator fun invoke(hwndparent: Foundation.HWND, pszpath: PCWSTR): HRESULT
+    public operator fun invoke(hwndparent: HWND, pszpath: PCWSTR): HRESULT
 }
 
 public typealias PFNSHOWSHAREFOLDERUIW = PFNSHOWSHAREFOLDERUIWFn?
@@ -444,7 +448,7 @@ public typealias STORAGE_PROVIDER_FILE_FLAGS = Int
 public typealias STPFLAG = Int
 
 public fun interface SUBCLASSPROCFn {
-    public operator fun invoke(hwnd: Foundation.HWND, umsg: UInt, wparam: Foundation.WPARAM, lparam: Foundation.LPARAM, uidsubclass: ULong, dwrefdata: ULong): Foundation.LRESULT
+    public operator fun invoke(hwnd: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM, uidsubclass: ULong, dwrefdata: ULong): LRESULT
 }
 
 public typealias SUBCLASSPROC = SUBCLASSPROCFn?

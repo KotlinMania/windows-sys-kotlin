@@ -2,6 +2,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.distributedtransactioncoordinator
 
 import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
 
 public data class BOID(public var rgb: UByteArray = UByteArray(16)) {
     override fun equals(other: Any?): Boolean {
@@ -51,7 +52,7 @@ public data class XACTSTATS(
     public var cAborted: UInt = 0u,
     public var cInDoubt: UInt = 0u,
     public var cHeuristicDecision: UInt = 0u,
-    public var timeTransactionsUp: Foundation.FILETIME = Foundation.FILETIME(),
+    public var timeTransactionsUp: FILETIME = FILETIME(),
 )
 
 public data class XACTTRANSINFO(

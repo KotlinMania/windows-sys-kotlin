@@ -6,6 +6,10 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBITMAP
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HICON
 
 public data class BINARY_BLOB_CREDENTIAL_INFO(public var cbBlob: UInt = 0u, public var pbBlob: Long = 0L)
 
@@ -30,7 +34,7 @@ public data class CREDENTIALA(
     public var Type: CRED_TYPE = 0u,
     public var TargetName: PSTR = 0L,
     public var Comment: PSTR = 0L,
-    public var LastWritten: Foundation.FILETIME = Foundation.FILETIME(),
+    public var LastWritten: FILETIME = FILETIME(),
     public var CredentialBlobSize: UInt = 0u,
     public var CredentialBlob: Long = 0L,
     public var Persist: CRED_PERSIST = 0u,
@@ -45,7 +49,7 @@ public data class CREDENTIALW(
     public var Type: CRED_TYPE = 0u,
     public var TargetName: PWSTR = 0L,
     public var Comment: PWSTR = 0L,
-    public var LastWritten: Foundation.FILETIME = Foundation.FILETIME(),
+    public var LastWritten: FILETIME = FILETIME(),
     public var CredentialBlobSize: UInt = 0u,
     public var CredentialBlob: Long = 0L,
     public var Persist: CRED_PERSIST = 0u,
@@ -111,25 +115,25 @@ public data class CREDSSP_CRED_EX(
 
 public data class CREDUI_INFOA(
     public var cbSize: UInt = 0u,
-    public var hwndParent: Foundation.HWND = Foundation.HWND(),
+    public var hwndParent: HWND = 0L,
     public var pszMessageText: PCSTR = 0L,
     public var pszCaptionText: PCSTR = 0L,
-    public var hbmBanner: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(),
+    public var hbmBanner: HBITMAP = 0L,
 )
 
 public data class CREDUI_INFOW(
     public var cbSize: UInt = 0u,
-    public var hwndParent: Foundation.HWND = Foundation.HWND(),
+    public var hwndParent: HWND = 0L,
     public var pszMessageText: PCWSTR = 0L,
     public var pszCaptionText: PCWSTR = 0L,
-    public var hbmBanner: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(),
+    public var hbmBanner: HBITMAP = 0L,
 )
 
 public data class KeyCredentialManagerInfo(public var containerId: GUID = GUID())
 
 public class OPENCARDNAMEA(
     public var dwStructSize: UInt = 0u,
-    public var hwndOwner: Foundation.HWND = Foundation.HWND(),
+    public var hwndOwner: HWND = 0L,
     public var hSCardContext: ULong = 0uL,
     public var lpstrGroupNames: PSTR = 0L,
     public var nMaxGroupNames: UInt = 0u,
@@ -155,7 +159,7 @@ public class OPENCARDNAMEA(
 
 public class OPENCARDNAMEW(
     public var dwStructSize: UInt = 0u,
-    public var hwndOwner: Foundation.HWND = Foundation.HWND(),
+    public var hwndOwner: HWND = 0L,
     public var hSCardContext: ULong = 0uL,
     public var lpstrGroupNames: PWSTR = 0L,
     public var nMaxGroupNames: UInt = 0u,
@@ -182,11 +186,11 @@ public class OPENCARDNAMEW(
 public class OPENCARDNAME_EXA(
     public var dwStructSize: UInt = 0u,
     public var hSCardContext: ULong = 0uL,
-    public var hwndOwner: Foundation.HWND = Foundation.HWND(),
+    public var hwndOwner: HWND = 0L,
     public var dwFlags: UInt = 0u,
     public var lpstrTitle: PCSTR = 0L,
     public var lpstrSearchDesc: PCSTR = 0L,
-    public var hIcon: UI.WindowsAndMessaging.HICON = UI.WindowsAndMessaging.HICON(),
+    public var hIcon: HICON = 0L,
     public var pOpenCardSearchCriteria: Long = 0L,
     public var lpfnConnect: LPOCNCONNPROCA = null,
     public var pvUserData: Long = 0L,
@@ -203,11 +207,11 @@ public class OPENCARDNAME_EXA(
 public class OPENCARDNAME_EXW(
     public var dwStructSize: UInt = 0u,
     public var hSCardContext: ULong = 0uL,
-    public var hwndOwner: Foundation.HWND = Foundation.HWND(),
+    public var hwndOwner: HWND = 0L,
     public var dwFlags: UInt = 0u,
     public var lpstrTitle: PCWSTR = 0L,
     public var lpstrSearchDesc: PCWSTR = 0L,
-    public var hIcon: UI.WindowsAndMessaging.HICON = UI.WindowsAndMessaging.HICON(),
+    public var hIcon: HICON = 0L,
     public var pOpenCardSearchCriteria: Long = 0L,
     public var lpfnConnect: LPOCNCONNPROCW = null,
     public var pvUserData: Long = 0L,

@@ -5,9 +5,14 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SOCKADDR_IN6
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SOCKADDR_STORAGE
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SOCKET_ADDRESS
+import io.github.kotlinmania.windowssys.windows.win32.system.com.BLOB
 
 public data class DRT_ADDRESS(
-    public var socketAddress: Networking.WinSock.SOCKADDR_STORAGE = Networking.WinSock.SOCKADDR_STORAGE(),
+    public var socketAddress: SOCKADDR_STORAGE = SOCKADDR_STORAGE(),
     public var flags: UInt = 0u,
     public var nearness: Int = 0,
     public var latency: UInt = 0u,
@@ -133,7 +138,7 @@ public data class PEERDIST_STATUS_INFO(
     public var dwMaxVer: PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE = 0u,
 )
 
-public data class PEER_ADDRESS(public var dwSize: UInt = 0u, public var sin6: Networking.WinSock.SOCKADDR_IN6 = Networking.WinSock.SOCKADDR_IN6())
+public data class PEER_ADDRESS(public var dwSize: UInt = 0u, public var sin6: SOCKADDR_IN6 = SOCKADDR_IN6())
 
 public data class PEER_APPLICATION(
     public var id: GUID = GUID(),
@@ -194,8 +199,8 @@ public data class PEER_CREDENTIAL_INFO(
     public var pPublicKey: Long = 0L,
     public var pwzIssuerPeerName: PWSTR = 0L,
     public var pwzIssuerFriendlyName: PWSTR = 0L,
-    public var ftValidityStart: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ftValidityEnd: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftValidityStart: FILETIME = FILETIME(),
+    public var ftValidityEnd: FILETIME = FILETIME(),
     public var cRoles: UInt = 0u,
     public var pRoles: Long = 0L,
 )
@@ -344,8 +349,8 @@ public class PEER_INVITATION_INFO(
     public var pwzGroupFriendlyName: PWSTR = 0L,
     public var pwzIssuerFriendlyName: PWSTR = 0L,
     public var pwzSubjectFriendlyName: PWSTR = 0L,
-    public var ftValidityStart: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ftValidityEnd: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftValidityStart: FILETIME = FILETIME(),
+    public var ftValidityEnd: FILETIME = FILETIME(),
     public var cRoles: UInt = 0u,
     public var pRoles: Long = 0L,
     public var cClassifiers: UInt = 0u,
@@ -433,9 +438,9 @@ public data class PEER_RECORD(
     public var pwzCreatorId: PWSTR = 0L,
     public var pwzModifiedById: PWSTR = 0L,
     public var pwzAttributes: PWSTR = 0L,
-    public var ftCreation: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ftExpiration: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ftLastModified: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftCreation: FILETIME = FILETIME(),
+    public var ftExpiration: FILETIME = FILETIME(),
+    public var ftLastModified: FILETIME = FILETIME(),
     public var securityData: PEER_DATA = PEER_DATA(),
     public var data: PEER_DATA = PEER_DATA(),
 )
@@ -470,7 +475,7 @@ public data class PNRPINFO_V1(
     public var dwLifetime: UInt = 0u,
     public var enResolveCriteria: PNRP_RESOLVE_CRITERIA = 0,
     public var dwFlags: UInt = 0u,
-    public var saHint: Networking.WinSock.SOCKET_ADDRESS = Networking.WinSock.SOCKET_ADDRESS(),
+    public var saHint: SOCKET_ADDRESS = SOCKET_ADDRESS(),
     public var enNameState: PNRP_REGISTERED_ID_STATE = 0,
 )
 
@@ -482,13 +487,13 @@ public data class PNRPINFO_V2(
     public var dwLifetime: UInt = 0u,
     public var enResolveCriteria: PNRP_RESOLVE_CRITERIA = 0,
     public var dwFlags: UInt = 0u,
-    public var saHint: Networking.WinSock.SOCKET_ADDRESS = Networking.WinSock.SOCKET_ADDRESS(),
+    public var saHint: SOCKET_ADDRESS = SOCKET_ADDRESS(),
     public var enNameState: PNRP_REGISTERED_ID_STATE = 0,
     public var enExtendedPayloadType: PNRP_EXTENDED_PAYLOAD_TYPE = 0,
     public var Anonymous: PNRPINFO_V2_0 = PNRPINFO_V2_0(),
 )
 
-public data class PNRPINFO_V2_0(public var blobPayload: System.Com.BLOB = System.Com.BLOB(), public var pwszPayload: PWSTR = 0L)
+public data class PNRPINFO_V2_0(public var blobPayload: BLOB = BLOB(), public var pwszPayload: PWSTR = 0L)
 
 public data class PNRP_CLOUD_ID(
     public var AddressFamily: Int = 0,

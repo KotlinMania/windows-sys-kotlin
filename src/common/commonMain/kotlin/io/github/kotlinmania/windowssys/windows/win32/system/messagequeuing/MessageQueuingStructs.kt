@@ -1,5 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing
 
+import io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.PROPVARIANT
+
 public data class MQCOLUMNSET(public var cCol: UInt = 0u, public var aCol: Long = 0L)
 
 public data class MQMGMTPROPS(
@@ -26,7 +28,7 @@ public data class MQPRIVATEPROPS(
 public data class MQPROPERTYRESTRICTION(
     public var rel: UInt = 0u,
     public var prop: UInt = 0u,
-    public var prval: Com.StructuredStorage.PROPVARIANT = Com.StructuredStorage.PROPVARIANT(),
+    public var prval: PROPVARIANT = PROPVARIANT(),
 )
 
 public data class MQQMPROPS(

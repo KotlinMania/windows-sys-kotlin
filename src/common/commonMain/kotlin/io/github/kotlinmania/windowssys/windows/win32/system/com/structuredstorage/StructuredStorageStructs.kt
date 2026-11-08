@@ -6,8 +6,12 @@ import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.DECIMAL
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.VARIANT_BOOL
 import io.github.kotlinmania.windowssys.windows.win32.system.com.BLOB
 import io.github.kotlinmania.windowssys.windows.win32.system.com.CY
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.VARENUM
 
 public data class BSTRBLOB(public var cbSize: UInt = 0u, public var pData: Long = 0L)
 
@@ -67,7 +71,7 @@ public data class OLESTREAMVTBL(public var Get: Long = 0L, public var Put: Long 
 
 public data class PROPBAG2(
     public var dwType: UInt = 0u,
-    public var vt: Variant.VARENUM = Variant.VARENUM(),
+    public var vt: VARENUM = 0u,
     public var cfType: UShort = 0u,
     public var dwHint: UInt = 0u,
     public var pstrName: PWSTR = 0L,
@@ -80,10 +84,10 @@ public data class PROPSPEC_0(public var propid: UInt = 0u, public var lpwstr: PW
 
 public data class PROPVARIANT(public var Anonymous: PROPVARIANT_0 = PROPVARIANT_0())
 
-public data class PROPVARIANT_0(public var Anonymous: PROPVARIANT_0_0 = PROPVARIANT_0_0(), public var decVal: Foundation.DECIMAL = Foundation.DECIMAL())
+public data class PROPVARIANT_0(public var Anonymous: PROPVARIANT_0_0 = PROPVARIANT_0_0(), public var decVal: DECIMAL = DECIMAL())
 
 public data class PROPVARIANT_0_0(
-    public var vt: Variant.VARENUM = Variant.VARENUM(),
+    public var vt: VARENUM = 0u,
     public var wReserved1: UShort = 0u,
     public var wReserved2: UShort = 0u,
     public var wReserved3: UShort = 0u,
@@ -115,9 +119,9 @@ public class PROPVARIANT_0_0_0 {
 
     public var dblVal: Double = 0.0
 
-    public var boolVal: Foundation.VARIANT_BOOL = Foundation.VARIANT_BOOL()
+    public var boolVal: VARIANT_BOOL = 0
 
-    public var __OBSOLETE__VARIANT_BOOL: Foundation.VARIANT_BOOL = Foundation.VARIANT_BOOL()
+    public var __OBSOLETE__VARIANT_BOOL: VARIANT_BOOL = 0
 
     public var scode: Int = 0
 
@@ -125,7 +129,7 @@ public class PROPVARIANT_0_0_0 {
 
     public var date: Double = 0.0
 
-    public var filetime: Foundation.FILETIME = Foundation.FILETIME()
+    public var filetime: FILETIME = FILETIME()
 
     public var puuid: Long = 0L
 
@@ -280,16 +284,16 @@ public data class STATPROPSETSTG(
     public var fmtid: GUID = GUID(),
     public var clsid: GUID = GUID(),
     public var grfFlags: UInt = 0u,
-    public var mtime: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ctime: Foundation.FILETIME = Foundation.FILETIME(),
-    public var atime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var mtime: FILETIME = FILETIME(),
+    public var ctime: FILETIME = FILETIME(),
+    public var atime: FILETIME = FILETIME(),
     public var dwOSVersion: UInt = 0u,
 )
 
 public data class STATPROPSTG(
     public var lpwstrName: PWSTR = 0L,
     public var propid: UInt = 0u,
-    public var vt: Variant.VARENUM = Variant.VARENUM(),
+    public var vt: VARENUM = 0u,
 )
 
 public data class STGOPTIONS(

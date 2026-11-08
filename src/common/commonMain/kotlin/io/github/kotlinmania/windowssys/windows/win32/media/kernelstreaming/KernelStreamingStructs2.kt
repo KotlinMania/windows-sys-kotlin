@@ -3,8 +3,11 @@ package io.github.kotlinmania.windowssys.windows.win32.media.kernelstreaming
 
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.SIZE
 
-public data class KSRELATIVEEVENT_0(public var ObjectHandle: Foundation.HANDLE = Foundation.HANDLE(), public var ObjectPointer: Long = 0L)
+public data class KSRELATIVEEVENT_0(public var ObjectHandle: HANDLE = 0L, public var ObjectPointer: Long = 0L)
 
 public data class KSRESOLUTION(public var Granularity: Long = 0L, public var Error: Long = 0L)
 
@@ -79,7 +82,7 @@ public data class KSRTAUDIO_HWREGISTER_PROPERTY(public var Property: KSIDENTIFIE
 
 public data class KSRTAUDIO_HWREGISTER_PROPERTY32(public var Property: KSIDENTIFIER = KSIDENTIFIER(), public var BaseAddress: UInt = 0u)
 
-public data class KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY(public var Property: KSIDENTIFIER = KSIDENTIFIER(), public var NotificationEvent: Foundation.HANDLE = Foundation.HANDLE())
+public data class KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY(public var Property: KSIDENTIFIER = KSIDENTIFIER(), public var NotificationEvent: HANDLE = 0L)
 
 public data class KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32(public var Property: KSIDENTIFIER = KSIDENTIFIER(), public var NotificationEvent: UInt = 0u)
 
@@ -136,7 +139,7 @@ public data class KSSTREAM_SEGMENT(
     public var KsInterfaceHandler: Long = 0L,
     public var KsDataTypeHandler: Long = 0L,
     public var IoOperation: KSIOOPERATION = 0,
-    public var CompletionEvent: Foundation.HANDLE = Foundation.HANDLE(),
+    public var CompletionEvent: HANDLE = 0L,
 )
 
 public data class KSSTREAM_UVC_METADATA(public var StartOfFrameTimestamp: KSSTREAM_UVC_METADATATYPE_TIMESTAMP = KSSTREAM_UVC_METADATATYPE_TIMESTAMP(), public var EndOfFrameTimestamp: KSSTREAM_UVC_METADATATYPE_TIMESTAMP = KSSTREAM_UVC_METADATATYPE_TIMESTAMP())
@@ -288,7 +291,7 @@ public data class KS_AMVPDIMINFO(
     public var dwFieldHeight: UInt = 0u,
     public var dwVBIWidth: UInt = 0u,
     public var dwVBIHeight: UInt = 0u,
-    public var rcValidRegion: Foundation.RECT = Foundation.RECT(),
+    public var rcValidRegion: RECT = RECT(),
 )
 
 public data class KS_AMVPSIZE(public var dwWidth: UInt = 0u, public var dwHeight: UInt = 0u)
@@ -298,8 +301,8 @@ public data class KS_AM_ExactRateChange(public var OutputZeroTime: Long = 0L, pu
 public data class KS_AM_SimpleRateChange(public var StartTime: Long = 0L, public var Rate: Int = 0)
 
 public data class KS_ANALOGVIDEOINFO(
-    public var rcSource: Foundation.RECT = Foundation.RECT(),
-    public var rcTarget: Foundation.RECT = Foundation.RECT(),
+    public var rcSource: RECT = RECT(),
+    public var rcTarget: RECT = RECT(),
     public var dwActiveWidth: UInt = 0u,
     public var dwActiveHeight: UInt = 0u,
     public var AvgTimePerFrame: Long = 0L,
@@ -539,9 +542,9 @@ public data class KS_FRAME_INFO(
     public var dwFrameFlags: UInt = 0u,
     public var PictureNumber: Long = 0L,
     public var DropCount: Long = 0L,
-    public var hDirectDraw: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hSurfaceHandle: Foundation.HANDLE = Foundation.HANDLE(),
-    public var DirectDrawRect: Foundation.RECT = Foundation.RECT(),
+    public var hDirectDraw: HANDLE = 0L,
+    public var hSurfaceHandle: HANDLE = 0L,
+    public var DirectDrawRect: RECT = RECT(),
     public var Anonymous1: KS_FRAME_INFO_0 = KS_FRAME_INFO_0(),
     public var Reserved2: UInt = 0u,
     public var Anonymous2: KS_FRAME_INFO_1 = KS_FRAME_INFO_1(),
@@ -742,8 +745,8 @@ public data class KS_VBI_FRAME_INFO(
 )
 
 public data class KS_VIDEOINFO(
-    public var rcSource: Foundation.RECT = Foundation.RECT(),
-    public var rcTarget: Foundation.RECT = Foundation.RECT(),
+    public var rcSource: RECT = RECT(),
+    public var rcTarget: RECT = RECT(),
     public var dwBitRate: UInt = 0u,
     public var dwBitErrorRate: UInt = 0u,
     public var AvgTimePerFrame: Long = 0L,
@@ -774,8 +777,8 @@ public data class KS_VIDEOINFO_0(
 }
 
 public data class KS_VIDEOINFOHEADER(
-    public var rcSource: Foundation.RECT = Foundation.RECT(),
-    public var rcTarget: Foundation.RECT = Foundation.RECT(),
+    public var rcSource: RECT = RECT(),
+    public var rcTarget: RECT = RECT(),
     public var dwBitRate: UInt = 0u,
     public var dwBitErrorRate: UInt = 0u,
     public var AvgTimePerFrame: Long = 0L,
@@ -783,8 +786,8 @@ public data class KS_VIDEOINFOHEADER(
 )
 
 public data class KS_VIDEOINFOHEADER2(
-    public var rcSource: Foundation.RECT = Foundation.RECT(),
-    public var rcTarget: Foundation.RECT = Foundation.RECT(),
+    public var rcSource: RECT = RECT(),
+    public var rcTarget: RECT = RECT(),
     public var dwBitRate: UInt = 0u,
     public var dwBitErrorRate: UInt = 0u,
     public var AvgTimePerFrame: Long = 0L,
@@ -802,15 +805,15 @@ public data class KS_VIDEOINFOHEADER2_0(public var dwControlFlags: UInt = 0u, pu
 public class KS_VIDEO_STREAM_CONFIG_CAPS(
     public var guid: GUID = GUID(),
     public var VideoStandard: UInt = 0u,
-    public var InputSize: Foundation.SIZE = Foundation.SIZE(),
-    public var MinCroppingSize: Foundation.SIZE = Foundation.SIZE(),
-    public var MaxCroppingSize: Foundation.SIZE = Foundation.SIZE(),
+    public var InputSize: SIZE = SIZE(),
+    public var MinCroppingSize: SIZE = SIZE(),
+    public var MaxCroppingSize: SIZE = SIZE(),
     public var CropGranularityX: Int = 0,
     public var CropGranularityY: Int = 0,
     public var CropAlignX: Int = 0,
     public var CropAlignY: Int = 0,
-    public var MinOutputSize: Foundation.SIZE = Foundation.SIZE(),
-    public var MaxOutputSize: Foundation.SIZE = Foundation.SIZE(),
+    public var MinOutputSize: SIZE = SIZE(),
+    public var MaxOutputSize: SIZE = SIZE(),
     public var OutputGranularityX: Int = 0,
     public var OutputGranularityY: Int = 0,
     public var StretchTapsX: Int = 0,

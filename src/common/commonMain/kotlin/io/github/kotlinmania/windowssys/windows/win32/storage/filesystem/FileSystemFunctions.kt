@@ -7,9 +7,11 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.system.io.LPOVERLAPPED_COMPLETION_ROUTINE
 
 public fun interface FnCallback {
-    public operator fun invoke(totalfilesize: Long, totalbytestransferred: Long, streamsize: Long, streambytestransferred: Long, dwstreamnumber: UInt, dwcallbackreason: LPPROGRESS_ROUTINE_CALLBACK_REASON, hsourcefile: Foundation.HANDLE, hdestinationfile: Foundation.HANDLE, lpdata: Long): COPYPROGRESSROUTINE_PROGRESS
+    public operator fun invoke(totalfilesize: Long, totalbytestransferred: Long, streamsize: Long, streambytestransferred: Long, dwstreamnumber: UInt, dwcallbackreason: LPPROGRESS_ROUTINE_CALLBACK_REASON, hsourcefile: HANDLE, hdestinationfile: HANDLE, lpdata: Long): COPYPROGRESSROUTINE_PROGRESS
 }
 
 public fun interface FnCallback1 {
@@ -36,12 +38,12 @@ public fun interface FnCallback6 {
     public operator fun invoke(pbdata: Long, pvcallbackcontext: Long, ullength: Long): UInt
 }
 
-public fun AddLogContainer(hlog: Foundation.HANDLE, pcbcontainer: Long, pwszcontainerpath: PCWSTR, preserved: Long): BOOL {
-    return Win32DynamicFfi.invoke("clfsw32.dll", "AddLogContainer", longArrayOf(Win32DynamicFfi.objectSlot(hlog), pcbcontainer, pwszcontainerpath, preserved)).toInt()
+public fun AddLogContainer(hlog: HANDLE, pcbcontainer: Long, pwszcontainerpath: PCWSTR, preserved: Long): BOOL {
+    return Win32DynamicFfi.invoke("clfsw32.dll", "AddLogContainer", longArrayOf(hlog, pcbcontainer, pwszcontainerpath, preserved)).toInt()
 }
 
-public fun AddLogContainerSet(hlog: Foundation.HANDLE, ccontainer: UShort, pcbcontainer: Long, rgwszcontainerpath: Long, preserved: Long): BOOL {
-    return Win32DynamicFfi.invoke("clfsw32.dll", "AddLogContainerSet", longArrayOf(Win32DynamicFfi.objectSlot(hlog), ccontainer.toLong(), pcbcontainer, rgwszcontainerpath, preserved)).toInt()
+public fun AddLogContainerSet(hlog: HANDLE, ccontainer: UShort, pcbcontainer: Long, rgwszcontainerpath: Long, preserved: Long): BOOL {
+    return Win32DynamicFfi.invoke("clfsw32.dll", "AddLogContainerSet", longArrayOf(hlog, ccontainer.toLong(), pcbcontainer, rgwszcontainerpath, preserved)).toInt()
 }
 
 public fun AddUsersToEncryptedFile(lpfilename: PCWSTR, pencryptioncertificates: Long): UInt {
@@ -64,20 +66,20 @@ public fun AreFileApisANSI(): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "AreFileApisANSI", longArrayOf()).toInt()
 }
 
-public fun AreShortNamesEnabled(handle: Foundation.HANDLE, enabled: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "AreShortNamesEnabled", longArrayOf(Win32DynamicFfi.objectSlot(handle), enabled)).toInt()
+public fun AreShortNamesEnabled(handle: HANDLE, enabled: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "AreShortNamesEnabled", longArrayOf(handle, enabled)).toInt()
 }
 
-public fun BackupRead(hfile: Foundation.HANDLE, lpbuffer: Long, nnumberofbytestoread: UInt, lpnumberofbytesread: Long, babort: BOOL, bprocesssecurity: BOOL, lpcontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "BackupRead", longArrayOf(Win32DynamicFfi.objectSlot(hfile), lpbuffer, nnumberofbytestoread.toLong(), lpnumberofbytesread, babort.toLong(), bprocesssecurity.toLong(), lpcontext)).toInt()
+public fun BackupRead(hfile: HANDLE, lpbuffer: Long, nnumberofbytestoread: UInt, lpnumberofbytesread: Long, babort: BOOL, bprocesssecurity: BOOL, lpcontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "BackupRead", longArrayOf(hfile, lpbuffer, nnumberofbytestoread.toLong(), lpnumberofbytesread, babort.toLong(), bprocesssecurity.toLong(), lpcontext)).toInt()
 }
 
-public fun BackupSeek(hfile: Foundation.HANDLE, dwlowbytestoseek: UInt, dwhighbytestoseek: UInt, lpdwlowbyteseeked: Long, lpdwhighbyteseeked: Long, lpcontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "BackupSeek", longArrayOf(Win32DynamicFfi.objectSlot(hfile), dwlowbytestoseek.toLong(), dwhighbytestoseek.toLong(), lpdwlowbyteseeked, lpdwhighbyteseeked, lpcontext)).toInt()
+public fun BackupSeek(hfile: HANDLE, dwlowbytestoseek: UInt, dwhighbytestoseek: UInt, lpdwlowbyteseeked: Long, lpdwhighbyteseeked: Long, lpcontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "BackupSeek", longArrayOf(hfile, dwlowbytestoseek.toLong(), dwhighbytestoseek.toLong(), lpdwlowbyteseeked, lpdwhighbyteseeked, lpcontext)).toInt()
 }
 
-public fun BackupWrite(hfile: Foundation.HANDLE, lpbuffer: Long, nnumberofbytestowrite: UInt, lpnumberofbyteswritten: Long, babort: BOOL, bprocesssecurity: BOOL, lpcontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "BackupWrite", longArrayOf(Win32DynamicFfi.objectSlot(hfile), lpbuffer, nnumberofbytestowrite.toLong(), lpnumberofbyteswritten, babort.toLong(), bprocesssecurity.toLong(), lpcontext)).toInt()
+public fun BackupWrite(hfile: HANDLE, lpbuffer: Long, nnumberofbytestowrite: UInt, lpnumberofbyteswritten: Long, babort: BOOL, bprocesssecurity: BOOL, lpcontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "BackupWrite", longArrayOf(hfile, lpbuffer, nnumberofbytestowrite.toLong(), lpnumberofbyteswritten, babort.toLong(), bprocesssecurity.toLong(), lpcontext)).toInt()
 }
 
 public fun BuildIoRingCancelRequest(ioring: HIORING, file: IORING_HANDLE_REF, optocancel: ULong, userdata: ULong): HRESULT {
@@ -112,8 +114,8 @@ public fun CheckNameLegalDOS8Dot3W(lpname: PCWSTR, lpoemname: PSTR, oemnamesize:
     return Win32DynamicFfi.invoke("kernel32.dll", "CheckNameLegalDOS8Dot3W", longArrayOf(lpname, lpoemname, oemnamesize.toLong(), pbnamecontainsspaces, pbnamelegal)).toInt()
 }
 
-public fun CloseAndResetLogFile(hlog: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("clfsw32.dll", "CloseAndResetLogFile", longArrayOf(Win32DynamicFfi.objectSlot(hlog))).toInt()
+public fun CloseAndResetLogFile(hlog: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("clfsw32.dll", "CloseAndResetLogFile", longArrayOf(hlog)).toInt()
 }
 
 public fun CloseEncryptedFileRaw(pvcontext: Long) {
@@ -124,20 +126,20 @@ public fun CloseIoRing(ioring: HIORING): HRESULT {
     return Win32DynamicFfi.invoke("api-ms-win-core-ioring-l1-1-0.dll", "CloseIoRing", longArrayOf(ioring)).toInt()
 }
 
-public fun CommitComplete(enlistmenthandle: Foundation.HANDLE, tmvirtualclock: Long): BOOL {
-    return Win32DynamicFfi.invoke("ktmw32.dll", "CommitComplete", longArrayOf(Win32DynamicFfi.objectSlot(enlistmenthandle), tmvirtualclock)).toInt()
+public fun CommitComplete(enlistmenthandle: HANDLE, tmvirtualclock: Long): BOOL {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "CommitComplete", longArrayOf(enlistmenthandle, tmvirtualclock)).toInt()
 }
 
-public fun CommitEnlistment(enlistmenthandle: Foundation.HANDLE, tmvirtualclock: Long): BOOL {
-    return Win32DynamicFfi.invoke("ktmw32.dll", "CommitEnlistment", longArrayOf(Win32DynamicFfi.objectSlot(enlistmenthandle), tmvirtualclock)).toInt()
+public fun CommitEnlistment(enlistmenthandle: HANDLE, tmvirtualclock: Long): BOOL {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "CommitEnlistment", longArrayOf(enlistmenthandle, tmvirtualclock)).toInt()
 }
 
-public fun CommitTransaction(transactionhandle: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("ktmw32.dll", "CommitTransaction", longArrayOf(Win32DynamicFfi.objectSlot(transactionhandle))).toInt()
+public fun CommitTransaction(transactionhandle: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "CommitTransaction", longArrayOf(transactionhandle)).toInt()
 }
 
-public fun CommitTransactionAsync(transactionhandle: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("ktmw32.dll", "CommitTransactionAsync", longArrayOf(Win32DynamicFfi.objectSlot(transactionhandle))).toInt()
+public fun CommitTransactionAsync(transactionhandle: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "CommitTransactionAsync", longArrayOf(transactionhandle)).toInt()
 }
 
 public fun CompareFileTime(lpfiletime1: Long, lpfiletime2: Long): Int {
@@ -164,12 +166,12 @@ public fun CopyFileFromAppW(lpexistingfilename: PCWSTR, lpnewfilename: PCWSTR, b
     return Win32DynamicFfi.invoke("api-ms-win-core-file-fromapp-l1-1-0.dll", "CopyFileFromAppW", longArrayOf(lpexistingfilename, lpnewfilename, bfailifexists.toLong())).toInt()
 }
 
-public fun CopyFileTransactedA(lpexistingfilename: PCSTR, lpnewfilename: PCSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Long, pbcancel: Long, dwcopyflags: UInt, htransaction: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "CopyFileTransactedA", longArrayOf(lpexistingfilename, lpnewfilename, Win32DynamicFfi.objectSlot(lpprogressroutine), lpdata, pbcancel, dwcopyflags.toLong(), Win32DynamicFfi.objectSlot(htransaction))).toInt()
+public fun CopyFileTransactedA(lpexistingfilename: PCSTR, lpnewfilename: PCSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Long, pbcancel: Long, dwcopyflags: UInt, htransaction: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CopyFileTransactedA", longArrayOf(lpexistingfilename, lpnewfilename, Win32DynamicFfi.objectSlot(lpprogressroutine), lpdata, pbcancel, dwcopyflags.toLong(), htransaction)).toInt()
 }
 
-public fun CopyFileTransactedW(lpexistingfilename: PCWSTR, lpnewfilename: PCWSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Long, pbcancel: Long, dwcopyflags: UInt, htransaction: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "CopyFileTransactedW", longArrayOf(lpexistingfilename, lpnewfilename, Win32DynamicFfi.objectSlot(lpprogressroutine), lpdata, pbcancel, dwcopyflags.toLong(), Win32DynamicFfi.objectSlot(htransaction))).toInt()
+public fun CopyFileTransactedW(lpexistingfilename: PCWSTR, lpnewfilename: PCWSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Long, pbcancel: Long, dwcopyflags: UInt, htransaction: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CopyFileTransactedW", longArrayOf(lpexistingfilename, lpnewfilename, Win32DynamicFfi.objectSlot(lpprogressroutine), lpdata, pbcancel, dwcopyflags.toLong(), htransaction)).toInt()
 }
 
 public fun CopyFileW(lpexistingfilename: PCWSTR, lpnewfilename: PCWSTR, bfailifexists: BOOL): BOOL {
@@ -196,68 +198,60 @@ public fun CreateDirectoryFromAppW(lppathname: PCWSTR, lpsecurityattributes: Lon
     return Win32DynamicFfi.invoke("api-ms-win-core-file-fromapp-l1-1-0.dll", "CreateDirectoryFromAppW", longArrayOf(lppathname, lpsecurityattributes)).toInt()
 }
 
-public fun CreateDirectoryTransactedA(lptemplatedirectory: PCSTR, lpnewdirectory: PCSTR, lpsecurityattributes: Long, htransaction: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "CreateDirectoryTransactedA", longArrayOf(lptemplatedirectory, lpnewdirectory, lpsecurityattributes, Win32DynamicFfi.objectSlot(htransaction))).toInt()
+public fun CreateDirectoryTransactedA(lptemplatedirectory: PCSTR, lpnewdirectory: PCSTR, lpsecurityattributes: Long, htransaction: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateDirectoryTransactedA", longArrayOf(lptemplatedirectory, lpnewdirectory, lpsecurityattributes, htransaction)).toInt()
 }
 
-public fun CreateDirectoryTransactedW(lptemplatedirectory: PCWSTR, lpnewdirectory: PCWSTR, lpsecurityattributes: Long, htransaction: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "CreateDirectoryTransactedW", longArrayOf(lptemplatedirectory, lpnewdirectory, lpsecurityattributes, Win32DynamicFfi.objectSlot(htransaction))).toInt()
+public fun CreateDirectoryTransactedW(lptemplatedirectory: PCWSTR, lpnewdirectory: PCWSTR, lpsecurityattributes: Long, htransaction: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateDirectoryTransactedW", longArrayOf(lptemplatedirectory, lpnewdirectory, lpsecurityattributes, htransaction)).toInt()
 }
 
 public fun CreateDirectoryW(lppathname: PCWSTR, lpsecurityattributes: Long): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "CreateDirectoryW", longArrayOf(lppathname, lpsecurityattributes)).toInt()
 }
 
-public fun CreateEnlistment(lpenlistmentattributes: Long, resourcemanagerhandle: Foundation.HANDLE, transactionhandle: Foundation.HANDLE, notificationmask: UInt, createoptions: UInt, enlistmentkey: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("ktmw32.dll", "CreateEnlistment", longArrayOf(lpenlistmentattributes, Win32DynamicFfi.objectSlot(resourcemanagerhandle), Win32DynamicFfi.objectSlot(transactionhandle), notificationmask.toLong(), createoptions.toLong(), enlistmentkey))
-    return Foundation.HANDLE()
+public fun CreateEnlistment(lpenlistmentattributes: Long, resourcemanagerhandle: HANDLE, transactionhandle: HANDLE, notificationmask: UInt, createoptions: UInt, enlistmentkey: Long): HANDLE {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "CreateEnlistment", longArrayOf(lpenlistmentattributes, resourcemanagerhandle, transactionhandle, notificationmask.toLong(), createoptions.toLong(), enlistmentkey))
 }
 
-public fun CreateFile2(lpfilename: PCWSTR, dwdesiredaccess: UInt, dwsharemode: FILE_SHARE_MODE, dwcreationdisposition: FILE_CREATION_DISPOSITION, pcreateexparams: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreateFile2", longArrayOf(lpfilename, dwdesiredaccess.toLong(), dwsharemode.toLong(), dwcreationdisposition.toLong(), pcreateexparams))
-    return Foundation.HANDLE()
+public fun CreateFile2(lpfilename: PCWSTR, dwdesiredaccess: UInt, dwsharemode: FILE_SHARE_MODE, dwcreationdisposition: FILE_CREATION_DISPOSITION, pcreateexparams: Long): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateFile2", longArrayOf(lpfilename, dwdesiredaccess.toLong(), dwsharemode.toLong(), dwcreationdisposition.toLong(), pcreateexparams))
 }
 
-public fun CreateFile2FromAppW(lpfilename: PCWSTR, dwdesiredaccess: UInt, dwsharemode: UInt, dwcreationdisposition: UInt, pcreateexparams: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("api-ms-win-core-file-fromapp-l1-1-0.dll", "CreateFile2FromAppW", longArrayOf(lpfilename, dwdesiredaccess.toLong(), dwsharemode.toLong(), dwcreationdisposition.toLong(), pcreateexparams))
-    return Foundation.HANDLE()
+public fun CreateFile2FromAppW(lpfilename: PCWSTR, dwdesiredaccess: UInt, dwsharemode: UInt, dwcreationdisposition: UInt, pcreateexparams: Long): HANDLE {
+    return Win32DynamicFfi.invoke("api-ms-win-core-file-fromapp-l1-1-0.dll", "CreateFile2FromAppW", longArrayOf(lpfilename, dwdesiredaccess.toLong(), dwsharemode.toLong(), dwcreationdisposition.toLong(), pcreateexparams))
 }
 
-public fun CreateFileA(lpfilename: PCSTR, dwdesiredaccess: UInt, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: Long, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: Foundation.HANDLE): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreateFileA", longArrayOf(lpfilename, dwdesiredaccess.toLong(), dwsharemode.toLong(), lpsecurityattributes, dwcreationdisposition.toLong(), dwflagsandattributes.toLong(), Win32DynamicFfi.objectSlot(htemplatefile)))
-    return Foundation.HANDLE()
+public fun CreateFileA(lpfilename: PCSTR, dwdesiredaccess: UInt, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: Long, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: HANDLE): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateFileA", longArrayOf(lpfilename, dwdesiredaccess.toLong(), dwsharemode.toLong(), lpsecurityattributes, dwcreationdisposition.toLong(), dwflagsandattributes.toLong(), htemplatefile))
 }
 
-public fun CreateFileFromAppW(lpfilename: PCWSTR, dwdesiredaccess: UInt, dwsharemode: UInt, lpsecurityattributes: Long, dwcreationdisposition: UInt, dwflagsandattributes: UInt, htemplatefile: Foundation.HANDLE): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("api-ms-win-core-file-fromapp-l1-1-0.dll", "CreateFileFromAppW", longArrayOf(lpfilename, dwdesiredaccess.toLong(), dwsharemode.toLong(), lpsecurityattributes, dwcreationdisposition.toLong(), dwflagsandattributes.toLong(), Win32DynamicFfi.objectSlot(htemplatefile)))
-    return Foundation.HANDLE()
+public fun CreateFileFromAppW(lpfilename: PCWSTR, dwdesiredaccess: UInt, dwsharemode: UInt, lpsecurityattributes: Long, dwcreationdisposition: UInt, dwflagsandattributes: UInt, htemplatefile: HANDLE): HANDLE {
+    return Win32DynamicFfi.invoke("api-ms-win-core-file-fromapp-l1-1-0.dll", "CreateFileFromAppW", longArrayOf(lpfilename, dwdesiredaccess.toLong(), dwsharemode.toLong(), lpsecurityattributes, dwcreationdisposition.toLong(), dwflagsandattributes.toLong(), htemplatefile))
 }
 
-public fun CreateFileTransactedA(lpfilename: PCSTR, dwdesiredaccess: UInt, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: Long, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: Foundation.HANDLE, htransaction: Foundation.HANDLE, pusminiversion: Long, lpextendedparameter: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreateFileTransactedA", longArrayOf(lpfilename, dwdesiredaccess.toLong(), dwsharemode.toLong(), lpsecurityattributes, dwcreationdisposition.toLong(), dwflagsandattributes.toLong(), Win32DynamicFfi.objectSlot(htemplatefile), Win32DynamicFfi.objectSlot(htransaction), pusminiversion, lpextendedparameter))
-    return Foundation.HANDLE()
+public fun CreateFileTransactedA(lpfilename: PCSTR, dwdesiredaccess: UInt, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: Long, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: HANDLE, htransaction: HANDLE, pusminiversion: Long, lpextendedparameter: Long): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateFileTransactedA", longArrayOf(lpfilename, dwdesiredaccess.toLong(), dwsharemode.toLong(), lpsecurityattributes, dwcreationdisposition.toLong(), dwflagsandattributes.toLong(), htemplatefile, htransaction, pusminiversion, lpextendedparameter))
 }
 
-public fun CreateFileTransactedW(lpfilename: PCWSTR, dwdesiredaccess: UInt, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: Long, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: Foundation.HANDLE, htransaction: Foundation.HANDLE, pusminiversion: Long, lpextendedparameter: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreateFileTransactedW", longArrayOf(lpfilename, dwdesiredaccess.toLong(), dwsharemode.toLong(), lpsecurityattributes, dwcreationdisposition.toLong(), dwflagsandattributes.toLong(), Win32DynamicFfi.objectSlot(htemplatefile), Win32DynamicFfi.objectSlot(htransaction), pusminiversion, lpextendedparameter))
-    return Foundation.HANDLE()
+public fun CreateFileTransactedW(lpfilename: PCWSTR, dwdesiredaccess: UInt, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: Long, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: HANDLE, htransaction: HANDLE, pusminiversion: Long, lpextendedparameter: Long): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateFileTransactedW", longArrayOf(lpfilename, dwdesiredaccess.toLong(), dwsharemode.toLong(), lpsecurityattributes, dwcreationdisposition.toLong(), dwflagsandattributes.toLong(), htemplatefile, htransaction, pusminiversion, lpextendedparameter))
 }
 
-public fun CreateFileW(lpfilename: PCWSTR, dwdesiredaccess: UInt, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: Long, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: Foundation.HANDLE): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreateFileW", longArrayOf(lpfilename, dwdesiredaccess.toLong(), dwsharemode.toLong(), lpsecurityattributes, dwcreationdisposition.toLong(), dwflagsandattributes.toLong(), Win32DynamicFfi.objectSlot(htemplatefile)))
-    return Foundation.HANDLE()
+public fun CreateFileW(lpfilename: PCWSTR, dwdesiredaccess: UInt, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: Long, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: HANDLE): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateFileW", longArrayOf(lpfilename, dwdesiredaccess.toLong(), dwsharemode.toLong(), lpsecurityattributes, dwcreationdisposition.toLong(), dwflagsandattributes.toLong(), htemplatefile))
 }
 
 public fun CreateHardLinkA(lpfilename: PCSTR, lpexistingfilename: PCSTR, lpsecurityattributes: Long): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "CreateHardLinkA", longArrayOf(lpfilename, lpexistingfilename, lpsecurityattributes)).toInt()
 }
 
-public fun CreateHardLinkTransactedA(lpfilename: PCSTR, lpexistingfilename: PCSTR, lpsecurityattributes: Long, htransaction: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "CreateHardLinkTransactedA", longArrayOf(lpfilename, lpexistingfilename, lpsecurityattributes, Win32DynamicFfi.objectSlot(htransaction))).toInt()
+public fun CreateHardLinkTransactedA(lpfilename: PCSTR, lpexistingfilename: PCSTR, lpsecurityattributes: Long, htransaction: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateHardLinkTransactedA", longArrayOf(lpfilename, lpexistingfilename, lpsecurityattributes, htransaction)).toInt()
 }
 
-public fun CreateHardLinkTransactedW(lpfilename: PCWSTR, lpexistingfilename: PCWSTR, lpsecurityattributes: Long, htransaction: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "CreateHardLinkTransactedW", longArrayOf(lpfilename, lpexistingfilename, lpsecurityattributes, Win32DynamicFfi.objectSlot(htransaction))).toInt()
+public fun CreateHardLinkTransactedW(lpfilename: PCWSTR, lpexistingfilename: PCWSTR, lpsecurityattributes: Long, htransaction: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateHardLinkTransactedW", longArrayOf(lpfilename, lpexistingfilename, lpsecurityattributes, htransaction)).toInt()
 }
 
 public fun CreateHardLinkW(lpfilename: PCWSTR, lpexistingfilename: PCWSTR, lpsecurityattributes: Long): BOOL {
@@ -265,25 +259,23 @@ public fun CreateHardLinkW(lpfilename: PCWSTR, lpexistingfilename: PCWSTR, lpsec
 }
 
 public fun CreateIoRing(ioringversion: IORING_VERSION, flags: IORING_CREATE_FLAGS, submissionqueuesize: UInt, completionqueuesize: UInt, h: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-core-ioring-l1-1-0.dll", "CreateIoRing", longArrayOf(ioringversion.toLong(), Win32DynamicFfi.objectSlot(flags), submissionqueuesize.toLong(), completionqueuesize.toLong(), h)).toInt()
+    return Win32DynamicFfi.invoke("api-ms-win-core-ioring-l1-1-0.dll", "CreateIoRing", longArrayOf(ioringversion.toLong(), ((flags.Required.toLong() and 0xFFFF_FFFFL) or ((flags.Advisory.toLong() and 0xFFFF_FFFFL) shl 32)), submissionqueuesize.toLong(), completionqueuesize.toLong(), h)).toInt()
 }
 
-public fun CreateLogContainerScanContext(hlog: Foundation.HANDLE, cfromcontainer: UInt, ccontainers: UInt, escanmode: UByte, pcxscan: Long, poverlapped: Long): BOOL {
-    return Win32DynamicFfi.invoke("clfsw32.dll", "CreateLogContainerScanContext", longArrayOf(Win32DynamicFfi.objectSlot(hlog), cfromcontainer.toLong(), ccontainers.toLong(), escanmode.toLong(), pcxscan, poverlapped)).toInt()
+public fun CreateLogContainerScanContext(hlog: HANDLE, cfromcontainer: UInt, ccontainers: UInt, escanmode: UByte, pcxscan: Long, poverlapped: Long): BOOL {
+    return Win32DynamicFfi.invoke("clfsw32.dll", "CreateLogContainerScanContext", longArrayOf(hlog, cfromcontainer.toLong(), ccontainers.toLong(), escanmode.toLong(), pcxscan, poverlapped)).toInt()
 }
 
-public fun CreateLogFile(pszlogfilename: PCWSTR, fdesiredaccess: UInt, dwsharemode: FILE_SHARE_MODE, psalogfile: Long, fcreatedisposition: FILE_CREATION_DISPOSITION, fflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("clfsw32.dll", "CreateLogFile", longArrayOf(pszlogfilename, fdesiredaccess.toLong(), dwsharemode.toLong(), psalogfile, fcreatedisposition.toLong(), fflagsandattributes.toLong()))
-    return Foundation.HANDLE()
+public fun CreateLogFile(pszlogfilename: PCWSTR, fdesiredaccess: UInt, dwsharemode: FILE_SHARE_MODE, psalogfile: Long, fcreatedisposition: FILE_CREATION_DISPOSITION, fflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES): HANDLE {
+    return Win32DynamicFfi.invoke("clfsw32.dll", "CreateLogFile", longArrayOf(pszlogfilename, fdesiredaccess.toLong(), dwsharemode.toLong(), psalogfile, fcreatedisposition.toLong(), fflagsandattributes.toLong()))
 }
 
-public fun CreateLogMarshallingArea(hlog: Foundation.HANDLE, pfnallocbuffer: CLFS_BLOCK_ALLOCATION, pfnfreebuffer: CLFS_BLOCK_DEALLOCATION, pvblockalloccontext: Long, cbmarshallingbuffer: UInt, cmaxwritebuffers: UInt, cmaxreadbuffers: UInt, ppvmarshal: Long): BOOL {
-    return Win32DynamicFfi.invoke("clfsw32.dll", "CreateLogMarshallingArea", longArrayOf(Win32DynamicFfi.objectSlot(hlog), Win32DynamicFfi.objectSlot(pfnallocbuffer), Win32DynamicFfi.objectSlot(pfnfreebuffer), pvblockalloccontext, cbmarshallingbuffer.toLong(), cmaxwritebuffers.toLong(), cmaxreadbuffers.toLong(), ppvmarshal)).toInt()
+public fun CreateLogMarshallingArea(hlog: HANDLE, pfnallocbuffer: CLFS_BLOCK_ALLOCATION, pfnfreebuffer: CLFS_BLOCK_DEALLOCATION, pvblockalloccontext: Long, cbmarshallingbuffer: UInt, cmaxwritebuffers: UInt, cmaxreadbuffers: UInt, ppvmarshal: Long): BOOL {
+    return Win32DynamicFfi.invoke("clfsw32.dll", "CreateLogMarshallingArea", longArrayOf(hlog, Win32DynamicFfi.objectSlot(pfnallocbuffer), Win32DynamicFfi.objectSlot(pfnfreebuffer), pvblockalloccontext, cbmarshallingbuffer.toLong(), cmaxwritebuffers.toLong(), cmaxreadbuffers.toLong(), ppvmarshal)).toInt()
 }
 
-public fun CreateResourceManager(lpresourcemanagerattributes: Long, resourcemanagerid: Long, createoptions: UInt, tmhandle: Foundation.HANDLE, description: PCWSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("ktmw32.dll", "CreateResourceManager", longArrayOf(lpresourcemanagerattributes, resourcemanagerid, createoptions.toLong(), Win32DynamicFfi.objectSlot(tmhandle), description))
-    return Foundation.HANDLE()
+public fun CreateResourceManager(lpresourcemanagerattributes: Long, resourcemanagerid: Long, createoptions: UInt, tmhandle: HANDLE, description: PCWSTR): HANDLE {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "CreateResourceManager", longArrayOf(lpresourcemanagerattributes, resourcemanagerid, createoptions.toLong(), tmhandle, description))
 }
 
 public fun CreateSymbolicLinkA(lpsymlinkfilename: PCSTR, lptargetfilename: PCSTR, dwflags: SYMBOLIC_LINK_FLAGS): Boolean {
@@ -291,13 +283,13 @@ public fun CreateSymbolicLinkA(lpsymlinkfilename: PCSTR, lptargetfilename: PCSTR
     return (rawRet and 0xFFL) != 0L
 }
 
-public fun CreateSymbolicLinkTransactedA(lpsymlinkfilename: PCSTR, lptargetfilename: PCSTR, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: Foundation.HANDLE): Boolean {
-    val rawRet = Win32DynamicFfi.invoke("kernel32.dll", "CreateSymbolicLinkTransactedA", longArrayOf(lpsymlinkfilename, lptargetfilename, dwflags.toLong(), Win32DynamicFfi.objectSlot(htransaction)))
+public fun CreateSymbolicLinkTransactedA(lpsymlinkfilename: PCSTR, lptargetfilename: PCSTR, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: HANDLE): Boolean {
+    val rawRet = Win32DynamicFfi.invoke("kernel32.dll", "CreateSymbolicLinkTransactedA", longArrayOf(lpsymlinkfilename, lptargetfilename, dwflags.toLong(), htransaction))
     return (rawRet and 0xFFL) != 0L
 }
 
-public fun CreateSymbolicLinkTransactedW(lpsymlinkfilename: PCWSTR, lptargetfilename: PCWSTR, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: Foundation.HANDLE): Boolean {
-    val rawRet = Win32DynamicFfi.invoke("kernel32.dll", "CreateSymbolicLinkTransactedW", longArrayOf(lpsymlinkfilename, lptargetfilename, dwflags.toLong(), Win32DynamicFfi.objectSlot(htransaction)))
+public fun CreateSymbolicLinkTransactedW(lpsymlinkfilename: PCWSTR, lptargetfilename: PCWSTR, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: HANDLE): Boolean {
+    val rawRet = Win32DynamicFfi.invoke("kernel32.dll", "CreateSymbolicLinkTransactedW", longArrayOf(lpsymlinkfilename, lptargetfilename, dwflags.toLong(), htransaction))
     return (rawRet and 0xFFL) != 0L
 }
 
@@ -306,18 +298,16 @@ public fun CreateSymbolicLinkW(lpsymlinkfilename: PCWSTR, lptargetfilename: PCWS
     return (rawRet and 0xFFL) != 0L
 }
 
-public fun CreateTapePartition(hdevice: Foundation.HANDLE, dwpartitionmethod: CREATE_TAPE_PARTITION_METHOD, dwcount: UInt, dwsize: UInt): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "CreateTapePartition", longArrayOf(Win32DynamicFfi.objectSlot(hdevice), dwpartitionmethod.toLong(), dwcount.toLong(), dwsize.toLong())).toUInt()
+public fun CreateTapePartition(hdevice: HANDLE, dwpartitionmethod: CREATE_TAPE_PARTITION_METHOD, dwcount: UInt, dwsize: UInt): UInt {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateTapePartition", longArrayOf(hdevice, dwpartitionmethod.toLong(), dwcount.toLong(), dwsize.toLong())).toUInt()
 }
 
-public fun CreateTransaction(lptransactionattributes: Long, uow: Long, createoptions: UInt, isolationlevel: UInt, isolationflags: UInt, timeout: UInt, description: PCWSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("ktmw32.dll", "CreateTransaction", longArrayOf(lptransactionattributes, uow, createoptions.toLong(), isolationlevel.toLong(), isolationflags.toLong(), timeout.toLong(), description))
-    return Foundation.HANDLE()
+public fun CreateTransaction(lptransactionattributes: Long, uow: Long, createoptions: UInt, isolationlevel: UInt, isolationflags: UInt, timeout: UInt, description: PCWSTR): HANDLE {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "CreateTransaction", longArrayOf(lptransactionattributes, uow, createoptions.toLong(), isolationlevel.toLong(), isolationflags.toLong(), timeout.toLong(), description))
 }
 
-public fun CreateTransactionManager(lptransactionattributes: Long, logfilename: PCWSTR, createoptions: UInt, commitstrength: UInt): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("ktmw32.dll", "CreateTransactionManager", longArrayOf(lptransactionattributes, logfilename, createoptions.toLong(), commitstrength.toLong()))
-    return Foundation.HANDLE()
+public fun CreateTransactionManager(lptransactionattributes: Long, logfilename: PCWSTR, createoptions: UInt, commitstrength: UInt): HANDLE {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "CreateTransactionManager", longArrayOf(lptransactionattributes, logfilename, createoptions.toLong(), commitstrength.toLong()))
 }
 
 public fun DecryptFileA(lpfilename: PCSTR, dwreserved: UInt): BOOL {
@@ -344,20 +334,20 @@ public fun DeleteFileFromAppW(lpfilename: PCWSTR): BOOL {
     return Win32DynamicFfi.invoke("api-ms-win-core-file-fromapp-l1-1-0.dll", "DeleteFileFromAppW", longArrayOf(lpfilename)).toInt()
 }
 
-public fun DeleteFileTransactedA(lpfilename: PCSTR, htransaction: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "DeleteFileTransactedA", longArrayOf(lpfilename, Win32DynamicFfi.objectSlot(htransaction))).toInt()
+public fun DeleteFileTransactedA(lpfilename: PCSTR, htransaction: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "DeleteFileTransactedA", longArrayOf(lpfilename, htransaction)).toInt()
 }
 
-public fun DeleteFileTransactedW(lpfilename: PCWSTR, htransaction: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "DeleteFileTransactedW", longArrayOf(lpfilename, Win32DynamicFfi.objectSlot(htransaction))).toInt()
+public fun DeleteFileTransactedW(lpfilename: PCWSTR, htransaction: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "DeleteFileTransactedW", longArrayOf(lpfilename, htransaction)).toInt()
 }
 
 public fun DeleteFileW(lpfilename: PCWSTR): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "DeleteFileW", longArrayOf(lpfilename)).toInt()
 }
 
-public fun DeleteLogByHandle(hlog: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("clfsw32.dll", "DeleteLogByHandle", longArrayOf(Win32DynamicFfi.objectSlot(hlog))).toInt()
+public fun DeleteLogByHandle(hlog: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("clfsw32.dll", "DeleteLogByHandle", longArrayOf(hlog)).toInt()
 }
 
 public fun DeleteLogFile(pszlogfilename: PCWSTR, pvreserved: Long): BOOL {
@@ -376,8 +366,8 @@ public fun DeleteVolumeMountPointW(lpszvolumemountpoint: PCWSTR): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "DeleteVolumeMountPointW", longArrayOf(lpszvolumemountpoint)).toInt()
 }
 
-public fun DeregisterManageableLogClient(hlog: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("clfsw32.dll", "DeregisterManageableLogClient", longArrayOf(Win32DynamicFfi.objectSlot(hlog))).toInt()
+public fun DeregisterManageableLogClient(hlog: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("clfsw32.dll", "DeregisterManageableLogClient", longArrayOf(hlog)).toInt()
 }
 
 public fun DuplicateEncryptionInfoFile(srcfilename: PCWSTR, dstfilename: PCWSTR, dwcreationdistribution: UInt, dwattributes: UInt, lpsecurityattributes: Long): UInt {
@@ -396,8 +386,8 @@ public fun EncryptionDisable(dirpath: PCWSTR, disable: BOOL): BOOL {
     return Win32DynamicFfi.invoke("advapi32.dll", "EncryptionDisable", longArrayOf(dirpath, disable.toLong())).toInt()
 }
 
-public fun EraseTape(hdevice: Foundation.HANDLE, dwerasetype: ERASE_TAPE_TYPE, bimmediate: BOOL): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "EraseTape", longArrayOf(Win32DynamicFfi.objectSlot(hdevice), dwerasetype.toLong(), bimmediate.toLong())).toUInt()
+public fun EraseTape(hdevice: HANDLE, dwerasetype: ERASE_TAPE_TYPE, bimmediate: BOOL): UInt {
+    return Win32DynamicFfi.invoke("kernel32.dll", "EraseTape", longArrayOf(hdevice, dwerasetype.toLong(), bimmediate.toLong())).toUInt()
 }
 
 public fun FileEncryptionStatusA(lpfilename: PCSTR, lpstatus: Long): BOOL {
@@ -412,145 +402,128 @@ public fun FileTimeToLocalFileTime(lpfiletime: Long, lplocalfiletime: Long): BOO
     return Win32DynamicFfi.invoke("kernel32.dll", "FileTimeToLocalFileTime", longArrayOf(lpfiletime, lplocalfiletime)).toInt()
 }
 
-public fun FindClose(hfindfile: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "FindClose", longArrayOf(Win32DynamicFfi.objectSlot(hfindfile))).toInt()
+public fun FindClose(hfindfile: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FindClose", longArrayOf(hfindfile)).toInt()
 }
 
-public fun FindCloseChangeNotification(hchangehandle: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "FindCloseChangeNotification", longArrayOf(Win32DynamicFfi.objectSlot(hchangehandle))).toInt()
+public fun FindCloseChangeNotification(hchangehandle: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FindCloseChangeNotification", longArrayOf(hchangehandle)).toInt()
 }
 
-public fun FindFirstChangeNotificationA(lppathname: PCSTR, bwatchsubtree: BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "FindFirstChangeNotificationA", longArrayOf(lppathname, bwatchsubtree.toLong(), dwnotifyfilter.toLong()))
-    return Foundation.HANDLE()
+public fun FindFirstChangeNotificationA(lppathname: PCSTR, bwatchsubtree: BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FindFirstChangeNotificationA", longArrayOf(lppathname, bwatchsubtree.toLong(), dwnotifyfilter.toLong()))
 }
 
-public fun FindFirstChangeNotificationW(lppathname: PCWSTR, bwatchsubtree: BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "FindFirstChangeNotificationW", longArrayOf(lppathname, bwatchsubtree.toLong(), dwnotifyfilter.toLong()))
-    return Foundation.HANDLE()
+public fun FindFirstChangeNotificationW(lppathname: PCWSTR, bwatchsubtree: BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FindFirstChangeNotificationW", longArrayOf(lppathname, bwatchsubtree.toLong(), dwnotifyfilter.toLong()))
 }
 
-public fun FindFirstFileA(lpfilename: PCSTR, lpfindfiledata: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "FindFirstFileA", longArrayOf(lpfilename, lpfindfiledata))
-    return Foundation.HANDLE()
+public fun FindFirstFileA(lpfilename: PCSTR, lpfindfiledata: Long): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FindFirstFileA", longArrayOf(lpfilename, lpfindfiledata))
 }
 
-public fun FindFirstFileExA(lpfilename: PCSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: Long, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: Long, dwadditionalflags: FIND_FIRST_EX_FLAGS): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "FindFirstFileExA", longArrayOf(lpfilename, finfolevelid.toLong(), lpfindfiledata, fsearchop.toLong(), lpsearchfilter, dwadditionalflags.toLong()))
-    return Foundation.HANDLE()
+public fun FindFirstFileExA(lpfilename: PCSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: Long, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: Long, dwadditionalflags: FIND_FIRST_EX_FLAGS): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FindFirstFileExA", longArrayOf(lpfilename, finfolevelid.toLong(), lpfindfiledata, fsearchop.toLong(), lpsearchfilter, dwadditionalflags.toLong()))
 }
 
-public fun FindFirstFileExFromAppW(lpfilename: PCWSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: Long, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: Long, dwadditionalflags: UInt): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("api-ms-win-core-file-fromapp-l1-1-0.dll", "FindFirstFileExFromAppW", longArrayOf(lpfilename, finfolevelid.toLong(), lpfindfiledata, fsearchop.toLong(), lpsearchfilter, dwadditionalflags.toLong()))
-    return Foundation.HANDLE()
+public fun FindFirstFileExFromAppW(lpfilename: PCWSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: Long, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: Long, dwadditionalflags: UInt): HANDLE {
+    return Win32DynamicFfi.invoke("api-ms-win-core-file-fromapp-l1-1-0.dll", "FindFirstFileExFromAppW", longArrayOf(lpfilename, finfolevelid.toLong(), lpfindfiledata, fsearchop.toLong(), lpsearchfilter, dwadditionalflags.toLong()))
 }
 
-public fun FindFirstFileExW(lpfilename: PCWSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: Long, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: Long, dwadditionalflags: FIND_FIRST_EX_FLAGS): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "FindFirstFileExW", longArrayOf(lpfilename, finfolevelid.toLong(), lpfindfiledata, fsearchop.toLong(), lpsearchfilter, dwadditionalflags.toLong()))
-    return Foundation.HANDLE()
+public fun FindFirstFileExW(lpfilename: PCWSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: Long, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: Long, dwadditionalflags: FIND_FIRST_EX_FLAGS): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FindFirstFileExW", longArrayOf(lpfilename, finfolevelid.toLong(), lpfindfiledata, fsearchop.toLong(), lpsearchfilter, dwadditionalflags.toLong()))
 }
 
-public fun FindFirstFileNameTransactedW(lpfilename: PCWSTR, dwflags: UInt, stringlength: Long, linkname: PWSTR, htransaction: Foundation.HANDLE): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "FindFirstFileNameTransactedW", longArrayOf(lpfilename, dwflags.toLong(), stringlength, linkname, Win32DynamicFfi.objectSlot(htransaction)))
-    return Foundation.HANDLE()
+public fun FindFirstFileNameTransactedW(lpfilename: PCWSTR, dwflags: UInt, stringlength: Long, linkname: PWSTR, htransaction: HANDLE): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FindFirstFileNameTransactedW", longArrayOf(lpfilename, dwflags.toLong(), stringlength, linkname, htransaction))
 }
 
-public fun FindFirstFileNameW(lpfilename: PCWSTR, dwflags: UInt, stringlength: Long, linkname: PWSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "FindFirstFileNameW", longArrayOf(lpfilename, dwflags.toLong(), stringlength, linkname))
-    return Foundation.HANDLE()
+public fun FindFirstFileNameW(lpfilename: PCWSTR, dwflags: UInt, stringlength: Long, linkname: PWSTR): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FindFirstFileNameW", longArrayOf(lpfilename, dwflags.toLong(), stringlength, linkname))
 }
 
-public fun FindFirstFileTransactedA(lpfilename: PCSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: Long, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: Long, dwadditionalflags: UInt, htransaction: Foundation.HANDLE): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "FindFirstFileTransactedA", longArrayOf(lpfilename, finfolevelid.toLong(), lpfindfiledata, fsearchop.toLong(), lpsearchfilter, dwadditionalflags.toLong(), Win32DynamicFfi.objectSlot(htransaction)))
-    return Foundation.HANDLE()
+public fun FindFirstFileTransactedA(lpfilename: PCSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: Long, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: Long, dwadditionalflags: UInt, htransaction: HANDLE): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FindFirstFileTransactedA", longArrayOf(lpfilename, finfolevelid.toLong(), lpfindfiledata, fsearchop.toLong(), lpsearchfilter, dwadditionalflags.toLong(), htransaction))
 }
 
-public fun FindFirstFileTransactedW(lpfilename: PCWSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: Long, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: Long, dwadditionalflags: UInt, htransaction: Foundation.HANDLE): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "FindFirstFileTransactedW", longArrayOf(lpfilename, finfolevelid.toLong(), lpfindfiledata, fsearchop.toLong(), lpsearchfilter, dwadditionalflags.toLong(), Win32DynamicFfi.objectSlot(htransaction)))
-    return Foundation.HANDLE()
+public fun FindFirstFileTransactedW(lpfilename: PCWSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: Long, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: Long, dwadditionalflags: UInt, htransaction: HANDLE): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FindFirstFileTransactedW", longArrayOf(lpfilename, finfolevelid.toLong(), lpfindfiledata, fsearchop.toLong(), lpsearchfilter, dwadditionalflags.toLong(), htransaction))
 }
 
-public fun FindFirstFileW(lpfilename: PCWSTR, lpfindfiledata: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "FindFirstFileW", longArrayOf(lpfilename, lpfindfiledata))
-    return Foundation.HANDLE()
+public fun FindFirstFileW(lpfilename: PCWSTR, lpfindfiledata: Long): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FindFirstFileW", longArrayOf(lpfilename, lpfindfiledata))
 }
 
-public fun FindFirstStreamTransactedW(lpfilename: PCWSTR, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: Long, dwflags: UInt, htransaction: Foundation.HANDLE): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "FindFirstStreamTransactedW", longArrayOf(lpfilename, infolevel.toLong(), lpfindstreamdata, dwflags.toLong(), Win32DynamicFfi.objectSlot(htransaction)))
-    return Foundation.HANDLE()
+public fun FindFirstStreamTransactedW(lpfilename: PCWSTR, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: Long, dwflags: UInt, htransaction: HANDLE): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FindFirstStreamTransactedW", longArrayOf(lpfilename, infolevel.toLong(), lpfindstreamdata, dwflags.toLong(), htransaction))
 }
 
-public fun FindFirstStreamW(lpfilename: PCWSTR, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: Long, dwflags: UInt): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "FindFirstStreamW", longArrayOf(lpfilename, infolevel.toLong(), lpfindstreamdata, dwflags.toLong()))
-    return Foundation.HANDLE()
+public fun FindFirstStreamW(lpfilename: PCWSTR, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: Long, dwflags: UInt): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FindFirstStreamW", longArrayOf(lpfilename, infolevel.toLong(), lpfindstreamdata, dwflags.toLong()))
 }
 
-public fun FindFirstVolumeA(lpszvolumename: PSTR, cchbufferlength: UInt): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "FindFirstVolumeA", longArrayOf(lpszvolumename, cchbufferlength.toLong()))
-    return Foundation.HANDLE()
+public fun FindFirstVolumeA(lpszvolumename: PSTR, cchbufferlength: UInt): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FindFirstVolumeA", longArrayOf(lpszvolumename, cchbufferlength.toLong()))
 }
 
-public fun FindFirstVolumeMountPointA(lpszrootpathname: PCSTR, lpszvolumemountpoint: PSTR, cchbufferlength: UInt): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "FindFirstVolumeMountPointA", longArrayOf(lpszrootpathname, lpszvolumemountpoint, cchbufferlength.toLong()))
-    return Foundation.HANDLE()
+public fun FindFirstVolumeMountPointA(lpszrootpathname: PCSTR, lpszvolumemountpoint: PSTR, cchbufferlength: UInt): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FindFirstVolumeMountPointA", longArrayOf(lpszrootpathname, lpszvolumemountpoint, cchbufferlength.toLong()))
 }
 
-public fun FindFirstVolumeMountPointW(lpszrootpathname: PCWSTR, lpszvolumemountpoint: PWSTR, cchbufferlength: UInt): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "FindFirstVolumeMountPointW", longArrayOf(lpszrootpathname, lpszvolumemountpoint, cchbufferlength.toLong()))
-    return Foundation.HANDLE()
+public fun FindFirstVolumeMountPointW(lpszrootpathname: PCWSTR, lpszvolumemountpoint: PWSTR, cchbufferlength: UInt): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FindFirstVolumeMountPointW", longArrayOf(lpszrootpathname, lpszvolumemountpoint, cchbufferlength.toLong()))
 }
 
-public fun FindFirstVolumeW(lpszvolumename: PWSTR, cchbufferlength: UInt): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "FindFirstVolumeW", longArrayOf(lpszvolumename, cchbufferlength.toLong()))
-    return Foundation.HANDLE()
+public fun FindFirstVolumeW(lpszvolumename: PWSTR, cchbufferlength: UInt): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FindFirstVolumeW", longArrayOf(lpszvolumename, cchbufferlength.toLong()))
 }
 
-public fun FindNextChangeNotification(hchangehandle: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "FindNextChangeNotification", longArrayOf(Win32DynamicFfi.objectSlot(hchangehandle))).toInt()
+public fun FindNextChangeNotification(hchangehandle: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FindNextChangeNotification", longArrayOf(hchangehandle)).toInt()
 }
 
-public fun FindNextFileA(hfindfile: Foundation.HANDLE, lpfindfiledata: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "FindNextFileA", longArrayOf(Win32DynamicFfi.objectSlot(hfindfile), lpfindfiledata)).toInt()
+public fun FindNextFileA(hfindfile: HANDLE, lpfindfiledata: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FindNextFileA", longArrayOf(hfindfile, lpfindfiledata)).toInt()
 }
 
-public fun FindNextFileNameW(hfindstream: Foundation.HANDLE, stringlength: Long, linkname: PWSTR): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "FindNextFileNameW", longArrayOf(Win32DynamicFfi.objectSlot(hfindstream), stringlength, linkname)).toInt()
+public fun FindNextFileNameW(hfindstream: HANDLE, stringlength: Long, linkname: PWSTR): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FindNextFileNameW", longArrayOf(hfindstream, stringlength, linkname)).toInt()
 }
 
-public fun FindNextFileW(hfindfile: Foundation.HANDLE, lpfindfiledata: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "FindNextFileW", longArrayOf(Win32DynamicFfi.objectSlot(hfindfile), lpfindfiledata)).toInt()
+public fun FindNextFileW(hfindfile: HANDLE, lpfindfiledata: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FindNextFileW", longArrayOf(hfindfile, lpfindfiledata)).toInt()
 }
 
-public fun FindNextStreamW(hfindstream: Foundation.HANDLE, lpfindstreamdata: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "FindNextStreamW", longArrayOf(Win32DynamicFfi.objectSlot(hfindstream), lpfindstreamdata)).toInt()
+public fun FindNextStreamW(hfindstream: HANDLE, lpfindstreamdata: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FindNextStreamW", longArrayOf(hfindstream, lpfindstreamdata)).toInt()
 }
 
-public fun FindNextVolumeA(hfindvolume: Foundation.HANDLE, lpszvolumename: PSTR, cchbufferlength: UInt): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "FindNextVolumeA", longArrayOf(Win32DynamicFfi.objectSlot(hfindvolume), lpszvolumename, cchbufferlength.toLong())).toInt()
+public fun FindNextVolumeA(hfindvolume: HANDLE, lpszvolumename: PSTR, cchbufferlength: UInt): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FindNextVolumeA", longArrayOf(hfindvolume, lpszvolumename, cchbufferlength.toLong())).toInt()
 }
 
-public fun FindNextVolumeMountPointA(hfindvolumemountpoint: Foundation.HANDLE, lpszvolumemountpoint: PSTR, cchbufferlength: UInt): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "FindNextVolumeMountPointA", longArrayOf(Win32DynamicFfi.objectSlot(hfindvolumemountpoint), lpszvolumemountpoint, cchbufferlength.toLong())).toInt()
+public fun FindNextVolumeMountPointA(hfindvolumemountpoint: HANDLE, lpszvolumemountpoint: PSTR, cchbufferlength: UInt): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FindNextVolumeMountPointA", longArrayOf(hfindvolumemountpoint, lpszvolumemountpoint, cchbufferlength.toLong())).toInt()
 }
 
-public fun FindNextVolumeMountPointW(hfindvolumemountpoint: Foundation.HANDLE, lpszvolumemountpoint: PWSTR, cchbufferlength: UInt): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "FindNextVolumeMountPointW", longArrayOf(Win32DynamicFfi.objectSlot(hfindvolumemountpoint), lpszvolumemountpoint, cchbufferlength.toLong())).toInt()
+public fun FindNextVolumeMountPointW(hfindvolumemountpoint: HANDLE, lpszvolumemountpoint: PWSTR, cchbufferlength: UInt): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FindNextVolumeMountPointW", longArrayOf(hfindvolumemountpoint, lpszvolumemountpoint, cchbufferlength.toLong())).toInt()
 }
 
-public fun FindNextVolumeW(hfindvolume: Foundation.HANDLE, lpszvolumename: PWSTR, cchbufferlength: UInt): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "FindNextVolumeW", longArrayOf(Win32DynamicFfi.objectSlot(hfindvolume), lpszvolumename, cchbufferlength.toLong())).toInt()
+public fun FindNextVolumeW(hfindvolume: HANDLE, lpszvolumename: PWSTR, cchbufferlength: UInt): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FindNextVolumeW", longArrayOf(hfindvolume, lpszvolumename, cchbufferlength.toLong())).toInt()
 }
 
-public fun FindVolumeClose(hfindvolume: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "FindVolumeClose", longArrayOf(Win32DynamicFfi.objectSlot(hfindvolume))).toInt()
+public fun FindVolumeClose(hfindvolume: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FindVolumeClose", longArrayOf(hfindvolume)).toInt()
 }
 
-public fun FindVolumeMountPointClose(hfindvolumemountpoint: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "FindVolumeMountPointClose", longArrayOf(Win32DynamicFfi.objectSlot(hfindvolumemountpoint))).toInt()
+public fun FindVolumeMountPointClose(hfindvolumemountpoint: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FindVolumeMountPointClose", longArrayOf(hfindvolumemountpoint)).toInt()
 }
 
-public fun FlushFileBuffers(hfile: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "FlushFileBuffers", longArrayOf(Win32DynamicFfi.objectSlot(hfile))).toInt()
+public fun FlushFileBuffers(hfile: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FlushFileBuffers", longArrayOf(hfile)).toInt()
 }
 
 public fun FlushLogBuffers(pvmarshal: Long, poverlapped: Long): BOOL {
@@ -585,20 +558,20 @@ public fun GetCompressedFileSizeA(lpfilename: PCSTR, lpfilesizehigh: Long): UInt
     return Win32DynamicFfi.invoke("kernel32.dll", "GetCompressedFileSizeA", longArrayOf(lpfilename, lpfilesizehigh)).toUInt()
 }
 
-public fun GetCompressedFileSizeTransactedA(lpfilename: PCSTR, lpfilesizehigh: Long, htransaction: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetCompressedFileSizeTransactedA", longArrayOf(lpfilename, lpfilesizehigh, Win32DynamicFfi.objectSlot(htransaction))).toUInt()
+public fun GetCompressedFileSizeTransactedA(lpfilename: PCSTR, lpfilesizehigh: Long, htransaction: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetCompressedFileSizeTransactedA", longArrayOf(lpfilename, lpfilesizehigh, htransaction)).toUInt()
 }
 
-public fun GetCompressedFileSizeTransactedW(lpfilename: PCWSTR, lpfilesizehigh: Long, htransaction: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetCompressedFileSizeTransactedW", longArrayOf(lpfilename, lpfilesizehigh, Win32DynamicFfi.objectSlot(htransaction))).toUInt()
+public fun GetCompressedFileSizeTransactedW(lpfilename: PCWSTR, lpfilesizehigh: Long, htransaction: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetCompressedFileSizeTransactedW", longArrayOf(lpfilename, lpfilesizehigh, htransaction)).toUInt()
 }
 
 public fun GetCompressedFileSizeW(lpfilename: PCWSTR, lpfilesizehigh: Long): UInt {
     return Win32DynamicFfi.invoke("kernel32.dll", "GetCompressedFileSizeW", longArrayOf(lpfilename, lpfilesizehigh)).toUInt()
 }
 
-public fun GetCurrentClockTransactionManager(transactionmanagerhandle: Foundation.HANDLE, tmvirtualclock: Long): BOOL {
-    return Win32DynamicFfi.invoke("ktmw32.dll", "GetCurrentClockTransactionManager", longArrayOf(Win32DynamicFfi.objectSlot(transactionmanagerhandle), tmvirtualclock)).toInt()
+public fun GetCurrentClockTransactionManager(transactionmanagerhandle: HANDLE, tmvirtualclock: Long): BOOL {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "GetCurrentClockTransactionManager", longArrayOf(transactionmanagerhandle, tmvirtualclock)).toInt()
 }
 
 public fun GetDiskFreeSpaceA(lprootpathname: PCSTR, lpsectorspercluster: Long, lpbytespersector: Long, lpnumberoffreeclusters: Long, lptotalnumberofclusters: Long): BOOL {
@@ -637,12 +610,12 @@ public fun GetEncryptedFileMetadata(lpfilename: PCWSTR, pcbmetadata: Long, ppbme
     return Win32DynamicFfi.invoke("advapi32.dll", "GetEncryptedFileMetadata", longArrayOf(lpfilename, pcbmetadata, ppbmetadata)).toUInt()
 }
 
-public fun GetEnlistmentId(enlistmenthandle: Foundation.HANDLE, enlistmentid: Long): BOOL {
-    return Win32DynamicFfi.invoke("ktmw32.dll", "GetEnlistmentId", longArrayOf(Win32DynamicFfi.objectSlot(enlistmenthandle), enlistmentid)).toInt()
+public fun GetEnlistmentId(enlistmenthandle: HANDLE, enlistmentid: Long): BOOL {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "GetEnlistmentId", longArrayOf(enlistmenthandle, enlistmentid)).toInt()
 }
 
-public fun GetEnlistmentRecoveryInformation(enlistmenthandle: Foundation.HANDLE, buffersize: UInt, buffer: Long, bufferused: Long): BOOL {
-    return Win32DynamicFfi.invoke("ktmw32.dll", "GetEnlistmentRecoveryInformation", longArrayOf(Win32DynamicFfi.objectSlot(enlistmenthandle), buffersize.toLong(), buffer, bufferused)).toInt()
+public fun GetEnlistmentRecoveryInformation(enlistmenthandle: HANDLE, buffersize: UInt, buffer: Long, bufferused: Long): BOOL {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "GetEnlistmentRecoveryInformation", longArrayOf(enlistmenthandle, buffersize.toLong(), buffer, bufferused)).toInt()
 }
 
 public fun GetExpandedNameA(lpszsource: PCSTR, lpszbuffer: PSTR): Int {
@@ -669,44 +642,44 @@ public fun GetFileAttributesExW(lpfilename: PCWSTR, finfolevelid: GET_FILEEX_INF
     return Win32DynamicFfi.invoke("kernel32.dll", "GetFileAttributesExW", longArrayOf(lpfilename, finfolevelid.toLong(), lpfileinformation)).toInt()
 }
 
-public fun GetFileAttributesTransactedA(lpfilename: PCSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: Long, htransaction: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetFileAttributesTransactedA", longArrayOf(lpfilename, finfolevelid.toLong(), lpfileinformation, Win32DynamicFfi.objectSlot(htransaction))).toInt()
+public fun GetFileAttributesTransactedA(lpfilename: PCSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: Long, htransaction: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetFileAttributesTransactedA", longArrayOf(lpfilename, finfolevelid.toLong(), lpfileinformation, htransaction)).toInt()
 }
 
-public fun GetFileAttributesTransactedW(lpfilename: PCWSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: Long, htransaction: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetFileAttributesTransactedW", longArrayOf(lpfilename, finfolevelid.toLong(), lpfileinformation, Win32DynamicFfi.objectSlot(htransaction))).toInt()
+public fun GetFileAttributesTransactedW(lpfilename: PCWSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: Long, htransaction: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetFileAttributesTransactedW", longArrayOf(lpfilename, finfolevelid.toLong(), lpfileinformation, htransaction)).toInt()
 }
 
 public fun GetFileAttributesW(lpfilename: PCWSTR): UInt {
     return Win32DynamicFfi.invoke("kernel32.dll", "GetFileAttributesW", longArrayOf(lpfilename)).toUInt()
 }
 
-public fun GetFileBandwidthReservation(hfile: Foundation.HANDLE, lpperiodmilliseconds: Long, lpbytesperperiod: Long, pdiscardable: Long, lptransfersize: Long, lpnumoutstandingrequests: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetFileBandwidthReservation", longArrayOf(Win32DynamicFfi.objectSlot(hfile), lpperiodmilliseconds, lpbytesperperiod, pdiscardable, lptransfersize, lpnumoutstandingrequests)).toInt()
+public fun GetFileBandwidthReservation(hfile: HANDLE, lpperiodmilliseconds: Long, lpbytesperperiod: Long, pdiscardable: Long, lptransfersize: Long, lpnumoutstandingrequests: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetFileBandwidthReservation", longArrayOf(hfile, lpperiodmilliseconds, lpbytesperperiod, pdiscardable, lptransfersize, lpnumoutstandingrequests)).toInt()
 }
 
-public fun GetFileInformationByHandle(hfile: Foundation.HANDLE, lpfileinformation: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetFileInformationByHandle", longArrayOf(Win32DynamicFfi.objectSlot(hfile), lpfileinformation)).toInt()
+public fun GetFileInformationByHandle(hfile: HANDLE, lpfileinformation: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetFileInformationByHandle", longArrayOf(hfile, lpfileinformation)).toInt()
 }
 
-public fun GetFileInformationByHandleEx(hfile: Foundation.HANDLE, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: Long, dwbuffersize: UInt): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetFileInformationByHandleEx", longArrayOf(Win32DynamicFfi.objectSlot(hfile), fileinformationclass.toLong(), lpfileinformation, dwbuffersize.toLong())).toInt()
+public fun GetFileInformationByHandleEx(hfile: HANDLE, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: Long, dwbuffersize: UInt): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetFileInformationByHandleEx", longArrayOf(hfile, fileinformationclass.toLong(), lpfileinformation, dwbuffersize.toLong())).toInt()
 }
 
-public fun GetFileSize(hfile: Foundation.HANDLE, lpfilesizehigh: Long): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetFileSize", longArrayOf(Win32DynamicFfi.objectSlot(hfile), lpfilesizehigh)).toUInt()
+public fun GetFileSize(hfile: HANDLE, lpfilesizehigh: Long): UInt {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetFileSize", longArrayOf(hfile, lpfilesizehigh)).toUInt()
 }
 
-public fun GetFileSizeEx(hfile: Foundation.HANDLE, lpfilesize: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetFileSizeEx", longArrayOf(Win32DynamicFfi.objectSlot(hfile), lpfilesize)).toInt()
+public fun GetFileSizeEx(hfile: HANDLE, lpfilesize: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetFileSizeEx", longArrayOf(hfile, lpfilesize)).toInt()
 }
 
-public fun GetFileTime(hfile: Foundation.HANDLE, lpcreationtime: Long, lplastaccesstime: Long, lplastwritetime: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetFileTime", longArrayOf(Win32DynamicFfi.objectSlot(hfile), lpcreationtime, lplastaccesstime, lplastwritetime)).toInt()
+public fun GetFileTime(hfile: HANDLE, lpcreationtime: Long, lplastaccesstime: Long, lplastwritetime: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetFileTime", longArrayOf(hfile, lpcreationtime, lplastaccesstime, lplastwritetime)).toInt()
 }
 
-public fun GetFileType(hfile: Foundation.HANDLE): FILE_TYPE {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetFileType", longArrayOf(Win32DynamicFfi.objectSlot(hfile))).toUInt()
+public fun GetFileType(hfile: HANDLE): FILE_TYPE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetFileType", longArrayOf(hfile)).toUInt()
 }
 
 public fun GetFileVersionInfoA(lptstrfilename: PCSTR, dwhandle: UInt, dwlen: UInt, lpdata: Long): BOOL {
@@ -741,24 +714,24 @@ public fun GetFileVersionInfoW(lptstrfilename: PCWSTR, dwhandle: UInt, dwlen: UI
     return Win32DynamicFfi.invoke("version.dll", "GetFileVersionInfoW", longArrayOf(lptstrfilename, dwhandle.toLong(), dwlen.toLong(), lpdata)).toInt()
 }
 
-public fun GetFinalPathNameByHandleA(hfile: Foundation.HANDLE, lpszfilepath: PSTR, cchfilepath: UInt, dwflags: GETFINALPATHNAMEBYHANDLE_FLAGS): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetFinalPathNameByHandleA", longArrayOf(Win32DynamicFfi.objectSlot(hfile), lpszfilepath, cchfilepath.toLong(), dwflags.toLong())).toUInt()
+public fun GetFinalPathNameByHandleA(hfile: HANDLE, lpszfilepath: PSTR, cchfilepath: UInt, dwflags: GETFINALPATHNAMEBYHANDLE_FLAGS): UInt {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetFinalPathNameByHandleA", longArrayOf(hfile, lpszfilepath, cchfilepath.toLong(), dwflags.toLong())).toUInt()
 }
 
-public fun GetFinalPathNameByHandleW(hfile: Foundation.HANDLE, lpszfilepath: PWSTR, cchfilepath: UInt, dwflags: GETFINALPATHNAMEBYHANDLE_FLAGS): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetFinalPathNameByHandleW", longArrayOf(Win32DynamicFfi.objectSlot(hfile), lpszfilepath, cchfilepath.toLong(), dwflags.toLong())).toUInt()
+public fun GetFinalPathNameByHandleW(hfile: HANDLE, lpszfilepath: PWSTR, cchfilepath: UInt, dwflags: GETFINALPATHNAMEBYHANDLE_FLAGS): UInt {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetFinalPathNameByHandleW", longArrayOf(hfile, lpszfilepath, cchfilepath.toLong(), dwflags.toLong())).toUInt()
 }
 
 public fun GetFullPathNameA(lpfilename: PCSTR, nbufferlength: UInt, lpbuffer: PSTR, lpfilepart: Long): UInt {
     return Win32DynamicFfi.invoke("kernel32.dll", "GetFullPathNameA", longArrayOf(lpfilename, nbufferlength.toLong(), lpbuffer, lpfilepart)).toUInt()
 }
 
-public fun GetFullPathNameTransactedA(lpfilename: PCSTR, nbufferlength: UInt, lpbuffer: PSTR, lpfilepart: Long, htransaction: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetFullPathNameTransactedA", longArrayOf(lpfilename, nbufferlength.toLong(), lpbuffer, lpfilepart, Win32DynamicFfi.objectSlot(htransaction))).toUInt()
+public fun GetFullPathNameTransactedA(lpfilename: PCSTR, nbufferlength: UInt, lpbuffer: PSTR, lpfilepart: Long, htransaction: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetFullPathNameTransactedA", longArrayOf(lpfilename, nbufferlength.toLong(), lpbuffer, lpfilepart, htransaction)).toUInt()
 }
 
-public fun GetFullPathNameTransactedW(lpfilename: PCWSTR, nbufferlength: UInt, lpbuffer: PWSTR, lpfilepart: Long, htransaction: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetFullPathNameTransactedW", longArrayOf(lpfilename, nbufferlength.toLong(), lpbuffer, lpfilepart, Win32DynamicFfi.objectSlot(htransaction))).toUInt()
+public fun GetFullPathNameTransactedW(lpfilename: PCWSTR, nbufferlength: UInt, lpbuffer: PWSTR, lpfilepart: Long, htransaction: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetFullPathNameTransactedW", longArrayOf(lpfilename, nbufferlength.toLong(), lpbuffer, lpfilepart, htransaction)).toUInt()
 }
 
 public fun GetFullPathNameW(lpfilename: PCWSTR, nbufferlength: UInt, lpbuffer: PWSTR, lpfilepart: Long): UInt {
@@ -769,16 +742,16 @@ public fun GetIoRingInfo(ioring: HIORING, info: Long): HRESULT {
     return Win32DynamicFfi.invoke("api-ms-win-core-ioring-l1-1-0.dll", "GetIoRingInfo", longArrayOf(ioring, info)).toInt()
 }
 
-public fun GetLogContainerName(hlog: Foundation.HANDLE, cidlogicalcontainer: UInt, pwstrcontainername: PCWSTR, clencontainername: UInt, pcactuallencontainername: Long): BOOL {
-    return Win32DynamicFfi.invoke("clfsw32.dll", "GetLogContainerName", longArrayOf(Win32DynamicFfi.objectSlot(hlog), cidlogicalcontainer.toLong(), pwstrcontainername, clencontainername.toLong(), pcactuallencontainername)).toInt()
+public fun GetLogContainerName(hlog: HANDLE, cidlogicalcontainer: UInt, pwstrcontainername: PCWSTR, clencontainername: UInt, pcactuallencontainername: Long): BOOL {
+    return Win32DynamicFfi.invoke("clfsw32.dll", "GetLogContainerName", longArrayOf(hlog, cidlogicalcontainer.toLong(), pwstrcontainername, clencontainername.toLong(), pcactuallencontainername)).toInt()
 }
 
-public fun GetLogFileInformation(hlog: Foundation.HANDLE, pinfobuffer: Long, cbbuffer: Long): BOOL {
-    return Win32DynamicFfi.invoke("clfsw32.dll", "GetLogFileInformation", longArrayOf(Win32DynamicFfi.objectSlot(hlog), pinfobuffer, cbbuffer)).toInt()
+public fun GetLogFileInformation(hlog: HANDLE, pinfobuffer: Long, cbbuffer: Long): BOOL {
+    return Win32DynamicFfi.invoke("clfsw32.dll", "GetLogFileInformation", longArrayOf(hlog, pinfobuffer, cbbuffer)).toInt()
 }
 
-public fun GetLogIoStatistics(hlog: Foundation.HANDLE, pvstatsbuffer: Long, cbstatsbuffer: UInt, estatsclass: CLFS_IOSTATS_CLASS, pcbstatswritten: Long): BOOL {
-    return Win32DynamicFfi.invoke("clfsw32.dll", "GetLogIoStatistics", longArrayOf(Win32DynamicFfi.objectSlot(hlog), pvstatsbuffer, cbstatsbuffer.toLong(), estatsclass.toLong(), pcbstatswritten)).toInt()
+public fun GetLogIoStatistics(hlog: HANDLE, pvstatsbuffer: Long, cbstatsbuffer: UInt, estatsclass: CLFS_IOSTATS_CLASS, pcbstatswritten: Long): BOOL {
+    return Win32DynamicFfi.invoke("clfsw32.dll", "GetLogIoStatistics", longArrayOf(hlog, pvstatsbuffer, cbstatsbuffer.toLong(), estatsclass.toLong(), pcbstatswritten)).toInt()
 }
 
 public fun GetLogReservationInfo(pvmarshal: Long, pcbrecordnumber: Long, pcbuserreservation: Long, pcbcommitreservation: Long): BOOL {
@@ -801,12 +774,12 @@ public fun GetLongPathNameA(lpszshortpath: PCSTR, lpszlongpath: PSTR, cchbuffer:
     return Win32DynamicFfi.invoke("kernel32.dll", "GetLongPathNameA", longArrayOf(lpszshortpath, lpszlongpath, cchbuffer.toLong())).toUInt()
 }
 
-public fun GetLongPathNameTransactedA(lpszshortpath: PCSTR, lpszlongpath: PSTR, cchbuffer: UInt, htransaction: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetLongPathNameTransactedA", longArrayOf(lpszshortpath, lpszlongpath, cchbuffer.toLong(), Win32DynamicFfi.objectSlot(htransaction))).toUInt()
+public fun GetLongPathNameTransactedA(lpszshortpath: PCSTR, lpszlongpath: PSTR, cchbuffer: UInt, htransaction: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetLongPathNameTransactedA", longArrayOf(lpszshortpath, lpszlongpath, cchbuffer.toLong(), htransaction)).toUInt()
 }
 
-public fun GetLongPathNameTransactedW(lpszshortpath: PCWSTR, lpszlongpath: PWSTR, cchbuffer: UInt, htransaction: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetLongPathNameTransactedW", longArrayOf(lpszshortpath, lpszlongpath, cchbuffer.toLong(), Win32DynamicFfi.objectSlot(htransaction))).toUInt()
+public fun GetLongPathNameTransactedW(lpszshortpath: PCWSTR, lpszlongpath: PWSTR, cchbuffer: UInt, htransaction: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetLongPathNameTransactedW", longArrayOf(lpszshortpath, lpszlongpath, cchbuffer.toLong(), htransaction)).toUInt()
 }
 
 public fun GetLongPathNameW(lpszshortpath: PCWSTR, lpszlongpath: PWSTR, cchbuffer: UInt): UInt {
@@ -817,12 +790,12 @@ public fun GetNextLogArchiveExtent(pvarchivecontext: Long, rgadextent: Long, cde
     return Win32DynamicFfi.invoke("clfsw32.dll", "GetNextLogArchiveExtent", longArrayOf(pvarchivecontext, rgadextent, cdescriptors.toLong(), pcdescriptorsreturned)).toInt()
 }
 
-public fun GetNotificationResourceManager(resourcemanagerhandle: Foundation.HANDLE, transactionnotification: Long, notificationlength: UInt, dwmilliseconds: UInt, returnlength: Long): BOOL {
-    return Win32DynamicFfi.invoke("ktmw32.dll", "GetNotificationResourceManager", longArrayOf(Win32DynamicFfi.objectSlot(resourcemanagerhandle), transactionnotification, notificationlength.toLong(), dwmilliseconds.toLong(), returnlength)).toInt()
+public fun GetNotificationResourceManager(resourcemanagerhandle: HANDLE, transactionnotification: Long, notificationlength: UInt, dwmilliseconds: UInt, returnlength: Long): BOOL {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "GetNotificationResourceManager", longArrayOf(resourcemanagerhandle, transactionnotification, notificationlength.toLong(), dwmilliseconds.toLong(), returnlength)).toInt()
 }
 
-public fun GetNotificationResourceManagerAsync(resourcemanagerhandle: Foundation.HANDLE, transactionnotification: Long, transactionnotificationlength: UInt, returnlength: Long, lpoverlapped: Long): BOOL {
-    return Win32DynamicFfi.invoke("ktmw32.dll", "GetNotificationResourceManagerAsync", longArrayOf(Win32DynamicFfi.objectSlot(resourcemanagerhandle), transactionnotification, transactionnotificationlength.toLong(), returnlength, lpoverlapped)).toInt()
+public fun GetNotificationResourceManagerAsync(resourcemanagerhandle: HANDLE, transactionnotification: Long, transactionnotificationlength: UInt, returnlength: Long, lpoverlapped: Long): BOOL {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "GetNotificationResourceManagerAsync", longArrayOf(resourcemanagerhandle, transactionnotification, transactionnotificationlength.toLong(), returnlength, lpoverlapped)).toInt()
 }
 
 public fun GetShortPathNameA(lpszlongpath: PCSTR, lpszshortpath: PSTR, cchbuffer: UInt): UInt {
@@ -833,16 +806,16 @@ public fun GetShortPathNameW(lpszlongpath: PCWSTR, lpszshortpath: PWSTR, cchbuff
     return Win32DynamicFfi.invoke("kernel32.dll", "GetShortPathNameW", longArrayOf(lpszlongpath, lpszshortpath, cchbuffer.toLong())).toUInt()
 }
 
-public fun GetTapeParameters(hdevice: Foundation.HANDLE, dwoperation: GET_TAPE_DRIVE_PARAMETERS_OPERATION, lpdwsize: Long, lptapeinformation: Long): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetTapeParameters", longArrayOf(Win32DynamicFfi.objectSlot(hdevice), dwoperation.toLong(), lpdwsize, lptapeinformation)).toUInt()
+public fun GetTapeParameters(hdevice: HANDLE, dwoperation: GET_TAPE_DRIVE_PARAMETERS_OPERATION, lpdwsize: Long, lptapeinformation: Long): UInt {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetTapeParameters", longArrayOf(hdevice, dwoperation.toLong(), lpdwsize, lptapeinformation)).toUInt()
 }
 
-public fun GetTapePosition(hdevice: Foundation.HANDLE, dwpositiontype: TAPE_POSITION_TYPE, lpdwpartition: Long, lpdwoffsetlow: Long, lpdwoffsethigh: Long): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetTapePosition", longArrayOf(Win32DynamicFfi.objectSlot(hdevice), dwpositiontype.toLong(), lpdwpartition, lpdwoffsetlow, lpdwoffsethigh)).toUInt()
+public fun GetTapePosition(hdevice: HANDLE, dwpositiontype: TAPE_POSITION_TYPE, lpdwpartition: Long, lpdwoffsetlow: Long, lpdwoffsethigh: Long): UInt {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetTapePosition", longArrayOf(hdevice, dwpositiontype.toLong(), lpdwpartition, lpdwoffsetlow, lpdwoffsethigh)).toUInt()
 }
 
-public fun GetTapeStatus(hdevice: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetTapeStatus", longArrayOf(Win32DynamicFfi.objectSlot(hdevice))).toUInt()
+public fun GetTapeStatus(hdevice: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetTapeStatus", longArrayOf(hdevice)).toUInt()
 }
 
 public fun GetTempFileNameA(lppathname: PCSTR, lpprefixstring: PCSTR, uunique: UInt, lptempfilename: PSTR): UInt {
@@ -869,24 +842,24 @@ public fun GetTempPathW(nbufferlength: UInt, lpbuffer: PWSTR): UInt {
     return Win32DynamicFfi.invoke("kernel32.dll", "GetTempPathW", longArrayOf(nbufferlength.toLong(), lpbuffer)).toUInt()
 }
 
-public fun GetTransactionId(transactionhandle: Foundation.HANDLE, transactionid: Long): BOOL {
-    return Win32DynamicFfi.invoke("ktmw32.dll", "GetTransactionId", longArrayOf(Win32DynamicFfi.objectSlot(transactionhandle), transactionid)).toInt()
+public fun GetTransactionId(transactionhandle: HANDLE, transactionid: Long): BOOL {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "GetTransactionId", longArrayOf(transactionhandle, transactionid)).toInt()
 }
 
-public fun GetTransactionInformation(transactionhandle: Foundation.HANDLE, outcome: Long, isolationlevel: Long, isolationflags: Long, timeout: Long, bufferlength: UInt, description: PWSTR): BOOL {
-    return Win32DynamicFfi.invoke("ktmw32.dll", "GetTransactionInformation", longArrayOf(Win32DynamicFfi.objectSlot(transactionhandle), outcome, isolationlevel, isolationflags, timeout, bufferlength.toLong(), description)).toInt()
+public fun GetTransactionInformation(transactionhandle: HANDLE, outcome: Long, isolationlevel: Long, isolationflags: Long, timeout: Long, bufferlength: UInt, description: PWSTR): BOOL {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "GetTransactionInformation", longArrayOf(transactionhandle, outcome, isolationlevel, isolationflags, timeout, bufferlength.toLong(), description)).toInt()
 }
 
-public fun GetTransactionManagerId(transactionmanagerhandle: Foundation.HANDLE, transactionmanagerid: Long): BOOL {
-    return Win32DynamicFfi.invoke("ktmw32.dll", "GetTransactionManagerId", longArrayOf(Win32DynamicFfi.objectSlot(transactionmanagerhandle), transactionmanagerid)).toInt()
+public fun GetTransactionManagerId(transactionmanagerhandle: HANDLE, transactionmanagerid: Long): BOOL {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "GetTransactionManagerId", longArrayOf(transactionmanagerhandle, transactionmanagerid)).toInt()
 }
 
 public fun GetVolumeInformationA(lprootpathname: PCSTR, lpvolumenamebuffer: PSTR, nvolumenamesize: UInt, lpvolumeserialnumber: Long, lpmaximumcomponentlength: Long, lpfilesystemflags: Long, lpfilesystemnamebuffer: PSTR, nfilesystemnamesize: UInt): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "GetVolumeInformationA", longArrayOf(lprootpathname, lpvolumenamebuffer, nvolumenamesize.toLong(), lpvolumeserialnumber, lpmaximumcomponentlength, lpfilesystemflags, lpfilesystemnamebuffer, nfilesystemnamesize.toLong())).toInt()
 }
 
-public fun GetVolumeInformationByHandleW(hfile: Foundation.HANDLE, lpvolumenamebuffer: PWSTR, nvolumenamesize: UInt, lpvolumeserialnumber: Long, lpmaximumcomponentlength: Long, lpfilesystemflags: Long, lpfilesystemnamebuffer: PWSTR, nfilesystemnamesize: UInt): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetVolumeInformationByHandleW", longArrayOf(Win32DynamicFfi.objectSlot(hfile), lpvolumenamebuffer, nvolumenamesize.toLong(), lpvolumeserialnumber, lpmaximumcomponentlength, lpfilesystemflags, lpfilesystemnamebuffer, nfilesystemnamesize.toLong())).toInt()
+public fun GetVolumeInformationByHandleW(hfile: HANDLE, lpvolumenamebuffer: PWSTR, nvolumenamesize: UInt, lpvolumeserialnumber: Long, lpmaximumcomponentlength: Long, lpfilesystemflags: Long, lpfilesystemnamebuffer: PWSTR, nfilesystemnamesize: UInt): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetVolumeInformationByHandleW", longArrayOf(hfile, lpvolumenamebuffer, nvolumenamesize.toLong(), lpvolumeserialnumber, lpmaximumcomponentlength, lpfilesystemflags, lpfilesystemnamebuffer, nfilesystemnamesize.toLong())).toInt()
 }
 
 public fun GetVolumeInformationW(lprootpathname: PCWSTR, lpvolumenamebuffer: PWSTR, nvolumenamesize: UInt, lpvolumeserialnumber: Long, lpmaximumcomponentlength: Long, lpfilesystemflags: Long, lpfilesystemnamebuffer: PWSTR, nfilesystemnamesize: UInt): BOOL {
@@ -917,12 +890,12 @@ public fun GetVolumePathNamesForVolumeNameW(lpszvolumename: PCWSTR, lpszvolumepa
     return Win32DynamicFfi.invoke("kernel32.dll", "GetVolumePathNamesForVolumeNameW", longArrayOf(lpszvolumename, lpszvolumepathnames, cchbufferlength.toLong(), lpcchreturnlength)).toInt()
 }
 
-public fun HandleLogFull(hlog: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("clfsw32.dll", "HandleLogFull", longArrayOf(Win32DynamicFfi.objectSlot(hlog))).toInt()
+public fun HandleLogFull(hlog: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("clfsw32.dll", "HandleLogFull", longArrayOf(hlog)).toInt()
 }
 
-public fun InstallLogPolicy(hlog: Foundation.HANDLE, ppolicy: Long): BOOL {
-    return Win32DynamicFfi.invoke("clfsw32.dll", "InstallLogPolicy", longArrayOf(Win32DynamicFfi.objectSlot(hlog), ppolicy)).toInt()
+public fun InstallLogPolicy(hlog: HANDLE, ppolicy: Long): BOOL {
+    return Win32DynamicFfi.invoke("clfsw32.dll", "InstallLogPolicy", longArrayOf(hlog, ppolicy)).toInt()
 }
 
 public fun IsIoRingOpSupported(ioring: HIORING, op: IORING_OP_CODE): BOOL {
@@ -969,16 +942,16 @@ public fun LocalFileTimeToFileTime(lplocalfiletime: Long, lpfiletime: Long): BOO
     return Win32DynamicFfi.invoke("kernel32.dll", "LocalFileTimeToFileTime", longArrayOf(lplocalfiletime, lpfiletime)).toInt()
 }
 
-public fun LockFile(hfile: Foundation.HANDLE, dwfileoffsetlow: UInt, dwfileoffsethigh: UInt, nnumberofbytestolocklow: UInt, nnumberofbytestolockhigh: UInt): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "LockFile", longArrayOf(Win32DynamicFfi.objectSlot(hfile), dwfileoffsetlow.toLong(), dwfileoffsethigh.toLong(), nnumberofbytestolocklow.toLong(), nnumberofbytestolockhigh.toLong())).toInt()
+public fun LockFile(hfile: HANDLE, dwfileoffsetlow: UInt, dwfileoffsethigh: UInt, nnumberofbytestolocklow: UInt, nnumberofbytestolockhigh: UInt): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "LockFile", longArrayOf(hfile, dwfileoffsetlow.toLong(), dwfileoffsethigh.toLong(), nnumberofbytestolocklow.toLong(), nnumberofbytestolockhigh.toLong())).toInt()
 }
 
-public fun LockFileEx(hfile: Foundation.HANDLE, dwflags: LOCK_FILE_FLAGS, dwreserved: UInt, nnumberofbytestolocklow: UInt, nnumberofbytestolockhigh: UInt, lpoverlapped: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "LockFileEx", longArrayOf(Win32DynamicFfi.objectSlot(hfile), dwflags.toLong(), dwreserved.toLong(), nnumberofbytestolocklow.toLong(), nnumberofbytestolockhigh.toLong(), lpoverlapped)).toInt()
+public fun LockFileEx(hfile: HANDLE, dwflags: LOCK_FILE_FLAGS, dwreserved: UInt, nnumberofbytestolocklow: UInt, nnumberofbytestolockhigh: UInt, lpoverlapped: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "LockFileEx", longArrayOf(hfile, dwflags.toLong(), dwreserved.toLong(), nnumberofbytestolocklow.toLong(), nnumberofbytestolockhigh.toLong(), lpoverlapped)).toInt()
 }
 
-public fun LogTailAdvanceFailure(hlog: Foundation.HANDLE, dwreason: UInt): BOOL {
-    return Win32DynamicFfi.invoke("clfsw32.dll", "LogTailAdvanceFailure", longArrayOf(Win32DynamicFfi.objectSlot(hlog), dwreason.toLong())).toInt()
+public fun LogTailAdvanceFailure(hlog: HANDLE, dwreason: UInt): BOOL {
+    return Win32DynamicFfi.invoke("clfsw32.dll", "LogTailAdvanceFailure", longArrayOf(hlog, dwreason.toLong())).toInt()
 }
 
 public fun LsnBlockOffset(plsn: Long): UInt {
@@ -1044,12 +1017,12 @@ public fun MoveFileFromAppW(lpexistingfilename: PCWSTR, lpnewfilename: PCWSTR): 
     return Win32DynamicFfi.invoke("api-ms-win-core-file-fromapp-l1-1-0.dll", "MoveFileFromAppW", longArrayOf(lpexistingfilename, lpnewfilename)).toInt()
 }
 
-public fun MoveFileTransactedA(lpexistingfilename: PCSTR, lpnewfilename: PCSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Long, dwflags: MOVE_FILE_FLAGS, htransaction: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "MoveFileTransactedA", longArrayOf(lpexistingfilename, lpnewfilename, Win32DynamicFfi.objectSlot(lpprogressroutine), lpdata, dwflags.toLong(), Win32DynamicFfi.objectSlot(htransaction))).toInt()
+public fun MoveFileTransactedA(lpexistingfilename: PCSTR, lpnewfilename: PCSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Long, dwflags: MOVE_FILE_FLAGS, htransaction: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "MoveFileTransactedA", longArrayOf(lpexistingfilename, lpnewfilename, Win32DynamicFfi.objectSlot(lpprogressroutine), lpdata, dwflags.toLong(), htransaction)).toInt()
 }
 
-public fun MoveFileTransactedW(lpexistingfilename: PCWSTR, lpnewfilename: PCWSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Long, dwflags: MOVE_FILE_FLAGS, htransaction: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "MoveFileTransactedW", longArrayOf(lpexistingfilename, lpnewfilename, Win32DynamicFfi.objectSlot(lpprogressroutine), lpdata, dwflags.toLong(), Win32DynamicFfi.objectSlot(htransaction))).toInt()
+public fun MoveFileTransactedW(lpexistingfilename: PCWSTR, lpnewfilename: PCWSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Long, dwflags: MOVE_FILE_FLAGS, htransaction: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "MoveFileTransactedW", longArrayOf(lpexistingfilename, lpnewfilename, Win32DynamicFfi.objectSlot(lpprogressroutine), lpdata, dwflags.toLong(), htransaction)).toInt()
 }
 
 public fun MoveFileW(lpexistingfilename: PCWSTR, lpnewfilename: PCWSTR): BOOL {
@@ -1152,66 +1125,60 @@ public fun OpenEncryptedFileRawW(lpfilename: PCWSTR, ulflags: UInt, pvcontext: L
     return Win32DynamicFfi.invoke("advapi32.dll", "OpenEncryptedFileRawW", longArrayOf(lpfilename, ulflags.toLong(), pvcontext)).toUInt()
 }
 
-public fun OpenEnlistment(dwdesiredaccess: UInt, resourcemanagerhandle: Foundation.HANDLE, enlistmentid: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("ktmw32.dll", "OpenEnlistment", longArrayOf(dwdesiredaccess.toLong(), Win32DynamicFfi.objectSlot(resourcemanagerhandle), enlistmentid))
-    return Foundation.HANDLE()
+public fun OpenEnlistment(dwdesiredaccess: UInt, resourcemanagerhandle: HANDLE, enlistmentid: Long): HANDLE {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "OpenEnlistment", longArrayOf(dwdesiredaccess.toLong(), resourcemanagerhandle, enlistmentid))
 }
 
 public fun OpenFile(lpfilename: PCSTR, lpreopenbuff: Long, ustyle: UInt): Int {
     return Win32DynamicFfi.invoke("kernel32.dll", "OpenFile", longArrayOf(lpfilename, lpreopenbuff, ustyle.toLong())).toInt()
 }
 
-public fun OpenFileById(hvolumehint: Foundation.HANDLE, lpfileid: Long, dwdesiredaccess: UInt, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: Long, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "OpenFileById", longArrayOf(Win32DynamicFfi.objectSlot(hvolumehint), lpfileid, dwdesiredaccess.toLong(), dwsharemode.toLong(), lpsecurityattributes, dwflagsandattributes.toLong()))
-    return Foundation.HANDLE()
+public fun OpenFileById(hvolumehint: HANDLE, lpfileid: Long, dwdesiredaccess: UInt, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: Long, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "OpenFileById", longArrayOf(hvolumehint, lpfileid, dwdesiredaccess.toLong(), dwsharemode.toLong(), lpsecurityattributes, dwflagsandattributes.toLong()))
 }
 
-public fun OpenResourceManager(dwdesiredaccess: UInt, tmhandle: Foundation.HANDLE, resourcemanagerid: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("ktmw32.dll", "OpenResourceManager", longArrayOf(dwdesiredaccess.toLong(), Win32DynamicFfi.objectSlot(tmhandle), resourcemanagerid))
-    return Foundation.HANDLE()
+public fun OpenResourceManager(dwdesiredaccess: UInt, tmhandle: HANDLE, resourcemanagerid: Long): HANDLE {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "OpenResourceManager", longArrayOf(dwdesiredaccess.toLong(), tmhandle, resourcemanagerid))
 }
 
-public fun OpenTransaction(dwdesiredaccess: UInt, transactionid: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("ktmw32.dll", "OpenTransaction", longArrayOf(dwdesiredaccess.toLong(), transactionid))
-    return Foundation.HANDLE()
+public fun OpenTransaction(dwdesiredaccess: UInt, transactionid: Long): HANDLE {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "OpenTransaction", longArrayOf(dwdesiredaccess.toLong(), transactionid))
 }
 
-public fun OpenTransactionManager(logfilename: PCWSTR, desiredaccess: UInt, openoptions: UInt): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("ktmw32.dll", "OpenTransactionManager", longArrayOf(logfilename, desiredaccess.toLong(), openoptions.toLong()))
-    return Foundation.HANDLE()
+public fun OpenTransactionManager(logfilename: PCWSTR, desiredaccess: UInt, openoptions: UInt): HANDLE {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "OpenTransactionManager", longArrayOf(logfilename, desiredaccess.toLong(), openoptions.toLong()))
 }
 
-public fun OpenTransactionManagerById(transactionmanagerid: Long, desiredaccess: UInt, openoptions: UInt): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("ktmw32.dll", "OpenTransactionManagerById", longArrayOf(transactionmanagerid, desiredaccess.toLong(), openoptions.toLong()))
-    return Foundation.HANDLE()
+public fun OpenTransactionManagerById(transactionmanagerid: Long, desiredaccess: UInt, openoptions: UInt): HANDLE {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "OpenTransactionManagerById", longArrayOf(transactionmanagerid, desiredaccess.toLong(), openoptions.toLong()))
 }
 
 public fun PopIoRingCompletion(ioring: HIORING, cqe: Long): HRESULT {
     return Win32DynamicFfi.invoke("api-ms-win-core-ioring-l1-1-0.dll", "PopIoRingCompletion", longArrayOf(ioring, cqe)).toInt()
 }
 
-public fun PrePrepareComplete(enlistmenthandle: Foundation.HANDLE, tmvirtualclock: Long): BOOL {
-    return Win32DynamicFfi.invoke("ktmw32.dll", "PrePrepareComplete", longArrayOf(Win32DynamicFfi.objectSlot(enlistmenthandle), tmvirtualclock)).toInt()
+public fun PrePrepareComplete(enlistmenthandle: HANDLE, tmvirtualclock: Long): BOOL {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "PrePrepareComplete", longArrayOf(enlistmenthandle, tmvirtualclock)).toInt()
 }
 
-public fun PrePrepareEnlistment(enlistmenthandle: Foundation.HANDLE, tmvirtualclock: Long): BOOL {
-    return Win32DynamicFfi.invoke("ktmw32.dll", "PrePrepareEnlistment", longArrayOf(Win32DynamicFfi.objectSlot(enlistmenthandle), tmvirtualclock)).toInt()
+public fun PrePrepareEnlistment(enlistmenthandle: HANDLE, tmvirtualclock: Long): BOOL {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "PrePrepareEnlistment", longArrayOf(enlistmenthandle, tmvirtualclock)).toInt()
 }
 
-public fun PrepareComplete(enlistmenthandle: Foundation.HANDLE, tmvirtualclock: Long): BOOL {
-    return Win32DynamicFfi.invoke("ktmw32.dll", "PrepareComplete", longArrayOf(Win32DynamicFfi.objectSlot(enlistmenthandle), tmvirtualclock)).toInt()
+public fun PrepareComplete(enlistmenthandle: HANDLE, tmvirtualclock: Long): BOOL {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "PrepareComplete", longArrayOf(enlistmenthandle, tmvirtualclock)).toInt()
 }
 
-public fun PrepareEnlistment(enlistmenthandle: Foundation.HANDLE, tmvirtualclock: Long): BOOL {
-    return Win32DynamicFfi.invoke("ktmw32.dll", "PrepareEnlistment", longArrayOf(Win32DynamicFfi.objectSlot(enlistmenthandle), tmvirtualclock)).toInt()
+public fun PrepareEnlistment(enlistmenthandle: HANDLE, tmvirtualclock: Long): BOOL {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "PrepareEnlistment", longArrayOf(enlistmenthandle, tmvirtualclock)).toInt()
 }
 
-public fun PrepareLogArchive(hlog: Foundation.HANDLE, pszbaselogfilename: PWSTR, clen: UInt, plsnlow: Long, plsnhigh: Long, pcactuallength: Long, poffbaselogfiledata: Long, pcbbaselogfilelength: Long, plsnbase: Long, plsnlast: Long, plsncurrentarchivetail: Long, ppvarchivecontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("clfsw32.dll", "PrepareLogArchive", longArrayOf(Win32DynamicFfi.objectSlot(hlog), pszbaselogfilename, clen.toLong(), plsnlow, plsnhigh, pcactuallength, poffbaselogfiledata, pcbbaselogfilelength, plsnbase, plsnlast, plsncurrentarchivetail, ppvarchivecontext)).toInt()
+public fun PrepareLogArchive(hlog: HANDLE, pszbaselogfilename: PWSTR, clen: UInt, plsnlow: Long, plsnhigh: Long, pcactuallength: Long, poffbaselogfiledata: Long, pcbbaselogfilelength: Long, plsnbase: Long, plsnlast: Long, plsncurrentarchivetail: Long, ppvarchivecontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("clfsw32.dll", "PrepareLogArchive", longArrayOf(hlog, pszbaselogfilename, clen.toLong(), plsnlow, plsnhigh, pcactuallength, poffbaselogfiledata, pcbbaselogfilelength, plsnbase, plsnlast, plsncurrentarchivetail, ppvarchivecontext)).toInt()
 }
 
-public fun PrepareTape(hdevice: Foundation.HANDLE, dwoperation: PREPARE_TAPE_OPERATION, bimmediate: BOOL): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "PrepareTape", longArrayOf(Win32DynamicFfi.objectSlot(hdevice), dwoperation.toLong(), bimmediate.toLong())).toUInt()
+public fun PrepareTape(hdevice: HANDLE, dwoperation: PREPARE_TAPE_OPERATION, bimmediate: BOOL): UInt {
+    return Win32DynamicFfi.invoke("kernel32.dll", "PrepareTape", longArrayOf(hdevice, dwoperation.toLong(), bimmediate.toLong())).toUInt()
 }
 
 public fun QueryDosDeviceA(lpdevicename: PCSTR, lptargetpath: PSTR, ucchmax: UInt): UInt {
@@ -1226,8 +1193,8 @@ public fun QueryIoRingCapabilities(capabilities: Long): HRESULT {
     return Win32DynamicFfi.invoke("api-ms-win-core-ioring-l1-1-0.dll", "QueryIoRingCapabilities", longArrayOf(capabilities)).toInt()
 }
 
-public fun QueryLogPolicy(hlog: Foundation.HANDLE, epolicytype: CLFS_MGMT_POLICY_TYPE, ppolicybuffer: Long, pcbpolicybuffer: Long): BOOL {
-    return Win32DynamicFfi.invoke("clfsw32.dll", "QueryLogPolicy", longArrayOf(Win32DynamicFfi.objectSlot(hlog), epolicytype.toLong(), ppolicybuffer, pcbpolicybuffer)).toInt()
+public fun QueryLogPolicy(hlog: HANDLE, epolicytype: CLFS_MGMT_POLICY_TYPE, ppolicybuffer: Long, pcbpolicybuffer: Long): BOOL {
+    return Win32DynamicFfi.invoke("clfsw32.dll", "QueryLogPolicy", longArrayOf(hlog, epolicytype.toLong(), ppolicybuffer, pcbpolicybuffer)).toInt()
 }
 
 public fun QueryRecoveryAgentsOnEncryptedFile(lpfilename: PCWSTR, precoveryagents: Long): UInt {
@@ -1238,41 +1205,40 @@ public fun QueryUsersOnEncryptedFile(lpfilename: PCWSTR, pusers: Long): UInt {
     return Win32DynamicFfi.invoke("advapi32.dll", "QueryUsersOnEncryptedFile", longArrayOf(lpfilename, pusers)).toUInt()
 }
 
-public fun ReOpenFile(horiginalfile: Foundation.HANDLE, dwdesiredaccess: UInt, dwsharemode: FILE_SHARE_MODE, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "ReOpenFile", longArrayOf(Win32DynamicFfi.objectSlot(horiginalfile), dwdesiredaccess.toLong(), dwsharemode.toLong(), dwflagsandattributes.toLong()))
-    return Foundation.HANDLE()
+public fun ReOpenFile(horiginalfile: HANDLE, dwdesiredaccess: UInt, dwsharemode: FILE_SHARE_MODE, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "ReOpenFile", longArrayOf(horiginalfile, dwdesiredaccess.toLong(), dwsharemode.toLong(), dwflagsandattributes.toLong()))
 }
 
-public fun ReadDirectoryChangesExW(hdirectory: Foundation.HANDLE, lpbuffer: Long, nbufferlength: UInt, bwatchsubtree: BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: Long, lpoverlapped: Long, lpcompletionroutine: System.IO.LPOVERLAPPED_COMPLETION_ROUTINE, readdirectorynotifyinformationclass: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "ReadDirectoryChangesExW", longArrayOf(Win32DynamicFfi.objectSlot(hdirectory), lpbuffer, nbufferlength.toLong(), bwatchsubtree.toLong(), dwnotifyfilter.toLong(), lpbytesreturned, lpoverlapped, Win32DynamicFfi.objectSlot(lpcompletionroutine), readdirectorynotifyinformationclass.toLong())).toInt()
+public fun ReadDirectoryChangesExW(hdirectory: HANDLE, lpbuffer: Long, nbufferlength: UInt, bwatchsubtree: BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: Long, lpoverlapped: Long, lpcompletionroutine: LPOVERLAPPED_COMPLETION_ROUTINE, readdirectorynotifyinformationclass: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "ReadDirectoryChangesExW", longArrayOf(hdirectory, lpbuffer, nbufferlength.toLong(), bwatchsubtree.toLong(), dwnotifyfilter.toLong(), lpbytesreturned, lpoverlapped, Win32DynamicFfi.objectSlot(lpcompletionroutine), readdirectorynotifyinformationclass.toLong())).toInt()
 }
 
-public fun ReadDirectoryChangesW(hdirectory: Foundation.HANDLE, lpbuffer: Long, nbufferlength: UInt, bwatchsubtree: BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: Long, lpoverlapped: Long, lpcompletionroutine: System.IO.LPOVERLAPPED_COMPLETION_ROUTINE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "ReadDirectoryChangesW", longArrayOf(Win32DynamicFfi.objectSlot(hdirectory), lpbuffer, nbufferlength.toLong(), bwatchsubtree.toLong(), dwnotifyfilter.toLong(), lpbytesreturned, lpoverlapped, Win32DynamicFfi.objectSlot(lpcompletionroutine))).toInt()
+public fun ReadDirectoryChangesW(hdirectory: HANDLE, lpbuffer: Long, nbufferlength: UInt, bwatchsubtree: BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: Long, lpoverlapped: Long, lpcompletionroutine: LPOVERLAPPED_COMPLETION_ROUTINE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "ReadDirectoryChangesW", longArrayOf(hdirectory, lpbuffer, nbufferlength.toLong(), bwatchsubtree.toLong(), dwnotifyfilter.toLong(), lpbytesreturned, lpoverlapped, Win32DynamicFfi.objectSlot(lpcompletionroutine))).toInt()
 }
 
 public fun ReadEncryptedFileRaw(pfexportcallback: PFE_EXPORT_FUNC, pvcallbackcontext: Long, pvcontext: Long): UInt {
     return Win32DynamicFfi.invoke("advapi32.dll", "ReadEncryptedFileRaw", longArrayOf(Win32DynamicFfi.objectSlot(pfexportcallback), pvcallbackcontext, pvcontext)).toUInt()
 }
 
-public fun ReadFile(hfile: Foundation.HANDLE, lpbuffer: Long, nnumberofbytestoread: UInt, lpnumberofbytesread: Long, lpoverlapped: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "ReadFile", longArrayOf(Win32DynamicFfi.objectSlot(hfile), lpbuffer, nnumberofbytestoread.toLong(), lpnumberofbytesread, lpoverlapped)).toInt()
+public fun ReadFile(hfile: HANDLE, lpbuffer: Long, nnumberofbytestoread: UInt, lpnumberofbytesread: Long, lpoverlapped: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "ReadFile", longArrayOf(hfile, lpbuffer, nnumberofbytestoread.toLong(), lpnumberofbytesread, lpoverlapped)).toInt()
 }
 
-public fun ReadFileEx(hfile: Foundation.HANDLE, lpbuffer: Long, nnumberofbytestoread: UInt, lpoverlapped: Long, lpcompletionroutine: System.IO.LPOVERLAPPED_COMPLETION_ROUTINE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "ReadFileEx", longArrayOf(Win32DynamicFfi.objectSlot(hfile), lpbuffer, nnumberofbytestoread.toLong(), lpoverlapped, Win32DynamicFfi.objectSlot(lpcompletionroutine))).toInt()
+public fun ReadFileEx(hfile: HANDLE, lpbuffer: Long, nnumberofbytestoread: UInt, lpoverlapped: Long, lpcompletionroutine: LPOVERLAPPED_COMPLETION_ROUTINE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "ReadFileEx", longArrayOf(hfile, lpbuffer, nnumberofbytestoread.toLong(), lpoverlapped, Win32DynamicFfi.objectSlot(lpcompletionroutine))).toInt()
 }
 
-public fun ReadFileScatter(hfile: Foundation.HANDLE, asegmentarray: Long, nnumberofbytestoread: UInt, lpreserved: Long, lpoverlapped: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "ReadFileScatter", longArrayOf(Win32DynamicFfi.objectSlot(hfile), asegmentarray, nnumberofbytestoread.toLong(), lpreserved, lpoverlapped)).toInt()
+public fun ReadFileScatter(hfile: HANDLE, asegmentarray: Long, nnumberofbytestoread: UInt, lpreserved: Long, lpoverlapped: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "ReadFileScatter", longArrayOf(hfile, asegmentarray, nnumberofbytestoread.toLong(), lpreserved, lpoverlapped)).toInt()
 }
 
 public fun ReadLogArchiveMetadata(pvarchivecontext: Long, cboffset: UInt, cbbytestoread: UInt, pbreadbuffer: Long, pcbbytesread: Long): BOOL {
     return Win32DynamicFfi.invoke("clfsw32.dll", "ReadLogArchiveMetadata", longArrayOf(pvarchivecontext, cboffset.toLong(), cbbytestoread.toLong(), pbreadbuffer, pcbbytesread)).toInt()
 }
 
-public fun ReadLogNotification(hlog: Foundation.HANDLE, pnotification: Long, lpoverlapped: Long): BOOL {
-    return Win32DynamicFfi.invoke("clfsw32.dll", "ReadLogNotification", longArrayOf(Win32DynamicFfi.objectSlot(hlog), pnotification, lpoverlapped)).toInt()
+public fun ReadLogNotification(hlog: HANDLE, pnotification: Long, lpoverlapped: Long): BOOL {
+    return Win32DynamicFfi.invoke("clfsw32.dll", "ReadLogNotification", longArrayOf(hlog, pnotification, lpoverlapped)).toInt()
 }
 
 public fun ReadLogRecord(pvmarshal: Long, plsnfirst: Long, econtextmode: CLFS_CONTEXT_MODE, ppvreadbuffer: Long, pcbreadbuffer: Long, perecordtype: Long, plsnundonext: Long, plsnprevious: Long, ppvreadcontext: Long, poverlapped: Long): BOOL {
@@ -1287,32 +1253,32 @@ public fun ReadNextLogRecord(pvreadcontext: Long, ppvbuffer: Long, pcbbuffer: Lo
     return Win32DynamicFfi.invoke("clfsw32.dll", "ReadNextLogRecord", longArrayOf(pvreadcontext, ppvbuffer, pcbbuffer, perecordtype, plsnuser, plsnundonext, plsnprevious, plsnrecord, poverlapped)).toInt()
 }
 
-public fun ReadOnlyEnlistment(enlistmenthandle: Foundation.HANDLE, tmvirtualclock: Long): BOOL {
-    return Win32DynamicFfi.invoke("ktmw32.dll", "ReadOnlyEnlistment", longArrayOf(Win32DynamicFfi.objectSlot(enlistmenthandle), tmvirtualclock)).toInt()
+public fun ReadOnlyEnlistment(enlistmenthandle: HANDLE, tmvirtualclock: Long): BOOL {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "ReadOnlyEnlistment", longArrayOf(enlistmenthandle, tmvirtualclock)).toInt()
 }
 
 public fun ReadPreviousLogRestartArea(pvreadcontext: Long, ppvrestartbuffer: Long, pcbrestartbuffer: Long, plsnrestart: Long, poverlapped: Long): BOOL {
     return Win32DynamicFfi.invoke("clfsw32.dll", "ReadPreviousLogRestartArea", longArrayOf(pvreadcontext, ppvrestartbuffer, pcbrestartbuffer, plsnrestart, poverlapped)).toInt()
 }
 
-public fun RecoverEnlistment(enlistmenthandle: Foundation.HANDLE, enlistmentkey: Long): BOOL {
-    return Win32DynamicFfi.invoke("ktmw32.dll", "RecoverEnlistment", longArrayOf(Win32DynamicFfi.objectSlot(enlistmenthandle), enlistmentkey)).toInt()
+public fun RecoverEnlistment(enlistmenthandle: HANDLE, enlistmentkey: Long): BOOL {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "RecoverEnlistment", longArrayOf(enlistmenthandle, enlistmentkey)).toInt()
 }
 
-public fun RecoverResourceManager(resourcemanagerhandle: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("ktmw32.dll", "RecoverResourceManager", longArrayOf(Win32DynamicFfi.objectSlot(resourcemanagerhandle))).toInt()
+public fun RecoverResourceManager(resourcemanagerhandle: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "RecoverResourceManager", longArrayOf(resourcemanagerhandle)).toInt()
 }
 
-public fun RecoverTransactionManager(transactionmanagerhandle: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("ktmw32.dll", "RecoverTransactionManager", longArrayOf(Win32DynamicFfi.objectSlot(transactionmanagerhandle))).toInt()
+public fun RecoverTransactionManager(transactionmanagerhandle: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "RecoverTransactionManager", longArrayOf(transactionmanagerhandle)).toInt()
 }
 
-public fun RegisterForLogWriteNotification(hlog: Foundation.HANDLE, cbthreshold: UInt, fenable: BOOL): BOOL {
-    return Win32DynamicFfi.invoke("clfsw32.dll", "RegisterForLogWriteNotification", longArrayOf(Win32DynamicFfi.objectSlot(hlog), cbthreshold.toLong(), fenable.toLong())).toInt()
+public fun RegisterForLogWriteNotification(hlog: HANDLE, cbthreshold: UInt, fenable: BOOL): BOOL {
+    return Win32DynamicFfi.invoke("clfsw32.dll", "RegisterForLogWriteNotification", longArrayOf(hlog, cbthreshold.toLong(), fenable.toLong())).toInt()
 }
 
-public fun RegisterManageableLogClient(hlog: Foundation.HANDLE, pcallbacks: Long): BOOL {
-    return Win32DynamicFfi.invoke("clfsw32.dll", "RegisterManageableLogClient", longArrayOf(Win32DynamicFfi.objectSlot(hlog), pcallbacks)).toInt()
+public fun RegisterManageableLogClient(hlog: HANDLE, pcallbacks: Long): BOOL {
+    return Win32DynamicFfi.invoke("clfsw32.dll", "RegisterManageableLogClient", longArrayOf(hlog, pcallbacks)).toInt()
 }
 
 public fun RemoveDirectoryA(lppathname: PCSTR): BOOL {
@@ -1323,28 +1289,28 @@ public fun RemoveDirectoryFromAppW(lppathname: PCWSTR): BOOL {
     return Win32DynamicFfi.invoke("api-ms-win-core-file-fromapp-l1-1-0.dll", "RemoveDirectoryFromAppW", longArrayOf(lppathname)).toInt()
 }
 
-public fun RemoveDirectoryTransactedA(lppathname: PCSTR, htransaction: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "RemoveDirectoryTransactedA", longArrayOf(lppathname, Win32DynamicFfi.objectSlot(htransaction))).toInt()
+public fun RemoveDirectoryTransactedA(lppathname: PCSTR, htransaction: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "RemoveDirectoryTransactedA", longArrayOf(lppathname, htransaction)).toInt()
 }
 
-public fun RemoveDirectoryTransactedW(lppathname: PCWSTR, htransaction: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "RemoveDirectoryTransactedW", longArrayOf(lppathname, Win32DynamicFfi.objectSlot(htransaction))).toInt()
+public fun RemoveDirectoryTransactedW(lppathname: PCWSTR, htransaction: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "RemoveDirectoryTransactedW", longArrayOf(lppathname, htransaction)).toInt()
 }
 
 public fun RemoveDirectoryW(lppathname: PCWSTR): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "RemoveDirectoryW", longArrayOf(lppathname)).toInt()
 }
 
-public fun RemoveLogContainer(hlog: Foundation.HANDLE, pwszcontainerpath: PCWSTR, fforce: BOOL, preserved: Long): BOOL {
-    return Win32DynamicFfi.invoke("clfsw32.dll", "RemoveLogContainer", longArrayOf(Win32DynamicFfi.objectSlot(hlog), pwszcontainerpath, fforce.toLong(), preserved)).toInt()
+public fun RemoveLogContainer(hlog: HANDLE, pwszcontainerpath: PCWSTR, fforce: BOOL, preserved: Long): BOOL {
+    return Win32DynamicFfi.invoke("clfsw32.dll", "RemoveLogContainer", longArrayOf(hlog, pwszcontainerpath, fforce.toLong(), preserved)).toInt()
 }
 
-public fun RemoveLogContainerSet(hlog: Foundation.HANDLE, ccontainer: UShort, rgwszcontainerpath: Long, fforce: BOOL, preserved: Long): BOOL {
-    return Win32DynamicFfi.invoke("clfsw32.dll", "RemoveLogContainerSet", longArrayOf(Win32DynamicFfi.objectSlot(hlog), ccontainer.toLong(), rgwszcontainerpath, fforce.toLong(), preserved)).toInt()
+public fun RemoveLogContainerSet(hlog: HANDLE, ccontainer: UShort, rgwszcontainerpath: Long, fforce: BOOL, preserved: Long): BOOL {
+    return Win32DynamicFfi.invoke("clfsw32.dll", "RemoveLogContainerSet", longArrayOf(hlog, ccontainer.toLong(), rgwszcontainerpath, fforce.toLong(), preserved)).toInt()
 }
 
-public fun RemoveLogPolicy(hlog: Foundation.HANDLE, epolicytype: CLFS_MGMT_POLICY_TYPE): BOOL {
-    return Win32DynamicFfi.invoke("clfsw32.dll", "RemoveLogPolicy", longArrayOf(Win32DynamicFfi.objectSlot(hlog), epolicytype.toLong())).toInt()
+public fun RemoveLogPolicy(hlog: HANDLE, epolicytype: CLFS_MGMT_POLICY_TYPE): BOOL {
+    return Win32DynamicFfi.invoke("clfsw32.dll", "RemoveLogPolicy", longArrayOf(hlog, epolicytype.toLong())).toInt()
 }
 
 public fun RemoveUsersFromEncryptedFile(lpfilename: PCWSTR, phashes: Long): UInt {
@@ -1375,24 +1341,24 @@ public fun ReserveAndAppendLogAligned(pvmarshal: Long, rgwriteentries: Long, cwr
     return Win32DynamicFfi.invoke("clfsw32.dll", "ReserveAndAppendLogAligned", longArrayOf(pvmarshal, rgwriteentries, cwriteentries.toLong(), cbentryalignment.toLong(), plsnundonext, plsnprevious, creserverecords.toLong(), rgcbreservation, fflags.toLong(), plsn, poverlapped)).toInt()
 }
 
-public fun RollbackComplete(enlistmenthandle: Foundation.HANDLE, tmvirtualclock: Long): BOOL {
-    return Win32DynamicFfi.invoke("ktmw32.dll", "RollbackComplete", longArrayOf(Win32DynamicFfi.objectSlot(enlistmenthandle), tmvirtualclock)).toInt()
+public fun RollbackComplete(enlistmenthandle: HANDLE, tmvirtualclock: Long): BOOL {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "RollbackComplete", longArrayOf(enlistmenthandle, tmvirtualclock)).toInt()
 }
 
-public fun RollbackEnlistment(enlistmenthandle: Foundation.HANDLE, tmvirtualclock: Long): BOOL {
-    return Win32DynamicFfi.invoke("ktmw32.dll", "RollbackEnlistment", longArrayOf(Win32DynamicFfi.objectSlot(enlistmenthandle), tmvirtualclock)).toInt()
+public fun RollbackEnlistment(enlistmenthandle: HANDLE, tmvirtualclock: Long): BOOL {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "RollbackEnlistment", longArrayOf(enlistmenthandle, tmvirtualclock)).toInt()
 }
 
-public fun RollbackTransaction(transactionhandle: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("ktmw32.dll", "RollbackTransaction", longArrayOf(Win32DynamicFfi.objectSlot(transactionhandle))).toInt()
+public fun RollbackTransaction(transactionhandle: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "RollbackTransaction", longArrayOf(transactionhandle)).toInt()
 }
 
-public fun RollbackTransactionAsync(transactionhandle: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("ktmw32.dll", "RollbackTransactionAsync", longArrayOf(Win32DynamicFfi.objectSlot(transactionhandle))).toInt()
+public fun RollbackTransactionAsync(transactionhandle: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "RollbackTransactionAsync", longArrayOf(transactionhandle)).toInt()
 }
 
-public fun RollforwardTransactionManager(transactionmanagerhandle: Foundation.HANDLE, tmvirtualclock: Long): BOOL {
-    return Win32DynamicFfi.invoke("ktmw32.dll", "RollforwardTransactionManager", longArrayOf(Win32DynamicFfi.objectSlot(transactionmanagerhandle), tmvirtualclock)).toInt()
+public fun RollforwardTransactionManager(transactionmanagerhandle: HANDLE, tmvirtualclock: Long): BOOL {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "RollforwardTransactionManager", longArrayOf(transactionmanagerhandle, tmvirtualclock)).toInt()
 }
 
 public fun ScanLogContainers(pcxscan: Long, escanmode: UByte, preserved: Long): BOOL {
@@ -1411,16 +1377,16 @@ public fun SetEncryptedFileMetadata(lpfilename: PCWSTR, pboldmetadata: Long, pbn
     return Win32DynamicFfi.invoke("advapi32.dll", "SetEncryptedFileMetadata", longArrayOf(lpfilename, pboldmetadata, pbnewmetadata, pownerhash, dwoperation.toLong(), pcertificatesadded)).toUInt()
 }
 
-public fun SetEndOfFile(hfile: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetEndOfFile", longArrayOf(Win32DynamicFfi.objectSlot(hfile))).toInt()
+public fun SetEndOfFile(hfile: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetEndOfFile", longArrayOf(hfile)).toInt()
 }
 
-public fun SetEndOfLog(hlog: Foundation.HANDLE, plsnend: Long, lpoverlapped: Long): BOOL {
-    return Win32DynamicFfi.invoke("clfsw32.dll", "SetEndOfLog", longArrayOf(Win32DynamicFfi.objectSlot(hlog), plsnend, lpoverlapped)).toInt()
+public fun SetEndOfLog(hlog: HANDLE, plsnend: Long, lpoverlapped: Long): BOOL {
+    return Win32DynamicFfi.invoke("clfsw32.dll", "SetEndOfLog", longArrayOf(hlog, plsnend, lpoverlapped)).toInt()
 }
 
-public fun SetEnlistmentRecoveryInformation(enlistmenthandle: Foundation.HANDLE, buffersize: UInt, buffer: Long): BOOL {
-    return Win32DynamicFfi.invoke("ktmw32.dll", "SetEnlistmentRecoveryInformation", longArrayOf(Win32DynamicFfi.objectSlot(enlistmenthandle), buffersize.toLong(), buffer)).toInt()
+public fun SetEnlistmentRecoveryInformation(enlistmenthandle: HANDLE, buffersize: UInt, buffer: Long): BOOL {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "SetEnlistmentRecoveryInformation", longArrayOf(enlistmenthandle, buffersize.toLong(), buffer)).toInt()
 }
 
 public fun SetFileApisToANSI() {
@@ -1439,92 +1405,92 @@ public fun SetFileAttributesFromAppW(lpfilename: PCWSTR, dwfileattributes: UInt)
     return Win32DynamicFfi.invoke("api-ms-win-core-file-fromapp-l1-1-0.dll", "SetFileAttributesFromAppW", longArrayOf(lpfilename, dwfileattributes.toLong())).toInt()
 }
 
-public fun SetFileAttributesTransactedA(lpfilename: PCSTR, dwfileattributes: UInt, htransaction: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetFileAttributesTransactedA", longArrayOf(lpfilename, dwfileattributes.toLong(), Win32DynamicFfi.objectSlot(htransaction))).toInt()
+public fun SetFileAttributesTransactedA(lpfilename: PCSTR, dwfileattributes: UInt, htransaction: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetFileAttributesTransactedA", longArrayOf(lpfilename, dwfileattributes.toLong(), htransaction)).toInt()
 }
 
-public fun SetFileAttributesTransactedW(lpfilename: PCWSTR, dwfileattributes: UInt, htransaction: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetFileAttributesTransactedW", longArrayOf(lpfilename, dwfileattributes.toLong(), Win32DynamicFfi.objectSlot(htransaction))).toInt()
+public fun SetFileAttributesTransactedW(lpfilename: PCWSTR, dwfileattributes: UInt, htransaction: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetFileAttributesTransactedW", longArrayOf(lpfilename, dwfileattributes.toLong(), htransaction)).toInt()
 }
 
 public fun SetFileAttributesW(lpfilename: PCWSTR, dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "SetFileAttributesW", longArrayOf(lpfilename, dwfileattributes.toLong())).toInt()
 }
 
-public fun SetFileBandwidthReservation(hfile: Foundation.HANDLE, nperiodmilliseconds: UInt, nbytesperperiod: UInt, bdiscardable: BOOL, lptransfersize: Long, lpnumoutstandingrequests: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetFileBandwidthReservation", longArrayOf(Win32DynamicFfi.objectSlot(hfile), nperiodmilliseconds.toLong(), nbytesperperiod.toLong(), bdiscardable.toLong(), lptransfersize, lpnumoutstandingrequests)).toInt()
+public fun SetFileBandwidthReservation(hfile: HANDLE, nperiodmilliseconds: UInt, nbytesperperiod: UInt, bdiscardable: BOOL, lptransfersize: Long, lpnumoutstandingrequests: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetFileBandwidthReservation", longArrayOf(hfile, nperiodmilliseconds.toLong(), nbytesperperiod.toLong(), bdiscardable.toLong(), lptransfersize, lpnumoutstandingrequests)).toInt()
 }
 
-public fun SetFileCompletionNotificationModes(filehandle: Foundation.HANDLE, flags: UByte): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetFileCompletionNotificationModes", longArrayOf(Win32DynamicFfi.objectSlot(filehandle), flags.toLong())).toInt()
+public fun SetFileCompletionNotificationModes(filehandle: HANDLE, flags: UByte): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetFileCompletionNotificationModes", longArrayOf(filehandle, flags.toLong())).toInt()
 }
 
-public fun SetFileInformationByHandle(hfile: Foundation.HANDLE, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: Long, dwbuffersize: UInt): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetFileInformationByHandle", longArrayOf(Win32DynamicFfi.objectSlot(hfile), fileinformationclass.toLong(), lpfileinformation, dwbuffersize.toLong())).toInt()
+public fun SetFileInformationByHandle(hfile: HANDLE, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: Long, dwbuffersize: UInt): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetFileInformationByHandle", longArrayOf(hfile, fileinformationclass.toLong(), lpfileinformation, dwbuffersize.toLong())).toInt()
 }
 
-public fun SetFileIoOverlappedRange(filehandle: Foundation.HANDLE, overlappedrangestart: Long, length: UInt): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetFileIoOverlappedRange", longArrayOf(Win32DynamicFfi.objectSlot(filehandle), overlappedrangestart, length.toLong())).toInt()
+public fun SetFileIoOverlappedRange(filehandle: HANDLE, overlappedrangestart: Long, length: UInt): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetFileIoOverlappedRange", longArrayOf(filehandle, overlappedrangestart, length.toLong())).toInt()
 }
 
-public fun SetFilePointer(hfile: Foundation.HANDLE, ldistancetomove: Int, lpdistancetomovehigh: Long, dwmovemethod: SET_FILE_POINTER_MOVE_METHOD): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetFilePointer", longArrayOf(Win32DynamicFfi.objectSlot(hfile), ldistancetomove.toLong(), lpdistancetomovehigh, dwmovemethod.toLong())).toUInt()
+public fun SetFilePointer(hfile: HANDLE, ldistancetomove: Int, lpdistancetomovehigh: Long, dwmovemethod: SET_FILE_POINTER_MOVE_METHOD): UInt {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetFilePointer", longArrayOf(hfile, ldistancetomove.toLong(), lpdistancetomovehigh, dwmovemethod.toLong())).toUInt()
 }
 
-public fun SetFilePointerEx(hfile: Foundation.HANDLE, lidistancetomove: Long, lpnewfilepointer: Long, dwmovemethod: SET_FILE_POINTER_MOVE_METHOD): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetFilePointerEx", longArrayOf(Win32DynamicFfi.objectSlot(hfile), lidistancetomove, lpnewfilepointer, dwmovemethod.toLong())).toInt()
+public fun SetFilePointerEx(hfile: HANDLE, lidistancetomove: Long, lpnewfilepointer: Long, dwmovemethod: SET_FILE_POINTER_MOVE_METHOD): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetFilePointerEx", longArrayOf(hfile, lidistancetomove, lpnewfilepointer, dwmovemethod.toLong())).toInt()
 }
 
-public fun SetFileShortNameA(hfile: Foundation.HANDLE, lpshortname: PCSTR): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetFileShortNameA", longArrayOf(Win32DynamicFfi.objectSlot(hfile), lpshortname)).toInt()
+public fun SetFileShortNameA(hfile: HANDLE, lpshortname: PCSTR): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetFileShortNameA", longArrayOf(hfile, lpshortname)).toInt()
 }
 
-public fun SetFileShortNameW(hfile: Foundation.HANDLE, lpshortname: PCWSTR): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetFileShortNameW", longArrayOf(Win32DynamicFfi.objectSlot(hfile), lpshortname)).toInt()
+public fun SetFileShortNameW(hfile: HANDLE, lpshortname: PCWSTR): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetFileShortNameW", longArrayOf(hfile, lpshortname)).toInt()
 }
 
-public fun SetFileTime(hfile: Foundation.HANDLE, lpcreationtime: Long, lplastaccesstime: Long, lplastwritetime: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetFileTime", longArrayOf(Win32DynamicFfi.objectSlot(hfile), lpcreationtime, lplastaccesstime, lplastwritetime)).toInt()
+public fun SetFileTime(hfile: HANDLE, lpcreationtime: Long, lplastaccesstime: Long, lplastwritetime: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetFileTime", longArrayOf(hfile, lpcreationtime, lplastaccesstime, lplastwritetime)).toInt()
 }
 
-public fun SetFileValidData(hfile: Foundation.HANDLE, validdatalength: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetFileValidData", longArrayOf(Win32DynamicFfi.objectSlot(hfile), validdatalength)).toInt()
+public fun SetFileValidData(hfile: HANDLE, validdatalength: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetFileValidData", longArrayOf(hfile, validdatalength)).toInt()
 }
 
-public fun SetIoRingCompletionEvent(ioring: HIORING, hevent: Foundation.HANDLE): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-core-ioring-l1-1-0.dll", "SetIoRingCompletionEvent", longArrayOf(ioring, Win32DynamicFfi.objectSlot(hevent))).toInt()
+public fun SetIoRingCompletionEvent(ioring: HIORING, hevent: HANDLE): HRESULT {
+    return Win32DynamicFfi.invoke("api-ms-win-core-ioring-l1-1-0.dll", "SetIoRingCompletionEvent", longArrayOf(ioring, hevent)).toInt()
 }
 
-public fun SetLogArchiveMode(hlog: Foundation.HANDLE, emode: CLFS_LOG_ARCHIVE_MODE): BOOL {
-    return Win32DynamicFfi.invoke("clfsw32.dll", "SetLogArchiveMode", longArrayOf(Win32DynamicFfi.objectSlot(hlog), emode.toLong())).toInt()
+public fun SetLogArchiveMode(hlog: HANDLE, emode: CLFS_LOG_ARCHIVE_MODE): BOOL {
+    return Win32DynamicFfi.invoke("clfsw32.dll", "SetLogArchiveMode", longArrayOf(hlog, emode.toLong())).toInt()
 }
 
-public fun SetLogArchiveTail(hlog: Foundation.HANDLE, plsnarchivetail: Long, preserved: Long): BOOL {
-    return Win32DynamicFfi.invoke("clfsw32.dll", "SetLogArchiveTail", longArrayOf(Win32DynamicFfi.objectSlot(hlog), plsnarchivetail, preserved)).toInt()
+public fun SetLogArchiveTail(hlog: HANDLE, plsnarchivetail: Long, preserved: Long): BOOL {
+    return Win32DynamicFfi.invoke("clfsw32.dll", "SetLogArchiveTail", longArrayOf(hlog, plsnarchivetail, preserved)).toInt()
 }
 
-public fun SetLogFileSizeWithPolicy(hlog: Foundation.HANDLE, pdesiredsize: Long, presultingsize: Long): BOOL {
-    return Win32DynamicFfi.invoke("clfsw32.dll", "SetLogFileSizeWithPolicy", longArrayOf(Win32DynamicFfi.objectSlot(hlog), pdesiredsize, presultingsize)).toInt()
+public fun SetLogFileSizeWithPolicy(hlog: HANDLE, pdesiredsize: Long, presultingsize: Long): BOOL {
+    return Win32DynamicFfi.invoke("clfsw32.dll", "SetLogFileSizeWithPolicy", longArrayOf(hlog, pdesiredsize, presultingsize)).toInt()
 }
 
-public fun SetResourceManagerCompletionPort(resourcemanagerhandle: Foundation.HANDLE, iocompletionporthandle: Foundation.HANDLE, completionkey: ULong): BOOL {
-    return Win32DynamicFfi.invoke("ktmw32.dll", "SetResourceManagerCompletionPort", longArrayOf(Win32DynamicFfi.objectSlot(resourcemanagerhandle), Win32DynamicFfi.objectSlot(iocompletionporthandle), completionkey.toLong())).toInt()
+public fun SetResourceManagerCompletionPort(resourcemanagerhandle: HANDLE, iocompletionporthandle: HANDLE, completionkey: ULong): BOOL {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "SetResourceManagerCompletionPort", longArrayOf(resourcemanagerhandle, iocompletionporthandle, completionkey.toLong())).toInt()
 }
 
 public fun SetSearchPathMode(flags: UInt): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "SetSearchPathMode", longArrayOf(flags.toLong())).toInt()
 }
 
-public fun SetTapeParameters(hdevice: Foundation.HANDLE, dwoperation: TAPE_INFORMATION_TYPE, lptapeinformation: Long): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetTapeParameters", longArrayOf(Win32DynamicFfi.objectSlot(hdevice), dwoperation.toLong(), lptapeinformation)).toUInt()
+public fun SetTapeParameters(hdevice: HANDLE, dwoperation: TAPE_INFORMATION_TYPE, lptapeinformation: Long): UInt {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetTapeParameters", longArrayOf(hdevice, dwoperation.toLong(), lptapeinformation)).toUInt()
 }
 
-public fun SetTapePosition(hdevice: Foundation.HANDLE, dwpositionmethod: TAPE_POSITION_METHOD, dwpartition: UInt, dwoffsetlow: UInt, dwoffsethigh: UInt, bimmediate: BOOL): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetTapePosition", longArrayOf(Win32DynamicFfi.objectSlot(hdevice), dwpositionmethod.toLong(), dwpartition.toLong(), dwoffsetlow.toLong(), dwoffsethigh.toLong(), bimmediate.toLong())).toUInt()
+public fun SetTapePosition(hdevice: HANDLE, dwpositionmethod: TAPE_POSITION_METHOD, dwpartition: UInt, dwoffsetlow: UInt, dwoffsethigh: UInt, bimmediate: BOOL): UInt {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetTapePosition", longArrayOf(hdevice, dwpositionmethod.toLong(), dwpartition.toLong(), dwoffsetlow.toLong(), dwoffsethigh.toLong(), bimmediate.toLong())).toUInt()
 }
 
-public fun SetTransactionInformation(transactionhandle: Foundation.HANDLE, isolationlevel: UInt, isolationflags: UInt, timeout: UInt, description: PCWSTR): BOOL {
-    return Win32DynamicFfi.invoke("ktmw32.dll", "SetTransactionInformation", longArrayOf(Win32DynamicFfi.objectSlot(transactionhandle), isolationlevel.toLong(), isolationflags.toLong(), timeout.toLong(), description)).toInt()
+public fun SetTransactionInformation(transactionhandle: HANDLE, isolationlevel: UInt, isolationflags: UInt, timeout: UInt, description: PCWSTR): BOOL {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "SetTransactionInformation", longArrayOf(transactionhandle, isolationlevel.toLong(), isolationflags.toLong(), timeout.toLong(), description)).toInt()
 }
 
 public fun SetUserFileEncryptionKey(pencryptioncertificate: Long): UInt {
@@ -1551,8 +1517,8 @@ public fun SetVolumeMountPointW(lpszvolumemountpoint: PCWSTR, lpszvolumename: PC
     return Win32DynamicFfi.invoke("kernel32.dll", "SetVolumeMountPointW", longArrayOf(lpszvolumemountpoint, lpszvolumename)).toInt()
 }
 
-public fun SinglePhaseReject(enlistmenthandle: Foundation.HANDLE, tmvirtualclock: Long): BOOL {
-    return Win32DynamicFfi.invoke("ktmw32.dll", "SinglePhaseReject", longArrayOf(Win32DynamicFfi.objectSlot(enlistmenthandle), tmvirtualclock)).toInt()
+public fun SinglePhaseReject(enlistmenthandle: HANDLE, tmvirtualclock: Long): BOOL {
+    return Win32DynamicFfi.invoke("ktmw32.dll", "SinglePhaseReject", longArrayOf(enlistmenthandle, tmvirtualclock)).toInt()
 }
 
 public fun SubmitIoRing(ioring: HIORING, waitoperations: UInt, milliseconds: UInt, submittedentries: Long): HRESULT {
@@ -1599,20 +1565,20 @@ public fun TxfLogRecordGetGenericType(recordbuffer: Long, recordbufferlengthinby
     return Win32DynamicFfi.invoke("txfw32.dll", "TxfLogRecordGetGenericType", longArrayOf(recordbuffer, recordbufferlengthinbytes.toLong(), generictype, virtualclock)).toInt()
 }
 
-public fun TxfReadMetadataInfo(filehandle: Foundation.HANDLE, txffileid: Long, lastlsn: Long, transactionstate: Long, lockingtransaction: Long): BOOL {
-    return Win32DynamicFfi.invoke("txfw32.dll", "TxfReadMetadataInfo", longArrayOf(Win32DynamicFfi.objectSlot(filehandle), txffileid, lastlsn, transactionstate, lockingtransaction)).toInt()
+public fun TxfReadMetadataInfo(filehandle: HANDLE, txffileid: Long, lastlsn: Long, transactionstate: Long, lockingtransaction: Long): BOOL {
+    return Win32DynamicFfi.invoke("txfw32.dll", "TxfReadMetadataInfo", longArrayOf(filehandle, txffileid, lastlsn, transactionstate, lockingtransaction)).toInt()
 }
 
 public fun TxfSetThreadMiniVersionForCreate(miniversion: UShort) {
     Win32DynamicFfi.invoke("txfw32.dll", "TxfSetThreadMiniVersionForCreate", longArrayOf(miniversion.toLong()))
 }
 
-public fun UnlockFile(hfile: Foundation.HANDLE, dwfileoffsetlow: UInt, dwfileoffsethigh: UInt, nnumberofbytestounlocklow: UInt, nnumberofbytestounlockhigh: UInt): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "UnlockFile", longArrayOf(Win32DynamicFfi.objectSlot(hfile), dwfileoffsetlow.toLong(), dwfileoffsethigh.toLong(), nnumberofbytestounlocklow.toLong(), nnumberofbytestounlockhigh.toLong())).toInt()
+public fun UnlockFile(hfile: HANDLE, dwfileoffsetlow: UInt, dwfileoffsethigh: UInt, nnumberofbytestounlocklow: UInt, nnumberofbytestounlockhigh: UInt): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "UnlockFile", longArrayOf(hfile, dwfileoffsetlow.toLong(), dwfileoffsethigh.toLong(), nnumberofbytestounlocklow.toLong(), nnumberofbytestounlockhigh.toLong())).toInt()
 }
 
-public fun UnlockFileEx(hfile: Foundation.HANDLE, dwreserved: UInt, nnumberofbytestounlocklow: UInt, nnumberofbytestounlockhigh: UInt, lpoverlapped: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "UnlockFileEx", longArrayOf(Win32DynamicFfi.objectSlot(hfile), dwreserved.toLong(), nnumberofbytestounlocklow.toLong(), nnumberofbytestounlockhigh.toLong(), lpoverlapped)).toInt()
+public fun UnlockFileEx(hfile: HANDLE, dwreserved: UInt, nnumberofbytestounlocklow: UInt, nnumberofbytestounlockhigh: UInt, lpoverlapped: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "UnlockFileEx", longArrayOf(hfile, dwreserved.toLong(), nnumberofbytestounlocklow.toLong(), nnumberofbytestounlockhigh.toLong(), lpoverlapped)).toInt()
 }
 
 public fun ValidateLog(pszlogfilename: PCWSTR, psalogfile: Long, pinfobuffer: Long, pcbbuffer: Long): BOOL {
@@ -1659,16 +1625,16 @@ public fun WofFileEnumFiles(volumename: PCWSTR, algorithm: UInt, enumproc: WofEn
     return Win32DynamicFfi.invoke("wofutil.dll", "WofFileEnumFiles", longArrayOf(volumename, algorithm.toLong(), Win32DynamicFfi.objectSlot(enumproc), userdata)).toInt()
 }
 
-public fun WofGetDriverVersion(fileorvolumehandle: Foundation.HANDLE, provider: UInt, wofversion: Long): HRESULT {
-    return Win32DynamicFfi.invoke("wofutil.dll", "WofGetDriverVersion", longArrayOf(Win32DynamicFfi.objectSlot(fileorvolumehandle), provider.toLong(), wofversion)).toInt()
+public fun WofGetDriverVersion(fileorvolumehandle: HANDLE, provider: UInt, wofversion: Long): HRESULT {
+    return Win32DynamicFfi.invoke("wofutil.dll", "WofGetDriverVersion", longArrayOf(fileorvolumehandle, provider.toLong(), wofversion)).toInt()
 }
 
 public fun WofIsExternalFile(filepath: PCWSTR, isexternalfile: Long, provider: Long, externalfileinfo: Long, bufferlength: Long): HRESULT {
     return Win32DynamicFfi.invoke("wofutil.dll", "WofIsExternalFile", longArrayOf(filepath, isexternalfile, provider, externalfileinfo, bufferlength)).toInt()
 }
 
-public fun WofSetFileDataLocation(filehandle: Foundation.HANDLE, provider: UInt, externalfileinfo: Long, length: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("wofutil.dll", "WofSetFileDataLocation", longArrayOf(Win32DynamicFfi.objectSlot(filehandle), provider.toLong(), externalfileinfo, length.toLong())).toInt()
+public fun WofSetFileDataLocation(filehandle: HANDLE, provider: UInt, externalfileinfo: Long, length: UInt): HRESULT {
+    return Win32DynamicFfi.invoke("wofutil.dll", "WofSetFileDataLocation", longArrayOf(filehandle, provider.toLong(), externalfileinfo, length.toLong())).toInt()
 }
 
 public fun WofShouldCompressBinaries(volume: PCWSTR, algorithm: Long): BOOL {
@@ -1712,22 +1678,22 @@ public fun WriteEncryptedFileRaw(pfimportcallback: PFE_IMPORT_FUNC, pvcallbackco
     return Win32DynamicFfi.invoke("advapi32.dll", "WriteEncryptedFileRaw", longArrayOf(Win32DynamicFfi.objectSlot(pfimportcallback), pvcallbackcontext, pvcontext)).toUInt()
 }
 
-public fun WriteFile(hfile: Foundation.HANDLE, lpbuffer: Long, nnumberofbytestowrite: UInt, lpnumberofbyteswritten: Long, lpoverlapped: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WriteFile", longArrayOf(Win32DynamicFfi.objectSlot(hfile), lpbuffer, nnumberofbytestowrite.toLong(), lpnumberofbyteswritten, lpoverlapped)).toInt()
+public fun WriteFile(hfile: HANDLE, lpbuffer: Long, nnumberofbytestowrite: UInt, lpnumberofbyteswritten: Long, lpoverlapped: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "WriteFile", longArrayOf(hfile, lpbuffer, nnumberofbytestowrite.toLong(), lpnumberofbyteswritten, lpoverlapped)).toInt()
 }
 
-public fun WriteFileEx(hfile: Foundation.HANDLE, lpbuffer: Long, nnumberofbytestowrite: UInt, lpoverlapped: Long, lpcompletionroutine: System.IO.LPOVERLAPPED_COMPLETION_ROUTINE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WriteFileEx", longArrayOf(Win32DynamicFfi.objectSlot(hfile), lpbuffer, nnumberofbytestowrite.toLong(), lpoverlapped, Win32DynamicFfi.objectSlot(lpcompletionroutine))).toInt()
+public fun WriteFileEx(hfile: HANDLE, lpbuffer: Long, nnumberofbytestowrite: UInt, lpoverlapped: Long, lpcompletionroutine: LPOVERLAPPED_COMPLETION_ROUTINE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "WriteFileEx", longArrayOf(hfile, lpbuffer, nnumberofbytestowrite.toLong(), lpoverlapped, Win32DynamicFfi.objectSlot(lpcompletionroutine))).toInt()
 }
 
-public fun WriteFileGather(hfile: Foundation.HANDLE, asegmentarray: Long, nnumberofbytestowrite: UInt, lpreserved: Long, lpoverlapped: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WriteFileGather", longArrayOf(Win32DynamicFfi.objectSlot(hfile), asegmentarray, nnumberofbytestowrite.toLong(), lpreserved, lpoverlapped)).toInt()
+public fun WriteFileGather(hfile: HANDLE, asegmentarray: Long, nnumberofbytestowrite: UInt, lpreserved: Long, lpoverlapped: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "WriteFileGather", longArrayOf(hfile, asegmentarray, nnumberofbytestowrite.toLong(), lpreserved, lpoverlapped)).toInt()
 }
 
 public fun WriteLogRestartArea(pvmarshal: Long, pvrestartbuffer: Long, cbrestartbuffer: UInt, plsnbase: Long, fflags: CLFS_FLAG, pcbwritten: Long, plsnnext: Long, poverlapped: Long): BOOL {
     return Win32DynamicFfi.invoke("clfsw32.dll", "WriteLogRestartArea", longArrayOf(pvmarshal, pvrestartbuffer, cbrestartbuffer.toLong(), plsnbase, fflags.toLong(), pcbwritten, plsnnext, poverlapped)).toInt()
 }
 
-public fun WriteTapemark(hdevice: Foundation.HANDLE, dwtapemarktype: TAPEMARK_TYPE, dwtapemarkcount: UInt, bimmediate: BOOL): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WriteTapemark", longArrayOf(Win32DynamicFfi.objectSlot(hdevice), dwtapemarktype.toLong(), dwtapemarkcount.toLong(), bimmediate.toLong())).toUInt()
+public fun WriteTapemark(hdevice: HANDLE, dwtapemarktype: TAPEMARK_TYPE, dwtapemarkcount: UInt, bimmediate: BOOL): UInt {
+    return Win32DynamicFfi.invoke("kernel32.dll", "WriteTapemark", longArrayOf(hdevice, dwtapemarktype.toLong(), dwtapemarkcount.toLong(), bimmediate.toLong())).toUInt()
 }

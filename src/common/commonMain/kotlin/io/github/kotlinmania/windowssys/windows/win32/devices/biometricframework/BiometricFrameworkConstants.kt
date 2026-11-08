@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 
@@ -7,7 +8,7 @@ public val FACILITY_NONE: UInt = 0u
 
 public val FACILITY_WINBIO: UInt = 9u
 
-public val GUID_DEVINTERFACE_BIOMETRIC_READER: GUID = GUID.from_u128(0xe2b5183a99ea4cc3uL, 0xad6b80ca8d715b80uL)
+public val GUID_DEVINTERFACE_BIOMETRIC_READER: GUID = GUID.from_u128(U128(0xe2b5183a99ea4cc3uL, 0xad6b80ca8d715b80uL))
 
 public val IOCTL_BIOMETRIC_VENDOR: UInt = 4464640u
 

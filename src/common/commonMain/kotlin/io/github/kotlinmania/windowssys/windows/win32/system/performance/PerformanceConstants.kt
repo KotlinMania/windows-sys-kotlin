@@ -1,60 +1,61 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.performance
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.w
 
-public val AppearPropPage: GUID = GUID.from_u128(0xe49741e993a84ab1uL, 0x8e96bf4482282e9cuL)
+public val AppearPropPage: GUID = GUID.from_u128(U128(0xe49741e993a84ab1uL, 0x8e96bf4482282e9cuL))
 
-public val BootTraceSession: GUID = GUID.from_u128(0x3837538098b11d8uL, 0x9414505054503030uL)
+public val BootTraceSession: GUID = GUID.from_u128(U128(0x3837538098b11d8uL, 0x9414505054503030uL))
 
-public val BootTraceSessionCollection: GUID = GUID.from_u128(0x3837539098b11d8uL, 0x9414505054503030uL)
+public val BootTraceSessionCollection: GUID = GUID.from_u128(U128(0x3837539098b11d8uL, 0x9414505054503030uL))
 
-public val CounterItem: GUID = GUID.from_u128(0xc4d2d8e0d1dd11ceuL, 0x940f008029004348uL)
+public val CounterItem: GUID = GUID.from_u128(U128(0xc4d2d8e0d1dd11ceuL, 0x940f008029004348uL))
 
-public val CounterItem2: GUID = GUID.from_u128(0x43196c62c31f4ce3uL, 0xa02e79efe0f6a525uL)
+public val CounterItem2: GUID = GUID.from_u128(U128(0x43196c62c31f4ce3uL, 0xa02e79efe0f6a525uL))
 
-public val CounterPropPage: GUID = GUID.from_u128(0xcf948561ede811ceuL, 0x941e008029004347uL)
+public val CounterPropPage: GUID = GUID.from_u128(U128(0xcf948561ede811ceuL, 0x941e008029004347uL))
 
-public val Counters: GUID = GUID.from_u128(0xb2b066d22aac11cfuL, 0x942f008029004347uL)
+public val Counters: GUID = GUID.from_u128(U128(0xb2b066d22aac11cfuL, 0x942f008029004347uL))
 
 public val DATA_SOURCE_REGISTRY: REAL_TIME_DATA_SOURCE_ID_FLAGS = 1u
 
 public val DATA_SOURCE_WBEM: REAL_TIME_DATA_SOURCE_ID_FLAGS = 4u
 
-public val DIID_DICounterItem: GUID = GUID.from_u128(0xc08c4ff20e2e11cfuL, 0x942c008029004347uL)
+public val DIID_DICounterItem: GUID = GUID.from_u128(U128(0xc08c4ff20e2e11cfuL, 0x942c008029004347uL))
 
-public val DIID_DILogFileItem: GUID = GUID.from_u128(0x8d093ffcf7774917uL, 0x82d1833fbc54c58fuL)
+public val DIID_DILogFileItem: GUID = GUID.from_u128(U128(0x8d093ffcf7774917uL, 0x82d1833fbc54c58fuL))
 
-public val DIID_DISystemMonitor: GUID = GUID.from_u128(0x13d73d81c32e11cfuL, 0x939800aa00a3ddeauL)
+public val DIID_DISystemMonitor: GUID = GUID.from_u128(U128(0x13d73d81c32e11cfuL, 0x939800aa00a3ddeauL))
 
-public val DIID_DISystemMonitorEvents: GUID = GUID.from_u128(0x849799304ab311cfuL, 0x943a008029004347uL)
+public val DIID_DISystemMonitorEvents: GUID = GUID.from_u128(U128(0x849799304ab311cfuL, 0x943a008029004347uL))
 
-public val DIID_DISystemMonitorInternal: GUID = GUID.from_u128(0x194eb242c32c11cfuL, 0x939800aa00a3ddeauL)
+public val DIID_DISystemMonitorInternal: GUID = GUID.from_u128(U128(0x194eb242c32c11cfuL, 0x939800aa00a3ddeauL))
 
-public val DataCollectorSet: GUID = GUID.from_u128(0x3837521098b11d8uL, 0x9414505054503030uL)
+public val DataCollectorSet: GUID = GUID.from_u128(U128(0x3837521098b11d8uL, 0x9414505054503030uL))
 
-public val DataCollectorSetCollection: GUID = GUID.from_u128(0x3837525098b11d8uL, 0x9414505054503030uL)
+public val DataCollectorSetCollection: GUID = GUID.from_u128(U128(0x3837525098b11d8uL, 0x9414505054503030uL))
 
-public val GeneralPropPage: GUID = GUID.from_u128(0xc3e5d3d21a0311cfuL, 0x942d008029004347uL)
+public val GeneralPropPage: GUID = GUID.from_u128(U128(0xc3e5d3d21a0311cfuL, 0x942d008029004347uL))
 
-public val GraphPropPage: GUID = GUID.from_u128(0xc3e5d3d31a0311cfuL, 0x942d008029004347uL)
+public val GraphPropPage: GUID = GUID.from_u128(U128(0xc3e5d3d31a0311cfuL, 0x942d008029004347uL))
 
 public val H_WBEM_DATASOURCE: Int = -1
 
-public val LIBID_SystemMonitor: GUID = GUID.from_u128(0x1b773e42250911cfuL, 0x942f008029004347uL)
+public val LIBID_SystemMonitor: GUID = GUID.from_u128(U128(0x1b773e42250911cfuL, 0x942f008029004347uL))
 
-public val LegacyDataCollectorSet: GUID = GUID.from_u128(0x3837526098b11d8uL, 0x9414505054503030uL)
+public val LegacyDataCollectorSet: GUID = GUID.from_u128(U128(0x3837526098b11d8uL, 0x9414505054503030uL))
 
-public val LegacyDataCollectorSetCollection: GUID = GUID.from_u128(0x3837527098b11d8uL, 0x9414505054503030uL)
+public val LegacyDataCollectorSetCollection: GUID = GUID.from_u128(U128(0x3837527098b11d8uL, 0x9414505054503030uL))
 
-public val LegacyTraceSession: GUID = GUID.from_u128(0x3837528098b11d8uL, 0x9414505054503030uL)
+public val LegacyTraceSession: GUID = GUID.from_u128(U128(0x3837528098b11d8uL, 0x9414505054503030uL))
 
-public val LegacyTraceSessionCollection: GUID = GUID.from_u128(0x3837529098b11d8uL, 0x9414505054503030uL)
+public val LegacyTraceSessionCollection: GUID = GUID.from_u128(U128(0x3837529098b11d8uL, 0x9414505054503030uL))
 
-public val LogFileItem: GUID = GUID.from_u128(0x16ec5be8df934237uL, 0x94e49ee918111d71uL)
+public val LogFileItem: GUID = GUID.from_u128(U128(0x16ec5be8df934237uL, 0x94e49ee918111d71uL))
 
-public val LogFiles: GUID = GUID.from_u128(0x2735d9fdf6b94f19uL, 0xa5d9e2d068584bc5uL)
+public val LogFiles: GUID = GUID.from_u128(U128(0x2735d9fdf6b94f19uL, 0xa5d9e2d068584bc5uL))
 
 public val MAX_COUNTER_PATH: UInt = 256u
 
@@ -502,29 +503,29 @@ public val PLA_CAPABILITY_V1_SVC: UInt = 1u
 
 public val PLA_CAPABILITY_V1_SYSTEM: UInt = 4u
 
-public val S_PDH: GUID = GUID.from_u128(0x4d66358c4a1419buL, 0x802323b73902de2cuL)
+public val S_PDH: GUID = GUID.from_u128(U128(0x4d66358c4a1419buL, 0x802323b73902de2cuL))
 
-public val ServerDataCollectorSet: GUID = GUID.from_u128(0x3837531098b11d8uL, 0x9414505054503030uL)
+public val ServerDataCollectorSet: GUID = GUID.from_u128(U128(0x3837531098b11d8uL, 0x9414505054503030uL))
 
-public val ServerDataCollectorSetCollection: GUID = GUID.from_u128(0x3837532098b11d8uL, 0x9414505054503030uL)
+public val ServerDataCollectorSetCollection: GUID = GUID.from_u128(U128(0x3837532098b11d8uL, 0x9414505054503030uL))
 
-public val SourcePropPage: GUID = GUID.from_u128(0xcf32aa1757111d0uL, 0x93c400aa00a3ddeauL)
+public val SourcePropPage: GUID = GUID.from_u128(U128(0xcf32aa1757111d0uL, 0x93c400aa00a3ddeauL))
 
-public val SystemDataCollectorSet: GUID = GUID.from_u128(0x3837546098b11d8uL, 0x9414505054503030uL)
+public val SystemDataCollectorSet: GUID = GUID.from_u128(U128(0x3837546098b11d8uL, 0x9414505054503030uL))
 
-public val SystemDataCollectorSetCollection: GUID = GUID.from_u128(0x3837547098b11d8uL, 0x9414505054503030uL)
+public val SystemDataCollectorSetCollection: GUID = GUID.from_u128(U128(0x3837547098b11d8uL, 0x9414505054503030uL))
 
-public val SystemMonitor: GUID = GUID.from_u128(0xc4d2d8e0d1dd11ceuL, 0x940f008029004347uL)
+public val SystemMonitor: GUID = GUID.from_u128(U128(0xc4d2d8e0d1dd11ceuL, 0x940f008029004347uL))
 
-public val SystemMonitor2: GUID = GUID.from_u128(0x7f30578c5f384612uL, 0xacfe6ed04c7b7af8uL)
+public val SystemMonitor2: GUID = GUID.from_u128(U128(0x7f30578c5f384612uL, 0xacfe6ed04c7b7af8uL))
 
-public val TraceDataProvider: GUID = GUID.from_u128(0x3837513098b11d8uL, 0x9414505054503030uL)
+public val TraceDataProvider: GUID = GUID.from_u128(U128(0x3837513098b11d8uL, 0x9414505054503030uL))
 
-public val TraceDataProviderCollection: GUID = GUID.from_u128(0x3837511098b11d8uL, 0x9414505054503030uL)
+public val TraceDataProviderCollection: GUID = GUID.from_u128(U128(0x3837511098b11d8uL, 0x9414505054503030uL))
 
-public val TraceSession: GUID = GUID.from_u128(0x383751c098b11d8uL, 0x9414505054503030uL)
+public val TraceSession: GUID = GUID.from_u128(U128(0x383751c098b11d8uL, 0x9414505054503030uL))
 
-public val TraceSessionCollection: GUID = GUID.from_u128(0x3837530098b11d8uL, 0x9414505054503030uL)
+public val TraceSessionCollection: GUID = GUID.from_u128(U128(0x3837530098b11d8uL, 0x9414505054503030uL))
 
 public val WINPERF_LOG_DEBUG: UInt = 2u
 

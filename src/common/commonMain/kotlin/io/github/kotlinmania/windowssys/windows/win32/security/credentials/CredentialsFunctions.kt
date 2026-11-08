@@ -7,6 +7,9 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
 
 public fun CredDeleteA(targetname: PCSTR, type: CRED_TYPE, flags: UInt): BOOL {
     return Win32DynamicFfi.invoke("advapi32.dll", "CredDeleteA", longArrayOf(targetname, type.toLong(), flags.toLong())).toInt()
@@ -128,24 +131,20 @@ public fun CredUIConfirmCredentialsW(psztargetname: PCWSTR, bconfirm: BOOL): UIn
     return Win32DynamicFfi.invoke("credui.dll", "CredUIConfirmCredentialsW", longArrayOf(psztargetname, bconfirm.toLong())).toUInt()
 }
 
-public fun CredUIParseUserNameA(username: PCSTR, user: PSTR, userbuffersize: UInt, domain: PSTR, domainbuffersize: UInt): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("credui.dll", "CredUIParseUserNameA", longArrayOf(username, user, userbuffersize.toLong(), domain, domainbuffersize.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun CredUIParseUserNameA(username: PCSTR, user: PSTR, userbuffersize: UInt, domain: PSTR, domainbuffersize: UInt): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("credui.dll", "CredUIParseUserNameA", longArrayOf(username, user, userbuffersize.toLong(), domain, domainbuffersize.toLong())).toUInt()
 }
 
-public fun CredUIParseUserNameW(username: PCWSTR, user: PWSTR, userbuffersize: UInt, domain: PWSTR, domainbuffersize: UInt): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("credui.dll", "CredUIParseUserNameW", longArrayOf(username, user, userbuffersize.toLong(), domain, domainbuffersize.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun CredUIParseUserNameW(username: PCWSTR, user: PWSTR, userbuffersize: UInt, domain: PWSTR, domainbuffersize: UInt): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("credui.dll", "CredUIParseUserNameW", longArrayOf(username, user, userbuffersize.toLong(), domain, domainbuffersize.toLong())).toUInt()
 }
 
-public fun CredUIPromptForCredentialsA(puiinfo: Long, psztargetname: PCSTR, pcontext: Long, dwautherror: UInt, pszusername: PSTR, ulusernamebuffersize: UInt, pszpassword: PSTR, ulpasswordbuffersize: UInt, save: Long, dwflags: CREDUI_FLAGS): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("credui.dll", "CredUIPromptForCredentialsA", longArrayOf(puiinfo, psztargetname, pcontext, dwautherror.toLong(), pszusername, ulusernamebuffersize.toLong(), pszpassword, ulpasswordbuffersize.toLong(), save, dwflags.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun CredUIPromptForCredentialsA(puiinfo: Long, psztargetname: PCSTR, pcontext: Long, dwautherror: UInt, pszusername: PSTR, ulusernamebuffersize: UInt, pszpassword: PSTR, ulpasswordbuffersize: UInt, save: Long, dwflags: CREDUI_FLAGS): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("credui.dll", "CredUIPromptForCredentialsA", longArrayOf(puiinfo, psztargetname, pcontext, dwautherror.toLong(), pszusername, ulusernamebuffersize.toLong(), pszpassword, ulpasswordbuffersize.toLong(), save, dwflags.toLong())).toUInt()
 }
 
-public fun CredUIPromptForCredentialsW(puiinfo: Long, psztargetname: PCWSTR, pcontext: Long, dwautherror: UInt, pszusername: PWSTR, ulusernamebuffersize: UInt, pszpassword: PWSTR, ulpasswordbuffersize: UInt, save: Long, dwflags: CREDUI_FLAGS): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("credui.dll", "CredUIPromptForCredentialsW", longArrayOf(puiinfo, psztargetname, pcontext, dwautherror.toLong(), pszusername, ulusernamebuffersize.toLong(), pszpassword, ulpasswordbuffersize.toLong(), save, dwflags.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun CredUIPromptForCredentialsW(puiinfo: Long, psztargetname: PCWSTR, pcontext: Long, dwautherror: UInt, pszusername: PWSTR, ulusernamebuffersize: UInt, pszpassword: PWSTR, ulpasswordbuffersize: UInt, save: Long, dwflags: CREDUI_FLAGS): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("credui.dll", "CredUIPromptForCredentialsW", longArrayOf(puiinfo, psztargetname, pcontext, dwautherror.toLong(), pszusername, ulusernamebuffersize.toLong(), pszpassword, ulpasswordbuffersize.toLong(), save, dwflags.toLong())).toUInt()
 }
 
 public fun CredUIPromptForWindowsCredentialsA(puiinfo: Long, dwautherror: UInt, pulauthpackage: Long, pvinauthbuffer: Long, ulinauthbuffersize: UInt, ppvoutauthbuffer: Long, puloutauthbuffersize: Long, pfsave: Long, dwflags: CREDUIWIN_FLAGS): UInt {
@@ -224,13 +223,12 @@ public fun KeyCredentialManagerGetOperationErrorStates(keycredentialmanageropera
     return Win32DynamicFfi.invoke("keycredmgr.dll", "KeyCredentialManagerGetOperationErrorStates", longArrayOf(keycredentialmanageroperationtype.toLong(), isready, keycredentialmanageroperationerrorstates)).toInt()
 }
 
-public fun KeyCredentialManagerShowUIOperation(hwndowner: Foundation.HWND, keycredentialmanageroperationtype: KeyCredentialManagerOperationType): HRESULT {
-    return Win32DynamicFfi.invoke("keycredmgr.dll", "KeyCredentialManagerShowUIOperation", longArrayOf(Win32DynamicFfi.objectSlot(hwndowner), keycredentialmanageroperationtype.toLong())).toInt()
+public fun KeyCredentialManagerShowUIOperation(hwndowner: HWND, keycredentialmanageroperationtype: KeyCredentialManagerOperationType): HRESULT {
+    return Win32DynamicFfi.invoke("keycredmgr.dll", "KeyCredentialManagerShowUIOperation", longArrayOf(hwndowner, keycredentialmanageroperationtype.toLong())).toInt()
 }
 
-public fun SCardAccessStartedEvent(): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("winscard.dll", "SCardAccessStartedEvent", longArrayOf())
-    return Foundation.HANDLE()
+public fun SCardAccessStartedEvent(): HANDLE {
+    return Win32DynamicFfi.invoke("winscard.dll", "SCardAccessStartedEvent", longArrayOf())
 }
 
 public fun SCardAddReaderToGroupA(hcontext: ULong, szreadername: PCSTR, szgroupname: PCSTR): Int {

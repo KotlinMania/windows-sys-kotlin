@@ -7,6 +7,9 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SOCKADDR_STORAGE
 
 public data class HTTP_VERSION_INFO(public var dwMajorVersion: UInt = 0u, public var dwMinorVersion: UInt = 0u)
 
@@ -40,8 +43,8 @@ public data class WINHTTP_AUTOPROXY_OPTIONS(
 )
 
 public data class WINHTTP_CERTIFICATE_INFO(
-    public var ftExpiry: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ftStart: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftExpiry: FILETIME = FILETIME(),
+    public var ftStart: FILETIME = FILETIME(),
     public var lpszSubjectInfo: PWSTR = 0L,
     public var lpszIssuerInfo: PWSTR = 0L,
     public var lpszProtocolName: PWSTR = 0L,
@@ -54,8 +57,8 @@ public data class WINHTTP_CONNECTION_GROUP(public var cConnections: UInt = 0u, p
 
 public data class WINHTTP_CONNECTION_INFO(
     public var cbSize: UInt = 0u,
-    public var LocalAddress: WinSock.SOCKADDR_STORAGE = WinSock.SOCKADDR_STORAGE(),
-    public var RemoteAddress: WinSock.SOCKADDR_STORAGE = WinSock.SOCKADDR_STORAGE(),
+    public var LocalAddress: SOCKADDR_STORAGE = SOCKADDR_STORAGE(),
+    public var RemoteAddress: SOCKADDR_STORAGE = SOCKADDR_STORAGE(),
 )
 
 public data class WINHTTP_CREDS(
@@ -136,7 +139,7 @@ public data class WINHTTP_PROXY_RESULT_ENTRY(
 public data class WINHTTP_PROXY_RESULT_EX(
     public var cEntries: UInt = 0u,
     public var pEntries: Long = 0L,
-    public var hProxyDetectionHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hProxyDetectionHandle: HANDLE = 0L,
     public var dwProxyInterfaceAffinity: UInt = 0u,
 )
 
@@ -152,7 +155,7 @@ public data class WINHTTP_PROXY_SETTINGS(
     public var dwAutoDiscoveryFlags: UInt = 0u,
     public var pwszLastKnownGoodAutoConfigUrl: PWSTR = 0L,
     public var dwAutoconfigReloadDelayMins: UInt = 0u,
-    public var ftLastKnownDetectTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftLastKnownDetectTime: FILETIME = FILETIME(),
     public var dwDetectedInterfaceIpCount: UInt = 0u,
     public var pdwDetectedInterfaceIp: Long = 0L,
     public var cNetworkKeys: UInt = 0u,

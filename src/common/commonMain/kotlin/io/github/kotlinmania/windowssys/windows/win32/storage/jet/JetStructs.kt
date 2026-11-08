@@ -5,6 +5,8 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.storage.structuredstorage.JET_API_PTR
+import io.github.kotlinmania.windowssys.windows.win32.storage.structuredstorage.JET_TABLEID
 
 public data class JET_BKINFO(
     public var lgposMark: JET_LGPOS = JET_LGPOS(),
@@ -166,7 +168,7 @@ public data class JET_COLUMNDEF(
 
 public class JET_COLUMNLIST(
     public var cbStruct: UInt = 0u,
-    public var tableid: StructuredStorage.JET_TABLEID = StructuredStorage.JET_TABLEID(),
+    public var tableid: JET_TABLEID = 0uL,
     public var cRecord: UInt = 0u,
     public var columnidPresentationOrder: UInt = 0u,
     public var columnidcolumnname: UInt = 0u,
@@ -561,7 +563,7 @@ public data class JET_INDEXID(public var cbStruct: UInt = 0u, public var rgbInde
 
 public class JET_INDEXLIST(
     public var cbStruct: UInt = 0u,
-    public var tableid: StructuredStorage.JET_TABLEID = StructuredStorage.JET_TABLEID(),
+    public var tableid: JET_TABLEID = 0uL,
     public var cRecord: UInt = 0u,
     public var columnidindexname: UInt = 0u,
     public var columnidgrbitIndex: UInt = 0u,
@@ -583,7 +585,7 @@ public class JET_INDEXLIST(
 
 public data class JET_INDEXRANGE(
     public var cbStruct: UInt = 0u,
-    public var tableid: StructuredStorage.JET_TABLEID = StructuredStorage.JET_TABLEID(),
+    public var tableid: JET_TABLEID = 0uL,
     public var grbit: UInt = 0u,
 )
 
@@ -605,7 +607,7 @@ public data class JET_INDEX_RANGE(
 public data class JET_INSTANCE_INFO_A(
     public var hInstanceId: JET_INSTANCE = 0uL,
     public var szInstanceName: PSTR = 0L,
-    public var cDatabases: StructuredStorage.JET_API_PTR = StructuredStorage.JET_API_PTR(),
+    public var cDatabases: JET_API_PTR = 0uL,
     public var szDatabaseFileName: Long = 0L,
     public var szDatabaseDisplayName: Long = 0L,
     public var szDatabaseSLVFileName_Obsolete: Long = 0L,
@@ -614,7 +616,7 @@ public data class JET_INSTANCE_INFO_A(
 public data class JET_INSTANCE_INFO_W(
     public var hInstanceId: JET_INSTANCE = 0uL,
     public var szInstanceName: PWSTR = 0L,
-    public var cDatabases: StructuredStorage.JET_API_PTR = StructuredStorage.JET_API_PTR(),
+    public var cDatabases: JET_API_PTR = 0uL,
     public var szDatabaseFileName: Long = 0L,
     public var szDatabaseDisplayName: Long = 0L,
     public var szDatabaseSLVFileName_Obsolete: Long = 0L,
@@ -708,7 +710,7 @@ public data class JET_OBJECTINFO(
 
 public data class JET_OBJECTLIST(
     public var cbStruct: UInt = 0u,
-    public var tableid: StructuredStorage.JET_TABLEID = StructuredStorage.JET_TABLEID(),
+    public var tableid: JET_TABLEID = 0uL,
     public var cRecord: UInt = 0u,
     public var columnidcontainername: UInt = 0u,
     public var columnidobjectname: UInt = 0u,
@@ -730,7 +732,7 @@ public data class JET_OPENTEMPORARYTABLE(
     public var prgcolumnid: Long = 0L,
     public var cbKeyMost: UInt = 0u,
     public var cbVarSegMac: UInt = 0u,
-    public var tableid: StructuredStorage.JET_TABLEID = StructuredStorage.JET_TABLEID(),
+    public var tableid: JET_TABLEID = 0uL,
 )
 
 public data class JET_OPENTEMPORARYTABLE2(
@@ -742,7 +744,7 @@ public data class JET_OPENTEMPORARYTABLE2(
     public var prgcolumnid: Long = 0L,
     public var cbKeyMost: UInt = 0u,
     public var cbVarSegMac: UInt = 0u,
-    public var tableid: StructuredStorage.JET_TABLEID = StructuredStorage.JET_TABLEID(),
+    public var tableid: JET_TABLEID = 0uL,
 )
 
 public data class JET_OPERATIONCONTEXT(
@@ -755,7 +757,7 @@ public data class JET_OPERATIONCONTEXT(
 
 public data class JET_RECORDLIST(
     public var cbStruct: UInt = 0u,
-    public var tableid: StructuredStorage.JET_TABLEID = StructuredStorage.JET_TABLEID(),
+    public var tableid: JET_TABLEID = 0uL,
     public var cRecord: UInt = 0u,
     public var columnidBookmark: UInt = 0u,
 )
@@ -860,14 +862,14 @@ public data class JET_SETINFO(
 
 public data class JET_SETSYSPARAM_A(
     public var paramid: UInt = 0u,
-    public var lParam: StructuredStorage.JET_API_PTR = StructuredStorage.JET_API_PTR(),
+    public var lParam: JET_API_PTR = 0uL,
     public var sz: PCSTR = 0L,
     public var err: Int = 0,
 )
 
 public data class JET_SETSYSPARAM_W(
     public var paramid: UInt = 0u,
-    public var lParam: StructuredStorage.JET_API_PTR = StructuredStorage.JET_API_PTR(),
+    public var lParam: JET_API_PTR = 0uL,
     public var sz: PCWSTR = 0L,
     public var err: Int = 0,
 )
@@ -924,7 +926,7 @@ public data class JET_TABLECREATE2_A(
     public var szCallback: PSTR = 0L,
     public var cbtyp: UInt = 0u,
     public var grbit: UInt = 0u,
-    public var tableid: StructuredStorage.JET_TABLEID = StructuredStorage.JET_TABLEID(),
+    public var tableid: JET_TABLEID = 0uL,
     public var cCreated: UInt = 0u,
 )
 
@@ -941,7 +943,7 @@ public data class JET_TABLECREATE2_W(
     public var szCallback: PWSTR = 0L,
     public var cbtyp: UInt = 0u,
     public var grbit: UInt = 0u,
-    public var tableid: StructuredStorage.JET_TABLEID = StructuredStorage.JET_TABLEID(),
+    public var tableid: JET_TABLEID = 0uL,
     public var cCreated: UInt = 0u,
 )
 
@@ -961,7 +963,7 @@ public class JET_TABLECREATE3_A(
     public var pSeqSpacehints: Long = 0L,
     public var pLVSpacehints: Long = 0L,
     public var cbSeparateLV: UInt = 0u,
-    public var tableid: StructuredStorage.JET_TABLEID = StructuredStorage.JET_TABLEID(),
+    public var tableid: JET_TABLEID = 0uL,
     public var cCreated: UInt = 0u,
 )
 
@@ -981,7 +983,7 @@ public class JET_TABLECREATE3_W(
     public var pSeqSpacehints: Long = 0L,
     public var pLVSpacehints: Long = 0L,
     public var cbSeparateLV: UInt = 0u,
-    public var tableid: StructuredStorage.JET_TABLEID = StructuredStorage.JET_TABLEID(),
+    public var tableid: JET_TABLEID = 0uL,
     public var cCreated: UInt = 0u,
 )
 
@@ -1001,7 +1003,7 @@ public class JET_TABLECREATE4_A(
     public var pSeqSpacehints: Long = 0L,
     public var pLVSpacehints: Long = 0L,
     public var cbSeparateLV: UInt = 0u,
-    public var tableid: StructuredStorage.JET_TABLEID = StructuredStorage.JET_TABLEID(),
+    public var tableid: JET_TABLEID = 0uL,
     public var cCreated: UInt = 0u,
 )
 
@@ -1021,7 +1023,7 @@ public class JET_TABLECREATE4_W(
     public var pSeqSpacehints: Long = 0L,
     public var pLVSpacehints: Long = 0L,
     public var cbSeparateLV: UInt = 0u,
-    public var tableid: StructuredStorage.JET_TABLEID = StructuredStorage.JET_TABLEID(),
+    public var tableid: JET_TABLEID = 0uL,
     public var cCreated: UInt = 0u,
 )
 
@@ -1036,7 +1038,7 @@ public data class JET_TABLECREATE_A(
     public var rgindexcreate: Long = 0L,
     public var cIndexes: UInt = 0u,
     public var grbit: UInt = 0u,
-    public var tableid: StructuredStorage.JET_TABLEID = StructuredStorage.JET_TABLEID(),
+    public var tableid: JET_TABLEID = 0uL,
     public var cCreated: UInt = 0u,
 )
 
@@ -1051,7 +1053,7 @@ public data class JET_TABLECREATE_W(
     public var rgindexcreate: Long = 0L,
     public var cIndexes: UInt = 0u,
     public var grbit: UInt = 0u,
-    public var tableid: StructuredStorage.JET_TABLEID = StructuredStorage.JET_TABLEID(),
+    public var tableid: JET_TABLEID = 0uL,
     public var cCreated: UInt = 0u,
 )
 

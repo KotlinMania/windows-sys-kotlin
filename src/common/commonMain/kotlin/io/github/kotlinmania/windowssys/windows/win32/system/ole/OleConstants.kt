@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.ole
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
@@ -125,19 +126,19 @@ public val CIF_SHOWHELP: CHANGE_ICON_FLAGS = 1u
 
 public val CIF_USEICONEXE: CHANGE_ICON_FLAGS = 16u
 
-public val CLSID_CColorPropPage: GUID = GUID.from_u128(0xbe352018f9111ceuL, 0x9de300aa004bb851uL)
+public val CLSID_CColorPropPage: GUID = GUID.from_u128(U128(0xbe352018f9111ceuL, 0x9de300aa004bb851uL))
 
-public val CLSID_CFontPropPage: GUID = GUID.from_u128(0xbe352008f9111ceuL, 0x9de300aa004bb851uL)
+public val CLSID_CFontPropPage: GUID = GUID.from_u128(U128(0xbe352008f9111ceuL, 0x9de300aa004bb851uL))
 
-public val CLSID_CPicturePropPage: GUID = GUID.from_u128(0xbe352028f9111ceuL, 0x9de300aa004bb851uL)
+public val CLSID_CPicturePropPage: GUID = GUID.from_u128(U128(0xbe352028f9111ceuL, 0x9de300aa004bb851uL))
 
-public val CLSID_ConvertVBX: GUID = GUID.from_u128(0xfb8f08220164101buL, 0x84ed08002b2ec713uL)
+public val CLSID_ConvertVBX: GUID = GUID.from_u128(U128(0xfb8f08220164101buL, 0x84ed08002b2ec713uL))
 
-public val CLSID_PersistPropset: GUID = GUID.from_u128(0xfb8f08210164101buL, 0x84ed08002b2ec713uL)
+public val CLSID_PersistPropset: GUID = GUID.from_u128(U128(0xfb8f08210164101buL, 0x84ed08002b2ec713uL))
 
-public val CLSID_StdFont: GUID = GUID.from_u128(0xbe352038f9111ceuL, 0x9de300aa004bb851uL)
+public val CLSID_StdFont: GUID = GUID.from_u128(U128(0xbe352038f9111ceuL, 0x9de300aa004bb851uL))
 
-public val CLSID_StdPicture: GUID = GUID.from_u128(0xbe352048f9111ceuL, 0x9de300aa004bb851uL)
+public val CLSID_StdPicture: GUID = GUID.from_u128(U128(0xbe352048f9111ceuL, 0x9de300aa004bb851uL))
 
 public val CONNECT_E_ADVISELIMIT: HRESULT = 0x80040201u.toInt()
 
@@ -481,45 +482,45 @@ public val GC_WCH_SIBLING: Int = 1
 
 public val GUIDKIND_DEFAULT_SOURCE_DISP_IID: GUIDKIND = 1
 
-public val GUID_CHECKVALUEEXCLUSIVE: GUID = GUID.from_u128(0x6650430cbe0f101auL, 0x8bbb00aa00300cabuL)
+public val GUID_CHECKVALUEEXCLUSIVE: GUID = GUID.from_u128(U128(0x6650430cbe0f101auL, 0x8bbb00aa00300cabuL))
 
-public val GUID_COLOR: GUID = GUID.from_u128(0x66504301be0f101auL, 0x8bbb00aa00300cabuL)
+public val GUID_COLOR: GUID = GUID.from_u128(U128(0x66504301be0f101auL, 0x8bbb00aa00300cabuL))
 
-public val GUID_FONTBOLD: GUID = GUID.from_u128(0x6650430fbe0f101auL, 0x8bbb00aa00300cabuL)
+public val GUID_FONTBOLD: GUID = GUID.from_u128(U128(0x6650430fbe0f101auL, 0x8bbb00aa00300cabuL))
 
-public val GUID_FONTITALIC: GUID = GUID.from_u128(0x66504310be0f101auL, 0x8bbb00aa00300cabuL)
+public val GUID_FONTITALIC: GUID = GUID.from_u128(U128(0x66504310be0f101auL, 0x8bbb00aa00300cabuL))
 
-public val GUID_FONTNAME: GUID = GUID.from_u128(0x6650430dbe0f101auL, 0x8bbb00aa00300cabuL)
+public val GUID_FONTNAME: GUID = GUID.from_u128(U128(0x6650430dbe0f101auL, 0x8bbb00aa00300cabuL))
 
-public val GUID_FONTSIZE: GUID = GUID.from_u128(0x6650430ebe0f101auL, 0x8bbb00aa00300cabuL)
+public val GUID_FONTSIZE: GUID = GUID.from_u128(U128(0x6650430ebe0f101auL, 0x8bbb00aa00300cabuL))
 
-public val GUID_FONTSTRIKETHROUGH: GUID = GUID.from_u128(0x66504312be0f101auL, 0x8bbb00aa00300cabuL)
+public val GUID_FONTSTRIKETHROUGH: GUID = GUID.from_u128(U128(0x66504312be0f101auL, 0x8bbb00aa00300cabuL))
 
-public val GUID_FONTUNDERSCORE: GUID = GUID.from_u128(0x66504311be0f101auL, 0x8bbb00aa00300cabuL)
+public val GUID_FONTUNDERSCORE: GUID = GUID.from_u128(U128(0x66504311be0f101auL, 0x8bbb00aa00300cabuL))
 
-public val GUID_HANDLE: GUID = GUID.from_u128(0x66504313be0f101auL, 0x8bbb00aa00300cabuL)
+public val GUID_HANDLE: GUID = GUID.from_u128(U128(0x66504313be0f101auL, 0x8bbb00aa00300cabuL))
 
-public val GUID_HIMETRIC: GUID = GUID.from_u128(0x66504300be0f101auL, 0x8bbb00aa00300cabuL)
+public val GUID_HIMETRIC: GUID = GUID.from_u128(U128(0x66504300be0f101auL, 0x8bbb00aa00300cabuL))
 
-public val GUID_OPTIONVALUEEXCLUSIVE: GUID = GUID.from_u128(0x6650430bbe0f101auL, 0x8bbb00aa00300cabuL)
+public val GUID_OPTIONVALUEEXCLUSIVE: GUID = GUID.from_u128(U128(0x6650430bbe0f101auL, 0x8bbb00aa00300cabuL))
 
-public val GUID_TRISTATE: GUID = GUID.from_u128(0x6650430abe0f101auL, 0x8bbb00aa00300cabuL)
+public val GUID_TRISTATE: GUID = GUID.from_u128(U128(0x6650430abe0f101auL, 0x8bbb00aa00300cabuL))
 
-public val GUID_XPOS: GUID = GUID.from_u128(0x66504306be0f101auL, 0x8bbb00aa00300cabuL)
+public val GUID_XPOS: GUID = GUID.from_u128(U128(0x66504306be0f101auL, 0x8bbb00aa00300cabuL))
 
-public val GUID_XPOSPIXEL: GUID = GUID.from_u128(0x66504302be0f101auL, 0x8bbb00aa00300cabuL)
+public val GUID_XPOSPIXEL: GUID = GUID.from_u128(U128(0x66504302be0f101auL, 0x8bbb00aa00300cabuL))
 
-public val GUID_XSIZE: GUID = GUID.from_u128(0x66504308be0f101auL, 0x8bbb00aa00300cabuL)
+public val GUID_XSIZE: GUID = GUID.from_u128(U128(0x66504308be0f101auL, 0x8bbb00aa00300cabuL))
 
-public val GUID_XSIZEPIXEL: GUID = GUID.from_u128(0x66504304be0f101auL, 0x8bbb00aa00300cabuL)
+public val GUID_XSIZEPIXEL: GUID = GUID.from_u128(U128(0x66504304be0f101auL, 0x8bbb00aa00300cabuL))
 
-public val GUID_YPOS: GUID = GUID.from_u128(0x66504307be0f101auL, 0x8bbb00aa00300cabuL)
+public val GUID_YPOS: GUID = GUID.from_u128(U128(0x66504307be0f101auL, 0x8bbb00aa00300cabuL))
 
-public val GUID_YPOSPIXEL: GUID = GUID.from_u128(0x66504303be0f101auL, 0x8bbb00aa00300cabuL)
+public val GUID_YPOSPIXEL: GUID = GUID.from_u128(U128(0x66504303be0f101auL, 0x8bbb00aa00300cabuL))
 
-public val GUID_YSIZE: GUID = GUID.from_u128(0x66504309be0f101auL, 0x8bbb00aa00300cabuL)
+public val GUID_YSIZE: GUID = GUID.from_u128(U128(0x66504309be0f101auL, 0x8bbb00aa00300cabuL))
 
-public val GUID_YSIZEPIXEL: GUID = GUID.from_u128(0x66504305be0f101auL, 0x8bbb00aa00300cabuL)
+public val GUID_YSIZEPIXEL: GUID = GUID.from_u128(U128(0x66504305be0f101auL, 0x8bbb00aa00300cabuL))
 
 public val HITRESULT_CLOSE: HITRESULT = 2
 
@@ -1813,11 +1814,11 @@ public val SF_UNKNOWN: SF_TYPE = 13
 
 public val SF_VARIANT: SF_TYPE = 12
 
-public val SID_GetCaller: GUID = GUID.from_u128(0x4717cc40bcb911d0uL, 0x933600a0c90dcaa9uL)
+public val SID_GetCaller: GUID = GUID.from_u128(U128(0x4717cc40bcb911d0uL, 0x933600a0c90dcaa9uL))
 
-public val SID_ProvideRuntimeContext: GUID = GUID.from_u128(0x74a5040cdd0c48f0uL, 0xac85194c3259180auL)
+public val SID_ProvideRuntimeContext: GUID = GUID.from_u128(U128(0x74a5040cdd0c48f0uL, 0xac85194c3259180auL))
 
-public val SID_VariantConversion: GUID = GUID.from_u128(0x1f101481bccd11d0uL, 0x933600a0c90dcaa9uL)
+public val SID_VariantConversion: GUID = GUID.from_u128(U128(0x1f101481bccd11d0uL, 0x933600a0c90dcaa9uL))
 
 public val STDOLE2_LCID: UInt = 0u
 

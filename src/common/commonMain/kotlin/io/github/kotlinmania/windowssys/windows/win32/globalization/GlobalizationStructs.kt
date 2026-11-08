@@ -5,6 +5,10 @@ import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.AXESLISTA
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.AXESLISTW
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.NEWTEXTMETRICA
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.NEWTEXTMETRICW
 
 public data class CALDATETIME(
     public var CalId: UInt = 0u,
@@ -138,9 +142,9 @@ public data class DetectEncodingInfo(
     public var nConfidence: Int = 0,
 )
 
-public data class ENUMTEXTMETRICA(public var etmNewTextMetricEx: NEWTEXTMETRICEXA = NEWTEXTMETRICEXA(), public var etmAxesList: Graphics.Gdi.AXESLISTA = Graphics.Gdi.AXESLISTA())
+public data class ENUMTEXTMETRICA(public var etmNewTextMetricEx: NEWTEXTMETRICEXA = NEWTEXTMETRICEXA(), public var etmAxesList: AXESLISTA = AXESLISTA())
 
-public data class ENUMTEXTMETRICW(public var etmNewTextMetricEx: NEWTEXTMETRICEXW = NEWTEXTMETRICEXW(), public var etmAxesList: Graphics.Gdi.AXESLISTW = Graphics.Gdi.AXESLISTW())
+public data class ENUMTEXTMETRICW(public var etmNewTextMetricEx: NEWTEXTMETRICEXW = NEWTEXTMETRICEXW(), public var etmAxesList: AXESLISTW = AXESLISTW())
 
 public data class FILEMUIINFO(
     public var dwSize: UInt = 0u,
@@ -383,9 +387,9 @@ public data class MIMECSETINFO(
     }
 }
 
-public data class NEWTEXTMETRICEXA(public var ntmTm: Graphics.Gdi.NEWTEXTMETRICA = Graphics.Gdi.NEWTEXTMETRICA(), public var ntmFontSig: FONTSIGNATURE = FONTSIGNATURE())
+public data class NEWTEXTMETRICEXA(public var ntmTm: NEWTEXTMETRICA = NEWTEXTMETRICA(), public var ntmFontSig: FONTSIGNATURE = FONTSIGNATURE())
 
-public data class NEWTEXTMETRICEXW(public var ntmTm: Graphics.Gdi.NEWTEXTMETRICW = Graphics.Gdi.NEWTEXTMETRICW(), public var ntmFontSig: FONTSIGNATURE = FONTSIGNATURE())
+public data class NEWTEXTMETRICEXW(public var ntmTm: NEWTEXTMETRICW = NEWTEXTMETRICW(), public var ntmFontSig: FONTSIGNATURE = FONTSIGNATURE())
 
 public data class NLSVERSIONINFO(
     public var dwNLSVersionInfoSize: UInt = 0u,

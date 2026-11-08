@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.bluetooth
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
@@ -412,7 +413,7 @@ public val BTH_HOST_FEATURE_STREAMING_MODE: ULong = 2uL
 
 public val BTH_IOCTL_BASE: UInt = 0u
 
-public val BTH_LE_ATT_BLUETOOTH_BASE_GUID: GUID = GUID.from_u128(0x1000uL, 0x800000805f9b34fbuL)
+public val BTH_LE_ATT_BLUETOOTH_BASE_GUID: GUID = GUID.from_u128(U128(0x1000uL, 0x800000805f9b34fbuL))
 
 public val BTH_LE_ATT_CID: UInt = 4u
 
@@ -826,7 +827,7 @@ public val BasicPrintingProfileID_UUID16: UInt = 4386u
 
 public val BasicPrintingServiceClassID_UUID16: UInt = 4386u
 
-public val Bluetooth_Base_UUID: GUID = GUID.from_u128(0x1000uL, 0x800000805f9b34fbuL)
+public val Bluetooth_Base_UUID: GUID = GUID.from_u128(U128(0x1000uL, 0x800000805f9b34fbuL))
 
 public val BrowseGroupDescriptorServiceClassID_UUID16: UInt = 4097u
 
@@ -1102,27 +1103,27 @@ public val GNSSServerServiceClassID_UUID16: UInt = 4406u
 
 public val GNServiceClassID_UUID16: UInt = 4375u
 
-public val GUID_BLUETOOTHLE_DEVICE_INTERFACE: GUID = GUID.from_u128(0x781aee1877334ce4uL, 0xadd091f41c67b592uL)
+public val GUID_BLUETOOTHLE_DEVICE_INTERFACE: GUID = GUID.from_u128(U128(0x781aee1877334ce4uL, 0xadd091f41c67b592uL))
 
-public val GUID_BLUETOOTH_AUTHENTICATION_REQUEST: GUID = GUID.from_u128(0x5dc9136d996c46dbuL, 0x84f532c0a3f47352uL)
+public val GUID_BLUETOOTH_AUTHENTICATION_REQUEST: GUID = GUID.from_u128(U128(0x5dc9136d996c46dbuL, 0x84f532c0a3f47352uL))
 
-public val GUID_BLUETOOTH_GATT_SERVICE_DEVICE_INTERFACE: GUID = GUID.from_u128(0x6e3bb679437240c8uL, 0x9eaa4509df260cd8uL)
+public val GUID_BLUETOOTH_GATT_SERVICE_DEVICE_INTERFACE: GUID = GUID.from_u128(U128(0x6e3bb679437240c8uL, 0x9eaa4509df260cd8uL))
 
-public val GUID_BLUETOOTH_HCI_EVENT: GUID = GUID.from_u128(0xfc240062154149beuL, 0xb46384c4dcd7bf7fuL)
+public val GUID_BLUETOOTH_HCI_EVENT: GUID = GUID.from_u128(U128(0xfc240062154149beuL, 0xb46384c4dcd7bf7fuL))
 
-public val GUID_BLUETOOTH_HCI_VENDOR_EVENT: GUID = GUID.from_u128(0x547247e645bb4c33uL, 0xaf8cc00efe15a71duL)
+public val GUID_BLUETOOTH_HCI_VENDOR_EVENT: GUID = GUID.from_u128(U128(0x547247e645bb4c33uL, 0xaf8cc00efe15a71duL))
 
-public val GUID_BLUETOOTH_KEYPRESS_EVENT: GUID = GUID.from_u128(0xd668dfcd0f4e4efcuL, 0xbfe0392eeec5109cuL)
+public val GUID_BLUETOOTH_KEYPRESS_EVENT: GUID = GUID.from_u128(U128(0xd668dfcd0f4e4efcuL, 0xbfe0392eeec5109cuL))
 
-public val GUID_BLUETOOTH_L2CAP_EVENT: GUID = GUID.from_u128(0x7eae4030b7094aa8uL, 0xac55e953829c9daauL)
+public val GUID_BLUETOOTH_L2CAP_EVENT: GUID = GUID.from_u128(U128(0x7eae4030b7094aa8uL, 0xac55e953829c9daauL))
 
-public val GUID_BLUETOOTH_RADIO_IN_RANGE: GUID = GUID.from_u128(0xea3b5b8226ee450euL, 0xb0d8d26fe30a3869uL)
+public val GUID_BLUETOOTH_RADIO_IN_RANGE: GUID = GUID.from_u128(U128(0xea3b5b8226ee450euL, 0xb0d8d26fe30a3869uL))
 
-public val GUID_BLUETOOTH_RADIO_OUT_OF_RANGE: GUID = GUID.from_u128(0xe28867c9c2aa4ceduL, 0xb9694570866037c4uL)
+public val GUID_BLUETOOTH_RADIO_OUT_OF_RANGE: GUID = GUID.from_u128(U128(0xe28867c9c2aa4ceduL, 0xb9694570866037c4uL))
 
-public val GUID_BTHPORT_DEVICE_INTERFACE: GUID = GUID.from_u128(0x850302ab3444fdauL, 0x9be990576b8d46f0uL)
+public val GUID_BTHPORT_DEVICE_INTERFACE: GUID = GUID.from_u128(U128(0x850302ab3444fdauL, 0x9be990576b8d46f0uL))
 
-public val GUID_BTH_RFCOMM_SERVICE_DEVICE_INTERFACE: GUID = GUID.from_u128(0xb142fc3efa4e460buL, 0x8abc072b628b3c70uL)
+public val GUID_BTH_RFCOMM_SERVICE_DEVICE_INTERFACE: GUID = GUID.from_u128(U128(0xb142fc3efa4e460buL, 0x8abc072b628b3c70uL))
 
 public val GenericAudioServiceClassID_UUID16: UInt = 4611u
 
@@ -1724,7 +1725,7 @@ public val STR_USBHCI_CLASS_HARDWAREIDA: PCSTR = s("USB\\Class_E0&SubClass_01&Pr
 
 public val STR_USBHCI_CLASS_HARDWAREIDW: PCWSTR = w("USB\\Class_E0&SubClass_01&Prot_01")
 
-public val SVCID_BTH_PROVIDER: GUID = GUID.from_u128(0x6aa63e07d6041ffuL, 0xafb23ee6d2d9392duL)
+public val SVCID_BTH_PROVIDER: GUID = GUID.from_u128(U128(0x6aa63e07d6041ffuL, 0xafb23ee6d2d9392duL))
 
 public val SYNCH_DATA_STORE_CALENDAR: UInt = 3u
 

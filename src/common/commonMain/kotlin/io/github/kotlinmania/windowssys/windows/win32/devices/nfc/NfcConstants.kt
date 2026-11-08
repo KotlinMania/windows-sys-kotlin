@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.nfc
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 
 public val ApplicationSelected: SECURE_ELEMENT_EVENT_TYPE = 2
@@ -44,13 +45,13 @@ public val ExternalReaderArrival: SECURE_ELEMENT_EVENT_TYPE = 0
 
 public val ExternalReaderDeparture: SECURE_ELEMENT_EVENT_TYPE = 1
 
-public val GUID_DEVINTERFACE_NFCDTA: GUID = GUID.from_u128(0x7fd3f30b5e494be1uL, 0xb3aaaf06260d236auL)
+public val GUID_DEVINTERFACE_NFCDTA: GUID = GUID.from_u128(U128(0x7fd3f30b5e494be1uL, 0xb3aaaf06260d236auL))
 
-public val GUID_DEVINTERFACE_NFCSE: GUID = GUID.from_u128(0x8dc7c854f5e54beduL, 0x815d0c85ad047725uL)
+public val GUID_DEVINTERFACE_NFCSE: GUID = GUID.from_u128(U128(0x8dc7c854f5e54beduL, 0x815d0c85ad047725uL))
 
-public val GUID_NFCSE_RADIO_MEDIA_DEVICE_INTERFACE: GUID = GUID.from_u128(0xef8ba08f148d4116uL, 0x83efa2679dfc3fa5uL)
+public val GUID_NFCSE_RADIO_MEDIA_DEVICE_INTERFACE: GUID = GUID.from_u128(U128(0xef8ba08f148d4116uL, 0x83efa2679dfc3fa5uL))
 
-public val GUID_NFC_RADIO_MEDIA_DEVICE_INTERFACE: GUID = GUID.from_u128(0x4d51e930750d4a36uL, 0xa9f791dc540fcd30uL)
+public val GUID_NFC_RADIO_MEDIA_DEVICE_INTERFACE: GUID = GUID.from_u128(U128(0x4d51e930750d4a36uL, 0xa9f791dc540fcd30uL))
 
 public val HceActivated: SECURE_ELEMENT_EVENT_TYPE = 4
 

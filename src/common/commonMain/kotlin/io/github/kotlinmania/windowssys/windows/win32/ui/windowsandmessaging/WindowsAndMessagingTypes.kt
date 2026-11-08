@@ -3,6 +3,11 @@ package io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LRESULT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
 
 public typealias ACCEL_VIRT_FLAGS = UByte
 
@@ -23,7 +28,7 @@ public typealias DEV_BROADCAST_VOLUME_FLAGS = UShort
 public typealias DI_FLAGS = UInt
 
 public fun interface DLGPROCFn {
-    public operator fun invoke(param0: Foundation.HWND, param1: UInt, param2: Foundation.WPARAM, param3: Foundation.LPARAM): Long
+    public operator fun invoke(param0: HWND, param1: UInt, param2: WPARAM, param3: LPARAM): Long
 }
 
 public typealias DLGPROC = DLGPROCFn?
@@ -63,7 +68,7 @@ public typealias HICON = Long
 public typealias HMENU = Long
 
 public fun interface HOOKPROCFn {
-    public operator fun invoke(code: Int, wparam: Foundation.WPARAM, lparam: Foundation.LPARAM): Foundation.LRESULT
+    public operator fun invoke(code: Int, wparam: WPARAM, lparam: LPARAM): LRESULT
 }
 
 public typealias HOOKPROC = HOOKPROCFn?
@@ -117,13 +122,13 @@ public typealias MrmPlatformVersion = Int
 public typealias MrmResourceIndexerMessageSeverity = Int
 
 public fun interface NAMEENUMPROCAFn {
-    public operator fun invoke(param0: PCSTR, param1: Foundation.LPARAM): BOOL
+    public operator fun invoke(param0: PCSTR, param1: LPARAM): BOOL
 }
 
 public typealias NAMEENUMPROCA = NAMEENUMPROCAFn?
 
 public fun interface NAMEENUMPROCWFn {
-    public operator fun invoke(param0: PCWSTR, param1: Foundation.LPARAM): BOOL
+    public operator fun invoke(param0: PCWSTR, param1: LPARAM): BOOL
 }
 
 public typealias NAMEENUMPROCW = NAMEENUMPROCWFn?
@@ -141,25 +146,25 @@ public fun interface PREGISTERCLASSNAMEWFn {
 public typealias PREGISTERCLASSNAMEW = PREGISTERCLASSNAMEWFn?
 
 public fun interface PROPENUMPROCAFn {
-    public operator fun invoke(param0: Foundation.HWND, param1: PCSTR, param2: Foundation.HANDLE): BOOL
+    public operator fun invoke(param0: HWND, param1: PCSTR, param2: HANDLE): BOOL
 }
 
 public typealias PROPENUMPROCA = PROPENUMPROCAFn?
 
 public fun interface PROPENUMPROCEXAFn {
-    public operator fun invoke(param0: Foundation.HWND, param1: PCSTR, param2: Foundation.HANDLE, param3: ULong): BOOL
+    public operator fun invoke(param0: HWND, param1: PCSTR, param2: HANDLE, param3: ULong): BOOL
 }
 
 public typealias PROPENUMPROCEXA = PROPENUMPROCEXAFn?
 
 public fun interface PROPENUMPROCEXWFn {
-    public operator fun invoke(param0: Foundation.HWND, param1: PCWSTR, param2: Foundation.HANDLE, param3: ULong): BOOL
+    public operator fun invoke(param0: HWND, param1: PCWSTR, param2: HANDLE, param3: ULong): BOOL
 }
 
 public typealias PROPENUMPROCEXW = PROPENUMPROCEXWFn?
 
 public fun interface PROPENUMPROCWFn {
-    public operator fun invoke(param0: Foundation.HWND, param1: PCWSTR, param2: Foundation.HANDLE): BOOL
+    public operator fun invoke(param0: HWND, param1: PCWSTR, param2: HANDLE): BOOL
 }
 
 public typealias PROPENUMPROCW = PROPENUMPROCWFn?
@@ -177,7 +182,7 @@ public typealias SCROLLINFO_MASK = UInt
 public typealias SCROLL_WINDOW_FLAGS = UInt
 
 public fun interface SENDASYNCPROCFn {
-    public operator fun invoke(param0: Foundation.HWND, param1: UInt, param2: ULong, param3: Foundation.LRESULT)
+    public operator fun invoke(param0: HWND, param1: UInt, param2: ULong, param3: LRESULT)
 }
 
 public typealias SENDASYNCPROC = SENDASYNCPROCFn?
@@ -201,7 +206,7 @@ public typealias SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = UInt
 public typealias TILE_WINDOWS_HOW = UInt
 
 public fun interface TIMERPROCFn {
-    public operator fun invoke(param0: Foundation.HWND, param1: UInt, param2: ULong, param3: UInt)
+    public operator fun invoke(param0: HWND, param1: UInt, param2: ULong, param3: UInt)
 }
 
 public typealias TIMERPROC = TIMERPROCFn?
@@ -229,13 +234,13 @@ public typealias WINDOW_STYLE = UInt
 public typealias WNDCLASS_STYLES = UInt
 
 public fun interface WNDENUMPROCFn {
-    public operator fun invoke(param0: Foundation.HWND, param1: Foundation.LPARAM): BOOL
+    public operator fun invoke(param0: HWND, param1: LPARAM): BOOL
 }
 
 public typealias WNDENUMPROC = WNDENUMPROCFn?
 
 public fun interface WNDPROCFn {
-    public operator fun invoke(param0: Foundation.HWND, param1: UInt, param2: Foundation.WPARAM, param3: Foundation.LPARAM): Foundation.LRESULT
+    public operator fun invoke(param0: HWND, param1: UInt, param2: WPARAM, param3: LPARAM): LRESULT
 }
 
 public typealias WNDPROC = WNDPROCFn?

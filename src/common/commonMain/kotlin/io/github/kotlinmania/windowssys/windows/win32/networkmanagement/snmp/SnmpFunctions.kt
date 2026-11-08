@@ -4,9 +4,12 @@ import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
 
 public fun interface FnCallback {
-    public operator fun invoke(hsession: Long, hwnd: Foundation.HWND, wmsg: UInt, wparam: Foundation.WPARAM, lparam: Foundation.LPARAM, lpclientdata: Long): UInt
+    public operator fun invoke(hsession: Long, hwnd: HWND, wmsg: UInt, wparam: WPARAM, lparam: LPARAM, lpclientdata: Long): UInt
 }
 
 public fun SnmpCancelMsg(session: Long, reqid: Int): UInt {
@@ -37,8 +40,8 @@ public fun SnmpCreatePdu(session: Long, pdu_type: SNMP_PDU_TYPE, request_id: Int
     return Win32DynamicFfi.invoke("wsnmp32.dll", "SnmpCreatePdu", longArrayOf(session, pdu_type.toLong(), request_id.toLong(), error_status.toLong(), error_index.toLong(), varbindlist))
 }
 
-public fun SnmpCreateSession(hwnd: Foundation.HWND, wmsg: UInt, fcallback: SNMPAPI_CALLBACK, lpclientdata: Long): Long {
-    return Win32DynamicFfi.invoke("wsnmp32.dll", "SnmpCreateSession", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), wmsg.toLong(), Win32DynamicFfi.objectSlot(fcallback), lpclientdata))
+public fun SnmpCreateSession(hwnd: HWND, wmsg: UInt, fcallback: SNMPAPI_CALLBACK, lpclientdata: Long): Long {
+    return Win32DynamicFfi.invoke("wsnmp32.dll", "SnmpCreateSession", longArrayOf(hwnd, wmsg.toLong(), Win32DynamicFfi.objectSlot(fcallback), lpclientdata))
 }
 
 public fun SnmpCreateVbl(session: Long, name: Long, value: Long): Long {
@@ -177,8 +180,8 @@ public fun SnmpOidToStr(srcoid: Long, size: UInt, string: PSTR): UInt {
     return Win32DynamicFfi.invoke("wsnmp32.dll", "SnmpOidToStr", longArrayOf(srcoid, size.toLong(), string)).toUInt()
 }
 
-public fun SnmpOpen(hwnd: Foundation.HWND, wmsg: UInt): Long {
-    return Win32DynamicFfi.invoke("wsnmp32.dll", "SnmpOpen", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), wmsg.toLong()))
+public fun SnmpOpen(hwnd: HWND, wmsg: UInt): Long {
+    return Win32DynamicFfi.invoke("wsnmp32.dll", "SnmpOpen", longArrayOf(hwnd, wmsg.toLong()))
 }
 
 public fun SnmpRecvMsg(session: Long, srcentity: Long, dstentity: Long, context: Long, pdu: Long): UInt {

@@ -2,6 +2,8 @@ package io.github.kotlinmania.windowssys.windows.win32.system.securitycenter
 
 import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.HRESULT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.system.threading.LPTHREAD_START_ROUTINE
 
 public fun WscGetAntiMalwareUri(ppszuri: Long): HRESULT {
     return Win32DynamicFfi.invoke("wscapi.dll", "WscGetAntiMalwareUri", longArrayOf(ppszuri)).toInt()
@@ -15,7 +17,7 @@ public fun WscQueryAntiMalwareUri(): HRESULT {
     return Win32DynamicFfi.invoke("wscapi.dll", "WscQueryAntiMalwareUri", longArrayOf()).toInt()
 }
 
-public fun WscRegisterForChanges(reserved: Long, phcallbackregistration: Long, lpcallbackaddress: Threading.LPTHREAD_START_ROUTINE, pcontext: Long): HRESULT {
+public fun WscRegisterForChanges(reserved: Long, phcallbackregistration: Long, lpcallbackaddress: LPTHREAD_START_ROUTINE, pcontext: Long): HRESULT {
     return Win32DynamicFfi.invoke("wscapi.dll", "WscRegisterForChanges", longArrayOf(reserved, phcallbackregistration, Win32DynamicFfi.objectSlot(lpcallbackaddress), pcontext)).toInt()
 }
 
@@ -23,6 +25,6 @@ public fun WscRegisterForUserNotifications(): HRESULT {
     return Win32DynamicFfi.invoke("wscapi.dll", "WscRegisterForUserNotifications", longArrayOf()).toInt()
 }
 
-public fun WscUnRegisterChanges(hregistrationhandle: Foundation.HANDLE): HRESULT {
-    return Win32DynamicFfi.invoke("wscapi.dll", "WscUnRegisterChanges", longArrayOf(Win32DynamicFfi.objectSlot(hregistrationhandle))).toInt()
+public fun WscUnRegisterChanges(hregistrationhandle: HANDLE): HRESULT {
+    return Win32DynamicFfi.invoke("wscapi.dll", "WscUnRegisterChanges", longArrayOf(hregistrationhandle)).toInt()
 }

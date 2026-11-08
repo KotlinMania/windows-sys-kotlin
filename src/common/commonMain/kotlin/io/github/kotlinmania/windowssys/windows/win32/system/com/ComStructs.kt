@@ -5,6 +5,15 @@ import io.github.kotlinmania.windowssys.core.BSTR
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HGLOBAL
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBITMAP
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HENHMETAFILE
+import io.github.kotlinmania.windowssys.windows.win32.security.SECURITY_ATTRIBUTES
+import io.github.kotlinmania.windowssys.windows.win32.system.ole.PARAMDESC
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.VARENUM
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.VARIANT
 
 public data class AUTHENTICATEINFO(public var dwFlags: UInt = 0u, public var dwReserved: UInt = 0u)
 
@@ -19,7 +28,7 @@ public data class BINDINFO(
     public var dwOptions: UInt = 0u,
     public var dwOptionsFlags: UInt = 0u,
     public var dwCodePage: UInt = 0u,
-    public var securityAttributes: Security.SECURITY_ATTRIBUTES = Security.SECURITY_ATTRIBUTES(),
+    public var securityAttributes: SECURITY_ATTRIBUTES = SECURITY_ATTRIBUTES(),
     public var iid: GUID = GUID(),
     public var pUnk: Long = 0L,
     public var dwReserved: UInt = 0u,
@@ -46,7 +55,7 @@ public data class BIND_OPTS2(
     public var pServerInfo: Long = 0L,
 )
 
-public data class BIND_OPTS3(public var Base: BIND_OPTS2 = BIND_OPTS2(), public var hwnd: Foundation.HWND = Foundation.HWND())
+public data class BIND_OPTS3(public var Base: BIND_OPTS2 = BIND_OPTS2(), public var hwnd: HWND = 0L)
 
 public data class BLOB(public var cbSize: UInt = 0u, public var pBlobData: Long = 0L)
 
@@ -128,7 +137,7 @@ public data class CSPLATFORM(
 
 public data class CUSTDATA(public var cCustData: UInt = 0u, public var prgCustData: Long = 0L)
 
-public data class CUSTDATAITEM(public var guid: GUID = GUID(), public var varValue: Variant.VARIANT = Variant.VARIANT())
+public data class CUSTDATAITEM(public var guid: GUID = GUID(), public var varValue: VARIANT = VARIANT())
 
 public data class CY(public var Anonymous: CY_0 = CY_0(), public var int64: Long = 0L)
 
@@ -204,7 +213,7 @@ public data class DWORD_SIZEDARR(public var clSize: UInt = 0u, public var pData:
 
 public data class ELEMDESC(public var tdesc: TYPEDESC = TYPEDESC(), public var Anonymous: ELEMDESC_0 = ELEMDESC_0())
 
-public data class ELEMDESC_0(public var idldesc: IDLDESC = IDLDESC(), public var paramdesc: Ole.PARAMDESC = Ole.PARAMDESC())
+public data class ELEMDESC_0(public var idldesc: IDLDESC = IDLDESC(), public var paramdesc: PARAMDESC = PARAMDESC())
 
 public data class EXCEPINFO(
     public var wCode: UShort = 0u,
@@ -434,9 +443,9 @@ public data class STATSTG(
     public var pwcsName: PWSTR = 0L,
     public var type: UInt = 0u,
     public var cbSize: ULong = 0uL,
-    public var mtime: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ctime: Foundation.FILETIME = Foundation.FILETIME(),
-    public var atime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var mtime: FILETIME = FILETIME(),
+    public var ctime: FILETIME = FILETIME(),
+    public var atime: FILETIME = FILETIME(),
     public var grfMode: STGM = 0u,
     public var grfLocksSupported: UInt = 0u,
     public var clsid: GUID = GUID(),
@@ -451,10 +460,10 @@ public data class STGMEDIUM(
 )
 
 public data class STGMEDIUM_0(
-    public var hBitmap: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(),
+    public var hBitmap: HBITMAP = 0L,
     public var hMetaFilePict: Long = 0L,
-    public var hEnhMetaFile: Graphics.Gdi.HENHMETAFILE = Graphics.Gdi.HENHMETAFILE(),
-    public var hGlobal: Foundation.HGLOBAL = Foundation.HGLOBAL(),
+    public var hEnhMetaFile: HENHMETAFILE = 0L,
+    public var hGlobal: HGLOBAL = 0L,
     public var lpszFileName: PWSTR = 0L,
     public var pstm: Long = 0L,
     public var pstg: Long = 0L,
@@ -497,7 +506,7 @@ public class TYPEATTR(
     public var idldescType: IDLDESC = IDLDESC(),
 )
 
-public data class TYPEDESC(public var Anonymous: TYPEDESC_0 = TYPEDESC_0(), public var vt: Variant.VARENUM = Variant.VARENUM())
+public data class TYPEDESC(public var Anonymous: TYPEDESC_0 = TYPEDESC_0(), public var vt: VARENUM = 0u)
 
 public data class TYPEDESC_0(
     public var lptdesc: Long = 0L,

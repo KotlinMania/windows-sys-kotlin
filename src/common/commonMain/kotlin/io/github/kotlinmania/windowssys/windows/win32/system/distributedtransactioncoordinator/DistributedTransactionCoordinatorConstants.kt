@@ -1,10 +1,11 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.distributedtransactioncoordinator
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 
-public val CLSID_MSDtcTransaction: GUID = GUID.from_u128(0x39f8d76b092811d1uL, 0x97df00c04fb9618auL)
+public val CLSID_MSDtcTransaction: GUID = GUID.from_u128(U128(0x39f8d76b092811d1uL, 0x97df00c04fb9618auL))
 
-public val CLSID_MSDtcTransactionManager: GUID = GUID.from_u128(0x5b18ab61091d11d1uL, 0x97df00c04fb9618auL)
+public val CLSID_MSDtcTransactionManager: GUID = GUID.from_u128(U128(0x5b18ab61091d11d1uL, 0x97df00c04fb9618auL))
 
 public val CLUSTERRESOURCE_APPLICATIONTYPE: APPLICATIONTYPE = 1
 

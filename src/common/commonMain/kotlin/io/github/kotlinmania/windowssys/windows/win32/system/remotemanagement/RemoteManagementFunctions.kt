@@ -4,6 +4,7 @@ import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 
 public fun WSManCloseCommand(commandhandle: WSMAN_COMMAND_HANDLE, flags: UInt, async: Long) {
     Win32DynamicFfi.invoke("wsmsvc.dll", "WSManCloseCommand", longArrayOf(commandhandle, flags.toLong(), async))
@@ -73,8 +74,8 @@ public fun WSManPluginAuthzQueryQuotaComplete(senderdetails: Long, flags: UInt, 
     return Win32DynamicFfi.invoke("wsmsvc.dll", "WSManPluginAuthzQueryQuotaComplete", longArrayOf(senderdetails, flags.toLong(), quota, errorcode.toLong(), extendederrorinformation)).toUInt()
 }
 
-public fun WSManPluginAuthzUserComplete(senderdetails: Long, flags: UInt, userauthorizationcontext: Long, impersonationtoken: Foundation.HANDLE, userisadministrator: BOOL, errorcode: UInt, extendederrorinformation: PCWSTR): UInt {
-    return Win32DynamicFfi.invoke("wsmsvc.dll", "WSManPluginAuthzUserComplete", longArrayOf(senderdetails, flags.toLong(), userauthorizationcontext, Win32DynamicFfi.objectSlot(impersonationtoken), userisadministrator.toLong(), errorcode.toLong(), extendederrorinformation)).toUInt()
+public fun WSManPluginAuthzUserComplete(senderdetails: Long, flags: UInt, userauthorizationcontext: Long, impersonationtoken: HANDLE, userisadministrator: BOOL, errorcode: UInt, extendederrorinformation: PCWSTR): UInt {
+    return Win32DynamicFfi.invoke("wsmsvc.dll", "WSManPluginAuthzUserComplete", longArrayOf(senderdetails, flags.toLong(), userauthorizationcontext, impersonationtoken, userisadministrator.toLong(), errorcode.toLong(), extendederrorinformation)).toUInt()
 }
 
 public fun WSManPluginFreeRequestDetails(requestdetails: Long): UInt {

@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 
 public val FPSPS_DEFAULT: _PERSIST_SPROPSTORE_FLAGS = 0
@@ -38,9 +39,9 @@ public val GPS_VOLATILEPROPERTIES: GETPROPERTYSTOREFLAGS = 2048
 
 public val GPS_VOLATILEPROPERTIESONLY: GETPROPERTYSTOREFLAGS = 4096
 
-public val InMemoryPropertyStore: GUID = GUID.from_u128(0x9a02e01263034e1euL, 0xb9a1630f802592c5uL)
+public val InMemoryPropertyStore: GUID = GUID.from_u128(U128(0x9a02e01263034e1euL, 0xb9a1630f802592c5uL))
 
-public val InMemoryPropertyStoreMarshalByValue: GUID = GUID.from_u128(0xd4ca0e2d6da74b75uL, 0xa97c5f306f0eaedcuL)
+public val InMemoryPropertyStoreMarshalByValue: GUID = GUID.from_u128(U128(0xd4ca0e2d6da74b75uL, 0xa97c5f306f0eaedcuL))
 
 public val PDAT_AVERAGE: PROPDESC_AGGREGATION_TYPE = 3
 
@@ -322,7 +323,7 @@ public val PUIF_NOLABELININFOTIP: PROPERTYUI_FLAGS = 2
 
 public val PUIF_RIGHTALIGN: PROPERTYUI_FLAGS = 1
 
-public val PropertySystem: GUID = GUID.from_u128(0xb8967f8558ae4f46uL, 0x9fb25d7904798f4buL)
+public val PropertySystem: GUID = GUID.from_u128(U128(0xb8967f8558ae4f46uL, 0x9fb25d7904798f4buL))
 
 public val SESF_ALL_FLAGS: SYNC_ENGINE_STATE_FLAGS = 511
 

@@ -2,6 +2,8 @@ package io.github.kotlinmania.windowssys.windows.win32.system.grouppolicy
 
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.HKEY
 
 public typealias APPSTATE = Int
 
@@ -48,13 +50,13 @@ public fun interface PFNGENERATEGROUPPOLICYFn {
 public typealias PFNGENERATEGROUPPOLICY = PFNGENERATEGROUPPOLICYFn?
 
 public fun interface PFNPROCESSGROUPPOLICYFn {
-    public operator fun invoke(dwflags: UInt, htoken: Foundation.HANDLE, hkeyroot: Registry.HKEY, pdeletedgpolist: Long, pchangedgpolist: Long, phandle: ULong, pbabort: Long, pstatuscallback: PFNSTATUSMESSAGECALLBACK): UInt
+    public operator fun invoke(dwflags: UInt, htoken: HANDLE, hkeyroot: HKEY, pdeletedgpolist: Long, pchangedgpolist: Long, phandle: ULong, pbabort: Long, pstatuscallback: PFNSTATUSMESSAGECALLBACK): UInt
 }
 
 public typealias PFNPROCESSGROUPPOLICY = PFNPROCESSGROUPPOLICYFn?
 
 public fun interface PFNPROCESSGROUPPOLICYEXFn {
-    public operator fun invoke(dwflags: UInt, htoken: Foundation.HANDLE, hkeyroot: Registry.HKEY, pdeletedgpolist: Long, pchangedgpolist: Long, phandle: ULong, pbabort: Long, pstatuscallback: PFNSTATUSMESSAGECALLBACK, pwbemservices: Long, prsopstatus: Long): UInt
+    public operator fun invoke(dwflags: UInt, htoken: HANDLE, hkeyroot: HKEY, pdeletedgpolist: Long, pchangedgpolist: Long, phandle: ULong, pbabort: Long, pstatuscallback: PFNSTATUSMESSAGECALLBACK, pwbemservices: Long, prsopstatus: Long): UInt
 }
 
 public typealias PFNPROCESSGROUPPOLICYEX = PFNPROCESSGROUPPOLICYEXFn?

@@ -7,6 +7,9 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.HKEY
 
 public data class AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA(
     public var cbSize: UInt = 0u,
@@ -868,8 +871,8 @@ public data class CERT_INFO(
     public var SerialNumber: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
     public var SignatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
     public var Issuer: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var NotBefore: Foundation.FILETIME = Foundation.FILETIME(),
-    public var NotAfter: Foundation.FILETIME = Foundation.FILETIME(),
+    public var NotBefore: FILETIME = FILETIME(),
+    public var NotAfter: FILETIME = FILETIME(),
     public var Subject: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
     public var SubjectPublicKeyInfo: CERT_PUBLIC_KEY_INFO = CERT_PUBLIC_KEY_INFO(),
     public var IssuerUniqueId: CRYPT_BIT_BLOB = CRYPT_BIT_BLOB(),
@@ -1034,7 +1037,7 @@ public data class CERT_POLICY_QUALIFIER_NOTICE_REFERENCE(
 
 public data class CERT_POLICY_QUALIFIER_USER_NOTICE(public var pNoticeReference: Long = 0L, public var pszDisplayText: PWSTR = 0L)
 
-public data class CERT_PRIVATE_KEY_VALIDITY(public var NotBefore: Foundation.FILETIME = Foundation.FILETIME(), public var NotAfter: Foundation.FILETIME = Foundation.FILETIME())
+public data class CERT_PRIVATE_KEY_VALIDITY(public var NotBefore: FILETIME = FILETIME(), public var NotAfter: FILETIME = FILETIME())
 
 public data class CERT_PUBLIC_KEY_INFO(public var Algorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(), public var PublicKey: CRYPT_BIT_BLOB = CRYPT_BIT_BLOB())
 
@@ -1050,9 +1053,9 @@ public data class CERT_RDN_ATTR(
     public var Value: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
 )
 
-public data class CERT_REGISTRY_STORE_CLIENT_GPT_PARA(public var hKeyBase: System.Registry.HKEY = System.Registry.HKEY(), public var pwszRegPath: PWSTR = 0L)
+public data class CERT_REGISTRY_STORE_CLIENT_GPT_PARA(public var hKeyBase: HKEY = 0L, public var pwszRegPath: PWSTR = 0L)
 
-public data class CERT_REGISTRY_STORE_ROAMING_PARA(public var hKey: System.Registry.HKEY = System.Registry.HKEY(), public var pwszStoreDirectory: PWSTR = 0L)
+public data class CERT_REGISTRY_STORE_ROAMING_PARA(public var hKey: HKEY = 0L, public var pwszStoreDirectory: PWSTR = 0L)
 
 public data class CERT_REQUEST_INFO(
     public var dwVersion: UInt = 0u,
@@ -1199,7 +1202,7 @@ public data class CERT_SYSTEM_STORE_INFO(public var cbSize: UInt = 0u)
 
 public data class CERT_SYSTEM_STORE_RELOCATE_PARA(public var Anonymous1: CERT_SYSTEM_STORE_RELOCATE_PARA_0 = CERT_SYSTEM_STORE_RELOCATE_PARA_0(), public var Anonymous2: CERT_SYSTEM_STORE_RELOCATE_PARA_1 = CERT_SYSTEM_STORE_RELOCATE_PARA_1())
 
-public data class CERT_SYSTEM_STORE_RELOCATE_PARA_0(public var hKeyBase: System.Registry.HKEY = System.Registry.HKEY(), public var pvBase: Long = 0L)
+public data class CERT_SYSTEM_STORE_RELOCATE_PARA_0(public var hKeyBase: HKEY = 0L, public var pvBase: Long = 0L)
 
 public data class CERT_SYSTEM_STORE_RELOCATE_PARA_1(
     public var pvSystemStore: Long = 0L,
@@ -1291,7 +1294,7 @@ public data class CMC_DATA_INFO(
     public var rgTaggedOtherMsg: Long = 0L,
 )
 
-public data class CMC_PEND_INFO(public var PendToken: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(), public var PendTime: Foundation.FILETIME = Foundation.FILETIME())
+public data class CMC_PEND_INFO(public var PendToken: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(), public var PendTime: FILETIME = FILETIME())
 
 public data class CMC_RESPONSE_INFO(
     public var cTaggedAttribute: UInt = 0u,
@@ -1548,7 +1551,7 @@ public data class CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO(
     public var dwKeyChoice: UInt = 0u,
     public var Anonymous: CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 = CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0(),
     public var KeyId: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var Date: Foundation.FILETIME = Foundation.FILETIME(),
+    public var Date: FILETIME = FILETIME(),
     public var pOtherAttr: Long = 0L,
 )
 
@@ -1559,7 +1562,7 @@ public data class CMSG_MAIL_LIST_RECIPIENT_INFO(
     public var KeyId: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
     public var KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
     public var EncryptedKey: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var Date: Foundation.FILETIME = Foundation.FILETIME(),
+    public var Date: FILETIME = FILETIME(),
     public var pOtherAttr: Long = 0L,
 )
 
@@ -1579,14 +1582,14 @@ public data class CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO(
     public var cbSize: UInt = 0u,
     public var RecipientPublicKey: CRYPT_BIT_BLOB = CRYPT_BIT_BLOB(),
     public var RecipientId: CERT_ID = CERT_ID(),
-    public var Date: Foundation.FILETIME = Foundation.FILETIME(),
+    public var Date: FILETIME = FILETIME(),
     public var pOtherAttr: Long = 0L,
 )
 
 public data class CMSG_RECIPIENT_ENCRYPTED_KEY_INFO(
     public var RecipientId: CERT_ID = CERT_ID(),
     public var EncryptedKey: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var Date: Foundation.FILETIME = Foundation.FILETIME(),
+    public var Date: FILETIME = FILETIME(),
     public var pOtherAttr: Long = 0L,
 )
 
@@ -1720,7 +1723,7 @@ public data class CRL_DIST_POINT_NAME_0(public var FullName: CERT_ALT_NAME_INFO 
 
 public data class CRL_ENTRY(
     public var SerialNumber: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var RevocationDate: Foundation.FILETIME = Foundation.FILETIME(),
+    public var RevocationDate: FILETIME = FILETIME(),
     public var cExtension: UInt = 0u,
     public var rgExtension: Long = 0L,
 )
@@ -1731,8 +1734,8 @@ public data class CRL_INFO(
     public var dwVersion: UInt = 0u,
     public var SignatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
     public var Issuer: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var ThisUpdate: Foundation.FILETIME = Foundation.FILETIME(),
-    public var NextUpdate: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ThisUpdate: FILETIME = FILETIME(),
+    public var NextUpdate: FILETIME = FILETIME(),
     public var cCRLEntry: UInt = 0u,
     public var rgCRLEntry: Long = 0L,
     public var cExtension: UInt = 0u,
@@ -1762,7 +1765,7 @@ public data class CROSS_CERT_DIST_POINTS_INFO(
 public data class CRYPTNET_URL_CACHE_FLUSH_INFO(
     public var cbSize: UInt = 0u,
     public var dwExemptSeconds: UInt = 0u,
-    public var ExpireTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ExpireTime: FILETIME = FILETIME(),
 )
 
 public data class CRYPTNET_URL_CACHE_PRE_FETCH_INFO(
@@ -1770,16 +1773,16 @@ public data class CRYPTNET_URL_CACHE_PRE_FETCH_INFO(
     public var dwObjectType: UInt = 0u,
     public var dwError: UInt = 0u,
     public var dwReserved: UInt = 0u,
-    public var ThisUpdateTime: Foundation.FILETIME = Foundation.FILETIME(),
-    public var NextUpdateTime: Foundation.FILETIME = Foundation.FILETIME(),
-    public var PublishTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ThisUpdateTime: FILETIME = FILETIME(),
+    public var NextUpdateTime: FILETIME = FILETIME(),
+    public var PublishTime: FILETIME = FILETIME(),
 )
 
 public data class CRYPTNET_URL_CACHE_RESPONSE_INFO(
     public var cbSize: UInt = 0u,
     public var wResponseType: UShort = 0u,
     public var wResponseFlags: UShort = 0u,
-    public var LastModifiedTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var LastModifiedTime: FILETIME = FILETIME(),
     public var dwMaxAge: UInt = 0u,
     public var pwszETag: PCWSTR = 0L,
     public var dwProxyId: UInt = 0u,
@@ -1788,7 +1791,7 @@ public data class CRYPTNET_URL_CACHE_RESPONSE_INFO(
 public data class CRYPTPROTECT_PROMPTSTRUCT(
     public var cbSize: UInt = 0u,
     public var dwPromptFlags: UInt = 0u,
-    public var hwndApp: Foundation.HWND = Foundation.HWND(),
+    public var hwndApp: HWND = 0L,
     public var szPrompt: PCWSTR = 0L,
 )
 

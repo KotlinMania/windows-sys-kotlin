@@ -4,29 +4,33 @@ import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.PROC
+import io.github.kotlinmania.windowssys.windows.win32.foundation.PROCFn
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HENHMETAFILE
 
-public fun ChoosePixelFormat(hdc: Gdi.HDC, ppfd: Long): Int {
-    return Win32DynamicFfi.invoke("gdi32.dll", "ChoosePixelFormat", longArrayOf(Win32DynamicFfi.objectSlot(hdc), ppfd)).toInt()
+public fun ChoosePixelFormat(hdc: HDC, ppfd: Long): Int {
+    return Win32DynamicFfi.invoke("gdi32.dll", "ChoosePixelFormat", longArrayOf(hdc, ppfd)).toInt()
 }
 
-public fun DescribePixelFormat(hdc: Gdi.HDC, ipixelformat: Int, nbytes: UInt, ppfd: Long): Int {
-    return Win32DynamicFfi.invoke("gdi32.dll", "DescribePixelFormat", longArrayOf(Win32DynamicFfi.objectSlot(hdc), ipixelformat.toLong(), nbytes.toLong(), ppfd)).toInt()
+public fun DescribePixelFormat(hdc: HDC, ipixelformat: Int, nbytes: UInt, ppfd: Long): Int {
+    return Win32DynamicFfi.invoke("gdi32.dll", "DescribePixelFormat", longArrayOf(hdc, ipixelformat.toLong(), nbytes.toLong(), ppfd)).toInt()
 }
 
-public fun GetEnhMetaFilePixelFormat(hemf: Gdi.HENHMETAFILE, cbbuffer: UInt, ppfd: Long): UInt {
-    return Win32DynamicFfi.invoke("gdi32.dll", "GetEnhMetaFilePixelFormat", longArrayOf(Win32DynamicFfi.objectSlot(hemf), cbbuffer.toLong(), ppfd)).toUInt()
+public fun GetEnhMetaFilePixelFormat(hemf: HENHMETAFILE, cbbuffer: UInt, ppfd: Long): UInt {
+    return Win32DynamicFfi.invoke("gdi32.dll", "GetEnhMetaFilePixelFormat", longArrayOf(hemf, cbbuffer.toLong(), ppfd)).toUInt()
 }
 
-public fun GetPixelFormat(hdc: Gdi.HDC): Int {
-    return Win32DynamicFfi.invoke("gdi32.dll", "GetPixelFormat", longArrayOf(Win32DynamicFfi.objectSlot(hdc))).toInt()
+public fun GetPixelFormat(hdc: HDC): Int {
+    return Win32DynamicFfi.invoke("gdi32.dll", "GetPixelFormat", longArrayOf(hdc)).toInt()
 }
 
-public fun SetPixelFormat(hdc: Gdi.HDC, format: Int, ppfd: Long): BOOL {
-    return Win32DynamicFfi.invoke("gdi32.dll", "SetPixelFormat", longArrayOf(Win32DynamicFfi.objectSlot(hdc), format.toLong(), ppfd)).toInt()
+public fun SetPixelFormat(hdc: HDC, format: Int, ppfd: Long): BOOL {
+    return Win32DynamicFfi.invoke("gdi32.dll", "SetPixelFormat", longArrayOf(hdc, format.toLong(), ppfd)).toInt()
 }
 
-public fun SwapBuffers(param0: Gdi.HDC): BOOL {
-    return Win32DynamicFfi.invoke("gdi32.dll", "SwapBuffers", longArrayOf(Win32DynamicFfi.objectSlot(param0))).toInt()
+public fun SwapBuffers(param0: HDC): BOOL {
+    return Win32DynamicFfi.invoke("gdi32.dll", "SwapBuffers", longArrayOf(param0)).toInt()
 }
 
 public fun glAccum(op: UInt, value: Float) {
@@ -1585,72 +1589,71 @@ public fun wglCopyContext(param0: HGLRC, param1: HGLRC, param2: UInt): BOOL {
     return Win32DynamicFfi.invoke("opengl32.dll", "wglCopyContext", longArrayOf(param0, param1, param2.toLong())).toInt()
 }
 
-public fun wglCreateContext(param0: Gdi.HDC): HGLRC {
-    return Win32DynamicFfi.invoke("opengl32.dll", "wglCreateContext", longArrayOf(Win32DynamicFfi.objectSlot(param0)))
+public fun wglCreateContext(param0: HDC): HGLRC {
+    return Win32DynamicFfi.invoke("opengl32.dll", "wglCreateContext", longArrayOf(param0))
 }
 
-public fun wglCreateLayerContext(param0: Gdi.HDC, param1: Int): HGLRC {
-    return Win32DynamicFfi.invoke("opengl32.dll", "wglCreateLayerContext", longArrayOf(Win32DynamicFfi.objectSlot(param0), param1.toLong()))
+public fun wglCreateLayerContext(param0: HDC, param1: Int): HGLRC {
+    return Win32DynamicFfi.invoke("opengl32.dll", "wglCreateLayerContext", longArrayOf(param0, param1.toLong()))
 }
 
 public fun wglDeleteContext(param0: HGLRC): BOOL {
     return Win32DynamicFfi.invoke("opengl32.dll", "wglDeleteContext", longArrayOf(param0)).toInt()
 }
 
-public fun wglDescribeLayerPlane(param0: Gdi.HDC, param1: Int, param2: Int, param3: UInt, param4: Long): BOOL {
-    return Win32DynamicFfi.invoke("opengl32.dll", "wglDescribeLayerPlane", longArrayOf(Win32DynamicFfi.objectSlot(param0), param1.toLong(), param2.toLong(), param3.toLong(), param4)).toInt()
+public fun wglDescribeLayerPlane(param0: HDC, param1: Int, param2: Int, param3: UInt, param4: Long): BOOL {
+    return Win32DynamicFfi.invoke("opengl32.dll", "wglDescribeLayerPlane", longArrayOf(param0, param1.toLong(), param2.toLong(), param3.toLong(), param4)).toInt()
 }
 
 public fun wglGetCurrentContext(): HGLRC {
     return Win32DynamicFfi.invoke("opengl32.dll", "wglGetCurrentContext", longArrayOf())
 }
 
-public fun wglGetCurrentDC(): Gdi.HDC {
-    Win32DynamicFfi.invoke("opengl32.dll", "wglGetCurrentDC", longArrayOf())
-    return Gdi.HDC()
+public fun wglGetCurrentDC(): HDC {
+    return Win32DynamicFfi.invoke("opengl32.dll", "wglGetCurrentDC", longArrayOf())
 }
 
-public fun wglGetLayerPaletteEntries(param0: Gdi.HDC, param1: Int, param2: Int, param3: Int, param4: Long): Int {
-    return Win32DynamicFfi.invoke("opengl32.dll", "wglGetLayerPaletteEntries", longArrayOf(Win32DynamicFfi.objectSlot(param0), param1.toLong(), param2.toLong(), param3.toLong(), param4)).toInt()
+public fun wglGetLayerPaletteEntries(param0: HDC, param1: Int, param2: Int, param3: Int, param4: Long): Int {
+    return Win32DynamicFfi.invoke("opengl32.dll", "wglGetLayerPaletteEntries", longArrayOf(param0, param1.toLong(), param2.toLong(), param3.toLong(), param4)).toInt()
 }
 
-public fun wglGetProcAddress(param0: PCSTR): Foundation.PROC {
-    Win32DynamicFfi.invoke("opengl32.dll", "wglGetProcAddress", longArrayOf(param0))
-    return Foundation.PROC()
+public fun wglGetProcAddress(param0: PCSTR): PROC {
+    val rawRet = Win32DynamicFfi.invoke("opengl32.dll", "wglGetProcAddress", longArrayOf(param0))
+    return if (rawRet == 0L) null else PROCFn { Win32DynamicFfi.invokePtr(rawRet, longArrayOf()) }
 }
 
-public fun wglMakeCurrent(param0: Gdi.HDC, param1: HGLRC): BOOL {
-    return Win32DynamicFfi.invoke("opengl32.dll", "wglMakeCurrent", longArrayOf(Win32DynamicFfi.objectSlot(param0), param1)).toInt()
+public fun wglMakeCurrent(param0: HDC, param1: HGLRC): BOOL {
+    return Win32DynamicFfi.invoke("opengl32.dll", "wglMakeCurrent", longArrayOf(param0, param1)).toInt()
 }
 
-public fun wglRealizeLayerPalette(param0: Gdi.HDC, param1: Int, param2: BOOL): BOOL {
-    return Win32DynamicFfi.invoke("opengl32.dll", "wglRealizeLayerPalette", longArrayOf(Win32DynamicFfi.objectSlot(param0), param1.toLong(), param2.toLong())).toInt()
+public fun wglRealizeLayerPalette(param0: HDC, param1: Int, param2: BOOL): BOOL {
+    return Win32DynamicFfi.invoke("opengl32.dll", "wglRealizeLayerPalette", longArrayOf(param0, param1.toLong(), param2.toLong())).toInt()
 }
 
-public fun wglSetLayerPaletteEntries(param0: Gdi.HDC, param1: Int, param2: Int, param3: Int, param4: Long): Int {
-    return Win32DynamicFfi.invoke("opengl32.dll", "wglSetLayerPaletteEntries", longArrayOf(Win32DynamicFfi.objectSlot(param0), param1.toLong(), param2.toLong(), param3.toLong(), param4)).toInt()
+public fun wglSetLayerPaletteEntries(param0: HDC, param1: Int, param2: Int, param3: Int, param4: Long): Int {
+    return Win32DynamicFfi.invoke("opengl32.dll", "wglSetLayerPaletteEntries", longArrayOf(param0, param1.toLong(), param2.toLong(), param3.toLong(), param4)).toInt()
 }
 
 public fun wglShareLists(param0: HGLRC, param1: HGLRC): BOOL {
     return Win32DynamicFfi.invoke("opengl32.dll", "wglShareLists", longArrayOf(param0, param1)).toInt()
 }
 
-public fun wglSwapLayerBuffers(param0: Gdi.HDC, param1: UInt): BOOL {
-    return Win32DynamicFfi.invoke("opengl32.dll", "wglSwapLayerBuffers", longArrayOf(Win32DynamicFfi.objectSlot(param0), param1.toLong())).toInt()
+public fun wglSwapLayerBuffers(param0: HDC, param1: UInt): BOOL {
+    return Win32DynamicFfi.invoke("opengl32.dll", "wglSwapLayerBuffers", longArrayOf(param0, param1.toLong())).toInt()
 }
 
-public fun wglUseFontBitmapsA(param0: Gdi.HDC, param1: UInt, param2: UInt, param3: UInt): BOOL {
-    return Win32DynamicFfi.invoke("opengl32.dll", "wglUseFontBitmapsA", longArrayOf(Win32DynamicFfi.objectSlot(param0), param1.toLong(), param2.toLong(), param3.toLong())).toInt()
+public fun wglUseFontBitmapsA(param0: HDC, param1: UInt, param2: UInt, param3: UInt): BOOL {
+    return Win32DynamicFfi.invoke("opengl32.dll", "wglUseFontBitmapsA", longArrayOf(param0, param1.toLong(), param2.toLong(), param3.toLong())).toInt()
 }
 
-public fun wglUseFontBitmapsW(param0: Gdi.HDC, param1: UInt, param2: UInt, param3: UInt): BOOL {
-    return Win32DynamicFfi.invoke("opengl32.dll", "wglUseFontBitmapsW", longArrayOf(Win32DynamicFfi.objectSlot(param0), param1.toLong(), param2.toLong(), param3.toLong())).toInt()
+public fun wglUseFontBitmapsW(param0: HDC, param1: UInt, param2: UInt, param3: UInt): BOOL {
+    return Win32DynamicFfi.invoke("opengl32.dll", "wglUseFontBitmapsW", longArrayOf(param0, param1.toLong(), param2.toLong(), param3.toLong())).toInt()
 }
 
-public fun wglUseFontOutlinesA(param0: Gdi.HDC, param1: UInt, param2: UInt, param3: UInt, param4: Float, param5: Float, param6: Int, param7: Long): BOOL {
-    return Win32DynamicFfi.invokeFp("opengl32.dll", "wglUseFontOutlinesA", 1280, false, longArrayOf(Win32DynamicFfi.objectSlot(param0), param1.toLong(), param2.toLong(), param3.toLong(), (param4.toRawBits().toLong() and 0xFFFF_FFFFL), (param5.toRawBits().toLong() and 0xFFFF_FFFFL), param6.toLong(), param7)).toLong().toInt()
+public fun wglUseFontOutlinesA(param0: HDC, param1: UInt, param2: UInt, param3: UInt, param4: Float, param5: Float, param6: Int, param7: Long): BOOL {
+    return Win32DynamicFfi.invokeFp("opengl32.dll", "wglUseFontOutlinesA", 1280, false, longArrayOf(param0, param1.toLong(), param2.toLong(), param3.toLong(), (param4.toRawBits().toLong() and 0xFFFF_FFFFL), (param5.toRawBits().toLong() and 0xFFFF_FFFFL), param6.toLong(), param7)).toLong().toInt()
 }
 
-public fun wglUseFontOutlinesW(param0: Gdi.HDC, param1: UInt, param2: UInt, param3: UInt, param4: Float, param5: Float, param6: Int, param7: Long): BOOL {
-    return Win32DynamicFfi.invokeFp("opengl32.dll", "wglUseFontOutlinesW", 1280, false, longArrayOf(Win32DynamicFfi.objectSlot(param0), param1.toLong(), param2.toLong(), param3.toLong(), (param4.toRawBits().toLong() and 0xFFFF_FFFFL), (param5.toRawBits().toLong() and 0xFFFF_FFFFL), param6.toLong(), param7)).toLong().toInt()
+public fun wglUseFontOutlinesW(param0: HDC, param1: UInt, param2: UInt, param3: UInt, param4: Float, param5: Float, param6: Int, param7: Long): BOOL {
+    return Win32DynamicFfi.invokeFp("opengl32.dll", "wglUseFontOutlinesW", 1280, false, longArrayOf(param0, param1.toLong(), param2.toLong(), param3.toLong(), (param4.toRawBits().toLong() and 0xFFFF_FFFFL), (param5.toRawBits().toLong() and 0xFFFF_FFFFL), param6.toLong(), param7)).toLong().toInt()
 }

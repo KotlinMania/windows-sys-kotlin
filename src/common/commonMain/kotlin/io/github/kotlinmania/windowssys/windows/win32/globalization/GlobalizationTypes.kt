@@ -4,6 +4,7 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
 
 public typealias CALDATETIME_DATEUNIT = Int
 
@@ -20,7 +21,7 @@ public fun interface CALINFO_ENUMPROCEXAFn {
 public typealias CALINFO_ENUMPROCEXA = CALINFO_ENUMPROCEXAFn?
 
 public fun interface CALINFO_ENUMPROCEXEXFn {
-    public operator fun invoke(param0: PCWSTR, param1: UInt, param2: PCWSTR, param3: Foundation.LPARAM): BOOL
+    public operator fun invoke(param0: PCWSTR, param1: UInt, param2: PCWSTR, param3: LPARAM): BOOL
 }
 
 public typealias CALINFO_ENUMPROCEXEX = CALINFO_ENUMPROCEXEXFn?
@@ -68,7 +69,7 @@ public fun interface DATEFMT_ENUMPROCEXAFn {
 public typealias DATEFMT_ENUMPROCEXA = DATEFMT_ENUMPROCEXAFn?
 
 public fun interface DATEFMT_ENUMPROCEXEXFn {
-    public operator fun invoke(param0: PCWSTR, param1: UInt, param2: Foundation.LPARAM): BOOL
+    public operator fun invoke(param0: PCWSTR, param1: UInt, param2: LPARAM): BOOL
 }
 
 public typealias DATEFMT_ENUMPROCEXEX = DATEFMT_ENUMPROCEXEXFn?
@@ -94,7 +95,7 @@ public typealias ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS = UInt
 public typealias FOLD_STRING_MAP_FLAGS = UInt
 
 public fun interface GEO_ENUMNAMEPROCFn {
-    public operator fun invoke(param0: PCWSTR, param1: Foundation.LPARAM): BOOL
+    public operator fun invoke(param0: PCWSTR, param1: LPARAM): BOOL
 }
 
 public typealias GEO_ENUMNAMEPROC = GEO_ENUMNAMEPROCFn?
@@ -142,7 +143,7 @@ public fun interface LOCALE_ENUMPROCAFn {
 public typealias LOCALE_ENUMPROCA = LOCALE_ENUMPROCAFn?
 
 public fun interface LOCALE_ENUMPROCEXFn {
-    public operator fun invoke(param0: PCWSTR, param1: UInt, param2: Foundation.LPARAM): BOOL
+    public operator fun invoke(param0: PCWSTR, param1: UInt, param2: LPARAM): BOOL
 }
 
 public typealias LOCALE_ENUMPROCEX = LOCALE_ENUMPROCEXFn?
@@ -194,7 +195,7 @@ public fun interface TIMEFMT_ENUMPROCAFn {
 public typealias TIMEFMT_ENUMPROCA = TIMEFMT_ENUMPROCAFn?
 
 public fun interface TIMEFMT_ENUMPROCEXFn {
-    public operator fun invoke(param0: PCWSTR, param1: Foundation.LPARAM): BOOL
+    public operator fun invoke(param0: PCWSTR, param1: LPARAM): BOOL
 }
 
 public typealias TIMEFMT_ENUMPROCEX = TIMEFMT_ENUMPROCEXFn?

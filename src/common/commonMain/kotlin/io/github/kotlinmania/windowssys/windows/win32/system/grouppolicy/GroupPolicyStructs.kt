@@ -5,11 +5,14 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.foundation.SYSTEMTIME
 
 public data class GPOBROWSEINFO(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hwndOwner: Foundation.HWND = Foundation.HWND(),
+    public var hwndOwner: HWND = 0L,
     public var lpTitle: PWSTR = 0L,
     public var lpInitialOU: PWSTR = 0L,
     public var lpDSPath: PWSTR = 0L,
@@ -28,11 +31,11 @@ public data class GROUP_POLICY_OBJECTA(
     public var lpDisplayName: PSTR = 0L,
     public var szGPOName: ByteArray = ByteArray(50),
     public var GPOLink: GPO_LINK = 0,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
     public var pNext: Long = 0L,
     public var pPrev: Long = 0L,
     public var lpExtensions: PSTR = 0L,
-    public var lParam2: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam2: LPARAM = 0L,
     public var lpLink: PSTR = 0L,
 ) {
     override fun equals(other: Any?): Boolean {
@@ -80,11 +83,11 @@ public data class GROUP_POLICY_OBJECTW(
     public var lpDisplayName: PWSTR = 0L,
     public var szGPOName: UShortArray = UShortArray(50),
     public var GPOLink: GPO_LINK = 0,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
     public var pNext: Long = 0L,
     public var pPrev: Long = 0L,
     public var lpExtensions: PWSTR = 0L,
-    public var lParam2: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam2: LPARAM = 0L,
     public var lpLink: PWSTR = 0L,
 ) {
     override fun equals(other: Any?): Boolean {
@@ -170,7 +173,7 @@ public data class POLICYSETTINGSTATUSINFO(
     public var dwEventID: UInt = 0u,
     public var dwErrorCode: UInt = 0u,
     public var status: SETTINGSTATUS = 0,
-    public var timeLogged: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var timeLogged: SYSTEMTIME = SYSTEMTIME(),
 )
 
 public data class RSOP_TARGET(

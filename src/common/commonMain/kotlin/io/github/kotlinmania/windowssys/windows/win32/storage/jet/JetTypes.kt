@@ -1,7 +1,10 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.jet
 
+import io.github.kotlinmania.windowssys.windows.win32.storage.structuredstorage.JET_API_PTR
+import io.github.kotlinmania.windowssys.windows.win32.storage.structuredstorage.JET_TABLEID
+
 public fun interface JET_CALLBACKFn {
-    public operator fun invoke(sesid: JET_SESID, dbid: UInt, tableid: StructuredStorage.JET_TABLEID, cbtyp: UInt, pvarg1: Long, pvarg2: Long, pvcontext: Long, ulunused: StructuredStorage.JET_API_PTR): Int
+    public operator fun invoke(sesid: JET_SESID, dbid: UInt, tableid: JET_TABLEID, cbtyp: UInt, pvarg1: Long, pvarg2: Long, pvcontext: Long, ulunused: JET_API_PTR): Int
 }
 
 public typealias JET_CALLBACK = JET_CALLBACKFn?

@@ -3,8 +3,10 @@ package io.github.kotlinmania.windowssys.windows.win32.system.jobobjects
 
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.system.threading.IO_COUNTERS
 
-public data class JOBOBJECT_ASSOCIATE_COMPLETION_PORT(public var CompletionKey: Long = 0L, public var CompletionPort: Foundation.HANDLE = Foundation.HANDLE())
+public data class JOBOBJECT_ASSOCIATE_COMPLETION_PORT(public var CompletionKey: Long = 0L, public var CompletionPort: HANDLE = 0L)
 
 public data class JOBOBJECT_BASIC_ACCOUNTING_INFORMATION(
     public var TotalUserTime: Long = 0L,
@@ -17,7 +19,7 @@ public data class JOBOBJECT_BASIC_ACCOUNTING_INFORMATION(
     public var TotalTerminatedProcesses: UInt = 0u,
 )
 
-public data class JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION(public var BasicInfo: JOBOBJECT_BASIC_ACCOUNTING_INFORMATION = JOBOBJECT_BASIC_ACCOUNTING_INFORMATION(), public var IoInfo: Threading.IO_COUNTERS = Threading.IO_COUNTERS())
+public data class JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION(public var BasicInfo: JOBOBJECT_BASIC_ACCOUNTING_INFORMATION = JOBOBJECT_BASIC_ACCOUNTING_INFORMATION(), public var IoInfo: IO_COUNTERS = IO_COUNTERS())
 
 public data class JOBOBJECT_BASIC_LIMIT_INFORMATION(
     public var PerProcessUserTimeLimit: Long = 0L,
@@ -69,7 +71,7 @@ public data class JOBOBJECT_END_OF_JOB_TIME_INFORMATION(public var EndOfJobTimeA
 
 public data class JOBOBJECT_EXTENDED_LIMIT_INFORMATION(
     public var BasicLimitInformation: JOBOBJECT_BASIC_LIMIT_INFORMATION = JOBOBJECT_BASIC_LIMIT_INFORMATION(),
-    public var IoInfo: Threading.IO_COUNTERS = Threading.IO_COUNTERS(),
+    public var IoInfo: IO_COUNTERS = IO_COUNTERS(),
     public var ProcessMemoryLimit: ULong = 0uL,
     public var JobMemoryLimit: ULong = 0uL,
     public var PeakProcessMemoryUsed: ULong = 0uL,
@@ -228,14 +230,14 @@ public data class JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2(public var RateCo
 
 public data class JOBOBJECT_SECURITY_LIMIT_INFORMATION(
     public var SecurityLimitFlags: JOB_OBJECT_SECURITY = 0u,
-    public var JobToken: Foundation.HANDLE = Foundation.HANDLE(),
+    public var JobToken: HANDLE = 0L,
     public var SidsToDisable: Long = 0L,
     public var PrivilegesToDelete: Long = 0L,
     public var RestrictedSids: Long = 0L,
 )
 
 public data class JOB_SET_ARRAY(
-    public var JobHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var JobHandle: HANDLE = 0L,
     public var MemberLevel: UInt = 0u,
     public var Flags: UInt = 0u,
 )

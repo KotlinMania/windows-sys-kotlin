@@ -1,6 +1,8 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.devices.dvd
 
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+
 public data class AACS_BINDING_NONCE(public var BindingNonce: UByteArray = UByteArray(16), public var MAC: UByteArray = UByteArray(16)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -72,7 +74,7 @@ public data class AACS_READ_BINDING_NONCE(
     public var Anonymous: AACS_READ_BINDING_NONCE_0 = AACS_READ_BINDING_NONCE_0(),
 )
 
-public data class AACS_READ_BINDING_NONCE_0(public var Handle: Foundation.HANDLE = Foundation.HANDLE(), public var ForceStructureLengthToMatch64bit: ULong = 0uL)
+public data class AACS_READ_BINDING_NONCE_0(public var Handle: HANDLE = 0L, public var ForceStructureLengthToMatch64bit: ULong = 0uL)
 
 public data class AACS_SEND_CERTIFICATE(public var SessionId: UInt = 0u, public var Certificate: AACS_CERTIFICATE = AACS_CERTIFICATE())
 
@@ -301,7 +303,7 @@ public data class DVD_COPY_PROTECT_KEY(
     }
 }
 
-public data class DVD_COPY_PROTECT_KEY_0(public var FileHandle: Foundation.HANDLE = Foundation.HANDLE(), public var TitleOffset: Long = 0L)
+public data class DVD_COPY_PROTECT_KEY_0(public var FileHandle: HANDLE = 0L, public var TitleOffset: Long = 0L)
 
 public data class DVD_DESCRIPTOR_HEADER(
     public var Length: UShort = 0u,

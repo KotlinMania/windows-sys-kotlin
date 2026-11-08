@@ -4,6 +4,8 @@ package io.github.kotlinmania.windowssys.windows.win32.security.extensibleauthen
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.NCRYPT_KEY_HANDLE
 
 public data class EAPHOST_AUTH_INFO(
     public var status: EAPHOST_AUTH_STATUS = 0,
@@ -281,8 +283,8 @@ public data class LEGACY_INTERACTIVE_UI_PARAMS(
 
 public data class NgcTicketContext(
     public var wszTicket: UShortArray = UShortArray(45),
-    public var hKey: Cryptography.NCRYPT_KEY_HANDLE = Cryptography.NCRYPT_KEY_HANDLE(),
-    public var hImpersonateToken: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hKey: NCRYPT_KEY_HANDLE = 0uL,
+    public var hImpersonateToken: HANDLE = 0L,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -320,7 +322,7 @@ public class PPP_EAP_INPUT(
     public var pUserAttributes: Long = 0L,
     public var fAuthenticationComplete: BOOL = 0,
     public var dwAuthResultCode: UInt = 0u,
-    public var hTokenImpersonateUser: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hTokenImpersonateUser: HANDLE = 0L,
     public var fSuccessPacketReceived: BOOL = 0,
     public var fDataReceivedFromInteractiveUI: BOOL = 0,
     public var pDataFromInteractiveUI: Long = 0L,
@@ -329,7 +331,7 @@ public class PPP_EAP_INPUT(
     public var dwSizeOfConnectionData: UInt = 0u,
     public var pUserData: Long = 0L,
     public var dwSizeOfUserData: UInt = 0u,
-    public var hReserved: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hReserved: HANDLE = 0L,
     public var guidConnectionId: GUID = GUID(),
     public var isVpn: BOOL = 0,
 )

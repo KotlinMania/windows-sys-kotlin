@@ -7,6 +7,8 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
 import io.github.kotlinmania.windowssys.windows.win32.system.com.CLSCTX
 
 public fun CoGetClassObjectFromURL(rclassid: Long, szcode: PCWSTR, dwfileversionms: UInt, dwfileversionls: UInt, sztype: PCWSTR, pbindctx: Long, dwclscontext: CLSCTX, pvreserved: Long, riid: Long, ppv: Long): HRESULT {
@@ -125,8 +127,8 @@ public fun CreateURLMonikerEx2(pmkctx: Long, puri: Long, ppmk: Long, dwflags: UI
     return Win32DynamicFfi.invoke("urlmon.dll", "CreateURLMonikerEx2", longArrayOf(pmkctx, puri, ppmk, dwflags.toLong())).toInt()
 }
 
-public fun FaultInIEFeature(hwnd: Foundation.HWND, pclassspec: Long, pquery: Long, dwflags: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("urlmon.dll", "FaultInIEFeature", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), pclassspec, pquery, dwflags.toLong())).toInt()
+public fun FaultInIEFeature(hwnd: HWND, pclassspec: Long, pquery: Long, dwflags: UInt): HRESULT {
+    return Win32DynamicFfi.invoke("urlmon.dll", "FaultInIEFeature", longArrayOf(hwnd, pclassspec, pquery, dwflags.toLong())).toInt()
 }
 
 public fun FindMediaType(rgsztypes: PCSTR, rgcftypes: Long): HRESULT {
@@ -241,8 +243,8 @@ public fun RevokeFormatEnumerator(pbc: Long, pefetc: Long): HRESULT {
     return Win32DynamicFfi.invoke("urlmon.dll", "RevokeFormatEnumerator", longArrayOf(pbc, pefetc)).toInt()
 }
 
-public fun SetAccessForIEAppContainer(hobject: Foundation.HANDLE, ieobjecttype: IEObjectType, dwaccessmask: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("urlmon.dll", "SetAccessForIEAppContainer", longArrayOf(Win32DynamicFfi.objectSlot(hobject), ieobjecttype.toLong(), dwaccessmask.toLong())).toInt()
+public fun SetAccessForIEAppContainer(hobject: HANDLE, ieobjecttype: IEObjectType, dwaccessmask: UInt): HRESULT {
+    return Win32DynamicFfi.invoke("urlmon.dll", "SetAccessForIEAppContainer", longArrayOf(hobject, ieobjecttype.toLong(), dwaccessmask.toLong())).toInt()
 }
 
 public fun SetSoftwareUpdateAdvertisementState(szdistunit: PCWSTR, dwadstate: UInt, dwadvertisedversionms: UInt, dwadvertisedversionls: UInt): HRESULT {

@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.usb
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.w
@@ -86,31 +87,31 @@ public val FILE_DEVICE_USB_SCAN: UInt = 32768u
 
 public val FullSpeed: UInt = 2u
 
-public val GUID_DEVINTERFACE_USB_BILLBOARD: GUID = GUID.from_u128(0x5e9adaeff879473fuL, 0xb8074e5ea77d1b1cuL)
+public val GUID_DEVINTERFACE_USB_BILLBOARD: GUID = GUID.from_u128(U128(0x5e9adaeff879473fuL, 0xb8074e5ea77d1b1cuL))
 
-public val GUID_DEVINTERFACE_USB_DEVICE: GUID = GUID.from_u128(0xa5dcbf10653011d2uL, 0x901f00c04fb951eduL)
+public val GUID_DEVINTERFACE_USB_DEVICE: GUID = GUID.from_u128(U128(0xa5dcbf10653011d2uL, 0x901f00c04fb951eduL))
 
-public val GUID_DEVINTERFACE_USB_HOST_CONTROLLER: GUID = GUID.from_u128(0x3abf6f2d71c4462auL, 0x8a921e6861e6af27uL)
+public val GUID_DEVINTERFACE_USB_HOST_CONTROLLER: GUID = GUID.from_u128(U128(0x3abf6f2d71c4462auL, 0x8a921e6861e6af27uL))
 
-public val GUID_DEVINTERFACE_USB_HUB: GUID = GUID.from_u128(0xf18a0e88c30c11d0uL, 0x881500a0c906bed8uL)
+public val GUID_DEVINTERFACE_USB_HUB: GUID = GUID.from_u128(U128(0xf18a0e88c30c11d0uL, 0x881500a0c906bed8uL))
 
-public val GUID_USB_MSOS20_PLATFORM_CAPABILITY_ID: GUID = GUID.from_u128(0xd8dd60df45894cc7uL, 0x9cd2659d9e648a9fuL)
+public val GUID_USB_MSOS20_PLATFORM_CAPABILITY_ID: GUID = GUID.from_u128(U128(0xd8dd60df45894cc7uL, 0x9cd2659d9e648a9fuL))
 
-public val GUID_USB_PERFORMANCE_TRACING: GUID = GUID.from_u128(0xd5de77a66ae9425cuL, 0xb1e2f5615fd348a9uL)
+public val GUID_USB_PERFORMANCE_TRACING: GUID = GUID.from_u128(U128(0xd5de77a66ae9425cuL, 0xb1e2f5615fd348a9uL))
 
-public val GUID_USB_TRANSFER_TRACING: GUID = GUID.from_u128(0x681eb8aa403d452cuL, 0x9f8af0616fac9540uL)
+public val GUID_USB_TRANSFER_TRACING: GUID = GUID.from_u128(U128(0x681eb8aa403d452cuL, 0x9f8af0616fac9540uL))
 
-public val GUID_USB_WMI_DEVICE_PERF_INFO: GUID = GUID.from_u128(0x66c1aa3c499f49a0uL, 0xa9a561e2359f6407uL)
+public val GUID_USB_WMI_DEVICE_PERF_INFO: GUID = GUID.from_u128(U128(0x66c1aa3c499f49a0uL, 0xa9a561e2359f6407uL))
 
-public val GUID_USB_WMI_NODE_INFO: GUID = GUID.from_u128(0x9c179357dc7a4f41uL, 0xb66b323b9ddcb5b1uL)
+public val GUID_USB_WMI_NODE_INFO: GUID = GUID.from_u128(U128(0x9c179357dc7a4f41uL, 0xb66b323b9ddcb5b1uL))
 
-public val GUID_USB_WMI_STD_DATA: GUID = GUID.from_u128(0x4e623b20cb1411d1uL, 0xb33100a0c959bbd2uL)
+public val GUID_USB_WMI_STD_DATA: GUID = GUID.from_u128(U128(0x4e623b20cb1411d1uL, 0xb33100a0c959bbd2uL))
 
-public val GUID_USB_WMI_STD_NOTIFICATION: GUID = GUID.from_u128(0x4e623b20cb1411d1uL, 0xb33100a0c959bbd2uL)
+public val GUID_USB_WMI_STD_NOTIFICATION: GUID = GUID.from_u128(U128(0x4e623b20cb1411d1uL, 0xb33100a0c959bbd2uL))
 
-public val GUID_USB_WMI_SURPRISE_REMOVAL_NOTIFICATION: GUID = GUID.from_u128(0x9bbbf831a2f243b4uL, 0x96d186944b5914b3uL)
+public val GUID_USB_WMI_SURPRISE_REMOVAL_NOTIFICATION: GUID = GUID.from_u128(U128(0x9bbbf831a2f243b4uL, 0x96d186944b5914b3uL))
 
-public val GUID_USB_WMI_TRACING: GUID = GUID.from_u128(0x3a61881bb4e64bf9uL, 0xae0f3cd8f394e52fuL)
+public val GUID_USB_WMI_TRACING: GUID = GUID.from_u128(U128(0x3a61881bb4e64bf9uL, 0xae0f3cd8f394e52fuL))
 
 public val HCD_DIAGNOSTIC_MODE_OFF: UInt = 257u
 
@@ -1386,4 +1387,4 @@ public val WdmUsbPowerSystemUnspecified: WDMUSB_POWER_STATE = 100
 
 public val WdmUsbPowerSystemWorking: WDMUSB_POWER_STATE = 101
 
-public val WinUSB_TestGuid: GUID = GUID.from_u128(0xda812bff12c346a2uL, 0x8e2bdbd3b7834c43uL)
+public val WinUSB_TestGuid: GUID = GUID.from_u128(U128(0xda812bff12c346a2uL, 0x8e2bdbd3b7834c43uL))

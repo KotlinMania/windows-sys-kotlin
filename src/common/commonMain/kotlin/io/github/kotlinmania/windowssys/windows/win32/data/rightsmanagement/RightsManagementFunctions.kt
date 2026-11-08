@@ -5,6 +5,7 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
 
 public fun interface FnCallback {
     public operator fun invoke(param0: DRM_STATUS_MSG, param1: HRESULT, param2: Long, param3: Long): HRESULT
@@ -22,8 +23,8 @@ public fun DRMAcquireLicense(hsession: UInt, uflags: UInt, wszgroupidentitycrede
     return Win32DynamicFfi.invoke("msdrm.dll", "DRMAcquireLicense", longArrayOf(hsession.toLong(), uflags.toLong(), wszgroupidentitycredential, wszrequestedrights, wszcustomdata, wszurl, pvcontext)).toInt()
 }
 
-public fun DRMActivate(hclient: UInt, uflags: UInt, ulangid: UInt, pactservinfo: Long, pvcontext: Long, hparentwnd: Foundation.HWND): HRESULT {
-    return Win32DynamicFfi.invoke("msdrm.dll", "DRMActivate", longArrayOf(hclient.toLong(), uflags.toLong(), ulangid.toLong(), pactservinfo, pvcontext, Win32DynamicFfi.objectSlot(hparentwnd))).toInt()
+public fun DRMActivate(hclient: UInt, uflags: UInt, ulangid: UInt, pactservinfo: Long, pvcontext: Long, hparentwnd: HWND): HRESULT {
+    return Win32DynamicFfi.invoke("msdrm.dll", "DRMActivate", longArrayOf(hclient.toLong(), uflags.toLong(), ulangid.toLong(), pactservinfo, pvcontext, hparentwnd)).toInt()
 }
 
 public fun DRMAddLicense(hlicensestorage: UInt, uflags: UInt, wszlicense: PCWSTR): HRESULT {
@@ -286,8 +287,8 @@ public fun DRMIsActivated(hclient: UInt, uflags: UInt, pactservinfo: Long): HRES
     return Win32DynamicFfi.invoke("msdrm.dll", "DRMIsActivated", longArrayOf(hclient.toLong(), uflags.toLong(), pactservinfo)).toInt()
 }
 
-public fun DRMIsWindowProtected(hwnd: Foundation.HWND, pfprotected: Long): HRESULT {
-    return Win32DynamicFfi.invoke("msdrm.dll", "DRMIsWindowProtected", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), pfprotected)).toInt()
+public fun DRMIsWindowProtected(hwnd: HWND, pfprotected: Long): HRESULT {
+    return Win32DynamicFfi.invoke("msdrm.dll", "DRMIsWindowProtected", longArrayOf(hwnd, pfprotected)).toInt()
 }
 
 public fun DRMLoadLibrary(henv: UInt, especification: DRMSPECTYPE, wszlibraryprovider: PCWSTR, wszcredentials: PCWSTR, phlibrary: Long): HRESULT {
@@ -302,8 +303,8 @@ public fun DRMRegisterContent(fregister: BOOL): HRESULT {
     return Win32DynamicFfi.invoke("msdrm.dll", "DRMRegisterContent", longArrayOf(fregister.toLong())).toInt()
 }
 
-public fun DRMRegisterProtectedWindow(henv: UInt, hwnd: Foundation.HWND): HRESULT {
-    return Win32DynamicFfi.invoke("msdrm.dll", "DRMRegisterProtectedWindow", longArrayOf(henv.toLong(), Win32DynamicFfi.objectSlot(hwnd))).toInt()
+public fun DRMRegisterProtectedWindow(henv: UInt, hwnd: HWND): HRESULT {
+    return Win32DynamicFfi.invoke("msdrm.dll", "DRMRegisterProtectedWindow", longArrayOf(henv.toLong(), hwnd)).toInt()
 }
 
 public fun DRMRegisterRevocationList(henv: UInt, wszrevocationlist: PCWSTR): HRESULT {

@@ -2,6 +2,8 @@ package io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer
 
 import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.HSYNTHETICPOINTERDEVICE
 
 public fun EnableMouseInPointer(fenable: BOOL): BOOL {
     return Win32DynamicFfi.invoke("user32.dll", "EnableMouseInPointer", longArrayOf(fenable.toLong())).toInt()
@@ -11,20 +13,20 @@ public fun GetPointerCursorId(pointerid: UInt, cursorid: Long): BOOL {
     return Win32DynamicFfi.invoke("user32.dll", "GetPointerCursorId", longArrayOf(pointerid.toLong(), cursorid)).toInt()
 }
 
-public fun GetPointerDevice(device: Foundation.HANDLE, pointerdevice: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetPointerDevice", longArrayOf(Win32DynamicFfi.objectSlot(device), pointerdevice)).toInt()
+public fun GetPointerDevice(device: HANDLE, pointerdevice: Long): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "GetPointerDevice", longArrayOf(device, pointerdevice)).toInt()
 }
 
-public fun GetPointerDeviceCursors(device: Foundation.HANDLE, cursorcount: Long, devicecursors: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetPointerDeviceCursors", longArrayOf(Win32DynamicFfi.objectSlot(device), cursorcount, devicecursors)).toInt()
+public fun GetPointerDeviceCursors(device: HANDLE, cursorcount: Long, devicecursors: Long): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "GetPointerDeviceCursors", longArrayOf(device, cursorcount, devicecursors)).toInt()
 }
 
-public fun GetPointerDeviceProperties(device: Foundation.HANDLE, propertycount: Long, pointerproperties: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetPointerDeviceProperties", longArrayOf(Win32DynamicFfi.objectSlot(device), propertycount, pointerproperties)).toInt()
+public fun GetPointerDeviceProperties(device: HANDLE, propertycount: Long, pointerproperties: Long): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "GetPointerDeviceProperties", longArrayOf(device, propertycount, pointerproperties)).toInt()
 }
 
-public fun GetPointerDeviceRects(device: Foundation.HANDLE, pointerdevicerect: Long, displayrect: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetPointerDeviceRects", longArrayOf(Win32DynamicFfi.objectSlot(device), pointerdevicerect, displayrect)).toInt()
+public fun GetPointerDeviceRects(device: HANDLE, pointerdevicerect: Long, displayrect: Long): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "GetPointerDeviceRects", longArrayOf(device, pointerdevicerect, displayrect)).toInt()
 }
 
 public fun GetPointerDevices(devicecount: Long, pointerdevices: Long): BOOL {
@@ -99,8 +101,8 @@ public fun InitializeTouchInjection(maxcount: UInt, dwmode: TOUCH_FEEDBACK_MODE)
     return Win32DynamicFfi.invoke("user32.dll", "InitializeTouchInjection", longArrayOf(maxcount.toLong(), dwmode.toLong())).toInt()
 }
 
-public fun InjectSyntheticPointerInput(device: Controls.HSYNTHETICPOINTERDEVICE, pointerinfo: Long, count: UInt): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "InjectSyntheticPointerInput", longArrayOf(Win32DynamicFfi.objectSlot(device), pointerinfo, count.toLong())).toInt()
+public fun InjectSyntheticPointerInput(device: HSYNTHETICPOINTERDEVICE, pointerinfo: Long, count: UInt): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "InjectSyntheticPointerInput", longArrayOf(device, pointerinfo, count.toLong())).toInt()
 }
 
 public fun InjectTouchInput(count: UInt, contacts: Long): BOOL {

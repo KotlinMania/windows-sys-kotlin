@@ -8,9 +8,19 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.foundation.SYSTEMTIME
+import io.github.kotlinmania.windowssys.windows.win32.security.PSID
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.BFFCALLBACK
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.DLGPROC
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HICON
 
 public data class ADSPROPERROR(
-    public var hwndPage: Foundation.HWND = Foundation.HWND(),
+    public var hwndPage: HWND = 0L,
     public var pszPageTitle: PWSTR = 0L,
     public var pszObjPath: PWSTR = 0L,
     public var pszObjClass: PWSTR = 0L,
@@ -38,7 +48,7 @@ public class ADSVALUE_0(
     public var Boolean: UInt = 0u,
     public var Integer: UInt = 0u,
     public var OctetString: ADS_OCTET_STRING = ADS_OCTET_STRING(),
-    public var UTCTime: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var UTCTime: SYSTEMTIME = SYSTEMTIME(),
     public var LargeInteger: Long = 0L,
     public var ClassName: Long = 0L,
     public var ProviderSpecific: ADS_PROV_SPECIFIC = ADS_PROV_SPECIFIC(),
@@ -174,7 +184,7 @@ public data class ADS_SEARCH_COLUMN(
     public var dwADsType: ADSTYPE = 0,
     public var pADsValues: Long = 0L,
     public var dwNumValues: UInt = 0u,
-    public var hReserved: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hReserved: HANDLE = 0L,
 )
 
 public data class ADS_SORTKEY(
@@ -205,7 +215,7 @@ public data class CQFORM(
     public var cbStruct: UInt = 0u,
     public var dwFlags: UInt = 0u,
     public var clsid: GUID = GUID(),
-    public var hIcon: UI.WindowsAndMessaging.HICON = UI.WindowsAndMessaging.HICON(),
+    public var hIcon: HICON = 0L,
     public var pszTitle: PCWSTR = 0L,
 )
 
@@ -213,11 +223,11 @@ public data class CQPAGE(
     public var cbStruct: UInt = 0u,
     public var dwFlags: UInt = 0u,
     public var pPageProc: LPCQPAGEPROC = null,
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hInstance: HINSTANCE = 0L,
     public var idPageName: Int = 0,
     public var idPageTemplate: Int = 0,
-    public var pDlgProc: UI.WindowsAndMessaging.DLGPROC = UI.WindowsAndMessaging.DLGPROC(),
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var pDlgProc: DLGPROC = null,
+    public var lParam: LPARAM = 0L,
 )
 
 public data class DOMAINDESC(
@@ -264,7 +274,7 @@ public data class DOMAIN_TREE(
 
 public data class DSA_NEWOBJ_DISPINFO(
     public var dwSize: UInt = 0u,
-    public var hObjClassIcon: UI.WindowsAndMessaging.HICON = UI.WindowsAndMessaging.HICON(),
+    public var hObjClassIcon: HICON = 0L,
     public var lpszWizTitle: PWSTR = 0L,
     public var lpszContDisplayName: PWSTR = 0L,
 )
@@ -351,15 +361,15 @@ public data class DSBITEMW(
 
 public data class DSBROWSEINFOA(
     public var cbStruct: UInt = 0u,
-    public var hwndOwner: Foundation.HWND = Foundation.HWND(),
+    public var hwndOwner: HWND = 0L,
     public var pszCaption: PCSTR = 0L,
     public var pszTitle: PCSTR = 0L,
     public var pszRoot: PCWSTR = 0L,
     public var pszPath: PWSTR = 0L,
     public var cchPath: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var pfnCallback: UI.Shell.BFFCALLBACK = UI.Shell.BFFCALLBACK(),
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var pfnCallback: BFFCALLBACK = null,
+    public var lParam: LPARAM = 0L,
     public var dwReturnFormat: UInt = 0u,
     public var pUserName: PCWSTR = 0L,
     public var pPassword: PCWSTR = 0L,
@@ -369,15 +379,15 @@ public data class DSBROWSEINFOA(
 
 public data class DSBROWSEINFOW(
     public var cbStruct: UInt = 0u,
-    public var hwndOwner: Foundation.HWND = Foundation.HWND(),
+    public var hwndOwner: HWND = 0L,
     public var pszCaption: PCWSTR = 0L,
     public var pszTitle: PCWSTR = 0L,
     public var pszRoot: PCWSTR = 0L,
     public var pszPath: PWSTR = 0L,
     public var cchPath: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var pfnCallback: UI.Shell.BFFCALLBACK = UI.Shell.BFFCALLBACK(),
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var pfnCallback: BFFCALLBACK = null,
+    public var lParam: LPARAM = 0L,
     public var dwReturnFormat: UInt = 0u,
     public var pUserName: PCWSTR = 0L,
     public var pPassword: PCWSTR = 0L,
@@ -490,7 +500,7 @@ public data class DSQUERYINITPARAMS(
 public data class DSQUERYPARAMS(
     public var cbStruct: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hInstance: HINSTANCE = 0L,
     public var offsetQuery: Int = 0,
     public var iColumns: Int = 0,
     public var dwReserved: UInt = 0u,
@@ -607,7 +617,7 @@ public data class DS_DOMAIN_TRUSTSA(
     public var ParentIndex: UInt = 0u,
     public var TrustType: UInt = 0u,
     public var TrustAttributes: UInt = 0u,
-    public var DomainSid: Security.PSID = Security.PSID(),
+    public var DomainSid: PSID = 0L,
     public var DomainGuid: GUID = GUID(),
 )
 
@@ -618,7 +628,7 @@ public data class DS_DOMAIN_TRUSTSW(
     public var ParentIndex: UInt = 0u,
     public var TrustType: UInt = 0u,
     public var TrustAttributes: UInt = 0u,
-    public var DomainSid: Security.PSID = Security.PSID(),
+    public var DomainSid: PSID = 0L,
     public var DomainGuid: GUID = GUID(),
 )
 
@@ -641,7 +651,7 @@ public data class DS_NAME_RESULT_ITEMW(
 public data class DS_REPL_ATTR_META_DATA(
     public var pszAttributeName: PWSTR = 0L,
     public var dwVersion: UInt = 0u,
-    public var ftimeLastOriginatingChange: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftimeLastOriginatingChange: FILETIME = FILETIME(),
     public var uuidLastOriginatingDsaInvocationID: GUID = GUID(),
     public var usnOriginatingChange: Long = 0L,
     public var usnLocalChange: Long = 0L,
@@ -650,7 +660,7 @@ public data class DS_REPL_ATTR_META_DATA(
 public data class DS_REPL_ATTR_META_DATA_2(
     public var pszAttributeName: PWSTR = 0L,
     public var dwVersion: UInt = 0u,
-    public var ftimeLastOriginatingChange: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftimeLastOriginatingChange: FILETIME = FILETIME(),
     public var uuidLastOriginatingDsaInvocationID: GUID = GUID(),
     public var usnOriginatingChange: Long = 0L,
     public var usnLocalChange: Long = 0L,
@@ -660,7 +670,7 @@ public data class DS_REPL_ATTR_META_DATA_2(
 public data class DS_REPL_ATTR_META_DATA_BLOB(
     public var oszAttributeName: UInt = 0u,
     public var dwVersion: UInt = 0u,
-    public var ftimeLastOriginatingChange: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftimeLastOriginatingChange: FILETIME = FILETIME(),
     public var uuidLastOriginatingDsaInvocationID: GUID = GUID(),
     public var usnOriginatingChange: Long = 0L,
     public var usnLocalChange: Long = 0L,
@@ -708,20 +718,20 @@ public data class DS_REPL_CURSORS_3W(
 public data class DS_REPL_CURSOR_2(
     public var uuidSourceDsaInvocationID: GUID = GUID(),
     public var usnAttributeFilter: Long = 0L,
-    public var ftimeLastSyncSuccess: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftimeLastSyncSuccess: FILETIME = FILETIME(),
 )
 
 public data class DS_REPL_CURSOR_3W(
     public var uuidSourceDsaInvocationID: GUID = GUID(),
     public var usnAttributeFilter: Long = 0L,
-    public var ftimeLastSyncSuccess: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftimeLastSyncSuccess: FILETIME = FILETIME(),
     public var pszSourceDsaDN: PWSTR = 0L,
 )
 
 public data class DS_REPL_CURSOR_BLOB(
     public var uuidSourceDsaInvocationID: GUID = GUID(),
     public var usnAttributeFilter: Long = 0L,
-    public var ftimeLastSyncSuccess: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftimeLastSyncSuccess: FILETIME = FILETIME(),
     public var oszSourceDsaDN: UInt = 0u,
 )
 
@@ -734,7 +744,7 @@ public data class DS_REPL_KCC_DSA_FAILURESW(
 public data class DS_REPL_KCC_DSA_FAILUREW(
     public var pszDsaDN: PWSTR = 0L,
     public var uuidDsaObjGuid: GUID = GUID(),
-    public var ftimeFirstFailure: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftimeFirstFailure: FILETIME = FILETIME(),
     public var cNumFailures: UInt = 0u,
     public var dwLastResult: UInt = 0u,
 )
@@ -742,7 +752,7 @@ public data class DS_REPL_KCC_DSA_FAILUREW(
 public data class DS_REPL_KCC_DSA_FAILUREW_BLOB(
     public var oszDsaDN: UInt = 0u,
     public var uuidDsaObjGuid: GUID = GUID(),
-    public var ftimeFirstFailure: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftimeFirstFailure: FILETIME = FILETIME(),
     public var cNumFailures: UInt = 0u,
     public var dwLastResult: UInt = 0u,
 )
@@ -766,8 +776,8 @@ public data class DS_REPL_NEIGHBORW(
     public var uuidAsyncIntersiteTransportObjGuid: GUID = GUID(),
     public var usnLastObjChangeSynced: Long = 0L,
     public var usnAttributeFilter: Long = 0L,
-    public var ftimeLastSyncSuccess: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ftimeLastSyncAttempt: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftimeLastSyncSuccess: FILETIME = FILETIME(),
+    public var ftimeLastSyncAttempt: FILETIME = FILETIME(),
     public var dwLastSyncResult: UInt = 0u,
     public var cNumConsecutiveSyncFailures: UInt = 0u,
 )
@@ -785,8 +795,8 @@ public data class DS_REPL_NEIGHBORW_BLOB(
     public var uuidAsyncIntersiteTransportObjGuid: GUID = GUID(),
     public var usnLastObjChangeSynced: Long = 0L,
     public var usnAttributeFilter: Long = 0L,
-    public var ftimeLastSyncSuccess: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ftimeLastSyncAttempt: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftimeLastSyncSuccess: FILETIME = FILETIME(),
+    public var ftimeLastSyncAttempt: FILETIME = FILETIME(),
     public var dwLastSyncResult: UInt = 0u,
     public var cNumConsecutiveSyncFailures: UInt = 0u,
 )
@@ -804,7 +814,7 @@ public data class DS_REPL_OBJ_META_DATA_2(
 )
 
 public data class DS_REPL_OPW(
-    public var ftimeEnqueued: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftimeEnqueued: FILETIME = FILETIME(),
     public var ulSerialNumber: UInt = 0u,
     public var ulPriority: UInt = 0u,
     public var OpType: DS_REPL_OP_TYPE = 0,
@@ -817,7 +827,7 @@ public data class DS_REPL_OPW(
 )
 
 public data class DS_REPL_OPW_BLOB(
-    public var ftimeEnqueued: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftimeEnqueued: FILETIME = FILETIME(),
     public var ulSerialNumber: UInt = 0u,
     public var ulPriority: UInt = 0u,
     public var OpType: DS_REPL_OP_TYPE = 0,
@@ -830,19 +840,19 @@ public data class DS_REPL_OPW_BLOB(
 )
 
 public data class DS_REPL_PENDING_OPSW(
-    public var ftimeCurrentOpStarted: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftimeCurrentOpStarted: FILETIME = FILETIME(),
     public var cNumPendingOps: UInt = 0u,
     public var rgPendingOp: List<DS_REPL_OPW> = List(1) { DS_REPL_OPW() },
 )
 
 public data class DS_REPL_QUEUE_STATISTICSW(
-    public var ftimeCurrentOpStarted: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftimeCurrentOpStarted: FILETIME = FILETIME(),
     public var cNumPendingOps: UInt = 0u,
-    public var ftimeOldestSync: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ftimeOldestAdd: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ftimeOldestMod: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ftimeOldestDel: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ftimeOldestUpdRefs: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftimeOldestSync: FILETIME = FILETIME(),
+    public var ftimeOldestAdd: FILETIME = FILETIME(),
+    public var ftimeOldestMod: FILETIME = FILETIME(),
+    public var ftimeOldestDel: FILETIME = FILETIME(),
+    public var ftimeOldestUpdRefs: FILETIME = FILETIME(),
 )
 
 public data class DS_REPL_VALUE_META_DATA(
@@ -850,10 +860,10 @@ public data class DS_REPL_VALUE_META_DATA(
     public var pszObjectDn: PWSTR = 0L,
     public var cbData: UInt = 0u,
     public var pbData: Long = 0L,
-    public var ftimeDeleted: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ftimeCreated: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftimeDeleted: FILETIME = FILETIME(),
+    public var ftimeCreated: FILETIME = FILETIME(),
     public var dwVersion: UInt = 0u,
-    public var ftimeLastOriginatingChange: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftimeLastOriginatingChange: FILETIME = FILETIME(),
     public var uuidLastOriginatingDsaInvocationID: GUID = GUID(),
     public var usnOriginatingChange: Long = 0L,
     public var usnLocalChange: Long = 0L,
@@ -864,10 +874,10 @@ public data class DS_REPL_VALUE_META_DATA_2(
     public var pszObjectDn: PWSTR = 0L,
     public var cbData: UInt = 0u,
     public var pbData: Long = 0L,
-    public var ftimeDeleted: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ftimeCreated: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftimeDeleted: FILETIME = FILETIME(),
+    public var ftimeCreated: FILETIME = FILETIME(),
     public var dwVersion: UInt = 0u,
-    public var ftimeLastOriginatingChange: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftimeLastOriginatingChange: FILETIME = FILETIME(),
     public var uuidLastOriginatingDsaInvocationID: GUID = GUID(),
     public var usnOriginatingChange: Long = 0L,
     public var usnLocalChange: Long = 0L,
@@ -879,10 +889,10 @@ public data class DS_REPL_VALUE_META_DATA_BLOB(
     public var oszObjectDn: UInt = 0u,
     public var cbData: UInt = 0u,
     public var obData: UInt = 0u,
-    public var ftimeDeleted: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ftimeCreated: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftimeDeleted: FILETIME = FILETIME(),
+    public var ftimeCreated: FILETIME = FILETIME(),
     public var dwVersion: UInt = 0u,
-    public var ftimeLastOriginatingChange: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftimeLastOriginatingChange: FILETIME = FILETIME(),
     public var uuidLastOriginatingDsaInvocationID: GUID = GUID(),
     public var usnOriginatingChange: Long = 0L,
     public var usnLocalChange: Long = 0L,
@@ -894,10 +904,10 @@ public data class DS_REPL_VALUE_META_DATA_BLOB_EXT(
     public var oszObjectDn: UInt = 0u,
     public var cbData: UInt = 0u,
     public var obData: UInt = 0u,
-    public var ftimeDeleted: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ftimeCreated: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftimeDeleted: FILETIME = FILETIME(),
+    public var ftimeCreated: FILETIME = FILETIME(),
     public var dwVersion: UInt = 0u,
-    public var ftimeLastOriginatingChange: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftimeLastOriginatingChange: FILETIME = FILETIME(),
     public var uuidLastOriginatingDsaInvocationID: GUID = GUID(),
     public var usnOriginatingChange: Long = 0L,
     public var usnLocalChange: Long = 0L,
@@ -912,10 +922,10 @@ public data class DS_REPL_VALUE_META_DATA_EXT(
     public var pszObjectDn: PWSTR = 0L,
     public var cbData: UInt = 0u,
     public var pbData: Long = 0L,
-    public var ftimeDeleted: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ftimeCreated: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftimeDeleted: FILETIME = FILETIME(),
+    public var ftimeCreated: FILETIME = FILETIME(),
     public var dwVersion: UInt = 0u,
-    public var ftimeLastOriginatingChange: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftimeLastOriginatingChange: FILETIME = FILETIME(),
     public var uuidLastOriginatingDsaInvocationID: GUID = GUID(),
     public var usnOriginatingChange: Long = 0L,
     public var usnLocalChange: Long = 0L,

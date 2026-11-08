@@ -2,6 +2,19 @@
 package io.github.kotlinmania.windowssys.windows.wdk.system.systemservices
 
 import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.DISPATCHER_HEADER
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.KEVENT
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PIO_REMOVE_LOCK_TRACKING_BLOCK
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PKDEFERRED_ROUTINE
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PKINTERRUPT
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.POBJECT_TYPE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.windows.win32.foundation.UNICODE_STRING
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.XSTATE_CONFIGURATION
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.LIST_ENTRY
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.NT_PRODUCT_TYPE
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.PROCESSOR_NUMBER
 
 public data class IO_FOEXT_SILO_PARAMETERS_0_0(public var _bitfield: UInt = 0u)
 
@@ -14,7 +27,7 @@ public data class IO_INTERRUPT_MESSAGE_INFO(
 public data class IO_INTERRUPT_MESSAGE_INFO_ENTRY(
     public var MessageAddress: Long = 0L,
     public var TargetProcessorSet: ULong = 0uL,
-    public var InterruptObject: Foundation.PKINTERRUPT = Foundation.PKINTERRUPT(),
+    public var InterruptObject: PKINTERRUPT = 0L,
     public var MessageData: UInt = 0u,
     public var Vector: UInt = 0u,
     public var Irql: UByte = 0u,
@@ -28,7 +41,7 @@ public data class IO_REMOVE_LOCK_COMMON_BLOCK(
     public var Removed: Boolean = false,
     public var Reserved: BooleanArray = BooleanArray(3),
     public var IoCount: Int = 0,
-    public var RemoveEvent: Foundation.KEVENT = Foundation.KEVENT(),
+    public var RemoveEvent: KEVENT = KEVENT(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -54,12 +67,12 @@ public data class IO_REMOVE_LOCK_DBG_BLOCK(
     public var HighWatermark: UInt = 0u,
     public var MaxLockedTicks: Long = 0L,
     public var AllocateTag: Int = 0,
-    public var LockList: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(),
+    public var LockList: LIST_ENTRY = LIST_ENTRY(),
     public var Spin: ULong = 0uL,
     public var LowMemoryCount: Int = 0,
     public var Reserved1: UIntArray = UIntArray(4),
     public var Reserved2: Long = 0L,
-    public var Blocks: Foundation.PIO_REMOVE_LOCK_TRACKING_BLOCK = Foundation.PIO_REMOVE_LOCK_TRACKING_BLOCK(),
+    public var Blocks: PIO_REMOVE_LOCK_TRACKING_BLOCK = 0L,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -96,7 +109,7 @@ public data class IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS(public var Version
 
 public data class IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS_0(
     public var Generic: Long = 0L,
-    public var InterruptObject: Foundation.PKINTERRUPT = Foundation.PKINTERRUPT(),
+    public var InterruptObject: PKINTERRUPT = 0L,
     public var InterruptMessageTable: Long = 0L,
 )
 
@@ -277,11 +290,11 @@ public data class IO_SESSION_STATE_NOTIFICATION(
     public var Context: Long = 0L,
 )
 
-public data class IO_STATUS_BLOCK32(public var Status: Win32.Foundation.NTSTATUS = Win32.Foundation.NTSTATUS(), public var Information: UInt = 0u)
+public data class IO_STATUS_BLOCK32(public var Status: NTSTATUS = 0, public var Information: UInt = 0u)
 
 public data class IO_STATUS_BLOCK64(public var Anonymous: IO_STATUS_BLOCK64_0 = IO_STATUS_BLOCK64_0(), public var Information: ULong = 0uL)
 
-public data class IO_STATUS_BLOCK64_0(public var Status: Win32.Foundation.NTSTATUS = Win32.Foundation.NTSTATUS(), public var Pointer: Long = 0L)
+public data class IO_STATUS_BLOCK64_0(public var Status: NTSTATUS = 0, public var Pointer: Long = 0L)
 
 public data class KADDRESS_RANGE(public var Address: Long = 0L, public var Size: ULong = 0uL)
 
@@ -294,7 +307,7 @@ public data class KAPC(
     public var SpareByte1: UByte = 0u,
     public var SpareLong0: UInt = 0u,
     public var Thread: Long = 0L,
-    public var ApcListEntry: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(),
+    public var ApcListEntry: LIST_ENTRY = LIST_ENTRY(),
     public var Reserved: LongArray = LongArray(3),
     public var NormalContext: Long = 0L,
     public var SystemArgument1: Long = 0L,
@@ -351,7 +364,7 @@ public data class KBUGCHECK_ADD_PAGES(
 )
 
 public data class KBUGCHECK_CALLBACK_RECORD(
-    public var Entry: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(),
+    public var Entry: LIST_ENTRY = LIST_ENTRY(),
     public var CallbackRoutine: PKBUGCHECK_CALLBACK_ROUTINE = null,
     public var Buffer: Long = 0L,
     public var Length: UInt = 0u,
@@ -368,7 +381,7 @@ public data class KBUGCHECK_DUMP_IO(
 )
 
 public data class KBUGCHECK_REASON_CALLBACK_RECORD(
-    public var Entry: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(),
+    public var Entry: LIST_ENTRY = LIST_ENTRY(),
     public var CallbackRoutine: PKBUGCHECK_REASON_CALLBACK_ROUTINE = null,
     public var Component: Long = 0L,
     public var Checksum: ULong = 0uL,
@@ -422,7 +435,7 @@ public data class KBUGCHECK_TRIAGE_DUMP_DATA(
 )
 
 public data class KDEVICE_QUEUE_ENTRY(
-    public var DeviceListEntry: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(),
+    public var DeviceListEntry: LIST_ENTRY = LIST_ENTRY(),
     public var SortKey: UInt = 0u,
     public var Inserted: Boolean = false,
 )
@@ -699,8 +712,8 @@ public data class KEY_WRITE_TIME_INFORMATION(public var LastWriteTime: Long = 0L
 public data class KE_PROCESSOR_CHANGE_NOTIFY_CONTEXT(
     public var State: KE_PROCESSOR_CHANGE_NOTIFY_STATE = 0,
     public var NtNumber: UInt = 0u,
-    public var Status: Win32.Foundation.NTSTATUS = Win32.Foundation.NTSTATUS(),
-    public var ProcNumber: Win32.System.Kernel.PROCESSOR_NUMBER = Win32.System.Kernel.PROCESSOR_NUMBER(),
+    public var Status: NTSTATUS = 0,
+    public var ProcNumber: PROCESSOR_NUMBER = PROCESSOR_NUMBER(),
 )
 
 public data class KFLOATING_SAVE(
@@ -714,11 +727,11 @@ public data class KFLOATING_SAVE(
     public var Spare1: UInt = 0u,
 )
 
-public data class KGATE(public var Header: Foundation.DISPATCHER_HEADER = Foundation.DISPATCHER_HEADER())
+public data class KGATE(public var Header: DISPATCHER_HEADER = DISPATCHER_HEADER())
 
 public data class KLOCK_QUEUE_HANDLE(public var LockQueue: KSPIN_LOCK_QUEUE = KSPIN_LOCK_QUEUE(), public var OldIrql: UByte = 0u)
 
-public data class KSEMAPHORE(public var Header: Foundation.DISPATCHER_HEADER = Foundation.DISPATCHER_HEADER(), public var Limit: Int = 0)
+public data class KSEMAPHORE(public var Header: DISPATCHER_HEADER = DISPATCHER_HEADER(), public var Limit: Int = 0)
 
 public data class KSPIN_LOCK_QUEUE(public var Next: Long = 0L, public var Lock: Long = 0L)
 
@@ -729,15 +742,15 @@ public data class KSYSTEM_TIME(
 )
 
 public data class KTIMER(
-    public var Header: Foundation.DISPATCHER_HEADER = Foundation.DISPATCHER_HEADER(),
+    public var Header: DISPATCHER_HEADER = DISPATCHER_HEADER(),
     public var DueTime: ULong = 0uL,
-    public var TimerListEntry: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(),
+    public var TimerListEntry: LIST_ENTRY = LIST_ENTRY(),
     public var Dpc: Long = 0L,
     public var Period: UInt = 0u,
 )
 
 public data class KTRIAGE_DUMP_DATA_ARRAY(
-    public var List: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(),
+    public var List: LIST_ENTRY = LIST_ENTRY(),
     public var NumBlocksUsed: UInt = 0u,
     public var NumBlocksTotal: UInt = 0u,
     public var DataSize: UInt = 0u,
@@ -784,7 +797,7 @@ public class KUSER_SHARED_DATA {
 
     public var NtBuildNumber: UInt = 0u
 
-    public var NtProductType: Win32.System.Kernel.NT_PRODUCT_TYPE = Win32.System.Kernel.NT_PRODUCT_TYPE()
+    public var NtProductType: NT_PRODUCT_TYPE = 0
 
     public var ProductTypeIsValid: Boolean = false
 
@@ -900,7 +913,7 @@ public class KUSER_SHARED_DATA {
 
     public var TimeZoneBiasEffectiveEnd: Long = 0L
 
-    public var XState: Win32.System.Diagnostics.Debug.XSTATE_CONFIGURATION = Win32.System.Diagnostics.Debug.XSTATE_CONFIGURATION()
+    public var XState: XSTATE_CONFIGURATION = XSTATE_CONFIGURATION()
 
     public var FeatureConfigurationChangeStamp: KSYSTEM_TIME = KSYSTEM_TIME()
 
@@ -979,7 +992,7 @@ public data class MAP_REGISTER_ENTRY(public var MapRegister: Long = 0L, public v
 
 public data class MCA_DRIVER_INFO(
     public var ExceptionCallback: Long = 0L,
-    public var DpcCallback: Foundation.PKDEFERRED_ROUTINE = Foundation.PKDEFERRED_ROUTINE(),
+    public var DpcCallback: PKDEFERRED_ROUTINE = null,
     public var DeviceContext: Long = 0L,
 )
 
@@ -1092,7 +1105,7 @@ public data class MEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION(
     public var DedicatedMemoryTypeId: ULong = 0uL,
     public var HandleAttributes: UInt = 0u,
     public var DesiredAccess: UInt = 0u,
-    public var DedicatedMemoryPartitionHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var DedicatedMemoryPartitionHandle: HANDLE = 0L,
 )
 
 public data class MM_COPY_ADDRESS(public var Anonymous: MM_COPY_ADDRESS_0 = MM_COPY_ADDRESS_0())
@@ -1154,7 +1167,7 @@ public data class OBJECT_HANDLE_INFORMATION(public var HandleAttributes: UInt = 
 public data class OB_CALLBACK_REGISTRATION(
     public var Version: UShort = 0u,
     public var OperationRegistrationCount: UShort = 0u,
-    public var Altitude: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
+    public var Altitude: UNICODE_STRING = UNICODE_STRING(),
     public var RegistrationContext: Long = 0L,
     public var OperationRegistration: Long = 0L,
 )
@@ -1174,9 +1187,9 @@ public data class OB_POST_OPERATION_INFORMATION(
     public var Operation: UInt = 0u,
     public var Anonymous: OB_POST_OPERATION_INFORMATION_0 = OB_POST_OPERATION_INFORMATION_0(),
     public var Object: Long = 0L,
-    public var ObjectType: Foundation.POBJECT_TYPE = Foundation.POBJECT_TYPE(),
+    public var ObjectType: POBJECT_TYPE = 0L,
     public var CallContext: Long = 0L,
-    public var ReturnStatus: Win32.Foundation.NTSTATUS = Win32.Foundation.NTSTATUS(),
+    public var ReturnStatus: NTSTATUS = 0,
     public var Parameters: Long = 0L,
 )
 
@@ -1199,7 +1212,7 @@ public data class OB_PRE_OPERATION_INFORMATION(
     public var Operation: UInt = 0u,
     public var Anonymous: OB_PRE_OPERATION_INFORMATION_0 = OB_PRE_OPERATION_INFORMATION_0(),
     public var Object: Long = 0L,
-    public var ObjectType: Foundation.POBJECT_TYPE = Foundation.POBJECT_TYPE(),
+    public var ObjectType: POBJECT_TYPE = 0L,
     public var CallContext: Long = 0L,
     public var Parameters: Long = 0L,
 )

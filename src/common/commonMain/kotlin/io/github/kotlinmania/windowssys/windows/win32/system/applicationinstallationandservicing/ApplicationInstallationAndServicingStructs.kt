@@ -7,6 +7,11 @@ import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.ALG_ID
+import io.github.kotlinmania.windowssys.windows.win32.system.windowsprogramming.ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA
 
 public data class ACTCTXA(
     public var cbSize: UInt = 0u,
@@ -17,7 +22,7 @@ public data class ACTCTXA(
     public var lpAssemblyDirectory: PCSTR = 0L,
     public var lpResourceName: PCSTR = 0L,
     public var lpApplicationName: PCSTR = 0L,
-    public var hModule: Foundation.HMODULE = Foundation.HMODULE(),
+    public var hModule: HMODULE = 0L,
 )
 
 public data class ACTCTXW(
@@ -29,7 +34,7 @@ public data class ACTCTXW(
     public var lpAssemblyDirectory: PCWSTR = 0L,
     public var lpResourceName: PCWSTR = 0L,
     public var lpApplicationName: PCWSTR = 0L,
-    public var hModule: Foundation.HMODULE = Foundation.HMODULE(),
+    public var hModule: HMODULE = 0L,
 )
 
 public data class ACTCTX_SECTION_KEYED_DATA(
@@ -41,10 +46,10 @@ public data class ACTCTX_SECTION_KEYED_DATA(
     public var ulSectionGlobalDataLength: UInt = 0u,
     public var lpSectionBase: Long = 0L,
     public var ulSectionTotalLength: UInt = 0u,
-    public var hActCtx: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hActCtx: HANDLE = 0L,
     public var ulAssemblyRosterIndex: UInt = 0u,
     public var ulFlags: UInt = 0u,
-    public var AssemblyMetadata: WindowsProgramming.ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA = WindowsProgramming.ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA(),
+    public var AssemblyMetadata: ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA = ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA(),
 )
 
 public class ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION(
@@ -137,8 +142,8 @@ public data class DELTA_HEADER_INFO(
     public var FileType: Long = 0L,
     public var Flags: Long = 0L,
     public var TargetSize: ULong = 0uL,
-    public var TargetFileTime: Foundation.FILETIME = Foundation.FILETIME(),
-    public var TargetHashAlgId: Security.Cryptography.ALG_ID = Security.Cryptography.ALG_ID(),
+    public var TargetFileTime: FILETIME = FILETIME(),
+    public var TargetHashAlgId: ALG_ID = 0u,
     public var TargetHash: DELTA_HASH = DELTA_HASH(),
 )
 
@@ -212,7 +217,7 @@ public data class PATCH_OLD_FILE_INFO(
 public data class PATCH_OLD_FILE_INFO_0(
     public var OldFileNameA: PCSTR = 0L,
     public var OldFileNameW: PCWSTR = 0L,
-    public var OldFileHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var OldFileHandle: HANDLE = 0L,
 )
 
 public data class PATCH_OLD_FILE_INFO_A(
@@ -226,7 +231,7 @@ public data class PATCH_OLD_FILE_INFO_A(
 
 public data class PATCH_OLD_FILE_INFO_H(
     public var SizeOfThisStruct: UInt = 0u,
-    public var OldFileHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var OldFileHandle: HANDLE = 0L,
     public var IgnoreRangeCount: UInt = 0u,
     public var IgnoreRangeArray: Long = 0L,
     public var RetainRangeCount: UInt = 0u,

@@ -6,6 +6,9 @@ import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
+import io.github.kotlinmania.windowssys.windows.win32.security.PSID
 
 public fun BrowseForGPO(lpbrowseinfo: Long): HRESULT {
     return Win32DynamicFfi.invoke("gpedit.dll", "BrowseForGPO", longArrayOf(lpbrowseinfo)).toInt()
@@ -27,9 +30,8 @@ public fun DeleteGPOLink(lpgpo: PCWSTR, lpcontainer: PCWSTR): HRESULT {
     return Win32DynamicFfi.invoke("gpedit.dll", "DeleteGPOLink", longArrayOf(lpgpo, lpcontainer)).toInt()
 }
 
-public fun EnterCriticalPolicySection(bmachine: BOOL): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("userenv.dll", "EnterCriticalPolicySection", longArrayOf(bmachine.toLong()))
-    return Foundation.HANDLE()
+public fun EnterCriticalPolicySection(bmachine: BOOL): HANDLE {
+    return Win32DynamicFfi.invoke("userenv.dll", "EnterCriticalPolicySection", longArrayOf(bmachine.toLong()))
 }
 
 public fun ExportRSoPData(lpnamespace: PCWSTR, lpfilename: PCWSTR): HRESULT {
@@ -48,20 +50,20 @@ public fun GenerateGPNotification(bmachine: BOOL, lpwszmgmtproduct: PCWSTR, dwmg
     return Win32DynamicFfi.invoke("userenv.dll", "GenerateGPNotification", longArrayOf(bmachine.toLong(), lpwszmgmtproduct, dwmgmtproductoptions.toLong())).toUInt()
 }
 
-public fun GetAppliedGPOListA(dwflags: UInt, pmachinename: PCSTR, psiduser: Security.PSID, pguidextension: Long, ppgpolist: Long): UInt {
-    return Win32DynamicFfi.invoke("userenv.dll", "GetAppliedGPOListA", longArrayOf(dwflags.toLong(), pmachinename, Win32DynamicFfi.objectSlot(psiduser), pguidextension, ppgpolist)).toUInt()
+public fun GetAppliedGPOListA(dwflags: UInt, pmachinename: PCSTR, psiduser: PSID, pguidextension: Long, ppgpolist: Long): UInt {
+    return Win32DynamicFfi.invoke("userenv.dll", "GetAppliedGPOListA", longArrayOf(dwflags.toLong(), pmachinename, psiduser, pguidextension, ppgpolist)).toUInt()
 }
 
-public fun GetAppliedGPOListW(dwflags: UInt, pmachinename: PCWSTR, psiduser: Security.PSID, pguidextension: Long, ppgpolist: Long): UInt {
-    return Win32DynamicFfi.invoke("userenv.dll", "GetAppliedGPOListW", longArrayOf(dwflags.toLong(), pmachinename, Win32DynamicFfi.objectSlot(psiduser), pguidextension, ppgpolist)).toUInt()
+public fun GetAppliedGPOListW(dwflags: UInt, pmachinename: PCWSTR, psiduser: PSID, pguidextension: Long, ppgpolist: Long): UInt {
+    return Win32DynamicFfi.invoke("userenv.dll", "GetAppliedGPOListW", longArrayOf(dwflags.toLong(), pmachinename, psiduser, pguidextension, ppgpolist)).toUInt()
 }
 
-public fun GetGPOListA(htoken: Foundation.HANDLE, lpname: PCSTR, lphostname: PCSTR, lpcomputername: PCSTR, dwflags: UInt, pgpolist: Long): BOOL {
-    return Win32DynamicFfi.invoke("userenv.dll", "GetGPOListA", longArrayOf(Win32DynamicFfi.objectSlot(htoken), lpname, lphostname, lpcomputername, dwflags.toLong(), pgpolist)).toInt()
+public fun GetGPOListA(htoken: HANDLE, lpname: PCSTR, lphostname: PCSTR, lpcomputername: PCSTR, dwflags: UInt, pgpolist: Long): BOOL {
+    return Win32DynamicFfi.invoke("userenv.dll", "GetGPOListA", longArrayOf(htoken, lpname, lphostname, lpcomputername, dwflags.toLong(), pgpolist)).toInt()
 }
 
-public fun GetGPOListW(htoken: Foundation.HANDLE, lpname: PCWSTR, lphostname: PCWSTR, lpcomputername: PCWSTR, dwflags: UInt, pgpolist: Long): BOOL {
-    return Win32DynamicFfi.invoke("userenv.dll", "GetGPOListW", longArrayOf(Win32DynamicFfi.objectSlot(htoken), lpname, lphostname, lpcomputername, dwflags.toLong(), pgpolist)).toInt()
+public fun GetGPOListW(htoken: HANDLE, lpname: PCWSTR, lphostname: PCWSTR, lpcomputername: PCWSTR, dwflags: UInt, pgpolist: Long): BOOL {
+    return Win32DynamicFfi.invoke("userenv.dll", "GetGPOListW", longArrayOf(htoken, lpname, lphostname, lpcomputername, dwflags.toLong(), pgpolist)).toInt()
 }
 
 public fun GetLocalManagedApplicationData(productcode: PCWSTR, displayname: Long, supporturl: Long) {
@@ -88,8 +90,8 @@ public fun InstallApplication(pinstallinfo: Long): UInt {
     return Win32DynamicFfi.invoke("advapi32.dll", "InstallApplication", longArrayOf(pinstallinfo)).toUInt()
 }
 
-public fun LeaveCriticalPolicySection(hsection: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("userenv.dll", "LeaveCriticalPolicySection", longArrayOf(Win32DynamicFfi.objectSlot(hsection))).toInt()
+public fun LeaveCriticalPolicySection(hsection: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("userenv.dll", "LeaveCriticalPolicySection", longArrayOf(hsection)).toInt()
 }
 
 public fun ProcessGroupPolicyCompleted(extensionid: Long, pasynchandle: ULong, dwstatus: UInt): UInt {
@@ -108,12 +110,12 @@ public fun RefreshPolicyEx(bmachine: BOOL, dwoptions: UInt): BOOL {
     return Win32DynamicFfi.invoke("userenv.dll", "RefreshPolicyEx", longArrayOf(bmachine.toLong(), dwoptions.toLong())).toInt()
 }
 
-public fun RegisterGPNotification(hevent: Foundation.HANDLE, bmachine: BOOL): BOOL {
-    return Win32DynamicFfi.invoke("userenv.dll", "RegisterGPNotification", longArrayOf(Win32DynamicFfi.objectSlot(hevent), bmachine.toLong())).toInt()
+public fun RegisterGPNotification(hevent: HANDLE, bmachine: BOOL): BOOL {
+    return Win32DynamicFfi.invoke("userenv.dll", "RegisterGPNotification", longArrayOf(hevent, bmachine.toLong())).toInt()
 }
 
-public fun RsopAccessCheckByType(psecuritydescriptor: Security.PSECURITY_DESCRIPTOR, pprincipalselfsid: Security.PSID, prsoptoken: Long, dwdesiredaccessmask: UInt, pobjecttypelist: Long, objecttypelistlength: UInt, pgenericmapping: Long, pprivilegeset: Long, pdwprivilegesetlength: Long, pdwgrantedaccessmask: Long, pbaccessstatus: Long): HRESULT {
-    return Win32DynamicFfi.invoke("userenv.dll", "RsopAccessCheckByType", longArrayOf(Win32DynamicFfi.objectSlot(psecuritydescriptor), Win32DynamicFfi.objectSlot(pprincipalselfsid), prsoptoken, dwdesiredaccessmask.toLong(), pobjecttypelist, objecttypelistlength.toLong(), pgenericmapping, pprivilegeset, pdwprivilegesetlength, pdwgrantedaccessmask, pbaccessstatus)).toInt()
+public fun RsopAccessCheckByType(psecuritydescriptor: PSECURITY_DESCRIPTOR, pprincipalselfsid: PSID, prsoptoken: Long, dwdesiredaccessmask: UInt, pobjecttypelist: Long, objecttypelistlength: UInt, pgenericmapping: Long, pprivilegeset: Long, pdwprivilegesetlength: Long, pdwgrantedaccessmask: Long, pbaccessstatus: Long): HRESULT {
+    return Win32DynamicFfi.invoke("userenv.dll", "RsopAccessCheckByType", longArrayOf(psecuritydescriptor, pprincipalselfsid, prsoptoken, dwdesiredaccessmask.toLong(), pobjecttypelist, objecttypelistlength.toLong(), pgenericmapping, pprivilegeset, pdwprivilegesetlength, pdwgrantedaccessmask, pbaccessstatus)).toInt()
 }
 
 public fun RsopFileAccessCheck(pszfilename: PCWSTR, prsoptoken: Long, dwdesiredaccessmask: UInt, pdwgrantedaccessmask: Long, pbaccessstatus: Long): HRESULT {
@@ -132,6 +134,6 @@ public fun UninstallApplication(productcode: PCWSTR, dwstatus: UInt): UInt {
     return Win32DynamicFfi.invoke("advapi32.dll", "UninstallApplication", longArrayOf(productcode, dwstatus.toLong())).toUInt()
 }
 
-public fun UnregisterGPNotification(hevent: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("userenv.dll", "UnregisterGPNotification", longArrayOf(Win32DynamicFfi.objectSlot(hevent))).toInt()
+public fun UnregisterGPNotification(hevent: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("userenv.dll", "UnregisterGPNotification", longArrayOf(hevent)).toInt()
 }

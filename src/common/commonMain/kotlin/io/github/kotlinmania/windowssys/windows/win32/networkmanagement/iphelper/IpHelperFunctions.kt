@@ -7,6 +7,12 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.ADDRESS_FAMILY
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NL_NETWORK_CONNECTIVITY_HINT
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NET_IF_COMPARTMENT_ID
+import io.github.kotlinmania.windowssys.windows.win32.system.io.PIO_APC_ROUTINE
 
 public fun interface FnCallback {
     public operator fun invoke(callercontext: Long)
@@ -17,7 +23,7 @@ public fun interface FnCallback1 {
 }
 
 public fun interface FnCallback2 {
-    public operator fun invoke(callercontext: Long, connectivityhint: Networking.WinSock.NL_NETWORK_CONNECTIVITY_HINT)
+    public operator fun invoke(callercontext: Long, connectivityhint: NL_NETWORK_CONNECTIVITY_HINT)
 }
 
 public fun interface FnCallback3 {
@@ -40,106 +46,88 @@ public fun CancelIfTimestampConfigChange(notificationhandle: HIFTIMESTAMPCHANGE)
     Win32DynamicFfi.invoke("iphlpapi.dll", "CancelIfTimestampConfigChange", longArrayOf(notificationhandle))
 }
 
-public fun CancelMibChangeNotify2(notificationhandle: Foundation.HANDLE): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "CancelMibChangeNotify2", longArrayOf(Win32DynamicFfi.objectSlot(notificationhandle)))
-    return Foundation.WIN32_ERROR()
+public fun CancelMibChangeNotify2(notificationhandle: HANDLE): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "CancelMibChangeNotify2", longArrayOf(notificationhandle)).toUInt()
 }
 
 public fun CaptureInterfaceHardwareCrossTimestamp(interfaceluid: Long, crosstimestamp: Long): UInt {
     return Win32DynamicFfi.invoke("iphlpapi.dll", "CaptureInterfaceHardwareCrossTimestamp", longArrayOf(interfaceluid, crosstimestamp)).toUInt()
 }
 
-public fun ConvertCompartmentGuidToId(compartmentguid: Long, compartmentid: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "ConvertCompartmentGuidToId", longArrayOf(compartmentguid, compartmentid))
-    return Foundation.WIN32_ERROR()
+public fun ConvertCompartmentGuidToId(compartmentguid: Long, compartmentid: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "ConvertCompartmentGuidToId", longArrayOf(compartmentguid, compartmentid)).toUInt()
 }
 
-public fun ConvertCompartmentIdToGuid(compartmentid: Ndis.NET_IF_COMPARTMENT_ID, compartmentguid: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "ConvertCompartmentIdToGuid", longArrayOf(Win32DynamicFfi.objectSlot(compartmentid), compartmentguid))
-    return Foundation.WIN32_ERROR()
+public fun ConvertCompartmentIdToGuid(compartmentid: NET_IF_COMPARTMENT_ID, compartmentguid: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "ConvertCompartmentIdToGuid", longArrayOf(compartmentid.toLong(), compartmentguid)).toUInt()
 }
 
-public fun ConvertInterfaceAliasToLuid(interfacealias: PCWSTR, interfaceluid: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "ConvertInterfaceAliasToLuid", longArrayOf(interfacealias, interfaceluid))
-    return Foundation.WIN32_ERROR()
+public fun ConvertInterfaceAliasToLuid(interfacealias: PCWSTR, interfaceluid: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "ConvertInterfaceAliasToLuid", longArrayOf(interfacealias, interfaceluid)).toUInt()
 }
 
-public fun ConvertInterfaceGuidToLuid(interfaceguid: Long, interfaceluid: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "ConvertInterfaceGuidToLuid", longArrayOf(interfaceguid, interfaceluid))
-    return Foundation.WIN32_ERROR()
+public fun ConvertInterfaceGuidToLuid(interfaceguid: Long, interfaceluid: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "ConvertInterfaceGuidToLuid", longArrayOf(interfaceguid, interfaceluid)).toUInt()
 }
 
-public fun ConvertInterfaceIndexToLuid(interfaceindex: UInt, interfaceluid: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "ConvertInterfaceIndexToLuid", longArrayOf(interfaceindex.toLong(), interfaceluid))
-    return Foundation.WIN32_ERROR()
+public fun ConvertInterfaceIndexToLuid(interfaceindex: UInt, interfaceluid: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "ConvertInterfaceIndexToLuid", longArrayOf(interfaceindex.toLong(), interfaceluid)).toUInt()
 }
 
-public fun ConvertInterfaceLuidToAlias(interfaceluid: Long, interfacealias: PWSTR, length: ULong): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "ConvertInterfaceLuidToAlias", longArrayOf(interfaceluid, interfacealias, length.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun ConvertInterfaceLuidToAlias(interfaceluid: Long, interfacealias: PWSTR, length: ULong): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "ConvertInterfaceLuidToAlias", longArrayOf(interfaceluid, interfacealias, length.toLong())).toUInt()
 }
 
-public fun ConvertInterfaceLuidToGuid(interfaceluid: Long, interfaceguid: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "ConvertInterfaceLuidToGuid", longArrayOf(interfaceluid, interfaceguid))
-    return Foundation.WIN32_ERROR()
+public fun ConvertInterfaceLuidToGuid(interfaceluid: Long, interfaceguid: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "ConvertInterfaceLuidToGuid", longArrayOf(interfaceluid, interfaceguid)).toUInt()
 }
 
-public fun ConvertInterfaceLuidToIndex(interfaceluid: Long, interfaceindex: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "ConvertInterfaceLuidToIndex", longArrayOf(interfaceluid, interfaceindex))
-    return Foundation.WIN32_ERROR()
+public fun ConvertInterfaceLuidToIndex(interfaceluid: Long, interfaceindex: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "ConvertInterfaceLuidToIndex", longArrayOf(interfaceluid, interfaceindex)).toUInt()
 }
 
-public fun ConvertInterfaceLuidToNameA(interfaceluid: Long, interfacename: PSTR, length: ULong): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "ConvertInterfaceLuidToNameA", longArrayOf(interfaceluid, interfacename, length.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun ConvertInterfaceLuidToNameA(interfaceluid: Long, interfacename: PSTR, length: ULong): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "ConvertInterfaceLuidToNameA", longArrayOf(interfaceluid, interfacename, length.toLong())).toUInt()
 }
 
-public fun ConvertInterfaceLuidToNameW(interfaceluid: Long, interfacename: PWSTR, length: ULong): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "ConvertInterfaceLuidToNameW", longArrayOf(interfaceluid, interfacename, length.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun ConvertInterfaceLuidToNameW(interfaceluid: Long, interfacename: PWSTR, length: ULong): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "ConvertInterfaceLuidToNameW", longArrayOf(interfaceluid, interfacename, length.toLong())).toUInt()
 }
 
-public fun ConvertInterfaceNameToLuidA(interfacename: PCSTR, interfaceluid: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "ConvertInterfaceNameToLuidA", longArrayOf(interfacename, interfaceluid))
-    return Foundation.WIN32_ERROR()
+public fun ConvertInterfaceNameToLuidA(interfacename: PCSTR, interfaceluid: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "ConvertInterfaceNameToLuidA", longArrayOf(interfacename, interfaceluid)).toUInt()
 }
 
-public fun ConvertInterfaceNameToLuidW(interfacename: PCWSTR, interfaceluid: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "ConvertInterfaceNameToLuidW", longArrayOf(interfacename, interfaceluid))
-    return Foundation.WIN32_ERROR()
+public fun ConvertInterfaceNameToLuidW(interfacename: PCWSTR, interfaceluid: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "ConvertInterfaceNameToLuidW", longArrayOf(interfacename, interfaceluid)).toUInt()
 }
 
-public fun ConvertIpv4MaskToLength(mask: UInt, masklength: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "ConvertIpv4MaskToLength", longArrayOf(mask.toLong(), masklength))
-    return Foundation.WIN32_ERROR()
+public fun ConvertIpv4MaskToLength(mask: UInt, masklength: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "ConvertIpv4MaskToLength", longArrayOf(mask.toLong(), masklength)).toUInt()
 }
 
-public fun ConvertLengthToIpv4Mask(masklength: UInt, mask: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "ConvertLengthToIpv4Mask", longArrayOf(masklength.toLong(), mask))
-    return Foundation.WIN32_ERROR()
+public fun ConvertLengthToIpv4Mask(masklength: UInt, mask: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "ConvertLengthToIpv4Mask", longArrayOf(masklength.toLong(), mask)).toUInt()
 }
 
-public fun CreateAnycastIpAddressEntry(row: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "CreateAnycastIpAddressEntry", longArrayOf(row))
-    return Foundation.WIN32_ERROR()
+public fun CreateAnycastIpAddressEntry(row: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "CreateAnycastIpAddressEntry", longArrayOf(row)).toUInt()
 }
 
 public fun CreateIpForwardEntry(proute: Long): UInt {
     return Win32DynamicFfi.invoke("iphlpapi.dll", "CreateIpForwardEntry", longArrayOf(proute)).toUInt()
 }
 
-public fun CreateIpForwardEntry2(row: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "CreateIpForwardEntry2", longArrayOf(row))
-    return Foundation.WIN32_ERROR()
+public fun CreateIpForwardEntry2(row: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "CreateIpForwardEntry2", longArrayOf(row)).toUInt()
 }
 
 public fun CreateIpNetEntry(parpentry: Long): UInt {
     return Win32DynamicFfi.invoke("iphlpapi.dll", "CreateIpNetEntry", longArrayOf(parpentry)).toUInt()
 }
 
-public fun CreateIpNetEntry2(row: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "CreateIpNetEntry2", longArrayOf(row))
-    return Foundation.WIN32_ERROR()
+public fun CreateIpNetEntry2(row: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "CreateIpNetEntry2", longArrayOf(row)).toUInt()
 }
 
 public fun CreatePersistentTcpPortReservation(startport: UShort, numberofports: UShort, token: Long): UInt {
@@ -154,19 +142,16 @@ public fun CreateProxyArpEntry(dwaddress: UInt, dwmask: UInt, dwifindex: UInt): 
     return Win32DynamicFfi.invoke("iphlpapi.dll", "CreateProxyArpEntry", longArrayOf(dwaddress.toLong(), dwmask.toLong(), dwifindex.toLong())).toUInt()
 }
 
-public fun CreateSortedAddressPairs(sourceaddresslist: Long, sourceaddresscount: UInt, destinationaddresslist: Long, destinationaddresscount: UInt, addresssortoptions: UInt, sortedaddresspairlist: Long, sortedaddresspaircount: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "CreateSortedAddressPairs", longArrayOf(sourceaddresslist, sourceaddresscount.toLong(), destinationaddresslist, destinationaddresscount.toLong(), addresssortoptions.toLong(), sortedaddresspairlist, sortedaddresspaircount))
-    return Foundation.WIN32_ERROR()
+public fun CreateSortedAddressPairs(sourceaddresslist: Long, sourceaddresscount: UInt, destinationaddresslist: Long, destinationaddresscount: UInt, addresssortoptions: UInt, sortedaddresspairlist: Long, sortedaddresspaircount: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "CreateSortedAddressPairs", longArrayOf(sourceaddresslist, sourceaddresscount.toLong(), destinationaddresslist, destinationaddresscount.toLong(), addresssortoptions.toLong(), sortedaddresspairlist, sortedaddresspaircount)).toUInt()
 }
 
-public fun CreateUnicastIpAddressEntry(row: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "CreateUnicastIpAddressEntry", longArrayOf(row))
-    return Foundation.WIN32_ERROR()
+public fun CreateUnicastIpAddressEntry(row: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "CreateUnicastIpAddressEntry", longArrayOf(row)).toUInt()
 }
 
-public fun DeleteAnycastIpAddressEntry(row: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "DeleteAnycastIpAddressEntry", longArrayOf(row))
-    return Foundation.WIN32_ERROR()
+public fun DeleteAnycastIpAddressEntry(row: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "DeleteAnycastIpAddressEntry", longArrayOf(row)).toUInt()
 }
 
 public fun DeleteIPAddress(ntecontext: UInt): UInt {
@@ -177,18 +162,16 @@ public fun DeleteIpForwardEntry(proute: Long): UInt {
     return Win32DynamicFfi.invoke("iphlpapi.dll", "DeleteIpForwardEntry", longArrayOf(proute)).toUInt()
 }
 
-public fun DeleteIpForwardEntry2(row: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "DeleteIpForwardEntry2", longArrayOf(row))
-    return Foundation.WIN32_ERROR()
+public fun DeleteIpForwardEntry2(row: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "DeleteIpForwardEntry2", longArrayOf(row)).toUInt()
 }
 
 public fun DeleteIpNetEntry(parpentry: Long): UInt {
     return Win32DynamicFfi.invoke("iphlpapi.dll", "DeleteIpNetEntry", longArrayOf(parpentry)).toUInt()
 }
 
-public fun DeleteIpNetEntry2(row: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "DeleteIpNetEntry2", longArrayOf(row))
-    return Foundation.WIN32_ERROR()
+public fun DeleteIpNetEntry2(row: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "DeleteIpNetEntry2", longArrayOf(row)).toUInt()
 }
 
 public fun DeletePersistentTcpPortReservation(startport: UShort, numberofports: UShort): UInt {
@@ -203,9 +186,8 @@ public fun DeleteProxyArpEntry(dwaddress: UInt, dwmask: UInt, dwifindex: UInt): 
     return Win32DynamicFfi.invoke("iphlpapi.dll", "DeleteProxyArpEntry", longArrayOf(dwaddress.toLong(), dwmask.toLong(), dwifindex.toLong())).toUInt()
 }
 
-public fun DeleteUnicastIpAddressEntry(row: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "DeleteUnicastIpAddressEntry", longArrayOf(row))
-    return Foundation.WIN32_ERROR()
+public fun DeleteUnicastIpAddressEntry(row: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "DeleteUnicastIpAddressEntry", longArrayOf(row)).toUInt()
 }
 
 public fun DisableMediaSense(phandle: Long, poverlapped: Long): UInt {
@@ -220,14 +202,12 @@ public fun FlushIpNetTable(dwifindex: UInt): UInt {
     return Win32DynamicFfi.invoke("iphlpapi.dll", "FlushIpNetTable", longArrayOf(dwifindex.toLong())).toUInt()
 }
 
-public fun FlushIpNetTable2(family: Networking.WinSock.ADDRESS_FAMILY, interfaceindex: UInt): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "FlushIpNetTable2", longArrayOf(Win32DynamicFfi.objectSlot(family), interfaceindex.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun FlushIpNetTable2(family: ADDRESS_FAMILY, interfaceindex: UInt): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "FlushIpNetTable2", longArrayOf(family.toLong(), interfaceindex.toLong())).toUInt()
 }
 
-public fun FlushIpPathTable(family: Networking.WinSock.ADDRESS_FAMILY): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "FlushIpPathTable", longArrayOf(Win32DynamicFfi.objectSlot(family)))
-    return Foundation.WIN32_ERROR()
+public fun FlushIpPathTable(family: ADDRESS_FAMILY): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "FlushIpPathTable", longArrayOf(family.toLong())).toUInt()
 }
 
 public fun FreeDnsSettings(settings: Long) {
@@ -258,14 +238,12 @@ public fun GetAdaptersInfo(adapterinfo: Long, sizepointer: Long): UInt {
     return Win32DynamicFfi.invoke("iphlpapi.dll", "GetAdaptersInfo", longArrayOf(adapterinfo, sizepointer)).toUInt()
 }
 
-public fun GetAnycastIpAddressEntry(row: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetAnycastIpAddressEntry", longArrayOf(row))
-    return Foundation.WIN32_ERROR()
+public fun GetAnycastIpAddressEntry(row: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetAnycastIpAddressEntry", longArrayOf(row)).toUInt()
 }
 
-public fun GetAnycastIpAddressTable(family: Networking.WinSock.ADDRESS_FAMILY, table: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetAnycastIpAddressTable", longArrayOf(Win32DynamicFfi.objectSlot(family), table))
-    return Foundation.WIN32_ERROR()
+public fun GetAnycastIpAddressTable(family: ADDRESS_FAMILY, table: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetAnycastIpAddressTable", longArrayOf(family.toLong(), table)).toUInt()
 }
 
 public fun GetBestInterface(dwdestaddr: UInt, pdwbestifindex: Long): UInt {
@@ -280,28 +258,24 @@ public fun GetBestRoute(dwdestaddr: UInt, dwsourceaddr: UInt, pbestroute: Long):
     return Win32DynamicFfi.invoke("iphlpapi.dll", "GetBestRoute", longArrayOf(dwdestaddr.toLong(), dwsourceaddr.toLong(), pbestroute)).toUInt()
 }
 
-public fun GetBestRoute2(interfaceluid: Long, interfaceindex: UInt, sourceaddress: Long, destinationaddress: Long, addresssortoptions: UInt, bestroute: Long, bestsourceaddress: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetBestRoute2", longArrayOf(interfaceluid, interfaceindex.toLong(), sourceaddress, destinationaddress, addresssortoptions.toLong(), bestroute, bestsourceaddress))
-    return Foundation.WIN32_ERROR()
+public fun GetBestRoute2(interfaceluid: Long, interfaceindex: UInt, sourceaddress: Long, destinationaddress: Long, addresssortoptions: UInt, bestroute: Long, bestsourceaddress: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetBestRoute2", longArrayOf(interfaceluid, interfaceindex.toLong(), sourceaddress, destinationaddress, addresssortoptions.toLong(), bestroute, bestsourceaddress)).toUInt()
 }
 
-public fun GetCurrentThreadCompartmentId(): Ndis.NET_IF_COMPARTMENT_ID {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetCurrentThreadCompartmentId", longArrayOf())
-    return Ndis.NET_IF_COMPARTMENT_ID()
+public fun GetCurrentThreadCompartmentId(): NET_IF_COMPARTMENT_ID {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetCurrentThreadCompartmentId", longArrayOf()).toUInt()
 }
 
 public fun GetCurrentThreadCompartmentScope(compartmentscope: Long, compartmentid: Long) {
     Win32DynamicFfi.invoke("iphlpapi.dll", "GetCurrentThreadCompartmentScope", longArrayOf(compartmentscope, compartmentid))
 }
 
-public fun GetDefaultCompartmentId(): Ndis.NET_IF_COMPARTMENT_ID {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetDefaultCompartmentId", longArrayOf())
-    return Ndis.NET_IF_COMPARTMENT_ID()
+public fun GetDefaultCompartmentId(): NET_IF_COMPARTMENT_ID {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetDefaultCompartmentId", longArrayOf()).toUInt()
 }
 
-public fun GetDnsSettings(settings: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetDnsSettings", longArrayOf(settings))
-    return Foundation.WIN32_ERROR()
+public fun GetDnsSettings(settings: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetDnsSettings", longArrayOf(settings)).toUInt()
 }
 
 public fun GetExtendedTcpTable(ptcptable: Long, pdwsize: Long, border: BOOL, ulaf: UInt, tableclass: TCP_TABLE_CLASS, reserved: UInt): UInt {
@@ -328,33 +302,28 @@ public fun GetIfEntry(pifrow: Long): UInt {
     return Win32DynamicFfi.invoke("iphlpapi.dll", "GetIfEntry", longArrayOf(pifrow)).toUInt()
 }
 
-public fun GetIfEntry2(row: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetIfEntry2", longArrayOf(row))
-    return Foundation.WIN32_ERROR()
+public fun GetIfEntry2(row: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetIfEntry2", longArrayOf(row)).toUInt()
 }
 
-public fun GetIfEntry2Ex(level: MIB_IF_ENTRY_LEVEL, row: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetIfEntry2Ex", longArrayOf(level.toLong(), row))
-    return Foundation.WIN32_ERROR()
+public fun GetIfEntry2Ex(level: MIB_IF_ENTRY_LEVEL, row: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetIfEntry2Ex", longArrayOf(level.toLong(), row)).toUInt()
 }
 
-public fun GetIfStackTable(table: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetIfStackTable", longArrayOf(table))
-    return Foundation.WIN32_ERROR()
+public fun GetIfStackTable(table: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetIfStackTable", longArrayOf(table)).toUInt()
 }
 
 public fun GetIfTable(piftable: Long, pdwsize: Long, border: BOOL): UInt {
     return Win32DynamicFfi.invoke("iphlpapi.dll", "GetIfTable", longArrayOf(piftable, pdwsize, border.toLong())).toUInt()
 }
 
-public fun GetIfTable2(table: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetIfTable2", longArrayOf(table))
-    return Foundation.WIN32_ERROR()
+public fun GetIfTable2(table: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetIfTable2", longArrayOf(table)).toUInt()
 }
 
-public fun GetIfTable2Ex(level: MIB_IF_TABLE_LEVEL, table: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetIfTable2Ex", longArrayOf(level.toLong(), table))
-    return Foundation.WIN32_ERROR()
+public fun GetIfTable2Ex(level: MIB_IF_TABLE_LEVEL, table: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetIfTable2Ex", longArrayOf(level.toLong(), table)).toUInt()
 }
 
 public fun GetInterfaceActiveTimestampCapabilities(interfaceluid: Long, timestampcapabilites: Long): UInt {
@@ -365,9 +334,8 @@ public fun GetInterfaceCurrentTimestampCapabilities(interfaceluid: Long, timesta
     return Win32DynamicFfi.invoke("iphlpapi.dll", "GetInterfaceCurrentTimestampCapabilities", longArrayOf(interfaceluid, timestampcapabilites)).toUInt()
 }
 
-public fun GetInterfaceDnsSettings(iface: GUID, settings: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetInterfaceDnsSettings", longArrayOf(Win32DynamicFfi.guidSlot(iface.data1, iface.data2, iface.data3, iface.data4), settings))
-    return Foundation.WIN32_ERROR()
+public fun GetInterfaceDnsSettings(iface: GUID, settings: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetInterfaceDnsSettings", longArrayOf(run { val buf = ByteArray(16); buf[0] = (iface.data1.toInt() and 0xFF).toByte(); buf[1] = ((iface.data1.toInt() ushr 8) and 0xFF).toByte(); buf[2] = ((iface.data1.toInt() ushr 16) and 0xFF).toByte(); buf[3] = ((iface.data1.toInt() ushr 24) and 0xFF).toByte(); buf[4] = (iface.data2.toInt() and 0xFF).toByte(); buf[5] = ((iface.data2.toInt() ushr 8) and 0xFF).toByte(); buf[6] = (iface.data3.toInt() and 0xFF).toByte(); buf[7] = ((iface.data3.toInt() ushr 8) and 0xFF).toByte(); for (i in 0 until minOf(8, iface.data4.size)) buf[8 + i] = iface.data4[i].toByte(); val ptr = Win32DynamicFfi.allocZeroed(16); Win32DynamicFfi.writeBytes(ptr, buf); ptr }, settings)).toUInt()
 }
 
 public fun GetInterfaceHardwareTimestampCapabilities(interfaceluid: Long, timestampcapabilites: Long): UInt {
@@ -382,9 +350,8 @@ public fun GetInterfaceSupportedTimestampCapabilities(interfaceluid: Long, times
     return Win32DynamicFfi.invoke("iphlpapi.dll", "GetInterfaceSupportedTimestampCapabilities", longArrayOf(interfaceluid, timestampcapabilites)).toUInt()
 }
 
-public fun GetInvertedIfStackTable(table: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetInvertedIfStackTable", longArrayOf(table))
-    return Foundation.WIN32_ERROR()
+public fun GetInvertedIfStackTable(table: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetInvertedIfStackTable", longArrayOf(table)).toUInt()
 }
 
 public fun GetIpAddrTable(pipaddrtable: Long, pdwsize: Long, border: BOOL): UInt {
@@ -395,57 +362,48 @@ public fun GetIpErrorString(errorcode: UInt, buffer: PWSTR, size: Long): UInt {
     return Win32DynamicFfi.invoke("iphlpapi.dll", "GetIpErrorString", longArrayOf(errorcode.toLong(), buffer, size)).toUInt()
 }
 
-public fun GetIpForwardEntry2(row: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetIpForwardEntry2", longArrayOf(row))
-    return Foundation.WIN32_ERROR()
+public fun GetIpForwardEntry2(row: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetIpForwardEntry2", longArrayOf(row)).toUInt()
 }
 
 public fun GetIpForwardTable(pipforwardtable: Long, pdwsize: Long, border: BOOL): UInt {
     return Win32DynamicFfi.invoke("iphlpapi.dll", "GetIpForwardTable", longArrayOf(pipforwardtable, pdwsize, border.toLong())).toUInt()
 }
 
-public fun GetIpForwardTable2(family: Networking.WinSock.ADDRESS_FAMILY, table: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetIpForwardTable2", longArrayOf(Win32DynamicFfi.objectSlot(family), table))
-    return Foundation.WIN32_ERROR()
+public fun GetIpForwardTable2(family: ADDRESS_FAMILY, table: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetIpForwardTable2", longArrayOf(family.toLong(), table)).toUInt()
 }
 
-public fun GetIpInterfaceEntry(row: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetIpInterfaceEntry", longArrayOf(row))
-    return Foundation.WIN32_ERROR()
+public fun GetIpInterfaceEntry(row: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetIpInterfaceEntry", longArrayOf(row)).toUInt()
 }
 
-public fun GetIpInterfaceTable(family: Networking.WinSock.ADDRESS_FAMILY, table: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetIpInterfaceTable", longArrayOf(Win32DynamicFfi.objectSlot(family), table))
-    return Foundation.WIN32_ERROR()
+public fun GetIpInterfaceTable(family: ADDRESS_FAMILY, table: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetIpInterfaceTable", longArrayOf(family.toLong(), table)).toUInt()
 }
 
-public fun GetIpNetEntry2(row: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetIpNetEntry2", longArrayOf(row))
-    return Foundation.WIN32_ERROR()
+public fun GetIpNetEntry2(row: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetIpNetEntry2", longArrayOf(row)).toUInt()
 }
 
 public fun GetIpNetTable(ipnettable: Long, sizepointer: Long, order: BOOL): UInt {
     return Win32DynamicFfi.invoke("iphlpapi.dll", "GetIpNetTable", longArrayOf(ipnettable, sizepointer, order.toLong())).toUInt()
 }
 
-public fun GetIpNetTable2(family: Networking.WinSock.ADDRESS_FAMILY, table: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetIpNetTable2", longArrayOf(Win32DynamicFfi.objectSlot(family), table))
-    return Foundation.WIN32_ERROR()
+public fun GetIpNetTable2(family: ADDRESS_FAMILY, table: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetIpNetTable2", longArrayOf(family.toLong(), table)).toUInt()
 }
 
-public fun GetIpNetworkConnectionBandwidthEstimates(interfaceindex: UInt, addressfamily: Networking.WinSock.ADDRESS_FAMILY, bandwidthestimates: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetIpNetworkConnectionBandwidthEstimates", longArrayOf(interfaceindex.toLong(), Win32DynamicFfi.objectSlot(addressfamily), bandwidthestimates))
-    return Foundation.WIN32_ERROR()
+public fun GetIpNetworkConnectionBandwidthEstimates(interfaceindex: UInt, addressfamily: ADDRESS_FAMILY, bandwidthestimates: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetIpNetworkConnectionBandwidthEstimates", longArrayOf(interfaceindex.toLong(), addressfamily.toLong(), bandwidthestimates)).toUInt()
 }
 
-public fun GetIpPathEntry(row: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetIpPathEntry", longArrayOf(row))
-    return Foundation.WIN32_ERROR()
+public fun GetIpPathEntry(row: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetIpPathEntry", longArrayOf(row)).toUInt()
 }
 
-public fun GetIpPathTable(family: Networking.WinSock.ADDRESS_FAMILY, table: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetIpPathTable", longArrayOf(Win32DynamicFfi.objectSlot(family), table))
-    return Foundation.WIN32_ERROR()
+public fun GetIpPathTable(family: ADDRESS_FAMILY, table: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetIpPathTable", longArrayOf(family.toLong(), table)).toUInt()
 }
 
 public fun GetIpStatistics(statistics: Long): UInt {
@@ -456,39 +414,32 @@ public fun GetIpStatisticsEx(statistics: Long, family: UInt): UInt {
     return Win32DynamicFfi.invoke("iphlpapi.dll", "GetIpStatisticsEx", longArrayOf(statistics, family.toLong())).toUInt()
 }
 
-public fun GetJobCompartmentId(jobhandle: Foundation.HANDLE): Ndis.NET_IF_COMPARTMENT_ID {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetJobCompartmentId", longArrayOf(Win32DynamicFfi.objectSlot(jobhandle)))
-    return Ndis.NET_IF_COMPARTMENT_ID()
+public fun GetJobCompartmentId(jobhandle: HANDLE): NET_IF_COMPARTMENT_ID {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetJobCompartmentId", longArrayOf(jobhandle)).toUInt()
 }
 
-public fun GetMulticastIpAddressEntry(row: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetMulticastIpAddressEntry", longArrayOf(row))
-    return Foundation.WIN32_ERROR()
+public fun GetMulticastIpAddressEntry(row: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetMulticastIpAddressEntry", longArrayOf(row)).toUInt()
 }
 
-public fun GetMulticastIpAddressTable(family: Networking.WinSock.ADDRESS_FAMILY, table: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetMulticastIpAddressTable", longArrayOf(Win32DynamicFfi.objectSlot(family), table))
-    return Foundation.WIN32_ERROR()
+public fun GetMulticastIpAddressTable(family: ADDRESS_FAMILY, table: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetMulticastIpAddressTable", longArrayOf(family.toLong(), table)).toUInt()
 }
 
-public fun GetNetworkConnectivityHint(connectivityhint: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetNetworkConnectivityHint", longArrayOf(connectivityhint))
-    return Foundation.WIN32_ERROR()
+public fun GetNetworkConnectivityHint(connectivityhint: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetNetworkConnectivityHint", longArrayOf(connectivityhint)).toUInt()
 }
 
-public fun GetNetworkConnectivityHintForInterface(interfaceindex: UInt, connectivityhint: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetNetworkConnectivityHintForInterface", longArrayOf(interfaceindex.toLong(), connectivityhint))
-    return Foundation.WIN32_ERROR()
+public fun GetNetworkConnectivityHintForInterface(interfaceindex: UInt, connectivityhint: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetNetworkConnectivityHintForInterface", longArrayOf(interfaceindex.toLong(), connectivityhint)).toUInt()
 }
 
-public fun GetNetworkInformation(networkguid: Long, compartmentid: Long, siteid: Long, networkname: PWSTR, length: UInt): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetNetworkInformation", longArrayOf(networkguid, compartmentid, siteid, networkname, length.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun GetNetworkInformation(networkguid: Long, compartmentid: Long, siteid: Long, networkname: PWSTR, length: UInt): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetNetworkInformation", longArrayOf(networkguid, compartmentid, siteid, networkname, length.toLong())).toUInt()
 }
 
-public fun GetNetworkParams(pfixedinfo: Long, poutbuflen: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetNetworkParams", longArrayOf(pfixedinfo, poutbuflen))
-    return Foundation.WIN32_ERROR()
+public fun GetNetworkParams(pfixedinfo: Long, poutbuflen: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetNetworkParams", longArrayOf(pfixedinfo, poutbuflen)).toUInt()
 }
 
 public fun GetNumberOfInterfaces(pdwnumif: Long): UInt {
@@ -531,9 +482,8 @@ public fun GetRTTAndHopCount(destipaddress: UInt, hopcount: Long, maxhops: UInt,
     return Win32DynamicFfi.invoke("iphlpapi.dll", "GetRTTAndHopCount", longArrayOf(destipaddress.toLong(), hopcount, maxhops.toLong(), rtt)).toInt()
 }
 
-public fun GetSessionCompartmentId(sessionid: UInt): Ndis.NET_IF_COMPARTMENT_ID {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetSessionCompartmentId", longArrayOf(sessionid.toLong()))
-    return Ndis.NET_IF_COMPARTMENT_ID()
+public fun GetSessionCompartmentId(sessionid: UInt): NET_IF_COMPARTMENT_ID {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetSessionCompartmentId", longArrayOf(sessionid.toLong())).toUInt()
 }
 
 public fun GetTcp6Table(tcptable: Long, sizepointer: Long, order: BOOL): UInt {
@@ -564,9 +514,8 @@ public fun GetTcpTable2(tcptable: Long, sizepointer: Long, order: BOOL): UInt {
     return Win32DynamicFfi.invoke("iphlpapi.dll", "GetTcpTable2", longArrayOf(tcptable, sizepointer, order.toLong())).toUInt()
 }
 
-public fun GetTeredoPort(port: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetTeredoPort", longArrayOf(port))
-    return Foundation.WIN32_ERROR()
+public fun GetTeredoPort(port: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetTeredoPort", longArrayOf(port)).toUInt()
 }
 
 public fun GetUdp6Table(udp6table: Long, sizepointer: Long, order: BOOL): UInt {
@@ -593,52 +542,48 @@ public fun GetUniDirectionalAdapterInfo(pipifinfo: Long, dwoutbuflen: Long): UIn
     return Win32DynamicFfi.invoke("iphlpapi.dll", "GetUniDirectionalAdapterInfo", longArrayOf(pipifinfo, dwoutbuflen)).toUInt()
 }
 
-public fun GetUnicastIpAddressEntry(row: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetUnicastIpAddressEntry", longArrayOf(row))
-    return Foundation.WIN32_ERROR()
+public fun GetUnicastIpAddressEntry(row: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetUnicastIpAddressEntry", longArrayOf(row)).toUInt()
 }
 
-public fun GetUnicastIpAddressTable(family: Networking.WinSock.ADDRESS_FAMILY, table: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "GetUnicastIpAddressTable", longArrayOf(Win32DynamicFfi.objectSlot(family), table))
-    return Foundation.WIN32_ERROR()
+public fun GetUnicastIpAddressTable(family: ADDRESS_FAMILY, table: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "GetUnicastIpAddressTable", longArrayOf(family.toLong(), table)).toUInt()
 }
 
-public fun Icmp6CreateFile(): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "Icmp6CreateFile", longArrayOf())
-    return Foundation.HANDLE()
+public fun Icmp6CreateFile(): HANDLE {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "Icmp6CreateFile", longArrayOf())
 }
 
 public fun Icmp6ParseReplies(replybuffer: Long, replysize: UInt): UInt {
     return Win32DynamicFfi.invoke("iphlpapi.dll", "Icmp6ParseReplies", longArrayOf(replybuffer, replysize.toLong())).toUInt()
 }
 
-public fun Icmp6SendEcho2(icmphandle: Foundation.HANDLE, event: Foundation.HANDLE, apcroutine: System.IO.PIO_APC_ROUTINE, apccontext: Long, sourceaddress: Long, destinationaddress: Long, requestdata: Long, requestsize: UShort, requestoptions: Long, replybuffer: Long, replysize: UInt, timeout: UInt): UInt {
-    return Win32DynamicFfi.invoke("iphlpapi.dll", "Icmp6SendEcho2", longArrayOf(Win32DynamicFfi.objectSlot(icmphandle), Win32DynamicFfi.objectSlot(event), Win32DynamicFfi.objectSlot(apcroutine), apccontext, sourceaddress, destinationaddress, requestdata, requestsize.toLong(), requestoptions, replybuffer, replysize.toLong(), timeout.toLong())).toUInt()
+public fun Icmp6SendEcho2(icmphandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, sourceaddress: Long, destinationaddress: Long, requestdata: Long, requestsize: UShort, requestoptions: Long, replybuffer: Long, replysize: UInt, timeout: UInt): UInt {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "Icmp6SendEcho2", longArrayOf(icmphandle, event, Win32DynamicFfi.objectSlot(apcroutine), apccontext, sourceaddress, destinationaddress, requestdata, requestsize.toLong(), requestoptions, replybuffer, replysize.toLong(), timeout.toLong())).toUInt()
 }
 
-public fun IcmpCloseHandle(icmphandle: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("iphlpapi.dll", "IcmpCloseHandle", longArrayOf(Win32DynamicFfi.objectSlot(icmphandle))).toInt()
+public fun IcmpCloseHandle(icmphandle: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "IcmpCloseHandle", longArrayOf(icmphandle)).toInt()
 }
 
-public fun IcmpCreateFile(): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "IcmpCreateFile", longArrayOf())
-    return Foundation.HANDLE()
+public fun IcmpCreateFile(): HANDLE {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "IcmpCreateFile", longArrayOf())
 }
 
 public fun IcmpParseReplies(replybuffer: Long, replysize: UInt): UInt {
     return Win32DynamicFfi.invoke("iphlpapi.dll", "IcmpParseReplies", longArrayOf(replybuffer, replysize.toLong())).toUInt()
 }
 
-public fun IcmpSendEcho(icmphandle: Foundation.HANDLE, destinationaddress: UInt, requestdata: Long, requestsize: UShort, requestoptions: Long, replybuffer: Long, replysize: UInt, timeout: UInt): UInt {
-    return Win32DynamicFfi.invoke("iphlpapi.dll", "IcmpSendEcho", longArrayOf(Win32DynamicFfi.objectSlot(icmphandle), destinationaddress.toLong(), requestdata, requestsize.toLong(), requestoptions, replybuffer, replysize.toLong(), timeout.toLong())).toUInt()
+public fun IcmpSendEcho(icmphandle: HANDLE, destinationaddress: UInt, requestdata: Long, requestsize: UShort, requestoptions: Long, replybuffer: Long, replysize: UInt, timeout: UInt): UInt {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "IcmpSendEcho", longArrayOf(icmphandle, destinationaddress.toLong(), requestdata, requestsize.toLong(), requestoptions, replybuffer, replysize.toLong(), timeout.toLong())).toUInt()
 }
 
-public fun IcmpSendEcho2(icmphandle: Foundation.HANDLE, event: Foundation.HANDLE, apcroutine: System.IO.PIO_APC_ROUTINE, apccontext: Long, destinationaddress: UInt, requestdata: Long, requestsize: UShort, requestoptions: Long, replybuffer: Long, replysize: UInt, timeout: UInt): UInt {
-    return Win32DynamicFfi.invoke("iphlpapi.dll", "IcmpSendEcho2", longArrayOf(Win32DynamicFfi.objectSlot(icmphandle), Win32DynamicFfi.objectSlot(event), Win32DynamicFfi.objectSlot(apcroutine), apccontext, destinationaddress.toLong(), requestdata, requestsize.toLong(), requestoptions, replybuffer, replysize.toLong(), timeout.toLong())).toUInt()
+public fun IcmpSendEcho2(icmphandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, destinationaddress: UInt, requestdata: Long, requestsize: UShort, requestoptions: Long, replybuffer: Long, replysize: UInt, timeout: UInt): UInt {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "IcmpSendEcho2", longArrayOf(icmphandle, event, Win32DynamicFfi.objectSlot(apcroutine), apccontext, destinationaddress.toLong(), requestdata, requestsize.toLong(), requestoptions, replybuffer, replysize.toLong(), timeout.toLong())).toUInt()
 }
 
-public fun IcmpSendEcho2Ex(icmphandle: Foundation.HANDLE, event: Foundation.HANDLE, apcroutine: System.IO.PIO_APC_ROUTINE, apccontext: Long, sourceaddress: UInt, destinationaddress: UInt, requestdata: Long, requestsize: UShort, requestoptions: Long, replybuffer: Long, replysize: UInt, timeout: UInt): UInt {
-    return Win32DynamicFfi.invoke("iphlpapi.dll", "IcmpSendEcho2Ex", longArrayOf(Win32DynamicFfi.objectSlot(icmphandle), Win32DynamicFfi.objectSlot(event), Win32DynamicFfi.objectSlot(apcroutine), apccontext, sourceaddress.toLong(), destinationaddress.toLong(), requestdata, requestsize.toLong(), requestoptions, replybuffer, replysize.toLong(), timeout.toLong())).toUInt()
+public fun IcmpSendEcho2Ex(icmphandle: HANDLE, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, sourceaddress: UInt, destinationaddress: UInt, requestdata: Long, requestsize: UShort, requestoptions: Long, replybuffer: Long, replysize: UInt, timeout: UInt): UInt {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "IcmpSendEcho2Ex", longArrayOf(icmphandle, event, Win32DynamicFfi.objectSlot(apcroutine), apccontext, sourceaddress.toLong(), destinationaddress.toLong(), requestdata, requestsize.toLong(), requestoptions, replybuffer, replysize.toLong(), timeout.toLong())).toUInt()
 }
 
 public fun InitializeIpForwardEntry(row: Long) {
@@ -669,8 +614,8 @@ public fun LookupPersistentUdpPortReservation(startport: UShort, numberofports: 
     return Win32DynamicFfi.invoke("iphlpapi.dll", "LookupPersistentUdpPortReservation", longArrayOf(startport.toLong(), numberofports.toLong(), token)).toUInt()
 }
 
-public fun NhpAllocateAndGetInterfaceInfoFromStack(pptable: Long, pdwcount: Long, border: BOOL, hheap: Foundation.HANDLE, dwflags: UInt): UInt {
-    return Win32DynamicFfi.invoke("iphlpapi.dll", "NhpAllocateAndGetInterfaceInfoFromStack", longArrayOf(pptable, pdwcount, border.toLong(), Win32DynamicFfi.objectSlot(hheap), dwflags.toLong())).toUInt()
+public fun NhpAllocateAndGetInterfaceInfoFromStack(pptable: Long, pdwcount: Long, border: BOOL, hheap: HANDLE, dwflags: UInt): UInt {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "NhpAllocateAndGetInterfaceInfoFromStack", longArrayOf(pptable, pdwcount, border.toLong(), hheap, dwflags.toLong())).toUInt()
 }
 
 public fun NotifyAddrChange(handle: Long, overlapped: Long): UInt {
@@ -681,38 +626,32 @@ public fun NotifyIfTimestampConfigChange(callercontext: Long, callback: PINTERFA
     return Win32DynamicFfi.invoke("iphlpapi.dll", "NotifyIfTimestampConfigChange", longArrayOf(callercontext, Win32DynamicFfi.objectSlot(callback), notificationhandle)).toUInt()
 }
 
-public fun NotifyIpInterfaceChange(family: Networking.WinSock.ADDRESS_FAMILY, callback: PIPINTERFACE_CHANGE_CALLBACK, callercontext: Long, initialnotification: Boolean, notificationhandle: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "NotifyIpInterfaceChange", longArrayOf(Win32DynamicFfi.objectSlot(family), Win32DynamicFfi.objectSlot(callback), callercontext, if (initialnotification) 1L else 0L, notificationhandle))
-    return Foundation.WIN32_ERROR()
+public fun NotifyIpInterfaceChange(family: ADDRESS_FAMILY, callback: PIPINTERFACE_CHANGE_CALLBACK, callercontext: Long, initialnotification: Boolean, notificationhandle: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "NotifyIpInterfaceChange", longArrayOf(family.toLong(), Win32DynamicFfi.objectSlot(callback), callercontext, if (initialnotification) 1L else 0L, notificationhandle)).toUInt()
 }
 
-public fun NotifyNetworkConnectivityHintChange(callback: PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK, callercontext: Long, initialnotification: Boolean, notificationhandle: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "NotifyNetworkConnectivityHintChange", longArrayOf(Win32DynamicFfi.objectSlot(callback), callercontext, if (initialnotification) 1L else 0L, notificationhandle))
-    return Foundation.WIN32_ERROR()
+public fun NotifyNetworkConnectivityHintChange(callback: PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK, callercontext: Long, initialnotification: Boolean, notificationhandle: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "NotifyNetworkConnectivityHintChange", longArrayOf(Win32DynamicFfi.objectSlot(callback), callercontext, if (initialnotification) 1L else 0L, notificationhandle)).toUInt()
 }
 
 public fun NotifyRouteChange(handle: Long, overlapped: Long): UInt {
     return Win32DynamicFfi.invoke("iphlpapi.dll", "NotifyRouteChange", longArrayOf(handle, overlapped)).toUInt()
 }
 
-public fun NotifyRouteChange2(addressfamily: Networking.WinSock.ADDRESS_FAMILY, callback: PIPFORWARD_CHANGE_CALLBACK, callercontext: Long, initialnotification: Boolean, notificationhandle: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "NotifyRouteChange2", longArrayOf(Win32DynamicFfi.objectSlot(addressfamily), Win32DynamicFfi.objectSlot(callback), callercontext, if (initialnotification) 1L else 0L, notificationhandle))
-    return Foundation.WIN32_ERROR()
+public fun NotifyRouteChange2(addressfamily: ADDRESS_FAMILY, callback: PIPFORWARD_CHANGE_CALLBACK, callercontext: Long, initialnotification: Boolean, notificationhandle: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "NotifyRouteChange2", longArrayOf(addressfamily.toLong(), Win32DynamicFfi.objectSlot(callback), callercontext, if (initialnotification) 1L else 0L, notificationhandle)).toUInt()
 }
 
-public fun NotifyStableUnicastIpAddressTable(family: Networking.WinSock.ADDRESS_FAMILY, table: Long, callercallback: PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK, callercontext: Long, notificationhandle: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "NotifyStableUnicastIpAddressTable", longArrayOf(Win32DynamicFfi.objectSlot(family), table, Win32DynamicFfi.objectSlot(callercallback), callercontext, notificationhandle))
-    return Foundation.WIN32_ERROR()
+public fun NotifyStableUnicastIpAddressTable(family: ADDRESS_FAMILY, table: Long, callercallback: PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK, callercontext: Long, notificationhandle: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "NotifyStableUnicastIpAddressTable", longArrayOf(family.toLong(), table, Win32DynamicFfi.objectSlot(callercallback), callercontext, notificationhandle)).toUInt()
 }
 
-public fun NotifyTeredoPortChange(callback: PTEREDO_PORT_CHANGE_CALLBACK, callercontext: Long, initialnotification: Boolean, notificationhandle: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "NotifyTeredoPortChange", longArrayOf(Win32DynamicFfi.objectSlot(callback), callercontext, if (initialnotification) 1L else 0L, notificationhandle))
-    return Foundation.WIN32_ERROR()
+public fun NotifyTeredoPortChange(callback: PTEREDO_PORT_CHANGE_CALLBACK, callercontext: Long, initialnotification: Boolean, notificationhandle: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "NotifyTeredoPortChange", longArrayOf(Win32DynamicFfi.objectSlot(callback), callercontext, if (initialnotification) 1L else 0L, notificationhandle)).toUInt()
 }
 
-public fun NotifyUnicastIpAddressChange(family: Networking.WinSock.ADDRESS_FAMILY, callback: PUNICAST_IPADDRESS_CHANGE_CALLBACK, callercontext: Long, initialnotification: Boolean, notificationhandle: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "NotifyUnicastIpAddressChange", longArrayOf(Win32DynamicFfi.objectSlot(family), Win32DynamicFfi.objectSlot(callback), callercontext, if (initialnotification) 1L else 0L, notificationhandle))
-    return Foundation.WIN32_ERROR()
+public fun NotifyUnicastIpAddressChange(family: ADDRESS_FAMILY, callback: PUNICAST_IPADDRESS_CHANGE_CALLBACK, callercontext: Long, initialnotification: Boolean, notificationhandle: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "NotifyUnicastIpAddressChange", longArrayOf(family.toLong(), Win32DynamicFfi.objectSlot(callback), callercontext, if (initialnotification) 1L else 0L, notificationhandle)).toUInt()
 }
 
 public fun ParseNetworkString(networkstring: PCWSTR, types: UInt, addressinfo: Long, portnumber: Long, prefixlength: Long): UInt {
@@ -751,8 +690,8 @@ public fun PfGetInterfaceStatistics(pinterface: Long, ppfstats: Long, pdwbuffers
     return Win32DynamicFfi.invoke("iphlpapi.dll", "PfGetInterfaceStatistics", longArrayOf(pinterface, ppfstats, pdwbuffersize, fresetcounters.toLong())).toUInt()
 }
 
-public fun PfMakeLog(hevent: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("iphlpapi.dll", "PfMakeLog", longArrayOf(Win32DynamicFfi.objectSlot(hevent))).toUInt()
+public fun PfMakeLog(hevent: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "PfMakeLog", longArrayOf(hevent)).toUInt()
 }
 
 public fun PfRebindFilters(pinterface: Long, platebindinfo: Long): UInt {
@@ -787,9 +726,8 @@ public fun RegisterInterfaceTimestampConfigChange(callback: PINTERFACE_TIMESTAMP
     return Win32DynamicFfi.invoke("iphlpapi.dll", "RegisterInterfaceTimestampConfigChange", longArrayOf(Win32DynamicFfi.objectSlot(callback), callercontext, notificationhandle)).toUInt()
 }
 
-public fun ResolveIpNetEntry2(row: Long, sourceaddress: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "ResolveIpNetEntry2", longArrayOf(row, sourceaddress))
-    return Foundation.WIN32_ERROR()
+public fun ResolveIpNetEntry2(row: Long, sourceaddress: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "ResolveIpNetEntry2", longArrayOf(row, sourceaddress)).toUInt()
 }
 
 public fun ResolveNeighbor(networkaddress: Long, physicaladdress: Long, physicaladdresslength: Long): UInt {
@@ -804,51 +742,44 @@ public fun SendARP(destip: UInt, srcip: UInt, pmacaddr: Long, phyaddrlen: Long):
     return Win32DynamicFfi.invoke("iphlpapi.dll", "SendARP", longArrayOf(destip.toLong(), srcip.toLong(), pmacaddr, phyaddrlen)).toUInt()
 }
 
-public fun SetCurrentThreadCompartmentId(compartmentid: Ndis.NET_IF_COMPARTMENT_ID): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "SetCurrentThreadCompartmentId", longArrayOf(Win32DynamicFfi.objectSlot(compartmentid)))
-    return Foundation.WIN32_ERROR()
+public fun SetCurrentThreadCompartmentId(compartmentid: NET_IF_COMPARTMENT_ID): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "SetCurrentThreadCompartmentId", longArrayOf(compartmentid.toLong())).toUInt()
 }
 
-public fun SetCurrentThreadCompartmentScope(compartmentscope: UInt): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "SetCurrentThreadCompartmentScope", longArrayOf(compartmentscope.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun SetCurrentThreadCompartmentScope(compartmentscope: UInt): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "SetCurrentThreadCompartmentScope", longArrayOf(compartmentscope.toLong())).toUInt()
 }
 
-public fun SetDnsSettings(settings: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "SetDnsSettings", longArrayOf(settings))
-    return Foundation.WIN32_ERROR()
+public fun SetDnsSettings(settings: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "SetDnsSettings", longArrayOf(settings)).toUInt()
 }
 
 public fun SetIfEntry(pifrow: Long): UInt {
     return Win32DynamicFfi.invoke("iphlpapi.dll", "SetIfEntry", longArrayOf(pifrow)).toUInt()
 }
 
-public fun SetInterfaceDnsSettings(iface: GUID, settings: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "SetInterfaceDnsSettings", longArrayOf(Win32DynamicFfi.guidSlot(iface.data1, iface.data2, iface.data3, iface.data4), settings))
-    return Foundation.WIN32_ERROR()
+public fun SetInterfaceDnsSettings(iface: GUID, settings: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "SetInterfaceDnsSettings", longArrayOf(run { val buf = ByteArray(16); buf[0] = (iface.data1.toInt() and 0xFF).toByte(); buf[1] = ((iface.data1.toInt() ushr 8) and 0xFF).toByte(); buf[2] = ((iface.data1.toInt() ushr 16) and 0xFF).toByte(); buf[3] = ((iface.data1.toInt() ushr 24) and 0xFF).toByte(); buf[4] = (iface.data2.toInt() and 0xFF).toByte(); buf[5] = ((iface.data2.toInt() ushr 8) and 0xFF).toByte(); buf[6] = (iface.data3.toInt() and 0xFF).toByte(); buf[7] = ((iface.data3.toInt() ushr 8) and 0xFF).toByte(); for (i in 0 until minOf(8, iface.data4.size)) buf[8 + i] = iface.data4[i].toByte(); val ptr = Win32DynamicFfi.allocZeroed(16); Win32DynamicFfi.writeBytes(ptr, buf); ptr }, settings)).toUInt()
 }
 
 public fun SetIpForwardEntry(proute: Long): UInt {
     return Win32DynamicFfi.invoke("iphlpapi.dll", "SetIpForwardEntry", longArrayOf(proute)).toUInt()
 }
 
-public fun SetIpForwardEntry2(route: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "SetIpForwardEntry2", longArrayOf(route))
-    return Foundation.WIN32_ERROR()
+public fun SetIpForwardEntry2(route: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "SetIpForwardEntry2", longArrayOf(route)).toUInt()
 }
 
-public fun SetIpInterfaceEntry(row: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "SetIpInterfaceEntry", longArrayOf(row))
-    return Foundation.WIN32_ERROR()
+public fun SetIpInterfaceEntry(row: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "SetIpInterfaceEntry", longArrayOf(row)).toUInt()
 }
 
 public fun SetIpNetEntry(parpentry: Long): UInt {
     return Win32DynamicFfi.invoke("iphlpapi.dll", "SetIpNetEntry", longArrayOf(parpentry)).toUInt()
 }
 
-public fun SetIpNetEntry2(row: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "SetIpNetEntry2", longArrayOf(row))
-    return Foundation.WIN32_ERROR()
+public fun SetIpNetEntry2(row: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "SetIpNetEntry2", longArrayOf(row)).toUInt()
 }
 
 public fun SetIpStatistics(pipstats: Long): UInt {
@@ -863,14 +794,12 @@ public fun SetIpTTL(nttl: UInt): UInt {
     return Win32DynamicFfi.invoke("iphlpapi.dll", "SetIpTTL", longArrayOf(nttl.toLong())).toUInt()
 }
 
-public fun SetJobCompartmentId(jobhandle: Foundation.HANDLE, compartmentid: Ndis.NET_IF_COMPARTMENT_ID): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "SetJobCompartmentId", longArrayOf(Win32DynamicFfi.objectSlot(jobhandle), Win32DynamicFfi.objectSlot(compartmentid)))
-    return Foundation.WIN32_ERROR()
+public fun SetJobCompartmentId(jobhandle: HANDLE, compartmentid: NET_IF_COMPARTMENT_ID): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "SetJobCompartmentId", longArrayOf(jobhandle, compartmentid.toLong())).toUInt()
 }
 
-public fun SetNetworkInformation(networkguid: Long, compartmentid: Ndis.NET_IF_COMPARTMENT_ID, networkname: PCWSTR): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "SetNetworkInformation", longArrayOf(networkguid, Win32DynamicFfi.objectSlot(compartmentid), networkname))
-    return Foundation.WIN32_ERROR()
+public fun SetNetworkInformation(networkguid: Long, compartmentid: NET_IF_COMPARTMENT_ID, networkname: PCWSTR): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "SetNetworkInformation", longArrayOf(networkguid, compartmentid.toLong(), networkname)).toUInt()
 }
 
 public fun SetPerTcp6ConnectionEStats(row: Long, estatstype: TCP_ESTATS_TYPE, rw: Long, rwversion: UInt, rwsize: UInt, offset: UInt): UInt {
@@ -881,18 +810,16 @@ public fun SetPerTcpConnectionEStats(row: Long, estatstype: TCP_ESTATS_TYPE, rw:
     return Win32DynamicFfi.invoke("iphlpapi.dll", "SetPerTcpConnectionEStats", longArrayOf(row, estatstype.toLong(), rw, rwversion.toLong(), rwsize.toLong(), offset.toLong())).toUInt()
 }
 
-public fun SetSessionCompartmentId(sessionid: UInt, compartmentid: Ndis.NET_IF_COMPARTMENT_ID): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "SetSessionCompartmentId", longArrayOf(sessionid.toLong(), Win32DynamicFfi.objectSlot(compartmentid)))
-    return Foundation.WIN32_ERROR()
+public fun SetSessionCompartmentId(sessionid: UInt, compartmentid: NET_IF_COMPARTMENT_ID): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "SetSessionCompartmentId", longArrayOf(sessionid.toLong(), compartmentid.toLong())).toUInt()
 }
 
 public fun SetTcpEntry(ptcprow: Long): UInt {
     return Win32DynamicFfi.invoke("iphlpapi.dll", "SetTcpEntry", longArrayOf(ptcprow)).toUInt()
 }
 
-public fun SetUnicastIpAddressEntry(row: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("iphlpapi.dll", "SetUnicastIpAddressEntry", longArrayOf(row))
-    return Foundation.WIN32_ERROR()
+public fun SetUnicastIpAddressEntry(row: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("iphlpapi.dll", "SetUnicastIpAddressEntry", longArrayOf(row)).toUInt()
 }
 
 public fun UnenableRouter(poverlapped: Long, lpdwenablecount: Long): UInt {

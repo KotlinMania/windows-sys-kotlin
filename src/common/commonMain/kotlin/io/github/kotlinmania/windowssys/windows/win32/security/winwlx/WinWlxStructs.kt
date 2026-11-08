@@ -3,7 +3,10 @@ package io.github.kotlinmania.windowssys.windows.win32.security.winwlx
 
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
 import io.github.kotlinmania.windowssys.windows.win32.security.QUOTA_LIMITS
+import io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.HDESK
 
 public data class WLX_CLIENT_CREDENTIALS_INFO_V1_0(
     public var dwType: UInt = 0u,
@@ -24,8 +27,8 @@ public data class WLX_CLIENT_CREDENTIALS_INFO_V2_0(
 
 public class WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0(
     public var dwType: UInt = 0u,
-    public var UserToken: Foundation.HANDLE = Foundation.HANDLE(),
-    public var LogonId: Foundation.LUID = Foundation.LUID(),
+    public var UserToken: HANDLE = 0L,
+    public var LogonId: LUID = LUID(),
     public var Quotas: QUOTA_LIMITS = QUOTA_LIMITS(),
     public var UserName: PWSTR = 0L,
     public var Domain: PWSTR = 0L,
@@ -55,7 +58,7 @@ public class WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0(
 public data class WLX_DESKTOP(
     public var Size: UInt = 0u,
     public var Flags: UInt = 0u,
-    public var hDesktop: System.StationsAndDesktops.HDESK = System.StationsAndDesktops.HDESK(),
+    public var hDesktop: HDESK = 0L,
     public var pszDesktopName: PWSTR = 0L,
 )
 
@@ -187,8 +190,8 @@ public data class WLX_NOTIFICATION_INFO(
     public var UserName: PWSTR = 0L,
     public var Domain: PWSTR = 0L,
     public var WindowStation: PWSTR = 0L,
-    public var hToken: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hDesktop: System.StationsAndDesktops.HDESK = System.StationsAndDesktops.HDESK(),
+    public var hToken: HANDLE = 0L,
+    public var hDesktop: HDESK = 0L,
     public var pStatusCallback: PFNMSGECALLBACK = null,
 )
 

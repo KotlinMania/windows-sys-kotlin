@@ -3,6 +3,7 @@ package io.github.kotlinmania.windowssys.windows.win32.system.hostcomputenetwork
 import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 
 public fun interface FnCallback {
     public operator fun invoke(notificationtype: UInt, context: Long, notificationstatus: HRESULT, notificationdata: PCWSTR)
@@ -160,8 +161,8 @@ public fun HcnRegisterServiceCallback(callback: HCN_NOTIFICATION_CALLBACK, conte
     return Win32DynamicFfi.invoke("computenetwork.dll", "HcnRegisterServiceCallback", longArrayOf(Win32DynamicFfi.objectSlot(callback), context, callbackhandle)).toInt()
 }
 
-public fun HcnReleaseGuestNetworkServicePortReservationHandle(portreservationhandle: Foundation.HANDLE): HRESULT {
-    return Win32DynamicFfi.invoke("computenetwork.dll", "HcnReleaseGuestNetworkServicePortReservationHandle", longArrayOf(Win32DynamicFfi.objectSlot(portreservationhandle))).toInt()
+public fun HcnReleaseGuestNetworkServicePortReservationHandle(portreservationhandle: HANDLE): HRESULT {
+    return Win32DynamicFfi.invoke("computenetwork.dll", "HcnReleaseGuestNetworkServicePortReservationHandle", longArrayOf(portreservationhandle)).toInt()
 }
 
 public fun HcnReserveGuestNetworkServicePort(guestnetworkservice: Long, protocol: HCN_PORT_PROTOCOL, access: HCN_PORT_ACCESS, port: UShort, portreservationhandle: Long): HRESULT {

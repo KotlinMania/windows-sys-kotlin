@@ -5,8 +5,13 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HGLOBAL
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
+import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
 import io.github.kotlinmania.windowssys.windows.win32.system.com.CLSCTX
 import io.github.kotlinmania.windowssys.windows.win32.system.com.STGM
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.PSTIME_FLAGS
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.VARENUM
 
 public fun ClearPropVariantArray(rgpropvar: Long, cvars: UInt) {
     Win32DynamicFfi.invoke("propsys.dll", "ClearPropVariantArray", longArrayOf(rgpropvar, cvars.toLong()))
@@ -24,12 +29,12 @@ public fun CoGetInterfaceAndReleaseStream(pstm: Long, iid: Long, ppv: Long): HRE
     return Win32DynamicFfi.invoke("ole32.dll", "CoGetInterfaceAndReleaseStream", longArrayOf(pstm, iid, ppv)).toInt()
 }
 
-public fun CreateILockBytesOnHGlobal(hglobal: Foundation.HGLOBAL, fdeleteonrelease: BOOL, pplkbyt: Long): HRESULT {
-    return Win32DynamicFfi.invoke("ole32.dll", "CreateILockBytesOnHGlobal", longArrayOf(Win32DynamicFfi.objectSlot(hglobal), fdeleteonrelease.toLong(), pplkbyt)).toInt()
+public fun CreateILockBytesOnHGlobal(hglobal: HGLOBAL, fdeleteonrelease: BOOL, pplkbyt: Long): HRESULT {
+    return Win32DynamicFfi.invoke("ole32.dll", "CreateILockBytesOnHGlobal", longArrayOf(hglobal, fdeleteonrelease.toLong(), pplkbyt)).toInt()
 }
 
-public fun CreateStreamOnHGlobal(hglobal: Foundation.HGLOBAL, fdeleteonrelease: BOOL, ppstm: Long): HRESULT {
-    return Win32DynamicFfi.invoke("ole32.dll", "CreateStreamOnHGlobal", longArrayOf(Win32DynamicFfi.objectSlot(hglobal), fdeleteonrelease.toLong(), ppstm)).toInt()
+public fun CreateStreamOnHGlobal(hglobal: HGLOBAL, fdeleteonrelease: BOOL, ppstm: Long): HRESULT {
+    return Win32DynamicFfi.invoke("ole32.dll", "CreateStreamOnHGlobal", longArrayOf(hglobal, fdeleteonrelease.toLong(), ppstm)).toInt()
 }
 
 public fun FmtIdToPropStgName(pfmtid: Long, oszname: PWSTR): HRESULT {
@@ -96,8 +101,8 @@ public fun InitPropVariantFromPropVariantVectorElem(propvarin: Long, ielem: UInt
     return Win32DynamicFfi.invoke("propsys.dll", "InitPropVariantFromPropVariantVectorElem", longArrayOf(propvarin, ielem.toLong(), ppropvar)).toInt()
 }
 
-public fun InitPropVariantFromResource(hinst: Foundation.HINSTANCE, id: UInt, ppropvar: Long): HRESULT {
-    return Win32DynamicFfi.invoke("propsys.dll", "InitPropVariantFromResource", longArrayOf(Win32DynamicFfi.objectSlot(hinst), id.toLong(), ppropvar)).toInt()
+public fun InitPropVariantFromResource(hinst: HINSTANCE, id: UInt, ppropvar: Long): HRESULT {
+    return Win32DynamicFfi.invoke("propsys.dll", "InitPropVariantFromResource", longArrayOf(hinst, id.toLong(), ppropvar)).toInt()
 }
 
 public fun InitPropVariantFromStringAsVector(psz: PCWSTR, ppropvar: Long): HRESULT {
@@ -144,8 +149,8 @@ public fun PropStgNameToFmtId(oszname: PCWSTR, pfmtid: Long): HRESULT {
     return Win32DynamicFfi.invoke("ole32.dll", "PropStgNameToFmtId", longArrayOf(oszname, pfmtid)).toInt()
 }
 
-public fun PropVariantChangeType(ppropvardest: Long, propvarsrc: Long, flags: PROPVAR_CHANGE_FLAGS, vt: Variant.VARENUM): HRESULT {
-    return Win32DynamicFfi.invoke("propsys.dll", "PropVariantChangeType", longArrayOf(ppropvardest, propvarsrc, flags.toLong(), Win32DynamicFfi.objectSlot(vt))).toInt()
+public fun PropVariantChangeType(ppropvardest: Long, propvarsrc: Long, flags: PROPVAR_CHANGE_FLAGS, vt: VARENUM): HRESULT {
+    return Win32DynamicFfi.invoke("propsys.dll", "PropVariantChangeType", longArrayOf(ppropvardest, propvarsrc, flags.toLong(), vt.toLong())).toInt()
 }
 
 public fun PropVariantClear(pvar: Long): HRESULT {
@@ -244,8 +249,8 @@ public fun PropVariantToDoubleWithDefault(propvarin: Long, dbldefault: Double): 
     return Win32DynamicFfi.invokeFp("propsys.dll", "PropVariantToDoubleWithDefault", 8, false, longArrayOf(propvarin, dbldefault.toRawBits()))
 }
 
-public fun PropVariantToFileTime(propvar: Long, pstfout: Variant.PSTIME_FLAGS, pftout: Long): HRESULT {
-    return Win32DynamicFfi.invoke("propsys.dll", "PropVariantToFileTime", longArrayOf(propvar, Win32DynamicFfi.objectSlot(pstfout), pftout)).toInt()
+public fun PropVariantToFileTime(propvar: Long, pstfout: PSTIME_FLAGS, pftout: Long): HRESULT {
+    return Win32DynamicFfi.invoke("propsys.dll", "PropVariantToFileTime", longArrayOf(propvar, pstfout.toLong(), pftout)).toInt()
 }
 
 public fun PropVariantToFileTimeVector(propvar: Long, prgft: Long, crgft: UInt, pcelem: Long): HRESULT {
@@ -425,8 +430,8 @@ public fun StgCreatePropStg(punk: Long, fmtid: Long, pclsid: Long, grfflags: UIn
     return Win32DynamicFfi.invoke("ole32.dll", "StgCreatePropStg", longArrayOf(punk, fmtid, pclsid, grfflags.toLong(), dwreserved.toLong(), pppropstg)).toInt()
 }
 
-public fun StgCreateStorageEx(pwcsname: PCWSTR, grfmode: STGM, stgfmt: STGFMT, grfattrs: UInt, pstgoptions: Long, psecuritydescriptor: Security.PSECURITY_DESCRIPTOR, riid: Long, ppobjectopen: Long): HRESULT {
-    return Win32DynamicFfi.invoke("ole32.dll", "StgCreateStorageEx", longArrayOf(pwcsname, grfmode.toLong(), stgfmt.toLong(), grfattrs.toLong(), pstgoptions, Win32DynamicFfi.objectSlot(psecuritydescriptor), riid, ppobjectopen)).toInt()
+public fun StgCreateStorageEx(pwcsname: PCWSTR, grfmode: STGM, stgfmt: STGFMT, grfattrs: UInt, pstgoptions: Long, psecuritydescriptor: PSECURITY_DESCRIPTOR, riid: Long, ppobjectopen: Long): HRESULT {
+    return Win32DynamicFfi.invoke("ole32.dll", "StgCreateStorageEx", longArrayOf(pwcsname, grfmode.toLong(), stgfmt.toLong(), grfattrs.toLong(), pstgoptions, psecuritydescriptor, riid, ppobjectopen)).toInt()
 }
 
 public fun StgDeserializePropVariant(pprop: Long, cbmax: UInt, ppropvar: Long): HRESULT {
@@ -465,8 +470,8 @@ public fun StgOpenStorage(pwcsname: PCWSTR, pstgpriority: Long, grfmode: STGM, s
     return Win32DynamicFfi.invoke("ole32.dll", "StgOpenStorage", longArrayOf(pwcsname, pstgpriority, grfmode.toLong(), snbexclude, reserved.toLong(), ppstgopen)).toInt()
 }
 
-public fun StgOpenStorageEx(pwcsname: PCWSTR, grfmode: STGM, stgfmt: STGFMT, grfattrs: UInt, pstgoptions: Long, psecuritydescriptor: Security.PSECURITY_DESCRIPTOR, riid: Long, ppobjectopen: Long): HRESULT {
-    return Win32DynamicFfi.invoke("ole32.dll", "StgOpenStorageEx", longArrayOf(pwcsname, grfmode.toLong(), stgfmt.toLong(), grfattrs.toLong(), pstgoptions, Win32DynamicFfi.objectSlot(psecuritydescriptor), riid, ppobjectopen)).toInt()
+public fun StgOpenStorageEx(pwcsname: PCWSTR, grfmode: STGM, stgfmt: STGFMT, grfattrs: UInt, pstgoptions: Long, psecuritydescriptor: PSECURITY_DESCRIPTOR, riid: Long, ppobjectopen: Long): HRESULT {
+    return Win32DynamicFfi.invoke("ole32.dll", "StgOpenStorageEx", longArrayOf(pwcsname, grfmode.toLong(), stgfmt.toLong(), grfattrs.toLong(), pstgoptions, psecuritydescriptor, riid, ppobjectopen)).toInt()
 }
 
 public fun StgOpenStorageOnILockBytes(plkbyt: Long, pstgpriority: Long, grfmode: STGM, snbexclude: Long, reserved: UInt, ppstgopen: Long): HRESULT {

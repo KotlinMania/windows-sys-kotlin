@@ -1,6 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer
 
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
 
 public data class IELAUNCHURLINFO(
     public var cbSize: UInt = 0u,
@@ -20,8 +21,8 @@ public data class STATURL(
     public var cbSize: UInt = 0u,
     public var pwcsUrl: PWSTR = 0L,
     public var pwcsTitle: PWSTR = 0L,
-    public var ftLastVisited: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ftLastUpdated: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ftExpires: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftLastVisited: FILETIME = FILETIME(),
+    public var ftLastUpdated: FILETIME = FILETIME(),
+    public var ftExpires: FILETIME = FILETIME(),
     public var dwFlags: UInt = 0u,
 )

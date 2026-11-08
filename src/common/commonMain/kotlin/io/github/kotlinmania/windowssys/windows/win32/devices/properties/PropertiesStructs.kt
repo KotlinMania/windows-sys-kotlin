@@ -1,9 +1,10 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.properties
 
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.DEVPROPKEY
 
 public data class DEVPROPCOMPKEY(
-    public var Key: Foundation.DEVPROPKEY = Foundation.DEVPROPKEY(),
+    public var Key: DEVPROPKEY = DEVPROPKEY(),
     public var Store: DEVPROPSTORE = 0,
     public var LocaleName: PCWSTR = 0L,
 )

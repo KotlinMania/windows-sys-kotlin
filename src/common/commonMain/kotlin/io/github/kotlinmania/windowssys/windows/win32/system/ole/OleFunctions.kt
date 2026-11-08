@@ -7,6 +7,23 @@ import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HGLOBAL
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.VARIANT_BOOL
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HPALETTE
+import io.github.kotlinmania.windowssys.windows.win32.system.com.CALLCONV
+import io.github.kotlinmania.windowssys.windows.win32.system.com.CY
+import io.github.kotlinmania.windowssys.windows.win32.system.com.SYSKIND
+import io.github.kotlinmania.windowssys.windows.win32.system.memory.GLOBAL_ALLOC_FLAGS
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.VARENUM
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.VARIANT
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HACCEL
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HCURSOR
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HICON
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HMENU
 
 public fun interface FnCallback {
     public operator fun invoke(pclsid: Long, szclass: PCWSTR, sztopicname: PCWSTR, szitemname: PCWSTR, szuncname: PCWSTR, linkupdatingoption: UInt, pvcontext: Long): HRESULT
@@ -36,24 +53,24 @@ public fun CreateStdDispatch(punkouter: Long, pvthis: Long, ptinfo: Long, ppunks
     return Win32DynamicFfi.invoke("oleaut32.dll", "CreateStdDispatch", longArrayOf(punkouter, pvthis, ptinfo, ppunkstddisp)).toInt()
 }
 
-public fun CreateTypeLib(syskind: Com.SYSKIND, szfile: PCWSTR, ppctlib: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "CreateTypeLib", longArrayOf(Win32DynamicFfi.objectSlot(syskind), szfile, ppctlib)).toInt()
+public fun CreateTypeLib(syskind: SYSKIND, szfile: PCWSTR, ppctlib: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "CreateTypeLib", longArrayOf(syskind.toLong(), szfile, ppctlib)).toInt()
 }
 
-public fun CreateTypeLib2(syskind: Com.SYSKIND, szfile: PCWSTR, ppctlib: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "CreateTypeLib2", longArrayOf(Win32DynamicFfi.objectSlot(syskind), szfile, ppctlib)).toInt()
+public fun CreateTypeLib2(syskind: SYSKIND, szfile: PCWSTR, ppctlib: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "CreateTypeLib2", longArrayOf(syskind.toLong(), szfile, ppctlib)).toInt()
 }
 
-public fun DispCallFunc(pvinstance: Long, ovft: ULong, cc: Com.CALLCONV, vtreturn: Variant.VARENUM, cactuals: UInt, prgvt: Long, prgpvarg: Long, pvargresult: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "DispCallFunc", longArrayOf(pvinstance, ovft.toLong(), Win32DynamicFfi.objectSlot(cc), Win32DynamicFfi.objectSlot(vtreturn), cactuals.toLong(), prgvt, prgpvarg, pvargresult)).toInt()
+public fun DispCallFunc(pvinstance: Long, ovft: ULong, cc: CALLCONV, vtreturn: VARENUM, cactuals: UInt, prgvt: Long, prgpvarg: Long, pvargresult: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "DispCallFunc", longArrayOf(pvinstance, ovft.toLong(), cc.toLong(), vtreturn.toLong(), cactuals.toLong(), prgvt, prgpvarg, pvargresult)).toInt()
 }
 
 public fun DispGetIDsOfNames(ptinfo: Long, rgsznames: Long, cnames: UInt, rgdispid: Long): HRESULT {
     return Win32DynamicFfi.invoke("oleaut32.dll", "DispGetIDsOfNames", longArrayOf(ptinfo, rgsznames, cnames.toLong(), rgdispid)).toInt()
 }
 
-public fun DispGetParam(pdispparams: Long, position: UInt, vttarg: Variant.VARENUM, pvarresult: Long, puargerr: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "DispGetParam", longArrayOf(pdispparams, position.toLong(), Win32DynamicFfi.objectSlot(vttarg), pvarresult, puargerr)).toInt()
+public fun DispGetParam(pdispparams: Long, position: UInt, vttarg: VARENUM, pvarresult: Long, puargerr: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "DispGetParam", longArrayOf(pdispparams, position.toLong(), vttarg.toLong(), pvarresult, puargerr)).toInt()
 }
 
 public fun DispInvoke(_this: Long, ptinfo: Long, dispidmember: Int, wflags: UShort, pparams: Long, pvarresult: Long, pexcepinfo: Long, puargerr: Long): HRESULT {
@@ -112,16 +129,16 @@ public fun HRGN_UserUnmarshal64(param0: Long, param1: Long, param2: Long): Long 
     return Win32DynamicFfi.invoke("api-ms-win-core-marshal-l1-1-0.dll", "HRGN_UserUnmarshal64", longArrayOf(param0, param1, param2))
 }
 
-public fun IsAccelerator(haccel: UI.WindowsAndMessaging.HACCEL, caccelentries: Int, lpmsg: Long, lpwcmd: Long): BOOL {
-    return Win32DynamicFfi.invoke("ole32.dll", "IsAccelerator", longArrayOf(Win32DynamicFfi.objectSlot(haccel), caccelentries.toLong(), lpmsg, lpwcmd)).toInt()
+public fun IsAccelerator(haccel: HACCEL, caccelentries: Int, lpmsg: Long, lpwcmd: Long): BOOL {
+    return Win32DynamicFfi.invoke("ole32.dll", "IsAccelerator", longArrayOf(haccel, caccelentries.toLong(), lpmsg, lpwcmd)).toInt()
 }
 
-public fun LHashValOfNameSys(syskind: Com.SYSKIND, lcid: UInt, szname: PCWSTR): UInt {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "LHashValOfNameSys", longArrayOf(Win32DynamicFfi.objectSlot(syskind), lcid.toLong(), szname)).toUInt()
+public fun LHashValOfNameSys(syskind: SYSKIND, lcid: UInt, szname: PCWSTR): UInt {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "LHashValOfNameSys", longArrayOf(syskind.toLong(), lcid.toLong(), szname)).toUInt()
 }
 
-public fun LHashValOfNameSysA(syskind: Com.SYSKIND, lcid: UInt, szname: PCSTR): UInt {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "LHashValOfNameSysA", longArrayOf(Win32DynamicFfi.objectSlot(syskind), lcid.toLong(), szname)).toUInt()
+public fun LHashValOfNameSysA(syskind: SYSKIND, lcid: UInt, szname: PCSTR): UInt {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "LHashValOfNameSysA", longArrayOf(syskind.toLong(), lcid.toLong(), szname)).toUInt()
 }
 
 public fun LoadRegTypeLib(rguid: Long, wvermajor: UShort, wverminor: UShort, lcid: UInt, pptlib: Long): HRESULT {
@@ -216,16 +233,16 @@ public fun OleCreateLinkToFileEx(lpszfilename: PCWSTR, riid: Long, dwflags: OLEC
     return Win32DynamicFfi.invoke("ole32.dll", "OleCreateLinkToFileEx", longArrayOf(lpszfilename, riid, dwflags.toLong(), renderopt.toLong(), cformats.toLong(), rgadvf, rgformatetc, lpadvisesink, rgdwconnection, pclientsite, pstg, ppvobj)).toInt()
 }
 
-public fun OleCreateMenuDescriptor(hmenucombined: UI.WindowsAndMessaging.HMENU, lpmenuwidths: Long): Long {
-    return Win32DynamicFfi.invoke("ole32.dll", "OleCreateMenuDescriptor", longArrayOf(Win32DynamicFfi.objectSlot(hmenucombined), lpmenuwidths))
+public fun OleCreateMenuDescriptor(hmenucombined: HMENU, lpmenuwidths: Long): Long {
+    return Win32DynamicFfi.invoke("ole32.dll", "OleCreateMenuDescriptor", longArrayOf(hmenucombined, lpmenuwidths))
 }
 
 public fun OleCreatePictureIndirect(lppictdesc: Long, riid: Long, fown: BOOL, lplpvobj: Long): HRESULT {
     return Win32DynamicFfi.invoke("oleaut32.dll", "OleCreatePictureIndirect", longArrayOf(lppictdesc, riid, fown.toLong(), lplpvobj)).toInt()
 }
 
-public fun OleCreatePropertyFrame(hwndowner: Foundation.HWND, x: UInt, y: UInt, lpszcaption: PCWSTR, cobjects: UInt, ppunk: Long, cpages: UInt, ppageclsid: Long, lcid: UInt, dwreserved: UInt, pvreserved: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "OleCreatePropertyFrame", longArrayOf(Win32DynamicFfi.objectSlot(hwndowner), x.toLong(), y.toLong(), lpszcaption, cobjects.toLong(), ppunk, cpages.toLong(), ppageclsid, lcid.toLong(), dwreserved.toLong(), pvreserved)).toInt()
+public fun OleCreatePropertyFrame(hwndowner: HWND, x: UInt, y: UInt, lpszcaption: PCWSTR, cobjects: UInt, ppunk: Long, cpages: UInt, ppageclsid: Long, lcid: UInt, dwreserved: UInt, pvreserved: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "OleCreatePropertyFrame", longArrayOf(hwndowner, x.toLong(), y.toLong(), lpszcaption, cobjects.toLong(), ppunk, cpages.toLong(), ppageclsid, lcid.toLong(), dwreserved.toLong(), pvreserved)).toInt()
 }
 
 public fun OleCreatePropertyFrameIndirect(lpparams: Long): HRESULT {
@@ -244,13 +261,12 @@ public fun OleDoAutoConvert(pstg: Long, pclsidnew: Long): HRESULT {
     return Win32DynamicFfi.invoke("ole32.dll", "OleDoAutoConvert", longArrayOf(pstg, pclsidnew)).toInt()
 }
 
-public fun OleDraw(punknown: Long, dwaspect: UInt, hdcdraw: Graphics.Gdi.HDC, lprcbounds: Long): HRESULT {
-    return Win32DynamicFfi.invoke("ole32.dll", "OleDraw", longArrayOf(punknown, dwaspect.toLong(), Win32DynamicFfi.objectSlot(hdcdraw), lprcbounds)).toInt()
+public fun OleDraw(punknown: Long, dwaspect: UInt, hdcdraw: HDC, lprcbounds: Long): HRESULT {
+    return Win32DynamicFfi.invoke("ole32.dll", "OleDraw", longArrayOf(punknown, dwaspect.toLong(), hdcdraw, lprcbounds)).toInt()
 }
 
-public fun OleDuplicateData(hsrc: Foundation.HANDLE, cfformat: CLIPBOARD_FORMAT, uiflags: Memory.GLOBAL_ALLOC_FLAGS): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("ole32.dll", "OleDuplicateData", longArrayOf(Win32DynamicFfi.objectSlot(hsrc), cfformat.toLong(), Win32DynamicFfi.objectSlot(uiflags)))
-    return Foundation.HANDLE()
+public fun OleDuplicateData(hsrc: HANDLE, cfformat: CLIPBOARD_FORMAT, uiflags: GLOBAL_ALLOC_FLAGS): HANDLE {
+    return Win32DynamicFfi.invoke("ole32.dll", "OleDuplicateData", longArrayOf(hsrc, cfformat.toLong(), uiflags.toLong()))
 }
 
 public fun OleFlushClipboard(): HRESULT {
@@ -269,19 +285,16 @@ public fun OleGetClipboardWithEnterpriseInfo(dataobject: Long, dataenterpriseid:
     return Win32DynamicFfi.invoke("ole32.dll", "OleGetClipboardWithEnterpriseInfo", longArrayOf(dataobject, dataenterpriseid, sourcedescription, targetdescription, datadescription)).toInt()
 }
 
-public fun OleGetIconOfClass(rclsid: Long, lpszlabel: PCWSTR, fusetypeaslabel: BOOL): Foundation.HGLOBAL {
-    Win32DynamicFfi.invoke("ole32.dll", "OleGetIconOfClass", longArrayOf(rclsid, lpszlabel, fusetypeaslabel.toLong()))
-    return Foundation.HGLOBAL()
+public fun OleGetIconOfClass(rclsid: Long, lpszlabel: PCWSTR, fusetypeaslabel: BOOL): HGLOBAL {
+    return Win32DynamicFfi.invoke("ole32.dll", "OleGetIconOfClass", longArrayOf(rclsid, lpszlabel, fusetypeaslabel.toLong()))
 }
 
-public fun OleGetIconOfFile(lpszpath: PCWSTR, fusefileaslabel: BOOL): Foundation.HGLOBAL {
-    Win32DynamicFfi.invoke("ole32.dll", "OleGetIconOfFile", longArrayOf(lpszpath, fusefileaslabel.toLong()))
-    return Foundation.HGLOBAL()
+public fun OleGetIconOfFile(lpszpath: PCWSTR, fusefileaslabel: BOOL): HGLOBAL {
+    return Win32DynamicFfi.invoke("ole32.dll", "OleGetIconOfFile", longArrayOf(lpszpath, fusefileaslabel.toLong()))
 }
 
-public fun OleIconToCursor(hinstexe: Foundation.HINSTANCE, hicon: UI.WindowsAndMessaging.HICON): UI.WindowsAndMessaging.HCURSOR {
-    Win32DynamicFfi.invoke("oleaut32.dll", "OleIconToCursor", longArrayOf(Win32DynamicFfi.objectSlot(hinstexe), Win32DynamicFfi.objectSlot(hicon)))
-    return UI.WindowsAndMessaging.HCURSOR()
+public fun OleIconToCursor(hinstexe: HINSTANCE, hicon: HICON): HCURSOR {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "OleIconToCursor", longArrayOf(hinstexe, hicon))
 }
 
 public fun OleInitialize(pvreserved: Long): HRESULT {
@@ -312,11 +325,11 @@ public fun OleLoadPictureEx(lpstream: Long, lsize: Int, frunmode: BOOL, riid: Lo
     return Win32DynamicFfi.invoke("oleaut32.dll", "OleLoadPictureEx", longArrayOf(lpstream, lsize.toLong(), frunmode.toLong(), riid, xsizedesired.toLong(), ysizedesired.toLong(), dwflags.toLong(), lplpvobj)).toInt()
 }
 
-public fun OleLoadPictureFile(varfilename: Variant.VARIANT, lplpdisppicture: Long): HRESULT {
+public fun OleLoadPictureFile(varfilename: VARIANT, lplpdisppicture: Long): HRESULT {
     return Win32DynamicFfi.invoke("oleaut32.dll", "OleLoadPictureFile", longArrayOf(Win32DynamicFfi.objectSlot(varfilename), lplpdisppicture)).toInt()
 }
 
-public fun OleLoadPictureFileEx(varfilename: Variant.VARIANT, xsizedesired: UInt, ysizedesired: UInt, dwflags: LOAD_PICTURE_FLAGS, lplpdisppicture: Long): HRESULT {
+public fun OleLoadPictureFileEx(varfilename: VARIANT, xsizedesired: UInt, ysizedesired: UInt, dwflags: LOAD_PICTURE_FLAGS, lplpdisppicture: Long): HRESULT {
     return Win32DynamicFfi.invoke("oleaut32.dll", "OleLoadPictureFileEx", longArrayOf(Win32DynamicFfi.objectSlot(varfilename), xsizedesired.toLong(), ysizedesired.toLong(), dwflags.toLong(), lplpdisppicture)).toInt()
 }
 
@@ -328,9 +341,8 @@ public fun OleLockRunning(punknown: Long, flock: BOOL, flastunlockcloses: BOOL):
     return Win32DynamicFfi.invoke("ole32.dll", "OleLockRunning", longArrayOf(punknown, flock.toLong(), flastunlockcloses.toLong())).toInt()
 }
 
-public fun OleMetafilePictFromIconAndLabel(hicon: UI.WindowsAndMessaging.HICON, lpszlabel: PCWSTR, lpszsourcefile: PCWSTR, iiconindex: UInt): Foundation.HGLOBAL {
-    Win32DynamicFfi.invoke("ole32.dll", "OleMetafilePictFromIconAndLabel", longArrayOf(Win32DynamicFfi.objectSlot(hicon), lpszlabel, lpszsourcefile, iiconindex.toLong()))
-    return Foundation.HGLOBAL()
+public fun OleMetafilePictFromIconAndLabel(hicon: HICON, lpszlabel: PCWSTR, lpszsourcefile: PCWSTR, iiconindex: UInt): HGLOBAL {
+    return Win32DynamicFfi.invoke("ole32.dll", "OleMetafilePictFromIconAndLabel", longArrayOf(hicon, lpszlabel, lpszsourcefile, iiconindex.toLong()))
 }
 
 public fun OleNoteObjectVisible(punknown: Long, fvisible: BOOL): HRESULT {
@@ -389,24 +401,24 @@ public fun OleSetContainedObject(punknown: Long, fcontained: BOOL): HRESULT {
     return Win32DynamicFfi.invoke("ole32.dll", "OleSetContainedObject", longArrayOf(punknown, fcontained.toLong())).toInt()
 }
 
-public fun OleSetMenuDescriptor(holemenu: Long, hwndframe: Foundation.HWND, hwndactiveobject: Foundation.HWND, lpframe: Long, lpactiveobj: Long): HRESULT {
-    return Win32DynamicFfi.invoke("ole32.dll", "OleSetMenuDescriptor", longArrayOf(holemenu, Win32DynamicFfi.objectSlot(hwndframe), Win32DynamicFfi.objectSlot(hwndactiveobject), lpframe, lpactiveobj)).toInt()
+public fun OleSetMenuDescriptor(holemenu: Long, hwndframe: HWND, hwndactiveobject: HWND, lpframe: Long, lpactiveobj: Long): HRESULT {
+    return Win32DynamicFfi.invoke("ole32.dll", "OleSetMenuDescriptor", longArrayOf(holemenu, hwndframe, hwndactiveobject, lpframe, lpactiveobj)).toInt()
 }
 
 public fun OleTranslateAccelerator(lpframe: Long, lpframeinfo: Long, lpmsg: Long): HRESULT {
     return Win32DynamicFfi.invoke("ole32.dll", "OleTranslateAccelerator", longArrayOf(lpframe, lpframeinfo, lpmsg)).toInt()
 }
 
-public fun OleTranslateColor(clr: UInt, hpal: Graphics.Gdi.HPALETTE, lpcolorref: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "OleTranslateColor", longArrayOf(clr.toLong(), Win32DynamicFfi.objectSlot(hpal), lpcolorref)).toInt()
+public fun OleTranslateColor(clr: UInt, hpal: HPALETTE, lpcolorref: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "OleTranslateColor", longArrayOf(clr.toLong(), hpal, lpcolorref)).toInt()
 }
 
-public fun OleUIAddVerbMenuA(lpoleobj: Long, lpszshorttype: PCSTR, hmenu: UI.WindowsAndMessaging.HMENU, upos: UInt, uidverbmin: UInt, uidverbmax: UInt, baddconvert: BOOL, idconvert: UInt, lphmenu: Long): BOOL {
-    return Win32DynamicFfi.invoke("oledlg.dll", "OleUIAddVerbMenuA", longArrayOf(lpoleobj, lpszshorttype, Win32DynamicFfi.objectSlot(hmenu), upos.toLong(), uidverbmin.toLong(), uidverbmax.toLong(), baddconvert.toLong(), idconvert.toLong(), lphmenu)).toInt()
+public fun OleUIAddVerbMenuA(lpoleobj: Long, lpszshorttype: PCSTR, hmenu: HMENU, upos: UInt, uidverbmin: UInt, uidverbmax: UInt, baddconvert: BOOL, idconvert: UInt, lphmenu: Long): BOOL {
+    return Win32DynamicFfi.invoke("oledlg.dll", "OleUIAddVerbMenuA", longArrayOf(lpoleobj, lpszshorttype, hmenu, upos.toLong(), uidverbmin.toLong(), uidverbmax.toLong(), baddconvert.toLong(), idconvert.toLong(), lphmenu)).toInt()
 }
 
-public fun OleUIAddVerbMenuW(lpoleobj: Long, lpszshorttype: PCWSTR, hmenu: UI.WindowsAndMessaging.HMENU, upos: UInt, uidverbmin: UInt, uidverbmax: UInt, baddconvert: BOOL, idconvert: UInt, lphmenu: Long): BOOL {
-    return Win32DynamicFfi.invoke("oledlg.dll", "OleUIAddVerbMenuW", longArrayOf(lpoleobj, lpszshorttype, Win32DynamicFfi.objectSlot(hmenu), upos.toLong(), uidverbmin.toLong(), uidverbmax.toLong(), baddconvert.toLong(), idconvert.toLong(), lphmenu)).toInt()
+public fun OleUIAddVerbMenuW(lpoleobj: Long, lpszshorttype: PCWSTR, hmenu: HMENU, upos: UInt, uidverbmin: UInt, uidverbmax: UInt, baddconvert: BOOL, idconvert: UInt, lphmenu: Long): BOOL {
+    return Win32DynamicFfi.invoke("oledlg.dll", "OleUIAddVerbMenuW", longArrayOf(lpoleobj, lpszshorttype, hmenu, upos.toLong(), uidverbmin.toLong(), uidverbmax.toLong(), baddconvert.toLong(), idconvert.toLong(), lphmenu)).toInt()
 }
 
 public fun OleUIBusyA(param0: Long): UInt {
@@ -477,20 +489,20 @@ public fun OleUIPasteSpecialW(param0: Long): UInt {
     return Win32DynamicFfi.invoke("oledlg.dll", "OleUIPasteSpecialW", longArrayOf(param0)).toUInt()
 }
 
-public fun OleUIPromptUserA(ntemplate: Int, hwndparent: Foundation.HWND, vararg variadicArgs: Long): Int {
-    return Win32DynamicFfi.invoke("oledlg.dll", "OleUIPromptUserA", longArrayOf(ntemplate.toLong(), Win32DynamicFfi.objectSlot(hwndparent)) + variadicArgs).toInt()
+public fun OleUIPromptUserA(ntemplate: Int, hwndparent: HWND, vararg variadicArgs: Long): Int {
+    return Win32DynamicFfi.invoke("oledlg.dll", "OleUIPromptUserA", longArrayOf(ntemplate.toLong(), hwndparent) + variadicArgs).toInt()
 }
 
-public fun OleUIPromptUserW(ntemplate: Int, hwndparent: Foundation.HWND, vararg variadicArgs: Long): Int {
-    return Win32DynamicFfi.invoke("oledlg.dll", "OleUIPromptUserW", longArrayOf(ntemplate.toLong(), Win32DynamicFfi.objectSlot(hwndparent)) + variadicArgs).toInt()
+public fun OleUIPromptUserW(ntemplate: Int, hwndparent: HWND, vararg variadicArgs: Long): Int {
+    return Win32DynamicFfi.invoke("oledlg.dll", "OleUIPromptUserW", longArrayOf(ntemplate.toLong(), hwndparent) + variadicArgs).toInt()
 }
 
-public fun OleUIUpdateLinksA(lpoleuilinkcntr: Long, hwndparent: Foundation.HWND, lpsztitle: PCSTR, clinks: Int): BOOL {
-    return Win32DynamicFfi.invoke("oledlg.dll", "OleUIUpdateLinksA", longArrayOf(lpoleuilinkcntr, Win32DynamicFfi.objectSlot(hwndparent), lpsztitle, clinks.toLong())).toInt()
+public fun OleUIUpdateLinksA(lpoleuilinkcntr: Long, hwndparent: HWND, lpsztitle: PCSTR, clinks: Int): BOOL {
+    return Win32DynamicFfi.invoke("oledlg.dll", "OleUIUpdateLinksA", longArrayOf(lpoleuilinkcntr, hwndparent, lpsztitle, clinks.toLong())).toInt()
 }
 
-public fun OleUIUpdateLinksW(lpoleuilinkcntr: Long, hwndparent: Foundation.HWND, lpsztitle: PCWSTR, clinks: Int): BOOL {
-    return Win32DynamicFfi.invoke("oledlg.dll", "OleUIUpdateLinksW", longArrayOf(lpoleuilinkcntr, Win32DynamicFfi.objectSlot(hwndparent), lpsztitle, clinks.toLong())).toInt()
+public fun OleUIUpdateLinksW(lpoleuilinkcntr: Long, hwndparent: HWND, lpsztitle: PCWSTR, clinks: Int): BOOL {
+    return Win32DynamicFfi.invoke("oledlg.dll", "OleUIUpdateLinksW", longArrayOf(lpoleuilinkcntr, hwndparent, lpsztitle, clinks.toLong())).toInt()
 }
 
 public fun OleUninitialize() {
@@ -505,8 +517,8 @@ public fun RegisterActiveObject(punk: Long, rclsid: Long, dwflags: ACTIVEOBJECT_
     return Win32DynamicFfi.invoke("oleaut32.dll", "RegisterActiveObject", longArrayOf(punk, rclsid, dwflags.toLong(), pdwregister)).toInt()
 }
 
-public fun RegisterDragDrop(hwnd: Foundation.HWND, pdroptarget: Long): HRESULT {
-    return Win32DynamicFfi.invoke("ole32.dll", "RegisterDragDrop", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), pdroptarget)).toInt()
+public fun RegisterDragDrop(hwnd: HWND, pdroptarget: Long): HRESULT {
+    return Win32DynamicFfi.invoke("ole32.dll", "RegisterDragDrop", longArrayOf(hwnd, pdroptarget)).toInt()
 }
 
 public fun RegisterTypeLib(ptlib: Long, szfullpath: PCWSTR, szhelpdir: PCWSTR): HRESULT {
@@ -525,8 +537,8 @@ public fun RevokeActiveObject(dwregister: UInt, pvreserved: Long): HRESULT {
     return Win32DynamicFfi.invoke("oleaut32.dll", "RevokeActiveObject", longArrayOf(dwregister.toLong(), pvreserved)).toInt()
 }
 
-public fun RevokeDragDrop(hwnd: Foundation.HWND): HRESULT {
-    return Win32DynamicFfi.invoke("ole32.dll", "RevokeDragDrop", longArrayOf(Win32DynamicFfi.objectSlot(hwnd))).toInt()
+public fun RevokeDragDrop(hwnd: HWND): HRESULT {
+    return Win32DynamicFfi.invoke("ole32.dll", "RevokeDragDrop", longArrayOf(hwnd)).toInt()
 }
 
 public fun SafeArrayAccessData(psa: Long, ppvdata: Long): HRESULT {
@@ -545,8 +557,8 @@ public fun SafeArrayAllocDescriptor(cdims: UInt, ppsaout: Long): HRESULT {
     return Win32DynamicFfi.invoke("oleaut32.dll", "SafeArrayAllocDescriptor", longArrayOf(cdims.toLong(), ppsaout)).toInt()
 }
 
-public fun SafeArrayAllocDescriptorEx(vt: Variant.VARENUM, cdims: UInt, ppsaout: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "SafeArrayAllocDescriptorEx", longArrayOf(Win32DynamicFfi.objectSlot(vt), cdims.toLong(), ppsaout)).toInt()
+public fun SafeArrayAllocDescriptorEx(vt: VARENUM, cdims: UInt, ppsaout: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "SafeArrayAllocDescriptorEx", longArrayOf(vt.toLong(), cdims.toLong(), ppsaout)).toInt()
 }
 
 public fun SafeArrayCopy(psa: Long, ppsaout: Long): HRESULT {
@@ -557,20 +569,20 @@ public fun SafeArrayCopyData(psasource: Long, psatarget: Long): HRESULT {
     return Win32DynamicFfi.invoke("oleaut32.dll", "SafeArrayCopyData", longArrayOf(psasource, psatarget)).toInt()
 }
 
-public fun SafeArrayCreate(vt: Variant.VARENUM, cdims: UInt, rgsabound: Long): Long {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "SafeArrayCreate", longArrayOf(Win32DynamicFfi.objectSlot(vt), cdims.toLong(), rgsabound))
+public fun SafeArrayCreate(vt: VARENUM, cdims: UInt, rgsabound: Long): Long {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "SafeArrayCreate", longArrayOf(vt.toLong(), cdims.toLong(), rgsabound))
 }
 
-public fun SafeArrayCreateEx(vt: Variant.VARENUM, cdims: UInt, rgsabound: Long, pvextra: Long): Long {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "SafeArrayCreateEx", longArrayOf(Win32DynamicFfi.objectSlot(vt), cdims.toLong(), rgsabound, pvextra))
+public fun SafeArrayCreateEx(vt: VARENUM, cdims: UInt, rgsabound: Long, pvextra: Long): Long {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "SafeArrayCreateEx", longArrayOf(vt.toLong(), cdims.toLong(), rgsabound, pvextra))
 }
 
-public fun SafeArrayCreateVector(vt: Variant.VARENUM, llbound: Int, celements: UInt): Long {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "SafeArrayCreateVector", longArrayOf(Win32DynamicFfi.objectSlot(vt), llbound.toLong(), celements.toLong()))
+public fun SafeArrayCreateVector(vt: VARENUM, llbound: Int, celements: UInt): Long {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "SafeArrayCreateVector", longArrayOf(vt.toLong(), llbound.toLong(), celements.toLong()))
 }
 
-public fun SafeArrayCreateVectorEx(vt: Variant.VARENUM, llbound: Int, celements: UInt, pvextra: Long): Long {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "SafeArrayCreateVectorEx", longArrayOf(Win32DynamicFfi.objectSlot(vt), llbound.toLong(), celements.toLong(), pvextra))
+public fun SafeArrayCreateVectorEx(vt: VARENUM, llbound: Int, celements: UInt, pvextra: Long): Long {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "SafeArrayCreateVectorEx", longArrayOf(vt.toLong(), llbound.toLong(), celements.toLong(), pvextra))
 }
 
 public fun SafeArrayDestroy(psa: Long): HRESULT {
@@ -657,12 +669,12 @@ public fun SafeArrayUnlock(psa: Long): HRESULT {
     return Win32DynamicFfi.invoke("oleaut32.dll", "SafeArrayUnlock", longArrayOf(psa)).toInt()
 }
 
-public fun UnRegisterTypeLib(libid: Long, wvermajor: UShort, wverminor: UShort, lcid: UInt, syskind: Com.SYSKIND): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "UnRegisterTypeLib", longArrayOf(libid, wvermajor.toLong(), wverminor.toLong(), lcid.toLong(), Win32DynamicFfi.objectSlot(syskind))).toInt()
+public fun UnRegisterTypeLib(libid: Long, wvermajor: UShort, wverminor: UShort, lcid: UInt, syskind: SYSKIND): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "UnRegisterTypeLib", longArrayOf(libid, wvermajor.toLong(), wverminor.toLong(), lcid.toLong(), syskind.toLong())).toInt()
 }
 
-public fun UnRegisterTypeLibForUser(libid: Long, wmajorvernum: UShort, wminorvernum: UShort, lcid: UInt, syskind: Com.SYSKIND): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "UnRegisterTypeLibForUser", longArrayOf(libid, wmajorvernum.toLong(), wminorvernum.toLong(), lcid.toLong(), Win32DynamicFfi.objectSlot(syskind))).toInt()
+public fun UnRegisterTypeLibForUser(libid: Long, wmajorvernum: UShort, wminorvernum: UShort, lcid: UInt, syskind: SYSKIND): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "UnRegisterTypeLibForUser", longArrayOf(libid, wmajorvernum.toLong(), wminorvernum.toLong(), lcid.toLong(), syskind.toLong())).toInt()
 }
 
 public fun VarAbs(pvarin: Long, pvarresult: Long): HRESULT {
@@ -677,8 +689,8 @@ public fun VarAnd(pvarleft: Long, pvarright: Long, pvarresult: Long): HRESULT {
     return Win32DynamicFfi.invoke("oleaut32.dll", "VarAnd", longArrayOf(pvarleft, pvarright, pvarresult)).toInt()
 }
 
-public fun VarBoolFromCy(cyin: Com.CY, pboolout: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarBoolFromCy", longArrayOf(Win32DynamicFfi.objectSlot(cyin), pboolout)).toInt()
+public fun VarBoolFromCy(cyin: CY, pboolout: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarBoolFromCy", longArrayOf((((cyin.Anonymous.Lo.toLong() and 0xFFFF_FFFFL) or ((cyin.Anonymous.Hi.toLong() and 0xFFFF_FFFFL) shl 32)) or cyin.int64), pboolout)).toInt()
 }
 
 public fun VarBoolFromDate(datein: Double, pboolout: Long): HRESULT {
@@ -745,12 +757,12 @@ public fun VarBstrCmp(bstrleft: BSTR, bstrright: BSTR, lcid: UInt, dwflags: UInt
     return Win32DynamicFfi.invoke("oleaut32.dll", "VarBstrCmp", longArrayOf(bstrleft, bstrright, lcid.toLong(), dwflags.toLong())).toInt()
 }
 
-public fun VarBstrFromBool(boolin: Foundation.VARIANT_BOOL, lcid: UInt, dwflags: UInt, pbstrout: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarBstrFromBool", longArrayOf(Win32DynamicFfi.objectSlot(boolin), lcid.toLong(), dwflags.toLong(), pbstrout)).toInt()
+public fun VarBstrFromBool(boolin: VARIANT_BOOL, lcid: UInt, dwflags: UInt, pbstrout: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarBstrFromBool", longArrayOf(boolin.toLong(), lcid.toLong(), dwflags.toLong(), pbstrout)).toInt()
 }
 
-public fun VarBstrFromCy(cyin: Com.CY, lcid: UInt, dwflags: UInt, pbstrout: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarBstrFromCy", longArrayOf(Win32DynamicFfi.objectSlot(cyin), lcid.toLong(), dwflags.toLong(), pbstrout)).toInt()
+public fun VarBstrFromCy(cyin: CY, lcid: UInt, dwflags: UInt, pbstrout: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarBstrFromCy", longArrayOf((((cyin.Anonymous.Lo.toLong() and 0xFFFF_FFFFL) or ((cyin.Anonymous.Hi.toLong() and 0xFFFF_FFFFL) shl 32)) or cyin.int64), lcid.toLong(), dwflags.toLong(), pbstrout)).toInt()
 }
 
 public fun VarBstrFromDate(datein: Double, lcid: UInt, dwflags: UInt, pbstrout: Long): HRESULT {
@@ -813,28 +825,28 @@ public fun VarCmp(pvarleft: Long, pvarright: Long, lcid: UInt, dwflags: UInt): V
     return Win32DynamicFfi.invoke("oleaut32.dll", "VarCmp", longArrayOf(pvarleft, pvarright, lcid.toLong(), dwflags.toLong())).toUInt()
 }
 
-public fun VarCyAbs(cyin: Com.CY, pcyresult: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarCyAbs", longArrayOf(Win32DynamicFfi.objectSlot(cyin), pcyresult)).toInt()
+public fun VarCyAbs(cyin: CY, pcyresult: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarCyAbs", longArrayOf((((cyin.Anonymous.Lo.toLong() and 0xFFFF_FFFFL) or ((cyin.Anonymous.Hi.toLong() and 0xFFFF_FFFFL) shl 32)) or cyin.int64), pcyresult)).toInt()
 }
 
-public fun VarCyAdd(cyleft: Com.CY, cyright: Com.CY, pcyresult: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarCyAdd", longArrayOf(Win32DynamicFfi.objectSlot(cyleft), Win32DynamicFfi.objectSlot(cyright), pcyresult)).toInt()
+public fun VarCyAdd(cyleft: CY, cyright: CY, pcyresult: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarCyAdd", longArrayOf((((cyleft.Anonymous.Lo.toLong() and 0xFFFF_FFFFL) or ((cyleft.Anonymous.Hi.toLong() and 0xFFFF_FFFFL) shl 32)) or cyleft.int64), (((cyright.Anonymous.Lo.toLong() and 0xFFFF_FFFFL) or ((cyright.Anonymous.Hi.toLong() and 0xFFFF_FFFFL) shl 32)) or cyright.int64), pcyresult)).toInt()
 }
 
-public fun VarCyCmp(cyleft: Com.CY, cyright: Com.CY): VARCMP {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarCyCmp", longArrayOf(Win32DynamicFfi.objectSlot(cyleft), Win32DynamicFfi.objectSlot(cyright))).toUInt()
+public fun VarCyCmp(cyleft: CY, cyright: CY): VARCMP {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarCyCmp", longArrayOf((((cyleft.Anonymous.Lo.toLong() and 0xFFFF_FFFFL) or ((cyleft.Anonymous.Hi.toLong() and 0xFFFF_FFFFL) shl 32)) or cyleft.int64), (((cyright.Anonymous.Lo.toLong() and 0xFFFF_FFFFL) or ((cyright.Anonymous.Hi.toLong() and 0xFFFF_FFFFL) shl 32)) or cyright.int64))).toUInt()
 }
 
-public fun VarCyCmpR8(cyleft: Com.CY, dblright: Double): VARCMP {
-    return Win32DynamicFfi.invokeFp("oleaut32.dll", "VarCyCmpR8", 8, false, longArrayOf(Win32DynamicFfi.objectSlot(cyleft), dblright.toRawBits())).toLong().toUInt()
+public fun VarCyCmpR8(cyleft: CY, dblright: Double): VARCMP {
+    return Win32DynamicFfi.invokeFp("oleaut32.dll", "VarCyCmpR8", 8, false, longArrayOf((((cyleft.Anonymous.Lo.toLong() and 0xFFFF_FFFFL) or ((cyleft.Anonymous.Hi.toLong() and 0xFFFF_FFFFL) shl 32)) or cyleft.int64), dblright.toRawBits())).toLong().toUInt()
 }
 
-public fun VarCyFix(cyin: Com.CY, pcyresult: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarCyFix", longArrayOf(Win32DynamicFfi.objectSlot(cyin), pcyresult)).toInt()
+public fun VarCyFix(cyin: CY, pcyresult: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarCyFix", longArrayOf((((cyin.Anonymous.Lo.toLong() and 0xFFFF_FFFFL) or ((cyin.Anonymous.Hi.toLong() and 0xFFFF_FFFFL) shl 32)) or cyin.int64), pcyresult)).toInt()
 }
 
-public fun VarCyFromBool(boolin: Foundation.VARIANT_BOOL, pcyout: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarCyFromBool", longArrayOf(Win32DynamicFfi.objectSlot(boolin), pcyout)).toInt()
+public fun VarCyFromBool(boolin: VARIANT_BOOL, pcyout: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarCyFromBool", longArrayOf(boolin.toLong(), pcyout)).toInt()
 }
 
 public fun VarCyFromDate(datein: Double, pcyout: Long): HRESULT {
@@ -893,40 +905,40 @@ public fun VarCyFromUI8(ui64in: ULong, pcyout: Long): HRESULT {
     return Win32DynamicFfi.invoke("oleaut32.dll", "VarCyFromUI8", longArrayOf(ui64in.toLong(), pcyout)).toInt()
 }
 
-public fun VarCyInt(cyin: Com.CY, pcyresult: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarCyInt", longArrayOf(Win32DynamicFfi.objectSlot(cyin), pcyresult)).toInt()
+public fun VarCyInt(cyin: CY, pcyresult: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarCyInt", longArrayOf((((cyin.Anonymous.Lo.toLong() and 0xFFFF_FFFFL) or ((cyin.Anonymous.Hi.toLong() and 0xFFFF_FFFFL) shl 32)) or cyin.int64), pcyresult)).toInt()
 }
 
-public fun VarCyMul(cyleft: Com.CY, cyright: Com.CY, pcyresult: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarCyMul", longArrayOf(Win32DynamicFfi.objectSlot(cyleft), Win32DynamicFfi.objectSlot(cyright), pcyresult)).toInt()
+public fun VarCyMul(cyleft: CY, cyright: CY, pcyresult: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarCyMul", longArrayOf((((cyleft.Anonymous.Lo.toLong() and 0xFFFF_FFFFL) or ((cyleft.Anonymous.Hi.toLong() and 0xFFFF_FFFFL) shl 32)) or cyleft.int64), (((cyright.Anonymous.Lo.toLong() and 0xFFFF_FFFFL) or ((cyright.Anonymous.Hi.toLong() and 0xFFFF_FFFFL) shl 32)) or cyright.int64), pcyresult)).toInt()
 }
 
-public fun VarCyMulI4(cyleft: Com.CY, lright: Int, pcyresult: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarCyMulI4", longArrayOf(Win32DynamicFfi.objectSlot(cyleft), lright.toLong(), pcyresult)).toInt()
+public fun VarCyMulI4(cyleft: CY, lright: Int, pcyresult: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarCyMulI4", longArrayOf((((cyleft.Anonymous.Lo.toLong() and 0xFFFF_FFFFL) or ((cyleft.Anonymous.Hi.toLong() and 0xFFFF_FFFFL) shl 32)) or cyleft.int64), lright.toLong(), pcyresult)).toInt()
 }
 
-public fun VarCyMulI8(cyleft: Com.CY, lright: Long, pcyresult: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarCyMulI8", longArrayOf(Win32DynamicFfi.objectSlot(cyleft), lright, pcyresult)).toInt()
+public fun VarCyMulI8(cyleft: CY, lright: Long, pcyresult: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarCyMulI8", longArrayOf((((cyleft.Anonymous.Lo.toLong() and 0xFFFF_FFFFL) or ((cyleft.Anonymous.Hi.toLong() and 0xFFFF_FFFFL) shl 32)) or cyleft.int64), lright, pcyresult)).toInt()
 }
 
-public fun VarCyNeg(cyin: Com.CY, pcyresult: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarCyNeg", longArrayOf(Win32DynamicFfi.objectSlot(cyin), pcyresult)).toInt()
+public fun VarCyNeg(cyin: CY, pcyresult: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarCyNeg", longArrayOf((((cyin.Anonymous.Lo.toLong() and 0xFFFF_FFFFL) or ((cyin.Anonymous.Hi.toLong() and 0xFFFF_FFFFL) shl 32)) or cyin.int64), pcyresult)).toInt()
 }
 
-public fun VarCyRound(cyin: Com.CY, cdecimals: Int, pcyresult: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarCyRound", longArrayOf(Win32DynamicFfi.objectSlot(cyin), cdecimals.toLong(), pcyresult)).toInt()
+public fun VarCyRound(cyin: CY, cdecimals: Int, pcyresult: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarCyRound", longArrayOf((((cyin.Anonymous.Lo.toLong() and 0xFFFF_FFFFL) or ((cyin.Anonymous.Hi.toLong() and 0xFFFF_FFFFL) shl 32)) or cyin.int64), cdecimals.toLong(), pcyresult)).toInt()
 }
 
-public fun VarCySub(cyleft: Com.CY, cyright: Com.CY, pcyresult: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarCySub", longArrayOf(Win32DynamicFfi.objectSlot(cyleft), Win32DynamicFfi.objectSlot(cyright), pcyresult)).toInt()
+public fun VarCySub(cyleft: CY, cyright: CY, pcyresult: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarCySub", longArrayOf((((cyleft.Anonymous.Lo.toLong() and 0xFFFF_FFFFL) or ((cyleft.Anonymous.Hi.toLong() and 0xFFFF_FFFFL) shl 32)) or cyleft.int64), (((cyright.Anonymous.Lo.toLong() and 0xFFFF_FFFFL) or ((cyright.Anonymous.Hi.toLong() and 0xFFFF_FFFFL) shl 32)) or cyright.int64), pcyresult)).toInt()
 }
 
-public fun VarDateFromBool(boolin: Foundation.VARIANT_BOOL, pdateout: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarDateFromBool", longArrayOf(Win32DynamicFfi.objectSlot(boolin), pdateout)).toInt()
+public fun VarDateFromBool(boolin: VARIANT_BOOL, pdateout: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarDateFromBool", longArrayOf(boolin.toLong(), pdateout)).toInt()
 }
 
-public fun VarDateFromCy(cyin: Com.CY, pdateout: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarDateFromCy", longArrayOf(Win32DynamicFfi.objectSlot(cyin), pdateout)).toInt()
+public fun VarDateFromCy(cyin: CY, pdateout: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarDateFromCy", longArrayOf((((cyin.Anonymous.Lo.toLong() and 0xFFFF_FFFFL) or ((cyin.Anonymous.Hi.toLong() and 0xFFFF_FFFFL) shl 32)) or cyin.int64), pdateout)).toInt()
 }
 
 public fun VarDateFromDec(pdecin: Long, pdateout: Long): HRESULT {
@@ -1013,12 +1025,12 @@ public fun VarDecFix(pdecin: Long, pdecresult: Long): HRESULT {
     return Win32DynamicFfi.invoke("oleaut32.dll", "VarDecFix", longArrayOf(pdecin, pdecresult)).toInt()
 }
 
-public fun VarDecFromBool(boolin: Foundation.VARIANT_BOOL, pdecout: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarDecFromBool", longArrayOf(Win32DynamicFfi.objectSlot(boolin), pdecout)).toInt()
+public fun VarDecFromBool(boolin: VARIANT_BOOL, pdecout: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarDecFromBool", longArrayOf(boolin.toLong(), pdecout)).toInt()
 }
 
-public fun VarDecFromCy(cyin: Com.CY, pdecout: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarDecFromCy", longArrayOf(Win32DynamicFfi.objectSlot(cyin), pdecout)).toInt()
+public fun VarDecFromCy(cyin: CY, pdecout: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarDecFromCy", longArrayOf((((cyin.Anonymous.Lo.toLong() and 0xFFFF_FFFFL) or ((cyin.Anonymous.Hi.toLong() and 0xFFFF_FFFFL) shl 32)) or cyin.int64), pdecout)).toInt()
 }
 
 public fun VarDecFromDate(datein: Double, pdecout: Long): HRESULT {
@@ -1129,12 +1141,12 @@ public fun VarFormatPercent(pvarin: Long, inumdig: Int, iinclead: VARFORMAT_LEAD
     return Win32DynamicFfi.invoke("oleaut32.dll", "VarFormatPercent", longArrayOf(pvarin, inumdig.toLong(), iinclead.toLong(), iuseparens.toLong(), igroup.toLong(), dwflags.toLong(), pbstrout)).toInt()
 }
 
-public fun VarI1FromBool(boolin: Foundation.VARIANT_BOOL, pcout: PSTR): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarI1FromBool", longArrayOf(Win32DynamicFfi.objectSlot(boolin), pcout)).toInt()
+public fun VarI1FromBool(boolin: VARIANT_BOOL, pcout: PSTR): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarI1FromBool", longArrayOf(boolin.toLong(), pcout)).toInt()
 }
 
-public fun VarI1FromCy(cyin: Com.CY, pcout: PSTR): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarI1FromCy", longArrayOf(Win32DynamicFfi.objectSlot(cyin), pcout)).toInt()
+public fun VarI1FromCy(cyin: CY, pcout: PSTR): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarI1FromCy", longArrayOf((((cyin.Anonymous.Lo.toLong() and 0xFFFF_FFFFL) or ((cyin.Anonymous.Hi.toLong() and 0xFFFF_FFFFL) shl 32)) or cyin.int64), pcout)).toInt()
 }
 
 public fun VarI1FromDate(datein: Double, pcout: PSTR): HRESULT {
@@ -1189,12 +1201,12 @@ public fun VarI1FromUI8(i64in: ULong, pcout: PSTR): HRESULT {
     return Win32DynamicFfi.invoke("oleaut32.dll", "VarI1FromUI8", longArrayOf(i64in.toLong(), pcout)).toInt()
 }
 
-public fun VarI2FromBool(boolin: Foundation.VARIANT_BOOL, psout: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarI2FromBool", longArrayOf(Win32DynamicFfi.objectSlot(boolin), psout)).toInt()
+public fun VarI2FromBool(boolin: VARIANT_BOOL, psout: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarI2FromBool", longArrayOf(boolin.toLong(), psout)).toInt()
 }
 
-public fun VarI2FromCy(cyin: Com.CY, psout: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarI2FromCy", longArrayOf(Win32DynamicFfi.objectSlot(cyin), psout)).toInt()
+public fun VarI2FromCy(cyin: CY, psout: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarI2FromCy", longArrayOf((((cyin.Anonymous.Lo.toLong() and 0xFFFF_FFFFL) or ((cyin.Anonymous.Hi.toLong() and 0xFFFF_FFFFL) shl 32)) or cyin.int64), psout)).toInt()
 }
 
 public fun VarI2FromDate(datein: Double, psout: Long): HRESULT {
@@ -1249,12 +1261,12 @@ public fun VarI2FromUI8(ui64in: ULong, psout: Long): HRESULT {
     return Win32DynamicFfi.invoke("oleaut32.dll", "VarI2FromUI8", longArrayOf(ui64in.toLong(), psout)).toInt()
 }
 
-public fun VarI4FromBool(boolin: Foundation.VARIANT_BOOL, plout: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarI4FromBool", longArrayOf(Win32DynamicFfi.objectSlot(boolin), plout)).toInt()
+public fun VarI4FromBool(boolin: VARIANT_BOOL, plout: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarI4FromBool", longArrayOf(boolin.toLong(), plout)).toInt()
 }
 
-public fun VarI4FromCy(cyin: Com.CY, plout: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarI4FromCy", longArrayOf(Win32DynamicFfi.objectSlot(cyin), plout)).toInt()
+public fun VarI4FromCy(cyin: CY, plout: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarI4FromCy", longArrayOf((((cyin.Anonymous.Lo.toLong() and 0xFFFF_FFFFL) or ((cyin.Anonymous.Hi.toLong() and 0xFFFF_FFFFL) shl 32)) or cyin.int64), plout)).toInt()
 }
 
 public fun VarI4FromDate(datein: Double, plout: Long): HRESULT {
@@ -1309,12 +1321,12 @@ public fun VarI4FromUI8(ui64in: ULong, plout: Long): HRESULT {
     return Win32DynamicFfi.invoke("oleaut32.dll", "VarI4FromUI8", longArrayOf(ui64in.toLong(), plout)).toInt()
 }
 
-public fun VarI8FromBool(boolin: Foundation.VARIANT_BOOL, pi64out: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarI8FromBool", longArrayOf(Win32DynamicFfi.objectSlot(boolin), pi64out)).toInt()
+public fun VarI8FromBool(boolin: VARIANT_BOOL, pi64out: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarI8FromBool", longArrayOf(boolin.toLong(), pi64out)).toInt()
 }
 
-public fun VarI8FromCy(cyin: Com.CY, pi64out: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarI8FromCy", longArrayOf(Win32DynamicFfi.objectSlot(cyin), pi64out)).toInt()
+public fun VarI8FromCy(cyin: CY, pi64out: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarI8FromCy", longArrayOf((((cyin.Anonymous.Lo.toLong() and 0xFFFF_FFFFL) or ((cyin.Anonymous.Hi.toLong() and 0xFFFF_FFFFL) shl 32)) or cyin.int64), pi64out)).toInt()
 }
 
 public fun VarI8FromDate(datein: Double, pi64out: Long): HRESULT {
@@ -1417,12 +1429,12 @@ public fun VarR4CmpR8(fltleft: Float, dblright: Double): VARCMP {
     return Win32DynamicFfi.invokeFp("oleaut32.dll", "VarR4CmpR8", 9, false, longArrayOf((fltleft.toRawBits().toLong() and 0xFFFF_FFFFL), dblright.toRawBits())).toLong().toUInt()
 }
 
-public fun VarR4FromBool(boolin: Foundation.VARIANT_BOOL, pfltout: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarR4FromBool", longArrayOf(Win32DynamicFfi.objectSlot(boolin), pfltout)).toInt()
+public fun VarR4FromBool(boolin: VARIANT_BOOL, pfltout: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarR4FromBool", longArrayOf(boolin.toLong(), pfltout)).toInt()
 }
 
-public fun VarR4FromCy(cyin: Com.CY, pfltout: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarR4FromCy", longArrayOf(Win32DynamicFfi.objectSlot(cyin), pfltout)).toInt()
+public fun VarR4FromCy(cyin: CY, pfltout: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarR4FromCy", longArrayOf((((cyin.Anonymous.Lo.toLong() and 0xFFFF_FFFFL) or ((cyin.Anonymous.Hi.toLong() and 0xFFFF_FFFFL) shl 32)) or cyin.int64), pfltout)).toInt()
 }
 
 public fun VarR4FromDate(datein: Double, pfltout: Long): HRESULT {
@@ -1477,12 +1489,12 @@ public fun VarR4FromUI8(ui64in: ULong, pfltout: Long): HRESULT {
     return Win32DynamicFfi.invoke("oleaut32.dll", "VarR4FromUI8", longArrayOf(ui64in.toLong(), pfltout)).toInt()
 }
 
-public fun VarR8FromBool(boolin: Foundation.VARIANT_BOOL, pdblout: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarR8FromBool", longArrayOf(Win32DynamicFfi.objectSlot(boolin), pdblout)).toInt()
+public fun VarR8FromBool(boolin: VARIANT_BOOL, pdblout: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarR8FromBool", longArrayOf(boolin.toLong(), pdblout)).toInt()
 }
 
-public fun VarR8FromCy(cyin: Com.CY, pdblout: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarR8FromCy", longArrayOf(Win32DynamicFfi.objectSlot(cyin), pdblout)).toInt()
+public fun VarR8FromCy(cyin: CY, pdblout: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarR8FromCy", longArrayOf((((cyin.Anonymous.Lo.toLong() and 0xFFFF_FFFFL) or ((cyin.Anonymous.Hi.toLong() and 0xFFFF_FFFFL) shl 32)) or cyin.int64), pdblout)).toInt()
 }
 
 public fun VarR8FromDate(datein: Double, pdblout: Long): HRESULT {
@@ -1557,12 +1569,12 @@ public fun VarTokenizeFormatString(pstrformat: PCWSTR, rgbtok: Long, cbtok: Int,
     return Win32DynamicFfi.invoke("oleaut32.dll", "VarTokenizeFormatString", longArrayOf(pstrformat, rgbtok, cbtok.toLong(), ifirstday.toLong(), ifirstweek.toLong(), lcid.toLong(), pcbactual)).toInt()
 }
 
-public fun VarUI1FromBool(boolin: Foundation.VARIANT_BOOL, pbout: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarUI1FromBool", longArrayOf(Win32DynamicFfi.objectSlot(boolin), pbout)).toInt()
+public fun VarUI1FromBool(boolin: VARIANT_BOOL, pbout: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarUI1FromBool", longArrayOf(boolin.toLong(), pbout)).toInt()
 }
 
-public fun VarUI1FromCy(cyin: Com.CY, pbout: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarUI1FromCy", longArrayOf(Win32DynamicFfi.objectSlot(cyin), pbout)).toInt()
+public fun VarUI1FromCy(cyin: CY, pbout: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarUI1FromCy", longArrayOf((((cyin.Anonymous.Lo.toLong() and 0xFFFF_FFFFL) or ((cyin.Anonymous.Hi.toLong() and 0xFFFF_FFFFL) shl 32)) or cyin.int64), pbout)).toInt()
 }
 
 public fun VarUI1FromDate(datein: Double, pbout: Long): HRESULT {
@@ -1617,12 +1629,12 @@ public fun VarUI1FromUI8(ui64in: ULong, pbout: Long): HRESULT {
     return Win32DynamicFfi.invoke("oleaut32.dll", "VarUI1FromUI8", longArrayOf(ui64in.toLong(), pbout)).toInt()
 }
 
-public fun VarUI2FromBool(boolin: Foundation.VARIANT_BOOL, puiout: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarUI2FromBool", longArrayOf(Win32DynamicFfi.objectSlot(boolin), puiout)).toInt()
+public fun VarUI2FromBool(boolin: VARIANT_BOOL, puiout: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarUI2FromBool", longArrayOf(boolin.toLong(), puiout)).toInt()
 }
 
-public fun VarUI2FromCy(cyin: Com.CY, puiout: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarUI2FromCy", longArrayOf(Win32DynamicFfi.objectSlot(cyin), puiout)).toInt()
+public fun VarUI2FromCy(cyin: CY, puiout: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarUI2FromCy", longArrayOf((((cyin.Anonymous.Lo.toLong() and 0xFFFF_FFFFL) or ((cyin.Anonymous.Hi.toLong() and 0xFFFF_FFFFL) shl 32)) or cyin.int64), puiout)).toInt()
 }
 
 public fun VarUI2FromDate(datein: Double, puiout: Long): HRESULT {
@@ -1677,12 +1689,12 @@ public fun VarUI2FromUI8(i64in: ULong, puiout: Long): HRESULT {
     return Win32DynamicFfi.invoke("oleaut32.dll", "VarUI2FromUI8", longArrayOf(i64in.toLong(), puiout)).toInt()
 }
 
-public fun VarUI4FromBool(boolin: Foundation.VARIANT_BOOL, pulout: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarUI4FromBool", longArrayOf(Win32DynamicFfi.objectSlot(boolin), pulout)).toInt()
+public fun VarUI4FromBool(boolin: VARIANT_BOOL, pulout: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarUI4FromBool", longArrayOf(boolin.toLong(), pulout)).toInt()
 }
 
-public fun VarUI4FromCy(cyin: Com.CY, pulout: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarUI4FromCy", longArrayOf(Win32DynamicFfi.objectSlot(cyin), pulout)).toInt()
+public fun VarUI4FromCy(cyin: CY, pulout: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarUI4FromCy", longArrayOf((((cyin.Anonymous.Lo.toLong() and 0xFFFF_FFFFL) or ((cyin.Anonymous.Hi.toLong() and 0xFFFF_FFFFL) shl 32)) or cyin.int64), pulout)).toInt()
 }
 
 public fun VarUI4FromDate(datein: Double, pulout: Long): HRESULT {
@@ -1737,12 +1749,12 @@ public fun VarUI4FromUI8(ui64in: ULong, plout: Long): HRESULT {
     return Win32DynamicFfi.invoke("oleaut32.dll", "VarUI4FromUI8", longArrayOf(ui64in.toLong(), plout)).toInt()
 }
 
-public fun VarUI8FromBool(boolin: Foundation.VARIANT_BOOL, pi64out: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarUI8FromBool", longArrayOf(Win32DynamicFfi.objectSlot(boolin), pi64out)).toInt()
+public fun VarUI8FromBool(boolin: VARIANT_BOOL, pi64out: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarUI8FromBool", longArrayOf(boolin.toLong(), pi64out)).toInt()
 }
 
-public fun VarUI8FromCy(cyin: Com.CY, pi64out: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleaut32.dll", "VarUI8FromCy", longArrayOf(Win32DynamicFfi.objectSlot(cyin), pi64out)).toInt()
+public fun VarUI8FromCy(cyin: CY, pi64out: Long): HRESULT {
+    return Win32DynamicFfi.invoke("oleaut32.dll", "VarUI8FromCy", longArrayOf((((cyin.Anonymous.Lo.toLong() and 0xFFFF_FFFFL) or ((cyin.Anonymous.Hi.toLong() and 0xFFFF_FFFFL) shl 32)) or cyin.int64), pi64out)).toInt()
 }
 
 public fun VarUI8FromDate(datein: Double, pi64out: Long): HRESULT {

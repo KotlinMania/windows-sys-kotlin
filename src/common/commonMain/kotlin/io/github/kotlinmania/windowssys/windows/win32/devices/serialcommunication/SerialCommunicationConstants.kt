@@ -1,5 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.serialcommunication
 
+import io.github.kotlinmania.windowssys.U128
+import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.windows.win32.foundation.DEVPROPKEY
 
 public val CDB_REPORT_BITS: UInt = 0u
@@ -10,11 +12,11 @@ public val COMDB_MAX_PORTS_ARBITRATED: UInt = 4096u
 
 public val COMDB_MIN_PORTS_ARBITRATED: UInt = 256u
 
-public val DEVPKEY_DeviceInterface_Serial_PortName: Foundation.DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(0x4c6bf15c4c034aacuL, 0x91f564c0f852bcf4uL), pid = 4u)
+public val DEVPKEY_DeviceInterface_Serial_PortName: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x4c6bf15c4c034aacuL, 0x91f564c0f852bcf4uL)), pid = 4u)
 
-public val DEVPKEY_DeviceInterface_Serial_UsbProductId: Foundation.DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(0x4c6bf15c4c034aacuL, 0x91f564c0f852bcf4uL), pid = 3u)
+public val DEVPKEY_DeviceInterface_Serial_UsbProductId: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x4c6bf15c4c034aacuL, 0x91f564c0f852bcf4uL)), pid = 3u)
 
-public val DEVPKEY_DeviceInterface_Serial_UsbVendorId: Foundation.DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(0x4c6bf15c4c034aacuL, 0x91f564c0f852bcf4uL), pid = 2u)
+public val DEVPKEY_DeviceInterface_Serial_UsbVendorId: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x4c6bf15c4c034aacuL, 0x91f564c0f852bcf4uL)), pid = 2u)
 
 public val EVEN_PARITY: UInt = 2u
 

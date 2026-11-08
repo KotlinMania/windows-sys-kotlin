@@ -4,6 +4,7 @@ import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 
 public fun interface FnCallback {
     public operator fun invoke(lpwzservername: PCWSTR, lpwzremotename: PCWSTR, dwauthscheme: UInt, dwflags: UInt, pcallbackcred: Long, nextstep: Long, pfreecred: Long): UInt
@@ -17,16 +18,16 @@ public fun DavCancelConnectionsToServer(lpname: PCWSTR, fforce: BOOL): UInt {
     return Win32DynamicFfi.invoke("davclnt.dll", "DavCancelConnectionsToServer", longArrayOf(lpname, fforce.toLong())).toUInt()
 }
 
-public fun DavDeleteConnection(connectionhandle: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("netapi32.dll", "DavDeleteConnection", longArrayOf(Win32DynamicFfi.objectSlot(connectionhandle))).toUInt()
+public fun DavDeleteConnection(connectionhandle: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("netapi32.dll", "DavDeleteConnection", longArrayOf(connectionhandle)).toUInt()
 }
 
-public fun DavFlushFile(hfile: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("netapi32.dll", "DavFlushFile", longArrayOf(Win32DynamicFfi.objectSlot(hfile))).toUInt()
+public fun DavFlushFile(hfile: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("netapi32.dll", "DavFlushFile", longArrayOf(hfile)).toUInt()
 }
 
-public fun DavGetExtendedError(hfile: Foundation.HANDLE, exterror: Long, exterrorstring: PWSTR, cchsize: Long): UInt {
-    return Win32DynamicFfi.invoke("netapi32.dll", "DavGetExtendedError", longArrayOf(Win32DynamicFfi.objectSlot(hfile), exterror, exterrorstring, cchsize)).toUInt()
+public fun DavGetExtendedError(hfile: HANDLE, exterror: Long, exterrorstring: PWSTR, cchsize: Long): UInt {
+    return Win32DynamicFfi.invoke("netapi32.dll", "DavGetExtendedError", longArrayOf(hfile, exterror, exterrorstring, cchsize)).toUInt()
 }
 
 public fun DavGetHTTPFromUNCPath(uncpath: PCWSTR, url: PWSTR, lpsize: Long): UInt {

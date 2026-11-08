@@ -4,61 +4,68 @@ import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HMONITOR
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.HTHEME
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.SYSTEM_METRICS_INDEX
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.WINDOW_EX_STYLE
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.WINDOW_STYLE
 
-public fun AdjustWindowRectExForDpi(lprect: Long, dwstyle: WindowsAndMessaging.WINDOW_STYLE, bmenu: BOOL, dwexstyle: WindowsAndMessaging.WINDOW_EX_STYLE, dpi: UInt): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "AdjustWindowRectExForDpi", longArrayOf(lprect, Win32DynamicFfi.objectSlot(dwstyle), bmenu.toLong(), Win32DynamicFfi.objectSlot(dwexstyle), dpi.toLong())).toInt()
+public fun AdjustWindowRectExForDpi(lprect: Long, dwstyle: WINDOW_STYLE, bmenu: BOOL, dwexstyle: WINDOW_EX_STYLE, dpi: UInt): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "AdjustWindowRectExForDpi", longArrayOf(lprect, dwstyle.toLong(), bmenu.toLong(), dwexstyle.toLong(), dpi.toLong())).toInt()
 }
 
 public fun AreDpiAwarenessContextsEqual(dpicontexta: DPI_AWARENESS_CONTEXT, dpicontextb: DPI_AWARENESS_CONTEXT): BOOL {
     return Win32DynamicFfi.invoke("user32.dll", "AreDpiAwarenessContextsEqual", longArrayOf(dpicontexta, dpicontextb)).toInt()
 }
 
-public fun EnableNonClientDpiScaling(hwnd: Foundation.HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "EnableNonClientDpiScaling", longArrayOf(Win32DynamicFfi.objectSlot(hwnd))).toInt()
+public fun EnableNonClientDpiScaling(hwnd: HWND): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "EnableNonClientDpiScaling", longArrayOf(hwnd)).toInt()
 }
 
 public fun GetAwarenessFromDpiAwarenessContext(value: DPI_AWARENESS_CONTEXT): DPI_AWARENESS {
     return Win32DynamicFfi.invoke("user32.dll", "GetAwarenessFromDpiAwarenessContext", longArrayOf(value)).toInt()
 }
 
-public fun GetDialogControlDpiChangeBehavior(hwnd: Foundation.HWND): DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
-    return Win32DynamicFfi.invoke("user32.dll", "GetDialogControlDpiChangeBehavior", longArrayOf(Win32DynamicFfi.objectSlot(hwnd))).toInt()
+public fun GetDialogControlDpiChangeBehavior(hwnd: HWND): DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
+    return Win32DynamicFfi.invoke("user32.dll", "GetDialogControlDpiChangeBehavior", longArrayOf(hwnd)).toInt()
 }
 
-public fun GetDialogDpiChangeBehavior(hdlg: Foundation.HWND): DIALOG_DPI_CHANGE_BEHAVIORS {
-    return Win32DynamicFfi.invoke("user32.dll", "GetDialogDpiChangeBehavior", longArrayOf(Win32DynamicFfi.objectSlot(hdlg))).toInt()
+public fun GetDialogDpiChangeBehavior(hdlg: HWND): DIALOG_DPI_CHANGE_BEHAVIORS {
+    return Win32DynamicFfi.invoke("user32.dll", "GetDialogDpiChangeBehavior", longArrayOf(hdlg)).toInt()
 }
 
-public fun GetDpiAwarenessContextForProcess(hprocess: Foundation.HANDLE): DPI_AWARENESS_CONTEXT {
-    return Win32DynamicFfi.invoke("user32.dll", "GetDpiAwarenessContextForProcess", longArrayOf(Win32DynamicFfi.objectSlot(hprocess)))
+public fun GetDpiAwarenessContextForProcess(hprocess: HANDLE): DPI_AWARENESS_CONTEXT {
+    return Win32DynamicFfi.invoke("user32.dll", "GetDpiAwarenessContextForProcess", longArrayOf(hprocess))
 }
 
-public fun GetDpiForMonitor(hmonitor: Graphics.Gdi.HMONITOR, dpitype: MONITOR_DPI_TYPE, dpix: Long, dpiy: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-shcore-scaling-l1-1-1.dll", "GetDpiForMonitor", longArrayOf(Win32DynamicFfi.objectSlot(hmonitor), dpitype.toLong(), dpix, dpiy)).toInt()
+public fun GetDpiForMonitor(hmonitor: HMONITOR, dpitype: MONITOR_DPI_TYPE, dpix: Long, dpiy: Long): HRESULT {
+    return Win32DynamicFfi.invoke("api-ms-win-shcore-scaling-l1-1-1.dll", "GetDpiForMonitor", longArrayOf(hmonitor, dpitype.toLong(), dpix, dpiy)).toInt()
 }
 
 public fun GetDpiForSystem(): UInt {
     return Win32DynamicFfi.invoke("user32.dll", "GetDpiForSystem", longArrayOf()).toUInt()
 }
 
-public fun GetDpiForWindow(hwnd: Foundation.HWND): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "GetDpiForWindow", longArrayOf(Win32DynamicFfi.objectSlot(hwnd))).toUInt()
+public fun GetDpiForWindow(hwnd: HWND): UInt {
+    return Win32DynamicFfi.invoke("user32.dll", "GetDpiForWindow", longArrayOf(hwnd)).toUInt()
 }
 
 public fun GetDpiFromDpiAwarenessContext(value: DPI_AWARENESS_CONTEXT): UInt {
     return Win32DynamicFfi.invoke("user32.dll", "GetDpiFromDpiAwarenessContext", longArrayOf(value)).toUInt()
 }
 
-public fun GetProcessDpiAwareness(hprocess: Foundation.HANDLE, value: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-shcore-scaling-l1-1-1.dll", "GetProcessDpiAwareness", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), value)).toInt()
+public fun GetProcessDpiAwareness(hprocess: HANDLE, value: Long): HRESULT {
+    return Win32DynamicFfi.invoke("api-ms-win-shcore-scaling-l1-1-1.dll", "GetProcessDpiAwareness", longArrayOf(hprocess, value)).toInt()
 }
 
-public fun GetSystemDpiForProcess(hprocess: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "GetSystemDpiForProcess", longArrayOf(Win32DynamicFfi.objectSlot(hprocess))).toUInt()
+public fun GetSystemDpiForProcess(hprocess: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("user32.dll", "GetSystemDpiForProcess", longArrayOf(hprocess)).toUInt()
 }
 
-public fun GetSystemMetricsForDpi(nindex: WindowsAndMessaging.SYSTEM_METRICS_INDEX, dpi: UInt): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "GetSystemMetricsForDpi", longArrayOf(Win32DynamicFfi.objectSlot(nindex), dpi.toLong())).toInt()
+public fun GetSystemMetricsForDpi(nindex: SYSTEM_METRICS_INDEX, dpi: UInt): Int {
+    return Win32DynamicFfi.invoke("user32.dll", "GetSystemMetricsForDpi", longArrayOf(nindex.toLong(), dpi.toLong())).toInt()
 }
 
 public fun GetThreadDpiAwarenessContext(): DPI_AWARENESS_CONTEXT {
@@ -69,37 +76,36 @@ public fun GetThreadDpiHostingBehavior(): DPI_HOSTING_BEHAVIOR {
     return Win32DynamicFfi.invoke("user32.dll", "GetThreadDpiHostingBehavior", longArrayOf()).toInt()
 }
 
-public fun GetWindowDpiAwarenessContext(hwnd: Foundation.HWND): DPI_AWARENESS_CONTEXT {
-    return Win32DynamicFfi.invoke("user32.dll", "GetWindowDpiAwarenessContext", longArrayOf(Win32DynamicFfi.objectSlot(hwnd)))
+public fun GetWindowDpiAwarenessContext(hwnd: HWND): DPI_AWARENESS_CONTEXT {
+    return Win32DynamicFfi.invoke("user32.dll", "GetWindowDpiAwarenessContext", longArrayOf(hwnd))
 }
 
-public fun GetWindowDpiHostingBehavior(hwnd: Foundation.HWND): DPI_HOSTING_BEHAVIOR {
-    return Win32DynamicFfi.invoke("user32.dll", "GetWindowDpiHostingBehavior", longArrayOf(Win32DynamicFfi.objectSlot(hwnd))).toInt()
+public fun GetWindowDpiHostingBehavior(hwnd: HWND): DPI_HOSTING_BEHAVIOR {
+    return Win32DynamicFfi.invoke("user32.dll", "GetWindowDpiHostingBehavior", longArrayOf(hwnd)).toInt()
 }
 
 public fun IsValidDpiAwarenessContext(value: DPI_AWARENESS_CONTEXT): BOOL {
     return Win32DynamicFfi.invoke("user32.dll", "IsValidDpiAwarenessContext", longArrayOf(value)).toInt()
 }
 
-public fun LogicalToPhysicalPointForPerMonitorDPI(hwnd: Foundation.HWND, lppoint: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "LogicalToPhysicalPointForPerMonitorDPI", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), lppoint)).toInt()
+public fun LogicalToPhysicalPointForPerMonitorDPI(hwnd: HWND, lppoint: Long): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "LogicalToPhysicalPointForPerMonitorDPI", longArrayOf(hwnd, lppoint)).toInt()
 }
 
-public fun OpenThemeDataForDpi(hwnd: Foundation.HWND, pszclasslist: PCWSTR, dpi: UInt): Controls.HTHEME {
-    Win32DynamicFfi.invoke("uxtheme.dll", "OpenThemeDataForDpi", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), pszclasslist, dpi.toLong()))
-    return Controls.HTHEME()
+public fun OpenThemeDataForDpi(hwnd: HWND, pszclasslist: PCWSTR, dpi: UInt): HTHEME {
+    return Win32DynamicFfi.invoke("uxtheme.dll", "OpenThemeDataForDpi", longArrayOf(hwnd, pszclasslist, dpi.toLong()))
 }
 
-public fun PhysicalToLogicalPointForPerMonitorDPI(hwnd: Foundation.HWND, lppoint: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "PhysicalToLogicalPointForPerMonitorDPI", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), lppoint)).toInt()
+public fun PhysicalToLogicalPointForPerMonitorDPI(hwnd: HWND, lppoint: Long): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "PhysicalToLogicalPointForPerMonitorDPI", longArrayOf(hwnd, lppoint)).toInt()
 }
 
-public fun SetDialogControlDpiChangeBehavior(hwnd: Foundation.HWND, mask: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS, values: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetDialogControlDpiChangeBehavior", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), mask.toLong(), values.toLong())).toInt()
+public fun SetDialogControlDpiChangeBehavior(hwnd: HWND, mask: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS, values: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "SetDialogControlDpiChangeBehavior", longArrayOf(hwnd, mask.toLong(), values.toLong())).toInt()
 }
 
-public fun SetDialogDpiChangeBehavior(hdlg: Foundation.HWND, mask: DIALOG_DPI_CHANGE_BEHAVIORS, values: DIALOG_DPI_CHANGE_BEHAVIORS): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetDialogDpiChangeBehavior", longArrayOf(Win32DynamicFfi.objectSlot(hdlg), mask.toLong(), values.toLong())).toInt()
+public fun SetDialogDpiChangeBehavior(hdlg: HWND, mask: DIALOG_DPI_CHANGE_BEHAVIORS, values: DIALOG_DPI_CHANGE_BEHAVIORS): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "SetDialogDpiChangeBehavior", longArrayOf(hdlg, mask.toLong(), values.toLong())).toInt()
 }
 
 public fun SetProcessDpiAwareness(value: PROCESS_DPI_AWARENESS): HRESULT {

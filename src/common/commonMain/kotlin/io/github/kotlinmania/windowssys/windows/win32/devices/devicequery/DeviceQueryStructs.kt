@@ -1,8 +1,11 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.devicequery
 
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.devices.properties.DEVPROPERTY
+import io.github.kotlinmania.windowssys.windows.win32.devices.properties.DEVPROPTYPE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.DEVPROPKEY
 
-public data class DEVPROP_FILTER_EXPRESSION(public var Operator: DEVPROP_OPERATOR = 0u, public var Property: Properties.DEVPROPERTY = Properties.DEVPROPERTY())
+public data class DEVPROP_FILTER_EXPRESSION(public var Operator: DEVPROP_OPERATOR = 0u, public var Property: DEVPROPERTY = DEVPROPERTY())
 
 public data class DEV_OBJECT(
     public var ObjectType: DEV_OBJECT_TYPE = 0,
@@ -12,8 +15,8 @@ public data class DEV_OBJECT(
 )
 
 public data class DEV_QUERY_PARAMETER(
-    public var Key: Foundation.DEVPROPKEY = Foundation.DEVPROPKEY(),
-    public var Type: Properties.DEVPROPTYPE = Properties.DEVPROPTYPE(),
+    public var Key: DEVPROPKEY = DEVPROPKEY(),
+    public var Type: DEVPROPTYPE = 0u,
     public var BufferSize: UInt = 0u,
     public var Buffer: Long = 0L,
 )

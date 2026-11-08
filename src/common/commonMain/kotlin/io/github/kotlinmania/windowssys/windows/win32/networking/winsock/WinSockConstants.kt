@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.networking.winsock
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
@@ -170,7 +171,7 @@ public val ARP_REQUEST: ARP_OPCODE = 1
 
 public val ARP_RESPONSE: ARP_OPCODE = 2
 
-public val ASSOCIATE_NAMERES_CONTEXT: GUID = GUID.from_u128(0x59a38b67d4fe46e1uL, 0xba3c87ea74ca3049uL)
+public val ASSOCIATE_NAMERES_CONTEXT: GUID = GUID.from_u128(U128(0x59a38b67d4fe46e1uL, 0xba3c87ea74ca3049uL))
 
 public val ATMPROTO_AAL1: UInt = 1u
 
@@ -1662,7 +1663,7 @@ public val NLA_INTERNET_UNKNOWN: NLA_INTERNET = 0
 
 public val NLA_INTERNET_YES: NLA_INTERNET = 2
 
-public val NLA_NAMESPACE_GUID: GUID = GUID.from_u128(0x6642243a3ba84aa6uL, 0xbaa52e0bd71fdd83uL)
+public val NLA_NAMESPACE_GUID: GUID = GUID.from_u128(U128(0x6642243a3ba84aa6uL, 0xbaa52e0bd71fdd83uL))
 
 public val NLA_NETWORK_AD_HOC: NLA_CONNECTIVITY_TYPE = 0
 
@@ -1674,7 +1675,7 @@ public val NLA_NETWORK_UNMANAGED: NLA_CONNECTIVITY_TYPE = 2
 
 public val NLA_RAW_DATA: NLA_BLOB_DATA_TYPE = 0
 
-public val NLA_SERVICE_CLASS_GUID: GUID = GUID.from_u128(0x37e515b5c94a43uL, 0xbada8b48a87ad239uL)
+public val NLA_SERVICE_CLASS_GUID: GUID = GUID.from_u128(U128(0x37e515b5c94a43uL, 0xbada8b48a87ad239uL))
 
 public val NSPROTO_IPX: UInt = 1000u
 
@@ -2044,9 +2045,9 @@ public val RCVALL_ON: RCVALL_VALUE = 1
 
 public val RCVALL_SOCKETLEVELONLY: RCVALL_VALUE = 2
 
-public val REAL_TIME_NOTIFICATION_CAPABILITY: GUID = GUID.from_u128(0x6b59819a5cae492duL, 0xa9012a3c2c50164fuL)
+public val REAL_TIME_NOTIFICATION_CAPABILITY: GUID = GUID.from_u128(U128(0x6b59819a5cae492duL, 0xa9012a3c2c50164fuL))
 
-public val REAL_TIME_NOTIFICATION_CAPABILITY_EX: GUID = GUID.from_u128(0x6843da03154a4616uL, 0xa50844371295f96buL)
+public val REAL_TIME_NOTIFICATION_CAPABILITY_EX: GUID = GUID.from_u128(U128(0x6843da03154a4616uL, 0xa50844371295f96buL))
 
 public val RESOURCEDISPLAYTYPE_DOMAIN: RESOURCE_DISPLAY_TYPE = 1u
 
@@ -2466,7 +2467,7 @@ public val SNAP_OUI: UInt = 0u
 
 public val SNAP_SSAP: UInt = 170u
 
-public val SOCKET_DEFAULT2_QM_POLICY: GUID = GUID.from_u128(0xaec2ef9c3a4d4d3euL, 0x8842239942e39a47uL)
+public val SOCKET_DEFAULT2_QM_POLICY: GUID = GUID.from_u128(U128(0xaec2ef9c3a4d4d3euL, 0x8842239942e39a47uL))
 
 public val SOCKET_ERROR: Int = -1
 

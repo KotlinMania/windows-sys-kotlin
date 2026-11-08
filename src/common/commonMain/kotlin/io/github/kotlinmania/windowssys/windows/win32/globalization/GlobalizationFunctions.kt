@@ -7,6 +7,9 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.ETO_OPTIONS
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
 
 public fun interface FnCallback {
     public operator fun invoke(param0: PCSTR): BOOL
@@ -17,7 +20,7 @@ public fun interface FnCallback1 {
 }
 
 public fun interface FnCallback2 {
-    public operator fun invoke(param0: PCWSTR, param1: UInt, param2: PCWSTR, param3: Foundation.LPARAM): BOOL
+    public operator fun invoke(param0: PCWSTR, param1: UInt, param2: PCWSTR, param3: LPARAM): BOOL
 }
 
 public fun interface FnCallback3 {
@@ -29,7 +32,7 @@ public fun interface FnCallback4 {
 }
 
 public fun interface FnCallback5 {
-    public operator fun invoke(param0: PCWSTR, param1: UInt, param2: Foundation.LPARAM): BOOL
+    public operator fun invoke(param0: PCWSTR, param1: UInt, param2: LPARAM): BOOL
 }
 
 public fun interface FnCallback6 {
@@ -45,7 +48,7 @@ public fun interface FnCallback8 {
 }
 
 public fun interface FnCallback9 {
-    public operator fun invoke(param0: PCWSTR, param1: Foundation.LPARAM): BOOL
+    public operator fun invoke(param0: PCWSTR, param1: LPARAM): BOOL
 }
 
 public fun interface FnCallback10 {
@@ -80,8 +83,8 @@ public fun CompareStringA(locale: UInt, dwcmpflags: UInt, lpstring1: Long, cchco
     return Win32DynamicFfi.invoke("kernel32.dll", "CompareStringA", longArrayOf(locale.toLong(), dwcmpflags.toLong(), lpstring1, cchcount1.toLong(), lpstring2, cchcount2.toLong())).toInt()
 }
 
-public fun CompareStringEx(lplocalename: PCWSTR, dwcmpflags: COMPARE_STRING_FLAGS, lpstring1: PCWSTR, cchcount1: Int, lpstring2: PCWSTR, cchcount2: Int, lpversioninformation: Long, lpreserved: Long, lparam: Foundation.LPARAM): COMPARESTRING_RESULT {
-    return Win32DynamicFfi.invoke("kernel32.dll", "CompareStringEx", longArrayOf(lplocalename, dwcmpflags.toLong(), lpstring1, cchcount1.toLong(), lpstring2, cchcount2.toLong(), lpversioninformation, lpreserved, Win32DynamicFfi.objectSlot(lparam))).toInt()
+public fun CompareStringEx(lplocalename: PCWSTR, dwcmpflags: COMPARE_STRING_FLAGS, lpstring1: PCWSTR, cchcount1: Int, lpstring2: PCWSTR, cchcount2: Int, lpversioninformation: Long, lpreserved: Long, lparam: LPARAM): COMPARESTRING_RESULT {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CompareStringEx", longArrayOf(lplocalename, dwcmpflags.toLong(), lpstring1, cchcount1.toLong(), lpstring2, cchcount2.toLong(), lpversioninformation, lpreserved, lparam)).toInt()
 }
 
 public fun CompareStringOrdinal(lpstring1: PCWSTR, cchcount1: Int, lpstring2: PCWSTR, cchcount2: Int, bignorecase: BOOL): COMPARESTRING_RESULT {
@@ -112,8 +115,8 @@ public fun EnumCalendarInfoExA(lpcalinfoenumprocex: CALINFO_ENUMPROCEXA, locale:
     return Win32DynamicFfi.invoke("kernel32.dll", "EnumCalendarInfoExA", longArrayOf(Win32DynamicFfi.objectSlot(lpcalinfoenumprocex), locale.toLong(), calendar.toLong(), caltype.toLong())).toInt()
 }
 
-public fun EnumCalendarInfoExEx(pcalinfoenumprocexex: CALINFO_ENUMPROCEXEX, lplocalename: PCWSTR, calendar: UInt, lpreserved: PCWSTR, caltype: UInt, lparam: Foundation.LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "EnumCalendarInfoExEx", longArrayOf(Win32DynamicFfi.objectSlot(pcalinfoenumprocexex), lplocalename, calendar.toLong(), lpreserved, caltype.toLong(), Win32DynamicFfi.objectSlot(lparam))).toInt()
+public fun EnumCalendarInfoExEx(pcalinfoenumprocexex: CALINFO_ENUMPROCEXEX, lplocalename: PCWSTR, calendar: UInt, lpreserved: PCWSTR, caltype: UInt, lparam: LPARAM): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "EnumCalendarInfoExEx", longArrayOf(Win32DynamicFfi.objectSlot(pcalinfoenumprocexex), lplocalename, calendar.toLong(), lpreserved, caltype.toLong(), lparam)).toInt()
 }
 
 public fun EnumCalendarInfoExW(lpcalinfoenumprocex: CALINFO_ENUMPROCEXW, locale: UInt, calendar: UInt, caltype: UInt): BOOL {
@@ -132,8 +135,8 @@ public fun EnumDateFormatsExA(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXA, locale: 
     return Win32DynamicFfi.invoke("kernel32.dll", "EnumDateFormatsExA", longArrayOf(Win32DynamicFfi.objectSlot(lpdatefmtenumprocex), locale.toLong(), dwflags.toLong())).toInt()
 }
 
-public fun EnumDateFormatsExEx(lpdatefmtenumprocexex: DATEFMT_ENUMPROCEXEX, lplocalename: PCWSTR, dwflags: ENUM_DATE_FORMATS_FLAGS, lparam: Foundation.LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "EnumDateFormatsExEx", longArrayOf(Win32DynamicFfi.objectSlot(lpdatefmtenumprocexex), lplocalename, dwflags.toLong(), Win32DynamicFfi.objectSlot(lparam))).toInt()
+public fun EnumDateFormatsExEx(lpdatefmtenumprocexex: DATEFMT_ENUMPROCEXEX, lplocalename: PCWSTR, dwflags: ENUM_DATE_FORMATS_FLAGS, lparam: LPARAM): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "EnumDateFormatsExEx", longArrayOf(Win32DynamicFfi.objectSlot(lpdatefmtenumprocexex), lplocalename, dwflags.toLong(), lparam)).toInt()
 }
 
 public fun EnumDateFormatsExW(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXW, locale: UInt, dwflags: UInt): BOOL {
@@ -164,8 +167,8 @@ public fun EnumSystemGeoID(geoclass: UInt, parentgeoid: Int, lpgeoenumproc: GEO_
     return Win32DynamicFfi.invoke("kernel32.dll", "EnumSystemGeoID", longArrayOf(geoclass.toLong(), parentgeoid.toLong(), Win32DynamicFfi.objectSlot(lpgeoenumproc))).toInt()
 }
 
-public fun EnumSystemGeoNames(geoclass: UInt, geoenumproc: GEO_ENUMNAMEPROC, data: Foundation.LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "EnumSystemGeoNames", longArrayOf(geoclass.toLong(), Win32DynamicFfi.objectSlot(geoenumproc), Win32DynamicFfi.objectSlot(data))).toInt()
+public fun EnumSystemGeoNames(geoclass: UInt, geoenumproc: GEO_ENUMNAMEPROC, data: LPARAM): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "EnumSystemGeoNames", longArrayOf(geoclass.toLong(), Win32DynamicFfi.objectSlot(geoenumproc), data)).toInt()
 }
 
 public fun EnumSystemLanguageGroupsA(lplanguagegroupenumproc: LANGUAGEGROUP_ENUMPROCA, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: Long): BOOL {
@@ -180,8 +183,8 @@ public fun EnumSystemLocalesA(lplocaleenumproc: LOCALE_ENUMPROCA, dwflags: UInt)
     return Win32DynamicFfi.invoke("kernel32.dll", "EnumSystemLocalesA", longArrayOf(Win32DynamicFfi.objectSlot(lplocaleenumproc), dwflags.toLong())).toInt()
 }
 
-public fun EnumSystemLocalesEx(lplocaleenumprocex: LOCALE_ENUMPROCEX, dwflags: UInt, lparam: Foundation.LPARAM, lpreserved: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "EnumSystemLocalesEx", longArrayOf(Win32DynamicFfi.objectSlot(lplocaleenumprocex), dwflags.toLong(), Win32DynamicFfi.objectSlot(lparam), lpreserved)).toInt()
+public fun EnumSystemLocalesEx(lplocaleenumprocex: LOCALE_ENUMPROCEX, dwflags: UInt, lparam: LPARAM, lpreserved: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "EnumSystemLocalesEx", longArrayOf(Win32DynamicFfi.objectSlot(lplocaleenumprocex), dwflags.toLong(), lparam, lpreserved)).toInt()
 }
 
 public fun EnumSystemLocalesW(lplocaleenumproc: LOCALE_ENUMPROCW, dwflags: UInt): BOOL {
@@ -192,8 +195,8 @@ public fun EnumTimeFormatsA(lptimefmtenumproc: TIMEFMT_ENUMPROCA, locale: UInt, 
     return Win32DynamicFfi.invoke("kernel32.dll", "EnumTimeFormatsA", longArrayOf(Win32DynamicFfi.objectSlot(lptimefmtenumproc), locale.toLong(), dwflags.toLong())).toInt()
 }
 
-public fun EnumTimeFormatsEx(lptimefmtenumprocex: TIMEFMT_ENUMPROCEX, lplocalename: PCWSTR, dwflags: UInt, lparam: Foundation.LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "EnumTimeFormatsEx", longArrayOf(Win32DynamicFfi.objectSlot(lptimefmtenumprocex), lplocalename, dwflags.toLong(), Win32DynamicFfi.objectSlot(lparam))).toInt()
+public fun EnumTimeFormatsEx(lptimefmtenumprocex: TIMEFMT_ENUMPROCEX, lplocalename: PCWSTR, dwflags: UInt, lparam: LPARAM): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "EnumTimeFormatsEx", longArrayOf(Win32DynamicFfi.objectSlot(lptimefmtenumprocex), lplocalename, dwflags.toLong(), lparam)).toInt()
 }
 
 public fun EnumTimeFormatsW(lptimefmtenumproc: TIMEFMT_ENUMPROCW, locale: UInt, dwflags: TIME_FORMAT_FLAGS): BOOL {
@@ -212,8 +215,8 @@ public fun FindNLSString(locale: UInt, dwfindnlsstringflags: UInt, lpstringsourc
     return Win32DynamicFfi.invoke("kernel32.dll", "FindNLSString", longArrayOf(locale.toLong(), dwfindnlsstringflags.toLong(), lpstringsource, cchsource.toLong(), lpstringvalue, cchvalue.toLong(), pcchfound)).toInt()
 }
 
-public fun FindNLSStringEx(lplocalename: PCWSTR, dwfindnlsstringflags: UInt, lpstringsource: PCWSTR, cchsource: Int, lpstringvalue: PCWSTR, cchvalue: Int, pcchfound: Long, lpversioninformation: Long, lpreserved: Long, sorthandle: Foundation.LPARAM): Int {
-    return Win32DynamicFfi.invoke("kernel32.dll", "FindNLSStringEx", longArrayOf(lplocalename, dwfindnlsstringflags.toLong(), lpstringsource, cchsource.toLong(), lpstringvalue, cchvalue.toLong(), pcchfound, lpversioninformation, lpreserved, Win32DynamicFfi.objectSlot(sorthandle))).toInt()
+public fun FindNLSStringEx(lplocalename: PCWSTR, dwfindnlsstringflags: UInt, lpstringsource: PCWSTR, cchsource: Int, lpstringvalue: PCWSTR, cchvalue: Int, pcchfound: Long, lpversioninformation: Long, lpreserved: Long, sorthandle: LPARAM): Int {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FindNLSStringEx", longArrayOf(lplocalename, dwfindnlsstringflags.toLong(), lpstringsource, cchsource.toLong(), lpstringvalue, cchvalue.toLong(), pcchfound, lpversioninformation, lpreserved, sorthandle)).toInt()
 }
 
 public fun FindStringOrdinal(dwfindstringordinalflags: UInt, lpstringsource: PCWSTR, cchsource: Int, lpstringvalue: PCWSTR, cchvalue: Int, bignorecase: BOOL): Int {
@@ -400,12 +403,12 @@ public fun GetSystemPreferredUILanguages(dwflags: UInt, pulnumlanguages: Long, p
     return Win32DynamicFfi.invoke("kernel32.dll", "GetSystemPreferredUILanguages", longArrayOf(dwflags.toLong(), pulnumlanguages, pwszlanguagesbuffer, pcchlanguagesbuffer)).toInt()
 }
 
-public fun GetTextCharset(hdc: Graphics.Gdi.HDC): Int {
-    return Win32DynamicFfi.invoke("gdi32.dll", "GetTextCharset", longArrayOf(Win32DynamicFfi.objectSlot(hdc))).toInt()
+public fun GetTextCharset(hdc: HDC): Int {
+    return Win32DynamicFfi.invoke("gdi32.dll", "GetTextCharset", longArrayOf(hdc)).toInt()
 }
 
-public fun GetTextCharsetInfo(hdc: Graphics.Gdi.HDC, lpsig: Long, dwflags: UInt): Int {
-    return Win32DynamicFfi.invoke("gdi32.dll", "GetTextCharsetInfo", longArrayOf(Win32DynamicFfi.objectSlot(hdc), lpsig, dwflags.toLong())).toInt()
+public fun GetTextCharsetInfo(hdc: HDC, lpsig: Long, dwflags: UInt): Int {
+    return Win32DynamicFfi.invoke("gdi32.dll", "GetTextCharsetInfo", longArrayOf(hdc, lpsig, dwflags.toLong())).toInt()
 }
 
 public fun GetThreadLocale(): UInt {
@@ -532,8 +535,8 @@ public fun LCMapStringA(locale: UInt, dwmapflags: UInt, lpsrcstr: PCSTR, cchsrc:
     return Win32DynamicFfi.invoke("kernel32.dll", "LCMapStringA", longArrayOf(locale.toLong(), dwmapflags.toLong(), lpsrcstr, cchsrc.toLong(), lpdeststr, cchdest.toLong())).toInt()
 }
 
-public fun LCMapStringEx(lplocalename: PCWSTR, dwmapflags: UInt, lpsrcstr: PCWSTR, cchsrc: Int, lpdeststr: PWSTR, cchdest: Int, lpversioninformation: Long, lpreserved: Long, sorthandle: Foundation.LPARAM): Int {
-    return Win32DynamicFfi.invoke("kernel32.dll", "LCMapStringEx", longArrayOf(lplocalename, dwmapflags.toLong(), lpsrcstr, cchsrc.toLong(), lpdeststr, cchdest.toLong(), lpversioninformation, lpreserved, Win32DynamicFfi.objectSlot(sorthandle))).toInt()
+public fun LCMapStringEx(lplocalename: PCWSTR, dwmapflags: UInt, lpsrcstr: PCWSTR, cchsrc: Int, lpdeststr: PWSTR, cchdest: Int, lpversioninformation: Long, lpreserved: Long, sorthandle: LPARAM): Int {
+    return Win32DynamicFfi.invoke("kernel32.dll", "LCMapStringEx", longArrayOf(lplocalename, dwmapflags.toLong(), lpsrcstr, cchsrc.toLong(), lpdeststr, cchdest.toLong(), lpversioninformation, lpreserved, sorthandle)).toInt()
 }
 
 public fun LCMapStringW(locale: UInt, dwmapflags: UInt, lpsrcstr: PCWSTR, cchsrc: Int, lpdeststr: PWSTR, cchdest: Int): Int {
@@ -600,40 +603,40 @@ public fun ScriptCPtoX(icp: Int, ftrailing: BOOL, cchars: Int, cglyphs: Int, pwl
     return Win32DynamicFfi.invoke("usp10.dll", "ScriptCPtoX", longArrayOf(icp.toLong(), ftrailing.toLong(), cchars.toLong(), cglyphs.toLong(), pwlogclust, psva, piadvance, psa, pix)).toInt()
 }
 
-public fun ScriptCacheGetHeight(hdc: Graphics.Gdi.HDC, psc: Long, tmheight: Long): HRESULT {
-    return Win32DynamicFfi.invoke("usp10.dll", "ScriptCacheGetHeight", longArrayOf(Win32DynamicFfi.objectSlot(hdc), psc, tmheight)).toInt()
+public fun ScriptCacheGetHeight(hdc: HDC, psc: Long, tmheight: Long): HRESULT {
+    return Win32DynamicFfi.invoke("usp10.dll", "ScriptCacheGetHeight", longArrayOf(hdc, psc, tmheight)).toInt()
 }
 
 public fun ScriptFreeCache(psc: Long): HRESULT {
     return Win32DynamicFfi.invoke("usp10.dll", "ScriptFreeCache", longArrayOf(psc)).toInt()
 }
 
-public fun ScriptGetCMap(hdc: Graphics.Gdi.HDC, psc: Long, pwcinchars: PCWSTR, cchars: Int, dwflags: UInt, pwoutglyphs: Long): HRESULT {
-    return Win32DynamicFfi.invoke("usp10.dll", "ScriptGetCMap", longArrayOf(Win32DynamicFfi.objectSlot(hdc), psc, pwcinchars, cchars.toLong(), dwflags.toLong(), pwoutglyphs)).toInt()
+public fun ScriptGetCMap(hdc: HDC, psc: Long, pwcinchars: PCWSTR, cchars: Int, dwflags: UInt, pwoutglyphs: Long): HRESULT {
+    return Win32DynamicFfi.invoke("usp10.dll", "ScriptGetCMap", longArrayOf(hdc, psc, pwcinchars, cchars.toLong(), dwflags.toLong(), pwoutglyphs)).toInt()
 }
 
-public fun ScriptGetFontAlternateGlyphs(hdc: Graphics.Gdi.HDC, psc: Long, psa: Long, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, wglyphid: UShort, cmaxalternates: Int, palternateglyphs: Long, pcalternates: Long): HRESULT {
-    return Win32DynamicFfi.invoke("usp10.dll", "ScriptGetFontAlternateGlyphs", longArrayOf(Win32DynamicFfi.objectSlot(hdc), psc, psa, tagscript.toLong(), taglangsys.toLong(), tagfeature.toLong(), wglyphid.toLong(), cmaxalternates.toLong(), palternateglyphs, pcalternates)).toInt()
+public fun ScriptGetFontAlternateGlyphs(hdc: HDC, psc: Long, psa: Long, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, wglyphid: UShort, cmaxalternates: Int, palternateglyphs: Long, pcalternates: Long): HRESULT {
+    return Win32DynamicFfi.invoke("usp10.dll", "ScriptGetFontAlternateGlyphs", longArrayOf(hdc, psc, psa, tagscript.toLong(), taglangsys.toLong(), tagfeature.toLong(), wglyphid.toLong(), cmaxalternates.toLong(), palternateglyphs, pcalternates)).toInt()
 }
 
-public fun ScriptGetFontFeatureTags(hdc: Graphics.Gdi.HDC, psc: Long, psa: Long, tagscript: UInt, taglangsys: UInt, cmaxtags: Int, pfeaturetags: Long, pctags: Long): HRESULT {
-    return Win32DynamicFfi.invoke("usp10.dll", "ScriptGetFontFeatureTags", longArrayOf(Win32DynamicFfi.objectSlot(hdc), psc, psa, tagscript.toLong(), taglangsys.toLong(), cmaxtags.toLong(), pfeaturetags, pctags)).toInt()
+public fun ScriptGetFontFeatureTags(hdc: HDC, psc: Long, psa: Long, tagscript: UInt, taglangsys: UInt, cmaxtags: Int, pfeaturetags: Long, pctags: Long): HRESULT {
+    return Win32DynamicFfi.invoke("usp10.dll", "ScriptGetFontFeatureTags", longArrayOf(hdc, psc, psa, tagscript.toLong(), taglangsys.toLong(), cmaxtags.toLong(), pfeaturetags, pctags)).toInt()
 }
 
-public fun ScriptGetFontLanguageTags(hdc: Graphics.Gdi.HDC, psc: Long, psa: Long, tagscript: UInt, cmaxtags: Int, plangsystags: Long, pctags: Long): HRESULT {
-    return Win32DynamicFfi.invoke("usp10.dll", "ScriptGetFontLanguageTags", longArrayOf(Win32DynamicFfi.objectSlot(hdc), psc, psa, tagscript.toLong(), cmaxtags.toLong(), plangsystags, pctags)).toInt()
+public fun ScriptGetFontLanguageTags(hdc: HDC, psc: Long, psa: Long, tagscript: UInt, cmaxtags: Int, plangsystags: Long, pctags: Long): HRESULT {
+    return Win32DynamicFfi.invoke("usp10.dll", "ScriptGetFontLanguageTags", longArrayOf(hdc, psc, psa, tagscript.toLong(), cmaxtags.toLong(), plangsystags, pctags)).toInt()
 }
 
-public fun ScriptGetFontProperties(hdc: Graphics.Gdi.HDC, psc: Long, sfp: Long): HRESULT {
-    return Win32DynamicFfi.invoke("usp10.dll", "ScriptGetFontProperties", longArrayOf(Win32DynamicFfi.objectSlot(hdc), psc, sfp)).toInt()
+public fun ScriptGetFontProperties(hdc: HDC, psc: Long, sfp: Long): HRESULT {
+    return Win32DynamicFfi.invoke("usp10.dll", "ScriptGetFontProperties", longArrayOf(hdc, psc, sfp)).toInt()
 }
 
-public fun ScriptGetFontScriptTags(hdc: Graphics.Gdi.HDC, psc: Long, psa: Long, cmaxtags: Int, pscripttags: Long, pctags: Long): HRESULT {
-    return Win32DynamicFfi.invoke("usp10.dll", "ScriptGetFontScriptTags", longArrayOf(Win32DynamicFfi.objectSlot(hdc), psc, psa, cmaxtags.toLong(), pscripttags, pctags)).toInt()
+public fun ScriptGetFontScriptTags(hdc: HDC, psc: Long, psa: Long, cmaxtags: Int, pscripttags: Long, pctags: Long): HRESULT {
+    return Win32DynamicFfi.invoke("usp10.dll", "ScriptGetFontScriptTags", longArrayOf(hdc, psc, psa, cmaxtags.toLong(), pscripttags, pctags)).toInt()
 }
 
-public fun ScriptGetGlyphABCWidth(hdc: Graphics.Gdi.HDC, psc: Long, wglyph: UShort, pabc: Long): HRESULT {
-    return Win32DynamicFfi.invoke("usp10.dll", "ScriptGetGlyphABCWidth", longArrayOf(Win32DynamicFfi.objectSlot(hdc), psc, wglyph.toLong(), pabc)).toInt()
+public fun ScriptGetGlyphABCWidth(hdc: HDC, psc: Long, wglyph: UShort, pabc: Long): HRESULT {
+    return Win32DynamicFfi.invoke("usp10.dll", "ScriptGetGlyphABCWidth", longArrayOf(hdc, psc, wglyph.toLong(), pabc)).toInt()
 }
 
 public fun ScriptGetLogicalWidths(psa: Long, cchars: Int, cglyphs: Int, piglyphwidth: Long, pwlogclust: Long, psva: Long, pidx: Long): HRESULT {
@@ -664,32 +667,32 @@ public fun ScriptLayout(cruns: Int, pblevel: Long, pivisualtological: Long, pilo
     return Win32DynamicFfi.invoke("usp10.dll", "ScriptLayout", longArrayOf(cruns.toLong(), pblevel, pivisualtological, pilogicaltovisual)).toInt()
 }
 
-public fun ScriptPlace(hdc: Graphics.Gdi.HDC, psc: Long, pwglyphs: Long, cglyphs: Int, psva: Long, psa: Long, piadvance: Long, pgoffset: Long, pabc: Long): HRESULT {
-    return Win32DynamicFfi.invoke("usp10.dll", "ScriptPlace", longArrayOf(Win32DynamicFfi.objectSlot(hdc), psc, pwglyphs, cglyphs.toLong(), psva, psa, piadvance, pgoffset, pabc)).toInt()
+public fun ScriptPlace(hdc: HDC, psc: Long, pwglyphs: Long, cglyphs: Int, psva: Long, psa: Long, piadvance: Long, pgoffset: Long, pabc: Long): HRESULT {
+    return Win32DynamicFfi.invoke("usp10.dll", "ScriptPlace", longArrayOf(hdc, psc, pwglyphs, cglyphs.toLong(), psva, psa, piadvance, pgoffset, pabc)).toInt()
 }
 
-public fun ScriptPlaceOpenType(hdc: Graphics.Gdi.HDC, psc: Long, psa: Long, tagscript: UInt, taglangsys: UInt, rcrangechars: Long, rprangeproperties: Long, cranges: Int, pwcchars: PCWSTR, pwlogclust: Long, pcharprops: Long, cchars: Int, pwglyphs: Long, pglyphprops: Long, cglyphs: Int, piadvance: Long, pgoffset: Long, pabc: Long): HRESULT {
-    return Win32DynamicFfi.invoke("usp10.dll", "ScriptPlaceOpenType", longArrayOf(Win32DynamicFfi.objectSlot(hdc), psc, psa, tagscript.toLong(), taglangsys.toLong(), rcrangechars, rprangeproperties, cranges.toLong(), pwcchars, pwlogclust, pcharprops, cchars.toLong(), pwglyphs, pglyphprops, cglyphs.toLong(), piadvance, pgoffset, pabc)).toInt()
+public fun ScriptPlaceOpenType(hdc: HDC, psc: Long, psa: Long, tagscript: UInt, taglangsys: UInt, rcrangechars: Long, rprangeproperties: Long, cranges: Int, pwcchars: PCWSTR, pwlogclust: Long, pcharprops: Long, cchars: Int, pwglyphs: Long, pglyphprops: Long, cglyphs: Int, piadvance: Long, pgoffset: Long, pabc: Long): HRESULT {
+    return Win32DynamicFfi.invoke("usp10.dll", "ScriptPlaceOpenType", longArrayOf(hdc, psc, psa, tagscript.toLong(), taglangsys.toLong(), rcrangechars, rprangeproperties, cranges.toLong(), pwcchars, pwlogclust, pcharprops, cchars.toLong(), pwglyphs, pglyphprops, cglyphs.toLong(), piadvance, pgoffset, pabc)).toInt()
 }
 
-public fun ScriptPositionSingleGlyph(hdc: Graphics.Gdi.HDC, psc: Long, psa: Long, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, lparameter: Int, wglyphid: UShort, iadvance: Int, goffset: GOFFSET, pioutadvance: Long, poutgoffset: Long): HRESULT {
-    return Win32DynamicFfi.invoke("usp10.dll", "ScriptPositionSingleGlyph", longArrayOf(Win32DynamicFfi.objectSlot(hdc), psc, psa, tagscript.toLong(), taglangsys.toLong(), tagfeature.toLong(), lparameter.toLong(), wglyphid.toLong(), iadvance.toLong(), Win32DynamicFfi.objectSlot(goffset), pioutadvance, poutgoffset)).toInt()
+public fun ScriptPositionSingleGlyph(hdc: HDC, psc: Long, psa: Long, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, lparameter: Int, wglyphid: UShort, iadvance: Int, goffset: GOFFSET, pioutadvance: Long, poutgoffset: Long): HRESULT {
+    return Win32DynamicFfi.invoke("usp10.dll", "ScriptPositionSingleGlyph", longArrayOf(hdc, psc, psa, tagscript.toLong(), taglangsys.toLong(), tagfeature.toLong(), lparameter.toLong(), wglyphid.toLong(), iadvance.toLong(), ((goffset.du.toLong() and 0xFFFF_FFFFL) or ((goffset.dv.toLong() and 0xFFFF_FFFFL) shl 32)), pioutadvance, poutgoffset)).toInt()
 }
 
 public fun ScriptRecordDigitSubstitution(locale: UInt, psds: Long): HRESULT {
     return Win32DynamicFfi.invoke("usp10.dll", "ScriptRecordDigitSubstitution", longArrayOf(locale.toLong(), psds)).toInt()
 }
 
-public fun ScriptShape(hdc: Graphics.Gdi.HDC, psc: Long, pwcchars: PCWSTR, cchars: Int, cmaxglyphs: Int, psa: Long, pwoutglyphs: Long, pwlogclust: Long, psva: Long, pcglyphs: Long): HRESULT {
-    return Win32DynamicFfi.invoke("usp10.dll", "ScriptShape", longArrayOf(Win32DynamicFfi.objectSlot(hdc), psc, pwcchars, cchars.toLong(), cmaxglyphs.toLong(), psa, pwoutglyphs, pwlogclust, psva, pcglyphs)).toInt()
+public fun ScriptShape(hdc: HDC, psc: Long, pwcchars: PCWSTR, cchars: Int, cmaxglyphs: Int, psa: Long, pwoutglyphs: Long, pwlogclust: Long, psva: Long, pcglyphs: Long): HRESULT {
+    return Win32DynamicFfi.invoke("usp10.dll", "ScriptShape", longArrayOf(hdc, psc, pwcchars, cchars.toLong(), cmaxglyphs.toLong(), psa, pwoutglyphs, pwlogclust, psva, pcglyphs)).toInt()
 }
 
-public fun ScriptShapeOpenType(hdc: Graphics.Gdi.HDC, psc: Long, psa: Long, tagscript: UInt, taglangsys: UInt, rcrangechars: Long, rprangeproperties: Long, cranges: Int, pwcchars: PCWSTR, cchars: Int, cmaxglyphs: Int, pwlogclust: Long, pcharprops: Long, pwoutglyphs: Long, poutglyphprops: Long, pcglyphs: Long): HRESULT {
-    return Win32DynamicFfi.invoke("usp10.dll", "ScriptShapeOpenType", longArrayOf(Win32DynamicFfi.objectSlot(hdc), psc, psa, tagscript.toLong(), taglangsys.toLong(), rcrangechars, rprangeproperties, cranges.toLong(), pwcchars, cchars.toLong(), cmaxglyphs.toLong(), pwlogclust, pcharprops, pwoutglyphs, poutglyphprops, pcglyphs)).toInt()
+public fun ScriptShapeOpenType(hdc: HDC, psc: Long, psa: Long, tagscript: UInt, taglangsys: UInt, rcrangechars: Long, rprangeproperties: Long, cranges: Int, pwcchars: PCWSTR, cchars: Int, cmaxglyphs: Int, pwlogclust: Long, pcharprops: Long, pwoutglyphs: Long, poutglyphprops: Long, pcglyphs: Long): HRESULT {
+    return Win32DynamicFfi.invoke("usp10.dll", "ScriptShapeOpenType", longArrayOf(hdc, psc, psa, tagscript.toLong(), taglangsys.toLong(), rcrangechars, rprangeproperties, cranges.toLong(), pwcchars, cchars.toLong(), cmaxglyphs.toLong(), pwlogclust, pcharprops, pwoutglyphs, poutglyphprops, pcglyphs)).toInt()
 }
 
-public fun ScriptStringAnalyse(hdc: Graphics.Gdi.HDC, pstring: Long, cstring: Int, cglyphs: Int, icharset: Int, dwflags: UInt, ireqwidth: Int, pscontrol: Long, psstate: Long, pidx: Long, ptabdef: Long, pbinclass: Long, pssa: Long): HRESULT {
-    return Win32DynamicFfi.invoke("usp10.dll", "ScriptStringAnalyse", longArrayOf(Win32DynamicFfi.objectSlot(hdc), pstring, cstring.toLong(), cglyphs.toLong(), icharset.toLong(), dwflags.toLong(), ireqwidth.toLong(), pscontrol, psstate, pidx, ptabdef, pbinclass, pssa)).toInt()
+public fun ScriptStringAnalyse(hdc: HDC, pstring: Long, cstring: Int, cglyphs: Int, icharset: Int, dwflags: UInt, ireqwidth: Int, pscontrol: Long, psstate: Long, pidx: Long, ptabdef: Long, pbinclass: Long, pssa: Long): HRESULT {
+    return Win32DynamicFfi.invoke("usp10.dll", "ScriptStringAnalyse", longArrayOf(hdc, pstring, cstring.toLong(), cglyphs.toLong(), icharset.toLong(), dwflags.toLong(), ireqwidth.toLong(), pscontrol, psstate, pidx, ptabdef, pbinclass, pssa)).toInt()
 }
 
 public fun ScriptStringCPtoX(ssa: Long, icp: Int, ftrailing: BOOL, px: Long): HRESULT {
@@ -708,8 +711,8 @@ public fun ScriptStringGetOrder(ssa: Long, puorder: Long): HRESULT {
     return Win32DynamicFfi.invoke("usp10.dll", "ScriptStringGetOrder", longArrayOf(ssa, puorder)).toInt()
 }
 
-public fun ScriptStringOut(ssa: Long, ix: Int, iy: Int, uoptions: Graphics.Gdi.ETO_OPTIONS, prc: Long, iminsel: Int, imaxsel: Int, fdisabled: BOOL): HRESULT {
-    return Win32DynamicFfi.invoke("usp10.dll", "ScriptStringOut", longArrayOf(ssa, ix.toLong(), iy.toLong(), Win32DynamicFfi.objectSlot(uoptions), prc, iminsel.toLong(), imaxsel.toLong(), fdisabled.toLong())).toInt()
+public fun ScriptStringOut(ssa: Long, ix: Int, iy: Int, uoptions: ETO_OPTIONS, prc: Long, iminsel: Int, imaxsel: Int, fdisabled: BOOL): HRESULT {
+    return Win32DynamicFfi.invoke("usp10.dll", "ScriptStringOut", longArrayOf(ssa, ix.toLong(), iy.toLong(), uoptions.toLong(), prc, iminsel.toLong(), imaxsel.toLong(), fdisabled.toLong())).toInt()
 }
 
 public fun ScriptStringValidate(ssa: Long): HRESULT {
@@ -732,12 +735,12 @@ public fun ScriptString_pcOutChars(ssa: Long): Long {
     return Win32DynamicFfi.invoke("usp10.dll", "ScriptString_pcOutChars", longArrayOf(ssa))
 }
 
-public fun ScriptSubstituteSingleGlyph(hdc: Graphics.Gdi.HDC, psc: Long, psa: Long, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, lparameter: Int, wglyphid: UShort, pwoutglyphid: Long): HRESULT {
-    return Win32DynamicFfi.invoke("usp10.dll", "ScriptSubstituteSingleGlyph", longArrayOf(Win32DynamicFfi.objectSlot(hdc), psc, psa, tagscript.toLong(), taglangsys.toLong(), tagfeature.toLong(), lparameter.toLong(), wglyphid.toLong(), pwoutglyphid)).toInt()
+public fun ScriptSubstituteSingleGlyph(hdc: HDC, psc: Long, psa: Long, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, lparameter: Int, wglyphid: UShort, pwoutglyphid: Long): HRESULT {
+    return Win32DynamicFfi.invoke("usp10.dll", "ScriptSubstituteSingleGlyph", longArrayOf(hdc, psc, psa, tagscript.toLong(), taglangsys.toLong(), tagfeature.toLong(), lparameter.toLong(), wglyphid.toLong(), pwoutglyphid)).toInt()
 }
 
-public fun ScriptTextOut(hdc: Graphics.Gdi.HDC, psc: Long, x: Int, y: Int, fuoptions: UInt, lprc: Long, psa: Long, pwcreserved: PCWSTR, ireserved: Int, pwglyphs: Long, cglyphs: Int, piadvance: Long, pijustify: Long, pgoffset: Long): HRESULT {
-    return Win32DynamicFfi.invoke("usp10.dll", "ScriptTextOut", longArrayOf(Win32DynamicFfi.objectSlot(hdc), psc, x.toLong(), y.toLong(), fuoptions.toLong(), lprc, psa, pwcreserved, ireserved.toLong(), pwglyphs, cglyphs.toLong(), piadvance, pijustify, pgoffset)).toInt()
+public fun ScriptTextOut(hdc: HDC, psc: Long, x: Int, y: Int, fuoptions: UInt, lprc: Long, psa: Long, pwcreserved: PCWSTR, ireserved: Int, pwglyphs: Long, cglyphs: Int, piadvance: Long, pijustify: Long, pgoffset: Long): HRESULT {
+    return Win32DynamicFfi.invoke("usp10.dll", "ScriptTextOut", longArrayOf(hdc, psc, x.toLong(), y.toLong(), fuoptions.toLong(), lprc, psa, pwcreserved, ireserved.toLong(), pwglyphs, cglyphs.toLong(), piadvance, pijustify, pgoffset)).toInt()
 }
 
 public fun ScriptXtoCP(ix: Int, cchars: Int, cglyphs: Int, pwlogclust: Long, psva: Long, piadvance: Long, psa: Long, picp: Long, pitrailing: Long): HRESULT {

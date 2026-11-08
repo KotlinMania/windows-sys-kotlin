@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.networking.clustering
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.w
@@ -2816,13 +2817,13 @@ public val CTCTL_GET_ROUTESTATUS_BASIC: CLCTL_CODES = 781
 
 public val CTCTL_GET_ROUTESTATUS_EXTENDED: CLCTL_CODES = 785
 
-public val ClusApplication: GUID = GUID.from_u128(0xf2e606e5263111d1uL, 0x89f100a0c90d061euL)
+public val ClusApplication: GUID = GUID.from_u128(U128(0xf2e606e5263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusCryptoKeys: GUID = GUID.from_u128(0xf2e6072b263111d1uL, 0x89f100a0c90d061euL)
+public val ClusCryptoKeys: GUID = GUID.from_u128(U128(0xf2e6072b263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusDisk: GUID = GUID.from_u128(0xf2e60723263111d1uL, 0x89f100a0c90d061euL)
+public val ClusDisk: GUID = GUID.from_u128(U128(0xf2e60723263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusDisks: GUID = GUID.from_u128(0xf2e60725263111d1uL, 0x89f100a0c90d061euL)
+public val ClusDisks: GUID = GUID.from_u128(U128(0xf2e60725263111d1uL, 0x89f100a0c90d061euL))
 
 public val ClusGroupTypeAvailableStorage: CLUSGROUP_TYPE = 2
 
@@ -2884,73 +2885,73 @@ public val ClusGroupTypeVirtualMachine: CLUSGROUP_TYPE = 111
 
 public val ClusGroupTypeWins: CLUSGROUP_TYPE = 105
 
-public val ClusNetInterface: GUID = GUID.from_u128(0xf2e606ed263111d1uL, 0x89f100a0c90d061euL)
+public val ClusNetInterface: GUID = GUID.from_u128(U128(0xf2e606ed263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusNetInterfaces: GUID = GUID.from_u128(0xf2e606ef263111d1uL, 0x89f100a0c90d061euL)
+public val ClusNetInterfaces: GUID = GUID.from_u128(U128(0xf2e606ef263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusNetwork: GUID = GUID.from_u128(0xf2e606f1263111d1uL, 0x89f100a0c90d061euL)
+public val ClusNetwork: GUID = GUID.from_u128(U128(0xf2e606f1263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusNetworkNetInterfaces: GUID = GUID.from_u128(0xf2e606f5263111d1uL, 0x89f100a0c90d061euL)
+public val ClusNetworkNetInterfaces: GUID = GUID.from_u128(U128(0xf2e606f5263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusNetworks: GUID = GUID.from_u128(0xf2e606f3263111d1uL, 0x89f100a0c90d061euL)
+public val ClusNetworks: GUID = GUID.from_u128(U128(0xf2e606f3263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusNode: GUID = GUID.from_u128(0xf2e606f7263111d1uL, 0x89f100a0c90d061euL)
+public val ClusNode: GUID = GUID.from_u128(U128(0xf2e606f7263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusNodeNetInterfaces: GUID = GUID.from_u128(0xf2e606fb263111d1uL, 0x89f100a0c90d061euL)
+public val ClusNodeNetInterfaces: GUID = GUID.from_u128(U128(0xf2e606fb263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusNodes: GUID = GUID.from_u128(0xf2e606f9263111d1uL, 0x89f100a0c90d061euL)
+public val ClusNodes: GUID = GUID.from_u128(U128(0xf2e606f9263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusPartition: GUID = GUID.from_u128(0xf2e6071f263111d1uL, 0x89f100a0c90d061euL)
+public val ClusPartition: GUID = GUID.from_u128(U128(0xf2e6071f263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusPartitionEx: GUID = GUID.from_u128(0x53d51d26b51b4a79uL, 0xb2c35048d93a98fcuL)
+public val ClusPartitionEx: GUID = GUID.from_u128(U128(0x53d51d26b51b4a79uL, 0xb2c35048d93a98fcuL))
 
-public val ClusPartitions: GUID = GUID.from_u128(0xf2e60721263111d1uL, 0x89f100a0c90d061euL)
+public val ClusPartitions: GUID = GUID.from_u128(U128(0xf2e60721263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusProperties: GUID = GUID.from_u128(0xf2e606ff263111d1uL, 0x89f100a0c90d061euL)
+public val ClusProperties: GUID = GUID.from_u128(U128(0xf2e606ff263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusProperty: GUID = GUID.from_u128(0xf2e606fd263111d1uL, 0x89f100a0c90d061euL)
+public val ClusProperty: GUID = GUID.from_u128(U128(0xf2e606fd263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusPropertyValue: GUID = GUID.from_u128(0xf2e60719263111d1uL, 0x89f100a0c90d061euL)
+public val ClusPropertyValue: GUID = GUID.from_u128(U128(0xf2e60719263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusPropertyValueData: GUID = GUID.from_u128(0xf2e6071d263111d1uL, 0x89f100a0c90d061euL)
+public val ClusPropertyValueData: GUID = GUID.from_u128(U128(0xf2e6071d263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusPropertyValues: GUID = GUID.from_u128(0xf2e6071b263111d1uL, 0x89f100a0c90d061euL)
+public val ClusPropertyValues: GUID = GUID.from_u128(U128(0xf2e6071b263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusRefObject: GUID = GUID.from_u128(0xf2e60701263111d1uL, 0x89f100a0c90d061euL)
+public val ClusRefObject: GUID = GUID.from_u128(U128(0xf2e60701263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusRegistryKeys: GUID = GUID.from_u128(0xf2e60729263111d1uL, 0x89f100a0c90d061euL)
+public val ClusRegistryKeys: GUID = GUID.from_u128(U128(0xf2e60729263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusResDependencies: GUID = GUID.from_u128(0xf2e60703263111d1uL, 0x89f100a0c90d061euL)
+public val ClusResDependencies: GUID = GUID.from_u128(U128(0xf2e60703263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusResDependents: GUID = GUID.from_u128(0xf2e6072d263111d1uL, 0x89f100a0c90d061euL)
+public val ClusResDependents: GUID = GUID.from_u128(U128(0xf2e6072d263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusResGroup: GUID = GUID.from_u128(0xf2e60705263111d1uL, 0x89f100a0c90d061euL)
+public val ClusResGroup: GUID = GUID.from_u128(U128(0xf2e60705263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusResGroupPreferredOwnerNodes: GUID = GUID.from_u128(0xf2e606e7263111d1uL, 0x89f100a0c90d061euL)
+public val ClusResGroupPreferredOwnerNodes: GUID = GUID.from_u128(U128(0xf2e606e7263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusResGroupResources: GUID = GUID.from_u128(0xf2e606e9263111d1uL, 0x89f100a0c90d061euL)
+public val ClusResGroupResources: GUID = GUID.from_u128(U128(0xf2e606e9263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusResGroups: GUID = GUID.from_u128(0xf2e60707263111d1uL, 0x89f100a0c90d061euL)
+public val ClusResGroups: GUID = GUID.from_u128(U128(0xf2e60707263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusResPossibleOwnerNodes: GUID = GUID.from_u128(0xf2e6070d263111d1uL, 0x89f100a0c90d061euL)
+public val ClusResPossibleOwnerNodes: GUID = GUID.from_u128(U128(0xf2e6070d263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusResType: GUID = GUID.from_u128(0xf2e6070f263111d1uL, 0x89f100a0c90d061euL)
+public val ClusResType: GUID = GUID.from_u128(U128(0xf2e6070f263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusResTypePossibleOwnerNodes: GUID = GUID.from_u128(0xf2e60717263111d1uL, 0x89f100a0c90d061euL)
+public val ClusResTypePossibleOwnerNodes: GUID = GUID.from_u128(U128(0xf2e60717263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusResTypeResources: GUID = GUID.from_u128(0xf2e60713263111d1uL, 0x89f100a0c90d061euL)
+public val ClusResTypeResources: GUID = GUID.from_u128(U128(0xf2e60713263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusResTypes: GUID = GUID.from_u128(0xf2e60711263111d1uL, 0x89f100a0c90d061euL)
+public val ClusResTypes: GUID = GUID.from_u128(U128(0xf2e60711263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusResource: GUID = GUID.from_u128(0xf2e60709263111d1uL, 0x89f100a0c90d061euL)
+public val ClusResource: GUID = GUID.from_u128(U128(0xf2e60709263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusResources: GUID = GUID.from_u128(0xf2e6070b263111d1uL, 0x89f100a0c90d061euL)
+public val ClusResources: GUID = GUID.from_u128(U128(0xf2e6070b263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusScsiAddress: GUID = GUID.from_u128(0xf2e60727263111d1uL, 0x89f100a0c90d061euL)
+public val ClusScsiAddress: GUID = GUID.from_u128(U128(0xf2e60727263111d1uL, 0x89f100a0c90d061euL))
 
-public val ClusVersion: GUID = GUID.from_u128(0xf2e60715263111d1uL, 0x89f100a0c90d061euL)
+public val ClusVersion: GUID = GUID.from_u128(U128(0xf2e60715263111d1uL, 0x89f100a0c90d061euL))
 
-public val Cluster: GUID = GUID.from_u128(0xf2e606e3263111d1uL, 0x89f100a0c90d061euL)
+public val Cluster: GUID = GUID.from_u128(U128(0xf2e606e3263111d1uL, 0x89f100a0c90d061euL))
 
 public val ClusterGroupAllowFailback: CLUSTER_GROUP_AUTOFAILBACK_TYPE = 1
 
@@ -2970,7 +2971,7 @@ public val ClusterGroupPreventFailback: CLUSTER_GROUP_AUTOFAILBACK_TYPE = 0
 
 public val ClusterGroupStateUnknown: CLUSTER_GROUP_STATE = -1
 
-public val ClusterNames: GUID = GUID.from_u128(0xf2e606eb263111d1uL, 0x89f100a0c90d061euL)
+public val ClusterNames: GUID = GUID.from_u128(U128(0xf2e606eb263111d1uL, 0x89f100a0c90d061euL))
 
 public val ClusterNetInterfaceFailed: CLUSTER_NETINTERFACE_STATE = 1
 

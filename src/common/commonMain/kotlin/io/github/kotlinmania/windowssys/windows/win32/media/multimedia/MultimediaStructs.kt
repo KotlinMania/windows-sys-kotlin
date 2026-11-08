@@ -7,25 +7,37 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LRESULT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.BITMAPINFOHEADER
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HPALETTE
 import io.github.kotlinmania.windowssys.windows.win32.media.HTASK
 import io.github.kotlinmania.windowssys.windows.win32.media.LPTIMECALLBACK
+import io.github.kotlinmania.windowssys.windows.win32.media.audio.HMIXER
+import io.github.kotlinmania.windowssys.windows.win32.media.audio.HWAVE
+import io.github.kotlinmania.windowssys.windows.win32.media.audio.WAVEFORMATEX
 
 public data class ADPCMCOEFSET(public var iCoef1: Short = 0, public var iCoef2: Short = 0)
 
-public data class ADPCMEWAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX(), public var wSamplesPerBlock: UShort = 0u)
+public data class ADPCMEWAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX(), public var wSamplesPerBlock: UShort = 0u)
 
 public data class ADPCMWAVEFORMAT(
-    public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX(),
+    public var wfx: WAVEFORMATEX = WAVEFORMATEX(),
     public var wSamplesPerBlock: UShort = 0u,
     public var wNumCoef: UShort = 0u,
     public var aCoef: List<ADPCMCOEFSET> = List(1) { ADPCMCOEFSET() },
 )
 
-public data class APTXWAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX())
+public data class APTXWAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX())
 
-public data class AUDIOFILE_AF10WAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX())
+public data class AUDIOFILE_AF10WAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX())
 
-public data class AUDIOFILE_AF36WAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX())
+public data class AUDIOFILE_AF36WAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX())
 
 public data class AVICOMPRESSOPTIONS(
     public var fccType: UInt = 0u,
@@ -154,7 +166,7 @@ public class AVISTREAMINFOA(
     public var dwSuggestedBufferSize: UInt = 0u,
     public var dwQuality: UInt = 0u,
     public var dwSampleSize: UInt = 0u,
-    public var rcFrame: Foundation.RECT = Foundation.RECT(),
+    public var rcFrame: RECT = RECT(),
     public var dwEditCount: UInt = 0u,
     public var dwFormatChangeCount: UInt = 0u,
     public var szName: ByteArray = ByteArray(64),
@@ -175,7 +187,7 @@ public class AVISTREAMINFOW(
     public var dwSuggestedBufferSize: UInt = 0u,
     public var dwQuality: UInt = 0u,
     public var dwSampleSize: UInt = 0u,
-    public var rcFrame: Foundation.RECT = Foundation.RECT(),
+    public var rcFrame: RECT = RECT(),
     public var dwEditCount: UInt = 0u,
     public var dwFormatChangeCount: UInt = 0u,
     public var szName: UShortArray = UShortArray(64),
@@ -189,10 +201,10 @@ public data class CAPDRIVERCAPS(
     public var fHasDlgVideoDisplay: BOOL = 0,
     public var fCaptureInitialized: BOOL = 0,
     public var fDriverSuppliesPalettes: BOOL = 0,
-    public var hVideoIn: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hVideoOut: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hVideoExtIn: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hVideoExtOut: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hVideoIn: HANDLE = 0L,
+    public var hVideoOut: HANDLE = 0L,
+    public var hVideoExtIn: HANDLE = 0L,
+    public var hVideoExtOut: HANDLE = 0L,
 )
 
 public data class CAPINFOCHUNK(
@@ -207,7 +219,7 @@ public class CAPSTATUS(
     public var fLiveWindow: BOOL = 0,
     public var fOverlayWindow: BOOL = 0,
     public var fScale: BOOL = 0,
-    public var ptScroll: Foundation.POINT = Foundation.POINT(),
+    public var ptScroll: POINT = POINT(),
     public var fUsingDefaultPalette: BOOL = 0,
     public var fAudioHardware: BOOL = 0,
     public var fCapFileExists: BOOL = 0,
@@ -215,7 +227,7 @@ public class CAPSTATUS(
     public var dwCurrentVideoFramesDropped: UInt = 0u,
     public var dwCurrentWaveSamples: UInt = 0u,
     public var dwCurrentTimeElapsedMS: UInt = 0u,
-    public var hPalCurrent: Graphics.Gdi.HPALETTE = Graphics.Gdi.HPALETTE(),
+    public var hPalCurrent: HPALETTE = 0L,
     public var fCapturingNow: BOOL = 0,
     public var dwReturn: UInt = 0u,
     public var wNumVideoAllocated: UInt = 0u,
@@ -280,29 +292,29 @@ public data class COMPVARS(
     public var cbState: Int = 0,
 )
 
-public data class CONTRESCR10WAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX(), public var wSamplesPerBlock: UShort = 0u)
+public data class CONTRESCR10WAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX(), public var wSamplesPerBlock: UShort = 0u)
 
-public data class CONTRESVQLPCWAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX(), public var wSamplesPerBlock: UShort = 0u)
+public data class CONTRESVQLPCWAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX(), public var wSamplesPerBlock: UShort = 0u)
 
-public data class CREATIVEADPCMWAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX(), public var wRevision: UShort = 0u)
+public data class CREATIVEADPCMWAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX(), public var wRevision: UShort = 0u)
 
-public data class CREATIVEFASTSPEECH10WAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX(), public var wRevision: UShort = 0u)
+public data class CREATIVEFASTSPEECH10WAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX(), public var wRevision: UShort = 0u)
 
-public data class CREATIVEFASTSPEECH8WAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX(), public var wRevision: UShort = 0u)
+public data class CREATIVEFASTSPEECH8WAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX(), public var wRevision: UShort = 0u)
 
-public data class CSIMAADPCMWAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX())
+public data class CSIMAADPCMWAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX())
 
-public data class DIALOGICOKIADPCMWAVEFORMAT(public var ewf: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX())
+public data class DIALOGICOKIADPCMWAVEFORMAT(public var ewf: WAVEFORMATEX = WAVEFORMATEX())
 
-public data class DIGIADPCMWAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX(), public var wSamplesPerBlock: UShort = 0u)
+public data class DIGIADPCMWAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX(), public var wSamplesPerBlock: UShort = 0u)
 
-public data class DIGIFIXWAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX())
+public data class DIGIFIXWAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX())
 
-public data class DIGIREALWAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX(), public var wSamplesPerBlock: UShort = 0u)
+public data class DIGIREALWAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX(), public var wSamplesPerBlock: UShort = 0u)
 
-public data class DIGISTDWAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX())
+public data class DIGISTDWAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX())
 
-public data class DOLBYAC2WAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX(), public var nAuxBitsCode: UShort = 0u)
+public data class DOLBYAC2WAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX(), public var nAuxBitsCode: UShort = 0u)
 
 public data class DRAWDIBTIME(
     public var timeCount: Int = 0,
@@ -315,10 +327,10 @@ public data class DRAWDIBTIME(
 )
 
 public data class DRMWAVEFORMAT(
-    public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX(),
+    public var wfx: WAVEFORMATEX = WAVEFORMATEX(),
     public var wReserved: UShort = 0u,
     public var ulContentId: UInt = 0u,
-    public var wfxSecure: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX(),
+    public var wfxSecure: WAVEFORMATEX = WAVEFORMATEX(),
 )
 
 public data class DRVCONFIGINFO(
@@ -336,23 +348,23 @@ public data class DRVCONFIGINFOEX(
 
 public data class DRVM_IOCTL_DATA(public var dwSize: UInt = 0u, public var dwCmd: UInt = 0u)
 
-public data class DVIADPCMWAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX(), public var wSamplesPerBlock: UShort = 0u)
+public data class DVIADPCMWAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX(), public var wSamplesPerBlock: UShort = 0u)
 
-public data class ECHOSC1WAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX())
+public data class ECHOSC1WAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX())
 
-public data class EXBMINFOHEADER(public var bmi: Graphics.Gdi.BITMAPINFOHEADER = Graphics.Gdi.BITMAPINFOHEADER(), public var biExtDataOffset: UInt = 0u)
+public data class EXBMINFOHEADER(public var bmi: BITMAPINFOHEADER = BITMAPINFOHEADER(), public var biExtDataOffset: UInt = 0u)
 
-public data class FMTOWNS_SND_WAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX(), public var wRevision: UShort = 0u)
+public data class FMTOWNS_SND_WAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX(), public var wRevision: UShort = 0u)
 
-public data class G721_ADPCMWAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX(), public var nAuxBlockSize: UShort = 0u)
+public data class G721_ADPCMWAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX(), public var nAuxBlockSize: UShort = 0u)
 
 public data class G723_ADPCMWAVEFORMAT(
-    public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX(),
+    public var wfx: WAVEFORMATEX = WAVEFORMATEX(),
     public var cbExtraSize: UShort = 0u,
     public var nAuxBlockSize: UShort = 0u,
 )
 
-public data class GSM610WAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX(), public var wSamplesPerBlock: UShort = 0u)
+public data class GSM610WAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX(), public var wSamplesPerBlock: UShort = 0u)
 
 public data class ICCOMPRESS(
     public var dwFlags: UInt = 0u,
@@ -372,9 +384,9 @@ public data class ICCOMPRESS(
 public data class ICCOMPRESSFRAMES(
     public var dwFlags: UInt = 0u,
     public var lpbiOutput: Long = 0L,
-    public var lOutput: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lOutput: LPARAM = 0L,
     public var lpbiInput: Long = 0L,
-    public var lInput: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lInput: LPARAM = 0L,
     public var lStartFrame: Int = 0,
     public var lFrameCount: Int = 0,
     public var lQuality: Int = 0,
@@ -423,9 +435,9 @@ public data class ICDRAW(
 
 public data class ICDRAWBEGIN(
     public var dwFlags: UInt = 0u,
-    public var hpal: Graphics.Gdi.HPALETTE = Graphics.Gdi.HPALETTE(),
-    public var hwnd: Foundation.HWND = Foundation.HWND(),
-    public var hdc: Graphics.Gdi.HDC = Graphics.Gdi.HDC(),
+    public var hpal: HPALETTE = 0L,
+    public var hwnd: HWND = 0L,
+    public var hdc: HDC = 0L,
     public var xDst: Int = 0,
     public var yDst: Int = 0,
     public var dxDst: Int = 0,
@@ -495,7 +507,7 @@ public data class ICOPEN(
     public var fccHandler: UInt = 0u,
     public var dwVersion: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var dwError: Foundation.LRESULT = Foundation.LRESULT(),
+    public var dwError: LRESULT = 0L,
     public var pV1Reserved: Long = 0L,
     public var pV2Reserved: Long = 0L,
     public var dnDevNode: UInt = 0u,
@@ -510,11 +522,11 @@ public data class ICPALETTE(
 
 public data class ICSETSTATUSPROC(
     public var dwFlags: UInt = 0u,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
     public var Status: Long = 0L,
 )
 
-public data class IMAADPCMWAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX(), public var wSamplesPerBlock: UShort = 0u)
+public data class IMAADPCMWAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX(), public var wSamplesPerBlock: UShort = 0u)
 
 public class JOYCAPS2A(
     public var wMid: UShort = 0u,
@@ -669,7 +681,7 @@ public data class MCI_ANIM_OPEN_PARMSA(
     public var lpstrElementName: PCSTR = 0L,
     public var lpstrAlias: PCSTR = 0L,
     public var dwStyle: UInt = 0u,
-    public var hWndParent: Foundation.HWND = Foundation.HWND(),
+    public var hWndParent: HWND = 0L,
 )
 
 public data class MCI_ANIM_OPEN_PARMSW(
@@ -679,7 +691,7 @@ public data class MCI_ANIM_OPEN_PARMSW(
     public var lpstrElementName: PCWSTR = 0L,
     public var lpstrAlias: PCWSTR = 0L,
     public var dwStyle: UInt = 0u,
-    public var hWndParent: Foundation.HWND = Foundation.HWND(),
+    public var hWndParent: HWND = 0L,
 )
 
 public data class MCI_ANIM_PLAY_PARMS(
@@ -689,26 +701,26 @@ public data class MCI_ANIM_PLAY_PARMS(
     public var dwSpeed: UInt = 0u,
 )
 
-public data class MCI_ANIM_RECT_PARMS(public var dwCallback: ULong = 0uL, public var rc: Foundation.RECT = Foundation.RECT())
+public data class MCI_ANIM_RECT_PARMS(public var dwCallback: ULong = 0uL, public var rc: RECT = RECT())
 
 public data class MCI_ANIM_STEP_PARMS(public var dwCallback: ULong = 0uL, public var dwFrames: UInt = 0u)
 
 public data class MCI_ANIM_UPDATE_PARMS(
     public var dwCallback: ULong = 0uL,
-    public var rc: Foundation.RECT = Foundation.RECT(),
-    public var hDC: Graphics.Gdi.HDC = Graphics.Gdi.HDC(),
+    public var rc: RECT = RECT(),
+    public var hDC: HDC = 0L,
 )
 
 public data class MCI_ANIM_WINDOW_PARMSA(
     public var dwCallback: ULong = 0uL,
-    public var hWnd: Foundation.HWND = Foundation.HWND(),
+    public var hWnd: HWND = 0L,
     public var nCmdShow: UInt = 0u,
     public var lpstrText: PCSTR = 0L,
 )
 
 public data class MCI_ANIM_WINDOW_PARMSW(
     public var dwCallback: ULong = 0uL,
-    public var hWnd: Foundation.HWND = Foundation.HWND(),
+    public var hWnd: HWND = 0L,
     public var nCmdShow: UInt = 0u,
     public var lpstrText: PCWSTR = 0L,
 )
@@ -716,26 +728,26 @@ public data class MCI_ANIM_WINDOW_PARMSW(
 public data class MCI_BREAK_PARMS(
     public var dwCallback: ULong = 0uL,
     public var nVirtKey: Int = 0,
-    public var hwndBreak: Foundation.HWND = Foundation.HWND(),
+    public var hwndBreak: HWND = 0L,
 )
 
 public data class MCI_DGV_CAPTURE_PARMSA(
     public var dwCallback: ULong = 0uL,
     public var lpstrFileName: PSTR = 0L,
-    public var rc: Foundation.RECT = Foundation.RECT(),
+    public var rc: RECT = RECT(),
 )
 
 public data class MCI_DGV_CAPTURE_PARMSW(
     public var dwCallback: ULong = 0uL,
     public var lpstrFileName: PWSTR = 0L,
-    public var rc: Foundation.RECT = Foundation.RECT(),
+    public var rc: RECT = RECT(),
 )
 
 public data class MCI_DGV_COPY_PARMS(
     public var dwCallback: ULong = 0uL,
     public var dwFrom: UInt = 0u,
     public var dwTo: UInt = 0u,
-    public var rc: Foundation.RECT = Foundation.RECT(),
+    public var rc: RECT = RECT(),
     public var dwAudioStream: UInt = 0u,
     public var dwVideoStream: UInt = 0u,
 )
@@ -746,7 +758,7 @@ public data class MCI_DGV_CUT_PARMS(
     public var dwCallback: ULong = 0uL,
     public var dwFrom: UInt = 0u,
     public var dwTo: UInt = 0u,
-    public var rc: Foundation.RECT = Foundation.RECT(),
+    public var rc: RECT = RECT(),
     public var dwAudioStream: UInt = 0u,
     public var dwVideoStream: UInt = 0u,
 )
@@ -755,7 +767,7 @@ public data class MCI_DGV_DELETE_PARMS(
     public var dwCallback: ULong = 0uL,
     public var dwFrom: UInt = 0u,
     public var dwTo: UInt = 0u,
-    public var rc: Foundation.RECT = Foundation.RECT(),
+    public var rc: RECT = RECT(),
     public var dwAudioStream: UInt = 0u,
     public var dwVideoStream: UInt = 0u,
 )
@@ -805,7 +817,7 @@ public data class MCI_DGV_OPEN_PARMSA(
     public var lpstrElementName: PSTR = 0L,
     public var lpstrAlias: PSTR = 0L,
     public var dwStyle: UInt = 0u,
-    public var hWndParent: Foundation.HWND = Foundation.HWND(),
+    public var hWndParent: HWND = 0L,
 )
 
 public data class MCI_DGV_OPEN_PARMSW(
@@ -815,13 +827,13 @@ public data class MCI_DGV_OPEN_PARMSW(
     public var lpstrElementName: PWSTR = 0L,
     public var lpstrAlias: PWSTR = 0L,
     public var dwStyle: UInt = 0u,
-    public var hWndParent: Foundation.HWND = Foundation.HWND(),
+    public var hWndParent: HWND = 0L,
 )
 
 public data class MCI_DGV_PASTE_PARMS(
     public var dwCallback: ULong = 0uL,
     public var dwTo: UInt = 0u,
-    public var rc: Foundation.RECT = Foundation.RECT(),
+    public var rc: RECT = RECT(),
     public var dwAudioStream: UInt = 0u,
     public var dwVideoStream: UInt = 0u,
 )
@@ -846,12 +858,12 @@ public data class MCI_DGV_RECORD_PARMS(
     public var dwCallback: ULong = 0uL,
     public var dwFrom: UInt = 0u,
     public var dwTo: UInt = 0u,
-    public var rc: Foundation.RECT = Foundation.RECT(),
+    public var rc: RECT = RECT(),
     public var dwAudioStream: UInt = 0u,
     public var dwVideoStream: UInt = 0u,
 )
 
-public data class MCI_DGV_RECT_PARMS(public var dwCallback: ULong = 0uL, public var rc: Foundation.RECT = Foundation.RECT())
+public data class MCI_DGV_RECT_PARMS(public var dwCallback: ULong = 0uL, public var rc: RECT = RECT())
 
 public data class MCI_DGV_RESERVE_PARMSA(
     public var dwCallback: ULong = 0uL,
@@ -868,25 +880,25 @@ public data class MCI_DGV_RESERVE_PARMSW(
 public data class MCI_DGV_RESTORE_PARMSA(
     public var dwCallback: ULong = 0uL,
     public var lpstrFileName: PSTR = 0L,
-    public var rc: Foundation.RECT = Foundation.RECT(),
+    public var rc: RECT = RECT(),
 )
 
 public data class MCI_DGV_RESTORE_PARMSW(
     public var dwCallback: ULong = 0uL,
     public var lpstrFileName: PWSTR = 0L,
-    public var rc: Foundation.RECT = Foundation.RECT(),
+    public var rc: RECT = RECT(),
 )
 
 public data class MCI_DGV_SAVE_PARMSA(
     public var dwCallback: ULong = 0uL,
     public var lpstrFileName: PSTR = 0L,
-    public var rc: Foundation.RECT = Foundation.RECT(),
+    public var rc: RECT = RECT(),
 )
 
 public data class MCI_DGV_SAVE_PARMSW(
     public var dwCallback: ULong = 0uL,
     public var lpstrFileName: PWSTR = 0L,
-    public var rc: Foundation.RECT = Foundation.RECT(),
+    public var rc: RECT = RECT(),
 )
 
 public data class MCI_DGV_SETAUDIO_PARMSA(
@@ -964,20 +976,20 @@ public data class MCI_DGV_STEP_PARMS(public var dwCallback: ULong = 0uL, public 
 
 public data class MCI_DGV_UPDATE_PARMS(
     public var dwCallback: ULong = 0uL,
-    public var rc: Foundation.RECT = Foundation.RECT(),
-    public var hDC: Graphics.Gdi.HDC = Graphics.Gdi.HDC(),
+    public var rc: RECT = RECT(),
+    public var hDC: HDC = 0L,
 )
 
 public data class MCI_DGV_WINDOW_PARMSA(
     public var dwCallback: ULong = 0uL,
-    public var hWnd: Foundation.HWND = Foundation.HWND(),
+    public var hWnd: HWND = 0L,
     public var nCmdShow: UInt = 0u,
     public var lpstrText: PSTR = 0L,
 )
 
 public data class MCI_DGV_WINDOW_PARMSW(
     public var dwCallback: ULong = 0uL,
-    public var hWnd: Foundation.HWND = Foundation.HWND(),
+    public var hWnd: HWND = 0L,
     public var nCmdShow: UInt = 0u,
     public var lpstrText: PWSTR = 0L,
 )
@@ -1032,13 +1044,13 @@ public data class MCI_OPEN_PARMSW(
 public data class MCI_OVLY_LOAD_PARMSA(
     public var dwCallback: ULong = 0uL,
     public var lpfilename: PCSTR = 0L,
-    public var rc: Foundation.RECT = Foundation.RECT(),
+    public var rc: RECT = RECT(),
 )
 
 public data class MCI_OVLY_LOAD_PARMSW(
     public var dwCallback: ULong = 0uL,
     public var lpfilename: PCWSTR = 0L,
-    public var rc: Foundation.RECT = Foundation.RECT(),
+    public var rc: RECT = RECT(),
 )
 
 public data class MCI_OVLY_OPEN_PARMSA(
@@ -1048,7 +1060,7 @@ public data class MCI_OVLY_OPEN_PARMSA(
     public var lpstrElementName: PCSTR = 0L,
     public var lpstrAlias: PCSTR = 0L,
     public var dwStyle: UInt = 0u,
-    public var hWndParent: Foundation.HWND = Foundation.HWND(),
+    public var hWndParent: HWND = 0L,
 )
 
 public data class MCI_OVLY_OPEN_PARMSW(
@@ -1058,33 +1070,33 @@ public data class MCI_OVLY_OPEN_PARMSW(
     public var lpstrElementName: PCWSTR = 0L,
     public var lpstrAlias: PCWSTR = 0L,
     public var dwStyle: UInt = 0u,
-    public var hWndParent: Foundation.HWND = Foundation.HWND(),
+    public var hWndParent: HWND = 0L,
 )
 
-public data class MCI_OVLY_RECT_PARMS(public var dwCallback: ULong = 0uL, public var rc: Foundation.RECT = Foundation.RECT())
+public data class MCI_OVLY_RECT_PARMS(public var dwCallback: ULong = 0uL, public var rc: RECT = RECT())
 
 public data class MCI_OVLY_SAVE_PARMSA(
     public var dwCallback: ULong = 0uL,
     public var lpfilename: PCSTR = 0L,
-    public var rc: Foundation.RECT = Foundation.RECT(),
+    public var rc: RECT = RECT(),
 )
 
 public data class MCI_OVLY_SAVE_PARMSW(
     public var dwCallback: ULong = 0uL,
     public var lpfilename: PCWSTR = 0L,
-    public var rc: Foundation.RECT = Foundation.RECT(),
+    public var rc: RECT = RECT(),
 )
 
 public data class MCI_OVLY_WINDOW_PARMSA(
     public var dwCallback: ULong = 0uL,
-    public var hWnd: Foundation.HWND = Foundation.HWND(),
+    public var hWnd: HWND = 0L,
     public var nCmdShow: UInt = 0u,
     public var lpstrText: PCSTR = 0L,
 )
 
 public data class MCI_OVLY_WINDOW_PARMSW(
     public var dwCallback: ULong = 0uL,
-    public var hWnd: Foundation.HWND = Foundation.HWND(),
+    public var hWnd: HWND = 0L,
     public var nCmdShow: UInt = 0u,
     public var lpstrText: PCWSTR = 0L,
 )
@@ -1202,12 +1214,12 @@ public data class MCI_WAVE_SET_PARMS(
     public var wReserved5: UShort = 0u,
 )
 
-public data class MEDIASPACEADPCMWAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX(), public var wRevision: UShort = 0u)
+public data class MEDIASPACEADPCMWAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX(), public var wRevision: UShort = 0u)
 
 public data class MIDIOPENSTRMID(public var dwStreamID: UInt = 0u, public var uDeviceID: UInt = 0u)
 
 public data class MIXEROPENDESC(
-    public var hmx: Audio.HMIXER = Audio.HMIXER(),
+    public var hmx: HMIXER = 0L,
     public var pReserved0: Long = 0L,
     public var dwCallback: ULong = 0uL,
     public var dwInstance: ULong = 0uL,
@@ -1284,26 +1296,26 @@ public data class MMIOINFO(
 }
 
 public data class MSAUDIO1WAVEFORMAT(
-    public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX(),
+    public var wfx: WAVEFORMATEX = WAVEFORMATEX(),
     public var wSamplesPerBlock: UShort = 0u,
     public var wEncodeOptions: UShort = 0u,
 )
 
-public data class NMS_VBXADPCMWAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX(), public var wSamplesPerBlock: UShort = 0u)
+public data class NMS_VBXADPCMWAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX(), public var wSamplesPerBlock: UShort = 0u)
 
-public data class OLIADPCMWAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX())
+public data class OLIADPCMWAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX())
 
-public data class OLICELPWAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX())
+public data class OLICELPWAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX())
 
-public data class OLIGSMWAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX())
+public data class OLIGSMWAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX())
 
-public data class OLIOPRWAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX())
+public data class OLIOPRWAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX())
 
-public data class OLISBCWAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX())
+public data class OLISBCWAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX())
 
-public data class SIERRAADPCMWAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX(), public var wRevision: UShort = 0u)
+public data class SIERRAADPCMWAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX(), public var wRevision: UShort = 0u)
 
-public data class SONARCWAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX(), public var wCompType: UShort = 0u)
+public data class SONARCWAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX(), public var wCompType: UShort = 0u)
 
 public data class TIMEREVENT(
     public var wDelay: UShort = 0u,
@@ -1315,7 +1327,7 @@ public data class TIMEREVENT(
 )
 
 public data class TRUESPEECHWAVEFORMAT(
-    public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX(),
+    public var wfx: WAVEFORMATEX = WAVEFORMATEX(),
     public var wRevision: UShort = 0u,
     public var nSamplesPerBlock: UShort = 0u,
     public var abReserved: UByteArray = UByteArray(28),
@@ -1374,7 +1386,7 @@ public data class VIDEOHDR(
 }
 
 public data class WAVEOPENDESC(
-    public var hWave: Audio.HWAVE = Audio.HWAVE(),
+    public var hWave: HWAVE = 0L,
     public var lpFormat: Long = 0L,
     public var dwCallback: ULong = 0uL,
     public var dwInstance: ULong = 0uL,
@@ -1383,14 +1395,14 @@ public data class WAVEOPENDESC(
 )
 
 public data class WMAUDIO2WAVEFORMAT(
-    public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX(),
+    public var wfx: WAVEFORMATEX = WAVEFORMATEX(),
     public var dwSamplesPerBlock: UInt = 0u,
     public var wEncodeOptions: UShort = 0u,
     public var dwSuperBlockAlign: UInt = 0u,
 )
 
 public data class WMAUDIO3WAVEFORMAT(
-    public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX(),
+    public var wfx: WAVEFORMATEX = WAVEFORMATEX(),
     public var wValidBitsPerSample: UShort = 0u,
     public var dwChannelMask: UInt = 0u,
     public var dwReserved1: UInt = 0u,
@@ -1399,7 +1411,7 @@ public data class WMAUDIO3WAVEFORMAT(
     public var wReserved3: UShort = 0u,
 )
 
-public data class YAMAHA_ADPCMWAVEFORMAT(public var wfx: Audio.WAVEFORMATEX = Audio.WAVEFORMATEX())
+public data class YAMAHA_ADPCMWAVEFORMAT(public var wfx: WAVEFORMATEX = WAVEFORMATEX())
 
 public data class s_RIFFWAVE_inst(
     public var bUnshiftedNote: UByte = 0u,

@@ -1,13 +1,15 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.system.time
 
+import io.github.kotlinmania.windowssys.windows.win32.foundation.SYSTEMTIME
+
 public data class DYNAMIC_TIME_ZONE_INFORMATION(
     public var Bias: Int = 0,
     public var StandardName: UShortArray = UShortArray(32),
-    public var StandardDate: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var StandardDate: SYSTEMTIME = SYSTEMTIME(),
     public var StandardBias: Int = 0,
     public var DaylightName: UShortArray = UShortArray(32),
-    public var DaylightDate: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var DaylightDate: SYSTEMTIME = SYSTEMTIME(),
     public var DaylightBias: Int = 0,
     public var TimeZoneKeyName: UShortArray = UShortArray(128),
     public var DynamicDaylightTimeDisabled: Boolean = false,
@@ -44,10 +46,10 @@ public data class DYNAMIC_TIME_ZONE_INFORMATION(
 public data class TIME_ZONE_INFORMATION(
     public var Bias: Int = 0,
     public var StandardName: UShortArray = UShortArray(32),
-    public var StandardDate: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var StandardDate: SYSTEMTIME = SYSTEMTIME(),
     public var StandardBias: Int = 0,
     public var DaylightName: UShortArray = UShortArray(32),
-    public var DaylightDate: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var DaylightDate: SYSTEMTIME = SYSTEMTIME(),
     public var DaylightBias: Int = 0,
 ) {
     override fun equals(other: Any?): Boolean {

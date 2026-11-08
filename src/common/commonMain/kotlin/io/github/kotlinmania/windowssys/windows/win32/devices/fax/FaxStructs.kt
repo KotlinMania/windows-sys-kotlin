@@ -6,6 +6,11 @@ import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.SYSTEMTIME
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
 
 public data class FAX_CONFIGURATIONA(
     public var SizeOfStruct: UInt = 0u,
@@ -41,7 +46,7 @@ public data class FAX_CONFIGURATIONW(
 
 public data class FAX_CONTEXT_INFOA(
     public var SizeOfStruct: UInt = 0u,
-    public var hDC: Graphics.Gdi.HDC = Graphics.Gdi.HDC(),
+    public var hDC: HDC = 0L,
     public var ServerName: ByteArray = ByteArray(16),
 ) {
     override fun equals(other: Any?): Boolean {
@@ -63,7 +68,7 @@ public data class FAX_CONTEXT_INFOA(
 
 public data class FAX_CONTEXT_INFOW(
     public var SizeOfStruct: UInt = 0u,
-    public var hDC: Graphics.Gdi.HDC = Graphics.Gdi.HDC(),
+    public var hDC: HDC = 0L,
     public var ServerName: UShortArray = UShortArray(16),
 ) {
     override fun equals(other: Any?): Boolean {
@@ -111,7 +116,7 @@ public class FAX_COVERPAGE_INFOA(
     public var SdrOfficePhone: PCSTR = 0L,
     public var Note: PCSTR = 0L,
     public var Subject: PCSTR = 0L,
-    public var TimeSent: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var TimeSent: SYSTEMTIME = SYSTEMTIME(),
     public var PageCount: UInt = 0u,
 )
 
@@ -143,7 +148,7 @@ public class FAX_COVERPAGE_INFOW(
     public var SdrOfficePhone: PCWSTR = 0L,
     public var Note: PCWSTR = 0L,
     public var Subject: PCWSTR = 0L,
-    public var TimeSent: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var TimeSent: SYSTEMTIME = SYSTEMTIME(),
     public var PageCount: UInt = 0u,
 )
 
@@ -161,10 +166,10 @@ public class FAX_DEVICE_STATUSA(
     public var SenderName: PCSTR = 0L,
     public var RecipientName: PCSTR = 0L,
     public var Size: UInt = 0u,
-    public var StartTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var StartTime: FILETIME = FILETIME(),
     public var Status: UInt = 0u,
     public var StatusString: PCSTR = 0L,
-    public var SubmittedTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var SubmittedTime: FILETIME = FILETIME(),
     public var TotalPages: UInt = 0u,
     public var Tsid: PCSTR = 0L,
     public var UserName: PCSTR = 0L,
@@ -184,10 +189,10 @@ public class FAX_DEVICE_STATUSW(
     public var SenderName: PCWSTR = 0L,
     public var RecipientName: PCWSTR = 0L,
     public var Size: UInt = 0u,
-    public var StartTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var StartTime: FILETIME = FILETIME(),
     public var Status: UInt = 0u,
     public var StatusString: PCWSTR = 0L,
-    public var SubmittedTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var SubmittedTime: FILETIME = FILETIME(),
     public var TotalPages: UInt = 0u,
     public var Tsid: PCWSTR = 0L,
     public var UserName: PCWSTR = 0L,
@@ -235,7 +240,7 @@ public data class FAX_DEV_STATUS(
 
 public data class FAX_EVENTA(
     public var SizeOfStruct: UInt = 0u,
-    public var TimeStamp: Foundation.FILETIME = Foundation.FILETIME(),
+    public var TimeStamp: FILETIME = FILETIME(),
     public var DeviceId: UInt = 0u,
     public var EventId: UInt = 0u,
     public var JobId: UInt = 0u,
@@ -243,7 +248,7 @@ public data class FAX_EVENTA(
 
 public data class FAX_EVENTW(
     public var SizeOfStruct: UInt = 0u,
-    public var TimeStamp: Foundation.FILETIME = Foundation.FILETIME(),
+    public var TimeStamp: FILETIME = FILETIME(),
     public var DeviceId: UInt = 0u,
     public var EventId: UInt = 0u,
     public var JobId: UInt = 0u,
@@ -286,7 +291,7 @@ public class FAX_JOB_ENTRYA(
     public var SenderDept: PCSTR = 0L,
     public var BillingCode: PCSTR = 0L,
     public var ScheduleAction: UInt = 0u,
-    public var ScheduleTime: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var ScheduleTime: SYSTEMTIME = SYSTEMTIME(),
     public var DeliveryReportType: UInt = 0u,
     public var DeliveryReportAddress: PCSTR = 0L,
     public var DocumentName: PCSTR = 0L,
@@ -309,7 +314,7 @@ public class FAX_JOB_ENTRYW(
     public var SenderDept: PCWSTR = 0L,
     public var BillingCode: PCWSTR = 0L,
     public var ScheduleAction: UInt = 0u,
-    public var ScheduleTime: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var ScheduleTime: SYSTEMTIME = SYSTEMTIME(),
     public var DeliveryReportType: UInt = 0u,
     public var DeliveryReportAddress: PCWSTR = 0L,
     public var DocumentName: PCWSTR = 0L,
@@ -325,7 +330,7 @@ public data class FAX_JOB_PARAMA(
     public var SenderDept: PCSTR = 0L,
     public var BillingCode: PCSTR = 0L,
     public var ScheduleAction: UInt = 0u,
-    public var ScheduleTime: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var ScheduleTime: SYSTEMTIME = SYSTEMTIME(),
     public var DeliveryReportType: UInt = 0u,
     public var DeliveryReportAddress: PCSTR = 0L,
     public var DocumentName: PCSTR = 0L,
@@ -383,7 +388,7 @@ public data class FAX_JOB_PARAMW(
     public var SenderDept: PCWSTR = 0L,
     public var BillingCode: PCWSTR = 0L,
     public var ScheduleAction: UInt = 0u,
-    public var ScheduleTime: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var ScheduleTime: SYSTEMTIME = SYSTEMTIME(),
     public var DeliveryReportType: UInt = 0u,
     public var DeliveryReportAddress: PCWSTR = 0L,
     public var DocumentName: PCWSTR = 0L,
@@ -642,8 +647,8 @@ public data class STISUBSCRIBE(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
     public var dwFilter: UInt = 0u,
-    public var hWndNotify: Foundation.HWND = Foundation.HWND(),
-    public var hEvent: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hWndNotify: HWND = 0L,
+    public var hEvent: HANDLE = 0L,
     public var uiNotificationMessage: UInt = 0u,
 )
 

@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.s
@@ -426,10 +427,10 @@ public val STORAGE_FIRMWARE_INFO_STRUCTURE_VERSION_V2: UInt = 2u
 
 public val STORAGE_FIRMWARE_SLOT_INFO_V2_REVISION_LENGTH: UInt = 16u
 
-public val ScsiRawInterfaceGuid: GUID = GUID.from_u128(0x53f56309b6bf11d0uL, 0x94f200a0c91efb8buL)
+public val ScsiRawInterfaceGuid: GUID = GUID.from_u128(U128(0x53f56309b6bf11d0uL, 0x94f200a0c91efb8buL))
 
 public val TargetAlias: TARGET_INFORMATION_CLASS = 1
 
 public val TargetFlags: TARGET_INFORMATION_CLASS = 6
 
-public val WmiScsiAddressGuid: GUID = GUID.from_u128(0x53f5630fb6bf11d0uL, 0x94f200a0c91efb8buL)
+public val WmiScsiAddressGuid: GUID = GUID.from_u128(U128(0x53f5630fb6bf11d0uL, 0x94f200a0c91efb8buL))

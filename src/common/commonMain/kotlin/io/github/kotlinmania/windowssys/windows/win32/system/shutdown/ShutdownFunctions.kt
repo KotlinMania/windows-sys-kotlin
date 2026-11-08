@@ -5,6 +5,7 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
 
 public fun AbortSystemShutdownA(lpmachinename: PCSTR): BOOL {
     return Win32DynamicFfi.invoke("advapi32.dll", "AbortSystemShutdownA", longArrayOf(lpmachinename)).toInt()
@@ -50,14 +51,14 @@ public fun LockWorkStation(): BOOL {
     return Win32DynamicFfi.invoke("user32.dll", "LockWorkStation", longArrayOf()).toInt()
 }
 
-public fun ShutdownBlockReasonCreate(hwnd: Foundation.HWND, pwszreason: PCWSTR): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "ShutdownBlockReasonCreate", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), pwszreason)).toInt()
+public fun ShutdownBlockReasonCreate(hwnd: HWND, pwszreason: PCWSTR): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "ShutdownBlockReasonCreate", longArrayOf(hwnd, pwszreason)).toInt()
 }
 
-public fun ShutdownBlockReasonDestroy(hwnd: Foundation.HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "ShutdownBlockReasonDestroy", longArrayOf(Win32DynamicFfi.objectSlot(hwnd))).toInt()
+public fun ShutdownBlockReasonDestroy(hwnd: HWND): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "ShutdownBlockReasonDestroy", longArrayOf(hwnd)).toInt()
 }
 
-public fun ShutdownBlockReasonQuery(hwnd: Foundation.HWND, pwszbuff: PWSTR, pcchbuff: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "ShutdownBlockReasonQuery", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), pwszbuff, pcchbuff)).toInt()
+public fun ShutdownBlockReasonQuery(hwnd: HWND, pwszbuff: PWSTR, pcchbuff: Long): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "ShutdownBlockReasonQuery", longArrayOf(hwnd, pwszbuff, pcchbuff)).toInt()
 }

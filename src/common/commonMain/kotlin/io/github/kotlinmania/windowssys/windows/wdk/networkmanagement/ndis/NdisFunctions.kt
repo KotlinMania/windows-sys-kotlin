@@ -1,17 +1,19 @@
 package io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis
 
 import io.github.kotlinmania.windowssys.Win32DynamicFfi
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.windows.win32.foundation.UNICODE_STRING
 
 public fun interface FnCallback {
     public operator fun invoke()
 }
 
 public fun interface FnCallback1 {
-    public operator fun invoke(devicename: Long, tdihandle: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(devicename: Long, tdihandle: Long): NTSTATUS
 }
 
 public fun interface FnCallback2 {
-    public operator fun invoke(uppercomponent: Long, lowercomponent: Long, bindlist: Long, reconfigbuffer: Long, reconfigbuffersize: UInt, operation: UInt): Win32.Foundation.NTSTATUS
+    public operator fun invoke(uppercomponent: Long, lowercomponent: Long, bindlist: Long, reconfigbuffer: Long, reconfigbuffersize: UInt, operation: UInt): NTSTATUS
 }
 
 public fun NdisAcquireReadWriteLock(lock: Long, fwrite: Boolean, lockstate: Long) {
@@ -46,8 +48,8 @@ public fun NdisClDropParty(ndispartyhandle: Long, buffer: Long, size: UInt): Int
     return Win32DynamicFfi.invoke("ndis.sys", "NdisClDropParty", longArrayOf(ndispartyhandle, buffer, size.toLong())).toInt()
 }
 
-public fun NdisClGetProtocolVcContextFromTapiCallId(tapicallid: Win32.Foundation.UNICODE_STRING, protocolvccontext: Long): Int {
-    return Win32DynamicFfi.invoke("ndis.sys", "NdisClGetProtocolVcContextFromTapiCallId", longArrayOf(Win32DynamicFfi.objectSlot(tapicallid), protocolvccontext)).toInt()
+public fun NdisClGetProtocolVcContextFromTapiCallId(tapicallid: UNICODE_STRING, protocolvccontext: Long): Int {
+    return Win32DynamicFfi.invoke("ndis.sys", "NdisClGetProtocolVcContextFromTapiCallId", longArrayOf(run { val buf = ByteArray(16); buf[0] = (tapicallid.Length.toInt() and 0xFF).toByte(); buf[1] = ((tapicallid.Length.toInt() ushr 8) and 0xFF).toByte(); buf[2] = (tapicallid.MaximumLength.toInt() and 0xFF).toByte(); buf[3] = ((tapicallid.MaximumLength.toInt() ushr 8) and 0xFF).toByte(); buf[8] = (tapicallid.Buffer and 0xFF).toByte(); buf[9] = ((tapicallid.Buffer ushr 8) and 0xFF).toByte(); buf[10] = ((tapicallid.Buffer ushr 16) and 0xFF).toByte(); buf[11] = ((tapicallid.Buffer ushr 24) and 0xFF).toByte(); buf[12] = ((tapicallid.Buffer ushr 32) and 0xFF).toByte(); buf[13] = ((tapicallid.Buffer ushr 40) and 0xFF).toByte(); buf[14] = ((tapicallid.Buffer ushr 48) and 0xFF).toByte(); buf[15] = ((tapicallid.Buffer ushr 56) and 0xFF).toByte(); val ptr = Win32DynamicFfi.allocZeroed(16); Win32DynamicFfi.writeBytes(ptr, buf); ptr }, protocolvccontext)).toInt()
 }
 
 public fun NdisClIncomingCallComplete(status: Int, ndisvchandle: Long, callparameters: Long) {

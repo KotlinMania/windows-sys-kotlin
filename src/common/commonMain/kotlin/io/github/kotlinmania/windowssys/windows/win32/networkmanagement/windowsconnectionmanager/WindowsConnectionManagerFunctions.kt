@@ -4,6 +4,7 @@ import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 
 public fun interface FnCallback {
     public operator fun invoke(param0: Long)
@@ -25,8 +26,8 @@ public fun OnDemandRegisterNotification(callback: ONDEMAND_NOTIFICATION_CALLBACK
     return Win32DynamicFfi.invoke("ondemandconnroutehelper.dll", "OnDemandRegisterNotification", longArrayOf(Win32DynamicFfi.objectSlot(callback), callbackcontext, registrationhandle)).toInt()
 }
 
-public fun OnDemandUnRegisterNotification(registrationhandle: Foundation.HANDLE): HRESULT {
-    return Win32DynamicFfi.invoke("ondemandconnroutehelper.dll", "OnDemandUnRegisterNotification", longArrayOf(Win32DynamicFfi.objectSlot(registrationhandle))).toInt()
+public fun OnDemandUnRegisterNotification(registrationhandle: HANDLE): HRESULT {
+    return Win32DynamicFfi.invoke("ondemandconnroutehelper.dll", "OnDemandUnRegisterNotification", longArrayOf(registrationhandle)).toInt()
 }
 
 public fun WcmFreeMemory(pmemory: Long) {

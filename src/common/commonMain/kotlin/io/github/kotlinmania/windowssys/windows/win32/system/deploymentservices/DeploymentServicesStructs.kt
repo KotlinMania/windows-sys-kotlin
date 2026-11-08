@@ -4,6 +4,8 @@ package io.github.kotlinmania.windowssys.windows.win32.system.deploymentservices
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.HKEY
 
 public data class PXE_ADDRESS(
     public var uFlags: UInt = 0u,
@@ -253,8 +255,8 @@ public data class WDS_TRANSPORTCLIENT_REQUEST(
 public data class WDS_TRANSPORTPROVIDER_INIT_PARAMS(
     public var ulLength: UInt = 0u,
     public var ulMcServerVersion: UInt = 0u,
-    public var hRegistryKey: Registry.HKEY = Registry.HKEY(),
-    public var hProvider: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hRegistryKey: HKEY = 0L,
+    public var hProvider: HANDLE = 0L,
 )
 
 public data class WDS_TRANSPORTPROVIDER_SETTINGS(public var ulLength: UInt = 0u, public var ulProviderVersion: UInt = 0u)

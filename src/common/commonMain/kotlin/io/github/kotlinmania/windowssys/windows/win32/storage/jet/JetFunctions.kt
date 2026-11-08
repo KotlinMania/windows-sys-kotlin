@@ -3,25 +3,28 @@ package io.github.kotlinmania.windowssys.windows.win32.storage.jet
 import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.storage.structuredstorage.JET_API_PTR
+import io.github.kotlinmania.windowssys.windows.win32.storage.structuredstorage.JET_HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.storage.structuredstorage.JET_TABLEID
 
 public fun interface FnCallback {
     public operator fun invoke(sesid: JET_SESID, snp: UInt, snt: UInt, pv: Long): Int
 }
 
 public fun interface FnCallback1 {
-    public operator fun invoke(sesid: JET_SESID, dbid: UInt, tableid: StructuredStorage.JET_TABLEID, cbtyp: UInt, pvarg1: Long, pvarg2: Long, pvcontext: Long, ulunused: StructuredStorage.JET_API_PTR): Int
+    public operator fun invoke(sesid: JET_SESID, dbid: UInt, tableid: JET_TABLEID, cbtyp: UInt, pvarg1: Long, pvarg2: Long, pvcontext: Long, ulunused: JET_API_PTR): Int
 }
 
 public fun interface FnCallback2 {
     public operator fun invoke(pvcontext: Long, pv: Long, cb: UInt): Long
 }
 
-public fun JetAddColumnA(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, szcolumnname: Long, pcolumndef: Long, pvdefault: Long, cbdefault: UInt, pcolumnid: Long): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetAddColumnA", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), szcolumnname, pcolumndef, pvdefault, cbdefault.toLong(), pcolumnid)).toInt()
+public fun JetAddColumnA(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: Long, pcolumndef: Long, pvdefault: Long, cbdefault: UInt, pcolumnid: Long): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetAddColumnA", longArrayOf(sesid.toLong(), tableid.toLong(), szcolumnname, pcolumndef, pvdefault, cbdefault.toLong(), pcolumnid)).toInt()
 }
 
-public fun JetAddColumnW(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, szcolumnname: Long, pcolumndef: Long, pvdefault: Long, cbdefault: UInt, pcolumnid: Long): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetAddColumnW", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), szcolumnname, pcolumndef, pvdefault, cbdefault.toLong(), pcolumnid)).toInt()
+public fun JetAddColumnW(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: Long, pcolumndef: Long, pvdefault: Long, cbdefault: UInt, pcolumnid: Long): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetAddColumnW", longArrayOf(sesid.toLong(), tableid.toLong(), szcolumnname, pcolumndef, pvdefault, cbdefault.toLong(), pcolumnid)).toInt()
 }
 
 public fun JetAttachDatabase2A(sesid: JET_SESID, szfilename: Long, cpgdatabasesizemax: UInt, grbit: UInt): Int {
@@ -88,16 +91,16 @@ public fun JetCloseDatabase(sesid: JET_SESID, dbid: UInt, grbit: UInt): Int {
     return Win32DynamicFfi.invoke("esent.dll", "JetCloseDatabase", longArrayOf(sesid.toLong(), dbid.toLong(), grbit.toLong())).toInt()
 }
 
-public fun JetCloseFile(hffile: StructuredStorage.JET_HANDLE): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetCloseFile", longArrayOf(Win32DynamicFfi.objectSlot(hffile))).toInt()
+public fun JetCloseFile(hffile: JET_HANDLE): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetCloseFile", longArrayOf(hffile.toLong())).toInt()
 }
 
-public fun JetCloseFileInstance(instance: JET_INSTANCE, hffile: StructuredStorage.JET_HANDLE): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetCloseFileInstance", longArrayOf(instance.toLong(), Win32DynamicFfi.objectSlot(hffile))).toInt()
+public fun JetCloseFileInstance(instance: JET_INSTANCE, hffile: JET_HANDLE): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetCloseFileInstance", longArrayOf(instance.toLong(), hffile.toLong())).toInt()
 }
 
-public fun JetCloseTable(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetCloseTable", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid))).toInt()
+public fun JetCloseTable(sesid: JET_SESID, tableid: JET_TABLEID): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetCloseTable", longArrayOf(sesid.toLong(), tableid.toLong())).toInt()
 }
 
 public fun JetCommitTransaction(sesid: JET_SESID, grbit: UInt): Int {
@@ -116,8 +119,8 @@ public fun JetCompactW(sesid: JET_SESID, szdatabasesrc: Long, szdatabasedest: Lo
     return Win32DynamicFfi.invoke("esent.dll", "JetCompactW", longArrayOf(sesid.toLong(), szdatabasesrc, szdatabasedest, Win32DynamicFfi.objectSlot(pfnstatus), pconvert, grbit.toLong())).toInt()
 }
 
-public fun JetComputeStats(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetComputeStats", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid))).toInt()
+public fun JetComputeStats(sesid: JET_SESID, tableid: JET_TABLEID): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetComputeStats", longArrayOf(sesid.toLong(), tableid.toLong())).toInt()
 }
 
 public fun JetConfigureProcessForCrashDump(grbit: UInt): Int {
@@ -140,36 +143,36 @@ public fun JetCreateDatabaseW(sesid: JET_SESID, szfilename: Long, szconnect: Lon
     return Win32DynamicFfi.invoke("esent.dll", "JetCreateDatabaseW", longArrayOf(sesid.toLong(), szfilename, szconnect, pdbid, grbit.toLong())).toInt()
 }
 
-public fun JetCreateIndex2A(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, pindexcreate: Long, cindexcreate: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetCreateIndex2A", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), pindexcreate, cindexcreate.toLong())).toInt()
+public fun JetCreateIndex2A(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: Long, cindexcreate: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetCreateIndex2A", longArrayOf(sesid.toLong(), tableid.toLong(), pindexcreate, cindexcreate.toLong())).toInt()
 }
 
-public fun JetCreateIndex2W(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, pindexcreate: Long, cindexcreate: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetCreateIndex2W", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), pindexcreate, cindexcreate.toLong())).toInt()
+public fun JetCreateIndex2W(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: Long, cindexcreate: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetCreateIndex2W", longArrayOf(sesid.toLong(), tableid.toLong(), pindexcreate, cindexcreate.toLong())).toInt()
 }
 
-public fun JetCreateIndex3A(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, pindexcreate: Long, cindexcreate: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetCreateIndex3A", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), pindexcreate, cindexcreate.toLong())).toInt()
+public fun JetCreateIndex3A(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: Long, cindexcreate: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetCreateIndex3A", longArrayOf(sesid.toLong(), tableid.toLong(), pindexcreate, cindexcreate.toLong())).toInt()
 }
 
-public fun JetCreateIndex3W(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, pindexcreate: Long, cindexcreate: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetCreateIndex3W", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), pindexcreate, cindexcreate.toLong())).toInt()
+public fun JetCreateIndex3W(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: Long, cindexcreate: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetCreateIndex3W", longArrayOf(sesid.toLong(), tableid.toLong(), pindexcreate, cindexcreate.toLong())).toInt()
 }
 
-public fun JetCreateIndex4A(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, pindexcreate: Long, cindexcreate: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetCreateIndex4A", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), pindexcreate, cindexcreate.toLong())).toInt()
+public fun JetCreateIndex4A(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: Long, cindexcreate: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetCreateIndex4A", longArrayOf(sesid.toLong(), tableid.toLong(), pindexcreate, cindexcreate.toLong())).toInt()
 }
 
-public fun JetCreateIndex4W(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, pindexcreate: Long, cindexcreate: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetCreateIndex4W", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), pindexcreate, cindexcreate.toLong())).toInt()
+public fun JetCreateIndex4W(sesid: JET_SESID, tableid: JET_TABLEID, pindexcreate: Long, cindexcreate: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetCreateIndex4W", longArrayOf(sesid.toLong(), tableid.toLong(), pindexcreate, cindexcreate.toLong())).toInt()
 }
 
-public fun JetCreateIndexA(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, szindexname: Long, grbit: UInt, szkey: PCSTR, cbkey: UInt, ldensity: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetCreateIndexA", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), szindexname, grbit.toLong(), szkey, cbkey.toLong(), ldensity.toLong())).toInt()
+public fun JetCreateIndexA(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long, grbit: UInt, szkey: PCSTR, cbkey: UInt, ldensity: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetCreateIndexA", longArrayOf(sesid.toLong(), tableid.toLong(), szindexname, grbit.toLong(), szkey, cbkey.toLong(), ldensity.toLong())).toInt()
 }
 
-public fun JetCreateIndexW(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, szindexname: Long, grbit: UInt, szkey: PCWSTR, cbkey: UInt, ldensity: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetCreateIndexW", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), szindexname, grbit.toLong(), szkey, cbkey.toLong(), ldensity.toLong())).toInt()
+public fun JetCreateIndexW(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long, grbit: UInt, szkey: PCWSTR, cbkey: UInt, ldensity: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetCreateIndexW", longArrayOf(sesid.toLong(), tableid.toLong(), szindexname, grbit.toLong(), szkey, cbkey.toLong(), ldensity.toLong())).toInt()
 }
 
 public fun JetCreateInstance2A(pinstance: Long, szinstancename: Long, szdisplayname: Long, grbit: UInt): Int {
@@ -252,32 +255,32 @@ public fun JetDefragmentW(sesid: JET_SESID, dbid: UInt, sztablename: Long, pcpas
     return Win32DynamicFfi.invoke("esent.dll", "JetDefragmentW", longArrayOf(sesid.toLong(), dbid.toLong(), sztablename, pcpasses, pcseconds, grbit.toLong())).toInt()
 }
 
-public fun JetDelete(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetDelete", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid))).toInt()
+public fun JetDelete(sesid: JET_SESID, tableid: JET_TABLEID): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetDelete", longArrayOf(sesid.toLong(), tableid.toLong())).toInt()
 }
 
-public fun JetDeleteColumn2A(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, szcolumnname: Long, grbit: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetDeleteColumn2A", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), szcolumnname, grbit.toLong())).toInt()
+public fun JetDeleteColumn2A(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: Long, grbit: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetDeleteColumn2A", longArrayOf(sesid.toLong(), tableid.toLong(), szcolumnname, grbit.toLong())).toInt()
 }
 
-public fun JetDeleteColumn2W(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, szcolumnname: Long, grbit: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetDeleteColumn2W", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), szcolumnname, grbit.toLong())).toInt()
+public fun JetDeleteColumn2W(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: Long, grbit: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetDeleteColumn2W", longArrayOf(sesid.toLong(), tableid.toLong(), szcolumnname, grbit.toLong())).toInt()
 }
 
-public fun JetDeleteColumnA(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, szcolumnname: Long): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetDeleteColumnA", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), szcolumnname)).toInt()
+public fun JetDeleteColumnA(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: Long): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetDeleteColumnA", longArrayOf(sesid.toLong(), tableid.toLong(), szcolumnname)).toInt()
 }
 
-public fun JetDeleteColumnW(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, szcolumnname: Long): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetDeleteColumnW", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), szcolumnname)).toInt()
+public fun JetDeleteColumnW(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: Long): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetDeleteColumnW", longArrayOf(sesid.toLong(), tableid.toLong(), szcolumnname)).toInt()
 }
 
-public fun JetDeleteIndexA(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, szindexname: Long): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetDeleteIndexA", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), szindexname)).toInt()
+public fun JetDeleteIndexA(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetDeleteIndexA", longArrayOf(sesid.toLong(), tableid.toLong(), szindexname)).toInt()
 }
 
-public fun JetDeleteIndexW(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, szindexname: Long): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetDeleteIndexW", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), szindexname)).toInt()
+public fun JetDeleteIndexW(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetDeleteIndexW", longArrayOf(sesid.toLong(), tableid.toLong(), szindexname)).toInt()
 }
 
 public fun JetDeleteTableA(sesid: JET_SESID, dbid: UInt, sztablename: Long): Int {
@@ -304,8 +307,8 @@ public fun JetDetachDatabaseW(sesid: JET_SESID, szfilename: Long): Int {
     return Win32DynamicFfi.invoke("esent.dll", "JetDetachDatabaseW", longArrayOf(sesid.toLong(), szfilename)).toInt()
 }
 
-public fun JetDupCursor(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, ptableid: Long, grbit: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetDupCursor", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), ptableid, grbit.toLong())).toInt()
+public fun JetDupCursor(sesid: JET_SESID, tableid: JET_TABLEID, ptableid: Long, grbit: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetDupCursor", longArrayOf(sesid.toLong(), tableid.toLong(), ptableid, grbit.toLong())).toInt()
 }
 
 public fun JetDupSession(sesid: JET_SESID, psesid: Long): Int {
@@ -336,12 +339,12 @@ public fun JetEndSession(sesid: JET_SESID, grbit: UInt): Int {
     return Win32DynamicFfi.invoke("esent.dll", "JetEndSession", longArrayOf(sesid.toLong(), grbit.toLong())).toInt()
 }
 
-public fun JetEnumerateColumns(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, cenumcolumnid: UInt, rgenumcolumnid: Long, pcenumcolumn: Long, prgenumcolumn: Long, pfnrealloc: JET_PFNREALLOC, pvrealloccontext: Long, cbdatamost: UInt, grbit: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetEnumerateColumns", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), cenumcolumnid.toLong(), rgenumcolumnid, pcenumcolumn, prgenumcolumn, Win32DynamicFfi.objectSlot(pfnrealloc), pvrealloccontext, cbdatamost.toLong(), grbit.toLong())).toInt()
+public fun JetEnumerateColumns(sesid: JET_SESID, tableid: JET_TABLEID, cenumcolumnid: UInt, rgenumcolumnid: Long, pcenumcolumn: Long, prgenumcolumn: Long, pfnrealloc: JET_PFNREALLOC, pvrealloccontext: Long, cbdatamost: UInt, grbit: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetEnumerateColumns", longArrayOf(sesid.toLong(), tableid.toLong(), cenumcolumnid.toLong(), rgenumcolumnid, pcenumcolumn, prgenumcolumn, Win32DynamicFfi.objectSlot(pfnrealloc), pvrealloccontext, cbdatamost.toLong(), grbit.toLong())).toInt()
 }
 
-public fun JetEscrowUpdate(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, columnid: UInt, pv: Long, cbmax: UInt, pvold: Long, cboldmax: UInt, pcboldactual: Long, grbit: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetEscrowUpdate", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), columnid.toLong(), pv, cbmax.toLong(), pvold, cboldmax.toLong(), pcboldactual, grbit.toLong())).toInt()
+public fun JetEscrowUpdate(sesid: JET_SESID, tableid: JET_TABLEID, columnid: UInt, pv: Long, cbmax: UInt, pvold: Long, cboldmax: UInt, pcboldactual: Long, grbit: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetEscrowUpdate", longArrayOf(sesid.toLong(), tableid.toLong(), columnid.toLong(), pv, cbmax.toLong(), pvold, cboldmax.toLong(), pcboldactual, grbit.toLong())).toInt()
 }
 
 public fun JetExternalRestore2A(szcheckpointfilepath: Long, szlogpath: Long, rgrstmap: Long, crstfilemap: Int, szbackuplogpath: Long, ploginfo: Long, sztargetinstancename: Long, sztargetinstancelogpath: Long, sztargetinstancecheckpointpath: Long, pfn: JET_PFNSTATUS): Int {
@@ -380,8 +383,8 @@ public fun JetGetAttachInfoW(wszzdatabases: Long, cbmax: UInt, pcbactual: Long):
     return Win32DynamicFfi.invoke("esent.dll", "JetGetAttachInfoW", longArrayOf(wszzdatabases, cbmax.toLong(), pcbactual)).toInt()
 }
 
-public fun JetGetBookmark(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, pvbookmark: Long, cbmax: UInt, pcbactual: Long): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetGetBookmark", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), pvbookmark, cbmax.toLong(), pcbactual)).toInt()
+public fun JetGetBookmark(sesid: JET_SESID, tableid: JET_TABLEID, pvbookmark: Long, cbmax: UInt, pcbactual: Long): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetGetBookmark", longArrayOf(sesid.toLong(), tableid.toLong(), pvbookmark, cbmax.toLong(), pcbactual)).toInt()
 }
 
 public fun JetGetColumnInfoA(sesid: JET_SESID, dbid: UInt, sztablename: Long, pcolumnnameorid: Long, pvresult: Long, cbmax: UInt, infolevel: UInt): Int {
@@ -392,16 +395,16 @@ public fun JetGetColumnInfoW(sesid: JET_SESID, dbid: UInt, sztablename: Long, pw
     return Win32DynamicFfi.invoke("esent.dll", "JetGetColumnInfoW", longArrayOf(sesid.toLong(), dbid.toLong(), sztablename, pwcolumnnameorid, pvresult, cbmax.toLong(), infolevel.toLong())).toInt()
 }
 
-public fun JetGetCurrentIndexA(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, szindexname: Long, cbindexname: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetGetCurrentIndexA", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), szindexname, cbindexname.toLong())).toInt()
+public fun JetGetCurrentIndexA(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long, cbindexname: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetGetCurrentIndexA", longArrayOf(sesid.toLong(), tableid.toLong(), szindexname, cbindexname.toLong())).toInt()
 }
 
-public fun JetGetCurrentIndexW(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, szindexname: Long, cbindexname: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetGetCurrentIndexW", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), szindexname, cbindexname.toLong())).toInt()
+public fun JetGetCurrentIndexW(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long, cbindexname: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetGetCurrentIndexW", longArrayOf(sesid.toLong(), tableid.toLong(), szindexname, cbindexname.toLong())).toInt()
 }
 
-public fun JetGetCursorInfo(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, pvresult: Long, cbmax: UInt, infolevel: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetGetCursorInfo", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), pvresult, cbmax.toLong(), infolevel.toLong())).toInt()
+public fun JetGetCursorInfo(sesid: JET_SESID, tableid: JET_TABLEID, pvresult: Long, cbmax: UInt, infolevel: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetGetCursorInfo", longArrayOf(sesid.toLong(), tableid.toLong(), pvresult, cbmax.toLong(), infolevel.toLong())).toInt()
 }
 
 public fun JetGetDatabaseFileInfoA(szdatabasename: Long, pvresult: Long, cbmax: UInt, infolevel: UInt): Int {
@@ -444,12 +447,12 @@ public fun JetGetInstanceMiscInfo(instance: JET_INSTANCE, pvresult: Long, cbmax:
     return Win32DynamicFfi.invoke("esent.dll", "JetGetInstanceMiscInfo", longArrayOf(instance.toLong(), pvresult, cbmax.toLong(), infolevel.toLong())).toInt()
 }
 
-public fun JetGetLS(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, pls: Long, grbit: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetGetLS", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), pls, grbit.toLong())).toInt()
+public fun JetGetLS(sesid: JET_SESID, tableid: JET_TABLEID, pls: Long, grbit: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetGetLS", longArrayOf(sesid.toLong(), tableid.toLong(), pls, grbit.toLong())).toInt()
 }
 
-public fun JetGetLock(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, grbit: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetGetLock", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), grbit.toLong())).toInt()
+public fun JetGetLock(sesid: JET_SESID, tableid: JET_TABLEID, grbit: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetGetLock", longArrayOf(sesid.toLong(), tableid.toLong(), grbit.toLong())).toInt()
 }
 
 public fun JetGetLogInfoA(szzlogs: Long, cbmax: UInt, pcbactual: Long): Int {
@@ -484,20 +487,20 @@ public fun JetGetObjectInfoW(sesid: JET_SESID, dbid: UInt, objtyp: UInt, szconta
     return Win32DynamicFfi.invoke("esent.dll", "JetGetObjectInfoW", longArrayOf(sesid.toLong(), dbid.toLong(), objtyp.toLong(), szcontainername, szobjectname, pvresult, cbmax.toLong(), infolevel.toLong())).toInt()
 }
 
-public fun JetGetRecordPosition(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, precpos: Long, cbrecpos: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetGetRecordPosition", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), precpos, cbrecpos.toLong())).toInt()
+public fun JetGetRecordPosition(sesid: JET_SESID, tableid: JET_TABLEID, precpos: Long, cbrecpos: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetGetRecordPosition", longArrayOf(sesid.toLong(), tableid.toLong(), precpos, cbrecpos.toLong())).toInt()
 }
 
-public fun JetGetRecordSize(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, precsize: Long, grbit: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetGetRecordSize", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), precsize, grbit.toLong())).toInt()
+public fun JetGetRecordSize(sesid: JET_SESID, tableid: JET_TABLEID, precsize: Long, grbit: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetGetRecordSize", longArrayOf(sesid.toLong(), tableid.toLong(), precsize, grbit.toLong())).toInt()
 }
 
-public fun JetGetRecordSize2(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, precsize: Long, grbit: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetGetRecordSize2", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), precsize, grbit.toLong())).toInt()
+public fun JetGetRecordSize2(sesid: JET_SESID, tableid: JET_TABLEID, precsize: Long, grbit: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetGetRecordSize2", longArrayOf(sesid.toLong(), tableid.toLong(), precsize, grbit.toLong())).toInt()
 }
 
-public fun JetGetSecondaryIndexBookmark(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, pvsecondarykey: Long, cbsecondarykeymax: UInt, pcbsecondarykeyactual: Long, pvprimarybookmark: Long, cbprimarybookmarkmax: UInt, pcbprimarybookmarkactual: Long, grbit: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetGetSecondaryIndexBookmark", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), pvsecondarykey, cbsecondarykeymax.toLong(), pcbsecondarykeyactual, pvprimarybookmark, cbprimarybookmarkmax.toLong(), pcbprimarybookmarkactual, grbit.toLong())).toInt()
+public fun JetGetSecondaryIndexBookmark(sesid: JET_SESID, tableid: JET_TABLEID, pvsecondarykey: Long, cbsecondarykeymax: UInt, pcbsecondarykeyactual: Long, pvprimarybookmark: Long, cbprimarybookmarkmax: UInt, pcbprimarybookmarkactual: Long, grbit: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetGetSecondaryIndexBookmark", longArrayOf(sesid.toLong(), tableid.toLong(), pvsecondarykey, cbsecondarykeymax.toLong(), pcbsecondarykeyactual, pvprimarybookmark, cbprimarybookmarkmax.toLong(), pcbprimarybookmarkactual, grbit.toLong())).toInt()
 }
 
 public fun JetGetSessionParameter(sesid: JET_SESID, sesparamid: UInt, pvparam: Long, cbparammax: UInt, pcbparamactual: Long): Int {
@@ -512,28 +515,28 @@ public fun JetGetSystemParameterW(instance: JET_INSTANCE, sesid: JET_SESID, para
     return Win32DynamicFfi.invoke("esent.dll", "JetGetSystemParameterW", longArrayOf(instance.toLong(), sesid.toLong(), paramid.toLong(), plparam, szparam, cbmax.toLong())).toInt()
 }
 
-public fun JetGetTableColumnInfoA(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, szcolumnname: Long, pvresult: Long, cbmax: UInt, infolevel: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetGetTableColumnInfoA", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), szcolumnname, pvresult, cbmax.toLong(), infolevel.toLong())).toInt()
+public fun JetGetTableColumnInfoA(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: Long, pvresult: Long, cbmax: UInt, infolevel: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetGetTableColumnInfoA", longArrayOf(sesid.toLong(), tableid.toLong(), szcolumnname, pvresult, cbmax.toLong(), infolevel.toLong())).toInt()
 }
 
-public fun JetGetTableColumnInfoW(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, szcolumnname: Long, pvresult: Long, cbmax: UInt, infolevel: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetGetTableColumnInfoW", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), szcolumnname, pvresult, cbmax.toLong(), infolevel.toLong())).toInt()
+public fun JetGetTableColumnInfoW(sesid: JET_SESID, tableid: JET_TABLEID, szcolumnname: Long, pvresult: Long, cbmax: UInt, infolevel: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetGetTableColumnInfoW", longArrayOf(sesid.toLong(), tableid.toLong(), szcolumnname, pvresult, cbmax.toLong(), infolevel.toLong())).toInt()
 }
 
-public fun JetGetTableIndexInfoA(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, szindexname: Long, pvresult: Long, cbresult: UInt, infolevel: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetGetTableIndexInfoA", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), szindexname, pvresult, cbresult.toLong(), infolevel.toLong())).toInt()
+public fun JetGetTableIndexInfoA(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long, pvresult: Long, cbresult: UInt, infolevel: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetGetTableIndexInfoA", longArrayOf(sesid.toLong(), tableid.toLong(), szindexname, pvresult, cbresult.toLong(), infolevel.toLong())).toInt()
 }
 
-public fun JetGetTableIndexInfoW(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, szindexname: Long, pvresult: Long, cbresult: UInt, infolevel: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetGetTableIndexInfoW", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), szindexname, pvresult, cbresult.toLong(), infolevel.toLong())).toInt()
+public fun JetGetTableIndexInfoW(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long, pvresult: Long, cbresult: UInt, infolevel: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetGetTableIndexInfoW", longArrayOf(sesid.toLong(), tableid.toLong(), szindexname, pvresult, cbresult.toLong(), infolevel.toLong())).toInt()
 }
 
-public fun JetGetTableInfoA(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, pvresult: Long, cbmax: UInt, infolevel: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetGetTableInfoA", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), pvresult, cbmax.toLong(), infolevel.toLong())).toInt()
+public fun JetGetTableInfoA(sesid: JET_SESID, tableid: JET_TABLEID, pvresult: Long, cbmax: UInt, infolevel: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetGetTableInfoA", longArrayOf(sesid.toLong(), tableid.toLong(), pvresult, cbmax.toLong(), infolevel.toLong())).toInt()
 }
 
-public fun JetGetTableInfoW(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, pvresult: Long, cbmax: UInt, infolevel: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetGetTableInfoW", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), pvresult, cbmax.toLong(), infolevel.toLong())).toInt()
+public fun JetGetTableInfoW(sesid: JET_SESID, tableid: JET_TABLEID, pvresult: Long, cbmax: UInt, infolevel: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetGetTableInfoW", longArrayOf(sesid.toLong(), tableid.toLong(), pvresult, cbmax.toLong(), infolevel.toLong())).toInt()
 }
 
 public fun JetGetThreadStats(pvresult: Long, cbmax: UInt): Int {
@@ -552,16 +555,16 @@ public fun JetGetVersion(sesid: JET_SESID, pwversion: Long): Int {
     return Win32DynamicFfi.invoke("esent.dll", "JetGetVersion", longArrayOf(sesid.toLong(), pwversion)).toInt()
 }
 
-public fun JetGotoBookmark(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, pvbookmark: Long, cbbookmark: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetGotoBookmark", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), pvbookmark, cbbookmark.toLong())).toInt()
+public fun JetGotoBookmark(sesid: JET_SESID, tableid: JET_TABLEID, pvbookmark: Long, cbbookmark: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetGotoBookmark", longArrayOf(sesid.toLong(), tableid.toLong(), pvbookmark, cbbookmark.toLong())).toInt()
 }
 
-public fun JetGotoPosition(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, precpos: Long): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetGotoPosition", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), precpos)).toInt()
+public fun JetGotoPosition(sesid: JET_SESID, tableid: JET_TABLEID, precpos: Long): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetGotoPosition", longArrayOf(sesid.toLong(), tableid.toLong(), precpos)).toInt()
 }
 
-public fun JetGotoSecondaryIndexBookmark(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, pvsecondarykey: Long, cbsecondarykey: UInt, pvprimarybookmark: Long, cbprimarybookmark: UInt, grbit: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetGotoSecondaryIndexBookmark", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), pvsecondarykey, cbsecondarykey.toLong(), pvprimarybookmark, cbprimarybookmark.toLong(), grbit.toLong())).toInt()
+public fun JetGotoSecondaryIndexBookmark(sesid: JET_SESID, tableid: JET_TABLEID, pvsecondarykey: Long, cbsecondarykey: UInt, pvprimarybookmark: Long, cbprimarybookmark: UInt, grbit: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetGotoSecondaryIndexBookmark", longArrayOf(sesid.toLong(), tableid.toLong(), pvsecondarykey, cbsecondarykey.toLong(), pvprimarybookmark, cbprimarybookmark.toLong(), grbit.toLong())).toInt()
 }
 
 public fun JetGrowDatabase(sesid: JET_SESID, dbid: UInt, cpg: UInt, pcpgreal: Long): Int {
@@ -572,8 +575,8 @@ public fun JetIdle(sesid: JET_SESID, grbit: UInt): Int {
     return Win32DynamicFfi.invoke("esent.dll", "JetIdle", longArrayOf(sesid.toLong(), grbit.toLong())).toInt()
 }
 
-public fun JetIndexRecordCount(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, pcrec: Long, crecmax: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetIndexRecordCount", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), pcrec, crecmax.toLong())).toInt()
+public fun JetIndexRecordCount(sesid: JET_SESID, tableid: JET_TABLEID, pcrec: Long, crecmax: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetIndexRecordCount", longArrayOf(sesid.toLong(), tableid.toLong(), pcrec, crecmax.toLong())).toInt()
 }
 
 public fun JetInit(pinstance: Long): Int {
@@ -596,12 +599,12 @@ public fun JetIntersectIndexes(sesid: JET_SESID, rgindexrange: Long, cindexrange
     return Win32DynamicFfi.invoke("esent.dll", "JetIntersectIndexes", longArrayOf(sesid.toLong(), rgindexrange, cindexrange.toLong(), precordlist, grbit.toLong())).toInt()
 }
 
-public fun JetMakeKey(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, pvdata: Long, cbdata: UInt, grbit: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetMakeKey", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), pvdata, cbdata.toLong(), grbit.toLong())).toInt()
+public fun JetMakeKey(sesid: JET_SESID, tableid: JET_TABLEID, pvdata: Long, cbdata: UInt, grbit: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetMakeKey", longArrayOf(sesid.toLong(), tableid.toLong(), pvdata, cbdata.toLong(), grbit.toLong())).toInt()
 }
 
-public fun JetMove(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, crow: Int, grbit: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetMove", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), crow.toLong(), grbit.toLong())).toInt()
+public fun JetMove(sesid: JET_SESID, tableid: JET_TABLEID, crow: Int, grbit: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetMove", longArrayOf(sesid.toLong(), tableid.toLong(), crow.toLong(), grbit.toLong())).toInt()
 }
 
 public fun JetOSSnapshotAbort(snapid: JET_OSSNAPID, grbit: UInt): Int {
@@ -700,36 +703,36 @@ public fun JetOpenTemporaryTable2(sesid: JET_SESID, popentemporarytable: Long): 
     return Win32DynamicFfi.invoke("esent.dll", "JetOpenTemporaryTable2", longArrayOf(sesid.toLong(), popentemporarytable)).toInt()
 }
 
-public fun JetPrepareUpdate(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, prep: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetPrepareUpdate", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), prep.toLong())).toInt()
+public fun JetPrepareUpdate(sesid: JET_SESID, tableid: JET_TABLEID, prep: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetPrepareUpdate", longArrayOf(sesid.toLong(), tableid.toLong(), prep.toLong())).toInt()
 }
 
-public fun JetPrereadIndexRanges(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, rgindexranges: Long, cindexranges: UInt, pcrangespreread: Long, rgcolumnidpreread: Long, ccolumnidpreread: UInt, grbit: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetPrereadIndexRanges", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), rgindexranges, cindexranges.toLong(), pcrangespreread, rgcolumnidpreread, ccolumnidpreread.toLong(), grbit.toLong())).toInt()
+public fun JetPrereadIndexRanges(sesid: JET_SESID, tableid: JET_TABLEID, rgindexranges: Long, cindexranges: UInt, pcrangespreread: Long, rgcolumnidpreread: Long, ccolumnidpreread: UInt, grbit: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetPrereadIndexRanges", longArrayOf(sesid.toLong(), tableid.toLong(), rgindexranges, cindexranges.toLong(), pcrangespreread, rgcolumnidpreread, ccolumnidpreread.toLong(), grbit.toLong())).toInt()
 }
 
-public fun JetPrereadKeys(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, rgpvkeys: Long, rgcbkeys: Long, ckeys: Int, pckeyspreread: Long, grbit: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetPrereadKeys", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), rgpvkeys, rgcbkeys, ckeys.toLong(), pckeyspreread, grbit.toLong())).toInt()
+public fun JetPrereadKeys(sesid: JET_SESID, tableid: JET_TABLEID, rgpvkeys: Long, rgcbkeys: Long, ckeys: Int, pckeyspreread: Long, grbit: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetPrereadKeys", longArrayOf(sesid.toLong(), tableid.toLong(), rgpvkeys, rgcbkeys, ckeys.toLong(), pckeyspreread, grbit.toLong())).toInt()
 }
 
-public fun JetReadFile(hffile: StructuredStorage.JET_HANDLE, pv: Long, cb: UInt, pcbactual: Long): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetReadFile", longArrayOf(Win32DynamicFfi.objectSlot(hffile), pv, cb.toLong(), pcbactual)).toInt()
+public fun JetReadFile(hffile: JET_HANDLE, pv: Long, cb: UInt, pcbactual: Long): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetReadFile", longArrayOf(hffile.toLong(), pv, cb.toLong(), pcbactual)).toInt()
 }
 
-public fun JetReadFileInstance(instance: JET_INSTANCE, hffile: StructuredStorage.JET_HANDLE, pv: Long, cb: UInt, pcbactual: Long): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetReadFileInstance", longArrayOf(instance.toLong(), Win32DynamicFfi.objectSlot(hffile), pv, cb.toLong(), pcbactual)).toInt()
+public fun JetReadFileInstance(instance: JET_INSTANCE, hffile: JET_HANDLE, pv: Long, cb: UInt, pcbactual: Long): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetReadFileInstance", longArrayOf(instance.toLong(), hffile.toLong(), pv, cb.toLong(), pcbactual)).toInt()
 }
 
-public fun JetRegisterCallback(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, cbtyp: UInt, pcallback: JET_CALLBACK, pvcontext: Long, phcallbackid: Long): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetRegisterCallback", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), cbtyp.toLong(), Win32DynamicFfi.objectSlot(pcallback), pvcontext, phcallbackid)).toInt()
+public fun JetRegisterCallback(sesid: JET_SESID, tableid: JET_TABLEID, cbtyp: UInt, pcallback: JET_CALLBACK, pvcontext: Long, phcallbackid: Long): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetRegisterCallback", longArrayOf(sesid.toLong(), tableid.toLong(), cbtyp.toLong(), Win32DynamicFfi.objectSlot(pcallback), pvcontext, phcallbackid)).toInt()
 }
 
-public fun JetRenameColumnA(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, szname: Long, sznamenew: Long, grbit: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetRenameColumnA", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), szname, sznamenew, grbit.toLong())).toInt()
+public fun JetRenameColumnA(sesid: JET_SESID, tableid: JET_TABLEID, szname: Long, sznamenew: Long, grbit: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetRenameColumnA", longArrayOf(sesid.toLong(), tableid.toLong(), szname, sznamenew, grbit.toLong())).toInt()
 }
 
-public fun JetRenameColumnW(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, szname: Long, sznamenew: Long, grbit: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetRenameColumnW", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), szname, sznamenew, grbit.toLong())).toInt()
+public fun JetRenameColumnW(sesid: JET_SESID, tableid: JET_TABLEID, szname: Long, sznamenew: Long, grbit: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetRenameColumnW", longArrayOf(sesid.toLong(), tableid.toLong(), szname, sznamenew, grbit.toLong())).toInt()
 }
 
 public fun JetRenameTableA(sesid: JET_SESID, dbid: UInt, szname: Long, sznamenew: Long): Int {
@@ -744,8 +747,8 @@ public fun JetResetSessionContext(sesid: JET_SESID): Int {
     return Win32DynamicFfi.invoke("esent.dll", "JetResetSessionContext", longArrayOf(sesid.toLong())).toInt()
 }
 
-public fun JetResetTableSequential(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, grbit: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetResetTableSequential", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), grbit.toLong())).toInt()
+public fun JetResetTableSequential(sesid: JET_SESID, tableid: JET_TABLEID, grbit: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetResetTableSequential", longArrayOf(sesid.toLong(), tableid.toLong(), grbit.toLong())).toInt()
 }
 
 public fun JetResizeDatabase(sesid: JET_SESID, dbid: UInt, cpgtarget: UInt, pcpgactual: Long, grbit: UInt): Int {
@@ -776,28 +779,28 @@ public fun JetRestoreW(szsource: Long, pfn: JET_PFNSTATUS): Int {
     return Win32DynamicFfi.invoke("esent.dll", "JetRestoreW", longArrayOf(szsource, Win32DynamicFfi.objectSlot(pfn))).toInt()
 }
 
-public fun JetRetrieveColumn(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, columnid: UInt, pvdata: Long, cbdata: UInt, pcbactual: Long, grbit: UInt, pretinfo: Long): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetRetrieveColumn", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), columnid.toLong(), pvdata, cbdata.toLong(), pcbactual, grbit.toLong(), pretinfo)).toInt()
+public fun JetRetrieveColumn(sesid: JET_SESID, tableid: JET_TABLEID, columnid: UInt, pvdata: Long, cbdata: UInt, pcbactual: Long, grbit: UInt, pretinfo: Long): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetRetrieveColumn", longArrayOf(sesid.toLong(), tableid.toLong(), columnid.toLong(), pvdata, cbdata.toLong(), pcbactual, grbit.toLong(), pretinfo)).toInt()
 }
 
-public fun JetRetrieveColumns(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, pretrievecolumn: Long, cretrievecolumn: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetRetrieveColumns", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), pretrievecolumn, cretrievecolumn.toLong())).toInt()
+public fun JetRetrieveColumns(sesid: JET_SESID, tableid: JET_TABLEID, pretrievecolumn: Long, cretrievecolumn: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetRetrieveColumns", longArrayOf(sesid.toLong(), tableid.toLong(), pretrievecolumn, cretrievecolumn.toLong())).toInt()
 }
 
-public fun JetRetrieveKey(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, pvkey: Long, cbmax: UInt, pcbactual: Long, grbit: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetRetrieveKey", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), pvkey, cbmax.toLong(), pcbactual, grbit.toLong())).toInt()
+public fun JetRetrieveKey(sesid: JET_SESID, tableid: JET_TABLEID, pvkey: Long, cbmax: UInt, pcbactual: Long, grbit: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetRetrieveKey", longArrayOf(sesid.toLong(), tableid.toLong(), pvkey, cbmax.toLong(), pcbactual, grbit.toLong())).toInt()
 }
 
 public fun JetRollback(sesid: JET_SESID, grbit: UInt): Int {
     return Win32DynamicFfi.invoke("esent.dll", "JetRollback", longArrayOf(sesid.toLong(), grbit.toLong())).toInt()
 }
 
-public fun JetSeek(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, grbit: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetSeek", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), grbit.toLong())).toInt()
+public fun JetSeek(sesid: JET_SESID, tableid: JET_TABLEID, grbit: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetSeek", longArrayOf(sesid.toLong(), tableid.toLong(), grbit.toLong())).toInt()
 }
 
-public fun JetSetColumn(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, columnid: UInt, pvdata: Long, cbdata: UInt, grbit: UInt, psetinfo: Long): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetSetColumn", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), columnid.toLong(), pvdata, cbdata.toLong(), grbit.toLong(), psetinfo)).toInt()
+public fun JetSetColumn(sesid: JET_SESID, tableid: JET_TABLEID, columnid: UInt, pvdata: Long, cbdata: UInt, grbit: UInt, psetinfo: Long): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetSetColumn", longArrayOf(sesid.toLong(), tableid.toLong(), columnid.toLong(), pvdata, cbdata.toLong(), grbit.toLong(), psetinfo)).toInt()
 }
 
 public fun JetSetColumnDefaultValueA(sesid: JET_SESID, dbid: UInt, sztablename: Long, szcolumnname: Long, pvdata: Long, cbdata: UInt, grbit: UInt): Int {
@@ -808,44 +811,44 @@ public fun JetSetColumnDefaultValueW(sesid: JET_SESID, dbid: UInt, sztablename: 
     return Win32DynamicFfi.invoke("esent.dll", "JetSetColumnDefaultValueW", longArrayOf(sesid.toLong(), dbid.toLong(), sztablename, szcolumnname, pvdata, cbdata.toLong(), grbit.toLong())).toInt()
 }
 
-public fun JetSetColumns(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, psetcolumn: Long, csetcolumn: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetSetColumns", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), psetcolumn, csetcolumn.toLong())).toInt()
+public fun JetSetColumns(sesid: JET_SESID, tableid: JET_TABLEID, psetcolumn: Long, csetcolumn: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetSetColumns", longArrayOf(sesid.toLong(), tableid.toLong(), psetcolumn, csetcolumn.toLong())).toInt()
 }
 
-public fun JetSetCurrentIndex2A(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, szindexname: Long, grbit: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetSetCurrentIndex2A", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), szindexname, grbit.toLong())).toInt()
+public fun JetSetCurrentIndex2A(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long, grbit: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetSetCurrentIndex2A", longArrayOf(sesid.toLong(), tableid.toLong(), szindexname, grbit.toLong())).toInt()
 }
 
-public fun JetSetCurrentIndex2W(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, szindexname: Long, grbit: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetSetCurrentIndex2W", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), szindexname, grbit.toLong())).toInt()
+public fun JetSetCurrentIndex2W(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long, grbit: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetSetCurrentIndex2W", longArrayOf(sesid.toLong(), tableid.toLong(), szindexname, grbit.toLong())).toInt()
 }
 
-public fun JetSetCurrentIndex3A(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, szindexname: Long, grbit: UInt, itagsequence: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetSetCurrentIndex3A", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), szindexname, grbit.toLong(), itagsequence.toLong())).toInt()
+public fun JetSetCurrentIndex3A(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long, grbit: UInt, itagsequence: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetSetCurrentIndex3A", longArrayOf(sesid.toLong(), tableid.toLong(), szindexname, grbit.toLong(), itagsequence.toLong())).toInt()
 }
 
-public fun JetSetCurrentIndex3W(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, szindexname: Long, grbit: UInt, itagsequence: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetSetCurrentIndex3W", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), szindexname, grbit.toLong(), itagsequence.toLong())).toInt()
+public fun JetSetCurrentIndex3W(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long, grbit: UInt, itagsequence: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetSetCurrentIndex3W", longArrayOf(sesid.toLong(), tableid.toLong(), szindexname, grbit.toLong(), itagsequence.toLong())).toInt()
 }
 
-public fun JetSetCurrentIndex4A(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, szindexname: Long, pindexid: Long, grbit: UInt, itagsequence: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetSetCurrentIndex4A", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), szindexname, pindexid, grbit.toLong(), itagsequence.toLong())).toInt()
+public fun JetSetCurrentIndex4A(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long, pindexid: Long, grbit: UInt, itagsequence: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetSetCurrentIndex4A", longArrayOf(sesid.toLong(), tableid.toLong(), szindexname, pindexid, grbit.toLong(), itagsequence.toLong())).toInt()
 }
 
-public fun JetSetCurrentIndex4W(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, szindexname: Long, pindexid: Long, grbit: UInt, itagsequence: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetSetCurrentIndex4W", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), szindexname, pindexid, grbit.toLong(), itagsequence.toLong())).toInt()
+public fun JetSetCurrentIndex4W(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long, pindexid: Long, grbit: UInt, itagsequence: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetSetCurrentIndex4W", longArrayOf(sesid.toLong(), tableid.toLong(), szindexname, pindexid, grbit.toLong(), itagsequence.toLong())).toInt()
 }
 
-public fun JetSetCurrentIndexA(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, szindexname: Long): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetSetCurrentIndexA", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), szindexname)).toInt()
+public fun JetSetCurrentIndexA(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetSetCurrentIndexA", longArrayOf(sesid.toLong(), tableid.toLong(), szindexname)).toInt()
 }
 
-public fun JetSetCurrentIndexW(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, szindexname: Long): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetSetCurrentIndexW", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), szindexname)).toInt()
+public fun JetSetCurrentIndexW(sesid: JET_SESID, tableid: JET_TABLEID, szindexname: Long): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetSetCurrentIndexW", longArrayOf(sesid.toLong(), tableid.toLong(), szindexname)).toInt()
 }
 
-public fun JetSetCursorFilter(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, rgcolumnfilters: Long, ccolumnfilters: UInt, grbit: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetSetCursorFilter", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), rgcolumnfilters, ccolumnfilters.toLong(), grbit.toLong())).toInt()
+public fun JetSetCursorFilter(sesid: JET_SESID, tableid: JET_TABLEID, rgcolumnfilters: Long, ccolumnfilters: UInt, grbit: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetSetCursorFilter", longArrayOf(sesid.toLong(), tableid.toLong(), rgcolumnfilters, ccolumnfilters.toLong(), grbit.toLong())).toInt()
 }
 
 public fun JetSetDatabaseSizeA(sesid: JET_SESID, szdatabasename: Long, cpg: UInt, pcpgreal: Long): Int {
@@ -856,32 +859,32 @@ public fun JetSetDatabaseSizeW(sesid: JET_SESID, szdatabasename: Long, cpg: UInt
     return Win32DynamicFfi.invoke("esent.dll", "JetSetDatabaseSizeW", longArrayOf(sesid.toLong(), szdatabasename, cpg.toLong(), pcpgreal)).toInt()
 }
 
-public fun JetSetIndexRange(sesid: JET_SESID, tableidsrc: StructuredStorage.JET_TABLEID, grbit: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetSetIndexRange", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableidsrc), grbit.toLong())).toInt()
+public fun JetSetIndexRange(sesid: JET_SESID, tableidsrc: JET_TABLEID, grbit: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetSetIndexRange", longArrayOf(sesid.toLong(), tableidsrc.toLong(), grbit.toLong())).toInt()
 }
 
-public fun JetSetLS(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, ls: JET_LS, grbit: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetSetLS", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), ls.toLong(), grbit.toLong())).toInt()
+public fun JetSetLS(sesid: JET_SESID, tableid: JET_TABLEID, ls: JET_LS, grbit: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetSetLS", longArrayOf(sesid.toLong(), tableid.toLong(), ls.toLong(), grbit.toLong())).toInt()
 }
 
-public fun JetSetSessionContext(sesid: JET_SESID, ulcontext: StructuredStorage.JET_API_PTR): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetSetSessionContext", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(ulcontext))).toInt()
+public fun JetSetSessionContext(sesid: JET_SESID, ulcontext: JET_API_PTR): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetSetSessionContext", longArrayOf(sesid.toLong(), ulcontext.toLong())).toInt()
 }
 
 public fun JetSetSessionParameter(sesid: JET_SESID, sesparamid: UInt, pvparam: Long, cbparam: UInt): Int {
     return Win32DynamicFfi.invoke("esent.dll", "JetSetSessionParameter", longArrayOf(sesid.toLong(), sesparamid.toLong(), pvparam, cbparam.toLong())).toInt()
 }
 
-public fun JetSetSystemParameterA(pinstance: Long, sesid: JET_SESID, paramid: UInt, lparam: StructuredStorage.JET_API_PTR, szparam: Long): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetSetSystemParameterA", longArrayOf(pinstance, sesid.toLong(), paramid.toLong(), Win32DynamicFfi.objectSlot(lparam), szparam)).toInt()
+public fun JetSetSystemParameterA(pinstance: Long, sesid: JET_SESID, paramid: UInt, lparam: JET_API_PTR, szparam: Long): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetSetSystemParameterA", longArrayOf(pinstance, sesid.toLong(), paramid.toLong(), lparam.toLong(), szparam)).toInt()
 }
 
-public fun JetSetSystemParameterW(pinstance: Long, sesid: JET_SESID, paramid: UInt, lparam: StructuredStorage.JET_API_PTR, szparam: Long): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetSetSystemParameterW", longArrayOf(pinstance, sesid.toLong(), paramid.toLong(), Win32DynamicFfi.objectSlot(lparam), szparam)).toInt()
+public fun JetSetSystemParameterW(pinstance: Long, sesid: JET_SESID, paramid: UInt, lparam: JET_API_PTR, szparam: Long): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetSetSystemParameterW", longArrayOf(pinstance, sesid.toLong(), paramid.toLong(), lparam.toLong(), szparam)).toInt()
 }
 
-public fun JetSetTableSequential(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, grbit: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetSetTableSequential", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), grbit.toLong())).toInt()
+public fun JetSetTableSequential(sesid: JET_SESID, tableid: JET_TABLEID, grbit: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetSetTableSequential", longArrayOf(sesid.toLong(), tableid.toLong(), grbit.toLong())).toInt()
 }
 
 public fun JetStopBackup(): Int {
@@ -920,14 +923,14 @@ public fun JetTruncateLogInstance(instance: JET_INSTANCE): Int {
     return Win32DynamicFfi.invoke("esent.dll", "JetTruncateLogInstance", longArrayOf(instance.toLong())).toInt()
 }
 
-public fun JetUnregisterCallback(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, cbtyp: UInt, hcallbackid: StructuredStorage.JET_HANDLE): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetUnregisterCallback", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), cbtyp.toLong(), Win32DynamicFfi.objectSlot(hcallbackid))).toInt()
+public fun JetUnregisterCallback(sesid: JET_SESID, tableid: JET_TABLEID, cbtyp: UInt, hcallbackid: JET_HANDLE): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetUnregisterCallback", longArrayOf(sesid.toLong(), tableid.toLong(), cbtyp.toLong(), hcallbackid.toLong())).toInt()
 }
 
-public fun JetUpdate(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, pvbookmark: Long, cbbookmark: UInt, pcbactual: Long): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetUpdate", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), pvbookmark, cbbookmark.toLong(), pcbactual)).toInt()
+public fun JetUpdate(sesid: JET_SESID, tableid: JET_TABLEID, pvbookmark: Long, cbbookmark: UInt, pcbactual: Long): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetUpdate", longArrayOf(sesid.toLong(), tableid.toLong(), pvbookmark, cbbookmark.toLong(), pcbactual)).toInt()
 }
 
-public fun JetUpdate2(sesid: JET_SESID, tableid: StructuredStorage.JET_TABLEID, pvbookmark: Long, cbbookmark: UInt, pcbactual: Long, grbit: UInt): Int {
-    return Win32DynamicFfi.invoke("esent.dll", "JetUpdate2", longArrayOf(sesid.toLong(), Win32DynamicFfi.objectSlot(tableid), pvbookmark, cbbookmark.toLong(), pcbactual, grbit.toLong())).toInt()
+public fun JetUpdate2(sesid: JET_SESID, tableid: JET_TABLEID, pvbookmark: Long, cbbookmark: UInt, pcbactual: Long, grbit: UInt): Int {
+    return Win32DynamicFfi.invoke("esent.dll", "JetUpdate2", longArrayOf(sesid.toLong(), tableid.toLong(), pvbookmark, cbbookmark.toLong(), pcbactual, grbit.toLong())).toInt()
 }

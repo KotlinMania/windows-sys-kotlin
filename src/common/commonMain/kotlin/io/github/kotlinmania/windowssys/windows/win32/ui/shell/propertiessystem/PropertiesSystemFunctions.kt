@@ -7,6 +7,9 @@ import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.VARENUM
 
 public fun PSCoerceToCanonicalValue(key: Long, ppropvar: Long): HRESULT {
     return Win32DynamicFfi.invoke("propsys.dll", "PSCoerceToCanonicalValue", longArrayOf(key, ppropvar)).toInt()
@@ -172,8 +175,8 @@ public fun PSPropertyBag_ReadStream(propbag: Long, propname: PCWSTR, value: Long
     return Win32DynamicFfi.invoke("propsys.dll", "PSPropertyBag_ReadStream", longArrayOf(propbag, propname, value)).toInt()
 }
 
-public fun PSPropertyBag_ReadType(propbag: Long, propname: PCWSTR, variable: Long, type: System.Variant.VARENUM): HRESULT {
-    return Win32DynamicFfi.invoke("propsys.dll", "PSPropertyBag_ReadType", longArrayOf(propbag, propname, variable, Win32DynamicFfi.objectSlot(type))).toInt()
+public fun PSPropertyBag_ReadType(propbag: Long, propname: PCWSTR, variable: Long, type: VARENUM): HRESULT {
+    return Win32DynamicFfi.invoke("propsys.dll", "PSPropertyBag_ReadType", longArrayOf(propbag, propname, variable, type.toLong())).toInt()
 }
 
 public fun PSPropertyBag_ReadULONGLONG(propbag: Long, propname: PCWSTR, value: Long): HRESULT {
@@ -268,30 +271,28 @@ public fun PSUnregisterPropertySchema(pszpath: PCWSTR): HRESULT {
     return Win32DynamicFfi.invoke("propsys.dll", "PSUnregisterPropertySchema", longArrayOf(pszpath)).toInt()
 }
 
-public fun PifMgr_CloseProperties(hprops: Foundation.HANDLE, flopt: UInt): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("shell32.dll", "PifMgr_CloseProperties", longArrayOf(Win32DynamicFfi.objectSlot(hprops), flopt.toLong()))
-    return Foundation.HANDLE()
+public fun PifMgr_CloseProperties(hprops: HANDLE, flopt: UInt): HANDLE {
+    return Win32DynamicFfi.invoke("shell32.dll", "PifMgr_CloseProperties", longArrayOf(hprops, flopt.toLong()))
 }
 
-public fun PifMgr_GetProperties(hprops: Foundation.HANDLE, pszgroup: PCSTR, lpprops: Long, cbprops: Int, flopt: UInt): Int {
-    return Win32DynamicFfi.invoke("shell32.dll", "PifMgr_GetProperties", longArrayOf(Win32DynamicFfi.objectSlot(hprops), pszgroup, lpprops, cbprops.toLong(), flopt.toLong())).toInt()
+public fun PifMgr_GetProperties(hprops: HANDLE, pszgroup: PCSTR, lpprops: Long, cbprops: Int, flopt: UInt): Int {
+    return Win32DynamicFfi.invoke("shell32.dll", "PifMgr_GetProperties", longArrayOf(hprops, pszgroup, lpprops, cbprops.toLong(), flopt.toLong())).toInt()
 }
 
-public fun PifMgr_OpenProperties(pszapp: PCWSTR, pszpif: PCWSTR, hinf: UInt, flopt: UInt): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("shell32.dll", "PifMgr_OpenProperties", longArrayOf(pszapp, pszpif, hinf.toLong(), flopt.toLong()))
-    return Foundation.HANDLE()
+public fun PifMgr_OpenProperties(pszapp: PCWSTR, pszpif: PCWSTR, hinf: UInt, flopt: UInt): HANDLE {
+    return Win32DynamicFfi.invoke("shell32.dll", "PifMgr_OpenProperties", longArrayOf(pszapp, pszpif, hinf.toLong(), flopt.toLong()))
 }
 
-public fun PifMgr_SetProperties(hprops: Foundation.HANDLE, pszgroup: PCSTR, lpprops: Long, cbprops: Int, flopt: UInt): Int {
-    return Win32DynamicFfi.invoke("shell32.dll", "PifMgr_SetProperties", longArrayOf(Win32DynamicFfi.objectSlot(hprops), pszgroup, lpprops, cbprops.toLong(), flopt.toLong())).toInt()
+public fun PifMgr_SetProperties(hprops: HANDLE, pszgroup: PCSTR, lpprops: Long, cbprops: Int, flopt: UInt): Int {
+    return Win32DynamicFfi.invoke("shell32.dll", "PifMgr_SetProperties", longArrayOf(hprops, pszgroup, lpprops, cbprops.toLong(), flopt.toLong())).toInt()
 }
 
 public fun SHAddDefaultPropertiesByExt(pszext: PCWSTR, ppropstore: Long): HRESULT {
     return Win32DynamicFfi.invoke("shell32.dll", "SHAddDefaultPropertiesByExt", longArrayOf(pszext, ppropstore)).toInt()
 }
 
-public fun SHGetPropertyStoreForWindow(hwnd: Foundation.HWND, riid: Long, ppv: Long): HRESULT {
-    return Win32DynamicFfi.invoke("shell32.dll", "SHGetPropertyStoreForWindow", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), riid, ppv)).toInt()
+public fun SHGetPropertyStoreForWindow(hwnd: HWND, riid: Long, ppv: Long): HRESULT {
+    return Win32DynamicFfi.invoke("shell32.dll", "SHGetPropertyStoreForWindow", longArrayOf(hwnd, riid, ppv)).toInt()
 }
 
 public fun SHGetPropertyStoreFromIDList(pidl: Long, flags: GETPROPERTYSTOREFLAGS, riid: Long, ppv: Long): HRESULT {

@@ -4,17 +4,19 @@ package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windows
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 
 public data class NET_INTERFACE_CONTEXT(public var InterfaceIndex: UInt = 0u, public var ConfigurationName: PWSTR = 0L)
 
 public data class NET_INTERFACE_CONTEXT_TABLE(
-    public var InterfaceContextHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var InterfaceContextHandle: HANDLE = 0L,
     public var NumberOfEntries: UInt = 0u,
     public var InterfaceContextArray: Long = 0L,
 )
 
 public data class WCM_BILLING_CYCLE_INFO(
-    public var StartDate: Foundation.FILETIME = Foundation.FILETIME(),
+    public var StartDate: FILETIME = FILETIME(),
     public var Duration: WCM_TIME_INTERVAL = WCM_TIME_INTERVAL(),
     public var Reset: BOOL = 0,
 )
@@ -67,4 +69,4 @@ public data class WCM_TIME_INTERVAL(
     public var wMilliseconds: UShort = 0u,
 )
 
-public data class WCM_USAGE_DATA(public var UsageInMegabytes: UInt = 0u, public var LastSyncTime: Foundation.FILETIME = Foundation.FILETIME())
+public data class WCM_USAGE_DATA(public var UsageInMegabytes: UInt = 0u, public var LastSyncTime: FILETIME = FILETIME())

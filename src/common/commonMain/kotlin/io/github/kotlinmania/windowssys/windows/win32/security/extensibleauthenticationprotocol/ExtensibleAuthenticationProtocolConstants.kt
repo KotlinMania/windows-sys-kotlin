@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.extensibleauthenticationprotocol
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.w
@@ -372,113 +373,113 @@ public val EapPeerMethodResultUnknown: EapPeerMethodResultReason = 1
 
 public val FACILITY_EAP_MESSAGE: UInt = 2114u
 
-public val GUID_EapHost_Cause_CertStoreInaccessible: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d800000004uL)
+public val GUID_EapHost_Cause_CertStoreInaccessible: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000004uL))
 
-public val GUID_EapHost_Cause_EapNegotiationFailed: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d80000001cuL)
+public val GUID_EapHost_Cause_EapNegotiationFailed: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000001cuL))
 
-public val GUID_EapHost_Cause_EapQecInaccessible: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d800000312uL)
+public val GUID_EapHost_Cause_EapQecInaccessible: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000312uL))
 
-public val GUID_EapHost_Cause_Generic_AuthFailure: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d800000104uL)
+public val GUID_EapHost_Cause_Generic_AuthFailure: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000104uL))
 
-public val GUID_EapHost_Cause_IdentityUnknown: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d800000204uL)
+public val GUID_EapHost_Cause_IdentityUnknown: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000204uL))
 
-public val GUID_EapHost_Cause_MethodDLLNotFound: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d800000001uL)
+public val GUID_EapHost_Cause_MethodDLLNotFound: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000001uL))
 
-public val GUID_EapHost_Cause_MethodDoesNotSupportOperation: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d80000001euL)
+public val GUID_EapHost_Cause_MethodDoesNotSupportOperation: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000001euL))
 
-public val GUID_EapHost_Cause_Method_Config_Does_Not_Support_Sso: GUID = GUID.from_u128(0xda18bd32004f41fauL, 0xae080bc85e5845acuL)
+public val GUID_EapHost_Cause_Method_Config_Does_Not_Support_Sso: GUID = GUID.from_u128(U128(0xda18bd32004f41fauL, 0xae080bc85e5845acuL))
 
-public val GUID_EapHost_Cause_No_SmartCardReader_Found: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d80000002buL)
+public val GUID_EapHost_Cause_No_SmartCardReader_Found: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000002buL))
 
-public val GUID_EapHost_Cause_Server_CertExpired: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d800000005uL)
+public val GUID_EapHost_Cause_Server_CertExpired: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000005uL))
 
-public val GUID_EapHost_Cause_Server_CertInvalid: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d800000006uL)
+public val GUID_EapHost_Cause_Server_CertInvalid: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000006uL))
 
-public val GUID_EapHost_Cause_Server_CertNotFound: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d800000007uL)
+public val GUID_EapHost_Cause_Server_CertNotFound: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000007uL))
 
-public val GUID_EapHost_Cause_Server_CertOtherError: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d800000108uL)
+public val GUID_EapHost_Cause_Server_CertOtherError: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000108uL))
 
-public val GUID_EapHost_Cause_Server_CertRevoked: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d800000008uL)
+public val GUID_EapHost_Cause_Server_CertRevoked: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000008uL))
 
-public val GUID_EapHost_Cause_Server_Root_CertNameRequired: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d800000012uL)
+public val GUID_EapHost_Cause_Server_Root_CertNameRequired: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000012uL))
 
-public val GUID_EapHost_Cause_Server_Root_CertNotFound: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d800000112uL)
+public val GUID_EapHost_Cause_Server_Root_CertNotFound: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000112uL))
 
-public val GUID_EapHost_Cause_SimNotValid: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d800000304uL)
+public val GUID_EapHost_Cause_SimNotValid: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000304uL))
 
-public val GUID_EapHost_Cause_ThirdPartyMethod_Host_Reset: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d800000212uL)
+public val GUID_EapHost_Cause_ThirdPartyMethod_Host_Reset: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000212uL))
 
-public val GUID_EapHost_Cause_User_Account_OtherProblem: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d80000010euL)
+public val GUID_EapHost_Cause_User_Account_OtherProblem: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000010euL))
 
-public val GUID_EapHost_Cause_User_CertExpired: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d800000009uL)
+public val GUID_EapHost_Cause_User_CertExpired: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000009uL))
 
-public val GUID_EapHost_Cause_User_CertInvalid: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d80000000auL)
+public val GUID_EapHost_Cause_User_CertInvalid: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000000auL))
 
-public val GUID_EapHost_Cause_User_CertNotFound: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d80000000buL)
+public val GUID_EapHost_Cause_User_CertNotFound: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000000buL))
 
-public val GUID_EapHost_Cause_User_CertOtherError: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d80000000cuL)
+public val GUID_EapHost_Cause_User_CertOtherError: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000000cuL))
 
-public val GUID_EapHost_Cause_User_CertRejected: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d80000000duL)
+public val GUID_EapHost_Cause_User_CertRejected: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000000duL))
 
-public val GUID_EapHost_Cause_User_CertRevoked: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d80000000euL)
+public val GUID_EapHost_Cause_User_CertRevoked: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000000euL))
 
-public val GUID_EapHost_Cause_User_CredsRejected: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d80000020euL)
+public val GUID_EapHost_Cause_User_CredsRejected: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000020euL))
 
-public val GUID_EapHost_Cause_User_Root_CertExpired: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d80000000fuL)
+public val GUID_EapHost_Cause_User_Root_CertExpired: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000000fuL))
 
-public val GUID_EapHost_Cause_User_Root_CertInvalid: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d800000010uL)
+public val GUID_EapHost_Cause_User_Root_CertInvalid: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000010uL))
 
-public val GUID_EapHost_Cause_User_Root_CertNotFound: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d800000011uL)
+public val GUID_EapHost_Cause_User_Root_CertNotFound: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000011uL))
 
-public val GUID_EapHost_Cause_XmlMalformed: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d80000001duL)
+public val GUID_EapHost_Cause_XmlMalformed: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000001duL))
 
-public val GUID_EapHost_Default: GUID = GUID.from_u128(0x0uL, 0x0uL)
+public val GUID_EapHost_Default: GUID = GUID.from_u128(U128(0x0uL, 0x0uL))
 
-public val GUID_EapHost_Help_ObtainingCerts: GUID = GUID.from_u128(0xf535eea31bdd46cauL, 0xa2fca6655939b7e8uL)
+public val GUID_EapHost_Help_ObtainingCerts: GUID = GUID.from_u128(U128(0xf535eea31bdd46cauL, 0xa2fca6655939b7e8uL))
 
-public val GUID_EapHost_Help_Troubleshooting: GUID = GUID.from_u128(0x33307acf069841bauL, 0xb014ea0a2eb8d0a8uL)
+public val GUID_EapHost_Help_Troubleshooting: GUID = GUID.from_u128(U128(0x33307acf069841bauL, 0xb014ea0a2eb8d0a8uL))
 
-public val GUID_EapHost_Repair_ContactAdmin_AuthFailure: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d80000001fuL)
+public val GUID_EapHost_Repair_ContactAdmin_AuthFailure: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000001fuL))
 
-public val GUID_EapHost_Repair_ContactAdmin_CertNameAbsent: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d800000029uL)
+public val GUID_EapHost_Repair_ContactAdmin_CertNameAbsent: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000029uL))
 
-public val GUID_EapHost_Repair_ContactAdmin_CertStoreInaccessible: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d800000024uL)
+public val GUID_EapHost_Repair_ContactAdmin_CertStoreInaccessible: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000024uL))
 
-public val GUID_EapHost_Repair_ContactAdmin_IdentityUnknown: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d800000020uL)
+public val GUID_EapHost_Repair_ContactAdmin_IdentityUnknown: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000020uL))
 
-public val GUID_EapHost_Repair_ContactAdmin_InvalidUserAccount: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d800000025uL)
+public val GUID_EapHost_Repair_ContactAdmin_InvalidUserAccount: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000025uL))
 
-public val GUID_EapHost_Repair_ContactAdmin_InvalidUserCert: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d80000002cuL)
+public val GUID_EapHost_Repair_ContactAdmin_InvalidUserCert: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000002cuL))
 
-public val GUID_EapHost_Repair_ContactAdmin_MethodNotFound: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d800000022uL)
+public val GUID_EapHost_Repair_ContactAdmin_MethodNotFound: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000022uL))
 
-public val GUID_EapHost_Repair_ContactAdmin_NegotiationFailed: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d800000021uL)
+public val GUID_EapHost_Repair_ContactAdmin_NegotiationFailed: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000021uL))
 
-public val GUID_EapHost_Repair_ContactAdmin_NoSmartCardReader: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d80000002auL)
+public val GUID_EapHost_Repair_ContactAdmin_NoSmartCardReader: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000002auL))
 
-public val GUID_EapHost_Repair_ContactAdmin_RootCertInvalid: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d800000026uL)
+public val GUID_EapHost_Repair_ContactAdmin_RootCertInvalid: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000026uL))
 
-public val GUID_EapHost_Repair_ContactAdmin_RootCertNotFound: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d800000027uL)
+public val GUID_EapHost_Repair_ContactAdmin_RootCertNotFound: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000027uL))
 
-public val GUID_EapHost_Repair_ContactAdmin_RootExpired: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d800000028uL)
+public val GUID_EapHost_Repair_ContactAdmin_RootExpired: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000028uL))
 
-public val GUID_EapHost_Repair_ContactSysadmin: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d800000002uL)
+public val GUID_EapHost_Repair_ContactSysadmin: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000002uL))
 
-public val GUID_EapHost_Repair_Method_Not_Support_Sso: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d80000002duL)
+public val GUID_EapHost_Repair_Method_Not_Support_Sso: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000002duL))
 
-public val GUID_EapHost_Repair_No_ValidSim_Found: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d80000002euL)
+public val GUID_EapHost_Repair_No_ValidSim_Found: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000002euL))
 
-public val GUID_EapHost_Repair_RestartNap: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d800000023uL)
+public val GUID_EapHost_Repair_RestartNap: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000023uL))
 
-public val GUID_EapHost_Repair_Retry_Authentication: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d80000011buL)
+public val GUID_EapHost_Repair_Retry_Authentication: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000011buL))
 
-public val GUID_EapHost_Repair_Server_ClientSelectServerCert: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d800000018uL)
+public val GUID_EapHost_Repair_Server_ClientSelectServerCert: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000018uL))
 
-public val GUID_EapHost_Repair_User_AuthFailure: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d800000019uL)
+public val GUID_EapHost_Repair_User_AuthFailure: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d800000019uL))
 
-public val GUID_EapHost_Repair_User_GetNewCert: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d80000001auL)
+public val GUID_EapHost_Repair_User_GetNewCert: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000001auL))
 
-public val GUID_EapHost_Repair_User_SelectValidCert: GUID = GUID.from_u128(0x9612fc6761504209uL, 0xa85ea8d80000001buL)
+public val GUID_EapHost_Repair_User_SelectValidCert: GUID = GUID.from_u128(U128(0x9612fc6761504209uL, 0xa85ea8d80000001buL))
 
 public val ISOLATION_STATE_IN_PROBATION: ISOLATION_STATE = 2
 

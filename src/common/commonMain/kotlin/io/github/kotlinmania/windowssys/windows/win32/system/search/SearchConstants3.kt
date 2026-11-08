@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.search
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
@@ -2696,7 +2697,7 @@ public val SUCCEED_ABORT: UInt = 2u
 
 public val SUCCEED_ASYNC: UInt = 3u
 
-public val SubscriptionMgr: GUID = GUID.from_u128(0xabbe31d06dae11d0uL, 0xbeca00c04fd940beuL)
+public val SubscriptionMgr: GUID = GUID.from_u128(U128(0xabbe31d06dae11d0uL, 0xbeca00c04fd940beuL))
 
 public val TRACE_ON: Int = 1
 

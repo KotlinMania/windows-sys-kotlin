@@ -4,6 +4,8 @@ import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
 
 public fun interface FnCallback {
     public operator fun invoke(completioncontext: Long, status: Int)
@@ -109,16 +111,16 @@ public fun DnsGetProxyInformation(hostname: PCWSTR, proxyinformation: Long, defa
     return Win32DynamicFfi.invoke("dnsapi.dll", "DnsGetProxyInformation", longArrayOf(hostname, proxyinformation, defaultproxyinformation, Win32DynamicFfi.objectSlot(completionroutine), completioncontext)).toUInt()
 }
 
-public fun DnsModifyRecordsInSet_A(paddrecords: Long, pdeleterecords: Long, options: UInt, hcredentials: Foundation.HANDLE, pextralist: Long, preserved: Long): Int {
-    return Win32DynamicFfi.invoke("dnsapi.dll", "DnsModifyRecordsInSet_A", longArrayOf(paddrecords, pdeleterecords, options.toLong(), Win32DynamicFfi.objectSlot(hcredentials), pextralist, preserved)).toInt()
+public fun DnsModifyRecordsInSet_A(paddrecords: Long, pdeleterecords: Long, options: UInt, hcredentials: HANDLE, pextralist: Long, preserved: Long): Int {
+    return Win32DynamicFfi.invoke("dnsapi.dll", "DnsModifyRecordsInSet_A", longArrayOf(paddrecords, pdeleterecords, options.toLong(), hcredentials, pextralist, preserved)).toInt()
 }
 
-public fun DnsModifyRecordsInSet_UTF8(paddrecords: Long, pdeleterecords: Long, options: UInt, hcredentials: Foundation.HANDLE, pextralist: Long, preserved: Long): Int {
-    return Win32DynamicFfi.invoke("dnsapi.dll", "DnsModifyRecordsInSet_UTF8", longArrayOf(paddrecords, pdeleterecords, options.toLong(), Win32DynamicFfi.objectSlot(hcredentials), pextralist, preserved)).toInt()
+public fun DnsModifyRecordsInSet_UTF8(paddrecords: Long, pdeleterecords: Long, options: UInt, hcredentials: HANDLE, pextralist: Long, preserved: Long): Int {
+    return Win32DynamicFfi.invoke("dnsapi.dll", "DnsModifyRecordsInSet_UTF8", longArrayOf(paddrecords, pdeleterecords, options.toLong(), hcredentials, pextralist, preserved)).toInt()
 }
 
-public fun DnsModifyRecordsInSet_W(paddrecords: Long, pdeleterecords: Long, options: UInt, hcredentials: Foundation.HANDLE, pextralist: Long, preserved: Long): Int {
-    return Win32DynamicFfi.invoke("dnsapi.dll", "DnsModifyRecordsInSet_W", longArrayOf(paddrecords, pdeleterecords, options.toLong(), Win32DynamicFfi.objectSlot(hcredentials), pextralist, preserved)).toInt()
+public fun DnsModifyRecordsInSet_W(paddrecords: Long, pdeleterecords: Long, options: UInt, hcredentials: HANDLE, pextralist: Long, preserved: Long): Int {
+    return Win32DynamicFfi.invoke("dnsapi.dll", "DnsModifyRecordsInSet_W", longArrayOf(paddrecords, pdeleterecords, options.toLong(), hcredentials, pextralist, preserved)).toInt()
 }
 
 public fun DnsNameCompare_A(pname1: PCSTR, pname2: PCSTR): BOOL {
@@ -145,19 +147,16 @@ public fun DnsQueryRawResultFree(queryresults: Long) {
     Win32DynamicFfi.invoke("dnsapi.dll", "DnsQueryRawResultFree", longArrayOf(queryresults))
 }
 
-public fun DnsQuery_A(pszname: PCSTR, wtype: DNS_TYPE, options: DNS_QUERY_OPTIONS, pextra: Long, ppqueryresults: Long, preserved: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("dnsapi.dll", "DnsQuery_A", longArrayOf(pszname, wtype.toLong(), options.toLong(), pextra, ppqueryresults, preserved))
-    return Foundation.WIN32_ERROR()
+public fun DnsQuery_A(pszname: PCSTR, wtype: DNS_TYPE, options: DNS_QUERY_OPTIONS, pextra: Long, ppqueryresults: Long, preserved: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("dnsapi.dll", "DnsQuery_A", longArrayOf(pszname, wtype.toLong(), options.toLong(), pextra, ppqueryresults, preserved)).toUInt()
 }
 
-public fun DnsQuery_UTF8(pszname: PCSTR, wtype: DNS_TYPE, options: DNS_QUERY_OPTIONS, pextra: Long, ppqueryresults: Long, preserved: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("dnsapi.dll", "DnsQuery_UTF8", longArrayOf(pszname, wtype.toLong(), options.toLong(), pextra, ppqueryresults, preserved))
-    return Foundation.WIN32_ERROR()
+public fun DnsQuery_UTF8(pszname: PCSTR, wtype: DNS_TYPE, options: DNS_QUERY_OPTIONS, pextra: Long, ppqueryresults: Long, preserved: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("dnsapi.dll", "DnsQuery_UTF8", longArrayOf(pszname, wtype.toLong(), options.toLong(), pextra, ppqueryresults, preserved)).toUInt()
 }
 
-public fun DnsQuery_W(pszname: PCWSTR, wtype: DNS_TYPE, options: DNS_QUERY_OPTIONS, pextra: Long, ppqueryresults: Long, preserved: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("dnsapi.dll", "DnsQuery_W", longArrayOf(pszname, wtype.toLong(), options.toLong(), pextra, ppqueryresults, preserved))
-    return Foundation.WIN32_ERROR()
+public fun DnsQuery_W(pszname: PCWSTR, wtype: DNS_TYPE, options: DNS_QUERY_OPTIONS, pextra: Long, ppqueryresults: Long, preserved: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("dnsapi.dll", "DnsQuery_W", longArrayOf(pszname, wtype.toLong(), options.toLong(), pextra, ppqueryresults, preserved)).toUInt()
 }
 
 public fun DnsRecordCompare(precord1: Long, precord2: Long): BOOL {
@@ -180,20 +179,20 @@ public fun DnsRecordSetDetach(precordlist: Long): Long {
     return Win32DynamicFfi.invoke("dnsapi.dll", "DnsRecordSetDetach", longArrayOf(precordlist))
 }
 
-public fun DnsReleaseContextHandle(hcontext: Foundation.HANDLE) {
-    Win32DynamicFfi.invoke("dnsapi.dll", "DnsReleaseContextHandle", longArrayOf(Win32DynamicFfi.objectSlot(hcontext)))
+public fun DnsReleaseContextHandle(hcontext: HANDLE) {
+    Win32DynamicFfi.invoke("dnsapi.dll", "DnsReleaseContextHandle", longArrayOf(hcontext))
 }
 
-public fun DnsReplaceRecordSetA(preplaceset: Long, options: UInt, hcontext: Foundation.HANDLE, pextrainfo: Long, preserved: Long): Int {
-    return Win32DynamicFfi.invoke("dnsapi.dll", "DnsReplaceRecordSetA", longArrayOf(preplaceset, options.toLong(), Win32DynamicFfi.objectSlot(hcontext), pextrainfo, preserved)).toInt()
+public fun DnsReplaceRecordSetA(preplaceset: Long, options: UInt, hcontext: HANDLE, pextrainfo: Long, preserved: Long): Int {
+    return Win32DynamicFfi.invoke("dnsapi.dll", "DnsReplaceRecordSetA", longArrayOf(preplaceset, options.toLong(), hcontext, pextrainfo, preserved)).toInt()
 }
 
-public fun DnsReplaceRecordSetUTF8(preplaceset: Long, options: UInt, hcontext: Foundation.HANDLE, pextrainfo: Long, preserved: Long): Int {
-    return Win32DynamicFfi.invoke("dnsapi.dll", "DnsReplaceRecordSetUTF8", longArrayOf(preplaceset, options.toLong(), Win32DynamicFfi.objectSlot(hcontext), pextrainfo, preserved)).toInt()
+public fun DnsReplaceRecordSetUTF8(preplaceset: Long, options: UInt, hcontext: HANDLE, pextrainfo: Long, preserved: Long): Int {
+    return Win32DynamicFfi.invoke("dnsapi.dll", "DnsReplaceRecordSetUTF8", longArrayOf(preplaceset, options.toLong(), hcontext, pextrainfo, preserved)).toInt()
 }
 
-public fun DnsReplaceRecordSetW(preplaceset: Long, options: UInt, hcontext: Foundation.HANDLE, pextrainfo: Long, preserved: Long): Int {
-    return Win32DynamicFfi.invoke("dnsapi.dll", "DnsReplaceRecordSetW", longArrayOf(preplaceset, options.toLong(), Win32DynamicFfi.objectSlot(hcontext), pextrainfo, preserved)).toInt()
+public fun DnsReplaceRecordSetW(preplaceset: Long, options: UInt, hcontext: HANDLE, pextrainfo: Long, preserved: Long): Int {
+    return Win32DynamicFfi.invoke("dnsapi.dll", "DnsReplaceRecordSetW", longArrayOf(preplaceset, options.toLong(), hcontext, pextrainfo, preserved)).toInt()
 }
 
 public fun DnsServiceBrowse(prequest: Long, pcancel: Long): Int {

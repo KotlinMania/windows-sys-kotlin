@@ -5,6 +5,12 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.security.OBJECT_SECURITY_INFORMATION
+import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.HKEY
+import io.github.kotlinmania.windowssys.windows.win32.system.services.SC_HANDLE
 
 public fun interface FnCallback {
     public operator fun invoke(pvcallbackarg: Long, esetupphase: CLUSTER_SETUP_PHASE, ephasetype: CLUSTER_SETUP_PHASE_TYPE, ephaseseverity: CLUSTER_SETUP_PHASE_SEVERITY, dwpercentcomplete: UInt, lpszobjectname: PCWSTR, dwstatus: UInt): BOOL
@@ -462,8 +468,8 @@ public fun ClusterRegCloseBatchNotifyPort(hbatchnotifyport: HREGBATCHPORT): Int 
     return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegCloseBatchNotifyPort", longArrayOf(hbatchnotifyport)).toInt()
 }
 
-public fun ClusterRegCloseKey(hkey: System.Registry.HKEY): Int {
-    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegCloseKey", longArrayOf(Win32DynamicFfi.objectSlot(hkey))).toInt()
+public fun ClusterRegCloseKey(hkey: HKEY): Int {
+    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegCloseKey", longArrayOf(hkey)).toInt()
 }
 
 public fun ClusterRegCloseReadBatch(hregreadbatch: HREGREADBATCH, phregreadbatchreply: Long): Int {
@@ -478,68 +484,68 @@ public fun ClusterRegCloseReadBatchReply(hregreadbatchreply: HREGREADBATCHREPLY)
     return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegCloseReadBatchReply", longArrayOf(hregreadbatchreply)).toInt()
 }
 
-public fun ClusterRegCreateBatch(hkey: System.Registry.HKEY, phregbatch: Long): Int {
-    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegCreateBatch", longArrayOf(Win32DynamicFfi.objectSlot(hkey), phregbatch)).toInt()
+public fun ClusterRegCreateBatch(hkey: HKEY, phregbatch: Long): Int {
+    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegCreateBatch", longArrayOf(hkey, phregbatch)).toInt()
 }
 
-public fun ClusterRegCreateBatchNotifyPort(hkey: System.Registry.HKEY, phbatchnotifyport: Long): Int {
-    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegCreateBatchNotifyPort", longArrayOf(Win32DynamicFfi.objectSlot(hkey), phbatchnotifyport)).toInt()
+public fun ClusterRegCreateBatchNotifyPort(hkey: HKEY, phbatchnotifyport: Long): Int {
+    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegCreateBatchNotifyPort", longArrayOf(hkey, phbatchnotifyport)).toInt()
 }
 
-public fun ClusterRegCreateKey(hkey: System.Registry.HKEY, lpszsubkey: PCWSTR, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: Long, phkresult: Long, lpdwdisposition: Long): Int {
-    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegCreateKey", longArrayOf(Win32DynamicFfi.objectSlot(hkey), lpszsubkey, dwoptions.toLong(), samdesired.toLong(), lpsecurityattributes, phkresult, lpdwdisposition)).toInt()
+public fun ClusterRegCreateKey(hkey: HKEY, lpszsubkey: PCWSTR, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: Long, phkresult: Long, lpdwdisposition: Long): Int {
+    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegCreateKey", longArrayOf(hkey, lpszsubkey, dwoptions.toLong(), samdesired.toLong(), lpsecurityattributes, phkresult, lpdwdisposition)).toInt()
 }
 
-public fun ClusterRegCreateKeyEx(hkey: System.Registry.HKEY, lpsubkey: PCWSTR, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: Long, phkresult: Long, lpdwdisposition: Long, lpszreason: PCWSTR): Int {
-    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegCreateKeyEx", longArrayOf(Win32DynamicFfi.objectSlot(hkey), lpsubkey, dwoptions.toLong(), samdesired.toLong(), lpsecurityattributes, phkresult, lpdwdisposition, lpszreason)).toInt()
+public fun ClusterRegCreateKeyEx(hkey: HKEY, lpsubkey: PCWSTR, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: Long, phkresult: Long, lpdwdisposition: Long, lpszreason: PCWSTR): Int {
+    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegCreateKeyEx", longArrayOf(hkey, lpsubkey, dwoptions.toLong(), samdesired.toLong(), lpsecurityattributes, phkresult, lpdwdisposition, lpszreason)).toInt()
 }
 
-public fun ClusterRegCreateReadBatch(hkey: System.Registry.HKEY, phregreadbatch: Long): Int {
-    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegCreateReadBatch", longArrayOf(Win32DynamicFfi.objectSlot(hkey), phregreadbatch)).toInt()
+public fun ClusterRegCreateReadBatch(hkey: HKEY, phregreadbatch: Long): Int {
+    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegCreateReadBatch", longArrayOf(hkey, phregreadbatch)).toInt()
 }
 
-public fun ClusterRegDeleteKey(hkey: System.Registry.HKEY, lpszsubkey: PCWSTR): Int {
-    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegDeleteKey", longArrayOf(Win32DynamicFfi.objectSlot(hkey), lpszsubkey)).toInt()
+public fun ClusterRegDeleteKey(hkey: HKEY, lpszsubkey: PCWSTR): Int {
+    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegDeleteKey", longArrayOf(hkey, lpszsubkey)).toInt()
 }
 
-public fun ClusterRegDeleteKeyEx(hkey: System.Registry.HKEY, lpsubkey: PCWSTR, lpszreason: PCWSTR): Int {
-    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegDeleteKeyEx", longArrayOf(Win32DynamicFfi.objectSlot(hkey), lpsubkey, lpszreason)).toInt()
+public fun ClusterRegDeleteKeyEx(hkey: HKEY, lpsubkey: PCWSTR, lpszreason: PCWSTR): Int {
+    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegDeleteKeyEx", longArrayOf(hkey, lpsubkey, lpszreason)).toInt()
 }
 
-public fun ClusterRegDeleteValue(hkey: System.Registry.HKEY, lpszvaluename: PCWSTR): UInt {
-    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegDeleteValue", longArrayOf(Win32DynamicFfi.objectSlot(hkey), lpszvaluename)).toUInt()
+public fun ClusterRegDeleteValue(hkey: HKEY, lpszvaluename: PCWSTR): UInt {
+    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegDeleteValue", longArrayOf(hkey, lpszvaluename)).toUInt()
 }
 
-public fun ClusterRegDeleteValueEx(hkey: System.Registry.HKEY, lpszvaluename: PCWSTR, lpszreason: PCWSTR): UInt {
-    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegDeleteValueEx", longArrayOf(Win32DynamicFfi.objectSlot(hkey), lpszvaluename, lpszreason)).toUInt()
+public fun ClusterRegDeleteValueEx(hkey: HKEY, lpszvaluename: PCWSTR, lpszreason: PCWSTR): UInt {
+    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegDeleteValueEx", longArrayOf(hkey, lpszvaluename, lpszreason)).toUInt()
 }
 
-public fun ClusterRegEnumKey(hkey: System.Registry.HKEY, dwindex: UInt, lpszname: PWSTR, lpcchname: Long, lpftlastwritetime: Long): Int {
-    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegEnumKey", longArrayOf(Win32DynamicFfi.objectSlot(hkey), dwindex.toLong(), lpszname, lpcchname, lpftlastwritetime)).toInt()
+public fun ClusterRegEnumKey(hkey: HKEY, dwindex: UInt, lpszname: PWSTR, lpcchname: Long, lpftlastwritetime: Long): Int {
+    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegEnumKey", longArrayOf(hkey, dwindex.toLong(), lpszname, lpcchname, lpftlastwritetime)).toInt()
 }
 
-public fun ClusterRegEnumValue(hkey: System.Registry.HKEY, dwindex: UInt, lpszvaluename: PWSTR, lpcchvaluename: Long, lpdwtype: Long, lpdata: Long, lpcbdata: Long): UInt {
-    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegEnumValue", longArrayOf(Win32DynamicFfi.objectSlot(hkey), dwindex.toLong(), lpszvaluename, lpcchvaluename, lpdwtype, lpdata, lpcbdata)).toUInt()
+public fun ClusterRegEnumValue(hkey: HKEY, dwindex: UInt, lpszvaluename: PWSTR, lpcchvaluename: Long, lpdwtype: Long, lpdata: Long, lpcbdata: Long): UInt {
+    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegEnumValue", longArrayOf(hkey, dwindex.toLong(), lpszvaluename, lpcchvaluename, lpdwtype, lpdata, lpcbdata)).toUInt()
 }
 
 public fun ClusterRegGetBatchNotification(hbatchnotify: HREGBATCHPORT, phbatchnotification: Long): Int {
     return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegGetBatchNotification", longArrayOf(hbatchnotify, phbatchnotification)).toInt()
 }
 
-public fun ClusterRegGetKeySecurity(hkey: System.Registry.HKEY, requestedinformation: UInt, psecuritydescriptor: Security.PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: Long): Int {
-    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegGetKeySecurity", longArrayOf(Win32DynamicFfi.objectSlot(hkey), requestedinformation.toLong(), Win32DynamicFfi.objectSlot(psecuritydescriptor), lpcbsecuritydescriptor)).toInt()
+public fun ClusterRegGetKeySecurity(hkey: HKEY, requestedinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: Long): Int {
+    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegGetKeySecurity", longArrayOf(hkey, requestedinformation.toLong(), psecuritydescriptor, lpcbsecuritydescriptor)).toInt()
 }
 
-public fun ClusterRegOpenKey(hkey: System.Registry.HKEY, lpszsubkey: PCWSTR, samdesired: UInt, phkresult: Long): Int {
-    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegOpenKey", longArrayOf(Win32DynamicFfi.objectSlot(hkey), lpszsubkey, samdesired.toLong(), phkresult)).toInt()
+public fun ClusterRegOpenKey(hkey: HKEY, lpszsubkey: PCWSTR, samdesired: UInt, phkresult: Long): Int {
+    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegOpenKey", longArrayOf(hkey, lpszsubkey, samdesired.toLong(), phkresult)).toInt()
 }
 
-public fun ClusterRegQueryInfoKey(hkey: System.Registry.HKEY, lpcsubkeys: Long, lpcchmaxsubkeylen: Long, lpcvalues: Long, lpcchmaxvaluenamelen: Long, lpcbmaxvaluelen: Long, lpcbsecuritydescriptor: Long, lpftlastwritetime: Long): Int {
-    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegQueryInfoKey", longArrayOf(Win32DynamicFfi.objectSlot(hkey), lpcsubkeys, lpcchmaxsubkeylen, lpcvalues, lpcchmaxvaluenamelen, lpcbmaxvaluelen, lpcbsecuritydescriptor, lpftlastwritetime)).toInt()
+public fun ClusterRegQueryInfoKey(hkey: HKEY, lpcsubkeys: Long, lpcchmaxsubkeylen: Long, lpcvalues: Long, lpcchmaxvaluenamelen: Long, lpcbmaxvaluelen: Long, lpcbsecuritydescriptor: Long, lpftlastwritetime: Long): Int {
+    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegQueryInfoKey", longArrayOf(hkey, lpcsubkeys, lpcchmaxsubkeylen, lpcvalues, lpcchmaxvaluenamelen, lpcbmaxvaluelen, lpcbsecuritydescriptor, lpftlastwritetime)).toInt()
 }
 
-public fun ClusterRegQueryValue(hkey: System.Registry.HKEY, lpszvaluename: PCWSTR, lpdwvaluetype: Long, lpdata: Long, lpcbdata: Long): Int {
-    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegQueryValue", longArrayOf(Win32DynamicFfi.objectSlot(hkey), lpszvaluename, lpdwvaluetype, lpdata, lpcbdata)).toInt()
+public fun ClusterRegQueryValue(hkey: HKEY, lpszvaluename: PCWSTR, lpdwvaluetype: Long, lpdata: Long, lpcbdata: Long): Int {
+    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegQueryValue", longArrayOf(hkey, lpszvaluename, lpdwvaluetype, lpdata, lpcbdata)).toInt()
 }
 
 public fun ClusterRegReadBatchAddCommand(hregreadbatch: HREGREADBATCH, wzsubkeyname: PCWSTR, wzvaluename: PCWSTR): Int {
@@ -550,20 +556,20 @@ public fun ClusterRegReadBatchReplyNextCommand(hregreadbatchreply: HREGREADBATCH
     return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegReadBatchReplyNextCommand", longArrayOf(hregreadbatchreply, pbatchcommand)).toInt()
 }
 
-public fun ClusterRegSetKeySecurity(hkey: System.Registry.HKEY, securityinformation: UInt, psecuritydescriptor: Security.PSECURITY_DESCRIPTOR): Int {
-    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegSetKeySecurity", longArrayOf(Win32DynamicFfi.objectSlot(hkey), securityinformation.toLong(), Win32DynamicFfi.objectSlot(psecuritydescriptor))).toInt()
+public fun ClusterRegSetKeySecurity(hkey: HKEY, securityinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR): Int {
+    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegSetKeySecurity", longArrayOf(hkey, securityinformation.toLong(), psecuritydescriptor)).toInt()
 }
 
-public fun ClusterRegSetKeySecurityEx(hkey: System.Registry.HKEY, securityinformation: Security.OBJECT_SECURITY_INFORMATION, psecuritydescriptor: Security.PSECURITY_DESCRIPTOR, lpszreason: PCWSTR): Int {
-    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegSetKeySecurityEx", longArrayOf(Win32DynamicFfi.objectSlot(hkey), Win32DynamicFfi.objectSlot(securityinformation), Win32DynamicFfi.objectSlot(psecuritydescriptor), lpszreason)).toInt()
+public fun ClusterRegSetKeySecurityEx(hkey: HKEY, securityinformation: OBJECT_SECURITY_INFORMATION, psecuritydescriptor: PSECURITY_DESCRIPTOR, lpszreason: PCWSTR): Int {
+    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegSetKeySecurityEx", longArrayOf(hkey, securityinformation.toLong(), psecuritydescriptor, lpszreason)).toInt()
 }
 
-public fun ClusterRegSetValue(hkey: System.Registry.HKEY, lpszvaluename: PCWSTR, dwtype: UInt, lpdata: Long, cbdata: UInt): UInt {
-    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegSetValue", longArrayOf(Win32DynamicFfi.objectSlot(hkey), lpszvaluename, dwtype.toLong(), lpdata, cbdata.toLong())).toUInt()
+public fun ClusterRegSetValue(hkey: HKEY, lpszvaluename: PCWSTR, dwtype: UInt, lpdata: Long, cbdata: UInt): UInt {
+    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegSetValue", longArrayOf(hkey, lpszvaluename, dwtype.toLong(), lpdata, cbdata.toLong())).toUInt()
 }
 
-public fun ClusterRegSetValueEx(hkey: System.Registry.HKEY, lpszvaluename: PCWSTR, dwtype: UInt, lpdata: Long, cbdata: UInt, lpszreason: PCWSTR): UInt {
-    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegSetValueEx", longArrayOf(Win32DynamicFfi.objectSlot(hkey), lpszvaluename, dwtype.toLong(), lpdata, cbdata.toLong(), lpszreason)).toUInt()
+public fun ClusterRegSetValueEx(hkey: HKEY, lpszvaluename: PCWSTR, dwtype: UInt, lpdata: Long, cbdata: UInt, lpszreason: PCWSTR): UInt {
+    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterRegSetValueEx", longArrayOf(hkey, lpszvaluename, dwtype.toLong(), lpdata, cbdata.toLong(), lpszreason)).toUInt()
 }
 
 public fun ClusterRegSyncDatabase(hcluster: HCLUSTER, flags: UInt): Int {
@@ -671,7 +677,7 @@ public fun ClusterSetAccountAccess(hcluster: HCLUSTER, szaccountsid: PCWSTR, dwa
 }
 
 public fun ClusterSharedVolumeSetSnapshotState(guidsnapshotset: GUID, lpszvolumename: PCWSTR, state: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE): UInt {
-    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterSharedVolumeSetSnapshotState", longArrayOf(Win32DynamicFfi.guidSlot(guidsnapshotset.data1, guidsnapshotset.data2, guidsnapshotset.data3, guidsnapshotset.data4), lpszvolumename, state.toLong())).toUInt()
+    return Win32DynamicFfi.invoke("clusapi.dll", "ClusterSharedVolumeSetSnapshotState", longArrayOf(run { val buf = ByteArray(16); buf[0] = (guidsnapshotset.data1.toInt() and 0xFF).toByte(); buf[1] = ((guidsnapshotset.data1.toInt() ushr 8) and 0xFF).toByte(); buf[2] = ((guidsnapshotset.data1.toInt() ushr 16) and 0xFF).toByte(); buf[3] = ((guidsnapshotset.data1.toInt() ushr 24) and 0xFF).toByte(); buf[4] = (guidsnapshotset.data2.toInt() and 0xFF).toByte(); buf[5] = ((guidsnapshotset.data2.toInt() ushr 8) and 0xFF).toByte(); buf[6] = (guidsnapshotset.data3.toInt() and 0xFF).toByte(); buf[7] = ((guidsnapshotset.data3.toInt() ushr 8) and 0xFF).toByte(); for (i in 0 until minOf(8, guidsnapshotset.data4.size)) buf[8 + i] = guidsnapshotset.data4[i].toByte(); val ptr = Win32DynamicFfi.allocZeroed(16); Win32DynamicFfi.writeBytes(ptr, buf); ptr }, lpszvolumename, state.toLong())).toUInt()
 }
 
 public fun ClusterUpgradeFunctionalLevel(hcluster: HCLUSTER, perform: BOOL, pfnprogresscallback: PCLUSTER_UPGRADE_PROGRESS_CALLBACK, pvcallbackarg: Long): UInt {
@@ -838,9 +844,8 @@ public fun GetClusterFromResource(hresource: HRESOURCE): HCLUSTER {
     return Win32DynamicFfi.invoke("clusapi.dll", "GetClusterFromResource", longArrayOf(hresource))
 }
 
-public fun GetClusterGroupKey(hgroup: HGROUP, samdesired: UInt): System.Registry.HKEY {
-    Win32DynamicFfi.invoke("clusapi.dll", "GetClusterGroupKey", longArrayOf(hgroup, samdesired.toLong()))
-    return System.Registry.HKEY()
+public fun GetClusterGroupKey(hgroup: HGROUP, samdesired: UInt): HKEY {
+    return Win32DynamicFfi.invoke("clusapi.dll", "GetClusterGroupKey", longArrayOf(hgroup, samdesired.toLong()))
 }
 
 public fun GetClusterGroupState(hgroup: HGROUP, lpsznodename: PWSTR, lpcchnodename: Long): CLUSTER_GROUP_STATE {
@@ -851,18 +856,16 @@ public fun GetClusterInformation(hcluster: HCLUSTER, lpszclustername: PWSTR, lpc
     return Win32DynamicFfi.invoke("clusapi.dll", "GetClusterInformation", longArrayOf(hcluster, lpszclustername, lpcchclustername, lpclusterinfo)).toUInt()
 }
 
-public fun GetClusterKey(hcluster: HCLUSTER, samdesired: UInt): System.Registry.HKEY {
-    Win32DynamicFfi.invoke("clusapi.dll", "GetClusterKey", longArrayOf(hcluster, samdesired.toLong()))
-    return System.Registry.HKEY()
+public fun GetClusterKey(hcluster: HCLUSTER, samdesired: UInt): HKEY {
+    return Win32DynamicFfi.invoke("clusapi.dll", "GetClusterKey", longArrayOf(hcluster, samdesired.toLong()))
 }
 
 public fun GetClusterNetInterface(hcluster: HCLUSTER, lpsznodename: PCWSTR, lpsznetworkname: PCWSTR, lpszinterfacename: PWSTR, lpcchinterfacename: Long): UInt {
     return Win32DynamicFfi.invoke("clusapi.dll", "GetClusterNetInterface", longArrayOf(hcluster, lpsznodename, lpsznetworkname, lpszinterfacename, lpcchinterfacename)).toUInt()
 }
 
-public fun GetClusterNetInterfaceKey(hnetinterface: HNETINTERFACE, samdesired: UInt): System.Registry.HKEY {
-    Win32DynamicFfi.invoke("clusapi.dll", "GetClusterNetInterfaceKey", longArrayOf(hnetinterface, samdesired.toLong()))
-    return System.Registry.HKEY()
+public fun GetClusterNetInterfaceKey(hnetinterface: HNETINTERFACE, samdesired: UInt): HKEY {
+    return Win32DynamicFfi.invoke("clusapi.dll", "GetClusterNetInterfaceKey", longArrayOf(hnetinterface, samdesired.toLong()))
 }
 
 public fun GetClusterNetInterfaceState(hnetinterface: HNETINTERFACE): CLUSTER_NETINTERFACE_STATE {
@@ -873,9 +876,8 @@ public fun GetClusterNetworkId(hnetwork: HNETWORK, lpsznetworkid: PWSTR, lpcchna
     return Win32DynamicFfi.invoke("clusapi.dll", "GetClusterNetworkId", longArrayOf(hnetwork, lpsznetworkid, lpcchname)).toUInt()
 }
 
-public fun GetClusterNetworkKey(hnetwork: HNETWORK, samdesired: UInt): System.Registry.HKEY {
-    Win32DynamicFfi.invoke("clusapi.dll", "GetClusterNetworkKey", longArrayOf(hnetwork, samdesired.toLong()))
-    return System.Registry.HKEY()
+public fun GetClusterNetworkKey(hnetwork: HNETWORK, samdesired: UInt): HKEY {
+    return Win32DynamicFfi.invoke("clusapi.dll", "GetClusterNetworkKey", longArrayOf(hnetwork, samdesired.toLong()))
 }
 
 public fun GetClusterNetworkState(hnetwork: HNETWORK): CLUSTER_NETWORK_STATE {
@@ -886,9 +888,8 @@ public fun GetClusterNodeId(hnode: HNODE, lpsznodeid: PWSTR, lpcchname: Long): U
     return Win32DynamicFfi.invoke("clusapi.dll", "GetClusterNodeId", longArrayOf(hnode, lpsznodeid, lpcchname)).toUInt()
 }
 
-public fun GetClusterNodeKey(hnode: HNODE, samdesired: UInt): System.Registry.HKEY {
-    Win32DynamicFfi.invoke("clusapi.dll", "GetClusterNodeKey", longArrayOf(hnode, samdesired.toLong()))
-    return System.Registry.HKEY()
+public fun GetClusterNodeKey(hnode: HNODE, samdesired: UInt): HKEY {
+    return Win32DynamicFfi.invoke("clusapi.dll", "GetClusterNodeKey", longArrayOf(hnode, samdesired.toLong()))
 }
 
 public fun GetClusterNodeState(hnode: HNODE): CLUSTER_NODE_STATE {
@@ -911,9 +912,8 @@ public fun GetClusterResourceDependencyExpression(hresource: HRESOURCE, lpszdepe
     return Win32DynamicFfi.invoke("clusapi.dll", "GetClusterResourceDependencyExpression", longArrayOf(hresource, lpszdependencyexpression, lpcchdependencyexpression)).toUInt()
 }
 
-public fun GetClusterResourceKey(hresource: HRESOURCE, samdesired: UInt): System.Registry.HKEY {
-    Win32DynamicFfi.invoke("clusapi.dll", "GetClusterResourceKey", longArrayOf(hresource, samdesired.toLong()))
-    return System.Registry.HKEY()
+public fun GetClusterResourceKey(hresource: HRESOURCE, samdesired: UInt): HKEY {
+    return Win32DynamicFfi.invoke("clusapi.dll", "GetClusterResourceKey", longArrayOf(hresource, samdesired.toLong()))
 }
 
 public fun GetClusterResourceNetworkName(hresource: HRESOURCE, lpbuffer: PWSTR, nsize: Long): BOOL {
@@ -924,9 +924,8 @@ public fun GetClusterResourceState(hresource: HRESOURCE, lpsznodename: PWSTR, lp
     return Win32DynamicFfi.invoke("clusapi.dll", "GetClusterResourceState", longArrayOf(hresource, lpsznodename, lpcchnodename, lpszgroupname, lpcchgroupname)).toInt()
 }
 
-public fun GetClusterResourceTypeKey(hcluster: HCLUSTER, lpsztypename: PCWSTR, samdesired: UInt): System.Registry.HKEY {
-    Win32DynamicFfi.invoke("clusapi.dll", "GetClusterResourceTypeKey", longArrayOf(hcluster, lpsztypename, samdesired.toLong()))
-    return System.Registry.HKEY()
+public fun GetClusterResourceTypeKey(hcluster: HCLUSTER, lpsztypename: PCWSTR, samdesired: UInt): HKEY {
+    return Win32DynamicFfi.invoke("clusapi.dll", "GetClusterResourceTypeKey", longArrayOf(hcluster, lpsztypename, samdesired.toLong()))
 }
 
 public fun GetNodeCloudTypeDW(ppsznodename: PCWSTR, nodecloudtype: Long): UInt {
@@ -1093,20 +1092,20 @@ public fun QueryAppInstanceVersion(appinstanceid: Long, instanceversionhigh: Lon
     return Win32DynamicFfi.invoke("ntlanman.dll", "QueryAppInstanceVersion", longArrayOf(appinstanceid, instanceversionhigh, instanceversionlow, versionstatus)).toUInt()
 }
 
-public fun RegisterAppInstance(processhandle: Foundation.HANDLE, appinstanceid: Long, childreninheritappinstance: BOOL): UInt {
-    return Win32DynamicFfi.invoke("ntlanman.dll", "RegisterAppInstance", longArrayOf(Win32DynamicFfi.objectSlot(processhandle), appinstanceid, childreninheritappinstance.toLong())).toUInt()
+public fun RegisterAppInstance(processhandle: HANDLE, appinstanceid: Long, childreninheritappinstance: BOOL): UInt {
+    return Win32DynamicFfi.invoke("ntlanman.dll", "RegisterAppInstance", longArrayOf(processhandle, appinstanceid, childreninheritappinstance.toLong())).toUInt()
 }
 
 public fun RegisterAppInstanceVersion(appinstanceid: Long, instanceversionhigh: ULong, instanceversionlow: ULong): UInt {
     return Win32DynamicFfi.invoke("ntlanman.dll", "RegisterAppInstanceVersion", longArrayOf(appinstanceid, instanceversionhigh.toLong(), instanceversionlow.toLong())).toUInt()
 }
 
-public fun RegisterClusterNotify(hchange: HCHANGE, dwfiltertype: UInt, hobject: Foundation.HANDLE, dwnotifykey: ULong): UInt {
-    return Win32DynamicFfi.invoke("clusapi.dll", "RegisterClusterNotify", longArrayOf(hchange, dwfiltertype.toLong(), Win32DynamicFfi.objectSlot(hobject), dwnotifykey.toLong())).toUInt()
+public fun RegisterClusterNotify(hchange: HCHANGE, dwfiltertype: UInt, hobject: HANDLE, dwnotifykey: ULong): UInt {
+    return Win32DynamicFfi.invoke("clusapi.dll", "RegisterClusterNotify", longArrayOf(hchange, dwfiltertype.toLong(), hobject, dwnotifykey.toLong())).toUInt()
 }
 
-public fun RegisterClusterNotifyV2(hchange: HCHANGE, filter: NOTIFY_FILTER_AND_TYPE, hobject: Foundation.HANDLE, dwnotifykey: ULong): UInt {
-    return Win32DynamicFfi.invoke("clusapi.dll", "RegisterClusterNotifyV2", longArrayOf(hchange, Win32DynamicFfi.objectSlot(filter), Win32DynamicFfi.objectSlot(hobject), dwnotifykey.toLong())).toUInt()
+public fun RegisterClusterNotifyV2(hchange: HCHANGE, filter: NOTIFY_FILTER_AND_TYPE, hobject: HANDLE, dwnotifykey: ULong): UInt {
+    return Win32DynamicFfi.invoke("clusapi.dll", "RegisterClusterNotifyV2", longArrayOf(hchange, run { val buf = ByteArray(16); buf[0] = (filter.dwObjectType.toInt() and 0xFF).toByte(); buf[1] = ((filter.dwObjectType.toInt() ushr 8) and 0xFF).toByte(); buf[2] = ((filter.dwObjectType.toInt() ushr 16) and 0xFF).toByte(); buf[3] = ((filter.dwObjectType.toInt() ushr 24) and 0xFF).toByte(); buf[8] = (filter.FilterFlags and 0xFF).toByte(); buf[9] = ((filter.FilterFlags ushr 8) and 0xFF).toByte(); buf[10] = ((filter.FilterFlags ushr 16) and 0xFF).toByte(); buf[11] = ((filter.FilterFlags ushr 24) and 0xFF).toByte(); buf[12] = ((filter.FilterFlags ushr 32) and 0xFF).toByte(); buf[13] = ((filter.FilterFlags ushr 40) and 0xFF).toByte(); buf[14] = ((filter.FilterFlags ushr 48) and 0xFF).toByte(); buf[15] = ((filter.FilterFlags ushr 56) and 0xFF).toByte(); val ptr = Win32DynamicFfi.allocZeroed(16); Win32DynamicFfi.writeBytes(ptr, buf); ptr }, hobject, dwnotifykey.toLong())).toUInt()
 }
 
 public fun RegisterClusterResourceTypeNotifyV2(hchange: HCHANGE, hcluster: HCLUSTER, flags: Long, restypename: PCWSTR, dwnotifykey: ULong): UInt {
@@ -1169,8 +1168,8 @@ public fun RemoveResourceFromClusterSharedVolumes(hresource: HRESOURCE): UInt {
     return Win32DynamicFfi.invoke("clusapi.dll", "RemoveResourceFromClusterSharedVolumes", longArrayOf(hresource)).toUInt()
 }
 
-public fun ResUtilAddUnknownProperties(hkeyclusterkey: System.Registry.HKEY, ppropertytable: Long, poutpropertylist: Long, pcboutpropertylistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilAddUnknownProperties", longArrayOf(Win32DynamicFfi.objectSlot(hkeyclusterkey), ppropertytable, poutpropertylist, pcboutpropertylistsize.toLong(), pcbbytesreturned, pcbrequired)).toUInt()
+public fun ResUtilAddUnknownProperties(hkeyclusterkey: HKEY, ppropertytable: Long, poutpropertylist: Long, pcboutpropertylistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilAddUnknownProperties", longArrayOf(hkeyclusterkey, ppropertytable, poutpropertylist, pcboutpropertylistsize.toLong(), pcbbytesreturned, pcbrequired)).toUInt()
 }
 
 public fun ResUtilCreateDirectoryTree(pszpath: PCWSTR): UInt {
@@ -1201,8 +1200,8 @@ public fun ResUtilEnumGroupsEx(hcluster: HCLUSTER, hself: HGROUP, grouptype: CLU
     return Win32DynamicFfi.invoke("resutils.dll", "ResUtilEnumGroupsEx", longArrayOf(hcluster, hself, grouptype.toLong(), Win32DynamicFfi.objectSlot(prescallback), pparameter)).toUInt()
 }
 
-public fun ResUtilEnumPrivateProperties(hkeyclusterkey: System.Registry.HKEY, pszoutproperties: PWSTR, cboutpropertiessize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilEnumPrivateProperties", longArrayOf(Win32DynamicFfi.objectSlot(hkeyclusterkey), pszoutproperties, cboutpropertiessize.toLong(), pcbbytesreturned, pcbrequired)).toUInt()
+public fun ResUtilEnumPrivateProperties(hkeyclusterkey: HKEY, pszoutproperties: PWSTR, cboutpropertiessize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilEnumPrivateProperties", longArrayOf(hkeyclusterkey, pszoutproperties, cboutpropertiessize.toLong(), pcbbytesreturned, pcbrequired)).toUInt()
 }
 
 public fun ResUtilEnumProperties(ppropertytable: Long, pszoutproperties: PWSTR, cboutpropertiessize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt {
@@ -1273,16 +1272,16 @@ public fun ResUtilFreeParameterBlock(poutparams: Long, pinparams: Long, ppropert
     Win32DynamicFfi.invoke("resutils.dll", "ResUtilFreeParameterBlock", longArrayOf(poutparams, pinparams, ppropertytable))
 }
 
-public fun ResUtilGetAllProperties(hkeyclusterkey: System.Registry.HKEY, ppropertytable: Long, poutpropertylist: Long, cboutpropertylistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetAllProperties", longArrayOf(Win32DynamicFfi.objectSlot(hkeyclusterkey), ppropertytable, poutpropertylist, cboutpropertylistsize.toLong(), pcbbytesreturned, pcbrequired)).toUInt()
+public fun ResUtilGetAllProperties(hkeyclusterkey: HKEY, ppropertytable: Long, poutpropertylist: Long, cboutpropertylistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetAllProperties", longArrayOf(hkeyclusterkey, ppropertytable, poutpropertylist, cboutpropertylistsize.toLong(), pcbbytesreturned, pcbrequired)).toUInt()
 }
 
 public fun ResUtilGetBinaryProperty(ppboutvalue: Long, pcboutvaluesize: Long, pvaluestruct: Long, pboldvalue: Long, cboldvaluesize: UInt, pppropertylist: Long, pcbpropertylistsize: Long): UInt {
     return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetBinaryProperty", longArrayOf(ppboutvalue, pcboutvaluesize, pvaluestruct, pboldvalue, cboldvaluesize.toLong(), pppropertylist, pcbpropertylistsize)).toUInt()
 }
 
-public fun ResUtilGetBinaryValue(hkeyclusterkey: System.Registry.HKEY, pszvaluename: PCWSTR, ppboutvalue: Long, pcboutvaluesize: Long): UInt {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetBinaryValue", longArrayOf(Win32DynamicFfi.objectSlot(hkeyclusterkey), pszvaluename, ppboutvalue, pcboutvaluesize)).toUInt()
+public fun ResUtilGetBinaryValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, ppboutvalue: Long, pcboutvaluesize: Long): UInt {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetBinaryValue", longArrayOf(hkeyclusterkey, pszvaluename, ppboutvalue, pcboutvaluesize)).toUInt()
 }
 
 public fun ResUtilGetClusterGroupType(hgroup: HGROUP, grouptype: Long): UInt {
@@ -1313,16 +1312,16 @@ public fun ResUtilGetDwordProperty(pdwoutvalue: Long, pvaluestruct: Long, dwoldv
     return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetDwordProperty", longArrayOf(pdwoutvalue, pvaluestruct, dwoldvalue.toLong(), dwminimum.toLong(), dwmaximum.toLong(), pppropertylist, pcbpropertylistsize)).toUInt()
 }
 
-public fun ResUtilGetDwordValue(hkeyclusterkey: System.Registry.HKEY, pszvaluename: PCWSTR, pdwoutvalue: Long, dwdefaultvalue: UInt): UInt {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetDwordValue", longArrayOf(Win32DynamicFfi.objectSlot(hkeyclusterkey), pszvaluename, pdwoutvalue, dwdefaultvalue.toLong())).toUInt()
+public fun ResUtilGetDwordValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, pdwoutvalue: Long, dwdefaultvalue: UInt): UInt {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetDwordValue", longArrayOf(hkeyclusterkey, pszvaluename, pdwoutvalue, dwdefaultvalue.toLong())).toUInt()
 }
 
 public fun ResUtilGetEnvironmentWithNetName(hresource: HRESOURCE): Long {
     return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetEnvironmentWithNetName", longArrayOf(hresource))
 }
 
-public fun ResUtilGetFileTimeProperty(pftoutvalue: Long, pvaluestruct: Long, ftoldvalue: Foundation.FILETIME, ftminimum: Foundation.FILETIME, ftmaximum: Foundation.FILETIME, pppropertylist: Long, pcbpropertylistsize: Long): UInt {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetFileTimeProperty", longArrayOf(pftoutvalue, pvaluestruct, Win32DynamicFfi.objectSlot(ftoldvalue), Win32DynamicFfi.objectSlot(ftminimum), Win32DynamicFfi.objectSlot(ftmaximum), pppropertylist, pcbpropertylistsize)).toUInt()
+public fun ResUtilGetFileTimeProperty(pftoutvalue: Long, pvaluestruct: Long, ftoldvalue: FILETIME, ftminimum: FILETIME, ftmaximum: FILETIME, pppropertylist: Long, pcbpropertylistsize: Long): UInt {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetFileTimeProperty", longArrayOf(pftoutvalue, pvaluestruct, ((ftoldvalue.dwLowDateTime.toLong() and 0xFFFF_FFFFL) or ((ftoldvalue.dwHighDateTime.toLong() and 0xFFFF_FFFFL) shl 32)), ((ftminimum.dwLowDateTime.toLong() and 0xFFFF_FFFFL) or ((ftminimum.dwHighDateTime.toLong() and 0xFFFF_FFFFL) shl 32)), ((ftmaximum.dwLowDateTime.toLong() and 0xFFFF_FFFFL) or ((ftmaximum.dwHighDateTime.toLong() and 0xFFFF_FFFFL) shl 32)), pppropertylist, pcbpropertylistsize)).toUInt()
 }
 
 public fun ResUtilGetLongProperty(ploutvalue: Long, pvaluestruct: Long, loldvalue: Int, lminimum: Int, lmaximum: Int, pppropertylist: Long, pcbpropertylistsize: Long): UInt {
@@ -1333,56 +1332,56 @@ public fun ResUtilGetMultiSzProperty(ppszoutvalue: Long, pcboutvaluesize: Long, 
     return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetMultiSzProperty", longArrayOf(ppszoutvalue, pcboutvaluesize, pvaluestruct, pszoldvalue, cboldvaluesize.toLong(), pppropertylist, pcbpropertylistsize)).toUInt()
 }
 
-public fun ResUtilGetPrivateProperties(hkeyclusterkey: System.Registry.HKEY, poutpropertylist: Long, cboutpropertylistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetPrivateProperties", longArrayOf(Win32DynamicFfi.objectSlot(hkeyclusterkey), poutpropertylist, cboutpropertylistsize.toLong(), pcbbytesreturned, pcbrequired)).toUInt()
+public fun ResUtilGetPrivateProperties(hkeyclusterkey: HKEY, poutpropertylist: Long, cboutpropertylistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetPrivateProperties", longArrayOf(hkeyclusterkey, poutpropertylist, cboutpropertylistsize.toLong(), pcbbytesreturned, pcbrequired)).toUInt()
 }
 
-public fun ResUtilGetProperties(hkeyclusterkey: System.Registry.HKEY, ppropertytable: Long, poutpropertylist: Long, cboutpropertylistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetProperties", longArrayOf(Win32DynamicFfi.objectSlot(hkeyclusterkey), ppropertytable, poutpropertylist, cboutpropertylistsize.toLong(), pcbbytesreturned, pcbrequired)).toUInt()
+public fun ResUtilGetProperties(hkeyclusterkey: HKEY, ppropertytable: Long, poutpropertylist: Long, cboutpropertylistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetProperties", longArrayOf(hkeyclusterkey, ppropertytable, poutpropertylist, cboutpropertylistsize.toLong(), pcbbytesreturned, pcbrequired)).toUInt()
 }
 
-public fun ResUtilGetPropertiesToParameterBlock(hkeyclusterkey: System.Registry.HKEY, ppropertytable: Long, poutparams: Long, bcheckforrequiredproperties: BOOL, psznameofpropinerror: Long): UInt {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetPropertiesToParameterBlock", longArrayOf(Win32DynamicFfi.objectSlot(hkeyclusterkey), ppropertytable, poutparams, bcheckforrequiredproperties.toLong(), psznameofpropinerror)).toUInt()
+public fun ResUtilGetPropertiesToParameterBlock(hkeyclusterkey: HKEY, ppropertytable: Long, poutparams: Long, bcheckforrequiredproperties: BOOL, psznameofpropinerror: Long): UInt {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetPropertiesToParameterBlock", longArrayOf(hkeyclusterkey, ppropertytable, poutparams, bcheckforrequiredproperties.toLong(), psznameofpropinerror)).toUInt()
 }
 
-public fun ResUtilGetProperty(hkeyclusterkey: System.Registry.HKEY, ppropertytableitem: Long, poutpropertyitem: Long, pcboutpropertyitemsize: Long): UInt {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetProperty", longArrayOf(Win32DynamicFfi.objectSlot(hkeyclusterkey), ppropertytableitem, poutpropertyitem, pcboutpropertyitemsize)).toUInt()
+public fun ResUtilGetProperty(hkeyclusterkey: HKEY, ppropertytableitem: Long, poutpropertyitem: Long, pcboutpropertyitemsize: Long): UInt {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetProperty", longArrayOf(hkeyclusterkey, ppropertytableitem, poutpropertyitem, pcboutpropertyitemsize)).toUInt()
 }
 
 public fun ResUtilGetPropertyFormats(ppropertytable: Long, poutpropertyformatlist: Long, cbpropertyformatlistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt {
     return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetPropertyFormats", longArrayOf(ppropertytable, poutpropertyformatlist, cbpropertyformatlistsize.toLong(), pcbbytesreturned, pcbrequired)).toUInt()
 }
 
-public fun ResUtilGetPropertySize(hkeyclusterkey: System.Registry.HKEY, ppropertytableitem: Long, pcboutpropertylistsize: Long, pnpropertycount: Long): UInt {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetPropertySize", longArrayOf(Win32DynamicFfi.objectSlot(hkeyclusterkey), ppropertytableitem, pcboutpropertylistsize, pnpropertycount)).toUInt()
+public fun ResUtilGetPropertySize(hkeyclusterkey: HKEY, ppropertytableitem: Long, pcboutpropertylistsize: Long, pnpropertycount: Long): UInt {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetPropertySize", longArrayOf(hkeyclusterkey, ppropertytableitem, pcboutpropertylistsize, pnpropertycount)).toUInt()
 }
 
-public fun ResUtilGetQwordValue(hkeyclusterkey: System.Registry.HKEY, pszvaluename: PCWSTR, pqwoutvalue: Long, qwdefaultvalue: ULong): UInt {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetQwordValue", longArrayOf(Win32DynamicFfi.objectSlot(hkeyclusterkey), pszvaluename, pqwoutvalue, qwdefaultvalue.toLong())).toUInt()
+public fun ResUtilGetQwordValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, pqwoutvalue: Long, qwdefaultvalue: ULong): UInt {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetQwordValue", longArrayOf(hkeyclusterkey, pszvaluename, pqwoutvalue, qwdefaultvalue.toLong())).toUInt()
 }
 
-public fun ResUtilGetResourceDependency(hself: Foundation.HANDLE, lpszresourcetype: PCWSTR): HRESOURCE {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetResourceDependency", longArrayOf(Win32DynamicFfi.objectSlot(hself), lpszresourcetype))
+public fun ResUtilGetResourceDependency(hself: HANDLE, lpszresourcetype: PCWSTR): HRESOURCE {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetResourceDependency", longArrayOf(hself, lpszresourcetype))
 }
 
-public fun ResUtilGetResourceDependencyByClass(hcluster: HCLUSTER, hself: Foundation.HANDLE, prci: Long, brecurse: BOOL): HRESOURCE {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetResourceDependencyByClass", longArrayOf(hcluster, Win32DynamicFfi.objectSlot(hself), prci, brecurse.toLong()))
+public fun ResUtilGetResourceDependencyByClass(hcluster: HCLUSTER, hself: HANDLE, prci: Long, brecurse: BOOL): HRESOURCE {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetResourceDependencyByClass", longArrayOf(hcluster, hself, prci, brecurse.toLong()))
 }
 
-public fun ResUtilGetResourceDependencyByClassEx(hcluster: HCLUSTER, hself: Foundation.HANDLE, prci: Long, brecurse: BOOL, dwdesiredaccess: UInt): HRESOURCE {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetResourceDependencyByClassEx", longArrayOf(hcluster, Win32DynamicFfi.objectSlot(hself), prci, brecurse.toLong(), dwdesiredaccess.toLong()))
+public fun ResUtilGetResourceDependencyByClassEx(hcluster: HCLUSTER, hself: HANDLE, prci: Long, brecurse: BOOL, dwdesiredaccess: UInt): HRESOURCE {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetResourceDependencyByClassEx", longArrayOf(hcluster, hself, prci, brecurse.toLong(), dwdesiredaccess.toLong()))
 }
 
-public fun ResUtilGetResourceDependencyByName(hcluster: HCLUSTER, hself: Foundation.HANDLE, lpszresourcetype: PCWSTR, brecurse: BOOL): HRESOURCE {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetResourceDependencyByName", longArrayOf(hcluster, Win32DynamicFfi.objectSlot(hself), lpszresourcetype, brecurse.toLong()))
+public fun ResUtilGetResourceDependencyByName(hcluster: HCLUSTER, hself: HANDLE, lpszresourcetype: PCWSTR, brecurse: BOOL): HRESOURCE {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetResourceDependencyByName", longArrayOf(hcluster, hself, lpszresourcetype, brecurse.toLong()))
 }
 
-public fun ResUtilGetResourceDependencyByNameEx(hcluster: HCLUSTER, hself: Foundation.HANDLE, lpszresourcetype: PCWSTR, brecurse: BOOL, dwdesiredaccess: UInt): HRESOURCE {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetResourceDependencyByNameEx", longArrayOf(hcluster, Win32DynamicFfi.objectSlot(hself), lpszresourcetype, brecurse.toLong(), dwdesiredaccess.toLong()))
+public fun ResUtilGetResourceDependencyByNameEx(hcluster: HCLUSTER, hself: HANDLE, lpszresourcetype: PCWSTR, brecurse: BOOL, dwdesiredaccess: UInt): HRESOURCE {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetResourceDependencyByNameEx", longArrayOf(hcluster, hself, lpszresourcetype, brecurse.toLong(), dwdesiredaccess.toLong()))
 }
 
-public fun ResUtilGetResourceDependencyEx(hself: Foundation.HANDLE, lpszresourcetype: PCWSTR, dwdesiredaccess: UInt): HRESOURCE {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetResourceDependencyEx", longArrayOf(Win32DynamicFfi.objectSlot(hself), lpszresourcetype, dwdesiredaccess.toLong()))
+public fun ResUtilGetResourceDependencyEx(hself: HANDLE, lpszresourcetype: PCWSTR, dwdesiredaccess: UInt): HRESOURCE {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetResourceDependencyEx", longArrayOf(hself, lpszresourcetype, dwdesiredaccess.toLong()))
 }
 
 public fun ResUtilGetResourceDependentIPAddressProps(hresource: HRESOURCE, pszaddress: PWSTR, pcchaddress: Long, pszsubnetmask: PWSTR, pcchsubnetmask: Long, psznetwork: PWSTR, pcchnetwork: Long): UInt {
@@ -1405,8 +1404,8 @@ public fun ResUtilGetSzProperty(ppszoutvalue: Long, pvaluestruct: Long, pszoldva
     return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetSzProperty", longArrayOf(ppszoutvalue, pvaluestruct, pszoldvalue, pppropertylist, pcbpropertylistsize)).toUInt()
 }
 
-public fun ResUtilGetSzValue(hkeyclusterkey: System.Registry.HKEY, pszvaluename: PCWSTR): PWSTR {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetSzValue", longArrayOf(Win32DynamicFfi.objectSlot(hkeyclusterkey), pszvaluename))
+public fun ResUtilGetSzValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR): PWSTR {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilGetSzValue", longArrayOf(hkeyclusterkey, pszvaluename))
 }
 
 public fun ResUtilGroupsEqual(hself: HGROUP, hgroup: HGROUP, pequal: Long): UInt {
@@ -1453,68 +1452,68 @@ public fun ResUtilResourcesEqual(hself: HRESOURCE, hresource: HRESOURCE): BOOL {
     return Win32DynamicFfi.invoke("resutils.dll", "ResUtilResourcesEqual", longArrayOf(hself, hresource)).toInt()
 }
 
-public fun ResUtilSetBinaryValue(hkeyclusterkey: System.Registry.HKEY, pszvaluename: PCWSTR, pbnewvalue: Long, cbnewvaluesize: UInt, ppboutvalue: Long, pcboutvaluesize: Long): UInt {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetBinaryValue", longArrayOf(Win32DynamicFfi.objectSlot(hkeyclusterkey), pszvaluename, pbnewvalue, cbnewvaluesize.toLong(), ppboutvalue, pcboutvaluesize)).toUInt()
+public fun ResUtilSetBinaryValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, pbnewvalue: Long, cbnewvaluesize: UInt, ppboutvalue: Long, pcboutvaluesize: Long): UInt {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetBinaryValue", longArrayOf(hkeyclusterkey, pszvaluename, pbnewvalue, cbnewvaluesize.toLong(), ppboutvalue, pcboutvaluesize)).toUInt()
 }
 
-public fun ResUtilSetDwordValue(hkeyclusterkey: System.Registry.HKEY, pszvaluename: PCWSTR, dwnewvalue: UInt, pdwoutvalue: Long): UInt {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetDwordValue", longArrayOf(Win32DynamicFfi.objectSlot(hkeyclusterkey), pszvaluename, dwnewvalue.toLong(), pdwoutvalue)).toUInt()
+public fun ResUtilSetDwordValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, dwnewvalue: UInt, pdwoutvalue: Long): UInt {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetDwordValue", longArrayOf(hkeyclusterkey, pszvaluename, dwnewvalue.toLong(), pdwoutvalue)).toUInt()
 }
 
-public fun ResUtilSetExpandSzValue(hkeyclusterkey: System.Registry.HKEY, pszvaluename: PCWSTR, psznewvalue: PCWSTR, ppszoutstring: Long): UInt {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetExpandSzValue", longArrayOf(Win32DynamicFfi.objectSlot(hkeyclusterkey), pszvaluename, psznewvalue, ppszoutstring)).toUInt()
+public fun ResUtilSetExpandSzValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, psznewvalue: PCWSTR, ppszoutstring: Long): UInt {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetExpandSzValue", longArrayOf(hkeyclusterkey, pszvaluename, psznewvalue, ppszoutstring)).toUInt()
 }
 
-public fun ResUtilSetMultiSzValue(hkeyclusterkey: System.Registry.HKEY, pszvaluename: PCWSTR, psznewvalue: PCWSTR, cbnewvaluesize: UInt, ppszoutvalue: Long, pcboutvaluesize: Long): UInt {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetMultiSzValue", longArrayOf(Win32DynamicFfi.objectSlot(hkeyclusterkey), pszvaluename, psznewvalue, cbnewvaluesize.toLong(), ppszoutvalue, pcboutvaluesize)).toUInt()
+public fun ResUtilSetMultiSzValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, psznewvalue: PCWSTR, cbnewvaluesize: UInt, ppszoutvalue: Long, pcboutvaluesize: Long): UInt {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetMultiSzValue", longArrayOf(hkeyclusterkey, pszvaluename, psznewvalue, cbnewvaluesize.toLong(), ppszoutvalue, pcboutvaluesize)).toUInt()
 }
 
-public fun ResUtilSetPrivatePropertyList(hkeyclusterkey: System.Registry.HKEY, pinpropertylist: Long, cbinpropertylistsize: UInt): UInt {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetPrivatePropertyList", longArrayOf(Win32DynamicFfi.objectSlot(hkeyclusterkey), pinpropertylist, cbinpropertylistsize.toLong())).toUInt()
+public fun ResUtilSetPrivatePropertyList(hkeyclusterkey: HKEY, pinpropertylist: Long, cbinpropertylistsize: UInt): UInt {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetPrivatePropertyList", longArrayOf(hkeyclusterkey, pinpropertylist, cbinpropertylistsize.toLong())).toUInt()
 }
 
-public fun ResUtilSetPropertyParameterBlock(hkeyclusterkey: System.Registry.HKEY, ppropertytable: Long, reserved: Long, pinparams: Long, pinpropertylist: Long, cbinpropertylistsize: UInt, poutparams: Long): UInt {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetPropertyParameterBlock", longArrayOf(Win32DynamicFfi.objectSlot(hkeyclusterkey), ppropertytable, reserved, pinparams, pinpropertylist, cbinpropertylistsize.toLong(), poutparams)).toUInt()
+public fun ResUtilSetPropertyParameterBlock(hkeyclusterkey: HKEY, ppropertytable: Long, reserved: Long, pinparams: Long, pinpropertylist: Long, cbinpropertylistsize: UInt, poutparams: Long): UInt {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetPropertyParameterBlock", longArrayOf(hkeyclusterkey, ppropertytable, reserved, pinparams, pinpropertylist, cbinpropertylistsize.toLong(), poutparams)).toUInt()
 }
 
-public fun ResUtilSetPropertyParameterBlockEx(hkeyclusterkey: System.Registry.HKEY, ppropertytable: Long, reserved: Long, pinparams: Long, pinpropertylist: Long, cbinpropertylistsize: UInt, bforcewrite: BOOL, poutparams: Long): UInt {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetPropertyParameterBlockEx", longArrayOf(Win32DynamicFfi.objectSlot(hkeyclusterkey), ppropertytable, reserved, pinparams, pinpropertylist, cbinpropertylistsize.toLong(), bforcewrite.toLong(), poutparams)).toUInt()
+public fun ResUtilSetPropertyParameterBlockEx(hkeyclusterkey: HKEY, ppropertytable: Long, reserved: Long, pinparams: Long, pinpropertylist: Long, cbinpropertylistsize: UInt, bforcewrite: BOOL, poutparams: Long): UInt {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetPropertyParameterBlockEx", longArrayOf(hkeyclusterkey, ppropertytable, reserved, pinparams, pinpropertylist, cbinpropertylistsize.toLong(), bforcewrite.toLong(), poutparams)).toUInt()
 }
 
-public fun ResUtilSetPropertyTable(hkeyclusterkey: System.Registry.HKEY, ppropertytable: Long, reserved: Long, ballowunknownproperties: BOOL, pinpropertylist: Long, cbinpropertylistsize: UInt, poutparams: Long): UInt {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetPropertyTable", longArrayOf(Win32DynamicFfi.objectSlot(hkeyclusterkey), ppropertytable, reserved, ballowunknownproperties.toLong(), pinpropertylist, cbinpropertylistsize.toLong(), poutparams)).toUInt()
+public fun ResUtilSetPropertyTable(hkeyclusterkey: HKEY, ppropertytable: Long, reserved: Long, ballowunknownproperties: BOOL, pinpropertylist: Long, cbinpropertylistsize: UInt, poutparams: Long): UInt {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetPropertyTable", longArrayOf(hkeyclusterkey, ppropertytable, reserved, ballowunknownproperties.toLong(), pinpropertylist, cbinpropertylistsize.toLong(), poutparams)).toUInt()
 }
 
-public fun ResUtilSetPropertyTableEx(hkeyclusterkey: System.Registry.HKEY, ppropertytable: Long, reserved: Long, ballowunknownproperties: BOOL, pinpropertylist: Long, cbinpropertylistsize: UInt, bforcewrite: BOOL, poutparams: Long): UInt {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetPropertyTableEx", longArrayOf(Win32DynamicFfi.objectSlot(hkeyclusterkey), ppropertytable, reserved, ballowunknownproperties.toLong(), pinpropertylist, cbinpropertylistsize.toLong(), bforcewrite.toLong(), poutparams)).toUInt()
+public fun ResUtilSetPropertyTableEx(hkeyclusterkey: HKEY, ppropertytable: Long, reserved: Long, ballowunknownproperties: BOOL, pinpropertylist: Long, cbinpropertylistsize: UInt, bforcewrite: BOOL, poutparams: Long): UInt {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetPropertyTableEx", longArrayOf(hkeyclusterkey, ppropertytable, reserved, ballowunknownproperties.toLong(), pinpropertylist, cbinpropertylistsize.toLong(), bforcewrite.toLong(), poutparams)).toUInt()
 }
 
-public fun ResUtilSetQwordValue(hkeyclusterkey: System.Registry.HKEY, pszvaluename: PCWSTR, qwnewvalue: ULong, pqwoutvalue: Long): UInt {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetQwordValue", longArrayOf(Win32DynamicFfi.objectSlot(hkeyclusterkey), pszvaluename, qwnewvalue.toLong(), pqwoutvalue)).toUInt()
+public fun ResUtilSetQwordValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, qwnewvalue: ULong, pqwoutvalue: Long): UInt {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetQwordValue", longArrayOf(hkeyclusterkey, pszvaluename, qwnewvalue.toLong(), pqwoutvalue)).toUInt()
 }
 
 public fun ResUtilSetResourceServiceEnvironment(pszservicename: PCWSTR, hresource: HRESOURCE, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: Long): UInt {
     return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetResourceServiceEnvironment", longArrayOf(pszservicename, hresource, Win32DynamicFfi.objectSlot(pfnlogevent), hresourcehandle)).toUInt()
 }
 
-public fun ResUtilSetResourceServiceStartParameters(pszservicename: PCWSTR, schscmhandle: System.Services.SC_HANDLE, phservice: Long, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: Long): UInt {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetResourceServiceStartParameters", longArrayOf(pszservicename, Win32DynamicFfi.objectSlot(schscmhandle), phservice, Win32DynamicFfi.objectSlot(pfnlogevent), hresourcehandle)).toUInt()
+public fun ResUtilSetResourceServiceStartParameters(pszservicename: PCWSTR, schscmhandle: SC_HANDLE, phservice: Long, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: Long): UInt {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetResourceServiceStartParameters", longArrayOf(pszservicename, schscmhandle, phservice, Win32DynamicFfi.objectSlot(pfnlogevent), hresourcehandle)).toUInt()
 }
 
-public fun ResUtilSetResourceServiceStartParametersEx(pszservicename: PCWSTR, schscmhandle: System.Services.SC_HANDLE, phservice: Long, dwdesiredaccess: UInt, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: Long): UInt {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetResourceServiceStartParametersEx", longArrayOf(pszservicename, Win32DynamicFfi.objectSlot(schscmhandle), phservice, dwdesiredaccess.toLong(), Win32DynamicFfi.objectSlot(pfnlogevent), hresourcehandle)).toUInt()
+public fun ResUtilSetResourceServiceStartParametersEx(pszservicename: PCWSTR, schscmhandle: SC_HANDLE, phservice: Long, dwdesiredaccess: UInt, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: Long): UInt {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetResourceServiceStartParametersEx", longArrayOf(pszservicename, schscmhandle, phservice, dwdesiredaccess.toLong(), Win32DynamicFfi.objectSlot(pfnlogevent), hresourcehandle)).toUInt()
 }
 
-public fun ResUtilSetSzValue(hkeyclusterkey: System.Registry.HKEY, pszvaluename: PCWSTR, psznewvalue: PCWSTR, ppszoutstring: Long): UInt {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetSzValue", longArrayOf(Win32DynamicFfi.objectSlot(hkeyclusterkey), pszvaluename, psznewvalue, ppszoutstring)).toUInt()
+public fun ResUtilSetSzValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, psznewvalue: PCWSTR, ppszoutstring: Long): UInt {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetSzValue", longArrayOf(hkeyclusterkey, pszvaluename, psznewvalue, ppszoutstring)).toUInt()
 }
 
-public fun ResUtilSetUnknownProperties(hkeyclusterkey: System.Registry.HKEY, ppropertytable: Long, pinpropertylist: Long, cbinpropertylistsize: UInt): UInt {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetUnknownProperties", longArrayOf(Win32DynamicFfi.objectSlot(hkeyclusterkey), ppropertytable, pinpropertylist, cbinpropertylistsize.toLong())).toUInt()
+public fun ResUtilSetUnknownProperties(hkeyclusterkey: HKEY, ppropertytable: Long, pinpropertylist: Long, cbinpropertylistsize: UInt): UInt {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetUnknownProperties", longArrayOf(hkeyclusterkey, ppropertytable, pinpropertylist, cbinpropertylistsize.toLong())).toUInt()
 }
 
-public fun ResUtilSetValueEx(hkeyclusterkey: System.Registry.HKEY, valuename: PCWSTR, valuetype: UInt, valuedata: Long, valuesize: UInt, flags: UInt): UInt {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetValueEx", longArrayOf(Win32DynamicFfi.objectSlot(hkeyclusterkey), valuename, valuetype.toLong(), valuedata, valuesize.toLong(), flags.toLong())).toUInt()
+public fun ResUtilSetValueEx(hkeyclusterkey: HKEY, valuename: PCWSTR, valuetype: UInt, valuedata: Long, valuesize: UInt, flags: UInt): UInt {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilSetValueEx", longArrayOf(hkeyclusterkey, valuename, valuetype.toLong(), valuedata, valuesize.toLong(), flags.toLong())).toUInt()
 }
 
 public fun ResUtilStartResourceService(pszservicename: PCWSTR, phservicehandle: Long): UInt {
@@ -1525,8 +1524,8 @@ public fun ResUtilStopResourceService(pszservicename: PCWSTR): UInt {
     return Win32DynamicFfi.invoke("resutils.dll", "ResUtilStopResourceService", longArrayOf(pszservicename)).toUInt()
 }
 
-public fun ResUtilStopService(hservicehandle: System.Services.SC_HANDLE): UInt {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilStopService", longArrayOf(Win32DynamicFfi.objectSlot(hservicehandle))).toUInt()
+public fun ResUtilStopService(hservicehandle: SC_HANDLE): UInt {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilStopService", longArrayOf(hservicehandle)).toUInt()
 }
 
 public fun ResUtilTerminateServiceProcessFromResDll(dwservicepid: UInt, boffline: BOOL, pdwresourcestate: Long, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: Long): UInt {
@@ -1545,16 +1544,16 @@ public fun ResUtilVerifyResourceService(pszservicename: PCWSTR): UInt {
     return Win32DynamicFfi.invoke("resutils.dll", "ResUtilVerifyResourceService", longArrayOf(pszservicename)).toUInt()
 }
 
-public fun ResUtilVerifyService(hservicehandle: System.Services.SC_HANDLE): UInt {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilVerifyService", longArrayOf(Win32DynamicFfi.objectSlot(hservicehandle))).toUInt()
+public fun ResUtilVerifyService(hservicehandle: SC_HANDLE): UInt {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilVerifyService", longArrayOf(hservicehandle)).toUInt()
 }
 
 public fun ResUtilVerifyShutdownSafe(flags: UInt, reason: UInt, presult: Long): UInt {
     return Win32DynamicFfi.invoke("resutils.dll", "ResUtilVerifyShutdownSafe", longArrayOf(flags.toLong(), reason.toLong(), presult)).toUInt()
 }
 
-public fun ResUtilsDeleteKeyTree(key: System.Registry.HKEY, keyname: PCWSTR, treatnokeyaserror: BOOL): UInt {
-    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilsDeleteKeyTree", longArrayOf(Win32DynamicFfi.objectSlot(key), keyname, treatnokeyaserror.toLong())).toUInt()
+public fun ResUtilsDeleteKeyTree(key: HKEY, keyname: PCWSTR, treatnokeyaserror: BOOL): UInt {
+    return Win32DynamicFfi.invoke("resutils.dll", "ResUtilsDeleteKeyTree", longArrayOf(key, keyname, treatnokeyaserror.toLong())).toUInt()
 }
 
 public fun ResetAllAppInstanceVersions(): UInt {
@@ -1585,8 +1584,8 @@ public fun ResumeClusterNodeEx2(hnode: HNODE, eresumefailbacktype: CLUSTER_NODE_
     return Win32DynamicFfi.invoke("clusapi.dll", "ResumeClusterNodeEx2", longArrayOf(hnode, eresumefailbacktype.toLong(), dwresumeflagsreserved.toLong(), lpszreason)).toUInt()
 }
 
-public fun SetAppInstanceCsvFlags(processhandle: Foundation.HANDLE, mask: UInt, flags: UInt): UInt {
-    return Win32DynamicFfi.invoke("ntlanman.dll", "SetAppInstanceCsvFlags", longArrayOf(Win32DynamicFfi.objectSlot(processhandle), mask.toLong(), flags.toLong())).toUInt()
+public fun SetAppInstanceCsvFlags(processhandle: HANDLE, mask: UInt, flags: UInt): UInt {
+    return Win32DynamicFfi.invoke("ntlanman.dll", "SetAppInstanceCsvFlags", longArrayOf(processhandle, mask.toLong(), flags.toLong())).toUInt()
 }
 
 public fun SetClusterGroupName(hgroup: HGROUP, lpszgroupname: PCWSTR): UInt {

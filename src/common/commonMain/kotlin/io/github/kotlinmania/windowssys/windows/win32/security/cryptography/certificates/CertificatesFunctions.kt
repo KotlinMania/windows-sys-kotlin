@@ -4,6 +4,7 @@ import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
 
 public fun CertSrvBackupClose(hbc: Long): HRESULT {
     return Win32DynamicFfi.invoke("certadm.dll", "CertSrvBackupClose", longArrayOf(hbc)).toInt()
@@ -77,42 +78,34 @@ public fun CertSrvServerControlW(pwszservername: PCWSTR, dwcontrolflags: UInt, p
     return Win32DynamicFfi.invoke("certadm.dll", "CertSrvServerControlW", longArrayOf(pwszservername, dwcontrolflags.toLong(), pcbout, ppbout)).toInt()
 }
 
-public fun PstAcquirePrivateKey(pcert: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("certpoleng.dll", "PstAcquirePrivateKey", longArrayOf(pcert))
-    return Foundation.NTSTATUS()
+public fun PstAcquirePrivateKey(pcert: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("certpoleng.dll", "PstAcquirePrivateKey", longArrayOf(pcert)).toInt()
 }
 
-public fun PstGetCertificateChain(pcert: Long, ptrustedissuers: Long, ppcertchaincontext: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("certpoleng.dll", "PstGetCertificateChain", longArrayOf(pcert, ptrustedissuers, ppcertchaincontext))
-    return Foundation.NTSTATUS()
+public fun PstGetCertificateChain(pcert: Long, ptrustedissuers: Long, ppcertchaincontext: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("certpoleng.dll", "PstGetCertificateChain", longArrayOf(pcert, ptrustedissuers, ppcertchaincontext)).toInt()
 }
 
-public fun PstGetCertificates(ptargetname: Long, ccriteria: UInt, rgpcriteria: Long, bisclient: BOOL, pdwcertchaincontextcount: Long, ppcertchaincontexts: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("certpoleng.dll", "PstGetCertificates", longArrayOf(ptargetname, ccriteria.toLong(), rgpcriteria, bisclient.toLong(), pdwcertchaincontextcount, ppcertchaincontexts))
-    return Foundation.NTSTATUS()
+public fun PstGetCertificates(ptargetname: Long, ccriteria: UInt, rgpcriteria: Long, bisclient: BOOL, pdwcertchaincontextcount: Long, ppcertchaincontexts: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("certpoleng.dll", "PstGetCertificates", longArrayOf(ptargetname, ccriteria.toLong(), rgpcriteria, bisclient.toLong(), pdwcertchaincontextcount, ppcertchaincontexts)).toInt()
 }
 
-public fun PstGetTrustAnchors(ptargetname: Long, ccriteria: UInt, rgpcriteria: Long, pptrustedissuers: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("certpoleng.dll", "PstGetTrustAnchors", longArrayOf(ptargetname, ccriteria.toLong(), rgpcriteria, pptrustedissuers))
-    return Foundation.NTSTATUS()
+public fun PstGetTrustAnchors(ptargetname: Long, ccriteria: UInt, rgpcriteria: Long, pptrustedissuers: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("certpoleng.dll", "PstGetTrustAnchors", longArrayOf(ptargetname, ccriteria.toLong(), rgpcriteria, pptrustedissuers)).toInt()
 }
 
-public fun PstGetTrustAnchorsEx(ptargetname: Long, ccriteria: UInt, rgpcriteria: Long, pcertcontext: Long, pptrustedissuers: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("certpoleng.dll", "PstGetTrustAnchorsEx", longArrayOf(ptargetname, ccriteria.toLong(), rgpcriteria, pcertcontext, pptrustedissuers))
-    return Foundation.NTSTATUS()
+public fun PstGetTrustAnchorsEx(ptargetname: Long, ccriteria: UInt, rgpcriteria: Long, pcertcontext: Long, pptrustedissuers: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("certpoleng.dll", "PstGetTrustAnchorsEx", longArrayOf(ptargetname, ccriteria.toLong(), rgpcriteria, pcertcontext, pptrustedissuers)).toInt()
 }
 
-public fun PstGetUserNameForCertificate(pcertcontext: Long, username: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("certpoleng.dll", "PstGetUserNameForCertificate", longArrayOf(pcertcontext, username))
-    return Foundation.NTSTATUS()
+public fun PstGetUserNameForCertificate(pcertcontext: Long, username: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("certpoleng.dll", "PstGetUserNameForCertificate", longArrayOf(pcertcontext, username)).toInt()
 }
 
-public fun PstMapCertificate(pcert: Long, ptokeninformationtype: Long, pptokeninformation: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("certpoleng.dll", "PstMapCertificate", longArrayOf(pcert, ptokeninformationtype, pptokeninformation))
-    return Foundation.NTSTATUS()
+public fun PstMapCertificate(pcert: Long, ptokeninformationtype: Long, pptokeninformation: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("certpoleng.dll", "PstMapCertificate", longArrayOf(pcert, ptokeninformationtype, pptokeninformation)).toInt()
 }
 
-public fun PstValidate(ptargetname: Long, bisclient: BOOL, prequestedissuancepolicy: Long, phadditionalcertstore: Long, pcert: Long, pprovguid: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("certpoleng.dll", "PstValidate", longArrayOf(ptargetname, bisclient.toLong(), prequestedissuancepolicy, phadditionalcertstore, pcert, pprovguid))
-    return Foundation.NTSTATUS()
+public fun PstValidate(ptargetname: Long, bisclient: BOOL, prequestedissuancepolicy: Long, phadditionalcertstore: Long, pcert: Long, pprovguid: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("certpoleng.dll", "PstValidate", longArrayOf(ptargetname, bisclient.toLong(), prequestedissuancepolicy, phadditionalcertstore, pcert, pprovguid)).toInt()
 }

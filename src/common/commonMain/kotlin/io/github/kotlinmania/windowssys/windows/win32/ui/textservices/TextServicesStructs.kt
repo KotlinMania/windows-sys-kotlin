@@ -4,10 +4,13 @@ package io.github.kotlinmania.windowssys.windows.win32.ui.textservices
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.BSTR
 import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.windows.win32.foundation.COLORREF
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.VARIANT
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.HKL
 
 public data class TF_DA_COLOR(public var type: TF_DA_COLORTYPE = 0, public var Anonymous: TF_DA_COLOR_0 = TF_DA_COLOR_0())
 
-public data class TF_DA_COLOR_0(public var nIndex: Int = 0, public var cr: Foundation.COLORREF = Foundation.COLORREF())
+public data class TF_DA_COLOR_0(public var nIndex: Int = 0, public var cr: COLORREF = 0u)
 
 public data class TF_DISPLAYATTRIBUTE(
     public var crText: TF_DA_COLOR = TF_DA_COLOR(),
@@ -30,9 +33,9 @@ public data class TF_INPUTPROCESSORPROFILE(
     public var clsid: GUID = GUID(),
     public var guidProfile: GUID = GUID(),
     public var catid: GUID = GUID(),
-    public var hklSubstitute: Input.KeyboardAndMouse.HKL = Input.KeyboardAndMouse.HKL(),
+    public var hklSubstitute: HKL = 0L,
     public var dwCaps: UInt = 0u,
-    public var hkl: Input.KeyboardAndMouse.HKL = Input.KeyboardAndMouse.HKL(),
+    public var hkl: HKL = 0L,
     public var dwFlags: UInt = 0u,
 )
 
@@ -95,7 +98,7 @@ public data class TF_PERSISTENT_PROPERTY_HEADER_ACP(
 
 public data class TF_PRESERVEDKEY(public var uVKey: UInt = 0u, public var uModifiers: UInt = 0u)
 
-public data class TF_PROPERTYVAL(public var guidId: GUID = GUID(), public var varValue: System.Variant.VARIANT = System.Variant.VARIANT())
+public data class TF_PROPERTYVAL(public var guidId: GUID = GUID(), public var varValue: VARIANT = VARIANT())
 
 public data class TF_SELECTION(public var range: Long = 0L, public var style: TF_SELECTIONSTYLE = TF_SELECTIONSTYLE())
 
@@ -104,7 +107,7 @@ public data class TF_SELECTIONSTYLE(public var ase: TfActiveSelEnd = 0, public v
 public data class TS_ATTRVAL(
     public var idAttr: GUID = GUID(),
     public var dwOverlapId: UInt = 0u,
-    public var varValue: System.Variant.VARIANT = System.Variant.VARIANT(),
+    public var varValue: VARIANT = VARIANT(),
 )
 
 public data class TS_RUNINFO(public var uCount: UInt = 0u, public var type: TsRunType = 0)

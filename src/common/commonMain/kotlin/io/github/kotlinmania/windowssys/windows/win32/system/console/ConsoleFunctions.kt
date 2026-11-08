@@ -7,6 +7,9 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
 
 public fun interface FnCallback {
     public operator fun invoke(ctrltype: UInt): BOOL
@@ -32,18 +35,16 @@ public fun ClosePseudoConsole(hpc: HPCON) {
     Win32DynamicFfi.invoke("kernel32.dll", "ClosePseudoConsole", longArrayOf(hpc))
 }
 
-public fun ConsoleControl(command: CONSOLECONTROL, consoleinformation: Long, consoleinformationlength: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("user32.dll", "ConsoleControl", longArrayOf(command.toLong(), consoleinformation, consoleinformationlength.toLong()))
-    return Foundation.NTSTATUS()
+public fun ConsoleControl(command: CONSOLECONTROL, consoleinformation: Long, consoleinformationlength: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("user32.dll", "ConsoleControl", longArrayOf(command.toLong(), consoleinformation, consoleinformationlength.toLong())).toInt()
 }
 
-public fun CreateConsoleScreenBuffer(dwdesiredaccess: UInt, dwsharemode: UInt, lpsecurityattributes: Long, dwflags: UInt, lpscreenbufferdata: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreateConsoleScreenBuffer", longArrayOf(dwdesiredaccess.toLong(), dwsharemode.toLong(), lpsecurityattributes, dwflags.toLong(), lpscreenbufferdata))
-    return Foundation.HANDLE()
+public fun CreateConsoleScreenBuffer(dwdesiredaccess: UInt, dwsharemode: UInt, lpsecurityattributes: Long, dwflags: UInt, lpscreenbufferdata: Long): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateConsoleScreenBuffer", longArrayOf(dwdesiredaccess.toLong(), dwsharemode.toLong(), lpsecurityattributes, dwflags.toLong(), lpscreenbufferdata))
 }
 
-public fun CreatePseudoConsole(size: COORD, hinput: Foundation.HANDLE, houtput: Foundation.HANDLE, dwflags: UInt, phpc: Long): HRESULT {
-    return Win32DynamicFfi.invoke("kernel32.dll", "CreatePseudoConsole", longArrayOf((((size.X.toLong()) and 0xFFFFL) or (((size.Y.toLong()) and 0xFFFFL) shl 16)), Win32DynamicFfi.objectSlot(hinput), Win32DynamicFfi.objectSlot(houtput), dwflags.toLong(), phpc)).toInt()
+public fun CreatePseudoConsole(size: COORD, hinput: HANDLE, houtput: HANDLE, dwflags: UInt, phpc: Long): HRESULT {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreatePseudoConsole", longArrayOf(((size.X.toLong() and 0xFFFFL) or ((size.Y.toLong() and 0xFFFFL) shl 16)), hinput, houtput, dwflags.toLong(), phpc)).toInt()
 }
 
 public fun ExpungeConsoleCommandHistoryA(exename: PCSTR) {
@@ -54,20 +55,20 @@ public fun ExpungeConsoleCommandHistoryW(exename: PCWSTR) {
     Win32DynamicFfi.invoke("kernel32.dll", "ExpungeConsoleCommandHistoryW", longArrayOf(exename))
 }
 
-public fun FillConsoleOutputAttribute(hconsoleoutput: Foundation.HANDLE, wattribute: UShort, nlength: UInt, dwwritecoord: COORD, lpnumberofattrswritten: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "FillConsoleOutputAttribute", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), wattribute.toLong(), nlength.toLong(), (((dwwritecoord.X.toLong()) and 0xFFFFL) or (((dwwritecoord.Y.toLong()) and 0xFFFFL) shl 16)), lpnumberofattrswritten)).toInt()
+public fun FillConsoleOutputAttribute(hconsoleoutput: HANDLE, wattribute: UShort, nlength: UInt, dwwritecoord: COORD, lpnumberofattrswritten: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FillConsoleOutputAttribute", longArrayOf(hconsoleoutput, wattribute.toLong(), nlength.toLong(), ((dwwritecoord.X.toLong() and 0xFFFFL) or ((dwwritecoord.Y.toLong() and 0xFFFFL) shl 16)), lpnumberofattrswritten)).toInt()
 }
 
-public fun FillConsoleOutputCharacterA(hconsoleoutput: Foundation.HANDLE, ccharacter: Byte, nlength: UInt, dwwritecoord: COORD, lpnumberofcharswritten: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "FillConsoleOutputCharacterA", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), ccharacter.toLong(), nlength.toLong(), (((dwwritecoord.X.toLong()) and 0xFFFFL) or (((dwwritecoord.Y.toLong()) and 0xFFFFL) shl 16)), lpnumberofcharswritten)).toInt()
+public fun FillConsoleOutputCharacterA(hconsoleoutput: HANDLE, ccharacter: Byte, nlength: UInt, dwwritecoord: COORD, lpnumberofcharswritten: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FillConsoleOutputCharacterA", longArrayOf(hconsoleoutput, ccharacter.toLong(), nlength.toLong(), ((dwwritecoord.X.toLong() and 0xFFFFL) or ((dwwritecoord.Y.toLong() and 0xFFFFL) shl 16)), lpnumberofcharswritten)).toInt()
 }
 
-public fun FillConsoleOutputCharacterW(hconsoleoutput: Foundation.HANDLE, ccharacter: UShort, nlength: UInt, dwwritecoord: COORD, lpnumberofcharswritten: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "FillConsoleOutputCharacterW", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), ccharacter.toLong(), nlength.toLong(), (((dwwritecoord.X.toLong()) and 0xFFFFL) or (((dwwritecoord.Y.toLong()) and 0xFFFFL) shl 16)), lpnumberofcharswritten)).toInt()
+public fun FillConsoleOutputCharacterW(hconsoleoutput: HANDLE, ccharacter: UShort, nlength: UInt, dwwritecoord: COORD, lpnumberofcharswritten: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FillConsoleOutputCharacterW", longArrayOf(hconsoleoutput, ccharacter.toLong(), nlength.toLong(), ((dwwritecoord.X.toLong() and 0xFFFFL) or ((dwwritecoord.Y.toLong() and 0xFFFFL) shl 16)), lpnumberofcharswritten)).toInt()
 }
 
-public fun FlushConsoleInputBuffer(hconsoleinput: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "FlushConsoleInputBuffer", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleinput))).toInt()
+public fun FlushConsoleInputBuffer(hconsoleinput: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FlushConsoleInputBuffer", longArrayOf(hconsoleinput)).toInt()
 }
 
 public fun FreeConsole(): BOOL {
@@ -138,16 +139,16 @@ public fun GetConsoleCommandHistoryW(commands: PWSTR, commandbufferlength: UInt,
     return Win32DynamicFfi.invoke("kernel32.dll", "GetConsoleCommandHistoryW", longArrayOf(commands, commandbufferlength.toLong(), exename)).toUInt()
 }
 
-public fun GetConsoleCursorInfo(hconsoleoutput: Foundation.HANDLE, lpconsolecursorinfo: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetConsoleCursorInfo", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), lpconsolecursorinfo)).toInt()
+public fun GetConsoleCursorInfo(hconsoleoutput: HANDLE, lpconsolecursorinfo: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetConsoleCursorInfo", longArrayOf(hconsoleoutput, lpconsolecursorinfo)).toInt()
 }
 
 public fun GetConsoleDisplayMode(lpmodeflags: Long): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "GetConsoleDisplayMode", longArrayOf(lpmodeflags)).toInt()
 }
 
-public fun GetConsoleFontSize(hconsoleoutput: Foundation.HANDLE, nfont: UInt): COORD {
-    val rawRet = Win32DynamicFfi.invoke("kernel32.dll", "GetConsoleFontSize", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), nfont.toLong()))
+public fun GetConsoleFontSize(hconsoleoutput: HANDLE, nfont: UInt): COORD {
+    val rawRet = Win32DynamicFfi.invoke("kernel32.dll", "GetConsoleFontSize", longArrayOf(hconsoleoutput, nfont.toLong()))
     return COORD(X = rawRet.toShort(), Y = (rawRet ushr 16).toShort())
 }
 
@@ -155,8 +156,8 @@ public fun GetConsoleHistoryInfo(lpconsolehistoryinfo: Long): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "GetConsoleHistoryInfo", longArrayOf(lpconsolehistoryinfo)).toInt()
 }
 
-public fun GetConsoleMode(hconsolehandle: Foundation.HANDLE, lpmode: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetConsoleMode", longArrayOf(Win32DynamicFfi.objectSlot(hconsolehandle), lpmode)).toInt()
+public fun GetConsoleMode(hconsolehandle: HANDLE, lpmode: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetConsoleMode", longArrayOf(hconsolehandle, lpmode)).toInt()
 }
 
 public fun GetConsoleOriginalTitleA(lpconsoletitle: PSTR, nsize: UInt): UInt {
@@ -175,12 +176,12 @@ public fun GetConsoleProcessList(lpdwprocesslist: Long, dwprocesscount: UInt): U
     return Win32DynamicFfi.invoke("kernel32.dll", "GetConsoleProcessList", longArrayOf(lpdwprocesslist, dwprocesscount.toLong())).toUInt()
 }
 
-public fun GetConsoleScreenBufferInfo(hconsoleoutput: Foundation.HANDLE, lpconsolescreenbufferinfo: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetConsoleScreenBufferInfo", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), lpconsolescreenbufferinfo)).toInt()
+public fun GetConsoleScreenBufferInfo(hconsoleoutput: HANDLE, lpconsolescreenbufferinfo: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetConsoleScreenBufferInfo", longArrayOf(hconsoleoutput, lpconsolescreenbufferinfo)).toInt()
 }
 
-public fun GetConsoleScreenBufferInfoEx(hconsoleoutput: Foundation.HANDLE, lpconsolescreenbufferinfoex: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetConsoleScreenBufferInfoEx", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), lpconsolescreenbufferinfoex)).toInt()
+public fun GetConsoleScreenBufferInfoEx(hconsoleoutput: HANDLE, lpconsolescreenbufferinfoex: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetConsoleScreenBufferInfoEx", longArrayOf(hconsoleoutput, lpconsolescreenbufferinfoex)).toInt()
 }
 
 public fun GetConsoleSelectionInfo(lpconsoleselectioninfo: Long): BOOL {
@@ -195,95 +196,93 @@ public fun GetConsoleTitleW(lpconsoletitle: PWSTR, nsize: UInt): UInt {
     return Win32DynamicFfi.invoke("kernel32.dll", "GetConsoleTitleW", longArrayOf(lpconsoletitle, nsize.toLong())).toUInt()
 }
 
-public fun GetConsoleWindow(): Foundation.HWND {
-    Win32DynamicFfi.invoke("kernel32.dll", "GetConsoleWindow", longArrayOf())
-    return Foundation.HWND()
+public fun GetConsoleWindow(): HWND {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetConsoleWindow", longArrayOf())
 }
 
-public fun GetCurrentConsoleFont(hconsoleoutput: Foundation.HANDLE, bmaximumwindow: BOOL, lpconsolecurrentfont: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetCurrentConsoleFont", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), bmaximumwindow.toLong(), lpconsolecurrentfont)).toInt()
+public fun GetCurrentConsoleFont(hconsoleoutput: HANDLE, bmaximumwindow: BOOL, lpconsolecurrentfont: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetCurrentConsoleFont", longArrayOf(hconsoleoutput, bmaximumwindow.toLong(), lpconsolecurrentfont)).toInt()
 }
 
-public fun GetCurrentConsoleFontEx(hconsoleoutput: Foundation.HANDLE, bmaximumwindow: BOOL, lpconsolecurrentfontex: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetCurrentConsoleFontEx", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), bmaximumwindow.toLong(), lpconsolecurrentfontex)).toInt()
+public fun GetCurrentConsoleFontEx(hconsoleoutput: HANDLE, bmaximumwindow: BOOL, lpconsolecurrentfontex: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetCurrentConsoleFontEx", longArrayOf(hconsoleoutput, bmaximumwindow.toLong(), lpconsolecurrentfontex)).toInt()
 }
 
-public fun GetLargestConsoleWindowSize(hconsoleoutput: Foundation.HANDLE): COORD {
-    val rawRet = Win32DynamicFfi.invoke("kernel32.dll", "GetLargestConsoleWindowSize", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput)))
+public fun GetLargestConsoleWindowSize(hconsoleoutput: HANDLE): COORD {
+    val rawRet = Win32DynamicFfi.invoke("kernel32.dll", "GetLargestConsoleWindowSize", longArrayOf(hconsoleoutput))
     return COORD(X = rawRet.toShort(), Y = (rawRet ushr 16).toShort())
 }
 
-public fun GetNumberOfConsoleInputEvents(hconsoleinput: Foundation.HANDLE, lpnumberofevents: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetNumberOfConsoleInputEvents", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleinput), lpnumberofevents)).toInt()
+public fun GetNumberOfConsoleInputEvents(hconsoleinput: HANDLE, lpnumberofevents: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetNumberOfConsoleInputEvents", longArrayOf(hconsoleinput, lpnumberofevents)).toInt()
 }
 
 public fun GetNumberOfConsoleMouseButtons(lpnumberofmousebuttons: Long): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "GetNumberOfConsoleMouseButtons", longArrayOf(lpnumberofmousebuttons)).toInt()
 }
 
-public fun GetStdHandle(nstdhandle: STD_HANDLE): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "GetStdHandle", longArrayOf(nstdhandle.toLong()))
-    return Foundation.HANDLE()
+public fun GetStdHandle(nstdhandle: STD_HANDLE): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetStdHandle", longArrayOf(nstdhandle.toLong()))
 }
 
-public fun PeekConsoleInputA(hconsoleinput: Foundation.HANDLE, lpbuffer: Long, nlength: UInt, lpnumberofeventsread: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "PeekConsoleInputA", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleinput), lpbuffer, nlength.toLong(), lpnumberofeventsread)).toInt()
+public fun PeekConsoleInputA(hconsoleinput: HANDLE, lpbuffer: Long, nlength: UInt, lpnumberofeventsread: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "PeekConsoleInputA", longArrayOf(hconsoleinput, lpbuffer, nlength.toLong(), lpnumberofeventsread)).toInt()
 }
 
-public fun PeekConsoleInputW(hconsoleinput: Foundation.HANDLE, lpbuffer: Long, nlength: UInt, lpnumberofeventsread: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "PeekConsoleInputW", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleinput), lpbuffer, nlength.toLong(), lpnumberofeventsread)).toInt()
+public fun PeekConsoleInputW(hconsoleinput: HANDLE, lpbuffer: Long, nlength: UInt, lpnumberofeventsread: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "PeekConsoleInputW", longArrayOf(hconsoleinput, lpbuffer, nlength.toLong(), lpnumberofeventsread)).toInt()
 }
 
-public fun ReadConsoleA(hconsoleinput: Foundation.HANDLE, lpbuffer: Long, nnumberofcharstoread: UInt, lpnumberofcharsread: Long, pinputcontrol: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "ReadConsoleA", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleinput), lpbuffer, nnumberofcharstoread.toLong(), lpnumberofcharsread, pinputcontrol)).toInt()
+public fun ReadConsoleA(hconsoleinput: HANDLE, lpbuffer: Long, nnumberofcharstoread: UInt, lpnumberofcharsread: Long, pinputcontrol: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "ReadConsoleA", longArrayOf(hconsoleinput, lpbuffer, nnumberofcharstoread.toLong(), lpnumberofcharsread, pinputcontrol)).toInt()
 }
 
-public fun ReadConsoleInputA(hconsoleinput: Foundation.HANDLE, lpbuffer: Long, nlength: UInt, lpnumberofeventsread: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "ReadConsoleInputA", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleinput), lpbuffer, nlength.toLong(), lpnumberofeventsread)).toInt()
+public fun ReadConsoleInputA(hconsoleinput: HANDLE, lpbuffer: Long, nlength: UInt, lpnumberofeventsread: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "ReadConsoleInputA", longArrayOf(hconsoleinput, lpbuffer, nlength.toLong(), lpnumberofeventsread)).toInt()
 }
 
-public fun ReadConsoleInputW(hconsoleinput: Foundation.HANDLE, lpbuffer: Long, nlength: UInt, lpnumberofeventsread: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "ReadConsoleInputW", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleinput), lpbuffer, nlength.toLong(), lpnumberofeventsread)).toInt()
+public fun ReadConsoleInputW(hconsoleinput: HANDLE, lpbuffer: Long, nlength: UInt, lpnumberofeventsread: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "ReadConsoleInputW", longArrayOf(hconsoleinput, lpbuffer, nlength.toLong(), lpnumberofeventsread)).toInt()
 }
 
-public fun ReadConsoleOutputA(hconsoleoutput: Foundation.HANDLE, lpbuffer: Long, dwbuffersize: COORD, dwbuffercoord: COORD, lpreadregion: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "ReadConsoleOutputA", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), lpbuffer, (((dwbuffersize.X.toLong()) and 0xFFFFL) or (((dwbuffersize.Y.toLong()) and 0xFFFFL) shl 16)), (((dwbuffercoord.X.toLong()) and 0xFFFFL) or (((dwbuffercoord.Y.toLong()) and 0xFFFFL) shl 16)), lpreadregion)).toInt()
+public fun ReadConsoleOutputA(hconsoleoutput: HANDLE, lpbuffer: Long, dwbuffersize: COORD, dwbuffercoord: COORD, lpreadregion: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "ReadConsoleOutputA", longArrayOf(hconsoleoutput, lpbuffer, ((dwbuffersize.X.toLong() and 0xFFFFL) or ((dwbuffersize.Y.toLong() and 0xFFFFL) shl 16)), ((dwbuffercoord.X.toLong() and 0xFFFFL) or ((dwbuffercoord.Y.toLong() and 0xFFFFL) shl 16)), lpreadregion)).toInt()
 }
 
-public fun ReadConsoleOutputAttribute(hconsoleoutput: Foundation.HANDLE, lpattribute: Long, nlength: UInt, dwreadcoord: COORD, lpnumberofattrsread: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "ReadConsoleOutputAttribute", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), lpattribute, nlength.toLong(), (((dwreadcoord.X.toLong()) and 0xFFFFL) or (((dwreadcoord.Y.toLong()) and 0xFFFFL) shl 16)), lpnumberofattrsread)).toInt()
+public fun ReadConsoleOutputAttribute(hconsoleoutput: HANDLE, lpattribute: Long, nlength: UInt, dwreadcoord: COORD, lpnumberofattrsread: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "ReadConsoleOutputAttribute", longArrayOf(hconsoleoutput, lpattribute, nlength.toLong(), ((dwreadcoord.X.toLong() and 0xFFFFL) or ((dwreadcoord.Y.toLong() and 0xFFFFL) shl 16)), lpnumberofattrsread)).toInt()
 }
 
-public fun ReadConsoleOutputCharacterA(hconsoleoutput: Foundation.HANDLE, lpcharacter: PSTR, nlength: UInt, dwreadcoord: COORD, lpnumberofcharsread: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "ReadConsoleOutputCharacterA", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), lpcharacter, nlength.toLong(), (((dwreadcoord.X.toLong()) and 0xFFFFL) or (((dwreadcoord.Y.toLong()) and 0xFFFFL) shl 16)), lpnumberofcharsread)).toInt()
+public fun ReadConsoleOutputCharacterA(hconsoleoutput: HANDLE, lpcharacter: PSTR, nlength: UInt, dwreadcoord: COORD, lpnumberofcharsread: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "ReadConsoleOutputCharacterA", longArrayOf(hconsoleoutput, lpcharacter, nlength.toLong(), ((dwreadcoord.X.toLong() and 0xFFFFL) or ((dwreadcoord.Y.toLong() and 0xFFFFL) shl 16)), lpnumberofcharsread)).toInt()
 }
 
-public fun ReadConsoleOutputCharacterW(hconsoleoutput: Foundation.HANDLE, lpcharacter: PWSTR, nlength: UInt, dwreadcoord: COORD, lpnumberofcharsread: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "ReadConsoleOutputCharacterW", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), lpcharacter, nlength.toLong(), (((dwreadcoord.X.toLong()) and 0xFFFFL) or (((dwreadcoord.Y.toLong()) and 0xFFFFL) shl 16)), lpnumberofcharsread)).toInt()
+public fun ReadConsoleOutputCharacterW(hconsoleoutput: HANDLE, lpcharacter: PWSTR, nlength: UInt, dwreadcoord: COORD, lpnumberofcharsread: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "ReadConsoleOutputCharacterW", longArrayOf(hconsoleoutput, lpcharacter, nlength.toLong(), ((dwreadcoord.X.toLong() and 0xFFFFL) or ((dwreadcoord.Y.toLong() and 0xFFFFL) shl 16)), lpnumberofcharsread)).toInt()
 }
 
-public fun ReadConsoleOutputW(hconsoleoutput: Foundation.HANDLE, lpbuffer: Long, dwbuffersize: COORD, dwbuffercoord: COORD, lpreadregion: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "ReadConsoleOutputW", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), lpbuffer, (((dwbuffersize.X.toLong()) and 0xFFFFL) or (((dwbuffersize.Y.toLong()) and 0xFFFFL) shl 16)), (((dwbuffercoord.X.toLong()) and 0xFFFFL) or (((dwbuffercoord.Y.toLong()) and 0xFFFFL) shl 16)), lpreadregion)).toInt()
+public fun ReadConsoleOutputW(hconsoleoutput: HANDLE, lpbuffer: Long, dwbuffersize: COORD, dwbuffercoord: COORD, lpreadregion: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "ReadConsoleOutputW", longArrayOf(hconsoleoutput, lpbuffer, ((dwbuffersize.X.toLong() and 0xFFFFL) or ((dwbuffersize.Y.toLong() and 0xFFFFL) shl 16)), ((dwbuffercoord.X.toLong() and 0xFFFFL) or ((dwbuffercoord.Y.toLong() and 0xFFFFL) shl 16)), lpreadregion)).toInt()
 }
 
-public fun ReadConsoleW(hconsoleinput: Foundation.HANDLE, lpbuffer: Long, nnumberofcharstoread: UInt, lpnumberofcharsread: Long, pinputcontrol: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "ReadConsoleW", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleinput), lpbuffer, nnumberofcharstoread.toLong(), lpnumberofcharsread, pinputcontrol)).toInt()
+public fun ReadConsoleW(hconsoleinput: HANDLE, lpbuffer: Long, nnumberofcharstoread: UInt, lpnumberofcharsread: Long, pinputcontrol: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "ReadConsoleW", longArrayOf(hconsoleinput, lpbuffer, nnumberofcharstoread.toLong(), lpnumberofcharsread, pinputcontrol)).toInt()
 }
 
 public fun ResizePseudoConsole(hpc: HPCON, size: COORD): HRESULT {
-    return Win32DynamicFfi.invoke("kernel32.dll", "ResizePseudoConsole", longArrayOf(hpc, (((size.X.toLong()) and 0xFFFFL) or (((size.Y.toLong()) and 0xFFFFL) shl 16)))).toInt()
+    return Win32DynamicFfi.invoke("kernel32.dll", "ResizePseudoConsole", longArrayOf(hpc, ((size.X.toLong() and 0xFFFFL) or ((size.Y.toLong() and 0xFFFFL) shl 16)))).toInt()
 }
 
-public fun ScrollConsoleScreenBufferA(hconsoleoutput: Foundation.HANDLE, lpscrollrectangle: Long, lpcliprectangle: Long, dwdestinationorigin: COORD, lpfill: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "ScrollConsoleScreenBufferA", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), lpscrollrectangle, lpcliprectangle, (((dwdestinationorigin.X.toLong()) and 0xFFFFL) or (((dwdestinationorigin.Y.toLong()) and 0xFFFFL) shl 16)), lpfill)).toInt()
+public fun ScrollConsoleScreenBufferA(hconsoleoutput: HANDLE, lpscrollrectangle: Long, lpcliprectangle: Long, dwdestinationorigin: COORD, lpfill: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "ScrollConsoleScreenBufferA", longArrayOf(hconsoleoutput, lpscrollrectangle, lpcliprectangle, ((dwdestinationorigin.X.toLong() and 0xFFFFL) or ((dwdestinationorigin.Y.toLong() and 0xFFFFL) shl 16)), lpfill)).toInt()
 }
 
-public fun ScrollConsoleScreenBufferW(hconsoleoutput: Foundation.HANDLE, lpscrollrectangle: Long, lpcliprectangle: Long, dwdestinationorigin: COORD, lpfill: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "ScrollConsoleScreenBufferW", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), lpscrollrectangle, lpcliprectangle, (((dwdestinationorigin.X.toLong()) and 0xFFFFL) or (((dwdestinationorigin.Y.toLong()) and 0xFFFFL) shl 16)), lpfill)).toInt()
+public fun ScrollConsoleScreenBufferW(hconsoleoutput: HANDLE, lpscrollrectangle: Long, lpcliprectangle: Long, dwdestinationorigin: COORD, lpfill: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "ScrollConsoleScreenBufferW", longArrayOf(hconsoleoutput, lpscrollrectangle, lpcliprectangle, ((dwdestinationorigin.X.toLong() and 0xFFFFL) or ((dwdestinationorigin.Y.toLong() and 0xFFFFL) shl 16)), lpfill)).toInt()
 }
 
-public fun SetConsoleActiveScreenBuffer(hconsoleoutput: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetConsoleActiveScreenBuffer", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput))).toInt()
+public fun SetConsoleActiveScreenBuffer(hconsoleoutput: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetConsoleActiveScreenBuffer", longArrayOf(hconsoleoutput)).toInt()
 }
 
 public fun SetConsoleCP(wcodepageid: UInt): BOOL {
@@ -294,24 +293,24 @@ public fun SetConsoleCtrlHandler(handlerroutine: PHANDLER_ROUTINE, add: BOOL): B
     return Win32DynamicFfi.invoke("kernel32.dll", "SetConsoleCtrlHandler", longArrayOf(Win32DynamicFfi.objectSlot(handlerroutine), add.toLong())).toInt()
 }
 
-public fun SetConsoleCursorInfo(hconsoleoutput: Foundation.HANDLE, lpconsolecursorinfo: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetConsoleCursorInfo", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), lpconsolecursorinfo)).toInt()
+public fun SetConsoleCursorInfo(hconsoleoutput: HANDLE, lpconsolecursorinfo: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetConsoleCursorInfo", longArrayOf(hconsoleoutput, lpconsolecursorinfo)).toInt()
 }
 
-public fun SetConsoleCursorPosition(hconsoleoutput: Foundation.HANDLE, dwcursorposition: COORD): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetConsoleCursorPosition", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), (((dwcursorposition.X.toLong()) and 0xFFFFL) or (((dwcursorposition.Y.toLong()) and 0xFFFFL) shl 16)))).toInt()
+public fun SetConsoleCursorPosition(hconsoleoutput: HANDLE, dwcursorposition: COORD): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetConsoleCursorPosition", longArrayOf(hconsoleoutput, ((dwcursorposition.X.toLong() and 0xFFFFL) or ((dwcursorposition.Y.toLong() and 0xFFFFL) shl 16)))).toInt()
 }
 
-public fun SetConsoleDisplayMode(hconsoleoutput: Foundation.HANDLE, dwflags: UInt, lpnewscreenbufferdimensions: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetConsoleDisplayMode", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), dwflags.toLong(), lpnewscreenbufferdimensions)).toInt()
+public fun SetConsoleDisplayMode(hconsoleoutput: HANDLE, dwflags: UInt, lpnewscreenbufferdimensions: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetConsoleDisplayMode", longArrayOf(hconsoleoutput, dwflags.toLong(), lpnewscreenbufferdimensions)).toInt()
 }
 
 public fun SetConsoleHistoryInfo(lpconsolehistoryinfo: Long): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "SetConsoleHistoryInfo", longArrayOf(lpconsolehistoryinfo)).toInt()
 }
 
-public fun SetConsoleMode(hconsolehandle: Foundation.HANDLE, dwmode: CONSOLE_MODE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetConsoleMode", longArrayOf(Win32DynamicFfi.objectSlot(hconsolehandle), dwmode.toLong())).toInt()
+public fun SetConsoleMode(hconsolehandle: HANDLE, dwmode: CONSOLE_MODE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetConsoleMode", longArrayOf(hconsolehandle, dwmode.toLong())).toInt()
 }
 
 public fun SetConsoleNumberOfCommandsA(number: UInt, exename: PCSTR): BOOL {
@@ -326,16 +325,16 @@ public fun SetConsoleOutputCP(wcodepageid: UInt): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "SetConsoleOutputCP", longArrayOf(wcodepageid.toLong())).toInt()
 }
 
-public fun SetConsoleScreenBufferInfoEx(hconsoleoutput: Foundation.HANDLE, lpconsolescreenbufferinfoex: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetConsoleScreenBufferInfoEx", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), lpconsolescreenbufferinfoex)).toInt()
+public fun SetConsoleScreenBufferInfoEx(hconsoleoutput: HANDLE, lpconsolescreenbufferinfoex: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetConsoleScreenBufferInfoEx", longArrayOf(hconsoleoutput, lpconsolescreenbufferinfoex)).toInt()
 }
 
-public fun SetConsoleScreenBufferSize(hconsoleoutput: Foundation.HANDLE, dwsize: COORD): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetConsoleScreenBufferSize", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), (((dwsize.X.toLong()) and 0xFFFFL) or (((dwsize.Y.toLong()) and 0xFFFFL) shl 16)))).toInt()
+public fun SetConsoleScreenBufferSize(hconsoleoutput: HANDLE, dwsize: COORD): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetConsoleScreenBufferSize", longArrayOf(hconsoleoutput, ((dwsize.X.toLong() and 0xFFFFL) or ((dwsize.Y.toLong() and 0xFFFFL) shl 16)))).toInt()
 }
 
-public fun SetConsoleTextAttribute(hconsoleoutput: Foundation.HANDLE, wattributes: CONSOLE_CHARACTER_ATTRIBUTES): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetConsoleTextAttribute", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), wattributes.toLong())).toInt()
+public fun SetConsoleTextAttribute(hconsoleoutput: HANDLE, wattributes: CONSOLE_CHARACTER_ATTRIBUTES): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetConsoleTextAttribute", longArrayOf(hconsoleoutput, wattributes.toLong())).toInt()
 }
 
 public fun SetConsoleTitleA(lpconsoletitle: PCSTR): BOOL {
@@ -346,54 +345,54 @@ public fun SetConsoleTitleW(lpconsoletitle: PCWSTR): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "SetConsoleTitleW", longArrayOf(lpconsoletitle)).toInt()
 }
 
-public fun SetConsoleWindowInfo(hconsoleoutput: Foundation.HANDLE, babsolute: BOOL, lpconsolewindow: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetConsoleWindowInfo", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), babsolute.toLong(), lpconsolewindow)).toInt()
+public fun SetConsoleWindowInfo(hconsoleoutput: HANDLE, babsolute: BOOL, lpconsolewindow: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetConsoleWindowInfo", longArrayOf(hconsoleoutput, babsolute.toLong(), lpconsolewindow)).toInt()
 }
 
-public fun SetCurrentConsoleFontEx(hconsoleoutput: Foundation.HANDLE, bmaximumwindow: BOOL, lpconsolecurrentfontex: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetCurrentConsoleFontEx", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), bmaximumwindow.toLong(), lpconsolecurrentfontex)).toInt()
+public fun SetCurrentConsoleFontEx(hconsoleoutput: HANDLE, bmaximumwindow: BOOL, lpconsolecurrentfontex: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetCurrentConsoleFontEx", longArrayOf(hconsoleoutput, bmaximumwindow.toLong(), lpconsolecurrentfontex)).toInt()
 }
 
-public fun SetStdHandle(nstdhandle: STD_HANDLE, hhandle: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetStdHandle", longArrayOf(nstdhandle.toLong(), Win32DynamicFfi.objectSlot(hhandle))).toInt()
+public fun SetStdHandle(nstdhandle: STD_HANDLE, hhandle: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetStdHandle", longArrayOf(nstdhandle.toLong(), hhandle)).toInt()
 }
 
-public fun SetStdHandleEx(nstdhandle: STD_HANDLE, hhandle: Foundation.HANDLE, phprevvalue: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetStdHandleEx", longArrayOf(nstdhandle.toLong(), Win32DynamicFfi.objectSlot(hhandle), phprevvalue)).toInt()
+public fun SetStdHandleEx(nstdhandle: STD_HANDLE, hhandle: HANDLE, phprevvalue: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetStdHandleEx", longArrayOf(nstdhandle.toLong(), hhandle, phprevvalue)).toInt()
 }
 
-public fun WriteConsoleA(hconsoleoutput: Foundation.HANDLE, lpbuffer: PCSTR, nnumberofcharstowrite: UInt, lpnumberofcharswritten: Long, lpreserved: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WriteConsoleA", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), lpbuffer, nnumberofcharstowrite.toLong(), lpnumberofcharswritten, lpreserved)).toInt()
+public fun WriteConsoleA(hconsoleoutput: HANDLE, lpbuffer: PCSTR, nnumberofcharstowrite: UInt, lpnumberofcharswritten: Long, lpreserved: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "WriteConsoleA", longArrayOf(hconsoleoutput, lpbuffer, nnumberofcharstowrite.toLong(), lpnumberofcharswritten, lpreserved)).toInt()
 }
 
-public fun WriteConsoleInputA(hconsoleinput: Foundation.HANDLE, lpbuffer: Long, nlength: UInt, lpnumberofeventswritten: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WriteConsoleInputA", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleinput), lpbuffer, nlength.toLong(), lpnumberofeventswritten)).toInt()
+public fun WriteConsoleInputA(hconsoleinput: HANDLE, lpbuffer: Long, nlength: UInt, lpnumberofeventswritten: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "WriteConsoleInputA", longArrayOf(hconsoleinput, lpbuffer, nlength.toLong(), lpnumberofeventswritten)).toInt()
 }
 
-public fun WriteConsoleInputW(hconsoleinput: Foundation.HANDLE, lpbuffer: Long, nlength: UInt, lpnumberofeventswritten: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WriteConsoleInputW", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleinput), lpbuffer, nlength.toLong(), lpnumberofeventswritten)).toInt()
+public fun WriteConsoleInputW(hconsoleinput: HANDLE, lpbuffer: Long, nlength: UInt, lpnumberofeventswritten: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "WriteConsoleInputW", longArrayOf(hconsoleinput, lpbuffer, nlength.toLong(), lpnumberofeventswritten)).toInt()
 }
 
-public fun WriteConsoleOutputA(hconsoleoutput: Foundation.HANDLE, lpbuffer: Long, dwbuffersize: COORD, dwbuffercoord: COORD, lpwriteregion: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WriteConsoleOutputA", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), lpbuffer, (((dwbuffersize.X.toLong()) and 0xFFFFL) or (((dwbuffersize.Y.toLong()) and 0xFFFFL) shl 16)), (((dwbuffercoord.X.toLong()) and 0xFFFFL) or (((dwbuffercoord.Y.toLong()) and 0xFFFFL) shl 16)), lpwriteregion)).toInt()
+public fun WriteConsoleOutputA(hconsoleoutput: HANDLE, lpbuffer: Long, dwbuffersize: COORD, dwbuffercoord: COORD, lpwriteregion: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "WriteConsoleOutputA", longArrayOf(hconsoleoutput, lpbuffer, ((dwbuffersize.X.toLong() and 0xFFFFL) or ((dwbuffersize.Y.toLong() and 0xFFFFL) shl 16)), ((dwbuffercoord.X.toLong() and 0xFFFFL) or ((dwbuffercoord.Y.toLong() and 0xFFFFL) shl 16)), lpwriteregion)).toInt()
 }
 
-public fun WriteConsoleOutputAttribute(hconsoleoutput: Foundation.HANDLE, lpattribute: Long, nlength: UInt, dwwritecoord: COORD, lpnumberofattrswritten: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WriteConsoleOutputAttribute", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), lpattribute, nlength.toLong(), (((dwwritecoord.X.toLong()) and 0xFFFFL) or (((dwwritecoord.Y.toLong()) and 0xFFFFL) shl 16)), lpnumberofattrswritten)).toInt()
+public fun WriteConsoleOutputAttribute(hconsoleoutput: HANDLE, lpattribute: Long, nlength: UInt, dwwritecoord: COORD, lpnumberofattrswritten: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "WriteConsoleOutputAttribute", longArrayOf(hconsoleoutput, lpattribute, nlength.toLong(), ((dwwritecoord.X.toLong() and 0xFFFFL) or ((dwwritecoord.Y.toLong() and 0xFFFFL) shl 16)), lpnumberofattrswritten)).toInt()
 }
 
-public fun WriteConsoleOutputCharacterA(hconsoleoutput: Foundation.HANDLE, lpcharacter: PCSTR, nlength: UInt, dwwritecoord: COORD, lpnumberofcharswritten: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WriteConsoleOutputCharacterA", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), lpcharacter, nlength.toLong(), (((dwwritecoord.X.toLong()) and 0xFFFFL) or (((dwwritecoord.Y.toLong()) and 0xFFFFL) shl 16)), lpnumberofcharswritten)).toInt()
+public fun WriteConsoleOutputCharacterA(hconsoleoutput: HANDLE, lpcharacter: PCSTR, nlength: UInt, dwwritecoord: COORD, lpnumberofcharswritten: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "WriteConsoleOutputCharacterA", longArrayOf(hconsoleoutput, lpcharacter, nlength.toLong(), ((dwwritecoord.X.toLong() and 0xFFFFL) or ((dwwritecoord.Y.toLong() and 0xFFFFL) shl 16)), lpnumberofcharswritten)).toInt()
 }
 
-public fun WriteConsoleOutputCharacterW(hconsoleoutput: Foundation.HANDLE, lpcharacter: PCWSTR, nlength: UInt, dwwritecoord: COORD, lpnumberofcharswritten: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WriteConsoleOutputCharacterW", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), lpcharacter, nlength.toLong(), (((dwwritecoord.X.toLong()) and 0xFFFFL) or (((dwwritecoord.Y.toLong()) and 0xFFFFL) shl 16)), lpnumberofcharswritten)).toInt()
+public fun WriteConsoleOutputCharacterW(hconsoleoutput: HANDLE, lpcharacter: PCWSTR, nlength: UInt, dwwritecoord: COORD, lpnumberofcharswritten: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "WriteConsoleOutputCharacterW", longArrayOf(hconsoleoutput, lpcharacter, nlength.toLong(), ((dwwritecoord.X.toLong() and 0xFFFFL) or ((dwwritecoord.Y.toLong() and 0xFFFFL) shl 16)), lpnumberofcharswritten)).toInt()
 }
 
-public fun WriteConsoleOutputW(hconsoleoutput: Foundation.HANDLE, lpbuffer: Long, dwbuffersize: COORD, dwbuffercoord: COORD, lpwriteregion: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WriteConsoleOutputW", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), lpbuffer, (((dwbuffersize.X.toLong()) and 0xFFFFL) or (((dwbuffersize.Y.toLong()) and 0xFFFFL) shl 16)), (((dwbuffercoord.X.toLong()) and 0xFFFFL) or (((dwbuffercoord.Y.toLong()) and 0xFFFFL) shl 16)), lpwriteregion)).toInt()
+public fun WriteConsoleOutputW(hconsoleoutput: HANDLE, lpbuffer: Long, dwbuffersize: COORD, dwbuffercoord: COORD, lpwriteregion: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "WriteConsoleOutputW", longArrayOf(hconsoleoutput, lpbuffer, ((dwbuffersize.X.toLong() and 0xFFFFL) or ((dwbuffersize.Y.toLong() and 0xFFFFL) shl 16)), ((dwbuffercoord.X.toLong() and 0xFFFFL) or ((dwbuffercoord.Y.toLong() and 0xFFFFL) shl 16)), lpwriteregion)).toInt()
 }
 
-public fun WriteConsoleW(hconsoleoutput: Foundation.HANDLE, lpbuffer: PCWSTR, nnumberofcharstowrite: UInt, lpnumberofcharswritten: Long, lpreserved: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WriteConsoleW", longArrayOf(Win32DynamicFfi.objectSlot(hconsoleoutput), lpbuffer, nnumberofcharstowrite.toLong(), lpnumberofcharswritten, lpreserved)).toInt()
+public fun WriteConsoleW(hconsoleoutput: HANDLE, lpbuffer: PCWSTR, nnumberofcharstowrite: UInt, lpnumberofcharswritten: Long, lpreserved: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "WriteConsoleW", longArrayOf(hconsoleoutput, lpbuffer, nnumberofcharstowrite.toLong(), lpnumberofcharswritten, lpreserved)).toInt()
 }

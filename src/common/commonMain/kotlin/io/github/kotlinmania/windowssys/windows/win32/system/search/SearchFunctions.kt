@@ -6,6 +6,7 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 
 public fun ODBCGetTryWaitValue(): UInt {
     return Win32DynamicFfi.invoke("odbc32.dll", "ODBCGetTryWaitValue", longArrayOf()).toUInt()
@@ -75,8 +76,8 @@ public fun SQLCloseCursor(statementhandle: Long): Short {
     return Win32DynamicFfi.invoke("odbc32.dll", "SQLCloseCursor", longArrayOf(statementhandle)).toShort()
 }
 
-public fun SQLCloseEnumServers(henumhandle: Foundation.HANDLE): Short {
-    return Win32DynamicFfi.invoke("odbcbcp.dll", "SQLCloseEnumServers", longArrayOf(Win32DynamicFfi.objectSlot(henumhandle))).toShort()
+public fun SQLCloseEnumServers(henumhandle: HANDLE): Short {
+    return Win32DynamicFfi.invoke("odbcbcp.dll", "SQLCloseEnumServers", longArrayOf(henumhandle)).toShort()
 }
 
 public fun SQLColAttribute(statementhandle: Long, columnnumber: UShort, fieldidentifier: UShort, characterattribute: Long, bufferlength: Short, stringlength: Long, numericattribute: Long): Short {
@@ -383,8 +384,8 @@ public fun SQLGetInfoW(hdbc: Long, finfotype: UShort, rgbinfovalue: Long, cbinfo
     return Win32DynamicFfi.invoke("odbc32.dll", "SQLGetInfoW", longArrayOf(hdbc, finfotype.toLong(), rgbinfovalue, cbinfovaluemax.toLong(), pcbinfovalue)).toShort()
 }
 
-public fun SQLGetNextEnumeration(henumhandle: Foundation.HANDLE, prgenumdata: Long, pienumlength: Long): Short {
-    return Win32DynamicFfi.invoke("odbcbcp.dll", "SQLGetNextEnumeration", longArrayOf(Win32DynamicFfi.objectSlot(henumhandle), prgenumdata, pienumlength)).toShort()
+public fun SQLGetNextEnumeration(henumhandle: HANDLE, prgenumdata: Long, pienumlength: Long): Short {
+    return Win32DynamicFfi.invoke("odbcbcp.dll", "SQLGetNextEnumeration", longArrayOf(henumhandle, prgenumdata, pienumlength)).toShort()
 }
 
 public fun SQLGetStmtAttr(statementhandle: Long, attribute: Int, value: Long, bufferlength: Int, stringlength: Long): Short {
@@ -415,9 +416,8 @@ public fun SQLGetTypeInfoW(statementhandle: Long, datatype: Short): Short {
     return Win32DynamicFfi.invoke("odbc32.dll", "SQLGetTypeInfoW", longArrayOf(statementhandle, datatype.toLong())).toShort()
 }
 
-public fun SQLInitEnumServers(pwchservername: PCWSTR, pwchinstancename: PCWSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("odbcbcp.dll", "SQLInitEnumServers", longArrayOf(pwchservername, pwchinstancename))
-    return Foundation.HANDLE()
+public fun SQLInitEnumServers(pwchservername: PCWSTR, pwchinstancename: PCWSTR): HANDLE {
+    return Win32DynamicFfi.invoke("odbcbcp.dll", "SQLInitEnumServers", longArrayOf(pwchservername, pwchinstancename))
 }
 
 public fun SQLLinkedCatalogsA(param0: Long, param1: PCSTR, param2: Short): Short {

@@ -7,13 +7,24 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HGLOBAL
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HLOCAL
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LRESULT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.HKEY
 
 public fun interface FnCallback {
     public operator fun invoke(context: Long)
 }
 
 public fun interface FnCallback1 {
-    public operator fun invoke(hww: HWINWATCH, hwnd: Foundation.HWND, code: UInt, lparam: Foundation.LPARAM)
+    public operator fun invoke(hww: HWINWATCH, hwnd: HWND, code: UInt, lparam: LPARAM)
 }
 
 public fun AddDelBackupEntryA(lpcszfilelist: PCSTR, lpcszbackupdir: PCSTR, lpcszbasename: PCSTR, dwflags: UInt): HRESULT {
@@ -24,20 +35,20 @@ public fun AddDelBackupEntryW(lpcszfilelist: PCWSTR, lpcszbackupdir: PCWSTR, lpc
     return Win32DynamicFfi.invoke("advpack.dll", "AddDelBackupEntryW", longArrayOf(lpcszfilelist, lpcszbackupdir, lpcszbasename, dwflags.toLong())).toInt()
 }
 
-public fun AdvInstallFileA(hwnd: Foundation.HWND, lpszsourcedir: PCSTR, lpszsourcefile: PCSTR, lpszdestdir: PCSTR, lpszdestfile: PCSTR, dwflags: UInt, dwreserved: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("advpack.dll", "AdvInstallFileA", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), lpszsourcedir, lpszsourcefile, lpszdestdir, lpszdestfile, dwflags.toLong(), dwreserved.toLong())).toInt()
+public fun AdvInstallFileA(hwnd: HWND, lpszsourcedir: PCSTR, lpszsourcefile: PCSTR, lpszdestdir: PCSTR, lpszdestfile: PCSTR, dwflags: UInt, dwreserved: UInt): HRESULT {
+    return Win32DynamicFfi.invoke("advpack.dll", "AdvInstallFileA", longArrayOf(hwnd, lpszsourcedir, lpszsourcefile, lpszdestdir, lpszdestfile, dwflags.toLong(), dwreserved.toLong())).toInt()
 }
 
-public fun AdvInstallFileW(hwnd: Foundation.HWND, lpszsourcedir: PCWSTR, lpszsourcefile: PCWSTR, lpszdestdir: PCWSTR, lpszdestfile: PCWSTR, dwflags: UInt, dwreserved: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("advpack.dll", "AdvInstallFileW", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), lpszsourcedir, lpszsourcefile, lpszdestdir, lpszdestfile, dwflags.toLong(), dwreserved.toLong())).toInt()
+public fun AdvInstallFileW(hwnd: HWND, lpszsourcedir: PCWSTR, lpszsourcefile: PCWSTR, lpszdestdir: PCWSTR, lpszdestfile: PCWSTR, dwflags: UInt, dwreserved: UInt): HRESULT {
+    return Win32DynamicFfi.invoke("advpack.dll", "AdvInstallFileW", longArrayOf(hwnd, lpszsourcedir, lpszsourcefile, lpszdestdir, lpszdestfile, dwflags.toLong(), dwreserved.toLong())).toInt()
 }
 
 public fun ApphelpCheckShellObject(objectclsid: Long, bshimifnecessary: BOOL, pullflags: Long): BOOL {
     return Win32DynamicFfi.invoke("apphelp.dll", "ApphelpCheckShellObject", longArrayOf(objectclsid, bshimifnecessary.toLong(), pullflags)).toInt()
 }
 
-public fun CancelDeviceWakeupRequest(hdevice: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "CancelDeviceWakeupRequest", longArrayOf(Win32DynamicFfi.objectSlot(hdevice))).toInt()
+public fun CancelDeviceWakeupRequest(hdevice: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CancelDeviceWakeupRequest", longArrayOf(hdevice)).toInt()
 }
 
 public fun CloseINFEngine(hinf: Long): HRESULT {
@@ -56,20 +67,20 @@ public fun DCIBeginAccess(pdci: Long, x: Int, y: Int, dx: Int, dy: Int): Int {
     return Win32DynamicFfi.invoke("dciman32.dll", "DCIBeginAccess", longArrayOf(pdci, x.toLong(), y.toLong(), dx.toLong(), dy.toLong())).toInt()
 }
 
-public fun DCICloseProvider(hdc: Graphics.Gdi.HDC) {
-    Win32DynamicFfi.invoke("dciman32.dll", "DCICloseProvider", longArrayOf(Win32DynamicFfi.objectSlot(hdc)))
+public fun DCICloseProvider(hdc: HDC) {
+    Win32DynamicFfi.invoke("dciman32.dll", "DCICloseProvider", longArrayOf(hdc))
 }
 
-public fun DCICreateOffscreen(hdc: Graphics.Gdi.HDC, dwcompression: UInt, dwredmask: UInt, dwgreenmask: UInt, dwbluemask: UInt, dwwidth: UInt, dwheight: UInt, dwdcicaps: UInt, dwbitcount: UInt, lplpsurface: Long): Int {
-    return Win32DynamicFfi.invoke("dciman32.dll", "DCICreateOffscreen", longArrayOf(Win32DynamicFfi.objectSlot(hdc), dwcompression.toLong(), dwredmask.toLong(), dwgreenmask.toLong(), dwbluemask.toLong(), dwwidth.toLong(), dwheight.toLong(), dwdcicaps.toLong(), dwbitcount.toLong(), lplpsurface)).toInt()
+public fun DCICreateOffscreen(hdc: HDC, dwcompression: UInt, dwredmask: UInt, dwgreenmask: UInt, dwbluemask: UInt, dwwidth: UInt, dwheight: UInt, dwdcicaps: UInt, dwbitcount: UInt, lplpsurface: Long): Int {
+    return Win32DynamicFfi.invoke("dciman32.dll", "DCICreateOffscreen", longArrayOf(hdc, dwcompression.toLong(), dwredmask.toLong(), dwgreenmask.toLong(), dwbluemask.toLong(), dwwidth.toLong(), dwheight.toLong(), dwdcicaps.toLong(), dwbitcount.toLong(), lplpsurface)).toInt()
 }
 
-public fun DCICreateOverlay(hdc: Graphics.Gdi.HDC, lpoffscreensurf: Long, lplpsurface: Long): Int {
-    return Win32DynamicFfi.invoke("dciman32.dll", "DCICreateOverlay", longArrayOf(Win32DynamicFfi.objectSlot(hdc), lpoffscreensurf, lplpsurface)).toInt()
+public fun DCICreateOverlay(hdc: HDC, lpoffscreensurf: Long, lplpsurface: Long): Int {
+    return Win32DynamicFfi.invoke("dciman32.dll", "DCICreateOverlay", longArrayOf(hdc, lpoffscreensurf, lplpsurface)).toInt()
 }
 
-public fun DCICreatePrimary(hdc: Graphics.Gdi.HDC, lplpsurface: Long): Int {
-    return Win32DynamicFfi.invoke("dciman32.dll", "DCICreatePrimary", longArrayOf(Win32DynamicFfi.objectSlot(hdc), lplpsurface)).toInt()
+public fun DCICreatePrimary(hdc: HDC, lplpsurface: Long): Int {
+    return Win32DynamicFfi.invoke("dciman32.dll", "DCICreatePrimary", longArrayOf(hdc, lplpsurface)).toInt()
 }
 
 public fun DCIDestroy(pdci: Long) {
@@ -84,13 +95,12 @@ public fun DCIEndAccess(pdci: Long) {
     Win32DynamicFfi.invoke("dciman32.dll", "DCIEndAccess", longArrayOf(pdci))
 }
 
-public fun DCIEnum(hdc: Graphics.Gdi.HDC, lprdst: Long, lprsrc: Long, lpfncallback: Long, lpcontext: Long): Int {
-    return Win32DynamicFfi.invoke("dciman32.dll", "DCIEnum", longArrayOf(Win32DynamicFfi.objectSlot(hdc), lprdst, lprsrc, lpfncallback, lpcontext)).toInt()
+public fun DCIEnum(hdc: HDC, lprdst: Long, lprsrc: Long, lpfncallback: Long, lpcontext: Long): Int {
+    return Win32DynamicFfi.invoke("dciman32.dll", "DCIEnum", longArrayOf(hdc, lprdst, lprsrc, lpfncallback, lpcontext)).toInt()
 }
 
-public fun DCIOpenProvider(): Graphics.Gdi.HDC {
-    Win32DynamicFfi.invoke("dciman32.dll", "DCIOpenProvider", longArrayOf())
-    return Graphics.Gdi.HDC()
+public fun DCIOpenProvider(): HDC {
+    return Win32DynamicFfi.invoke("dciman32.dll", "DCIOpenProvider", longArrayOf())
 }
 
 public fun DCISetClipList(pdci: Long, prd: Long): Int {
@@ -109,8 +119,8 @@ public fun DelNodeA(pszfileordirname: PCSTR, dwflags: UInt): HRESULT {
     return Win32DynamicFfi.invoke("advpack.dll", "DelNodeA", longArrayOf(pszfileordirname, dwflags.toLong())).toInt()
 }
 
-public fun DelNodeRunDLL32W(hwnd: Foundation.HWND, hinstance: Foundation.HINSTANCE, pszparms: PWSTR, nshow: Int): HRESULT {
-    return Win32DynamicFfi.invoke("advpack.dll", "DelNodeRunDLL32W", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), Win32DynamicFfi.objectSlot(hinstance), pszparms, nshow.toLong())).toInt()
+public fun DelNodeRunDLL32W(hwnd: HWND, hinstance: HINSTANCE, pszparms: PWSTR, nshow: Int): HRESULT {
+    return Win32DynamicFfi.invoke("advpack.dll", "DelNodeRunDLL32W", longArrayOf(hwnd, hinstance, pszparms, nshow.toLong())).toInt()
 }
 
 public fun DelNodeW(pszfileordirname: PCWSTR, dwflags: UInt): HRESULT {
@@ -133,12 +143,12 @@ public fun EnableProcessOptionalXStateFeatures(features: ULong): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "EnableProcessOptionalXStateFeatures", longArrayOf(features.toLong())).toInt()
 }
 
-public fun ExecuteCabA(hwnd: Foundation.HWND, pcab: Long, preserved: Long): HRESULT {
-    return Win32DynamicFfi.invoke("advpack.dll", "ExecuteCabA", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), pcab, preserved)).toInt()
+public fun ExecuteCabA(hwnd: HWND, pcab: Long, preserved: Long): HRESULT {
+    return Win32DynamicFfi.invoke("advpack.dll", "ExecuteCabA", longArrayOf(hwnd, pcab, preserved)).toInt()
 }
 
-public fun ExecuteCabW(hwnd: Foundation.HWND, pcab: Long, preserved: Long): HRESULT {
-    return Win32DynamicFfi.invoke("advpack.dll", "ExecuteCabW", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), pcab, preserved)).toInt()
+public fun ExecuteCabW(hwnd: HWND, pcab: Long, preserved: Long): HRESULT {
+    return Win32DynamicFfi.invoke("advpack.dll", "ExecuteCabW", longArrayOf(hwnd, pcab, preserved)).toInt()
 }
 
 public fun ExtractFilesA(pszcabname: PCSTR, pszexpanddir: PCSTR, dwflags: UInt, pszfilelist: PCSTR, lpreserved: Long, dwreserved: UInt): HRESULT {
@@ -157,16 +167,16 @@ public fun FileSaveMarkNotExistW(lpfilelist: PCWSTR, lpdir: PCWSTR, lpbasename: 
     return Win32DynamicFfi.invoke("advpack.dll", "FileSaveMarkNotExistW", longArrayOf(lpfilelist, lpdir, lpbasename)).toInt()
 }
 
-public fun FileSaveRestoreOnINFA(hwnd: Foundation.HWND, psztitle: PCSTR, pszinf: PCSTR, pszsection: PCSTR, pszbackupdir: PCSTR, pszbasebackupfile: PCSTR, dwflags: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("advpack.dll", "FileSaveRestoreOnINFA", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), psztitle, pszinf, pszsection, pszbackupdir, pszbasebackupfile, dwflags.toLong())).toInt()
+public fun FileSaveRestoreOnINFA(hwnd: HWND, psztitle: PCSTR, pszinf: PCSTR, pszsection: PCSTR, pszbackupdir: PCSTR, pszbasebackupfile: PCSTR, dwflags: UInt): HRESULT {
+    return Win32DynamicFfi.invoke("advpack.dll", "FileSaveRestoreOnINFA", longArrayOf(hwnd, psztitle, pszinf, pszsection, pszbackupdir, pszbasebackupfile, dwflags.toLong())).toInt()
 }
 
-public fun FileSaveRestoreOnINFW(hwnd: Foundation.HWND, psztitle: PCWSTR, pszinf: PCWSTR, pszsection: PCWSTR, pszbackupdir: PCWSTR, pszbasebackupfile: PCWSTR, dwflags: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("advpack.dll", "FileSaveRestoreOnINFW", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), psztitle, pszinf, pszsection, pszbackupdir, pszbasebackupfile, dwflags.toLong())).toInt()
+public fun FileSaveRestoreOnINFW(hwnd: HWND, psztitle: PCWSTR, pszinf: PCWSTR, pszsection: PCWSTR, pszbackupdir: PCWSTR, pszbasebackupfile: PCWSTR, dwflags: UInt): HRESULT {
+    return Win32DynamicFfi.invoke("advpack.dll", "FileSaveRestoreOnINFW", longArrayOf(hwnd, psztitle, pszinf, pszsection, pszbackupdir, pszbasebackupfile, dwflags.toLong())).toInt()
 }
 
-public fun FileSaveRestoreW(hdlg: Foundation.HWND, lpfilelist: PCWSTR, lpdir: PCWSTR, lpbasename: PCWSTR, dwflags: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("advpack.dll", "FileSaveRestoreW", longArrayOf(Win32DynamicFfi.objectSlot(hdlg), lpfilelist, lpdir, lpbasename, dwflags.toLong())).toInt()
+public fun FileSaveRestoreW(hdlg: HWND, lpfilelist: PCWSTR, lpdir: PCWSTR, lpbasename: PCWSTR, dwflags: UInt): HRESULT {
+    return Win32DynamicFfi.invoke("advpack.dll", "FileSaveRestoreW", longArrayOf(hdlg, lpfilelist, lpdir, lpbasename, dwflags.toLong())).toInt()
 }
 
 public fun FileTimeToDosDateTime(lpfiletime: Long, lpfatdate: Long, lpfattime: Long): BOOL {
@@ -193,8 +203,8 @@ public fun GetCurrentHwProfileW(lphwprofileinfo: Long): BOOL {
     return Win32DynamicFfi.invoke("advapi32.dll", "GetCurrentHwProfileW", longArrayOf(lphwprofileinfo)).toInt()
 }
 
-public fun GetDCRegionData(hdc: Graphics.Gdi.HDC, size: UInt, prd: Long): UInt {
-    return Win32DynamicFfi.invoke("dciman32.dll", "GetDCRegionData", longArrayOf(Win32DynamicFfi.objectSlot(hdc), size.toLong(), prd)).toUInt()
+public fun GetDCRegionData(hdc: HDC, size: UInt, prd: Long): UInt {
+    return Win32DynamicFfi.invoke("dciman32.dll", "GetDCRegionData", longArrayOf(hdc, size.toLong(), prd)).toUInt()
 }
 
 public fun GetFeatureEnabledState(featureid: UInt, changetime: FEATURE_CHANGE_TIME): FEATURE_ENABLED_STATE {
@@ -317,36 +327,36 @@ public fun GetVersionFromFileW(lpszfilename: PCWSTR, pdwmsver: Long, pdwlsver: L
     return Win32DynamicFfi.invoke("advpack.dll", "GetVersionFromFileW", longArrayOf(lpszfilename, pdwmsver, pdwlsver, bversion.toLong())).toInt()
 }
 
-public fun GetWindowRegionData(hwnd: Foundation.HWND, size: UInt, prd: Long): UInt {
-    return Win32DynamicFfi.invoke("dciman32.dll", "GetWindowRegionData", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), size.toLong(), prd)).toUInt()
+public fun GetWindowRegionData(hwnd: HWND, size: UInt, prd: Long): UInt {
+    return Win32DynamicFfi.invoke("dciman32.dll", "GetWindowRegionData", longArrayOf(hwnd, size.toLong(), prd)).toUInt()
 }
 
 public fun GlobalCompact(dwminfree: UInt): ULong {
     return Win32DynamicFfi.invoke("kernel32.dll", "GlobalCompact", longArrayOf(dwminfree.toLong())).toULong()
 }
 
-public fun GlobalFix(hmem: Foundation.HGLOBAL) {
-    Win32DynamicFfi.invoke("kernel32.dll", "GlobalFix", longArrayOf(Win32DynamicFfi.objectSlot(hmem)))
+public fun GlobalFix(hmem: HGLOBAL) {
+    Win32DynamicFfi.invoke("kernel32.dll", "GlobalFix", longArrayOf(hmem))
 }
 
-public fun GlobalUnWire(hmem: Foundation.HGLOBAL): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GlobalUnWire", longArrayOf(Win32DynamicFfi.objectSlot(hmem))).toInt()
+public fun GlobalUnWire(hmem: HGLOBAL): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GlobalUnWire", longArrayOf(hmem)).toInt()
 }
 
-public fun GlobalUnfix(hmem: Foundation.HGLOBAL) {
-    Win32DynamicFfi.invoke("kernel32.dll", "GlobalUnfix", longArrayOf(Win32DynamicFfi.objectSlot(hmem)))
+public fun GlobalUnfix(hmem: HGLOBAL) {
+    Win32DynamicFfi.invoke("kernel32.dll", "GlobalUnfix", longArrayOf(hmem))
 }
 
-public fun GlobalWire(hmem: Foundation.HGLOBAL): Long {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GlobalWire", longArrayOf(Win32DynamicFfi.objectSlot(hmem)))
+public fun GlobalWire(hmem: HGLOBAL): Long {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GlobalWire", longArrayOf(hmem))
 }
 
-public fun IMPGetIMEA(param0: Foundation.HWND, param1: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "IMPGetIMEA", longArrayOf(Win32DynamicFfi.objectSlot(param0), param1)).toInt()
+public fun IMPGetIMEA(param0: HWND, param1: Long): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "IMPGetIMEA", longArrayOf(param0, param1)).toInt()
 }
 
-public fun IMPGetIMEW(param0: Foundation.HWND, param1: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "IMPGetIMEW", longArrayOf(Win32DynamicFfi.objectSlot(param0), param1)).toInt()
+public fun IMPGetIMEW(param0: HWND, param1: Long): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "IMPGetIMEW", longArrayOf(param0, param1)).toInt()
 }
 
 public fun IMPQueryIMEA(param0: Long): BOOL {
@@ -357,12 +367,12 @@ public fun IMPQueryIMEW(param0: Long): BOOL {
     return Win32DynamicFfi.invoke("user32.dll", "IMPQueryIMEW", longArrayOf(param0)).toInt()
 }
 
-public fun IMPSetIMEA(param0: Foundation.HWND, param1: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "IMPSetIMEA", longArrayOf(Win32DynamicFfi.objectSlot(param0), param1)).toInt()
+public fun IMPSetIMEA(param0: HWND, param1: Long): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "IMPSetIMEA", longArrayOf(param0, param1)).toInt()
 }
 
-public fun IMPSetIMEW(param0: Foundation.HWND, param1: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "IMPSetIMEW", longArrayOf(Win32DynamicFfi.objectSlot(param0), param1)).toInt()
+public fun IMPSetIMEW(param0: HWND, param1: Long): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "IMPSetIMEW", longArrayOf(param0, param1)).toInt()
 }
 
 public fun IsApiSetImplemented(contract: PCSTR): BOOL {
@@ -385,24 +395,24 @@ public fun IsNativeVhdBoot(nativevhdboot: Long): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "IsNativeVhdBoot", longArrayOf(nativevhdboot)).toInt()
 }
 
-public fun IsTokenUntrusted(tokenhandle: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "IsTokenUntrusted", longArrayOf(Win32DynamicFfi.objectSlot(tokenhandle))).toInt()
+public fun IsTokenUntrusted(tokenhandle: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "IsTokenUntrusted", longArrayOf(tokenhandle)).toInt()
 }
 
-public fun LaunchINFSectionExW(hwnd: Foundation.HWND, hinstance: Foundation.HINSTANCE, pszparms: PCWSTR, nshow: Int): HRESULT {
-    return Win32DynamicFfi.invoke("advpack.dll", "LaunchINFSectionExW", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), Win32DynamicFfi.objectSlot(hinstance), pszparms, nshow.toLong())).toInt()
+public fun LaunchINFSectionExW(hwnd: HWND, hinstance: HINSTANCE, pszparms: PCWSTR, nshow: Int): HRESULT {
+    return Win32DynamicFfi.invoke("advpack.dll", "LaunchINFSectionExW", longArrayOf(hwnd, hinstance, pszparms, nshow.toLong())).toInt()
 }
 
-public fun LaunchINFSectionW(hwndowner: Foundation.HWND, hinstance: Foundation.HINSTANCE, pszparams: PWSTR, nshow: Int): Int {
-    return Win32DynamicFfi.invoke("advpack.dll", "LaunchINFSectionW", longArrayOf(Win32DynamicFfi.objectSlot(hwndowner), Win32DynamicFfi.objectSlot(hinstance), pszparams, nshow.toLong())).toInt()
+public fun LaunchINFSectionW(hwndowner: HWND, hinstance: HINSTANCE, pszparams: PWSTR, nshow: Int): Int {
+    return Win32DynamicFfi.invoke("advpack.dll", "LaunchINFSectionW", longArrayOf(hwndowner, hinstance, pszparams, nshow.toLong())).toInt()
 }
 
 public fun LocalCompact(uminfree: UInt): ULong {
     return Win32DynamicFfi.invoke("kernel32.dll", "LocalCompact", longArrayOf(uminfree.toLong())).toULong()
 }
 
-public fun LocalShrink(hmem: Foundation.HLOCAL, cbnewsize: UInt): ULong {
-    return Win32DynamicFfi.invoke("kernel32.dll", "LocalShrink", longArrayOf(Win32DynamicFfi.objectSlot(hmem), cbnewsize.toLong())).toULong()
+public fun LocalShrink(hmem: HLOCAL, cbnewsize: UInt): ULong {
+    return Win32DynamicFfi.invoke("kernel32.dll", "LocalShrink", longArrayOf(hmem, cbnewsize.toLong())).toULong()
 }
 
 public fun MulDiv(nnumber: Int, nnumerator: Int, ndenominator: Int): Int {
@@ -425,14 +435,12 @@ public fun OpenINFEngineW(pszinffilename: PCWSTR, pszinstallsection: PCWSTR, dwf
     return Win32DynamicFfi.invoke("advpack.dll", "OpenINFEngineW", longArrayOf(pszinffilename, pszinstallsection, dwflags.toLong(), phinf, pvreserved)).toInt()
 }
 
-public fun OpenMutexA(dwdesiredaccess: UInt, binherithandle: BOOL, lpname: PCSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "OpenMutexA", longArrayOf(dwdesiredaccess.toLong(), binherithandle.toLong(), lpname))
-    return Foundation.HANDLE()
+public fun OpenMutexA(dwdesiredaccess: UInt, binherithandle: BOOL, lpname: PCSTR): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "OpenMutexA", longArrayOf(dwdesiredaccess.toLong(), binherithandle.toLong(), lpname))
 }
 
-public fun OpenSemaphoreA(dwdesiredaccess: UInt, binherithandle: BOOL, lpname: PCSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "OpenSemaphoreA", longArrayOf(dwdesiredaccess.toLong(), binherithandle.toLong(), lpname))
-    return Foundation.HANDLE()
+public fun OpenSemaphoreA(dwdesiredaccess: UInt, binherithandle: BOOL, lpname: PCSTR): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "OpenSemaphoreA", longArrayOf(dwdesiredaccess.toLong(), binherithandle.toLong(), lpname))
 }
 
 public fun QueryAuxiliaryCounterFrequency(lpauxiliarycounterfrequency: Long): HRESULT {
@@ -455,12 +463,12 @@ public fun QueryInterruptTimePrecise(lpinterrupttimeprecise: Long) {
     Win32DynamicFfi.invoke("api-ms-win-core-realtime-l1-1-1.dll", "QueryInterruptTimePrecise", longArrayOf(lpinterrupttimeprecise))
 }
 
-public fun QueryProcessCycleTime(processhandle: Foundation.HANDLE, cycletime: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "QueryProcessCycleTime", longArrayOf(Win32DynamicFfi.objectSlot(processhandle), cycletime)).toInt()
+public fun QueryProcessCycleTime(processhandle: HANDLE, cycletime: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "QueryProcessCycleTime", longArrayOf(processhandle, cycletime)).toInt()
 }
 
-public fun QueryThreadCycleTime(threadhandle: Foundation.HANDLE, cycletime: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "QueryThreadCycleTime", longArrayOf(Win32DynamicFfi.objectSlot(threadhandle), cycletime)).toInt()
+public fun QueryThreadCycleTime(threadhandle: HANDLE, cycletime: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "QueryThreadCycleTime", longArrayOf(threadhandle, cycletime)).toInt()
 }
 
 public fun QueryUnbiasedInterruptTime(unbiasedtime: Long): BOOL {
@@ -475,12 +483,12 @@ public fun RaiseCustomSystemEventTrigger(customsystemeventtriggerconfig: Long): 
     return Win32DynamicFfi.invoke("api-ms-win-core-backgroundtask-l1-1-0.dll", "RaiseCustomSystemEventTrigger", longArrayOf(customsystemeventtriggerconfig)).toUInt()
 }
 
-public fun RebootCheckOnInstallA(hwnd: Foundation.HWND, pszinf: PCSTR, pszsec: PCSTR, dwreserved: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("advpack.dll", "RebootCheckOnInstallA", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), pszinf, pszsec, dwreserved.toLong())).toInt()
+public fun RebootCheckOnInstallA(hwnd: HWND, pszinf: PCSTR, pszsec: PCSTR, dwreserved: UInt): HRESULT {
+    return Win32DynamicFfi.invoke("advpack.dll", "RebootCheckOnInstallA", longArrayOf(hwnd, pszinf, pszsec, dwreserved.toLong())).toInt()
 }
 
-public fun RebootCheckOnInstallW(hwnd: Foundation.HWND, pszinf: PCWSTR, pszsec: PCWSTR, dwreserved: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("advpack.dll", "RebootCheckOnInstallW", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), pszinf, pszsec, dwreserved.toLong())).toInt()
+public fun RebootCheckOnInstallW(hwnd: HWND, pszinf: PCWSTR, pszsec: PCWSTR, dwreserved: UInt): HRESULT {
+    return Win32DynamicFfi.invoke("advpack.dll", "RebootCheckOnInstallW", longArrayOf(hwnd, pszinf, pszsec, dwreserved.toLong())).toInt()
 }
 
 public fun RecordFeatureError(featureid: UInt, error: Long) {
@@ -491,54 +499,52 @@ public fun RecordFeatureUsage(featureid: UInt, kind: UInt, addend: UInt, originn
     Win32DynamicFfi.invoke("api-ms-win-core-featurestaging-l1-1-0.dll", "RecordFeatureUsage", longArrayOf(featureid.toLong(), kind.toLong(), addend.toLong(), originname))
 }
 
-public fun RegInstallA(hmod: Foundation.HMODULE, pszsection: PCSTR, psttable: Long): HRESULT {
-    return Win32DynamicFfi.invoke("advpack.dll", "RegInstallA", longArrayOf(Win32DynamicFfi.objectSlot(hmod), pszsection, psttable)).toInt()
+public fun RegInstallA(hmod: HMODULE, pszsection: PCSTR, psttable: Long): HRESULT {
+    return Win32DynamicFfi.invoke("advpack.dll", "RegInstallA", longArrayOf(hmod, pszsection, psttable)).toInt()
 }
 
-public fun RegInstallW(hmod: Foundation.HMODULE, pszsection: PCWSTR, psttable: Long): HRESULT {
-    return Win32DynamicFfi.invoke("advpack.dll", "RegInstallW", longArrayOf(Win32DynamicFfi.objectSlot(hmod), pszsection, psttable)).toInt()
+public fun RegInstallW(hmod: HMODULE, pszsection: PCWSTR, psttable: Long): HRESULT {
+    return Win32DynamicFfi.invoke("advpack.dll", "RegInstallW", longArrayOf(hmod, pszsection, psttable)).toInt()
 }
 
-public fun RegRestoreAllA(hwnd: Foundation.HWND, psztitlestring: PCSTR, hkbckupkey: Registry.HKEY): HRESULT {
-    return Win32DynamicFfi.invoke("advpack.dll", "RegRestoreAllA", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), psztitlestring, Win32DynamicFfi.objectSlot(hkbckupkey))).toInt()
+public fun RegRestoreAllA(hwnd: HWND, psztitlestring: PCSTR, hkbckupkey: HKEY): HRESULT {
+    return Win32DynamicFfi.invoke("advpack.dll", "RegRestoreAllA", longArrayOf(hwnd, psztitlestring, hkbckupkey)).toInt()
 }
 
-public fun RegRestoreAllW(hwnd: Foundation.HWND, psztitlestring: PCWSTR, hkbckupkey: Registry.HKEY): HRESULT {
-    return Win32DynamicFfi.invoke("advpack.dll", "RegRestoreAllW", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), psztitlestring, Win32DynamicFfi.objectSlot(hkbckupkey))).toInt()
+public fun RegRestoreAllW(hwnd: HWND, psztitlestring: PCWSTR, hkbckupkey: HKEY): HRESULT {
+    return Win32DynamicFfi.invoke("advpack.dll", "RegRestoreAllW", longArrayOf(hwnd, psztitlestring, hkbckupkey)).toInt()
 }
 
-public fun RegSaveRestoreA(hwnd: Foundation.HWND, psztitlestring: PCSTR, hkbckupkey: Registry.HKEY, pcszrootkey: PCSTR, pcszsubkey: PCSTR, pcszvaluename: PCSTR, dwflags: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("advpack.dll", "RegSaveRestoreA", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), psztitlestring, Win32DynamicFfi.objectSlot(hkbckupkey), pcszrootkey, pcszsubkey, pcszvaluename, dwflags.toLong())).toInt()
+public fun RegSaveRestoreA(hwnd: HWND, psztitlestring: PCSTR, hkbckupkey: HKEY, pcszrootkey: PCSTR, pcszsubkey: PCSTR, pcszvaluename: PCSTR, dwflags: UInt): HRESULT {
+    return Win32DynamicFfi.invoke("advpack.dll", "RegSaveRestoreA", longArrayOf(hwnd, psztitlestring, hkbckupkey, pcszrootkey, pcszsubkey, pcszvaluename, dwflags.toLong())).toInt()
 }
 
-public fun RegSaveRestoreOnINFA(hwnd: Foundation.HWND, psztitle: PCSTR, pszinf: PCSTR, pszsection: PCSTR, hhklmbackkey: Registry.HKEY, hhkcubackkey: Registry.HKEY, dwflags: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("advpack.dll", "RegSaveRestoreOnINFA", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), psztitle, pszinf, pszsection, Win32DynamicFfi.objectSlot(hhklmbackkey), Win32DynamicFfi.objectSlot(hhkcubackkey), dwflags.toLong())).toInt()
+public fun RegSaveRestoreOnINFA(hwnd: HWND, psztitle: PCSTR, pszinf: PCSTR, pszsection: PCSTR, hhklmbackkey: HKEY, hhkcubackkey: HKEY, dwflags: UInt): HRESULT {
+    return Win32DynamicFfi.invoke("advpack.dll", "RegSaveRestoreOnINFA", longArrayOf(hwnd, psztitle, pszinf, pszsection, hhklmbackkey, hhkcubackkey, dwflags.toLong())).toInt()
 }
 
-public fun RegSaveRestoreOnINFW(hwnd: Foundation.HWND, psztitle: PCWSTR, pszinf: PCWSTR, pszsection: PCWSTR, hhklmbackkey: Registry.HKEY, hhkcubackkey: Registry.HKEY, dwflags: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("advpack.dll", "RegSaveRestoreOnINFW", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), psztitle, pszinf, pszsection, Win32DynamicFfi.objectSlot(hhklmbackkey), Win32DynamicFfi.objectSlot(hhkcubackkey), dwflags.toLong())).toInt()
+public fun RegSaveRestoreOnINFW(hwnd: HWND, psztitle: PCWSTR, pszinf: PCWSTR, pszsection: PCWSTR, hhklmbackkey: HKEY, hhkcubackkey: HKEY, dwflags: UInt): HRESULT {
+    return Win32DynamicFfi.invoke("advpack.dll", "RegSaveRestoreOnINFW", longArrayOf(hwnd, psztitle, pszinf, pszsection, hhklmbackkey, hhkcubackkey, dwflags.toLong())).toInt()
 }
 
-public fun RegSaveRestoreW(hwnd: Foundation.HWND, psztitlestring: PCWSTR, hkbckupkey: Registry.HKEY, pcszrootkey: PCWSTR, pcszsubkey: PCWSTR, pcszvaluename: PCWSTR, dwflags: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("advpack.dll", "RegSaveRestoreW", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), psztitlestring, Win32DynamicFfi.objectSlot(hkbckupkey), pcszrootkey, pcszsubkey, pcszvaluename, dwflags.toLong())).toInt()
+public fun RegSaveRestoreW(hwnd: HWND, psztitlestring: PCWSTR, hkbckupkey: HKEY, pcszrootkey: PCWSTR, pcszsubkey: PCWSTR, pcszvaluename: PCWSTR, dwflags: UInt): HRESULT {
+    return Win32DynamicFfi.invoke("advpack.dll", "RegSaveRestoreW", longArrayOf(hwnd, psztitlestring, hkbckupkey, pcszrootkey, pcszsubkey, pcszvaluename, dwflags.toLong())).toInt()
 }
 
 public fun ReplacePartitionUnit(targetpartition: PCWSTR, sparepartition: PCWSTR, flags: UInt): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "ReplacePartitionUnit", longArrayOf(targetpartition, sparepartition, flags.toLong())).toInt()
 }
 
-public fun RequestDeviceWakeup(hdevice: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "RequestDeviceWakeup", longArrayOf(Win32DynamicFfi.objectSlot(hdevice))).toInt()
+public fun RequestDeviceWakeup(hdevice: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "RequestDeviceWakeup", longArrayOf(hdevice)).toInt()
 }
 
-public fun RtlAnsiStringToUnicodeString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntdll.dll", "RtlAnsiStringToUnicodeString", longArrayOf(destinationstring, sourcestring, if (allocatedestinationstring) 1L else 0L))
-    return Foundation.NTSTATUS()
+public fun RtlAnsiStringToUnicodeString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntdll.dll", "RtlAnsiStringToUnicodeString", longArrayOf(destinationstring, sourcestring, if (allocatedestinationstring) 1L else 0L)).toInt()
 }
 
-public fun RtlCharToInteger(string: Long, base: UInt, value: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntdll.dll", "RtlCharToInteger", longArrayOf(string, base.toLong(), value))
-    return Foundation.NTSTATUS()
+public fun RtlCharToInteger(string: Long, base: UInt, value: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntdll.dll", "RtlCharToInteger", longArrayOf(string, base.toLong(), value)).toInt()
 }
 
 public fun RtlFreeAnsiString(ansistring: Long) {
@@ -561,18 +567,16 @@ public fun RtlInitAnsiString(destinationstring: Long, sourcestring: Long) {
     Win32DynamicFfi.invoke("ntdll.dll", "RtlInitAnsiString", longArrayOf(destinationstring, sourcestring))
 }
 
-public fun RtlInitAnsiStringEx(destinationstring: Long, sourcestring: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntdll.dll", "RtlInitAnsiStringEx", longArrayOf(destinationstring, sourcestring))
-    return Foundation.NTSTATUS()
+public fun RtlInitAnsiStringEx(destinationstring: Long, sourcestring: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntdll.dll", "RtlInitAnsiStringEx", longArrayOf(destinationstring, sourcestring)).toInt()
 }
 
 public fun RtlInitString(destinationstring: Long, sourcestring: Long) {
     Win32DynamicFfi.invoke("ntdll.dll", "RtlInitString", longArrayOf(destinationstring, sourcestring))
 }
 
-public fun RtlInitStringEx(destinationstring: Long, sourcestring: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntdll.dll", "RtlInitStringEx", longArrayOf(destinationstring, sourcestring))
-    return Foundation.NTSTATUS()
+public fun RtlInitStringEx(destinationstring: Long, sourcestring: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntdll.dll", "RtlInitStringEx", longArrayOf(destinationstring, sourcestring)).toInt()
 }
 
 public fun RtlInitUnicodeString(destinationstring: Long, sourcestring: PCWSTR) {
@@ -584,9 +588,8 @@ public fun RtlIsNameLegalDOS8Dot3(name: Long, oemname: Long, namecontainsspaces:
     return (rawRet and 0xFFL) != 0L
 }
 
-public fun RtlLocalTimeToSystemTime(localtime: Long, systemtime: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntdll.dll", "RtlLocalTimeToSystemTime", longArrayOf(localtime, systemtime))
-    return Foundation.NTSTATUS()
+public fun RtlLocalTimeToSystemTime(localtime: Long, systemtime: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntdll.dll", "RtlLocalTimeToSystemTime", longArrayOf(localtime, systemtime)).toInt()
 }
 
 public fun RtlRaiseCustomSystemEventTrigger(triggerconfig: Long): UInt {
@@ -598,41 +601,36 @@ public fun RtlTimeToSecondsSince1970(time: Long, elapsedseconds: Long): Boolean 
     return (rawRet and 0xFFL) != 0L
 }
 
-public fun RtlUnicodeStringToAnsiString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntdll.dll", "RtlUnicodeStringToAnsiString", longArrayOf(destinationstring, sourcestring, if (allocatedestinationstring) 1L else 0L))
-    return Foundation.NTSTATUS()
+public fun RtlUnicodeStringToAnsiString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntdll.dll", "RtlUnicodeStringToAnsiString", longArrayOf(destinationstring, sourcestring, if (allocatedestinationstring) 1L else 0L)).toInt()
 }
 
-public fun RtlUnicodeStringToOemString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntdll.dll", "RtlUnicodeStringToOemString", longArrayOf(destinationstring, sourcestring, if (allocatedestinationstring) 1L else 0L))
-    return Foundation.NTSTATUS()
+public fun RtlUnicodeStringToOemString(destinationstring: Long, sourcestring: Long, allocatedestinationstring: Boolean): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntdll.dll", "RtlUnicodeStringToOemString", longArrayOf(destinationstring, sourcestring, if (allocatedestinationstring) 1L else 0L)).toInt()
 }
 
-public fun RtlUnicodeToMultiByteSize(bytesinmultibytestring: Long, unicodestring: PCWSTR, bytesinunicodestring: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntdll.dll", "RtlUnicodeToMultiByteSize", longArrayOf(bytesinmultibytestring, unicodestring, bytesinunicodestring.toLong()))
-    return Foundation.NTSTATUS()
+public fun RtlUnicodeToMultiByteSize(bytesinmultibytestring: Long, unicodestring: PCWSTR, bytesinunicodestring: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntdll.dll", "RtlUnicodeToMultiByteSize", longArrayOf(bytesinmultibytestring, unicodestring, bytesinunicodestring.toLong())).toInt()
 }
 
 public fun RtlUniform(seed: Long): UInt {
     return Win32DynamicFfi.invoke("ntdll.dll", "RtlUniform", longArrayOf(seed)).toUInt()
 }
 
-public fun RunSetupCommandA(hwnd: Foundation.HWND, szcmdname: PCSTR, szinfsection: PCSTR, szdir: PCSTR, lpsztitle: PCSTR, phexe: Long, dwflags: UInt, pvreserved: Long): HRESULT {
-    return Win32DynamicFfi.invoke("advpack.dll", "RunSetupCommandA", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), szcmdname, szinfsection, szdir, lpsztitle, phexe, dwflags.toLong(), pvreserved)).toInt()
+public fun RunSetupCommandA(hwnd: HWND, szcmdname: PCSTR, szinfsection: PCSTR, szdir: PCSTR, lpsztitle: PCSTR, phexe: Long, dwflags: UInt, pvreserved: Long): HRESULT {
+    return Win32DynamicFfi.invoke("advpack.dll", "RunSetupCommandA", longArrayOf(hwnd, szcmdname, szinfsection, szdir, lpsztitle, phexe, dwflags.toLong(), pvreserved)).toInt()
 }
 
-public fun RunSetupCommandW(hwnd: Foundation.HWND, szcmdname: PCWSTR, szinfsection: PCWSTR, szdir: PCWSTR, lpsztitle: PCWSTR, phexe: Long, dwflags: UInt, pvreserved: Long): HRESULT {
-    return Win32DynamicFfi.invoke("advpack.dll", "RunSetupCommandW", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), szcmdname, szinfsection, szdir, lpsztitle, phexe, dwflags.toLong(), pvreserved)).toInt()
+public fun RunSetupCommandW(hwnd: HWND, szcmdname: PCWSTR, szinfsection: PCWSTR, szdir: PCWSTR, lpsztitle: PCWSTR, phexe: Long, dwflags: UInt, pvreserved: Long): HRESULT {
+    return Win32DynamicFfi.invoke("advpack.dll", "RunSetupCommandW", longArrayOf(hwnd, szcmdname, szinfsection, szdir, lpsztitle, phexe, dwflags.toLong(), pvreserved)).toInt()
 }
 
-public fun SendIMEMessageExA(param0: Foundation.HWND, param1: Foundation.LPARAM): Foundation.LRESULT {
-    Win32DynamicFfi.invoke("user32.dll", "SendIMEMessageExA", longArrayOf(Win32DynamicFfi.objectSlot(param0), Win32DynamicFfi.objectSlot(param1)))
-    return Foundation.LRESULT()
+public fun SendIMEMessageExA(param0: HWND, param1: LPARAM): LRESULT {
+    return Win32DynamicFfi.invoke("user32.dll", "SendIMEMessageExA", longArrayOf(param0, param1))
 }
 
-public fun SendIMEMessageExW(param0: Foundation.HWND, param1: Foundation.LPARAM): Foundation.LRESULT {
-    Win32DynamicFfi.invoke("user32.dll", "SendIMEMessageExW", longArrayOf(Win32DynamicFfi.objectSlot(param0), Win32DynamicFfi.objectSlot(param1)))
-    return Foundation.LRESULT()
+public fun SendIMEMessageExW(param0: HWND, param1: LPARAM): LRESULT {
+    return Win32DynamicFfi.invoke("user32.dll", "SendIMEMessageExW", longArrayOf(param0, param1))
 }
 
 public fun SetEnvironmentStringsA(newenvironment: PCSTR): BOOL {
@@ -659,8 +657,8 @@ public fun SetHandleCount(unumber: UInt): UInt {
     return Win32DynamicFfi.invoke("kernel32.dll", "SetHandleCount", longArrayOf(unumber.toLong())).toUInt()
 }
 
-public fun SetMessageWaitingIndicator(hmsgindicator: Foundation.HANDLE, ulmsgcount: UInt): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetMessageWaitingIndicator", longArrayOf(Win32DynamicFfi.objectSlot(hmsgindicator), ulmsgcount.toLong())).toInt()
+public fun SetMessageWaitingIndicator(hmsgindicator: HANDLE, ulmsgcount: UInt): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetMessageWaitingIndicator", longArrayOf(hmsgindicator, ulmsgcount.toLong())).toInt()
 }
 
 public fun SetPerUserSecValuesA(pperuser: Long): HRESULT {
@@ -695,32 +693,32 @@ public fun UnsubscribeFeatureStateChangeNotification(subscription: FEATURE_STATE
     Win32DynamicFfi.invoke("api-ms-win-core-featurestaging-l1-1-0.dll", "UnsubscribeFeatureStateChangeNotification", longArrayOf(subscription))
 }
 
-public fun UserInstStubWrapperA(hwnd: Foundation.HWND, hinstance: Foundation.HINSTANCE, pszparms: PCSTR, nshow: Int): HRESULT {
-    return Win32DynamicFfi.invoke("advpack.dll", "UserInstStubWrapperA", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), Win32DynamicFfi.objectSlot(hinstance), pszparms, nshow.toLong())).toInt()
+public fun UserInstStubWrapperA(hwnd: HWND, hinstance: HINSTANCE, pszparms: PCSTR, nshow: Int): HRESULT {
+    return Win32DynamicFfi.invoke("advpack.dll", "UserInstStubWrapperA", longArrayOf(hwnd, hinstance, pszparms, nshow.toLong())).toInt()
 }
 
-public fun UserInstStubWrapperW(hwnd: Foundation.HWND, hinstance: Foundation.HINSTANCE, pszparms: PCWSTR, nshow: Int): HRESULT {
-    return Win32DynamicFfi.invoke("advpack.dll", "UserInstStubWrapperW", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), Win32DynamicFfi.objectSlot(hinstance), pszparms, nshow.toLong())).toInt()
+public fun UserInstStubWrapperW(hwnd: HWND, hinstance: HINSTANCE, pszparms: PCWSTR, nshow: Int): HRESULT {
+    return Win32DynamicFfi.invoke("advpack.dll", "UserInstStubWrapperW", longArrayOf(hwnd, hinstance, pszparms, nshow.toLong())).toInt()
 }
 
-public fun UserUnInstStubWrapperA(hwnd: Foundation.HWND, hinstance: Foundation.HINSTANCE, pszparms: PCSTR, nshow: Int): HRESULT {
-    return Win32DynamicFfi.invoke("advpack.dll", "UserUnInstStubWrapperA", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), Win32DynamicFfi.objectSlot(hinstance), pszparms, nshow.toLong())).toInt()
+public fun UserUnInstStubWrapperA(hwnd: HWND, hinstance: HINSTANCE, pszparms: PCSTR, nshow: Int): HRESULT {
+    return Win32DynamicFfi.invoke("advpack.dll", "UserUnInstStubWrapperA", longArrayOf(hwnd, hinstance, pszparms, nshow.toLong())).toInt()
 }
 
-public fun UserUnInstStubWrapperW(hwnd: Foundation.HWND, hinstance: Foundation.HINSTANCE, pszparms: PCWSTR, nshow: Int): HRESULT {
-    return Win32DynamicFfi.invoke("advpack.dll", "UserUnInstStubWrapperW", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), Win32DynamicFfi.objectSlot(hinstance), pszparms, nshow.toLong())).toInt()
+public fun UserUnInstStubWrapperW(hwnd: HWND, hinstance: HINSTANCE, pszparms: PCWSTR, nshow: Int): HRESULT {
+    return Win32DynamicFfi.invoke("advpack.dll", "UserUnInstStubWrapperW", longArrayOf(hwnd, hinstance, pszparms, nshow.toLong())).toInt()
 }
 
-public fun WINNLSEnableIME(param0: Foundation.HWND, param1: BOOL): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "WINNLSEnableIME", longArrayOf(Win32DynamicFfi.objectSlot(param0), param1.toLong())).toInt()
+public fun WINNLSEnableIME(param0: HWND, param1: BOOL): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "WINNLSEnableIME", longArrayOf(param0, param1.toLong())).toInt()
 }
 
-public fun WINNLSGetEnableStatus(param0: Foundation.HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "WINNLSGetEnableStatus", longArrayOf(Win32DynamicFfi.objectSlot(param0))).toInt()
+public fun WINNLSGetEnableStatus(param0: HWND): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "WINNLSGetEnableStatus", longArrayOf(param0)).toInt()
 }
 
-public fun WINNLSGetIMEHotkey(param0: Foundation.HWND): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "WINNLSGetIMEHotkey", longArrayOf(Win32DynamicFfi.objectSlot(param0))).toUInt()
+public fun WINNLSGetIMEHotkey(param0: HWND): UInt {
+    return Win32DynamicFfi.invoke("user32.dll", "WINNLSGetIMEHotkey", longArrayOf(param0)).toUInt()
 }
 
 public fun WinWatchClose(hww: HWINWATCH) {
@@ -735,20 +733,20 @@ public fun WinWatchGetClipList(hww: HWINWATCH, prc: Long, size: UInt, prd: Long)
     return Win32DynamicFfi.invoke("dciman32.dll", "WinWatchGetClipList", longArrayOf(hww, prc, size.toLong(), prd)).toUInt()
 }
 
-public fun WinWatchNotify(hww: HWINWATCH, notifycallback: WINWATCHNOTIFYPROC, notifyparam: Foundation.LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("dciman32.dll", "WinWatchNotify", longArrayOf(hww, Win32DynamicFfi.objectSlot(notifycallback), Win32DynamicFfi.objectSlot(notifyparam))).toInt()
+public fun WinWatchNotify(hww: HWINWATCH, notifycallback: WINWATCHNOTIFYPROC, notifyparam: LPARAM): BOOL {
+    return Win32DynamicFfi.invoke("dciman32.dll", "WinWatchNotify", longArrayOf(hww, Win32DynamicFfi.objectSlot(notifycallback), notifyparam)).toInt()
 }
 
-public fun WinWatchOpen(hwnd: Foundation.HWND): HWINWATCH {
-    return Win32DynamicFfi.invoke("dciman32.dll", "WinWatchOpen", longArrayOf(Win32DynamicFfi.objectSlot(hwnd)))
+public fun WinWatchOpen(hwnd: HWND): HWINWATCH {
+    return Win32DynamicFfi.invoke("dciman32.dll", "WinWatchOpen", longArrayOf(hwnd))
 }
 
 public fun WldpCanExecuteBuffer(host: Long, options: WLDP_EXECUTION_EVALUATION_OPTIONS, buffer: Long, buffersize: UInt, auditinfo: PCWSTR, result: Long): HRESULT {
     return Win32DynamicFfi.invoke("wldp.dll", "WldpCanExecuteBuffer", longArrayOf(host, options.toLong(), buffer, buffersize.toLong(), auditinfo, result)).toInt()
 }
 
-public fun WldpCanExecuteFile(host: Long, options: WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle: Foundation.HANDLE, auditinfo: PCWSTR, result: Long): HRESULT {
-    return Win32DynamicFfi.invoke("wldp.dll", "WldpCanExecuteFile", longArrayOf(host, options.toLong(), Win32DynamicFfi.objectSlot(filehandle), auditinfo, result)).toInt()
+public fun WldpCanExecuteFile(host: Long, options: WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle: HANDLE, auditinfo: PCWSTR, result: Long): HRESULT {
+    return Win32DynamicFfi.invoke("wldp.dll", "WldpCanExecuteFile", longArrayOf(host, options.toLong(), filehandle, auditinfo, result)).toInt()
 }
 
 public fun WldpCanExecuteStream(host: Long, options: WLDP_EXECUTION_EVALUATION_OPTIONS, stream: Long, auditinfo: PCWSTR, result: Long): HRESULT {
@@ -771,12 +769,12 @@ public fun WldpQueryDeviceSecurityInformation(information: Long, informationleng
     return Win32DynamicFfi.invoke("wldp.dll", "WldpQueryDeviceSecurityInformation", longArrayOf(information, informationlength.toLong(), returnlength)).toInt()
 }
 
-public fun WldpQueryDynamicCodeTrust(filehandle: Foundation.HANDLE, baseimage: Long, imagesize: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("wldp.dll", "WldpQueryDynamicCodeTrust", longArrayOf(Win32DynamicFfi.objectSlot(filehandle), baseimage, imagesize.toLong())).toInt()
+public fun WldpQueryDynamicCodeTrust(filehandle: HANDLE, baseimage: Long, imagesize: UInt): HRESULT {
+    return Win32DynamicFfi.invoke("wldp.dll", "WldpQueryDynamicCodeTrust", longArrayOf(filehandle, baseimage, imagesize.toLong())).toInt()
 }
 
-public fun WldpSetDynamicCodeTrust(filehandle: Foundation.HANDLE): HRESULT {
-    return Win32DynamicFfi.invoke("wldp.dll", "WldpSetDynamicCodeTrust", longArrayOf(Win32DynamicFfi.objectSlot(filehandle))).toInt()
+public fun WldpSetDynamicCodeTrust(filehandle: HANDLE): HRESULT {
+    return Win32DynamicFfi.invoke("wldp.dll", "WldpSetDynamicCodeTrust", longArrayOf(filehandle)).toInt()
 }
 
 public fun WritePrivateProfileSectionA(lpappname: PCSTR, lpstring: PCSTR, lpfilename: PCSTR): BOOL {

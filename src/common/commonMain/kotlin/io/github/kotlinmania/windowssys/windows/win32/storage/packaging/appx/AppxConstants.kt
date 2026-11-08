@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 
 public val APPLICATION_USER_MODEL_ID_MAX_LENGTH: UInt = 130u
@@ -166,15 +167,15 @@ public val AppPolicyWindowingModel_None: AppPolicyWindowingModel = 0
 
 public val AppPolicyWindowingModel_Universal: AppPolicyWindowingModel = 1
 
-public val AppxBundleFactory: GUID = GUID.from_u128(0x378e0446538443b7uL, 0x8877e7dbdd883446uL)
+public val AppxBundleFactory: GUID = GUID.from_u128(U128(0x378e0446538443b7uL, 0x8877e7dbdd883446uL))
 
-public val AppxEncryptionFactory: GUID = GUID.from_u128(0xdc664fddd86846eeuL, 0x87808d196cb739f7uL)
+public val AppxEncryptionFactory: GUID = GUID.from_u128(U128(0xdc664fddd86846eeuL, 0x87808d196cb739f7uL))
 
-public val AppxFactory: GUID = GUID.from_u128(0x5842a140ff9f4166uL, 0x8f5c62f5b7b0c781uL)
+public val AppxFactory: GUID = GUID.from_u128(U128(0x5842a140ff9f4166uL, 0x8f5c62f5b7b0c781uL))
 
-public val AppxPackageEditor: GUID = GUID.from_u128(0xf004f2caaebc4b0duL, 0xbf58e516d5bcc0abuL)
+public val AppxPackageEditor: GUID = GUID.from_u128(U128(0xf004f2caaebc4b0duL, 0xbf58e516d5bcc0abuL))
 
-public val AppxPackagingDiagnosticEventSinkManager: GUID = GUID.from_u128(0x50ca0a4615884161uL, 0x8ed2ef9e469ced5duL)
+public val AppxPackagingDiagnosticEventSinkManager: GUID = GUID.from_u128(U128(0x50ca0a4615884161uL, 0x8ed2ef9e469ced5duL))
 
 public val CreatePackageDependencyOptions_DoNotVerifyDependencyResolution: CreatePackageDependencyOptions = 1
 

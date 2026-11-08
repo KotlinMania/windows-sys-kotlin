@@ -3,6 +3,7 @@ package io.github.kotlinmania.windowssys.windows.win32.security.cryptography.sip
 import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CERT_QUERY_ENCODING_TYPE
 
 public fun CryptSIPAddProvider(psnewprov: Long): BOOL {
@@ -41,12 +42,12 @@ public fun CryptSIPRemoveSignedDataMsg(psubjectinfo: Long, dwindex: UInt): BOOL 
     return Win32DynamicFfi.invoke("wintrust.dll", "CryptSIPRemoveSignedDataMsg", longArrayOf(psubjectinfo, dwindex.toLong())).toInt()
 }
 
-public fun CryptSIPRetrieveSubjectGuid(filename: PCWSTR, hfilein: Foundation.HANDLE, pgsubject: Long): BOOL {
-    return Win32DynamicFfi.invoke("crypt32.dll", "CryptSIPRetrieveSubjectGuid", longArrayOf(filename, Win32DynamicFfi.objectSlot(hfilein), pgsubject)).toInt()
+public fun CryptSIPRetrieveSubjectGuid(filename: PCWSTR, hfilein: HANDLE, pgsubject: Long): BOOL {
+    return Win32DynamicFfi.invoke("crypt32.dll", "CryptSIPRetrieveSubjectGuid", longArrayOf(filename, hfilein, pgsubject)).toInt()
 }
 
-public fun CryptSIPRetrieveSubjectGuidForCatalogFile(filename: PCWSTR, hfilein: Foundation.HANDLE, pgsubject: Long): BOOL {
-    return Win32DynamicFfi.invoke("crypt32.dll", "CryptSIPRetrieveSubjectGuidForCatalogFile", longArrayOf(filename, Win32DynamicFfi.objectSlot(hfilein), pgsubject)).toInt()
+public fun CryptSIPRetrieveSubjectGuidForCatalogFile(filename: PCWSTR, hfilein: HANDLE, pgsubject: Long): BOOL {
+    return Win32DynamicFfi.invoke("crypt32.dll", "CryptSIPRetrieveSubjectGuidForCatalogFile", longArrayOf(filename, hfilein, pgsubject)).toInt()
 }
 
 public fun CryptSIPVerifyIndirectData(psubjectinfo: Long, pindirectdata: Long): BOOL {

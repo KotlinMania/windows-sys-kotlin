@@ -4,6 +4,12 @@ package io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
+import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.RECTL
+import io.github.kotlinmania.windowssys.windows.win32.system.power.DEVICE_POWER_STATE
 
 public data class D3DKMT_WDDM_1_3_CAPS(public var Anonymous: D3DKMT_WDDM_1_3_CAPS_0 = D3DKMT_WDDM_1_3_CAPS_0())
 
@@ -135,14 +141,14 @@ public class D3DNTHAL_D3DEXTENDEDCAPS(
     public var dwReserved4: UInt = 0u,
 )
 
-public data class D3DNTHAL_DP2ADDDIRTYRECT(public var dwSurface: UInt = 0u, public var rDirtyArea: Win32.Foundation.RECTL = Win32.Foundation.RECTL())
+public data class D3DNTHAL_DP2ADDDIRTYRECT(public var dwSurface: UInt = 0u, public var rDirtyArea: RECTL = RECTL())
 
 public data class D3DNTHAL_DP2BLT(
     public var dwSource: UInt = 0u,
-    public var rSource: Win32.Foundation.RECTL = Win32.Foundation.RECTL(),
+    public var rSource: RECTL = RECTL(),
     public var dwSourceMipLevel: UInt = 0u,
     public var dwDest: UInt = 0u,
-    public var rDest: Win32.Foundation.RECTL = Win32.Foundation.RECTL(),
+    public var rDest: RECTL = RECTL(),
     public var dwDestMipLevel: UInt = 0u,
     public var Flags: UInt = 0u,
 )
@@ -152,12 +158,12 @@ public data class D3DNTHAL_DP2CLEAR(
     public var dwFillColor: UInt = 0u,
     public var dvFillDepth: Float = 0.0f,
     public var dwFillStencil: UInt = 0u,
-    public var Rects: List<Win32.Foundation.RECT> = List(1) { Win32.Foundation.RECT() },
+    public var Rects: List<RECT> = List(1) { RECT() },
 )
 
 public data class D3DNTHAL_DP2COLORFILL(
     public var dwSurface: UInt = 0u,
-    public var rRect: Win32.Foundation.RECTL = Win32.Foundation.RECTL(),
+    public var rRect: RECTL = RECTL(),
     public var Color: UInt = 0u,
 )
 
@@ -333,10 +339,10 @@ public data class D3DNTHAL_DP2STARTVERTEX(public var wVStart: UShort = 0u)
 
 public data class D3DNTHAL_DP2SURFACEBLT(
     public var dwSource: UInt = 0u,
-    public var rSource: Win32.Foundation.RECTL = Win32.Foundation.RECTL(),
+    public var rSource: RECTL = RECTL(),
     public var dwSourceMipLevel: UInt = 0u,
     public var dwDest: UInt = 0u,
-    public var rDest: Win32.Foundation.RECTL = Win32.Foundation.RECTL(),
+    public var rDest: RECTL = RECTL(),
     public var dwDestMipLevel: UInt = 0u,
     public var Flags: UInt = 0u,
 )
@@ -344,8 +350,8 @@ public data class D3DNTHAL_DP2SURFACEBLT(
 public data class D3DNTHAL_DP2TEXBLT(
     public var dwDDDestSurface: UInt = 0u,
     public var dwDDSrcSurface: UInt = 0u,
-    public var pDest: Win32.Foundation.POINT = Win32.Foundation.POINT(),
-    public var rSrc: Win32.Foundation.RECTL = Win32.Foundation.RECTL(),
+    public var pDest: POINT = POINT(),
+    public var rSrc: RECTL = RECTL(),
     public var dwFlags: UInt = 0u,
 )
 
@@ -390,7 +396,7 @@ public data class D3DNTHAL_SCENECAPTUREDATA(
 
 public data class D3DNTHAL_TEXTURECREATEDATA(
     public var dwhContext: ULong = 0uL,
-    public var hDDS: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var hDDS: HANDLE = 0L,
     public var dwHandle: ULong = 0uL,
     public var ddrval: HRESULT = 0,
 )
@@ -403,7 +409,7 @@ public data class D3DNTHAL_TEXTUREDESTROYDATA(
 
 public data class D3DNTHAL_TEXTUREGETSURFDATA(
     public var dwhContext: ULong = 0uL,
-    public var hDDS: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var hDDS: HANDLE = 0L,
     public var dwHandle: ULong = 0uL,
     public var ddrval: HRESULT = 0,
 )
@@ -690,7 +696,7 @@ public data class DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS(
 }
 
 public data class DXGKMDT_OPM_CREATE_VIDEO_OUTPUT_FOR_TARGET_PARAMETERS(
-    public var AdapterLuid: Win32.Foundation.LUID = Win32.Foundation.LUID(),
+    public var AdapterLuid: LUID = LUID(),
     public var TargetId: UInt = 0u,
     public var Vos: DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS = 0,
 )
@@ -872,7 +878,7 @@ public data class DXGKVGPU_ESCAPE_INITIALIZE(public var Header: DXGKVGPU_ESCAPE_
 
 public data class DXGKVGPU_ESCAPE_PAUSE(
     public var Header: DXGKVGPU_ESCAPE_HEAD = DXGKVGPU_ESCAPE_HEAD(),
-    public var DeviceLuid: Win32.Foundation.LUID = Win32.Foundation.LUID(),
+    public var DeviceLuid: LUID = LUID(),
     public var Anonymous: DXGKVGPU_ESCAPE_PAUSE_0 = DXGKVGPU_ESCAPE_PAUSE_0(),
 )
 
@@ -894,7 +900,7 @@ public data class DXGKVGPU_ESCAPE_RELEASE(public var Header: DXGKVGPU_ESCAPE_HEA
 
 public data class DXGKVGPU_ESCAPE_RESUME(
     public var Header: DXGKVGPU_ESCAPE_HEAD = DXGKVGPU_ESCAPE_HEAD(),
-    public var DeviceLuid: Win32.Foundation.LUID = Win32.Foundation.LUID(),
+    public var DeviceLuid: LUID = LUID(),
     public var Flags: UInt = 0u,
 )
 
@@ -1048,7 +1054,7 @@ public data class DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2(
 
 public data class DXGK_GRAPHICSPOWER_REGISTER_OUTPUT(
     public var DeviceHandle: Long = 0L,
-    public var InitialGrfxPowerState: Win32.System.Power.DEVICE_POWER_STATE = Win32.System.Power.DEVICE_POWER_STATE(),
+    public var InitialGrfxPowerState: DEVICE_POWER_STATE = 0,
     public var SetSharedPowerComponentStateCb: PDXGK_SET_SHARED_POWER_COMPONENT_STATE = null,
     public var UnregisterCb: PDXGK_GRAPHICSPOWER_UNREGISTER = null,
 )
@@ -1130,11 +1136,11 @@ public data class DXGK_TARGETMODE_DETAIL_TIMING(
     public var DetailTiming: DISPLAYID_DETAILED_TIMING_TYPE_I = DISPLAYID_DETAILED_TIMING_TYPE_I(),
 )
 
-public data class GPUP_DRIVER_ESCAPE_INPUT(public var vfLUID: Win32.Foundation.LUID = Win32.Foundation.LUID())
+public data class GPUP_DRIVER_ESCAPE_INPUT(public var vfLUID: LUID = LUID())
 
 public data class OUTPUTDUPL_CONTEXT_DEBUG_INFO(
     public var Status: OUTPUTDUPL_CONTEXT_DEBUG_STATUS = 0,
-    public var ProcessID: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var ProcessID: HANDLE = 0L,
     public var AccumulatedPresents: UInt = 0u,
     public var LastPresentTime: Long = 0L,
     public var LastMouseTime: Long = 0L,

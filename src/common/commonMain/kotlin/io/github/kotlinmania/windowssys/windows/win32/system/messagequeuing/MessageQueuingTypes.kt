@@ -1,6 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing
 
 import io.github.kotlinmania.windowssys.core.HRESULT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 
 public typealias FOREIGN_STATUS = Int
 
@@ -61,7 +62,7 @@ public typealias MQTRANSACTIONAL = Int
 public typealias MQWARNING = Int
 
 public fun interface PMQRECEIVECALLBACKFn {
-    public operator fun invoke(hrstatus: HRESULT, hsource: Long, dwtimeout: UInt, dwaction: UInt, pmessageprops: Long, lpoverlapped: Long, hcursor: Foundation.HANDLE)
+    public operator fun invoke(hrstatus: HRESULT, hsource: Long, dwtimeout: UInt, dwaction: UInt, pmessageprops: Long, lpoverlapped: Long, hcursor: HANDLE)
 }
 
 public typealias PMQRECEIVECALLBACK = PMQRECEIVECALLBACKFn?

@@ -4,6 +4,7 @@ import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 
 public fun WslConfigureDistribution(distributionname: PCWSTR, defaultuid: UInt, wsldistributionflags: WSL_DISTRIBUTION_FLAGS): HRESULT {
     return Win32DynamicFfi.invoke("api-ms-win-wsl-api-l1-1-0.dll", "WslConfigureDistribution", longArrayOf(distributionname, defaultuid.toLong(), wsldistributionflags.toLong())).toInt()
@@ -17,8 +18,8 @@ public fun WslIsDistributionRegistered(distributionname: PCWSTR): BOOL {
     return Win32DynamicFfi.invoke("api-ms-win-wsl-api-l1-1-0.dll", "WslIsDistributionRegistered", longArrayOf(distributionname)).toInt()
 }
 
-public fun WslLaunch(distributionname: PCWSTR, command: PCWSTR, usecurrentworkingdirectory: BOOL, stdin: Foundation.HANDLE, stdout: Foundation.HANDLE, stderr: Foundation.HANDLE, process: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-wsl-api-l1-1-0.dll", "WslLaunch", longArrayOf(distributionname, command, usecurrentworkingdirectory.toLong(), Win32DynamicFfi.objectSlot(stdin), Win32DynamicFfi.objectSlot(stdout), Win32DynamicFfi.objectSlot(stderr), process)).toInt()
+public fun WslLaunch(distributionname: PCWSTR, command: PCWSTR, usecurrentworkingdirectory: BOOL, stdin: HANDLE, stdout: HANDLE, stderr: HANDLE, process: Long): HRESULT {
+    return Win32DynamicFfi.invoke("api-ms-win-wsl-api-l1-1-0.dll", "WslLaunch", longArrayOf(distributionname, command, usecurrentworkingdirectory.toLong(), stdin, stdout, stderr, process)).toInt()
 }
 
 public fun WslLaunchInteractive(distributionname: PCWSTR, command: PCWSTR, usecurrentworkingdirectory: BOOL, exitcode: Long): HRESULT {

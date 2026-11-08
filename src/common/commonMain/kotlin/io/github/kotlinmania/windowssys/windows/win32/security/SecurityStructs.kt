@@ -4,6 +4,9 @@ package io.github.kotlinmania.windowssys.windows.win32.security
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
 
 public data class ACCESS_ALLOWED_ACE(
     public var Header: ACE_HEADER = ACE_HEADER(),
@@ -176,9 +179,9 @@ public data class GENERIC_MAPPING(
 
 public data class LLFILETIME(public var Anonymous: LLFILETIME_0 = LLFILETIME_0())
 
-public data class LLFILETIME_0(public var ll: Long = 0L, public var ft: Foundation.FILETIME = Foundation.FILETIME())
+public data class LLFILETIME_0(public var ll: Long = 0L, public var ft: FILETIME = FILETIME())
 
-public data class LUID_AND_ATTRIBUTES(public var Luid: Foundation.LUID = Foundation.LUID(), public var Attributes: TOKEN_PRIVILEGES_ATTRIBUTES = 0u)
+public data class LUID_AND_ATTRIBUTES(public var Luid: LUID = LUID(), public var Attributes: TOKEN_PRIVILEGES_ATTRIBUTES = 0u)
 
 public data class OBJECT_TYPE_LIST(
     public var Level: UShort = 0u,
@@ -446,7 +449,7 @@ public data class TOKEN_ACCESS_INFORMATION(
     public var SidHash: Long = 0L,
     public var RestrictedSidHash: Long = 0L,
     public var Privileges: Long = 0L,
-    public var AuthenticationId: Foundation.LUID = Foundation.LUID(),
+    public var AuthenticationId: LUID = LUID(),
     public var TokenType: TOKEN_TYPE = 0,
     public var ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL = 0,
     public var MandatoryPolicy: TOKEN_MANDATORY_POLICY = TOKEN_MANDATORY_POLICY(),
@@ -474,9 +477,9 @@ public data class TOKEN_AUDIT_POLICY(public var PerUserPolicy: UByteArray = UByt
 }
 
 public data class TOKEN_CONTROL(
-    public var TokenId: Foundation.LUID = Foundation.LUID(),
-    public var AuthenticationId: Foundation.LUID = Foundation.LUID(),
-    public var ModifiedId: Foundation.LUID = Foundation.LUID(),
+    public var TokenId: LUID = LUID(),
+    public var AuthenticationId: LUID = LUID(),
+    public var ModifiedId: LUID = LUID(),
     public var TokenSource: TOKEN_SOURCE = TOKEN_SOURCE(),
 )
 
@@ -498,16 +501,16 @@ public data class TOKEN_GROUPS_AND_PRIVILEGES(
     public var PrivilegeCount: UInt = 0u,
     public var PrivilegeLength: UInt = 0u,
     public var Privileges: Long = 0L,
-    public var AuthenticationId: Foundation.LUID = Foundation.LUID(),
+    public var AuthenticationId: LUID = LUID(),
 )
 
-public data class TOKEN_LINKED_TOKEN(public var LinkedToken: Foundation.HANDLE = Foundation.HANDLE())
+public data class TOKEN_LINKED_TOKEN(public var LinkedToken: HANDLE = 0L)
 
 public data class TOKEN_MANDATORY_LABEL(public var Label: SID_AND_ATTRIBUTES = SID_AND_ATTRIBUTES())
 
 public data class TOKEN_MANDATORY_POLICY(public var Policy: TOKEN_MANDATORY_POLICY_ID = 0u)
 
-public data class TOKEN_ORIGIN(public var OriginatingLogonSession: Foundation.LUID = Foundation.LUID())
+public data class TOKEN_ORIGIN(public var OriginatingLogonSession: LUID = LUID())
 
 public data class TOKEN_OWNER(public var Owner: PSID = 0L)
 
@@ -515,7 +518,7 @@ public data class TOKEN_PRIMARY_GROUP(public var PrimaryGroup: PSID = 0L)
 
 public data class TOKEN_PRIVILEGES(public var PrivilegeCount: UInt = 0u, public var Privileges: List<LUID_AND_ATTRIBUTES> = List(1) { LUID_AND_ATTRIBUTES() })
 
-public data class TOKEN_SOURCE(public var SourceName: ByteArray = ByteArray(8), public var SourceIdentifier: Foundation.LUID = Foundation.LUID()) {
+public data class TOKEN_SOURCE(public var SourceName: ByteArray = ByteArray(8), public var SourceIdentifier: LUID = LUID()) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is TOKEN_SOURCE) return false
@@ -532,8 +535,8 @@ public data class TOKEN_SOURCE(public var SourceName: ByteArray = ByteArray(8), 
 }
 
 public data class TOKEN_STATISTICS(
-    public var TokenId: Foundation.LUID = Foundation.LUID(),
-    public var AuthenticationId: Foundation.LUID = Foundation.LUID(),
+    public var TokenId: LUID = LUID(),
+    public var AuthenticationId: LUID = LUID(),
     public var ExpirationTime: Long = 0L,
     public var TokenType: TOKEN_TYPE = 0,
     public var ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL = 0,
@@ -541,7 +544,7 @@ public data class TOKEN_STATISTICS(
     public var DynamicAvailable: UInt = 0u,
     public var GroupCount: UInt = 0u,
     public var PrivilegeCount: UInt = 0u,
-    public var ModifiedId: Foundation.LUID = Foundation.LUID(),
+    public var ModifiedId: LUID = LUID(),
 )
 
 public data class TOKEN_USER(public var User: SID_AND_ATTRIBUTES = SID_AND_ATTRIBUTES())

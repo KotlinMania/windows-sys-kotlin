@@ -1,5 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis
 
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+
 public fun interface CL_ADD_PARTY_COMPLETE_HANDLERFn {
     public operator fun invoke()
 }
@@ -515,13 +517,13 @@ public fun interface PROTOCOL_CO_DELETE_VCFn {
 public typealias PROTOCOL_CO_DELETE_VC = PROTOCOL_CO_DELETE_VCFn?
 
 public fun interface TDI_PNP_HANDLERFn {
-    public operator fun invoke(uppercomponent: Long, lowercomponent: Long, bindlist: Long, reconfigbuffer: Long, reconfigbuffersize: UInt, operation: UInt): Win32.Foundation.NTSTATUS
+    public operator fun invoke(uppercomponent: Long, lowercomponent: Long, bindlist: Long, reconfigbuffer: Long, reconfigbuffersize: UInt, operation: UInt): NTSTATUS
 }
 
 public typealias TDI_PNP_HANDLER = TDI_PNP_HANDLERFn?
 
 public fun interface TDI_REGISTER_CALLBACKFn {
-    public operator fun invoke(devicename: Long, tdihandle: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(devicename: Long, tdihandle: Long): NTSTATUS
 }
 
 public typealias TDI_REGISTER_CALLBACK = TDI_REGISTER_CALLBACKFn?

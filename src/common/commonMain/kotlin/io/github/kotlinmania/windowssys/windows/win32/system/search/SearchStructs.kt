@@ -8,6 +8,14 @@ import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.VARIANT_BOOL
+import io.github.kotlinmania.windowssys.windows.win32.storage.indexserver.DBID
+import io.github.kotlinmania.windowssys.windows.win32.storage.indexserver.FULLPROPSPEC
+import io.github.kotlinmania.windowssys.windows.win32.system.com.CY
+import io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.PROPVARIANT
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.VARENUM
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.VARIANT
 
 public data class AUTHENTICATION_INFO(
     public var dwSize: UInt = 0u,
@@ -35,7 +43,7 @@ public data class CATEGORIZATIONSET(public var cCat: UInt = 0u, public var aCat:
 public data class COLUMNSET(public var cCol: UInt = 0u, public var aCol: Long = 0L)
 
 public data class CONTENTRESTRICTION(
-    public var prop: Storage.IndexServer.FULLPROPSPEC = Storage.IndexServer.FULLPROPSPEC(),
+    public var prop: FULLPROPSPEC = FULLPROPSPEC(),
     public var pwcsPhrase: PWSTR = 0L,
     public var lcid: UInt = 0u,
     public var ulGenerateMethod: UInt = 0u,
@@ -69,7 +77,7 @@ public data class DBBINDING(
 
 public data class DBCOLUMNACCESS(
     public var pData: Long = 0L,
-    public var columnid: Storage.IndexServer.DBID = Storage.IndexServer.DBID(),
+    public var columnid: DBID = DBID(),
     public var cbDataLen: ULong = 0uL,
     public var dwStatus: UInt = 0u,
     public var cbMaxLen: ULong = 0uL,
@@ -86,7 +94,7 @@ public data class DBCOLUMNDESC(
     public var pclsid: Long = 0L,
     public var cPropertySets: UInt = 0u,
     public var ulColumnSize: ULong = 0uL,
-    public var dbcid: Storage.IndexServer.DBID = Storage.IndexServer.DBID(),
+    public var dbcid: DBID = DBID(),
     public var wType: UShort = 0u,
     public var bPrecision: UByte = 0u,
     public var bScale: UByte = 0u,
@@ -101,7 +109,7 @@ public data class DBCOLUMNINFO(
     public var wType: UShort = 0u,
     public var bPrecision: UByte = 0u,
     public var bScale: UByte = 0u,
-    public var columnid: Storage.IndexServer.DBID = Storage.IndexServer.DBID(),
+    public var columnid: DBID = DBID(),
 )
 
 public data class DBCONSTRAINTDESC(
@@ -194,8 +202,8 @@ public data class DBPROP(
     public var dwPropertyID: UInt = 0u,
     public var dwOptions: UInt = 0u,
     public var dwStatus: UInt = 0u,
-    public var colid: Storage.IndexServer.DBID = Storage.IndexServer.DBID(),
-    public var vValue: Variant.VARIANT = Variant.VARIANT(),
+    public var colid: DBID = DBID(),
+    public var vValue: VARIANT = VARIANT(),
 )
 
 public data class DBPROPIDSET(
@@ -208,8 +216,8 @@ public data class DBPROPINFO(
     public var pwszDescription: PWSTR = 0L,
     public var dwPropertyID: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var vtType: Variant.VARENUM = Variant.VARENUM(),
-    public var vValues: Variant.VARIANT = Variant.VARIANT(),
+    public var vtType: VARENUM = 0u,
+    public var vValues: VARIANT = VARIANT(),
 )
 
 public data class DBPROPINFOSET(
@@ -331,7 +339,7 @@ public data class DB_VARNUMERIC(
     }
 }
 
-public data class DCINFO(public var eInfoType: UInt = 0u, public var vData: Variant.VARIANT = Variant.VARIANT())
+public data class DCINFO(public var eInfoType: UInt = 0u, public var vData: VARIANT = VARIANT())
 
 public data class ERRORINFO(
     public var hrError: HRESULT = 0,
@@ -350,9 +358,9 @@ public data class FILTERED_DATA_SOURCES(
 
 public data class HITRANGE(public var iPosition: UInt = 0u, public var cLength: UInt = 0u)
 
-public data class INCREMENTAL_ACCESS_INFO(public var dwSize: UInt = 0u, public var ftLastModifiedTime: Foundation.FILETIME = Foundation.FILETIME())
+public data class INCREMENTAL_ACCESS_INFO(public var dwSize: UInt = 0u, public var ftLastModifiedTime: FILETIME = FILETIME())
 
-public data class ITEMPROP(public var variantValue: Variant.VARIANT = Variant.VARIANT(), public var pwszName: PWSTR = 0L)
+public data class ITEMPROP(public var variantValue: VARIANT = VARIANT(), public var pwszName: PWSTR = 0L)
 
 public data class ITEM_INFO(
     public var dwSize: UInt = 0u,
@@ -364,13 +372,13 @@ public data class ITEM_INFO(
 
 public data class KAGGETDIAG(
     public var ulSize: UInt = 0u,
-    public var vDiagInfo: Variant.VARIANT = Variant.VARIANT(),
+    public var vDiagInfo: VARIANT = VARIANT(),
     public var sDiagField: Short = 0,
 )
 
 public data class KAGREQDIAG(
     public var ulDiagFlags: UInt = 0u,
-    public var vt: Variant.VARENUM = Variant.VARENUM(),
+    public var vt: VARENUM = 0u,
     public var sDiagField: Short = 0,
 )
 
@@ -384,7 +392,7 @@ public data class MDAXISINFO(
 )
 
 public data class NATLANGUAGERESTRICTION(
-    public var prop: Storage.IndexServer.FULLPROPSPEC = Storage.IndexServer.FULLPROPSPEC(),
+    public var prop: FULLPROPSPEC = FULLPROPSPEC(),
     public var pwcsPhrase: PWSTR = 0L,
     public var lcid: UInt = 0u,
 )
@@ -411,8 +419,8 @@ public data class ODBC_VS_ARGS_1(public var wszCorrelation: PWSTR = 0L, public v
 
 public data class PROPERTYRESTRICTION(
     public var rel: UInt = 0u,
-    public var prop: Storage.IndexServer.FULLPROPSPEC = Storage.IndexServer.FULLPROPSPEC(),
-    public var prval: Com.StructuredStorage.PROPVARIANT = Com.StructuredStorage.PROPVARIANT(),
+    public var prop: FULLPROPSPEC = FULLPROPSPEC(),
+    public var prval: PROPVARIANT = PROPVARIANT(),
 )
 
 public data class PROXY_INFO(
@@ -461,7 +469,7 @@ public data class RMTPACK(
     public var rgArray: Long = 0L,
 )
 
-public data class SEARCH_COLUMN_PROPERTIES(public var Value: Com.StructuredStorage.PROPVARIANT = Com.StructuredStorage.PROPVARIANT(), public var lcid: UInt = 0u)
+public data class SEARCH_COLUMN_PROPERTIES(public var Value: PROPVARIANT = PROPVARIANT(), public var lcid: UInt = 0u)
 
 public data class SEARCH_ITEM_CHANGE(
     public var Change: SEARCH_KIND_OF_CHANGE = 0,
@@ -482,10 +490,10 @@ public data class SEARCH_ITEM_PERSISTENT_CHANGE(
 
 public data class SEC_OBJECT(public var cObjects: UInt = 0u, public var prgObjects: Long = 0L)
 
-public data class SEC_OBJECT_ELEMENT(public var guidObjectType: GUID = GUID(), public var ObjectID: Storage.IndexServer.DBID = Storage.IndexServer.DBID())
+public data class SEC_OBJECT_ELEMENT(public var guidObjectType: GUID = GUID(), public var ObjectID: DBID = DBID())
 
 public data class SORTKEY(
-    public var propColumn: Storage.IndexServer.FULLPROPSPEC = Storage.IndexServer.FULLPROPSPEC(),
+    public var propColumn: FULLPROPSPEC = FULLPROPSPEC(),
     public var dwOrder: UInt = 0u,
     public var locale: UInt = 0u,
 )
@@ -595,10 +603,10 @@ public data class SSVARIANT_0(
     public var llBigIntVal: Long = 0L,
     public var fltRealVal: Float = 0.0f,
     public var dblFloatVal: Double = 0.0,
-    public var cyMoneyVal: Com.CY = Com.CY(),
+    public var cyMoneyVal: CY = CY(),
     public var NCharVal: SSVARIANT_0_0 = SSVARIANT_0_0(),
     public var CharVal: SSVARIANT_0_1 = SSVARIANT_0_1(),
-    public var fBitVal: Foundation.VARIANT_BOOL = Foundation.VARIANT_BOOL(),
+    public var fBitVal: VARIANT_BOOL = 0,
     public var rgbGuidVal: UByteArray = UByteArray(16),
     public var numNumericVal: DB_NUMERIC = DB_NUMERIC(),
     public var BinaryVal: SSVARIANT_0_2 = SSVARIANT_0_2(),

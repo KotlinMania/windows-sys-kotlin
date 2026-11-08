@@ -1,6 +1,9 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.system.restore
 
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
+
 public data class RESTOREPOINTINFOA(
     public var dwEventType: RESTOREPOINTINFO_EVENT_TYPE = 0u,
     public var dwRestorePtType: RESTOREPOINTINFO_TYPE = 0u,
@@ -27,7 +30,7 @@ public data class RESTOREPOINTINFOA(
 }
 
 public data class RESTOREPOINTINFOEX(
-    public var ftCreation: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftCreation: FILETIME = FILETIME(),
     public var dwEventType: UInt = 0u,
     public var dwRestorePtType: UInt = 0u,
     public var dwRPNum: UInt = 0u,
@@ -79,4 +82,4 @@ public data class RESTOREPOINTINFOW(
     }
 }
 
-public data class STATEMGRSTATUS(public var nStatus: Foundation.WIN32_ERROR = Foundation.WIN32_ERROR(), public var llSequenceNumber: Long = 0L)
+public data class STATEMGRSTATUS(public var nStatus: WIN32_ERROR = 0u, public var llSequenceNumber: Long = 0L)

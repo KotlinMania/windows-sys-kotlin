@@ -6,21 +6,24 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.IN6_ADDR
 
 public fun interface FnCallback {
     public operator fun invoke(rtmreghandle: Long, eventtype: RTM_EVENT_TYPE, context1: Long, context2: Long): UInt
 }
 
-public fun MgmAddGroupMembershipEntry(hprotocol: Foundation.HANDLE, dwsourceaddr: UInt, dwsourcemask: UInt, dwgroupaddr: UInt, dwgroupmask: UInt, dwifindex: UInt, dwifnexthopipaddr: UInt, dwflags: UInt): UInt {
-    return Win32DynamicFfi.invoke("rtm.dll", "MgmAddGroupMembershipEntry", longArrayOf(Win32DynamicFfi.objectSlot(hprotocol), dwsourceaddr.toLong(), dwsourcemask.toLong(), dwgroupaddr.toLong(), dwgroupmask.toLong(), dwifindex.toLong(), dwifnexthopipaddr.toLong(), dwflags.toLong())).toUInt()
+public fun MgmAddGroupMembershipEntry(hprotocol: HANDLE, dwsourceaddr: UInt, dwsourcemask: UInt, dwgroupaddr: UInt, dwgroupmask: UInt, dwifindex: UInt, dwifnexthopipaddr: UInt, dwflags: UInt): UInt {
+    return Win32DynamicFfi.invoke("rtm.dll", "MgmAddGroupMembershipEntry", longArrayOf(hprotocol, dwsourceaddr.toLong(), dwsourcemask.toLong(), dwgroupaddr.toLong(), dwgroupmask.toLong(), dwifindex.toLong(), dwifnexthopipaddr.toLong(), dwflags.toLong())).toUInt()
 }
 
-public fun MgmDeRegisterMProtocol(hprotocol: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("rtm.dll", "MgmDeRegisterMProtocol", longArrayOf(Win32DynamicFfi.objectSlot(hprotocol))).toUInt()
+public fun MgmDeRegisterMProtocol(hprotocol: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("rtm.dll", "MgmDeRegisterMProtocol", longArrayOf(hprotocol)).toUInt()
 }
 
-public fun MgmDeleteGroupMembershipEntry(hprotocol: Foundation.HANDLE, dwsourceaddr: UInt, dwsourcemask: UInt, dwgroupaddr: UInt, dwgroupmask: UInt, dwifindex: UInt, dwifnexthopipaddr: UInt, dwflags: UInt): UInt {
-    return Win32DynamicFfi.invoke("rtm.dll", "MgmDeleteGroupMembershipEntry", longArrayOf(Win32DynamicFfi.objectSlot(hprotocol), dwsourceaddr.toLong(), dwsourcemask.toLong(), dwgroupaddr.toLong(), dwgroupmask.toLong(), dwifindex.toLong(), dwifnexthopipaddr.toLong(), dwflags.toLong())).toUInt()
+public fun MgmDeleteGroupMembershipEntry(hprotocol: HANDLE, dwsourceaddr: UInt, dwsourcemask: UInt, dwgroupaddr: UInt, dwgroupmask: UInt, dwifindex: UInt, dwifnexthopipaddr: UInt, dwflags: UInt): UInt {
+    return Win32DynamicFfi.invoke("rtm.dll", "MgmDeleteGroupMembershipEntry", longArrayOf(hprotocol, dwsourceaddr.toLong(), dwsourcemask.toLong(), dwgroupaddr.toLong(), dwgroupmask.toLong(), dwifindex.toLong(), dwifnexthopipaddr.toLong(), dwflags.toLong())).toUInt()
 }
 
 public fun MgmGetFirstMfe(pdwbuffersize: Long, pbbuffer: Long, pdwnumentries: Long): UInt {
@@ -51,36 +54,36 @@ public fun MgmGetProtocolOnInterface(dwifindex: UInt, dwifnexthopaddr: UInt, pdw
     return Win32DynamicFfi.invoke("rtm.dll", "MgmGetProtocolOnInterface", longArrayOf(dwifindex.toLong(), dwifnexthopaddr.toLong(), pdwifprotocolid, pdwifcomponentid)).toUInt()
 }
 
-public fun MgmGroupEnumerationEnd(henum: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("rtm.dll", "MgmGroupEnumerationEnd", longArrayOf(Win32DynamicFfi.objectSlot(henum))).toUInt()
+public fun MgmGroupEnumerationEnd(henum: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("rtm.dll", "MgmGroupEnumerationEnd", longArrayOf(henum)).toUInt()
 }
 
-public fun MgmGroupEnumerationGetNext(henum: Foundation.HANDLE, pdwbuffersize: Long, pbbuffer: Long, pdwnumentries: Long): UInt {
-    return Win32DynamicFfi.invoke("rtm.dll", "MgmGroupEnumerationGetNext", longArrayOf(Win32DynamicFfi.objectSlot(henum), pdwbuffersize, pbbuffer, pdwnumentries)).toUInt()
+public fun MgmGroupEnumerationGetNext(henum: HANDLE, pdwbuffersize: Long, pbbuffer: Long, pdwnumentries: Long): UInt {
+    return Win32DynamicFfi.invoke("rtm.dll", "MgmGroupEnumerationGetNext", longArrayOf(henum, pdwbuffersize, pbbuffer, pdwnumentries)).toUInt()
 }
 
-public fun MgmGroupEnumerationStart(hprotocol: Foundation.HANDLE, metenumtype: MGM_ENUM_TYPES, phenumhandle: Long): UInt {
-    return Win32DynamicFfi.invoke("rtm.dll", "MgmGroupEnumerationStart", longArrayOf(Win32DynamicFfi.objectSlot(hprotocol), metenumtype.toLong(), phenumhandle)).toUInt()
+public fun MgmGroupEnumerationStart(hprotocol: HANDLE, metenumtype: MGM_ENUM_TYPES, phenumhandle: Long): UInt {
+    return Win32DynamicFfi.invoke("rtm.dll", "MgmGroupEnumerationStart", longArrayOf(hprotocol, metenumtype.toLong(), phenumhandle)).toUInt()
 }
 
 public fun MgmRegisterMProtocol(prpiinfo: Long, dwprotocolid: UInt, dwcomponentid: UInt, phprotocol: Long): UInt {
     return Win32DynamicFfi.invoke("rtm.dll", "MgmRegisterMProtocol", longArrayOf(prpiinfo, dwprotocolid.toLong(), dwcomponentid.toLong(), phprotocol)).toUInt()
 }
 
-public fun MgmReleaseInterfaceOwnership(hprotocol: Foundation.HANDLE, dwifindex: UInt, dwifnexthopaddr: UInt): UInt {
-    return Win32DynamicFfi.invoke("rtm.dll", "MgmReleaseInterfaceOwnership", longArrayOf(Win32DynamicFfi.objectSlot(hprotocol), dwifindex.toLong(), dwifnexthopaddr.toLong())).toUInt()
+public fun MgmReleaseInterfaceOwnership(hprotocol: HANDLE, dwifindex: UInt, dwifnexthopaddr: UInt): UInt {
+    return Win32DynamicFfi.invoke("rtm.dll", "MgmReleaseInterfaceOwnership", longArrayOf(hprotocol, dwifindex.toLong(), dwifnexthopaddr.toLong())).toUInt()
 }
 
-public fun MgmTakeInterfaceOwnership(hprotocol: Foundation.HANDLE, dwifindex: UInt, dwifnexthopaddr: UInt): UInt {
-    return Win32DynamicFfi.invoke("rtm.dll", "MgmTakeInterfaceOwnership", longArrayOf(Win32DynamicFfi.objectSlot(hprotocol), dwifindex.toLong(), dwifnexthopaddr.toLong())).toUInt()
+public fun MgmTakeInterfaceOwnership(hprotocol: HANDLE, dwifindex: UInt, dwifnexthopaddr: UInt): UInt {
+    return Win32DynamicFfi.invoke("rtm.dll", "MgmTakeInterfaceOwnership", longArrayOf(hprotocol, dwifindex.toLong(), dwifnexthopaddr.toLong())).toUInt()
 }
 
 public fun MprAdminBufferFree(pbuffer: Long): UInt {
     return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminBufferFree", longArrayOf(pbuffer)).toUInt()
 }
 
-public fun MprAdminConnectionClearStats(hrasserver: Long, hrasconnection: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminConnectionClearStats", longArrayOf(hrasserver, Win32DynamicFfi.objectSlot(hrasconnection))).toUInt()
+public fun MprAdminConnectionClearStats(hrasserver: Long, hrasconnection: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminConnectionClearStats", longArrayOf(hrasserver, hrasconnection)).toUInt()
 }
 
 public fun MprAdminConnectionEnum(hrasserver: Long, dwlevel: UInt, lplpbbuffer: Long, dwprefmaxlen: UInt, lpdwentriesread: Long, lpdwtotalentries: Long, lpdwresumehandle: Long): UInt {
@@ -91,20 +94,20 @@ public fun MprAdminConnectionEnumEx(hrasserver: Long, pobjectheader: Long, dwpre
     return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminConnectionEnumEx", longArrayOf(hrasserver, pobjectheader, dwpreferedmaxlen.toLong(), lpdwentriesread, lpdwtotalentries, pprasconn, lpdwresumehandle)).toUInt()
 }
 
-public fun MprAdminConnectionGetInfo(hrasserver: Long, dwlevel: UInt, hrasconnection: Foundation.HANDLE, lplpbbuffer: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminConnectionGetInfo", longArrayOf(hrasserver, dwlevel.toLong(), Win32DynamicFfi.objectSlot(hrasconnection), lplpbbuffer)).toUInt()
+public fun MprAdminConnectionGetInfo(hrasserver: Long, dwlevel: UInt, hrasconnection: HANDLE, lplpbbuffer: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminConnectionGetInfo", longArrayOf(hrasserver, dwlevel.toLong(), hrasconnection, lplpbbuffer)).toUInt()
 }
 
-public fun MprAdminConnectionGetInfoEx(hrasserver: Long, hrasconnection: Foundation.HANDLE, prasconnection: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminConnectionGetInfoEx", longArrayOf(hrasserver, Win32DynamicFfi.objectSlot(hrasconnection), prasconnection)).toUInt()
+public fun MprAdminConnectionGetInfoEx(hrasserver: Long, hrasconnection: HANDLE, prasconnection: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminConnectionGetInfoEx", longArrayOf(hrasserver, hrasconnection, prasconnection)).toUInt()
 }
 
-public fun MprAdminConnectionRemoveQuarantine(hrasserver: Foundation.HANDLE, hrasconnection: Foundation.HANDLE, fisipaddress: BOOL): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminConnectionRemoveQuarantine", longArrayOf(Win32DynamicFfi.objectSlot(hrasserver), Win32DynamicFfi.objectSlot(hrasconnection), fisipaddress.toLong())).toUInt()
+public fun MprAdminConnectionRemoveQuarantine(hrasserver: HANDLE, hrasconnection: HANDLE, fisipaddress: BOOL): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminConnectionRemoveQuarantine", longArrayOf(hrasserver, hrasconnection, fisipaddress.toLong())).toUInt()
 }
 
-public fun MprAdminDeregisterConnectionNotification(hmprserver: Long, heventnotification: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminDeregisterConnectionNotification", longArrayOf(hmprserver, Win32DynamicFfi.objectSlot(heventnotification))).toUInt()
+public fun MprAdminDeregisterConnectionNotification(hmprserver: Long, heventnotification: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminDeregisterConnectionNotification", longArrayOf(hmprserver, heventnotification)).toUInt()
 }
 
 public fun MprAdminDeviceEnum(hmprserver: Long, dwlevel: UInt, lplpbbuffer: Long, lpdwtotalentries: Long): UInt {
@@ -123,28 +126,28 @@ public fun MprAdminGetPDCServer(lpszdomain: PCWSTR, lpszserver: PCWSTR, lpszpdcs
     return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminGetPDCServer", longArrayOf(lpszdomain, lpszserver, lpszpdcserver)).toUInt()
 }
 
-public fun MprAdminInterfaceConnect(hmprserver: Long, hinterface: Foundation.HANDLE, hevent: Foundation.HANDLE, fsynchronous: BOOL): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceConnect", longArrayOf(hmprserver, Win32DynamicFfi.objectSlot(hinterface), Win32DynamicFfi.objectSlot(hevent), fsynchronous.toLong())).toUInt()
+public fun MprAdminInterfaceConnect(hmprserver: Long, hinterface: HANDLE, hevent: HANDLE, fsynchronous: BOOL): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceConnect", longArrayOf(hmprserver, hinterface, hevent, fsynchronous.toLong())).toUInt()
 }
 
 public fun MprAdminInterfaceCreate(hmprserver: Long, dwlevel: UInt, lpbbuffer: Long, phinterface: Long): UInt {
     return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceCreate", longArrayOf(hmprserver, dwlevel.toLong(), lpbbuffer, phinterface)).toUInt()
 }
 
-public fun MprAdminInterfaceDelete(hmprserver: Long, hinterface: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceDelete", longArrayOf(hmprserver, Win32DynamicFfi.objectSlot(hinterface))).toUInt()
+public fun MprAdminInterfaceDelete(hmprserver: Long, hinterface: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceDelete", longArrayOf(hmprserver, hinterface)).toUInt()
 }
 
-public fun MprAdminInterfaceDeviceGetInfo(hmprserver: Long, hinterface: Foundation.HANDLE, dwindex: UInt, dwlevel: UInt, lplpbuffer: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceDeviceGetInfo", longArrayOf(hmprserver, Win32DynamicFfi.objectSlot(hinterface), dwindex.toLong(), dwlevel.toLong(), lplpbuffer)).toUInt()
+public fun MprAdminInterfaceDeviceGetInfo(hmprserver: Long, hinterface: HANDLE, dwindex: UInt, dwlevel: UInt, lplpbuffer: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceDeviceGetInfo", longArrayOf(hmprserver, hinterface, dwindex.toLong(), dwlevel.toLong(), lplpbuffer)).toUInt()
 }
 
-public fun MprAdminInterfaceDeviceSetInfo(hmprserver: Long, hinterface: Foundation.HANDLE, dwindex: UInt, dwlevel: UInt, lpbbuffer: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceDeviceSetInfo", longArrayOf(hmprserver, Win32DynamicFfi.objectSlot(hinterface), dwindex.toLong(), dwlevel.toLong(), lpbbuffer)).toUInt()
+public fun MprAdminInterfaceDeviceSetInfo(hmprserver: Long, hinterface: HANDLE, dwindex: UInt, dwlevel: UInt, lpbbuffer: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceDeviceSetInfo", longArrayOf(hmprserver, hinterface, dwindex.toLong(), dwlevel.toLong(), lpbbuffer)).toUInt()
 }
 
-public fun MprAdminInterfaceDisconnect(hmprserver: Long, hinterface: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceDisconnect", longArrayOf(hmprserver, Win32DynamicFfi.objectSlot(hinterface))).toUInt()
+public fun MprAdminInterfaceDisconnect(hmprserver: Long, hinterface: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceDisconnect", longArrayOf(hmprserver, hinterface)).toUInt()
 }
 
 public fun MprAdminInterfaceEnum(hmprserver: Long, dwlevel: UInt, lplpbbuffer: Long, dwprefmaxlen: UInt, lpdwentriesread: Long, lpdwtotalentries: Long, lpdwresumehandle: Long): UInt {
@@ -155,64 +158,64 @@ public fun MprAdminInterfaceGetCredentials(lpwsserver: PCWSTR, lpwsinterfacename
     return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceGetCredentials", longArrayOf(lpwsserver, lpwsinterfacename, lpwsusername, lpwspassword, lpwsdomainname)).toUInt()
 }
 
-public fun MprAdminInterfaceGetCredentialsEx(hmprserver: Long, hinterface: Foundation.HANDLE, dwlevel: UInt, lplpbbuffer: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceGetCredentialsEx", longArrayOf(hmprserver, Win32DynamicFfi.objectSlot(hinterface), dwlevel.toLong(), lplpbbuffer)).toUInt()
+public fun MprAdminInterfaceGetCredentialsEx(hmprserver: Long, hinterface: HANDLE, dwlevel: UInt, lplpbbuffer: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceGetCredentialsEx", longArrayOf(hmprserver, hinterface, dwlevel.toLong(), lplpbbuffer)).toUInt()
 }
 
-public fun MprAdminInterfaceGetCustomInfoEx(hmprserver: Long, hinterface: Foundation.HANDLE, pcustominfo: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceGetCustomInfoEx", longArrayOf(hmprserver, Win32DynamicFfi.objectSlot(hinterface), pcustominfo)).toUInt()
+public fun MprAdminInterfaceGetCustomInfoEx(hmprserver: Long, hinterface: HANDLE, pcustominfo: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceGetCustomInfoEx", longArrayOf(hmprserver, hinterface, pcustominfo)).toUInt()
 }
 
 public fun MprAdminInterfaceGetHandle(hmprserver: Long, lpwsinterfacename: PCWSTR, phinterface: Long, fincludeclientinterfaces: BOOL): UInt {
     return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceGetHandle", longArrayOf(hmprserver, lpwsinterfacename, phinterface, fincludeclientinterfaces.toLong())).toUInt()
 }
 
-public fun MprAdminInterfaceGetInfo(hmprserver: Long, hinterface: Foundation.HANDLE, dwlevel: UInt, lplpbbuffer: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceGetInfo", longArrayOf(hmprserver, Win32DynamicFfi.objectSlot(hinterface), dwlevel.toLong(), lplpbbuffer)).toUInt()
+public fun MprAdminInterfaceGetInfo(hmprserver: Long, hinterface: HANDLE, dwlevel: UInt, lplpbbuffer: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceGetInfo", longArrayOf(hmprserver, hinterface, dwlevel.toLong(), lplpbbuffer)).toUInt()
 }
 
-public fun MprAdminInterfaceQueryUpdateResult(hmprserver: Long, hinterface: Foundation.HANDLE, dwprotocolid: UInt, lpdwupdateresult: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceQueryUpdateResult", longArrayOf(hmprserver, Win32DynamicFfi.objectSlot(hinterface), dwprotocolid.toLong(), lpdwupdateresult)).toUInt()
+public fun MprAdminInterfaceQueryUpdateResult(hmprserver: Long, hinterface: HANDLE, dwprotocolid: UInt, lpdwupdateresult: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceQueryUpdateResult", longArrayOf(hmprserver, hinterface, dwprotocolid.toLong(), lpdwupdateresult)).toUInt()
 }
 
 public fun MprAdminInterfaceSetCredentials(lpwsserver: PCWSTR, lpwsinterfacename: PCWSTR, lpwsusername: PCWSTR, lpwsdomainname: PCWSTR, lpwspassword: PCWSTR): UInt {
     return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceSetCredentials", longArrayOf(lpwsserver, lpwsinterfacename, lpwsusername, lpwsdomainname, lpwspassword)).toUInt()
 }
 
-public fun MprAdminInterfaceSetCredentialsEx(hmprserver: Long, hinterface: Foundation.HANDLE, dwlevel: UInt, lpbbuffer: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceSetCredentialsEx", longArrayOf(hmprserver, Win32DynamicFfi.objectSlot(hinterface), dwlevel.toLong(), lpbbuffer)).toUInt()
+public fun MprAdminInterfaceSetCredentialsEx(hmprserver: Long, hinterface: HANDLE, dwlevel: UInt, lpbbuffer: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceSetCredentialsEx", longArrayOf(hmprserver, hinterface, dwlevel.toLong(), lpbbuffer)).toUInt()
 }
 
-public fun MprAdminInterfaceSetCustomInfoEx(hmprserver: Long, hinterface: Foundation.HANDLE, pcustominfo: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceSetCustomInfoEx", longArrayOf(hmprserver, Win32DynamicFfi.objectSlot(hinterface), pcustominfo)).toUInt()
+public fun MprAdminInterfaceSetCustomInfoEx(hmprserver: Long, hinterface: HANDLE, pcustominfo: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceSetCustomInfoEx", longArrayOf(hmprserver, hinterface, pcustominfo)).toUInt()
 }
 
-public fun MprAdminInterfaceSetInfo(hmprserver: Long, hinterface: Foundation.HANDLE, dwlevel: UInt, lpbbuffer: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceSetInfo", longArrayOf(hmprserver, Win32DynamicFfi.objectSlot(hinterface), dwlevel.toLong(), lpbbuffer)).toUInt()
+public fun MprAdminInterfaceSetInfo(hmprserver: Long, hinterface: HANDLE, dwlevel: UInt, lpbbuffer: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceSetInfo", longArrayOf(hmprserver, hinterface, dwlevel.toLong(), lpbbuffer)).toUInt()
 }
 
-public fun MprAdminInterfaceTransportAdd(hmprserver: Long, hinterface: Foundation.HANDLE, dwtransportid: UInt, pinterfaceinfo: Long, dwinterfaceinfosize: UInt): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceTransportAdd", longArrayOf(hmprserver, Win32DynamicFfi.objectSlot(hinterface), dwtransportid.toLong(), pinterfaceinfo, dwinterfaceinfosize.toLong())).toUInt()
+public fun MprAdminInterfaceTransportAdd(hmprserver: Long, hinterface: HANDLE, dwtransportid: UInt, pinterfaceinfo: Long, dwinterfaceinfosize: UInt): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceTransportAdd", longArrayOf(hmprserver, hinterface, dwtransportid.toLong(), pinterfaceinfo, dwinterfaceinfosize.toLong())).toUInt()
 }
 
-public fun MprAdminInterfaceTransportGetInfo(hmprserver: Long, hinterface: Foundation.HANDLE, dwtransportid: UInt, ppinterfaceinfo: Long, lpdwinterfaceinfosize: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceTransportGetInfo", longArrayOf(hmprserver, Win32DynamicFfi.objectSlot(hinterface), dwtransportid.toLong(), ppinterfaceinfo, lpdwinterfaceinfosize)).toUInt()
+public fun MprAdminInterfaceTransportGetInfo(hmprserver: Long, hinterface: HANDLE, dwtransportid: UInt, ppinterfaceinfo: Long, lpdwinterfaceinfosize: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceTransportGetInfo", longArrayOf(hmprserver, hinterface, dwtransportid.toLong(), ppinterfaceinfo, lpdwinterfaceinfosize)).toUInt()
 }
 
-public fun MprAdminInterfaceTransportRemove(hmprserver: Long, hinterface: Foundation.HANDLE, dwtransportid: UInt): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceTransportRemove", longArrayOf(hmprserver, Win32DynamicFfi.objectSlot(hinterface), dwtransportid.toLong())).toUInt()
+public fun MprAdminInterfaceTransportRemove(hmprserver: Long, hinterface: HANDLE, dwtransportid: UInt): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceTransportRemove", longArrayOf(hmprserver, hinterface, dwtransportid.toLong())).toUInt()
 }
 
-public fun MprAdminInterfaceTransportSetInfo(hmprserver: Long, hinterface: Foundation.HANDLE, dwtransportid: UInt, pinterfaceinfo: Long, dwinterfaceinfosize: UInt): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceTransportSetInfo", longArrayOf(hmprserver, Win32DynamicFfi.objectSlot(hinterface), dwtransportid.toLong(), pinterfaceinfo, dwinterfaceinfosize.toLong())).toUInt()
+public fun MprAdminInterfaceTransportSetInfo(hmprserver: Long, hinterface: HANDLE, dwtransportid: UInt, pinterfaceinfo: Long, dwinterfaceinfosize: UInt): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceTransportSetInfo", longArrayOf(hmprserver, hinterface, dwtransportid.toLong(), pinterfaceinfo, dwinterfaceinfosize.toLong())).toUInt()
 }
 
-public fun MprAdminInterfaceUpdatePhonebookInfo(hmprserver: Long, hinterface: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceUpdatePhonebookInfo", longArrayOf(hmprserver, Win32DynamicFfi.objectSlot(hinterface))).toUInt()
+public fun MprAdminInterfaceUpdatePhonebookInfo(hmprserver: Long, hinterface: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceUpdatePhonebookInfo", longArrayOf(hmprserver, hinterface)).toUInt()
 }
 
-public fun MprAdminInterfaceUpdateRoutes(hmprserver: Long, hinterface: Foundation.HANDLE, dwprotocolid: UInt, hevent: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceUpdateRoutes", longArrayOf(hmprserver, Win32DynamicFfi.objectSlot(hinterface), dwprotocolid.toLong(), Win32DynamicFfi.objectSlot(hevent))).toUInt()
+public fun MprAdminInterfaceUpdateRoutes(hmprserver: Long, hinterface: HANDLE, dwprotocolid: UInt, hevent: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminInterfaceUpdateRoutes", longArrayOf(hmprserver, hinterface, dwprotocolid.toLong(), hevent)).toUInt()
 }
 
 public fun MprAdminIsDomainRasServer(pszdomain: PCWSTR, pszmachine: PCWSTR, pbisrasserver: Long): UInt {
@@ -263,32 +266,32 @@ public fun MprAdminMIBServerDisconnect(hmibserver: Long) {
     Win32DynamicFfi.invoke("mprapi.dll", "MprAdminMIBServerDisconnect", longArrayOf(hmibserver))
 }
 
-public fun MprAdminPortClearStats(hrasserver: Long, hport: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminPortClearStats", longArrayOf(hrasserver, Win32DynamicFfi.objectSlot(hport))).toUInt()
+public fun MprAdminPortClearStats(hrasserver: Long, hport: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminPortClearStats", longArrayOf(hrasserver, hport)).toUInt()
 }
 
-public fun MprAdminPortDisconnect(hrasserver: Long, hport: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminPortDisconnect", longArrayOf(hrasserver, Win32DynamicFfi.objectSlot(hport))).toUInt()
+public fun MprAdminPortDisconnect(hrasserver: Long, hport: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminPortDisconnect", longArrayOf(hrasserver, hport)).toUInt()
 }
 
-public fun MprAdminPortEnum(hrasserver: Long, dwlevel: UInt, hrasconnection: Foundation.HANDLE, lplpbbuffer: Long, dwprefmaxlen: UInt, lpdwentriesread: Long, lpdwtotalentries: Long, lpdwresumehandle: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminPortEnum", longArrayOf(hrasserver, dwlevel.toLong(), Win32DynamicFfi.objectSlot(hrasconnection), lplpbbuffer, dwprefmaxlen.toLong(), lpdwentriesread, lpdwtotalentries, lpdwresumehandle)).toUInt()
+public fun MprAdminPortEnum(hrasserver: Long, dwlevel: UInt, hrasconnection: HANDLE, lplpbbuffer: Long, dwprefmaxlen: UInt, lpdwentriesread: Long, lpdwtotalentries: Long, lpdwresumehandle: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminPortEnum", longArrayOf(hrasserver, dwlevel.toLong(), hrasconnection, lplpbbuffer, dwprefmaxlen.toLong(), lpdwentriesread, lpdwtotalentries, lpdwresumehandle)).toUInt()
 }
 
-public fun MprAdminPortGetInfo(hrasserver: Long, dwlevel: UInt, hport: Foundation.HANDLE, lplpbbuffer: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminPortGetInfo", longArrayOf(hrasserver, dwlevel.toLong(), Win32DynamicFfi.objectSlot(hport), lplpbbuffer)).toUInt()
+public fun MprAdminPortGetInfo(hrasserver: Long, dwlevel: UInt, hport: HANDLE, lplpbbuffer: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminPortGetInfo", longArrayOf(hrasserver, dwlevel.toLong(), hport, lplpbbuffer)).toUInt()
 }
 
-public fun MprAdminPortReset(hrasserver: Long, hport: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminPortReset", longArrayOf(hrasserver, Win32DynamicFfi.objectSlot(hport))).toUInt()
+public fun MprAdminPortReset(hrasserver: Long, hport: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminPortReset", longArrayOf(hrasserver, hport)).toUInt()
 }
 
-public fun MprAdminRegisterConnectionNotification(hmprserver: Long, heventnotification: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminRegisterConnectionNotification", longArrayOf(hmprserver, Win32DynamicFfi.objectSlot(heventnotification))).toUInt()
+public fun MprAdminRegisterConnectionNotification(hmprserver: Long, heventnotification: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminRegisterConnectionNotification", longArrayOf(hmprserver, heventnotification)).toUInt()
 }
 
-public fun MprAdminSendUserMessage(hmprserver: Long, hconnection: Foundation.HANDLE, lpwszmessage: PCWSTR): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminSendUserMessage", longArrayOf(hmprserver, Win32DynamicFfi.objectSlot(hconnection), lpwszmessage)).toUInt()
+public fun MprAdminSendUserMessage(hmprserver: Long, hconnection: HANDLE, lpwszmessage: PCWSTR): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminSendUserMessage", longArrayOf(hmprserver, hconnection, lpwszmessage)).toUInt()
 }
 
 public fun MprAdminServerConnect(lpwsservername: PCWSTR, phmprserver: Long): UInt {
@@ -335,8 +338,8 @@ public fun MprAdminTransportSetInfo(hmprserver: Long, dwtransportid: UInt, pglob
     return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminTransportSetInfo", longArrayOf(hmprserver, dwtransportid.toLong(), pglobalinfo, dwglobalinfosize.toLong(), pclientinterfaceinfo, dwclientinterfaceinfosize.toLong())).toUInt()
 }
 
-public fun MprAdminUpdateConnection(hrasserver: Long, hrasconnection: Foundation.HANDLE, prasupdateconnection: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminUpdateConnection", longArrayOf(hrasserver, Win32DynamicFfi.objectSlot(hrasconnection), prasupdateconnection)).toUInt()
+public fun MprAdminUpdateConnection(hrasserver: Long, hrasconnection: HANDLE, prasupdateconnection: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprAdminUpdateConnection", longArrayOf(hrasserver, hrasconnection, prasupdateconnection)).toUInt()
 }
 
 public fun MprAdminUserGetInfo(lpszserver: PCWSTR, lpszuser: PCWSTR, dwlevel: UInt, lpbbuffer: Long): UInt {
@@ -351,140 +354,140 @@ public fun MprConfigBufferFree(pbuffer: Long): UInt {
     return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigBufferFree", longArrayOf(pbuffer)).toUInt()
 }
 
-public fun MprConfigFilterGetInfo(hmprconfig: Foundation.HANDLE, dwlevel: UInt, dwtransportid: UInt, lpbuffer: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigFilterGetInfo", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig), dwlevel.toLong(), dwtransportid.toLong(), lpbuffer)).toUInt()
+public fun MprConfigFilterGetInfo(hmprconfig: HANDLE, dwlevel: UInt, dwtransportid: UInt, lpbuffer: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigFilterGetInfo", longArrayOf(hmprconfig, dwlevel.toLong(), dwtransportid.toLong(), lpbuffer)).toUInt()
 }
 
-public fun MprConfigFilterSetInfo(hmprconfig: Foundation.HANDLE, dwlevel: UInt, dwtransportid: UInt, lpbuffer: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigFilterSetInfo", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig), dwlevel.toLong(), dwtransportid.toLong(), lpbuffer)).toUInt()
+public fun MprConfigFilterSetInfo(hmprconfig: HANDLE, dwlevel: UInt, dwtransportid: UInt, lpbuffer: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigFilterSetInfo", longArrayOf(hmprconfig, dwlevel.toLong(), dwtransportid.toLong(), lpbuffer)).toUInt()
 }
 
-public fun MprConfigGetFriendlyName(hmprconfig: Foundation.HANDLE, pszguidname: PCWSTR, pszbuffer: PWSTR, dwbuffersize: UInt): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigGetFriendlyName", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig), pszguidname, pszbuffer, dwbuffersize.toLong())).toUInt()
+public fun MprConfigGetFriendlyName(hmprconfig: HANDLE, pszguidname: PCWSTR, pszbuffer: PWSTR, dwbuffersize: UInt): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigGetFriendlyName", longArrayOf(hmprconfig, pszguidname, pszbuffer, dwbuffersize.toLong())).toUInt()
 }
 
-public fun MprConfigGetGuidName(hmprconfig: Foundation.HANDLE, pszfriendlyname: PCWSTR, pszbuffer: PWSTR, dwbuffersize: UInt): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigGetGuidName", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig), pszfriendlyname, pszbuffer, dwbuffersize.toLong())).toUInt()
+public fun MprConfigGetGuidName(hmprconfig: HANDLE, pszfriendlyname: PCWSTR, pszbuffer: PWSTR, dwbuffersize: UInt): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigGetGuidName", longArrayOf(hmprconfig, pszfriendlyname, pszbuffer, dwbuffersize.toLong())).toUInt()
 }
 
-public fun MprConfigInterfaceCreate(hmprconfig: Foundation.HANDLE, dwlevel: UInt, lpbbuffer: Long, phrouterinterface: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigInterfaceCreate", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig), dwlevel.toLong(), lpbbuffer, phrouterinterface)).toUInt()
+public fun MprConfigInterfaceCreate(hmprconfig: HANDLE, dwlevel: UInt, lpbbuffer: Long, phrouterinterface: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigInterfaceCreate", longArrayOf(hmprconfig, dwlevel.toLong(), lpbbuffer, phrouterinterface)).toUInt()
 }
 
-public fun MprConfigInterfaceDelete(hmprconfig: Foundation.HANDLE, hrouterinterface: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigInterfaceDelete", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig), Win32DynamicFfi.objectSlot(hrouterinterface))).toUInt()
+public fun MprConfigInterfaceDelete(hmprconfig: HANDLE, hrouterinterface: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigInterfaceDelete", longArrayOf(hmprconfig, hrouterinterface)).toUInt()
 }
 
-public fun MprConfigInterfaceEnum(hmprconfig: Foundation.HANDLE, dwlevel: UInt, lplpbuffer: Long, dwprefmaxlen: UInt, lpdwentriesread: Long, lpdwtotalentries: Long, lpdwresumehandle: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigInterfaceEnum", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig), dwlevel.toLong(), lplpbuffer, dwprefmaxlen.toLong(), lpdwentriesread, lpdwtotalentries, lpdwresumehandle)).toUInt()
+public fun MprConfigInterfaceEnum(hmprconfig: HANDLE, dwlevel: UInt, lplpbuffer: Long, dwprefmaxlen: UInt, lpdwentriesread: Long, lpdwtotalentries: Long, lpdwresumehandle: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigInterfaceEnum", longArrayOf(hmprconfig, dwlevel.toLong(), lplpbuffer, dwprefmaxlen.toLong(), lpdwentriesread, lpdwtotalentries, lpdwresumehandle)).toUInt()
 }
 
-public fun MprConfigInterfaceGetCustomInfoEx(hmprconfig: Foundation.HANDLE, hrouterinterface: Foundation.HANDLE, pcustominfo: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigInterfaceGetCustomInfoEx", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig), Win32DynamicFfi.objectSlot(hrouterinterface), pcustominfo)).toUInt()
+public fun MprConfigInterfaceGetCustomInfoEx(hmprconfig: HANDLE, hrouterinterface: HANDLE, pcustominfo: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigInterfaceGetCustomInfoEx", longArrayOf(hmprconfig, hrouterinterface, pcustominfo)).toUInt()
 }
 
-public fun MprConfigInterfaceGetHandle(hmprconfig: Foundation.HANDLE, lpwsinterfacename: PCWSTR, phrouterinterface: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigInterfaceGetHandle", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig), lpwsinterfacename, phrouterinterface)).toUInt()
+public fun MprConfigInterfaceGetHandle(hmprconfig: HANDLE, lpwsinterfacename: PCWSTR, phrouterinterface: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigInterfaceGetHandle", longArrayOf(hmprconfig, lpwsinterfacename, phrouterinterface)).toUInt()
 }
 
-public fun MprConfigInterfaceGetInfo(hmprconfig: Foundation.HANDLE, hrouterinterface: Foundation.HANDLE, dwlevel: UInt, lplpbuffer: Long, lpdwbuffersize: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigInterfaceGetInfo", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig), Win32DynamicFfi.objectSlot(hrouterinterface), dwlevel.toLong(), lplpbuffer, lpdwbuffersize)).toUInt()
+public fun MprConfigInterfaceGetInfo(hmprconfig: HANDLE, hrouterinterface: HANDLE, dwlevel: UInt, lplpbuffer: Long, lpdwbuffersize: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigInterfaceGetInfo", longArrayOf(hmprconfig, hrouterinterface, dwlevel.toLong(), lplpbuffer, lpdwbuffersize)).toUInt()
 }
 
-public fun MprConfigInterfaceSetCustomInfoEx(hmprconfig: Foundation.HANDLE, hrouterinterface: Foundation.HANDLE, pcustominfo: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigInterfaceSetCustomInfoEx", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig), Win32DynamicFfi.objectSlot(hrouterinterface), pcustominfo)).toUInt()
+public fun MprConfigInterfaceSetCustomInfoEx(hmprconfig: HANDLE, hrouterinterface: HANDLE, pcustominfo: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigInterfaceSetCustomInfoEx", longArrayOf(hmprconfig, hrouterinterface, pcustominfo)).toUInt()
 }
 
-public fun MprConfigInterfaceSetInfo(hmprconfig: Foundation.HANDLE, hrouterinterface: Foundation.HANDLE, dwlevel: UInt, lpbbuffer: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigInterfaceSetInfo", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig), Win32DynamicFfi.objectSlot(hrouterinterface), dwlevel.toLong(), lpbbuffer)).toUInt()
+public fun MprConfigInterfaceSetInfo(hmprconfig: HANDLE, hrouterinterface: HANDLE, dwlevel: UInt, lpbbuffer: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigInterfaceSetInfo", longArrayOf(hmprconfig, hrouterinterface, dwlevel.toLong(), lpbbuffer)).toUInt()
 }
 
-public fun MprConfigInterfaceTransportAdd(hmprconfig: Foundation.HANDLE, hrouterinterface: Foundation.HANDLE, dwtransportid: UInt, lpwstransportname: PCWSTR, pinterfaceinfo: Long, dwinterfaceinfosize: UInt, phrouteriftransport: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigInterfaceTransportAdd", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig), Win32DynamicFfi.objectSlot(hrouterinterface), dwtransportid.toLong(), lpwstransportname, pinterfaceinfo, dwinterfaceinfosize.toLong(), phrouteriftransport)).toUInt()
+public fun MprConfigInterfaceTransportAdd(hmprconfig: HANDLE, hrouterinterface: HANDLE, dwtransportid: UInt, lpwstransportname: PCWSTR, pinterfaceinfo: Long, dwinterfaceinfosize: UInt, phrouteriftransport: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigInterfaceTransportAdd", longArrayOf(hmprconfig, hrouterinterface, dwtransportid.toLong(), lpwstransportname, pinterfaceinfo, dwinterfaceinfosize.toLong(), phrouteriftransport)).toUInt()
 }
 
-public fun MprConfigInterfaceTransportEnum(hmprconfig: Foundation.HANDLE, hrouterinterface: Foundation.HANDLE, dwlevel: UInt, lplpbuffer: Long, dwprefmaxlen: UInt, lpdwentriesread: Long, lpdwtotalentries: Long, lpdwresumehandle: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigInterfaceTransportEnum", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig), Win32DynamicFfi.objectSlot(hrouterinterface), dwlevel.toLong(), lplpbuffer, dwprefmaxlen.toLong(), lpdwentriesread, lpdwtotalentries, lpdwresumehandle)).toUInt()
+public fun MprConfigInterfaceTransportEnum(hmprconfig: HANDLE, hrouterinterface: HANDLE, dwlevel: UInt, lplpbuffer: Long, dwprefmaxlen: UInt, lpdwentriesread: Long, lpdwtotalentries: Long, lpdwresumehandle: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigInterfaceTransportEnum", longArrayOf(hmprconfig, hrouterinterface, dwlevel.toLong(), lplpbuffer, dwprefmaxlen.toLong(), lpdwentriesread, lpdwtotalentries, lpdwresumehandle)).toUInt()
 }
 
-public fun MprConfigInterfaceTransportGetHandle(hmprconfig: Foundation.HANDLE, hrouterinterface: Foundation.HANDLE, dwtransportid: UInt, phrouteriftransport: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigInterfaceTransportGetHandle", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig), Win32DynamicFfi.objectSlot(hrouterinterface), dwtransportid.toLong(), phrouteriftransport)).toUInt()
+public fun MprConfigInterfaceTransportGetHandle(hmprconfig: HANDLE, hrouterinterface: HANDLE, dwtransportid: UInt, phrouteriftransport: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigInterfaceTransportGetHandle", longArrayOf(hmprconfig, hrouterinterface, dwtransportid.toLong(), phrouteriftransport)).toUInt()
 }
 
-public fun MprConfigInterfaceTransportGetInfo(hmprconfig: Foundation.HANDLE, hrouterinterface: Foundation.HANDLE, hrouteriftransport: Foundation.HANDLE, ppinterfaceinfo: Long, lpdwinterfaceinfosize: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigInterfaceTransportGetInfo", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig), Win32DynamicFfi.objectSlot(hrouterinterface), Win32DynamicFfi.objectSlot(hrouteriftransport), ppinterfaceinfo, lpdwinterfaceinfosize)).toUInt()
+public fun MprConfigInterfaceTransportGetInfo(hmprconfig: HANDLE, hrouterinterface: HANDLE, hrouteriftransport: HANDLE, ppinterfaceinfo: Long, lpdwinterfaceinfosize: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigInterfaceTransportGetInfo", longArrayOf(hmprconfig, hrouterinterface, hrouteriftransport, ppinterfaceinfo, lpdwinterfaceinfosize)).toUInt()
 }
 
-public fun MprConfigInterfaceTransportRemove(hmprconfig: Foundation.HANDLE, hrouterinterface: Foundation.HANDLE, hrouteriftransport: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigInterfaceTransportRemove", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig), Win32DynamicFfi.objectSlot(hrouterinterface), Win32DynamicFfi.objectSlot(hrouteriftransport))).toUInt()
+public fun MprConfigInterfaceTransportRemove(hmprconfig: HANDLE, hrouterinterface: HANDLE, hrouteriftransport: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigInterfaceTransportRemove", longArrayOf(hmprconfig, hrouterinterface, hrouteriftransport)).toUInt()
 }
 
-public fun MprConfigInterfaceTransportSetInfo(hmprconfig: Foundation.HANDLE, hrouterinterface: Foundation.HANDLE, hrouteriftransport: Foundation.HANDLE, pinterfaceinfo: Long, dwinterfaceinfosize: UInt): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigInterfaceTransportSetInfo", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig), Win32DynamicFfi.objectSlot(hrouterinterface), Win32DynamicFfi.objectSlot(hrouteriftransport), pinterfaceinfo, dwinterfaceinfosize.toLong())).toUInt()
+public fun MprConfigInterfaceTransportSetInfo(hmprconfig: HANDLE, hrouterinterface: HANDLE, hrouteriftransport: HANDLE, pinterfaceinfo: Long, dwinterfaceinfosize: UInt): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigInterfaceTransportSetInfo", longArrayOf(hmprconfig, hrouterinterface, hrouteriftransport, pinterfaceinfo, dwinterfaceinfosize.toLong())).toUInt()
 }
 
-public fun MprConfigServerBackup(hmprconfig: Foundation.HANDLE, lpwspath: PCWSTR): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigServerBackup", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig), lpwspath)).toUInt()
+public fun MprConfigServerBackup(hmprconfig: HANDLE, lpwspath: PCWSTR): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigServerBackup", longArrayOf(hmprconfig, lpwspath)).toUInt()
 }
 
 public fun MprConfigServerConnect(lpwsservername: PCWSTR, phmprconfig: Long): UInt {
     return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigServerConnect", longArrayOf(lpwsservername, phmprconfig)).toUInt()
 }
 
-public fun MprConfigServerDisconnect(hmprconfig: Foundation.HANDLE) {
-    Win32DynamicFfi.invoke("mprapi.dll", "MprConfigServerDisconnect", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig)))
+public fun MprConfigServerDisconnect(hmprconfig: HANDLE) {
+    Win32DynamicFfi.invoke("mprapi.dll", "MprConfigServerDisconnect", longArrayOf(hmprconfig))
 }
 
-public fun MprConfigServerGetInfo(hmprconfig: Foundation.HANDLE, dwlevel: UInt, lplpbbuffer: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigServerGetInfo", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig), dwlevel.toLong(), lplpbbuffer)).toUInt()
+public fun MprConfigServerGetInfo(hmprconfig: HANDLE, dwlevel: UInt, lplpbbuffer: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigServerGetInfo", longArrayOf(hmprconfig, dwlevel.toLong(), lplpbbuffer)).toUInt()
 }
 
-public fun MprConfigServerGetInfoEx(hmprconfig: Foundation.HANDLE, pserverinfo: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigServerGetInfoEx", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig), pserverinfo)).toUInt()
+public fun MprConfigServerGetInfoEx(hmprconfig: HANDLE, pserverinfo: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigServerGetInfoEx", longArrayOf(hmprconfig, pserverinfo)).toUInt()
 }
 
 public fun MprConfigServerInstall(dwlevel: UInt, pbuffer: Long): UInt {
     return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigServerInstall", longArrayOf(dwlevel.toLong(), pbuffer)).toUInt()
 }
 
-public fun MprConfigServerRefresh(hmprconfig: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigServerRefresh", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig))).toUInt()
+public fun MprConfigServerRefresh(hmprconfig: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigServerRefresh", longArrayOf(hmprconfig)).toUInt()
 }
 
-public fun MprConfigServerRestore(hmprconfig: Foundation.HANDLE, lpwspath: PCWSTR): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigServerRestore", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig), lpwspath)).toUInt()
+public fun MprConfigServerRestore(hmprconfig: HANDLE, lpwspath: PCWSTR): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigServerRestore", longArrayOf(hmprconfig, lpwspath)).toUInt()
 }
 
 public fun MprConfigServerSetInfo(hmprserver: Long, dwlevel: UInt, lpbbuffer: Long): UInt {
     return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigServerSetInfo", longArrayOf(hmprserver, dwlevel.toLong(), lpbbuffer)).toUInt()
 }
 
-public fun MprConfigServerSetInfoEx(hmprconfig: Foundation.HANDLE, psetserverconfig: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigServerSetInfoEx", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig), psetserverconfig)).toUInt()
+public fun MprConfigServerSetInfoEx(hmprconfig: HANDLE, psetserverconfig: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigServerSetInfoEx", longArrayOf(hmprconfig, psetserverconfig)).toUInt()
 }
 
-public fun MprConfigTransportCreate(hmprconfig: Foundation.HANDLE, dwtransportid: UInt, lpwstransportname: PCWSTR, pglobalinfo: Long, dwglobalinfosize: UInt, pclientinterfaceinfo: Long, dwclientinterfaceinfosize: UInt, lpwsdllpath: PCWSTR, phroutertransport: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigTransportCreate", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig), dwtransportid.toLong(), lpwstransportname, pglobalinfo, dwglobalinfosize.toLong(), pclientinterfaceinfo, dwclientinterfaceinfosize.toLong(), lpwsdllpath, phroutertransport)).toUInt()
+public fun MprConfigTransportCreate(hmprconfig: HANDLE, dwtransportid: UInt, lpwstransportname: PCWSTR, pglobalinfo: Long, dwglobalinfosize: UInt, pclientinterfaceinfo: Long, dwclientinterfaceinfosize: UInt, lpwsdllpath: PCWSTR, phroutertransport: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigTransportCreate", longArrayOf(hmprconfig, dwtransportid.toLong(), lpwstransportname, pglobalinfo, dwglobalinfosize.toLong(), pclientinterfaceinfo, dwclientinterfaceinfosize.toLong(), lpwsdllpath, phroutertransport)).toUInt()
 }
 
-public fun MprConfigTransportDelete(hmprconfig: Foundation.HANDLE, hroutertransport: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigTransportDelete", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig), Win32DynamicFfi.objectSlot(hroutertransport))).toUInt()
+public fun MprConfigTransportDelete(hmprconfig: HANDLE, hroutertransport: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigTransportDelete", longArrayOf(hmprconfig, hroutertransport)).toUInt()
 }
 
-public fun MprConfigTransportEnum(hmprconfig: Foundation.HANDLE, dwlevel: UInt, lplpbuffer: Long, dwprefmaxlen: UInt, lpdwentriesread: Long, lpdwtotalentries: Long, lpdwresumehandle: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigTransportEnum", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig), dwlevel.toLong(), lplpbuffer, dwprefmaxlen.toLong(), lpdwentriesread, lpdwtotalentries, lpdwresumehandle)).toUInt()
+public fun MprConfigTransportEnum(hmprconfig: HANDLE, dwlevel: UInt, lplpbuffer: Long, dwprefmaxlen: UInt, lpdwentriesread: Long, lpdwtotalentries: Long, lpdwresumehandle: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigTransportEnum", longArrayOf(hmprconfig, dwlevel.toLong(), lplpbuffer, dwprefmaxlen.toLong(), lpdwentriesread, lpdwtotalentries, lpdwresumehandle)).toUInt()
 }
 
-public fun MprConfigTransportGetHandle(hmprconfig: Foundation.HANDLE, dwtransportid: UInt, phroutertransport: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigTransportGetHandle", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig), dwtransportid.toLong(), phroutertransport)).toUInt()
+public fun MprConfigTransportGetHandle(hmprconfig: HANDLE, dwtransportid: UInt, phroutertransport: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigTransportGetHandle", longArrayOf(hmprconfig, dwtransportid.toLong(), phroutertransport)).toUInt()
 }
 
-public fun MprConfigTransportGetInfo(hmprconfig: Foundation.HANDLE, hroutertransport: Foundation.HANDLE, ppglobalinfo: Long, lpdwglobalinfosize: Long, ppclientinterfaceinfo: Long, lpdwclientinterfaceinfosize: Long, lplpwsdllpath: Long): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigTransportGetInfo", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig), Win32DynamicFfi.objectSlot(hroutertransport), ppglobalinfo, lpdwglobalinfosize, ppclientinterfaceinfo, lpdwclientinterfaceinfosize, lplpwsdllpath)).toUInt()
+public fun MprConfigTransportGetInfo(hmprconfig: HANDLE, hroutertransport: HANDLE, ppglobalinfo: Long, lpdwglobalinfosize: Long, ppclientinterfaceinfo: Long, lpdwclientinterfaceinfosize: Long, lplpwsdllpath: Long): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigTransportGetInfo", longArrayOf(hmprconfig, hroutertransport, ppglobalinfo, lpdwglobalinfosize, ppclientinterfaceinfo, lpdwclientinterfaceinfosize, lplpwsdllpath)).toUInt()
 }
 
-public fun MprConfigTransportSetInfo(hmprconfig: Foundation.HANDLE, hroutertransport: Foundation.HANDLE, pglobalinfo: Long, dwglobalinfosize: UInt, pclientinterfaceinfo: Long, dwclientinterfaceinfosize: UInt, lpwsdllpath: PCWSTR): UInt {
-    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigTransportSetInfo", longArrayOf(Win32DynamicFfi.objectSlot(hmprconfig), Win32DynamicFfi.objectSlot(hroutertransport), pglobalinfo, dwglobalinfosize.toLong(), pclientinterfaceinfo, dwclientinterfaceinfosize.toLong(), lpwsdllpath)).toUInt()
+public fun MprConfigTransportSetInfo(hmprconfig: HANDLE, hroutertransport: HANDLE, pglobalinfo: Long, dwglobalinfosize: UInt, pclientinterfaceinfo: Long, dwclientinterfaceinfosize: UInt, lpwsdllpath: PCWSTR): UInt {
+    return Win32DynamicFfi.invoke("mprapi.dll", "MprConfigTransportSetInfo", longArrayOf(hmprconfig, hroutertransport, pglobalinfo, dwglobalinfosize.toLong(), pclientinterfaceinfo, dwclientinterfaceinfosize.toLong(), lpwsdllpath)).toUInt()
 }
 
 public fun MprInfoBlockAdd(lpheader: Long, dwinfotype: UInt, dwitemsize: UInt, dwitemcount: UInt, lpitemdata: Long, lplpnewheader: Long): UInt {
@@ -531,20 +534,20 @@ public fun RasClearLinkStatistics(hrasconn: HRASCONN, dwsubentry: UInt): UInt {
     return Win32DynamicFfi.invoke("rasapi32.dll", "RasClearLinkStatistics", longArrayOf(hrasconn, dwsubentry.toLong())).toUInt()
 }
 
-public fun RasConnectionNotificationA(param0: HRASCONN, param1: Foundation.HANDLE, param2: UInt): UInt {
-    return Win32DynamicFfi.invoke("rasapi32.dll", "RasConnectionNotificationA", longArrayOf(param0, Win32DynamicFfi.objectSlot(param1), param2.toLong())).toUInt()
+public fun RasConnectionNotificationA(param0: HRASCONN, param1: HANDLE, param2: UInt): UInt {
+    return Win32DynamicFfi.invoke("rasapi32.dll", "RasConnectionNotificationA", longArrayOf(param0, param1, param2.toLong())).toUInt()
 }
 
-public fun RasConnectionNotificationW(param0: HRASCONN, param1: Foundation.HANDLE, param2: UInt): UInt {
-    return Win32DynamicFfi.invoke("rasapi32.dll", "RasConnectionNotificationW", longArrayOf(param0, Win32DynamicFfi.objectSlot(param1), param2.toLong())).toUInt()
+public fun RasConnectionNotificationW(param0: HRASCONN, param1: HANDLE, param2: UInt): UInt {
+    return Win32DynamicFfi.invoke("rasapi32.dll", "RasConnectionNotificationW", longArrayOf(param0, param1, param2.toLong())).toUInt()
 }
 
-public fun RasCreatePhonebookEntryA(param0: Foundation.HWND, param1: PCSTR): UInt {
-    return Win32DynamicFfi.invoke("rasapi32.dll", "RasCreatePhonebookEntryA", longArrayOf(Win32DynamicFfi.objectSlot(param0), param1)).toUInt()
+public fun RasCreatePhonebookEntryA(param0: HWND, param1: PCSTR): UInt {
+    return Win32DynamicFfi.invoke("rasapi32.dll", "RasCreatePhonebookEntryA", longArrayOf(param0, param1)).toUInt()
 }
 
-public fun RasCreatePhonebookEntryW(param0: Foundation.HWND, param1: PCWSTR): UInt {
-    return Win32DynamicFfi.invoke("rasapi32.dll", "RasCreatePhonebookEntryW", longArrayOf(Win32DynamicFfi.objectSlot(param0), param1)).toUInt()
+public fun RasCreatePhonebookEntryW(param0: HWND, param1: PCWSTR): UInt {
+    return Win32DynamicFfi.invoke("rasapi32.dll", "RasCreatePhonebookEntryW", longArrayOf(param0, param1)).toUInt()
 }
 
 public fun RasDeleteEntryA(param0: PCSTR, param1: PCSTR): UInt {
@@ -579,12 +582,12 @@ public fun RasDialW(param0: Long, param1: PCWSTR, param2: Long, param3: UInt, pa
     return Win32DynamicFfi.invoke("rasapi32.dll", "RasDialW", longArrayOf(param0, param1, param2, param3.toLong(), param4, param5)).toUInt()
 }
 
-public fun RasEditPhonebookEntryA(param0: Foundation.HWND, param1: PCSTR, param2: PCSTR): UInt {
-    return Win32DynamicFfi.invoke("rasapi32.dll", "RasEditPhonebookEntryA", longArrayOf(Win32DynamicFfi.objectSlot(param0), param1, param2)).toUInt()
+public fun RasEditPhonebookEntryA(param0: HWND, param1: PCSTR, param2: PCSTR): UInt {
+    return Win32DynamicFfi.invoke("rasapi32.dll", "RasEditPhonebookEntryA", longArrayOf(param0, param1, param2)).toUInt()
 }
 
-public fun RasEditPhonebookEntryW(param0: Foundation.HWND, param1: PCWSTR, param2: PCWSTR): UInt {
-    return Win32DynamicFfi.invoke("rasapi32.dll", "RasEditPhonebookEntryW", longArrayOf(Win32DynamicFfi.objectSlot(param0), param1, param2)).toUInt()
+public fun RasEditPhonebookEntryW(param0: HWND, param1: PCWSTR, param2: PCWSTR): UInt {
+    return Win32DynamicFfi.invoke("rasapi32.dll", "RasEditPhonebookEntryW", longArrayOf(param0, param1, param2)).toUInt()
 }
 
 public fun RasEntryDlgA(lpszphonebook: PCSTR, lpszentry: PCSTR, lpinfo: Long): BOOL {
@@ -695,20 +698,20 @@ public fun RasGetCustomAuthDataW(pszphonebook: PCWSTR, pszentry: PCWSTR, pbcusto
     return Win32DynamicFfi.invoke("rasapi32.dll", "RasGetCustomAuthDataW", longArrayOf(pszphonebook, pszentry, pbcustomauthdata, pdwsizeofcustomauthdata)).toUInt()
 }
 
-public fun RasGetEapUserDataA(htoken: Foundation.HANDLE, pszphonebook: PCSTR, pszentry: PCSTR, pbeapdata: Long, pdwsizeofeapdata: Long): UInt {
-    return Win32DynamicFfi.invoke("rasapi32.dll", "RasGetEapUserDataA", longArrayOf(Win32DynamicFfi.objectSlot(htoken), pszphonebook, pszentry, pbeapdata, pdwsizeofeapdata)).toUInt()
+public fun RasGetEapUserDataA(htoken: HANDLE, pszphonebook: PCSTR, pszentry: PCSTR, pbeapdata: Long, pdwsizeofeapdata: Long): UInt {
+    return Win32DynamicFfi.invoke("rasapi32.dll", "RasGetEapUserDataA", longArrayOf(htoken, pszphonebook, pszentry, pbeapdata, pdwsizeofeapdata)).toUInt()
 }
 
-public fun RasGetEapUserDataW(htoken: Foundation.HANDLE, pszphonebook: PCWSTR, pszentry: PCWSTR, pbeapdata: Long, pdwsizeofeapdata: Long): UInt {
-    return Win32DynamicFfi.invoke("rasapi32.dll", "RasGetEapUserDataW", longArrayOf(Win32DynamicFfi.objectSlot(htoken), pszphonebook, pszentry, pbeapdata, pdwsizeofeapdata)).toUInt()
+public fun RasGetEapUserDataW(htoken: HANDLE, pszphonebook: PCWSTR, pszentry: PCWSTR, pbeapdata: Long, pdwsizeofeapdata: Long): UInt {
+    return Win32DynamicFfi.invoke("rasapi32.dll", "RasGetEapUserDataW", longArrayOf(htoken, pszphonebook, pszentry, pbeapdata, pdwsizeofeapdata)).toUInt()
 }
 
-public fun RasGetEapUserIdentityA(pszphonebook: PCSTR, pszentry: PCSTR, dwflags: UInt, hwnd: Foundation.HWND, ppraseapuseridentity: Long): UInt {
-    return Win32DynamicFfi.invoke("rasapi32.dll", "RasGetEapUserIdentityA", longArrayOf(pszphonebook, pszentry, dwflags.toLong(), Win32DynamicFfi.objectSlot(hwnd), ppraseapuseridentity)).toUInt()
+public fun RasGetEapUserIdentityA(pszphonebook: PCSTR, pszentry: PCSTR, dwflags: UInt, hwnd: HWND, ppraseapuseridentity: Long): UInt {
+    return Win32DynamicFfi.invoke("rasapi32.dll", "RasGetEapUserIdentityA", longArrayOf(pszphonebook, pszentry, dwflags.toLong(), hwnd, ppraseapuseridentity)).toUInt()
 }
 
-public fun RasGetEapUserIdentityW(pszphonebook: PCWSTR, pszentry: PCWSTR, dwflags: UInt, hwnd: Foundation.HWND, ppraseapuseridentity: Long): UInt {
-    return Win32DynamicFfi.invoke("rasapi32.dll", "RasGetEapUserIdentityW", longArrayOf(pszphonebook, pszentry, dwflags.toLong(), Win32DynamicFfi.objectSlot(hwnd), ppraseapuseridentity)).toUInt()
+public fun RasGetEapUserIdentityW(pszphonebook: PCWSTR, pszentry: PCWSTR, dwflags: UInt, hwnd: HWND, ppraseapuseridentity: Long): UInt {
+    return Win32DynamicFfi.invoke("rasapi32.dll", "RasGetEapUserIdentityW", longArrayOf(pszphonebook, pszentry, dwflags.toLong(), hwnd, ppraseapuseridentity)).toUInt()
 }
 
 public fun RasGetEntryDialParamsA(param0: PCSTR, param1: Long, param2: Long): UInt {
@@ -779,8 +782,8 @@ public fun RasHangUpW(param0: HRASCONN): UInt {
     return Win32DynamicFfi.invoke("rasapi32.dll", "RasHangUpW", longArrayOf(param0)).toUInt()
 }
 
-public fun RasInvokeEapUI(param0: HRASCONN, param1: UInt, param2: Long, param3: Foundation.HWND): UInt {
-    return Win32DynamicFfi.invoke("rasapi32.dll", "RasInvokeEapUI", longArrayOf(param0, param1.toLong(), param2, Win32DynamicFfi.objectSlot(param3))).toUInt()
+public fun RasInvokeEapUI(param0: HRASCONN, param1: UInt, param2: Long, param3: HWND): UInt {
+    return Win32DynamicFfi.invoke("rasapi32.dll", "RasInvokeEapUI", longArrayOf(param0, param1.toLong(), param2, param3)).toUInt()
 }
 
 public fun RasPhonebookDlgA(lpszphonebook: PCSTR, lpszentry: PCSTR, lpinfo: Long): BOOL {
@@ -839,12 +842,12 @@ public fun RasSetCustomAuthDataW(pszphonebook: PCWSTR, pszentry: PCWSTR, pbcusto
     return Win32DynamicFfi.invoke("rasapi32.dll", "RasSetCustomAuthDataW", longArrayOf(pszphonebook, pszentry, pbcustomauthdata, dwsizeofcustomauthdata.toLong())).toUInt()
 }
 
-public fun RasSetEapUserDataA(htoken: Foundation.HANDLE, pszphonebook: PCSTR, pszentry: PCSTR, pbeapdata: Long, dwsizeofeapdata: UInt): UInt {
-    return Win32DynamicFfi.invoke("rasapi32.dll", "RasSetEapUserDataA", longArrayOf(Win32DynamicFfi.objectSlot(htoken), pszphonebook, pszentry, pbeapdata, dwsizeofeapdata.toLong())).toUInt()
+public fun RasSetEapUserDataA(htoken: HANDLE, pszphonebook: PCSTR, pszentry: PCSTR, pbeapdata: Long, dwsizeofeapdata: UInt): UInt {
+    return Win32DynamicFfi.invoke("rasapi32.dll", "RasSetEapUserDataA", longArrayOf(htoken, pszphonebook, pszentry, pbeapdata, dwsizeofeapdata.toLong())).toUInt()
 }
 
-public fun RasSetEapUserDataW(htoken: Foundation.HANDLE, pszphonebook: PCWSTR, pszentry: PCWSTR, pbeapdata: Long, dwsizeofeapdata: UInt): UInt {
-    return Win32DynamicFfi.invoke("rasapi32.dll", "RasSetEapUserDataW", longArrayOf(Win32DynamicFfi.objectSlot(htoken), pszphonebook, pszentry, pbeapdata, dwsizeofeapdata.toLong())).toUInt()
+public fun RasSetEapUserDataW(htoken: HANDLE, pszphonebook: PCWSTR, pszentry: PCWSTR, pbeapdata: Long, dwsizeofeapdata: UInt): UInt {
+    return Win32DynamicFfi.invoke("rasapi32.dll", "RasSetEapUserDataW", longArrayOf(htoken, pszphonebook, pszentry, pbeapdata, dwsizeofeapdata.toLong())).toUInt()
 }
 
 public fun RasSetEntryDialParamsA(param0: PCSTR, param1: Long, param2: BOOL): UInt {
@@ -891,11 +894,11 @@ public fun RtmAddRouteToDest(rtmreghandle: Long, routehandle: Long, destaddress:
     return Win32DynamicFfi.invoke("rtm.dll", "RtmAddRouteToDest", longArrayOf(rtmreghandle, routehandle, destaddress, routeinfo, timetolive.toLong(), routelisthandle, notifytype.toLong(), notifyhandle, changeflags)).toUInt()
 }
 
-public fun RtmBlockMethods(rtmreghandle: Long, targethandle: Foundation.HANDLE, targettype: UByte, blockingflag: UInt): UInt {
-    return Win32DynamicFfi.invoke("rtm.dll", "RtmBlockMethods", longArrayOf(rtmreghandle, Win32DynamicFfi.objectSlot(targethandle), targettype.toLong(), blockingflag.toLong())).toUInt()
+public fun RtmBlockMethods(rtmreghandle: Long, targethandle: HANDLE, targettype: UByte, blockingflag: UInt): UInt {
+    return Win32DynamicFfi.invoke("rtm.dll", "RtmBlockMethods", longArrayOf(rtmreghandle, targethandle, targettype.toLong(), blockingflag.toLong())).toUInt()
 }
 
-public fun RtmConvertIpv6AddressAndLengthToNetAddress(pnetaddress: Long, address: Networking.WinSock.IN6_ADDR, dwlength: UInt, dwaddresssize: UInt): UInt {
+public fun RtmConvertIpv6AddressAndLengthToNetAddress(pnetaddress: Long, address: IN6_ADDR, dwlength: UInt, dwaddresssize: UInt): UInt {
     return Win32DynamicFfi.invoke("rtm.dll", "RtmConvertIpv6AddressAndLengthToNetAddress", longArrayOf(pnetaddress, Win32DynamicFfi.objectSlot(address), dwlength.toLong(), dwaddresssize.toLong())).toUInt()
 }
 

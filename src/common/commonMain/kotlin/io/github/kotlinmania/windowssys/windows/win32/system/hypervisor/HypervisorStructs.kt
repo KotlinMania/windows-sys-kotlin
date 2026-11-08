@@ -4,6 +4,8 @@ package io.github.kotlinmania.windowssys.windows.win32.system.hypervisor
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.ADDRESS_FAMILY
 
 public data class DOS_IMAGE_INFO(
     public var PdbName: PCSTR = 0L,
@@ -59,7 +61,7 @@ public data class HVSOCKET_ADDRESS_INFO(
 public data class MODULE_INFO(public var ProcessImageName: PCSTR = 0L, public var Image: DOS_IMAGE_INFO = DOS_IMAGE_INFO())
 
 public data class SOCKADDR_HV(
-    public var Family: Networking.WinSock.ADDRESS_FAMILY = Networking.WinSock.ADDRESS_FAMILY(),
+    public var Family: ADDRESS_FAMILY = 0u,
     public var Reserved: UShort = 0u,
     public var VmId: GUID = GUID(),
     public var ServiceId: GUID = GUID(),
@@ -512,7 +514,7 @@ public data class WHV_SCHEDULER_FEATURES_0(public var _bitfield: ULong = 0uL)
 
 public data class WHV_SRIOV_RESOURCE_DESCRIPTOR(
     public var PnpInstanceId: UShortArray = UShortArray(200),
-    public var VirtualFunctionId: Foundation.LUID = Foundation.LUID(),
+    public var VirtualFunctionId: LUID = LUID(),
     public var VirtualFunctionIndex: UShort = 0u,
     public var Reserved: UShort = 0u,
 ) {

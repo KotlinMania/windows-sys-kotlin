@@ -2,6 +2,7 @@ package io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesy
 
 import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
 
 public fun NetDfsAdd(dfsentrypath: PCWSTR, servername: PCWSTR, sharename: PCWSTR, comment: PCWSTR, flags: UInt): UInt {
     return Win32DynamicFfi.invoke("netapi32.dll", "NetDfsAdd", longArrayOf(dfsentrypath, servername, sharename, comment, flags.toLong())).toUInt()
@@ -75,18 +76,18 @@ public fun NetDfsSetClientInfo(dfsentrypath: PCWSTR, servername: PCWSTR, sharena
     return Win32DynamicFfi.invoke("netapi32.dll", "NetDfsSetClientInfo", longArrayOf(dfsentrypath, servername, sharename, level.toLong(), buffer)).toUInt()
 }
 
-public fun NetDfsSetFtContainerSecurity(domainname: PCWSTR, securityinformation: UInt, psecuritydescriptor: Security.PSECURITY_DESCRIPTOR): UInt {
-    return Win32DynamicFfi.invoke("netapi32.dll", "NetDfsSetFtContainerSecurity", longArrayOf(domainname, securityinformation.toLong(), Win32DynamicFfi.objectSlot(psecuritydescriptor))).toUInt()
+public fun NetDfsSetFtContainerSecurity(domainname: PCWSTR, securityinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR): UInt {
+    return Win32DynamicFfi.invoke("netapi32.dll", "NetDfsSetFtContainerSecurity", longArrayOf(domainname, securityinformation.toLong(), psecuritydescriptor)).toUInt()
 }
 
 public fun NetDfsSetInfo(dfsentrypath: PCWSTR, servername: PCWSTR, sharename: PCWSTR, level: UInt, buffer: Long): UInt {
     return Win32DynamicFfi.invoke("netapi32.dll", "NetDfsSetInfo", longArrayOf(dfsentrypath, servername, sharename, level.toLong(), buffer)).toUInt()
 }
 
-public fun NetDfsSetSecurity(dfsentrypath: PCWSTR, securityinformation: UInt, psecuritydescriptor: Security.PSECURITY_DESCRIPTOR): UInt {
-    return Win32DynamicFfi.invoke("netapi32.dll", "NetDfsSetSecurity", longArrayOf(dfsentrypath, securityinformation.toLong(), Win32DynamicFfi.objectSlot(psecuritydescriptor))).toUInt()
+public fun NetDfsSetSecurity(dfsentrypath: PCWSTR, securityinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR): UInt {
+    return Win32DynamicFfi.invoke("netapi32.dll", "NetDfsSetSecurity", longArrayOf(dfsentrypath, securityinformation.toLong(), psecuritydescriptor)).toUInt()
 }
 
-public fun NetDfsSetStdContainerSecurity(machinename: PCWSTR, securityinformation: UInt, psecuritydescriptor: Security.PSECURITY_DESCRIPTOR): UInt {
-    return Win32DynamicFfi.invoke("netapi32.dll", "NetDfsSetStdContainerSecurity", longArrayOf(machinename, securityinformation.toLong(), Win32DynamicFfi.objectSlot(psecuritydescriptor))).toUInt()
+public fun NetDfsSetStdContainerSecurity(machinename: PCWSTR, securityinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR): UInt {
+    return Win32DynamicFfi.invoke("netapi32.dll", "NetDfsSetStdContainerSecurity", longArrayOf(machinename, securityinformation.toLong(), psecuritydescriptor)).toUInt()
 }

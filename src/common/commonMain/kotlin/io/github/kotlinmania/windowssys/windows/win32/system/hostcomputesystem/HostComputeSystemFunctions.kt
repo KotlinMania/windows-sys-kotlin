@@ -3,6 +3,7 @@ package io.github.kotlinmania.windowssys.windows.win32.system.hostcomputesystem
 import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 
 public fun interface FnCallback {
     public operator fun invoke(operation: HCS_OPERATION, context: Long)
@@ -12,8 +13,8 @@ public fun interface FnCallback1 {
     public operator fun invoke(event: Long, context: Long)
 }
 
-public fun HcsAddResourceToOperation(operation: HCS_OPERATION, type: HCS_RESOURCE_TYPE, uri: PCWSTR, handle: Foundation.HANDLE): HRESULT {
-    return Win32DynamicFfi.invoke("computecore.dll", "HcsAddResourceToOperation", longArrayOf(operation, type.toLong(), uri, Win32DynamicFfi.objectSlot(handle))).toInt()
+public fun HcsAddResourceToOperation(operation: HCS_OPERATION, type: HCS_RESOURCE_TYPE, uri: PCWSTR, handle: HANDLE): HRESULT {
+    return Win32DynamicFfi.invoke("computecore.dll", "HcsAddResourceToOperation", longArrayOf(operation, type.toLong(), uri, handle)).toInt()
 }
 
 public fun HcsAttachLayerStorageFilter(layerpath: PCWSTR, layerdata: PCWSTR): HRESULT {
@@ -92,8 +93,8 @@ public fun HcsExportLegacyWritableLayer(writablelayermountpath: PCWSTR, writable
     return Win32DynamicFfi.invoke("computestorage.dll", "HcsExportLegacyWritableLayer", longArrayOf(writablelayermountpath, writablelayerfolderpath, exportfolderpath, layerdata)).toInt()
 }
 
-public fun HcsFormatWritableLayerVhd(vhdhandle: Foundation.HANDLE): HRESULT {
-    return Win32DynamicFfi.invoke("computestorage.dll", "HcsFormatWritableLayerVhd", longArrayOf(Win32DynamicFfi.objectSlot(vhdhandle))).toInt()
+public fun HcsFormatWritableLayerVhd(vhdhandle: HANDLE): HRESULT {
+    return Win32DynamicFfi.invoke("computestorage.dll", "HcsFormatWritableLayerVhd", longArrayOf(vhdhandle)).toInt()
 }
 
 public fun HcsGetComputeSystemFromOperation(operation: HCS_OPERATION): HCS_SYSTEM {
@@ -104,8 +105,8 @@ public fun HcsGetComputeSystemProperties(computesystem: HCS_SYSTEM, operation: H
     return Win32DynamicFfi.invoke("computecore.dll", "HcsGetComputeSystemProperties", longArrayOf(computesystem, operation, propertyquery)).toInt()
 }
 
-public fun HcsGetLayerVhdMountPath(vhdhandle: Foundation.HANDLE, mountpath: Long): HRESULT {
-    return Win32DynamicFfi.invoke("computestorage.dll", "HcsGetLayerVhdMountPath", longArrayOf(Win32DynamicFfi.objectSlot(vhdhandle), mountpath)).toInt()
+public fun HcsGetLayerVhdMountPath(vhdhandle: HANDLE, mountpath: Long): HRESULT {
+    return Win32DynamicFfi.invoke("computestorage.dll", "HcsGetLayerVhdMountPath", longArrayOf(vhdhandle, mountpath)).toInt()
 }
 
 public fun HcsGetOperationContext(operation: HCS_OPERATION): Long {
@@ -168,8 +169,8 @@ public fun HcsInitializeWritableLayer(writablelayerpath: PCWSTR, layerdata: PCWS
     return Win32DynamicFfi.invoke("computestorage.dll", "HcsInitializeWritableLayer", longArrayOf(writablelayerpath, layerdata, options)).toInt()
 }
 
-public fun HcsModifyComputeSystem(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, configuration: PCWSTR, identity: Foundation.HANDLE): HRESULT {
-    return Win32DynamicFfi.invoke("computecore.dll", "HcsModifyComputeSystem", longArrayOf(computesystem, operation, configuration, Win32DynamicFfi.objectSlot(identity))).toInt()
+public fun HcsModifyComputeSystem(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, configuration: PCWSTR, identity: HANDLE): HRESULT {
+    return Win32DynamicFfi.invoke("computecore.dll", "HcsModifyComputeSystem", longArrayOf(computesystem, operation, configuration, identity)).toInt()
 }
 
 public fun HcsModifyProcess(process: HCS_PROCESS, operation: HCS_OPERATION, settings: PCWSTR): HRESULT {
@@ -228,8 +229,8 @@ public fun HcsSetProcessCallback(process: HCS_PROCESS, callbackoptions: HCS_EVEN
     return Win32DynamicFfi.invoke("computecore.dll", "HcsSetProcessCallback", longArrayOf(process, callbackoptions.toLong(), context, Win32DynamicFfi.objectSlot(callback))).toInt()
 }
 
-public fun HcsSetupBaseOSLayer(layerpath: PCWSTR, vhdhandle: Foundation.HANDLE, options: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("computestorage.dll", "HcsSetupBaseOSLayer", longArrayOf(layerpath, Win32DynamicFfi.objectSlot(vhdhandle), options)).toInt()
+public fun HcsSetupBaseOSLayer(layerpath: PCWSTR, vhdhandle: HANDLE, options: PCWSTR): HRESULT {
+    return Win32DynamicFfi.invoke("computestorage.dll", "HcsSetupBaseOSLayer", longArrayOf(layerpath, vhdhandle, options)).toInt()
 }
 
 public fun HcsSetupBaseOSVolume(layerpath: PCWSTR, volumepath: PCWSTR, options: PCWSTR): HRESULT {

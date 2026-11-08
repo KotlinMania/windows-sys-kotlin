@@ -6,6 +6,9 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.security.OBJECT_SECURITY_INFORMATION
+import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
 
 public fun interface FnCallback {
     public operator fun invoke(dwcontrol: UInt)
@@ -179,8 +182,8 @@ public fun QueryServiceLockStatusW(hscmanager: SC_HANDLE, lplockstatus: Long, cb
     return Win32DynamicFfi.invoke("advapi32.dll", "QueryServiceLockStatusW", longArrayOf(hscmanager, lplockstatus, cbbufsize.toLong(), pcbbytesneeded)).toInt()
 }
 
-public fun QueryServiceObjectSecurity(hservice: SC_HANDLE, dwsecurityinformation: UInt, lpsecuritydescriptor: Security.PSECURITY_DESCRIPTOR, cbbufsize: UInt, pcbbytesneeded: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "QueryServiceObjectSecurity", longArrayOf(hservice, dwsecurityinformation.toLong(), Win32DynamicFfi.objectSlot(lpsecuritydescriptor), cbbufsize.toLong(), pcbbytesneeded)).toInt()
+public fun QueryServiceObjectSecurity(hservice: SC_HANDLE, dwsecurityinformation: UInt, lpsecuritydescriptor: PSECURITY_DESCRIPTOR, cbbufsize: UInt, pcbbytesneeded: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "QueryServiceObjectSecurity", longArrayOf(hservice, dwsecurityinformation.toLong(), lpsecuritydescriptor, cbbufsize.toLong(), pcbbytesneeded)).toInt()
 }
 
 public fun QueryServiceStatus(hservice: SC_HANDLE, lpservicestatus: Long): BOOL {
@@ -211,8 +214,8 @@ public fun SetServiceBits(hservicestatus: SERVICE_STATUS_HANDLE, dwservicebits: 
     return Win32DynamicFfi.invoke("advapi32.dll", "SetServiceBits", longArrayOf(hservicestatus, dwservicebits.toLong(), bsetbitson.toLong(), bupdateimmediately.toLong())).toInt()
 }
 
-public fun SetServiceObjectSecurity(hservice: SC_HANDLE, dwsecurityinformation: Security.OBJECT_SECURITY_INFORMATION, lpsecuritydescriptor: Security.PSECURITY_DESCRIPTOR): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "SetServiceObjectSecurity", longArrayOf(hservice, Win32DynamicFfi.objectSlot(dwsecurityinformation), Win32DynamicFfi.objectSlot(lpsecuritydescriptor))).toInt()
+public fun SetServiceObjectSecurity(hservice: SC_HANDLE, dwsecurityinformation: OBJECT_SECURITY_INFORMATION, lpsecuritydescriptor: PSECURITY_DESCRIPTOR): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "SetServiceObjectSecurity", longArrayOf(hservice, dwsecurityinformation.toLong(), lpsecuritydescriptor)).toInt()
 }
 
 public fun SetServiceStatus(hservicestatus: SERVICE_STATUS_HANDLE, lpservicestatus: Long): BOOL {
@@ -247,6 +250,6 @@ public fun UnsubscribeServiceChangeNotifications(psubscription: PSC_NOTIFICATION
     Win32DynamicFfi.invoke("sechost.dll", "UnsubscribeServiceChangeNotifications", longArrayOf(psubscription))
 }
 
-public fun WaitServiceState(hservice: SC_HANDLE, dwnotify: UInt, dwtimeout: UInt, hcancelevent: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("advapi32.dll", "WaitServiceState", longArrayOf(hservice, dwnotify.toLong(), dwtimeout.toLong(), Win32DynamicFfi.objectSlot(hcancelevent))).toUInt()
+public fun WaitServiceState(hservice: SC_HANDLE, dwnotify: UInt, dwtimeout: UInt, hcancelevent: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("advapi32.dll", "WaitServiceState", longArrayOf(hservice, dwnotify.toLong(), dwtimeout.toLong(), hcancelevent)).toUInt()
 }

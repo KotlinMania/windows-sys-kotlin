@@ -3,6 +3,11 @@ package io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc
 
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.windows.win32.foundation.COLORREF
+import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.VARIANT
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.NMHDR
 
 public data class CHARACTER_RANGE(public var wcLow: UShort = 0u, public var cChars: UShort = 0u)
 
@@ -19,16 +24,16 @@ public data class GESTURE_DATA(
 )
 
 public data class IEC_GESTUREINFO(
-    public var nmhdr: Controls.NMHDR = Controls.NMHDR(),
+    public var nmhdr: NMHDR = NMHDR(),
     public var Cursor: Long = 0L,
     public var Strokes: Long = 0L,
-    public var Gestures: System.Variant.VARIANT = System.Variant.VARIANT(),
+    public var Gestures: VARIANT = VARIANT(),
 )
 
-public data class IEC_RECOGNITIONRESULTINFO(public var nmhdr: Controls.NMHDR = Controls.NMHDR(), public var RecognitionResult: Long = 0L)
+public data class IEC_RECOGNITIONRESULTINFO(public var nmhdr: NMHDR = NMHDR(), public var RecognitionResult: Long = 0L)
 
 public data class IEC_STROKEINFO(
-    public var nmhdr: Controls.NMHDR = Controls.NMHDR(),
+    public var nmhdr: NMHDR = NMHDR(),
     public var Cursor: Long = 0L,
     public var Stroke: Long = 0L,
 )
@@ -38,12 +43,12 @@ public data class INKMETRIC(
     public var iFontAscent: Int = 0,
     public var iFontDescent: Int = 0,
     public var dwFlags: UInt = 0u,
-    public var color: Foundation.COLORREF = Foundation.COLORREF(),
+    public var color: COLORREF = 0u,
 )
 
 public data class InkRecoGuide(
-    public var rectWritingBox: Foundation.RECT = Foundation.RECT(),
-    public var rectDrawnBox: Foundation.RECT = Foundation.RECT(),
+    public var rectWritingBox: RECT = RECT(),
+    public var rectDrawnBox: RECT = RECT(),
     public var cRows: Int = 0,
     public var cColumns: Int = 0,
     public var midline: Int = 0,
@@ -51,7 +56,7 @@ public data class InkRecoGuide(
 
 public data class LATTICE_METRICS(public var lsBaseline: LINE_SEGMENT = LINE_SEGMENT(), public var iMidlineOffset: Short = 0)
 
-public data class LINE_SEGMENT(public var PtA: Foundation.POINT = Foundation.POINT(), public var PtB: Foundation.POINT = Foundation.POINT())
+public data class LINE_SEGMENT(public var PtA: POINT = POINT(), public var PtB: POINT = POINT())
 
 public data class PACKET_DESCRIPTION(
     public var cbPacketSize: UInt = 0u,

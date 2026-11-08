@@ -5,6 +5,10 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CRYPT_KEY_FLAGS
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.HCERTSTORE
 
@@ -30,8 +34,8 @@ public data class CERT_SELECTUI_INPUT(
 
 public class CERT_SELECT_STRUCT_A(
     public var dwSize: UInt = 0u,
-    public var hwndParent: Foundation.HWND = Foundation.HWND(),
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hwndParent: HWND = 0L,
+    public var hInstance: HINSTANCE = 0L,
     public var pTemplateName: PCSTR = 0L,
     public var dwFlags: CERT_SELECT_STRUCT_FLAGS = 0u,
     public var szTitle: PCSTR = 0L,
@@ -40,7 +44,7 @@ public class CERT_SELECT_STRUCT_A(
     public var szPurposeOid: PCSTR = 0L,
     public var cCertContext: UInt = 0u,
     public var arrayCertContext: Long = 0L,
-    public var lCustData: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lCustData: LPARAM = 0L,
     public var pfnHook: PFNCMHOOKPROC = null,
     public var pfnFilter: PFNCMFILTERPROC = null,
     public var szHelpFileName: PCSTR = 0L,
@@ -50,8 +54,8 @@ public class CERT_SELECT_STRUCT_A(
 
 public class CERT_SELECT_STRUCT_W(
     public var dwSize: UInt = 0u,
-    public var hwndParent: Foundation.HWND = Foundation.HWND(),
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hwndParent: HWND = 0L,
+    public var hInstance: HINSTANCE = 0L,
     public var pTemplateName: PCWSTR = 0L,
     public var dwFlags: CERT_SELECT_STRUCT_FLAGS = 0u,
     public var szTitle: PCWSTR = 0L,
@@ -60,7 +64,7 @@ public class CERT_SELECT_STRUCT_W(
     public var szPurposeOid: PCSTR = 0L,
     public var cCertContext: UInt = 0u,
     public var arrayCertContext: Long = 0L,
-    public var lCustData: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lCustData: LPARAM = 0L,
     public var pfnHook: PFNCMHOOKPROC = null,
     public var pfnFilter: PFNCMFILTERPROC = null,
     public var szHelpFileName: PCWSTR = 0L,
@@ -82,7 +86,7 @@ public class CERT_VERIFY_CERTIFICATE_TRUST(
     public var rghstoreCAs: Long = 0L,
     public var cTrustStores: UInt = 0u,
     public var rghstoreTrust: Long = 0L,
-    public var lCustData: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lCustData: LPARAM = 0L,
     public var pfnTrustHelper: PFNTRUSTHELPER = null,
     public var pcChain: Long = 0L,
     public var prgChain: Long = 0L,
@@ -92,8 +96,8 @@ public class CERT_VERIFY_CERTIFICATE_TRUST(
 
 public class CERT_VIEWPROPERTIES_STRUCT_A(
     public var dwSize: UInt = 0u,
-    public var hwndParent: Foundation.HWND = Foundation.HWND(),
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hwndParent: HWND = 0L,
+    public var hInstance: HINSTANCE = 0L,
     public var dwFlags: CERT_VIEWPROPERTIES_STRUCT_FLAGS = 0u,
     public var szTitle: PCSTR = 0L,
     public var pCertContext: Long = 0L,
@@ -106,7 +110,7 @@ public class CERT_VIEWPROPERTIES_STRUCT_A(
     public var cTrustStores: UInt = 0u,
     public var rghstoreTrust: Long = 0L,
     public var hprov: ULong = 0uL,
-    public var lCustData: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lCustData: LPARAM = 0L,
     public var dwPad: UInt = 0u,
     public var szHelpFileName: PCSTR = 0L,
     public var dwHelpId: UInt = 0u,
@@ -117,8 +121,8 @@ public class CERT_VIEWPROPERTIES_STRUCT_A(
 
 public class CERT_VIEWPROPERTIES_STRUCT_W(
     public var dwSize: UInt = 0u,
-    public var hwndParent: Foundation.HWND = Foundation.HWND(),
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hwndParent: HWND = 0L,
+    public var hInstance: HINSTANCE = 0L,
     public var dwFlags: CERT_VIEWPROPERTIES_STRUCT_FLAGS = 0u,
     public var szTitle: PCWSTR = 0L,
     public var pCertContext: Long = 0L,
@@ -131,7 +135,7 @@ public class CERT_VIEWPROPERTIES_STRUCT_W(
     public var cTrustStores: UInt = 0u,
     public var rghstoreTrust: Long = 0L,
     public var hprov: ULong = 0uL,
-    public var lCustData: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lCustData: LPARAM = 0L,
     public var dwPad: UInt = 0u,
     public var szHelpFileName: PCWSTR = 0L,
     public var dwHelpId: UInt = 0u,
@@ -142,17 +146,17 @@ public class CERT_VIEWPROPERTIES_STRUCT_W(
 
 public data class CRYPTUI_CERT_MGR_STRUCT(
     public var dwSize: UInt = 0u,
-    public var hwndParent: Foundation.HWND = Foundation.HWND(),
+    public var hwndParent: HWND = 0L,
     public var dwFlags: UInt = 0u,
     public var pwszTitle: PCWSTR = 0L,
     public var pszInitUsageOID: PCSTR = 0L,
 )
 
-public data class CRYPTUI_INITDIALOG_STRUCT(public var lParam: Foundation.LPARAM = Foundation.LPARAM(), public var pCertContext: Long = 0L)
+public data class CRYPTUI_INITDIALOG_STRUCT(public var lParam: LPARAM = 0L, public var pCertContext: Long = 0L)
 
 public class CRYPTUI_VIEWCERTIFICATE_STRUCTA(
     public var dwSize: UInt = 0u,
-    public var hwndParent: Foundation.HWND = Foundation.HWND(),
+    public var hwndParent: HWND = 0L,
     public var dwFlags: CRYPTUI_VIEWCERTIFICATE_FLAGS = 0u,
     public var szTitle: PCSTR = 0L,
     public var pCertContext: Long = 0L,
@@ -171,11 +175,11 @@ public class CRYPTUI_VIEWCERTIFICATE_STRUCTA(
     public var nStartPage: UInt = 0u,
 )
 
-public data class CRYPTUI_VIEWCERTIFICATE_STRUCTA_0(public var pCryptProviderData: Long = 0L, public var hWVTStateData: Foundation.HANDLE = Foundation.HANDLE())
+public data class CRYPTUI_VIEWCERTIFICATE_STRUCTA_0(public var pCryptProviderData: Long = 0L, public var hWVTStateData: HANDLE = 0L)
 
 public class CRYPTUI_VIEWCERTIFICATE_STRUCTW(
     public var dwSize: UInt = 0u,
-    public var hwndParent: Foundation.HWND = Foundation.HWND(),
+    public var hwndParent: HWND = 0L,
     public var dwFlags: CRYPTUI_VIEWCERTIFICATE_FLAGS = 0u,
     public var szTitle: PCWSTR = 0L,
     public var pCertContext: Long = 0L,
@@ -194,7 +198,7 @@ public class CRYPTUI_VIEWCERTIFICATE_STRUCTW(
     public var nStartPage: UInt = 0u,
 )
 
-public data class CRYPTUI_VIEWCERTIFICATE_STRUCTW_0(public var pCryptProviderData: Long = 0L, public var hWVTStateData: Foundation.HANDLE = Foundation.HANDLE())
+public data class CRYPTUI_VIEWCERTIFICATE_STRUCTW_0(public var pCryptProviderData: Long = 0L, public var hWVTStateData: HANDLE = 0L)
 
 public data class CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO(
     public var dwSize: UInt = 0u,

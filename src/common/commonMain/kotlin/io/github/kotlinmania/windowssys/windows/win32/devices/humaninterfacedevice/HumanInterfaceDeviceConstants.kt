@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
@@ -46,13 +47,13 @@ public val BUTTON_BIT_VOLUMEUP: UInt = 4u
 
 public val BUTTON_BIT_WINDOWS: UInt = 2u
 
-public val CLSID_DirectInput: GUID = GUID.from_u128(0x25e609e0b25911cfuL, 0xbfc7444553540000uL)
+public val CLSID_DirectInput: GUID = GUID.from_u128(U128(0x25e609e0b25911cfuL, 0xbfc7444553540000uL))
 
-public val CLSID_DirectInput8: GUID = GUID.from_u128(0x25e609e4b25911cfuL, 0xbfc7444553540000uL)
+public val CLSID_DirectInput8: GUID = GUID.from_u128(U128(0x25e609e4b25911cfuL, 0xbfc7444553540000uL))
 
-public val CLSID_DirectInputDevice: GUID = GUID.from_u128(0x25e609e1b25911cfuL, 0xbfc7444553540000uL)
+public val CLSID_DirectInputDevice: GUID = GUID.from_u128(U128(0x25e609e1b25911cfuL, 0xbfc7444553540000uL))
 
-public val CLSID_DirectInputDevice8: GUID = GUID.from_u128(0x25e609e5b25911cfuL, 0xbfc7444553540000uL)
+public val CLSID_DirectInputDevice8: GUID = GUID.from_u128(U128(0x25e609e5b25911cfuL, 0xbfc7444553540000uL))
 
 public val DD_KEYBOARD_DEVICE_NAME: PCSTR = s("\\Device\\KeyboardClass")
 
@@ -62,21 +63,21 @@ public val DD_MOUSE_DEVICE_NAME: PCSTR = s("\\Device\\PointerClass")
 
 public val DD_MOUSE_DEVICE_NAME_U: PCWSTR = w("\\Device\\PointerClass")
 
-public val DEVPKEY_DeviceInterface_HID_BackgroundAccess: Foundation.DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL), pid = 8u)
+public val DEVPKEY_DeviceInterface_HID_BackgroundAccess: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 8u)
 
-public val DEVPKEY_DeviceInterface_HID_IsReadOnly: Foundation.DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL), pid = 4u)
+public val DEVPKEY_DeviceInterface_HID_IsReadOnly: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 4u)
 
-public val DEVPKEY_DeviceInterface_HID_ProductId: Foundation.DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL), pid = 6u)
+public val DEVPKEY_DeviceInterface_HID_ProductId: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 6u)
 
-public val DEVPKEY_DeviceInterface_HID_UsageId: Foundation.DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL), pid = 3u)
+public val DEVPKEY_DeviceInterface_HID_UsageId: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 3u)
 
-public val DEVPKEY_DeviceInterface_HID_UsagePage: Foundation.DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL), pid = 2u)
+public val DEVPKEY_DeviceInterface_HID_UsagePage: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 2u)
 
-public val DEVPKEY_DeviceInterface_HID_VendorId: Foundation.DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL), pid = 5u)
+public val DEVPKEY_DeviceInterface_HID_VendorId: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 5u)
 
-public val DEVPKEY_DeviceInterface_HID_VersionNumber: Foundation.DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL), pid = 7u)
+public val DEVPKEY_DeviceInterface_HID_VersionNumber: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 7u)
 
-public val DEVPKEY_DeviceInterface_HID_WakeScreenOnInputCapable: Foundation.DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL), pid = 9u)
+public val DEVPKEY_DeviceInterface_HID_WakeScreenOnInputCapable: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 9u)
 
 public val DI8DEVCLASS_ALL: UInt = 0u
 

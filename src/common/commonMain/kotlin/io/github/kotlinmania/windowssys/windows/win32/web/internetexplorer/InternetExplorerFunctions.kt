@@ -7,6 +7,10 @@ import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.GET_FILEEX_INFO_LEVELS
 
 public fun ComputeInvCMAP(prgbcolors: Long, ncolors: UInt, pinvtable: Long, cbtable: UInt): HRESULT {
     return Win32DynamicFfi.invoke("imgutil.dll", "ComputeInvCMAP", longArrayOf(prgbcolors, ncolors.toLong(), pinvtable, cbtable.toLong())).toInt()
@@ -36,17 +40,16 @@ public fun IEAssociateThreadWithTab(dwtabthreadid: UInt, dwassociatedthreadid: U
     return Win32DynamicFfi.invoke("ieframe.dll", "IEAssociateThreadWithTab", longArrayOf(dwtabthreadid.toLong(), dwassociatedthreadid.toLong())).toInt()
 }
 
-public fun IECancelSaveFile(hstate: Foundation.HANDLE): HRESULT {
-    return Win32DynamicFfi.invoke("ieframe.dll", "IECancelSaveFile", longArrayOf(Win32DynamicFfi.objectSlot(hstate))).toInt()
+public fun IECancelSaveFile(hstate: HANDLE): HRESULT {
+    return Win32DynamicFfi.invoke("ieframe.dll", "IECancelSaveFile", longArrayOf(hstate)).toInt()
 }
 
 public fun IECreateDirectory(lppathname: PCWSTR, lpsecurityattributes: Long): BOOL {
     return Win32DynamicFfi.invoke("ieframe.dll", "IECreateDirectory", longArrayOf(lppathname, lpsecurityattributes)).toInt()
 }
 
-public fun IECreateFile(lpfilename: PCWSTR, dwdesiredaccess: UInt, dwsharemode: UInt, lpsecurityattributes: Long, dwcreationdisposition: UInt, dwflagsandattributes: UInt, htemplatefile: Foundation.HANDLE): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("ieframe.dll", "IECreateFile", longArrayOf(lpfilename, dwdesiredaccess.toLong(), dwsharemode.toLong(), lpsecurityattributes, dwcreationdisposition.toLong(), dwflagsandattributes.toLong(), Win32DynamicFfi.objectSlot(htemplatefile)))
-    return Foundation.HANDLE()
+public fun IECreateFile(lpfilename: PCWSTR, dwdesiredaccess: UInt, dwsharemode: UInt, lpsecurityattributes: Long, dwcreationdisposition: UInt, dwflagsandattributes: UInt, htemplatefile: HANDLE): HANDLE {
+    return Win32DynamicFfi.invoke("ieframe.dll", "IECreateFile", longArrayOf(lpfilename, dwdesiredaccess.toLong(), dwsharemode.toLong(), lpsecurityattributes, dwcreationdisposition.toLong(), dwflagsandattributes.toLong(), htemplatefile))
 }
 
 public fun IEDeleteFile(lpfilename: PCWSTR): BOOL {
@@ -57,13 +60,12 @@ public fun IEDisassociateThreadWithTab(dwtabthreadid: UInt, dwassociatedthreadid
     return Win32DynamicFfi.invoke("ieframe.dll", "IEDisassociateThreadWithTab", longArrayOf(dwtabthreadid.toLong(), dwassociatedthreadid.toLong())).toInt()
 }
 
-public fun IEFindFirstFile(lpfilename: PCWSTR, lpfindfiledata: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("ieframe.dll", "IEFindFirstFile", longArrayOf(lpfilename, lpfindfiledata))
-    return Foundation.HANDLE()
+public fun IEFindFirstFile(lpfilename: PCWSTR, lpfindfiledata: Long): HANDLE {
+    return Win32DynamicFfi.invoke("ieframe.dll", "IEFindFirstFile", longArrayOf(lpfilename, lpfindfiledata))
 }
 
-public fun IEGetFileAttributesEx(lpfilename: PCWSTR, finfolevelid: Storage.FileSystem.GET_FILEEX_INFO_LEVELS, lpfileinformation: Long): BOOL {
-    return Win32DynamicFfi.invoke("ieframe.dll", "IEGetFileAttributesEx", longArrayOf(lpfilename, Win32DynamicFfi.objectSlot(finfolevelid), lpfileinformation)).toInt()
+public fun IEGetFileAttributesEx(lpfilename: PCWSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: Long): BOOL {
+    return Win32DynamicFfi.invoke("ieframe.dll", "IEGetFileAttributesEx", longArrayOf(lpfilename, finfolevelid.toLong(), lpfileinformation)).toInt()
 }
 
 public fun IEGetProtectedModeCookie(lpszurl: PCWSTR, lpszcookiename: PCWSTR, lpszcookiedata: PWSTR, pcchcookiedata: Long, dwflags: UInt): HRESULT {
@@ -115,31 +117,31 @@ public fun IERegSetValueEx(lpsubkey: PCWSTR, lpvaluename: PCWSTR, reserved: UInt
 }
 
 public fun IERegisterWritableRegistryKey(guid: GUID, lpsubkey: PCWSTR, fsubkeyallowed: BOOL): HRESULT {
-    return Win32DynamicFfi.invoke("ieframe.dll", "IERegisterWritableRegistryKey", longArrayOf(Win32DynamicFfi.guidSlot(guid.data1, guid.data2, guid.data3, guid.data4), lpsubkey, fsubkeyallowed.toLong())).toInt()
+    return Win32DynamicFfi.invoke("ieframe.dll", "IERegisterWritableRegistryKey", longArrayOf(run { val buf = ByteArray(16); buf[0] = (guid.data1.toInt() and 0xFF).toByte(); buf[1] = ((guid.data1.toInt() ushr 8) and 0xFF).toByte(); buf[2] = ((guid.data1.toInt() ushr 16) and 0xFF).toByte(); buf[3] = ((guid.data1.toInt() ushr 24) and 0xFF).toByte(); buf[4] = (guid.data2.toInt() and 0xFF).toByte(); buf[5] = ((guid.data2.toInt() ushr 8) and 0xFF).toByte(); buf[6] = (guid.data3.toInt() and 0xFF).toByte(); buf[7] = ((guid.data3.toInt() ushr 8) and 0xFF).toByte(); for (i in 0 until minOf(8, guid.data4.size)) buf[8 + i] = guid.data4[i].toByte(); val ptr = Win32DynamicFfi.allocZeroed(16); Win32DynamicFfi.writeBytes(ptr, buf); ptr }, lpsubkey, fsubkeyallowed.toLong())).toInt()
 }
 
 public fun IERegisterWritableRegistryValue(guid: GUID, lppath: PCWSTR, lpvaluename: PCWSTR, dwtype: UInt, lpdata: Long, cbmaxdata: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("ieframe.dll", "IERegisterWritableRegistryValue", longArrayOf(Win32DynamicFfi.guidSlot(guid.data1, guid.data2, guid.data3, guid.data4), lppath, lpvaluename, dwtype.toLong(), lpdata, cbmaxdata.toLong())).toInt()
+    return Win32DynamicFfi.invoke("ieframe.dll", "IERegisterWritableRegistryValue", longArrayOf(run { val buf = ByteArray(16); buf[0] = (guid.data1.toInt() and 0xFF).toByte(); buf[1] = ((guid.data1.toInt() ushr 8) and 0xFF).toByte(); buf[2] = ((guid.data1.toInt() ushr 16) and 0xFF).toByte(); buf[3] = ((guid.data1.toInt() ushr 24) and 0xFF).toByte(); buf[4] = (guid.data2.toInt() and 0xFF).toByte(); buf[5] = ((guid.data2.toInt() ushr 8) and 0xFF).toByte(); buf[6] = (guid.data3.toInt() and 0xFF).toByte(); buf[7] = ((guid.data3.toInt() ushr 8) and 0xFF).toByte(); for (i in 0 until minOf(8, guid.data4.size)) buf[8 + i] = guid.data4[i].toByte(); val ptr = Win32DynamicFfi.allocZeroed(16); Win32DynamicFfi.writeBytes(ptr, buf); ptr }, lppath, lpvaluename, dwtype.toLong(), lpdata, cbmaxdata.toLong())).toInt()
 }
 
 public fun IERemoveDirectory(lppathname: PCWSTR): BOOL {
     return Win32DynamicFfi.invoke("ieframe.dll", "IERemoveDirectory", longArrayOf(lppathname)).toInt()
 }
 
-public fun IESaveFile(hstate: Foundation.HANDLE, lpwstrsourcefile: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("ieframe.dll", "IESaveFile", longArrayOf(Win32DynamicFfi.objectSlot(hstate), lpwstrsourcefile)).toInt()
+public fun IESaveFile(hstate: HANDLE, lpwstrsourcefile: PCWSTR): HRESULT {
+    return Win32DynamicFfi.invoke("ieframe.dll", "IESaveFile", longArrayOf(hstate, lpwstrsourcefile)).toInt()
 }
 
 public fun IESetProtectedModeCookie(lpszurl: PCWSTR, lpszcookiename: PCWSTR, lpszcookiedata: PCWSTR, dwflags: UInt): HRESULT {
     return Win32DynamicFfi.invoke("ieframe.dll", "IESetProtectedModeCookie", longArrayOf(lpszurl, lpszcookiename, lpszcookiedata, dwflags.toLong())).toInt()
 }
 
-public fun IEShowOpenFileDialog(hwnd: Foundation.HWND, lpwstrfilename: PWSTR, cchmaxfilename: UInt, lpwstrinitialdir: PCWSTR, lpwstrfilter: PCWSTR, lpwstrdefext: PCWSTR, dwfilterindex: UInt, dwflags: UInt, phfile: Long): HRESULT {
-    return Win32DynamicFfi.invoke("ieframe.dll", "IEShowOpenFileDialog", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), lpwstrfilename, cchmaxfilename.toLong(), lpwstrinitialdir, lpwstrfilter, lpwstrdefext, dwfilterindex.toLong(), dwflags.toLong(), phfile)).toInt()
+public fun IEShowOpenFileDialog(hwnd: HWND, lpwstrfilename: PWSTR, cchmaxfilename: UInt, lpwstrinitialdir: PCWSTR, lpwstrfilter: PCWSTR, lpwstrdefext: PCWSTR, dwfilterindex: UInt, dwflags: UInt, phfile: Long): HRESULT {
+    return Win32DynamicFfi.invoke("ieframe.dll", "IEShowOpenFileDialog", longArrayOf(hwnd, lpwstrfilename, cchmaxfilename.toLong(), lpwstrinitialdir, lpwstrfilter, lpwstrdefext, dwfilterindex.toLong(), dwflags.toLong(), phfile)).toInt()
 }
 
-public fun IEShowSaveFileDialog(hwnd: Foundation.HWND, lpwstrinitialfilename: PCWSTR, lpwstrinitialdir: PCWSTR, lpwstrfilter: PCWSTR, lpwstrdefext: PCWSTR, dwfilterindex: UInt, dwflags: UInt, lppwstrdestinationfilepath: Long, phstate: Long): HRESULT {
-    return Win32DynamicFfi.invoke("ieframe.dll", "IEShowSaveFileDialog", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), lpwstrinitialfilename, lpwstrinitialdir, lpwstrfilter, lpwstrdefext, dwfilterindex.toLong(), dwflags.toLong(), lppwstrdestinationfilepath, phstate)).toInt()
+public fun IEShowSaveFileDialog(hwnd: HWND, lpwstrinitialfilename: PCWSTR, lpwstrinitialdir: PCWSTR, lpwstrfilter: PCWSTR, lpwstrdefext: PCWSTR, dwfilterindex: UInt, dwflags: UInt, lppwstrdestinationfilepath: Long, phstate: Long): HRESULT {
+    return Win32DynamicFfi.invoke("ieframe.dll", "IEShowSaveFileDialog", longArrayOf(hwnd, lpwstrinitialfilename, lpwstrinitialdir, lpwstrfilter, lpwstrdefext, dwfilterindex.toLong(), dwflags.toLong(), lppwstrdestinationfilepath, phstate)).toInt()
 }
 
 public fun IETrackingProtectionEnabled(): BOOL {
@@ -147,31 +149,31 @@ public fun IETrackingProtectionEnabled(): BOOL {
 }
 
 public fun IEUnregisterWritableRegistry(guid: GUID): HRESULT {
-    return Win32DynamicFfi.invoke("ieframe.dll", "IEUnregisterWritableRegistry", longArrayOf(Win32DynamicFfi.guidSlot(guid.data1, guid.data2, guid.data3, guid.data4))).toInt()
+    return Win32DynamicFfi.invoke("ieframe.dll", "IEUnregisterWritableRegistry", longArrayOf(run { val buf = ByteArray(16); buf[0] = (guid.data1.toInt() and 0xFF).toByte(); buf[1] = ((guid.data1.toInt() ushr 8) and 0xFF).toByte(); buf[2] = ((guid.data1.toInt() ushr 16) and 0xFF).toByte(); buf[3] = ((guid.data1.toInt() ushr 24) and 0xFF).toByte(); buf[4] = (guid.data2.toInt() and 0xFF).toByte(); buf[5] = ((guid.data2.toInt() ushr 8) and 0xFF).toByte(); buf[6] = (guid.data3.toInt() and 0xFF).toByte(); buf[7] = ((guid.data3.toInt() ushr 8) and 0xFF).toByte(); for (i in 0 until minOf(8, guid.data4.size)) buf[8 + i] = guid.data4[i].toByte(); val ptr = Win32DynamicFfi.allocZeroed(16); Win32DynamicFfi.writeBytes(ptr, buf); ptr })).toInt()
 }
 
 public fun IdentifyMIMEType(pbbytes: Long, nbytes: UInt, pnformat: Long): HRESULT {
     return Win32DynamicFfi.invoke("imgutil.dll", "IdentifyMIMEType", longArrayOf(pbbytes, nbytes.toLong(), pnformat)).toInt()
 }
 
-public fun RatingAccessDeniedDialog(hdlg: Foundation.HWND, pszusername: PCSTR, pszcontentdescription: PCSTR, pratingdetails: Long): HRESULT {
-    return Win32DynamicFfi.invoke("msrating.dll", "RatingAccessDeniedDialog", longArrayOf(Win32DynamicFfi.objectSlot(hdlg), pszusername, pszcontentdescription, pratingdetails)).toInt()
+public fun RatingAccessDeniedDialog(hdlg: HWND, pszusername: PCSTR, pszcontentdescription: PCSTR, pratingdetails: Long): HRESULT {
+    return Win32DynamicFfi.invoke("msrating.dll", "RatingAccessDeniedDialog", longArrayOf(hdlg, pszusername, pszcontentdescription, pratingdetails)).toInt()
 }
 
-public fun RatingAccessDeniedDialog2(hdlg: Foundation.HWND, pszusername: PCSTR, pratingdetails: Long): HRESULT {
-    return Win32DynamicFfi.invoke("msrating.dll", "RatingAccessDeniedDialog2", longArrayOf(Win32DynamicFfi.objectSlot(hdlg), pszusername, pratingdetails)).toInt()
+public fun RatingAccessDeniedDialog2(hdlg: HWND, pszusername: PCSTR, pratingdetails: Long): HRESULT {
+    return Win32DynamicFfi.invoke("msrating.dll", "RatingAccessDeniedDialog2", longArrayOf(hdlg, pszusername, pratingdetails)).toInt()
 }
 
-public fun RatingAccessDeniedDialog2W(hdlg: Foundation.HWND, pszusername: PCWSTR, pratingdetails: Long): HRESULT {
-    return Win32DynamicFfi.invoke("msrating.dll", "RatingAccessDeniedDialog2W", longArrayOf(Win32DynamicFfi.objectSlot(hdlg), pszusername, pratingdetails)).toInt()
+public fun RatingAccessDeniedDialog2W(hdlg: HWND, pszusername: PCWSTR, pratingdetails: Long): HRESULT {
+    return Win32DynamicFfi.invoke("msrating.dll", "RatingAccessDeniedDialog2W", longArrayOf(hdlg, pszusername, pratingdetails)).toInt()
 }
 
-public fun RatingAccessDeniedDialogW(hdlg: Foundation.HWND, pszusername: PCWSTR, pszcontentdescription: PCWSTR, pratingdetails: Long): HRESULT {
-    return Win32DynamicFfi.invoke("msrating.dll", "RatingAccessDeniedDialogW", longArrayOf(Win32DynamicFfi.objectSlot(hdlg), pszusername, pszcontentdescription, pratingdetails)).toInt()
+public fun RatingAccessDeniedDialogW(hdlg: HWND, pszusername: PCWSTR, pszcontentdescription: PCWSTR, pratingdetails: Long): HRESULT {
+    return Win32DynamicFfi.invoke("msrating.dll", "RatingAccessDeniedDialogW", longArrayOf(hdlg, pszusername, pszcontentdescription, pratingdetails)).toInt()
 }
 
-public fun RatingAddToApprovedSites(hdlg: Foundation.HWND, cbpasswordblob: UInt, pbpasswordblob: Long, lpszurl: PCWSTR, falwaysnever: BOOL, fsitepage: BOOL, fapprovedsitesenforced: BOOL): HRESULT {
-    return Win32DynamicFfi.invoke("msrating.dll", "RatingAddToApprovedSites", longArrayOf(Win32DynamicFfi.objectSlot(hdlg), cbpasswordblob.toLong(), pbpasswordblob, lpszurl, falwaysnever.toLong(), fsitepage.toLong(), fapprovedsitesenforced.toLong())).toInt()
+public fun RatingAddToApprovedSites(hdlg: HWND, cbpasswordblob: UInt, pbpasswordblob: Long, lpszurl: PCWSTR, falwaysnever: BOOL, fsitepage: BOOL, fapprovedsitesenforced: BOOL): HRESULT {
+    return Win32DynamicFfi.invoke("msrating.dll", "RatingAddToApprovedSites", longArrayOf(hdlg, cbpasswordblob.toLong(), pbpasswordblob, lpszurl, falwaysnever.toLong(), fsitepage.toLong(), fapprovedsitesenforced.toLong())).toInt()
 }
 
 public fun RatingCheckUserAccess(pszusername: PCSTR, pszurl: PCSTR, pszratinginfo: PCSTR, pdata: Long, cbdata: UInt, ppratingdetails: Long): HRESULT {
@@ -182,20 +184,20 @@ public fun RatingCheckUserAccessW(pszusername: PCWSTR, pszurl: PCWSTR, pszrating
     return Win32DynamicFfi.invoke("msrating.dll", "RatingCheckUserAccessW", longArrayOf(pszusername, pszurl, pszratinginfo, pdata, cbdata.toLong(), ppratingdetails)).toInt()
 }
 
-public fun RatingClickedOnPRFInternal(hwndowner: Foundation.HWND, param1: Foundation.HINSTANCE, lpszfilename: PCSTR, nshow: Int): HRESULT {
-    return Win32DynamicFfi.invoke("msrating.dll", "RatingClickedOnPRFInternal", longArrayOf(Win32DynamicFfi.objectSlot(hwndowner), Win32DynamicFfi.objectSlot(param1), lpszfilename, nshow.toLong())).toInt()
+public fun RatingClickedOnPRFInternal(hwndowner: HWND, param1: HINSTANCE, lpszfilename: PCSTR, nshow: Int): HRESULT {
+    return Win32DynamicFfi.invoke("msrating.dll", "RatingClickedOnPRFInternal", longArrayOf(hwndowner, param1, lpszfilename, nshow.toLong())).toInt()
 }
 
-public fun RatingClickedOnRATInternal(hwndowner: Foundation.HWND, param1: Foundation.HINSTANCE, lpszfilename: PCSTR, nshow: Int): HRESULT {
-    return Win32DynamicFfi.invoke("msrating.dll", "RatingClickedOnRATInternal", longArrayOf(Win32DynamicFfi.objectSlot(hwndowner), Win32DynamicFfi.objectSlot(param1), lpszfilename, nshow.toLong())).toInt()
+public fun RatingClickedOnRATInternal(hwndowner: HWND, param1: HINSTANCE, lpszfilename: PCSTR, nshow: Int): HRESULT {
+    return Win32DynamicFfi.invoke("msrating.dll", "RatingClickedOnRATInternal", longArrayOf(hwndowner, param1, lpszfilename, nshow.toLong())).toInt()
 }
 
-public fun RatingEnable(hwndparent: Foundation.HWND, pszusername: PCSTR, fenable: BOOL): HRESULT {
-    return Win32DynamicFfi.invoke("msrating.dll", "RatingEnable", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), pszusername, fenable.toLong())).toInt()
+public fun RatingEnable(hwndparent: HWND, pszusername: PCSTR, fenable: BOOL): HRESULT {
+    return Win32DynamicFfi.invoke("msrating.dll", "RatingEnable", longArrayOf(hwndparent, pszusername, fenable.toLong())).toInt()
 }
 
-public fun RatingEnableW(hwndparent: Foundation.HWND, pszusername: PCWSTR, fenable: BOOL): HRESULT {
-    return Win32DynamicFfi.invoke("msrating.dll", "RatingEnableW", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), pszusername, fenable.toLong())).toInt()
+public fun RatingEnableW(hwndparent: HWND, pszusername: PCWSTR, fenable: BOOL): HRESULT {
+    return Win32DynamicFfi.invoke("msrating.dll", "RatingEnableW", longArrayOf(hwndparent, pszusername, fenable.toLong())).toInt()
 }
 
 public fun RatingEnabledQuery(): HRESULT {
@@ -210,8 +212,8 @@ public fun RatingInit(): HRESULT {
     return Win32DynamicFfi.invoke("msrating.dll", "RatingInit", longArrayOf()).toInt()
 }
 
-public fun RatingObtainCancel(hratingobtainquery: Foundation.HANDLE): HRESULT {
-    return Win32DynamicFfi.invoke("msrating.dll", "RatingObtainCancel", longArrayOf(Win32DynamicFfi.objectSlot(hratingobtainquery))).toInt()
+public fun RatingObtainCancel(hratingobtainquery: HANDLE): HRESULT {
+    return Win32DynamicFfi.invoke("msrating.dll", "RatingObtainCancel", longArrayOf(hratingobtainquery)).toInt()
 }
 
 public fun RatingObtainQuery(psztargeturl: PCSTR, dwuserdata: UInt, fcallback: Long, phratingobtainquery: Long): HRESULT {
@@ -222,12 +224,12 @@ public fun RatingObtainQueryW(psztargeturl: PCWSTR, dwuserdata: UInt, fcallback:
     return Win32DynamicFfi.invoke("msrating.dll", "RatingObtainQueryW", longArrayOf(psztargeturl, dwuserdata.toLong(), fcallback, phratingobtainquery)).toInt()
 }
 
-public fun RatingSetupUI(hdlg: Foundation.HWND, pszusername: PCSTR): HRESULT {
-    return Win32DynamicFfi.invoke("msrating.dll", "RatingSetupUI", longArrayOf(Win32DynamicFfi.objectSlot(hdlg), pszusername)).toInt()
+public fun RatingSetupUI(hdlg: HWND, pszusername: PCSTR): HRESULT {
+    return Win32DynamicFfi.invoke("msrating.dll", "RatingSetupUI", longArrayOf(hdlg, pszusername)).toInt()
 }
 
-public fun RatingSetupUIW(hdlg: Foundation.HWND, pszusername: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("msrating.dll", "RatingSetupUIW", longArrayOf(Win32DynamicFfi.objectSlot(hdlg), pszusername)).toInt()
+public fun RatingSetupUIW(hdlg: HWND, pszusername: PCWSTR): HRESULT {
+    return Win32DynamicFfi.invoke("msrating.dll", "RatingSetupUIW", longArrayOf(hdlg, pszusername)).toInt()
 }
 
 public fun SniffStream(pinstream: Long, pnformat: Long, ppoutstream: Long): HRESULT {

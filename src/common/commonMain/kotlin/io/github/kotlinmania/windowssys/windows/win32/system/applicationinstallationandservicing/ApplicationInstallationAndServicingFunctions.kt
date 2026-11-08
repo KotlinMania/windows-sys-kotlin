@@ -7,6 +7,9 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.ALG_ID
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.HKEY
 
 public fun interface FnCallback {
     public operator fun invoke(callbackcontext: Long, currentposition: UInt, maximumposition: UInt): BOOL
@@ -24,12 +27,12 @@ public fun interface FnCallback3 {
     public operator fun invoke(pvcontext: Long, imessagetype: UInt, szmessage: PCWSTR): Int
 }
 
-public fun ActivateActCtx(hactctx: Foundation.HANDLE, lpcookie: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "ActivateActCtx", longArrayOf(Win32DynamicFfi.objectSlot(hactctx), lpcookie)).toInt()
+public fun ActivateActCtx(hactctx: HANDLE, lpcookie: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "ActivateActCtx", longArrayOf(hactctx, lpcookie)).toInt()
 }
 
-public fun AddRefActCtx(hactctx: Foundation.HANDLE) {
-    Win32DynamicFfi.invoke("kernel32.dll", "AddRefActCtx", longArrayOf(Win32DynamicFfi.objectSlot(hactctx)))
+public fun AddRefActCtx(hactctx: HANDLE) {
+    Win32DynamicFfi.invoke("kernel32.dll", "AddRefActCtx", longArrayOf(hactctx))
 }
 
 public fun ApplyDeltaA(applyflags: Long, lpsourcename: PCSTR, lpdeltaname: PCSTR, lptargetname: PCSTR): BOOL {
@@ -60,12 +63,12 @@ public fun ApplyPatchToFileByBuffers(patchfilemapped: Long, patchfilesize: UInt,
     return Win32DynamicFfi.invoke("mspatcha.dll", "ApplyPatchToFileByBuffers", longArrayOf(patchfilemapped, patchfilesize.toLong(), oldfilemapped, oldfilesize.toLong(), newfilebuffer, newfilebuffersize.toLong(), newfileactualsize, newfiletime, applyoptionflags.toLong(), Win32DynamicFfi.objectSlot(progresscallback), callbackcontext)).toInt()
 }
 
-public fun ApplyPatchToFileByHandles(patchfilehandle: Foundation.HANDLE, oldfilehandle: Foundation.HANDLE, newfilehandle: Foundation.HANDLE, applyoptionflags: UInt): BOOL {
-    return Win32DynamicFfi.invoke("mspatcha.dll", "ApplyPatchToFileByHandles", longArrayOf(Win32DynamicFfi.objectSlot(patchfilehandle), Win32DynamicFfi.objectSlot(oldfilehandle), Win32DynamicFfi.objectSlot(newfilehandle), applyoptionflags.toLong())).toInt()
+public fun ApplyPatchToFileByHandles(patchfilehandle: HANDLE, oldfilehandle: HANDLE, newfilehandle: HANDLE, applyoptionflags: UInt): BOOL {
+    return Win32DynamicFfi.invoke("mspatcha.dll", "ApplyPatchToFileByHandles", longArrayOf(patchfilehandle, oldfilehandle, newfilehandle, applyoptionflags.toLong())).toInt()
 }
 
-public fun ApplyPatchToFileByHandlesEx(patchfilehandle: Foundation.HANDLE, oldfilehandle: Foundation.HANDLE, newfilehandle: Foundation.HANDLE, applyoptionflags: UInt, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("mspatcha.dll", "ApplyPatchToFileByHandlesEx", longArrayOf(Win32DynamicFfi.objectSlot(patchfilehandle), Win32DynamicFfi.objectSlot(oldfilehandle), Win32DynamicFfi.objectSlot(newfilehandle), applyoptionflags.toLong(), Win32DynamicFfi.objectSlot(progresscallback), callbackcontext)).toInt()
+public fun ApplyPatchToFileByHandlesEx(patchfilehandle: HANDLE, oldfilehandle: HANDLE, newfilehandle: HANDLE, applyoptionflags: UInt, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("mspatcha.dll", "ApplyPatchToFileByHandlesEx", longArrayOf(patchfilehandle, oldfilehandle, newfilehandle, applyoptionflags.toLong(), Win32DynamicFfi.objectSlot(progresscallback), callbackcontext)).toInt()
 }
 
 public fun ApplyPatchToFileExA(patchfilename: PCSTR, oldfilename: PCSTR, newfilename: PCSTR, applyoptionflags: UInt, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Long): BOOL {
@@ -80,38 +83,36 @@ public fun ApplyPatchToFileW(patchfilename: PCWSTR, oldfilename: PCWSTR, newfile
     return Win32DynamicFfi.invoke("mspatcha.dll", "ApplyPatchToFileW", longArrayOf(patchfilename, oldfilename, newfilename, applyoptionflags.toLong())).toInt()
 }
 
-public fun CreateActCtxA(pactctx: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreateActCtxA", longArrayOf(pactctx))
-    return Foundation.HANDLE()
+public fun CreateActCtxA(pactctx: Long): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateActCtxA", longArrayOf(pactctx))
 }
 
-public fun CreateActCtxW(pactctx: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreateActCtxW", longArrayOf(pactctx))
-    return Foundation.HANDLE()
+public fun CreateActCtxW(pactctx: Long): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateActCtxW", longArrayOf(pactctx))
 }
 
-public fun CreateDeltaA(filetypeset: Long, setflags: Long, resetflags: Long, lpsourcename: PCSTR, lptargetname: PCSTR, lpsourceoptionsname: PCSTR, lptargetoptionsname: PCSTR, globaloptions: DELTA_INPUT, lptargetfiletime: Long, hashalgid: Security.Cryptography.ALG_ID, lpdeltaname: PCSTR): BOOL {
-    return Win32DynamicFfi.invoke("msdelta.dll", "CreateDeltaA", longArrayOf(filetypeset, setflags, resetflags, lpsourcename, lptargetname, lpsourceoptionsname, lptargetoptionsname, Win32DynamicFfi.objectSlot(globaloptions), lptargetfiletime, Win32DynamicFfi.objectSlot(hashalgid), lpdeltaname)).toInt()
+public fun CreateDeltaA(filetypeset: Long, setflags: Long, resetflags: Long, lpsourcename: PCSTR, lptargetname: PCSTR, lpsourceoptionsname: PCSTR, lptargetoptionsname: PCSTR, globaloptions: DELTA_INPUT, lptargetfiletime: Long, hashalgid: ALG_ID, lpdeltaname: PCSTR): BOOL {
+    return Win32DynamicFfi.invoke("msdelta.dll", "CreateDeltaA", longArrayOf(filetypeset, setflags, resetflags, lpsourcename, lptargetname, lpsourceoptionsname, lptargetoptionsname, Win32DynamicFfi.objectSlot(globaloptions), lptargetfiletime, hashalgid.toLong(), lpdeltaname)).toInt()
 }
 
-public fun CreateDeltaB(filetypeset: Long, setflags: Long, resetflags: Long, source: DELTA_INPUT, target: DELTA_INPUT, sourceoptions: DELTA_INPUT, targetoptions: DELTA_INPUT, globaloptions: DELTA_INPUT, lptargetfiletime: Long, hashalgid: Security.Cryptography.ALG_ID, lpdelta: Long): BOOL {
-    return Win32DynamicFfi.invoke("msdelta.dll", "CreateDeltaB", longArrayOf(filetypeset, setflags, resetflags, Win32DynamicFfi.objectSlot(source), Win32DynamicFfi.objectSlot(target), Win32DynamicFfi.objectSlot(sourceoptions), Win32DynamicFfi.objectSlot(targetoptions), Win32DynamicFfi.objectSlot(globaloptions), lptargetfiletime, Win32DynamicFfi.objectSlot(hashalgid), lpdelta)).toInt()
+public fun CreateDeltaB(filetypeset: Long, setflags: Long, resetflags: Long, source: DELTA_INPUT, target: DELTA_INPUT, sourceoptions: DELTA_INPUT, targetoptions: DELTA_INPUT, globaloptions: DELTA_INPUT, lptargetfiletime: Long, hashalgid: ALG_ID, lpdelta: Long): BOOL {
+    return Win32DynamicFfi.invoke("msdelta.dll", "CreateDeltaB", longArrayOf(filetypeset, setflags, resetflags, Win32DynamicFfi.objectSlot(source), Win32DynamicFfi.objectSlot(target), Win32DynamicFfi.objectSlot(sourceoptions), Win32DynamicFfi.objectSlot(targetoptions), Win32DynamicFfi.objectSlot(globaloptions), lptargetfiletime, hashalgid.toLong(), lpdelta)).toInt()
 }
 
-public fun CreateDeltaW(filetypeset: Long, setflags: Long, resetflags: Long, lpsourcename: PCWSTR, lptargetname: PCWSTR, lpsourceoptionsname: PCWSTR, lptargetoptionsname: PCWSTR, globaloptions: DELTA_INPUT, lptargetfiletime: Long, hashalgid: Security.Cryptography.ALG_ID, lpdeltaname: PCWSTR): BOOL {
-    return Win32DynamicFfi.invoke("msdelta.dll", "CreateDeltaW", longArrayOf(filetypeset, setflags, resetflags, lpsourcename, lptargetname, lpsourceoptionsname, lptargetoptionsname, Win32DynamicFfi.objectSlot(globaloptions), lptargetfiletime, Win32DynamicFfi.objectSlot(hashalgid), lpdeltaname)).toInt()
+public fun CreateDeltaW(filetypeset: Long, setflags: Long, resetflags: Long, lpsourcename: PCWSTR, lptargetname: PCWSTR, lpsourceoptionsname: PCWSTR, lptargetoptionsname: PCWSTR, globaloptions: DELTA_INPUT, lptargetfiletime: Long, hashalgid: ALG_ID, lpdeltaname: PCWSTR): BOOL {
+    return Win32DynamicFfi.invoke("msdelta.dll", "CreateDeltaW", longArrayOf(filetypeset, setflags, resetflags, lpsourcename, lptargetname, lpsourceoptionsname, lptargetoptionsname, Win32DynamicFfi.objectSlot(globaloptions), lptargetfiletime, hashalgid.toLong(), lpdeltaname)).toInt()
 }
 
 public fun CreatePatchFileA(oldfilename: PCSTR, newfilename: PCSTR, patchfilename: PCSTR, optionflags: UInt, optiondata: Long): BOOL {
     return Win32DynamicFfi.invoke("mspatchc.dll", "CreatePatchFileA", longArrayOf(oldfilename, newfilename, patchfilename, optionflags.toLong(), optiondata)).toInt()
 }
 
-public fun CreatePatchFileByHandles(oldfilehandle: Foundation.HANDLE, newfilehandle: Foundation.HANDLE, patchfilehandle: Foundation.HANDLE, optionflags: UInt, optiondata: Long): BOOL {
-    return Win32DynamicFfi.invoke("mspatchc.dll", "CreatePatchFileByHandles", longArrayOf(Win32DynamicFfi.objectSlot(oldfilehandle), Win32DynamicFfi.objectSlot(newfilehandle), Win32DynamicFfi.objectSlot(patchfilehandle), optionflags.toLong(), optiondata)).toInt()
+public fun CreatePatchFileByHandles(oldfilehandle: HANDLE, newfilehandle: HANDLE, patchfilehandle: HANDLE, optionflags: UInt, optiondata: Long): BOOL {
+    return Win32DynamicFfi.invoke("mspatchc.dll", "CreatePatchFileByHandles", longArrayOf(oldfilehandle, newfilehandle, patchfilehandle, optionflags.toLong(), optiondata)).toInt()
 }
 
-public fun CreatePatchFileByHandlesEx(oldfilecount: UInt, oldfileinfoarray: Long, newfilehandle: Foundation.HANDLE, patchfilehandle: Foundation.HANDLE, optionflags: UInt, optiondata: Long, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("mspatchc.dll", "CreatePatchFileByHandlesEx", longArrayOf(oldfilecount.toLong(), oldfileinfoarray, Win32DynamicFfi.objectSlot(newfilehandle), Win32DynamicFfi.objectSlot(patchfilehandle), optionflags.toLong(), optiondata, Win32DynamicFfi.objectSlot(progresscallback), callbackcontext)).toInt()
+public fun CreatePatchFileByHandlesEx(oldfilecount: UInt, oldfileinfoarray: Long, newfilehandle: HANDLE, patchfilehandle: HANDLE, optionflags: UInt, optiondata: Long, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("mspatchc.dll", "CreatePatchFileByHandlesEx", longArrayOf(oldfilecount.toLong(), oldfileinfoarray, newfilehandle, patchfilehandle, optionflags.toLong(), optiondata, Win32DynamicFfi.objectSlot(progresscallback), callbackcontext)).toInt()
 }
 
 public fun CreatePatchFileExA(oldfilecount: UInt, oldfileinfoarray: Long, newfilename: PCSTR, patchfilename: PCSTR, optionflags: UInt, optiondata: Long, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Long): BOOL {
@@ -142,8 +143,8 @@ public fun ExtractPatchHeaderToFileA(patchfilename: PCSTR, patchheaderfilename: 
     return Win32DynamicFfi.invoke("mspatchc.dll", "ExtractPatchHeaderToFileA", longArrayOf(patchfilename, patchheaderfilename)).toInt()
 }
 
-public fun ExtractPatchHeaderToFileByHandles(patchfilehandle: Foundation.HANDLE, patchheaderfilehandle: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("mspatchc.dll", "ExtractPatchHeaderToFileByHandles", longArrayOf(Win32DynamicFfi.objectSlot(patchfilehandle), Win32DynamicFfi.objectSlot(patchheaderfilehandle))).toInt()
+public fun ExtractPatchHeaderToFileByHandles(patchfilehandle: HANDLE, patchheaderfilehandle: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("mspatchc.dll", "ExtractPatchHeaderToFileByHandles", longArrayOf(patchfilehandle, patchheaderfilehandle)).toInt()
 }
 
 public fun ExtractPatchHeaderToFileW(patchfilename: PCWSTR, patchheaderfilename: PCWSTR): BOOL {
@@ -178,16 +179,16 @@ public fun GetDeltaInfoW(lpdeltaname: PCWSTR, lpheaderinfo: Long): BOOL {
     return Win32DynamicFfi.invoke("msdelta.dll", "GetDeltaInfoW", longArrayOf(lpdeltaname, lpheaderinfo)).toInt()
 }
 
-public fun GetDeltaSignatureA(filetypeset: Long, hashalgid: Security.Cryptography.ALG_ID, lpsourcename: PCSTR, lphash: Long): BOOL {
-    return Win32DynamicFfi.invoke("msdelta.dll", "GetDeltaSignatureA", longArrayOf(filetypeset, Win32DynamicFfi.objectSlot(hashalgid), lpsourcename, lphash)).toInt()
+public fun GetDeltaSignatureA(filetypeset: Long, hashalgid: ALG_ID, lpsourcename: PCSTR, lphash: Long): BOOL {
+    return Win32DynamicFfi.invoke("msdelta.dll", "GetDeltaSignatureA", longArrayOf(filetypeset, hashalgid.toLong(), lpsourcename, lphash)).toInt()
 }
 
-public fun GetDeltaSignatureB(filetypeset: Long, hashalgid: Security.Cryptography.ALG_ID, source: DELTA_INPUT, lphash: Long): BOOL {
-    return Win32DynamicFfi.invoke("msdelta.dll", "GetDeltaSignatureB", longArrayOf(filetypeset, Win32DynamicFfi.objectSlot(hashalgid), Win32DynamicFfi.objectSlot(source), lphash)).toInt()
+public fun GetDeltaSignatureB(filetypeset: Long, hashalgid: ALG_ID, source: DELTA_INPUT, lphash: Long): BOOL {
+    return Win32DynamicFfi.invoke("msdelta.dll", "GetDeltaSignatureB", longArrayOf(filetypeset, hashalgid.toLong(), Win32DynamicFfi.objectSlot(source), lphash)).toInt()
 }
 
-public fun GetDeltaSignatureW(filetypeset: Long, hashalgid: Security.Cryptography.ALG_ID, lpsourcename: PCWSTR, lphash: Long): BOOL {
-    return Win32DynamicFfi.invoke("msdelta.dll", "GetDeltaSignatureW", longArrayOf(filetypeset, Win32DynamicFfi.objectSlot(hashalgid), lpsourcename, lphash)).toInt()
+public fun GetDeltaSignatureW(filetypeset: Long, hashalgid: ALG_ID, lpsourcename: PCWSTR, lphash: Long): BOOL {
+    return Win32DynamicFfi.invoke("msdelta.dll", "GetDeltaSignatureW", longArrayOf(filetypeset, hashalgid.toLong(), lpsourcename, lphash)).toInt()
 }
 
 public fun GetFilePatchSignatureA(filename: PCSTR, optionflags: UInt, optiondata: Long, ignorerangecount: UInt, ignorerangearray: Long, retainrangecount: UInt, retainrangearray: Long, signaturebuffersize: UInt, signaturebuffer: PSTR): BOOL {
@@ -198,8 +199,8 @@ public fun GetFilePatchSignatureByBuffer(filebufferwritable: Long, filesize: UIn
     return Win32DynamicFfi.invoke("mspatcha.dll", "GetFilePatchSignatureByBuffer", longArrayOf(filebufferwritable, filesize.toLong(), optionflags.toLong(), optiondata, ignorerangecount.toLong(), ignorerangearray, retainrangecount.toLong(), retainrangearray, signaturebuffersize.toLong(), signaturebuffer)).toInt()
 }
 
-public fun GetFilePatchSignatureByHandle(filehandle: Foundation.HANDLE, optionflags: UInt, optiondata: Long, ignorerangecount: UInt, ignorerangearray: Long, retainrangecount: UInt, retainrangearray: Long, signaturebuffersize: UInt, signaturebuffer: PSTR): BOOL {
-    return Win32DynamicFfi.invoke("mspatcha.dll", "GetFilePatchSignatureByHandle", longArrayOf(Win32DynamicFfi.objectSlot(filehandle), optionflags.toLong(), optiondata, ignorerangecount.toLong(), ignorerangearray, retainrangecount.toLong(), retainrangearray, signaturebuffersize.toLong(), signaturebuffer)).toInt()
+public fun GetFilePatchSignatureByHandle(filehandle: HANDLE, optionflags: UInt, optiondata: Long, ignorerangecount: UInt, ignorerangearray: Long, retainrangecount: UInt, retainrangearray: Long, signaturebuffersize: UInt, signaturebuffer: PSTR): BOOL {
+    return Win32DynamicFfi.invoke("mspatcha.dll", "GetFilePatchSignatureByHandle", longArrayOf(filehandle, optionflags.toLong(), optiondata, ignorerangecount.toLong(), ignorerangearray, retainrangecount.toLong(), retainrangearray, signaturebuffersize.toLong(), signaturebuffer)).toInt()
 }
 
 public fun GetFilePatchSignatureW(filename: PCWSTR, optionflags: UInt, optiondata: Long, ignorerangecount: UInt, ignorerangearray: Long, retainrangecount: UInt, retainrangearray: Long, signaturebuffersize: UInt, signaturebuffer: PWSTR): BOOL {
@@ -854,12 +855,12 @@ public fun MsiPreviewDialogW(hpreview: MSIHANDLE, szdialogname: PCWSTR): UInt {
     return Win32DynamicFfi.invoke("msi.dll", "MsiPreviewDialogW", longArrayOf(hpreview.toLong(), szdialogname)).toUInt()
 }
 
-public fun MsiProcessAdvertiseScriptA(szscriptfile: PCSTR, sziconfolder: PCSTR, hregdata: Registry.HKEY, fshortcuts: BOOL, fremoveitems: BOOL): UInt {
-    return Win32DynamicFfi.invoke("msi.dll", "MsiProcessAdvertiseScriptA", longArrayOf(szscriptfile, sziconfolder, Win32DynamicFfi.objectSlot(hregdata), fshortcuts.toLong(), fremoveitems.toLong())).toUInt()
+public fun MsiProcessAdvertiseScriptA(szscriptfile: PCSTR, sziconfolder: PCSTR, hregdata: HKEY, fshortcuts: BOOL, fremoveitems: BOOL): UInt {
+    return Win32DynamicFfi.invoke("msi.dll", "MsiProcessAdvertiseScriptA", longArrayOf(szscriptfile, sziconfolder, hregdata, fshortcuts.toLong(), fremoveitems.toLong())).toUInt()
 }
 
-public fun MsiProcessAdvertiseScriptW(szscriptfile: PCWSTR, sziconfolder: PCWSTR, hregdata: Registry.HKEY, fshortcuts: BOOL, fremoveitems: BOOL): UInt {
-    return Win32DynamicFfi.invoke("msi.dll", "MsiProcessAdvertiseScriptW", longArrayOf(szscriptfile, sziconfolder, Win32DynamicFfi.objectSlot(hregdata), fshortcuts.toLong(), fremoveitems.toLong())).toUInt()
+public fun MsiProcessAdvertiseScriptW(szscriptfile: PCWSTR, sziconfolder: PCWSTR, hregdata: HKEY, fshortcuts: BOOL, fremoveitems: BOOL): UInt {
+    return Win32DynamicFfi.invoke("msi.dll", "MsiProcessAdvertiseScriptW", longArrayOf(szscriptfile, sziconfolder, hregdata, fshortcuts.toLong(), fremoveitems.toLong())).toUInt()
 }
 
 public fun MsiProcessMessage(hinstall: MSIHANDLE, emessagetype: INSTALLMESSAGE, hrecord: MSIHANDLE): Int {
@@ -1024,7 +1025,7 @@ public fun MsiSetComponentStateW(hinstall: MSIHANDLE, szcomponent: PCWSTR, istat
 
 public fun MsiSetExternalUIA(puihandler: INSTALLUI_HANDLERA, dwmessagefilter: UInt, pvcontext: Long): INSTALLUI_HANDLERA {
     val rawRet = Win32DynamicFfi.invoke("msi.dll", "MsiSetExternalUIA", longArrayOf(Win32DynamicFfi.objectSlot(puihandler), dwmessagefilter.toLong(), pvcontext))
-    return if (rawRet == 0L) null else INSTALLUI_HANDLERAFn { _, _, _ -> 0 }
+    return if (rawRet == 0L) null else INSTALLUI_HANDLERAFn { p0, p1, p2 -> Win32DynamicFfi.invokePtr(rawRet, longArrayOf(p0, p1.toLong(), p2)).toInt() }
 }
 
 public fun MsiSetExternalUIRecord(puihandler: PINSTALLUI_HANDLER_RECORD, dwmessagefilter: UInt, pvcontext: Long, ppuiprevhandler: PINSTALLUI_HANDLER_RECORD): UInt {
@@ -1033,7 +1034,7 @@ public fun MsiSetExternalUIRecord(puihandler: PINSTALLUI_HANDLER_RECORD, dwmessa
 
 public fun MsiSetExternalUIW(puihandler: INSTALLUI_HANDLERW, dwmessagefilter: UInt, pvcontext: Long): INSTALLUI_HANDLERW {
     val rawRet = Win32DynamicFfi.invoke("msi.dll", "MsiSetExternalUIW", longArrayOf(Win32DynamicFfi.objectSlot(puihandler), dwmessagefilter.toLong(), pvcontext))
-    return if (rawRet == 0L) null else INSTALLUI_HANDLERWFn { _, _, _ -> 0 }
+    return if (rawRet == 0L) null else INSTALLUI_HANDLERWFn { p0, p1, p2 -> Win32DynamicFfi.invokePtr(rawRet, longArrayOf(p0, p1.toLong(), p2)).toInt() }
 }
 
 public fun MsiSetFeatureAttributesA(hinstall: MSIHANDLE, szfeature: PCSTR, dwattributes: UInt): UInt {
@@ -1268,28 +1269,28 @@ public fun NormalizeFileForPatchSignature(filebuffer: Long, filesize: UInt, opti
     return Win32DynamicFfi.invoke("mspatcha.dll", "NormalizeFileForPatchSignature", longArrayOf(filebuffer, filesize.toLong(), optionflags.toLong(), optiondata, newfilecoffbase.toLong(), newfilecofftime.toLong(), ignorerangecount.toLong(), ignorerangearray, retainrangecount.toLong(), retainrangearray)).toInt()
 }
 
-public fun QueryActCtxSettingsW(dwflags: UInt, hactctx: Foundation.HANDLE, settingsnamespace: PCWSTR, settingname: PCWSTR, pvbuffer: PWSTR, dwbuffer: ULong, pdwwrittenorrequired: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "QueryActCtxSettingsW", longArrayOf(dwflags.toLong(), Win32DynamicFfi.objectSlot(hactctx), settingsnamespace, settingname, pvbuffer, dwbuffer.toLong(), pdwwrittenorrequired)).toInt()
+public fun QueryActCtxSettingsW(dwflags: UInt, hactctx: HANDLE, settingsnamespace: PCWSTR, settingname: PCWSTR, pvbuffer: PWSTR, dwbuffer: ULong, pdwwrittenorrequired: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "QueryActCtxSettingsW", longArrayOf(dwflags.toLong(), hactctx, settingsnamespace, settingname, pvbuffer, dwbuffer.toLong(), pdwwrittenorrequired)).toInt()
 }
 
-public fun QueryActCtxW(dwflags: UInt, hactctx: Foundation.HANDLE, pvsubinstance: Long, ulinfoclass: UInt, pvbuffer: Long, cbbuffer: ULong, pcbwrittenorrequired: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "QueryActCtxW", longArrayOf(dwflags.toLong(), Win32DynamicFfi.objectSlot(hactctx), pvsubinstance, ulinfoclass.toLong(), pvbuffer, cbbuffer.toLong(), pcbwrittenorrequired)).toInt()
+public fun QueryActCtxW(dwflags: UInt, hactctx: HANDLE, pvsubinstance: Long, ulinfoclass: UInt, pvbuffer: Long, cbbuffer: ULong, pcbwrittenorrequired: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "QueryActCtxW", longArrayOf(dwflags.toLong(), hactctx, pvsubinstance, ulinfoclass.toLong(), pvbuffer, cbbuffer.toLong(), pcbwrittenorrequired)).toInt()
 }
 
-public fun ReleaseActCtx(hactctx: Foundation.HANDLE) {
-    Win32DynamicFfi.invoke("kernel32.dll", "ReleaseActCtx", longArrayOf(Win32DynamicFfi.objectSlot(hactctx)))
+public fun ReleaseActCtx(hactctx: HANDLE) {
+    Win32DynamicFfi.invoke("kernel32.dll", "ReleaseActCtx", longArrayOf(hactctx))
 }
 
-public fun SfcGetNextProtectedFile(rpchandle: Foundation.HANDLE, protfiledata: Long): BOOL {
-    return Win32DynamicFfi.invoke("sfc.dll", "SfcGetNextProtectedFile", longArrayOf(Win32DynamicFfi.objectSlot(rpchandle), protfiledata)).toInt()
+public fun SfcGetNextProtectedFile(rpchandle: HANDLE, protfiledata: Long): BOOL {
+    return Win32DynamicFfi.invoke("sfc.dll", "SfcGetNextProtectedFile", longArrayOf(rpchandle, protfiledata)).toInt()
 }
 
-public fun SfcIsFileProtected(rpchandle: Foundation.HANDLE, protfilename: PCWSTR): BOOL {
-    return Win32DynamicFfi.invoke("sfc.dll", "SfcIsFileProtected", longArrayOf(Win32DynamicFfi.objectSlot(rpchandle), protfilename)).toInt()
+public fun SfcIsFileProtected(rpchandle: HANDLE, protfilename: PCWSTR): BOOL {
+    return Win32DynamicFfi.invoke("sfc.dll", "SfcIsFileProtected", longArrayOf(rpchandle, protfilename)).toInt()
 }
 
-public fun SfcIsKeyProtected(keyhandle: Registry.HKEY, subkeyname: PCWSTR, keysam: UInt): BOOL {
-    return Win32DynamicFfi.invoke("sfc.dll", "SfcIsKeyProtected", longArrayOf(Win32DynamicFfi.objectSlot(keyhandle), subkeyname, keysam.toLong())).toInt()
+public fun SfcIsKeyProtected(keyhandle: HKEY, subkeyname: PCWSTR, keysam: UInt): BOOL {
+    return Win32DynamicFfi.invoke("sfc.dll", "SfcIsKeyProtected", longArrayOf(keyhandle, subkeyname, keysam.toLong())).toInt()
 }
 
 public fun SfpVerifyFile(pszfilename: PCSTR, pszerror: PCSTR, dwerrsize: UInt): BOOL {
@@ -1304,14 +1305,14 @@ public fun TestApplyPatchToFileByBuffers(patchfilebuffer: Long, patchfilesize: U
     return Win32DynamicFfi.invoke("mspatcha.dll", "TestApplyPatchToFileByBuffers", longArrayOf(patchfilebuffer, patchfilesize.toLong(), oldfilebuffer, oldfilesize.toLong(), newfilesize, applyoptionflags.toLong())).toInt()
 }
 
-public fun TestApplyPatchToFileByHandles(patchfilehandle: Foundation.HANDLE, oldfilehandle: Foundation.HANDLE, applyoptionflags: UInt): BOOL {
-    return Win32DynamicFfi.invoke("mspatcha.dll", "TestApplyPatchToFileByHandles", longArrayOf(Win32DynamicFfi.objectSlot(patchfilehandle), Win32DynamicFfi.objectSlot(oldfilehandle), applyoptionflags.toLong())).toInt()
+public fun TestApplyPatchToFileByHandles(patchfilehandle: HANDLE, oldfilehandle: HANDLE, applyoptionflags: UInt): BOOL {
+    return Win32DynamicFfi.invoke("mspatcha.dll", "TestApplyPatchToFileByHandles", longArrayOf(patchfilehandle, oldfilehandle, applyoptionflags.toLong())).toInt()
 }
 
 public fun TestApplyPatchToFileW(patchfilename: PCWSTR, oldfilename: PCWSTR, applyoptionflags: UInt): BOOL {
     return Win32DynamicFfi.invoke("mspatcha.dll", "TestApplyPatchToFileW", longArrayOf(patchfilename, oldfilename, applyoptionflags.toLong())).toInt()
 }
 
-public fun ZombifyActCtx(hactctx: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "ZombifyActCtx", longArrayOf(Win32DynamicFfi.objectSlot(hactctx))).toInt()
+public fun ZombifyActCtx(hactctx: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "ZombifyActCtx", longArrayOf(hactctx)).toInt()
 }

@@ -6,8 +6,9 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
 
-public fun interface FnCallback {
+public fun interface FnCallbackPart2 {
     public operator fun invoke(context: Long, notification: UInt, param1: ULong, param2: ULong): UInt
 }
 
@@ -23,16 +24,16 @@ public fun SetupPrepareQueueForRestoreW(queuehandle: Long, backuppath: PCWSTR, r
     return Win32DynamicFfi.invoke("setupapi.dll", "SetupPrepareQueueForRestoreW", longArrayOf(queuehandle, backuppath, restoreflags.toLong())).toInt()
 }
 
-public fun SetupPromptForDiskA(hwndparent: Foundation.HWND, dialogtitle: PCSTR, diskname: PCSTR, pathtosource: PCSTR, filesought: PCSTR, tagfile: PCSTR, diskpromptstyle: UInt, pathbuffer: PSTR, pathbuffersize: UInt, pathrequiredsize: Long): UInt {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupPromptForDiskA", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), dialogtitle, diskname, pathtosource, filesought, tagfile, diskpromptstyle.toLong(), pathbuffer, pathbuffersize.toLong(), pathrequiredsize)).toUInt()
+public fun SetupPromptForDiskA(hwndparent: HWND, dialogtitle: PCSTR, diskname: PCSTR, pathtosource: PCSTR, filesought: PCSTR, tagfile: PCSTR, diskpromptstyle: UInt, pathbuffer: PSTR, pathbuffersize: UInt, pathrequiredsize: Long): UInt {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupPromptForDiskA", longArrayOf(hwndparent, dialogtitle, diskname, pathtosource, filesought, tagfile, diskpromptstyle.toLong(), pathbuffer, pathbuffersize.toLong(), pathrequiredsize)).toUInt()
 }
 
-public fun SetupPromptForDiskW(hwndparent: Foundation.HWND, dialogtitle: PCWSTR, diskname: PCWSTR, pathtosource: PCWSTR, filesought: PCWSTR, tagfile: PCWSTR, diskpromptstyle: UInt, pathbuffer: PWSTR, pathbuffersize: UInt, pathrequiredsize: Long): UInt {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupPromptForDiskW", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), dialogtitle, diskname, pathtosource, filesought, tagfile, diskpromptstyle.toLong(), pathbuffer, pathbuffersize.toLong(), pathrequiredsize)).toUInt()
+public fun SetupPromptForDiskW(hwndparent: HWND, dialogtitle: PCWSTR, diskname: PCWSTR, pathtosource: PCWSTR, filesought: PCWSTR, tagfile: PCWSTR, diskpromptstyle: UInt, pathbuffer: PWSTR, pathbuffersize: UInt, pathrequiredsize: Long): UInt {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupPromptForDiskW", longArrayOf(hwndparent, dialogtitle, diskname, pathtosource, filesought, tagfile, diskpromptstyle.toLong(), pathbuffer, pathbuffersize.toLong(), pathrequiredsize)).toUInt()
 }
 
-public fun SetupPromptReboot(filequeue: Long, owner: Foundation.HWND, scanonly: BOOL): Int {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupPromptReboot", longArrayOf(filequeue, Win32DynamicFfi.objectSlot(owner), scanonly.toLong())).toInt()
+public fun SetupPromptReboot(filequeue: Long, owner: HWND, scanonly: BOOL): Int {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupPromptReboot", longArrayOf(filequeue, owner, scanonly.toLong())).toInt()
 }
 
 public fun SetupQueryDrivesInDiskSpaceListA(diskspace: Long, returnbuffer: PSTR, returnbuffersize: UInt, requiredsize: Long): BOOL {
@@ -195,20 +196,20 @@ public fun SetupRemoveSectionFromDiskSpaceListW(diskspace: Long, infhandle: Long
     return Win32DynamicFfi.invoke("setupapi.dll", "SetupRemoveSectionFromDiskSpaceListW", longArrayOf(diskspace, infhandle, listinfhandle, sectionname, operation.toLong(), reserved1, reserved2.toLong())).toInt()
 }
 
-public fun SetupRenameErrorA(hwndparent: Foundation.HWND, dialogtitle: PCSTR, sourcefile: PCSTR, targetfile: PCSTR, win32errorcode: UInt, style: UInt): UInt {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupRenameErrorA", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), dialogtitle, sourcefile, targetfile, win32errorcode.toLong(), style.toLong())).toUInt()
+public fun SetupRenameErrorA(hwndparent: HWND, dialogtitle: PCSTR, sourcefile: PCSTR, targetfile: PCSTR, win32errorcode: UInt, style: UInt): UInt {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupRenameErrorA", longArrayOf(hwndparent, dialogtitle, sourcefile, targetfile, win32errorcode.toLong(), style.toLong())).toUInt()
 }
 
-public fun SetupRenameErrorW(hwndparent: Foundation.HWND, dialogtitle: PCWSTR, sourcefile: PCWSTR, targetfile: PCWSTR, win32errorcode: UInt, style: UInt): UInt {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupRenameErrorW", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), dialogtitle, sourcefile, targetfile, win32errorcode.toLong(), style.toLong())).toUInt()
+public fun SetupRenameErrorW(hwndparent: HWND, dialogtitle: PCWSTR, sourcefile: PCWSTR, targetfile: PCWSTR, win32errorcode: UInt, style: UInt): UInt {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupRenameErrorW", longArrayOf(hwndparent, dialogtitle, sourcefile, targetfile, win32errorcode.toLong(), style.toLong())).toUInt()
 }
 
-public fun SetupScanFileQueueA(filequeue: Long, flags: SETUPSCANFILEQUEUE_FLAGS, window: Foundation.HWND, callbackroutine: PSP_FILE_CALLBACK_A, callbackcontext: Long, result: Long): BOOL {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupScanFileQueueA", longArrayOf(filequeue, flags.toLong(), Win32DynamicFfi.objectSlot(window), Win32DynamicFfi.objectSlot(callbackroutine), callbackcontext, result)).toInt()
+public fun SetupScanFileQueueA(filequeue: Long, flags: SETUPSCANFILEQUEUE_FLAGS, window: HWND, callbackroutine: PSP_FILE_CALLBACK_A, callbackcontext: Long, result: Long): BOOL {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupScanFileQueueA", longArrayOf(filequeue, flags.toLong(), window, Win32DynamicFfi.objectSlot(callbackroutine), callbackcontext, result)).toInt()
 }
 
-public fun SetupScanFileQueueW(filequeue: Long, flags: SETUPSCANFILEQUEUE_FLAGS, window: Foundation.HWND, callbackroutine: PSP_FILE_CALLBACK_W, callbackcontext: Long, result: Long): BOOL {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupScanFileQueueW", longArrayOf(filequeue, flags.toLong(), Win32DynamicFfi.objectSlot(window), Win32DynamicFfi.objectSlot(callbackroutine), callbackcontext, result)).toInt()
+public fun SetupScanFileQueueW(filequeue: Long, flags: SETUPSCANFILEQUEUE_FLAGS, window: HWND, callbackroutine: PSP_FILE_CALLBACK_W, callbackcontext: Long, result: Long): BOOL {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupScanFileQueueW", longArrayOf(filequeue, flags.toLong(), window, Win32DynamicFfi.objectSlot(callbackroutine), callbackcontext, result)).toInt()
 }
 
 public fun SetupSetDirectoryIdA(infhandle: Long, id: UInt, directory: PCSTR): BOOL {
@@ -303,10 +304,10 @@ public fun SetupWriteTextLogInfLine(logtoken: ULong, flags: UInt, infhandle: Lon
     Win32DynamicFfi.invoke("setupapi.dll", "SetupWriteTextLogInfLine", longArrayOf(logtoken.toLong(), flags.toLong(), infhandle, context))
 }
 
-public fun UpdateDriverForPlugAndPlayDevicesA(hwndparent: Foundation.HWND, hardwareid: PCSTR, fullinfpath: PCSTR, installflags: UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS, brebootrequired: Long): BOOL {
-    return Win32DynamicFfi.invoke("newdev.dll", "UpdateDriverForPlugAndPlayDevicesA", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), hardwareid, fullinfpath, installflags.toLong(), brebootrequired)).toInt()
+public fun UpdateDriverForPlugAndPlayDevicesA(hwndparent: HWND, hardwareid: PCSTR, fullinfpath: PCSTR, installflags: UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS, brebootrequired: Long): BOOL {
+    return Win32DynamicFfi.invoke("newdev.dll", "UpdateDriverForPlugAndPlayDevicesA", longArrayOf(hwndparent, hardwareid, fullinfpath, installflags.toLong(), brebootrequired)).toInt()
 }
 
-public fun UpdateDriverForPlugAndPlayDevicesW(hwndparent: Foundation.HWND, hardwareid: PCWSTR, fullinfpath: PCWSTR, installflags: UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS, brebootrequired: Long): BOOL {
-    return Win32DynamicFfi.invoke("newdev.dll", "UpdateDriverForPlugAndPlayDevicesW", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), hardwareid, fullinfpath, installflags.toLong(), brebootrequired)).toInt()
+public fun UpdateDriverForPlugAndPlayDevicesW(hwndparent: HWND, hardwareid: PCWSTR, fullinfpath: PCWSTR, installflags: UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS, brebootrequired: Long): BOOL {
+    return Win32DynamicFfi.invoke("newdev.dll", "UpdateDriverForPlugAndPlayDevicesW", longArrayOf(hwndparent, hardwareid, fullinfpath, installflags.toLong(), brebootrequired)).toInt()
 }

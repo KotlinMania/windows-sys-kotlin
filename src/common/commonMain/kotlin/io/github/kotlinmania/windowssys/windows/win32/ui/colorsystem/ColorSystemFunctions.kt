@@ -7,17 +7,22 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.COLORREF
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HPALETTE
 
 public fun interface FnCallback {
-    public operator fun invoke(param0: UInt, param1: UInt, param2: Foundation.LPARAM): BOOL
+    public operator fun invoke(param0: UInt, param1: UInt, param2: LPARAM): BOOL
 }
 
 public fun interface FnCallback1 {
-    public operator fun invoke(param0: PCSTR, param1: Foundation.LPARAM): Int
+    public operator fun invoke(param0: PCSTR, param1: LPARAM): Int
 }
 
 public fun interface FnCallback2 {
-    public operator fun invoke(param0: PCWSTR, param1: Foundation.LPARAM): Int
+    public operator fun invoke(param0: PCWSTR, param1: LPARAM): Int
 }
 
 public fun AssociateColorProfileWithDeviceA(pmachinename: PCSTR, pprofilename: PCSTR, pdevicename: PCSTR): BOOL {
@@ -36,8 +41,8 @@ public fun CMCheckColorsInGamut(hcmtransform: Long, lpargbtriple: Long, lparesul
     return Win32DynamicFfi.invoke("icm32.dll", "CMCheckColorsInGamut", longArrayOf(hcmtransform, lpargbtriple, lparesult, ncount.toLong())).toInt()
 }
 
-public fun CMCheckRGBs(hcmtransform: Long, lpsrcbits: Long, bminput: BMFORMAT, dwwidth: UInt, dwheight: UInt, dwstride: UInt, lparesult: Long, pfncallback: LPBMCALLBACKFN, ulcallbackdata: Foundation.LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("icm32.dll", "CMCheckRGBs", longArrayOf(hcmtransform, lpsrcbits, bminput.toLong(), dwwidth.toLong(), dwheight.toLong(), dwstride.toLong(), lparesult, Win32DynamicFfi.objectSlot(pfncallback), Win32DynamicFfi.objectSlot(ulcallbackdata))).toInt()
+public fun CMCheckRGBs(hcmtransform: Long, lpsrcbits: Long, bminput: BMFORMAT, dwwidth: UInt, dwheight: UInt, dwstride: UInt, lparesult: Long, pfncallback: LPBMCALLBACKFN, ulcallbackdata: LPARAM): BOOL {
+    return Win32DynamicFfi.invoke("icm32.dll", "CMCheckRGBs", longArrayOf(hcmtransform, lpsrcbits, bminput.toLong(), dwwidth.toLong(), dwheight.toLong(), dwstride.toLong(), lparesult, Win32DynamicFfi.objectSlot(pfncallback), ulcallbackdata)).toInt()
 }
 
 public fun CMConvertColorNameToIndex(hprofile: Long, pacolorname: Long, paindex: Long, dwcount: UInt): BOOL {
@@ -100,64 +105,64 @@ public fun CMTranslateColors(hcmtransform: Long, lpainputcolors: Long, ncolors: 
     return Win32DynamicFfi.invoke("icm32.dll", "CMTranslateColors", longArrayOf(hcmtransform, lpainputcolors, ncolors.toLong(), ctinput.toLong(), lpaoutputcolors, ctoutput.toLong())).toInt()
 }
 
-public fun CMTranslateRGB(hcmtransform: Long, colorref: Foundation.COLORREF, lpcolorref: Long, dwflags: UInt): BOOL {
-    return Win32DynamicFfi.invoke("icm32.dll", "CMTranslateRGB", longArrayOf(hcmtransform, Win32DynamicFfi.objectSlot(colorref), lpcolorref, dwflags.toLong())).toInt()
+public fun CMTranslateRGB(hcmtransform: Long, colorref: COLORREF, lpcolorref: Long, dwflags: UInt): BOOL {
+    return Win32DynamicFfi.invoke("icm32.dll", "CMTranslateRGB", longArrayOf(hcmtransform, colorref.toLong(), lpcolorref, dwflags.toLong())).toInt()
 }
 
 public fun CMTranslateRGBs(hcmtransform: Long, lpsrcbits: Long, bminput: BMFORMAT, dwwidth: UInt, dwheight: UInt, dwstride: UInt, lpdestbits: Long, bmoutput: BMFORMAT, dwtranslatedirection: UInt): BOOL {
     return Win32DynamicFfi.invoke("icm32.dll", "CMTranslateRGBs", longArrayOf(hcmtransform, lpsrcbits, bminput.toLong(), dwwidth.toLong(), dwheight.toLong(), dwstride.toLong(), lpdestbits, bmoutput.toLong(), dwtranslatedirection.toLong())).toInt()
 }
 
-public fun CMTranslateRGBsExt(hcmtransform: Long, lpsrcbits: Long, bminput: BMFORMAT, dwwidth: UInt, dwheight: UInt, dwinputstride: UInt, lpdestbits: Long, bmoutput: BMFORMAT, dwoutputstride: UInt, lpfncallback: LPBMCALLBACKFN, ulcallbackdata: Foundation.LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("icm32.dll", "CMTranslateRGBsExt", longArrayOf(hcmtransform, lpsrcbits, bminput.toLong(), dwwidth.toLong(), dwheight.toLong(), dwinputstride.toLong(), lpdestbits, bmoutput.toLong(), dwoutputstride.toLong(), Win32DynamicFfi.objectSlot(lpfncallback), Win32DynamicFfi.objectSlot(ulcallbackdata))).toInt()
+public fun CMTranslateRGBsExt(hcmtransform: Long, lpsrcbits: Long, bminput: BMFORMAT, dwwidth: UInt, dwheight: UInt, dwinputstride: UInt, lpdestbits: Long, bmoutput: BMFORMAT, dwoutputstride: UInt, lpfncallback: LPBMCALLBACKFN, ulcallbackdata: LPARAM): BOOL {
+    return Win32DynamicFfi.invoke("icm32.dll", "CMTranslateRGBsExt", longArrayOf(hcmtransform, lpsrcbits, bminput.toLong(), dwwidth.toLong(), dwheight.toLong(), dwinputstride.toLong(), lpdestbits, bmoutput.toLong(), dwoutputstride.toLong(), Win32DynamicFfi.objectSlot(lpfncallback), ulcallbackdata)).toInt()
 }
 
-public fun CheckBitmapBits(hcolortransform: Long, psrcbits: Long, bminput: BMFORMAT, dwwidth: UInt, dwheight: UInt, dwstride: UInt, paresult: Long, pfncallback: LPBMCALLBACKFN, lpcallbackdata: Foundation.LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("mscms.dll", "CheckBitmapBits", longArrayOf(hcolortransform, psrcbits, bminput.toLong(), dwwidth.toLong(), dwheight.toLong(), dwstride.toLong(), paresult, Win32DynamicFfi.objectSlot(pfncallback), Win32DynamicFfi.objectSlot(lpcallbackdata))).toInt()
+public fun CheckBitmapBits(hcolortransform: Long, psrcbits: Long, bminput: BMFORMAT, dwwidth: UInt, dwheight: UInt, dwstride: UInt, paresult: Long, pfncallback: LPBMCALLBACKFN, lpcallbackdata: LPARAM): BOOL {
+    return Win32DynamicFfi.invoke("mscms.dll", "CheckBitmapBits", longArrayOf(hcolortransform, psrcbits, bminput.toLong(), dwwidth.toLong(), dwheight.toLong(), dwstride.toLong(), paresult, Win32DynamicFfi.objectSlot(pfncallback), lpcallbackdata)).toInt()
 }
 
 public fun CheckColors(hcolortransform: Long, painputcolors: Long, ncolors: UInt, ctinput: COLORTYPE, paresult: Long): BOOL {
     return Win32DynamicFfi.invoke("mscms.dll", "CheckColors", longArrayOf(hcolortransform, painputcolors, ncolors.toLong(), ctinput.toLong(), paresult)).toInt()
 }
 
-public fun CheckColorsInGamut(hdc: Graphics.Gdi.HDC, lprgbtriple: Long, dlpbuffer: Long, ncount: UInt): BOOL {
-    return Win32DynamicFfi.invoke("gdi32.dll", "CheckColorsInGamut", longArrayOf(Win32DynamicFfi.objectSlot(hdc), lprgbtriple, dlpbuffer, ncount.toLong())).toInt()
+public fun CheckColorsInGamut(hdc: HDC, lprgbtriple: Long, dlpbuffer: Long, ncount: UInt): BOOL {
+    return Win32DynamicFfi.invoke("gdi32.dll", "CheckColorsInGamut", longArrayOf(hdc, lprgbtriple, dlpbuffer, ncount.toLong())).toInt()
 }
 
 public fun CloseColorProfile(hprofile: Long): BOOL {
     return Win32DynamicFfi.invoke("mscms.dll", "CloseColorProfile", longArrayOf(hprofile)).toInt()
 }
 
-public fun ColorCorrectPalette(hdc: Graphics.Gdi.HDC, hpal: Graphics.Gdi.HPALETTE, defirst: UInt, num: UInt): BOOL {
-    return Win32DynamicFfi.invoke("gdi32.dll", "ColorCorrectPalette", longArrayOf(Win32DynamicFfi.objectSlot(hdc), Win32DynamicFfi.objectSlot(hpal), defirst.toLong(), num.toLong())).toInt()
+public fun ColorCorrectPalette(hdc: HDC, hpal: HPALETTE, defirst: UInt, num: UInt): BOOL {
+    return Win32DynamicFfi.invoke("gdi32.dll", "ColorCorrectPalette", longArrayOf(hdc, hpal, defirst.toLong(), num.toLong())).toInt()
 }
 
-public fun ColorMatchToTarget(hdc: Graphics.Gdi.HDC, hdctarget: Graphics.Gdi.HDC, action: COLOR_MATCH_TO_TARGET_ACTION): BOOL {
-    return Win32DynamicFfi.invoke("gdi32.dll", "ColorMatchToTarget", longArrayOf(Win32DynamicFfi.objectSlot(hdc), Win32DynamicFfi.objectSlot(hdctarget), action.toLong())).toInt()
+public fun ColorMatchToTarget(hdc: HDC, hdctarget: HDC, action: COLOR_MATCH_TO_TARGET_ACTION): BOOL {
+    return Win32DynamicFfi.invoke("gdi32.dll", "ColorMatchToTarget", longArrayOf(hdc, hdctarget, action.toLong())).toInt()
 }
 
-public fun ColorProfileAddDisplayAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: PCWSTR, targetadapterid: Foundation.LUID, sourceid: UInt, setasdefault: BOOL, associateasadvancedcolor: BOOL): HRESULT {
-    return Win32DynamicFfi.invoke("mscms.dll", "ColorProfileAddDisplayAssociation", longArrayOf(scope.toLong(), profilename, Win32DynamicFfi.objectSlot(targetadapterid), sourceid.toLong(), setasdefault.toLong(), associateasadvancedcolor.toLong())).toInt()
+public fun ColorProfileAddDisplayAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: PCWSTR, targetadapterid: LUID, sourceid: UInt, setasdefault: BOOL, associateasadvancedcolor: BOOL): HRESULT {
+    return Win32DynamicFfi.invoke("mscms.dll", "ColorProfileAddDisplayAssociation", longArrayOf(scope.toLong(), profilename, ((targetadapterid.LowPart.toLong() and 0xFFFF_FFFFL) or ((targetadapterid.HighPart.toLong() and 0xFFFF_FFFFL) shl 32)), sourceid.toLong(), setasdefault.toLong(), associateasadvancedcolor.toLong())).toInt()
 }
 
-public fun ColorProfileGetDisplayDefault(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: Foundation.LUID, sourceid: UInt, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE, profilename: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mscms.dll", "ColorProfileGetDisplayDefault", longArrayOf(scope.toLong(), Win32DynamicFfi.objectSlot(targetadapterid), sourceid.toLong(), profiletype.toLong(), profilesubtype.toLong(), profilename)).toInt()
+public fun ColorProfileGetDisplayDefault(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: LUID, sourceid: UInt, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE, profilename: Long): HRESULT {
+    return Win32DynamicFfi.invoke("mscms.dll", "ColorProfileGetDisplayDefault", longArrayOf(scope.toLong(), ((targetadapterid.LowPart.toLong() and 0xFFFF_FFFFL) or ((targetadapterid.HighPart.toLong() and 0xFFFF_FFFFL) shl 32)), sourceid.toLong(), profiletype.toLong(), profilesubtype.toLong(), profilename)).toInt()
 }
 
-public fun ColorProfileGetDisplayList(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: Foundation.LUID, sourceid: UInt, profilelist: Long, profilecount: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mscms.dll", "ColorProfileGetDisplayList", longArrayOf(scope.toLong(), Win32DynamicFfi.objectSlot(targetadapterid), sourceid.toLong(), profilelist, profilecount)).toInt()
+public fun ColorProfileGetDisplayList(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: LUID, sourceid: UInt, profilelist: Long, profilecount: Long): HRESULT {
+    return Win32DynamicFfi.invoke("mscms.dll", "ColorProfileGetDisplayList", longArrayOf(scope.toLong(), ((targetadapterid.LowPart.toLong() and 0xFFFF_FFFFL) or ((targetadapterid.HighPart.toLong() and 0xFFFF_FFFFL) shl 32)), sourceid.toLong(), profilelist, profilecount)).toInt()
 }
 
-public fun ColorProfileGetDisplayUserScope(targetadapterid: Foundation.LUID, sourceid: UInt, scope: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mscms.dll", "ColorProfileGetDisplayUserScope", longArrayOf(Win32DynamicFfi.objectSlot(targetadapterid), sourceid.toLong(), scope)).toInt()
+public fun ColorProfileGetDisplayUserScope(targetadapterid: LUID, sourceid: UInt, scope: Long): HRESULT {
+    return Win32DynamicFfi.invoke("mscms.dll", "ColorProfileGetDisplayUserScope", longArrayOf(((targetadapterid.LowPart.toLong() and 0xFFFF_FFFFL) or ((targetadapterid.HighPart.toLong() and 0xFFFF_FFFFL) shl 32)), sourceid.toLong(), scope)).toInt()
 }
 
-public fun ColorProfileRemoveDisplayAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: PCWSTR, targetadapterid: Foundation.LUID, sourceid: UInt, dissociateadvancedcolor: BOOL): HRESULT {
-    return Win32DynamicFfi.invoke("mscms.dll", "ColorProfileRemoveDisplayAssociation", longArrayOf(scope.toLong(), profilename, Win32DynamicFfi.objectSlot(targetadapterid), sourceid.toLong(), dissociateadvancedcolor.toLong())).toInt()
+public fun ColorProfileRemoveDisplayAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: PCWSTR, targetadapterid: LUID, sourceid: UInt, dissociateadvancedcolor: BOOL): HRESULT {
+    return Win32DynamicFfi.invoke("mscms.dll", "ColorProfileRemoveDisplayAssociation", longArrayOf(scope.toLong(), profilename, ((targetadapterid.LowPart.toLong() and 0xFFFF_FFFFL) or ((targetadapterid.HighPart.toLong() and 0xFFFF_FFFFL) shl 32)), sourceid.toLong(), dissociateadvancedcolor.toLong())).toInt()
 }
 
-public fun ColorProfileSetDisplayDefaultAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: PCWSTR, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE, targetadapterid: Foundation.LUID, sourceid: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("mscms.dll", "ColorProfileSetDisplayDefaultAssociation", longArrayOf(scope.toLong(), profilename, profiletype.toLong(), profilesubtype.toLong(), Win32DynamicFfi.objectSlot(targetadapterid), sourceid.toLong())).toInt()
+public fun ColorProfileSetDisplayDefaultAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: PCWSTR, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE, targetadapterid: LUID, sourceid: UInt): HRESULT {
+    return Win32DynamicFfi.invoke("mscms.dll", "ColorProfileSetDisplayDefaultAssociation", longArrayOf(scope.toLong(), profilename, profiletype.toLong(), profilesubtype.toLong(), ((targetadapterid.LowPart.toLong() and 0xFFFF_FFFFL) or ((targetadapterid.HighPart.toLong() and 0xFFFF_FFFFL) shl 32)), sourceid.toLong())).toInt()
 }
 
 public fun ConvertColorNameToIndex(hprofile: Long, pacolorname: Long, paindex: Long, dwcount: UInt): BOOL {
@@ -224,12 +229,12 @@ public fun EnumColorProfilesW(pmachinename: PCWSTR, penumrecord: Long, penumerat
     return Win32DynamicFfi.invoke("mscms.dll", "EnumColorProfilesW", longArrayOf(pmachinename, penumrecord, penumerationbuffer, pdwsizeofenumerationbuffer, pnprofiles)).toInt()
 }
 
-public fun EnumICMProfilesA(hdc: Graphics.Gdi.HDC, proc: ICMENUMPROCA, param2: Foundation.LPARAM): Int {
-    return Win32DynamicFfi.invoke("gdi32.dll", "EnumICMProfilesA", longArrayOf(Win32DynamicFfi.objectSlot(hdc), Win32DynamicFfi.objectSlot(proc), Win32DynamicFfi.objectSlot(param2))).toInt()
+public fun EnumICMProfilesA(hdc: HDC, proc: ICMENUMPROCA, param2: LPARAM): Int {
+    return Win32DynamicFfi.invoke("gdi32.dll", "EnumICMProfilesA", longArrayOf(hdc, Win32DynamicFfi.objectSlot(proc), param2)).toInt()
 }
 
-public fun EnumICMProfilesW(hdc: Graphics.Gdi.HDC, proc: ICMENUMPROCW, param2: Foundation.LPARAM): Int {
-    return Win32DynamicFfi.invoke("gdi32.dll", "EnumICMProfilesW", longArrayOf(Win32DynamicFfi.objectSlot(hdc), Win32DynamicFfi.objectSlot(proc), Win32DynamicFfi.objectSlot(param2))).toInt()
+public fun EnumICMProfilesW(hdc: HDC, proc: ICMENUMPROCW, param2: LPARAM): Int {
+    return Win32DynamicFfi.invoke("gdi32.dll", "EnumICMProfilesW", longArrayOf(hdc, Win32DynamicFfi.objectSlot(proc), param2)).toInt()
 }
 
 public fun GetCMMInfo(hcolortransform: Long, param1: UInt): UInt {
@@ -260,24 +265,24 @@ public fun GetColorProfileHeader(hprofile: Long, pheader: Long): BOOL {
     return Win32DynamicFfi.invoke("mscms.dll", "GetColorProfileHeader", longArrayOf(hprofile, pheader)).toInt()
 }
 
-public fun GetColorSpace(hdc: Graphics.Gdi.HDC): HCOLORSPACE {
-    return Win32DynamicFfi.invoke("gdi32.dll", "GetColorSpace", longArrayOf(Win32DynamicFfi.objectSlot(hdc)))
+public fun GetColorSpace(hdc: HDC): HCOLORSPACE {
+    return Win32DynamicFfi.invoke("gdi32.dll", "GetColorSpace", longArrayOf(hdc))
 }
 
 public fun GetCountColorProfileElements(hprofile: Long, pnelementcount: Long): BOOL {
     return Win32DynamicFfi.invoke("mscms.dll", "GetCountColorProfileElements", longArrayOf(hprofile, pnelementcount)).toInt()
 }
 
-public fun GetDeviceGammaRamp(hdc: Graphics.Gdi.HDC, lpramp: Long): BOOL {
-    return Win32DynamicFfi.invoke("gdi32.dll", "GetDeviceGammaRamp", longArrayOf(Win32DynamicFfi.objectSlot(hdc), lpramp)).toInt()
+public fun GetDeviceGammaRamp(hdc: HDC, lpramp: Long): BOOL {
+    return Win32DynamicFfi.invoke("gdi32.dll", "GetDeviceGammaRamp", longArrayOf(hdc, lpramp)).toInt()
 }
 
-public fun GetICMProfileA(hdc: Graphics.Gdi.HDC, pbufsize: Long, pszfilename: PSTR): BOOL {
-    return Win32DynamicFfi.invoke("gdi32.dll", "GetICMProfileA", longArrayOf(Win32DynamicFfi.objectSlot(hdc), pbufsize, pszfilename)).toInt()
+public fun GetICMProfileA(hdc: HDC, pbufsize: Long, pszfilename: PSTR): BOOL {
+    return Win32DynamicFfi.invoke("gdi32.dll", "GetICMProfileA", longArrayOf(hdc, pbufsize, pszfilename)).toInt()
 }
 
-public fun GetICMProfileW(hdc: Graphics.Gdi.HDC, pbufsize: Long, pszfilename: PWSTR): BOOL {
-    return Win32DynamicFfi.invoke("gdi32.dll", "GetICMProfileW", longArrayOf(Win32DynamicFfi.objectSlot(hdc), pbufsize, pszfilename)).toInt()
+public fun GetICMProfileW(hdc: HDC, pbufsize: Long, pszfilename: PWSTR): BOOL {
+    return Win32DynamicFfi.invoke("gdi32.dll", "GetICMProfileW", longArrayOf(hdc, pbufsize, pszfilename)).toInt()
 }
 
 public fun GetLogColorSpaceA(hcolorspace: HCOLORSPACE, lpbuffer: Long, nsize: UInt): BOOL {
@@ -364,24 +369,24 @@ public fun SetColorProfileHeader(hprofile: Long, pheader: Long): BOOL {
     return Win32DynamicFfi.invoke("mscms.dll", "SetColorProfileHeader", longArrayOf(hprofile, pheader)).toInt()
 }
 
-public fun SetColorSpace(hdc: Graphics.Gdi.HDC, hcs: HCOLORSPACE): HCOLORSPACE {
-    return Win32DynamicFfi.invoke("gdi32.dll", "SetColorSpace", longArrayOf(Win32DynamicFfi.objectSlot(hdc), hcs))
+public fun SetColorSpace(hdc: HDC, hcs: HCOLORSPACE): HCOLORSPACE {
+    return Win32DynamicFfi.invoke("gdi32.dll", "SetColorSpace", longArrayOf(hdc, hcs))
 }
 
-public fun SetDeviceGammaRamp(hdc: Graphics.Gdi.HDC, lpramp: Long): BOOL {
-    return Win32DynamicFfi.invoke("gdi32.dll", "SetDeviceGammaRamp", longArrayOf(Win32DynamicFfi.objectSlot(hdc), lpramp)).toInt()
+public fun SetDeviceGammaRamp(hdc: HDC, lpramp: Long): BOOL {
+    return Win32DynamicFfi.invoke("gdi32.dll", "SetDeviceGammaRamp", longArrayOf(hdc, lpramp)).toInt()
 }
 
-public fun SetICMMode(hdc: Graphics.Gdi.HDC, mode: ICM_MODE): Int {
-    return Win32DynamicFfi.invoke("gdi32.dll", "SetICMMode", longArrayOf(Win32DynamicFfi.objectSlot(hdc), mode.toLong())).toInt()
+public fun SetICMMode(hdc: HDC, mode: ICM_MODE): Int {
+    return Win32DynamicFfi.invoke("gdi32.dll", "SetICMMode", longArrayOf(hdc, mode.toLong())).toInt()
 }
 
-public fun SetICMProfileA(hdc: Graphics.Gdi.HDC, lpfilename: PCSTR): BOOL {
-    return Win32DynamicFfi.invoke("gdi32.dll", "SetICMProfileA", longArrayOf(Win32DynamicFfi.objectSlot(hdc), lpfilename)).toInt()
+public fun SetICMProfileA(hdc: HDC, lpfilename: PCSTR): BOOL {
+    return Win32DynamicFfi.invoke("gdi32.dll", "SetICMProfileA", longArrayOf(hdc, lpfilename)).toInt()
 }
 
-public fun SetICMProfileW(hdc: Graphics.Gdi.HDC, lpfilename: PCWSTR): BOOL {
-    return Win32DynamicFfi.invoke("gdi32.dll", "SetICMProfileW", longArrayOf(Win32DynamicFfi.objectSlot(hdc), lpfilename)).toInt()
+public fun SetICMProfileW(hdc: HDC, lpfilename: PCWSTR): BOOL {
+    return Win32DynamicFfi.invoke("gdi32.dll", "SetICMProfileW", longArrayOf(hdc, lpfilename)).toInt()
 }
 
 public fun SetStandardColorSpaceProfileA(pmachinename: PCSTR, dwprofileid: UInt, pprofilename: PCSTR): BOOL {
@@ -400,8 +405,8 @@ public fun SetupColorMatchingW(pcms: Long): BOOL {
     return Win32DynamicFfi.invoke("icmui.dll", "SetupColorMatchingW", longArrayOf(pcms)).toInt()
 }
 
-public fun TranslateBitmapBits(hcolortransform: Long, psrcbits: Long, bminput: BMFORMAT, dwwidth: UInt, dwheight: UInt, dwinputstride: UInt, pdestbits: Long, bmoutput: BMFORMAT, dwoutputstride: UInt, pfncallback: LPBMCALLBACKFN, ulcallbackdata: Foundation.LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("mscms.dll", "TranslateBitmapBits", longArrayOf(hcolortransform, psrcbits, bminput.toLong(), dwwidth.toLong(), dwheight.toLong(), dwinputstride.toLong(), pdestbits, bmoutput.toLong(), dwoutputstride.toLong(), Win32DynamicFfi.objectSlot(pfncallback), Win32DynamicFfi.objectSlot(ulcallbackdata))).toInt()
+public fun TranslateBitmapBits(hcolortransform: Long, psrcbits: Long, bminput: BMFORMAT, dwwidth: UInt, dwheight: UInt, dwinputstride: UInt, pdestbits: Long, bmoutput: BMFORMAT, dwoutputstride: UInt, pfncallback: LPBMCALLBACKFN, ulcallbackdata: LPARAM): BOOL {
+    return Win32DynamicFfi.invoke("mscms.dll", "TranslateBitmapBits", longArrayOf(hcolortransform, psrcbits, bminput.toLong(), dwwidth.toLong(), dwheight.toLong(), dwinputstride.toLong(), pdestbits, bmoutput.toLong(), dwoutputstride.toLong(), Win32DynamicFfi.objectSlot(pfncallback), ulcallbackdata)).toInt()
 }
 
 public fun TranslateColors(hcolortransform: Long, painputcolors: Long, ncolors: UInt, ctinput: COLORTYPE, paoutputcolors: Long, ctoutput: COLORTYPE): BOOL {

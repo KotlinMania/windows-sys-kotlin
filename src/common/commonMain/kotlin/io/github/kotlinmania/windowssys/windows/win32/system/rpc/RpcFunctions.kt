@@ -8,6 +8,7 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
 
 public fun interface FnCallback {
     public operator fun invoke(state: Long, pbuffer: Long, psize: Long)
@@ -310,7 +311,7 @@ public fun I_RpcServerSubscribeForDisconnectNotification2(binding: Long, hevent:
 }
 
 public fun I_RpcServerUnsubscribeForDisconnectNotification(binding: Long, subscriptionid: GUID): RPC_STATUS {
-    return Win32DynamicFfi.invoke("rpcrt4.dll", "I_RpcServerUnsubscribeForDisconnectNotification", longArrayOf(binding, Win32DynamicFfi.guidSlot(subscriptionid.data1, subscriptionid.data2, subscriptionid.data3, subscriptionid.data4))).toInt()
+    return Win32DynamicFfi.invoke("rpcrt4.dll", "I_RpcServerUnsubscribeForDisconnectNotification", longArrayOf(binding, run { val buf = ByteArray(16); buf[0] = (subscriptionid.data1.toInt() and 0xFF).toByte(); buf[1] = ((subscriptionid.data1.toInt() ushr 8) and 0xFF).toByte(); buf[2] = ((subscriptionid.data1.toInt() ushr 16) and 0xFF).toByte(); buf[3] = ((subscriptionid.data1.toInt() ushr 24) and 0xFF).toByte(); buf[4] = (subscriptionid.data2.toInt() and 0xFF).toByte(); buf[5] = ((subscriptionid.data2.toInt() ushr 8) and 0xFF).toByte(); buf[6] = (subscriptionid.data3.toInt() and 0xFF).toByte(); buf[7] = ((subscriptionid.data3.toInt() ushr 8) and 0xFF).toByte(); for (i in 0 until minOf(8, subscriptionid.data4.size)) buf[8 + i] = subscriptionid.data4[i].toByte(); val ptr = Win32DynamicFfi.allocZeroed(16); Win32DynamicFfi.writeBytes(ptr, buf); ptr })).toInt()
 }
 
 public fun I_RpcServerUseProtseq2A(networkaddress: PCSTR, protseq: PCSTR, maxcalls: UInt, securitydescriptor: Long, policy: Long): RPC_STATUS {
@@ -1349,8 +1350,8 @@ public fun RpcFreeAuthorizationContext(pauthzclientcontext: Long): RPC_STATUS {
     return Win32DynamicFfi.invoke("rpcrt4.dll", "RpcFreeAuthorizationContext", longArrayOf(pauthzclientcontext)).toInt()
 }
 
-public fun RpcGetAuthorizationContextForClient(clientbinding: Long, impersonateonreturn: BOOL, reserved1: Long, pexpirationtime: Long, reserved2: Foundation.LUID, reserved3: UInt, reserved4: Long, pauthzclientcontext: Long): RPC_STATUS {
-    return Win32DynamicFfi.invoke("rpcrt4.dll", "RpcGetAuthorizationContextForClient", longArrayOf(clientbinding, impersonateonreturn.toLong(), reserved1, pexpirationtime, Win32DynamicFfi.objectSlot(reserved2), reserved3.toLong(), reserved4, pauthzclientcontext)).toInt()
+public fun RpcGetAuthorizationContextForClient(clientbinding: Long, impersonateonreturn: BOOL, reserved1: Long, pexpirationtime: Long, reserved2: LUID, reserved3: UInt, reserved4: Long, pauthzclientcontext: Long): RPC_STATUS {
+    return Win32DynamicFfi.invoke("rpcrt4.dll", "RpcGetAuthorizationContextForClient", longArrayOf(clientbinding, impersonateonreturn.toLong(), reserved1, pexpirationtime, ((reserved2.LowPart.toLong() and 0xFFFF_FFFFL) or ((reserved2.HighPart.toLong() and 0xFFFF_FFFFL) shl 32)), reserved3.toLong(), reserved4, pauthzclientcontext)).toInt()
 }
 
 public fun RpcIfIdVectorFree(ifidvector: Long): RPC_STATUS {

@@ -2,6 +2,7 @@ package io.github.kotlinmania.windowssys.windows.win32.security.cryptography.sip
 
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 
 public fun interface pCryptSIPCreateIndirectDataFn {
     public operator fun invoke(psubjectinfo: Long, pcbindirectdata: Long, pindirectdata: Long): BOOL
@@ -46,7 +47,7 @@ public fun interface pCryptSIPVerifyIndirectDataFn {
 public typealias pCryptSIPVerifyIndirectData = pCryptSIPVerifyIndirectDataFn?
 
 public fun interface pfnIsFileSupportedFn {
-    public operator fun invoke(hfile: Foundation.HANDLE, pgsubject: Long): BOOL
+    public operator fun invoke(hfile: HANDLE, pgsubject: Long): BOOL
 }
 
 public typealias pfnIsFileSupported = pfnIsFileSupportedFn?

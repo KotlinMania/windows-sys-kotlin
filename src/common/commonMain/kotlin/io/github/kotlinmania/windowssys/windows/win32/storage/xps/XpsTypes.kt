@@ -1,9 +1,10 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.xps
 
 import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
 
 public fun interface ABORTPROCFn {
-    public operator fun invoke(param0: Graphics.Gdi.HDC, param1: Int): BOOL
+    public operator fun invoke(param0: HDC, param1: Int): BOOL
 }
 
 public typealias ABORTPROC = ABORTPROCFn?

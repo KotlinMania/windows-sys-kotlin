@@ -6,6 +6,9 @@ import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.windows.win32.security.PSID
 
 public fun GetNetScheduleAccountInformation(pwszservername: PCWSTR, ccaccount: UInt, wszaccount: PWSTR): HRESULT {
     return Win32DynamicFfi.invoke("mstask.dll", "GetNetScheduleAccountInformation", longArrayOf(pwszservername, ccaccount.toLong(), wszaccount)).toInt()
@@ -67,9 +70,8 @@ public fun NetAddAlternateComputerName(server: PCWSTR, alternatename: PCWSTR, do
     return Win32DynamicFfi.invoke("netapi32.dll", "NetAddAlternateComputerName", longArrayOf(server, alternatename, domainaccount, domainaccountpassword, reserved.toLong())).toUInt()
 }
 
-public fun NetAddServiceAccount(servername: PCWSTR, accountname: PCWSTR, password: PCWSTR, flags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("netapi32.dll", "NetAddServiceAccount", longArrayOf(servername, accountname, password, flags.toLong()))
-    return Foundation.NTSTATUS()
+public fun NetAddServiceAccount(servername: PCWSTR, accountname: PCWSTR, password: PCWSTR, flags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("netapi32.dll", "NetAddServiceAccount", longArrayOf(servername, accountname, password, flags.toLong())).toInt()
 }
 
 public fun NetAlertRaise(alerttype: PCWSTR, buffer: Long, buffersize: UInt): UInt {
@@ -128,9 +130,8 @@ public fun NetEnumerateComputerNames(server: PCWSTR, nametype: NET_COMPUTER_NAME
     return Win32DynamicFfi.invoke("netapi32.dll", "NetEnumerateComputerNames", longArrayOf(server, nametype.toLong(), reserved.toLong(), entrycount, computernames)).toUInt()
 }
 
-public fun NetEnumerateServiceAccounts(servername: PCWSTR, flags: UInt, accountscount: Long, accounts: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("netapi32.dll", "NetEnumerateServiceAccounts", longArrayOf(servername, flags.toLong(), accountscount, accounts))
-    return Foundation.NTSTATUS()
+public fun NetEnumerateServiceAccounts(servername: PCWSTR, flags: UInt, accountscount: Long, accounts: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("netapi32.dll", "NetEnumerateServiceAccounts", longArrayOf(servername, flags.toLong(), accountscount, accounts)).toInt()
 }
 
 public fun NetErrorLogClear(uncservername: PCWSTR, backupfile: PCWSTR, reserved: Long): UInt {
@@ -209,9 +210,8 @@ public fun NetGroupSetUsers(servername: PCWSTR, groupname: PCWSTR, level: UInt, 
     return Win32DynamicFfi.invoke("netapi32.dll", "NetGroupSetUsers", longArrayOf(servername, groupname, level.toLong(), buf, totalentries.toLong())).toUInt()
 }
 
-public fun NetIsServiceAccount(servername: PCWSTR, accountname: PCWSTR, isservice: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("netapi32.dll", "NetIsServiceAccount", longArrayOf(servername, accountname, isservice))
-    return Foundation.NTSTATUS()
+public fun NetIsServiceAccount(servername: PCWSTR, accountname: PCWSTR, isservice: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("netapi32.dll", "NetIsServiceAccount", longArrayOf(servername, accountname, isservice)).toInt()
 }
 
 public fun NetJoinDomain(lpserver: PCWSTR, lpdomain: PCWSTR, lpmachineaccountou: PCWSTR, lpaccount: PCWSTR, lppassword: PCWSTR, fjoinoptions: NET_JOIN_DOMAIN_JOIN_OPTIONS): UInt {
@@ -222,8 +222,8 @@ public fun NetLocalGroupAdd(servername: PCWSTR, level: UInt, buf: Long, parm_err
     return Win32DynamicFfi.invoke("netapi32.dll", "NetLocalGroupAdd", longArrayOf(servername, level.toLong(), buf, parm_err)).toUInt()
 }
 
-public fun NetLocalGroupAddMember(servername: PCWSTR, groupname: PCWSTR, membersid: Security.PSID): UInt {
-    return Win32DynamicFfi.invoke("netapi32.dll", "NetLocalGroupAddMember", longArrayOf(servername, groupname, Win32DynamicFfi.objectSlot(membersid))).toUInt()
+public fun NetLocalGroupAddMember(servername: PCWSTR, groupname: PCWSTR, membersid: PSID): UInt {
+    return Win32DynamicFfi.invoke("netapi32.dll", "NetLocalGroupAddMember", longArrayOf(servername, groupname, membersid)).toUInt()
 }
 
 public fun NetLocalGroupAddMembers(servername: PCWSTR, groupname: PCWSTR, level: UInt, buf: Long, totalentries: UInt): UInt {
@@ -234,8 +234,8 @@ public fun NetLocalGroupDel(servername: PCWSTR, groupname: PCWSTR): UInt {
     return Win32DynamicFfi.invoke("netapi32.dll", "NetLocalGroupDel", longArrayOf(servername, groupname)).toUInt()
 }
 
-public fun NetLocalGroupDelMember(servername: PCWSTR, groupname: PCWSTR, membersid: Security.PSID): UInt {
-    return Win32DynamicFfi.invoke("netapi32.dll", "NetLocalGroupDelMember", longArrayOf(servername, groupname, Win32DynamicFfi.objectSlot(membersid))).toUInt()
+public fun NetLocalGroupDelMember(servername: PCWSTR, groupname: PCWSTR, membersid: PSID): UInt {
+    return Win32DynamicFfi.invoke("netapi32.dll", "NetLocalGroupDelMember", longArrayOf(servername, groupname, membersid)).toUInt()
 }
 
 public fun NetLocalGroupDelMembers(servername: PCWSTR, groupname: PCWSTR, level: UInt, buf: Long, totalentries: UInt): UInt {
@@ -290,9 +290,8 @@ public fun NetQueryDisplayInformation(servername: PCWSTR, level: UInt, index: UI
     return Win32DynamicFfi.invoke("netapi32.dll", "NetQueryDisplayInformation", longArrayOf(servername, level.toLong(), index.toLong(), entriesrequested.toLong(), preferredmaximumlength.toLong(), returnedentrycount, sortedbuffer)).toUInt()
 }
 
-public fun NetQueryServiceAccount(servername: PCWSTR, accountname: PCWSTR, infolevel: UInt, buffer: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("netapi32.dll", "NetQueryServiceAccount", longArrayOf(servername, accountname, infolevel.toLong(), buffer))
-    return Foundation.NTSTATUS()
+public fun NetQueryServiceAccount(servername: PCWSTR, accountname: PCWSTR, infolevel: UInt, buffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("netapi32.dll", "NetQueryServiceAccount", longArrayOf(servername, accountname, infolevel.toLong(), buffer)).toInt()
 }
 
 public fun NetRemoteComputerSupports(uncservername: PCWSTR, optionswanted: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS, optionssupported: Long): UInt {
@@ -307,9 +306,8 @@ public fun NetRemoveAlternateComputerName(server: PCWSTR, alternatename: PCWSTR,
     return Win32DynamicFfi.invoke("netapi32.dll", "NetRemoveAlternateComputerName", longArrayOf(server, alternatename, domainaccount, domainaccountpassword, reserved.toLong())).toUInt()
 }
 
-public fun NetRemoveServiceAccount(servername: PCWSTR, accountname: PCWSTR, flags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("netapi32.dll", "NetRemoveServiceAccount", longArrayOf(servername, accountname, flags.toLong()))
-    return Foundation.NTSTATUS()
+public fun NetRemoveServiceAccount(servername: PCWSTR, accountname: PCWSTR, flags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("netapi32.dll", "NetRemoveServiceAccount", longArrayOf(servername, accountname, flags.toLong())).toInt()
 }
 
 public fun NetRenameMachineInDomain(lpserver: PCWSTR, lpnewmachinename: PCWSTR, lpaccount: PCWSTR, lppassword: PCWSTR, frenameoptions: UInt): UInt {
@@ -580,62 +578,60 @@ public fun RouterGetErrorStringW(dwerrorcode: UInt, lplpwszerrorstring: Long): U
     return Win32DynamicFfi.invoke("rtutils.dll", "RouterGetErrorStringW", longArrayOf(dwerrorcode.toLong(), lplpwszerrorstring)).toUInt()
 }
 
-public fun RouterLogDeregisterA(hloghandle: Foundation.HANDLE) {
-    Win32DynamicFfi.invoke("rtutils.dll", "RouterLogDeregisterA", longArrayOf(Win32DynamicFfi.objectSlot(hloghandle)))
+public fun RouterLogDeregisterA(hloghandle: HANDLE) {
+    Win32DynamicFfi.invoke("rtutils.dll", "RouterLogDeregisterA", longArrayOf(hloghandle))
 }
 
-public fun RouterLogDeregisterW(hloghandle: Foundation.HANDLE) {
-    Win32DynamicFfi.invoke("rtutils.dll", "RouterLogDeregisterW", longArrayOf(Win32DynamicFfi.objectSlot(hloghandle)))
+public fun RouterLogDeregisterW(hloghandle: HANDLE) {
+    Win32DynamicFfi.invoke("rtutils.dll", "RouterLogDeregisterW", longArrayOf(hloghandle))
 }
 
-public fun RouterLogEventA(hloghandle: Foundation.HANDLE, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: Long, dwerrorcode: UInt) {
-    Win32DynamicFfi.invoke("rtutils.dll", "RouterLogEventA", longArrayOf(Win32DynamicFfi.objectSlot(hloghandle), dweventtype.toLong(), dwmessageid.toLong(), dwsubstringcount.toLong(), plpszsubstringarray, dwerrorcode.toLong()))
+public fun RouterLogEventA(hloghandle: HANDLE, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: Long, dwerrorcode: UInt) {
+    Win32DynamicFfi.invoke("rtutils.dll", "RouterLogEventA", longArrayOf(hloghandle, dweventtype.toLong(), dwmessageid.toLong(), dwsubstringcount.toLong(), plpszsubstringarray, dwerrorcode.toLong()))
 }
 
-public fun RouterLogEventDataA(hloghandle: Foundation.HANDLE, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: Long, dwdatabytes: UInt, lpdatabytes: Long) {
-    Win32DynamicFfi.invoke("rtutils.dll", "RouterLogEventDataA", longArrayOf(Win32DynamicFfi.objectSlot(hloghandle), dweventtype.toLong(), dwmessageid.toLong(), dwsubstringcount.toLong(), plpszsubstringarray, dwdatabytes.toLong(), lpdatabytes))
+public fun RouterLogEventDataA(hloghandle: HANDLE, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: Long, dwdatabytes: UInt, lpdatabytes: Long) {
+    Win32DynamicFfi.invoke("rtutils.dll", "RouterLogEventDataA", longArrayOf(hloghandle, dweventtype.toLong(), dwmessageid.toLong(), dwsubstringcount.toLong(), plpszsubstringarray, dwdatabytes.toLong(), lpdatabytes))
 }
 
-public fun RouterLogEventDataW(hloghandle: Foundation.HANDLE, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: Long, dwdatabytes: UInt, lpdatabytes: Long) {
-    Win32DynamicFfi.invoke("rtutils.dll", "RouterLogEventDataW", longArrayOf(Win32DynamicFfi.objectSlot(hloghandle), dweventtype.toLong(), dwmessageid.toLong(), dwsubstringcount.toLong(), plpszsubstringarray, dwdatabytes.toLong(), lpdatabytes))
+public fun RouterLogEventDataW(hloghandle: HANDLE, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: Long, dwdatabytes: UInt, lpdatabytes: Long) {
+    Win32DynamicFfi.invoke("rtutils.dll", "RouterLogEventDataW", longArrayOf(hloghandle, dweventtype.toLong(), dwmessageid.toLong(), dwsubstringcount.toLong(), plpszsubstringarray, dwdatabytes.toLong(), lpdatabytes))
 }
 
-public fun RouterLogEventExA(hloghandle: Foundation.HANDLE, dweventtype: UInt, dwerrorcode: UInt, dwmessageid: UInt, ptszformat: PCSTR, vararg variadicArgs: Long) {
-    Win32DynamicFfi.invoke("rtutils.dll", "RouterLogEventExA", longArrayOf(Win32DynamicFfi.objectSlot(hloghandle), dweventtype.toLong(), dwerrorcode.toLong(), dwmessageid.toLong(), ptszformat) + variadicArgs)
+public fun RouterLogEventExA(hloghandle: HANDLE, dweventtype: UInt, dwerrorcode: UInt, dwmessageid: UInt, ptszformat: PCSTR, vararg variadicArgs: Long) {
+    Win32DynamicFfi.invoke("rtutils.dll", "RouterLogEventExA", longArrayOf(hloghandle, dweventtype.toLong(), dwerrorcode.toLong(), dwmessageid.toLong(), ptszformat) + variadicArgs)
 }
 
-public fun RouterLogEventExW(hloghandle: Foundation.HANDLE, dweventtype: UInt, dwerrorcode: UInt, dwmessageid: UInt, ptszformat: PCWSTR, vararg variadicArgs: Long) {
-    Win32DynamicFfi.invoke("rtutils.dll", "RouterLogEventExW", longArrayOf(Win32DynamicFfi.objectSlot(hloghandle), dweventtype.toLong(), dwerrorcode.toLong(), dwmessageid.toLong(), ptszformat) + variadicArgs)
+public fun RouterLogEventExW(hloghandle: HANDLE, dweventtype: UInt, dwerrorcode: UInt, dwmessageid: UInt, ptszformat: PCWSTR, vararg variadicArgs: Long) {
+    Win32DynamicFfi.invoke("rtutils.dll", "RouterLogEventExW", longArrayOf(hloghandle, dweventtype.toLong(), dwerrorcode.toLong(), dwmessageid.toLong(), ptszformat) + variadicArgs)
 }
 
-public fun RouterLogEventStringA(hloghandle: Foundation.HANDLE, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: Long, dwerrorcode: UInt, dwerrorindex: UInt) {
-    Win32DynamicFfi.invoke("rtutils.dll", "RouterLogEventStringA", longArrayOf(Win32DynamicFfi.objectSlot(hloghandle), dweventtype.toLong(), dwmessageid.toLong(), dwsubstringcount.toLong(), plpszsubstringarray, dwerrorcode.toLong(), dwerrorindex.toLong()))
+public fun RouterLogEventStringA(hloghandle: HANDLE, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: Long, dwerrorcode: UInt, dwerrorindex: UInt) {
+    Win32DynamicFfi.invoke("rtutils.dll", "RouterLogEventStringA", longArrayOf(hloghandle, dweventtype.toLong(), dwmessageid.toLong(), dwsubstringcount.toLong(), plpszsubstringarray, dwerrorcode.toLong(), dwerrorindex.toLong()))
 }
 
-public fun RouterLogEventStringW(hloghandle: Foundation.HANDLE, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: Long, dwerrorcode: UInt, dwerrorindex: UInt) {
-    Win32DynamicFfi.invoke("rtutils.dll", "RouterLogEventStringW", longArrayOf(Win32DynamicFfi.objectSlot(hloghandle), dweventtype.toLong(), dwmessageid.toLong(), dwsubstringcount.toLong(), plpszsubstringarray, dwerrorcode.toLong(), dwerrorindex.toLong()))
+public fun RouterLogEventStringW(hloghandle: HANDLE, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: Long, dwerrorcode: UInt, dwerrorindex: UInt) {
+    Win32DynamicFfi.invoke("rtutils.dll", "RouterLogEventStringW", longArrayOf(hloghandle, dweventtype.toLong(), dwmessageid.toLong(), dwsubstringcount.toLong(), plpszsubstringarray, dwerrorcode.toLong(), dwerrorindex.toLong()))
 }
 
-public fun RouterLogEventValistExA(hloghandle: Foundation.HANDLE, dweventtype: UInt, dwerrorcode: UInt, dwmessageid: UInt, ptszformat: PCSTR, arglist: Long) {
-    Win32DynamicFfi.invoke("rtutils.dll", "RouterLogEventValistExA", longArrayOf(Win32DynamicFfi.objectSlot(hloghandle), dweventtype.toLong(), dwerrorcode.toLong(), dwmessageid.toLong(), ptszformat, arglist))
+public fun RouterLogEventValistExA(hloghandle: HANDLE, dweventtype: UInt, dwerrorcode: UInt, dwmessageid: UInt, ptszformat: PCSTR, arglist: Long) {
+    Win32DynamicFfi.invoke("rtutils.dll", "RouterLogEventValistExA", longArrayOf(hloghandle, dweventtype.toLong(), dwerrorcode.toLong(), dwmessageid.toLong(), ptszformat, arglist))
 }
 
-public fun RouterLogEventValistExW(hloghandle: Foundation.HANDLE, dweventtype: UInt, dwerrorcode: UInt, dwmessageid: UInt, ptszformat: PCWSTR, arglist: Long) {
-    Win32DynamicFfi.invoke("rtutils.dll", "RouterLogEventValistExW", longArrayOf(Win32DynamicFfi.objectSlot(hloghandle), dweventtype.toLong(), dwerrorcode.toLong(), dwmessageid.toLong(), ptszformat, arglist))
+public fun RouterLogEventValistExW(hloghandle: HANDLE, dweventtype: UInt, dwerrorcode: UInt, dwmessageid: UInt, ptszformat: PCWSTR, arglist: Long) {
+    Win32DynamicFfi.invoke("rtutils.dll", "RouterLogEventValistExW", longArrayOf(hloghandle, dweventtype.toLong(), dwerrorcode.toLong(), dwmessageid.toLong(), ptszformat, arglist))
 }
 
-public fun RouterLogEventW(hloghandle: Foundation.HANDLE, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: Long, dwerrorcode: UInt) {
-    Win32DynamicFfi.invoke("rtutils.dll", "RouterLogEventW", longArrayOf(Win32DynamicFfi.objectSlot(hloghandle), dweventtype.toLong(), dwmessageid.toLong(), dwsubstringcount.toLong(), plpszsubstringarray, dwerrorcode.toLong()))
+public fun RouterLogEventW(hloghandle: HANDLE, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: Long, dwerrorcode: UInt) {
+    Win32DynamicFfi.invoke("rtutils.dll", "RouterLogEventW", longArrayOf(hloghandle, dweventtype.toLong(), dwmessageid.toLong(), dwsubstringcount.toLong(), plpszsubstringarray, dwerrorcode.toLong()))
 }
 
-public fun RouterLogRegisterA(lpszsource: PCSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("rtutils.dll", "RouterLogRegisterA", longArrayOf(lpszsource))
-    return Foundation.HANDLE()
+public fun RouterLogRegisterA(lpszsource: PCSTR): HANDLE {
+    return Win32DynamicFfi.invoke("rtutils.dll", "RouterLogRegisterA", longArrayOf(lpszsource))
 }
 
-public fun RouterLogRegisterW(lpszsource: PCWSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("rtutils.dll", "RouterLogRegisterW", longArrayOf(lpszsource))
-    return Foundation.HANDLE()
+public fun RouterLogRegisterW(lpszsource: PCWSTR): HANDLE {
+    return Win32DynamicFfi.invoke("rtutils.dll", "RouterLogRegisterW", longArrayOf(lpszsource))
 }
 
 public fun SetNetScheduleAccountInformation(pwszservername: PCWSTR, pwszaccount: PCWSTR, pwszpassword: PCWSTR): HRESULT {

@@ -3,6 +3,14 @@ package io.github.kotlinmania.windowssys.windows.wdk.system.systemservices
 
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.DRIVER_CONTROL
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.WHEA_ERROR_SOURCE_DESCRIPTOR
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.WHEA_ERROR_SOURCE_TYPE
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.WHEA_NOTIFICATION_DESCRIPTOR
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.LIST_ENTRY
 
 public data class REG_LOAD_KEY_INFORMATION(
     public var Object: Long = 0L,
@@ -36,14 +44,14 @@ public data class REG_LOAD_KEY_INFORMATION_V2(
 public data class REG_POST_CREATE_KEY_INFORMATION(
     public var CompleteName: Long = 0L,
     public var Object: Long = 0L,
-    public var Status: Win32.Foundation.NTSTATUS = Win32.Foundation.NTSTATUS(),
+    public var Status: NTSTATUS = 0,
 )
 
 public data class REG_POST_OPERATION_INFORMATION(
     public var Object: Long = 0L,
-    public var Status: Win32.Foundation.NTSTATUS = Win32.Foundation.NTSTATUS(),
+    public var Status: NTSTATUS = 0,
     public var PreInformation: Long = 0L,
-    public var ReturnStatus: Win32.Foundation.NTSTATUS = Win32.Foundation.NTSTATUS(),
+    public var ReturnStatus: NTSTATUS = 0,
     public var CallContext: Long = 0L,
     public var ObjectContext: Long = 0L,
     public var Reserved: Long = 0L,
@@ -64,7 +72,7 @@ public data class REG_QUERY_KEY_NAME(
 public data class REG_QUERY_KEY_SECURITY_INFORMATION(
     public var Object: Long = 0L,
     public var SecurityInformation: Long = 0L,
-    public var SecurityDescriptor: Win32.Security.PSECURITY_DESCRIPTOR = Win32.Security.PSECURITY_DESCRIPTOR(),
+    public var SecurityDescriptor: PSECURITY_DESCRIPTOR = 0L,
     public var Length: Long = 0L,
     public var CallContext: Long = 0L,
     public var ObjectContext: Long = 0L,
@@ -90,7 +98,7 @@ public data class REG_REPLACE_KEY_INFORMATION(
 
 public data class REG_RESTORE_KEY_INFORMATION(
     public var Object: Long = 0L,
-    public var FileHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var FileHandle: HANDLE = 0L,
     public var Flags: UInt = 0u,
     public var CallContext: Long = 0L,
     public var ObjectContext: Long = 0L,
@@ -99,7 +107,7 @@ public data class REG_RESTORE_KEY_INFORMATION(
 
 public data class REG_SAVE_KEY_INFORMATION(
     public var Object: Long = 0L,
-    public var FileHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var FileHandle: HANDLE = 0L,
     public var Format: UInt = 0u,
     public var CallContext: Long = 0L,
     public var ObjectContext: Long = 0L,
@@ -108,7 +116,7 @@ public data class REG_SAVE_KEY_INFORMATION(
 
 public data class REG_SAVE_MERGED_KEY_INFORMATION(
     public var Object: Long = 0L,
-    public var FileHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var FileHandle: HANDLE = 0L,
     public var HighKeyObject: Long = 0L,
     public var LowKeyObject: Long = 0L,
     public var CallContext: Long = 0L,
@@ -119,7 +127,7 @@ public data class REG_SAVE_MERGED_KEY_INFORMATION(
 public data class REG_SET_KEY_SECURITY_INFORMATION(
     public var Object: Long = 0L,
     public var SecurityInformation: Long = 0L,
-    public var SecurityDescriptor: Win32.Security.PSECURITY_DESCRIPTOR = Win32.Security.PSECURITY_DESCRIPTOR(),
+    public var SecurityDescriptor: PSECURITY_DESCRIPTOR = 0L,
     public var CallContext: Long = 0L,
     public var ObjectContext: Long = 0L,
     public var Reserved: Long = 0L,
@@ -146,7 +154,7 @@ public data class REG_UNLOAD_KEY_INFORMATION(
 )
 
 public data class RESOURCE_HASH_ENTRY(
-    public var ListEntry: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(),
+    public var ListEntry: LIST_ENTRY = LIST_ENTRY(),
     public var Address: Long = 0L,
     public var ContentionCount: UInt = 0u,
     public var Number: UInt = 0u,
@@ -163,7 +171,7 @@ public data class RESOURCE_PERFORMANCE_DATA(
     public var WaitForExclusive: UInt = 0u,
     public var OwnerTableExpands: UInt = 0u,
     public var MaximumTableExpand: UInt = 0u,
-    public var HashTable: List<Win32.System.Kernel.LIST_ENTRY> = List(64) { Win32.System.Kernel.LIST_ENTRY() },
+    public var HashTable: List<LIST_ENTRY> = List(64) { LIST_ENTRY() },
 )
 
 public data class RTL_AVL_TABLE(
@@ -230,7 +238,7 @@ public data class RTL_DYNAMIC_HASH_TABLE_CONTEXT(
     public var Signature: ULong = 0uL,
 )
 
-public data class RTL_DYNAMIC_HASH_TABLE_ENTRY(public var Linkage: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(), public var Signature: ULong = 0uL)
+public data class RTL_DYNAMIC_HASH_TABLE_ENTRY(public var Linkage: LIST_ENTRY = LIST_ENTRY(), public var Signature: ULong = 0uL)
 
 public data class RTL_DYNAMIC_HASH_TABLE_ENUMERATOR(
     public var Anonymous: RTL_DYNAMIC_HASH_TABLE_ENUMERATOR_0 = RTL_DYNAMIC_HASH_TABLE_ENUMERATOR_0(),
@@ -242,7 +250,7 @@ public data class RTL_DYNAMIC_HASH_TABLE_ENUMERATOR_0(public var HashEntry: RTL_
 
 public data class RTL_GENERIC_TABLE(
     public var TableRoot: Long = 0L,
-    public var InsertOrderList: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(),
+    public var InsertOrderList: LIST_ENTRY = LIST_ENTRY(),
     public var OrderedPointer: Long = 0L,
     public var WhichOrderedElement: UInt = 0u,
     public var NumberGenericTableElements: UInt = 0u,
@@ -536,7 +544,7 @@ public data class VM_COUNTERS_EX2(
 
 public data class WAIT_CONTEXT_BLOCK(
     public var Anonymous: WAIT_CONTEXT_BLOCK_0 = WAIT_CONTEXT_BLOCK_0(),
-    public var DeviceRoutine: Foundation.DRIVER_CONTROL = Foundation.DRIVER_CONTROL(),
+    public var DeviceRoutine: DRIVER_CONTROL = null,
     public var DeviceContext: Long = 0L,
     public var NumberOfMapRegisters: UInt = 0u,
     public var DeviceObject: Long = 0L,
@@ -547,7 +555,7 @@ public data class WAIT_CONTEXT_BLOCK(
 public data class WAIT_CONTEXT_BLOCK_0(public var WaitQueueEntry: KDEVICE_QUEUE_ENTRY = KDEVICE_QUEUE_ENTRY(), public var Anonymous: WAIT_CONTEXT_BLOCK_0_0 = WAIT_CONTEXT_BLOCK_0_0())
 
 public data class WAIT_CONTEXT_BLOCK_0_0(
-    public var DmaWaitEntry: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(),
+    public var DmaWaitEntry: LIST_ENTRY = LIST_ENTRY(),
     public var NumberOfChannels: UInt = 0u,
     public var _bitfield: UInt = 0u,
 )
@@ -578,8 +586,8 @@ public data class WHEAP_ACPI_TIMEOUT_EVENT(
 
 public data class WHEAP_ADD_REMOVE_ERROR_SOURCE_EVENT(
     public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY(),
-    public var Descriptor: Win32.System.Diagnostics.Debug.WHEA_ERROR_SOURCE_DESCRIPTOR = Win32.System.Diagnostics.Debug.WHEA_ERROR_SOURCE_DESCRIPTOR(),
-    public var Status: Win32.Foundation.NTSTATUS = Win32.Foundation.NTSTATUS(),
+    public var Descriptor: WHEA_ERROR_SOURCE_DESCRIPTOR = WHEA_ERROR_SOURCE_DESCRIPTOR(),
+    public var Status: NTSTATUS = 0,
     public var IsRemove: Boolean = false,
 )
 
@@ -588,14 +596,14 @@ public data class WHEAP_ATTEMPT_RECOVERY_EVENT(
     public var ErrorHeader: WHEA_ERROR_RECORD_HEADER = WHEA_ERROR_RECORD_HEADER(),
     public var ArchitecturalRecovery: Boolean = false,
     public var PshedRecovery: Boolean = false,
-    public var Status: Win32.Foundation.NTSTATUS = Win32.Foundation.NTSTATUS(),
+    public var Status: NTSTATUS = 0,
 )
 
 public data class WHEAP_BAD_HEST_NOTIFY_DATA_EVENT(
     public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY(),
     public var SourceId: UShort = 0u,
     public var Reserved: UShort = 0u,
-    public var NotifyDesc: Win32.System.Diagnostics.Debug.WHEA_NOTIFICATION_DESCRIPTOR = Win32.System.Diagnostics.Debug.WHEA_NOTIFICATION_DESCRIPTOR(),
+    public var NotifyDesc: WHEA_NOTIFICATION_DESCRIPTOR = WHEA_NOTIFICATION_DESCRIPTOR(),
 )
 
 public data class WHEAP_CLEARED_POISON_EVENT(public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY(), public var PhysicalAddress: ULong = 0uL)
@@ -622,7 +630,7 @@ public data class WHEAP_CREATE_GENERIC_RECORD_EVENT(
     public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY(),
     public var Error: ByteArray = ByteArray(32),
     public var EntryCount: UInt = 0u,
-    public var Status: Win32.Foundation.NTSTATUS = Win32.Foundation.NTSTATUS(),
+    public var Status: NTSTATUS = 0,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -643,7 +651,7 @@ public data class WHEAP_CREATE_GENERIC_RECORD_EVENT(
     }
 }
 
-public data class WHEAP_DEFERRED_EVENT(public var ListEntry: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(), public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY())
+public data class WHEAP_DEFERRED_EVENT(public var ListEntry: LIST_ENTRY = LIST_ENTRY(), public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY())
 
 public data class WHEAP_DEVICE_DRV_EVENT(public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY(), public var Function: ByteArray = ByteArray(32)) {
     override fun equals(other: Any?): Boolean {
@@ -673,7 +681,7 @@ public data class WHEAP_DPC_ERROR_EVENT(
 
 public data class WHEAP_DROPPED_CORRECTED_ERROR_EVENT(
     public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY(),
-    public var ErrorSourceType: Win32.System.Diagnostics.Debug.WHEA_ERROR_SOURCE_TYPE = Win32.System.Diagnostics.Debug.WHEA_ERROR_SOURCE_TYPE(),
+    public var ErrorSourceType: WHEA_ERROR_SOURCE_TYPE = 0,
     public var ErrorSourceId: UInt = 0u,
 )
 
@@ -700,7 +708,7 @@ public data class WHEAP_ERR_SRC_ARRAY_INVALID_EVENT(
 
 public data class WHEAP_ERR_SRC_INVALID_EVENT(
     public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY(),
-    public var ErrDescriptor: Win32.System.Diagnostics.Debug.WHEA_ERROR_SOURCE_DESCRIPTOR = Win32.System.Diagnostics.Debug.WHEA_ERROR_SOURCE_DESCRIPTOR(),
+    public var ErrDescriptor: WHEA_ERROR_SOURCE_DESCRIPTOR = WHEA_ERROR_SOURCE_DESCRIPTOR(),
     public var Error: ByteArray = ByteArray(32),
 ) {
     override fun equals(other: Any?): Boolean {
@@ -851,7 +859,7 @@ public data class WHEAP_PCIE_OVERRIDE_INFO(
 public data class WHEAP_PCIE_READ_OVERRIDES_ERR(
     public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY(),
     public var FailureReason: UInt = 0u,
-    public var FailureStatus: Win32.Foundation.NTSTATUS = Win32.Foundation.NTSTATUS(),
+    public var FailureStatus: NTSTATUS = 0,
 )
 
 public data class WHEAP_PFA_MEMORY_OFFLINED(
@@ -999,7 +1007,7 @@ public data class WHEAP_PSHED_INJECT_ERROR(
     public var Parameter2: ULong = 0uL,
     public var Parameter3: ULong = 0uL,
     public var Parameter4: ULong = 0uL,
-    public var InjectionStatus: Win32.Foundation.NTSTATUS = Win32.Foundation.NTSTATUS(),
+    public var InjectionStatus: NTSTATUS = 0,
     public var InjectionAttempted: Boolean = false,
     public var InjectionByPlugin: Boolean = false,
 )
@@ -1009,7 +1017,7 @@ public data class WHEAP_PSHED_PLUGIN_REGISTER(
     public var Version: UInt = 0u,
     public var Length: UInt = 0u,
     public var FunctionalAreaMask: UInt = 0u,
-    public var Status: Win32.Foundation.NTSTATUS = Win32.Foundation.NTSTATUS(),
+    public var Status: NTSTATUS = 0,
 )
 
 public data class WHEAP_ROW_FAILURE_EVENT(
@@ -1470,7 +1478,7 @@ public class WHEA_ERROR_PACKET_V1(
     public var ErrorType: WHEA_ERROR_TYPE = 0,
     public var ErrorSeverity: WHEA_ERROR_SEVERITY = 0,
     public var ErrorSourceId: UInt = 0u,
-    public var ErrorSourceType: Win32.System.Diagnostics.Debug.WHEA_ERROR_SOURCE_TYPE = Win32.System.Diagnostics.Debug.WHEA_ERROR_SOURCE_TYPE(),
+    public var ErrorSourceType: WHEA_ERROR_SOURCE_TYPE = 0,
     public var Reserved2: UInt = 0u,
     public var Version: UInt = 0u,
     public var Cpu: ULong = 0uL,
@@ -1498,7 +1506,7 @@ public data class WHEA_ERROR_PACKET_V2(
     public var ErrorType: WHEA_ERROR_TYPE = 0,
     public var ErrorSeverity: WHEA_ERROR_SEVERITY = 0,
     public var ErrorSourceId: UInt = 0u,
-    public var ErrorSourceType: Win32.System.Diagnostics.Debug.WHEA_ERROR_SOURCE_TYPE = Win32.System.Diagnostics.Debug.WHEA_ERROR_SOURCE_TYPE(),
+    public var ErrorSourceType: WHEA_ERROR_SOURCE_TYPE = 0,
     public var NotifyType: GUID = GUID(),
     public var Context: ULong = 0uL,
     public var DataFormat: WHEA_ERROR_PACKET_DATA_FORMAT = 0,
@@ -1666,7 +1674,7 @@ public data class WHEA_ERROR_SOURCE_CONFIGURATION(
 )
 
 public data class WHEA_ERROR_SOURCE_OVERRIDE_SETTINGS(
-    public var Type: Win32.System.Diagnostics.Debug.WHEA_ERROR_SOURCE_TYPE = Win32.System.Diagnostics.Debug.WHEA_ERROR_SOURCE_TYPE(),
+    public var Type: WHEA_ERROR_SOURCE_TYPE = 0,
     public var MaxRawDataLength: UInt = 0u,
     public var NumRecordsToPreallocate: UInt = 0u,
     public var MaxSectionsPerRecord: UInt = 0u,
@@ -1884,7 +1892,7 @@ public data class WHEA_MEMORY_ERROR_SECTION_VALIDBITS(public var Anonymous: WHEA
 
 public data class WHEA_MEMORY_ERROR_SECTION_VALIDBITS_0(public var _bitfield: ULong = 0uL)
 
-public data class WHEA_MEMORY_THROTTLE_SUMMARY_FAILED_EVENT(public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY(), public var Status: Win32.Foundation.NTSTATUS = Win32.Foundation.NTSTATUS())
+public data class WHEA_MEMORY_THROTTLE_SUMMARY_FAILED_EVENT(public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY(), public var Status: NTSTATUS = 0)
 
 public data class WHEA_MSR_DUMP_SECTION(
     public var MsrDumpBuffer: UByte = 0u,
@@ -2244,7 +2252,7 @@ public data class WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS(public var Anon
 
 public data class WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS_0(public var _bitfield: ULong = 0uL)
 
-public data class WHEA_PSHED_PI_CPU_BUSES_INIT_FAILED_EVENT(public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY(), public var Status: Win32.Foundation.NTSTATUS = Win32.Foundation.NTSTATUS())
+public data class WHEA_PSHED_PI_CPU_BUSES_INIT_FAILED_EVENT(public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY(), public var Status: NTSTATUS = 0)
 
 public data class WHEA_PSHED_PI_TRACE_EVENT(public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY(), public var Buffer: ByteArray = ByteArray(256)) {
     override fun equals(other: Any?): Boolean {
@@ -2297,7 +2305,7 @@ public data class WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_FAILED_EVENT(public var WheaEv
 
 public data class WHEA_PSHED_PLUGIN_HEARTBEAT(public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY())
 
-public data class WHEA_PSHED_PLUGIN_INIT_FAILED_EVENT(public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY(), public var Status: Win32.Foundation.NTSTATUS = Win32.Foundation.NTSTATUS())
+public data class WHEA_PSHED_PLUGIN_INIT_FAILED_EVENT(public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY(), public var Status: NTSTATUS = 0)
 
 public data class WHEA_PSHED_PLUGIN_LOAD_EVENT(
     public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY(),

@@ -7,6 +7,10 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.SecPkgContext_Bindings
+import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.SecPkgContext_CipherInfo
+import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.SecPkgContext_ConnectionInfo
 
 public data class APP_CACHE_DOWNLOAD_ENTRY(public var pwszUrl: PWSTR = 0L, public var dwEntryType: UInt = 0u)
 
@@ -14,7 +18,7 @@ public data class APP_CACHE_DOWNLOAD_LIST(public var dwEntryCount: UInt = 0u, pu
 
 public data class APP_CACHE_GROUP_INFO(
     public var pwszManifestUrl: PWSTR = 0L,
-    public var ftLastAccessTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftLastAccessTime: FILETIME = FILETIME(),
     public var ullSize: ULong = 0uL,
 )
 
@@ -89,7 +93,7 @@ public data class GOPHER_FIND_DATAA(
     public var GopherType: GOPHER_TYPE = 0u,
     public var SizeLow: UInt = 0u,
     public var SizeHigh: UInt = 0u,
-    public var LastModificationTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var LastModificationTime: FILETIME = FILETIME(),
     public var Locator: ByteArray = ByteArray(654),
 ) {
     override fun equals(other: Any?): Boolean {
@@ -120,7 +124,7 @@ public data class GOPHER_FIND_DATAW(
     public var GopherType: GOPHER_TYPE = 0u,
     public var SizeLow: UInt = 0u,
     public var SizeHigh: UInt = 0u,
-    public var LastModificationTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var LastModificationTime: FILETIME = FILETIME(),
     public var Locator: UShortArray = UShortArray(654),
 ) {
     override fun equals(other: Any?): Boolean {
@@ -157,7 +161,7 @@ public data class GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE(
 
 public data class GOPHER_LOCATION_ATTRIBUTE_TYPE(public var Location: Long = 0L)
 
-public data class GOPHER_MOD_DATE_ATTRIBUTE_TYPE(public var DateAndTime: Foundation.FILETIME = Foundation.FILETIME())
+public data class GOPHER_MOD_DATE_ATTRIBUTE_TYPE(public var DateAndTime: FILETIME = FILETIME())
 
 public data class GOPHER_ORGANIZATION_ATTRIBUTE_TYPE(public var Organization: Long = 0L)
 
@@ -366,10 +370,10 @@ public data class INTERNET_CACHE_ENTRY_INFOA(
     public var dwHitRate: UInt = 0u,
     public var dwSizeLow: UInt = 0u,
     public var dwSizeHigh: UInt = 0u,
-    public var LastModifiedTime: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ExpireTime: Foundation.FILETIME = Foundation.FILETIME(),
-    public var LastAccessTime: Foundation.FILETIME = Foundation.FILETIME(),
-    public var LastSyncTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var LastModifiedTime: FILETIME = FILETIME(),
+    public var ExpireTime: FILETIME = FILETIME(),
+    public var LastAccessTime: FILETIME = FILETIME(),
+    public var LastSyncTime: FILETIME = FILETIME(),
     public var lpHeaderInfo: PSTR = 0L,
     public var dwHeaderInfoSize: UInt = 0u,
     public var lpszFileExtension: PSTR = 0L,
@@ -387,10 +391,10 @@ public data class INTERNET_CACHE_ENTRY_INFOW(
     public var dwHitRate: UInt = 0u,
     public var dwSizeLow: UInt = 0u,
     public var dwSizeHigh: UInt = 0u,
-    public var LastModifiedTime: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ExpireTime: Foundation.FILETIME = Foundation.FILETIME(),
-    public var LastAccessTime: Foundation.FILETIME = Foundation.FILETIME(),
-    public var LastSyncTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var LastModifiedTime: FILETIME = FILETIME(),
+    public var ExpireTime: FILETIME = FILETIME(),
+    public var LastAccessTime: FILETIME = FILETIME(),
+    public var LastSyncTime: FILETIME = FILETIME(),
     public var lpHeaderInfo: PWSTR = 0L,
     public var dwHeaderInfoSize: UInt = 0u,
     public var lpszFileExtension: PWSTR = 0L,
@@ -467,20 +471,20 @@ public data class INTERNET_CACHE_GROUP_INFOW(
     }
 }
 
-public data class INTERNET_CACHE_TIMESTAMPS(public var ftExpires: Foundation.FILETIME = Foundation.FILETIME(), public var ftLastModified: Foundation.FILETIME = Foundation.FILETIME())
+public data class INTERNET_CACHE_TIMESTAMPS(public var ftExpires: FILETIME = FILETIME(), public var ftLastModified: FILETIME = FILETIME())
 
 public data class INTERNET_CALLBACK_COOKIE(
     public var pcwszName: PCWSTR = 0L,
     public var pcwszValue: PCWSTR = 0L,
     public var pcwszDomain: PCWSTR = 0L,
     public var pcwszPath: PCWSTR = 0L,
-    public var ftExpires: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftExpires: FILETIME = FILETIME(),
     public var dwFlags: UInt = 0u,
 )
 
 public data class INTERNET_CERTIFICATE_INFO(
-    public var ftExpiry: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ftStart: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftExpiry: FILETIME = FILETIME(),
+    public var ftStart: FILETIME = FILETIME(),
     public var lpszSubjectInfo: Long = 0L,
     public var lpszIssuerInfo: Long = 0L,
     public var lpszProtocolName: Long = 0L,
@@ -509,7 +513,7 @@ public data class INTERNET_COOKIE2(
     public var pwszDomain: PWSTR = 0L,
     public var pwszPath: PWSTR = 0L,
     public var dwFlags: UInt = 0u,
-    public var ftExpires: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftExpires: FILETIME = FILETIME(),
     public var fExpiresSet: BOOL = 0,
 )
 
@@ -543,7 +547,7 @@ public data class INTERNET_PER_CONN_OPTIONA(public var dwOption: INTERNET_PER_CO
 public data class INTERNET_PER_CONN_OPTIONA_0(
     public var dwValue: UInt = 0u,
     public var pszValue: PSTR = 0L,
-    public var ftValue: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftValue: FILETIME = FILETIME(),
 )
 
 public data class INTERNET_PER_CONN_OPTIONW(public var dwOption: INTERNET_PER_CONN = 0u, public var Value: INTERNET_PER_CONN_OPTIONW_0 = INTERNET_PER_CONN_OPTIONW_0())
@@ -551,7 +555,7 @@ public data class INTERNET_PER_CONN_OPTIONW(public var dwOption: INTERNET_PER_CO
 public data class INTERNET_PER_CONN_OPTIONW_0(
     public var dwValue: UInt = 0u,
     public var pszValue: PWSTR = 0L,
-    public var ftValue: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftValue: FILETIME = FILETIME(),
 )
 
 public data class INTERNET_PER_CONN_OPTION_LISTA(
@@ -581,18 +585,18 @@ public data class INTERNET_PROXY_INFO(
 public data class INTERNET_SECURITY_CONNECTION_INFO(
     public var dwSize: UInt = 0u,
     public var fSecure: BOOL = 0,
-    public var connectionInfo: Security.Authentication.Identity.SecPkgContext_ConnectionInfo = Security.Authentication.Identity.SecPkgContext_ConnectionInfo(),
-    public var cipherInfo: Security.Authentication.Identity.SecPkgContext_CipherInfo = Security.Authentication.Identity.SecPkgContext_CipherInfo(),
+    public var connectionInfo: SecPkgContext_ConnectionInfo = SecPkgContext_ConnectionInfo(),
+    public var cipherInfo: SecPkgContext_CipherInfo = SecPkgContext_CipherInfo(),
 )
 
 public data class INTERNET_SECURITY_INFO(
     public var dwSize: UInt = 0u,
     public var pCertificate: Long = 0L,
     public var pcCertChain: Long = 0L,
-    public var connectionInfo: Security.Authentication.Identity.SecPkgContext_ConnectionInfo = Security.Authentication.Identity.SecPkgContext_ConnectionInfo(),
-    public var cipherInfo: Security.Authentication.Identity.SecPkgContext_CipherInfo = Security.Authentication.Identity.SecPkgContext_CipherInfo(),
+    public var connectionInfo: SecPkgContext_ConnectionInfo = SecPkgContext_ConnectionInfo(),
+    public var cipherInfo: SecPkgContext_CipherInfo = SecPkgContext_CipherInfo(),
     public var pcUnverifiedCertChain: Long = 0L,
-    public var channelBindingToken: Security.Authentication.Identity.SecPkgContext_Bindings = Security.Authentication.Identity.SecPkgContext_Bindings(),
+    public var channelBindingToken: SecPkgContext_Bindings = SecPkgContext_Bindings(),
 )
 
 public data class INTERNET_SERVER_CONNECTION_STATE(
@@ -646,10 +650,10 @@ public data class URLCACHE_ENTRY_INFO(
     public var dwHitRate: UInt = 0u,
     public var dwSizeLow: UInt = 0u,
     public var dwSizeHigh: UInt = 0u,
-    public var ftLastModifiedTime: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ftExpireTime: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ftLastAccessTime: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ftLastSyncTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftLastModifiedTime: FILETIME = FILETIME(),
+    public var ftExpireTime: FILETIME = FILETIME(),
+    public var ftLastAccessTime: FILETIME = FILETIME(),
+    public var ftLastSyncTime: FILETIME = FILETIME(),
     public var pbHeaderInfo: Long = 0L,
     public var cbHeaderInfoSize: UInt = 0u,
     public var pbExtraData: Long = 0L,

@@ -4,6 +4,10 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
 
 public fun interface APPLICATION_RECOVERY_CALLBACKFn {
     public operator fun invoke(pvparameter: Long): UInt
@@ -46,13 +50,13 @@ public fun interface PFIBER_CALLOUT_ROUTINEFn {
 public typealias PFIBER_CALLOUT_ROUTINE = PFIBER_CALLOUT_ROUTINEFn?
 
 public fun interface PQUERYACTCTXW_FUNCFn {
-    public operator fun invoke(dwflags: UInt, hactctx: Foundation.HANDLE, pvsubinstance: Long, ulinfoclass: UInt, pvbuffer: Long, cbbuffer: ULong, pcbwrittenorrequired: Long): BOOL
+    public operator fun invoke(dwflags: UInt, hactctx: HANDLE, pvsubinstance: Long, ulinfoclass: UInt, pvbuffer: Long, cbbuffer: ULong, pcbwrittenorrequired: Long): BOOL
 }
 
 public typealias PQUERYACTCTXW_FUNC = PQUERYACTCTXW_FUNCFn?
 
 public fun interface PWINSTATIONQUERYINFORMATIONWFn {
-    public operator fun invoke(param0: Foundation.HANDLE, param1: UInt, param2: WINSTATIONINFOCLASS, param3: Long, param4: UInt, param5: Long): Boolean
+    public operator fun invoke(param0: HANDLE, param1: UInt, param2: WINSTATIONINFOCLASS, param3: Long, param4: UInt, param5: Long): Boolean
 }
 
 public typealias PWINSTATIONQUERYINFORMATIONW = PWINSTATIONQUERYINFORMATIONWFn?
@@ -64,7 +68,7 @@ public fun interface PWLDP_CANEXECUTEBUFFER_APIFn {
 public typealias PWLDP_CANEXECUTEBUFFER_API = PWLDP_CANEXECUTEBUFFER_APIFn?
 
 public fun interface PWLDP_CANEXECUTEFILE_APIFn {
-    public operator fun invoke(host: Long, options: WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle: Foundation.HANDLE, auditinfo: PCWSTR, result: Long): HRESULT
+    public operator fun invoke(host: Long, options: WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle: HANDLE, auditinfo: PCWSTR, result: Long): HRESULT
 }
 
 public typealias PWLDP_CANEXECUTEFILE_API = PWLDP_CANEXECUTEFILE_APIFn?
@@ -106,7 +110,7 @@ public fun interface PWLDP_QUERYDEVICESECURITYINFORMATION_APIFn {
 public typealias PWLDP_QUERYDEVICESECURITYINFORMATION_API = PWLDP_QUERYDEVICESECURITYINFORMATION_APIFn?
 
 public fun interface PWLDP_QUERYDYNAMICODETRUST_APIFn {
-    public operator fun invoke(filehandle: Foundation.HANDLE, baseimage: Long, imagesize: UInt): HRESULT
+    public operator fun invoke(filehandle: HANDLE, baseimage: Long, imagesize: UInt): HRESULT
 }
 
 public typealias PWLDP_QUERYDYNAMICODETRUST_API = PWLDP_QUERYDYNAMICODETRUST_APIFn?
@@ -148,7 +152,7 @@ public fun interface PWLDP_RESETWCOSPRODUCTIONCONFIGURATION_APIFn {
 public typealias PWLDP_RESETWCOSPRODUCTIONCONFIGURATION_API = PWLDP_RESETWCOSPRODUCTIONCONFIGURATION_APIFn?
 
 public fun interface PWLDP_SETDYNAMICCODETRUST_APIFn {
-    public operator fun invoke(hfilehandle: Foundation.HANDLE): HRESULT
+    public operator fun invoke(hfilehandle: HANDLE): HRESULT
 }
 
 public typealias PWLDP_SETDYNAMICCODETRUST_API = PWLDP_SETDYNAMICCODETRUST_APIFn?
@@ -160,7 +164,7 @@ public fun interface PWLDP_SETWINDOWSLOCKDOWNRESTRICTION_APIFn {
 public typealias PWLDP_SETWINDOWSLOCKDOWNRESTRICTION_API = PWLDP_SETWINDOWSLOCKDOWNRESTRICTION_APIFn?
 
 public fun interface REGINSTALLAFn {
-    public operator fun invoke(hm: Foundation.HMODULE, pszsection: PCSTR, psttable: Long): HRESULT
+    public operator fun invoke(hm: HMODULE, pszsection: PCSTR, psttable: Long): HRESULT
 }
 
 public typealias REGINSTALLA = REGINSTALLAFn?
@@ -174,7 +178,7 @@ public typealias VALUENAME = Int
 public typealias WINSTATIONINFOCLASS = Int
 
 public fun interface WINWATCHNOTIFYPROCFn {
-    public operator fun invoke(hww: HWINWATCH, hwnd: Foundation.HWND, code: UInt, lparam: Foundation.LPARAM)
+    public operator fun invoke(hww: HWINWATCH, hwnd: HWND, code: UInt, lparam: LPARAM)
 }
 
 public typealias WINWATCHNOTIFYPROC = WINWATCHNOTIFYPROCFn?

@@ -5,6 +5,11 @@ import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HFONT
 
 public typealias AEROWIZARDPARTS = Int
 
@@ -131,7 +136,7 @@ public typealias DROPDOWNITEMSTATES = Int
 public typealias DTTOPTS_FLAGS = UInt
 
 public fun interface DTT_CALLBACK_PROCFn {
-    public operator fun invoke(hdc: Graphics.Gdi.HDC, psztext: PWSTR, cchtext: Int, prc: Long, dwflags: UInt, lparam: Foundation.LPARAM): Int
+    public operator fun invoke(hdc: HDC, psztext: PWSTR, cchtext: Int, prc: Long, dwflags: UInt, lparam: LPARAM): Int
 }
 
 public typealias DTT_CALLBACK_PROC = DTT_CALLBACK_PROCFn?
@@ -341,7 +346,7 @@ public typealias LIST_VIEW_ITEM_STATE_FLAGS = UInt
 public typealias LOGOFFBUTTONSSTATES = Int
 
 public fun interface LPFNADDPROPSHEETPAGESFn {
-    public operator fun invoke(param0: Long, param1: LPFNSVADDPROPSHEETPAGE, param2: Foundation.LPARAM): BOOL
+    public operator fun invoke(param0: Long, param1: LPFNSVADDPROPSHEETPAGE, param2: LPARAM): BOOL
 }
 
 public typealias LPFNADDPROPSHEETPAGES = LPFNADDPROPSHEETPAGESFn?
@@ -359,43 +364,43 @@ public fun interface LPFNCCINFOWFn {
 public typealias LPFNCCINFOW = LPFNCCINFOWFn?
 
 public fun interface LPFNCCSIZETOTEXTAFn {
-    public operator fun invoke(flstyle: UInt, flextstyle: UInt, hfont: Graphics.Gdi.HFONT, psztext: PCSTR): Int
+    public operator fun invoke(flstyle: UInt, flextstyle: UInt, hfont: HFONT, psztext: PCSTR): Int
 }
 
 public typealias LPFNCCSIZETOTEXTA = LPFNCCSIZETOTEXTAFn?
 
 public fun interface LPFNCCSIZETOTEXTWFn {
-    public operator fun invoke(flstyle: UInt, flextstyle: UInt, hfont: Graphics.Gdi.HFONT, psztext: PCWSTR): Int
+    public operator fun invoke(flstyle: UInt, flextstyle: UInt, hfont: HFONT, psztext: PCWSTR): Int
 }
 
 public typealias LPFNCCSIZETOTEXTW = LPFNCCSIZETOTEXTWFn?
 
 public fun interface LPFNCCSTYLEAFn {
-    public operator fun invoke(hwndparent: Foundation.HWND, pccs: Long): BOOL
+    public operator fun invoke(hwndparent: HWND, pccs: Long): BOOL
 }
 
 public typealias LPFNCCSTYLEA = LPFNCCSTYLEAFn?
 
 public fun interface LPFNCCSTYLEWFn {
-    public operator fun invoke(hwndparent: Foundation.HWND, pccs: Long): BOOL
+    public operator fun invoke(hwndparent: HWND, pccs: Long): BOOL
 }
 
 public typealias LPFNCCSTYLEW = LPFNCCSTYLEWFn?
 
 public fun interface LPFNPSPCALLBACKAFn {
-    public operator fun invoke(hwnd: Foundation.HWND, umsg: PSPCB_MESSAGE, ppsp: Long): UInt
+    public operator fun invoke(hwnd: HWND, umsg: PSPCB_MESSAGE, ppsp: Long): UInt
 }
 
 public typealias LPFNPSPCALLBACKA = LPFNPSPCALLBACKAFn?
 
 public fun interface LPFNPSPCALLBACKWFn {
-    public operator fun invoke(hwnd: Foundation.HWND, umsg: PSPCB_MESSAGE, ppsp: Long): UInt
+    public operator fun invoke(hwnd: HWND, umsg: PSPCB_MESSAGE, ppsp: Long): UInt
 }
 
 public typealias LPFNPSPCALLBACKW = LPFNPSPCALLBACKWFn?
 
 public fun interface LPFNSVADDPROPSHEETPAGEFn {
-    public operator fun invoke(param0: HPROPSHEETPAGE, param1: Foundation.LPARAM): BOOL
+    public operator fun invoke(param0: HPROPSHEETPAGE, param1: LPARAM): BOOL
 }
 
 public typealias LPFNSVADDPROPSHEETPAGE = LPFNSVADDPROPSHEETPAGEFn?
@@ -515,13 +520,13 @@ public typealias OPEN_THEME_DATA_FLAGS = UInt
 public typealias PAGEPARTS = Int
 
 public fun interface PFNDACOMPAREFn {
-    public operator fun invoke(p1: Long, p2: Long, lparam: Foundation.LPARAM): Int
+    public operator fun invoke(p1: Long, p2: Long, lparam: LPARAM): Int
 }
 
 public typealias PFNDACOMPARE = PFNDACOMPAREFn?
 
 public fun interface PFNDACOMPARECONSTFn {
-    public operator fun invoke(p1: Long, p2: Long, lparam: Foundation.LPARAM): Int
+    public operator fun invoke(p1: Long, p2: Long, lparam: LPARAM): Int
 }
 
 public typealias PFNDACOMPARECONST = PFNDACOMPARECONSTFn?
@@ -539,13 +544,13 @@ public fun interface PFNDAENUMCALLBACKCONSTFn {
 public typealias PFNDAENUMCALLBACKCONST = PFNDAENUMCALLBACKCONSTFn?
 
 public fun interface PFNDPAMERGEFn {
-    public operator fun invoke(umsg: DPAMM_MESSAGE, pvdest: Long, pvsrc: Long, lparam: Foundation.LPARAM): Long
+    public operator fun invoke(umsg: DPAMM_MESSAGE, pvdest: Long, pvsrc: Long, lparam: LPARAM): Long
 }
 
 public typealias PFNDPAMERGE = PFNDPAMERGEFn?
 
 public fun interface PFNDPAMERGECONSTFn {
-    public operator fun invoke(umsg: DPAMM_MESSAGE, pvdest: Long, pvsrc: Long, lparam: Foundation.LPARAM): Long
+    public operator fun invoke(umsg: DPAMM_MESSAGE, pvdest: Long, pvsrc: Long, lparam: LPARAM): Long
 }
 
 public typealias PFNDPAMERGECONST = PFNDPAMERGECONSTFn?
@@ -557,7 +562,7 @@ public fun interface PFNDPASTREAMFn {
 public typealias PFNDPASTREAM = PFNDPASTREAMFn?
 
 public fun interface PFNLVCOMPAREFn {
-    public operator fun invoke(param0: Foundation.LPARAM, param1: Foundation.LPARAM, param2: Foundation.LPARAM): Int
+    public operator fun invoke(param0: LPARAM, param1: LPARAM, param2: LPARAM): Int
 }
 
 public typealias PFNLVCOMPARE = PFNLVCOMPAREFn?
@@ -569,19 +574,19 @@ public fun interface PFNLVGROUPCOMPAREFn {
 public typealias PFNLVGROUPCOMPARE = PFNLVGROUPCOMPAREFn?
 
 public fun interface PFNPROPSHEETCALLBACKFn {
-    public operator fun invoke(param0: Foundation.HWND, param1: UInt, param2: Foundation.LPARAM): Int
+    public operator fun invoke(param0: HWND, param1: UInt, param2: LPARAM): Int
 }
 
 public typealias PFNPROPSHEETCALLBACK = PFNPROPSHEETCALLBACKFn?
 
 public fun interface PFNTVCOMPAREFn {
-    public operator fun invoke(lparam1: Foundation.LPARAM, lparam2: Foundation.LPARAM, lparamsort: Foundation.LPARAM): Int
+    public operator fun invoke(lparam1: LPARAM, lparam2: LPARAM, lparamsort: LPARAM): Int
 }
 
 public typealias PFNTVCOMPARE = PFNTVCOMPAREFn?
 
 public fun interface PFTASKDIALOGCALLBACKFn {
-    public operator fun invoke(hwnd: Foundation.HWND, msg: UInt, wparam: Foundation.WPARAM, lparam: Foundation.LPARAM, lprefdata: Long): HRESULT
+    public operator fun invoke(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM, lprefdata: Long): HRESULT
 }
 
 public typealias PFTASKDIALOGCALLBACK = PFTASKDIALOGCALLBACKFn?

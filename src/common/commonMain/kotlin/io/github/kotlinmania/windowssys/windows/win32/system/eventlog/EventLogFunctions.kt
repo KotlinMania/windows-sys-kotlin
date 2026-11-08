@@ -5,33 +5,35 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.security.PSID
 
 public fun interface FnCallback {
     public operator fun invoke(action: EVT_SUBSCRIBE_NOTIFY_ACTION, usercontext: Long, event: EVT_HANDLE): UInt
 }
 
-public fun BackupEventLogA(heventlog: Foundation.HANDLE, lpbackupfilename: PCSTR): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "BackupEventLogA", longArrayOf(Win32DynamicFfi.objectSlot(heventlog), lpbackupfilename)).toInt()
+public fun BackupEventLogA(heventlog: HANDLE, lpbackupfilename: PCSTR): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "BackupEventLogA", longArrayOf(heventlog, lpbackupfilename)).toInt()
 }
 
-public fun BackupEventLogW(heventlog: Foundation.HANDLE, lpbackupfilename: PCWSTR): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "BackupEventLogW", longArrayOf(Win32DynamicFfi.objectSlot(heventlog), lpbackupfilename)).toInt()
+public fun BackupEventLogW(heventlog: HANDLE, lpbackupfilename: PCWSTR): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "BackupEventLogW", longArrayOf(heventlog, lpbackupfilename)).toInt()
 }
 
-public fun ClearEventLogA(heventlog: Foundation.HANDLE, lpbackupfilename: PCSTR): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "ClearEventLogA", longArrayOf(Win32DynamicFfi.objectSlot(heventlog), lpbackupfilename)).toInt()
+public fun ClearEventLogA(heventlog: HANDLE, lpbackupfilename: PCSTR): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "ClearEventLogA", longArrayOf(heventlog, lpbackupfilename)).toInt()
 }
 
-public fun ClearEventLogW(heventlog: Foundation.HANDLE, lpbackupfilename: PCWSTR): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "ClearEventLogW", longArrayOf(Win32DynamicFfi.objectSlot(heventlog), lpbackupfilename)).toInt()
+public fun ClearEventLogW(heventlog: HANDLE, lpbackupfilename: PCWSTR): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "ClearEventLogW", longArrayOf(heventlog, lpbackupfilename)).toInt()
 }
 
-public fun CloseEventLog(heventlog: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "CloseEventLog", longArrayOf(Win32DynamicFfi.objectSlot(heventlog))).toInt()
+public fun CloseEventLog(heventlog: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "CloseEventLog", longArrayOf(heventlog)).toInt()
 }
 
-public fun DeregisterEventSource(heventlog: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "DeregisterEventSource", longArrayOf(Win32DynamicFfi.objectSlot(heventlog))).toInt()
+public fun DeregisterEventSource(heventlog: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "DeregisterEventSource", longArrayOf(heventlog)).toInt()
 }
 
 public fun EvtArchiveExportedLog(session: EVT_HANDLE, logfilepath: PCWSTR, locale: UInt, flags: UInt): BOOL {
@@ -166,72 +168,66 @@ public fun EvtSetChannelConfigProperty(channelconfig: EVT_HANDLE, propertyid: EV
     return Win32DynamicFfi.invoke("wevtapi.dll", "EvtSetChannelConfigProperty", longArrayOf(channelconfig, propertyid.toLong(), flags.toLong(), propertyvalue)).toInt()
 }
 
-public fun EvtSubscribe(session: EVT_HANDLE, signalevent: Foundation.HANDLE, channelpath: PCWSTR, query: PCWSTR, bookmark: EVT_HANDLE, context: Long, callback: EVT_SUBSCRIBE_CALLBACK, flags: UInt): EVT_HANDLE {
-    return Win32DynamicFfi.invoke("wevtapi.dll", "EvtSubscribe", longArrayOf(session, Win32DynamicFfi.objectSlot(signalevent), channelpath, query, bookmark, context, Win32DynamicFfi.objectSlot(callback), flags.toLong()))
+public fun EvtSubscribe(session: EVT_HANDLE, signalevent: HANDLE, channelpath: PCWSTR, query: PCWSTR, bookmark: EVT_HANDLE, context: Long, callback: EVT_SUBSCRIBE_CALLBACK, flags: UInt): EVT_HANDLE {
+    return Win32DynamicFfi.invoke("wevtapi.dll", "EvtSubscribe", longArrayOf(session, signalevent, channelpath, query, bookmark, context, Win32DynamicFfi.objectSlot(callback), flags.toLong()))
 }
 
 public fun EvtUpdateBookmark(bookmark: EVT_HANDLE, event: EVT_HANDLE): BOOL {
     return Win32DynamicFfi.invoke("wevtapi.dll", "EvtUpdateBookmark", longArrayOf(bookmark, event)).toInt()
 }
 
-public fun GetEventLogInformation(heventlog: Foundation.HANDLE, dwinfolevel: UInt, lpbuffer: Long, cbbufsize: UInt, pcbbytesneeded: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "GetEventLogInformation", longArrayOf(Win32DynamicFfi.objectSlot(heventlog), dwinfolevel.toLong(), lpbuffer, cbbufsize.toLong(), pcbbytesneeded)).toInt()
+public fun GetEventLogInformation(heventlog: HANDLE, dwinfolevel: UInt, lpbuffer: Long, cbbufsize: UInt, pcbbytesneeded: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "GetEventLogInformation", longArrayOf(heventlog, dwinfolevel.toLong(), lpbuffer, cbbufsize.toLong(), pcbbytesneeded)).toInt()
 }
 
-public fun GetNumberOfEventLogRecords(heventlog: Foundation.HANDLE, numberofrecords: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "GetNumberOfEventLogRecords", longArrayOf(Win32DynamicFfi.objectSlot(heventlog), numberofrecords)).toInt()
+public fun GetNumberOfEventLogRecords(heventlog: HANDLE, numberofrecords: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "GetNumberOfEventLogRecords", longArrayOf(heventlog, numberofrecords)).toInt()
 }
 
-public fun GetOldestEventLogRecord(heventlog: Foundation.HANDLE, oldestrecord: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "GetOldestEventLogRecord", longArrayOf(Win32DynamicFfi.objectSlot(heventlog), oldestrecord)).toInt()
+public fun GetOldestEventLogRecord(heventlog: HANDLE, oldestrecord: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "GetOldestEventLogRecord", longArrayOf(heventlog, oldestrecord)).toInt()
 }
 
-public fun NotifyChangeEventLog(heventlog: Foundation.HANDLE, hevent: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "NotifyChangeEventLog", longArrayOf(Win32DynamicFfi.objectSlot(heventlog), Win32DynamicFfi.objectSlot(hevent))).toInt()
+public fun NotifyChangeEventLog(heventlog: HANDLE, hevent: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "NotifyChangeEventLog", longArrayOf(heventlog, hevent)).toInt()
 }
 
-public fun OpenBackupEventLogA(lpuncservername: PCSTR, lpfilename: PCSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("advapi32.dll", "OpenBackupEventLogA", longArrayOf(lpuncservername, lpfilename))
-    return Foundation.HANDLE()
+public fun OpenBackupEventLogA(lpuncservername: PCSTR, lpfilename: PCSTR): HANDLE {
+    return Win32DynamicFfi.invoke("advapi32.dll", "OpenBackupEventLogA", longArrayOf(lpuncservername, lpfilename))
 }
 
-public fun OpenBackupEventLogW(lpuncservername: PCWSTR, lpfilename: PCWSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("advapi32.dll", "OpenBackupEventLogW", longArrayOf(lpuncservername, lpfilename))
-    return Foundation.HANDLE()
+public fun OpenBackupEventLogW(lpuncservername: PCWSTR, lpfilename: PCWSTR): HANDLE {
+    return Win32DynamicFfi.invoke("advapi32.dll", "OpenBackupEventLogW", longArrayOf(lpuncservername, lpfilename))
 }
 
-public fun OpenEventLogA(lpuncservername: PCSTR, lpsourcename: PCSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("advapi32.dll", "OpenEventLogA", longArrayOf(lpuncservername, lpsourcename))
-    return Foundation.HANDLE()
+public fun OpenEventLogA(lpuncservername: PCSTR, lpsourcename: PCSTR): HANDLE {
+    return Win32DynamicFfi.invoke("advapi32.dll", "OpenEventLogA", longArrayOf(lpuncservername, lpsourcename))
 }
 
-public fun OpenEventLogW(lpuncservername: PCWSTR, lpsourcename: PCWSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("advapi32.dll", "OpenEventLogW", longArrayOf(lpuncservername, lpsourcename))
-    return Foundation.HANDLE()
+public fun OpenEventLogW(lpuncservername: PCWSTR, lpsourcename: PCWSTR): HANDLE {
+    return Win32DynamicFfi.invoke("advapi32.dll", "OpenEventLogW", longArrayOf(lpuncservername, lpsourcename))
 }
 
-public fun ReadEventLogA(heventlog: Foundation.HANDLE, dwreadflags: READ_EVENT_LOG_READ_FLAGS, dwrecordoffset: UInt, lpbuffer: Long, nnumberofbytestoread: UInt, pnbytesread: Long, pnminnumberofbytesneeded: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "ReadEventLogA", longArrayOf(Win32DynamicFfi.objectSlot(heventlog), dwreadflags.toLong(), dwrecordoffset.toLong(), lpbuffer, nnumberofbytestoread.toLong(), pnbytesread, pnminnumberofbytesneeded)).toInt()
+public fun ReadEventLogA(heventlog: HANDLE, dwreadflags: READ_EVENT_LOG_READ_FLAGS, dwrecordoffset: UInt, lpbuffer: Long, nnumberofbytestoread: UInt, pnbytesread: Long, pnminnumberofbytesneeded: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "ReadEventLogA", longArrayOf(heventlog, dwreadflags.toLong(), dwrecordoffset.toLong(), lpbuffer, nnumberofbytestoread.toLong(), pnbytesread, pnminnumberofbytesneeded)).toInt()
 }
 
-public fun ReadEventLogW(heventlog: Foundation.HANDLE, dwreadflags: READ_EVENT_LOG_READ_FLAGS, dwrecordoffset: UInt, lpbuffer: Long, nnumberofbytestoread: UInt, pnbytesread: Long, pnminnumberofbytesneeded: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "ReadEventLogW", longArrayOf(Win32DynamicFfi.objectSlot(heventlog), dwreadflags.toLong(), dwrecordoffset.toLong(), lpbuffer, nnumberofbytestoread.toLong(), pnbytesread, pnminnumberofbytesneeded)).toInt()
+public fun ReadEventLogW(heventlog: HANDLE, dwreadflags: READ_EVENT_LOG_READ_FLAGS, dwrecordoffset: UInt, lpbuffer: Long, nnumberofbytestoread: UInt, pnbytesread: Long, pnminnumberofbytesneeded: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "ReadEventLogW", longArrayOf(heventlog, dwreadflags.toLong(), dwrecordoffset.toLong(), lpbuffer, nnumberofbytestoread.toLong(), pnbytesread, pnminnumberofbytesneeded)).toInt()
 }
 
-public fun RegisterEventSourceA(lpuncservername: PCSTR, lpsourcename: PCSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("advapi32.dll", "RegisterEventSourceA", longArrayOf(lpuncservername, lpsourcename))
-    return Foundation.HANDLE()
+public fun RegisterEventSourceA(lpuncservername: PCSTR, lpsourcename: PCSTR): HANDLE {
+    return Win32DynamicFfi.invoke("advapi32.dll", "RegisterEventSourceA", longArrayOf(lpuncservername, lpsourcename))
 }
 
-public fun RegisterEventSourceW(lpuncservername: PCWSTR, lpsourcename: PCWSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("advapi32.dll", "RegisterEventSourceW", longArrayOf(lpuncservername, lpsourcename))
-    return Foundation.HANDLE()
+public fun RegisterEventSourceW(lpuncservername: PCWSTR, lpsourcename: PCWSTR): HANDLE {
+    return Win32DynamicFfi.invoke("advapi32.dll", "RegisterEventSourceW", longArrayOf(lpuncservername, lpsourcename))
 }
 
-public fun ReportEventA(heventlog: Foundation.HANDLE, wtype: REPORT_EVENT_TYPE, wcategory: UShort, dweventid: UInt, lpusersid: Security.PSID, wnumstrings: UShort, dwdatasize: UInt, lpstrings: Long, lprawdata: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "ReportEventA", longArrayOf(Win32DynamicFfi.objectSlot(heventlog), wtype.toLong(), wcategory.toLong(), dweventid.toLong(), Win32DynamicFfi.objectSlot(lpusersid), wnumstrings.toLong(), dwdatasize.toLong(), lpstrings, lprawdata)).toInt()
+public fun ReportEventA(heventlog: HANDLE, wtype: REPORT_EVENT_TYPE, wcategory: UShort, dweventid: UInt, lpusersid: PSID, wnumstrings: UShort, dwdatasize: UInt, lpstrings: Long, lprawdata: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "ReportEventA", longArrayOf(heventlog, wtype.toLong(), wcategory.toLong(), dweventid.toLong(), lpusersid, wnumstrings.toLong(), dwdatasize.toLong(), lpstrings, lprawdata)).toInt()
 }
 
-public fun ReportEventW(heventlog: Foundation.HANDLE, wtype: REPORT_EVENT_TYPE, wcategory: UShort, dweventid: UInt, lpusersid: Security.PSID, wnumstrings: UShort, dwdatasize: UInt, lpstrings: Long, lprawdata: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "ReportEventW", longArrayOf(Win32DynamicFfi.objectSlot(heventlog), wtype.toLong(), wcategory.toLong(), dweventid.toLong(), Win32DynamicFfi.objectSlot(lpusersid), wnumstrings.toLong(), dwdatasize.toLong(), lpstrings, lprawdata)).toInt()
+public fun ReportEventW(heventlog: HANDLE, wtype: REPORT_EVENT_TYPE, wcategory: UShort, dweventid: UInt, lpusersid: PSID, wnumstrings: UShort, dwdatasize: UInt, lpstrings: Long, lprawdata: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "ReportEventW", longArrayOf(heventlog, wtype.toLong(), wcategory.toLong(), dweventid.toLong(), lpusersid, wnumstrings.toLong(), dwdatasize.toLong(), lpstrings, lprawdata)).toInt()
 }

@@ -4,6 +4,8 @@ package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.system.time.TIME_ZONE_INFORMATION
 
 public data class CLASSIC_EVENT_ID(
     public var EventGuid: GUID = GUID(),
@@ -391,7 +393,7 @@ public data class EVENT_INSTANCE_HEADER_2_0(public var KernelTime: UInt = 0u, pu
 
 public data class EVENT_INSTANCE_HEADER_2_1(public var EventId: UInt = 0u, public var Flags: UInt = 0u)
 
-public data class EVENT_INSTANCE_INFO(public var RegHandle: Foundation.HANDLE = Foundation.HANDLE(), public var InstanceId: UInt = 0u)
+public data class EVENT_INSTANCE_INFO(public var RegHandle: HANDLE = 0L, public var InstanceId: UInt = 0u)
 
 public data class EVENT_MAP_ENTRY(public var OutputOffset: UInt = 0u, public var Anonymous: EVENT_MAP_ENTRY_0 = EVENT_MAP_ENTRY_0())
 
@@ -563,7 +565,7 @@ public class EVENT_TRACE_PROPERTIES(
     public var BuffersWritten: UInt = 0u,
     public var LogBuffersLost: UInt = 0u,
     public var RealTimeBuffersLost: UInt = 0u,
-    public var LoggerThreadId: Foundation.HANDLE = Foundation.HANDLE(),
+    public var LoggerThreadId: HANDLE = 0L,
     public var LogFileNameOffset: UInt = 0u,
     public var LoggerNameOffset: UInt = 0u,
 )
@@ -586,7 +588,7 @@ public class EVENT_TRACE_PROPERTIES_V2(
     public var BuffersWritten: UInt = 0u,
     public var LogBuffersLost: UInt = 0u,
     public var RealTimeBuffersLost: UInt = 0u,
-    public var LoggerThreadId: Foundation.HANDLE = Foundation.HANDLE(),
+    public var LoggerThreadId: HANDLE = 0L,
     public var LogFileNameOffset: UInt = 0u,
     public var LoggerNameOffset: UInt = 0u,
     public var Anonymous2: EVENT_TRACE_PROPERTIES_V2_1 = EVENT_TRACE_PROPERTIES_V2_1(),
@@ -752,7 +754,7 @@ public data class TRACE_GUID_PROPERTIES(
     public var IsEnable: Boolean = false,
 )
 
-public data class TRACE_GUID_REGISTRATION(public var Guid: Long = 0L, public var RegHandle: Foundation.HANDLE = Foundation.HANDLE())
+public data class TRACE_GUID_REGISTRATION(public var Guid: Long = 0L, public var RegHandle: HANDLE = 0L)
 
 public class TRACE_LOGFILE_HEADER(
     public var BufferSize: UInt = 0u,
@@ -767,7 +769,7 @@ public class TRACE_LOGFILE_HEADER(
     public var Anonymous2: TRACE_LOGFILE_HEADER_1 = TRACE_LOGFILE_HEADER_1(),
     public var LoggerName: PWSTR = 0L,
     public var LogFileName: PWSTR = 0L,
-    public var TimeZone: Time.TIME_ZONE_INFORMATION = Time.TIME_ZONE_INFORMATION(),
+    public var TimeZone: TIME_ZONE_INFORMATION = TIME_ZONE_INFORMATION(),
     public var BootTime: Long = 0L,
     public var PerfFreq: Long = 0L,
     public var StartTime: Long = 0L,
@@ -806,7 +808,7 @@ public class TRACE_LOGFILE_HEADER32(
     public var Anonymous2: TRACE_LOGFILE_HEADER32_1 = TRACE_LOGFILE_HEADER32_1(),
     public var LoggerName: UInt = 0u,
     public var LogFileName: UInt = 0u,
-    public var TimeZone: Time.TIME_ZONE_INFORMATION = Time.TIME_ZONE_INFORMATION(),
+    public var TimeZone: TIME_ZONE_INFORMATION = TIME_ZONE_INFORMATION(),
     public var BootTime: Long = 0L,
     public var PerfFreq: Long = 0L,
     public var StartTime: Long = 0L,
@@ -845,7 +847,7 @@ public class TRACE_LOGFILE_HEADER64(
     public var Anonymous2: TRACE_LOGFILE_HEADER64_1 = TRACE_LOGFILE_HEADER64_1(),
     public var LoggerName: ULong = 0uL,
     public var LogFileName: ULong = 0uL,
-    public var TimeZone: Time.TIME_ZONE_INFORMATION = Time.TIME_ZONE_INFORMATION(),
+    public var TimeZone: TIME_ZONE_INFORMATION = TIME_ZONE_INFORMATION(),
     public var BootTime: Long = 0L,
     public var PerfFreq: Long = 0L,
     public var StartTime: Long = 0L,
@@ -974,7 +976,7 @@ public data class WNODE_HEADER_0_0(public var Version: UInt = 0u, public var Lin
 
 public data class WNODE_HEADER_1(
     public var CountLost: UInt = 0u,
-    public var KernelHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var KernelHandle: HANDLE = 0L,
     public var TimeStamp: Long = 0L,
 )
 

@@ -5,6 +5,8 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.system.windowsprogramming.APPLICATION_RECOVERY_CALLBACK
 
 public fun ApplicationRecoveryFinished(bsuccess: BOOL) {
     Win32DynamicFfi.invoke("kernel32.dll", "ApplicationRecoveryFinished", longArrayOf(bsuccess.toLong()))
@@ -14,15 +16,15 @@ public fun ApplicationRecoveryInProgress(pbcancelled: Long): HRESULT {
     return Win32DynamicFfi.invoke("kernel32.dll", "ApplicationRecoveryInProgress", longArrayOf(pbcancelled)).toInt()
 }
 
-public fun GetApplicationRecoveryCallback(hprocess: Foundation.HANDLE, precoverycallback: Long, ppvparameter: Long, pdwpinginterval: Long, pdwflags: Long): HRESULT {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetApplicationRecoveryCallback", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), precoverycallback, ppvparameter, pdwpinginterval, pdwflags)).toInt()
+public fun GetApplicationRecoveryCallback(hprocess: HANDLE, precoverycallback: Long, ppvparameter: Long, pdwpinginterval: Long, pdwflags: Long): HRESULT {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetApplicationRecoveryCallback", longArrayOf(hprocess, precoverycallback, ppvparameter, pdwpinginterval, pdwflags)).toInt()
 }
 
-public fun GetApplicationRestartSettings(hprocess: Foundation.HANDLE, pwzcommandline: PWSTR, pcchsize: Long, pdwflags: Long): HRESULT {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetApplicationRestartSettings", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), pwzcommandline, pcchsize, pdwflags)).toInt()
+public fun GetApplicationRestartSettings(hprocess: HANDLE, pwzcommandline: PWSTR, pcchsize: Long, pdwflags: Long): HRESULT {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetApplicationRestartSettings", longArrayOf(hprocess, pwzcommandline, pcchsize, pdwflags)).toInt()
 }
 
-public fun RegisterApplicationRecoveryCallback(precoveycallback: WindowsProgramming.APPLICATION_RECOVERY_CALLBACK, pvparameter: Long, dwpinginterval: UInt, dwflags: UInt): HRESULT {
+public fun RegisterApplicationRecoveryCallback(precoveycallback: APPLICATION_RECOVERY_CALLBACK, pvparameter: Long, dwpinginterval: UInt, dwflags: UInt): HRESULT {
     return Win32DynamicFfi.invoke("kernel32.dll", "RegisterApplicationRecoveryCallback", longArrayOf(Win32DynamicFfi.objectSlot(precoveycallback), pvparameter, dwpinginterval.toLong(), dwflags.toLong())).toInt()
 }
 

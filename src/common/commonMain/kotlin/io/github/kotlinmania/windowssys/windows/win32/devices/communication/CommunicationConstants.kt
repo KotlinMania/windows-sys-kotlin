@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.communication
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 
 public val CE_BREAK: CLEAR_COMM_ERROR_FLAGS = 16u
@@ -308,7 +309,7 @@ public val SETXOFF: ESCAPE_COMM_FUNCTION = 1u
 
 public val SETXON: ESCAPE_COMM_FUNCTION = 2u
 
-public val SID_3GPP_SUPSVCMODEL: GUID = GUID.from_u128(0xd7d08e07d7674478uL, 0xb14aeecc87ea12f7uL)
+public val SID_3GPP_SUPSVCMODEL: GUID = GUID.from_u128(U128(0xd7d08e07d7674478uL, 0xb14aeecc87ea12f7uL))
 
 public val SPACEPARITY: DCB_PARITY = 4u
 

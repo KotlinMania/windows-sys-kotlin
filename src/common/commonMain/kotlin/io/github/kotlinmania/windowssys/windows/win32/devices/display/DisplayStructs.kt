@@ -4,6 +4,20 @@ package io.github.kotlinmania.windowssys.windows.win32.devices.display
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
+import io.github.kotlinmania.windowssys.windows.win32.foundation.POINTL
+import io.github.kotlinmania.windowssys.windows.win32.foundation.RECTL
+import io.github.kotlinmania.windowssys.windows.win32.foundation.SIZE
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.BLENDFUNCTION
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.DEVMODEW
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.DISPLAYCONFIG_COLOR_ENCODING
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HPALETTE
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.LOGFONTW
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.PANOSE
+import io.github.kotlinmania.windowssys.windows.win32.system.console.CHAR_INFO
+import io.github.kotlinmania.windowssys.windows.win32.system.console.COORD
 
 public data class Adapter(
     public var AdapterName: UShortArray = UShortArray(128),
@@ -53,7 +67,7 @@ public data class BACKLIGHT_REDUCTION_GAMMA_RAMP(
 
 public data class BANK_POSITION(public var ReadBankPosition: UInt = 0u, public var WriteBankPosition: UInt = 0u)
 
-public data class BLENDOBJ(public var BlendFunction: Graphics.Gdi.BLENDFUNCTION = Graphics.Gdi.BLENDFUNCTION())
+public data class BLENDOBJ(public var BlendFunction: BLENDFUNCTION = BLENDFUNCTION())
 
 public data class BRIGHTNESS_LEVEL(public var Count: UByte = 0u, public var Level: UByteArray = UByteArray(103)) {
     override fun equals(other: Any?): Boolean {
@@ -94,11 +108,31 @@ public data class CDDDXGK_REDIRBITMAPPRESENTINFO(
     public var NumDirtyRects: UInt = 0u,
     public var DirtyRect: Long = 0L,
     public var NumContexts: UInt = 0u,
-    public var hContext: List<Foundation.HANDLE> = List(65) { Foundation.HANDLE() },
+    public var hContext: LongArray = LongArray(65),
     public var bDoNotSynchronizeWithDxContent: Boolean = false,
-)
+) {
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is CDDDXGK_REDIRBITMAPPRESENTINFO) return false
+        if (this.NumDirtyRects != other.NumDirtyRects) return false
+        if (this.DirtyRect != other.DirtyRect) return false
+        if (this.NumContexts != other.NumContexts) return false
+        if (!this.hContext.contentEquals(other.hContext)) return false
+        if (this.bDoNotSynchronizeWithDxContent != other.bDoNotSynchronizeWithDxContent) return false
+        return true
+    }
 
-public data class CHAR_IMAGE_INFO(public var CharInfo: System.Console.CHAR_INFO = System.Console.CHAR_INFO(), public var FontImageInfo: FONT_IMAGE_INFO = FONT_IMAGE_INFO())
+    override fun hashCode(): Int {
+        var result = this.NumDirtyRects.hashCode()
+        result = 31 * result + this.DirtyRect.hashCode()
+        result = 31 * result + this.NumContexts.hashCode()
+        result = 31 * result + this.hContext.contentHashCode()
+        result = 31 * result + this.bDoNotSynchronizeWithDxContent.hashCode()
+        return result
+    }
+}
+
+public data class CHAR_IMAGE_INFO(public var CharInfo: CHAR_INFO = CHAR_INFO(), public var FontImageInfo: FONT_IMAGE_INFO = FONT_IMAGE_INFO())
 
 public data class CHROMATICITY_COORDINATE(public var x: Float = 0.0f, public var y: Float = 0.0f)
 
@@ -118,7 +152,7 @@ public data class CLIPLINE(
 
 public data class CLIPOBJ(
     public var iUniq: UInt = 0u,
-    public var rclBounds: Foundation.RECTL = Foundation.RECTL(),
+    public var rclBounds: RECTL = RECTL(),
     public var iDComplexity: UByte = 0u,
     public var iFComplexity: UByte = 0u,
     public var iMode: UByte = 0u,
@@ -261,14 +295,14 @@ public data class DEVHTINFO(
 
 public data class DEVINFO(
     public var flGraphicsCaps: UInt = 0u,
-    public var lfDefaultFont: Graphics.Gdi.LOGFONTW = Graphics.Gdi.LOGFONTW(),
-    public var lfAnsiVarFont: Graphics.Gdi.LOGFONTW = Graphics.Gdi.LOGFONTW(),
-    public var lfAnsiFixFont: Graphics.Gdi.LOGFONTW = Graphics.Gdi.LOGFONTW(),
+    public var lfDefaultFont: LOGFONTW = LOGFONTW(),
+    public var lfAnsiVarFont: LOGFONTW = LOGFONTW(),
+    public var lfAnsiFixFont: LOGFONTW = LOGFONTW(),
     public var cFonts: UInt = 0u,
     public var iDitherFormat: UInt = 0u,
     public var cxDither: UShort = 0u,
     public var cyDither: UShort = 0u,
-    public var hpalDefault: Graphics.Gdi.HPALETTE = Graphics.Gdi.HPALETTE(),
+    public var hpalDefault: HPALETTE = 0L,
     public var flGraphicsCaps2: UInt = 0u,
 )
 
@@ -291,22 +325,22 @@ public data class DISPLAYCONFIG_ADAPTER_NAME(public var header: DISPLAYCONFIG_DE
 }
 
 public data class DISPLAYCONFIG_DESKTOP_IMAGE_INFO(
-    public var PathSourceSize: Foundation.POINTL = Foundation.POINTL(),
-    public var DesktopImageRegion: Foundation.RECTL = Foundation.RECTL(),
-    public var DesktopImageClip: Foundation.RECTL = Foundation.RECTL(),
+    public var PathSourceSize: POINTL = POINTL(),
+    public var DesktopImageRegion: RECTL = RECTL(),
+    public var DesktopImageClip: RECTL = RECTL(),
 )
 
 public data class DISPLAYCONFIG_DEVICE_INFO_HEADER(
     public var type: DISPLAYCONFIG_DEVICE_INFO_TYPE = 0,
     public var size: UInt = 0u,
-    public var adapterId: Foundation.LUID = Foundation.LUID(),
+    public var adapterId: LUID = LUID(),
     public var id: UInt = 0u,
 )
 
 public data class DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO(
     public var header: DISPLAYCONFIG_DEVICE_INFO_HEADER = DISPLAYCONFIG_DEVICE_INFO_HEADER(),
     public var Anonymous: DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 = DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0(),
-    public var colorEncoding: Graphics.Gdi.DISPLAYCONFIG_COLOR_ENCODING = Graphics.Gdi.DISPLAYCONFIG_COLOR_ENCODING(),
+    public var colorEncoding: DISPLAYCONFIG_COLOR_ENCODING = 0,
     public var bitsPerColorChannel: UInt = 0u,
 )
 
@@ -323,7 +357,7 @@ public data class DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0(public var _bitfi
 public data class DISPLAYCONFIG_MODE_INFO(
     public var infoType: DISPLAYCONFIG_MODE_INFO_TYPE = 0,
     public var id: UInt = 0u,
-    public var adapterId: Foundation.LUID = Foundation.LUID(),
+    public var adapterId: LUID = LUID(),
     public var Anonymous: DISPLAYCONFIG_MODE_INFO_0 = DISPLAYCONFIG_MODE_INFO_0(),
 )
 
@@ -340,7 +374,7 @@ public data class DISPLAYCONFIG_PATH_INFO(
 )
 
 public data class DISPLAYCONFIG_PATH_SOURCE_INFO(
-    public var adapterId: Foundation.LUID = Foundation.LUID(),
+    public var adapterId: LUID = LUID(),
     public var id: UInt = 0u,
     public var Anonymous: DISPLAYCONFIG_PATH_SOURCE_INFO_0 = DISPLAYCONFIG_PATH_SOURCE_INFO_0(),
     public var statusFlags: UInt = 0u,
@@ -351,7 +385,7 @@ public data class DISPLAYCONFIG_PATH_SOURCE_INFO_0(public var modeInfoIdx: UInt 
 public data class DISPLAYCONFIG_PATH_SOURCE_INFO_0_0(public var _bitfield: UInt = 0u)
 
 public data class DISPLAYCONFIG_PATH_TARGET_INFO(
-    public var adapterId: Foundation.LUID = Foundation.LUID(),
+    public var adapterId: LUID = LUID(),
     public var id: UInt = 0u,
     public var Anonymous: DISPLAYCONFIG_PATH_TARGET_INFO_0 = DISPLAYCONFIG_PATH_TARGET_INFO_0(),
     public var outputTechnology: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 0,
@@ -435,7 +469,7 @@ public data class DISPLAYCONFIG_SOURCE_MODE(
     public var width: UInt = 0u,
     public var height: UInt = 0u,
     public var pixelFormat: DISPLAYCONFIG_PIXELFORMAT = 0,
-    public var position: Foundation.POINTL = Foundation.POINTL(),
+    public var position: POINTL = POINTL(),
 )
 
 public data class DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION(public var header: DISPLAYCONFIG_DEVICE_INFO_HEADER = DISPLAYCONFIG_DEVICE_INFO_HEADER(), public var Anonymous: DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0 = DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0())
@@ -543,7 +577,7 @@ public data class DXGK_WIN32K_PARAM_DATA(
     public var SDCFlags: UInt = 0u,
 )
 
-public data class DisplayMode(public var DeviceName: UShortArray = UShortArray(32), public var devMode: Graphics.Gdi.DEVMODEW = Graphics.Gdi.DEVMODEW()) {
+public data class DisplayMode(public var DeviceName: UShortArray = UShortArray(32), public var devMode: DEVMODEW = DEVMODEW()) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DisplayMode) return false
@@ -563,7 +597,7 @@ public data class DisplayModes(public var numDisplayModes: Int = 0, public var d
 
 public data class EMFINFO(
     public var nSize: UInt = 0u,
-    public var hdc: Graphics.Gdi.HDC = Graphics.Gdi.HDC(),
+    public var hdc: HDC = 0L,
     public var pvEMF: Long = 0L,
     public var pvCurrentRecord: Long = 0L,
 )
@@ -583,7 +617,7 @@ public data class ENG_TIME_FIELDS(
     public var usWeekday: UShort = 0u,
 )
 
-public data class ENUMRECTS(public var c: UInt = 0u, public var arcl: List<Foundation.RECTL> = List(1) { Foundation.RECTL() })
+public data class ENUMRECTS(public var c: UInt = 0u, public var arcl: List<RECTL> = List(1) { RECTL() })
 
 public class FD_DEVICEMETRICS(
     public var flRealizedType: UInt = 0u,
@@ -592,10 +626,10 @@ public class FD_DEVICEMETRICS(
     public var lD: Int = 0,
     public var fxMaxAscender: Int = 0,
     public var fxMaxDescender: Int = 0,
-    public var ptlUnderline1: Foundation.POINTL = Foundation.POINTL(),
-    public var ptlStrikeOut: Foundation.POINTL = Foundation.POINTL(),
-    public var ptlULThickness: Foundation.POINTL = Foundation.POINTL(),
-    public var ptlSOThickness: Foundation.POINTL = Foundation.POINTL(),
+    public var ptlUnderline1: POINTL = POINTL(),
+    public var ptlStrikeOut: POINTL = POINTL(),
+    public var ptlULThickness: POINTL = POINTL(),
+    public var ptlSOThickness: POINTL = POINTL(),
     public var cxMax: UInt = 0u,
     public var cyMax: UInt = 0u,
     public var cjGlyphMax: UInt = 0u,
@@ -683,7 +717,7 @@ public data class FONTDIFF(
     public var fsSelection: UShort = 0u,
     public var fwdAveCharWidth: Short = 0,
     public var fwdMaxCharInc: Short = 0,
-    public var ptlCaret: Foundation.POINTL = Foundation.POINTL(),
+    public var ptlCaret: POINTL = POINTL(),
 )
 
 public data class FONTINFO(
@@ -703,7 +737,7 @@ public data class FONTOBJ(
     public var flFontType: UInt = 0u,
     public var iTTUniq: ULong = 0uL,
     public var iFile: ULong = 0uL,
-    public var sizLogResPpi: Foundation.SIZE = Foundation.SIZE(),
+    public var sizLogResPpi: SIZE = SIZE(),
     public var ulStyleSize: UInt = 0u,
     public var pvConsumer: Long = 0L,
     public var pvProducer: Long = 0L,
@@ -715,11 +749,11 @@ public data class FONTSIM(
     public var dpBoldItalic: Int = 0,
 )
 
-public data class FONT_IMAGE_INFO(public var FontSize: System.Console.COORD = System.Console.COORD(), public var ImageBits: Long = 0L)
+public data class FONT_IMAGE_INFO(public var FontSize: COORD = COORD(), public var ImageBits: Long = 0L)
 
 public data class FSCNTL_SCREEN_INFO(
-    public var Position: System.Console.COORD = System.Console.COORD(),
-    public var ScreenSize: System.Console.COORD = System.Console.COORD(),
+    public var Position: COORD = COORD(),
+    public var ScreenSize: COORD = COORD(),
     public var nNumberOfChars: UInt = 0u,
 )
 
@@ -731,7 +765,7 @@ public data class FSVIDEO_MODE_INFORMATION(public var VideoMode: VIDEO_MODE_INFO
 
 public data class FSVIDEO_REVERSE_MOUSE_POINTER(public var Screen: FSCNTL_SCREEN_INFO = FSCNTL_SCREEN_INFO(), public var dwType: UInt = 0u)
 
-public data class FSVIDEO_SCREEN_INFORMATION(public var ScreenSize: System.Console.COORD = System.Console.COORD(), public var FontSize: System.Console.COORD = System.Console.COORD())
+public data class FSVIDEO_SCREEN_INFORMATION(public var ScreenSize: COORD = COORD(), public var FontSize: COORD = COORD())
 
 public data class FSVIDEO_WRITE_TO_FRAME_BUFFER(public var SrcBuffer: Long = 0L, public var DestScreen: FSCNTL_SCREEN_INFO = FSCNTL_SCREEN_INFO())
 
@@ -814,8 +848,8 @@ public class GDIINFO(
     public var xStyleStep: Int = 0,
     public var yStyleStep: Int = 0,
     public var denStyleStep: Int = 0,
-    public var ptlPhysOffset: Foundation.POINTL = Foundation.POINTL(),
-    public var szlPhysSize: Foundation.SIZE = Foundation.SIZE(),
+    public var ptlPhysOffset: POINTL = POINTL(),
+    public var szlPhysSize: SIZE = SIZE(),
     public var ulNumPalReg: UInt = 0u,
     public var ciDevice: COLORINFO = COLORINFO(),
     public var ulDevicePelsDPI: UInt = 0u,
@@ -840,8 +874,8 @@ public class GDIINFO(
 )
 
 public data class GLYPHBITS(
-    public var ptlOrigin: Foundation.POINTL = Foundation.POINTL(),
-    public var sizlBitmap: Foundation.SIZE = Foundation.SIZE(),
+    public var ptlOrigin: POINTL = POINTL(),
+    public var sizlBitmap: SIZE = SIZE(),
     public var aj: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
@@ -869,7 +903,7 @@ public data class GLYPHDATA(
     public var fxAB: Int = 0,
     public var fxInkTop: Int = 0,
     public var fxInkBottom: Int = 0,
-    public var rclInk: Foundation.RECTL = Foundation.RECTL(),
+    public var rclInk: RECTL = RECTL(),
     public var ptqD: POINTQF = POINTQF(),
 )
 
@@ -878,7 +912,7 @@ public data class GLYPHDEF(public var pgb: Long = 0L, public var ppo: Long = 0L)
 public data class GLYPHPOS(
     public var hg: UInt = 0u,
     public var pgdf: Long = 0L,
-    public var ptl: Foundation.POINTL = Foundation.POINTL(),
+    public var ptl: POINTL = POINTL(),
 )
 
 public data class IFIEXTRA(
@@ -964,19 +998,19 @@ public class IFIMETRICS(
     public var wcLastChar: UShort = 0u,
     public var wcDefaultChar: UShort = 0u,
     public var wcBreakChar: UShort = 0u,
-    public var ptlBaseline: Foundation.POINTL = Foundation.POINTL(),
-    public var ptlAspect: Foundation.POINTL = Foundation.POINTL(),
-    public var ptlCaret: Foundation.POINTL = Foundation.POINTL(),
-    public var rclFontBox: Foundation.RECTL = Foundation.RECTL(),
+    public var ptlBaseline: POINTL = POINTL(),
+    public var ptlAspect: POINTL = POINTL(),
+    public var ptlCaret: POINTL = POINTL(),
+    public var rclFontBox: RECTL = RECTL(),
     public var achVendId: UByteArray = UByteArray(4),
     public var cKerningPairs: UInt = 0u,
     public var ulPanoseCulture: UInt = 0u,
-    public var panose: Graphics.Gdi.PANOSE = Graphics.Gdi.PANOSE(),
+    public var panose: PANOSE = PANOSE(),
     public var Align: Long = 0L,
 )
 
 public data class INDIRECT_DISPLAY_INFO(
-    public var DisplayAdapterLuid: Foundation.LUID = Foundation.LUID(),
+    public var DisplayAdapterLuid: LUID = LUID(),
     public var Flags: UInt = 0u,
     public var NumMonitors: UInt = 0u,
     public var DisplayAdapterTargetBase: UInt = 0u,
@@ -1163,12 +1197,12 @@ public data class PATHOBJ(public var fl: UInt = 0u, public var cCurves: UInt = 0
 
 public data class PERBANDINFO(
     public var bRepeatThisBand: BOOL = 0,
-    public var szlBand: Foundation.SIZE = Foundation.SIZE(),
+    public var szlBand: SIZE = SIZE(),
     public var ulHorzRes: UInt = 0u,
     public var ulVertRes: UInt = 0u,
 )
 
-public data class PHYSICAL_MONITOR(public var hPhysicalMonitor: Foundation.HANDLE = Foundation.HANDLE(), public var szPhysicalMonitorDescription: UShortArray = UShortArray(128)) {
+public data class PHYSICAL_MONITOR(public var hPhysicalMonitor: HANDLE = 0L, public var szPhysicalMonitorDescription: UShortArray = UShortArray(128)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is PHYSICAL_MONITOR) return false
@@ -1216,7 +1250,7 @@ public data class STROBJ(
     public var cGlyphs: UInt = 0u,
     public var flAccel: UInt = 0u,
     public var ulCharInc: UInt = 0u,
-    public var rclBkGround: Foundation.RECTL = Foundation.RECTL(),
+    public var rclBkGround: RECTL = RECTL(),
     public var pgp: Long = 0L,
     public var pwszOrg: PWSTR = 0L,
 )
@@ -1226,7 +1260,7 @@ public data class SURFOBJ(
     public var hsurf: HSURF = 0L,
     public var dhpdev: DHPDEV = 0L,
     public var hdev: HDEV = 0L,
-    public var sizlBitmap: Foundation.SIZE = Foundation.SIZE(),
+    public var sizlBitmap: SIZE = SIZE(),
     public var cjBits: UInt = 0u,
     public var pvBits: Long = 0L,
     public var pvScan0: Long = 0L,
@@ -1260,8 +1294,8 @@ public data class Sources(
 }
 
 public data class TYPE1_FONT(
-    public var hPFM: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hPFB: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hPFM: HANDLE = 0L,
+    public var hPFB: HANDLE = 0L,
     public var ulIdentifier: UInt = 0u,
 )
 
@@ -1632,7 +1666,7 @@ public data class VIDEO_QUERY_PERFORMANCE_COUNTER(public var BufferSize: UInt = 
 public data class VIDEO_REGISTER_VDM(public var MinimumStateSize: UInt = 0u)
 
 public data class VIDEO_SHARE_MEMORY(
-    public var ProcessHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var ProcessHandle: HANDLE = 0L,
     public var ViewOffset: UInt = 0u,
     public var ViewSize: UInt = 0u,
     public var RequestedVirtualAddress: Long = 0L,
@@ -1644,13 +1678,13 @@ public data class VIDEO_SHARE_MEMORY_INFORMATION(
     public var VirtualAddress: Long = 0L,
 )
 
-public data class VIDEO_VDM(public var ProcessHandle: Foundation.HANDLE = Foundation.HANDLE())
+public data class VIDEO_VDM(public var ProcessHandle: HANDLE = 0L)
 
 public data class VIDEO_WIN32K_CALLBACKS(
     public var PhysDisp: Long = 0L,
     public var Callout: PVIDEO_WIN32K_CALLOUT = null,
     public var bACPI: UInt = 0u,
-    public var pPhysDeviceObject: Foundation.HANDLE = Foundation.HANDLE(),
+    public var pPhysDeviceObject: HANDLE = 0L,
     public var DualviewFlags: UInt = 0u,
 )
 
@@ -1674,7 +1708,7 @@ public data class WCRUN(
 public data class WNDOBJ(
     public var coClient: CLIPOBJ = CLIPOBJ(),
     public var pvConsumer: Long = 0L,
-    public var rclClient: Foundation.RECTL = Foundation.RECTL(),
+    public var rclClient: RECTL = RECTL(),
     public var psoOwner: Long = 0L,
 )
 

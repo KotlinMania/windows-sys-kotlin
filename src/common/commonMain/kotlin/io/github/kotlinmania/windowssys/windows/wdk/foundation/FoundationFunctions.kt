@@ -1,13 +1,13 @@
 package io.github.kotlinmania.windowssys.windows.wdk.foundation
 
 import io.github.kotlinmania.windowssys.Win32DynamicFfi
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
 
-public fun NtClose(handle: Win32.Foundation.HANDLE): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntdll.dll", "NtClose", longArrayOf(Win32DynamicFfi.objectSlot(handle)))
-    return Win32.Foundation.NTSTATUS()
+public fun NtClose(handle: HANDLE): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntdll.dll", "NtClose", longArrayOf(handle)).toInt()
 }
 
-public fun NtQueryObject(handle: Win32.Foundation.HANDLE, objectinformationclass: OBJECT_INFORMATION_CLASS, objectinformation: Long, objectinformationlength: UInt, returnlength: Long): Win32.Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntdll.dll", "NtQueryObject", longArrayOf(Win32DynamicFfi.objectSlot(handle), objectinformationclass.toLong(), objectinformation, objectinformationlength.toLong(), returnlength))
-    return Win32.Foundation.NTSTATUS()
+public fun NtQueryObject(handle: HANDLE, objectinformationclass: OBJECT_INFORMATION_CLASS, objectinformation: Long, objectinformationlength: UInt, returnlength: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntdll.dll", "NtQueryObject", longArrayOf(handle, objectinformationclass.toLong(), objectinformation, objectinformationlength.toLong(), returnlength)).toInt()
 }

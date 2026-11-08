@@ -4,6 +4,11 @@ package io.github.kotlinmania.windowssys.windows.win32.devices.tapi
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.SYSTEMTIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
+import io.github.kotlinmania.windowssys.windows.win32.system.com.CY
 
 public data class ADDRALIAS(
     public var rgchName: ByteArray = ByteArray(41),
@@ -194,7 +199,7 @@ public data class LINEAGENTINFO(
     public var dwAgentState: UInt = 0u,
     public var dwNextAgentState: UInt = 0u,
     public var dwMeasurementPeriod: UInt = 0u,
-    public var cyOverallCallRate: System.Com.CY = System.Com.CY(),
+    public var cyOverallCallRate: CY = CY(),
     public var dwNumberOfACDCalls: UInt = 0u,
     public var dwNumberOfIncomingCalls: UInt = 0u,
     public var dwNumberOfOutgoingCalls: UInt = 0u,
@@ -234,7 +239,7 @@ public class LINEAGENTSESSIONINFO(
     public var dwAverageCallTime: UInt = 0u,
     public var dwTotalWrapUpTime: UInt = 0u,
     public var dwAverageWrapUpTime: UInt = 0u,
-    public var cyACDCallRate: System.Com.CY = System.Com.CY(),
+    public var cyACDCallRate: CY = CY(),
     public var dwLongestTimeToAnswer: UInt = 0u,
     public var dwAverageTimeToAnswer: UInt = 0u,
 )
@@ -500,7 +505,7 @@ public data class LINECALLSTATUS(
     public var dwDevSpecificSize: UInt = 0u,
     public var dwDevSpecificOffset: UInt = 0u,
     public var dwCallFeatures2: UInt = 0u,
-    public var tStateEntryTime: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var tStateEntryTime: SYSTEMTIME = SYSTEMTIME(),
 )
 
 public data class LINECALLTREATMENTENTRY(
@@ -674,7 +679,7 @@ public data class LINEINITIALIZEEXPARAMS(
     public var dwCompletionKey: UInt = 0u,
 )
 
-public data class LINEINITIALIZEEXPARAMS_0(public var hEvent: Foundation.HANDLE = Foundation.HANDLE(), public var hCompletionPort: Foundation.HANDLE = Foundation.HANDLE())
+public data class LINEINITIALIZEEXPARAMS_0(public var hEvent: HANDLE = 0L, public var hCompletionPort: HANDLE = 0L)
 
 public class LINELOCATIONENTRY(
     public var dwPermanentLocationID: UInt = 0u,
@@ -964,8 +969,8 @@ public data class LINEREQMAKECALLW(
 }
 
 public data class LINEREQMEDIACALL(
-    public var hWnd: Foundation.HWND = Foundation.HWND(),
-    public var wRequestID: Foundation.WPARAM = Foundation.WPARAM(),
+    public var hWnd: HWND = 0L,
+    public var wRequestID: WPARAM = 0uL,
     public var szDeviceClass: ByteArray = ByteArray(40),
     public var ucDeviceID: UByteArray = UByteArray(40),
     public var dwSize: UInt = 0u,
@@ -1007,8 +1012,8 @@ public data class LINEREQMEDIACALL(
 }
 
 public data class LINEREQMEDIACALLW(
-    public var hWnd: Foundation.HWND = Foundation.HWND(),
-    public var wRequestID: Foundation.WPARAM = Foundation.WPARAM(),
+    public var hWnd: HWND = 0L,
+    public var wRequestID: WPARAM = 0uL,
     public var szDeviceClass: UShortArray = UShortArray(40),
     public var ucDeviceID: UByteArray = UByteArray(40),
     public var dwSize: UInt = 0u,
@@ -1264,7 +1269,7 @@ public data class PHONEINITIALIZEEXPARAMS(
     public var dwCompletionKey: UInt = 0u,
 )
 
-public data class PHONEINITIALIZEEXPARAMS_0(public var hEvent: Foundation.HANDLE = Foundation.HANDLE(), public var hCompletionPort: Foundation.HANDLE = Foundation.HANDLE())
+public data class PHONEINITIALIZEEXPARAMS_0(public var hEvent: HANDLE = 0L, public var hCompletionPort: HANDLE = 0L)
 
 public data class PHONEMESSAGE(
     public var hDevice: UInt = 0u,

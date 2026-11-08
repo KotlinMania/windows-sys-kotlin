@@ -7,6 +7,13 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.PAPCFUNC
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WAIT_EVENT
+import io.github.kotlinmania.windowssys.windows.win32.security.PSID
+import io.github.kotlinmania.windowssys.windows.win32.security.TOKEN_ACCESS_MASK
 
 public fun interface FnCallback {
     public operator fun invoke(lpfiberparameter: Long)
@@ -56,24 +63,24 @@ public fun AcquireSRWLockShared(srwlock: Long) {
     Win32DynamicFfi.invoke("kernel32.dll", "AcquireSRWLockShared", longArrayOf(srwlock))
 }
 
-public fun AddIntegrityLabelToBoundaryDescriptor(boundarydescriptor: Long, integritylabel: Security.PSID): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "AddIntegrityLabelToBoundaryDescriptor", longArrayOf(boundarydescriptor, Win32DynamicFfi.objectSlot(integritylabel))).toInt()
+public fun AddIntegrityLabelToBoundaryDescriptor(boundarydescriptor: Long, integritylabel: PSID): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "AddIntegrityLabelToBoundaryDescriptor", longArrayOf(boundarydescriptor, integritylabel)).toInt()
 }
 
-public fun AddSIDToBoundaryDescriptor(boundarydescriptor: Long, requiredsid: Security.PSID): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "AddSIDToBoundaryDescriptor", longArrayOf(boundarydescriptor, Win32DynamicFfi.objectSlot(requiredsid))).toInt()
+public fun AddSIDToBoundaryDescriptor(boundarydescriptor: Long, requiredsid: PSID): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "AddSIDToBoundaryDescriptor", longArrayOf(boundarydescriptor, requiredsid)).toInt()
 }
 
 public fun AttachThreadInput(idattach: UInt, idattachto: UInt, fattach: BOOL): BOOL {
     return Win32DynamicFfi.invoke("user32.dll", "AttachThreadInput", longArrayOf(idattach.toLong(), idattachto.toLong(), fattach.toLong())).toInt()
 }
 
-public fun AvQuerySystemResponsiveness(avrthandle: Foundation.HANDLE, systemresponsivenessvalue: Long): BOOL {
-    return Win32DynamicFfi.invoke("avrt.dll", "AvQuerySystemResponsiveness", longArrayOf(Win32DynamicFfi.objectSlot(avrthandle), systemresponsivenessvalue)).toInt()
+public fun AvQuerySystemResponsiveness(avrthandle: HANDLE, systemresponsivenessvalue: Long): BOOL {
+    return Win32DynamicFfi.invoke("avrt.dll", "AvQuerySystemResponsiveness", longArrayOf(avrthandle, systemresponsivenessvalue)).toInt()
 }
 
-public fun AvRevertMmThreadCharacteristics(avrthandle: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("avrt.dll", "AvRevertMmThreadCharacteristics", longArrayOf(Win32DynamicFfi.objectSlot(avrthandle))).toInt()
+public fun AvRevertMmThreadCharacteristics(avrthandle: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("avrt.dll", "AvRevertMmThreadCharacteristics", longArrayOf(avrthandle)).toInt()
 }
 
 public fun AvRtCreateThreadOrderingGroup(context: Long, period: Long, threadorderingguid: Long, timeout: Long): BOOL {
@@ -88,44 +95,40 @@ public fun AvRtCreateThreadOrderingGroupExW(context: Long, period: Long, threado
     return Win32DynamicFfi.invoke("avrt.dll", "AvRtCreateThreadOrderingGroupExW", longArrayOf(context, period, threadorderingguid, timeout, taskname)).toInt()
 }
 
-public fun AvRtDeleteThreadOrderingGroup(context: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("avrt.dll", "AvRtDeleteThreadOrderingGroup", longArrayOf(Win32DynamicFfi.objectSlot(context))).toInt()
+public fun AvRtDeleteThreadOrderingGroup(context: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("avrt.dll", "AvRtDeleteThreadOrderingGroup", longArrayOf(context)).toInt()
 }
 
 public fun AvRtJoinThreadOrderingGroup(context: Long, threadorderingguid: Long, before: BOOL): BOOL {
     return Win32DynamicFfi.invoke("avrt.dll", "AvRtJoinThreadOrderingGroup", longArrayOf(context, threadorderingguid, before.toLong())).toInt()
 }
 
-public fun AvRtLeaveThreadOrderingGroup(context: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("avrt.dll", "AvRtLeaveThreadOrderingGroup", longArrayOf(Win32DynamicFfi.objectSlot(context))).toInt()
+public fun AvRtLeaveThreadOrderingGroup(context: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("avrt.dll", "AvRtLeaveThreadOrderingGroup", longArrayOf(context)).toInt()
 }
 
-public fun AvRtWaitOnThreadOrderingGroup(context: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("avrt.dll", "AvRtWaitOnThreadOrderingGroup", longArrayOf(Win32DynamicFfi.objectSlot(context))).toInt()
+public fun AvRtWaitOnThreadOrderingGroup(context: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("avrt.dll", "AvRtWaitOnThreadOrderingGroup", longArrayOf(context)).toInt()
 }
 
-public fun AvSetMmMaxThreadCharacteristicsA(firsttask: PCSTR, secondtask: PCSTR, taskindex: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("avrt.dll", "AvSetMmMaxThreadCharacteristicsA", longArrayOf(firsttask, secondtask, taskindex))
-    return Foundation.HANDLE()
+public fun AvSetMmMaxThreadCharacteristicsA(firsttask: PCSTR, secondtask: PCSTR, taskindex: Long): HANDLE {
+    return Win32DynamicFfi.invoke("avrt.dll", "AvSetMmMaxThreadCharacteristicsA", longArrayOf(firsttask, secondtask, taskindex))
 }
 
-public fun AvSetMmMaxThreadCharacteristicsW(firsttask: PCWSTR, secondtask: PCWSTR, taskindex: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("avrt.dll", "AvSetMmMaxThreadCharacteristicsW", longArrayOf(firsttask, secondtask, taskindex))
-    return Foundation.HANDLE()
+public fun AvSetMmMaxThreadCharacteristicsW(firsttask: PCWSTR, secondtask: PCWSTR, taskindex: Long): HANDLE {
+    return Win32DynamicFfi.invoke("avrt.dll", "AvSetMmMaxThreadCharacteristicsW", longArrayOf(firsttask, secondtask, taskindex))
 }
 
-public fun AvSetMmThreadCharacteristicsA(taskname: PCSTR, taskindex: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("avrt.dll", "AvSetMmThreadCharacteristicsA", longArrayOf(taskname, taskindex))
-    return Foundation.HANDLE()
+public fun AvSetMmThreadCharacteristicsA(taskname: PCSTR, taskindex: Long): HANDLE {
+    return Win32DynamicFfi.invoke("avrt.dll", "AvSetMmThreadCharacteristicsA", longArrayOf(taskname, taskindex))
 }
 
-public fun AvSetMmThreadCharacteristicsW(taskname: PCWSTR, taskindex: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("avrt.dll", "AvSetMmThreadCharacteristicsW", longArrayOf(taskname, taskindex))
-    return Foundation.HANDLE()
+public fun AvSetMmThreadCharacteristicsW(taskname: PCWSTR, taskindex: Long): HANDLE {
+    return Win32DynamicFfi.invoke("avrt.dll", "AvSetMmThreadCharacteristicsW", longArrayOf(taskname, taskindex))
 }
 
-public fun AvSetMmThreadPriority(avrthandle: Foundation.HANDLE, priority: AVRT_PRIORITY): BOOL {
-    return Win32DynamicFfi.invoke("avrt.dll", "AvSetMmThreadPriority", longArrayOf(Win32DynamicFfi.objectSlot(avrthandle), priority.toLong())).toInt()
+public fun AvSetMmThreadPriority(avrthandle: HANDLE, priority: AVRT_PRIORITY): BOOL {
+    return Win32DynamicFfi.invoke("avrt.dll", "AvSetMmThreadPriority", longArrayOf(avrthandle, priority.toLong())).toInt()
 }
 
 public fun CallbackMayRunLong(pci: PTP_CALLBACK_INSTANCE): BOOL {
@@ -136,20 +139,20 @@ public fun CancelThreadpoolIo(pio: PTP_IO) {
     Win32DynamicFfi.invoke("kernel32.dll", "CancelThreadpoolIo", longArrayOf(pio))
 }
 
-public fun CancelTimerQueueTimer(timerqueue: Foundation.HANDLE, timer: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "CancelTimerQueueTimer", longArrayOf(Win32DynamicFfi.objectSlot(timerqueue), Win32DynamicFfi.objectSlot(timer))).toInt()
+public fun CancelTimerQueueTimer(timerqueue: HANDLE, timer: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CancelTimerQueueTimer", longArrayOf(timerqueue, timer)).toInt()
 }
 
-public fun CancelWaitableTimer(htimer: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "CancelWaitableTimer", longArrayOf(Win32DynamicFfi.objectSlot(htimer))).toInt()
+public fun CancelWaitableTimer(htimer: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CancelWaitableTimer", longArrayOf(htimer)).toInt()
 }
 
-public fun ChangeTimerQueueTimer(timerqueue: Foundation.HANDLE, timer: Foundation.HANDLE, duetime: UInt, period: UInt): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "ChangeTimerQueueTimer", longArrayOf(Win32DynamicFfi.objectSlot(timerqueue), Win32DynamicFfi.objectSlot(timer), duetime.toLong(), period.toLong())).toInt()
+public fun ChangeTimerQueueTimer(timerqueue: HANDLE, timer: HANDLE, duetime: UInt, period: UInt): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "ChangeTimerQueueTimer", longArrayOf(timerqueue, timer, duetime.toLong(), period.toLong())).toInt()
 }
 
-public fun ClosePrivateNamespace(handle: Foundation.HANDLE, flags: UInt): Boolean {
-    val rawRet = Win32DynamicFfi.invoke("kernel32.dll", "ClosePrivateNamespace", longArrayOf(Win32DynamicFfi.objectSlot(handle), flags.toLong()))
+public fun ClosePrivateNamespace(handle: HANDLE, flags: UInt): Boolean {
+    val rawRet = Win32DynamicFfi.invoke("kernel32.dll", "ClosePrivateNamespace", longArrayOf(handle, flags.toLong()))
     return (rawRet and 0xFFL) != 0L
 }
 
@@ -193,34 +196,28 @@ public fun ConvertThreadToFiberEx(lpparameter: Long, dwflags: UInt): Long {
     return Win32DynamicFfi.invoke("kernel32.dll", "ConvertThreadToFiberEx", longArrayOf(lpparameter, dwflags.toLong()))
 }
 
-public fun CreateBoundaryDescriptorA(name: PCSTR, flags: UInt): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreateBoundaryDescriptorA", longArrayOf(name, flags.toLong()))
-    return Foundation.HANDLE()
+public fun CreateBoundaryDescriptorA(name: PCSTR, flags: UInt): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateBoundaryDescriptorA", longArrayOf(name, flags.toLong()))
 }
 
-public fun CreateBoundaryDescriptorW(name: PCWSTR, flags: UInt): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreateBoundaryDescriptorW", longArrayOf(name, flags.toLong()))
-    return Foundation.HANDLE()
+public fun CreateBoundaryDescriptorW(name: PCWSTR, flags: UInt): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateBoundaryDescriptorW", longArrayOf(name, flags.toLong()))
 }
 
-public fun CreateEventA(lpeventattributes: Long, bmanualreset: BOOL, binitialstate: BOOL, lpname: PCSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreateEventA", longArrayOf(lpeventattributes, bmanualreset.toLong(), binitialstate.toLong(), lpname))
-    return Foundation.HANDLE()
+public fun CreateEventA(lpeventattributes: Long, bmanualreset: BOOL, binitialstate: BOOL, lpname: PCSTR): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateEventA", longArrayOf(lpeventattributes, bmanualreset.toLong(), binitialstate.toLong(), lpname))
 }
 
-public fun CreateEventExA(lpeventattributes: Long, lpname: PCSTR, dwflags: CREATE_EVENT, dwdesiredaccess: UInt): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreateEventExA", longArrayOf(lpeventattributes, lpname, dwflags.toLong(), dwdesiredaccess.toLong()))
-    return Foundation.HANDLE()
+public fun CreateEventExA(lpeventattributes: Long, lpname: PCSTR, dwflags: CREATE_EVENT, dwdesiredaccess: UInt): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateEventExA", longArrayOf(lpeventattributes, lpname, dwflags.toLong(), dwdesiredaccess.toLong()))
 }
 
-public fun CreateEventExW(lpeventattributes: Long, lpname: PCWSTR, dwflags: CREATE_EVENT, dwdesiredaccess: UInt): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreateEventExW", longArrayOf(lpeventattributes, lpname, dwflags.toLong(), dwdesiredaccess.toLong()))
-    return Foundation.HANDLE()
+public fun CreateEventExW(lpeventattributes: Long, lpname: PCWSTR, dwflags: CREATE_EVENT, dwdesiredaccess: UInt): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateEventExW", longArrayOf(lpeventattributes, lpname, dwflags.toLong(), dwdesiredaccess.toLong()))
 }
 
-public fun CreateEventW(lpeventattributes: Long, bmanualreset: BOOL, binitialstate: BOOL, lpname: PCWSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreateEventW", longArrayOf(lpeventattributes, bmanualreset.toLong(), binitialstate.toLong(), lpname))
-    return Foundation.HANDLE()
+public fun CreateEventW(lpeventattributes: Long, bmanualreset: BOOL, binitialstate: BOOL, lpname: PCWSTR): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateEventW", longArrayOf(lpeventattributes, bmanualreset.toLong(), binitialstate.toLong(), lpname))
 }
 
 public fun CreateFiber(dwstacksize: ULong, lpstartaddress: LPFIBER_START_ROUTINE, lpparameter: Long): Long {
@@ -231,46 +228,40 @@ public fun CreateFiberEx(dwstackcommitsize: ULong, dwstackreservesize: ULong, dw
     return Win32DynamicFfi.invoke("kernel32.dll", "CreateFiberEx", longArrayOf(dwstackcommitsize.toLong(), dwstackreservesize.toLong(), dwflags.toLong(), Win32DynamicFfi.objectSlot(lpstartaddress), lpparameter))
 }
 
-public fun CreateMutexA(lpmutexattributes: Long, binitialowner: BOOL, lpname: PCSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreateMutexA", longArrayOf(lpmutexattributes, binitialowner.toLong(), lpname))
-    return Foundation.HANDLE()
+public fun CreateMutexA(lpmutexattributes: Long, binitialowner: BOOL, lpname: PCSTR): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateMutexA", longArrayOf(lpmutexattributes, binitialowner.toLong(), lpname))
 }
 
-public fun CreateMutexExA(lpmutexattributes: Long, lpname: PCSTR, dwflags: UInt, dwdesiredaccess: UInt): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreateMutexExA", longArrayOf(lpmutexattributes, lpname, dwflags.toLong(), dwdesiredaccess.toLong()))
-    return Foundation.HANDLE()
+public fun CreateMutexExA(lpmutexattributes: Long, lpname: PCSTR, dwflags: UInt, dwdesiredaccess: UInt): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateMutexExA", longArrayOf(lpmutexattributes, lpname, dwflags.toLong(), dwdesiredaccess.toLong()))
 }
 
-public fun CreateMutexExW(lpmutexattributes: Long, lpname: PCWSTR, dwflags: UInt, dwdesiredaccess: UInt): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreateMutexExW", longArrayOf(lpmutexattributes, lpname, dwflags.toLong(), dwdesiredaccess.toLong()))
-    return Foundation.HANDLE()
+public fun CreateMutexExW(lpmutexattributes: Long, lpname: PCWSTR, dwflags: UInt, dwdesiredaccess: UInt): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateMutexExW", longArrayOf(lpmutexattributes, lpname, dwflags.toLong(), dwdesiredaccess.toLong()))
 }
 
-public fun CreateMutexW(lpmutexattributes: Long, binitialowner: BOOL, lpname: PCWSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreateMutexW", longArrayOf(lpmutexattributes, binitialowner.toLong(), lpname))
-    return Foundation.HANDLE()
+public fun CreateMutexW(lpmutexattributes: Long, binitialowner: BOOL, lpname: PCWSTR): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateMutexW", longArrayOf(lpmutexattributes, binitialowner.toLong(), lpname))
 }
 
-public fun CreatePrivateNamespaceA(lpprivatenamespaceattributes: Long, lpboundarydescriptor: Long, lpaliasprefix: PCSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreatePrivateNamespaceA", longArrayOf(lpprivatenamespaceattributes, lpboundarydescriptor, lpaliasprefix))
-    return Foundation.HANDLE()
+public fun CreatePrivateNamespaceA(lpprivatenamespaceattributes: Long, lpboundarydescriptor: Long, lpaliasprefix: PCSTR): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreatePrivateNamespaceA", longArrayOf(lpprivatenamespaceattributes, lpboundarydescriptor, lpaliasprefix))
 }
 
-public fun CreatePrivateNamespaceW(lpprivatenamespaceattributes: Long, lpboundarydescriptor: Long, lpaliasprefix: PCWSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreatePrivateNamespaceW", longArrayOf(lpprivatenamespaceattributes, lpboundarydescriptor, lpaliasprefix))
-    return Foundation.HANDLE()
+public fun CreatePrivateNamespaceW(lpprivatenamespaceattributes: Long, lpboundarydescriptor: Long, lpaliasprefix: PCWSTR): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreatePrivateNamespaceW", longArrayOf(lpprivatenamespaceattributes, lpboundarydescriptor, lpaliasprefix))
 }
 
 public fun CreateProcessA(lpapplicationname: PCSTR, lpcommandline: PSTR, lpprocessattributes: Long, lpthreadattributes: Long, binherithandles: BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "CreateProcessA", longArrayOf(lpapplicationname, lpcommandline, lpprocessattributes, lpthreadattributes, binherithandles.toLong(), dwcreationflags.toLong(), lpenvironment, lpcurrentdirectory, lpstartupinfo, lpprocessinformation)).toInt()
 }
 
-public fun CreateProcessAsUserA(htoken: Foundation.HANDLE, lpapplicationname: PCSTR, lpcommandline: PSTR, lpprocessattributes: Long, lpthreadattributes: Long, binherithandles: BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "CreateProcessAsUserA", longArrayOf(Win32DynamicFfi.objectSlot(htoken), lpapplicationname, lpcommandline, lpprocessattributes, lpthreadattributes, binherithandles.toLong(), dwcreationflags.toLong(), lpenvironment, lpcurrentdirectory, lpstartupinfo, lpprocessinformation)).toInt()
+public fun CreateProcessAsUserA(htoken: HANDLE, lpapplicationname: PCSTR, lpcommandline: PSTR, lpprocessattributes: Long, lpthreadattributes: Long, binherithandles: BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "CreateProcessAsUserA", longArrayOf(htoken, lpapplicationname, lpcommandline, lpprocessattributes, lpthreadattributes, binherithandles.toLong(), dwcreationflags.toLong(), lpenvironment, lpcurrentdirectory, lpstartupinfo, lpprocessinformation)).toInt()
 }
 
-public fun CreateProcessAsUserW(htoken: Foundation.HANDLE, lpapplicationname: PCWSTR, lpcommandline: PWSTR, lpprocessattributes: Long, lpthreadattributes: Long, binherithandles: BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCWSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "CreateProcessAsUserW", longArrayOf(Win32DynamicFfi.objectSlot(htoken), lpapplicationname, lpcommandline, lpprocessattributes, lpthreadattributes, binherithandles.toLong(), dwcreationflags.toLong(), lpenvironment, lpcurrentdirectory, lpstartupinfo, lpprocessinformation)).toInt()
+public fun CreateProcessAsUserW(htoken: HANDLE, lpapplicationname: PCWSTR, lpcommandline: PWSTR, lpprocessattributes: Long, lpthreadattributes: Long, binherithandles: BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCWSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "CreateProcessAsUserW", longArrayOf(htoken, lpapplicationname, lpcommandline, lpprocessattributes, lpthreadattributes, binherithandles.toLong(), dwcreationflags.toLong(), lpenvironment, lpcurrentdirectory, lpstartupinfo, lpprocessinformation)).toInt()
 }
 
 public fun CreateProcessW(lpapplicationname: PCWSTR, lpcommandline: PWSTR, lpprocessattributes: Long, lpthreadattributes: Long, binherithandles: BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCWSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL {
@@ -281,43 +272,36 @@ public fun CreateProcessWithLogonW(lpusername: PCWSTR, lpdomain: PCWSTR, lppassw
     return Win32DynamicFfi.invoke("advapi32.dll", "CreateProcessWithLogonW", longArrayOf(lpusername, lpdomain, lppassword, dwlogonflags.toLong(), lpapplicationname, lpcommandline, dwcreationflags.toLong(), lpenvironment, lpcurrentdirectory, lpstartupinfo, lpprocessinformation)).toInt()
 }
 
-public fun CreateProcessWithTokenW(htoken: Foundation.HANDLE, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: PCWSTR, lpcommandline: PWSTR, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCWSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "CreateProcessWithTokenW", longArrayOf(Win32DynamicFfi.objectSlot(htoken), dwlogonflags.toLong(), lpapplicationname, lpcommandline, dwcreationflags.toLong(), lpenvironment, lpcurrentdirectory, lpstartupinfo, lpprocessinformation)).toInt()
+public fun CreateProcessWithTokenW(htoken: HANDLE, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: PCWSTR, lpcommandline: PWSTR, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCWSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "CreateProcessWithTokenW", longArrayOf(htoken, dwlogonflags.toLong(), lpapplicationname, lpcommandline, dwcreationflags.toLong(), lpenvironment, lpcurrentdirectory, lpstartupinfo, lpprocessinformation)).toInt()
 }
 
-public fun CreateRemoteThread(hprocess: Foundation.HANDLE, lpthreadattributes: Long, dwstacksize: ULong, lpstartaddress: LPTHREAD_START_ROUTINE, lpparameter: Long, dwcreationflags: UInt, lpthreadid: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreateRemoteThread", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), lpthreadattributes, dwstacksize.toLong(), Win32DynamicFfi.objectSlot(lpstartaddress), lpparameter, dwcreationflags.toLong(), lpthreadid))
-    return Foundation.HANDLE()
+public fun CreateRemoteThread(hprocess: HANDLE, lpthreadattributes: Long, dwstacksize: ULong, lpstartaddress: LPTHREAD_START_ROUTINE, lpparameter: Long, dwcreationflags: UInt, lpthreadid: Long): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateRemoteThread", longArrayOf(hprocess, lpthreadattributes, dwstacksize.toLong(), Win32DynamicFfi.objectSlot(lpstartaddress), lpparameter, dwcreationflags.toLong(), lpthreadid))
 }
 
-public fun CreateRemoteThreadEx(hprocess: Foundation.HANDLE, lpthreadattributes: Long, dwstacksize: ULong, lpstartaddress: LPTHREAD_START_ROUTINE, lpparameter: Long, dwcreationflags: UInt, lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, lpthreadid: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreateRemoteThreadEx", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), lpthreadattributes, dwstacksize.toLong(), Win32DynamicFfi.objectSlot(lpstartaddress), lpparameter, dwcreationflags.toLong(), lpattributelist, lpthreadid))
-    return Foundation.HANDLE()
+public fun CreateRemoteThreadEx(hprocess: HANDLE, lpthreadattributes: Long, dwstacksize: ULong, lpstartaddress: LPTHREAD_START_ROUTINE, lpparameter: Long, dwcreationflags: UInt, lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, lpthreadid: Long): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateRemoteThreadEx", longArrayOf(hprocess, lpthreadattributes, dwstacksize.toLong(), Win32DynamicFfi.objectSlot(lpstartaddress), lpparameter, dwcreationflags.toLong(), lpattributelist, lpthreadid))
 }
 
-public fun CreateSemaphoreA(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: PCSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreateSemaphoreA", longArrayOf(lpsemaphoreattributes, linitialcount.toLong(), lmaximumcount.toLong(), lpname))
-    return Foundation.HANDLE()
+public fun CreateSemaphoreA(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: PCSTR): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateSemaphoreA", longArrayOf(lpsemaphoreattributes, linitialcount.toLong(), lmaximumcount.toLong(), lpname))
 }
 
-public fun CreateSemaphoreExA(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: PCSTR, dwflags: UInt, dwdesiredaccess: UInt): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreateSemaphoreExA", longArrayOf(lpsemaphoreattributes, linitialcount.toLong(), lmaximumcount.toLong(), lpname, dwflags.toLong(), dwdesiredaccess.toLong()))
-    return Foundation.HANDLE()
+public fun CreateSemaphoreExA(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: PCSTR, dwflags: UInt, dwdesiredaccess: UInt): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateSemaphoreExA", longArrayOf(lpsemaphoreattributes, linitialcount.toLong(), lmaximumcount.toLong(), lpname, dwflags.toLong(), dwdesiredaccess.toLong()))
 }
 
-public fun CreateSemaphoreExW(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: PCWSTR, dwflags: UInt, dwdesiredaccess: UInt): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreateSemaphoreExW", longArrayOf(lpsemaphoreattributes, linitialcount.toLong(), lmaximumcount.toLong(), lpname, dwflags.toLong(), dwdesiredaccess.toLong()))
-    return Foundation.HANDLE()
+public fun CreateSemaphoreExW(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: PCWSTR, dwflags: UInt, dwdesiredaccess: UInt): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateSemaphoreExW", longArrayOf(lpsemaphoreattributes, linitialcount.toLong(), lmaximumcount.toLong(), lpname, dwflags.toLong(), dwdesiredaccess.toLong()))
 }
 
-public fun CreateSemaphoreW(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: PCWSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreateSemaphoreW", longArrayOf(lpsemaphoreattributes, linitialcount.toLong(), lmaximumcount.toLong(), lpname))
-    return Foundation.HANDLE()
+public fun CreateSemaphoreW(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: PCWSTR): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateSemaphoreW", longArrayOf(lpsemaphoreattributes, linitialcount.toLong(), lmaximumcount.toLong(), lpname))
 }
 
-public fun CreateThread(lpthreadattributes: Long, dwstacksize: ULong, lpstartaddress: LPTHREAD_START_ROUTINE, lpparameter: Long, dwcreationflags: THREAD_CREATION_FLAGS, lpthreadid: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreateThread", longArrayOf(lpthreadattributes, dwstacksize.toLong(), Win32DynamicFfi.objectSlot(lpstartaddress), lpparameter, dwcreationflags.toLong(), lpthreadid))
-    return Foundation.HANDLE()
+public fun CreateThread(lpthreadattributes: Long, dwstacksize: ULong, lpstartaddress: LPTHREAD_START_ROUTINE, lpparameter: Long, dwcreationflags: THREAD_CREATION_FLAGS, lpthreadid: Long): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateThread", longArrayOf(lpthreadattributes, dwstacksize.toLong(), Win32DynamicFfi.objectSlot(lpstartaddress), lpparameter, dwcreationflags.toLong(), lpthreadid))
 }
 
 public fun CreateThreadpool(reserved: Long): PTP_POOL {
@@ -328,8 +312,8 @@ public fun CreateThreadpoolCleanupGroup(): PTP_CLEANUP_GROUP {
     return Win32DynamicFfi.invoke("kernel32.dll", "CreateThreadpoolCleanupGroup", longArrayOf())
 }
 
-public fun CreateThreadpoolIo(fl: Foundation.HANDLE, pfnio: PTP_WIN32_IO_CALLBACK, pv: Long, pcbe: Long): PTP_IO {
-    return Win32DynamicFfi.invoke("kernel32.dll", "CreateThreadpoolIo", longArrayOf(Win32DynamicFfi.objectSlot(fl), Win32DynamicFfi.objectSlot(pfnio), pv, pcbe))
+public fun CreateThreadpoolIo(fl: HANDLE, pfnio: PTP_WIN32_IO_CALLBACK, pv: Long, pcbe: Long): PTP_IO {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateThreadpoolIo", longArrayOf(fl, Win32DynamicFfi.objectSlot(pfnio), pv, pcbe))
 }
 
 public fun CreateThreadpoolTimer(pfnti: PTP_TIMER_CALLBACK, pv: Long, pcbe: Long): PTP_TIMER {
@@ -344,13 +328,12 @@ public fun CreateThreadpoolWork(pfnwk: PTP_WORK_CALLBACK, pv: Long, pcbe: Long):
     return Win32DynamicFfi.invoke("kernel32.dll", "CreateThreadpoolWork", longArrayOf(Win32DynamicFfi.objectSlot(pfnwk), pv, pcbe))
 }
 
-public fun CreateTimerQueue(): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreateTimerQueue", longArrayOf())
-    return Foundation.HANDLE()
+public fun CreateTimerQueue(): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateTimerQueue", longArrayOf())
 }
 
-public fun CreateTimerQueueTimer(phnewtimer: Long, timerqueue: Foundation.HANDLE, callback: WAITORTIMERCALLBACK, parameter: Long, duetime: UInt, period: UInt, flags: WORKER_THREAD_FLAGS): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "CreateTimerQueueTimer", longArrayOf(phnewtimer, Win32DynamicFfi.objectSlot(timerqueue), Win32DynamicFfi.objectSlot(callback), parameter, duetime.toLong(), period.toLong(), flags.toLong())).toInt()
+public fun CreateTimerQueueTimer(phnewtimer: Long, timerqueue: HANDLE, callback: WAITORTIMERCALLBACK, parameter: Long, duetime: UInt, period: UInt, flags: WORKER_THREAD_FLAGS): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateTimerQueueTimer", longArrayOf(phnewtimer, timerqueue, Win32DynamicFfi.objectSlot(callback), parameter, duetime.toLong(), period.toLong(), flags.toLong())).toInt()
 }
 
 public fun CreateUmsCompletionList(umscompletionlist: Long): BOOL {
@@ -361,28 +344,24 @@ public fun CreateUmsThreadContext(lpumsthread: Long): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "CreateUmsThreadContext", longArrayOf(lpumsthread)).toInt()
 }
 
-public fun CreateWaitableTimerA(lptimerattributes: Long, bmanualreset: BOOL, lptimername: PCSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreateWaitableTimerA", longArrayOf(lptimerattributes, bmanualreset.toLong(), lptimername))
-    return Foundation.HANDLE()
+public fun CreateWaitableTimerA(lptimerattributes: Long, bmanualreset: BOOL, lptimername: PCSTR): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateWaitableTimerA", longArrayOf(lptimerattributes, bmanualreset.toLong(), lptimername))
 }
 
-public fun CreateWaitableTimerExA(lptimerattributes: Long, lptimername: PCSTR, dwflags: UInt, dwdesiredaccess: UInt): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreateWaitableTimerExA", longArrayOf(lptimerattributes, lptimername, dwflags.toLong(), dwdesiredaccess.toLong()))
-    return Foundation.HANDLE()
+public fun CreateWaitableTimerExA(lptimerattributes: Long, lptimername: PCSTR, dwflags: UInt, dwdesiredaccess: UInt): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateWaitableTimerExA", longArrayOf(lptimerattributes, lptimername, dwflags.toLong(), dwdesiredaccess.toLong()))
 }
 
-public fun CreateWaitableTimerExW(lptimerattributes: Long, lptimername: PCWSTR, dwflags: UInt, dwdesiredaccess: UInt): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreateWaitableTimerExW", longArrayOf(lptimerattributes, lptimername, dwflags.toLong(), dwdesiredaccess.toLong()))
-    return Foundation.HANDLE()
+public fun CreateWaitableTimerExW(lptimerattributes: Long, lptimername: PCWSTR, dwflags: UInt, dwdesiredaccess: UInt): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateWaitableTimerExW", longArrayOf(lptimerattributes, lptimername, dwflags.toLong(), dwdesiredaccess.toLong()))
 }
 
-public fun CreateWaitableTimerW(lptimerattributes: Long, bmanualreset: BOOL, lptimername: PCWSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "CreateWaitableTimerW", longArrayOf(lptimerattributes, bmanualreset.toLong(), lptimername))
-    return Foundation.HANDLE()
+public fun CreateWaitableTimerW(lptimerattributes: Long, bmanualreset: BOOL, lptimername: PCWSTR): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CreateWaitableTimerW", longArrayOf(lptimerattributes, bmanualreset.toLong(), lptimername))
 }
 
-public fun DeleteBoundaryDescriptor(boundarydescriptor: Foundation.HANDLE) {
-    Win32DynamicFfi.invoke("kernel32.dll", "DeleteBoundaryDescriptor", longArrayOf(Win32DynamicFfi.objectSlot(boundarydescriptor)))
+public fun DeleteBoundaryDescriptor(boundarydescriptor: HANDLE) {
+    Win32DynamicFfi.invoke("kernel32.dll", "DeleteBoundaryDescriptor", longArrayOf(boundarydescriptor))
 }
 
 public fun DeleteCriticalSection(lpcriticalsection: Long) {
@@ -401,16 +380,16 @@ public fun DeleteSynchronizationBarrier(lpbarrier: Long): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "DeleteSynchronizationBarrier", longArrayOf(lpbarrier)).toInt()
 }
 
-public fun DeleteTimerQueue(timerqueue: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "DeleteTimerQueue", longArrayOf(Win32DynamicFfi.objectSlot(timerqueue))).toInt()
+public fun DeleteTimerQueue(timerqueue: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "DeleteTimerQueue", longArrayOf(timerqueue)).toInt()
 }
 
-public fun DeleteTimerQueueEx(timerqueue: Foundation.HANDLE, completionevent: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "DeleteTimerQueueEx", longArrayOf(Win32DynamicFfi.objectSlot(timerqueue), Win32DynamicFfi.objectSlot(completionevent))).toInt()
+public fun DeleteTimerQueueEx(timerqueue: HANDLE, completionevent: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "DeleteTimerQueueEx", longArrayOf(timerqueue, completionevent)).toInt()
 }
 
-public fun DeleteTimerQueueTimer(timerqueue: Foundation.HANDLE, timer: Foundation.HANDLE, completionevent: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "DeleteTimerQueueTimer", longArrayOf(Win32DynamicFfi.objectSlot(timerqueue), Win32DynamicFfi.objectSlot(timer), Win32DynamicFfi.objectSlot(completionevent))).toInt()
+public fun DeleteTimerQueueTimer(timerqueue: HANDLE, timer: HANDLE, completionevent: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "DeleteTimerQueueTimer", longArrayOf(timerqueue, timer, completionevent)).toInt()
 }
 
 public fun DeleteUmsCompletionList(umscompletionlist: Long): BOOL {
@@ -475,8 +454,8 @@ public fun FlushProcessWriteBuffers() {
     Win32DynamicFfi.invoke("kernel32.dll", "FlushProcessWriteBuffers", longArrayOf())
 }
 
-public fun FreeLibraryWhenCallbackReturns(pci: PTP_CALLBACK_INSTANCE, mod: Foundation.HMODULE) {
-    Win32DynamicFfi.invoke("kernel32.dll", "FreeLibraryWhenCallbackReturns", longArrayOf(pci, Win32DynamicFfi.objectSlot(mod)))
+public fun FreeLibraryWhenCallbackReturns(pci: PTP_CALLBACK_INSTANCE, mod: HMODULE) {
+    Win32DynamicFfi.invoke("kernel32.dll", "FreeLibraryWhenCallbackReturns", longArrayOf(pci, mod))
 }
 
 public fun GetActiveProcessorCount(groupnumber: UShort): UInt {
@@ -487,9 +466,8 @@ public fun GetActiveProcessorGroupCount(): UShort {
     return Win32DynamicFfi.invoke("kernel32.dll", "GetActiveProcessorGroupCount", longArrayOf()).toUShort()
 }
 
-public fun GetCurrentProcess(): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "GetCurrentProcess", longArrayOf())
-    return Foundation.HANDLE()
+public fun GetCurrentProcess(): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetCurrentProcess", longArrayOf())
 }
 
 public fun GetCurrentProcessId(): UInt {
@@ -504,9 +482,8 @@ public fun GetCurrentProcessorNumberEx(procnumber: Long) {
     Win32DynamicFfi.invoke("kernel32.dll", "GetCurrentProcessorNumberEx", longArrayOf(procnumber))
 }
 
-public fun GetCurrentThread(): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "GetCurrentThread", longArrayOf())
-    return Foundation.HANDLE()
+public fun GetCurrentThread(): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetCurrentThread", longArrayOf())
 }
 
 public fun GetCurrentThreadId(): UInt {
@@ -521,16 +498,16 @@ public fun GetCurrentUmsThread(): Long {
     return Win32DynamicFfi.invoke("kernel32.dll", "GetCurrentUmsThread", longArrayOf())
 }
 
-public fun GetExitCodeProcess(hprocess: Foundation.HANDLE, lpexitcode: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetExitCodeProcess", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), lpexitcode)).toInt()
+public fun GetExitCodeProcess(hprocess: HANDLE, lpexitcode: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetExitCodeProcess", longArrayOf(hprocess, lpexitcode)).toInt()
 }
 
-public fun GetExitCodeThread(hthread: Foundation.HANDLE, lpexitcode: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetExitCodeThread", longArrayOf(Win32DynamicFfi.objectSlot(hthread), lpexitcode)).toInt()
+public fun GetExitCodeThread(hthread: HANDLE, lpexitcode: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetExitCodeThread", longArrayOf(hthread, lpexitcode)).toInt()
 }
 
-public fun GetGuiResources(hprocess: Foundation.HANDLE, uiflags: GET_GUI_RESOURCES_FLAGS): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "GetGuiResources", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), uiflags.toLong())).toUInt()
+public fun GetGuiResources(hprocess: HANDLE, uiflags: GET_GUI_RESOURCES_FLAGS): UInt {
+    return Win32DynamicFfi.invoke("user32.dll", "GetGuiResources", longArrayOf(hprocess, uiflags.toLong())).toUInt()
 }
 
 public fun GetMachineTypeAttributes(machine: UShort, machinetypeattributes: Long): HRESULT {
@@ -561,8 +538,8 @@ public fun GetNumaHighestNodeNumber(highestnodenumber: Long): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "GetNumaHighestNodeNumber", longArrayOf(highestnodenumber)).toInt()
 }
 
-public fun GetNumaNodeNumberFromHandle(hfile: Foundation.HANDLE, nodenumber: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetNumaNodeNumberFromHandle", longArrayOf(Win32DynamicFfi.objectSlot(hfile), nodenumber)).toInt()
+public fun GetNumaNodeNumberFromHandle(hfile: HANDLE, nodenumber: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetNumaNodeNumberFromHandle", longArrayOf(hfile, nodenumber)).toInt()
 }
 
 public fun GetNumaNodeProcessorMask(node: UByte, processormask: Long): BOOL {
@@ -593,77 +570,76 @@ public fun GetNumaProximityNodeEx(proximityid: UInt, nodenumber: Long): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "GetNumaProximityNodeEx", longArrayOf(proximityid.toLong(), nodenumber)).toInt()
 }
 
-public fun GetPriorityClass(hprocess: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetPriorityClass", longArrayOf(Win32DynamicFfi.objectSlot(hprocess))).toUInt()
+public fun GetPriorityClass(hprocess: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetPriorityClass", longArrayOf(hprocess)).toUInt()
 }
 
-public fun GetProcessAffinityMask(hprocess: Foundation.HANDLE, lpprocessaffinitymask: Long, lpsystemaffinitymask: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetProcessAffinityMask", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), lpprocessaffinitymask, lpsystemaffinitymask)).toInt()
+public fun GetProcessAffinityMask(hprocess: HANDLE, lpprocessaffinitymask: Long, lpsystemaffinitymask: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetProcessAffinityMask", longArrayOf(hprocess, lpprocessaffinitymask, lpsystemaffinitymask)).toInt()
 }
 
-public fun GetProcessDEPPolicy(hprocess: Foundation.HANDLE, lpflags: Long, lppermanent: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetProcessDEPPolicy", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), lpflags, lppermanent)).toInt()
+public fun GetProcessDEPPolicy(hprocess: HANDLE, lpflags: Long, lppermanent: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetProcessDEPPolicy", longArrayOf(hprocess, lpflags, lppermanent)).toInt()
 }
 
-public fun GetProcessDefaultCpuSetMasks(process: Foundation.HANDLE, cpusetmasks: Long, cpusetmaskcount: UShort, requiredmaskcount: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetProcessDefaultCpuSetMasks", longArrayOf(Win32DynamicFfi.objectSlot(process), cpusetmasks, cpusetmaskcount.toLong(), requiredmaskcount)).toInt()
+public fun GetProcessDefaultCpuSetMasks(process: HANDLE, cpusetmasks: Long, cpusetmaskcount: UShort, requiredmaskcount: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetProcessDefaultCpuSetMasks", longArrayOf(process, cpusetmasks, cpusetmaskcount.toLong(), requiredmaskcount)).toInt()
 }
 
-public fun GetProcessDefaultCpuSets(process: Foundation.HANDLE, cpusetids: Long, cpusetidcount: UInt, requiredidcount: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetProcessDefaultCpuSets", longArrayOf(Win32DynamicFfi.objectSlot(process), cpusetids, cpusetidcount.toLong(), requiredidcount)).toInt()
+public fun GetProcessDefaultCpuSets(process: HANDLE, cpusetids: Long, cpusetidcount: UInt, requiredidcount: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetProcessDefaultCpuSets", longArrayOf(process, cpusetids, cpusetidcount.toLong(), requiredidcount)).toInt()
 }
 
-public fun GetProcessGroupAffinity(hprocess: Foundation.HANDLE, groupcount: Long, grouparray: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetProcessGroupAffinity", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), groupcount, grouparray)).toInt()
+public fun GetProcessGroupAffinity(hprocess: HANDLE, groupcount: Long, grouparray: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetProcessGroupAffinity", longArrayOf(hprocess, groupcount, grouparray)).toInt()
 }
 
-public fun GetProcessHandleCount(hprocess: Foundation.HANDLE, pdwhandlecount: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetProcessHandleCount", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), pdwhandlecount)).toInt()
+public fun GetProcessHandleCount(hprocess: HANDLE, pdwhandlecount: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetProcessHandleCount", longArrayOf(hprocess, pdwhandlecount)).toInt()
 }
 
-public fun GetProcessHandleFromHwnd(hwnd: Foundation.HWND): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("oleacc.dll", "GetProcessHandleFromHwnd", longArrayOf(Win32DynamicFfi.objectSlot(hwnd)))
-    return Foundation.HANDLE()
+public fun GetProcessHandleFromHwnd(hwnd: HWND): HANDLE {
+    return Win32DynamicFfi.invoke("oleacc.dll", "GetProcessHandleFromHwnd", longArrayOf(hwnd))
 }
 
-public fun GetProcessId(process: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetProcessId", longArrayOf(Win32DynamicFfi.objectSlot(process))).toUInt()
+public fun GetProcessId(process: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetProcessId", longArrayOf(process)).toUInt()
 }
 
-public fun GetProcessIdOfThread(thread: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetProcessIdOfThread", longArrayOf(Win32DynamicFfi.objectSlot(thread))).toUInt()
+public fun GetProcessIdOfThread(thread: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetProcessIdOfThread", longArrayOf(thread)).toUInt()
 }
 
-public fun GetProcessInformation(hprocess: Foundation.HANDLE, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: Long, processinformationsize: UInt): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetProcessInformation", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), processinformationclass.toLong(), processinformation, processinformationsize.toLong())).toInt()
+public fun GetProcessInformation(hprocess: HANDLE, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: Long, processinformationsize: UInt): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetProcessInformation", longArrayOf(hprocess, processinformationclass.toLong(), processinformation, processinformationsize.toLong())).toInt()
 }
 
-public fun GetProcessIoCounters(hprocess: Foundation.HANDLE, lpiocounters: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetProcessIoCounters", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), lpiocounters)).toInt()
+public fun GetProcessIoCounters(hprocess: HANDLE, lpiocounters: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetProcessIoCounters", longArrayOf(hprocess, lpiocounters)).toInt()
 }
 
-public fun GetProcessMitigationPolicy(hprocess: Foundation.HANDLE, mitigationpolicy: PROCESS_MITIGATION_POLICY, lpbuffer: Long, dwlength: ULong): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetProcessMitigationPolicy", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), mitigationpolicy.toLong(), lpbuffer, dwlength.toLong())).toInt()
+public fun GetProcessMitigationPolicy(hprocess: HANDLE, mitigationpolicy: PROCESS_MITIGATION_POLICY, lpbuffer: Long, dwlength: ULong): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetProcessMitigationPolicy", longArrayOf(hprocess, mitigationpolicy.toLong(), lpbuffer, dwlength.toLong())).toInt()
 }
 
-public fun GetProcessPriorityBoost(hprocess: Foundation.HANDLE, pdisablepriorityboost: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetProcessPriorityBoost", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), pdisablepriorityboost)).toInt()
+public fun GetProcessPriorityBoost(hprocess: HANDLE, pdisablepriorityboost: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetProcessPriorityBoost", longArrayOf(hprocess, pdisablepriorityboost)).toInt()
 }
 
 public fun GetProcessShutdownParameters(lpdwlevel: Long, lpdwflags: Long): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "GetProcessShutdownParameters", longArrayOf(lpdwlevel, lpdwflags)).toInt()
 }
 
-public fun GetProcessTimes(hprocess: Foundation.HANDLE, lpcreationtime: Long, lpexittime: Long, lpkerneltime: Long, lpusertime: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetProcessTimes", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), lpcreationtime, lpexittime, lpkerneltime, lpusertime)).toInt()
+public fun GetProcessTimes(hprocess: HANDLE, lpcreationtime: Long, lpexittime: Long, lpkerneltime: Long, lpusertime: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetProcessTimes", longArrayOf(hprocess, lpcreationtime, lpexittime, lpkerneltime, lpusertime)).toInt()
 }
 
 public fun GetProcessVersion(processid: UInt): UInt {
     return Win32DynamicFfi.invoke("kernel32.dll", "GetProcessVersion", longArrayOf(processid.toLong())).toUInt()
 }
 
-public fun GetProcessWorkingSetSize(hprocess: Foundation.HANDLE, lpminimumworkingsetsize: Long, lpmaximumworkingsetsize: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetProcessWorkingSetSize", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), lpminimumworkingsetsize, lpmaximumworkingsetsize)).toInt()
+public fun GetProcessWorkingSetSize(hprocess: HANDLE, lpminimumworkingsetsize: Long, lpmaximumworkingsetsize: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetProcessWorkingSetSize", longArrayOf(hprocess, lpminimumworkingsetsize, lpmaximumworkingsetsize)).toInt()
 }
 
 public fun GetStartupInfoA(lpstartupinfo: Long) {
@@ -678,56 +654,56 @@ public fun GetSystemTimes(lpidletime: Long, lpkerneltime: Long, lpusertime: Long
     return Win32DynamicFfi.invoke("kernel32.dll", "GetSystemTimes", longArrayOf(lpidletime, lpkerneltime, lpusertime)).toInt()
 }
 
-public fun GetThreadDescription(hthread: Foundation.HANDLE, ppszthreaddescription: Long): HRESULT {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetThreadDescription", longArrayOf(Win32DynamicFfi.objectSlot(hthread), ppszthreaddescription)).toInt()
+public fun GetThreadDescription(hthread: HANDLE, ppszthreaddescription: Long): HRESULT {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetThreadDescription", longArrayOf(hthread, ppszthreaddescription)).toInt()
 }
 
-public fun GetThreadGroupAffinity(hthread: Foundation.HANDLE, groupaffinity: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetThreadGroupAffinity", longArrayOf(Win32DynamicFfi.objectSlot(hthread), groupaffinity)).toInt()
+public fun GetThreadGroupAffinity(hthread: HANDLE, groupaffinity: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetThreadGroupAffinity", longArrayOf(hthread, groupaffinity)).toInt()
 }
 
-public fun GetThreadIOPendingFlag(hthread: Foundation.HANDLE, lpioispending: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetThreadIOPendingFlag", longArrayOf(Win32DynamicFfi.objectSlot(hthread), lpioispending)).toInt()
+public fun GetThreadIOPendingFlag(hthread: HANDLE, lpioispending: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetThreadIOPendingFlag", longArrayOf(hthread, lpioispending)).toInt()
 }
 
-public fun GetThreadId(thread: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetThreadId", longArrayOf(Win32DynamicFfi.objectSlot(thread))).toUInt()
+public fun GetThreadId(thread: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetThreadId", longArrayOf(thread)).toUInt()
 }
 
-public fun GetThreadIdealProcessorEx(hthread: Foundation.HANDLE, lpidealprocessor: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetThreadIdealProcessorEx", longArrayOf(Win32DynamicFfi.objectSlot(hthread), lpidealprocessor)).toInt()
+public fun GetThreadIdealProcessorEx(hthread: HANDLE, lpidealprocessor: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetThreadIdealProcessorEx", longArrayOf(hthread, lpidealprocessor)).toInt()
 }
 
-public fun GetThreadInformation(hthread: Foundation.HANDLE, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: Long, threadinformationsize: UInt): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetThreadInformation", longArrayOf(Win32DynamicFfi.objectSlot(hthread), threadinformationclass.toLong(), threadinformation, threadinformationsize.toLong())).toInt()
+public fun GetThreadInformation(hthread: HANDLE, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: Long, threadinformationsize: UInt): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetThreadInformation", longArrayOf(hthread, threadinformationclass.toLong(), threadinformation, threadinformationsize.toLong())).toInt()
 }
 
-public fun GetThreadPriority(hthread: Foundation.HANDLE): Int {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetThreadPriority", longArrayOf(Win32DynamicFfi.objectSlot(hthread))).toInt()
+public fun GetThreadPriority(hthread: HANDLE): Int {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetThreadPriority", longArrayOf(hthread)).toInt()
 }
 
-public fun GetThreadPriorityBoost(hthread: Foundation.HANDLE, pdisablepriorityboost: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetThreadPriorityBoost", longArrayOf(Win32DynamicFfi.objectSlot(hthread), pdisablepriorityboost)).toInt()
+public fun GetThreadPriorityBoost(hthread: HANDLE, pdisablepriorityboost: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetThreadPriorityBoost", longArrayOf(hthread, pdisablepriorityboost)).toInt()
 }
 
-public fun GetThreadSelectedCpuSetMasks(thread: Foundation.HANDLE, cpusetmasks: Long, cpusetmaskcount: UShort, requiredmaskcount: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetThreadSelectedCpuSetMasks", longArrayOf(Win32DynamicFfi.objectSlot(thread), cpusetmasks, cpusetmaskcount.toLong(), requiredmaskcount)).toInt()
+public fun GetThreadSelectedCpuSetMasks(thread: HANDLE, cpusetmasks: Long, cpusetmaskcount: UShort, requiredmaskcount: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetThreadSelectedCpuSetMasks", longArrayOf(thread, cpusetmasks, cpusetmaskcount.toLong(), requiredmaskcount)).toInt()
 }
 
-public fun GetThreadSelectedCpuSets(thread: Foundation.HANDLE, cpusetids: Long, cpusetidcount: UInt, requiredidcount: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetThreadSelectedCpuSets", longArrayOf(Win32DynamicFfi.objectSlot(thread), cpusetids, cpusetidcount.toLong(), requiredidcount)).toInt()
+public fun GetThreadSelectedCpuSets(thread: HANDLE, cpusetids: Long, cpusetidcount: UInt, requiredidcount: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetThreadSelectedCpuSets", longArrayOf(thread, cpusetids, cpusetidcount.toLong(), requiredidcount)).toInt()
 }
 
-public fun GetThreadTimes(hthread: Foundation.HANDLE, lpcreationtime: Long, lpexittime: Long, lpkerneltime: Long, lpusertime: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetThreadTimes", longArrayOf(Win32DynamicFfi.objectSlot(hthread), lpcreationtime, lpexittime, lpkerneltime, lpusertime)).toInt()
+public fun GetThreadTimes(hthread: HANDLE, lpcreationtime: Long, lpexittime: Long, lpkerneltime: Long, lpusertime: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetThreadTimes", longArrayOf(hthread, lpcreationtime, lpexittime, lpkerneltime, lpusertime)).toInt()
 }
 
 public fun GetUmsCompletionListEvent(umscompletionlist: Long, umscompletionevent: Long): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "GetUmsCompletionListEvent", longArrayOf(umscompletionlist, umscompletionevent)).toInt()
 }
 
-public fun GetUmsSystemThreadInformation(threadhandle: Foundation.HANDLE, systemthreadinfo: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetUmsSystemThreadInformation", longArrayOf(Win32DynamicFfi.objectSlot(threadhandle), systemthreadinfo)).toInt()
+public fun GetUmsSystemThreadInformation(threadhandle: HANDLE, systemthreadinfo: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetUmsSystemThreadInformation", longArrayOf(threadhandle, systemthreadinfo)).toInt()
 }
 
 public fun InitOnceBeginInitialize(lpinitonce: Long, dwflags: UInt, fpending: Long, lpcontext: Long): BOOL {
@@ -794,12 +770,12 @@ public fun InterlockedPushListSListEx(listhead: Long, list: Long, listend: Long,
     return Win32DynamicFfi.invoke("kernel32.dll", "InterlockedPushListSListEx", longArrayOf(listhead, list, listend, count.toLong()))
 }
 
-public fun IsImmersiveProcess(hprocess: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "IsImmersiveProcess", longArrayOf(Win32DynamicFfi.objectSlot(hprocess))).toInt()
+public fun IsImmersiveProcess(hprocess: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "IsImmersiveProcess", longArrayOf(hprocess)).toInt()
 }
 
-public fun IsProcessCritical(hprocess: Foundation.HANDLE, critical: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "IsProcessCritical", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), critical)).toInt()
+public fun IsProcessCritical(hprocess: HANDLE, critical: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "IsProcessCritical", longArrayOf(hprocess, critical)).toInt()
 }
 
 public fun IsProcessorFeaturePresent(processorfeature: PROCESSOR_FEATURE_ID): BOOL {
@@ -814,12 +790,12 @@ public fun IsThreadpoolTimerSet(pti: PTP_TIMER): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "IsThreadpoolTimerSet", longArrayOf(pti)).toInt()
 }
 
-public fun IsWow64Process(hprocess: Foundation.HANDLE, wow64process: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "IsWow64Process", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), wow64process)).toInt()
+public fun IsWow64Process(hprocess: HANDLE, wow64process: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "IsWow64Process", longArrayOf(hprocess, wow64process)).toInt()
 }
 
-public fun IsWow64Process2(hprocess: Foundation.HANDLE, pprocessmachine: Long, pnativemachine: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "IsWow64Process2", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), pprocessmachine, pnativemachine)).toInt()
+public fun IsWow64Process2(hprocess: HANDLE, pprocessmachine: Long, pnativemachine: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "IsWow64Process2", longArrayOf(hprocess, pprocessmachine, pnativemachine)).toInt()
 }
 
 public fun LeaveCriticalSection(lpcriticalsection: Long) {
@@ -830,82 +806,72 @@ public fun LeaveCriticalSectionWhenCallbackReturns(pci: PTP_CALLBACK_INSTANCE, p
     Win32DynamicFfi.invoke("kernel32.dll", "LeaveCriticalSectionWhenCallbackReturns", longArrayOf(pci, pcs))
 }
 
-public fun OpenEventA(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: BOOL, lpname: PCSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "OpenEventA", longArrayOf(dwdesiredaccess.toLong(), binherithandle.toLong(), lpname))
-    return Foundation.HANDLE()
+public fun OpenEventA(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: BOOL, lpname: PCSTR): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "OpenEventA", longArrayOf(dwdesiredaccess.toLong(), binherithandle.toLong(), lpname))
 }
 
-public fun OpenEventW(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: BOOL, lpname: PCWSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "OpenEventW", longArrayOf(dwdesiredaccess.toLong(), binherithandle.toLong(), lpname))
-    return Foundation.HANDLE()
+public fun OpenEventW(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: BOOL, lpname: PCWSTR): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "OpenEventW", longArrayOf(dwdesiredaccess.toLong(), binherithandle.toLong(), lpname))
 }
 
-public fun OpenMutexW(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: BOOL, lpname: PCWSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "OpenMutexW", longArrayOf(dwdesiredaccess.toLong(), binherithandle.toLong(), lpname))
-    return Foundation.HANDLE()
+public fun OpenMutexW(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: BOOL, lpname: PCWSTR): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "OpenMutexW", longArrayOf(dwdesiredaccess.toLong(), binherithandle.toLong(), lpname))
 }
 
-public fun OpenPrivateNamespaceA(lpboundarydescriptor: Long, lpaliasprefix: PCSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "OpenPrivateNamespaceA", longArrayOf(lpboundarydescriptor, lpaliasprefix))
-    return Foundation.HANDLE()
+public fun OpenPrivateNamespaceA(lpboundarydescriptor: Long, lpaliasprefix: PCSTR): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "OpenPrivateNamespaceA", longArrayOf(lpboundarydescriptor, lpaliasprefix))
 }
 
-public fun OpenPrivateNamespaceW(lpboundarydescriptor: Long, lpaliasprefix: PCWSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "OpenPrivateNamespaceW", longArrayOf(lpboundarydescriptor, lpaliasprefix))
-    return Foundation.HANDLE()
+public fun OpenPrivateNamespaceW(lpboundarydescriptor: Long, lpaliasprefix: PCWSTR): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "OpenPrivateNamespaceW", longArrayOf(lpboundarydescriptor, lpaliasprefix))
 }
 
-public fun OpenProcess(dwdesiredaccess: PROCESS_ACCESS_RIGHTS, binherithandle: BOOL, dwprocessid: UInt): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "OpenProcess", longArrayOf(dwdesiredaccess.toLong(), binherithandle.toLong(), dwprocessid.toLong()))
-    return Foundation.HANDLE()
+public fun OpenProcess(dwdesiredaccess: PROCESS_ACCESS_RIGHTS, binherithandle: BOOL, dwprocessid: UInt): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "OpenProcess", longArrayOf(dwdesiredaccess.toLong(), binherithandle.toLong(), dwprocessid.toLong()))
 }
 
-public fun OpenProcessToken(processhandle: Foundation.HANDLE, desiredaccess: Security.TOKEN_ACCESS_MASK, tokenhandle: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "OpenProcessToken", longArrayOf(Win32DynamicFfi.objectSlot(processhandle), Win32DynamicFfi.objectSlot(desiredaccess), tokenhandle)).toInt()
+public fun OpenProcessToken(processhandle: HANDLE, desiredaccess: TOKEN_ACCESS_MASK, tokenhandle: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "OpenProcessToken", longArrayOf(processhandle, desiredaccess.toLong(), tokenhandle)).toInt()
 }
 
-public fun OpenSemaphoreW(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: BOOL, lpname: PCWSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "OpenSemaphoreW", longArrayOf(dwdesiredaccess.toLong(), binherithandle.toLong(), lpname))
-    return Foundation.HANDLE()
+public fun OpenSemaphoreW(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: BOOL, lpname: PCWSTR): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "OpenSemaphoreW", longArrayOf(dwdesiredaccess.toLong(), binherithandle.toLong(), lpname))
 }
 
-public fun OpenThread(dwdesiredaccess: THREAD_ACCESS_RIGHTS, binherithandle: BOOL, dwthreadid: UInt): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "OpenThread", longArrayOf(dwdesiredaccess.toLong(), binherithandle.toLong(), dwthreadid.toLong()))
-    return Foundation.HANDLE()
+public fun OpenThread(dwdesiredaccess: THREAD_ACCESS_RIGHTS, binherithandle: BOOL, dwthreadid: UInt): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "OpenThread", longArrayOf(dwdesiredaccess.toLong(), binherithandle.toLong(), dwthreadid.toLong()))
 }
 
-public fun OpenThreadToken(threadhandle: Foundation.HANDLE, desiredaccess: Security.TOKEN_ACCESS_MASK, openasself: BOOL, tokenhandle: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "OpenThreadToken", longArrayOf(Win32DynamicFfi.objectSlot(threadhandle), Win32DynamicFfi.objectSlot(desiredaccess), openasself.toLong(), tokenhandle)).toInt()
+public fun OpenThreadToken(threadhandle: HANDLE, desiredaccess: TOKEN_ACCESS_MASK, openasself: BOOL, tokenhandle: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "OpenThreadToken", longArrayOf(threadhandle, desiredaccess.toLong(), openasself.toLong(), tokenhandle)).toInt()
 }
 
-public fun OpenWaitableTimerA(dwdesiredaccess: UInt, binherithandle: BOOL, lptimername: PCSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "OpenWaitableTimerA", longArrayOf(dwdesiredaccess.toLong(), binherithandle.toLong(), lptimername))
-    return Foundation.HANDLE()
+public fun OpenWaitableTimerA(dwdesiredaccess: UInt, binherithandle: BOOL, lptimername: PCSTR): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "OpenWaitableTimerA", longArrayOf(dwdesiredaccess.toLong(), binherithandle.toLong(), lptimername))
 }
 
-public fun OpenWaitableTimerW(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: BOOL, lptimername: PCWSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "OpenWaitableTimerW", longArrayOf(dwdesiredaccess.toLong(), binherithandle.toLong(), lptimername))
-    return Foundation.HANDLE()
+public fun OpenWaitableTimerW(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: BOOL, lptimername: PCWSTR): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "OpenWaitableTimerW", longArrayOf(dwdesiredaccess.toLong(), binherithandle.toLong(), lptimername))
 }
 
-public fun PulseEvent(hevent: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "PulseEvent", longArrayOf(Win32DynamicFfi.objectSlot(hevent))).toInt()
+public fun PulseEvent(hevent: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "PulseEvent", longArrayOf(hevent)).toInt()
 }
 
 public fun QueryDepthSList(listhead: Long): UShort {
     return Win32DynamicFfi.invoke("kernel32.dll", "QueryDepthSList", longArrayOf(listhead)).toUShort()
 }
 
-public fun QueryFullProcessImageNameA(hprocess: Foundation.HANDLE, dwflags: PROCESS_NAME_FORMAT, lpexename: PSTR, lpdwsize: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "QueryFullProcessImageNameA", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), dwflags.toLong(), lpexename, lpdwsize)).toInt()
+public fun QueryFullProcessImageNameA(hprocess: HANDLE, dwflags: PROCESS_NAME_FORMAT, lpexename: PSTR, lpdwsize: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "QueryFullProcessImageNameA", longArrayOf(hprocess, dwflags.toLong(), lpexename, lpdwsize)).toInt()
 }
 
-public fun QueryFullProcessImageNameW(hprocess: Foundation.HANDLE, dwflags: PROCESS_NAME_FORMAT, lpexename: PWSTR, lpdwsize: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "QueryFullProcessImageNameW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), dwflags.toLong(), lpexename, lpdwsize)).toInt()
+public fun QueryFullProcessImageNameW(hprocess: HANDLE, dwflags: PROCESS_NAME_FORMAT, lpexename: PWSTR, lpdwsize: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "QueryFullProcessImageNameW", longArrayOf(hprocess, dwflags.toLong(), lpexename, lpdwsize)).toInt()
 }
 
-public fun QueryProcessAffinityUpdateMode(hprocess: Foundation.HANDLE, lpdwflags: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "QueryProcessAffinityUpdateMode", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), lpdwflags)).toInt()
+public fun QueryProcessAffinityUpdateMode(hprocess: HANDLE, lpdwflags: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "QueryProcessAffinityUpdateMode", longArrayOf(hprocess, lpdwflags)).toInt()
 }
 
 public fun QueryProtectedPolicy(policyguid: Long, policyvalue: Long): BOOL {
@@ -920,28 +886,28 @@ public fun QueryUmsThreadInformation(umsthread: Long, umsthreadinfoclass: UMS_TH
     return Win32DynamicFfi.invoke("kernel32.dll", "QueryUmsThreadInformation", longArrayOf(umsthread, umsthreadinfoclass.toLong(), umsthreadinformation, umsthreadinformationlength.toLong(), returnlength)).toInt()
 }
 
-public fun QueueUserAPC(pfnapc: Foundation.PAPCFUNC, hthread: Foundation.HANDLE, dwdata: ULong): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "QueueUserAPC", longArrayOf(Win32DynamicFfi.objectSlot(pfnapc), Win32DynamicFfi.objectSlot(hthread), dwdata.toLong())).toUInt()
+public fun QueueUserAPC(pfnapc: PAPCFUNC, hthread: HANDLE, dwdata: ULong): UInt {
+    return Win32DynamicFfi.invoke("kernel32.dll", "QueueUserAPC", longArrayOf(Win32DynamicFfi.objectSlot(pfnapc), hthread, dwdata.toLong())).toUInt()
 }
 
-public fun QueueUserAPC2(apcroutine: Foundation.PAPCFUNC, thread: Foundation.HANDLE, data: ULong, flags: QUEUE_USER_APC_FLAGS): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "QueueUserAPC2", longArrayOf(Win32DynamicFfi.objectSlot(apcroutine), Win32DynamicFfi.objectSlot(thread), data.toLong(), flags.toLong())).toInt()
+public fun QueueUserAPC2(apcroutine: PAPCFUNC, thread: HANDLE, data: ULong, flags: QUEUE_USER_APC_FLAGS): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "QueueUserAPC2", longArrayOf(Win32DynamicFfi.objectSlot(apcroutine), thread, data.toLong(), flags.toLong())).toInt()
 }
 
 public fun QueueUserWorkItem(function: LPTHREAD_START_ROUTINE, context: Long, flags: WORKER_THREAD_FLAGS): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "QueueUserWorkItem", longArrayOf(Win32DynamicFfi.objectSlot(function), context, flags.toLong())).toInt()
 }
 
-public fun RegisterWaitForSingleObject(phnewwaitobject: Long, hobject: Foundation.HANDLE, callback: WAITORTIMERCALLBACK, context: Long, dwmilliseconds: UInt, dwflags: WORKER_THREAD_FLAGS): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "RegisterWaitForSingleObject", longArrayOf(phnewwaitobject, Win32DynamicFfi.objectSlot(hobject), Win32DynamicFfi.objectSlot(callback), context, dwmilliseconds.toLong(), dwflags.toLong())).toInt()
+public fun RegisterWaitForSingleObject(phnewwaitobject: Long, hobject: HANDLE, callback: WAITORTIMERCALLBACK, context: Long, dwmilliseconds: UInt, dwflags: WORKER_THREAD_FLAGS): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "RegisterWaitForSingleObject", longArrayOf(phnewwaitobject, hobject, Win32DynamicFfi.objectSlot(callback), context, dwmilliseconds.toLong(), dwflags.toLong())).toInt()
 }
 
-public fun ReleaseMutex(hmutex: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "ReleaseMutex", longArrayOf(Win32DynamicFfi.objectSlot(hmutex))).toInt()
+public fun ReleaseMutex(hmutex: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "ReleaseMutex", longArrayOf(hmutex)).toInt()
 }
 
-public fun ReleaseMutexWhenCallbackReturns(pci: PTP_CALLBACK_INSTANCE, mut: Foundation.HANDLE) {
-    Win32DynamicFfi.invoke("kernel32.dll", "ReleaseMutexWhenCallbackReturns", longArrayOf(pci, Win32DynamicFfi.objectSlot(mut)))
+public fun ReleaseMutexWhenCallbackReturns(pci: PTP_CALLBACK_INSTANCE, mut: HANDLE) {
+    Win32DynamicFfi.invoke("kernel32.dll", "ReleaseMutexWhenCallbackReturns", longArrayOf(pci, mut))
 }
 
 public fun ReleaseSRWLockExclusive(srwlock: Long) {
@@ -952,20 +918,20 @@ public fun ReleaseSRWLockShared(srwlock: Long) {
     Win32DynamicFfi.invoke("kernel32.dll", "ReleaseSRWLockShared", longArrayOf(srwlock))
 }
 
-public fun ReleaseSemaphore(hsemaphore: Foundation.HANDLE, lreleasecount: Int, lppreviouscount: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "ReleaseSemaphore", longArrayOf(Win32DynamicFfi.objectSlot(hsemaphore), lreleasecount.toLong(), lppreviouscount)).toInt()
+public fun ReleaseSemaphore(hsemaphore: HANDLE, lreleasecount: Int, lppreviouscount: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "ReleaseSemaphore", longArrayOf(hsemaphore, lreleasecount.toLong(), lppreviouscount)).toInt()
 }
 
-public fun ReleaseSemaphoreWhenCallbackReturns(pci: PTP_CALLBACK_INSTANCE, sem: Foundation.HANDLE, crel: UInt) {
-    Win32DynamicFfi.invoke("kernel32.dll", "ReleaseSemaphoreWhenCallbackReturns", longArrayOf(pci, Win32DynamicFfi.objectSlot(sem), crel.toLong()))
+public fun ReleaseSemaphoreWhenCallbackReturns(pci: PTP_CALLBACK_INSTANCE, sem: HANDLE, crel: UInt) {
+    Win32DynamicFfi.invoke("kernel32.dll", "ReleaseSemaphoreWhenCallbackReturns", longArrayOf(pci, sem, crel.toLong()))
 }
 
-public fun ResetEvent(hevent: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "ResetEvent", longArrayOf(Win32DynamicFfi.objectSlot(hevent))).toInt()
+public fun ResetEvent(hevent: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "ResetEvent", longArrayOf(hevent)).toInt()
 }
 
-public fun ResumeThread(hthread: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "ResumeThread", longArrayOf(Win32DynamicFfi.objectSlot(hthread))).toUInt()
+public fun ResumeThread(hthread: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("kernel32.dll", "ResumeThread", longArrayOf(hthread)).toUInt()
 }
 
 public fun RtwqAddPeriodicCallback(callback: RTWQPERIODICCALLBACK, context: Long, key: Long): HRESULT {
@@ -988,8 +954,8 @@ public fun RtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid: UInt, donecallback
     return Win32DynamicFfi.invoke("rtworkq.dll", "RtwqBeginUnregisterWorkQueueWithMMCSS", longArrayOf(workqueueid.toLong(), donecallback, donestate)).toInt()
 }
 
-public fun RtwqCancelDeadline(prequest: Foundation.HANDLE): HRESULT {
-    return Win32DynamicFfi.invoke("rtworkq.dll", "RtwqCancelDeadline", longArrayOf(Win32DynamicFfi.objectSlot(prequest))).toInt()
+public fun RtwqCancelDeadline(prequest: HANDLE): HRESULT {
+    return Win32DynamicFfi.invoke("rtworkq.dll", "RtwqCancelDeadline", longArrayOf(prequest)).toInt()
 }
 
 public fun RtwqCancelWorkItem(key: ULong): HRESULT {
@@ -1020,8 +986,8 @@ public fun RtwqInvokeCallback(result: Long): HRESULT {
     return Win32DynamicFfi.invoke("rtworkq.dll", "RtwqInvokeCallback", longArrayOf(result)).toInt()
 }
 
-public fun RtwqJoinWorkQueue(workqueueid: UInt, hfile: Foundation.HANDLE, out: Long): HRESULT {
-    return Win32DynamicFfi.invoke("rtworkq.dll", "RtwqJoinWorkQueue", longArrayOf(workqueueid.toLong(), Win32DynamicFfi.objectSlot(hfile), out)).toInt()
+public fun RtwqJoinWorkQueue(workqueueid: UInt, hfile: HANDLE, out: Long): HRESULT {
+    return Win32DynamicFfi.invoke("rtworkq.dll", "RtwqJoinWorkQueue", longArrayOf(workqueueid.toLong(), hfile, out)).toInt()
 }
 
 public fun RtwqLockPlatform(): HRESULT {
@@ -1036,8 +1002,8 @@ public fun RtwqLockWorkQueue(workqueueid: UInt): HRESULT {
     return Win32DynamicFfi.invoke("rtworkq.dll", "RtwqLockWorkQueue", longArrayOf(workqueueid.toLong())).toInt()
 }
 
-public fun RtwqPutWaitingWorkItem(hevent: Foundation.HANDLE, lpriority: Int, result: Long, key: Long): HRESULT {
-    return Win32DynamicFfi.invoke("rtworkq.dll", "RtwqPutWaitingWorkItem", longArrayOf(Win32DynamicFfi.objectSlot(hevent), lpriority.toLong(), result, key)).toInt()
+public fun RtwqPutWaitingWorkItem(hevent: HANDLE, lpriority: Int, result: Long, key: Long): HRESULT {
+    return Win32DynamicFfi.invoke("rtworkq.dll", "RtwqPutWaitingWorkItem", longArrayOf(hevent, lpriority.toLong(), result, key)).toInt()
 }
 
 public fun RtwqPutWorkItem(dwqueue: UInt, lpriority: Int, result: Long): HRESULT {
@@ -1080,8 +1046,8 @@ public fun RtwqStartup(): HRESULT {
     return Win32DynamicFfi.invoke("rtworkq.dll", "RtwqStartup", longArrayOf()).toInt()
 }
 
-public fun RtwqUnjoinWorkQueue(workqueueid: UInt, hfile: Foundation.HANDLE): HRESULT {
-    return Win32DynamicFfi.invoke("rtworkq.dll", "RtwqUnjoinWorkQueue", longArrayOf(workqueueid.toLong(), Win32DynamicFfi.objectSlot(hfile))).toInt()
+public fun RtwqUnjoinWorkQueue(workqueueid: UInt, hfile: HANDLE): HRESULT {
+    return Win32DynamicFfi.invoke("rtworkq.dll", "RtwqUnjoinWorkQueue", longArrayOf(workqueueid.toLong(), hfile)).toInt()
 }
 
 public fun RtwqUnlockPlatform(): HRESULT {
@@ -1104,56 +1070,56 @@ public fun SetCriticalSectionSpinCount(lpcriticalsection: Long, dwspincount: UIn
     return Win32DynamicFfi.invoke("kernel32.dll", "SetCriticalSectionSpinCount", longArrayOf(lpcriticalsection, dwspincount.toLong())).toUInt()
 }
 
-public fun SetEvent(hevent: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetEvent", longArrayOf(Win32DynamicFfi.objectSlot(hevent))).toInt()
+public fun SetEvent(hevent: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetEvent", longArrayOf(hevent)).toInt()
 }
 
-public fun SetEventWhenCallbackReturns(pci: PTP_CALLBACK_INSTANCE, evt: Foundation.HANDLE) {
-    Win32DynamicFfi.invoke("kernel32.dll", "SetEventWhenCallbackReturns", longArrayOf(pci, Win32DynamicFfi.objectSlot(evt)))
+public fun SetEventWhenCallbackReturns(pci: PTP_CALLBACK_INSTANCE, evt: HANDLE) {
+    Win32DynamicFfi.invoke("kernel32.dll", "SetEventWhenCallbackReturns", longArrayOf(pci, evt))
 }
 
-public fun SetPriorityClass(hprocess: Foundation.HANDLE, dwpriorityclass: PROCESS_CREATION_FLAGS): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetPriorityClass", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), dwpriorityclass.toLong())).toInt()
+public fun SetPriorityClass(hprocess: HANDLE, dwpriorityclass: PROCESS_CREATION_FLAGS): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetPriorityClass", longArrayOf(hprocess, dwpriorityclass.toLong())).toInt()
 }
 
-public fun SetProcessAffinityMask(hprocess: Foundation.HANDLE, dwprocessaffinitymask: ULong): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetProcessAffinityMask", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), dwprocessaffinitymask.toLong())).toInt()
+public fun SetProcessAffinityMask(hprocess: HANDLE, dwprocessaffinitymask: ULong): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetProcessAffinityMask", longArrayOf(hprocess, dwprocessaffinitymask.toLong())).toInt()
 }
 
-public fun SetProcessAffinityUpdateMode(hprocess: Foundation.HANDLE, dwflags: PROCESS_AFFINITY_AUTO_UPDATE_FLAGS): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetProcessAffinityUpdateMode", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), dwflags.toLong())).toInt()
+public fun SetProcessAffinityUpdateMode(hprocess: HANDLE, dwflags: PROCESS_AFFINITY_AUTO_UPDATE_FLAGS): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetProcessAffinityUpdateMode", longArrayOf(hprocess, dwflags.toLong())).toInt()
 }
 
 public fun SetProcessDEPPolicy(dwflags: PROCESS_DEP_FLAGS): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "SetProcessDEPPolicy", longArrayOf(dwflags.toLong())).toInt()
 }
 
-public fun SetProcessDefaultCpuSetMasks(process: Foundation.HANDLE, cpusetmasks: Long, cpusetmaskcount: UShort): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetProcessDefaultCpuSetMasks", longArrayOf(Win32DynamicFfi.objectSlot(process), cpusetmasks, cpusetmaskcount.toLong())).toInt()
+public fun SetProcessDefaultCpuSetMasks(process: HANDLE, cpusetmasks: Long, cpusetmaskcount: UShort): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetProcessDefaultCpuSetMasks", longArrayOf(process, cpusetmasks, cpusetmaskcount.toLong())).toInt()
 }
 
-public fun SetProcessDefaultCpuSets(process: Foundation.HANDLE, cpusetids: Long, cpusetidcount: UInt): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetProcessDefaultCpuSets", longArrayOf(Win32DynamicFfi.objectSlot(process), cpusetids, cpusetidcount.toLong())).toInt()
+public fun SetProcessDefaultCpuSets(process: HANDLE, cpusetids: Long, cpusetidcount: UInt): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetProcessDefaultCpuSets", longArrayOf(process, cpusetids, cpusetidcount.toLong())).toInt()
 }
 
-public fun SetProcessDynamicEHContinuationTargets(process: Foundation.HANDLE, numberoftargets: UShort, targets: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetProcessDynamicEHContinuationTargets", longArrayOf(Win32DynamicFfi.objectSlot(process), numberoftargets.toLong(), targets)).toInt()
+public fun SetProcessDynamicEHContinuationTargets(process: HANDLE, numberoftargets: UShort, targets: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetProcessDynamicEHContinuationTargets", longArrayOf(process, numberoftargets.toLong(), targets)).toInt()
 }
 
-public fun SetProcessDynamicEnforcedCetCompatibleRanges(process: Foundation.HANDLE, numberofranges: UShort, ranges: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetProcessDynamicEnforcedCetCompatibleRanges", longArrayOf(Win32DynamicFfi.objectSlot(process), numberofranges.toLong(), ranges)).toInt()
+public fun SetProcessDynamicEnforcedCetCompatibleRanges(process: HANDLE, numberofranges: UShort, ranges: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetProcessDynamicEnforcedCetCompatibleRanges", longArrayOf(process, numberofranges.toLong(), ranges)).toInt()
 }
 
-public fun SetProcessInformation(hprocess: Foundation.HANDLE, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: Long, processinformationsize: UInt): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetProcessInformation", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), processinformationclass.toLong(), processinformation, processinformationsize.toLong())).toInt()
+public fun SetProcessInformation(hprocess: HANDLE, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: Long, processinformationsize: UInt): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetProcessInformation", longArrayOf(hprocess, processinformationclass.toLong(), processinformation, processinformationsize.toLong())).toInt()
 }
 
 public fun SetProcessMitigationPolicy(mitigationpolicy: PROCESS_MITIGATION_POLICY, lpbuffer: Long, dwlength: ULong): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "SetProcessMitigationPolicy", longArrayOf(mitigationpolicy.toLong(), lpbuffer, dwlength.toLong())).toInt()
 }
 
-public fun SetProcessPriorityBoost(hprocess: Foundation.HANDLE, bdisablepriorityboost: BOOL): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetProcessPriorityBoost", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), bdisablepriorityboost.toLong())).toInt()
+public fun SetProcessPriorityBoost(hprocess: HANDLE, bdisablepriorityboost: BOOL): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetProcessPriorityBoost", longArrayOf(hprocess, bdisablepriorityboost.toLong())).toInt()
 }
 
 public fun SetProcessRestrictionExemption(fenableexemption: BOOL): BOOL {
@@ -1164,60 +1130,60 @@ public fun SetProcessShutdownParameters(dwlevel: UInt, dwflags: UInt): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "SetProcessShutdownParameters", longArrayOf(dwlevel.toLong(), dwflags.toLong())).toInt()
 }
 
-public fun SetProcessWorkingSetSize(hprocess: Foundation.HANDLE, dwminimumworkingsetsize: ULong, dwmaximumworkingsetsize: ULong): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetProcessWorkingSetSize", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), dwminimumworkingsetsize.toLong(), dwmaximumworkingsetsize.toLong())).toInt()
+public fun SetProcessWorkingSetSize(hprocess: HANDLE, dwminimumworkingsetsize: ULong, dwmaximumworkingsetsize: ULong): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetProcessWorkingSetSize", longArrayOf(hprocess, dwminimumworkingsetsize.toLong(), dwmaximumworkingsetsize.toLong())).toInt()
 }
 
 public fun SetProtectedPolicy(policyguid: Long, policyvalue: ULong, oldpolicyvalue: Long): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "SetProtectedPolicy", longArrayOf(policyguid, policyvalue.toLong(), oldpolicyvalue)).toInt()
 }
 
-public fun SetThreadAffinityMask(hthread: Foundation.HANDLE, dwthreadaffinitymask: ULong): ULong {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetThreadAffinityMask", longArrayOf(Win32DynamicFfi.objectSlot(hthread), dwthreadaffinitymask.toLong())).toULong()
+public fun SetThreadAffinityMask(hthread: HANDLE, dwthreadaffinitymask: ULong): ULong {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetThreadAffinityMask", longArrayOf(hthread, dwthreadaffinitymask.toLong())).toULong()
 }
 
-public fun SetThreadDescription(hthread: Foundation.HANDLE, lpthreaddescription: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetThreadDescription", longArrayOf(Win32DynamicFfi.objectSlot(hthread), lpthreaddescription)).toInt()
+public fun SetThreadDescription(hthread: HANDLE, lpthreaddescription: PCWSTR): HRESULT {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetThreadDescription", longArrayOf(hthread, lpthreaddescription)).toInt()
 }
 
-public fun SetThreadGroupAffinity(hthread: Foundation.HANDLE, groupaffinity: Long, previousgroupaffinity: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetThreadGroupAffinity", longArrayOf(Win32DynamicFfi.objectSlot(hthread), groupaffinity, previousgroupaffinity)).toInt()
+public fun SetThreadGroupAffinity(hthread: HANDLE, groupaffinity: Long, previousgroupaffinity: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetThreadGroupAffinity", longArrayOf(hthread, groupaffinity, previousgroupaffinity)).toInt()
 }
 
-public fun SetThreadIdealProcessor(hthread: Foundation.HANDLE, dwidealprocessor: UInt): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetThreadIdealProcessor", longArrayOf(Win32DynamicFfi.objectSlot(hthread), dwidealprocessor.toLong())).toUInt()
+public fun SetThreadIdealProcessor(hthread: HANDLE, dwidealprocessor: UInt): UInt {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetThreadIdealProcessor", longArrayOf(hthread, dwidealprocessor.toLong())).toUInt()
 }
 
-public fun SetThreadIdealProcessorEx(hthread: Foundation.HANDLE, lpidealprocessor: Long, lppreviousidealprocessor: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetThreadIdealProcessorEx", longArrayOf(Win32DynamicFfi.objectSlot(hthread), lpidealprocessor, lppreviousidealprocessor)).toInt()
+public fun SetThreadIdealProcessorEx(hthread: HANDLE, lpidealprocessor: Long, lppreviousidealprocessor: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetThreadIdealProcessorEx", longArrayOf(hthread, lpidealprocessor, lppreviousidealprocessor)).toInt()
 }
 
-public fun SetThreadInformation(hthread: Foundation.HANDLE, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: Long, threadinformationsize: UInt): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetThreadInformation", longArrayOf(Win32DynamicFfi.objectSlot(hthread), threadinformationclass.toLong(), threadinformation, threadinformationsize.toLong())).toInt()
+public fun SetThreadInformation(hthread: HANDLE, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: Long, threadinformationsize: UInt): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetThreadInformation", longArrayOf(hthread, threadinformationclass.toLong(), threadinformation, threadinformationsize.toLong())).toInt()
 }
 
-public fun SetThreadPriority(hthread: Foundation.HANDLE, npriority: THREAD_PRIORITY): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetThreadPriority", longArrayOf(Win32DynamicFfi.objectSlot(hthread), npriority.toLong())).toInt()
+public fun SetThreadPriority(hthread: HANDLE, npriority: THREAD_PRIORITY): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetThreadPriority", longArrayOf(hthread, npriority.toLong())).toInt()
 }
 
-public fun SetThreadPriorityBoost(hthread: Foundation.HANDLE, bdisablepriorityboost: BOOL): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetThreadPriorityBoost", longArrayOf(Win32DynamicFfi.objectSlot(hthread), bdisablepriorityboost.toLong())).toInt()
+public fun SetThreadPriorityBoost(hthread: HANDLE, bdisablepriorityboost: BOOL): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetThreadPriorityBoost", longArrayOf(hthread, bdisablepriorityboost.toLong())).toInt()
 }
 
-public fun SetThreadSelectedCpuSetMasks(thread: Foundation.HANDLE, cpusetmasks: Long, cpusetmaskcount: UShort): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetThreadSelectedCpuSetMasks", longArrayOf(Win32DynamicFfi.objectSlot(thread), cpusetmasks, cpusetmaskcount.toLong())).toInt()
+public fun SetThreadSelectedCpuSetMasks(thread: HANDLE, cpusetmasks: Long, cpusetmaskcount: UShort): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetThreadSelectedCpuSetMasks", longArrayOf(thread, cpusetmasks, cpusetmaskcount.toLong())).toInt()
 }
 
-public fun SetThreadSelectedCpuSets(thread: Foundation.HANDLE, cpusetids: Long, cpusetidcount: UInt): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetThreadSelectedCpuSets", longArrayOf(Win32DynamicFfi.objectSlot(thread), cpusetids, cpusetidcount.toLong())).toInt()
+public fun SetThreadSelectedCpuSets(thread: HANDLE, cpusetids: Long, cpusetidcount: UInt): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetThreadSelectedCpuSets", longArrayOf(thread, cpusetids, cpusetidcount.toLong())).toInt()
 }
 
 public fun SetThreadStackGuarantee(stacksizeinbytes: Long): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "SetThreadStackGuarantee", longArrayOf(stacksizeinbytes)).toInt()
 }
 
-public fun SetThreadToken(thread: Long, token: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "SetThreadToken", longArrayOf(thread, Win32DynamicFfi.objectSlot(token))).toInt()
+public fun SetThreadToken(thread: Long, token: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "SetThreadToken", longArrayOf(thread, token)).toInt()
 }
 
 public fun SetThreadpoolStackInformation(ptpp: PTP_POOL, ptpsi: Long): BOOL {
@@ -1240,34 +1206,32 @@ public fun SetThreadpoolTimerEx(pti: PTP_TIMER, pftduetime: Long, msperiod: UInt
     return Win32DynamicFfi.invoke("kernel32.dll", "SetThreadpoolTimerEx", longArrayOf(pti, pftduetime, msperiod.toLong(), mswindowlength.toLong())).toInt()
 }
 
-public fun SetThreadpoolWait(pwa: PTP_WAIT, h: Foundation.HANDLE, pfttimeout: Long) {
-    Win32DynamicFfi.invoke("kernel32.dll", "SetThreadpoolWait", longArrayOf(pwa, Win32DynamicFfi.objectSlot(h), pfttimeout))
+public fun SetThreadpoolWait(pwa: PTP_WAIT, h: HANDLE, pfttimeout: Long) {
+    Win32DynamicFfi.invoke("kernel32.dll", "SetThreadpoolWait", longArrayOf(pwa, h, pfttimeout))
 }
 
-public fun SetThreadpoolWaitEx(pwa: PTP_WAIT, h: Foundation.HANDLE, pfttimeout: Long, reserved: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetThreadpoolWaitEx", longArrayOf(pwa, Win32DynamicFfi.objectSlot(h), pfttimeout, reserved)).toInt()
+public fun SetThreadpoolWaitEx(pwa: PTP_WAIT, h: HANDLE, pfttimeout: Long, reserved: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetThreadpoolWaitEx", longArrayOf(pwa, h, pfttimeout, reserved)).toInt()
 }
 
-public fun SetTimerQueueTimer(timerqueue: Foundation.HANDLE, callback: WAITORTIMERCALLBACK, parameter: Long, duetime: UInt, period: UInt, preferio: BOOL): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("kernel32.dll", "SetTimerQueueTimer", longArrayOf(Win32DynamicFfi.objectSlot(timerqueue), Win32DynamicFfi.objectSlot(callback), parameter, duetime.toLong(), period.toLong(), preferio.toLong()))
-    return Foundation.HANDLE()
+public fun SetTimerQueueTimer(timerqueue: HANDLE, callback: WAITORTIMERCALLBACK, parameter: Long, duetime: UInt, period: UInt, preferio: BOOL): HANDLE {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetTimerQueueTimer", longArrayOf(timerqueue, Win32DynamicFfi.objectSlot(callback), parameter, duetime.toLong(), period.toLong(), preferio.toLong()))
 }
 
 public fun SetUmsThreadInformation(umsthread: Long, umsthreadinfoclass: UMS_THREAD_INFO_CLASS, umsthreadinformation: Long, umsthreadinformationlength: UInt): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "SetUmsThreadInformation", longArrayOf(umsthread, umsthreadinfoclass.toLong(), umsthreadinformation, umsthreadinformationlength.toLong())).toInt()
 }
 
-public fun SetWaitableTimer(htimer: Foundation.HANDLE, lpduetime: Long, lperiod: Int, pfncompletionroutine: PTIMERAPCROUTINE, lpargtocompletionroutine: Long, fresume: BOOL): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetWaitableTimer", longArrayOf(Win32DynamicFfi.objectSlot(htimer), lpduetime, lperiod.toLong(), Win32DynamicFfi.objectSlot(pfncompletionroutine), lpargtocompletionroutine, fresume.toLong())).toInt()
+public fun SetWaitableTimer(htimer: HANDLE, lpduetime: Long, lperiod: Int, pfncompletionroutine: PTIMERAPCROUTINE, lpargtocompletionroutine: Long, fresume: BOOL): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetWaitableTimer", longArrayOf(htimer, lpduetime, lperiod.toLong(), Win32DynamicFfi.objectSlot(pfncompletionroutine), lpargtocompletionroutine, fresume.toLong())).toInt()
 }
 
-public fun SetWaitableTimerEx(htimer: Foundation.HANDLE, lpduetime: Long, lperiod: Int, pfncompletionroutine: PTIMERAPCROUTINE, lpargtocompletionroutine: Long, wakecontext: Long, tolerabledelay: UInt): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetWaitableTimerEx", longArrayOf(Win32DynamicFfi.objectSlot(htimer), lpduetime, lperiod.toLong(), Win32DynamicFfi.objectSlot(pfncompletionroutine), lpargtocompletionroutine, wakecontext, tolerabledelay.toLong())).toInt()
+public fun SetWaitableTimerEx(htimer: HANDLE, lpduetime: Long, lperiod: Int, pfncompletionroutine: PTIMERAPCROUTINE, lpargtocompletionroutine: Long, wakecontext: Long, tolerabledelay: UInt): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetWaitableTimerEx", longArrayOf(htimer, lpduetime, lperiod.toLong(), Win32DynamicFfi.objectSlot(pfncompletionroutine), lpargtocompletionroutine, wakecontext, tolerabledelay.toLong())).toInt()
 }
 
-public fun SignalObjectAndWait(hobjecttosignal: Foundation.HANDLE, hobjecttowaiton: Foundation.HANDLE, dwmilliseconds: UInt, balertable: BOOL): Foundation.WAIT_EVENT {
-    Win32DynamicFfi.invoke("kernel32.dll", "SignalObjectAndWait", longArrayOf(Win32DynamicFfi.objectSlot(hobjecttosignal), Win32DynamicFfi.objectSlot(hobjecttowaiton), dwmilliseconds.toLong(), balertable.toLong()))
-    return Foundation.WAIT_EVENT()
+public fun SignalObjectAndWait(hobjecttosignal: HANDLE, hobjecttowaiton: HANDLE, dwmilliseconds: UInt, balertable: BOOL): WAIT_EVENT {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SignalObjectAndWait", longArrayOf(hobjecttosignal, hobjecttowaiton, dwmilliseconds.toLong(), balertable.toLong())).toUInt()
 }
 
 public fun Sleep(dwmilliseconds: UInt) {
@@ -1294,8 +1258,8 @@ public fun SubmitThreadpoolWork(pwk: PTP_WORK) {
     Win32DynamicFfi.invoke("kernel32.dll", "SubmitThreadpoolWork", longArrayOf(pwk))
 }
 
-public fun SuspendThread(hthread: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SuspendThread", longArrayOf(Win32DynamicFfi.objectSlot(hthread))).toUInt()
+public fun SuspendThread(hthread: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SuspendThread", longArrayOf(hthread)).toUInt()
 }
 
 public fun SwitchToFiber(lpfiber: Long) {
@@ -1306,12 +1270,12 @@ public fun SwitchToThread(): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "SwitchToThread", longArrayOf()).toInt()
 }
 
-public fun TerminateProcess(hprocess: Foundation.HANDLE, uexitcode: UInt): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "TerminateProcess", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), uexitcode.toLong())).toInt()
+public fun TerminateProcess(hprocess: HANDLE, uexitcode: UInt): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "TerminateProcess", longArrayOf(hprocess, uexitcode.toLong())).toInt()
 }
 
-public fun TerminateThread(hthread: Foundation.HANDLE, dwexitcode: UInt): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "TerminateThread", longArrayOf(Win32DynamicFfi.objectSlot(hthread), dwexitcode.toLong())).toInt()
+public fun TerminateThread(hthread: HANDLE, dwexitcode: UInt): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "TerminateThread", longArrayOf(hthread, dwexitcode.toLong())).toInt()
 }
 
 public fun TlsAlloc(): UInt {
@@ -1352,40 +1316,36 @@ public fun UmsThreadYield(schedulerparam: Long): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "UmsThreadYield", longArrayOf(schedulerparam)).toInt()
 }
 
-public fun UnregisterWait(waithandle: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "UnregisterWait", longArrayOf(Win32DynamicFfi.objectSlot(waithandle))).toInt()
+public fun UnregisterWait(waithandle: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "UnregisterWait", longArrayOf(waithandle)).toInt()
 }
 
-public fun UnregisterWaitEx(waithandle: Foundation.HANDLE, completionevent: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "UnregisterWaitEx", longArrayOf(Win32DynamicFfi.objectSlot(waithandle), Win32DynamicFfi.objectSlot(completionevent))).toInt()
+public fun UnregisterWaitEx(waithandle: HANDLE, completionevent: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "UnregisterWaitEx", longArrayOf(waithandle, completionevent)).toInt()
 }
 
 public fun UpdateProcThreadAttribute(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, dwflags: UInt, attribute: ULong, lpvalue: Long, cbsize: ULong, lppreviousvalue: Long, lpreturnsize: Long): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "UpdateProcThreadAttribute", longArrayOf(lpattributelist, dwflags.toLong(), attribute.toLong(), lpvalue, cbsize.toLong(), lppreviousvalue, lpreturnsize)).toInt()
 }
 
-public fun WaitForInputIdle(hprocess: Foundation.HANDLE, dwmilliseconds: UInt): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "WaitForInputIdle", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), dwmilliseconds.toLong())).toUInt()
+public fun WaitForInputIdle(hprocess: HANDLE, dwmilliseconds: UInt): UInt {
+    return Win32DynamicFfi.invoke("user32.dll", "WaitForInputIdle", longArrayOf(hprocess, dwmilliseconds.toLong())).toUInt()
 }
 
-public fun WaitForMultipleObjects(ncount: UInt, lphandles: Long, bwaitall: BOOL, dwmilliseconds: UInt): Foundation.WAIT_EVENT {
-    Win32DynamicFfi.invoke("kernel32.dll", "WaitForMultipleObjects", longArrayOf(ncount.toLong(), lphandles, bwaitall.toLong(), dwmilliseconds.toLong()))
-    return Foundation.WAIT_EVENT()
+public fun WaitForMultipleObjects(ncount: UInt, lphandles: Long, bwaitall: BOOL, dwmilliseconds: UInt): WAIT_EVENT {
+    return Win32DynamicFfi.invoke("kernel32.dll", "WaitForMultipleObjects", longArrayOf(ncount.toLong(), lphandles, bwaitall.toLong(), dwmilliseconds.toLong())).toUInt()
 }
 
-public fun WaitForMultipleObjectsEx(ncount: UInt, lphandles: Long, bwaitall: BOOL, dwmilliseconds: UInt, balertable: BOOL): Foundation.WAIT_EVENT {
-    Win32DynamicFfi.invoke("kernel32.dll", "WaitForMultipleObjectsEx", longArrayOf(ncount.toLong(), lphandles, bwaitall.toLong(), dwmilliseconds.toLong(), balertable.toLong()))
-    return Foundation.WAIT_EVENT()
+public fun WaitForMultipleObjectsEx(ncount: UInt, lphandles: Long, bwaitall: BOOL, dwmilliseconds: UInt, balertable: BOOL): WAIT_EVENT {
+    return Win32DynamicFfi.invoke("kernel32.dll", "WaitForMultipleObjectsEx", longArrayOf(ncount.toLong(), lphandles, bwaitall.toLong(), dwmilliseconds.toLong(), balertable.toLong())).toUInt()
 }
 
-public fun WaitForSingleObject(hhandle: Foundation.HANDLE, dwmilliseconds: UInt): Foundation.WAIT_EVENT {
-    Win32DynamicFfi.invoke("kernel32.dll", "WaitForSingleObject", longArrayOf(Win32DynamicFfi.objectSlot(hhandle), dwmilliseconds.toLong()))
-    return Foundation.WAIT_EVENT()
+public fun WaitForSingleObject(hhandle: HANDLE, dwmilliseconds: UInt): WAIT_EVENT {
+    return Win32DynamicFfi.invoke("kernel32.dll", "WaitForSingleObject", longArrayOf(hhandle, dwmilliseconds.toLong())).toUInt()
 }
 
-public fun WaitForSingleObjectEx(hhandle: Foundation.HANDLE, dwmilliseconds: UInt, balertable: BOOL): Foundation.WAIT_EVENT {
-    Win32DynamicFfi.invoke("kernel32.dll", "WaitForSingleObjectEx", longArrayOf(Win32DynamicFfi.objectSlot(hhandle), dwmilliseconds.toLong(), balertable.toLong()))
-    return Foundation.WAIT_EVENT()
+public fun WaitForSingleObjectEx(hhandle: HANDLE, dwmilliseconds: UInt, balertable: BOOL): WAIT_EVENT {
+    return Win32DynamicFfi.invoke("kernel32.dll", "WaitForSingleObjectEx", longArrayOf(hhandle, dwmilliseconds.toLong(), balertable.toLong())).toUInt()
 }
 
 public fun WaitForThreadpoolIoCallbacks(pio: PTP_IO, fcancelpendingcallbacks: BOOL) {
@@ -1432,6 +1392,6 @@ public fun Wow64SetThreadDefaultGuestMachine(machine: UShort): UShort {
     return Win32DynamicFfi.invoke("api-ms-win-core-wow64-l1-1-1.dll", "Wow64SetThreadDefaultGuestMachine", longArrayOf(machine.toLong())).toUShort()
 }
 
-public fun Wow64SuspendThread(hthread: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "Wow64SuspendThread", longArrayOf(Win32DynamicFfi.objectSlot(hthread))).toUInt()
+public fun Wow64SuspendThread(hthread: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("kernel32.dll", "Wow64SuspendThread", longArrayOf(hthread)).toUInt()
 }

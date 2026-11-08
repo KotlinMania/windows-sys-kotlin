@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
@@ -687,9 +688,9 @@ public val MQ_PRIV_LEVEL_NONE: MQPRIVLEVEL = 0
 
 public val MQ_PRIV_LEVEL_OPTIONAL: MQPRIVLEVEL = 1
 
-public val MQ_QTYPE_REPORT: GUID = GUID.from_u128(0x55ee8f32cce911cfuL, 0xb1080020afd61ce9uL)
+public val MQ_QTYPE_REPORT: GUID = GUID.from_u128(U128(0x55ee8f32cce911cfuL, 0xb1080020afd61ce9uL))
 
-public val MQ_QTYPE_TEST: GUID = GUID.from_u128(0x55ee8f33cce911cfuL, 0xb1080020afd61ce9uL)
+public val MQ_QTYPE_TEST: GUID = GUID.from_u128(U128(0x55ee8f33cce911cfuL, 0xb1080020afd61ce9uL))
 
 public val MQ_QUEUE_STATE_CONNECTED: QUEUE_STATE = 6
 
@@ -743,35 +744,35 @@ public val MQ_XACT_STATUS_XACT: XACT_STATUS = 0
 
 public val MQ_XA_TRANSACTION: MQTRANSACTION = 2
 
-public val MSMQApplication: GUID = GUID.from_u128(0xd7d6e086dccd11d0uL, 0xaa4b0060970debaeuL)
+public val MSMQApplication: GUID = GUID.from_u128(U128(0xd7d6e086dccd11d0uL, 0xaa4b0060970debaeuL))
 
-public val MSMQCollection: GUID = GUID.from_u128(0xf72b90312f0c43e8uL, 0x924ee6052cdc493fuL)
+public val MSMQCollection: GUID = GUID.from_u128(U128(0xf72b90312f0c43e8uL, 0x924ee6052cdc493fuL))
 
-public val MSMQCoordinatedTransactionDispenser: GUID = GUID.from_u128(0xd7d6e082dccd11d0uL, 0xaa4b0060970debaeuL)
+public val MSMQCoordinatedTransactionDispenser: GUID = GUID.from_u128(U128(0xd7d6e082dccd11d0uL, 0xaa4b0060970debaeuL))
 
-public val MSMQDestination: GUID = GUID.from_u128(0xeba96b18216811d3uL, 0x898c00e02c074f6buL)
+public val MSMQDestination: GUID = GUID.from_u128(U128(0xeba96b18216811d3uL, 0x898c00e02c074f6buL))
 
-public val MSMQEvent: GUID = GUID.from_u128(0xd7d6e07adccd11d0uL, 0xaa4b0060970debaeuL)
+public val MSMQEvent: GUID = GUID.from_u128(U128(0xd7d6e07adccd11d0uL, 0xaa4b0060970debaeuL))
 
-public val MSMQManagement: GUID = GUID.from_u128(0x39ce96fef4c54484uL, 0xa1434c2d5d324229uL)
+public val MSMQManagement: GUID = GUID.from_u128(U128(0x39ce96fef4c54484uL, 0xa1434c2d5d324229uL))
 
-public val MSMQMessage: GUID = GUID.from_u128(0xd7d6e075dccd11d0uL, 0xaa4b0060970debaeuL)
+public val MSMQMessage: GUID = GUID.from_u128(U128(0xd7d6e075dccd11d0uL, 0xaa4b0060970debaeuL))
 
-public val MSMQOutgoingQueueManagement: GUID = GUID.from_u128(0x188401c247a4feduL, 0x99c6bf14119d7055uL)
+public val MSMQOutgoingQueueManagement: GUID = GUID.from_u128(U128(0x188401c247a4feduL, 0x99c6bf14119d7055uL))
 
-public val MSMQQuery: GUID = GUID.from_u128(0xd7d6e073dccd11d0uL, 0xaa4b0060970debaeuL)
+public val MSMQQuery: GUID = GUID.from_u128(U128(0xd7d6e073dccd11d0uL, 0xaa4b0060970debaeuL))
 
-public val MSMQQueue: GUID = GUID.from_u128(0xd7d6e079dccd11d0uL, 0xaa4b0060970debaeuL)
+public val MSMQQueue: GUID = GUID.from_u128(U128(0xd7d6e079dccd11d0uL, 0xaa4b0060970debaeuL))
 
-public val MSMQQueueInfo: GUID = GUID.from_u128(0xd7d6e07cdccd11d0uL, 0xaa4b0060970debaeuL)
+public val MSMQQueueInfo: GUID = GUID.from_u128(U128(0xd7d6e07cdccd11d0uL, 0xaa4b0060970debaeuL))
 
-public val MSMQQueueInfos: GUID = GUID.from_u128(0xd7d6e07edccd11d0uL, 0xaa4b0060970debaeuL)
+public val MSMQQueueInfos: GUID = GUID.from_u128(U128(0xd7d6e07edccd11d0uL, 0xaa4b0060970debaeuL))
 
-public val MSMQQueueManagement: GUID = GUID.from_u128(0x33b6d07ef27d42fauL, 0xb2d7bf82e11e9374uL)
+public val MSMQQueueManagement: GUID = GUID.from_u128(U128(0x33b6d07ef27d42fauL, 0xb2d7bf82e11e9374uL))
 
-public val MSMQTransaction: GUID = GUID.from_u128(0xd7d6e080dccd11d0uL, 0xaa4b0060970debaeuL)
+public val MSMQTransaction: GUID = GUID.from_u128(U128(0xd7d6e080dccd11d0uL, 0xaa4b0060970debaeuL))
 
-public val MSMQTransactionDispenser: GUID = GUID.from_u128(0xd7d6e084dccd11d0uL, 0xaa4b0060970debaeuL)
+public val MSMQTransactionDispenser: GUID = GUID.from_u128(U128(0xd7d6e084dccd11d0uL, 0xaa4b0060970debaeuL))
 
 public val MSMQ_CONNECTED: PCWSTR = w("CONNECTED")
 

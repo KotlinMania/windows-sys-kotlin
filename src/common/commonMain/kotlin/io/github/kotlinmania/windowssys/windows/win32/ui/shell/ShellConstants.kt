@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.shell
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
@@ -459,31 +460,31 @@ public val AVS_FULLSCREEN_PORTRAIT: APPLICATION_VIEW_STATE = 3
 
 public val AVS_SNAPPED: APPLICATION_VIEW_STATE = 2
 
-public val AccessibilityDockingService: GUID = GUID.from_u128(0x29ce1d46b4814aa0uL, 0xa08ad3ebc8aca402uL)
+public val AccessibilityDockingService: GUID = GUID.from_u128(U128(0x29ce1d46b4814aa0uL, 0xa08ad3ebc8aca402uL))
 
 public val AllowSmallerSize: ThumbnailStreamCacheOptions = 4
 
-public val AlphabeticalCategorizer: GUID = GUID.from_u128(0x3c2654c673724f6buL, 0xb31055d6128f49d2uL)
+public val AlphabeticalCategorizer: GUID = GUID.from_u128(U128(0x3c2654c673724f6buL, 0xb31055d6128f49d2uL))
 
-public val AppShellVerbHandler: GUID = GUID.from_u128(0x4ed3a719cea84bd9uL, 0x910de252f997afc2uL)
+public val AppShellVerbHandler: GUID = GUID.from_u128(U128(0x4ed3a719cea84bd9uL, 0x910de252f997afc2uL))
 
-public val AppStartupLink: GUID = GUID.from_u128(0x273eb5e788b04843uL, 0xbfefe2c81d43aae5uL)
+public val AppStartupLink: GUID = GUID.from_u128(U128(0x273eb5e788b04843uL, 0xbfefe2c81d43aae5uL))
 
-public val AppVisibility: GUID = GUID.from_u128(0x7e5fe3d9985f4908uL, 0x91f9ee19f9fd1514uL)
+public val AppVisibility: GUID = GUID.from_u128(U128(0x7e5fe3d9985f4908uL, 0x91f9ee19f9fd1514uL))
 
-public val ApplicationActivationManager: GUID = GUID.from_u128(0x45ba127d10a846eauL, 0x8ab756ea9078943cuL)
+public val ApplicationActivationManager: GUID = GUID.from_u128(U128(0x45ba127d10a846eauL, 0x8ab756ea9078943cuL))
 
-public val ApplicationAssociationRegistration: GUID = GUID.from_u128(0x591209c7767b42b2uL, 0x9fba44ee4615f2c7uL)
+public val ApplicationAssociationRegistration: GUID = GUID.from_u128(U128(0x591209c7767b42b2uL, 0x9fba44ee4615f2c7uL))
 
-public val ApplicationAssociationRegistrationUI: GUID = GUID.from_u128(0x1968106df3b544cfuL, 0x890e116fcb9ecef1uL)
+public val ApplicationAssociationRegistrationUI: GUID = GUID.from_u128(U128(0x1968106df3b544cfuL, 0x890e116fcb9ecef1uL))
 
-public val ApplicationDesignModeSettings: GUID = GUID.from_u128(0x958a6fb5dcb24fafuL, 0xaafd7fb054ad1a3buL)
+public val ApplicationDesignModeSettings: GUID = GUID.from_u128(U128(0x958a6fb5dcb24fafuL, 0xaafd7fb054ad1a3buL))
 
-public val ApplicationDestinations: GUID = GUID.from_u128(0x86c140034d6b4ef3uL, 0xa7b40506663b2e68uL)
+public val ApplicationDestinations: GUID = GUID.from_u128(U128(0x86c140034d6b4ef3uL, 0xa7b40506663b2e68uL))
 
-public val ApplicationDocumentLists: GUID = GUID.from_u128(0x86bec22230f247e0uL, 0x9f2560d11cd75c28uL)
+public val ApplicationDocumentLists: GUID = GUID.from_u128(U128(0x86bec22230f247e0uL, 0x9f2560d11cd75c28uL))
 
-public val AttachmentServices: GUID = GUID.from_u128(0x4125dd96e03a4103uL, 0x8f70e0597d803b9cuL)
+public val AttachmentServices: GUID = GUID.from_u128(U128(0x4125dd96e03a4103uL, 0x8f70e0597d803b9cuL))
 
 public val BFFM_ENABLEOK: UInt = 1125u
 
@@ -553,41 +554,41 @@ public val BFO_USE_IE_STATUSBAR: _BROWSERFRAMEOPTIONS = 131072
 
 public val BFO_USE_IE_TOOLBAR: _BROWSERFRAMEOPTIONS = 2048
 
-public val BHID_AssociationArray: GUID = GUID.from_u128(0xbea9ef1782f14f60uL, 0x92844f8db75c3be9uL)
+public val BHID_AssociationArray: GUID = GUID.from_u128(U128(0xbea9ef1782f14f60uL, 0x92844f8db75c3be9uL))
 
-public val BHID_DataObject: GUID = GUID.from_u128(0xb8c0bd9fed24455cuL, 0x83e6d5390c4fe8c4uL)
+public val BHID_DataObject: GUID = GUID.from_u128(U128(0xb8c0bd9fed24455cuL, 0x83e6d5390c4fe8c4uL))
 
-public val BHID_EnumAssocHandlers: GUID = GUID.from_u128(0xb8ab0b9cc2ec4f7auL, 0x918d314900e6280auL)
+public val BHID_EnumAssocHandlers: GUID = GUID.from_u128(U128(0xb8ab0b9cc2ec4f7auL, 0x918d314900e6280auL))
 
-public val BHID_EnumItems: GUID = GUID.from_u128(0x94f6051928504924uL, 0xaa5ad15e84868039uL)
+public val BHID_EnumItems: GUID = GUID.from_u128(U128(0x94f6051928504924uL, 0xaa5ad15e84868039uL))
 
-public val BHID_FilePlaceholder: GUID = GUID.from_u128(0x8677dcebaae04005uL, 0x8d3d547fa852f825uL)
+public val BHID_FilePlaceholder: GUID = GUID.from_u128(U128(0x8677dcebaae04005uL, 0x8d3d547fa852f825uL))
 
-public val BHID_Filter: GUID = GUID.from_u128(0x38d08778f5574690uL, 0x9ebfba54706ad8f7uL)
+public val BHID_Filter: GUID = GUID.from_u128(U128(0x38d08778f5574690uL, 0x9ebfba54706ad8f7uL))
 
-public val BHID_LinkTargetItem: GUID = GUID.from_u128(0x3981e228f55911d3uL, 0x8e3a00c04f6837d5uL)
+public val BHID_LinkTargetItem: GUID = GUID.from_u128(U128(0x3981e228f55911d3uL, 0x8e3a00c04f6837d5uL))
 
-public val BHID_PropertyStore: GUID = GUID.from_u128(0x384e1a41523439cuL, 0xa4c8ab911052f586uL)
+public val BHID_PropertyStore: GUID = GUID.from_u128(U128(0x384e1a41523439cuL, 0xa4c8ab911052f586uL))
 
-public val BHID_RandomAccessStream: GUID = GUID.from_u128(0xf16fc93b77ae4cfeuL, 0xbda7a866eea6878duL)
+public val BHID_RandomAccessStream: GUID = GUID.from_u128(U128(0xf16fc93b77ae4cfeuL, 0xbda7a866eea6878duL))
 
-public val BHID_SFObject: GUID = GUID.from_u128(0x3981e224f55911d3uL, 0x8e3a00c04f6837d5uL)
+public val BHID_SFObject: GUID = GUID.from_u128(U128(0x3981e224f55911d3uL, 0x8e3a00c04f6837d5uL))
 
-public val BHID_SFUIObject: GUID = GUID.from_u128(0x3981e225f55911d3uL, 0x8e3a00c04f6837d5uL)
+public val BHID_SFUIObject: GUID = GUID.from_u128(U128(0x3981e225f55911d3uL, 0x8e3a00c04f6837d5uL))
 
-public val BHID_SFViewObject: GUID = GUID.from_u128(0x3981e226f55911d3uL, 0x8e3a00c04f6837d5uL)
+public val BHID_SFViewObject: GUID = GUID.from_u128(U128(0x3981e226f55911d3uL, 0x8e3a00c04f6837d5uL))
 
-public val BHID_Storage: GUID = GUID.from_u128(0x3981e227f55911d3uL, 0x8e3a00c04f6837d5uL)
+public val BHID_Storage: GUID = GUID.from_u128(U128(0x3981e227f55911d3uL, 0x8e3a00c04f6837d5uL))
 
-public val BHID_StorageEnum: GUID = GUID.from_u128(0x4621a4e3f0d64773uL, 0x8a9c46e77b174840uL)
+public val BHID_StorageEnum: GUID = GUID.from_u128(U128(0x4621a4e3f0d64773uL, 0x8a9c46e77b174840uL))
 
-public val BHID_StorageItem: GUID = GUID.from_u128(0x404e210977d24699uL, 0xa5a04fdf10db9837uL)
+public val BHID_StorageItem: GUID = GUID.from_u128(U128(0x404e210977d24699uL, 0xa5a04fdf10db9837uL))
 
-public val BHID_Stream: GUID = GUID.from_u128(0x1cebb3ab7c10499auL, 0xa41792ca16c4cb83uL)
+public val BHID_Stream: GUID = GUID.from_u128(U128(0x1cebb3ab7c10499auL, 0xa41792ca16c4cb83uL))
 
-public val BHID_ThumbnailHandler: GUID = GUID.from_u128(0x7b2e650a8e204f4auL, 0xb09e6597afc72fb0uL)
+public val BHID_ThumbnailHandler: GUID = GUID.from_u128(U128(0x7b2e650a8e204f4auL, 0xb09e6597afc72fb0uL))
 
-public val BHID_Transfer: GUID = GUID.from_u128(0xd5e346a1f7534932uL, 0xb4034574800e2498uL)
+public val BHID_Transfer: GUID = GUID.from_u128(U128(0xd5e346a1f7534932uL, 0xb4034574800e2498uL))
 
 public val BIF_BROWSEFILEJUNCTIONS: UInt = 65536u
 
@@ -723,23 +724,23 @@ public val CABINETSTATE_VERSION: UInt = 2u
 
 public val CAMERAROLL_E_NO_DOWNSAMPLING_REQUIRED: HRESULT = 0x80270120u.toInt()
 
-public val CATID_BrowsableShellExt: GUID = GUID.from_u128(0x2149000000000uL, 0xc000000000000046uL)
+public val CATID_BrowsableShellExt: GUID = GUID.from_u128(U128(0x2149000000000uL, 0xc000000000000046uL))
 
-public val CATID_BrowseInPlace: GUID = GUID.from_u128(0x2149100000000uL, 0xc000000000000046uL)
+public val CATID_BrowseInPlace: GUID = GUID.from_u128(U128(0x2149100000000uL, 0xc000000000000046uL))
 
-public val CATID_CommBand: GUID = GUID.from_u128(0x2149400000000uL, 0xc000000000000046uL)
+public val CATID_CommBand: GUID = GUID.from_u128(U128(0x2149400000000uL, 0xc000000000000046uL))
 
-public val CATID_DeskBand: GUID = GUID.from_u128(0x2149200000000uL, 0xc000000000000046uL)
+public val CATID_DeskBand: GUID = GUID.from_u128(U128(0x2149200000000uL, 0xc000000000000046uL))
 
-public val CATID_FilePlaceholderMergeHandler: GUID = GUID.from_u128(0x3e9c9a51d4aa4870uL, 0xb47c7424b491f1ccuL)
+public val CATID_FilePlaceholderMergeHandler: GUID = GUID.from_u128(U128(0x3e9c9a51d4aa4870uL, 0xb47c7424b491f1ccuL))
 
-public val CATID_InfoBand: GUID = GUID.from_u128(0x2149300000000uL, 0xc000000000000046uL)
+public val CATID_InfoBand: GUID = GUID.from_u128(U128(0x2149300000000uL, 0xc000000000000046uL))
 
-public val CATID_LocationFactory: GUID = GUID.from_u128(0x965c4d518b764e57uL, 0x80b7564d2ea4b55euL)
+public val CATID_LocationFactory: GUID = GUID.from_u128(U128(0x965c4d518b764e57uL, 0x80b7564d2ea4b55euL))
 
-public val CATID_LocationProvider: GUID = GUID.from_u128(0x1b3ca4742614414buL, 0xb8131aceca3e3dd8uL)
+public val CATID_LocationProvider: GUID = GUID.from_u128(U128(0x1b3ca4742614414buL, 0xb8131aceca3e3dd8uL))
 
-public val CATID_SearchableApplication: GUID = GUID.from_u128(0x366c292ad9b34dbfuL, 0xbb70e62ec3d0bbbfuL)
+public val CATID_SearchableApplication: GUID = GUID.from_u128(U128(0x366c292ad9b34dbfuL, 0xbb70e62ec3d0bbbfuL))
 
 public val CATINFO_COLLAPSED: CATEGORYINFO_FLAGS = 1
 
@@ -805,7 +806,7 @@ public val CDBOSC_SETFOCUS: UInt = 0u
 
 public val CDBOSC_STATECHANGE: UInt = 4u
 
-public val CDBurn: GUID = GUID.from_u128(0xfbeb8a05beee4442uL, 0x804e409d6c4515e9uL)
+public val CDBurn: GUID = GUID.from_u128(U128(0xfbeb8a05beee4442uL, 0x804e409d6c4515e9uL))
 
 public val CDCS_ENABLED: CDCONTROLSTATEF = 1
 
@@ -881,113 +882,113 @@ public val CFSTR_UNTRUSTEDDRAGDROP: PCWSTR = w("UntrustedDragDrop")
 
 public val CFSTR_ZONEIDENTIFIER: PCWSTR = w("ZoneIdentifier")
 
-public val CGID_DefView: GUID = GUID.from_u128(0x4af07f10d23111d0uL, 0xb94200a0c90312e1uL)
+public val CGID_DefView: GUID = GUID.from_u128(U128(0x4af07f10d23111d0uL, 0xb94200a0c90312e1uL))
 
-public val CGID_Explorer: GUID = GUID.from_u128(0x214d000000000uL, 0xc000000000000046uL)
+public val CGID_Explorer: GUID = GUID.from_u128(U128(0x214d000000000uL, 0xc000000000000046uL))
 
-public val CGID_ExplorerBarDoc: GUID = GUID.from_u128(0x214d300000000uL, 0xc000000000000046uL)
+public val CGID_ExplorerBarDoc: GUID = GUID.from_u128(U128(0x214d300000000uL, 0xc000000000000046uL))
 
-public val CGID_MENUDESKBAR: GUID = GUID.from_u128(0x5c9f0a12959e11d0uL, 0xa3a400a0c9082636uL)
+public val CGID_MENUDESKBAR: GUID = GUID.from_u128(U128(0x5c9f0a12959e11d0uL, 0xa3a400a0c9082636uL))
 
-public val CGID_ShellDocView: GUID = GUID.from_u128(0x214d100000000uL, 0xc000000000000046uL)
+public val CGID_ShellDocView: GUID = GUID.from_u128(U128(0x214d100000000uL, 0xc000000000000046uL))
 
-public val CGID_ShellServiceObject: GUID = GUID.from_u128(0x214d200000000uL, 0xc000000000000046uL)
+public val CGID_ShellServiceObject: GUID = GUID.from_u128(U128(0x214d200000000uL, 0xc000000000000046uL))
 
-public val CGID_ShortCut: GUID = GUID.from_u128(0x93a68750951a11d1uL, 0x946f000000000000uL)
+public val CGID_ShortCut: GUID = GUID.from_u128(U128(0x93a68750951a11d1uL, 0x946f000000000000uL))
 
 public val CLOSEPROPS_DISCARD: UInt = 1u
 
 public val CLOSEPROPS_NONE: UInt = 0u
 
-public val CLSID_ACLCustomMRU: GUID = GUID.from_u128(0x6935db9321e84cccuL, 0xbeb99fe3c77a297auL)
+public val CLSID_ACLCustomMRU: GUID = GUID.from_u128(U128(0x6935db9321e84cccuL, 0xbeb99fe3c77a297auL))
 
-public val CLSID_ACLHistory: GUID = GUID.from_u128(0xbb27646a7711d0uL, 0xa53500c04fd7d062uL)
+public val CLSID_ACLHistory: GUID = GUID.from_u128(U128(0xbb27646a7711d0uL, 0xa53500c04fd7d062uL))
 
-public val CLSID_ACLMRU: GUID = GUID.from_u128(0x6756a641de7111d0uL, 0x831b00aa005b4383uL)
+public val CLSID_ACLMRU: GUID = GUID.from_u128(U128(0x6756a641de7111d0uL, 0x831b00aa005b4383uL))
 
-public val CLSID_ACLMulti: GUID = GUID.from_u128(0xbb27656a7711d0uL, 0xa53500c04fd7d062uL)
+public val CLSID_ACLMulti: GUID = GUID.from_u128(U128(0xbb27656a7711d0uL, 0xa53500c04fd7d062uL))
 
-public val CLSID_ACListISF: GUID = GUID.from_u128(0x3c036f1a18611d0uL, 0x824a00aa005b4383uL)
+public val CLSID_ACListISF: GUID = GUID.from_u128(U128(0x3c036f1a18611d0uL, 0x824a00aa005b4383uL))
 
-public val CLSID_ActiveDesktop: GUID = GUID.from_u128(0x75048700ef1f11d0uL, 0x9888006097deacf9uL)
+public val CLSID_ActiveDesktop: GUID = GUID.from_u128(U128(0x75048700ef1f11d0uL, 0x9888006097deacf9uL))
 
-public val CLSID_AutoComplete: GUID = GUID.from_u128(0xbb27636a7711d0uL, 0xa53500c04fd7d062uL)
+public val CLSID_AutoComplete: GUID = GUID.from_u128(U128(0xbb27636a7711d0uL, 0xa53500c04fd7d062uL))
 
-public val CLSID_CAnchorBrowsePropertyPage: GUID = GUID.from_u128(0x3050f3bb98b511cfuL, 0xbb8200aa00bdce0buL)
+public val CLSID_CAnchorBrowsePropertyPage: GUID = GUID.from_u128(U128(0x3050f3bb98b511cfuL, 0xbb8200aa00bdce0buL))
 
-public val CLSID_CDocBrowsePropertyPage: GUID = GUID.from_u128(0x3050f3b498b511cfuL, 0xbb8200aa00bdce0buL)
+public val CLSID_CDocBrowsePropertyPage: GUID = GUID.from_u128(U128(0x3050f3b498b511cfuL, 0xbb8200aa00bdce0buL))
 
-public val CLSID_CFSIconOverlayManager: GUID = GUID.from_u128(0x63b51f81c86811d0uL, 0x999c00c04fd655e1uL)
+public val CLSID_CFSIconOverlayManager: GUID = GUID.from_u128(U128(0x63b51f81c86811d0uL, 0x999c00c04fd655e1uL))
 
-public val CLSID_CImageBrowsePropertyPage: GUID = GUID.from_u128(0x3050f3b398b511cfuL, 0xbb8200aa00bdce0buL)
+public val CLSID_CImageBrowsePropertyPage: GUID = GUID.from_u128(U128(0x3050f3b398b511cfuL, 0xbb8200aa00bdce0buL))
 
-public val CLSID_CURLSearchHook: GUID = GUID.from_u128(0xcfbfae0017a611d0uL, 0x99cb00c04fd64497uL)
+public val CLSID_CURLSearchHook: GUID = GUID.from_u128(U128(0xcfbfae0017a611d0uL, 0x99cb00c04fd64497uL))
 
-public val CLSID_CUrlHistory: GUID = GUID.from_u128(0x3c374a40bae411cfuL, 0xbf7d00aa006946eeuL)
+public val CLSID_CUrlHistory: GUID = GUID.from_u128(U128(0x3c374a40bae411cfuL, 0xbf7d00aa006946eeuL))
 
-public val CLSID_CUrlHistoryBoth: GUID = GUID.from_u128(0x6659983c84764eb4uL, 0xb78ce5968f326ba0uL)
+public val CLSID_CUrlHistoryBoth: GUID = GUID.from_u128(U128(0x6659983c84764eb4uL, 0xb78ce5968f326ba0uL))
 
-public val CLSID_ControlPanel: GUID = GUID.from_u128(0x21ec20203aea1069uL, 0xa2dd08002b30309duL)
+public val CLSID_ControlPanel: GUID = GUID.from_u128(U128(0x21ec20203aea1069uL, 0xa2dd08002b30309duL))
 
-public val CLSID_DarwinAppPublisher: GUID = GUID.from_u128(0xcfccc7a0a28211d1uL, 0x9082006008059382uL)
+public val CLSID_DarwinAppPublisher: GUID = GUID.from_u128(U128(0xcfccc7a0a28211d1uL, 0x9082006008059382uL))
 
-public val CLSID_DocHostUIHandler: GUID = GUID.from_u128(0x7057e952bd1b11d1uL, 0x891900c04fc2c836uL)
+public val CLSID_DocHostUIHandler: GUID = GUID.from_u128(U128(0x7057e952bd1b11d1uL, 0x891900c04fc2c836uL))
 
-public val CLSID_DragDropHelper: GUID = GUID.from_u128(0x4657278a411b11d2uL, 0x839a00c04fd918d0uL)
+public val CLSID_DragDropHelper: GUID = GUID.from_u128(U128(0x4657278a411b11d2uL, 0x839a00c04fd918d0uL))
 
-public val CLSID_FileTypes: GUID = GUID.from_u128(0xb091e54083e311cfuL, 0xa7130020afd79762uL)
+public val CLSID_FileTypes: GUID = GUID.from_u128(U128(0xb091e54083e311cfuL, 0xa7130020afd79762uL))
 
-public val CLSID_FolderItemsMultiLevel: GUID = GUID.from_u128(0x53c74826ab994d33uL, 0xaca43117f51d3788uL)
+public val CLSID_FolderItemsMultiLevel: GUID = GUID.from_u128(U128(0x53c74826ab994d33uL, 0xaca43117f51d3788uL))
 
-public val CLSID_FolderShortcut: GUID = GUID.from_u128(0xafaced1e82811d1uL, 0x9187b532f1e9575duL)
+public val CLSID_FolderShortcut: GUID = GUID.from_u128(U128(0xafaced1e82811d1uL, 0x9187b532f1e9575duL))
 
-public val CLSID_HWShellExecute: GUID = GUID.from_u128(0xffb8655f81b94fceuL, 0xb89c9a6ba76d13e7uL)
+public val CLSID_HWShellExecute: GUID = GUID.from_u128(U128(0xffb8655f81b94fceuL, 0xb89c9a6ba76d13e7uL))
 
-public val CLSID_ISFBand: GUID = GUID.from_u128(0xd82be2b0576411d0uL, 0xa96e00c04fd705a2uL)
+public val CLSID_ISFBand: GUID = GUID.from_u128(U128(0xd82be2b0576411d0uL, 0xa96e00c04fd705a2uL))
 
-public val CLSID_Internet: GUID = GUID.from_u128(0x871c538042a01069uL, 0xa2ea08002b30309duL)
+public val CLSID_Internet: GUID = GUID.from_u128(U128(0x871c538042a01069uL, 0xa2ea08002b30309duL))
 
-public val CLSID_InternetButtons: GUID = GUID.from_u128(0x1e7969809cc511d1uL, 0xa83f00c04fc99d61uL)
+public val CLSID_InternetButtons: GUID = GUID.from_u128(U128(0x1e7969809cc511d1uL, 0xa83f00c04fc99d61uL))
 
-public val CLSID_InternetShortcut: GUID = GUID.from_u128(0xfbf23b40e3f0101buL, 0x848800aa003e56f8uL)
+public val CLSID_InternetShortcut: GUID = GUID.from_u128(U128(0xfbf23b40e3f0101buL, 0x848800aa003e56f8uL))
 
-public val CLSID_LinkColumnProvider: GUID = GUID.from_u128(0x24f14f027b1c11d1uL, 0x838f0000f80461cfuL)
+public val CLSID_LinkColumnProvider: GUID = GUID.from_u128(U128(0x24f14f027b1c11d1uL, 0x838f0000f80461cfuL))
 
-public val CLSID_MSOButtons: GUID = GUID.from_u128(0x178f34b8a28211d2uL, 0x86c500c04f8eea99uL)
+public val CLSID_MSOButtons: GUID = GUID.from_u128(U128(0x178f34b8a28211d2uL, 0x86c500c04f8eea99uL))
 
-public val CLSID_MenuBand: GUID = GUID.from_u128(0x5b4dae26b80711d0uL, 0x981500c04fd91972uL)
+public val CLSID_MenuBand: GUID = GUID.from_u128(U128(0x5b4dae26b80711d0uL, 0x981500c04fd91972uL))
 
-public val CLSID_MenuBandSite: GUID = GUID.from_u128(0xe13ef4e4d2f211d0uL, 0x981600c04fd91972uL)
+public val CLSID_MenuBandSite: GUID = GUID.from_u128(U128(0xe13ef4e4d2f211d0uL, 0x981600c04fd91972uL))
 
-public val CLSID_MenuToolbarBase: GUID = GUID.from_u128(0x40b96610b52211d1uL, 0xb3b400aa006efde7uL)
+public val CLSID_MenuToolbarBase: GUID = GUID.from_u128(U128(0x40b96610b52211d1uL, 0xb3b400aa006efde7uL))
 
-public val CLSID_MyComputer: GUID = GUID.from_u128(0x20d04fe03aea1069uL, 0xa2d808002b30309duL)
+public val CLSID_MyComputer: GUID = GUID.from_u128(U128(0x20d04fe03aea1069uL, 0xa2d808002b30309duL))
 
-public val CLSID_MyDocuments: GUID = GUID.from_u128(0x450d8fbaad2511d0uL, 0x98a80800361b1103uL)
+public val CLSID_MyDocuments: GUID = GUID.from_u128(U128(0x450d8fbaad2511d0uL, 0x98a80800361b1103uL))
 
-public val CLSID_NetworkDomain: GUID = GUID.from_u128(0x46e066804bf011d1uL, 0x83ee00a0c90dc849uL)
+public val CLSID_NetworkDomain: GUID = GUID.from_u128(U128(0x46e066804bf011d1uL, 0x83ee00a0c90dc849uL))
 
-public val CLSID_NetworkServer: GUID = GUID.from_u128(0xc0542a904bf011d1uL, 0x83ee00a0c90dc849uL)
+public val CLSID_NetworkServer: GUID = GUID.from_u128(U128(0xc0542a904bf011d1uL, 0x83ee00a0c90dc849uL))
 
-public val CLSID_NetworkShare: GUID = GUID.from_u128(0x54a754c04bf011d1uL, 0x83ee00a0c90dc849uL)
+public val CLSID_NetworkShare: GUID = GUID.from_u128(U128(0x54a754c04bf011d1uL, 0x83ee00a0c90dc849uL))
 
-public val CLSID_NewMenu: GUID = GUID.from_u128(0xd969a300e7ff11d0uL, 0xa93b00a0c90f2719uL)
+public val CLSID_NewMenu: GUID = GUID.from_u128(U128(0xd969a300e7ff11d0uL, 0xa93b00a0c90f2719uL))
 
-public val CLSID_Printers: GUID = GUID.from_u128(0x2227a2803aea1069uL, 0xa2de08002b30309duL)
+public val CLSID_Printers: GUID = GUID.from_u128(U128(0x2227a2803aea1069uL, 0xa2de08002b30309duL))
 
-public val CLSID_ProgressDialog: GUID = GUID.from_u128(0xf8383852fcd311d1uL, 0xa6b9006097df5bd4uL)
+public val CLSID_ProgressDialog: GUID = GUID.from_u128(U128(0xf8383852fcd311d1uL, 0xa6b9006097df5bd4uL))
 
-public val CLSID_QueryAssociations: GUID = GUID.from_u128(0xa07034fd6caa4954uL, 0xac3f97a27216f98auL)
+public val CLSID_QueryAssociations: GUID = GUID.from_u128(U128(0xa07034fd6caa4954uL, 0xac3f97a27216f98auL))
 
-public val CLSID_QuickLinks: GUID = GUID.from_u128(0xe5cbf21d15f11d0uL, 0x830100aa005b4383uL)
+public val CLSID_QuickLinks: GUID = GUID.from_u128(U128(0xe5cbf21d15f11d0uL, 0x830100aa005b4383uL))
 
-public val CLSID_RecycleBin: GUID = GUID.from_u128(0x645ff0405081101buL, 0x9f0800aa002f954euL)
+public val CLSID_RecycleBin: GUID = GUID.from_u128(U128(0x645ff0405081101buL, 0x9f0800aa002f954euL))
 
-public val CLSID_ShellFldSetExt: GUID = GUID.from_u128(0x6d5313c08c6211d1uL, 0xb2cd006097df8c11uL)
+public val CLSID_ShellFldSetExt: GUID = GUID.from_u128(U128(0x6d5313c08c6211d1uL, 0xb2cd006097df8c11uL))
 
-public val CLSID_ShellThumbnailDiskCache: GUID = GUID.from_u128(0x1ebdcf80a20011d0uL, 0xa3a400c04fd706ecuL)
+public val CLSID_ShellThumbnailDiskCache: GUID = GUID.from_u128(U128(0x1ebdcf80a20011d0uL, 0xa3a400c04fd706ecuL))
 
-public val CLSID_ToolbarExtButtons: GUID = GUID.from_u128(0x2ce4b5d8a28f11d2uL, 0x86c500c04f8eea99uL)
+public val CLSID_ToolbarExtButtons: GUID = GUID.from_u128(U128(0x2ce4b5d8a28f11d2uL, 0x86c500c04f8eea99uL))
 
 public val CMDID_INTSHORTCUTCREATE: Int = 1
 
@@ -1323,21 +1324,21 @@ public val CPCFO_NUMBERS_ONLY: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = 8
 
 public val CPCFO_SHOW_ENGLISH_KEYBOARD: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = 16
 
-public val CPFG_CREDENTIAL_PROVIDER_LABEL: GUID = GUID.from_u128(0x286bbff3bad4438fuL, 0xb00779b7267c3d48uL)
+public val CPFG_CREDENTIAL_PROVIDER_LABEL: GUID = GUID.from_u128(U128(0x286bbff3bad4438fuL, 0xb00779b7267c3d48uL))
 
-public val CPFG_CREDENTIAL_PROVIDER_LOGO: GUID = GUID.from_u128(0x2d837775f6cd464euL, 0xa745482fd0b47493uL)
+public val CPFG_CREDENTIAL_PROVIDER_LOGO: GUID = GUID.from_u128(U128(0x2d837775f6cd464euL, 0xa745482fd0b47493uL))
 
-public val CPFG_LOGON_PASSWORD: GUID = GUID.from_u128(0x60624cfaa47747b1uL, 0x8a8e3a4a19981827uL)
+public val CPFG_LOGON_PASSWORD: GUID = GUID.from_u128(U128(0x60624cfaa47747b1uL, 0x8a8e3a4a19981827uL))
 
-public val CPFG_LOGON_USERNAME: GUID = GUID.from_u128(0xda15bbe8954d4fd3uL, 0xb0f41fb5b90b174buL)
+public val CPFG_LOGON_USERNAME: GUID = GUID.from_u128(U128(0xda15bbe8954d4fd3uL, 0xb0f41fb5b90b174buL))
 
-public val CPFG_SMARTCARD_PIN: GUID = GUID.from_u128(0x4fe5263b918146c1uL, 0xb0a49dedd4db7deauL)
+public val CPFG_SMARTCARD_PIN: GUID = GUID.from_u128(U128(0x4fe5263b918146c1uL, 0xb0a49dedd4db7deauL))
 
-public val CPFG_SMARTCARD_USERNAME: GUID = GUID.from_u128(0x3e1ecf69568c4d96uL, 0x9d5946444174e2d6uL)
+public val CPFG_SMARTCARD_USERNAME: GUID = GUID.from_u128(U128(0x3e1ecf69568c4d96uL, 0x9d5946444174e2d6uL))
 
-public val CPFG_STANDALONE_SUBMIT_BUTTON: GUID = GUID.from_u128(0xb7b0ad8cc364d59uL, 0x802b82f714fa7022uL)
+public val CPFG_STANDALONE_SUBMIT_BUTTON: GUID = GUID.from_u128(U128(0xb7b0ad8cc364d59uL, 0x802b82f714fa7022uL))
 
-public val CPFG_STYLE_LINK_AS_BUTTON: GUID = GUID.from_u128(0x88fa50894a64430uL, 0xa4cb6fc6e3c0b9e2uL)
+public val CPFG_STYLE_LINK_AS_BUTTON: GUID = GUID.from_u128(U128(0x88fa50894a64430uL, 0xa4cb6fc6e3c0b9e2uL))
 
 public val CPFIS_DISABLED: CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE = 2
 
@@ -1583,7 +1584,7 @@ public val CSIDL_TEMPLATES: UInt = 21u
 
 public val CSIDL_WINDOWS: UInt = 36u
 
-public val CScriptErrorList: GUID = GUID.from_u128(0xefd01300160f11d2uL, 0xbb2e00805ff7efcauL)
+public val CScriptErrorList: GUID = GUID.from_u128(U128(0xefd01300160f11d2uL, 0xbb2e00805ff7efcauL))
 
 public val CTF_COINIT: Int = 8
 
@@ -1615,7 +1616,7 @@ public val CTF_WAIT_ALLOWCOM: Int = 64
 
 public val CTF_WAIT_NO_REENTRANCY: Int = 512
 
-public val ConflictFolder: GUID = GUID.from_u128(0x289978aca1014341uL, 0xa81721eba7fd046duL)
+public val ConflictFolder: GUID = GUID.from_u128(U128(0x289978aca1014341uL, 0xa81721eba7fd046duL))
 
 public val DBCID_CLSIDOFBAR: Int = 2
 
@@ -1965,19 +1966,19 @@ public val DWPOS_STRETCH: DESKTOP_WALLPAPER_POSITION = 2
 
 public val DWPOS_TILE: DESKTOP_WALLPAPER_POSITION = 1
 
-public val DefFolderMenu: GUID = GUID.from_u128(0xc63382be793348d0uL, 0x9ac885fb46be2fdduL)
+public val DefFolderMenu: GUID = GUID.from_u128(U128(0xc63382be793348d0uL, 0x9ac885fb46be2fdduL))
 
-public val DesktopGadget: GUID = GUID.from_u128(0x924ccc1b65624c85uL, 0x8657d177925222b6uL)
+public val DesktopGadget: GUID = GUID.from_u128(U128(0x924ccc1b65624c85uL, 0x8657d177925222b6uL))
 
-public val DesktopWallpaper: GUID = GUID.from_u128(0xc2cf3110460e4fc1uL, 0xb9d08a1c0c9cc4bduL)
+public val DesktopWallpaper: GUID = GUID.from_u128(U128(0xc2cf3110460e4fc1uL, 0xb9d08a1c0c9cc4bduL))
 
-public val DestinationList: GUID = GUID.from_u128(0x77f10cf03db54966uL, 0xb520b7c54fd35ed6uL)
+public val DestinationList: GUID = GUID.from_u128(U128(0x77f10cf03db54966uL, 0xb520b7c54fd35ed6uL))
 
-public val DocPropShellExtension: GUID = GUID.from_u128(0x883373c3bf8911d1uL, 0xbe35080036b11a03uL)
+public val DocPropShellExtension: GUID = GUID.from_u128(U128(0x883373c3bf8911d1uL, 0xbe35080036b11a03uL))
 
-public val DriveSizeCategorizer: GUID = GUID.from_u128(0x94357b53ca294b78uL, 0x83aee8fe7409134fuL)
+public val DriveSizeCategorizer: GUID = GUID.from_u128(U128(0x94357b53ca294b78uL, 0x83aee8fe7409134fuL))
 
-public val DriveTypeCategorizer: GUID = GUID.from_u128(0xb0a8f3cf43334babuL, 0x88731ccb1cada48buL)
+public val DriveTypeCategorizer: GUID = GUID.from_u128(U128(0xb0a8f3cf43334babuL, 0x88731ccb1cada48buL))
 
 public val EBF_NODROPTARGET: EXPLORER_BROWSER_FILL_FLAGS = 512
 
@@ -2061,25 +2062,25 @@ public val EPS_INITIALSTATE: _EXPLORERPANESTATE = 65536
 
 public val EPS_STATEMASK: _EXPLORERPANESTATE = 65535
 
-public val EP_AdvQueryPane: GUID = GUID.from_u128(0xb4e9db8b34ba4c39uL, 0xb5cc16a1bd2c411cuL)
+public val EP_AdvQueryPane: GUID = GUID.from_u128(U128(0xb4e9db8b34ba4c39uL, 0xb5cc16a1bd2c411cuL))
 
-public val EP_Commands: GUID = GUID.from_u128(0xd9745868ca5f4a76uL, 0x91cdf5a129fbb076uL)
+public val EP_Commands: GUID = GUID.from_u128(U128(0xd9745868ca5f4a76uL, 0x91cdf5a129fbb076uL))
 
-public val EP_Commands_Organize: GUID = GUID.from_u128(0x72e81700e3ec4660uL, 0xbf243c3b7b648806uL)
+public val EP_Commands_Organize: GUID = GUID.from_u128(U128(0x72e81700e3ec4660uL, 0xbf243c3b7b648806uL))
 
-public val EP_Commands_View: GUID = GUID.from_u128(0x21f7c32deeaa439buL, 0xbb5137b96fd6a943uL)
+public val EP_Commands_View: GUID = GUID.from_u128(U128(0x21f7c32deeaa439buL, 0xbb5137b96fd6a943uL))
 
-public val EP_DetailsPane: GUID = GUID.from_u128(0x43abf98b89b8472duL, 0xb9cee69b8229f019uL)
+public val EP_DetailsPane: GUID = GUID.from_u128(U128(0x43abf98b89b8472duL, 0xb9cee69b8229f019uL))
 
-public val EP_NavPane: GUID = GUID.from_u128(0xcb316b2225f742b8uL, 0x8a09540d23a43c2fuL)
+public val EP_NavPane: GUID = GUID.from_u128(U128(0xcb316b2225f742b8uL, 0x8a09540d23a43c2fuL))
 
-public val EP_PreviewPane: GUID = GUID.from_u128(0x893c63d145c84d17uL, 0xbe19223be71be365uL)
+public val EP_PreviewPane: GUID = GUID.from_u128(U128(0x893c63d145c84d17uL, 0xbe19223be71be365uL))
 
-public val EP_QueryPane: GUID = GUID.from_u128(0x65bcde4f4f074f27uL, 0x83a71afca4df7ddduL)
+public val EP_QueryPane: GUID = GUID.from_u128(U128(0x65bcde4f4f074f27uL, 0x83a71afca4df7ddduL))
 
-public val EP_Ribbon: GUID = GUID.from_u128(0xd27524a8c9f24834uL, 0xa106df8889fd4f37uL)
+public val EP_Ribbon: GUID = GUID.from_u128(U128(0xd27524a8c9f24834uL, 0xa106df8889fd4f37uL))
 
-public val EP_StatusBar: GUID = GUID.from_u128(0x65fe56ce5cfe4bc4uL, 0xad8a7ae3fe7e8f7cuL)
+public val EP_StatusBar: GUID = GUID.from_u128(U128(0x65fe56ce5cfe4bc4uL, 0xad8a7ae3fe7e8f7cuL))
 
 public val EXECUTE_E_LAUNCH_APPLICATION: HRESULT = 0x80270101u.toInt()
 
@@ -2141,13 +2142,13 @@ public val E_USERTILE_UNSUPPORTEDFILETYPE: HRESULT = 0x80270210u.toInt()
 
 public val E_USERTILE_VIDEOFRAMESIZE: HRESULT = 0x80270213u.toInt()
 
-public val EnumerableObjectCollection: GUID = GUID.from_u128(0x2d3468c136a743b6uL, 0xac24d3f02fd9607auL)
+public val EnumerableObjectCollection: GUID = GUID.from_u128(U128(0x2d3468c136a743b6uL, 0xac24d3f02fd9607auL))
 
-public val ExecuteFolder: GUID = GUID.from_u128(0x11dbb47ca525400buL, 0x9e80a54615a090c0uL)
+public val ExecuteFolder: GUID = GUID.from_u128(U128(0x11dbb47ca525400buL, 0x9e80a54615a090c0uL))
 
-public val ExecuteUnknown: GUID = GUID.from_u128(0xe44e9428bdbc4987uL, 0xa09940dc8fd255e7uL)
+public val ExecuteUnknown: GUID = GUID.from_u128(U128(0xe44e9428bdbc4987uL, 0xa09940dc8fd255e7uL))
 
-public val ExplorerBrowser: GUID = GUID.from_u128(0x71f96385ddd648d3uL, 0xa0c1ae06e8b055fbuL)
+public val ExplorerBrowser: GUID = GUID.from_u128(U128(0x71f96385ddd648d3uL, 0xa0c1ae06e8b055fbuL))
 
 public val ExtractIfNotCached: ThumbnailStreamCacheOptions = 0
 
@@ -2299,35 +2300,35 @@ public val FLVM_TILES: FOLDERLOGICALVIEWMODE = 2
 
 public val FLVM_UNSPECIFIED: FOLDERLOGICALVIEWMODE = -1
 
-public val FMTID_Briefcase: GUID = GUID.from_u128(0x328d8b2177294bfcuL, 0x954c902b329d56b0uL)
+public val FMTID_Briefcase: GUID = GUID.from_u128(U128(0x328d8b2177294bfcuL, 0x954c902b329d56b0uL))
 
-public val FMTID_CustomImageProperties: GUID = GUID.from_u128(0x7ecd8b0ec1364a9buL, 0x94114ebd6673ccc3uL)
+public val FMTID_CustomImageProperties: GUID = GUID.from_u128(U128(0x7ecd8b0ec1364a9buL, 0x94114ebd6673ccc3uL))
 
-public val FMTID_DRM: GUID = GUID.from_u128(0xaeac19e489ae4508uL, 0xb9b7bb867abee2eduL)
+public val FMTID_DRM: GUID = GUID.from_u128(U128(0xaeac19e489ae4508uL, 0xb9b7bb867abee2eduL))
 
-public val FMTID_Displaced: GUID = GUID.from_u128(0x9b174b3340ff11d2uL, 0xa27e00c04fc30871uL)
+public val FMTID_Displaced: GUID = GUID.from_u128(U128(0x9b174b3340ff11d2uL, 0xa27e00c04fc30871uL))
 
-public val FMTID_ImageProperties: GUID = GUID.from_u128(0x14b81da101354d31uL, 0x96d96cbfc9671a99uL)
+public val FMTID_ImageProperties: GUID = GUID.from_u128(U128(0x14b81da101354d31uL, 0x96d96cbfc9671a99uL))
 
-public val FMTID_InternetSite: GUID = GUID.from_u128(0x214a100000000uL, 0xc000000000000046uL)
+public val FMTID_InternetSite: GUID = GUID.from_u128(U128(0x214a100000000uL, 0xc000000000000046uL))
 
-public val FMTID_Intshcut: GUID = GUID.from_u128(0x214a000000000uL, 0xc000000000000046uL)
+public val FMTID_Intshcut: GUID = GUID.from_u128(U128(0x214a000000000uL, 0xc000000000000046uL))
 
-public val FMTID_LibraryProperties: GUID = GUID.from_u128(0x5d76b67f9b3d44bbuL, 0xb6ae25da4f638a67uL)
+public val FMTID_LibraryProperties: GUID = GUID.from_u128(U128(0x5d76b67f9b3d44bbuL, 0xb6ae25da4f638a67uL))
 
-public val FMTID_MUSIC: GUID = GUID.from_u128(0x56a3372ece9c11d2uL, 0x9f0e006097c686f6uL)
+public val FMTID_MUSIC: GUID = GUID.from_u128(U128(0x56a3372ece9c11d2uL, 0x9f0e006097c686f6uL))
 
-public val FMTID_Misc: GUID = GUID.from_u128(0x9b174b3440ff11d2uL, 0xa27e00c04fc30871uL)
+public val FMTID_Misc: GUID = GUID.from_u128(U128(0x9b174b3440ff11d2uL, 0xa27e00c04fc30871uL))
 
-public val FMTID_Query: GUID = GUID.from_u128(0x49691c907e17101auL, 0xa91c08002b2ecda9uL)
+public val FMTID_Query: GUID = GUID.from_u128(U128(0x49691c907e17101auL, 0xa91c08002b2ecda9uL))
 
-public val FMTID_ShellDetails: GUID = GUID.from_u128(0x28636aa6953d11d2uL, 0xb5d600c04fd918d0uL)
+public val FMTID_ShellDetails: GUID = GUID.from_u128(U128(0x28636aa6953d11d2uL, 0xb5d600c04fd918d0uL))
 
-public val FMTID_Storage: GUID = GUID.from_u128(0xb725f13047ef101auL, 0xa5f102608c9eebacuL)
+public val FMTID_Storage: GUID = GUID.from_u128(U128(0xb725f13047ef101auL, 0xa5f102608c9eebacuL))
 
-public val FMTID_Volume: GUID = GUID.from_u128(0x9b174b3540ff11d2uL, 0xa27e00c04fc30871uL)
+public val FMTID_Volume: GUID = GUID.from_u128(U128(0x9b174b3540ff11d2uL, 0xa27e00c04fc30871uL))
 
-public val FMTID_WebView: GUID = GUID.from_u128(0xf2275480f7824291uL, 0xbd94f13693513aecuL)
+public val FMTID_WebView: GUID = GUID.from_u128(U128(0xf2275480f7824291uL, 0xbd94f13693513aecuL))
 
 public val FOF2_MERGEFOLDERSONCOLLISION: FILE_OPERATION_FLAGS2 = 1
 
@@ -2399,361 +2400,361 @@ public val FOF_WANTMAPPINGHANDLE: FILEOPERATION_FLAGS = 32u
 
 public val FOF_WANTNUKEWARNING: FILEOPERATION_FLAGS = 16384u
 
-public val FOLDERID_AccountPictures: GUID = GUID.from_u128(0x8ca0b155b44c56uL, 0xb8a84de4b299d3beuL)
+public val FOLDERID_AccountPictures: GUID = GUID.from_u128(U128(0x8ca0b155b44c56uL, 0xb8a84de4b299d3beuL))
 
-public val FOLDERID_AddNewPrograms: GUID = GUID.from_u128(0xde61d9715ebc4f02uL, 0xa3a96c82895e5c04uL)
+public val FOLDERID_AddNewPrograms: GUID = GUID.from_u128(U128(0xde61d9715ebc4f02uL, 0xa3a96c82895e5c04uL))
 
-public val FOLDERID_AdminTools: GUID = GUID.from_u128(0x724ef170a42d4fefuL, 0x9f26b60e846fba4fuL)
+public val FOLDERID_AdminTools: GUID = GUID.from_u128(U128(0x724ef170a42d4fefuL, 0x9f26b60e846fba4fuL))
 
-public val FOLDERID_AllAppMods: GUID = GUID.from_u128(0x7ad6789966af43bauL, 0x91566aad42e6c596uL)
+public val FOLDERID_AllAppMods: GUID = GUID.from_u128(U128(0x7ad6789966af43bauL, 0x91566aad42e6c596uL))
 
-public val FOLDERID_AppCaptures: GUID = GUID.from_u128(0xedc0fe7198d84f4auL, 0xb920c8dc133cb165uL)
+public val FOLDERID_AppCaptures: GUID = GUID.from_u128(U128(0xedc0fe7198d84f4auL, 0xb920c8dc133cb165uL))
 
-public val FOLDERID_AppDataDesktop: GUID = GUID.from_u128(0xb2c5e2797add439fuL, 0xb28cc41fe1bbf672uL)
+public val FOLDERID_AppDataDesktop: GUID = GUID.from_u128(U128(0xb2c5e2797add439fuL, 0xb28cc41fe1bbf672uL))
 
-public val FOLDERID_AppDataDocuments: GUID = GUID.from_u128(0x7be166101f7f44acuL, 0xbff083e15f2ffca1uL)
+public val FOLDERID_AppDataDocuments: GUID = GUID.from_u128(U128(0x7be166101f7f44acuL, 0xbff083e15f2ffca1uL))
 
-public val FOLDERID_AppDataFavorites: GUID = GUID.from_u128(0x7cfbefbcde1f45aauL, 0xb843a542ac536cc9uL)
+public val FOLDERID_AppDataFavorites: GUID = GUID.from_u128(U128(0x7cfbefbcde1f45aauL, 0xb843a542ac536cc9uL))
 
-public val FOLDERID_AppDataProgramData: GUID = GUID.from_u128(0x559d40a3a03640fauL, 0xaf6184cb430a4d34uL)
+public val FOLDERID_AppDataProgramData: GUID = GUID.from_u128(U128(0x559d40a3a03640fauL, 0xaf6184cb430a4d34uL))
 
-public val FOLDERID_AppUpdates: GUID = GUID.from_u128(0xa305ce99f527492buL, 0x8b1a7e76fa98d6e4uL)
+public val FOLDERID_AppUpdates: GUID = GUID.from_u128(U128(0xa305ce99f527492buL, 0x8b1a7e76fa98d6e4uL))
 
-public val FOLDERID_ApplicationShortcuts: GUID = GUID.from_u128(0xa3918781e5f24890uL, 0xb3d9a7e54332328cuL)
+public val FOLDERID_ApplicationShortcuts: GUID = GUID.from_u128(U128(0xa3918781e5f24890uL, 0xb3d9a7e54332328cuL))
 
-public val FOLDERID_AppsFolder: GUID = GUID.from_u128(0x1e87508d89c242f0uL, 0x8a7e645a0f50ca58uL)
+public val FOLDERID_AppsFolder: GUID = GUID.from_u128(U128(0x1e87508d89c242f0uL, 0x8a7e645a0f50ca58uL))
 
-public val FOLDERID_CDBurning: GUID = GUID.from_u128(0x9e52ab10f80d49dfuL, 0xacb84330f5687855uL)
+public val FOLDERID_CDBurning: GUID = GUID.from_u128(U128(0x9e52ab10f80d49dfuL, 0xacb84330f5687855uL))
 
-public val FOLDERID_CameraRoll: GUID = GUID.from_u128(0xab5fb87b7ce24f83uL, 0x915d550846c9537buL)
+public val FOLDERID_CameraRoll: GUID = GUID.from_u128(U128(0xab5fb87b7ce24f83uL, 0x915d550846c9537buL))
 
-public val FOLDERID_CameraRollLibrary: GUID = GUID.from_u128(0x2b20df751eda4039uL, 0x809738798227d5b7uL)
+public val FOLDERID_CameraRollLibrary: GUID = GUID.from_u128(U128(0x2b20df751eda4039uL, 0x809738798227d5b7uL))
 
-public val FOLDERID_ChangeRemovePrograms: GUID = GUID.from_u128(0xdf7266ac92744867uL, 0x8d553bd661de872duL)
+public val FOLDERID_ChangeRemovePrograms: GUID = GUID.from_u128(U128(0xdf7266ac92744867uL, 0x8d553bd661de872duL))
 
-public val FOLDERID_CommonAdminTools: GUID = GUID.from_u128(0xd0384e7dbac34797uL, 0x8f14cba229b392b5uL)
+public val FOLDERID_CommonAdminTools: GUID = GUID.from_u128(U128(0xd0384e7dbac34797uL, 0x8f14cba229b392b5uL))
 
-public val FOLDERID_CommonOEMLinks: GUID = GUID.from_u128(0xc1bae2d010df4334uL, 0xbedd7aa20b227a9duL)
+public val FOLDERID_CommonOEMLinks: GUID = GUID.from_u128(U128(0xc1bae2d010df4334uL, 0xbedd7aa20b227a9duL))
 
-public val FOLDERID_CommonPrograms: GUID = GUID.from_u128(0x139d44e6afe49f2uL, 0x86903dafcae6ffb8uL)
+public val FOLDERID_CommonPrograms: GUID = GUID.from_u128(U128(0x139d44e6afe49f2uL, 0x86903dafcae6ffb8uL))
 
-public val FOLDERID_CommonStartMenu: GUID = GUID.from_u128(0xa4115719d62e491duL, 0xaa7ce74b8be3b067uL)
+public val FOLDERID_CommonStartMenu: GUID = GUID.from_u128(U128(0xa4115719d62e491duL, 0xaa7ce74b8be3b067uL))
 
-public val FOLDERID_CommonStartMenuPlaces: GUID = GUID.from_u128(0xa440879f87a04f7duL, 0xb7000207b966194auL)
+public val FOLDERID_CommonStartMenuPlaces: GUID = GUID.from_u128(U128(0xa440879f87a04f7duL, 0xb7000207b966194auL))
 
-public val FOLDERID_CommonStartup: GUID = GUID.from_u128(0x82a5ea35d9cd47c5uL, 0x9629e15d2f714e6euL)
+public val FOLDERID_CommonStartup: GUID = GUID.from_u128(U128(0x82a5ea35d9cd47c5uL, 0x9629e15d2f714e6euL))
 
-public val FOLDERID_CommonTemplates: GUID = GUID.from_u128(0xb94237e757ac4347uL, 0x9151b08c6c32d1f7uL)
+public val FOLDERID_CommonTemplates: GUID = GUID.from_u128(U128(0xb94237e757ac4347uL, 0x9151b08c6c32d1f7uL))
 
-public val FOLDERID_ComputerFolder: GUID = GUID.from_u128(0xac0837cbbf8452auL, 0x850d79d08e667ca7uL)
+public val FOLDERID_ComputerFolder: GUID = GUID.from_u128(U128(0xac0837cbbf8452auL, 0x850d79d08e667ca7uL))
 
-public val FOLDERID_ConflictFolder: GUID = GUID.from_u128(0x4bfefb45347d4006uL, 0xa5beac0cb0567192uL)
+public val FOLDERID_ConflictFolder: GUID = GUID.from_u128(U128(0x4bfefb45347d4006uL, 0xa5beac0cb0567192uL))
 
-public val FOLDERID_ConnectionsFolder: GUID = GUID.from_u128(0x6f0cd92b2e9745d1uL, 0x88ffb0d186b8dedduL)
+public val FOLDERID_ConnectionsFolder: GUID = GUID.from_u128(U128(0x6f0cd92b2e9745d1uL, 0x88ffb0d186b8dedduL))
 
-public val FOLDERID_Contacts: GUID = GUID.from_u128(0x56784854c6cb462buL, 0x816988e350acb882uL)
+public val FOLDERID_Contacts: GUID = GUID.from_u128(U128(0x56784854c6cb462buL, 0x816988e350acb882uL))
 
-public val FOLDERID_ControlPanelFolder: GUID = GUID.from_u128(0x82a74aebaeb4465cuL, 0xa014d097ee346d63uL)
+public val FOLDERID_ControlPanelFolder: GUID = GUID.from_u128(U128(0x82a74aebaeb4465cuL, 0xa014d097ee346d63uL))
 
-public val FOLDERID_Cookies: GUID = GUID.from_u128(0x2b0f765dc0e94171uL, 0x908e08a611b84ff6uL)
+public val FOLDERID_Cookies: GUID = GUID.from_u128(U128(0x2b0f765dc0e94171uL, 0x908e08a611b84ff6uL))
 
-public val FOLDERID_CurrentAppMods: GUID = GUID.from_u128(0x3db40b202a304dbeuL, 0x917e771dd21dd099uL)
+public val FOLDERID_CurrentAppMods: GUID = GUID.from_u128(U128(0x3db40b202a304dbeuL, 0x917e771dd21dd099uL))
 
-public val FOLDERID_Desktop: GUID = GUID.from_u128(0xb4bfcc3adb2c424cuL, 0xb0297fe99a87c641uL)
+public val FOLDERID_Desktop: GUID = GUID.from_u128(U128(0xb4bfcc3adb2c424cuL, 0xb0297fe99a87c641uL))
 
-public val FOLDERID_DevelopmentFiles: GUID = GUID.from_u128(0xdbe8e08e30534bbcuL, 0xb1832a7b2b191e59uL)
+public val FOLDERID_DevelopmentFiles: GUID = GUID.from_u128(U128(0xdbe8e08e30534bbcuL, 0xb1832a7b2b191e59uL))
 
-public val FOLDERID_Device: GUID = GUID.from_u128(0x1c2ac1dc43584b6cuL, 0x9733af21156576f0uL)
+public val FOLDERID_Device: GUID = GUID.from_u128(U128(0x1c2ac1dc43584b6cuL, 0x9733af21156576f0uL))
 
-public val FOLDERID_DeviceMetadataStore: GUID = GUID.from_u128(0x5ce4a5e9e4eb479duL, 0xb89f130c02886155uL)
+public val FOLDERID_DeviceMetadataStore: GUID = GUID.from_u128(U128(0x5ce4a5e9e4eb479duL, 0xb89f130c02886155uL))
 
-public val FOLDERID_Documents: GUID = GUID.from_u128(0xfdd39ad0238f46afuL, 0xadb46c85480369c7uL)
+public val FOLDERID_Documents: GUID = GUID.from_u128(U128(0xfdd39ad0238f46afuL, 0xadb46c85480369c7uL))
 
-public val FOLDERID_DocumentsLibrary: GUID = GUID.from_u128(0x7b0db17d9cd24a93uL, 0x973346cc89022e7cuL)
+public val FOLDERID_DocumentsLibrary: GUID = GUID.from_u128(U128(0x7b0db17d9cd24a93uL, 0x973346cc89022e7cuL))
 
-public val FOLDERID_Downloads: GUID = GUID.from_u128(0x374de290123f4565uL, 0x916439c4925e467buL)
+public val FOLDERID_Downloads: GUID = GUID.from_u128(U128(0x374de290123f4565uL, 0x916439c4925e467buL))
 
-public val FOLDERID_Favorites: GUID = GUID.from_u128(0x1777f76168ad4d8auL, 0x87bd30b759fa33dduL)
+public val FOLDERID_Favorites: GUID = GUID.from_u128(U128(0x1777f76168ad4d8auL, 0x87bd30b759fa33dduL))
 
-public val FOLDERID_Fonts: GUID = GUID.from_u128(0xfd228cb7ae114ae3uL, 0x864c16f3910ab8feuL)
+public val FOLDERID_Fonts: GUID = GUID.from_u128(U128(0xfd228cb7ae114ae3uL, 0x864c16f3910ab8feuL))
 
-public val FOLDERID_GameTasks: GUID = GUID.from_u128(0x54fae614dd84787uL, 0x80b6090220c4b700uL)
+public val FOLDERID_GameTasks: GUID = GUID.from_u128(U128(0x54fae614dd84787uL, 0x80b6090220c4b700uL))
 
-public val FOLDERID_Games: GUID = GUID.from_u128(0xcac52c1ab53d4edcuL, 0x92d76b2e8ac19434uL)
+public val FOLDERID_Games: GUID = GUID.from_u128(U128(0xcac52c1ab53d4edcuL, 0x92d76b2e8ac19434uL))
 
-public val FOLDERID_History: GUID = GUID.from_u128(0xd9dc8a3bb784432euL, 0xa7815a1130a75963uL)
+public val FOLDERID_History: GUID = GUID.from_u128(U128(0xd9dc8a3bb784432euL, 0xa7815a1130a75963uL))
 
-public val FOLDERID_HomeGroup: GUID = GUID.from_u128(0x52528a6bb9e34adduL, 0xb60d588c2dba842duL)
+public val FOLDERID_HomeGroup: GUID = GUID.from_u128(U128(0x52528a6bb9e34adduL, 0xb60d588c2dba842duL))
 
-public val FOLDERID_HomeGroupCurrentUser: GUID = GUID.from_u128(0x9b74b6a30dfd4f11uL, 0x9e785f7800f2e772uL)
+public val FOLDERID_HomeGroupCurrentUser: GUID = GUID.from_u128(U128(0x9b74b6a30dfd4f11uL, 0x9e785f7800f2e772uL))
 
-public val FOLDERID_ImplicitAppShortcuts: GUID = GUID.from_u128(0xbcb5256f79f64ceeuL, 0xb725dc34e402fd46uL)
+public val FOLDERID_ImplicitAppShortcuts: GUID = GUID.from_u128(U128(0xbcb5256f79f64ceeuL, 0xb725dc34e402fd46uL))
 
-public val FOLDERID_InternetCache: GUID = GUID.from_u128(0x352481e833be4251uL, 0xba856007caedcf9duL)
+public val FOLDERID_InternetCache: GUID = GUID.from_u128(U128(0x352481e833be4251uL, 0xba856007caedcf9duL))
 
-public val FOLDERID_InternetFolder: GUID = GUID.from_u128(0x4d9f78744e0c4904uL, 0x967b40b0d20c3e4buL)
+public val FOLDERID_InternetFolder: GUID = GUID.from_u128(U128(0x4d9f78744e0c4904uL, 0x967b40b0d20c3e4buL))
 
-public val FOLDERID_Libraries: GUID = GUID.from_u128(0x1b3ea5dcb5874786uL, 0xb4efbd1dc332aeaeuL)
+public val FOLDERID_Libraries: GUID = GUID.from_u128(U128(0x1b3ea5dcb5874786uL, 0xb4efbd1dc332aeaeuL))
 
-public val FOLDERID_Links: GUID = GUID.from_u128(0xbfb9d5e0c6a9404cuL, 0xb2b2ae6db6af4968uL)
+public val FOLDERID_Links: GUID = GUID.from_u128(U128(0xbfb9d5e0c6a9404cuL, 0xb2b2ae6db6af4968uL))
 
-public val FOLDERID_LocalAppData: GUID = GUID.from_u128(0xf1b327856fba4fcfuL, 0x9d557b8e7f157091uL)
+public val FOLDERID_LocalAppData: GUID = GUID.from_u128(U128(0xf1b327856fba4fcfuL, 0x9d557b8e7f157091uL))
 
-public val FOLDERID_LocalAppDataLow: GUID = GUID.from_u128(0xa520a1a417804ff6uL, 0xbd18167343c5af16uL)
+public val FOLDERID_LocalAppDataLow: GUID = GUID.from_u128(U128(0xa520a1a417804ff6uL, 0xbd18167343c5af16uL))
 
-public val FOLDERID_LocalDocuments: GUID = GUID.from_u128(0xf42ee2d3909f4907uL, 0x88714c22fc0bf756uL)
+public val FOLDERID_LocalDocuments: GUID = GUID.from_u128(U128(0xf42ee2d3909f4907uL, 0x88714c22fc0bf756uL))
 
-public val FOLDERID_LocalDownloads: GUID = GUID.from_u128(0x7d83ee9b22444e70uL, 0xb1f55393042af1e4uL)
+public val FOLDERID_LocalDownloads: GUID = GUID.from_u128(U128(0x7d83ee9b22444e70uL, 0xb1f55393042af1e4uL))
 
-public val FOLDERID_LocalMusic: GUID = GUID.from_u128(0xa0c69a9921c84671uL, 0x87037934162fcf1duL)
+public val FOLDERID_LocalMusic: GUID = GUID.from_u128(U128(0xa0c69a9921c84671uL, 0x87037934162fcf1duL))
 
-public val FOLDERID_LocalPictures: GUID = GUID.from_u128(0xddd015db06c45d5uL, 0x8c4cf59713854639uL)
+public val FOLDERID_LocalPictures: GUID = GUID.from_u128(U128(0xddd015db06c45d5uL, 0x8c4cf59713854639uL))
 
-public val FOLDERID_LocalStorage: GUID = GUID.from_u128(0xb3eb08d3a1f3496buL, 0x865a42b536cda0ecuL)
+public val FOLDERID_LocalStorage: GUID = GUID.from_u128(U128(0xb3eb08d3a1f3496buL, 0x865a42b536cda0ecuL))
 
-public val FOLDERID_LocalVideos: GUID = GUID.from_u128(0x35286a683c5741a1uL, 0xbbb10eae73d76c95uL)
+public val FOLDERID_LocalVideos: GUID = GUID.from_u128(U128(0x35286a683c5741a1uL, 0xbbb10eae73d76c95uL))
 
-public val FOLDERID_LocalizedResourcesDir: GUID = GUID.from_u128(0x2a00375e224c49deuL, 0xb8d1440df7ef3ddcuL)
+public val FOLDERID_LocalizedResourcesDir: GUID = GUID.from_u128(U128(0x2a00375e224c49deuL, 0xb8d1440df7ef3ddcuL))
 
-public val FOLDERID_Music: GUID = GUID.from_u128(0x4bd8d5716d1948d3uL, 0xbe97422220080e43uL)
+public val FOLDERID_Music: GUID = GUID.from_u128(U128(0x4bd8d5716d1948d3uL, 0xbe97422220080e43uL))
 
-public val FOLDERID_MusicLibrary: GUID = GUID.from_u128(0x2112ab0ac86a4ffeuL, 0xa3680de96e47012euL)
+public val FOLDERID_MusicLibrary: GUID = GUID.from_u128(U128(0x2112ab0ac86a4ffeuL, 0xa3680de96e47012euL))
 
-public val FOLDERID_NetHood: GUID = GUID.from_u128(0xc5abbf53e17f4121uL, 0x890086626fc2c973uL)
+public val FOLDERID_NetHood: GUID = GUID.from_u128(U128(0xc5abbf53e17f4121uL, 0x890086626fc2c973uL))
 
-public val FOLDERID_NetworkFolder: GUID = GUID.from_u128(0xd20beec45ca84905uL, 0xae3bbf251ea09b53uL)
+public val FOLDERID_NetworkFolder: GUID = GUID.from_u128(U128(0xd20beec45ca84905uL, 0xae3bbf251ea09b53uL))
 
-public val FOLDERID_Objects3D: GUID = GUID.from_u128(0x31c0dd2594394f12uL, 0xbf417ff4eda38722uL)
+public val FOLDERID_Objects3D: GUID = GUID.from_u128(U128(0x31c0dd2594394f12uL, 0xbf417ff4eda38722uL))
 
-public val FOLDERID_OneDrive: GUID = GUID.from_u128(0xa52bba46e9e1435fuL, 0xb3d928daa648c0f6uL)
+public val FOLDERID_OneDrive: GUID = GUID.from_u128(U128(0xa52bba46e9e1435fuL, 0xb3d928daa648c0f6uL))
 
-public val FOLDERID_OriginalImages: GUID = GUID.from_u128(0x2c36c0aa58124b87uL, 0xbfd04cd0dfb19b39uL)
+public val FOLDERID_OriginalImages: GUID = GUID.from_u128(U128(0x2c36c0aa58124b87uL, 0xbfd04cd0dfb19b39uL))
 
-public val FOLDERID_PhotoAlbums: GUID = GUID.from_u128(0x69d2cf90fc334fb7uL, 0x9a0cebb0f0fcb43cuL)
+public val FOLDERID_PhotoAlbums: GUID = GUID.from_u128(U128(0x69d2cf90fc334fb7uL, 0x9a0cebb0f0fcb43cuL))
 
-public val FOLDERID_Pictures: GUID = GUID.from_u128(0x33e281304e1e4676uL, 0x835a98395c3bc3bbuL)
+public val FOLDERID_Pictures: GUID = GUID.from_u128(U128(0x33e281304e1e4676uL, 0x835a98395c3bc3bbuL))
 
-public val FOLDERID_PicturesLibrary: GUID = GUID.from_u128(0xa990ae9fa03b4e80uL, 0x94bc9912d7504104uL)
+public val FOLDERID_PicturesLibrary: GUID = GUID.from_u128(U128(0xa990ae9fa03b4e80uL, 0x94bc9912d7504104uL))
 
-public val FOLDERID_Playlists: GUID = GUID.from_u128(0xde92c1c7837f4f69uL, 0xa3bb86e631204a23uL)
+public val FOLDERID_Playlists: GUID = GUID.from_u128(U128(0xde92c1c7837f4f69uL, 0xa3bb86e631204a23uL))
 
-public val FOLDERID_PrintHood: GUID = GUID.from_u128(0x9274bd8dcfd141c3uL, 0xb35eb13f55a758f4uL)
+public val FOLDERID_PrintHood: GUID = GUID.from_u128(U128(0x9274bd8dcfd141c3uL, 0xb35eb13f55a758f4uL))
 
-public val FOLDERID_PrintersFolder: GUID = GUID.from_u128(0x76fc4e2dd6ad4519uL, 0xa66337bd56068185uL)
+public val FOLDERID_PrintersFolder: GUID = GUID.from_u128(U128(0x76fc4e2dd6ad4519uL, 0xa66337bd56068185uL))
 
-public val FOLDERID_Profile: GUID = GUID.from_u128(0x5e6c858f0e224760uL, 0x9afeea3317b67173uL)
+public val FOLDERID_Profile: GUID = GUID.from_u128(U128(0x5e6c858f0e224760uL, 0x9afeea3317b67173uL))
 
-public val FOLDERID_ProgramData: GUID = GUID.from_u128(0x62ab5d82fdc14dc3uL, 0xa9dd070d1d495d97uL)
+public val FOLDERID_ProgramData: GUID = GUID.from_u128(U128(0x62ab5d82fdc14dc3uL, 0xa9dd070d1d495d97uL))
 
-public val FOLDERID_ProgramFiles: GUID = GUID.from_u128(0x905e63b6c1bf494euL, 0xb29c65b732d3d21auL)
+public val FOLDERID_ProgramFiles: GUID = GUID.from_u128(U128(0x905e63b6c1bf494euL, 0xb29c65b732d3d21auL))
 
-public val FOLDERID_ProgramFilesCommon: GUID = GUID.from_u128(0xf7f1ed059f6d47a2uL, 0xaaae29d317c6f066uL)
+public val FOLDERID_ProgramFilesCommon: GUID = GUID.from_u128(U128(0xf7f1ed059f6d47a2uL, 0xaaae29d317c6f066uL))
 
-public val FOLDERID_ProgramFilesCommonX64: GUID = GUID.from_u128(0x6365d5a70f0d45e5uL, 0x87f60da56b6a4f7duL)
+public val FOLDERID_ProgramFilesCommonX64: GUID = GUID.from_u128(U128(0x6365d5a70f0d45e5uL, 0x87f60da56b6a4f7duL))
 
-public val FOLDERID_ProgramFilesCommonX86: GUID = GUID.from_u128(0xde974d24d9c64d3euL, 0xbf91f4455120b917uL)
+public val FOLDERID_ProgramFilesCommonX86: GUID = GUID.from_u128(U128(0xde974d24d9c64d3euL, 0xbf91f4455120b917uL))
 
-public val FOLDERID_ProgramFilesX64: GUID = GUID.from_u128(0x6d8093776af0444buL, 0x8957a3773f02200euL)
+public val FOLDERID_ProgramFilesX64: GUID = GUID.from_u128(U128(0x6d8093776af0444buL, 0x8957a3773f02200euL))
 
-public val FOLDERID_ProgramFilesX86: GUID = GUID.from_u128(0x7c5a40efa0fb4bfcuL, 0x874ac0f2e0b9fa8euL)
+public val FOLDERID_ProgramFilesX86: GUID = GUID.from_u128(U128(0x7c5a40efa0fb4bfcuL, 0x874ac0f2e0b9fa8euL))
 
-public val FOLDERID_Programs: GUID = GUID.from_u128(0xa77f5d772e2b44c3uL, 0xa6a2aba601054a51uL)
+public val FOLDERID_Programs: GUID = GUID.from_u128(U128(0xa77f5d772e2b44c3uL, 0xa6a2aba601054a51uL))
 
-public val FOLDERID_Public: GUID = GUID.from_u128(0xdfdf76a2c82a4d63uL, 0x906a5644ac457385uL)
+public val FOLDERID_Public: GUID = GUID.from_u128(U128(0xdfdf76a2c82a4d63uL, 0x906a5644ac457385uL))
 
-public val FOLDERID_PublicDesktop: GUID = GUID.from_u128(0xc4aa340df20f4863uL, 0xafeff87ef2e6ba25uL)
+public val FOLDERID_PublicDesktop: GUID = GUID.from_u128(U128(0xc4aa340df20f4863uL, 0xafeff87ef2e6ba25uL))
 
-public val FOLDERID_PublicDocuments: GUID = GUID.from_u128(0xed4824afdce445a8uL, 0x81e2fc7965083634uL)
+public val FOLDERID_PublicDocuments: GUID = GUID.from_u128(U128(0xed4824afdce445a8uL, 0x81e2fc7965083634uL))
 
-public val FOLDERID_PublicDownloads: GUID = GUID.from_u128(0x3d644c9b1fb84f30uL, 0x9b45f670235f79c0uL)
+public val FOLDERID_PublicDownloads: GUID = GUID.from_u128(U128(0x3d644c9b1fb84f30uL, 0x9b45f670235f79c0uL))
 
-public val FOLDERID_PublicGameTasks: GUID = GUID.from_u128(0xdebf2536e1a84c59uL, 0xb6a2414586476aeauL)
+public val FOLDERID_PublicGameTasks: GUID = GUID.from_u128(U128(0xdebf2536e1a84c59uL, 0xb6a2414586476aeauL))
 
-public val FOLDERID_PublicLibraries: GUID = GUID.from_u128(0x48daf80be6cf4f4euL, 0xb8000e69d84ee384uL)
+public val FOLDERID_PublicLibraries: GUID = GUID.from_u128(U128(0x48daf80be6cf4f4euL, 0xb8000e69d84ee384uL))
 
-public val FOLDERID_PublicMusic: GUID = GUID.from_u128(0x3214fab597574298uL, 0xbb6192a9deaa44ffuL)
+public val FOLDERID_PublicMusic: GUID = GUID.from_u128(U128(0x3214fab597574298uL, 0xbb6192a9deaa44ffuL))
 
-public val FOLDERID_PublicPictures: GUID = GUID.from_u128(0xb6ebfb866907413cuL, 0x9af74fc2abf07cc5uL)
+public val FOLDERID_PublicPictures: GUID = GUID.from_u128(U128(0xb6ebfb866907413cuL, 0x9af74fc2abf07cc5uL))
 
-public val FOLDERID_PublicRingtones: GUID = GUID.from_u128(0xe555ab60153b4d17uL, 0x9f04a5fe99fc15ecuL)
+public val FOLDERID_PublicRingtones: GUID = GUID.from_u128(U128(0xe555ab60153b4d17uL, 0x9f04a5fe99fc15ecuL))
 
-public val FOLDERID_PublicUserTiles: GUID = GUID.from_u128(0x482af6c08f14c34uL, 0x8c90e17ec98b1e17uL)
+public val FOLDERID_PublicUserTiles: GUID = GUID.from_u128(U128(0x482af6c08f14c34uL, 0x8c90e17ec98b1e17uL))
 
-public val FOLDERID_PublicVideos: GUID = GUID.from_u128(0x2400183a618549fbuL, 0xa2d84a392a602ba3uL)
+public val FOLDERID_PublicVideos: GUID = GUID.from_u128(U128(0x2400183a618549fbuL, 0xa2d84a392a602ba3uL))
 
-public val FOLDERID_QuickLaunch: GUID = GUID.from_u128(0x52a4f0217b7548a9uL, 0x9f6b4b87a210bc8fuL)
+public val FOLDERID_QuickLaunch: GUID = GUID.from_u128(U128(0x52a4f0217b7548a9uL, 0x9f6b4b87a210bc8fuL))
 
-public val FOLDERID_Recent: GUID = GUID.from_u128(0xae50c081ebd2438auL, 0x86558a092e34987auL)
+public val FOLDERID_Recent: GUID = GUID.from_u128(U128(0xae50c081ebd2438auL, 0x86558a092e34987auL))
 
-public val FOLDERID_RecordedCalls: GUID = GUID.from_u128(0x2f8b40c283ed48eeuL, 0xb383a1f157ec6f9auL)
+public val FOLDERID_RecordedCalls: GUID = GUID.from_u128(U128(0x2f8b40c283ed48eeuL, 0xb383a1f157ec6f9auL))
 
-public val FOLDERID_RecordedTVLibrary: GUID = GUID.from_u128(0x1a6fdba2f42d4358uL, 0xa798b74d745926c5uL)
+public val FOLDERID_RecordedTVLibrary: GUID = GUID.from_u128(U128(0x1a6fdba2f42d4358uL, 0xa798b74d745926c5uL))
 
-public val FOLDERID_RecycleBinFolder: GUID = GUID.from_u128(0xb75340463ecb4c18uL, 0xbe4e64cd4cb7d6acuL)
+public val FOLDERID_RecycleBinFolder: GUID = GUID.from_u128(U128(0xb75340463ecb4c18uL, 0xbe4e64cd4cb7d6acuL))
 
-public val FOLDERID_ResourceDir: GUID = GUID.from_u128(0x8ad10c312adb4296uL, 0xa8f7e4701232c972uL)
+public val FOLDERID_ResourceDir: GUID = GUID.from_u128(U128(0x8ad10c312adb4296uL, 0xa8f7e4701232c972uL))
 
-public val FOLDERID_RetailDemo: GUID = GUID.from_u128(0x12d4c69e24ad4923uL, 0xbe1931321c43a767uL)
+public val FOLDERID_RetailDemo: GUID = GUID.from_u128(U128(0x12d4c69e24ad4923uL, 0xbe1931321c43a767uL))
 
-public val FOLDERID_Ringtones: GUID = GUID.from_u128(0xc870044bf49e4126uL, 0xa9c3b52a1ff411e8uL)
+public val FOLDERID_Ringtones: GUID = GUID.from_u128(U128(0xc870044bf49e4126uL, 0xa9c3b52a1ff411e8uL))
 
-public val FOLDERID_RoamedTileImages: GUID = GUID.from_u128(0xaaa8d5a5f1d64259uL, 0xbaa878e7ef60835euL)
+public val FOLDERID_RoamedTileImages: GUID = GUID.from_u128(U128(0xaaa8d5a5f1d64259uL, 0xbaa878e7ef60835euL))
 
-public val FOLDERID_RoamingAppData: GUID = GUID.from_u128(0x3eb685db65f94cf6uL, 0xa03ae3ef65729f3duL)
+public val FOLDERID_RoamingAppData: GUID = GUID.from_u128(U128(0x3eb685db65f94cf6uL, 0xa03ae3ef65729f3duL))
 
-public val FOLDERID_RoamingTiles: GUID = GUID.from_u128(0xbcfc5aed944e48uL, 0x96a13f6217f21990uL)
+public val FOLDERID_RoamingTiles: GUID = GUID.from_u128(U128(0xbcfc5aed944e48uL, 0x96a13f6217f21990uL))
 
-public val FOLDERID_SEARCH_CSC: GUID = GUID.from_u128(0xee32e44631ca4abauL, 0x814fa5ebd2fd6d5euL)
+public val FOLDERID_SEARCH_CSC: GUID = GUID.from_u128(U128(0xee32e44631ca4abauL, 0x814fa5ebd2fd6d5euL))
 
-public val FOLDERID_SEARCH_MAPI: GUID = GUID.from_u128(0x98ec0e1820984d44uL, 0x864466979315a281uL)
+public val FOLDERID_SEARCH_MAPI: GUID = GUID.from_u128(U128(0x98ec0e1820984d44uL, 0x864466979315a281uL))
 
-public val FOLDERID_SampleMusic: GUID = GUID.from_u128(0xb250c668f57d4ee1uL, 0xa63c290ee7d1aa1fuL)
+public val FOLDERID_SampleMusic: GUID = GUID.from_u128(U128(0xb250c668f57d4ee1uL, 0xa63c290ee7d1aa1fuL))
 
-public val FOLDERID_SamplePictures: GUID = GUID.from_u128(0xc490054023794c75uL, 0x844b64e6faf8716buL)
+public val FOLDERID_SamplePictures: GUID = GUID.from_u128(U128(0xc490054023794c75uL, 0x844b64e6faf8716buL))
 
-public val FOLDERID_SamplePlaylists: GUID = GUID.from_u128(0x15ca69b330ee49c1uL, 0xace16b5ec372afb5uL)
+public val FOLDERID_SamplePlaylists: GUID = GUID.from_u128(U128(0x15ca69b330ee49c1uL, 0xace16b5ec372afb5uL))
 
-public val FOLDERID_SampleVideos: GUID = GUID.from_u128(0x859ead942e8548aduL, 0xa71a0969cb56a6cduL)
+public val FOLDERID_SampleVideos: GUID = GUID.from_u128(U128(0x859ead942e8548aduL, 0xa71a0969cb56a6cduL))
 
-public val FOLDERID_SavedGames: GUID = GUID.from_u128(0x4c5c32ffbb9d43b0uL, 0xb5b42d72e54eaaa4uL)
+public val FOLDERID_SavedGames: GUID = GUID.from_u128(U128(0x4c5c32ffbb9d43b0uL, 0xb5b42d72e54eaaa4uL))
 
-public val FOLDERID_SavedPictures: GUID = GUID.from_u128(0x3b193882d3ad4eabuL, 0x965a69829d1fb59fuL)
+public val FOLDERID_SavedPictures: GUID = GUID.from_u128(U128(0x3b193882d3ad4eabuL, 0x965a69829d1fb59fuL))
 
-public val FOLDERID_SavedPicturesLibrary: GUID = GUID.from_u128(0xe25b5812be884bd9uL, 0x94b029233477b6c3uL)
+public val FOLDERID_SavedPicturesLibrary: GUID = GUID.from_u128(U128(0xe25b5812be884bd9uL, 0x94b029233477b6c3uL))
 
-public val FOLDERID_SavedSearches: GUID = GUID.from_u128(0x7d1d3a04debb4115uL, 0x95cf2f29da2920dauL)
+public val FOLDERID_SavedSearches: GUID = GUID.from_u128(U128(0x7d1d3a04debb4115uL, 0x95cf2f29da2920dauL))
 
-public val FOLDERID_Screenshots: GUID = GUID.from_u128(0xb7bede81df944682uL, 0xa7d857a52620b86fuL)
+public val FOLDERID_Screenshots: GUID = GUID.from_u128(U128(0xb7bede81df944682uL, 0xa7d857a52620b86fuL))
 
-public val FOLDERID_SearchHistory: GUID = GUID.from_u128(0xd4c3db603a3462fuL, 0xa0e608924c41b5d4uL)
+public val FOLDERID_SearchHistory: GUID = GUID.from_u128(U128(0xd4c3db603a3462fuL, 0xa0e608924c41b5d4uL))
 
-public val FOLDERID_SearchHome: GUID = GUID.from_u128(0x190337d1b8ca4121uL, 0xa6396d472d16972auL)
+public val FOLDERID_SearchHome: GUID = GUID.from_u128(U128(0x190337d1b8ca4121uL, 0xa6396d472d16972auL))
 
-public val FOLDERID_SearchTemplates: GUID = GUID.from_u128(0x7e636bfedfa94d5euL, 0xb456d7b39851d8a9uL)
+public val FOLDERID_SearchTemplates: GUID = GUID.from_u128(U128(0x7e636bfedfa94d5euL, 0xb456d7b39851d8a9uL))
 
-public val FOLDERID_SendTo: GUID = GUID.from_u128(0x8983036c27c0404buL, 0x8f08102d10dcfd74uL)
+public val FOLDERID_SendTo: GUID = GUID.from_u128(U128(0x8983036c27c0404buL, 0x8f08102d10dcfd74uL))
 
-public val FOLDERID_SidebarDefaultParts: GUID = GUID.from_u128(0x7b396e549ec54300uL, 0xbe0a2482ebae1a26uL)
+public val FOLDERID_SidebarDefaultParts: GUID = GUID.from_u128(U128(0x7b396e549ec54300uL, 0xbe0a2482ebae1a26uL))
 
-public val FOLDERID_SidebarParts: GUID = GUID.from_u128(0xa75d362e50fc4fb7uL, 0xac2ca8beaa314493uL)
+public val FOLDERID_SidebarParts: GUID = GUID.from_u128(U128(0xa75d362e50fc4fb7uL, 0xac2ca8beaa314493uL))
 
-public val FOLDERID_SkyDrive: GUID = GUID.from_u128(0xa52bba46e9e1435fuL, 0xb3d928daa648c0f6uL)
+public val FOLDERID_SkyDrive: GUID = GUID.from_u128(U128(0xa52bba46e9e1435fuL, 0xb3d928daa648c0f6uL))
 
-public val FOLDERID_SkyDriveCameraRoll: GUID = GUID.from_u128(0x767e681149cb4273uL, 0x87c220f355e1085buL)
+public val FOLDERID_SkyDriveCameraRoll: GUID = GUID.from_u128(U128(0x767e681149cb4273uL, 0x87c220f355e1085buL))
 
-public val FOLDERID_SkyDriveDocuments: GUID = GUID.from_u128(0x24d89e242f194534uL, 0x9dde6a6671fbb8feuL)
+public val FOLDERID_SkyDriveDocuments: GUID = GUID.from_u128(U128(0x24d89e242f194534uL, 0x9dde6a6671fbb8feuL))
 
-public val FOLDERID_SkyDriveMusic: GUID = GUID.from_u128(0xc3f2459e80d645dcuL, 0xbfef1f769f2be730uL)
+public val FOLDERID_SkyDriveMusic: GUID = GUID.from_u128(U128(0xc3f2459e80d645dcuL, 0xbfef1f769f2be730uL))
 
-public val FOLDERID_SkyDrivePictures: GUID = GUID.from_u128(0x339719b58c474894uL, 0x94c2d8f77add44a6uL)
+public val FOLDERID_SkyDrivePictures: GUID = GUID.from_u128(U128(0x339719b58c474894uL, 0x94c2d8f77add44a6uL))
 
-public val FOLDERID_StartMenu: GUID = GUID.from_u128(0x625b53c3ab484ec1uL, 0xba1fa1ef4146fc19uL)
+public val FOLDERID_StartMenu: GUID = GUID.from_u128(U128(0x625b53c3ab484ec1uL, 0xba1fa1ef4146fc19uL))
 
-public val FOLDERID_StartMenuAllPrograms: GUID = GUID.from_u128(0xf26305ef694840b9uL, 0xb25581453d09c785uL)
+public val FOLDERID_StartMenuAllPrograms: GUID = GUID.from_u128(U128(0xf26305ef694840b9uL, 0xb25581453d09c785uL))
 
-public val FOLDERID_Startup: GUID = GUID.from_u128(0xb97d20bbf46a4c97uL, 0xba105e3608430854uL)
+public val FOLDERID_Startup: GUID = GUID.from_u128(U128(0xb97d20bbf46a4c97uL, 0xba105e3608430854uL))
 
-public val FOLDERID_SyncManagerFolder: GUID = GUID.from_u128(0x43668bf8c14e49b2uL, 0x97c9747784d784b7uL)
+public val FOLDERID_SyncManagerFolder: GUID = GUID.from_u128(U128(0x43668bf8c14e49b2uL, 0x97c9747784d784b7uL))
 
-public val FOLDERID_SyncResultsFolder: GUID = GUID.from_u128(0x289a9a43be444057uL, 0xa41b587a76d7e7f9uL)
+public val FOLDERID_SyncResultsFolder: GUID = GUID.from_u128(U128(0x289a9a43be444057uL, 0xa41b587a76d7e7f9uL))
 
-public val FOLDERID_SyncSetupFolder: GUID = GUID.from_u128(0xf214138b1d34a90uL, 0xbba927cbc0c5389auL)
+public val FOLDERID_SyncSetupFolder: GUID = GUID.from_u128(U128(0xf214138b1d34a90uL, 0xbba927cbc0c5389auL))
 
-public val FOLDERID_System: GUID = GUID.from_u128(0x1ac14e7702e74e5duL, 0xb7442eb1ae5198b7uL)
+public val FOLDERID_System: GUID = GUID.from_u128(U128(0x1ac14e7702e74e5duL, 0xb7442eb1ae5198b7uL))
 
-public val FOLDERID_SystemX86: GUID = GUID.from_u128(0xd65231b0b2f14857uL, 0xa4cea8e7c6ea7d27uL)
+public val FOLDERID_SystemX86: GUID = GUID.from_u128(U128(0xd65231b0b2f14857uL, 0xa4cea8e7c6ea7d27uL))
 
-public val FOLDERID_Templates: GUID = GUID.from_u128(0xa63293e8664e48dbuL, 0xa079df759e0509f7uL)
+public val FOLDERID_Templates: GUID = GUID.from_u128(U128(0xa63293e8664e48dbuL, 0xa079df759e0509f7uL))
 
-public val FOLDERID_UserPinned: GUID = GUID.from_u128(0x9e3995ab1f9c4f13uL, 0xb82748b24b6c7174uL)
+public val FOLDERID_UserPinned: GUID = GUID.from_u128(U128(0x9e3995ab1f9c4f13uL, 0xb82748b24b6c7174uL))
 
-public val FOLDERID_UserProfiles: GUID = GUID.from_u128(0x762d272c50a4bb0uL, 0xa382697dcd729b80uL)
+public val FOLDERID_UserProfiles: GUID = GUID.from_u128(U128(0x762d272c50a4bb0uL, 0xa382697dcd729b80uL))
 
-public val FOLDERID_UserProgramFiles: GUID = GUID.from_u128(0x5cd7aee222194a67uL, 0xb85d6c9ce15660cbuL)
+public val FOLDERID_UserProgramFiles: GUID = GUID.from_u128(U128(0x5cd7aee222194a67uL, 0xb85d6c9ce15660cbuL))
 
-public val FOLDERID_UserProgramFilesCommon: GUID = GUID.from_u128(0xbcbd3057ca5c4622uL, 0xb42dbc56db0ae516uL)
+public val FOLDERID_UserProgramFilesCommon: GUID = GUID.from_u128(U128(0xbcbd3057ca5c4622uL, 0xb42dbc56db0ae516uL))
 
-public val FOLDERID_UsersFiles: GUID = GUID.from_u128(0xf3ce0f7c49014accuL, 0x8648d5d44b04ef8fuL)
+public val FOLDERID_UsersFiles: GUID = GUID.from_u128(U128(0xf3ce0f7c49014accuL, 0x8648d5d44b04ef8fuL))
 
-public val FOLDERID_UsersLibraries: GUID = GUID.from_u128(0xa302545ddeff464buL, 0xabe861c8648d939buL)
+public val FOLDERID_UsersLibraries: GUID = GUID.from_u128(U128(0xa302545ddeff464buL, 0xabe861c8648d939buL))
 
-public val FOLDERID_Videos: GUID = GUID.from_u128(0x18989b1d99b5455buL, 0x841cab7c74e4ddfcuL)
+public val FOLDERID_Videos: GUID = GUID.from_u128(U128(0x18989b1d99b5455buL, 0x841cab7c74e4ddfcuL))
 
-public val FOLDERID_VideosLibrary: GUID = GUID.from_u128(0x491e922f56434af4uL, 0xa7eb4e7a138d8174uL)
+public val FOLDERID_VideosLibrary: GUID = GUID.from_u128(U128(0x491e922f56434af4uL, 0xa7eb4e7a138d8174uL))
 
-public val FOLDERID_Windows: GUID = GUID.from_u128(0xf38bf4041d4342f2uL, 0x930567de0b28fc23uL)
+public val FOLDERID_Windows: GUID = GUID.from_u128(U128(0xf38bf4041d4342f2uL, 0x930567de0b28fc23uL))
 
-public val FOLDERTYPEID_AccountPictures: GUID = GUID.from_u128(0xdb2a5d8f06e64007uL, 0xaba6af877d526ea6uL)
+public val FOLDERTYPEID_AccountPictures: GUID = GUID.from_u128(U128(0xdb2a5d8f06e64007uL, 0xaba6af877d526ea6uL))
 
-public val FOLDERTYPEID_Communications: GUID = GUID.from_u128(0x91475fe5586b4ebauL, 0x8d75d17434b8cdf6uL)
+public val FOLDERTYPEID_Communications: GUID = GUID.from_u128(U128(0x91475fe5586b4ebauL, 0x8d75d17434b8cdf6uL))
 
-public val FOLDERTYPEID_CompressedFolder: GUID = GUID.from_u128(0x80213e82bcfd4c4fuL, 0x8817bb27601267a9uL)
+public val FOLDERTYPEID_CompressedFolder: GUID = GUID.from_u128(U128(0x80213e82bcfd4c4fuL, 0x8817bb27601267a9uL))
 
-public val FOLDERTYPEID_Contacts: GUID = GUID.from_u128(0xde2b70ec9bf74a93uL, 0xbd3d243f7881d492uL)
+public val FOLDERTYPEID_Contacts: GUID = GUID.from_u128(U128(0xde2b70ec9bf74a93uL, 0xbd3d243f7881d492uL))
 
-public val FOLDERTYPEID_ControlPanelCategory: GUID = GUID.from_u128(0xde4f0660fa104b8fuL, 0xa494068b20b22307uL)
+public val FOLDERTYPEID_ControlPanelCategory: GUID = GUID.from_u128(U128(0xde4f0660fa104b8fuL, 0xa494068b20b22307uL))
 
-public val FOLDERTYPEID_ControlPanelClassic: GUID = GUID.from_u128(0xc3794f3b54543aauL, 0xa329c37430c58d2auL)
+public val FOLDERTYPEID_ControlPanelClassic: GUID = GUID.from_u128(U128(0xc3794f3b54543aauL, 0xa329c37430c58d2auL))
 
-public val FOLDERTYPEID_Documents: GUID = GUID.from_u128(0x7d49d7263c214f05uL, 0x99aafdc2c9474656uL)
+public val FOLDERTYPEID_Documents: GUID = GUID.from_u128(U128(0x7d49d7263c214f05uL, 0x99aafdc2c9474656uL))
 
-public val FOLDERTYPEID_Downloads: GUID = GUID.from_u128(0x885a186ea4404adauL, 0x812bdb871b942259uL)
+public val FOLDERTYPEID_Downloads: GUID = GUID.from_u128(U128(0x885a186ea4404adauL, 0x812bdb871b942259uL))
 
-public val FOLDERTYPEID_Games: GUID = GUID.from_u128(0xb689b0d076d34cbbuL, 0x87f7585d0e0ce070uL)
+public val FOLDERTYPEID_Games: GUID = GUID.from_u128(U128(0xb689b0d076d34cbbuL, 0x87f7585d0e0ce070uL))
 
-public val FOLDERTYPEID_Generic: GUID = GUID.from_u128(0x5c4f28b5f8694e84uL, 0x8e60f11db97c5cc7uL)
+public val FOLDERTYPEID_Generic: GUID = GUID.from_u128(U128(0x5c4f28b5f8694e84uL, 0x8e60f11db97c5cc7uL))
 
-public val FOLDERTYPEID_GenericLibrary: GUID = GUID.from_u128(0x5f4eab9a68334f61uL, 0x899d31cf46979d49uL)
+public val FOLDERTYPEID_GenericLibrary: GUID = GUID.from_u128(U128(0x5f4eab9a68334f61uL, 0x899d31cf46979d49uL))
 
-public val FOLDERTYPEID_GenericSearchResults: GUID = GUID.from_u128(0x7fde1a1e8b3149a5uL, 0x93b86be14cfa4943uL)
+public val FOLDERTYPEID_GenericSearchResults: GUID = GUID.from_u128(U128(0x7fde1a1e8b3149a5uL, 0x93b86be14cfa4943uL))
 
-public val FOLDERTYPEID_Invalid: GUID = GUID.from_u128(0x578078988c4f4462uL, 0xbb6371042380b109uL)
+public val FOLDERTYPEID_Invalid: GUID = GUID.from_u128(U128(0x578078988c4f4462uL, 0xbb6371042380b109uL))
 
-public val FOLDERTYPEID_Music: GUID = GUID.from_u128(0x94d6ddcc4a684175uL, 0xa374bd584a510b78uL)
+public val FOLDERTYPEID_Music: GUID = GUID.from_u128(U128(0x94d6ddcc4a684175uL, 0xa374bd584a510b78uL))
 
-public val FOLDERTYPEID_NetworkExplorer: GUID = GUID.from_u128(0x25cc242b9a7c4f51uL, 0x80e07a2928febe42uL)
+public val FOLDERTYPEID_NetworkExplorer: GUID = GUID.from_u128(U128(0x25cc242b9a7c4f51uL, 0x80e07a2928febe42uL))
 
-public val FOLDERTYPEID_OpenSearch: GUID = GUID.from_u128(0x8faf9629198046ffuL, 0x80239dceab9c3ee3uL)
+public val FOLDERTYPEID_OpenSearch: GUID = GUID.from_u128(U128(0x8faf9629198046ffuL, 0x80239dceab9c3ee3uL))
 
-public val FOLDERTYPEID_OtherUsers: GUID = GUID.from_u128(0xb337fd009dd54635uL, 0xa6d4da33fd102b7auL)
+public val FOLDERTYPEID_OtherUsers: GUID = GUID.from_u128(U128(0xb337fd009dd54635uL, 0xa6d4da33fd102b7auL))
 
-public val FOLDERTYPEID_Pictures: GUID = GUID.from_u128(0xb3690e58e961423buL, 0xb687386ebfd83239uL)
+public val FOLDERTYPEID_Pictures: GUID = GUID.from_u128(U128(0xb3690e58e961423buL, 0xb687386ebfd83239uL))
 
-public val FOLDERTYPEID_Printers: GUID = GUID.from_u128(0x2c7bbec6c8444a0auL, 0x91facef6f59cfda1uL)
+public val FOLDERTYPEID_Printers: GUID = GUID.from_u128(U128(0x2c7bbec6c8444a0auL, 0x91facef6f59cfda1uL))
 
-public val FOLDERTYPEID_PublishedItems: GUID = GUID.from_u128(0x7f2f5b96ff7441dauL, 0xafd81c78a5f3aea2uL)
+public val FOLDERTYPEID_PublishedItems: GUID = GUID.from_u128(U128(0x7f2f5b96ff7441dauL, 0xafd81c78a5f3aea2uL))
 
-public val FOLDERTYPEID_RecordedTV: GUID = GUID.from_u128(0x5557a28f5da64f83uL, 0x8809c2c98a11a6fauL)
+public val FOLDERTYPEID_RecordedTV: GUID = GUID.from_u128(U128(0x5557a28f5da64f83uL, 0x8809c2c98a11a6fauL))
 
-public val FOLDERTYPEID_RecycleBin: GUID = GUID.from_u128(0xd6d9e004cd87442buL, 0x9d575e0aeb4f6f72uL)
+public val FOLDERTYPEID_RecycleBin: GUID = GUID.from_u128(U128(0xd6d9e004cd87442buL, 0x9d575e0aeb4f6f72uL))
 
-public val FOLDERTYPEID_SavedGames: GUID = GUID.from_u128(0xd036330728cb4106uL, 0x9f232956e3e5e0e7uL)
+public val FOLDERTYPEID_SavedGames: GUID = GUID.from_u128(U128(0xd036330728cb4106uL, 0x9f232956e3e5e0e7uL))
 
-public val FOLDERTYPEID_SearchConnector: GUID = GUID.from_u128(0x982725ee6f47479euL, 0xb447812bfa7d2e8fuL)
+public val FOLDERTYPEID_SearchConnector: GUID = GUID.from_u128(U128(0x982725ee6f47479euL, 0xb447812bfa7d2e8fuL))
 
-public val FOLDERTYPEID_SearchHome: GUID = GUID.from_u128(0x834d8a4409744ed6uL, 0x866ef203d80b3810uL)
+public val FOLDERTYPEID_SearchHome: GUID = GUID.from_u128(U128(0x834d8a4409744ed6uL, 0x866ef203d80b3810uL))
 
-public val FOLDERTYPEID_Searches: GUID = GUID.from_u128(0xb0ba2e3405f415euL, 0xa6eecad625207853uL)
+public val FOLDERTYPEID_Searches: GUID = GUID.from_u128(U128(0xb0ba2e3405f415euL, 0xa6eecad625207853uL))
 
-public val FOLDERTYPEID_SoftwareExplorer: GUID = GUID.from_u128(0xd674391b52d94e07uL, 0x834e67c98610f39duL)
+public val FOLDERTYPEID_SoftwareExplorer: GUID = GUID.from_u128(U128(0xd674391b52d94e07uL, 0x834e67c98610f39duL))
 
-public val FOLDERTYPEID_StartMenu: GUID = GUID.from_u128(0xef87b4cbf2ce4785uL, 0x86584ca6c63e38c6uL)
+public val FOLDERTYPEID_StartMenu: GUID = GUID.from_u128(U128(0xef87b4cbf2ce4785uL, 0x86584ca6c63e38c6uL))
 
-public val FOLDERTYPEID_StorageProviderDocuments: GUID = GUID.from_u128(0xdd61bd6670e848dduL, 0x965565c5e1aac2d1uL)
+public val FOLDERTYPEID_StorageProviderDocuments: GUID = GUID.from_u128(U128(0xdd61bd6670e848dduL, 0x965565c5e1aac2d1uL))
 
-public val FOLDERTYPEID_StorageProviderGeneric: GUID = GUID.from_u128(0x4f01ebc5238541f2uL, 0xa28e2c5c91fb56e0uL)
+public val FOLDERTYPEID_StorageProviderGeneric: GUID = GUID.from_u128(U128(0x4f01ebc5238541f2uL, 0xa28e2c5c91fb56e0uL))
 
-public val FOLDERTYPEID_StorageProviderMusic: GUID = GUID.from_u128(0x672ecd7eaf044399uL, 0x875c0290845b6247uL)
+public val FOLDERTYPEID_StorageProviderMusic: GUID = GUID.from_u128(U128(0x672ecd7eaf044399uL, 0x875c0290845b6247uL))
 
-public val FOLDERTYPEID_StorageProviderPictures: GUID = GUID.from_u128(0x71d642a9f2b142cduL, 0xad92eb9300c7cc0auL)
+public val FOLDERTYPEID_StorageProviderPictures: GUID = GUID.from_u128(U128(0x71d642a9f2b142cduL, 0xad92eb9300c7cc0auL))
 
-public val FOLDERTYPEID_StorageProviderVideos: GUID = GUID.from_u128(0x51294da1d7b1485buL, 0x9e9a17cffe33e187uL)
+public val FOLDERTYPEID_StorageProviderVideos: GUID = GUID.from_u128(U128(0x51294da1d7b1485buL, 0x9e9a17cffe33e187uL))
 
-public val FOLDERTYPEID_UserFiles: GUID = GUID.from_u128(0xcd0fc69b71e246e5uL, 0x96905bcd9f57aab3uL)
+public val FOLDERTYPEID_UserFiles: GUID = GUID.from_u128(U128(0xcd0fc69b71e246e5uL, 0x96905bcd9f57aab3uL))
 
-public val FOLDERTYPEID_UsersLibraries: GUID = GUID.from_u128(0xc4d98f0961244fe0uL, 0x9942826416082da9uL)
+public val FOLDERTYPEID_UsersLibraries: GUID = GUID.from_u128(U128(0xc4d98f0961244fe0uL, 0x9942826416082da9uL))
 
-public val FOLDERTYPEID_Videos: GUID = GUID.from_u128(0x5fa964077e77483cuL, 0xac93691d05850de8uL)
+public val FOLDERTYPEID_Videos: GUID = GUID.from_u128(U128(0x5fa964077e77483cuL, 0xac93691d05850de8uL))
 
 public val FOS_ALLNONSTORAGEITEMS: FILEOPENDIALOGOPTIONS = 128u
 
@@ -2819,7 +2820,7 @@ public val FP_LEFT: FLYOUT_PLACEMENT = 3
 
 public val FP_RIGHT: FLYOUT_PLACEMENT = 4
 
-public val FSCopyHandler: GUID = GUID.from_u128(0xd197380a0a794dc8uL, 0xa033ed882c2fa14buL)
+public val FSCopyHandler: GUID = GUID.from_u128(U128(0xd197380a0a794dc8uL, 0xa033ed882c2fa14buL))
 
 public val FTA_AlwaysUnsafe: FILETYPEATTRIBUTEFLAGS = 131072
 
@@ -2983,19 +2984,19 @@ public val FWF_TRICHECKSELECT: FOLDERFLAGS = 67108864
 
 public val FWF_USESEARCHFOLDER: FOLDERFLAGS = 1073741824
 
-public val FileOpenDialog: GUID = GUID.from_u128(0xdc1c5a9ce88a4ddeuL, 0xa5a160f82a20aef7uL)
+public val FileOpenDialog: GUID = GUID.from_u128(U128(0xdc1c5a9ce88a4ddeuL, 0xa5a160f82a20aef7uL))
 
-public val FileOperation: GUID = GUID.from_u128(0x3ad0557588574850uL, 0x927711b85bdb8e09uL)
+public val FileOperation: GUID = GUID.from_u128(U128(0x3ad0557588574850uL, 0x927711b85bdb8e09uL))
 
-public val FileSaveDialog: GUID = GUID.from_u128(0xc0b4e2f3ba214773uL, 0x8dba335ec946eb8buL)
+public val FileSaveDialog: GUID = GUID.from_u128(U128(0xc0b4e2f3ba214773uL, 0x8dba335ec946eb8buL))
 
-public val FileSearchBand: GUID = GUID.from_u128(0xc4ee31f3476811d2uL, 0xbe5c00a0c9a83da1uL)
+public val FileSearchBand: GUID = GUID.from_u128(U128(0xc4ee31f3476811d2uL, 0xbe5c00a0c9a83da1uL))
 
-public val FolderViewHost: GUID = GUID.from_u128(0x20b1cb2369684eb9uL, 0xb7d4a66d00d07ceeuL)
+public val FolderViewHost: GUID = GUID.from_u128(U128(0x20b1cb2369684eb9uL, 0xb7d4a66d00d07ceeuL))
 
-public val FrameworkInputPane: GUID = GUID.from_u128(0xd5120aa346ba44c5uL, 0x822dca8092c1fc72uL)
+public val FrameworkInputPane: GUID = GUID.from_u128(U128(0xd5120aa346ba44c5uL, 0x822dca8092c1fc72uL))
 
-public val FreeSpaceCategorizer: GUID = GUID.from_u128(0xb560779324ac44c7uL, 0x82e2831726aa6cb7uL)
+public val FreeSpaceCategorizer: GUID = GUID.from_u128(U128(0xb560779324ac44c7uL, 0x82e2831726aa6cb7uL))
 
 public val GADOF_DIRTY: UInt = 1u
 

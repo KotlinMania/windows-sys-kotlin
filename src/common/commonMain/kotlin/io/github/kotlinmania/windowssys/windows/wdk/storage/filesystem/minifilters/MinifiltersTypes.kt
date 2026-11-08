@@ -1,5 +1,9 @@
 package io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.minifilters
 
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.POOL_TYPE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.windows.win32.storage.installablefilesystems.FLT_FILESYSTEM_TYPE
+
 public typealias FLT_CALLBACK_DATA_QUEUE_FLAGS = Int
 
 public typealias FLT_POSTOP_CALLBACK_STATUS = Int
@@ -33,7 +37,7 @@ public fun interface PFLT_CALLBACK_DATA_QUEUE_COMPLETE_CANCELED_IOFn {
 public typealias PFLT_CALLBACK_DATA_QUEUE_COMPLETE_CANCELED_IO = PFLT_CALLBACK_DATA_QUEUE_COMPLETE_CANCELED_IOFn?
 
 public fun interface PFLT_CALLBACK_DATA_QUEUE_INSERT_IOFn {
-    public operator fun invoke(cbdq: Long, cbd: Long, insertcontext: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(cbdq: Long, cbd: Long, insertcontext: Long): NTSTATUS
 }
 
 public typealias PFLT_CALLBACK_DATA_QUEUE_INSERT_IO = PFLT_CALLBACK_DATA_QUEUE_INSERT_IOFn?
@@ -69,13 +73,13 @@ public fun interface PFLT_COMPLETE_CANCELED_CALLBACKFn {
 public typealias PFLT_COMPLETE_CANCELED_CALLBACK = PFLT_COMPLETE_CANCELED_CALLBACKFn?
 
 public fun interface PFLT_COMPLETE_LOCK_CALLBACK_DATA_ROUTINEFn {
-    public operator fun invoke(context: Long, callbackdata: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, callbackdata: Long): NTSTATUS
 }
 
 public typealias PFLT_COMPLETE_LOCK_CALLBACK_DATA_ROUTINE = PFLT_COMPLETE_LOCK_CALLBACK_DATA_ROUTINEFn?
 
 public fun interface PFLT_CONNECT_NOTIFYFn {
-    public operator fun invoke(clientport: PFLT_PORT, serverportcookie: Long, connectioncontext: Long, sizeofcontext: UInt, connectionportcookie: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(clientport: PFLT_PORT, serverportcookie: Long, connectioncontext: Long, sizeofcontext: UInt, connectionportcookie: Long): NTSTATUS
 }
 
 public typealias PFLT_CONNECT_NOTIFY = PFLT_CONNECT_NOTIFYFn?
@@ -83,7 +87,7 @@ public typealias PFLT_CONNECT_NOTIFY = PFLT_CONNECT_NOTIFYFn?
 public typealias PFLT_CONTEXT = Long
 
 public fun interface PFLT_CONTEXT_ALLOCATE_CALLBACKFn {
-    public operator fun invoke(pooltype: Foundation.POOL_TYPE, size: ULong, contexttype: UShort): Long
+    public operator fun invoke(pooltype: POOL_TYPE, size: ULong, contexttype: UShort): Long
 }
 
 public typealias PFLT_CONTEXT_ALLOCATE_CALLBACK = PFLT_CONTEXT_ALLOCATE_CALLBACKFn?
@@ -117,13 +121,13 @@ public typealias PFLT_DISCONNECT_NOTIFY = PFLT_DISCONNECT_NOTIFYFn?
 public typealias PFLT_FILTER = Long
 
 public fun interface PFLT_FILTER_UNLOAD_CALLBACKFn {
-    public operator fun invoke(flags: UInt): Win32.Foundation.NTSTATUS
+    public operator fun invoke(flags: UInt): NTSTATUS
 }
 
 public typealias PFLT_FILTER_UNLOAD_CALLBACK = PFLT_FILTER_UNLOAD_CALLBACKFn?
 
 public fun interface PFLT_GENERATE_FILE_NAMEFn {
-    public operator fun invoke(instance: PFLT_INSTANCE, fileobject: Long, callbackdata: Long, nameoptions: UInt, cachefilenameinformation: Long, filename: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(instance: PFLT_INSTANCE, fileobject: Long, callbackdata: Long, nameoptions: UInt, cachefilenameinformation: Long, filename: Long): NTSTATUS
 }
 
 public typealias PFLT_GENERATE_FILE_NAME = PFLT_GENERATE_FILE_NAMEFn?
@@ -137,7 +141,7 @@ public fun interface PFLT_GENERIC_WORKITEM_ROUTINEFn {
 public typealias PFLT_GENERIC_WORKITEM_ROUTINE = PFLT_GENERIC_WORKITEM_ROUTINEFn?
 
 public fun interface PFLT_GET_OPERATION_STATUS_CALLBACKFn {
-    public operator fun invoke(fltobjects: Long, iopbsnapshot: Long, operationstatus: Win32.Foundation.NTSTATUS, requestercontext: Long)
+    public operator fun invoke(fltobjects: Long, iopbsnapshot: Long, operationstatus: NTSTATUS, requestercontext: Long)
 }
 
 public typealias PFLT_GET_OPERATION_STATUS_CALLBACK = PFLT_GET_OPERATION_STATUS_CALLBACKFn?
@@ -145,13 +149,13 @@ public typealias PFLT_GET_OPERATION_STATUS_CALLBACK = PFLT_GET_OPERATION_STATUS_
 public typealias PFLT_INSTANCE = Long
 
 public fun interface PFLT_INSTANCE_QUERY_TEARDOWN_CALLBACKFn {
-    public operator fun invoke(fltobjects: Long, flags: UInt): Win32.Foundation.NTSTATUS
+    public operator fun invoke(fltobjects: Long, flags: UInt): NTSTATUS
 }
 
 public typealias PFLT_INSTANCE_QUERY_TEARDOWN_CALLBACK = PFLT_INSTANCE_QUERY_TEARDOWN_CALLBACKFn?
 
 public fun interface PFLT_INSTANCE_SETUP_CALLBACKFn {
-    public operator fun invoke(fltobjects: Long, flags: UInt, volumedevicetype: UInt, volumefilesystemtype: Win32.Storage.InstallableFileSystems.FLT_FILESYSTEM_TYPE): Win32.Foundation.NTSTATUS
+    public operator fun invoke(fltobjects: Long, flags: UInt, volumedevicetype: UInt, volumefilesystemtype: FLT_FILESYSTEM_TYPE): NTSTATUS
 }
 
 public typealias PFLT_INSTANCE_SETUP_CALLBACK = PFLT_INSTANCE_SETUP_CALLBACKFn?
@@ -163,7 +167,7 @@ public fun interface PFLT_INSTANCE_TEARDOWN_CALLBACKFn {
 public typealias PFLT_INSTANCE_TEARDOWN_CALLBACK = PFLT_INSTANCE_TEARDOWN_CALLBACKFn?
 
 public fun interface PFLT_MESSAGE_NOTIFYFn {
-    public operator fun invoke(portcookie: Long, inputbuffer: Long, inputbufferlength: UInt, outputbuffer: Long, outputbufferlength: UInt, returnoutputbufferlength: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(portcookie: Long, inputbuffer: Long, inputbufferlength: UInt, outputbuffer: Long, outputbufferlength: UInt, returnoutputbufferlength: Long): NTSTATUS
 }
 
 public typealias PFLT_MESSAGE_NOTIFY = PFLT_MESSAGE_NOTIFYFn?
@@ -175,13 +179,13 @@ public fun interface PFLT_NORMALIZE_CONTEXT_CLEANUPFn {
 public typealias PFLT_NORMALIZE_CONTEXT_CLEANUP = PFLT_NORMALIZE_CONTEXT_CLEANUPFn?
 
 public fun interface PFLT_NORMALIZE_NAME_COMPONENTFn {
-    public operator fun invoke(instance: PFLT_INSTANCE, parentdirectory: Long, volumenamelength: UShort, component: Long, expandcomponentname: Long, expandcomponentnamelength: UInt, flags: UInt, normalizationcontext: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(instance: PFLT_INSTANCE, parentdirectory: Long, volumenamelength: UShort, component: Long, expandcomponentname: Long, expandcomponentnamelength: UInt, flags: UInt, normalizationcontext: Long): NTSTATUS
 }
 
 public typealias PFLT_NORMALIZE_NAME_COMPONENT = PFLT_NORMALIZE_NAME_COMPONENTFn?
 
 public fun interface PFLT_NORMALIZE_NAME_COMPONENT_EXFn {
-    public operator fun invoke(instance: PFLT_INSTANCE, fileobject: Long, parentdirectory: Long, volumenamelength: UShort, component: Long, expandcomponentname: Long, expandcomponentnamelength: UInt, flags: UInt, normalizationcontext: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(instance: PFLT_INSTANCE, fileobject: Long, parentdirectory: Long, volumenamelength: UShort, component: Long, expandcomponentname: Long, expandcomponentnamelength: UInt, flags: UInt, normalizationcontext: Long): NTSTATUS
 }
 
 public typealias PFLT_NORMALIZE_NAME_COMPONENT_EX = PFLT_NORMALIZE_NAME_COMPONENT_EXFn?
@@ -201,13 +205,13 @@ public fun interface PFLT_PRE_OPERATION_CALLBACKFn {
 public typealias PFLT_PRE_OPERATION_CALLBACK = PFLT_PRE_OPERATION_CALLBACKFn?
 
 public fun interface PFLT_SECTION_CONFLICT_NOTIFICATION_CALLBACKFn {
-    public operator fun invoke(instance: PFLT_INSTANCE, sectioncontext: PFLT_CONTEXT, data: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(instance: PFLT_INSTANCE, sectioncontext: PFLT_CONTEXT, data: Long): NTSTATUS
 }
 
 public typealias PFLT_SECTION_CONFLICT_NOTIFICATION_CALLBACK = PFLT_SECTION_CONFLICT_NOTIFICATION_CALLBACKFn?
 
 public fun interface PFLT_TRANSACTION_NOTIFICATION_CALLBACKFn {
-    public operator fun invoke(fltobjects: Long, transactioncontext: PFLT_CONTEXT, notificationmask: UInt): Win32.Foundation.NTSTATUS
+    public operator fun invoke(fltobjects: Long, transactioncontext: PFLT_CONTEXT, notificationmask: UInt): NTSTATUS
 }
 
 public typealias PFLT_TRANSACTION_NOTIFICATION_CALLBACK = PFLT_TRANSACTION_NOTIFICATION_CALLBACKFn?

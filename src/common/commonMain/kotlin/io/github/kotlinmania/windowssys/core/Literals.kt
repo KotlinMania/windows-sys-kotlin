@@ -8,16 +8,16 @@ public fun decode_utf8_char(bytes: List<UByte>, pos: Int): Pair<UInt, Int>? {
     }
     val ch = bytes[pos].toUInt()
     pos += 1
-    if (ch <= 0x7f) {
+    if (ch <= 0x7fu) {
         return Pair(ch, pos)
     }
-    if ((ch and 0xe0) == 0xc0) {
+    if ((ch and 0xe0u) == 0xc0u) {
         if (bytes.size - pos < 1) {
             return null
         }
         val ch2 = bytes[pos].toUInt()
         pos += 1
-        if ((ch2 and 0xc0) != 0x80) {
+        if ((ch2 and 0xc0u) != 0x80u) {
             return null
         }
         val result: UInt = ((ch and 0x1fu) shl 6) or (ch2 and 0x3fu)
@@ -26,7 +26,7 @@ public fun decode_utf8_char(bytes: List<UByte>, pos: Int): Pair<UInt, Int>? {
         }
         return Pair(result, pos)
     }
-    if ((ch and 0xf0) == 0xe0) {
+    if ((ch and 0xf0u) == 0xe0u) {
         if (bytes.size - pos < 2) {
             return null
         }
@@ -34,16 +34,16 @@ public fun decode_utf8_char(bytes: List<UByte>, pos: Int): Pair<UInt, Int>? {
         pos += 1
         val ch3 = bytes[pos].toUInt()
         pos += 1
-        if ((ch21 and 0xc0) != 0x80 || (ch3 and 0xc0) != 0x80) {
+        if ((ch21 and 0xc0u) != 0x80u || (ch3 and 0xc0u) != 0x80u) {
             return null
         }
-        val result1 = ((ch and 0x0f) shl 12) or ((ch21 and 0x3f) shl 6) or (ch3 and 0x3f)
-        if (result1 <= 0x7ff || (0xd800 <= result1 && result1 <= 0xdfff)) {
+        val result1 = ((ch and 0x0fu) shl 12) or ((ch21 and 0x3fu) shl 6) or (ch3 and 0x3fu)
+        if (result1 <= 0x7ffu || (0xd800u <= result1 && result1 <= 0xdfffu)) {
             return null
         }
         return Pair(result1, pos)
     }
-    if ((ch and 0xf8) == 0xf0) {
+    if ((ch and 0xf8u) == 0xf0u) {
         if (bytes.size - pos < 3) {
             return null
         }
@@ -53,11 +53,11 @@ public fun decode_utf8_char(bytes: List<UByte>, pos: Int): Pair<UInt, Int>? {
         pos += 1
         val ch4 = bytes[pos].toUInt()
         pos += 1
-        if ((ch22 and 0xc0) != 0x80 || (ch31 and 0xc0) != 0x80 || (ch4 and 0xc0) != 0x80) {
+        if ((ch22 and 0xc0u) != 0x80u || (ch31 and 0xc0u) != 0x80u || (ch4 and 0xc0u) != 0x80u) {
             return null
         }
-        val result2 = ((ch and 0x07) shl 18) or ((ch22 and 0x3f) shl 12) or ((ch31 and 0x3f) shl 6) or (ch4 and 0x3f)
-        if (result2 <= 0xffff || 0x10ffff < result2) {
+        val result2 = ((ch and 0x07u) shl 18) or ((ch22 and 0x3fu) shl 12) or ((ch31 and 0x3fu) shl 6) or (ch4 and 0x3fu)
+        if (result2 <= 0xffffu || 0x10ffffu < result2) {
             return null
         }
         return Pair(result2, pos)
@@ -74,7 +74,7 @@ public fun utf16_len(bytes: List<UByte>): Int {
         val code_point = matchVal.first
         val new_pos = matchVal.second
         pos = new_pos
-        len += if (code_point <= 0xffff) {
+        len += if (code_point <= 0xffffu) {
             1
         } else {
             2
@@ -82,21 +82,3 @@ public fun utf16_len(bytes: List<UByte>): Int {
     }
     return len
 }
-
-private const val s_TEMPLATE: String = ".core.concat(\$s, '\\0').as_ptr()"
-
-private const val w_TEMPLATE: String = "{const INPUT:&[u8]= \$s.as_bytes(); const OUTPUT_LEN: usize= core.utf16_len(INPUT)+ 1; const OUTPUT:&[u16; OUTPUT_LEN]= {val var buffer=[0; OUTPUT_LEN]; val var input_pos= 0; val var output_pos= 0; whileLoop val Some((var code_point, new_pos))= core.decode_utf8_char(INPUT, input_pos) {input_pos= new_pos; ifBranch code_point<= 0xffff {buffer[output_pos]= code_point asTarget u16; output_pos+= 1; } elseBranch {code_point-= 0x10000; buffer[output_pos]= 0xd800+(code_point>> 10) asTarget u16; output_pos+= 1; buffer[output_pos]= 0xdc00+(code_point& 0x3ff) asTarget u16; output_pos+= 1; }}& {buffer}}; OUTPUT.as_ptr()}"
-
-/**
- * A literal UTF-8 string with a trailing null terminator.
- */
-
-public fun s(s: String = ""): String =
-    s_TEMPLATE.replace("\$s", s)
-
-/**
- * A literal UTF-16 wide string with a trailing null terminator.
- */
-
-public fun w(s: String = ""): String =
-    w_TEMPLATE.replace("\$s", s)

@@ -1,6 +1,14 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem
 
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.FAST_MUTEX
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.RTL_SPLAY_LINKS
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
+import io.github.kotlinmania.windowssys.windows.win32.foundation.UNICODE_STRING
+import io.github.kotlinmania.windowssys.windows.win32.security.AUDIT_EVENT_TYPE
+import io.github.kotlinmania.windowssys.windows.win32.security.PSID
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.LIST_ENTRY
+
 public data class SEC_FLAGS(public var Flags: ULong = 0uL)
 
 public data class SEC_NEGOTIATION_INFO(
@@ -46,12 +54,12 @@ public data class SET_CACHED_RUNS_STATE_INPUT_BUFFER(public var Enable: Boolean 
 
 public data class SE_AUDIT_INFO(
     public var Size: UInt = 0u,
-    public var AuditType: Win32.Security.AUDIT_EVENT_TYPE = Win32.Security.AUDIT_EVENT_TYPE(),
+    public var AuditType: AUDIT_EVENT_TYPE = 0,
     public var AuditOperation: SE_AUDIT_OPERATION = 0,
     public var AuditFlags: UInt = 0u,
-    public var SubsystemName: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
-    public var ObjectTypeName: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
-    public var ObjectName: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
+    public var SubsystemName: UNICODE_STRING = UNICODE_STRING(),
+    public var ObjectTypeName: UNICODE_STRING = UNICODE_STRING(),
+    public var ObjectName: UNICODE_STRING = UNICODE_STRING(),
     public var HandleId: Long = 0L,
     public var TransactionId: Long = 0L,
     public var OperationId: Long = 0L,
@@ -60,151 +68,151 @@ public data class SE_AUDIT_INFO(
 )
 
 public class SE_EXPORTS {
-    public var SeCreateTokenPrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeCreateTokenPrivilege: LUID = LUID()
 
-    public var SeAssignPrimaryTokenPrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeAssignPrimaryTokenPrivilege: LUID = LUID()
 
-    public var SeLockMemoryPrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeLockMemoryPrivilege: LUID = LUID()
 
-    public var SeIncreaseQuotaPrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeIncreaseQuotaPrivilege: LUID = LUID()
 
-    public var SeUnsolicitedInputPrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeUnsolicitedInputPrivilege: LUID = LUID()
 
-    public var SeTcbPrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeTcbPrivilege: LUID = LUID()
 
-    public var SeSecurityPrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeSecurityPrivilege: LUID = LUID()
 
-    public var SeTakeOwnershipPrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeTakeOwnershipPrivilege: LUID = LUID()
 
-    public var SeLoadDriverPrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeLoadDriverPrivilege: LUID = LUID()
 
-    public var SeCreatePagefilePrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeCreatePagefilePrivilege: LUID = LUID()
 
-    public var SeIncreaseBasePriorityPrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeIncreaseBasePriorityPrivilege: LUID = LUID()
 
-    public var SeSystemProfilePrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeSystemProfilePrivilege: LUID = LUID()
 
-    public var SeSystemtimePrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeSystemtimePrivilege: LUID = LUID()
 
-    public var SeProfileSingleProcessPrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeProfileSingleProcessPrivilege: LUID = LUID()
 
-    public var SeCreatePermanentPrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeCreatePermanentPrivilege: LUID = LUID()
 
-    public var SeBackupPrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeBackupPrivilege: LUID = LUID()
 
-    public var SeRestorePrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeRestorePrivilege: LUID = LUID()
 
-    public var SeShutdownPrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeShutdownPrivilege: LUID = LUID()
 
-    public var SeDebugPrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeDebugPrivilege: LUID = LUID()
 
-    public var SeAuditPrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeAuditPrivilege: LUID = LUID()
 
-    public var SeSystemEnvironmentPrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeSystemEnvironmentPrivilege: LUID = LUID()
 
-    public var SeChangeNotifyPrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeChangeNotifyPrivilege: LUID = LUID()
 
-    public var SeRemoteShutdownPrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeRemoteShutdownPrivilege: LUID = LUID()
 
-    public var SeNullSid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeNullSid: PSID = 0L
 
-    public var SeWorldSid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeWorldSid: PSID = 0L
 
-    public var SeLocalSid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeLocalSid: PSID = 0L
 
-    public var SeCreatorOwnerSid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeCreatorOwnerSid: PSID = 0L
 
-    public var SeCreatorGroupSid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeCreatorGroupSid: PSID = 0L
 
-    public var SeNtAuthoritySid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeNtAuthoritySid: PSID = 0L
 
-    public var SeDialupSid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeDialupSid: PSID = 0L
 
-    public var SeNetworkSid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeNetworkSid: PSID = 0L
 
-    public var SeBatchSid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeBatchSid: PSID = 0L
 
-    public var SeInteractiveSid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeInteractiveSid: PSID = 0L
 
-    public var SeLocalSystemSid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeLocalSystemSid: PSID = 0L
 
-    public var SeAliasAdminsSid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeAliasAdminsSid: PSID = 0L
 
-    public var SeAliasUsersSid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeAliasUsersSid: PSID = 0L
 
-    public var SeAliasGuestsSid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeAliasGuestsSid: PSID = 0L
 
-    public var SeAliasPowerUsersSid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeAliasPowerUsersSid: PSID = 0L
 
-    public var SeAliasAccountOpsSid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeAliasAccountOpsSid: PSID = 0L
 
-    public var SeAliasSystemOpsSid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeAliasSystemOpsSid: PSID = 0L
 
-    public var SeAliasPrintOpsSid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeAliasPrintOpsSid: PSID = 0L
 
-    public var SeAliasBackupOpsSid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeAliasBackupOpsSid: PSID = 0L
 
-    public var SeAuthenticatedUsersSid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeAuthenticatedUsersSid: PSID = 0L
 
-    public var SeRestrictedSid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeRestrictedSid: PSID = 0L
 
-    public var SeAnonymousLogonSid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeAnonymousLogonSid: PSID = 0L
 
-    public var SeUndockPrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeUndockPrivilege: LUID = LUID()
 
-    public var SeSyncAgentPrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeSyncAgentPrivilege: LUID = LUID()
 
-    public var SeEnableDelegationPrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeEnableDelegationPrivilege: LUID = LUID()
 
-    public var SeLocalServiceSid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeLocalServiceSid: PSID = 0L
 
-    public var SeNetworkServiceSid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeNetworkServiceSid: PSID = 0L
 
-    public var SeManageVolumePrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeManageVolumePrivilege: LUID = LUID()
 
-    public var SeImpersonatePrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeImpersonatePrivilege: LUID = LUID()
 
-    public var SeCreateGlobalPrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeCreateGlobalPrivilege: LUID = LUID()
 
-    public var SeTrustedCredManAccessPrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeTrustedCredManAccessPrivilege: LUID = LUID()
 
-    public var SeRelabelPrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeRelabelPrivilege: LUID = LUID()
 
-    public var SeIncreaseWorkingSetPrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeIncreaseWorkingSetPrivilege: LUID = LUID()
 
-    public var SeTimeZonePrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeTimeZonePrivilege: LUID = LUID()
 
-    public var SeCreateSymbolicLinkPrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeCreateSymbolicLinkPrivilege: LUID = LUID()
 
-    public var SeIUserSid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeIUserSid: PSID = 0L
 
-    public var SeUntrustedMandatorySid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeUntrustedMandatorySid: PSID = 0L
 
-    public var SeLowMandatorySid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeLowMandatorySid: PSID = 0L
 
-    public var SeMediumMandatorySid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeMediumMandatorySid: PSID = 0L
 
-    public var SeHighMandatorySid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeHighMandatorySid: PSID = 0L
 
-    public var SeSystemMandatorySid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeSystemMandatorySid: PSID = 0L
 
-    public var SeOwnerRightsSid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeOwnerRightsSid: PSID = 0L
 
-    public var SeAllAppPackagesSid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeAllAppPackagesSid: PSID = 0L
 
-    public var SeUserModeDriversSid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeUserModeDriversSid: PSID = 0L
 
-    public var SeProcTrustWinTcbSid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeProcTrustWinTcbSid: PSID = 0L
 
-    public var SeTrustedInstallerSid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeTrustedInstallerSid: PSID = 0L
 
-    public var SeDelegateSessionUserImpersonatePrivilege: Win32.Foundation.LUID = Win32.Foundation.LUID()
+    public var SeDelegateSessionUserImpersonatePrivilege: LUID = LUID()
 
-    public var SeAppSiloSid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeAppSiloSid: PSID = 0L
 
-    public var SeAppSiloVolumeRootMinimalCapabilitySid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeAppSiloVolumeRootMinimalCapabilitySid: PSID = 0L
 
-    public var SeAppSiloProfilesRootMinimalCapabilitySid: Win32.Security.PSID = Win32.Security.PSID()
+    public var SeAppSiloProfilesRootMinimalCapabilitySid: PSID = 0L
 }
 
 public data class SRV_OPEN_ECP_CONTEXT(
@@ -238,9 +246,9 @@ public data class SecBufferDesc(
 public data class SecHandle(public var dwLower: ULong = 0uL, public var dwUpper: ULong = 0uL)
 
 public data class TUNNEL(
-    public var Mutex: Foundation.FAST_MUTEX = Foundation.FAST_MUTEX(),
+    public var Mutex: FAST_MUTEX = FAST_MUTEX(),
     public var Cache: Long = 0L,
-    public var TimerQueue: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(),
+    public var TimerQueue: LIST_ENTRY = LIST_ENTRY(),
     public var NumEntries: UShort = 0u,
 )
 
@@ -256,7 +264,7 @@ public data class UNICODE_PREFIX_TABLE_ENTRY(
     public var NameLength: Short = 0,
     public var NextPrefixTree: Long = 0L,
     public var CaseMatch: Long = 0L,
-    public var Links: Foundation.RTL_SPLAY_LINKS = Foundation.RTL_SPLAY_LINKS(),
+    public var Links: RTL_SPLAY_LINKS = RTL_SPLAY_LINKS(),
     public var Prefix: Long = 0L,
 )
 

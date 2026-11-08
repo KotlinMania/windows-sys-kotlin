@@ -4,6 +4,11 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.HKEY
+import io.github.kotlinmania.windowssys.windows.win32.system.services.SC_HANDLE
 
 public typealias CLCTL_CODES = Int
 
@@ -272,7 +277,7 @@ public fun interface PARM_WPR_WATCHDOG_FOR_CURRENT_RESOURCE_CALL_ROUTINEFn {
 public typealias PARM_WPR_WATCHDOG_FOR_CURRENT_RESOURCE_CALL_ROUTINE = PARM_WPR_WATCHDOG_FOR_CURRENT_RESOURCE_CALL_ROUTINEFn?
 
 public fun interface PBEGIN_RESCALL_AS_USER_ROUTINEFn {
-    public operator fun invoke(resource: Long, tokenhandle: Foundation.HANDLE, controlcode: UInt, inbuffer: Long, inbuffersize: UInt, outbuffer: Long, outbuffersize: UInt, bytesreturned: Long, context: Long, returnedasynchronously: Long): UInt
+    public operator fun invoke(resource: Long, tokenhandle: HANDLE, controlcode: UInt, inbuffer: Long, inbuffersize: UInt, outbuffer: Long, outbuffersize: UInt, bytesreturned: Long, context: Long, returnedasynchronously: Long): UInt
 }
 
 public typealias PBEGIN_RESCALL_AS_USER_ROUTINE = PBEGIN_RESCALL_AS_USER_ROUTINEFn?
@@ -284,7 +289,7 @@ public fun interface PBEGIN_RESCALL_ROUTINEFn {
 public typealias PBEGIN_RESCALL_ROUTINE = PBEGIN_RESCALL_ROUTINEFn?
 
 public fun interface PBEGIN_RESTYPECALL_AS_USER_ROUTINEFn {
-    public operator fun invoke(resourcetypename: PCWSTR, tokenhandle: Foundation.HANDLE, controlcode: UInt, inbuffer: Long, inbuffersize: UInt, outbuffer: Long, outbuffersize: UInt, bytesreturned: Long, context: Long, returnedasynchronously: Long): UInt
+    public operator fun invoke(resourcetypename: PCWSTR, tokenhandle: HANDLE, controlcode: UInt, inbuffer: Long, inbuffersize: UInt, outbuffer: Long, outbuffersize: UInt, bytesreturned: Long, context: Long, returnedasynchronously: Long): UInt
 }
 
 public typealias PBEGIN_RESTYPECALL_AS_USER_ROUTINE = PBEGIN_RESTYPECALL_AS_USER_ROUTINEFn?
@@ -764,109 +769,109 @@ public fun interface PCLUSAPI_CLUSTER_OPEN_ENUM_EXFn {
 public typealias PCLUSAPI_CLUSTER_OPEN_ENUM_EX = PCLUSAPI_CLUSTER_OPEN_ENUM_EXFn?
 
 public fun interface PCLUSAPI_CLUSTER_REG_CLOSE_KEYFn {
-    public operator fun invoke(hkey: System.Registry.HKEY): Int
+    public operator fun invoke(hkey: HKEY): Int
 }
 
 public typealias PCLUSAPI_CLUSTER_REG_CLOSE_KEY = PCLUSAPI_CLUSTER_REG_CLOSE_KEYFn?
 
 public fun interface PCLUSAPI_CLUSTER_REG_CREATE_BATCHFn {
-    public operator fun invoke(hkey: System.Registry.HKEY, phregbatch: Long): Int
+    public operator fun invoke(hkey: HKEY, phregbatch: Long): Int
 }
 
 public typealias PCLUSAPI_CLUSTER_REG_CREATE_BATCH = PCLUSAPI_CLUSTER_REG_CREATE_BATCHFn?
 
 public fun interface PCLUSAPI_CLUSTER_REG_CREATE_KEYFn {
-    public operator fun invoke(hkey: System.Registry.HKEY, lpszsubkey: PCWSTR, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: Long, phkresult: Long, lpdwdisposition: Long): Int
+    public operator fun invoke(hkey: HKEY, lpszsubkey: PCWSTR, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: Long, phkresult: Long, lpdwdisposition: Long): Int
 }
 
 public typealias PCLUSAPI_CLUSTER_REG_CREATE_KEY = PCLUSAPI_CLUSTER_REG_CREATE_KEYFn?
 
 public fun interface PCLUSAPI_CLUSTER_REG_CREATE_KEY_EXFn {
-    public operator fun invoke(hkey: System.Registry.HKEY, lpszsubkey: PCWSTR, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: Long, phkresult: Long, lpdwdisposition: Long, lpszreason: PCWSTR): Int
+    public operator fun invoke(hkey: HKEY, lpszsubkey: PCWSTR, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: Long, phkresult: Long, lpdwdisposition: Long, lpszreason: PCWSTR): Int
 }
 
 public typealias PCLUSAPI_CLUSTER_REG_CREATE_KEY_EX = PCLUSAPI_CLUSTER_REG_CREATE_KEY_EXFn?
 
 public fun interface PCLUSAPI_CLUSTER_REG_DELETE_KEYFn {
-    public operator fun invoke(hkey: System.Registry.HKEY, lpszsubkey: PCWSTR): Int
+    public operator fun invoke(hkey: HKEY, lpszsubkey: PCWSTR): Int
 }
 
 public typealias PCLUSAPI_CLUSTER_REG_DELETE_KEY = PCLUSAPI_CLUSTER_REG_DELETE_KEYFn?
 
 public fun interface PCLUSAPI_CLUSTER_REG_DELETE_KEY_EXFn {
-    public operator fun invoke(hkey: System.Registry.HKEY, lpsubkey: PCWSTR, lpszreason: PCWSTR): Int
+    public operator fun invoke(hkey: HKEY, lpsubkey: PCWSTR, lpszreason: PCWSTR): Int
 }
 
 public typealias PCLUSAPI_CLUSTER_REG_DELETE_KEY_EX = PCLUSAPI_CLUSTER_REG_DELETE_KEY_EXFn?
 
 public fun interface PCLUSAPI_CLUSTER_REG_DELETE_VALUEFn {
-    public operator fun invoke(hkey: System.Registry.HKEY, lpszvaluename: PCWSTR): UInt
+    public operator fun invoke(hkey: HKEY, lpszvaluename: PCWSTR): UInt
 }
 
 public typealias PCLUSAPI_CLUSTER_REG_DELETE_VALUE = PCLUSAPI_CLUSTER_REG_DELETE_VALUEFn?
 
 public fun interface PCLUSAPI_CLUSTER_REG_DELETE_VALUE_EXFn {
-    public operator fun invoke(hkey: System.Registry.HKEY, lpszvaluename: PCWSTR, lpszreason: PCWSTR): UInt
+    public operator fun invoke(hkey: HKEY, lpszvaluename: PCWSTR, lpszreason: PCWSTR): UInt
 }
 
 public typealias PCLUSAPI_CLUSTER_REG_DELETE_VALUE_EX = PCLUSAPI_CLUSTER_REG_DELETE_VALUE_EXFn?
 
 public fun interface PCLUSAPI_CLUSTER_REG_ENUM_KEYFn {
-    public operator fun invoke(hkey: System.Registry.HKEY, dwindex: UInt, lpszname: PWSTR, lpcchname: Long, lpftlastwritetime: Long): Int
+    public operator fun invoke(hkey: HKEY, dwindex: UInt, lpszname: PWSTR, lpcchname: Long, lpftlastwritetime: Long): Int
 }
 
 public typealias PCLUSAPI_CLUSTER_REG_ENUM_KEY = PCLUSAPI_CLUSTER_REG_ENUM_KEYFn?
 
 public fun interface PCLUSAPI_CLUSTER_REG_ENUM_VALUEFn {
-    public operator fun invoke(hkey: System.Registry.HKEY, dwindex: UInt, lpszvaluename: PWSTR, lpcchvaluename: Long, lpdwtype: Long, lpdata: Long, lpcbdata: Long): UInt
+    public operator fun invoke(hkey: HKEY, dwindex: UInt, lpszvaluename: PWSTR, lpcchvaluename: Long, lpdwtype: Long, lpdata: Long, lpcbdata: Long): UInt
 }
 
 public typealias PCLUSAPI_CLUSTER_REG_ENUM_VALUE = PCLUSAPI_CLUSTER_REG_ENUM_VALUEFn?
 
 public fun interface PCLUSAPI_CLUSTER_REG_GET_KEY_SECURITYFn {
-    public operator fun invoke(hkey: System.Registry.HKEY, requestedinformation: UInt, psecuritydescriptor: Security.PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: Long): Int
+    public operator fun invoke(hkey: HKEY, requestedinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: Long): Int
 }
 
 public typealias PCLUSAPI_CLUSTER_REG_GET_KEY_SECURITY = PCLUSAPI_CLUSTER_REG_GET_KEY_SECURITYFn?
 
 public fun interface PCLUSAPI_CLUSTER_REG_OPEN_KEYFn {
-    public operator fun invoke(hkey: System.Registry.HKEY, lpszsubkey: PCWSTR, samdesired: UInt, phkresult: Long): Int
+    public operator fun invoke(hkey: HKEY, lpszsubkey: PCWSTR, samdesired: UInt, phkresult: Long): Int
 }
 
 public typealias PCLUSAPI_CLUSTER_REG_OPEN_KEY = PCLUSAPI_CLUSTER_REG_OPEN_KEYFn?
 
 public fun interface PCLUSAPI_CLUSTER_REG_QUERY_INFO_KEYFn {
-    public operator fun invoke(hkey: System.Registry.HKEY, lpcsubkeys: Long, lpcbmaxsubkeylen: Long, lpcvalues: Long, lpcbmaxvaluenamelen: Long, lpcbmaxvaluelen: Long, lpcbsecuritydescriptor: Long, lpftlastwritetime: Long): Int
+    public operator fun invoke(hkey: HKEY, lpcsubkeys: Long, lpcbmaxsubkeylen: Long, lpcvalues: Long, lpcbmaxvaluenamelen: Long, lpcbmaxvaluelen: Long, lpcbsecuritydescriptor: Long, lpftlastwritetime: Long): Int
 }
 
 public typealias PCLUSAPI_CLUSTER_REG_QUERY_INFO_KEY = PCLUSAPI_CLUSTER_REG_QUERY_INFO_KEYFn?
 
 public fun interface PCLUSAPI_CLUSTER_REG_QUERY_VALUEFn {
-    public operator fun invoke(hkey: System.Registry.HKEY, lpszvaluename: PCWSTR, lpdwvaluetype: Long, lpdata: Long, lpcbdata: Long): Int
+    public operator fun invoke(hkey: HKEY, lpszvaluename: PCWSTR, lpdwvaluetype: Long, lpdata: Long, lpcbdata: Long): Int
 }
 
 public typealias PCLUSAPI_CLUSTER_REG_QUERY_VALUE = PCLUSAPI_CLUSTER_REG_QUERY_VALUEFn?
 
 public fun interface PCLUSAPI_CLUSTER_REG_SET_KEY_SECURITYFn {
-    public operator fun invoke(hkey: System.Registry.HKEY, securityinformation: UInt, psecuritydescriptor: Security.PSECURITY_DESCRIPTOR): Int
+    public operator fun invoke(hkey: HKEY, securityinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR): Int
 }
 
 public typealias PCLUSAPI_CLUSTER_REG_SET_KEY_SECURITY = PCLUSAPI_CLUSTER_REG_SET_KEY_SECURITYFn?
 
 public fun interface PCLUSAPI_CLUSTER_REG_SET_KEY_SECURITY_EXFn {
-    public operator fun invoke(hkey: System.Registry.HKEY, securityinformation: UInt, psecuritydescriptor: Security.PSECURITY_DESCRIPTOR, lpszreason: PCWSTR): Int
+    public operator fun invoke(hkey: HKEY, securityinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR, lpszreason: PCWSTR): Int
 }
 
 public typealias PCLUSAPI_CLUSTER_REG_SET_KEY_SECURITY_EX = PCLUSAPI_CLUSTER_REG_SET_KEY_SECURITY_EXFn?
 
 public fun interface PCLUSAPI_CLUSTER_REG_SET_VALUEFn {
-    public operator fun invoke(hkey: System.Registry.HKEY, lpszvaluename: PCWSTR, dwtype: UInt, lpdata: Long, cbdata: UInt): UInt
+    public operator fun invoke(hkey: HKEY, lpszvaluename: PCWSTR, dwtype: UInt, lpdata: Long, cbdata: UInt): UInt
 }
 
 public typealias PCLUSAPI_CLUSTER_REG_SET_VALUE = PCLUSAPI_CLUSTER_REG_SET_VALUEFn?
 
 public fun interface PCLUSAPI_CLUSTER_REG_SET_VALUE_EXFn {
-    public operator fun invoke(hkey: System.Registry.HKEY, lpszvaluename: PCWSTR, dwtype: UInt, lpdata: Long, cbdata: UInt, lpszreason: PCWSTR): UInt
+    public operator fun invoke(hkey: HKEY, lpszvaluename: PCWSTR, dwtype: UInt, lpdata: Long, cbdata: UInt, lpszreason: PCWSTR): UInt
 }
 
 public typealias PCLUSAPI_CLUSTER_REG_SET_VALUE_EX = PCLUSAPI_CLUSTER_REG_SET_VALUE_EXFn?
@@ -1238,7 +1243,7 @@ public fun interface PCLUSAPI_GET_CLUSTER_FROM_RESOURCEFn {
 public typealias PCLUSAPI_GET_CLUSTER_FROM_RESOURCE = PCLUSAPI_GET_CLUSTER_FROM_RESOURCEFn?
 
 public fun interface PCLUSAPI_GET_CLUSTER_GROUP_KEYFn {
-    public operator fun invoke(hgroup: HGROUP, samdesired: UInt): System.Registry.HKEY
+    public operator fun invoke(hgroup: HGROUP, samdesired: UInt): HKEY
 }
 
 public typealias PCLUSAPI_GET_CLUSTER_GROUP_KEY = PCLUSAPI_GET_CLUSTER_GROUP_KEYFn?
@@ -1256,7 +1261,7 @@ public fun interface PCLUSAPI_GET_CLUSTER_INFORMATIONFn {
 public typealias PCLUSAPI_GET_CLUSTER_INFORMATION = PCLUSAPI_GET_CLUSTER_INFORMATIONFn?
 
 public fun interface PCLUSAPI_GET_CLUSTER_KEYFn {
-    public operator fun invoke(hcluster: HCLUSTER, samdesired: UInt): System.Registry.HKEY
+    public operator fun invoke(hcluster: HCLUSTER, samdesired: UInt): HKEY
 }
 
 public typealias PCLUSAPI_GET_CLUSTER_KEY = PCLUSAPI_GET_CLUSTER_KEYFn?
@@ -1268,7 +1273,7 @@ public fun interface PCLUSAPI_GET_CLUSTER_NETWORK_IDFn {
 public typealias PCLUSAPI_GET_CLUSTER_NETWORK_ID = PCLUSAPI_GET_CLUSTER_NETWORK_IDFn?
 
 public fun interface PCLUSAPI_GET_CLUSTER_NETWORK_KEYFn {
-    public operator fun invoke(hnetwork: HNETWORK, samdesired: UInt): System.Registry.HKEY
+    public operator fun invoke(hnetwork: HNETWORK, samdesired: UInt): HKEY
 }
 
 public typealias PCLUSAPI_GET_CLUSTER_NETWORK_KEY = PCLUSAPI_GET_CLUSTER_NETWORK_KEYFn?
@@ -1286,7 +1291,7 @@ public fun interface PCLUSAPI_GET_CLUSTER_NET_INTERFACEFn {
 public typealias PCLUSAPI_GET_CLUSTER_NET_INTERFACE = PCLUSAPI_GET_CLUSTER_NET_INTERFACEFn?
 
 public fun interface PCLUSAPI_GET_CLUSTER_NET_INTERFACE_KEYFn {
-    public operator fun invoke(hnetinterface: HNETINTERFACE, samdesired: UInt): System.Registry.HKEY
+    public operator fun invoke(hnetinterface: HNETINTERFACE, samdesired: UInt): HKEY
 }
 
 public typealias PCLUSAPI_GET_CLUSTER_NET_INTERFACE_KEY = PCLUSAPI_GET_CLUSTER_NET_INTERFACE_KEYFn?
@@ -1304,7 +1309,7 @@ public fun interface PCLUSAPI_GET_CLUSTER_NODE_IDFn {
 public typealias PCLUSAPI_GET_CLUSTER_NODE_ID = PCLUSAPI_GET_CLUSTER_NODE_IDFn?
 
 public fun interface PCLUSAPI_GET_CLUSTER_NODE_KEYFn {
-    public operator fun invoke(hnode: HNODE, samdesired: UInt): System.Registry.HKEY
+    public operator fun invoke(hnode: HNODE, samdesired: UInt): HKEY
 }
 
 public typealias PCLUSAPI_GET_CLUSTER_NODE_KEY = PCLUSAPI_GET_CLUSTER_NODE_KEYFn?
@@ -1340,7 +1345,7 @@ public fun interface PCLUSAPI_GET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSIONFn {
 public typealias PCLUSAPI_GET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION = PCLUSAPI_GET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSIONFn?
 
 public fun interface PCLUSAPI_GET_CLUSTER_RESOURCE_KEYFn {
-    public operator fun invoke(hresource: HRESOURCE, samdesired: UInt): System.Registry.HKEY
+    public operator fun invoke(hresource: HRESOURCE, samdesired: UInt): HKEY
 }
 
 public typealias PCLUSAPI_GET_CLUSTER_RESOURCE_KEY = PCLUSAPI_GET_CLUSTER_RESOURCE_KEYFn?
@@ -1358,7 +1363,7 @@ public fun interface PCLUSAPI_GET_CLUSTER_RESOURCE_STATEFn {
 public typealias PCLUSAPI_GET_CLUSTER_RESOURCE_STATE = PCLUSAPI_GET_CLUSTER_RESOURCE_STATEFn?
 
 public fun interface PCLUSAPI_GET_CLUSTER_RESOURCE_TYPE_KEYFn {
-    public operator fun invoke(hcluster: HCLUSTER, lpsztypename: PCWSTR, samdesired: UInt): System.Registry.HKEY
+    public operator fun invoke(hcluster: HCLUSTER, lpsztypename: PCWSTR, samdesired: UInt): HKEY
 }
 
 public typealias PCLUSAPI_GET_CLUSTER_RESOURCE_TYPE_KEY = PCLUSAPI_GET_CLUSTER_RESOURCE_TYPE_KEYFn?
@@ -1520,13 +1525,13 @@ public fun interface PCLUSAPI_PFN_REASON_HANDLERFn {
 public typealias PCLUSAPI_PFN_REASON_HANDLER = PCLUSAPI_PFN_REASON_HANDLERFn?
 
 public fun interface PCLUSAPI_REGISTER_CLUSTER_NOTIFYFn {
-    public operator fun invoke(hchange: HCHANGE, dwfiltertype: UInt, hobject: Foundation.HANDLE, dwnotifykey: ULong): UInt
+    public operator fun invoke(hchange: HCHANGE, dwfiltertype: UInt, hobject: HANDLE, dwnotifykey: ULong): UInt
 }
 
 public typealias PCLUSAPI_REGISTER_CLUSTER_NOTIFY = PCLUSAPI_REGISTER_CLUSTER_NOTIFYFn?
 
 public fun interface PCLUSAPI_REGISTER_CLUSTER_NOTIFY_V2Fn {
-    public operator fun invoke(hchange: HCHANGE, filter: NOTIFY_FILTER_AND_TYPE, hobject: Foundation.HANDLE, dwnotifykey: ULong): UInt
+    public operator fun invoke(hchange: HCHANGE, filter: NOTIFY_FILTER_AND_TYPE, hobject: HANDLE, dwnotifykey: ULong): UInt
 }
 
 public typealias PCLUSAPI_REGISTER_CLUSTER_NOTIFY_V2 = PCLUSAPI_REGISTER_CLUSTER_NOTIFY_V2Fn?
@@ -1862,13 +1867,13 @@ public fun interface PCLUSTER_REG_CLOSE_READ_BATCH_REPLYFn {
 public typealias PCLUSTER_REG_CLOSE_READ_BATCH_REPLY = PCLUSTER_REG_CLOSE_READ_BATCH_REPLYFn?
 
 public fun interface PCLUSTER_REG_CREATE_BATCH_NOTIFY_PORTFn {
-    public operator fun invoke(hkey: System.Registry.HKEY, phbatchnotifyport: Long): Int
+    public operator fun invoke(hkey: HKEY, phbatchnotifyport: Long): Int
 }
 
 public typealias PCLUSTER_REG_CREATE_BATCH_NOTIFY_PORT = PCLUSTER_REG_CREATE_BATCH_NOTIFY_PORTFn?
 
 public fun interface PCLUSTER_REG_CREATE_READ_BATCHFn {
-    public operator fun invoke(hkey: System.Registry.HKEY, phregreadbatch: Long): Int
+    public operator fun invoke(hkey: HKEY, phregreadbatch: Long): Int
 }
 
 public typealias PCLUSTER_REG_CREATE_READ_BATCH = PCLUSTER_REG_CREATE_READ_BATCHFn?
@@ -1996,13 +2001,13 @@ public fun interface POPEN_CLUSTER_CRYPT_PROVIDEREXFn {
 public typealias POPEN_CLUSTER_CRYPT_PROVIDEREX = POPEN_CLUSTER_CRYPT_PROVIDEREXFn?
 
 public fun interface POPEN_ROUTINEFn {
-    public operator fun invoke(resourcename: PCWSTR, resourcekey: System.Registry.HKEY, resourcehandle: Long): Long
+    public operator fun invoke(resourcename: PCWSTR, resourcekey: HKEY, resourcehandle: Long): Long
 }
 
 public typealias POPEN_ROUTINE = POPEN_ROUTINEFn?
 
 public fun interface POPEN_V2_ROUTINEFn {
-    public operator fun invoke(resourcename: PCWSTR, resourcekey: System.Registry.HKEY, resourcehandle: Long, openflags: UInt): Long
+    public operator fun invoke(resourcename: PCWSTR, resourcekey: HKEY, resourcehandle: Long, openflags: UInt): Long
 }
 
 public typealias POPEN_V2_ROUTINE = POPEN_V2_ROUTINEFn?
@@ -2026,7 +2031,7 @@ public fun interface PRAISE_RES_TYPE_NOTIFICATIONFn {
 public typealias PRAISE_RES_TYPE_NOTIFICATION = PRAISE_RES_TYPE_NOTIFICATIONFn?
 
 public fun interface PREGISTER_APPINSTANCEFn {
-    public operator fun invoke(processhandle: Foundation.HANDLE, appinstanceid: Long, childreninheritappinstance: BOOL): UInt
+    public operator fun invoke(processhandle: HANDLE, appinstanceid: Long, childreninheritappinstance: BOOL): UInt
 }
 
 public typealias PREGISTER_APPINSTANCE = PREGISTER_APPINSTANCEFn?
@@ -2068,7 +2073,7 @@ public fun interface PRESOURCE_TYPE_CONTROL_ROUTINEFn {
 public typealias PRESOURCE_TYPE_CONTROL_ROUTINE = PRESOURCE_TYPE_CONTROL_ROUTINEFn?
 
 public fun interface PRESUTIL_ADD_UNKNOWN_PROPERTIESFn {
-    public operator fun invoke(hkeyclusterkey: System.Registry.HKEY, ppropertytable: Long, poutpropertylist: Long, pcboutpropertylistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt
+    public operator fun invoke(hkeyclusterkey: HKEY, ppropertytable: Long, poutpropertylist: Long, pcboutpropertylistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt
 }
 
 public typealias PRESUTIL_ADD_UNKNOWN_PROPERTIES = PRESUTIL_ADD_UNKNOWN_PROPERTIESFn?
@@ -2092,7 +2097,7 @@ public fun interface PRESUTIL_DUP_STRINGFn {
 public typealias PRESUTIL_DUP_STRING = PRESUTIL_DUP_STRINGFn?
 
 public fun interface PRESUTIL_ENUM_PRIVATE_PROPERTIESFn {
-    public operator fun invoke(hkeyclusterkey: System.Registry.HKEY, pszoutproperties: PWSTR, cboutpropertiessize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt
+    public operator fun invoke(hkeyclusterkey: HKEY, pszoutproperties: PWSTR, cboutpropertiessize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt
 }
 
 public typealias PRESUTIL_ENUM_PRIVATE_PROPERTIES = PRESUTIL_ENUM_PRIVATE_PROPERTIESFn?
@@ -2200,7 +2205,7 @@ public fun interface PRESUTIL_FREE_PARAMETER_BLOCKFn {
 public typealias PRESUTIL_FREE_PARAMETER_BLOCK = PRESUTIL_FREE_PARAMETER_BLOCKFn?
 
 public fun interface PRESUTIL_GET_ALL_PROPERTIESFn {
-    public operator fun invoke(hkeyclusterkey: System.Registry.HKEY, ppropertytable: Long, poutpropertylist: Long, cboutpropertylistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt
+    public operator fun invoke(hkeyclusterkey: HKEY, ppropertytable: Long, poutpropertylist: Long, cboutpropertylistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt
 }
 
 public typealias PRESUTIL_GET_ALL_PROPERTIES = PRESUTIL_GET_ALL_PROPERTIESFn?
@@ -2212,7 +2217,7 @@ public fun interface PRESUTIL_GET_BINARY_PROPERTYFn {
 public typealias PRESUTIL_GET_BINARY_PROPERTY = PRESUTIL_GET_BINARY_PROPERTYFn?
 
 public fun interface PRESUTIL_GET_BINARY_VALUEFn {
-    public operator fun invoke(hkeyclusterkey: System.Registry.HKEY, pszvaluename: PCWSTR, ppboutvalue: Long, pcboutvaluesize: Long): UInt
+    public operator fun invoke(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, ppboutvalue: Long, pcboutvaluesize: Long): UInt
 }
 
 public typealias PRESUTIL_GET_BINARY_VALUE = PRESUTIL_GET_BINARY_VALUEFn?
@@ -2236,7 +2241,7 @@ public fun interface PRESUTIL_GET_DWORD_PROPERTYFn {
 public typealias PRESUTIL_GET_DWORD_PROPERTY = PRESUTIL_GET_DWORD_PROPERTYFn?
 
 public fun interface PRESUTIL_GET_DWORD_VALUEFn {
-    public operator fun invoke(hkeyclusterkey: System.Registry.HKEY, pszvaluename: PCWSTR, pdwoutvalue: Long, dwdefaultvalue: UInt): UInt
+    public operator fun invoke(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, pdwoutvalue: Long, dwdefaultvalue: UInt): UInt
 }
 
 public typealias PRESUTIL_GET_DWORD_VALUE = PRESUTIL_GET_DWORD_VALUEFn?
@@ -2248,13 +2253,13 @@ public fun interface PRESUTIL_GET_ENVIRONMENT_WITH_NET_NAMEFn {
 public typealias PRESUTIL_GET_ENVIRONMENT_WITH_NET_NAME = PRESUTIL_GET_ENVIRONMENT_WITH_NET_NAMEFn?
 
 public fun interface PRESUTIL_GET_EXPAND_SZ_VALUEFn {
-    public operator fun invoke(hkeyclusterkey: System.Registry.HKEY, pszvaluename: PCWSTR, bexpand: BOOL): PWSTR
+    public operator fun invoke(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, bexpand: BOOL): PWSTR
 }
 
 public typealias PRESUTIL_GET_EXPAND_SZ_VALUE = PRESUTIL_GET_EXPAND_SZ_VALUEFn?
 
 public fun interface PRESUTIL_GET_FILETIME_PROPERTYFn {
-    public operator fun invoke(pftoutvalue: Long, pvaluestruct: Long, ftoldvalue: Foundation.FILETIME, ftminimum: Foundation.FILETIME, ftmaximum: Foundation.FILETIME, pppropertylist: Long, pcbpropertylistsize: Long): UInt
+    public operator fun invoke(pftoutvalue: Long, pvaluestruct: Long, ftoldvalue: FILETIME, ftminimum: FILETIME, ftmaximum: FILETIME, pppropertylist: Long, pcbpropertylistsize: Long): UInt
 }
 
 public typealias PRESUTIL_GET_FILETIME_PROPERTY = PRESUTIL_GET_FILETIME_PROPERTYFn?
@@ -2272,25 +2277,25 @@ public fun interface PRESUTIL_GET_MULTI_SZ_PROPERTYFn {
 public typealias PRESUTIL_GET_MULTI_SZ_PROPERTY = PRESUTIL_GET_MULTI_SZ_PROPERTYFn?
 
 public fun interface PRESUTIL_GET_PRIVATE_PROPERTIESFn {
-    public operator fun invoke(hkeyclusterkey: System.Registry.HKEY, poutpropertylist: Long, cboutpropertylistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt
+    public operator fun invoke(hkeyclusterkey: HKEY, poutpropertylist: Long, cboutpropertylistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt
 }
 
 public typealias PRESUTIL_GET_PRIVATE_PROPERTIES = PRESUTIL_GET_PRIVATE_PROPERTIESFn?
 
 public fun interface PRESUTIL_GET_PROPERTIESFn {
-    public operator fun invoke(hkeyclusterkey: System.Registry.HKEY, ppropertytable: Long, poutpropertylist: Long, cboutpropertylistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt
+    public operator fun invoke(hkeyclusterkey: HKEY, ppropertytable: Long, poutpropertylist: Long, cboutpropertylistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt
 }
 
 public typealias PRESUTIL_GET_PROPERTIES = PRESUTIL_GET_PROPERTIESFn?
 
 public fun interface PRESUTIL_GET_PROPERTIES_TO_PARAMETER_BLOCKFn {
-    public operator fun invoke(hkeyclusterkey: System.Registry.HKEY, ppropertytable: Long, poutparams: Long, bcheckforrequiredproperties: BOOL, psznameofpropinerror: Long): UInt
+    public operator fun invoke(hkeyclusterkey: HKEY, ppropertytable: Long, poutparams: Long, bcheckforrequiredproperties: BOOL, psznameofpropinerror: Long): UInt
 }
 
 public typealias PRESUTIL_GET_PROPERTIES_TO_PARAMETER_BLOCK = PRESUTIL_GET_PROPERTIES_TO_PARAMETER_BLOCKFn?
 
 public fun interface PRESUTIL_GET_PROPERTYFn {
-    public operator fun invoke(hkeyclusterkey: System.Registry.HKEY, ppropertytableitem: Long, poutpropertyitem: Long, pcboutpropertyitemsize: Long): UInt
+    public operator fun invoke(hkeyclusterkey: HKEY, ppropertytableitem: Long, poutpropertyitem: Long, pcboutpropertyitemsize: Long): UInt
 }
 
 public typealias PRESUTIL_GET_PROPERTY = PRESUTIL_GET_PROPERTYFn?
@@ -2302,49 +2307,49 @@ public fun interface PRESUTIL_GET_PROPERTY_FORMATSFn {
 public typealias PRESUTIL_GET_PROPERTY_FORMATS = PRESUTIL_GET_PROPERTY_FORMATSFn?
 
 public fun interface PRESUTIL_GET_PROPERTY_SIZEFn {
-    public operator fun invoke(hkeyclusterkey: System.Registry.HKEY, ppropertytableitem: Long, pcboutpropertylistsize: Long, pnpropertycount: Long): UInt
+    public operator fun invoke(hkeyclusterkey: HKEY, ppropertytableitem: Long, pcboutpropertylistsize: Long, pnpropertycount: Long): UInt
 }
 
 public typealias PRESUTIL_GET_PROPERTY_SIZE = PRESUTIL_GET_PROPERTY_SIZEFn?
 
 public fun interface PRESUTIL_GET_QWORD_VALUEFn {
-    public operator fun invoke(hkeyclusterkey: System.Registry.HKEY, pszvaluename: PCWSTR, pqwoutvalue: Long, qwdefaultvalue: ULong): UInt
+    public operator fun invoke(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, pqwoutvalue: Long, qwdefaultvalue: ULong): UInt
 }
 
 public typealias PRESUTIL_GET_QWORD_VALUE = PRESUTIL_GET_QWORD_VALUEFn?
 
 public fun interface PRESUTIL_GET_RESOURCE_DEPENDENCYFn {
-    public operator fun invoke(hself: Foundation.HANDLE, lpszresourcetype: PCWSTR): HRESOURCE
+    public operator fun invoke(hself: HANDLE, lpszresourcetype: PCWSTR): HRESOURCE
 }
 
 public typealias PRESUTIL_GET_RESOURCE_DEPENDENCY = PRESUTIL_GET_RESOURCE_DEPENDENCYFn?
 
 public fun interface PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_CLASSFn {
-    public operator fun invoke(hcluster: HCLUSTER, hself: Foundation.HANDLE, prci: Long, brecurse: BOOL): HRESOURCE
+    public operator fun invoke(hcluster: HCLUSTER, hself: HANDLE, prci: Long, brecurse: BOOL): HRESOURCE
 }
 
 public typealias PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_CLASS = PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_CLASSFn?
 
 public fun interface PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_CLASS_EXFn {
-    public operator fun invoke(hcluster: HCLUSTER, hself: Foundation.HANDLE, prci: Long, brecurse: BOOL, dwdesiredaccess: UInt): HRESOURCE
+    public operator fun invoke(hcluster: HCLUSTER, hself: HANDLE, prci: Long, brecurse: BOOL, dwdesiredaccess: UInt): HRESOURCE
 }
 
 public typealias PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_CLASS_EX = PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_CLASS_EXFn?
 
 public fun interface PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_NAMEFn {
-    public operator fun invoke(hcluster: HCLUSTER, hself: Foundation.HANDLE, lpszresourcetype: PCWSTR, brecurse: BOOL): HRESOURCE
+    public operator fun invoke(hcluster: HCLUSTER, hself: HANDLE, lpszresourcetype: PCWSTR, brecurse: BOOL): HRESOURCE
 }
 
 public typealias PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_NAME = PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_NAMEFn?
 
 public fun interface PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_NAME_EXFn {
-    public operator fun invoke(hcluster: HCLUSTER, hself: Foundation.HANDLE, lpszresourcetype: PCWSTR, brecurse: BOOL, dwdesiredaccess: UInt): HRESOURCE
+    public operator fun invoke(hcluster: HCLUSTER, hself: HANDLE, lpszresourcetype: PCWSTR, brecurse: BOOL, dwdesiredaccess: UInt): HRESOURCE
 }
 
 public typealias PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_NAME_EX = PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_NAME_EXFn?
 
 public fun interface PRESUTIL_GET_RESOURCE_DEPENDENCY_EXFn {
-    public operator fun invoke(hself: Foundation.HANDLE, lpszresourcetype: PCWSTR, dwdesiredaccess: UInt): HRESOURCE
+    public operator fun invoke(hself: HANDLE, lpszresourcetype: PCWSTR, dwdesiredaccess: UInt): HRESOURCE
 }
 
 public typealias PRESUTIL_GET_RESOURCE_DEPENDENCY_EX = PRESUTIL_GET_RESOURCE_DEPENDENCY_EXFn?
@@ -2380,7 +2385,7 @@ public fun interface PRESUTIL_GET_SZ_PROPERTYFn {
 public typealias PRESUTIL_GET_SZ_PROPERTY = PRESUTIL_GET_SZ_PROPERTYFn?
 
 public fun interface PRESUTIL_GET_SZ_VALUEFn {
-    public operator fun invoke(hkeyclusterkey: System.Registry.HKEY, pszvaluename: PCWSTR): PWSTR
+    public operator fun invoke(hkeyclusterkey: HKEY, pszvaluename: PCWSTR): PWSTR
 }
 
 public typealias PRESUTIL_GET_SZ_VALUE = PRESUTIL_GET_SZ_VALUEFn?
@@ -2422,61 +2427,61 @@ public fun interface PRESUTIL_RESOURCE_TYPES_EQUALFn {
 public typealias PRESUTIL_RESOURCE_TYPES_EQUAL = PRESUTIL_RESOURCE_TYPES_EQUALFn?
 
 public fun interface PRESUTIL_SET_BINARY_VALUEFn {
-    public operator fun invoke(hkeyclusterkey: System.Registry.HKEY, pszvaluename: PCWSTR, pbnewvalue: Long, cbnewvaluesize: UInt, ppboutvalue: Long, pcboutvaluesize: Long): UInt
+    public operator fun invoke(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, pbnewvalue: Long, cbnewvaluesize: UInt, ppboutvalue: Long, pcboutvaluesize: Long): UInt
 }
 
 public typealias PRESUTIL_SET_BINARY_VALUE = PRESUTIL_SET_BINARY_VALUEFn?
 
 public fun interface PRESUTIL_SET_DWORD_VALUEFn {
-    public operator fun invoke(hkeyclusterkey: System.Registry.HKEY, pszvaluename: PCWSTR, dwnewvalue: UInt, pdwoutvalue: Long): UInt
+    public operator fun invoke(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, dwnewvalue: UInt, pdwoutvalue: Long): UInt
 }
 
 public typealias PRESUTIL_SET_DWORD_VALUE = PRESUTIL_SET_DWORD_VALUEFn?
 
 public fun interface PRESUTIL_SET_EXPAND_SZ_VALUEFn {
-    public operator fun invoke(hkeyclusterkey: System.Registry.HKEY, pszvaluename: PCWSTR, psznewvalue: PCWSTR, ppszoutstring: Long): UInt
+    public operator fun invoke(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, psznewvalue: PCWSTR, ppszoutstring: Long): UInt
 }
 
 public typealias PRESUTIL_SET_EXPAND_SZ_VALUE = PRESUTIL_SET_EXPAND_SZ_VALUEFn?
 
 public fun interface PRESUTIL_SET_MULTI_SZ_VALUEFn {
-    public operator fun invoke(hkeyclusterkey: System.Registry.HKEY, pszvaluename: PCWSTR, psznewvalue: PCWSTR, cbnewvaluesize: UInt, ppszoutvalue: Long, pcboutvaluesize: Long): UInt
+    public operator fun invoke(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, psznewvalue: PCWSTR, cbnewvaluesize: UInt, ppszoutvalue: Long, pcboutvaluesize: Long): UInt
 }
 
 public typealias PRESUTIL_SET_MULTI_SZ_VALUE = PRESUTIL_SET_MULTI_SZ_VALUEFn?
 
 public fun interface PRESUTIL_SET_PRIVATE_PROPERTY_LISTFn {
-    public operator fun invoke(hkeyclusterkey: System.Registry.HKEY, pinpropertylist: Long, cbinpropertylistsize: UInt): UInt
+    public operator fun invoke(hkeyclusterkey: HKEY, pinpropertylist: Long, cbinpropertylistsize: UInt): UInt
 }
 
 public typealias PRESUTIL_SET_PRIVATE_PROPERTY_LIST = PRESUTIL_SET_PRIVATE_PROPERTY_LISTFn?
 
 public fun interface PRESUTIL_SET_PROPERTY_PARAMETER_BLOCKFn {
-    public operator fun invoke(hkeyclusterkey: System.Registry.HKEY, ppropertytable: Long, reserved: Long, pinparams: Long, pinpropertylist: Long, cbinpropertylistsize: UInt, poutparams: Long): UInt
+    public operator fun invoke(hkeyclusterkey: HKEY, ppropertytable: Long, reserved: Long, pinparams: Long, pinpropertylist: Long, cbinpropertylistsize: UInt, poutparams: Long): UInt
 }
 
 public typealias PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK = PRESUTIL_SET_PROPERTY_PARAMETER_BLOCKFn?
 
 public fun interface PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK_EXFn {
-    public operator fun invoke(hkeyclusterkey: System.Registry.HKEY, ppropertytable: Long, reserved: Long, pinparams: Long, pinpropertylist: Long, cbinpropertylistsize: UInt, bforcewrite: BOOL, poutparams: Long): UInt
+    public operator fun invoke(hkeyclusterkey: HKEY, ppropertytable: Long, reserved: Long, pinparams: Long, pinpropertylist: Long, cbinpropertylistsize: UInt, bforcewrite: BOOL, poutparams: Long): UInt
 }
 
 public typealias PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK_EX = PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK_EXFn?
 
 public fun interface PRESUTIL_SET_PROPERTY_TABLEFn {
-    public operator fun invoke(hkeyclusterkey: System.Registry.HKEY, ppropertytable: Long, reserved: Long, ballowunknownproperties: BOOL, pinpropertylist: Long, cbinpropertylistsize: UInt, poutparams: Long): UInt
+    public operator fun invoke(hkeyclusterkey: HKEY, ppropertytable: Long, reserved: Long, ballowunknownproperties: BOOL, pinpropertylist: Long, cbinpropertylistsize: UInt, poutparams: Long): UInt
 }
 
 public typealias PRESUTIL_SET_PROPERTY_TABLE = PRESUTIL_SET_PROPERTY_TABLEFn?
 
 public fun interface PRESUTIL_SET_PROPERTY_TABLE_EXFn {
-    public operator fun invoke(hkeyclusterkey: System.Registry.HKEY, ppropertytable: Long, reserved: Long, ballowunknownproperties: BOOL, pinpropertylist: Long, cbinpropertylistsize: UInt, bforcewrite: BOOL, poutparams: Long): UInt
+    public operator fun invoke(hkeyclusterkey: HKEY, ppropertytable: Long, reserved: Long, ballowunknownproperties: BOOL, pinpropertylist: Long, cbinpropertylistsize: UInt, bforcewrite: BOOL, poutparams: Long): UInt
 }
 
 public typealias PRESUTIL_SET_PROPERTY_TABLE_EX = PRESUTIL_SET_PROPERTY_TABLE_EXFn?
 
 public fun interface PRESUTIL_SET_QWORD_VALUEFn {
-    public operator fun invoke(hkeyclusterkey: System.Registry.HKEY, pszvaluename: PCWSTR, qwnewvalue: ULong, pqwoutvalue: Long): UInt
+    public operator fun invoke(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, qwnewvalue: ULong, pqwoutvalue: Long): UInt
 }
 
 public typealias PRESUTIL_SET_QWORD_VALUE = PRESUTIL_SET_QWORD_VALUEFn?
@@ -2488,25 +2493,25 @@ public fun interface PRESUTIL_SET_RESOURCE_SERVICE_ENVIRONMENTFn {
 public typealias PRESUTIL_SET_RESOURCE_SERVICE_ENVIRONMENT = PRESUTIL_SET_RESOURCE_SERVICE_ENVIRONMENTFn?
 
 public fun interface PRESUTIL_SET_RESOURCE_SERVICE_START_PARAMETERSFn {
-    public operator fun invoke(pszservicename: PCWSTR, schscmhandle: System.Services.SC_HANDLE, phservice: Long, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: Long): UInt
+    public operator fun invoke(pszservicename: PCWSTR, schscmhandle: SC_HANDLE, phservice: Long, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: Long): UInt
 }
 
 public typealias PRESUTIL_SET_RESOURCE_SERVICE_START_PARAMETERS = PRESUTIL_SET_RESOURCE_SERVICE_START_PARAMETERSFn?
 
 public fun interface PRESUTIL_SET_RESOURCE_SERVICE_START_PARAMETERS_EXFn {
-    public operator fun invoke(pszservicename: PCWSTR, schscmhandle: System.Services.SC_HANDLE, phservice: Long, dwdesiredaccess: UInt, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: Long): UInt
+    public operator fun invoke(pszservicename: PCWSTR, schscmhandle: SC_HANDLE, phservice: Long, dwdesiredaccess: UInt, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: Long): UInt
 }
 
 public typealias PRESUTIL_SET_RESOURCE_SERVICE_START_PARAMETERS_EX = PRESUTIL_SET_RESOURCE_SERVICE_START_PARAMETERS_EXFn?
 
 public fun interface PRESUTIL_SET_SZ_VALUEFn {
-    public operator fun invoke(hkeyclusterkey: System.Registry.HKEY, pszvaluename: PCWSTR, psznewvalue: PCWSTR, ppszoutstring: Long): UInt
+    public operator fun invoke(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, psznewvalue: PCWSTR, ppszoutstring: Long): UInt
 }
 
 public typealias PRESUTIL_SET_SZ_VALUE = PRESUTIL_SET_SZ_VALUEFn?
 
 public fun interface PRESUTIL_SET_UNKNOWN_PROPERTIESFn {
-    public operator fun invoke(hkeyclusterkey: System.Registry.HKEY, ppropertytable: Long, pinpropertylist: Long, cbinpropertylistsize: UInt): UInt
+    public operator fun invoke(hkeyclusterkey: HKEY, ppropertytable: Long, pinpropertylist: Long, cbinpropertylistsize: UInt): UInt
 }
 
 public typealias PRESUTIL_SET_UNKNOWN_PROPERTIES = PRESUTIL_SET_UNKNOWN_PROPERTIESFn?
@@ -2524,7 +2529,7 @@ public fun interface PRESUTIL_STOP_RESOURCE_SERVICEFn {
 public typealias PRESUTIL_STOP_RESOURCE_SERVICE = PRESUTIL_STOP_RESOURCE_SERVICEFn?
 
 public fun interface PRESUTIL_STOP_SERVICEFn {
-    public operator fun invoke(hservicehandle: System.Services.SC_HANDLE): UInt
+    public operator fun invoke(hservicehandle: SC_HANDLE): UInt
 }
 
 public typealias PRESUTIL_STOP_SERVICE = PRESUTIL_STOP_SERVICEFn?
@@ -2554,7 +2559,7 @@ public fun interface PRESUTIL_VERIFY_RESOURCE_SERVICEFn {
 public typealias PRESUTIL_VERIFY_RESOURCE_SERVICE = PRESUTIL_VERIFY_RESOURCE_SERVICEFn?
 
 public fun interface PRESUTIL_VERIFY_SERVICEFn {
-    public operator fun invoke(hservicehandle: System.Services.SC_HANDLE): UInt
+    public operator fun invoke(hservicehandle: SC_HANDLE): UInt
 }
 
 public typealias PRESUTIL_VERIFY_SERVICE = PRESUTIL_VERIFY_SERVICEFn?
@@ -2644,7 +2649,7 @@ public typealias RESOURCE_EXIT_STATE = Int
 public typealias RESOURCE_MONITOR_STATE = Int
 
 public fun interface SET_APP_INSTANCE_CSV_FLAGSFn {
-    public operator fun invoke(processhandle: Foundation.HANDLE, mask: UInt, flags: UInt): UInt
+    public operator fun invoke(processhandle: HANDLE, mask: UInt, flags: UInt): UInt
 }
 
 public typealias SET_APP_INSTANCE_CSV_FLAGS = SET_APP_INSTANCE_CSV_FLAGSFn?

@@ -3,6 +3,7 @@ package io.github.kotlinmania.windowssys.windows.win32.devices.usb
 
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 
 public data class ALTERNATE_INTERFACE(public var InterfaceNumber: UShort = 0u, public var AlternateInterfaceNumber: UShort = 0u)
 
@@ -1214,7 +1215,7 @@ public data class USB_ENDPOINT_STATUS(public var AsUshort16: UShort = 0u, public
 public data class USB_ENDPOINT_STATUS_0(public var _bitfield: UShort = 0u)
 
 public data class USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION(
-    public var TimeTrackingHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var TimeTrackingHandle: HANDLE = 0L,
     public var InputFrameNumber: UInt = 0u,
     public var InputMicroFrameNumber: UInt = 0u,
     public var QueryPerformanceCounterAtInputFrameOrMicroFrame: Long = 0L,
@@ -1696,9 +1697,9 @@ public data class USB_SEND_RAW_COMMAND_PARAMETERS(
     }
 }
 
-public data class USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION(public var TimeTrackingHandle: Foundation.HANDLE = Foundation.HANDLE(), public var IsStartupDelayTolerable: Boolean = false)
+public data class USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION(public var TimeTrackingHandle: HANDLE = 0L, public var IsStartupDelayTolerable: Boolean = false)
 
-public data class USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION(public var TimeTrackingHandle: Foundation.HANDLE = Foundation.HANDLE())
+public data class USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION(public var TimeTrackingHandle: HANDLE = 0L)
 
 public data class USB_STRING_DESCRIPTOR(
     public var bLength: UByte = 0u,

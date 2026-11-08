@@ -6,6 +6,14 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.COLORREF
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.POINTL
+import io.github.kotlinmania.windowssys.windows.win32.foundation.POINTS
+import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.RECTL
+import io.github.kotlinmania.windowssys.windows.win32.foundation.SIZE
 
 public data class ABC(
     public var abcA: Int = 0,
@@ -271,7 +279,7 @@ public data class DEVMODEA_0_0(
 )
 
 public data class DEVMODEA_0_1(
-    public var dmPosition: Foundation.POINTL = Foundation.POINTL(),
+    public var dmPosition: POINTL = POINTL(),
     public var dmDisplayOrientation: DEVMODE_DISPLAY_ORIENTATION = 0u,
     public var dmDisplayFixedOutput: DEVMODE_DISPLAY_FIXED_OUTPUT = 0u,
 )
@@ -322,7 +330,7 @@ public data class DEVMODEW_0_0(
 )
 
 public data class DEVMODEW_0_1(
-    public var dmPosition: Foundation.POINTL = Foundation.POINTL(),
+    public var dmPosition: POINTL = POINTL(),
     public var dmDisplayOrientation: DEVMODE_DISPLAY_ORIENTATION = 0u,
     public var dmDisplayFixedOutput: DEVMODE_DISPLAY_FIXED_OUTPUT = 0u,
 )
@@ -333,7 +341,7 @@ public data class DIBSECTION(
     public var dsBm: BITMAP = BITMAP(),
     public var dsBmih: BITMAPINFOHEADER = BITMAPINFOHEADER(),
     public var dsBitfields: UIntArray = UIntArray(3),
-    public var dshSection: Foundation.HANDLE = Foundation.HANDLE(),
+    public var dshSection: HANDLE = 0L,
     public var dsOffset: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
@@ -431,7 +439,7 @@ public data class EMR(public var iType: ENHANCED_METAFILE_RECORD_TYPE = 0u, publ
 
 public class EMRALPHABLEND(
     public var emr: EMR = EMR(),
-    public var rclBounds: Foundation.RECTL = Foundation.RECTL(),
+    public var rclBounds: RECTL = RECTL(),
     public var xDest: Int = 0,
     public var yDest: Int = 0,
     public var cxDest: Int = 0,
@@ -440,7 +448,7 @@ public class EMRALPHABLEND(
     public var xSrc: Int = 0,
     public var ySrc: Int = 0,
     public var xformSrc: XFORM = XFORM(),
-    public var crBkColorSrc: Foundation.COLORREF = Foundation.COLORREF(),
+    public var crBkColorSrc: COLORREF = 0u,
     public var iUsageSrc: UInt = 0u,
     public var offBmiSrc: UInt = 0u,
     public var cbBmiSrc: UInt = 0u,
@@ -452,7 +460,7 @@ public class EMRALPHABLEND(
 
 public data class EMRANGLEARC(
     public var emr: EMR = EMR(),
-    public var ptlCenter: Foundation.POINTL = Foundation.POINTL(),
+    public var ptlCenter: POINTL = POINTL(),
     public var nRadius: UInt = 0u,
     public var eStartAngle: Float = 0.0f,
     public var eSweepAngle: Float = 0.0f,
@@ -460,14 +468,14 @@ public data class EMRANGLEARC(
 
 public data class EMRARC(
     public var emr: EMR = EMR(),
-    public var rclBox: Foundation.RECTL = Foundation.RECTL(),
-    public var ptlStart: Foundation.POINTL = Foundation.POINTL(),
-    public var ptlEnd: Foundation.POINTL = Foundation.POINTL(),
+    public var rclBox: RECTL = RECTL(),
+    public var ptlStart: POINTL = POINTL(),
+    public var ptlEnd: POINTL = POINTL(),
 )
 
 public data class EMRBITBLT(
     public var emr: EMR = EMR(),
-    public var rclBounds: Foundation.RECTL = Foundation.RECTL(),
+    public var rclBounds: RECTL = RECTL(),
     public var xDest: Int = 0,
     public var yDest: Int = 0,
     public var cxDest: Int = 0,
@@ -476,7 +484,7 @@ public data class EMRBITBLT(
     public var xSrc: Int = 0,
     public var ySrc: Int = 0,
     public var xformSrc: XFORM = XFORM(),
-    public var crBkColorSrc: Foundation.COLORREF = Foundation.COLORREF(),
+    public var crBkColorSrc: COLORREF = 0u,
     public var iUsageSrc: UInt = 0u,
     public var offBmiSrc: UInt = 0u,
     public var cbBmiSrc: UInt = 0u,
@@ -561,7 +569,7 @@ public data class EMRCREATEPEN(
     public var lopn: LOGPEN = LOGPEN(),
 )
 
-public data class EMRELLIPSE(public var emr: EMR = EMR(), public var rclBox: Foundation.RECTL = Foundation.RECTL())
+public data class EMRELLIPSE(public var emr: EMR = EMR(), public var rclBox: RECTL = RECTL())
 
 public data class EMREOF(
     public var emr: EMR = EMR(),
@@ -570,7 +578,7 @@ public data class EMREOF(
     public var nSizeLast: UInt = 0u,
 )
 
-public data class EMREXCLUDECLIPRECT(public var emr: EMR = EMR(), public var rclClip: Foundation.RECTL = Foundation.RECTL())
+public data class EMREXCLUDECLIPRECT(public var emr: EMR = EMR(), public var rclClip: RECTL = RECTL())
 
 public data class EMREXTCREATEFONTINDIRECTW(
     public var emr: EMR = EMR(),
@@ -615,8 +623,8 @@ public data class EMREXTESCAPE(
 
 public data class EMREXTFLOODFILL(
     public var emr: EMR = EMR(),
-    public var ptlStart: Foundation.POINTL = Foundation.POINTL(),
-    public var crColor: Foundation.COLORREF = Foundation.COLORREF(),
+    public var ptlStart: POINTL = POINTL(),
+    public var crColor: COLORREF = 0u,
     public var iMode: UInt = 0u,
 )
 
@@ -647,18 +655,18 @@ public data class EMREXTSELECTCLIPRGN(
 
 public data class EMREXTTEXTOUTA(
     public var emr: EMR = EMR(),
-    public var rclBounds: Foundation.RECTL = Foundation.RECTL(),
+    public var rclBounds: RECTL = RECTL(),
     public var iGraphicsMode: UInt = 0u,
     public var exScale: Float = 0.0f,
     public var eyScale: Float = 0.0f,
     public var emrtext: EMRTEXT = EMRTEXT(),
 )
 
-public data class EMRFILLPATH(public var emr: EMR = EMR(), public var rclBounds: Foundation.RECTL = Foundation.RECTL())
+public data class EMRFILLPATH(public var emr: EMR = EMR(), public var rclBounds: RECTL = RECTL())
 
 public data class EMRFILLRGN(
     public var emr: EMR = EMR(),
-    public var rclBounds: Foundation.RECTL = Foundation.RECTL(),
+    public var rclBounds: RECTL = RECTL(),
     public var cbRgnData: UInt = 0u,
     public var ihBrush: UInt = 0u,
     public var RgnData: UByteArray = UByteArray(1),
@@ -693,10 +701,10 @@ public data class EMRFORMAT(
 
 public data class EMRFRAMERGN(
     public var emr: EMR = EMR(),
-    public var rclBounds: Foundation.RECTL = Foundation.RECTL(),
+    public var rclBounds: RECTL = RECTL(),
     public var cbRgnData: UInt = 0u,
     public var ihBrush: UInt = 0u,
-    public var szlStroke: Foundation.SIZE = Foundation.SIZE(),
+    public var szlStroke: SIZE = SIZE(),
     public var RgnData: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
@@ -746,7 +754,7 @@ public data class EMRGDICOMMENT(
 
 public data class EMRGLSBOUNDEDRECORD(
     public var emr: EMR = EMR(),
-    public var rclBounds: Foundation.RECTL = Foundation.RECTL(),
+    public var rclBounds: RECTL = RECTL(),
     public var cbData: UInt = 0u,
     public var Data: UByteArray = UByteArray(1),
 ) {
@@ -793,7 +801,7 @@ public data class EMRGLSRECORD(
 
 public data class EMRGRADIENTFILL(
     public var emr: EMR = EMR(),
-    public var rclBounds: Foundation.RECTL = Foundation.RECTL(),
+    public var rclBounds: RECTL = RECTL(),
     public var nVer: UInt = 0u,
     public var nTri: UInt = 0u,
     public var ulMode: GRADIENT_FILL = 0u,
@@ -802,7 +810,7 @@ public data class EMRGRADIENTFILL(
 
 public data class EMRINVERTRGN(
     public var emr: EMR = EMR(),
-    public var rclBounds: Foundation.RECTL = Foundation.RECTL(),
+    public var rclBounds: RECTL = RECTL(),
     public var cbRgnData: UInt = 0u,
     public var RgnData: UByteArray = UByteArray(1),
 ) {
@@ -825,11 +833,11 @@ public data class EMRINVERTRGN(
     }
 }
 
-public data class EMRLINETO(public var emr: EMR = EMR(), public var ptl: Foundation.POINTL = Foundation.POINTL())
+public data class EMRLINETO(public var emr: EMR = EMR(), public var ptl: POINTL = POINTL())
 
 public class EMRMASKBLT(
     public var emr: EMR = EMR(),
-    public var rclBounds: Foundation.RECTL = Foundation.RECTL(),
+    public var rclBounds: RECTL = RECTL(),
     public var xDest: Int = 0,
     public var yDest: Int = 0,
     public var cxDest: Int = 0,
@@ -838,7 +846,7 @@ public class EMRMASKBLT(
     public var xSrc: Int = 0,
     public var ySrc: Int = 0,
     public var xformSrc: XFORM = XFORM(),
-    public var crBkColorSrc: Foundation.COLORREF = Foundation.COLORREF(),
+    public var crBkColorSrc: COLORREF = 0u,
     public var iUsageSrc: UInt = 0u,
     public var offBmiSrc: UInt = 0u,
     public var cbBmiSrc: UInt = 0u,
@@ -887,18 +895,18 @@ public data class EMRNAMEDESCAPE(
     }
 }
 
-public data class EMROFFSETCLIPRGN(public var emr: EMR = EMR(), public var ptlOffset: Foundation.POINTL = Foundation.POINTL())
+public data class EMROFFSETCLIPRGN(public var emr: EMR = EMR(), public var ptlOffset: POINTL = POINTL())
 
 public class EMRPLGBLT(
     public var emr: EMR = EMR(),
-    public var rclBounds: Foundation.RECTL = Foundation.RECTL(),
-    public var aptlDest: List<Foundation.POINTL> = List(3) { Foundation.POINTL() },
+    public var rclBounds: RECTL = RECTL(),
+    public var aptlDest: List<POINTL> = List(3) { POINTL() },
     public var xSrc: Int = 0,
     public var ySrc: Int = 0,
     public var cxSrc: Int = 0,
     public var cySrc: Int = 0,
     public var xformSrc: XFORM = XFORM(),
-    public var crBkColorSrc: Foundation.COLORREF = Foundation.COLORREF(),
+    public var crBkColorSrc: COLORREF = 0u,
     public var iUsageSrc: UInt = 0u,
     public var offBmiSrc: UInt = 0u,
     public var cbBmiSrc: UInt = 0u,
@@ -915,9 +923,9 @@ public class EMRPLGBLT(
 
 public data class EMRPOLYDRAW(
     public var emr: EMR = EMR(),
-    public var rclBounds: Foundation.RECTL = Foundation.RECTL(),
+    public var rclBounds: RECTL = RECTL(),
     public var cptl: UInt = 0u,
-    public var aptl: List<Foundation.POINTL> = List(1) { Foundation.POINTL() },
+    public var aptl: List<POINTL> = List(1) { POINTL() },
     public var abTypes: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
@@ -943,9 +951,9 @@ public data class EMRPOLYDRAW(
 
 public data class EMRPOLYDRAW16(
     public var emr: EMR = EMR(),
-    public var rclBounds: Foundation.RECTL = Foundation.RECTL(),
+    public var rclBounds: RECTL = RECTL(),
     public var cpts: UInt = 0u,
-    public var apts: List<Foundation.POINTS> = List(1) { Foundation.POINTS() },
+    public var apts: List<POINTS> = List(1) { POINTS() },
     public var abTypes: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
@@ -971,25 +979,25 @@ public data class EMRPOLYDRAW16(
 
 public data class EMRPOLYLINE(
     public var emr: EMR = EMR(),
-    public var rclBounds: Foundation.RECTL = Foundation.RECTL(),
+    public var rclBounds: RECTL = RECTL(),
     public var cptl: UInt = 0u,
-    public var aptl: List<Foundation.POINTL> = List(1) { Foundation.POINTL() },
+    public var aptl: List<POINTL> = List(1) { POINTL() },
 )
 
 public data class EMRPOLYLINE16(
     public var emr: EMR = EMR(),
-    public var rclBounds: Foundation.RECTL = Foundation.RECTL(),
+    public var rclBounds: RECTL = RECTL(),
     public var cpts: UInt = 0u,
-    public var apts: List<Foundation.POINTS> = List(1) { Foundation.POINTS() },
+    public var apts: List<POINTS> = List(1) { POINTS() },
 )
 
 public data class EMRPOLYPOLYLINE(
     public var emr: EMR = EMR(),
-    public var rclBounds: Foundation.RECTL = Foundation.RECTL(),
+    public var rclBounds: RECTL = RECTL(),
     public var nPolys: UInt = 0u,
     public var cptl: UInt = 0u,
     public var aPolyCounts: UIntArray = UIntArray(1),
-    public var aptl: List<Foundation.POINTL> = List(1) { Foundation.POINTL() },
+    public var aptl: List<POINTL> = List(1) { POINTL() },
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1016,11 +1024,11 @@ public data class EMRPOLYPOLYLINE(
 
 public data class EMRPOLYPOLYLINE16(
     public var emr: EMR = EMR(),
-    public var rclBounds: Foundation.RECTL = Foundation.RECTL(),
+    public var rclBounds: RECTL = RECTL(),
     public var nPolys: UInt = 0u,
     public var cpts: UInt = 0u,
     public var aPolyCounts: UIntArray = UIntArray(1),
-    public var apts: List<Foundation.POINTS> = List(1) { Foundation.POINTS() },
+    public var apts: List<POINTS> = List(1) { POINTS() },
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1047,7 +1055,7 @@ public data class EMRPOLYPOLYLINE16(
 
 public data class EMRPOLYTEXTOUTA(
     public var emr: EMR = EMR(),
-    public var rclBounds: Foundation.RECTL = Foundation.RECTL(),
+    public var rclBounds: RECTL = RECTL(),
     public var iGraphicsMode: UInt = 0u,
     public var exScale: Float = 0.0f,
     public var eyScale: Float = 0.0f,
@@ -1065,8 +1073,8 @@ public data class EMRRESTOREDC(public var emr: EMR = EMR(), public var iRelative
 
 public data class EMRROUNDRECT(
     public var emr: EMR = EMR(),
-    public var rclBox: Foundation.RECTL = Foundation.RECTL(),
-    public var szlCorner: Foundation.SIZE = Foundation.SIZE(),
+    public var rclBox: RECTL = RECTL(),
+    public var szlCorner: SIZE = SIZE(),
 )
 
 public data class EMRSCALEVIEWPORTEXTEX(
@@ -1091,7 +1099,7 @@ public data class EMRSETCOLORSPACE(public var emr: EMR = EMR(), public var ihCS:
 
 public data class EMRSETDIBITSTODEVICE(
     public var emr: EMR = EMR(),
-    public var rclBounds: Foundation.RECTL = Foundation.RECTL(),
+    public var rclBounds: RECTL = RECTL(),
     public var xDest: Int = 0,
     public var yDest: Int = 0,
     public var xSrc: Int = 0,
@@ -1149,21 +1157,21 @@ public data class EMRSETPALETTEENTRIES(
 
 public data class EMRSETPIXELV(
     public var emr: EMR = EMR(),
-    public var ptlPixel: Foundation.POINTL = Foundation.POINTL(),
-    public var crColor: Foundation.COLORREF = Foundation.COLORREF(),
+    public var ptlPixel: POINTL = POINTL(),
+    public var crColor: COLORREF = 0u,
 )
 
-public data class EMRSETTEXTCOLOR(public var emr: EMR = EMR(), public var crColor: Foundation.COLORREF = Foundation.COLORREF())
+public data class EMRSETTEXTCOLOR(public var emr: EMR = EMR(), public var crColor: COLORREF = 0u)
 
-public data class EMRSETVIEWPORTEXTEX(public var emr: EMR = EMR(), public var szlExtent: Foundation.SIZE = Foundation.SIZE())
+public data class EMRSETVIEWPORTEXTEX(public var emr: EMR = EMR(), public var szlExtent: SIZE = SIZE())
 
-public data class EMRSETVIEWPORTORGEX(public var emr: EMR = EMR(), public var ptlOrigin: Foundation.POINTL = Foundation.POINTL())
+public data class EMRSETVIEWPORTORGEX(public var emr: EMR = EMR(), public var ptlOrigin: POINTL = POINTL())
 
 public data class EMRSETWORLDTRANSFORM(public var emr: EMR = EMR(), public var xform: XFORM = XFORM())
 
 public class EMRSTRETCHBLT(
     public var emr: EMR = EMR(),
-    public var rclBounds: Foundation.RECTL = Foundation.RECTL(),
+    public var rclBounds: RECTL = RECTL(),
     public var xDest: Int = 0,
     public var yDest: Int = 0,
     public var cxDest: Int = 0,
@@ -1172,7 +1180,7 @@ public class EMRSTRETCHBLT(
     public var xSrc: Int = 0,
     public var ySrc: Int = 0,
     public var xformSrc: XFORM = XFORM(),
-    public var crBkColorSrc: Foundation.COLORREF = Foundation.COLORREF(),
+    public var crBkColorSrc: COLORREF = 0u,
     public var iUsageSrc: UInt = 0u,
     public var offBmiSrc: UInt = 0u,
     public var cbBmiSrc: UInt = 0u,
@@ -1184,7 +1192,7 @@ public class EMRSTRETCHBLT(
 
 public data class EMRSTRETCHDIBITS(
     public var emr: EMR = EMR(),
-    public var rclBounds: Foundation.RECTL = Foundation.RECTL(),
+    public var rclBounds: RECTL = RECTL(),
     public var xDest: Int = 0,
     public var yDest: Int = 0,
     public var xSrc: Int = 0,
@@ -1202,17 +1210,17 @@ public data class EMRSTRETCHDIBITS(
 )
 
 public data class EMRTEXT(
-    public var ptlReference: Foundation.POINTL = Foundation.POINTL(),
+    public var ptlReference: POINTL = POINTL(),
     public var nChars: UInt = 0u,
     public var offString: UInt = 0u,
     public var fOptions: UInt = 0u,
-    public var rcl: Foundation.RECTL = Foundation.RECTL(),
+    public var rcl: RECTL = RECTL(),
     public var offDx: UInt = 0u,
 )
 
 public class EMRTRANSPARENTBLT(
     public var emr: EMR = EMR(),
-    public var rclBounds: Foundation.RECTL = Foundation.RECTL(),
+    public var rclBounds: RECTL = RECTL(),
     public var xDest: Int = 0,
     public var yDest: Int = 0,
     public var cxDest: Int = 0,
@@ -1221,7 +1229,7 @@ public class EMRTRANSPARENTBLT(
     public var xSrc: Int = 0,
     public var ySrc: Int = 0,
     public var xformSrc: XFORM = XFORM(),
-    public var crBkColorSrc: Foundation.COLORREF = Foundation.COLORREF(),
+    public var crBkColorSrc: COLORREF = 0u,
     public var iUsageSrc: UInt = 0u,
     public var offBmiSrc: UInt = 0u,
     public var cbBmiSrc: UInt = 0u,
@@ -1234,8 +1242,8 @@ public class EMRTRANSPARENTBLT(
 public class ENHMETAHEADER(
     public var iType: UInt = 0u,
     public var nSize: UInt = 0u,
-    public var rclBounds: Foundation.RECTL = Foundation.RECTL(),
-    public var rclFrame: Foundation.RECTL = Foundation.RECTL(),
+    public var rclBounds: RECTL = RECTL(),
+    public var rclFrame: RECTL = RECTL(),
     public var dSignature: UInt = 0u,
     public var nVersion: UInt = 0u,
     public var nBytes: UInt = 0u,
@@ -1245,12 +1253,12 @@ public class ENHMETAHEADER(
     public var nDescription: UInt = 0u,
     public var offDescription: UInt = 0u,
     public var nPalEntries: UInt = 0u,
-    public var szlDevice: Foundation.SIZE = Foundation.SIZE(),
-    public var szlMillimeters: Foundation.SIZE = Foundation.SIZE(),
+    public var szlDevice: SIZE = SIZE(),
+    public var szlMillimeters: SIZE = SIZE(),
     public var cbPixelFormat: UInt = 0u,
     public var offPixelFormat: UInt = 0u,
     public var bOpenGL: UInt = 0u,
-    public var szlMicrometers: Foundation.SIZE = Foundation.SIZE(),
+    public var szlMicrometers: SIZE = SIZE(),
 )
 
 public data class ENHMETARECORD(
@@ -1463,7 +1471,7 @@ public data class EXTLOGPEN(
     public var elpPenStyle: UInt = 0u,
     public var elpWidth: UInt = 0u,
     public var elpBrushStyle: UInt = 0u,
-    public var elpColor: Foundation.COLORREF = Foundation.COLORREF(),
+    public var elpColor: COLORREF = 0u,
     public var elpHatch: ULong = 0uL,
     public var elpNumEntries: UInt = 0u,
     public var elpStyleEntry: UIntArray = UIntArray(1),
@@ -1497,7 +1505,7 @@ public data class EXTLOGPEN32(
     public var elpPenStyle: UInt = 0u,
     public var elpWidth: UInt = 0u,
     public var elpBrushStyle: UInt = 0u,
-    public var elpColor: Foundation.COLORREF = Foundation.COLORREF(),
+    public var elpColor: COLORREF = 0u,
     public var elpHatch: UInt = 0u,
     public var elpNumEntries: UInt = 0u,
     public var elpStyleEntry: UIntArray = UIntArray(1),
@@ -1556,7 +1564,7 @@ public data class GCP_RESULTSW(
 public data class GLYPHMETRICS(
     public var gmBlackBoxX: UInt = 0u,
     public var gmBlackBoxY: UInt = 0u,
-    public var gmptGlyphOrigin: Foundation.POINT = Foundation.POINT(),
+    public var gmptGlyphOrigin: POINT = POINT(),
     public var gmCellIncX: Short = 0,
     public var gmCellIncY: Short = 0,
 )
@@ -1598,13 +1606,13 @@ public data class KERNINGPAIR(
 
 public data class LOGBRUSH(
     public var lbStyle: BRUSH_STYLE = 0u,
-    public var lbColor: Foundation.COLORREF = Foundation.COLORREF(),
+    public var lbColor: COLORREF = 0u,
     public var lbHatch: ULong = 0uL,
 )
 
 public data class LOGBRUSH32(
     public var lbStyle: BRUSH_STYLE = 0u,
-    public var lbColor: Foundation.COLORREF = Foundation.COLORREF(),
+    public var lbColor: COLORREF = 0u,
     public var lbHatch: UInt = 0u,
 )
 
@@ -1726,8 +1734,8 @@ public data class LOGPALETTE(
 
 public data class LOGPEN(
     public var lopnStyle: UInt = 0u,
-    public var lopnWidth: Foundation.POINT = Foundation.POINT(),
-    public var lopnColor: Foundation.COLORREF = Foundation.COLORREF(),
+    public var lopnWidth: POINT = POINT(),
+    public var lopnColor: COLORREF = 0u,
 )
 
 public data class MAT2(
@@ -1771,8 +1779,8 @@ public data class METARECORD(
 
 public data class MONITORINFO(
     public var cbSize: UInt = 0u,
-    public var rcMonitor: Foundation.RECT = Foundation.RECT(),
-    public var rcWork: Foundation.RECT = Foundation.RECT(),
+    public var rcMonitor: RECT = RECT(),
+    public var rcWork: RECT = RECT(),
     public var dwFlags: UInt = 0u,
 )
 
@@ -1878,15 +1886,15 @@ public class OUTLINETEXTMETRICA(
     public var otmLineGap: UInt = 0u,
     public var otmsCapEmHeight: UInt = 0u,
     public var otmsXHeight: UInt = 0u,
-    public var otmrcFontBox: Foundation.RECT = Foundation.RECT(),
+    public var otmrcFontBox: RECT = RECT(),
     public var otmMacAscent: Int = 0,
     public var otmMacDescent: Int = 0,
     public var otmMacLineGap: UInt = 0u,
     public var otmusMinimumPPEM: UInt = 0u,
-    public var otmptSubscriptSize: Foundation.POINT = Foundation.POINT(),
-    public var otmptSubscriptOffset: Foundation.POINT = Foundation.POINT(),
-    public var otmptSuperscriptSize: Foundation.POINT = Foundation.POINT(),
-    public var otmptSuperscriptOffset: Foundation.POINT = Foundation.POINT(),
+    public var otmptSubscriptSize: POINT = POINT(),
+    public var otmptSubscriptOffset: POINT = POINT(),
+    public var otmptSuperscriptSize: POINT = POINT(),
+    public var otmptSuperscriptOffset: POINT = POINT(),
     public var otmsStrikeoutSize: UInt = 0u,
     public var otmsStrikeoutPosition: Int = 0,
     public var otmsUnderscoreSize: Int = 0,
@@ -1913,15 +1921,15 @@ public class OUTLINETEXTMETRICW(
     public var otmLineGap: UInt = 0u,
     public var otmsCapEmHeight: UInt = 0u,
     public var otmsXHeight: UInt = 0u,
-    public var otmrcFontBox: Foundation.RECT = Foundation.RECT(),
+    public var otmrcFontBox: RECT = RECT(),
     public var otmMacAscent: Int = 0,
     public var otmMacDescent: Int = 0,
     public var otmMacLineGap: UInt = 0u,
     public var otmusMinimumPPEM: UInt = 0u,
-    public var otmptSubscriptSize: Foundation.POINT = Foundation.POINT(),
-    public var otmptSubscriptOffset: Foundation.POINT = Foundation.POINT(),
-    public var otmptSuperscriptSize: Foundation.POINT = Foundation.POINT(),
-    public var otmptSuperscriptOffset: Foundation.POINT = Foundation.POINT(),
+    public var otmptSubscriptSize: POINT = POINT(),
+    public var otmptSubscriptOffset: POINT = POINT(),
+    public var otmptSuperscriptSize: POINT = POINT(),
+    public var otmptSuperscriptOffset: POINT = POINT(),
     public var otmsStrikeoutSize: UInt = 0u,
     public var otmsStrikeoutPosition: Int = 0,
     public var otmsUnderscoreSize: Int = 0,
@@ -1935,7 +1943,7 @@ public class OUTLINETEXTMETRICW(
 public data class PAINTSTRUCT(
     public var hdc: HDC = 0L,
     public var fErase: BOOL = 0,
-    public var rcPaint: Foundation.RECT = Foundation.RECT(),
+    public var rcPaint: RECT = RECT(),
     public var fRestore: BOOL = 0,
     public var fIncUpdate: BOOL = 0,
     public var rgbReserved: UByteArray = UByteArray(32),
@@ -1999,7 +2007,7 @@ public data class POLYTEXTA(
     public var n: UInt = 0u,
     public var lpstr: PCSTR = 0L,
     public var uiFlags: UInt = 0u,
-    public var rcl: Foundation.RECT = Foundation.RECT(),
+    public var rcl: RECT = RECT(),
     public var pdx: Long = 0L,
 )
 
@@ -2009,7 +2017,7 @@ public data class POLYTEXTW(
     public var n: UInt = 0u,
     public var lpstr: PCWSTR = 0L,
     public var uiFlags: UInt = 0u,
-    public var rcl: Foundation.RECT = Foundation.RECT(),
+    public var rcl: RECT = RECT(),
     public var pdx: Long = 0L,
 )
 
@@ -2053,7 +2061,7 @@ public data class RGNDATAHEADER(
     public var iType: UInt = 0u,
     public var nCount: UInt = 0u,
     public var nRgnSize: UInt = 0u,
-    public var rcBound: Foundation.RECT = Foundation.RECT(),
+    public var rcBound: RECT = RECT(),
 )
 
 public class TEXTMETRICA(

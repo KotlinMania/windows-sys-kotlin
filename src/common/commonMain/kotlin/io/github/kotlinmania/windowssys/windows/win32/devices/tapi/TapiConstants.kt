@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.tapi
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
@@ -473,7 +474,7 @@ public val DT_ILS: DIRECTORY_TYPE = 2
 
 public val DT_NTDS: DIRECTORY_TYPE = 1
 
-public val DispatchMapper: GUID = GUID.from_u128(0xe9225296c75911d1uL, 0xa02b00c04fb6809fuL)
+public val DispatchMapper: GUID = GUID.from_u128(U128(0xe9225296c75911d1uL, 0xa02b00c04fb6809fuL))
 
 public val FDS_NOTSUPPORTED: FULLDUPLEX_SUPPORT = 1
 
@@ -1867,7 +1868,7 @@ public val ME_TSP_DATA: MSP_EVENT = 2
 
 public val ME_TTS_TERMINAL_EVENT: MSP_EVENT = 5
 
-public val McastAddressAllocation: GUID = GUID.from_u128(0xdf0daef2a28911d1uL, 0x8697006008b0e5d2uL)
+public val McastAddressAllocation: GUID = GUID.from_u128(U128(0xdf0daef2a28911d1uL, 0x8697006008b0e5d2uL))
 
 public val OPENTNEFSTREAM: PCSTR = s("OpenTnefStream")
 
@@ -2507,9 +2508,9 @@ public val RENDBIND_DEFAULTPASSWORD: UInt = 8u
 
 public val RENDBIND_DEFAULTUSERNAME: UInt = 4u
 
-public val Rendezvous: GUID = GUID.from_u128(0xf1029e5bcb5b11d0uL, 0x8d5900c04fd91ac0uL)
+public val Rendezvous: GUID = GUID.from_u128(U128(0xf1029e5bcb5b11d0uL, 0x8d5900c04fd91ac0uL))
 
-public val RequestMakeCall: GUID = GUID.from_u128(0xac48ffe0f8c411d1uL, 0xa03000c04fb6809fuL)
+public val RequestMakeCall: GUID = GUID.from_u128(U128(0xac48ffe0f8c411d1uL, 0xa03000c04fb6809fuL))
 
 public val STRINGFORMAT_ASCII: UInt = 1u
 
@@ -2531,7 +2532,7 @@ public val STRM_STOPPED: UInt = 16u
 
 public val STRM_TERMINALSELECTED: UInt = 1u
 
-public val TAPI: GUID = GUID.from_u128(0x21d6d48ea88b11d0uL, 0x83dd00aa003ccabduL)
+public val TAPI: GUID = GUID.from_u128(U128(0x21d6d48ea88b11d0uL, 0x83dd00aa003ccabduL))
 
 public val TAPIERR_CONNECTED: Int = 0
 

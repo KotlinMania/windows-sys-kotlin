@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.xps
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 
@@ -459,8 +460,8 @@ public val XPS_TILE_MODE_NONE: XPS_TILE_MODE = 1
 
 public val XPS_TILE_MODE_TILE: XPS_TILE_MODE = 2
 
-public val XpsOMObjectFactory: GUID = GUID.from_u128(0xe974d26d3d9b4d47uL, 0x88cc3872f2dc3585uL)
+public val XpsOMObjectFactory: GUID = GUID.from_u128(U128(0xe974d26d3d9b4d47uL, 0x88cc3872f2dc3585uL))
 
-public val XpsOMThumbnailGenerator: GUID = GUID.from_u128(0x7e4a23e2b9694761uL, 0xbe351a8ced58e323uL)
+public val XpsOMThumbnailGenerator: GUID = GUID.from_u128(U128(0x7e4a23e2b9694761uL, 0xbe351a8ced58e323uL))
 
-public val XpsSignatureManager: GUID = GUID.from_u128(0xb0c43320231544a2uL, 0xb70a0943a140a8eeuL)
+public val XpsSignatureManager: GUID = GUID.from_u128(U128(0xb0c43320231544a2uL, 0xb70a0943a140a8eeuL))

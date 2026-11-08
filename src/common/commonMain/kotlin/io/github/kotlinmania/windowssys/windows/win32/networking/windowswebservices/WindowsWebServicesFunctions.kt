@@ -5,6 +5,7 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
 
 public fun interface FnCallback {
     public operator fun invoke(hr: HRESULT, callbackmodel: WS_CALLBACK_MODEL, callbackstate: Long, next: Long, asynccontext: Long, error: Long): HRESULT
@@ -34,12 +35,12 @@ public fun interface FnCallback6 {
     public operator fun invoke(callbackstate: Long, buffers: Long, count: UInt, asynccontext: Long, error: Long): HRESULT
 }
 
-public fun WebAuthNAuthenticatorGetAssertion(hwnd: Foundation.HWND, pwszrpid: PCWSTR, pwebauthnclientdata: Long, pwebauthngetassertionoptions: Long, ppwebauthnassertion: Long): HRESULT {
-    return Win32DynamicFfi.invoke("webauthn.dll", "WebAuthNAuthenticatorGetAssertion", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), pwszrpid, pwebauthnclientdata, pwebauthngetassertionoptions, ppwebauthnassertion)).toInt()
+public fun WebAuthNAuthenticatorGetAssertion(hwnd: HWND, pwszrpid: PCWSTR, pwebauthnclientdata: Long, pwebauthngetassertionoptions: Long, ppwebauthnassertion: Long): HRESULT {
+    return Win32DynamicFfi.invoke("webauthn.dll", "WebAuthNAuthenticatorGetAssertion", longArrayOf(hwnd, pwszrpid, pwebauthnclientdata, pwebauthngetassertionoptions, ppwebauthnassertion)).toInt()
 }
 
-public fun WebAuthNAuthenticatorMakeCredential(hwnd: Foundation.HWND, prpinformation: Long, puserinformation: Long, ppubkeycredparams: Long, pwebauthnclientdata: Long, pwebauthnmakecredentialoptions: Long, ppwebauthncredentialattestation: Long): HRESULT {
-    return Win32DynamicFfi.invoke("webauthn.dll", "WebAuthNAuthenticatorMakeCredential", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), prpinformation, puserinformation, ppubkeycredparams, pwebauthnclientdata, pwebauthnmakecredentialoptions, ppwebauthncredentialattestation)).toInt()
+public fun WebAuthNAuthenticatorMakeCredential(hwnd: HWND, prpinformation: Long, puserinformation: Long, ppubkeycredparams: Long, pwebauthnclientdata: Long, pwebauthnmakecredentialoptions: Long, ppwebauthncredentialattestation: Long): HRESULT {
+    return Win32DynamicFfi.invoke("webauthn.dll", "WebAuthNAuthenticatorMakeCredential", longArrayOf(hwnd, prpinformation, puserinformation, ppubkeycredparams, pwebauthnclientdata, pwebauthnmakecredentialoptions, ppwebauthncredentialattestation)).toInt()
 }
 
 public fun WebAuthNCancelCurrentOperation(pcancellationid: Long): HRESULT {

@@ -3,6 +3,8 @@ package io.github.kotlinmania.windowssys.windows.win32.security.wintrust
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.HCERTSTORE
 
 public fun interface PFN_ALLOCANDFILLDEFUSAGEFn {
     public operator fun invoke(pszusageoid: PCSTR, psdefusage: Long): BOOL
@@ -29,7 +31,7 @@ public fun interface PFN_CPD_ADD_SGNRFn {
 public typealias PFN_CPD_ADD_SGNR = PFN_CPD_ADD_SGNRFn?
 
 public fun interface PFN_CPD_ADD_STOREFn {
-    public operator fun invoke(pprovdata: Long, hstore2add: Cryptography.HCERTSTORE): BOOL
+    public operator fun invoke(pprovdata: Long, hstore2add: HCERTSTORE): BOOL
 }
 
 public typealias PFN_CPD_ADD_STORE = PFN_CPD_ADD_STOREFn?
@@ -101,7 +103,7 @@ public fun interface PFN_PROVIDER_TESTFINALPOLICY_CALLFn {
 public typealias PFN_PROVIDER_TESTFINALPOLICY_CALL = PFN_PROVIDER_TESTFINALPOLICY_CALLFn?
 
 public fun interface PFN_PROVUI_CALLFn {
-    public operator fun invoke(hwndsecuritydialog: Foundation.HWND, pprovdata: Long): BOOL
+    public operator fun invoke(hwndsecuritydialog: HWND, pprovdata: Long): BOOL
 }
 
 public typealias PFN_PROVUI_CALL = PFN_PROVUI_CALLFn?

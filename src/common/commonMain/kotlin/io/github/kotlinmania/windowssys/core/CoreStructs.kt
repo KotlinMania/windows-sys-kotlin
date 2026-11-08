@@ -1,6 +1,8 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.core
 
+import io.github.kotlinmania.windowssys.U128
+
 public fun interface IUnknown_VtblQueryInterfaceCallback {
     public operator fun invoke(thisRef: Long, iid: Long, iface: Long): HRESULT
 }
@@ -55,6 +57,10 @@ public data class GUID(
         )
 
         public fun fromU128(uuidHi: ULong, uuidLo: ULong): GUID = from_u128(uuidHi, uuidLo)
+
+        public fun from_u128(uuid: U128): GUID = from_u128(uuid.high, uuid.low)
+
+        public fun fromU128(uuid: U128): GUID = from_u128(uuid.high, uuid.low)
     }
 }
 

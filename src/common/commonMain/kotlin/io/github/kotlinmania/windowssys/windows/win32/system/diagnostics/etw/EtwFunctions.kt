@@ -4,6 +4,10 @@ import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
+import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
+import io.github.kotlinmania.windowssys.windows.win32.security.PSID
 
 public fun interface FnCallback {
     public operator fun invoke(sourceid: Long, isenabled: ENABLECALLBACK_ENABLED_STATE, level: UByte, matchanykeyword: ULong, matchallkeyword: ULong, filterdata: Long, callbackcontext: Long)
@@ -21,61 +25,52 @@ public fun interface FnCallback3 {
     public operator fun invoke(pevent: Long)
 }
 
-public fun CloseTrace(tracehandle: PROCESSTRACE_HANDLE): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "CloseTrace", longArrayOf(tracehandle.Value.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun CloseTrace(tracehandle: PROCESSTRACE_HANDLE): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "CloseTrace", longArrayOf(tracehandle.Value.toLong())).toUInt()
 }
 
-public fun ControlTraceA(tracehandle: CONTROLTRACE_HANDLE, instancename: PCSTR, properties: Long, controlcode: EVENT_TRACE_CONTROL): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "ControlTraceA", longArrayOf(tracehandle.Value.toLong(), instancename, properties, controlcode.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun ControlTraceA(tracehandle: CONTROLTRACE_HANDLE, instancename: PCSTR, properties: Long, controlcode: EVENT_TRACE_CONTROL): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "ControlTraceA", longArrayOf(tracehandle.Value.toLong(), instancename, properties, controlcode.toLong())).toUInt()
 }
 
-public fun ControlTraceW(tracehandle: CONTROLTRACE_HANDLE, instancename: PCWSTR, properties: Long, controlcode: EVENT_TRACE_CONTROL): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "ControlTraceW", longArrayOf(tracehandle.Value.toLong(), instancename, properties, controlcode.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun ControlTraceW(tracehandle: CONTROLTRACE_HANDLE, instancename: PCWSTR, properties: Long, controlcode: EVENT_TRACE_CONTROL): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "ControlTraceW", longArrayOf(tracehandle.Value.toLong(), instancename, properties, controlcode.toLong())).toUInt()
 }
 
-public fun CreateTraceInstanceId(reghandle: Foundation.HANDLE, instinfo: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "CreateTraceInstanceId", longArrayOf(Win32DynamicFfi.objectSlot(reghandle), instinfo))
-    return Foundation.WIN32_ERROR()
+public fun CreateTraceInstanceId(reghandle: HANDLE, instinfo: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "CreateTraceInstanceId", longArrayOf(reghandle, instinfo)).toUInt()
 }
 
 public fun CveEventWrite(cveid: PCWSTR, additionaldetails: PCWSTR): Int {
     return Win32DynamicFfi.invoke("advapi32.dll", "CveEventWrite", longArrayOf(cveid, additionaldetails)).toInt()
 }
 
-public fun EnableTrace(enable: UInt, enableflag: UInt, enablelevel: UInt, controlguid: Long, tracehandle: CONTROLTRACE_HANDLE): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "EnableTrace", longArrayOf(enable.toLong(), enableflag.toLong(), enablelevel.toLong(), controlguid, tracehandle.Value.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun EnableTrace(enable: UInt, enableflag: UInt, enablelevel: UInt, controlguid: Long, tracehandle: CONTROLTRACE_HANDLE): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "EnableTrace", longArrayOf(enable.toLong(), enableflag.toLong(), enablelevel.toLong(), controlguid, tracehandle.Value.toLong())).toUInt()
 }
 
-public fun EnableTraceEx(providerid: Long, sourceid: Long, tracehandle: CONTROLTRACE_HANDLE, isenabled: UInt, level: UByte, matchanykeyword: ULong, matchallkeyword: ULong, enableproperty: UInt, enablefilterdesc: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "EnableTraceEx", longArrayOf(providerid, sourceid, tracehandle.Value.toLong(), isenabled.toLong(), level.toLong(), matchanykeyword.toLong(), matchallkeyword.toLong(), enableproperty.toLong(), enablefilterdesc))
-    return Foundation.WIN32_ERROR()
+public fun EnableTraceEx(providerid: Long, sourceid: Long, tracehandle: CONTROLTRACE_HANDLE, isenabled: UInt, level: UByte, matchanykeyword: ULong, matchallkeyword: ULong, enableproperty: UInt, enablefilterdesc: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "EnableTraceEx", longArrayOf(providerid, sourceid, tracehandle.Value.toLong(), isenabled.toLong(), level.toLong(), matchanykeyword.toLong(), matchallkeyword.toLong(), enableproperty.toLong(), enablefilterdesc)).toUInt()
 }
 
-public fun EnableTraceEx2(tracehandle: CONTROLTRACE_HANDLE, providerid: Long, controlcode: UInt, level: UByte, matchanykeyword: ULong, matchallkeyword: ULong, timeout: UInt, enableparameters: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "EnableTraceEx2", longArrayOf(tracehandle.Value.toLong(), providerid, controlcode.toLong(), level.toLong(), matchanykeyword.toLong(), matchallkeyword.toLong(), timeout.toLong(), enableparameters))
-    return Foundation.WIN32_ERROR()
+public fun EnableTraceEx2(tracehandle: CONTROLTRACE_HANDLE, providerid: Long, controlcode: UInt, level: UByte, matchanykeyword: ULong, matchallkeyword: ULong, timeout: UInt, enableparameters: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "EnableTraceEx2", longArrayOf(tracehandle.Value.toLong(), providerid, controlcode.toLong(), level.toLong(), matchanykeyword.toLong(), matchallkeyword.toLong(), timeout.toLong(), enableparameters)).toUInt()
 }
 
-public fun EnumerateTraceGuids(guidpropertiesarray: Long, propertyarraycount: UInt, guidcount: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "EnumerateTraceGuids", longArrayOf(guidpropertiesarray, propertyarraycount.toLong(), guidcount))
-    return Foundation.WIN32_ERROR()
+public fun EnumerateTraceGuids(guidpropertiesarray: Long, propertyarraycount: UInt, guidcount: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "EnumerateTraceGuids", longArrayOf(guidpropertiesarray, propertyarraycount.toLong(), guidcount)).toUInt()
 }
 
-public fun EnumerateTraceGuidsEx(tracequeryinfoclass: TRACE_QUERY_INFO_CLASS, inbuffer: Long, inbuffersize: UInt, outbuffer: Long, outbuffersize: UInt, returnlength: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "EnumerateTraceGuidsEx", longArrayOf(tracequeryinfoclass.toLong(), inbuffer, inbuffersize.toLong(), outbuffer, outbuffersize.toLong(), returnlength))
-    return Foundation.WIN32_ERROR()
+public fun EnumerateTraceGuidsEx(tracequeryinfoclass: TRACE_QUERY_INFO_CLASS, inbuffer: Long, inbuffersize: UInt, outbuffer: Long, outbuffersize: UInt, returnlength: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "EnumerateTraceGuidsEx", longArrayOf(tracequeryinfoclass.toLong(), inbuffer, inbuffersize.toLong(), outbuffer, outbuffersize.toLong(), returnlength)).toUInt()
 }
 
-public fun EventAccessControl(guid: Long, operation: UInt, sid: Security.PSID, rights: UInt, allowordeny: Boolean): UInt {
-    return Win32DynamicFfi.invoke("advapi32.dll", "EventAccessControl", longArrayOf(guid, operation.toLong(), Win32DynamicFfi.objectSlot(sid), rights.toLong(), if (allowordeny) 1L else 0L)).toUInt()
+public fun EventAccessControl(guid: Long, operation: UInt, sid: PSID, rights: UInt, allowordeny: Boolean): UInt {
+    return Win32DynamicFfi.invoke("advapi32.dll", "EventAccessControl", longArrayOf(guid, operation.toLong(), sid, rights.toLong(), if (allowordeny) 1L else 0L)).toUInt()
 }
 
-public fun EventAccessQuery(guid: Long, buffer: Security.PSECURITY_DESCRIPTOR, buffersize: Long): UInt {
-    return Win32DynamicFfi.invoke("advapi32.dll", "EventAccessQuery", longArrayOf(guid, Win32DynamicFfi.objectSlot(buffer), buffersize)).toUInt()
+public fun EventAccessQuery(guid: Long, buffer: PSECURITY_DESCRIPTOR, buffersize: Long): UInt {
+    return Win32DynamicFfi.invoke("advapi32.dll", "EventAccessQuery", longArrayOf(guid, buffer, buffersize)).toUInt()
 }
 
 public fun EventAccessRemove(guid: Long): UInt {
@@ -124,14 +119,12 @@ public fun EventWriteTransfer(reghandle: REGHANDLE, eventdescriptor: Long, activ
     return Win32DynamicFfi.invoke("advapi32.dll", "EventWriteTransfer", longArrayOf(reghandle, eventdescriptor, activityid, relatedactivityid, userdatacount.toLong(), userdata)).toUInt()
 }
 
-public fun FlushTraceA(tracehandle: CONTROLTRACE_HANDLE, instancename: PCSTR, properties: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "FlushTraceA", longArrayOf(tracehandle.Value.toLong(), instancename, properties))
-    return Foundation.WIN32_ERROR()
+public fun FlushTraceA(tracehandle: CONTROLTRACE_HANDLE, instancename: PCSTR, properties: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "FlushTraceA", longArrayOf(tracehandle.Value.toLong(), instancename, properties)).toUInt()
 }
 
-public fun FlushTraceW(tracehandle: CONTROLTRACE_HANDLE, instancename: PCWSTR, properties: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "FlushTraceW", longArrayOf(tracehandle.Value.toLong(), instancename, properties))
-    return Foundation.WIN32_ERROR()
+public fun FlushTraceW(tracehandle: CONTROLTRACE_HANDLE, instancename: PCWSTR, properties: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "FlushTraceW", longArrayOf(tracehandle.Value.toLong(), instancename, properties)).toUInt()
 }
 
 public fun GetTraceEnableFlags(tracehandle: ULong): UInt {
@@ -163,8 +156,8 @@ public fun OpenTraceFromRealTimeLogger(loggername: PCWSTR, options: Long, logfil
     return Win32DynamicFfi.invoke("advapi32.dll", "OpenTraceFromRealTimeLogger", longArrayOf(loggername, options, logfileheader)).toULong()
 }
 
-public fun OpenTraceFromRealTimeLoggerWithAllocationOptions(loggername: PCWSTR, options: Long, allocationsize: ULong, memorypartitionhandle: Foundation.HANDLE, logfileheader: Long): ULong {
-    return Win32DynamicFfi.invoke("advapi32.dll", "OpenTraceFromRealTimeLoggerWithAllocationOptions", longArrayOf(loggername, options, allocationsize.toLong(), Win32DynamicFfi.objectSlot(memorypartitionhandle), logfileheader)).toULong()
+public fun OpenTraceFromRealTimeLoggerWithAllocationOptions(loggername: PCWSTR, options: Long, allocationsize: ULong, memorypartitionhandle: HANDLE, logfileheader: Long): ULong {
+    return Win32DynamicFfi.invoke("advapi32.dll", "OpenTraceFromRealTimeLoggerWithAllocationOptions", longArrayOf(loggername, options, allocationsize.toLong(), memorypartitionhandle, logfileheader)).toULong()
 }
 
 public fun OpenTraceW(logfile: Long): PROCESSTRACE_HANDLE {
@@ -172,9 +165,8 @@ public fun OpenTraceW(logfile: Long): PROCESSTRACE_HANDLE {
     return PROCESSTRACE_HANDLE(Value = rawRet.toULong())
 }
 
-public fun ProcessTrace(handlearray: Long, handlecount: UInt, starttime: Long, endtime: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "ProcessTrace", longArrayOf(handlearray, handlecount.toLong(), starttime, endtime))
-    return Foundation.WIN32_ERROR()
+public fun ProcessTrace(handlearray: Long, handlecount: UInt, starttime: Long, endtime: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "ProcessTrace", longArrayOf(handlearray, handlecount.toLong(), starttime, endtime)).toUInt()
 }
 
 public fun ProcessTraceAddBufferToBufferStream(tracehandle: ULong, buffer: Long, buffersize: UInt): UInt {
@@ -189,29 +181,24 @@ public fun ProcessTraceBufferIncrementReference(tracehandle: ULong, buffer: Long
     return Win32DynamicFfi.invoke("advapi32.dll", "ProcessTraceBufferIncrementReference", longArrayOf(tracehandle.toLong(), buffer)).toUInt()
 }
 
-public fun QueryAllTracesA(propertyarray: Long, propertyarraycount: UInt, loggercount: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "QueryAllTracesA", longArrayOf(propertyarray, propertyarraycount.toLong(), loggercount))
-    return Foundation.WIN32_ERROR()
+public fun QueryAllTracesA(propertyarray: Long, propertyarraycount: UInt, loggercount: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "QueryAllTracesA", longArrayOf(propertyarray, propertyarraycount.toLong(), loggercount)).toUInt()
 }
 
-public fun QueryAllTracesW(propertyarray: Long, propertyarraycount: UInt, loggercount: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "QueryAllTracesW", longArrayOf(propertyarray, propertyarraycount.toLong(), loggercount))
-    return Foundation.WIN32_ERROR()
+public fun QueryAllTracesW(propertyarray: Long, propertyarraycount: UInt, loggercount: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "QueryAllTracesW", longArrayOf(propertyarray, propertyarraycount.toLong(), loggercount)).toUInt()
 }
 
-public fun QueryTraceA(tracehandle: CONTROLTRACE_HANDLE, instancename: PCSTR, properties: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "QueryTraceA", longArrayOf(tracehandle.Value.toLong(), instancename, properties))
-    return Foundation.WIN32_ERROR()
+public fun QueryTraceA(tracehandle: CONTROLTRACE_HANDLE, instancename: PCSTR, properties: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "QueryTraceA", longArrayOf(tracehandle.Value.toLong(), instancename, properties)).toUInt()
 }
 
-public fun QueryTraceProcessingHandle(processinghandle: PROCESSTRACE_HANDLE, informationclass: ETW_PROCESS_HANDLE_INFO_TYPE, inbuffer: Long, inbuffersize: UInt, outbuffer: Long, outbuffersize: UInt, returnlength: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "QueryTraceProcessingHandle", longArrayOf(processinghandle.Value.toLong(), informationclass.toLong(), inbuffer, inbuffersize.toLong(), outbuffer, outbuffersize.toLong(), returnlength))
-    return Foundation.WIN32_ERROR()
+public fun QueryTraceProcessingHandle(processinghandle: PROCESSTRACE_HANDLE, informationclass: ETW_PROCESS_HANDLE_INFO_TYPE, inbuffer: Long, inbuffersize: UInt, outbuffer: Long, outbuffersize: UInt, returnlength: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "QueryTraceProcessingHandle", longArrayOf(processinghandle.Value.toLong(), informationclass.toLong(), inbuffer, inbuffersize.toLong(), outbuffer, outbuffersize.toLong(), returnlength)).toUInt()
 }
 
-public fun QueryTraceW(tracehandle: CONTROLTRACE_HANDLE, instancename: PCWSTR, properties: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "QueryTraceW", longArrayOf(tracehandle.Value.toLong(), instancename, properties))
-    return Foundation.WIN32_ERROR()
+public fun QueryTraceW(tracehandle: CONTROLTRACE_HANDLE, instancename: PCWSTR, properties: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "QueryTraceW", longArrayOf(tracehandle.Value.toLong(), instancename, properties)).toUInt()
 }
 
 public fun RegisterTraceGuidsA(requestaddress: WMIDPREQUEST, requestcontext: Long, controlguid: Long, guidcount: UInt, traceguidreg: Long, mofimagepath: PCSTR, mofresourcename: PCSTR, registrationhandle: Long): UInt {
@@ -222,34 +209,28 @@ public fun RegisterTraceGuidsW(requestaddress: WMIDPREQUEST, requestcontext: Lon
     return Win32DynamicFfi.invoke("advapi32.dll", "RegisterTraceGuidsW", longArrayOf(Win32DynamicFfi.objectSlot(requestaddress), requestcontext, controlguid, guidcount.toLong(), traceguidreg, mofimagepath, mofresourcename, registrationhandle)).toUInt()
 }
 
-public fun RemoveTraceCallback(pguid: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "RemoveTraceCallback", longArrayOf(pguid))
-    return Foundation.WIN32_ERROR()
+public fun RemoveTraceCallback(pguid: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "RemoveTraceCallback", longArrayOf(pguid)).toUInt()
 }
 
-public fun SetTraceCallback(pguid: Long, eventcallback: PEVENT_CALLBACK): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "SetTraceCallback", longArrayOf(pguid, Win32DynamicFfi.objectSlot(eventcallback)))
-    return Foundation.WIN32_ERROR()
+public fun SetTraceCallback(pguid: Long, eventcallback: PEVENT_CALLBACK): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "SetTraceCallback", longArrayOf(pguid, Win32DynamicFfi.objectSlot(eventcallback))).toUInt()
 }
 
-public fun StartTraceA(tracehandle: Long, instancename: PCSTR, properties: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "StartTraceA", longArrayOf(tracehandle, instancename, properties))
-    return Foundation.WIN32_ERROR()
+public fun StartTraceA(tracehandle: Long, instancename: PCSTR, properties: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "StartTraceA", longArrayOf(tracehandle, instancename, properties)).toUInt()
 }
 
-public fun StartTraceW(tracehandle: Long, instancename: PCWSTR, properties: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "StartTraceW", longArrayOf(tracehandle, instancename, properties))
-    return Foundation.WIN32_ERROR()
+public fun StartTraceW(tracehandle: Long, instancename: PCWSTR, properties: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "StartTraceW", longArrayOf(tracehandle, instancename, properties)).toUInt()
 }
 
-public fun StopTraceA(tracehandle: CONTROLTRACE_HANDLE, instancename: PCSTR, properties: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "StopTraceA", longArrayOf(tracehandle.Value.toLong(), instancename, properties))
-    return Foundation.WIN32_ERROR()
+public fun StopTraceA(tracehandle: CONTROLTRACE_HANDLE, instancename: PCSTR, properties: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "StopTraceA", longArrayOf(tracehandle.Value.toLong(), instancename, properties)).toUInt()
 }
 
-public fun StopTraceW(tracehandle: CONTROLTRACE_HANDLE, instancename: PCWSTR, properties: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "StopTraceW", longArrayOf(tracehandle.Value.toLong(), instancename, properties))
-    return Foundation.WIN32_ERROR()
+public fun StopTraceW(tracehandle: CONTROLTRACE_HANDLE, instancename: PCWSTR, properties: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "StopTraceW", longArrayOf(tracehandle.Value.toLong(), instancename, properties)).toUInt()
 }
 
 public fun TdhAggregatePayloadFilters(payloadfiltercount: UInt, payloadfilterptrs: Long, eventmatchallflags: Long, eventfilterdescriptor: Long): UInt {
@@ -360,45 +341,38 @@ public fun TdhUnloadManifestFromMemory(pdata: Long, cbdata: UInt): UInt {
     return Win32DynamicFfi.invoke("tdh.dll", "TdhUnloadManifestFromMemory", longArrayOf(pdata, cbdata.toLong())).toUInt()
 }
 
-public fun TraceEvent(tracehandle: ULong, eventtrace: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "TraceEvent", longArrayOf(tracehandle.toLong(), eventtrace))
-    return Foundation.WIN32_ERROR()
+public fun TraceEvent(tracehandle: ULong, eventtrace: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "TraceEvent", longArrayOf(tracehandle.toLong(), eventtrace)).toUInt()
 }
 
 public fun TraceEventInstance(tracehandle: ULong, eventtrace: Long, instinfo: Long, parentinstinfo: Long): UInt {
     return Win32DynamicFfi.invoke("advapi32.dll", "TraceEventInstance", longArrayOf(tracehandle.toLong(), eventtrace, instinfo, parentinstinfo)).toUInt()
 }
 
-public fun TraceMessage(loggerhandle: ULong, messageflags: TRACE_MESSAGE_FLAGS, messageguid: Long, messagenumber: UShort, vararg variadicArgs: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "TraceMessage", longArrayOf(loggerhandle.toLong(), messageflags.toLong(), messageguid, messagenumber.toLong()) + variadicArgs)
-    return Foundation.WIN32_ERROR()
+public fun TraceMessage(loggerhandle: ULong, messageflags: TRACE_MESSAGE_FLAGS, messageguid: Long, messagenumber: UShort, vararg variadicArgs: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "TraceMessage", longArrayOf(loggerhandle.toLong(), messageflags.toLong(), messageguid, messagenumber.toLong()) + variadicArgs).toUInt()
 }
 
-public fun TraceMessageVa(loggerhandle: ULong, messageflags: TRACE_MESSAGE_FLAGS, messageguid: Long, messagenumber: UShort, messagearglist: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "TraceMessageVa", longArrayOf(loggerhandle.toLong(), messageflags.toLong(), messageguid, messagenumber.toLong(), messagearglist))
-    return Foundation.WIN32_ERROR()
+public fun TraceMessageVa(loggerhandle: ULong, messageflags: TRACE_MESSAGE_FLAGS, messageguid: Long, messagenumber: UShort, messagearglist: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "TraceMessageVa", longArrayOf(loggerhandle.toLong(), messageflags.toLong(), messageguid, messagenumber.toLong(), messagearglist)).toUInt()
 }
 
-public fun TraceQueryInformation(sessionhandle: CONTROLTRACE_HANDLE, informationclass: TRACE_QUERY_INFO_CLASS, traceinformation: Long, informationlength: UInt, returnlength: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "TraceQueryInformation", longArrayOf(sessionhandle.Value.toLong(), informationclass.toLong(), traceinformation, informationlength.toLong(), returnlength))
-    return Foundation.WIN32_ERROR()
+public fun TraceQueryInformation(sessionhandle: CONTROLTRACE_HANDLE, informationclass: TRACE_QUERY_INFO_CLASS, traceinformation: Long, informationlength: UInt, returnlength: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "TraceQueryInformation", longArrayOf(sessionhandle.Value.toLong(), informationclass.toLong(), traceinformation, informationlength.toLong(), returnlength)).toUInt()
 }
 
-public fun TraceSetInformation(sessionhandle: CONTROLTRACE_HANDLE, informationclass: TRACE_QUERY_INFO_CLASS, traceinformation: Long, informationlength: UInt): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "TraceSetInformation", longArrayOf(sessionhandle.Value.toLong(), informationclass.toLong(), traceinformation, informationlength.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun TraceSetInformation(sessionhandle: CONTROLTRACE_HANDLE, informationclass: TRACE_QUERY_INFO_CLASS, traceinformation: Long, informationlength: UInt): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "TraceSetInformation", longArrayOf(sessionhandle.Value.toLong(), informationclass.toLong(), traceinformation, informationlength.toLong())).toUInt()
 }
 
 public fun UnregisterTraceGuids(registrationhandle: ULong): UInt {
     return Win32DynamicFfi.invoke("advapi32.dll", "UnregisterTraceGuids", longArrayOf(registrationhandle.toLong())).toUInt()
 }
 
-public fun UpdateTraceA(tracehandle: CONTROLTRACE_HANDLE, instancename: PCSTR, properties: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "UpdateTraceA", longArrayOf(tracehandle.Value.toLong(), instancename, properties))
-    return Foundation.WIN32_ERROR()
+public fun UpdateTraceA(tracehandle: CONTROLTRACE_HANDLE, instancename: PCSTR, properties: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "UpdateTraceA", longArrayOf(tracehandle.Value.toLong(), instancename, properties)).toUInt()
 }
 
-public fun UpdateTraceW(tracehandle: CONTROLTRACE_HANDLE, instancename: PCWSTR, properties: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "UpdateTraceW", longArrayOf(tracehandle.Value.toLong(), instancename, properties))
-    return Foundation.WIN32_ERROR()
+public fun UpdateTraceW(tracehandle: CONTROLTRACE_HANDLE, instancename: PCWSTR, properties: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "UpdateTraceW", longArrayOf(tracehandle.Value.toLong(), instancename, properties)).toUInt()
 }

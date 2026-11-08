@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 
 public val DXGK_MAX_METADATA_NAME_LENGTH: UInt = 32u
@@ -70,7 +71,7 @@ public val DxgkBacklightOptimizationEDR: DXGK_BACKLIGHT_OPTIMIZATION_LEVEL = 4
 
 public val FLIPEX_TIMEOUT_USER: UInt = 2000u
 
-public val GUID_DEVINTERFACE_GRAPHICSPOWER: GUID = GUID.from_u128(0xea5c6870e93c4588uL, 0xbef1fec42fc9429auL)
+public val GUID_DEVINTERFACE_GRAPHICSPOWER: GUID = GUID.from_u128(U128(0xea5c6870e93c4588uL, 0xbef1fec42fc9429auL))
 
 public val HpdAwarenessAlwaysConnected: DXGK_CHILD_DEVICE_HPD_AWARENESS = 1
 

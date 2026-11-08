@@ -6,6 +6,11 @@ import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.security.PSID
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.ALG_ID
+import io.github.kotlinmania.windowssys.windows.win32.system.passwordmanagement.CYPHER_BLOCK
 
 public data class SL_NONGENUINE_UI_OPTIONS(
     public var cbSize: UInt = 0u,
@@ -173,11 +178,11 @@ public data class SecPkgContext_ClientSpecifiedTarget(public var sTargetName: Lo
 
 public data class SecPkgContext_ConnectionInfo(
     public var dwProtocol: UInt = 0u,
-    public var aiCipher: Cryptography.ALG_ID = Cryptography.ALG_ID(),
+    public var aiCipher: ALG_ID = 0u,
     public var dwCipherStrength: UInt = 0u,
-    public var aiHash: Cryptography.ALG_ID = Cryptography.ALG_ID(),
+    public var aiHash: ALG_ID = 0u,
     public var dwHashStrength: UInt = 0u,
-    public var aiExch: Cryptography.ALG_ID = Cryptography.ALG_ID(),
+    public var aiExch: ALG_ID = 0u,
     public var dwExchStrength: UInt = 0u,
 )
 
@@ -426,7 +431,7 @@ public data class SecPkgContext_TokenBinding(
     public var KeyParameters: Long = 0L,
 )
 
-public data class SecPkgContext_UiInfo(public var hParentWindow: Foundation.HWND = Foundation.HWND())
+public data class SecPkgContext_UiInfo(public var hParentWindow: HWND = 0L)
 
 public data class SecPkgContext_UserFlags(public var UserFlags: UInt = 0u)
 
@@ -703,14 +708,14 @@ public class USER_ALL_INFORMATION(
     public var PrivateDataSensitive: Boolean = false,
 )
 
-public data class USER_SESSION_KEY(public var data: List<System.PasswordManagement.CYPHER_BLOCK> = List(2) { System.PasswordManagement.CYPHER_BLOCK() })
+public data class USER_SESSION_KEY(public var data: List<CYPHER_BLOCK> = List(2) { CYPHER_BLOCK() })
 
 public data class X509Certificate(
     public var Version: UInt = 0u,
     public var SerialNumber: UIntArray = UIntArray(4),
-    public var SignatureAlgorithm: Cryptography.ALG_ID = Cryptography.ALG_ID(),
-    public var ValidFrom: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ValidUntil: Foundation.FILETIME = Foundation.FILETIME(),
+    public var SignatureAlgorithm: ALG_ID = 0u,
+    public var ValidFrom: FILETIME = FILETIME(),
+    public var ValidUntil: FILETIME = FILETIME(),
     public var pszIssuer: PSTR = 0L,
     public var pszSubject: PSTR = 0L,
     public var pPublicKey: Long = 0L,

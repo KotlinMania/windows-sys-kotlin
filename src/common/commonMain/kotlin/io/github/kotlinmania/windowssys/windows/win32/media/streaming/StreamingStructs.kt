@@ -1,5 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.media.streaming
 
+import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
+
 public data class CapturedMetadataExposureCompensation(public var Flags: ULong = 0uL, public var Value: Int = 0)
 
 public data class CapturedMetadataISOGains(public var AnalogGain: Float = 0.0f, public var DigitalGain: Float = 0.0f)
@@ -19,7 +21,7 @@ public data class FaceCharacterization(
 
 public data class FaceCharacterizationBlobHeader(public var Size: UInt = 0u, public var Count: UInt = 0u)
 
-public data class FaceRectInfo(public var Region: Foundation.RECT = Foundation.RECT(), public var confidenceLevel: Int = 0)
+public data class FaceRectInfo(public var Region: RECT = RECT(), public var confidenceLevel: Int = 0)
 
 public data class FaceRectInfoBlobHeader(public var Size: UInt = 0u, public var Count: UInt = 0u)
 
@@ -34,7 +36,7 @@ public data class HistogramDataHeader(
 public data class HistogramGrid(
     public var Width: UInt = 0u,
     public var Height: UInt = 0u,
-    public var Region: Foundation.RECT = Foundation.RECT(),
+    public var Region: RECT = RECT(),
 )
 
 public data class HistogramHeader(

@@ -3,13 +3,42 @@ package io.github.kotlinmania.windowssys.windows.wdk.foundation
 
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PSTR
+import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.FILE_INFORMATION_CLASS
+import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.FS_INFORMATION_CLASS
+import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.BUS_QUERY_ID_TYPE
+import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.DEVICE_RELATION_TYPE
+import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.DEVICE_TEXT_TYPE
+import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.DEVICE_USAGE_NOTIFICATION_TYPE
+import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.DIRECTORY_NOTIFY_INFORMATION_CLASS
+import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.INITIAL_PRIVILEGE_SET
+import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.KAPC
+import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.KDEVICE_QUEUE_ENTRY
+import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.POWER_STATE
+import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.POWER_STATE_TYPE
+import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.SYSTEM_POWER_STATE_CONTEXT
+import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.WAIT_CONTEXT_BLOCK
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.windows.win32.foundation.OBJECT_ATTRIBUTE_FLAGS
+import io.github.kotlinmania.windowssys.windows.win32.foundation.UNICODE_STRING
+import io.github.kotlinmania.windowssys.windows.win32.security.PRIVILEGE_SET
+import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
+import io.github.kotlinmania.windowssys.windows.win32.security.PSID
+import io.github.kotlinmania.windowssys.windows.win32.security.SECURITY_IMPERSONATION_LEVEL
+import io.github.kotlinmania.windowssys.windows.win32.system.io.IO_STATUS_BLOCK
+import io.github.kotlinmania.windowssys.windows.win32.system.io.PIO_APC_ROUTINE
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.LIST_ENTRY
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.SINGLE_LIST_ENTRY
+import io.github.kotlinmania.windowssys.windows.win32.system.power.POWER_ACTION
+import io.github.kotlinmania.windowssys.windows.win32.system.power.SYSTEM_POWER_STATE
 
 public fun interface DRIVER_OBJECTMajorFunctionCallback {
-    public operator fun invoke(deviceobject: Long, irp: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(deviceobject: Long, irp: Long): NTSTATUS
 }
 
 public data class ACCESS_STATE(
-    public var OperationID: Win32.Foundation.LUID = Win32.Foundation.LUID(),
+    public var OperationID: LUID = LUID(),
     public var SecurityEvaluated: Boolean = false,
     public var GenerateAudit: Boolean = false,
     public var GenerateOnClose: Boolean = false,
@@ -19,15 +48,15 @@ public data class ACCESS_STATE(
     public var PreviouslyGrantedAccess: UInt = 0u,
     public var OriginalDesiredAccess: UInt = 0u,
     public var SubjectSecurityContext: SECURITY_SUBJECT_CONTEXT = SECURITY_SUBJECT_CONTEXT(),
-    public var SecurityDescriptor: Win32.Security.PSECURITY_DESCRIPTOR = Win32.Security.PSECURITY_DESCRIPTOR(),
+    public var SecurityDescriptor: PSECURITY_DESCRIPTOR = 0L,
     public var AuxData: Long = 0L,
     public var Privileges: ACCESS_STATE_0 = ACCESS_STATE_0(),
     public var AuditPrivileges: Boolean = false,
-    public var ObjectName: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
-    public var ObjectTypeName: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
+    public var ObjectName: UNICODE_STRING = UNICODE_STRING(),
+    public var ObjectTypeName: UNICODE_STRING = UNICODE_STRING(),
 )
 
-public data class ACCESS_STATE_0(public var InitialPrivilegeSet: System.SystemServices.INITIAL_PRIVILEGE_SET = System.SystemServices.INITIAL_PRIVILEGE_SET(), public var PrivilegeSet: Win32.Security.PRIVILEGE_SET = Win32.Security.PRIVILEGE_SET())
+public data class ACCESS_STATE_0(public var InitialPrivilegeSet: INITIAL_PRIVILEGE_SET = INITIAL_PRIVILEGE_SET(), public var PrivilegeSet: PRIVILEGE_SET = PRIVILEGE_SET())
 
 public class DEVICE_OBJECT(
     public var Type: Short = 0,
@@ -49,7 +78,7 @@ public class DEVICE_OBJECT(
     public var DeviceQueue: KDEVICE_QUEUE = KDEVICE_QUEUE(),
     public var Dpc: KDPC = KDPC(),
     public var ActiveThreadCount: UInt = 0u,
-    public var SecurityDescriptor: Win32.Security.PSECURITY_DESCRIPTOR = Win32.Security.PSECURITY_DESCRIPTOR(),
+    public var SecurityDescriptor: PSECURITY_DESCRIPTOR = 0L,
     public var DeviceLock: KEVENT = KEVENT(),
     public var SectorSize: UShort = 0u,
     public var Spare1: UShort = 0u,
@@ -57,7 +86,7 @@ public class DEVICE_OBJECT(
     public var Reserved: Long = 0L,
 )
 
-public data class DEVICE_OBJECT_0(public var ListEntry: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(), public var Wcb: System.SystemServices.WAIT_CONTEXT_BLOCK = System.SystemServices.WAIT_CONTEXT_BLOCK())
+public data class DEVICE_OBJECT_0(public var ListEntry: LIST_ENTRY = LIST_ENTRY(), public var Wcb: WAIT_CONTEXT_BLOCK = WAIT_CONTEXT_BLOCK())
 
 public data class DEVOBJ_EXTENSION(
     public var Type: Short = 0,
@@ -81,7 +110,7 @@ public data class DEVOBJ_EXTENSION(
 public data class DISPATCHER_HEADER(
     public var Anonymous: DISPATCHER_HEADER_0 = DISPATCHER_HEADER_0(),
     public var SignalState: Int = 0,
-    public var WaitListHead: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(),
+    public var WaitListHead: LIST_ENTRY = LIST_ENTRY(),
 )
 
 public data class DISPATCHER_HEADER_0(
@@ -164,7 +193,7 @@ public data class DRIVER_EXTENSION(
     public var DriverObject: Long = 0L,
     public var AddDevice: DRIVER_ADD_DEVICE = null,
     public var Count: UInt = 0u,
-    public var ServiceKeyName: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
+    public var ServiceKeyName: UNICODE_STRING = UNICODE_STRING(),
 )
 
 public data class DRIVER_OBJECT(
@@ -176,7 +205,7 @@ public data class DRIVER_OBJECT(
     public var DriverSize: UInt = 0u,
     public var DriverSection: Long = 0L,
     public var DriverExtension: Long = 0L,
-    public var DriverName: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
+    public var DriverName: UNICODE_STRING = UNICODE_STRING(),
     public var HardwareDatabase: Long = 0L,
     public var FastIoDispatch: Long = 0L,
     public var DriverInit: DRIVER_INITIALIZE = null,
@@ -186,7 +215,7 @@ public data class DRIVER_OBJECT(
 )
 
 public data class ERESOURCE(
-    public var SystemResourcesList: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(),
+    public var SystemResourcesList: LIST_ENTRY = LIST_ENTRY(),
     public var OwnerTable: Long = 0L,
     public var ActiveCount: Short = 0,
     public var Anonymous1: ERESOURCE_0 = ERESOURCE_0(),
@@ -255,7 +284,7 @@ public class FILE_OBJECT(
     public var FsContext2: Long = 0L,
     public var SectionObjectPointer: Long = 0L,
     public var PrivateCacheMap: Long = 0L,
-    public var FinalStatus: Win32.Foundation.NTSTATUS = Win32.Foundation.NTSTATUS(),
+    public var FinalStatus: NTSTATUS = 0,
     public var RelatedFileObject: Long = 0L,
     public var LockOperation: Boolean = false,
     public var DeletePending: Boolean = false,
@@ -266,7 +295,7 @@ public class FILE_OBJECT(
     public var SharedWrite: Boolean = false,
     public var SharedDelete: Boolean = false,
     public var Flags: UInt = 0u,
-    public var FileName: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
+    public var FileName: UNICODE_STRING = UNICODE_STRING(),
     public var CurrentByteOffset: Long = 0L,
     public var Waiters: UInt = 0u,
     public var Busy: UInt = 0u,
@@ -275,7 +304,7 @@ public class FILE_OBJECT(
     public var Event: KEVENT = KEVENT(),
     public var CompletionContext: Long = 0L,
     public var IrpListLock: ULong = 0uL,
-    public var IrpList: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(),
+    public var IrpList: LIST_ENTRY = LIST_ENTRY(),
     public var FileObjectExtension: Long = 0L,
 )
 
@@ -399,7 +428,7 @@ public data class IO_STACK_LOCATION_0_19(public var Vpb: Long = 0L, public var D
 public data class IO_STACK_LOCATION_0_7(
     public var Length: UInt = 0u,
     public var CompletionFilter: UInt = 0u,
-    public var DirectoryNotifyInformationClass: System.SystemServices.DIRECTORY_NOTIFY_INFORMATION_CLASS = System.SystemServices.DIRECTORY_NOTIFY_INFORMATION_CLASS(),
+    public var DirectoryNotifyInformationClass: DIRECTORY_NOTIFY_INFORMATION_CLASS = 0,
 )
 
 public data class IO_STACK_LOCATION_0_6(public var Length: UInt = 0u, public var CompletionFilter: UInt = 0u)
@@ -415,21 +444,21 @@ public data class IO_STACK_LOCATION_0_34(public var PowerSequence: Long = 0L)
 
 public data class IO_STACK_LOCATION_0_35(
     public var Anonymous: IO_STACK_LOCATION_0_35_0 = IO_STACK_LOCATION_0_35_0(),
-    public var Type: System.SystemServices.POWER_STATE_TYPE = System.SystemServices.POWER_STATE_TYPE(),
-    public var State: System.SystemServices.POWER_STATE = System.SystemServices.POWER_STATE(),
-    public var ShutdownType: Win32.System.Power.POWER_ACTION = Win32.System.Power.POWER_ACTION(),
+    public var Type: POWER_STATE_TYPE = 0,
+    public var State: POWER_STATE = POWER_STATE(),
+    public var ShutdownType: POWER_ACTION = 0,
 )
 
-public data class IO_STACK_LOCATION_0_35_0(public var SystemContext: UInt = 0u, public var SystemPowerStateContext: System.SystemServices.SYSTEM_POWER_STATE_CONTEXT = System.SystemServices.SYSTEM_POWER_STATE_CONTEXT())
+public data class IO_STACK_LOCATION_0_35_0(public var SystemContext: UInt = 0u, public var SystemPowerStateContext: SYSTEM_POWER_STATE_CONTEXT = SYSTEM_POWER_STATE_CONTEXT())
 
-public data class IO_STACK_LOCATION_0_24(public var Type: System.SystemServices.DEVICE_RELATION_TYPE = System.SystemServices.DEVICE_RELATION_TYPE())
+public data class IO_STACK_LOCATION_0_24(public var Type: DEVICE_RELATION_TYPE = 0)
 
-public data class IO_STACK_LOCATION_0_31(public var DeviceTextType: System.SystemServices.DEVICE_TEXT_TYPE = System.SystemServices.DEVICE_TEXT_TYPE(), public var LocaleId: UInt = 0u)
+public data class IO_STACK_LOCATION_0_31(public var DeviceTextType: DEVICE_TEXT_TYPE = 0, public var LocaleId: UInt = 0u)
 
 public data class IO_STACK_LOCATION_0_5(
     public var Length: UInt = 0u,
     public var FileName: Long = 0L,
-    public var FileInformationClass: Storage.FileSystem.FILE_INFORMATION_CLASS = Storage.FileSystem.FILE_INFORMATION_CLASS(),
+    public var FileInformationClass: FILE_INFORMATION_CLASS = 0,
     public var FileIndex: UInt = 0u,
 )
 
@@ -440,9 +469,9 @@ public data class IO_STACK_LOCATION_0_10(
     public var EaIndex: UInt = 0u,
 )
 
-public data class IO_STACK_LOCATION_0_8(public var Length: UInt = 0u, public var FileInformationClass: Storage.FileSystem.FILE_INFORMATION_CLASS = Storage.FileSystem.FILE_INFORMATION_CLASS())
+public data class IO_STACK_LOCATION_0_8(public var Length: UInt = 0u, public var FileInformationClass: FILE_INFORMATION_CLASS = 0)
 
-public data class IO_STACK_LOCATION_0_30(public var IdType: System.SystemServices.BUS_QUERY_ID_TYPE = System.SystemServices.BUS_QUERY_ID_TYPE())
+public data class IO_STACK_LOCATION_0_30(public var IdType: BUS_QUERY_ID_TYPE = 0)
 
 public data class IO_STACK_LOCATION_0_25(
     public var InterfaceType: Long = 0L,
@@ -454,14 +483,14 @@ public data class IO_STACK_LOCATION_0_25(
 
 public data class IO_STACK_LOCATION_0_22(
     public var Length: UInt = 0u,
-    public var StartSid: Win32.Security.PSID = Win32.Security.PSID(),
+    public var StartSid: PSID = 0L,
     public var SidList: Long = 0L,
     public var SidListLength: UInt = 0u,
 )
 
 public data class IO_STACK_LOCATION_0_17(public var SecurityInformation: UInt = 0u, public var Length: UInt = 0u)
 
-public data class IO_STACK_LOCATION_0_12(public var Length: UInt = 0u, public var FsInformationClass: Storage.FileSystem.FS_INFORMATION_CLASS = Storage.FileSystem.FS_INFORMATION_CLASS())
+public data class IO_STACK_LOCATION_0_12(public var Length: UInt = 0u, public var FsInformationClass: FS_INFORMATION_CLASS = 0)
 
 public data class IO_STACK_LOCATION_0_28(
     public var WhichSpace: UInt = 0u,
@@ -482,7 +511,7 @@ public data class IO_STACK_LOCATION_0_11(public var Length: UInt = 0u)
 
 public data class IO_STACK_LOCATION_0_9(
     public var Length: UInt = 0u,
-    public var FileInformationClass: Storage.FileSystem.FILE_INFORMATION_CLASS = Storage.FileSystem.FILE_INFORMATION_CLASS(),
+    public var FileInformationClass: FILE_INFORMATION_CLASS = 0,
     public var FileObject: Long = 0L,
     public var Anonymous: IO_STACK_LOCATION_0_9_0 = IO_STACK_LOCATION_0_9_0(),
 )
@@ -490,7 +519,7 @@ public data class IO_STACK_LOCATION_0_9(
 public data class IO_STACK_LOCATION_0_9_0(
     public var Anonymous: IO_STACK_LOCATION_0_9_0_0 = IO_STACK_LOCATION_0_9_0_0(),
     public var ClusterCount: UInt = 0u,
-    public var DeleteHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var DeleteHandle: HANDLE = 0L,
 )
 
 public data class IO_STACK_LOCATION_0_9_0_0(public var ReplaceIfExists: Boolean = false, public var AdvanceOnly: Boolean = false)
@@ -499,16 +528,16 @@ public data class IO_STACK_LOCATION_0_29(public var Lock: Boolean = false)
 
 public data class IO_STACK_LOCATION_0_23(public var Length: UInt = 0u)
 
-public data class IO_STACK_LOCATION_0_18(public var SecurityInformation: UInt = 0u, public var SecurityDescriptor: Win32.Security.PSECURITY_DESCRIPTOR = Win32.Security.PSECURITY_DESCRIPTOR())
+public data class IO_STACK_LOCATION_0_18(public var SecurityInformation: UInt = 0u, public var SecurityDescriptor: PSECURITY_DESCRIPTOR = 0L)
 
-public data class IO_STACK_LOCATION_0_13(public var Length: UInt = 0u, public var FsInformationClass: Storage.FileSystem.FS_INFORMATION_CLASS = Storage.FileSystem.FS_INFORMATION_CLASS())
+public data class IO_STACK_LOCATION_0_13(public var Length: UInt = 0u, public var FsInformationClass: FS_INFORMATION_CLASS = 0)
 
 public data class IO_STACK_LOCATION_0_36(public var AllocatedResources: Long = 0L, public var AllocatedResourcesTranslated: Long = 0L)
 
 public data class IO_STACK_LOCATION_0_32(
     public var InPath: Boolean = false,
     public var Reserved: BooleanArray = BooleanArray(3),
-    public var Type: System.SystemServices.DEVICE_USAGE_NOTIFICATION_TYPE = System.SystemServices.DEVICE_USAGE_NOTIFICATION_TYPE(),
+    public var Type: DEVICE_USAGE_NOTIFICATION_TYPE = 0,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -536,7 +565,7 @@ public data class IO_STACK_LOCATION_0_37(
     public var Buffer: Long = 0L,
 )
 
-public data class IO_STACK_LOCATION_0_33(public var PowerState: Win32.System.Power.SYSTEM_POWER_STATE = Win32.System.Power.SYSTEM_POWER_STATE())
+public data class IO_STACK_LOCATION_0_33(public var PowerState: SYSTEM_POWER_STATE = 0)
 
 public data class IO_STACK_LOCATION_0_4(
     public var Length: UInt = 0u,
@@ -550,8 +579,8 @@ public class IRP(
     public var MdlAddress: Long = 0L,
     public var Flags: UInt = 0u,
     public var AssociatedIrp: IRP_0 = IRP_0(),
-    public var ThreadListEntry: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(),
-    public var IoStatus: Win32.System.IO.IO_STATUS_BLOCK = Win32.System.IO.IO_STATUS_BLOCK(),
+    public var ThreadListEntry: LIST_ENTRY = LIST_ENTRY(),
+    public var IoStatus: IO_STATUS_BLOCK = IO_STATUS_BLOCK(),
     public var RequestorMode: Byte = 0,
     public var PendingReturned: Boolean = false,
     public var StackCount: Byte = 0,
@@ -580,13 +609,13 @@ public data class IRP_2(public var AsynchronousParameters: IRP_2_0 = IRP_2_0(), 
 
 public data class IRP_2_0(public var Anonymous1: IRP_2_0_0 = IRP_2_0_0(), public var Anonymous2: IRP_2_0_1 = IRP_2_0_1())
 
-public data class IRP_2_0_0(public var UserApcRoutine: Win32.System.IO.PIO_APC_ROUTINE = Win32.System.IO.PIO_APC_ROUTINE(), public var IssuingProcess: Long = 0L)
+public data class IRP_2_0_0(public var UserApcRoutine: PIO_APC_ROUTINE = null, public var IssuingProcess: Long = 0L)
 
 public data class IRP_2_0_1(public var UserApcContext: Long = 0L, public var IoRing: Long = 0L)
 
 public data class IRP_3(
     public var Overlay: IRP_3_0 = IRP_3_0(),
-    public var Apc: System.SystemServices.KAPC = System.SystemServices.KAPC(),
+    public var Apc: KAPC = KAPC(),
     public var CompletionKey: Long = 0L,
 )
 
@@ -598,7 +627,7 @@ public data class IRP_3_0(
     public var OriginalFileObject: Long = 0L,
 )
 
-public data class IRP_3_0_0(public var DeviceQueueEntry: System.SystemServices.KDEVICE_QUEUE_ENTRY = System.SystemServices.KDEVICE_QUEUE_ENTRY(), public var Anonymous: IRP_3_0_0_0 = IRP_3_0_0_0())
+public data class IRP_3_0_0(public var DeviceQueueEntry: KDEVICE_QUEUE_ENTRY = KDEVICE_QUEUE_ENTRY(), public var Anonymous: IRP_3_0_0_0 = IRP_3_0_0_0())
 
 public data class IRP_3_0_0_0(public var DriverContext: LongArray = LongArray(4)) {
     override fun equals(other: Any?): Boolean {
@@ -613,21 +642,21 @@ public data class IRP_3_0_0_0(public var DriverContext: LongArray = LongArray(4)
     }
 }
 
-public data class IRP_3_0_1(public var ListEntry: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(), public var Anonymous: IRP_3_0_1_0 = IRP_3_0_1_0())
+public data class IRP_3_0_1(public var ListEntry: LIST_ENTRY = LIST_ENTRY(), public var Anonymous: IRP_3_0_1_0 = IRP_3_0_1_0())
 
 public data class IRP_3_0_1_0(public var CurrentStackLocation: Long = 0L, public var PacketType: UInt = 0u)
 
 public data class KDEVICE_QUEUE(
     public var Type: Short = 0,
     public var Size: Short = 0,
-    public var DeviceListHead: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(),
+    public var DeviceListHead: LIST_ENTRY = LIST_ENTRY(),
     public var Lock: ULong = 0uL,
     public var Busy: Boolean = false,
 )
 
 public data class KDPC(
     public var Anonymous: KDPC_0 = KDPC_0(),
-    public var DpcListEntry: Win32.System.Kernel.SINGLE_LIST_ENTRY = Win32.System.Kernel.SINGLE_LIST_ENTRY(),
+    public var DpcListEntry: SINGLE_LIST_ENTRY = SINGLE_LIST_ENTRY(),
     public var ProcessorHistory: ULong = 0uL,
     public var DeferredRoutine: PKDEFERRED_ROUTINE = null,
     public var DeferredContext: Long = 0L,
@@ -648,7 +677,7 @@ public data class KEVENT(public var Header: DISPATCHER_HEADER = DISPATCHER_HEADE
 
 public data class KMUTANT(
     public var Header: DISPATCHER_HEADER = DISPATCHER_HEADER(),
-    public var MutantListEntry: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(),
+    public var MutantListEntry: LIST_ENTRY = LIST_ENTRY(),
     public var OwnerThread: Long = 0L,
     public var Anonymous: KMUTANT_0 = KMUTANT_0(),
     public var ApcDisable: UByte = 0u,
@@ -660,14 +689,14 @@ public data class KMUTANT_0_0(public var _bitfield: UByte = 0u)
 
 public data class KQUEUE(
     public var Header: DISPATCHER_HEADER = DISPATCHER_HEADER(),
-    public var EntryListHead: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(),
+    public var EntryListHead: LIST_ENTRY = LIST_ENTRY(),
     public var CurrentCount: UInt = 0u,
     public var MaximumCount: UInt = 0u,
-    public var ThreadListHead: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(),
+    public var ThreadListHead: LIST_ENTRY = LIST_ENTRY(),
 )
 
 public data class KWAIT_BLOCK(
-    public var WaitListEntry: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(),
+    public var WaitListEntry: LIST_ENTRY = LIST_ENTRY(),
     public var WaitType: UByte = 0u,
     public var BlockState: UByte = 0u,
     public var WaitKey: UShort = 0u,
@@ -695,9 +724,9 @@ public data class MDL(
 
 public data class OBJECT_ATTRIBUTES(
     public var Length: UInt = 0u,
-    public var RootDirectory: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var RootDirectory: HANDLE = 0L,
     public var ObjectName: Long = 0L,
-    public var Attributes: Win32.Foundation.OBJECT_ATTRIBUTE_FLAGS = Win32.Foundation.OBJECT_ATTRIBUTE_FLAGS(),
+    public var Attributes: OBJECT_ATTRIBUTE_FLAGS = 0u,
     public var SecurityDescriptor: Long = 0L,
     public var SecurityQualityOfService: Long = 0L,
 )
@@ -706,7 +735,7 @@ public data class OBJECT_ATTRIBUTES32(
     public var Length: UInt = 0u,
     public var RootDirectory: UInt = 0u,
     public var ObjectName: UInt = 0u,
-    public var Attributes: Win32.Foundation.OBJECT_ATTRIBUTE_FLAGS = Win32.Foundation.OBJECT_ATTRIBUTE_FLAGS(),
+    public var Attributes: OBJECT_ATTRIBUTE_FLAGS = 0u,
     public var SecurityDescriptor: Long = 0L,
     public var SecurityQualityOfService: Long = 0L,
 )
@@ -715,12 +744,12 @@ public data class OBJECT_ATTRIBUTES64(
     public var Length: UInt = 0u,
     public var RootDirectory: ULong = 0uL,
     public var ObjectName: ULong = 0uL,
-    public var Attributes: Win32.Foundation.OBJECT_ATTRIBUTE_FLAGS = Win32.Foundation.OBJECT_ATTRIBUTE_FLAGS(),
+    public var Attributes: OBJECT_ATTRIBUTE_FLAGS = 0u,
     public var SecurityDescriptor: Long = 0L,
     public var SecurityQualityOfService: Long = 0L,
 )
 
-public data class OBJECT_NAME_INFORMATION(public var Name: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING())
+public data class OBJECT_NAME_INFORMATION(public var Name: UNICODE_STRING = UNICODE_STRING())
 
 public data class OWNER_ENTRY(public var OwnerThread: ULong = 0uL, public var Anonymous: OWNER_ENTRY_0 = OWNER_ENTRY_0())
 
@@ -742,7 +771,7 @@ public data class SECTION_OBJECT_POINTERS(
 
 public data class SECURITY_SUBJECT_CONTEXT(
     public var ClientToken: Long = 0L,
-    public var ImpersonationLevel: Win32.Security.SECURITY_IMPERSONATION_LEVEL = Win32.Security.SECURITY_IMPERSONATION_LEVEL(),
+    public var ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL = 0,
     public var PrimaryToken: Long = 0L,
     public var ProcessAuditId: Long = 0L,
 )
@@ -819,7 +848,7 @@ public data class VPB(
 }
 
 public data class WORK_QUEUE_ITEM(
-    public var List: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(),
+    public var List: LIST_ENTRY = LIST_ENTRY(),
     public var WorkerRoutine: PWORKER_THREAD_ROUTINE = null,
     public var Parameter: Long = 0L,
 )

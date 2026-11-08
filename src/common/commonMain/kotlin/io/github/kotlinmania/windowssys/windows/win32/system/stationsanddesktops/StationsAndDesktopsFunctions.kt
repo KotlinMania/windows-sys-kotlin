@@ -4,29 +4,33 @@ import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.WNDENUMPROC
 
 public fun interface FnCallback {
-    public operator fun invoke(param0: PCSTR, param1: Foundation.LPARAM): BOOL
+    public operator fun invoke(param0: PCSTR, param1: LPARAM): BOOL
 }
 
 public fun interface FnCallback1 {
-    public operator fun invoke(param0: PCWSTR, param1: Foundation.LPARAM): BOOL
+    public operator fun invoke(param0: PCWSTR, param1: LPARAM): BOOL
 }
 
-public fun BroadcastSystemMessageA(flags: UInt, lpinfo: Long, msg: UInt, wparam: Foundation.WPARAM, lparam: Foundation.LPARAM): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "BroadcastSystemMessageA", longArrayOf(flags.toLong(), lpinfo, msg.toLong(), Win32DynamicFfi.objectSlot(wparam), Win32DynamicFfi.objectSlot(lparam))).toInt()
+public fun BroadcastSystemMessageA(flags: UInt, lpinfo: Long, msg: UInt, wparam: WPARAM, lparam: LPARAM): Int {
+    return Win32DynamicFfi.invoke("user32.dll", "BroadcastSystemMessageA", longArrayOf(flags.toLong(), lpinfo, msg.toLong(), wparam.toLong(), lparam)).toInt()
 }
 
-public fun BroadcastSystemMessageExA(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: Long, msg: UInt, wparam: Foundation.WPARAM, lparam: Foundation.LPARAM, pbsminfo: Long): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "BroadcastSystemMessageExA", longArrayOf(flags.toLong(), lpinfo, msg.toLong(), Win32DynamicFfi.objectSlot(wparam), Win32DynamicFfi.objectSlot(lparam), pbsminfo)).toInt()
+public fun BroadcastSystemMessageExA(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: Long, msg: UInt, wparam: WPARAM, lparam: LPARAM, pbsminfo: Long): Int {
+    return Win32DynamicFfi.invoke("user32.dll", "BroadcastSystemMessageExA", longArrayOf(flags.toLong(), lpinfo, msg.toLong(), wparam.toLong(), lparam, pbsminfo)).toInt()
 }
 
-public fun BroadcastSystemMessageExW(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: Long, msg: UInt, wparam: Foundation.WPARAM, lparam: Foundation.LPARAM, pbsminfo: Long): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "BroadcastSystemMessageExW", longArrayOf(flags.toLong(), lpinfo, msg.toLong(), Win32DynamicFfi.objectSlot(wparam), Win32DynamicFfi.objectSlot(lparam), pbsminfo)).toInt()
+public fun BroadcastSystemMessageExW(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: Long, msg: UInt, wparam: WPARAM, lparam: LPARAM, pbsminfo: Long): Int {
+    return Win32DynamicFfi.invoke("user32.dll", "BroadcastSystemMessageExW", longArrayOf(flags.toLong(), lpinfo, msg.toLong(), wparam.toLong(), lparam, pbsminfo)).toInt()
 }
 
-public fun BroadcastSystemMessageW(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: Long, msg: UInt, wparam: Foundation.WPARAM, lparam: Foundation.LPARAM): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "BroadcastSystemMessageW", longArrayOf(flags.toLong(), lpinfo, msg.toLong(), Win32DynamicFfi.objectSlot(wparam), Win32DynamicFfi.objectSlot(lparam))).toInt()
+public fun BroadcastSystemMessageW(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: Long, msg: UInt, wparam: WPARAM, lparam: LPARAM): Int {
+    return Win32DynamicFfi.invoke("user32.dll", "BroadcastSystemMessageW", longArrayOf(flags.toLong(), lpinfo, msg.toLong(), wparam.toLong(), lparam)).toInt()
 }
 
 public fun CloseDesktop(hdesktop: HDESK): BOOL {
@@ -61,24 +65,24 @@ public fun CreateWindowStationW(lpwinsta: PCWSTR, dwflags: UInt, dwdesiredaccess
     return Win32DynamicFfi.invoke("user32.dll", "CreateWindowStationW", longArrayOf(lpwinsta, dwflags.toLong(), dwdesiredaccess.toLong(), lpsa))
 }
 
-public fun EnumDesktopWindows(hdesktop: HDESK, lpfn: UI.WindowsAndMessaging.WNDENUMPROC, lparam: Foundation.LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "EnumDesktopWindows", longArrayOf(hdesktop, Win32DynamicFfi.objectSlot(lpfn), Win32DynamicFfi.objectSlot(lparam))).toInt()
+public fun EnumDesktopWindows(hdesktop: HDESK, lpfn: WNDENUMPROC, lparam: LPARAM): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "EnumDesktopWindows", longArrayOf(hdesktop, Win32DynamicFfi.objectSlot(lpfn), lparam)).toInt()
 }
 
-public fun EnumDesktopsA(hwinsta: HWINSTA, lpenumfunc: DESKTOPENUMPROCA, lparam: Foundation.LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "EnumDesktopsA", longArrayOf(hwinsta, Win32DynamicFfi.objectSlot(lpenumfunc), Win32DynamicFfi.objectSlot(lparam))).toInt()
+public fun EnumDesktopsA(hwinsta: HWINSTA, lpenumfunc: DESKTOPENUMPROCA, lparam: LPARAM): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "EnumDesktopsA", longArrayOf(hwinsta, Win32DynamicFfi.objectSlot(lpenumfunc), lparam)).toInt()
 }
 
-public fun EnumDesktopsW(hwinsta: HWINSTA, lpenumfunc: DESKTOPENUMPROCW, lparam: Foundation.LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "EnumDesktopsW", longArrayOf(hwinsta, Win32DynamicFfi.objectSlot(lpenumfunc), Win32DynamicFfi.objectSlot(lparam))).toInt()
+public fun EnumDesktopsW(hwinsta: HWINSTA, lpenumfunc: DESKTOPENUMPROCW, lparam: LPARAM): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "EnumDesktopsW", longArrayOf(hwinsta, Win32DynamicFfi.objectSlot(lpenumfunc), lparam)).toInt()
 }
 
-public fun EnumWindowStationsA(lpenumfunc: WINSTAENUMPROCA, lparam: Foundation.LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "EnumWindowStationsA", longArrayOf(Win32DynamicFfi.objectSlot(lpenumfunc), Win32DynamicFfi.objectSlot(lparam))).toInt()
+public fun EnumWindowStationsA(lpenumfunc: WINSTAENUMPROCA, lparam: LPARAM): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "EnumWindowStationsA", longArrayOf(Win32DynamicFfi.objectSlot(lpenumfunc), lparam)).toInt()
 }
 
-public fun EnumWindowStationsW(lpenumfunc: WINSTAENUMPROCW, lparam: Foundation.LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "EnumWindowStationsW", longArrayOf(Win32DynamicFfi.objectSlot(lpenumfunc), Win32DynamicFfi.objectSlot(lparam))).toInt()
+public fun EnumWindowStationsW(lpenumfunc: WINSTAENUMPROCW, lparam: LPARAM): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "EnumWindowStationsW", longArrayOf(Win32DynamicFfi.objectSlot(lpenumfunc), lparam)).toInt()
 }
 
 public fun GetProcessWindowStation(): HWINSTA {
@@ -89,12 +93,12 @@ public fun GetThreadDesktop(dwthreadid: UInt): HDESK {
     return Win32DynamicFfi.invoke("user32.dll", "GetThreadDesktop", longArrayOf(dwthreadid.toLong()))
 }
 
-public fun GetUserObjectInformationA(hobj: Foundation.HANDLE, nindex: USER_OBJECT_INFORMATION_INDEX, pvinfo: Long, nlength: UInt, lpnlengthneeded: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetUserObjectInformationA", longArrayOf(Win32DynamicFfi.objectSlot(hobj), nindex.toLong(), pvinfo, nlength.toLong(), lpnlengthneeded)).toInt()
+public fun GetUserObjectInformationA(hobj: HANDLE, nindex: USER_OBJECT_INFORMATION_INDEX, pvinfo: Long, nlength: UInt, lpnlengthneeded: Long): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "GetUserObjectInformationA", longArrayOf(hobj, nindex.toLong(), pvinfo, nlength.toLong(), lpnlengthneeded)).toInt()
 }
 
-public fun GetUserObjectInformationW(hobj: Foundation.HANDLE, nindex: USER_OBJECT_INFORMATION_INDEX, pvinfo: Long, nlength: UInt, lpnlengthneeded: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetUserObjectInformationW", longArrayOf(Win32DynamicFfi.objectSlot(hobj), nindex.toLong(), pvinfo, nlength.toLong(), lpnlengthneeded)).toInt()
+public fun GetUserObjectInformationW(hobj: HANDLE, nindex: USER_OBJECT_INFORMATION_INDEX, pvinfo: Long, nlength: UInt, lpnlengthneeded: Long): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "GetUserObjectInformationW", longArrayOf(hobj, nindex.toLong(), pvinfo, nlength.toLong(), lpnlengthneeded)).toInt()
 }
 
 public fun OpenDesktopA(lpszdesktop: PCSTR, dwflags: DESKTOP_CONTROL_FLAGS, finherit: BOOL, dwdesiredaccess: UInt): HDESK {
@@ -125,12 +129,12 @@ public fun SetThreadDesktop(hdesktop: HDESK): BOOL {
     return Win32DynamicFfi.invoke("user32.dll", "SetThreadDesktop", longArrayOf(hdesktop)).toInt()
 }
 
-public fun SetUserObjectInformationA(hobj: Foundation.HANDLE, nindex: Int, pvinfo: Long, nlength: UInt): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetUserObjectInformationA", longArrayOf(Win32DynamicFfi.objectSlot(hobj), nindex.toLong(), pvinfo, nlength.toLong())).toInt()
+public fun SetUserObjectInformationA(hobj: HANDLE, nindex: Int, pvinfo: Long, nlength: UInt): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "SetUserObjectInformationA", longArrayOf(hobj, nindex.toLong(), pvinfo, nlength.toLong())).toInt()
 }
 
-public fun SetUserObjectInformationW(hobj: Foundation.HANDLE, nindex: Int, pvinfo: Long, nlength: UInt): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetUserObjectInformationW", longArrayOf(Win32DynamicFfi.objectSlot(hobj), nindex.toLong(), pvinfo, nlength.toLong())).toInt()
+public fun SetUserObjectInformationW(hobj: HANDLE, nindex: Int, pvinfo: Long, nlength: UInt): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "SetUserObjectInformationW", longArrayOf(hobj, nindex.toLong(), pvinfo, nlength.toLong())).toInt()
 }
 
 public fun SwitchDesktop(hdesktop: HDESK): BOOL {

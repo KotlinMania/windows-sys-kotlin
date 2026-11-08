@@ -1,5 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.security
 
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+
 public typealias ACE_FLAGS = UInt
 
 public typealias ACE_REVISION = UInt
@@ -29,7 +31,7 @@ public typealias NCRYPT_STREAM_HANDLE = Long
 public typealias OBJECT_SECURITY_INFORMATION = UInt
 
 public fun interface PLSA_AP_CALL_PACKAGE_UNTRUSTEDFn {
-    public operator fun invoke(clientrequest: Long, protocolsubmitbuffer: Long, clientbufferbase: Long, submitbufferlength: UInt, protocolreturnbuffer: Long, returnbufferlength: Long, protocolstatus: Long): Foundation.NTSTATUS
+    public operator fun invoke(clientrequest: Long, protocolsubmitbuffer: Long, clientbufferbase: Long, submitbufferlength: UInt, protocolreturnbuffer: Long, returnbufferlength: Long, protocolstatus: Long): NTSTATUS
 }
 
 public typealias PLSA_AP_CALL_PACKAGE_UNTRUSTED = PLSA_AP_CALL_PACKAGE_UNTRUSTEDFn?

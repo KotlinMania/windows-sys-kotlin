@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.authorization
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
@@ -563,11 +564,11 @@ public val AuthzContextInfoUserClaims: AUTHZ_CONTEXT_INFORMATION_CLASS = 13
 
 public val AuthzContextInfoUserSid: AUTHZ_CONTEXT_INFORMATION_CLASS = 1
 
-public val AzAuthorizationStore: GUID = GUID.from_u128(0xb2bcff59a7574b0buL, 0xa1bcea69981da69euL)
+public val AzAuthorizationStore: GUID = GUID.from_u128(U128(0xb2bcff59a7574b0buL, 0xa1bcea69981da69euL))
 
-public val AzBizRuleContext: GUID = GUID.from_u128(0x5c2dc96f8d51434buL, 0xb33c379bccae77c3uL)
+public val AzBizRuleContext: GUID = GUID.from_u128(U128(0x5c2dc96f8d51434buL, 0xb33c379bccae77c3uL))
 
-public val AzPrincipalLocator: GUID = GUID.from_u128(0x483afb5d70df4e16uL, 0xabdca1de4d015a3euL)
+public val AzPrincipalLocator: GUID = GUID.from_u128(U128(0x483afb5d70df4e16uL, 0xabdca1de4d015a3euL))
 
 public val DENY_ACCESS: ACCESS_MODE = 3
 

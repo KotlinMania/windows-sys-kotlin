@@ -5,6 +5,16 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBITMAP
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HENHMETAFILE
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HMETAFILE
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HPALETTE
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HRGN
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HICON
 
 public fun GdipAddPathArc(path: Long, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status {
     return Win32DynamicFfi.invokeFp("gdiplus.dll", "GdipAddPathArc", 5460, false, longArrayOf(path, (x.toRawBits().toLong() and 0xFFFF_FFFFL), (y.toRawBits().toLong() and 0xFFFF_FFFFL), (width.toRawBits().toLong() and 0xFFFF_FFFFL), (height.toRawBits().toLong() and 0xFFFF_FFFFL), (startangle.toRawBits().toLong() and 0xFFFF_FFFFL), (sweepangle.toRawBits().toLong() and 0xFFFF_FFFFL))).toLong().toInt()
@@ -310,16 +320,16 @@ public fun GdipCreateBitmapFromGraphics(width: Int, height: Int, target: Long, b
     return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateBitmapFromGraphics", longArrayOf(width.toLong(), height.toLong(), target, bitmap)).toInt()
 }
 
-public fun GdipCreateBitmapFromHBITMAP(hbm: Gdi.HBITMAP, hpal: Gdi.HPALETTE, bitmap: Long): Status {
-    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateBitmapFromHBITMAP", longArrayOf(Win32DynamicFfi.objectSlot(hbm), Win32DynamicFfi.objectSlot(hpal), bitmap)).toInt()
+public fun GdipCreateBitmapFromHBITMAP(hbm: HBITMAP, hpal: HPALETTE, bitmap: Long): Status {
+    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateBitmapFromHBITMAP", longArrayOf(hbm, hpal, bitmap)).toInt()
 }
 
-public fun GdipCreateBitmapFromHICON(hicon: UI.WindowsAndMessaging.HICON, bitmap: Long): Status {
-    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateBitmapFromHICON", longArrayOf(Win32DynamicFfi.objectSlot(hicon), bitmap)).toInt()
+public fun GdipCreateBitmapFromHICON(hicon: HICON, bitmap: Long): Status {
+    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateBitmapFromHICON", longArrayOf(hicon, bitmap)).toInt()
 }
 
-public fun GdipCreateBitmapFromResource(hinstance: Foundation.HINSTANCE, lpbitmapname: PCWSTR, bitmap: Long): Status {
-    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateBitmapFromResource", longArrayOf(Win32DynamicFfi.objectSlot(hinstance), lpbitmapname, bitmap)).toInt()
+public fun GdipCreateBitmapFromResource(hinstance: HINSTANCE, lpbitmapname: PCWSTR, bitmap: Long): Status {
+    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateBitmapFromResource", longArrayOf(hinstance, lpbitmapname, bitmap)).toInt()
 }
 
 public fun GdipCreateBitmapFromScan0(width: Int, height: Int, stride: Int, format: Int, scan0: Long, bitmap: Long): Status {
@@ -343,7 +353,7 @@ public fun GdipCreateCustomLineCap(fillpath: Long, strokepath: Long, basecap: Li
 }
 
 public fun GdipCreateEffect(guid: GUID, effect: Long): Status {
-    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateEffect", longArrayOf(Win32DynamicFfi.guidSlot(guid.data1, guid.data2, guid.data3, guid.data4), effect)).toInt()
+    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateEffect", longArrayOf(run { val buf = ByteArray(16); buf[0] = (guid.data1.toInt() and 0xFF).toByte(); buf[1] = ((guid.data1.toInt() ushr 8) and 0xFF).toByte(); buf[2] = ((guid.data1.toInt() ushr 16) and 0xFF).toByte(); buf[3] = ((guid.data1.toInt() ushr 24) and 0xFF).toByte(); buf[4] = (guid.data2.toInt() and 0xFF).toByte(); buf[5] = ((guid.data2.toInt() ushr 8) and 0xFF).toByte(); buf[6] = (guid.data3.toInt() and 0xFF).toByte(); buf[7] = ((guid.data3.toInt() ushr 8) and 0xFF).toByte(); for (i in 0 until minOf(8, guid.data4.size)) buf[8 + i] = guid.data4[i].toByte(); val ptr = Win32DynamicFfi.allocZeroed(16); Win32DynamicFfi.writeBytes(ptr, buf); ptr }, effect)).toInt()
 }
 
 public fun GdipCreateFont(fontfamily: Long, emsize: Float, style: Int, unit: Unit, font: Long): Status {
@@ -354,32 +364,32 @@ public fun GdipCreateFontFamilyFromName(name: PCWSTR, fontcollection: Long, font
     return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateFontFamilyFromName", longArrayOf(name, fontcollection, fontfamily)).toInt()
 }
 
-public fun GdipCreateFontFromDC(hdc: Gdi.HDC, font: Long): Status {
-    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateFontFromDC", longArrayOf(Win32DynamicFfi.objectSlot(hdc), font)).toInt()
+public fun GdipCreateFontFromDC(hdc: HDC, font: Long): Status {
+    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateFontFromDC", longArrayOf(hdc, font)).toInt()
 }
 
-public fun GdipCreateFontFromLogfontA(hdc: Gdi.HDC, logfont: Long, font: Long): Status {
-    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateFontFromLogfontA", longArrayOf(Win32DynamicFfi.objectSlot(hdc), logfont, font)).toInt()
+public fun GdipCreateFontFromLogfontA(hdc: HDC, logfont: Long, font: Long): Status {
+    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateFontFromLogfontA", longArrayOf(hdc, logfont, font)).toInt()
 }
 
-public fun GdipCreateFontFromLogfontW(hdc: Gdi.HDC, logfont: Long, font: Long): Status {
-    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateFontFromLogfontW", longArrayOf(Win32DynamicFfi.objectSlot(hdc), logfont, font)).toInt()
+public fun GdipCreateFontFromLogfontW(hdc: HDC, logfont: Long, font: Long): Status {
+    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateFontFromLogfontW", longArrayOf(hdc, logfont, font)).toInt()
 }
 
-public fun GdipCreateFromHDC(hdc: Gdi.HDC, graphics: Long): Status {
-    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateFromHDC", longArrayOf(Win32DynamicFfi.objectSlot(hdc), graphics)).toInt()
+public fun GdipCreateFromHDC(hdc: HDC, graphics: Long): Status {
+    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateFromHDC", longArrayOf(hdc, graphics)).toInt()
 }
 
-public fun GdipCreateFromHDC2(hdc: Gdi.HDC, hdevice: Foundation.HANDLE, graphics: Long): Status {
-    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateFromHDC2", longArrayOf(Win32DynamicFfi.objectSlot(hdc), Win32DynamicFfi.objectSlot(hdevice), graphics)).toInt()
+public fun GdipCreateFromHDC2(hdc: HDC, hdevice: HANDLE, graphics: Long): Status {
+    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateFromHDC2", longArrayOf(hdc, hdevice, graphics)).toInt()
 }
 
-public fun GdipCreateFromHWND(hwnd: Foundation.HWND, graphics: Long): Status {
-    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateFromHWND", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), graphics)).toInt()
+public fun GdipCreateFromHWND(hwnd: HWND, graphics: Long): Status {
+    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateFromHWND", longArrayOf(hwnd, graphics)).toInt()
 }
 
-public fun GdipCreateFromHWNDICM(hwnd: Foundation.HWND, graphics: Long): Status {
-    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateFromHWNDICM", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), graphics)).toInt()
+public fun GdipCreateFromHWNDICM(hwnd: HWND, graphics: Long): Status {
+    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateFromHWNDICM", longArrayOf(hwnd, graphics)).toInt()
 }
 
 public fun GdipCreateHBITMAPFromBitmap(bitmap: Long, hbmreturn: Long, background: UInt): Status {
@@ -390,9 +400,8 @@ public fun GdipCreateHICONFromBitmap(bitmap: Long, hbmreturn: Long): Status {
     return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateHICONFromBitmap", longArrayOf(bitmap, hbmreturn)).toInt()
 }
 
-public fun GdipCreateHalftonePalette(): Gdi.HPALETTE {
-    Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateHalftonePalette", longArrayOf())
-    return Gdi.HPALETTE()
+public fun GdipCreateHalftonePalette(): HPALETTE {
+    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateHalftonePalette", longArrayOf())
 }
 
 public fun GdipCreateHatchBrush(hatchstyle: HatchStyle, forecol: UInt, backcol: UInt, brush: Long): Status {
@@ -443,8 +452,8 @@ public fun GdipCreateMatrix3I(rect: Long, dstplg: Long, matrix: Long): Status {
     return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateMatrix3I", longArrayOf(rect, dstplg, matrix)).toInt()
 }
 
-public fun GdipCreateMetafileFromEmf(hemf: Gdi.HENHMETAFILE, deleteemf: BOOL, metafile: Long): Status {
-    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateMetafileFromEmf", longArrayOf(Win32DynamicFfi.objectSlot(hemf), deleteemf.toLong(), metafile)).toInt()
+public fun GdipCreateMetafileFromEmf(hemf: HENHMETAFILE, deleteemf: BOOL, metafile: Long): Status {
+    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateMetafileFromEmf", longArrayOf(hemf, deleteemf.toLong(), metafile)).toInt()
 }
 
 public fun GdipCreateMetafileFromFile(file: PCWSTR, metafile: Long): Status {
@@ -455,8 +464,8 @@ public fun GdipCreateMetafileFromStream(stream: Long, metafile: Long): Status {
     return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateMetafileFromStream", longArrayOf(stream, metafile)).toInt()
 }
 
-public fun GdipCreateMetafileFromWmf(hwmf: Gdi.HMETAFILE, deletewmf: BOOL, wmfplaceablefileheader: Long, metafile: Long): Status {
-    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateMetafileFromWmf", longArrayOf(Win32DynamicFfi.objectSlot(hwmf), deletewmf.toLong(), wmfplaceablefileheader, metafile)).toInt()
+public fun GdipCreateMetafileFromWmf(hwmf: HMETAFILE, deletewmf: BOOL, wmfplaceablefileheader: Long, metafile: Long): Status {
+    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateMetafileFromWmf", longArrayOf(hwmf, deletewmf.toLong(), wmfplaceablefileheader, metafile)).toInt()
 }
 
 public fun GdipCreateMetafileFromWmfFile(file: PCWSTR, wmfplaceablefileheader: Long, metafile: Long): Status {
@@ -503,8 +512,8 @@ public fun GdipCreateRegion(region: Long): Status {
     return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateRegion", longArrayOf(region)).toInt()
 }
 
-public fun GdipCreateRegionHrgn(hrgn: Gdi.HRGN, region: Long): Status {
-    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateRegionHrgn", longArrayOf(Win32DynamicFfi.objectSlot(hrgn), region)).toInt()
+public fun GdipCreateRegionHrgn(hrgn: HRGN, region: Long): Status {
+    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipCreateRegionHrgn", longArrayOf(hrgn, region)).toInt()
 }
 
 public fun GdipCreateRegionPath(path: Long, region: Long): Status {
@@ -807,8 +816,8 @@ public fun GdipDrawString(graphics: Long, string: PCWSTR, length: Int, font: Lon
     return Win32DynamicFfi.invoke("gdiplus.dll", "GdipDrawString", longArrayOf(graphics, string, length.toLong(), font, layoutrect, stringformat, brush)).toInt()
 }
 
-public fun GdipEmfToWmfBits(hemf: Gdi.HENHMETAFILE, cbdata16: UInt, pdata16: Long, imapmode: Int, eflags: Int): UInt {
-    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipEmfToWmfBits", longArrayOf(Win32DynamicFfi.objectSlot(hemf), cbdata16.toLong(), pdata16, imapmode.toLong(), eflags.toLong())).toUInt()
+public fun GdipEmfToWmfBits(hemf: HENHMETAFILE, cbdata16: UInt, pdata16: Long, imapmode: Int, eflags: Int): UInt {
+    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipEmfToWmfBits", longArrayOf(hemf, cbdata16.toLong(), pdata16, imapmode.toLong(), eflags.toLong())).toUInt()
 }
 
 public fun GdipEndContainer(graphics: Long, state: UInt): Status {
@@ -1271,8 +1280,8 @@ public fun GdipGetMetafileDownLevelRasterizationLimit(metafile: Long, metafilera
     return Win32DynamicFfi.invoke("gdiplus.dll", "GdipGetMetafileDownLevelRasterizationLimit", longArrayOf(metafile, metafilerasterizationlimitdpi)).toInt()
 }
 
-public fun GdipGetMetafileHeaderFromEmf(hemf: Gdi.HENHMETAFILE, header: Long): Status {
-    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipGetMetafileHeaderFromEmf", longArrayOf(Win32DynamicFfi.objectSlot(hemf), header)).toInt()
+public fun GdipGetMetafileHeaderFromEmf(hemf: HENHMETAFILE, header: Long): Status {
+    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipGetMetafileHeaderFromEmf", longArrayOf(hemf, header)).toInt()
 }
 
 public fun GdipGetMetafileHeaderFromFile(filename: PCWSTR, header: Long): Status {
@@ -1287,8 +1296,8 @@ public fun GdipGetMetafileHeaderFromStream(stream: Long, header: Long): Status {
     return Win32DynamicFfi.invoke("gdiplus.dll", "GdipGetMetafileHeaderFromStream", longArrayOf(stream, header)).toInt()
 }
 
-public fun GdipGetMetafileHeaderFromWmf(hwmf: Gdi.HMETAFILE, wmfplaceablefileheader: Long, header: Long): Status {
-    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipGetMetafileHeaderFromWmf", longArrayOf(Win32DynamicFfi.objectSlot(hwmf), wmfplaceablefileheader, header)).toInt()
+public fun GdipGetMetafileHeaderFromWmf(hwmf: HMETAFILE, wmfplaceablefileheader: Long, header: Long): Status {
+    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipGetMetafileHeaderFromWmf", longArrayOf(hwmf, wmfplaceablefileheader, header)).toInt()
 }
 
 public fun GdipGetNearestColor(graphics: Long, argb: Long): Status {
@@ -1871,32 +1880,32 @@ public fun GdipPrivateAddMemoryFont(fontcollection: Long, memory: Long, length: 
     return Win32DynamicFfi.invoke("gdiplus.dll", "GdipPrivateAddMemoryFont", longArrayOf(fontcollection, memory, length.toLong())).toInt()
 }
 
-public fun GdipRecordMetafile(referencehdc: Gdi.HDC, type: EmfType, framerect: Long, frameunit: MetafileFrameUnit, description: PCWSTR, metafile: Long): Status {
-    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipRecordMetafile", longArrayOf(Win32DynamicFfi.objectSlot(referencehdc), type.toLong(), framerect, frameunit.toLong(), description, metafile)).toInt()
+public fun GdipRecordMetafile(referencehdc: HDC, type: EmfType, framerect: Long, frameunit: MetafileFrameUnit, description: PCWSTR, metafile: Long): Status {
+    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipRecordMetafile", longArrayOf(referencehdc, type.toLong(), framerect, frameunit.toLong(), description, metafile)).toInt()
 }
 
-public fun GdipRecordMetafileFileName(filename: PCWSTR, referencehdc: Gdi.HDC, type: EmfType, framerect: Long, frameunit: MetafileFrameUnit, description: PCWSTR, metafile: Long): Status {
-    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipRecordMetafileFileName", longArrayOf(filename, Win32DynamicFfi.objectSlot(referencehdc), type.toLong(), framerect, frameunit.toLong(), description, metafile)).toInt()
+public fun GdipRecordMetafileFileName(filename: PCWSTR, referencehdc: HDC, type: EmfType, framerect: Long, frameunit: MetafileFrameUnit, description: PCWSTR, metafile: Long): Status {
+    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipRecordMetafileFileName", longArrayOf(filename, referencehdc, type.toLong(), framerect, frameunit.toLong(), description, metafile)).toInt()
 }
 
-public fun GdipRecordMetafileFileNameI(filename: PCWSTR, referencehdc: Gdi.HDC, type: EmfType, framerect: Long, frameunit: MetafileFrameUnit, description: PCWSTR, metafile: Long): Status {
-    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipRecordMetafileFileNameI", longArrayOf(filename, Win32DynamicFfi.objectSlot(referencehdc), type.toLong(), framerect, frameunit.toLong(), description, metafile)).toInt()
+public fun GdipRecordMetafileFileNameI(filename: PCWSTR, referencehdc: HDC, type: EmfType, framerect: Long, frameunit: MetafileFrameUnit, description: PCWSTR, metafile: Long): Status {
+    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipRecordMetafileFileNameI", longArrayOf(filename, referencehdc, type.toLong(), framerect, frameunit.toLong(), description, metafile)).toInt()
 }
 
-public fun GdipRecordMetafileI(referencehdc: Gdi.HDC, type: EmfType, framerect: Long, frameunit: MetafileFrameUnit, description: PCWSTR, metafile: Long): Status {
-    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipRecordMetafileI", longArrayOf(Win32DynamicFfi.objectSlot(referencehdc), type.toLong(), framerect, frameunit.toLong(), description, metafile)).toInt()
+public fun GdipRecordMetafileI(referencehdc: HDC, type: EmfType, framerect: Long, frameunit: MetafileFrameUnit, description: PCWSTR, metafile: Long): Status {
+    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipRecordMetafileI", longArrayOf(referencehdc, type.toLong(), framerect, frameunit.toLong(), description, metafile)).toInt()
 }
 
-public fun GdipRecordMetafileStream(stream: Long, referencehdc: Gdi.HDC, type: EmfType, framerect: Long, frameunit: MetafileFrameUnit, description: PCWSTR, metafile: Long): Status {
-    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipRecordMetafileStream", longArrayOf(stream, Win32DynamicFfi.objectSlot(referencehdc), type.toLong(), framerect, frameunit.toLong(), description, metafile)).toInt()
+public fun GdipRecordMetafileStream(stream: Long, referencehdc: HDC, type: EmfType, framerect: Long, frameunit: MetafileFrameUnit, description: PCWSTR, metafile: Long): Status {
+    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipRecordMetafileStream", longArrayOf(stream, referencehdc, type.toLong(), framerect, frameunit.toLong(), description, metafile)).toInt()
 }
 
-public fun GdipRecordMetafileStreamI(stream: Long, referencehdc: Gdi.HDC, type: EmfType, framerect: Long, frameunit: MetafileFrameUnit, description: PCWSTR, metafile: Long): Status {
-    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipRecordMetafileStreamI", longArrayOf(stream, Win32DynamicFfi.objectSlot(referencehdc), type.toLong(), framerect, frameunit.toLong(), description, metafile)).toInt()
+public fun GdipRecordMetafileStreamI(stream: Long, referencehdc: HDC, type: EmfType, framerect: Long, frameunit: MetafileFrameUnit, description: PCWSTR, metafile: Long): Status {
+    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipRecordMetafileStreamI", longArrayOf(stream, referencehdc, type.toLong(), framerect, frameunit.toLong(), description, metafile)).toInt()
 }
 
-public fun GdipReleaseDC(graphics: Long, hdc: Gdi.HDC): Status {
-    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipReleaseDC", longArrayOf(graphics, Win32DynamicFfi.objectSlot(hdc))).toInt()
+public fun GdipReleaseDC(graphics: Long, hdc: HDC): Status {
+    return Win32DynamicFfi.invoke("gdiplus.dll", "GdipReleaseDC", longArrayOf(graphics, hdc)).toInt()
 }
 
 public fun GdipRemovePropertyItem(image: Long, propid: UInt): Status {

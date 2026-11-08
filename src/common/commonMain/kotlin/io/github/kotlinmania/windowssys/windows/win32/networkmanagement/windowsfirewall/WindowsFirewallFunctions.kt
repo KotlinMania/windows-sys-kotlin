@@ -4,6 +4,8 @@ import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.security.PSID
 
 public fun interface FnCallback {
     public operator fun invoke(context: Long, wszenterpriseid: PCWSTR, dwerr: UInt)
@@ -45,8 +47,8 @@ public fun NetworkIsolationGetEnterpriseIdAsync(wszservername: PCWSTR, dwflags: 
     return Win32DynamicFfi.invoke("firewallapi.dll", "NetworkIsolationGetEnterpriseIdAsync", longArrayOf(wszservername, dwflags.toLong(), context, Win32DynamicFfi.objectSlot(callback), hoperation)).toUInt()
 }
 
-public fun NetworkIsolationGetEnterpriseIdClose(hoperation: Foundation.HANDLE, bwaitforoperation: BOOL): UInt {
-    return Win32DynamicFfi.invoke("firewallapi.dll", "NetworkIsolationGetEnterpriseIdClose", longArrayOf(Win32DynamicFfi.objectSlot(hoperation), bwaitforoperation.toLong())).toUInt()
+public fun NetworkIsolationGetEnterpriseIdClose(hoperation: HANDLE, bwaitforoperation: BOOL): UInt {
+    return Win32DynamicFfi.invoke("firewallapi.dll", "NetworkIsolationGetEnterpriseIdClose", longArrayOf(hoperation, bwaitforoperation.toLong())).toUInt()
 }
 
 public fun NetworkIsolationRegisterForAppContainerChanges(flags: UInt, callback: PAC_CHANGES_CALLBACK_FN, context: Long, registrationobject: Long): UInt {
@@ -57,10 +59,10 @@ public fun NetworkIsolationSetAppContainerConfig(dwnumpublicappcs: UInt, appcont
     return Win32DynamicFfi.invoke("api-ms-win-net-isolation-l1-1-0.dll", "NetworkIsolationSetAppContainerConfig", longArrayOf(dwnumpublicappcs.toLong(), appcontainersids)).toUInt()
 }
 
-public fun NetworkIsolationSetupAppContainerBinaries(applicationcontainersid: Security.PSID, packagefullname: PCWSTR, packagefolder: PCWSTR, displayname: PCWSTR, bbinariesfullycomputed: BOOL, binaries: Long, binariescount: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-net-isolation-l1-1-0.dll", "NetworkIsolationSetupAppContainerBinaries", longArrayOf(Win32DynamicFfi.objectSlot(applicationcontainersid), packagefullname, packagefolder, displayname, bbinariesfullycomputed.toLong(), binaries, binariescount.toLong())).toInt()
+public fun NetworkIsolationSetupAppContainerBinaries(applicationcontainersid: PSID, packagefullname: PCWSTR, packagefolder: PCWSTR, displayname: PCWSTR, bbinariesfullycomputed: BOOL, binaries: Long, binariescount: UInt): HRESULT {
+    return Win32DynamicFfi.invoke("api-ms-win-net-isolation-l1-1-0.dll", "NetworkIsolationSetupAppContainerBinaries", longArrayOf(applicationcontainersid, packagefullname, packagefolder, displayname, bbinariesfullycomputed.toLong(), binaries, binariescount.toLong())).toInt()
 }
 
-public fun NetworkIsolationUnregisterForAppContainerChanges(registrationobject: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("api-ms-win-net-isolation-l1-1-0.dll", "NetworkIsolationUnregisterForAppContainerChanges", longArrayOf(Win32DynamicFfi.objectSlot(registrationobject))).toUInt()
+public fun NetworkIsolationUnregisterForAppContainerChanges(registrationobject: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("api-ms-win-net-isolation-l1-1-0.dll", "NetworkIsolationUnregisterForAppContainerChanges", longArrayOf(registrationobject)).toUInt()
 }

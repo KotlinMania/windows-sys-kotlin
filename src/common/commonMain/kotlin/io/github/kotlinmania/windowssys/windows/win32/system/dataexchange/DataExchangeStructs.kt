@@ -2,6 +2,12 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.dataexchange
 
 import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HMETAFILE
+import io.github.kotlinmania.windowssys.windows.win32.security.SECURITY_QUALITY_OF_SERVICE
 
 public data class CONVCONTEXT(
     public var cb: UInt = 0u,
@@ -10,7 +16,7 @@ public data class CONVCONTEXT(
     public var iCodePage: Int = 0,
     public var dwLangID: UInt = 0u,
     public var dwSecurity: UInt = 0u,
-    public var qos: Security.SECURITY_QUALITY_OF_SERVICE = Security.SECURITY_QUALITY_OF_SERVICE(),
+    public var qos: SECURITY_QUALITY_OF_SERVICE = SECURITY_QUALITY_OF_SERVICE(),
 )
 
 public data class CONVINFO(
@@ -28,8 +34,8 @@ public data class CONVINFO(
     public var wLastError: UInt = 0u,
     public var hConvList: HCONVLIST = 0L,
     public var ConvCtxt: CONVCONTEXT = CONVCONTEXT(),
-    public var hwnd: Foundation.HWND = Foundation.HWND(),
-    public var hwndPartner: Foundation.HWND = Foundation.HWND(),
+    public var hwnd: HWND = 0L,
+    public var hwndPartner: HWND = 0L,
 )
 
 public data class COPYDATASTRUCT(
@@ -141,13 +147,13 @@ public data class METAFILEPICT(
     public var mm: Int = 0,
     public var xExt: Int = 0,
     public var yExt: Int = 0,
-    public var hMF: Graphics.Gdi.HMETAFILE = Graphics.Gdi.HMETAFILE(),
+    public var hMF: HMETAFILE = 0L,
 )
 
 public data class MONCBSTRUCT(
     public var cb: UInt = 0u,
     public var dwTime: UInt = 0u,
-    public var hTask: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hTask: HANDLE = 0L,
     public var dwRet: UInt = 0u,
     public var wType: UInt = 0u,
     public var wFmt: UInt = 0u,
@@ -206,7 +212,7 @@ public data class MONCONVSTRUCT(
     public var cb: UInt = 0u,
     public var fConnect: BOOL = 0,
     public var dwTime: UInt = 0u,
-    public var hTask: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hTask: HANDLE = 0L,
     public var hszSvc: HSZ = 0L,
     public var hszTopic: HSZ = 0L,
     public var hConvClient: HCONV = 0L,
@@ -217,7 +223,7 @@ public data class MONERRSTRUCT(
     public var cb: UInt = 0u,
     public var wLastError: UInt = 0u,
     public var dwTime: UInt = 0u,
-    public var hTask: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hTask: HANDLE = 0L,
 )
 
 public data class MONHSZSTRUCTA(
@@ -225,7 +231,7 @@ public data class MONHSZSTRUCTA(
     public var fsAction: BOOL = 0,
     public var dwTime: UInt = 0u,
     public var hsz: HSZ = 0L,
-    public var hTask: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hTask: HANDLE = 0L,
     public var str: ByteArray = ByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
@@ -256,7 +262,7 @@ public data class MONHSZSTRUCTW(
     public var fsAction: BOOL = 0,
     public var dwTime: UInt = 0u,
     public var hsz: HSZ = 0L,
-    public var hTask: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hTask: HANDLE = 0L,
     public var str: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
@@ -285,7 +291,7 @@ public data class MONHSZSTRUCTW(
 public data class MONLINKSTRUCT(
     public var cb: UInt = 0u,
     public var dwTime: UInt = 0u,
-    public var hTask: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hTask: HANDLE = 0L,
     public var fEstablished: BOOL = 0,
     public var fNoData: BOOL = 0,
     public var hszSvc: HSZ = 0L,
@@ -299,11 +305,11 @@ public data class MONLINKSTRUCT(
 
 public data class MONMSGSTRUCT(
     public var cb: UInt = 0u,
-    public var hwndTo: Foundation.HWND = Foundation.HWND(),
+    public var hwndTo: HWND = 0L,
     public var dwTime: UInt = 0u,
-    public var hTask: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hTask: HANDLE = 0L,
     public var wMsg: UInt = 0u,
-    public var wParam: Foundation.WPARAM = Foundation.WPARAM(),
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var wParam: WPARAM = 0uL,
+    public var lParam: LPARAM = 0L,
     public var dmhd: DDEML_MSG_HOOK_DATA = DDEML_MSG_HOOK_DATA(),
 )

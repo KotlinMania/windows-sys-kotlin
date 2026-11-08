@@ -3,6 +3,7 @@ package io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesy
 
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
 
 public data class DFS_GET_PKT_ENTRY_STATE_ARG(
     public var DfsEntryPathLen: UShort = 0u,
@@ -61,10 +62,10 @@ public data class DFS_INFO_107(
     public var PropertyFlagMask: UInt = 0u,
     public var PropertyFlags: UInt = 0u,
     public var SdLengthReserved: UInt = 0u,
-    public var pSecurityDescriptor: Security.PSECURITY_DESCRIPTOR = Security.PSECURITY_DESCRIPTOR(),
+    public var pSecurityDescriptor: PSECURITY_DESCRIPTOR = 0L,
 )
 
-public data class DFS_INFO_150(public var SdLengthReserved: UInt = 0u, public var pSecurityDescriptor: Security.PSECURITY_DESCRIPTOR = Security.PSECURITY_DESCRIPTOR())
+public data class DFS_INFO_150(public var SdLengthReserved: UInt = 0u, public var pSecurityDescriptor: PSECURITY_DESCRIPTOR = 0L)
 
 public data class DFS_INFO_1_32(public var EntryPath: UInt = 0u)
 
@@ -162,7 +163,7 @@ public data class DFS_INFO_8(
     public var PropertyFlags: UInt = 0u,
     public var MetadataSize: UInt = 0u,
     public var SdLengthReserved: UInt = 0u,
-    public var pSecurityDescriptor: Security.PSECURITY_DESCRIPTOR = Security.PSECURITY_DESCRIPTOR(),
+    public var pSecurityDescriptor: PSECURITY_DESCRIPTOR = 0L,
     public var NumberOfStorages: UInt = 0u,
 )
 
@@ -175,7 +176,7 @@ public data class DFS_INFO_9(
     public var PropertyFlags: UInt = 0u,
     public var MetadataSize: UInt = 0u,
     public var SdLengthReserved: UInt = 0u,
-    public var pSecurityDescriptor: Security.PSECURITY_DESCRIPTOR = Security.PSECURITY_DESCRIPTOR(),
+    public var pSecurityDescriptor: PSECURITY_DESCRIPTOR = 0L,
     public var NumberOfStorages: UInt = 0u,
     public var Storage: Long = 0L,
 )

@@ -2,6 +2,7 @@ package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi
 
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 
 public typealias CH_DESCRIPTION_TYPE = Int
 
@@ -34,25 +35,25 @@ public typealias DEVPROP_PCIROOTBUS_SECONDARYINTERFACE = UInt
 public typealias DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES = UInt
 
 public fun interface DOT11EXTIHV_ADAPTER_RESETFn {
-    public operator fun invoke(hihvextadapter: Foundation.HANDLE): UInt
+    public operator fun invoke(hihvextadapter: HANDLE): UInt
 }
 
 public typealias DOT11EXTIHV_ADAPTER_RESET = DOT11EXTIHV_ADAPTER_RESETFn?
 
 public fun interface DOT11EXTIHV_CONTROLFn {
-    public operator fun invoke(hihvextadapter: Foundation.HANDLE, dwinbuffersize: UInt, pinbuffer: Long, dwoutbuffersize: UInt, poutbuffer: Long, pdwbytesreturned: Long): UInt
+    public operator fun invoke(hihvextadapter: HANDLE, dwinbuffersize: UInt, pinbuffer: Long, dwoutbuffersize: UInt, poutbuffer: Long, pdwbytesreturned: Long): UInt
 }
 
 public typealias DOT11EXTIHV_CONTROL = DOT11EXTIHV_CONTROLFn?
 
 public fun interface DOT11EXTIHV_CREATE_DISCOVERY_PROFILESFn {
-    public operator fun invoke(hihvextadapter: Foundation.HANDLE, binsecure: BOOL, pihvprofileparams: Long, pconnectablebssid: Long, pihvdiscoveryprofilelist: Long, pdwreasoncode: Long): UInt
+    public operator fun invoke(hihvextadapter: HANDLE, binsecure: BOOL, pihvprofileparams: Long, pconnectablebssid: Long, pihvdiscoveryprofilelist: Long, pdwreasoncode: Long): UInt
 }
 
 public typealias DOT11EXTIHV_CREATE_DISCOVERY_PROFILES = DOT11EXTIHV_CREATE_DISCOVERY_PROFILESFn?
 
 public fun interface DOT11EXTIHV_DEINIT_ADAPTERFn {
-    public operator fun invoke(hihvextadapter: Foundation.HANDLE)
+    public operator fun invoke(hihvextadapter: HANDLE)
 }
 
 public typealias DOT11EXTIHV_DEINIT_ADAPTER = DOT11EXTIHV_DEINIT_ADAPTERFn?
@@ -70,7 +71,7 @@ public fun interface DOT11EXTIHV_GET_VERSION_INFOFn {
 public typealias DOT11EXTIHV_GET_VERSION_INFO = DOT11EXTIHV_GET_VERSION_INFOFn?
 
 public fun interface DOT11EXTIHV_INIT_ADAPTERFn {
-    public operator fun invoke(pdot11adapter: Long, hdot11svchandle: Foundation.HANDLE, phihvextadapter: Long): UInt
+    public operator fun invoke(pdot11adapter: Long, hdot11svchandle: HANDLE, phihvextadapter: Long): UInt
 }
 
 public typealias DOT11EXTIHV_INIT_ADAPTER = DOT11EXTIHV_INIT_ADAPTERFn?
@@ -94,25 +95,25 @@ public fun interface DOT11EXTIHV_IS_UI_REQUEST_PENDINGFn {
 public typealias DOT11EXTIHV_IS_UI_REQUEST_PENDING = DOT11EXTIHV_IS_UI_REQUEST_PENDINGFn?
 
 public fun interface DOT11EXTIHV_ONEX_INDICATE_RESULTFn {
-    public operator fun invoke(hihvextadapter: Foundation.HANDLE, msonexresult: DOT11_MSONEX_RESULT, pdot11msonexresultparams: Long): UInt
+    public operator fun invoke(hihvextadapter: HANDLE, msonexresult: DOT11_MSONEX_RESULT, pdot11msonexresultparams: Long): UInt
 }
 
 public typealias DOT11EXTIHV_ONEX_INDICATE_RESULT = DOT11EXTIHV_ONEX_INDICATE_RESULTFn?
 
 public fun interface DOT11EXTIHV_PERFORM_CAPABILITY_MATCHFn {
-    public operator fun invoke(hihvextadapter: Foundation.HANDLE, pihvprofileparams: Long, pihvconnprofile: Long, pihvsecprofile: Long, pconnectablebssid: Long, pdwreasoncode: Long): UInt
+    public operator fun invoke(hihvextadapter: HANDLE, pihvprofileparams: Long, pihvconnprofile: Long, pihvsecprofile: Long, pconnectablebssid: Long, pdwreasoncode: Long): UInt
 }
 
 public typealias DOT11EXTIHV_PERFORM_CAPABILITY_MATCH = DOT11EXTIHV_PERFORM_CAPABILITY_MATCHFn?
 
 public fun interface DOT11EXTIHV_PERFORM_POST_ASSOCIATEFn {
-    public operator fun invoke(hihvextadapter: Foundation.HANDLE, hsecuritysessionid: Foundation.HANDLE, pportstate: Long, udot11assocparamsbytes: UInt, pdot11assocparams: Long): UInt
+    public operator fun invoke(hihvextadapter: HANDLE, hsecuritysessionid: HANDLE, pportstate: Long, udot11assocparamsbytes: UInt, pdot11assocparams: Long): UInt
 }
 
 public typealias DOT11EXTIHV_PERFORM_POST_ASSOCIATE = DOT11EXTIHV_PERFORM_POST_ASSOCIATEFn?
 
 public fun interface DOT11EXTIHV_PERFORM_PRE_ASSOCIATEFn {
-    public operator fun invoke(hihvextadapter: Foundation.HANDLE, hconnectsession: Foundation.HANDLE, pihvprofileparams: Long, pihvconnprofile: Long, pihvsecprofile: Long, pconnectablebssid: Long, pdwreasoncode: Long): UInt
+    public operator fun invoke(hihvextadapter: HANDLE, hconnectsession: HANDLE, pihvprofileparams: Long, pihvconnprofile: Long, pihvsecprofile: Long, pconnectablebssid: Long, pdwreasoncode: Long): UInt
 }
 
 public typealias DOT11EXTIHV_PERFORM_PRE_ASSOCIATE = DOT11EXTIHV_PERFORM_PRE_ASSOCIATEFn?
@@ -130,37 +131,37 @@ public fun interface DOT11EXTIHV_PROCESS_UI_RESPONSEFn {
 public typealias DOT11EXTIHV_PROCESS_UI_RESPONSE = DOT11EXTIHV_PROCESS_UI_RESPONSEFn?
 
 public fun interface DOT11EXTIHV_QUERY_UI_REQUESTFn {
-    public operator fun invoke(hihvextadapter: Foundation.HANDLE, connectionphase: DOT11EXT_IHV_CONNECTION_PHASE, ppihvuirequest: Long): UInt
+    public operator fun invoke(hihvextadapter: HANDLE, connectionphase: DOT11EXT_IHV_CONNECTION_PHASE, ppihvuirequest: Long): UInt
 }
 
 public typealias DOT11EXTIHV_QUERY_UI_REQUEST = DOT11EXTIHV_QUERY_UI_REQUESTFn?
 
 public fun interface DOT11EXTIHV_RECEIVE_INDICATIONFn {
-    public operator fun invoke(hihvextadapter: Foundation.HANDLE, indicationtype: DOT11EXT_IHV_INDICATION_TYPE, ubufferlength: UInt, pvbuffer: Long): UInt
+    public operator fun invoke(hihvextadapter: HANDLE, indicationtype: DOT11EXT_IHV_INDICATION_TYPE, ubufferlength: UInt, pvbuffer: Long): UInt
 }
 
 public typealias DOT11EXTIHV_RECEIVE_INDICATION = DOT11EXTIHV_RECEIVE_INDICATIONFn?
 
 public fun interface DOT11EXTIHV_RECEIVE_PACKETFn {
-    public operator fun invoke(hihvextadapter: Foundation.HANDLE, dwinbuffersize: UInt, pvinbuffer: Long): UInt
+    public operator fun invoke(hihvextadapter: HANDLE, dwinbuffersize: UInt, pvinbuffer: Long): UInt
 }
 
 public typealias DOT11EXTIHV_RECEIVE_PACKET = DOT11EXTIHV_RECEIVE_PACKETFn?
 
 public fun interface DOT11EXTIHV_SEND_PACKET_COMPLETIONFn {
-    public operator fun invoke(hsendcompletion: Foundation.HANDLE): UInt
+    public operator fun invoke(hsendcompletion: HANDLE): UInt
 }
 
 public typealias DOT11EXTIHV_SEND_PACKET_COMPLETION = DOT11EXTIHV_SEND_PACKET_COMPLETIONFn?
 
 public fun interface DOT11EXTIHV_STOP_POST_ASSOCIATEFn {
-    public operator fun invoke(hihvextadapter: Foundation.HANDLE, ppeer: Long, dot11assocstatus: UInt): UInt
+    public operator fun invoke(hihvextadapter: HANDLE, ppeer: Long, dot11assocstatus: UInt): UInt
 }
 
 public typealias DOT11EXTIHV_STOP_POST_ASSOCIATE = DOT11EXTIHV_STOP_POST_ASSOCIATEFn?
 
 public fun interface DOT11EXTIHV_VALIDATE_PROFILEFn {
-    public operator fun invoke(hihvextadapter: Foundation.HANDLE, pihvprofileparams: Long, pihvconnprofile: Long, pihvsecprofile: Long, pdwreasoncode: Long): UInt
+    public operator fun invoke(hihvextadapter: HANDLE, pihvprofileparams: Long, pihvconnprofile: Long, pihvsecprofile: Long, pdwreasoncode: Long): UInt
 }
 
 public typealias DOT11EXTIHV_VALIDATE_PROFILE = DOT11EXTIHV_VALIDATE_PROFILEFn?
@@ -178,7 +179,7 @@ public fun interface DOT11EXT_FREE_BUFFERFn {
 public typealias DOT11EXT_FREE_BUFFER = DOT11EXT_FREE_BUFFERFn?
 
 public fun interface DOT11EXT_GET_PROFILE_CUSTOM_USER_DATAFn {
-    public operator fun invoke(hdot11svchandle: Foundation.HANDLE, hconnectsession: Foundation.HANDLE, dwsessionid: UInt, pdwdatasize: Long, ppvdata: Long): UInt
+    public operator fun invoke(hdot11svchandle: HANDLE, hconnectsession: HANDLE, dwsessionid: UInt, pdwdatasize: Long, ppvdata: Long): UInt
 }
 
 public typealias DOT11EXT_GET_PROFILE_CUSTOM_USER_DATA = DOT11EXT_GET_PROFILE_CUSTOM_USER_DATAFn?
@@ -188,139 +189,139 @@ public typealias DOT11EXT_IHV_CONNECTION_PHASE = Int
 public typealias DOT11EXT_IHV_INDICATION_TYPE = Int
 
 public fun interface DOT11EXT_NIC_SPECIFIC_EXTENSIONFn {
-    public operator fun invoke(hdot11svchandle: Foundation.HANDLE, dwinbuffersize: UInt, pvinbuffer: Long, pdwoutbuffersize: Long, pvoutbuffer: Long): UInt
+    public operator fun invoke(hdot11svchandle: HANDLE, dwinbuffersize: UInt, pvinbuffer: Long, pdwoutbuffersize: Long, pvoutbuffer: Long): UInt
 }
 
 public typealias DOT11EXT_NIC_SPECIFIC_EXTENSION = DOT11EXT_NIC_SPECIFIC_EXTENSIONFn?
 
 public fun interface DOT11EXT_ONEX_STARTFn {
-    public operator fun invoke(hdot11svchandle: Foundation.HANDLE, peapattributes: Long): UInt
+    public operator fun invoke(hdot11svchandle: HANDLE, peapattributes: Long): UInt
 }
 
 public typealias DOT11EXT_ONEX_START = DOT11EXT_ONEX_STARTFn?
 
 public fun interface DOT11EXT_ONEX_STOPFn {
-    public operator fun invoke(hdot11svchandle: Foundation.HANDLE): UInt
+    public operator fun invoke(hdot11svchandle: HANDLE): UInt
 }
 
 public typealias DOT11EXT_ONEX_STOP = DOT11EXT_ONEX_STOPFn?
 
 public fun interface DOT11EXT_POST_ASSOCIATE_COMPLETIONFn {
-    public operator fun invoke(hdot11svchandle: Foundation.HANDLE, hsecuritysessionid: Foundation.HANDLE, ppeer: Long, dwreasoncode: UInt, dwwin32error: UInt): UInt
+    public operator fun invoke(hdot11svchandle: HANDLE, hsecuritysessionid: HANDLE, ppeer: Long, dwreasoncode: UInt, dwwin32error: UInt): UInt
 }
 
 public typealias DOT11EXT_POST_ASSOCIATE_COMPLETION = DOT11EXT_POST_ASSOCIATE_COMPLETIONFn?
 
 public fun interface DOT11EXT_PRE_ASSOCIATE_COMPLETIONFn {
-    public operator fun invoke(hdot11svchandle: Foundation.HANDLE, hconnectsession: Foundation.HANDLE, dwreasoncode: UInt, dwwin32error: UInt): UInt
+    public operator fun invoke(hdot11svchandle: HANDLE, hconnectsession: HANDLE, dwreasoncode: UInt, dwwin32error: UInt): UInt
 }
 
 public typealias DOT11EXT_PRE_ASSOCIATE_COMPLETION = DOT11EXT_PRE_ASSOCIATE_COMPLETIONFn?
 
 public fun interface DOT11EXT_PROCESS_ONEX_PACKETFn {
-    public operator fun invoke(hdot11svchandle: Foundation.HANDLE, dwinpacketsize: UInt, pvinpacket: Long): UInt
+    public operator fun invoke(hdot11svchandle: HANDLE, dwinpacketsize: UInt, pvinpacket: Long): UInt
 }
 
 public typealias DOT11EXT_PROCESS_ONEX_PACKET = DOT11EXT_PROCESS_ONEX_PACKETFn?
 
 public fun interface DOT11EXT_QUERY_VIRTUAL_STATION_PROPERTIESFn {
-    public operator fun invoke(hdot11svchandle: Foundation.HANDLE, pbisvirtualstation: Long, pgprimary: Long, pvreserved: Long): UInt
+    public operator fun invoke(hdot11svchandle: HANDLE, pbisvirtualstation: Long, pgprimary: Long, pvreserved: Long): UInt
 }
 
 public typealias DOT11EXT_QUERY_VIRTUAL_STATION_PROPERTIES = DOT11EXT_QUERY_VIRTUAL_STATION_PROPERTIESFn?
 
 public fun interface DOT11EXT_RELEASE_VIRTUAL_STATIONFn {
-    public operator fun invoke(hdot11primaryhandle: Foundation.HANDLE, pvreserved: Long): UInt
+    public operator fun invoke(hdot11primaryhandle: HANDLE, pvreserved: Long): UInt
 }
 
 public typealias DOT11EXT_RELEASE_VIRTUAL_STATION = DOT11EXT_RELEASE_VIRTUAL_STATIONFn?
 
 public fun interface DOT11EXT_REQUEST_VIRTUAL_STATIONFn {
-    public operator fun invoke(hdot11primaryhandle: Foundation.HANDLE, pvreserved: Long): UInt
+    public operator fun invoke(hdot11primaryhandle: HANDLE, pvreserved: Long): UInt
 }
 
 public typealias DOT11EXT_REQUEST_VIRTUAL_STATION = DOT11EXT_REQUEST_VIRTUAL_STATIONFn?
 
 public fun interface DOT11EXT_SEND_NOTIFICATIONFn {
-    public operator fun invoke(hdot11svchandle: Foundation.HANDLE, pnotificationdata: Long): UInt
+    public operator fun invoke(hdot11svchandle: HANDLE, pnotificationdata: Long): UInt
 }
 
 public typealias DOT11EXT_SEND_NOTIFICATION = DOT11EXT_SEND_NOTIFICATIONFn?
 
 public fun interface DOT11EXT_SEND_PACKETFn {
-    public operator fun invoke(hdot11svchandle: Foundation.HANDLE, upacketlen: UInt, pvpacket: Long, hsendcompletion: Foundation.HANDLE): UInt
+    public operator fun invoke(hdot11svchandle: HANDLE, upacketlen: UInt, pvpacket: Long, hsendcompletion: HANDLE): UInt
 }
 
 public typealias DOT11EXT_SEND_PACKET = DOT11EXT_SEND_PACKETFn?
 
 public fun interface DOT11EXT_SEND_UI_REQUESTFn {
-    public operator fun invoke(hdot11svchandle: Foundation.HANDLE, pihvuirequest: Long): UInt
+    public operator fun invoke(hdot11svchandle: HANDLE, pihvuirequest: Long): UInt
 }
 
 public typealias DOT11EXT_SEND_UI_REQUEST = DOT11EXT_SEND_UI_REQUESTFn?
 
 public fun interface DOT11EXT_SET_AUTH_ALGORITHMFn {
-    public operator fun invoke(hdot11svchandle: Foundation.HANDLE, dwauthalgo: UInt): UInt
+    public operator fun invoke(hdot11svchandle: HANDLE, dwauthalgo: UInt): UInt
 }
 
 public typealias DOT11EXT_SET_AUTH_ALGORITHM = DOT11EXT_SET_AUTH_ALGORITHMFn?
 
 public fun interface DOT11EXT_SET_CURRENT_PROFILEFn {
-    public operator fun invoke(hdot11svchandle: Foundation.HANDLE, hconnectsession: Foundation.HANDLE, pihvconnprofile: Long, pihvsecprofile: Long): UInt
+    public operator fun invoke(hdot11svchandle: HANDLE, hconnectsession: HANDLE, pihvconnprofile: Long, pihvsecprofile: Long): UInt
 }
 
 public typealias DOT11EXT_SET_CURRENT_PROFILE = DOT11EXT_SET_CURRENT_PROFILEFn?
 
 public fun interface DOT11EXT_SET_DEFAULT_KEYFn {
-    public operator fun invoke(hdot11svchandle: Foundation.HANDLE, pkey: Long, dot11direction: DOT11_DIRECTION): UInt
+    public operator fun invoke(hdot11svchandle: HANDLE, pkey: Long, dot11direction: DOT11_DIRECTION): UInt
 }
 
 public typealias DOT11EXT_SET_DEFAULT_KEY = DOT11EXT_SET_DEFAULT_KEYFn?
 
 public fun interface DOT11EXT_SET_DEFAULT_KEY_IDFn {
-    public operator fun invoke(hdot11svchandle: Foundation.HANDLE, udefaultkeyid: UInt): UInt
+    public operator fun invoke(hdot11svchandle: HANDLE, udefaultkeyid: UInt): UInt
 }
 
 public typealias DOT11EXT_SET_DEFAULT_KEY_ID = DOT11EXT_SET_DEFAULT_KEY_IDFn?
 
 public fun interface DOT11EXT_SET_ETHERTYPE_HANDLINGFn {
-    public operator fun invoke(hdot11svchandle: Foundation.HANDLE, umaxbacklog: UInt, unumofexemption: UInt, pexemption: Long, unumofregistration: UInt, pusregistration: Long): UInt
+    public operator fun invoke(hdot11svchandle: HANDLE, umaxbacklog: UInt, unumofexemption: UInt, pexemption: Long, unumofregistration: UInt, pusregistration: Long): UInt
 }
 
 public typealias DOT11EXT_SET_ETHERTYPE_HANDLING = DOT11EXT_SET_ETHERTYPE_HANDLINGFn?
 
 public fun interface DOT11EXT_SET_EXCLUDE_UNENCRYPTEDFn {
-    public operator fun invoke(hdot11svchandle: Foundation.HANDLE, bexcludeunencrypted: BOOL): UInt
+    public operator fun invoke(hdot11svchandle: HANDLE, bexcludeunencrypted: BOOL): UInt
 }
 
 public typealias DOT11EXT_SET_EXCLUDE_UNENCRYPTED = DOT11EXT_SET_EXCLUDE_UNENCRYPTEDFn?
 
 public fun interface DOT11EXT_SET_KEY_MAPPING_KEYFn {
-    public operator fun invoke(hdot11svchandle: Foundation.HANDLE, pkey: Long): UInt
+    public operator fun invoke(hdot11svchandle: HANDLE, pkey: Long): UInt
 }
 
 public typealias DOT11EXT_SET_KEY_MAPPING_KEY = DOT11EXT_SET_KEY_MAPPING_KEYFn?
 
 public fun interface DOT11EXT_SET_MULTICAST_CIPHER_ALGORITHMFn {
-    public operator fun invoke(hdot11svchandle: Foundation.HANDLE, dwmulticastcipheralgo: UInt): UInt
+    public operator fun invoke(hdot11svchandle: HANDLE, dwmulticastcipheralgo: UInt): UInt
 }
 
 public typealias DOT11EXT_SET_MULTICAST_CIPHER_ALGORITHM = DOT11EXT_SET_MULTICAST_CIPHER_ALGORITHMFn?
 
 public fun interface DOT11EXT_SET_PROFILE_CUSTOM_USER_DATAFn {
-    public operator fun invoke(hdot11svchandle: Foundation.HANDLE, hconnectsession: Foundation.HANDLE, dwsessionid: UInt, dwdatasize: UInt, pvdata: Long): UInt
+    public operator fun invoke(hdot11svchandle: HANDLE, hconnectsession: HANDLE, dwsessionid: UInt, dwdatasize: UInt, pvdata: Long): UInt
 }
 
 public typealias DOT11EXT_SET_PROFILE_CUSTOM_USER_DATA = DOT11EXT_SET_PROFILE_CUSTOM_USER_DATAFn?
 
 public fun interface DOT11EXT_SET_UNICAST_CIPHER_ALGORITHMFn {
-    public operator fun invoke(hdot11svchandle: Foundation.HANDLE, dwunicastcipheralgo: UInt): UInt
+    public operator fun invoke(hdot11svchandle: HANDLE, dwunicastcipheralgo: UInt): UInt
 }
 
 public typealias DOT11EXT_SET_UNICAST_CIPHER_ALGORITHM = DOT11EXT_SET_UNICAST_CIPHER_ALGORITHMFn?
 
 public fun interface DOT11EXT_SET_VIRTUAL_STATION_AP_PROPERTIESFn {
-    public operator fun invoke(hdot11svchandle: Foundation.HANDLE, hconnectsession: Foundation.HANDLE, dwnumproperties: UInt, pproperties: Long, pvreserved: Long): UInt
+    public operator fun invoke(hdot11svchandle: HANDLE, hconnectsession: HANDLE, dwnumproperties: UInt, pproperties: Long, pvreserved: Long): UInt
 }
 
 public typealias DOT11EXT_SET_VIRTUAL_STATION_AP_PROPERTIES = DOT11EXT_SET_VIRTUAL_STATION_AP_PROPERTIESFn?
@@ -404,7 +405,7 @@ public typealias ONEX_NOTIFICATION_TYPE = Int
 public typealias ONEX_REASON_CODE = Int
 
 public fun interface WFD_OPEN_SESSION_COMPLETE_CALLBACKFn {
-    public operator fun invoke(hsessionhandle: Foundation.HANDLE, pvcontext: Long, guidsessioninterface: GUID, dwerror: UInt, dwreasoncode: UInt)
+    public operator fun invoke(hsessionhandle: HANDLE, pvcontext: Long, guidsessioninterface: GUID, dwerror: UInt, dwreasoncode: UInt)
 }
 
 public typealias WFD_OPEN_SESSION_COMPLETE_CALLBACK = WFD_OPEN_SESSION_COMPLETE_CALLBACKFn?

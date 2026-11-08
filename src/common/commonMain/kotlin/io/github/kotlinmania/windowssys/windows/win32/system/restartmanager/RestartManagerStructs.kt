@@ -3,6 +3,7 @@ package io.github.kotlinmania.windowssys.windows.win32.system.restartmanager
 
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
 
 public data class RM_FILTER_INFO(
     public var FilterAction: RM_FILTER_ACTION = 0,
@@ -51,4 +52,4 @@ public data class RM_PROCESS_INFO(
     }
 }
 
-public data class RM_UNIQUE_PROCESS(public var dwProcessId: UInt = 0u, public var ProcessStartTime: Foundation.FILETIME = Foundation.FILETIME())
+public data class RM_UNIQUE_PROCESS(public var dwProcessId: UInt = 0u, public var ProcessStartTime: FILETIME = FILETIME())

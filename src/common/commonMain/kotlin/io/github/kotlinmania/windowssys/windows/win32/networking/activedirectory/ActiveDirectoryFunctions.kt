@@ -7,6 +7,11 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.VARIANT
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HICON
 
 public fun ADsBuildEnumerator(padscontainer: Long, ppenumvariant: Long): HRESULT {
     return Win32DynamicFfi.invoke("activeds.dll", "ADsBuildEnumerator", longArrayOf(padscontainer, ppenumvariant)).toInt()
@@ -56,24 +61,24 @@ public fun ADsPropCreateNotifyObj(pappthddataobj: Long, pwzadsobjname: PCWSTR, p
     return Win32DynamicFfi.invoke("dsprop.dll", "ADsPropCreateNotifyObj", longArrayOf(pappthddataobj, pwzadsobjname, phnotifyobj)).toInt()
 }
 
-public fun ADsPropGetInitInfo(hnotifyobj: Foundation.HWND, pinitparams: Long): BOOL {
-    return Win32DynamicFfi.invoke("dsprop.dll", "ADsPropGetInitInfo", longArrayOf(Win32DynamicFfi.objectSlot(hnotifyobj), pinitparams)).toInt()
+public fun ADsPropGetInitInfo(hnotifyobj: HWND, pinitparams: Long): BOOL {
+    return Win32DynamicFfi.invoke("dsprop.dll", "ADsPropGetInitInfo", longArrayOf(hnotifyobj, pinitparams)).toInt()
 }
 
-public fun ADsPropSendErrorMessage(hnotifyobj: Foundation.HWND, perror: Long): BOOL {
-    return Win32DynamicFfi.invoke("dsprop.dll", "ADsPropSendErrorMessage", longArrayOf(Win32DynamicFfi.objectSlot(hnotifyobj), perror)).toInt()
+public fun ADsPropSendErrorMessage(hnotifyobj: HWND, perror: Long): BOOL {
+    return Win32DynamicFfi.invoke("dsprop.dll", "ADsPropSendErrorMessage", longArrayOf(hnotifyobj, perror)).toInt()
 }
 
-public fun ADsPropSetHwnd(hnotifyobj: Foundation.HWND, hpage: Foundation.HWND): BOOL {
-    return Win32DynamicFfi.invoke("dsprop.dll", "ADsPropSetHwnd", longArrayOf(Win32DynamicFfi.objectSlot(hnotifyobj), Win32DynamicFfi.objectSlot(hpage))).toInt()
+public fun ADsPropSetHwnd(hnotifyobj: HWND, hpage: HWND): BOOL {
+    return Win32DynamicFfi.invoke("dsprop.dll", "ADsPropSetHwnd", longArrayOf(hnotifyobj, hpage)).toInt()
 }
 
-public fun ADsPropSetHwndWithTitle(hnotifyobj: Foundation.HWND, hpage: Foundation.HWND, ptztitle: Long): BOOL {
-    return Win32DynamicFfi.invoke("dsprop.dll", "ADsPropSetHwndWithTitle", longArrayOf(Win32DynamicFfi.objectSlot(hnotifyobj), Win32DynamicFfi.objectSlot(hpage), ptztitle)).toInt()
+public fun ADsPropSetHwndWithTitle(hnotifyobj: HWND, hpage: HWND, ptztitle: Long): BOOL {
+    return Win32DynamicFfi.invoke("dsprop.dll", "ADsPropSetHwndWithTitle", longArrayOf(hnotifyobj, hpage, ptztitle)).toInt()
 }
 
-public fun ADsPropShowErrorDialog(hnotifyobj: Foundation.HWND, hpage: Foundation.HWND): BOOL {
-    return Win32DynamicFfi.invoke("dsprop.dll", "ADsPropShowErrorDialog", longArrayOf(Win32DynamicFfi.objectSlot(hnotifyobj), Win32DynamicFfi.objectSlot(hpage))).toInt()
+public fun ADsPropShowErrorDialog(hnotifyobj: HWND, hpage: HWND): BOOL {
+    return Win32DynamicFfi.invoke("dsprop.dll", "ADsPropShowErrorDialog", longArrayOf(hnotifyobj, hpage)).toInt()
 }
 
 public fun ADsSetLastError(dwerr: UInt, pszerror: PCWSTR, pszprovider: PCWSTR) {
@@ -96,16 +101,16 @@ public fun AllocADsStr(pstr: PCWSTR): PWSTR {
     return Win32DynamicFfi.invoke("activeds.dll", "AllocADsStr", longArrayOf(pstr))
 }
 
-public fun BinarySDToSecurityDescriptor(psecuritydescriptor: Security.PSECURITY_DESCRIPTOR, pvarsec: Long, pszservername: PCWSTR, username: PCWSTR, password: PCWSTR, dwflags: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("activeds.dll", "BinarySDToSecurityDescriptor", longArrayOf(Win32DynamicFfi.objectSlot(psecuritydescriptor), pvarsec, pszservername, username, password, dwflags.toLong())).toInt()
+public fun BinarySDToSecurityDescriptor(psecuritydescriptor: PSECURITY_DESCRIPTOR, pvarsec: Long, pszservername: PCWSTR, username: PCWSTR, password: PCWSTR, dwflags: UInt): HRESULT {
+    return Win32DynamicFfi.invoke("activeds.dll", "BinarySDToSecurityDescriptor", longArrayOf(psecuritydescriptor, pvarsec, pszservername, username, password, dwflags.toLong())).toInt()
 }
 
-public fun DsAddSidHistoryA(hds: Foundation.HANDLE, flags: UInt, srcdomain: PCSTR, srcprincipal: PCSTR, srcdomaincontroller: PCSTR, srcdomaincreds: Long, dstdomain: PCSTR, dstprincipal: PCSTR): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsAddSidHistoryA", longArrayOf(Win32DynamicFfi.objectSlot(hds), flags.toLong(), srcdomain, srcprincipal, srcdomaincontroller, srcdomaincreds, dstdomain, dstprincipal)).toUInt()
+public fun DsAddSidHistoryA(hds: HANDLE, flags: UInt, srcdomain: PCSTR, srcprincipal: PCSTR, srcdomaincontroller: PCSTR, srcdomaincreds: Long, dstdomain: PCSTR, dstprincipal: PCSTR): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsAddSidHistoryA", longArrayOf(hds, flags.toLong(), srcdomain, srcprincipal, srcdomaincontroller, srcdomaincreds, dstdomain, dstprincipal)).toUInt()
 }
 
-public fun DsAddSidHistoryW(hds: Foundation.HANDLE, flags: UInt, srcdomain: PCWSTR, srcprincipal: PCWSTR, srcdomaincontroller: PCWSTR, srcdomaincreds: Long, dstdomain: PCWSTR, dstprincipal: PCWSTR): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsAddSidHistoryW", longArrayOf(Win32DynamicFfi.objectSlot(hds), flags.toLong(), srcdomain, srcprincipal, srcdomaincontroller, srcdomaincreds, dstdomain, dstprincipal)).toUInt()
+public fun DsAddSidHistoryW(hds: HANDLE, flags: UInt, srcdomain: PCWSTR, srcprincipal: PCWSTR, srcdomaincontroller: PCWSTR, srcdomaincreds: Long, dstdomain: PCWSTR, dstprincipal: PCWSTR): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsAddSidHistoryW", longArrayOf(hds, flags.toLong(), srcdomain, srcprincipal, srcdomaincontroller, srcdomaincreds, dstdomain, dstprincipal)).toUInt()
 }
 
 public fun DsAddressToSiteNamesA(computername: PCSTR, entrycount: UInt, socketaddresses: Long, sitenames: Long): UInt {
@@ -172,8 +177,8 @@ public fun DsBindWithSpnW(domaincontrollername: PCWSTR, dnsdomainname: PCWSTR, a
     return Win32DynamicFfi.invoke("ntdsapi.dll", "DsBindWithSpnW", longArrayOf(domaincontrollername, dnsdomainname, authidentity, serviceprincipalname, phds)).toUInt()
 }
 
-public fun DsBindingSetTimeout(hds: Foundation.HANDLE, ctimeoutsecs: UInt): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsBindingSetTimeout", longArrayOf(Win32DynamicFfi.objectSlot(hds), ctimeoutsecs.toLong())).toUInt()
+public fun DsBindingSetTimeout(hds: HANDLE, ctimeoutsecs: UInt): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsBindingSetTimeout", longArrayOf(hds, ctimeoutsecs.toLong())).toUInt()
 }
 
 public fun DsBrowseForContainerA(pinfo: Long): Int {
@@ -192,12 +197,12 @@ public fun DsClientMakeSpnForTargetServerW(serviceclass: PCWSTR, servicename: PC
     return Win32DynamicFfi.invoke("ntdsapi.dll", "DsClientMakeSpnForTargetServerW", longArrayOf(serviceclass, servicename, pcspnlength, pszspn)).toUInt()
 }
 
-public fun DsCrackNamesA(hds: Foundation.HANDLE, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, cnames: UInt, rpnames: Long, ppresult: Long): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsCrackNamesA", longArrayOf(Win32DynamicFfi.objectSlot(hds), flags.toLong(), formatoffered.toLong(), formatdesired.toLong(), cnames.toLong(), rpnames, ppresult)).toUInt()
+public fun DsCrackNamesA(hds: HANDLE, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, cnames: UInt, rpnames: Long, ppresult: Long): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsCrackNamesA", longArrayOf(hds, flags.toLong(), formatoffered.toLong(), formatdesired.toLong(), cnames.toLong(), rpnames, ppresult)).toUInt()
 }
 
-public fun DsCrackNamesW(hds: Foundation.HANDLE, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, cnames: UInt, rpnames: Long, ppresult: Long): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsCrackNamesW", longArrayOf(Win32DynamicFfi.objectSlot(hds), flags.toLong(), formatoffered.toLong(), formatdesired.toLong(), cnames.toLong(), rpnames, ppresult)).toUInt()
+public fun DsCrackNamesW(hds: HANDLE, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, cnames: UInt, rpnames: Long, ppresult: Long): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsCrackNamesW", longArrayOf(hds, flags.toLong(), formatoffered.toLong(), formatdesired.toLong(), cnames.toLong(), rpnames, ppresult)).toUInt()
 }
 
 public fun DsCrackSpn2A(pszspn: PCSTR, cspn: UInt, pcserviceclass: Long, serviceclass: PSTR, pcservicename: Long, servicename: PSTR, pcinstancename: Long, instancename: PSTR, pinstanceport: Long): UInt {
@@ -284,8 +289,8 @@ public fun DsFreeSpnArrayW(cspn: UInt, rpszspn: Long) {
     Win32DynamicFfi.invoke("ntdsapi.dll", "DsFreeSpnArrayW", longArrayOf(cspn.toLong(), rpszspn))
 }
 
-public fun DsGetDcCloseW(getdccontexthandle: Foundation.HANDLE) {
-    Win32DynamicFfi.invoke("netapi32.dll", "DsGetDcCloseW", longArrayOf(Win32DynamicFfi.objectSlot(getdccontexthandle)))
+public fun DsGetDcCloseW(getdccontexthandle: HANDLE) {
+    Win32DynamicFfi.invoke("netapi32.dll", "DsGetDcCloseW", longArrayOf(getdccontexthandle))
 }
 
 public fun DsGetDcNameA(computername: PCSTR, domainname: PCSTR, domainguid: Long, sitename: PCSTR, flags: UInt, domaincontrollerinfo: Long): UInt {
@@ -296,12 +301,12 @@ public fun DsGetDcNameW(computername: PCWSTR, domainname: PCWSTR, domainguid: Lo
     return Win32DynamicFfi.invoke("netapi32.dll", "DsGetDcNameW", longArrayOf(computername, domainname, domainguid, sitename, flags.toLong(), domaincontrollerinfo)).toUInt()
 }
 
-public fun DsGetDcNextA(getdccontexthandle: Foundation.HANDLE, sockaddresscount: Long, sockaddresses: Long, dnshostname: Long): UInt {
-    return Win32DynamicFfi.invoke("netapi32.dll", "DsGetDcNextA", longArrayOf(Win32DynamicFfi.objectSlot(getdccontexthandle), sockaddresscount, sockaddresses, dnshostname)).toUInt()
+public fun DsGetDcNextA(getdccontexthandle: HANDLE, sockaddresscount: Long, sockaddresses: Long, dnshostname: Long): UInt {
+    return Win32DynamicFfi.invoke("netapi32.dll", "DsGetDcNextA", longArrayOf(getdccontexthandle, sockaddresscount, sockaddresses, dnshostname)).toUInt()
 }
 
-public fun DsGetDcNextW(getdccontexthandle: Foundation.HANDLE, sockaddresscount: Long, sockaddresses: Long, dnshostname: Long): UInt {
-    return Win32DynamicFfi.invoke("netapi32.dll", "DsGetDcNextW", longArrayOf(Win32DynamicFfi.objectSlot(getdccontexthandle), sockaddresscount, sockaddresses, dnshostname)).toUInt()
+public fun DsGetDcNextW(getdccontexthandle: HANDLE, sockaddresscount: Long, sockaddresses: Long, dnshostname: Long): UInt {
+    return Win32DynamicFfi.invoke("netapi32.dll", "DsGetDcNextW", longArrayOf(getdccontexthandle, sockaddresscount, sockaddresses, dnshostname)).toUInt()
 }
 
 public fun DsGetDcOpenA(dnsname: PCSTR, optionflags: UInt, sitename: PCSTR, domainguid: Long, dnsforestname: PCSTR, dcflags: UInt, retgetdccontext: Long): UInt {
@@ -320,12 +325,12 @@ public fun DsGetDcSiteCoverageW(servername: PCWSTR, entrycount: Long, sitenames:
     return Win32DynamicFfi.invoke("netapi32.dll", "DsGetDcSiteCoverageW", longArrayOf(servername, entrycount, sitenames)).toUInt()
 }
 
-public fun DsGetDomainControllerInfoA(hds: Foundation.HANDLE, domainname: PCSTR, infolevel: UInt, pcout: Long, ppinfo: Long): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsGetDomainControllerInfoA", longArrayOf(Win32DynamicFfi.objectSlot(hds), domainname, infolevel.toLong(), pcout, ppinfo)).toUInt()
+public fun DsGetDomainControllerInfoA(hds: HANDLE, domainname: PCSTR, infolevel: UInt, pcout: Long, ppinfo: Long): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsGetDomainControllerInfoA", longArrayOf(hds, domainname, infolevel.toLong(), pcout, ppinfo)).toUInt()
 }
 
-public fun DsGetDomainControllerInfoW(hds: Foundation.HANDLE, domainname: PCWSTR, infolevel: UInt, pcout: Long, ppinfo: Long): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsGetDomainControllerInfoW", longArrayOf(Win32DynamicFfi.objectSlot(hds), domainname, infolevel.toLong(), pcout, ppinfo)).toUInt()
+public fun DsGetDomainControllerInfoW(hds: HANDLE, domainname: PCWSTR, infolevel: UInt, pcout: Long, ppinfo: Long): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsGetDomainControllerInfoW", longArrayOf(hds, domainname, infolevel.toLong(), pcout, ppinfo)).toUInt()
 }
 
 public fun DsGetForestTrustInformationW(servername: PCWSTR, trusteddomainname: PCWSTR, flags: UInt, foresttrustinfo: Long): UInt {
@@ -336,9 +341,8 @@ public fun DsGetFriendlyClassName(pszobjectclass: PCWSTR, pszbuffer: PWSTR, cchb
     return Win32DynamicFfi.invoke("dsuiext.dll", "DsGetFriendlyClassName", longArrayOf(pszobjectclass, pszbuffer, cchbuffer.toLong())).toInt()
 }
 
-public fun DsGetIcon(dwflags: UInt, pszobjectclass: PCWSTR, cximage: Int, cyimage: Int): UI.WindowsAndMessaging.HICON {
-    Win32DynamicFfi.invoke("dsuiext.dll", "DsGetIcon", longArrayOf(dwflags.toLong(), pszobjectclass, cximage.toLong(), cyimage.toLong()))
-    return UI.WindowsAndMessaging.HICON()
+public fun DsGetIcon(dwflags: UInt, pszobjectclass: PCWSTR, cximage: Int, cyimage: Int): HICON {
+    return Win32DynamicFfi.invoke("dsuiext.dll", "DsGetIcon", longArrayOf(dwflags.toLong(), pszobjectclass, cximage.toLong(), cyimage.toLong()))
 }
 
 public fun DsGetRdnW(ppdn: Long, pcdn: Long, ppkey: Long, pckey: Long, ppval: Long, pcval: Long): UInt {
@@ -361,12 +365,12 @@ public fun DsGetSpnW(servicetype: DS_SPN_NAME_TYPE, serviceclass: PCWSTR, servic
     return Win32DynamicFfi.invoke("ntdsapi.dll", "DsGetSpnW", longArrayOf(servicetype.toLong(), serviceclass, servicename, instanceport.toLong(), cinstancenames.toLong(), pinstancenames, pinstanceports, pcspn, prpszspn)).toUInt()
 }
 
-public fun DsInheritSecurityIdentityA(hds: Foundation.HANDLE, flags: UInt, srcprincipal: PCSTR, dstprincipal: PCSTR): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsInheritSecurityIdentityA", longArrayOf(Win32DynamicFfi.objectSlot(hds), flags.toLong(), srcprincipal, dstprincipal)).toUInt()
+public fun DsInheritSecurityIdentityA(hds: HANDLE, flags: UInt, srcprincipal: PCSTR, dstprincipal: PCSTR): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsInheritSecurityIdentityA", longArrayOf(hds, flags.toLong(), srcprincipal, dstprincipal)).toUInt()
 }
 
-public fun DsInheritSecurityIdentityW(hds: Foundation.HANDLE, flags: UInt, srcprincipal: PCWSTR, dstprincipal: PCWSTR): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsInheritSecurityIdentityW", longArrayOf(Win32DynamicFfi.objectSlot(hds), flags.toLong(), srcprincipal, dstprincipal)).toUInt()
+public fun DsInheritSecurityIdentityW(hds: HANDLE, flags: UInt, srcprincipal: PCWSTR, dstprincipal: PCWSTR): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsInheritSecurityIdentityW", longArrayOf(hds, flags.toLong(), srcprincipal, dstprincipal)).toUInt()
 }
 
 public fun DsIsMangledDnA(pszdn: PCSTR, edsmanglefor: DS_MANGLE_FOR): BOOL {
@@ -385,52 +389,52 @@ public fun DsIsMangledRdnValueW(pszrdn: PCWSTR, crdn: UInt, edsmanglefordesired:
     return Win32DynamicFfi.invoke("dsparse.dll", "DsIsMangledRdnValueW", longArrayOf(pszrdn, crdn.toLong(), edsmanglefordesired.toLong())).toInt()
 }
 
-public fun DsListDomainsInSiteA(hds: Foundation.HANDLE, site: PCSTR, ppdomains: Long): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsListDomainsInSiteA", longArrayOf(Win32DynamicFfi.objectSlot(hds), site, ppdomains)).toUInt()
+public fun DsListDomainsInSiteA(hds: HANDLE, site: PCSTR, ppdomains: Long): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsListDomainsInSiteA", longArrayOf(hds, site, ppdomains)).toUInt()
 }
 
-public fun DsListDomainsInSiteW(hds: Foundation.HANDLE, site: PCWSTR, ppdomains: Long): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsListDomainsInSiteW", longArrayOf(Win32DynamicFfi.objectSlot(hds), site, ppdomains)).toUInt()
+public fun DsListDomainsInSiteW(hds: HANDLE, site: PCWSTR, ppdomains: Long): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsListDomainsInSiteW", longArrayOf(hds, site, ppdomains)).toUInt()
 }
 
-public fun DsListInfoForServerA(hds: Foundation.HANDLE, server: PCSTR, ppinfo: Long): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsListInfoForServerA", longArrayOf(Win32DynamicFfi.objectSlot(hds), server, ppinfo)).toUInt()
+public fun DsListInfoForServerA(hds: HANDLE, server: PCSTR, ppinfo: Long): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsListInfoForServerA", longArrayOf(hds, server, ppinfo)).toUInt()
 }
 
-public fun DsListInfoForServerW(hds: Foundation.HANDLE, server: PCWSTR, ppinfo: Long): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsListInfoForServerW", longArrayOf(Win32DynamicFfi.objectSlot(hds), server, ppinfo)).toUInt()
+public fun DsListInfoForServerW(hds: HANDLE, server: PCWSTR, ppinfo: Long): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsListInfoForServerW", longArrayOf(hds, server, ppinfo)).toUInt()
 }
 
-public fun DsListRolesA(hds: Foundation.HANDLE, pproles: Long): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsListRolesA", longArrayOf(Win32DynamicFfi.objectSlot(hds), pproles)).toUInt()
+public fun DsListRolesA(hds: HANDLE, pproles: Long): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsListRolesA", longArrayOf(hds, pproles)).toUInt()
 }
 
-public fun DsListRolesW(hds: Foundation.HANDLE, pproles: Long): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsListRolesW", longArrayOf(Win32DynamicFfi.objectSlot(hds), pproles)).toUInt()
+public fun DsListRolesW(hds: HANDLE, pproles: Long): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsListRolesW", longArrayOf(hds, pproles)).toUInt()
 }
 
-public fun DsListServersForDomainInSiteA(hds: Foundation.HANDLE, domain: PCSTR, site: PCSTR, ppservers: Long): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsListServersForDomainInSiteA", longArrayOf(Win32DynamicFfi.objectSlot(hds), domain, site, ppservers)).toUInt()
+public fun DsListServersForDomainInSiteA(hds: HANDLE, domain: PCSTR, site: PCSTR, ppservers: Long): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsListServersForDomainInSiteA", longArrayOf(hds, domain, site, ppservers)).toUInt()
 }
 
-public fun DsListServersForDomainInSiteW(hds: Foundation.HANDLE, domain: PCWSTR, site: PCWSTR, ppservers: Long): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsListServersForDomainInSiteW", longArrayOf(Win32DynamicFfi.objectSlot(hds), domain, site, ppservers)).toUInt()
+public fun DsListServersForDomainInSiteW(hds: HANDLE, domain: PCWSTR, site: PCWSTR, ppservers: Long): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsListServersForDomainInSiteW", longArrayOf(hds, domain, site, ppservers)).toUInt()
 }
 
-public fun DsListServersInSiteA(hds: Foundation.HANDLE, site: PCSTR, ppservers: Long): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsListServersInSiteA", longArrayOf(Win32DynamicFfi.objectSlot(hds), site, ppservers)).toUInt()
+public fun DsListServersInSiteA(hds: HANDLE, site: PCSTR, ppservers: Long): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsListServersInSiteA", longArrayOf(hds, site, ppservers)).toUInt()
 }
 
-public fun DsListServersInSiteW(hds: Foundation.HANDLE, site: PCWSTR, ppservers: Long): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsListServersInSiteW", longArrayOf(Win32DynamicFfi.objectSlot(hds), site, ppservers)).toUInt()
+public fun DsListServersInSiteW(hds: HANDLE, site: PCWSTR, ppservers: Long): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsListServersInSiteW", longArrayOf(hds, site, ppservers)).toUInt()
 }
 
-public fun DsListSitesA(hds: Foundation.HANDLE, ppsites: Long): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsListSitesA", longArrayOf(Win32DynamicFfi.objectSlot(hds), ppsites)).toUInt()
+public fun DsListSitesA(hds: HANDLE, ppsites: Long): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsListSitesA", longArrayOf(hds, ppsites)).toUInt()
 }
 
-public fun DsListSitesW(hds: Foundation.HANDLE, ppsites: Long): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsListSitesW", longArrayOf(Win32DynamicFfi.objectSlot(hds), ppsites)).toUInt()
+public fun DsListSitesW(hds: HANDLE, ppsites: Long): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsListSitesW", longArrayOf(hds, ppsites)).toUInt()
 }
 
 public fun DsMakePasswordCredentialsA(user: PCSTR, domain: PCSTR, password: PCSTR, pauthidentity: Long): UInt {
@@ -449,24 +453,24 @@ public fun DsMakeSpnW(serviceclass: PCWSTR, servicename: PCWSTR, instancename: P
     return Win32DynamicFfi.invoke("dsparse.dll", "DsMakeSpnW", longArrayOf(serviceclass, servicename, instancename, instanceport.toLong(), referrer, pcspnlength, pszspn)).toUInt()
 }
 
-public fun DsMapSchemaGuidsA(hds: Foundation.HANDLE, cguids: UInt, rguids: Long, ppguidmap: Long): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsMapSchemaGuidsA", longArrayOf(Win32DynamicFfi.objectSlot(hds), cguids.toLong(), rguids, ppguidmap)).toUInt()
+public fun DsMapSchemaGuidsA(hds: HANDLE, cguids: UInt, rguids: Long, ppguidmap: Long): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsMapSchemaGuidsA", longArrayOf(hds, cguids.toLong(), rguids, ppguidmap)).toUInt()
 }
 
-public fun DsMapSchemaGuidsW(hds: Foundation.HANDLE, cguids: UInt, rguids: Long, ppguidmap: Long): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsMapSchemaGuidsW", longArrayOf(Win32DynamicFfi.objectSlot(hds), cguids.toLong(), rguids, ppguidmap)).toUInt()
+public fun DsMapSchemaGuidsW(hds: HANDLE, cguids: UInt, rguids: Long, ppguidmap: Long): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsMapSchemaGuidsW", longArrayOf(hds, cguids.toLong(), rguids, ppguidmap)).toUInt()
 }
 
 public fun DsMergeForestTrustInformationW(domainname: PCWSTR, newforesttrustinfo: Long, oldforesttrustinfo: Long, mergedforesttrustinfo: Long): UInt {
     return Win32DynamicFfi.invoke("netapi32.dll", "DsMergeForestTrustInformationW", longArrayOf(domainname, newforesttrustinfo, oldforesttrustinfo, mergedforesttrustinfo)).toUInt()
 }
 
-public fun DsQuerySitesByCostA(hds: Foundation.HANDLE, pszfromsite: PCSTR, rgsztosites: Long, ctosites: UInt, dwflags: UInt, prgsiteinfo: Long): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsQuerySitesByCostA", longArrayOf(Win32DynamicFfi.objectSlot(hds), pszfromsite, rgsztosites, ctosites.toLong(), dwflags.toLong(), prgsiteinfo)).toUInt()
+public fun DsQuerySitesByCostA(hds: HANDLE, pszfromsite: PCSTR, rgsztosites: Long, ctosites: UInt, dwflags: UInt, prgsiteinfo: Long): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsQuerySitesByCostA", longArrayOf(hds, pszfromsite, rgsztosites, ctosites.toLong(), dwflags.toLong(), prgsiteinfo)).toUInt()
 }
 
-public fun DsQuerySitesByCostW(hds: Foundation.HANDLE, pwszfromsite: PCWSTR, rgwsztosites: Long, ctosites: UInt, dwflags: UInt, prgsiteinfo: Long): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsQuerySitesByCostW", longArrayOf(Win32DynamicFfi.objectSlot(hds), pwszfromsite, rgwsztosites, ctosites.toLong(), dwflags.toLong(), prgsiteinfo)).toUInt()
+public fun DsQuerySitesByCostW(hds: HANDLE, pwszfromsite: PCWSTR, rgwsztosites: Long, ctosites: UInt, dwflags: UInt, prgsiteinfo: Long): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsQuerySitesByCostW", longArrayOf(hds, pwszfromsite, rgwsztosites, ctosites.toLong(), dwflags.toLong(), prgsiteinfo)).toUInt()
 }
 
 public fun DsQuerySitesFree(rgsiteinfo: Long) {
@@ -481,92 +485,92 @@ public fun DsQuoteRdnValueW(cunquotedrdnvaluelength: UInt, psunquotedrdnvalue: P
     return Win32DynamicFfi.invoke("dsparse.dll", "DsQuoteRdnValueW", longArrayOf(cunquotedrdnvaluelength.toLong(), psunquotedrdnvalue, pcquotedrdnvaluelength, psquotedrdnvalue)).toUInt()
 }
 
-public fun DsRemoveDsDomainA(hds: Foundation.HANDLE, domaindn: PCSTR): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsRemoveDsDomainA", longArrayOf(Win32DynamicFfi.objectSlot(hds), domaindn)).toUInt()
+public fun DsRemoveDsDomainA(hds: HANDLE, domaindn: PCSTR): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsRemoveDsDomainA", longArrayOf(hds, domaindn)).toUInt()
 }
 
-public fun DsRemoveDsDomainW(hds: Foundation.HANDLE, domaindn: PCWSTR): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsRemoveDsDomainW", longArrayOf(Win32DynamicFfi.objectSlot(hds), domaindn)).toUInt()
+public fun DsRemoveDsDomainW(hds: HANDLE, domaindn: PCWSTR): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsRemoveDsDomainW", longArrayOf(hds, domaindn)).toUInt()
 }
 
-public fun DsRemoveDsServerA(hds: Foundation.HANDLE, serverdn: PCSTR, domaindn: PCSTR, flastdcindomain: Long, fcommit: BOOL): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsRemoveDsServerA", longArrayOf(Win32DynamicFfi.objectSlot(hds), serverdn, domaindn, flastdcindomain, fcommit.toLong())).toUInt()
+public fun DsRemoveDsServerA(hds: HANDLE, serverdn: PCSTR, domaindn: PCSTR, flastdcindomain: Long, fcommit: BOOL): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsRemoveDsServerA", longArrayOf(hds, serverdn, domaindn, flastdcindomain, fcommit.toLong())).toUInt()
 }
 
-public fun DsRemoveDsServerW(hds: Foundation.HANDLE, serverdn: PCWSTR, domaindn: PCWSTR, flastdcindomain: Long, fcommit: BOOL): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsRemoveDsServerW", longArrayOf(Win32DynamicFfi.objectSlot(hds), serverdn, domaindn, flastdcindomain, fcommit.toLong())).toUInt()
+public fun DsRemoveDsServerW(hds: HANDLE, serverdn: PCWSTR, domaindn: PCWSTR, flastdcindomain: Long, fcommit: BOOL): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsRemoveDsServerW", longArrayOf(hds, serverdn, domaindn, flastdcindomain, fcommit.toLong())).toUInt()
 }
 
-public fun DsReplicaAddA(hds: Foundation.HANDLE, namecontext: PCSTR, sourcedsadn: PCSTR, transportdn: PCSTR, sourcedsaaddress: PCSTR, pschedule: Long, options: UInt): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaAddA", longArrayOf(Win32DynamicFfi.objectSlot(hds), namecontext, sourcedsadn, transportdn, sourcedsaaddress, pschedule, options.toLong())).toUInt()
+public fun DsReplicaAddA(hds: HANDLE, namecontext: PCSTR, sourcedsadn: PCSTR, transportdn: PCSTR, sourcedsaaddress: PCSTR, pschedule: Long, options: UInt): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaAddA", longArrayOf(hds, namecontext, sourcedsadn, transportdn, sourcedsaaddress, pschedule, options.toLong())).toUInt()
 }
 
-public fun DsReplicaAddW(hds: Foundation.HANDLE, namecontext: PCWSTR, sourcedsadn: PCWSTR, transportdn: PCWSTR, sourcedsaaddress: PCWSTR, pschedule: Long, options: UInt): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaAddW", longArrayOf(Win32DynamicFfi.objectSlot(hds), namecontext, sourcedsadn, transportdn, sourcedsaaddress, pschedule, options.toLong())).toUInt()
+public fun DsReplicaAddW(hds: HANDLE, namecontext: PCWSTR, sourcedsadn: PCWSTR, transportdn: PCWSTR, sourcedsaaddress: PCWSTR, pschedule: Long, options: UInt): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaAddW", longArrayOf(hds, namecontext, sourcedsadn, transportdn, sourcedsaaddress, pschedule, options.toLong())).toUInt()
 }
 
-public fun DsReplicaConsistencyCheck(hds: Foundation.HANDLE, taskid: DS_KCC_TASKID, dwflags: UInt): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaConsistencyCheck", longArrayOf(Win32DynamicFfi.objectSlot(hds), taskid.toLong(), dwflags.toLong())).toUInt()
+public fun DsReplicaConsistencyCheck(hds: HANDLE, taskid: DS_KCC_TASKID, dwflags: UInt): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaConsistencyCheck", longArrayOf(hds, taskid.toLong(), dwflags.toLong())).toUInt()
 }
 
-public fun DsReplicaDelA(hds: Foundation.HANDLE, namecontext: PCSTR, dsasrc: PCSTR, options: UInt): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaDelA", longArrayOf(Win32DynamicFfi.objectSlot(hds), namecontext, dsasrc, options.toLong())).toUInt()
+public fun DsReplicaDelA(hds: HANDLE, namecontext: PCSTR, dsasrc: PCSTR, options: UInt): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaDelA", longArrayOf(hds, namecontext, dsasrc, options.toLong())).toUInt()
 }
 
-public fun DsReplicaDelW(hds: Foundation.HANDLE, namecontext: PCWSTR, dsasrc: PCWSTR, options: UInt): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaDelW", longArrayOf(Win32DynamicFfi.objectSlot(hds), namecontext, dsasrc, options.toLong())).toUInt()
+public fun DsReplicaDelW(hds: HANDLE, namecontext: PCWSTR, dsasrc: PCWSTR, options: UInt): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaDelW", longArrayOf(hds, namecontext, dsasrc, options.toLong())).toUInt()
 }
 
 public fun DsReplicaFreeInfo(infotype: DS_REPL_INFO_TYPE, pinfo: Long) {
     Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaFreeInfo", longArrayOf(infotype.toLong(), pinfo))
 }
 
-public fun DsReplicaGetInfo2W(hds: Foundation.HANDLE, infotype: DS_REPL_INFO_TYPE, pszobject: PCWSTR, puuidforsourcedsaobjguid: Long, pszattributename: PCWSTR, pszvalue: PCWSTR, dwflags: UInt, dwenumerationcontext: UInt, ppinfo: Long): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaGetInfo2W", longArrayOf(Win32DynamicFfi.objectSlot(hds), infotype.toLong(), pszobject, puuidforsourcedsaobjguid, pszattributename, pszvalue, dwflags.toLong(), dwenumerationcontext.toLong(), ppinfo)).toUInt()
+public fun DsReplicaGetInfo2W(hds: HANDLE, infotype: DS_REPL_INFO_TYPE, pszobject: PCWSTR, puuidforsourcedsaobjguid: Long, pszattributename: PCWSTR, pszvalue: PCWSTR, dwflags: UInt, dwenumerationcontext: UInt, ppinfo: Long): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaGetInfo2W", longArrayOf(hds, infotype.toLong(), pszobject, puuidforsourcedsaobjguid, pszattributename, pszvalue, dwflags.toLong(), dwenumerationcontext.toLong(), ppinfo)).toUInt()
 }
 
-public fun DsReplicaGetInfoW(hds: Foundation.HANDLE, infotype: DS_REPL_INFO_TYPE, pszobject: PCWSTR, puuidforsourcedsaobjguid: Long, ppinfo: Long): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaGetInfoW", longArrayOf(Win32DynamicFfi.objectSlot(hds), infotype.toLong(), pszobject, puuidforsourcedsaobjguid, ppinfo)).toUInt()
+public fun DsReplicaGetInfoW(hds: HANDLE, infotype: DS_REPL_INFO_TYPE, pszobject: PCWSTR, puuidforsourcedsaobjguid: Long, ppinfo: Long): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaGetInfoW", longArrayOf(hds, infotype.toLong(), pszobject, puuidforsourcedsaobjguid, ppinfo)).toUInt()
 }
 
-public fun DsReplicaModifyA(hds: Foundation.HANDLE, namecontext: PCSTR, puuidsourcedsa: Long, transportdn: PCSTR, sourcedsaaddress: PCSTR, pschedule: Long, replicaflags: UInt, modifyfields: UInt, options: UInt): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaModifyA", longArrayOf(Win32DynamicFfi.objectSlot(hds), namecontext, puuidsourcedsa, transportdn, sourcedsaaddress, pschedule, replicaflags.toLong(), modifyfields.toLong(), options.toLong())).toUInt()
+public fun DsReplicaModifyA(hds: HANDLE, namecontext: PCSTR, puuidsourcedsa: Long, transportdn: PCSTR, sourcedsaaddress: PCSTR, pschedule: Long, replicaflags: UInt, modifyfields: UInt, options: UInt): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaModifyA", longArrayOf(hds, namecontext, puuidsourcedsa, transportdn, sourcedsaaddress, pschedule, replicaflags.toLong(), modifyfields.toLong(), options.toLong())).toUInt()
 }
 
-public fun DsReplicaModifyW(hds: Foundation.HANDLE, namecontext: PCWSTR, puuidsourcedsa: Long, transportdn: PCWSTR, sourcedsaaddress: PCWSTR, pschedule: Long, replicaflags: UInt, modifyfields: UInt, options: UInt): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaModifyW", longArrayOf(Win32DynamicFfi.objectSlot(hds), namecontext, puuidsourcedsa, transportdn, sourcedsaaddress, pschedule, replicaflags.toLong(), modifyfields.toLong(), options.toLong())).toUInt()
+public fun DsReplicaModifyW(hds: HANDLE, namecontext: PCWSTR, puuidsourcedsa: Long, transportdn: PCWSTR, sourcedsaaddress: PCWSTR, pschedule: Long, replicaflags: UInt, modifyfields: UInt, options: UInt): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaModifyW", longArrayOf(hds, namecontext, puuidsourcedsa, transportdn, sourcedsaaddress, pschedule, replicaflags.toLong(), modifyfields.toLong(), options.toLong())).toUInt()
 }
 
-public fun DsReplicaSyncA(hds: Foundation.HANDLE, namecontext: PCSTR, puuiddsasrc: Long, options: UInt): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaSyncA", longArrayOf(Win32DynamicFfi.objectSlot(hds), namecontext, puuiddsasrc, options.toLong())).toUInt()
+public fun DsReplicaSyncA(hds: HANDLE, namecontext: PCSTR, puuiddsasrc: Long, options: UInt): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaSyncA", longArrayOf(hds, namecontext, puuiddsasrc, options.toLong())).toUInt()
 }
 
-public fun DsReplicaSyncAllA(hds: Foundation.HANDLE, psznamecontext: PCSTR, ulflags: UInt, pfncallback: Long, pcallbackdata: Long, perrors: Long): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaSyncAllA", longArrayOf(Win32DynamicFfi.objectSlot(hds), psznamecontext, ulflags.toLong(), pfncallback, pcallbackdata, perrors)).toUInt()
+public fun DsReplicaSyncAllA(hds: HANDLE, psznamecontext: PCSTR, ulflags: UInt, pfncallback: Long, pcallbackdata: Long, perrors: Long): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaSyncAllA", longArrayOf(hds, psznamecontext, ulflags.toLong(), pfncallback, pcallbackdata, perrors)).toUInt()
 }
 
-public fun DsReplicaSyncAllW(hds: Foundation.HANDLE, psznamecontext: PCWSTR, ulflags: UInt, pfncallback: Long, pcallbackdata: Long, perrors: Long): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaSyncAllW", longArrayOf(Win32DynamicFfi.objectSlot(hds), psznamecontext, ulflags.toLong(), pfncallback, pcallbackdata, perrors)).toUInt()
+public fun DsReplicaSyncAllW(hds: HANDLE, psznamecontext: PCWSTR, ulflags: UInt, pfncallback: Long, pcallbackdata: Long, perrors: Long): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaSyncAllW", longArrayOf(hds, psznamecontext, ulflags.toLong(), pfncallback, pcallbackdata, perrors)).toUInt()
 }
 
-public fun DsReplicaSyncW(hds: Foundation.HANDLE, namecontext: PCWSTR, puuiddsasrc: Long, options: UInt): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaSyncW", longArrayOf(Win32DynamicFfi.objectSlot(hds), namecontext, puuiddsasrc, options.toLong())).toUInt()
+public fun DsReplicaSyncW(hds: HANDLE, namecontext: PCWSTR, puuiddsasrc: Long, options: UInt): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaSyncW", longArrayOf(hds, namecontext, puuiddsasrc, options.toLong())).toUInt()
 }
 
-public fun DsReplicaUpdateRefsA(hds: Foundation.HANDLE, namecontext: PCSTR, dsadest: PCSTR, puuiddsadest: Long, options: UInt): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaUpdateRefsA", longArrayOf(Win32DynamicFfi.objectSlot(hds), namecontext, dsadest, puuiddsadest, options.toLong())).toUInt()
+public fun DsReplicaUpdateRefsA(hds: HANDLE, namecontext: PCSTR, dsadest: PCSTR, puuiddsadest: Long, options: UInt): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaUpdateRefsA", longArrayOf(hds, namecontext, dsadest, puuiddsadest, options.toLong())).toUInt()
 }
 
-public fun DsReplicaUpdateRefsW(hds: Foundation.HANDLE, namecontext: PCWSTR, dsadest: PCWSTR, puuiddsadest: Long, options: UInt): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaUpdateRefsW", longArrayOf(Win32DynamicFfi.objectSlot(hds), namecontext, dsadest, puuiddsadest, options.toLong())).toUInt()
+public fun DsReplicaUpdateRefsW(hds: HANDLE, namecontext: PCWSTR, dsadest: PCWSTR, puuiddsadest: Long, options: UInt): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaUpdateRefsW", longArrayOf(hds, namecontext, dsadest, puuiddsadest, options.toLong())).toUInt()
 }
 
-public fun DsReplicaVerifyObjectsA(hds: Foundation.HANDLE, namecontext: PCSTR, puuiddsasrc: Long, uloptions: UInt): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaVerifyObjectsA", longArrayOf(Win32DynamicFfi.objectSlot(hds), namecontext, puuiddsasrc, uloptions.toLong())).toUInt()
+public fun DsReplicaVerifyObjectsA(hds: HANDLE, namecontext: PCSTR, puuiddsasrc: Long, uloptions: UInt): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaVerifyObjectsA", longArrayOf(hds, namecontext, puuiddsasrc, uloptions.toLong())).toUInt()
 }
 
-public fun DsReplicaVerifyObjectsW(hds: Foundation.HANDLE, namecontext: PCWSTR, puuiddsasrc: Long, uloptions: UInt): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaVerifyObjectsW", longArrayOf(Win32DynamicFfi.objectSlot(hds), namecontext, puuiddsasrc, uloptions.toLong())).toUInt()
+public fun DsReplicaVerifyObjectsW(hds: HANDLE, namecontext: PCWSTR, puuiddsasrc: Long, uloptions: UInt): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsReplicaVerifyObjectsW", longArrayOf(hds, namecontext, puuiddsasrc, uloptions.toLong())).toUInt()
 }
 
 public fun DsRoleFreeMemory(buffer: Long) {
@@ -609,12 +613,12 @@ public fun DsValidateSubnetNameW(subnetname: PCWSTR): UInt {
     return Win32DynamicFfi.invoke("netapi32.dll", "DsValidateSubnetNameW", longArrayOf(subnetname)).toUInt()
 }
 
-public fun DsWriteAccountSpnA(hds: Foundation.HANDLE, operation: DS_SPN_WRITE_OP, pszaccount: PCSTR, cspn: UInt, rpszspn: Long): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsWriteAccountSpnA", longArrayOf(Win32DynamicFfi.objectSlot(hds), operation.toLong(), pszaccount, cspn.toLong(), rpszspn)).toUInt()
+public fun DsWriteAccountSpnA(hds: HANDLE, operation: DS_SPN_WRITE_OP, pszaccount: PCSTR, cspn: UInt, rpszspn: Long): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsWriteAccountSpnA", longArrayOf(hds, operation.toLong(), pszaccount, cspn.toLong(), rpszspn)).toUInt()
 }
 
-public fun DsWriteAccountSpnW(hds: Foundation.HANDLE, operation: DS_SPN_WRITE_OP, pszaccount: PCWSTR, cspn: UInt, rpszspn: Long): UInt {
-    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsWriteAccountSpnW", longArrayOf(Win32DynamicFfi.objectSlot(hds), operation.toLong(), pszaccount, cspn.toLong(), rpszspn)).toUInt()
+public fun DsWriteAccountSpnW(hds: HANDLE, operation: DS_SPN_WRITE_OP, pszaccount: PCWSTR, cspn: UInt, rpszspn: Long): UInt {
+    return Win32DynamicFfi.invoke("ntdsapi.dll", "DsWriteAccountSpnW", longArrayOf(hds, operation.toLong(), pszaccount, cspn.toLong(), rpszspn)).toUInt()
 }
 
 public fun FreeADsMem(pmem: Long): BOOL {
@@ -637,6 +641,6 @@ public fun ReallocADsStr(ppstr: Long, pstr: PCWSTR): BOOL {
     return Win32DynamicFfi.invoke("activeds.dll", "ReallocADsStr", longArrayOf(ppstr, pstr)).toInt()
 }
 
-public fun SecurityDescriptorToBinarySD(vvarsecdes: System.Variant.VARIANT, ppsecuritydescriptor: Long, pdwsdlength: Long, pszservername: PCWSTR, username: PCWSTR, password: PCWSTR, dwflags: UInt): HRESULT {
+public fun SecurityDescriptorToBinarySD(vvarsecdes: VARIANT, ppsecuritydescriptor: Long, pdwsdlength: Long, pszservername: PCWSTR, username: PCWSTR, password: PCWSTR, dwflags: UInt): HRESULT {
     return Win32DynamicFfi.invoke("activeds.dll", "SecurityDescriptorToBinarySD", longArrayOf(Win32DynamicFfi.objectSlot(vvarsecdes), ppsecuritydescriptor, pdwsdlength, pszservername, username, password, dwflags.toLong())).toInt()
 }

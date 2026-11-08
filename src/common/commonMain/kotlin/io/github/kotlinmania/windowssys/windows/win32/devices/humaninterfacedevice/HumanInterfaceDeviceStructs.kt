@@ -6,6 +6,11 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
 
 public data class CPOINT(public var lP: Int = 0, public var dwLog: UInt = 0u)
 
@@ -32,8 +37,8 @@ public data class DIACTIONFORMATA(
     public var dwBufferSize: UInt = 0u,
     public var lAxisMin: Int = 0,
     public var lAxisMax: Int = 0,
-    public var hInstString: Foundation.HINSTANCE = Foundation.HINSTANCE(),
-    public var ftTimeStamp: Foundation.FILETIME = Foundation.FILETIME(),
+    public var hInstString: HINSTANCE = 0L,
+    public var ftTimeStamp: FILETIME = FILETIME(),
     public var dwCRC: UInt = 0u,
     public var tszActionMap: ByteArray = ByteArray(260),
 ) {
@@ -87,8 +92,8 @@ public data class DIACTIONFORMATW(
     public var dwBufferSize: UInt = 0u,
     public var lAxisMin: Int = 0,
     public var lAxisMax: Int = 0,
-    public var hInstString: Foundation.HINSTANCE = Foundation.HINSTANCE(),
-    public var ftTimeStamp: Foundation.FILETIME = Foundation.FILETIME(),
+    public var hInstString: HINSTANCE = 0L,
+    public var ftTimeStamp: FILETIME = FILETIME(),
     public var dwCRC: UInt = 0u,
     public var tszActionMap: UShortArray = UShortArray(260),
 ) {
@@ -170,7 +175,7 @@ public data class DICONFIGUREDEVICESPARAMSA(
     public var lptszUserNames: PSTR = 0L,
     public var dwcFormats: UInt = 0u,
     public var lprgFormats: Long = 0L,
-    public var hwnd: Foundation.HWND = Foundation.HWND(),
+    public var hwnd: HWND = 0L,
     public var dics: DICOLORSET = DICOLORSET(),
     public var lpUnkDDSTarget: Long = 0L,
 )
@@ -181,7 +186,7 @@ public data class DICONFIGUREDEVICESPARAMSW(
     public var lptszUserNames: PWSTR = 0L,
     public var dwcFormats: UInt = 0u,
     public var lprgFormats: Long = 0L,
-    public var hwnd: Foundation.HWND = Foundation.HWND(),
+    public var hwnd: HWND = 0L,
     public var dics: DICOLORSET = DICOLORSET(),
     public var lpUnkDDSTarget: Long = 0L,
 )
@@ -231,11 +236,11 @@ public data class DIDEVICEIMAGEINFOA(
     public var tszImagePath: ByteArray = ByteArray(260),
     public var dwFlags: UInt = 0u,
     public var dwViewID: UInt = 0u,
-    public var rcOverlay: Foundation.RECT = Foundation.RECT(),
+    public var rcOverlay: RECT = RECT(),
     public var dwObjID: UInt = 0u,
     public var dwcValidPts: UInt = 0u,
-    public var rgptCalloutLine: List<Foundation.POINT> = List(5) { Foundation.POINT() },
-    public var rcCalloutRect: Foundation.RECT = Foundation.RECT(),
+    public var rgptCalloutLine: List<POINT> = List(5) { POINT() },
+    public var rcCalloutRect: RECT = RECT(),
     public var dwTextAlign: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
@@ -295,11 +300,11 @@ public data class DIDEVICEIMAGEINFOW(
     public var tszImagePath: UShortArray = UShortArray(260),
     public var dwFlags: UInt = 0u,
     public var dwViewID: UInt = 0u,
-    public var rcOverlay: Foundation.RECT = Foundation.RECT(),
+    public var rcOverlay: RECT = RECT(),
     public var dwObjID: UInt = 0u,
     public var dwcValidPts: UInt = 0u,
-    public var rgptCalloutLine: List<Foundation.POINT> = List(5) { Foundation.POINT() },
-    public var rcCalloutRect: Foundation.RECT = Foundation.RECT(),
+    public var rgptCalloutLine: List<POINT> = List(5) { POINT() },
+    public var rcCalloutRect: RECT = RECT(),
     public var dwTextAlign: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {

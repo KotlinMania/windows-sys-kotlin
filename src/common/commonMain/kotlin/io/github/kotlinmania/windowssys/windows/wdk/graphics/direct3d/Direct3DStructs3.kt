@@ -3,6 +3,13 @@ package io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d
 
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.RECTL
 
 public data class D3DKMT_OUTPUTDUPLPRESENTFLAGS(public var Anonymous: D3DKMT_OUTPUTDUPLPRESENTFLAGS_0 = D3DKMT_OUTPUTDUPLPRESENTFLAGS_0())
 
@@ -46,7 +53,7 @@ public data class D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA(
     public var ShapeInfo: D3DKMT_OUTDUPL_POINTER_SHAPE_INFO = D3DKMT_OUTDUPL_POINTER_SHAPE_INFO(),
 )
 
-public data class D3DKMT_OUTPUTDUPL_KEYEDMUTEX(public var hSharedSurfaceNt: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE())
+public data class D3DKMT_OUTPUTDUPL_KEYEDMUTEX(public var hSharedSurfaceNt: HANDLE = 0L)
 
 public data class D3DKMT_OUTPUTDUPL_METADATA(
     public var hAdapter: UInt = 0u,
@@ -57,7 +64,7 @@ public data class D3DKMT_OUTPUTDUPL_METADATA(
     public var BufferSizeRequired: UInt = 0u,
 )
 
-public data class D3DKMT_OUTPUTDUPL_POINTER_POSITION(public var Position: Win32.Foundation.POINT = Win32.Foundation.POINT(), public var Visible: BOOL = 0)
+public data class D3DKMT_OUTPUTDUPL_POINTER_POSITION(public var Position: POINT = POINT(), public var Visible: BOOL = 0)
 
 public data class D3DKMT_OUTPUTDUPL_RELEASE_FRAME(
     public var hAdapter: UInt = 0u,
@@ -111,13 +118,13 @@ public data class D3DKMT_POLLDISPLAYCHILDREN(public var hAdapter: UInt = 0u, pub
 
 public class D3DKMT_PRESENT(
     public var Anonymous1: D3DKMT_PRESENT_0 = D3DKMT_PRESENT_0(),
-    public var hWindow: Win32.Foundation.HWND = Win32.Foundation.HWND(),
+    public var hWindow: HWND = 0L,
     public var VidPnSourceId: UInt = 0u,
     public var hSource: UInt = 0u,
     public var hDestination: UInt = 0u,
     public var Color: UInt = 0u,
-    public var DstRect: Win32.Foundation.RECT = Win32.Foundation.RECT(),
-    public var SrcRect: Win32.Foundation.RECT = Win32.Foundation.RECT(),
+    public var DstRect: RECT = RECT(),
+    public var SrcRect: RECT = RECT(),
     public var SubRectCnt: UInt = 0u,
     public var pSrcSubRects: Long = 0L,
     public var PresentCount: UInt = 0u,
@@ -125,7 +132,7 @@ public class D3DKMT_PRESENT(
     public var Flags: D3DKMT_PRESENTFLAGS = D3DKMT_PRESENTFLAGS(),
     public var BroadcastContextCount: UInt = 0u,
     public var BroadcastContext: UIntArray = UIntArray(64),
-    public var PresentLimitSemaphore: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var PresentLimitSemaphore: HANDLE = 0L,
     public var PresentHistoryToken: D3DKMT_PRESENTHISTORYTOKEN = D3DKMT_PRESENTHISTORYTOKEN(),
     public var pPresentRegions: Long = 0L,
     public var Anonymous2: D3DKMT_PRESENT_1 = D3DKMT_PRESENT_1(),
@@ -336,7 +343,7 @@ public data class D3DKMT_PRESENT_STATS_DWM2(
 )
 
 public data class D3DKMT_PROCESS_VERIFIER_OPTION(
-    public var hProcess: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var hProcess: HANDLE = 0L,
     public var Type: D3DKMT_PROCESS_VERIFIER_OPTION_TYPE = 0,
     public var Mode: D3DKMT_VERIFIER_OPTION_MODE = 0,
     public var Data: D3DKMT_PROCESS_VERIFIER_OPTION_DATA = D3DKMT_PROCESS_VERIFIER_OPTION_DATA(),
@@ -373,7 +380,7 @@ public data class D3DKMT_QUERYCLOCKCALIBRATION(
 )
 
 public data class D3DKMT_QUERYFSEBLOCK(
-    public var AdapterLuid: Win32.Foundation.LUID = Win32.Foundation.LUID(),
+    public var AdapterLuid: LUID = LUID(),
     public var hAdapter: UInt = 0u,
     public var VidPnSourceId: UInt = 0u,
     public var Flags: D3DKMT_QUERYFSEBLOCKFLAGS = D3DKMT_QUERYFSEBLOCKFLAGS(),
@@ -385,13 +392,13 @@ public data class D3DKMT_QUERYFSEBLOCKFLAGS_0(public var _bitfield: UInt = 0u)
 
 public data class D3DKMT_QUERYPROCESSOFFERINFO(
     public var cbSize: UInt = 0u,
-    public var hProcess: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var hProcess: HANDLE = 0L,
     public var DecommitUniqueness: ULong = 0uL,
     public var DecommittableBytes: ULong = 0uL,
 )
 
 public data class D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE(
-    public var hNtHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var hNtHandle: HANDLE = 0L,
     public var pPrivateDriverData: Long = 0L,
     public var PrivateDriverDataSize: UInt = 0u,
     public var pPrivateRuntimeData: Long = 0L,
@@ -428,7 +435,7 @@ public data class D3DKMT_QUERYRESOURCEINFO(
 
 public data class D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE(
     public var hDevice: UInt = 0u,
-    public var hNtHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var hNtHandle: HANDLE = 0L,
     public var pPrivateRuntimeData: Long = 0L,
     public var PrivateRuntimeDataSize: UInt = 0u,
     public var TotalPrivateDriverDataSize: UInt = 0u,
@@ -438,8 +445,8 @@ public data class D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE(
 
 public data class D3DKMT_QUERYSTATISTICS(
     public var Type: D3DKMT_QUERYSTATISTICS_TYPE = 0,
-    public var AdapterLuid: Win32.Foundation.LUID = Win32.Foundation.LUID(),
-    public var hProcess: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var AdapterLuid: LUID = LUID(),
+    public var hProcess: HANDLE = 0L,
     public var QueryResult: D3DKMT_QUERYSTATISTICS_RESULT = D3DKMT_QUERYSTATISTICS_RESULT(),
     public var Anonymous: D3DKMT_QUERYSTATISTICS_0 = D3DKMT_QUERYSTATISTICS_0(),
 )
@@ -1021,7 +1028,7 @@ public data class D3DKMT_QUERYSTATSTICS_TERMINATIONS(
 )
 
 public data class D3DKMT_QUERYVIDEOMEMORYINFO(
-    public var hProcess: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var hProcess: HANDLE = 0L,
     public var hAdapter: UInt = 0u,
     public var MemorySegmentGroup: D3DKMT_MEMORY_SEGMENT_GROUP = 0,
     public var Budget: ULong = 0uL,
@@ -1032,10 +1039,10 @@ public data class D3DKMT_QUERYVIDEOMEMORYINFO(
 )
 
 public data class D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP(
-    public var hProcess: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
-    public var hWindow: Win32.Foundation.HWND = Win32.Foundation.HWND(),
+    public var hProcess: HANDLE = 0L,
+    public var hWindow: HWND = 0L,
     public var VidPnSourceId: UInt = 0u,
-    public var AdapterLuid: Win32.Foundation.LUID = Win32.Foundation.LUID(),
+    public var AdapterLuid: LUID = LUID(),
     public var OwnerType: D3DKMT_VIDPNSOURCEOWNER_TYPE = 0,
 )
 
@@ -1094,7 +1101,7 @@ public data class D3DKMT_REGISTERBUDGETCHANGENOTIFICATION(
 )
 
 public data class D3DKMT_REGISTERTRIMNOTIFICATION(
-    public var AdapterLuid: Win32.Foundation.LUID = Win32.Foundation.LUID(),
+    public var AdapterLuid: LUID = LUID(),
     public var hDevice: UInt = 0u,
     public var Callback: PFND3DKMT_TRIMNOTIFICATIONCALLBACK = null,
     public var Context: Long = 0L,
@@ -1151,8 +1158,8 @@ public data class D3DKMT_SCATTERBLT(
     public var hLogicalSurfaceDestination: ULong = 0uL,
     public var hDestinationCompSurfDWM: Long = 0L,
     public var DestinationCompositionBindingId: ULong = 0uL,
-    public var SourceRect: Win32.Foundation.RECT = Win32.Foundation.RECT(),
-    public var DestinationOffset: Win32.Foundation.POINT = Win32.Foundation.POINT(),
+    public var SourceRect: RECT = RECT(),
+    public var DestinationOffset: POINT = POINT(),
 )
 
 public data class D3DKMT_SCATTERBLTS(public var NumBlts: UInt = 0u, public var Blts: List<D3DKMT_SCATTERBLT> = List(12) { D3DKMT_SCATTERBLT() })
@@ -1210,7 +1217,7 @@ public data class D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT(
 )
 
 public data class D3DKMT_SETFSEBLOCK(
-    public var AdapterLuid: Win32.Foundation.LUID = Win32.Foundation.LUID(),
+    public var AdapterLuid: LUID = LUID(),
     public var hAdapter: UInt = 0u,
     public var VidPnSourceId: UInt = 0u,
     public var Flags: D3DKMT_SETFSEBLOCKFLAGS = D3DKMT_SETFSEBLOCKFLAGS(),
@@ -1269,7 +1276,7 @@ public data class D3DKMT_SETVIDPNSOURCEOWNER1(public var Version0: D3DKMT_SETVID
 public data class D3DKMT_SETVIDPNSOURCEOWNER2(public var Version1: D3DKMT_SETVIDPNSOURCEOWNER1 = D3DKMT_SETVIDPNSOURCEOWNER1(), public var pVidPnSourceNtHandles: Long = 0L)
 
 public data class D3DKMT_SET_COLORSPACE_TRANSFORM(
-    public var AdapterLuid: Win32.Foundation.LUID = Win32.Foundation.LUID(),
+    public var AdapterLuid: LUID = LUID(),
     public var VidPnTargetId: UInt = 0u,
     public var Type: D3DDDI_GAMMARAMP_TYPE = 0,
     public var Size: UInt = 0u,
@@ -1279,12 +1286,12 @@ public data class D3DKMT_SET_COLORSPACE_TRANSFORM(
 public data class D3DKMT_SET_COLORSPACE_TRANSFORM_0(public var pColorSpaceTransform: Long = 0L)
 
 public data class D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION(
-    public var AdapterLuid: Win32.Foundation.LUID = Win32.Foundation.LUID(),
+    public var AdapterLuid: LUID = LUID(),
     public var VidPnSourceId: UInt = 0u,
-    public var LockRect: Win32.Foundation.RECTL = Win32.Foundation.RECTL(),
+    public var LockRect: RECTL = RECTL(),
 )
 
-public data class D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION(public var AdapterLuid: Win32.Foundation.LUID = Win32.Foundation.LUID(), public var VidPnSourceId: UInt = 0u)
+public data class D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION(public var AdapterLuid: LUID = LUID(), public var VidPnSourceId: UInt = 0u)
 
 public data class D3DKMT_SHAREOBJECTWITHHOST(
     public var hDevice: UInt = 0u,
@@ -1354,7 +1361,7 @@ public data class D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2(
 
 public data class D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0(
     public var Fence: D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0_0 = D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0_0(),
-    public var CpuEventHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var CpuEventHandle: HANDLE = 0L,
     public var Reserved: ULongArray = ULongArray(8),
 ) {
     override fun equals(other: Any?): Boolean {
@@ -1418,7 +1425,7 @@ public data class D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2(
 
 public data class D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2_0(
     public var FenceValue: ULong = 0uL,
-    public var CpuEventHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var CpuEventHandle: HANDLE = 0L,
     public var MonitoredFenceValueArray: Long = 0L,
     public var Reserved: ULongArray = ULongArray(8),
 ) {
@@ -1549,7 +1556,7 @@ public data class D3DKMT_TRIMNOTIFICATION(
 
 public data class D3DKMT_TRIMPROCESSCOMMITMENT(
     public var cbSize: UInt = 0u,
-    public var hProcess: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var hProcess: HANDLE = 0L,
     public var Flags: D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS = D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS(),
     public var DecommitRequested: ULong = 0uL,
     public var NumBytesDecommitted: ULong = 0uL,
@@ -1695,7 +1702,7 @@ public data class D3DKMT_VIDMM_ESCAPE_0_2(public var NtHandle: ULong = 0uL)
 public data class D3DKMT_VIDMM_ESCAPE_0_1(
     public var ResourceHandle: UInt = 0u,
     public var AllocationHandle: UInt = 0u,
-    public var hProcess: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var hProcess: HANDLE = 0L,
 )
 
 public data class D3DKMT_VIDMM_ESCAPE_0_7(public var NumBytesToTrim: ULong = 0uL)
@@ -1703,7 +1710,7 @@ public data class D3DKMT_VIDMM_ESCAPE_0_7(public var NumBytesToTrim: ULong = 0uL
 public data class D3DKMT_VIDMM_ESCAPE_0_3(
     public var Anonymous: D3DKMT_VIDMM_ESCAPE_0_3_0 = D3DKMT_VIDMM_ESCAPE_0_3_0(),
     public var Command: D3DKMT_VAD_ESCAPE_COMMAND = 0,
-    public var Status: Win32.Foundation.NTSTATUS = Win32.Foundation.NTSTATUS(),
+    public var Status: NTSTATUS = 0,
 )
 
 public data class D3DKMT_VIDMM_ESCAPE_0_3_0(
@@ -1717,7 +1724,7 @@ public data class D3DKMT_VIDMM_ESCAPE_0_3_0(
 
 public data class D3DKMT_VIDMM_ESCAPE_0_3_0_0(public var NumVads: UInt = 0u)
 
-public data class D3DKMT_VIDMM_ESCAPE_0_6(public var hProcess: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE())
+public data class D3DKMT_VIDMM_ESCAPE_0_6(public var hProcess: HANDLE = 0L)
 
 public data class D3DKMT_VIDMM_ESCAPE_0_4(public var LocalMemoryBudget: ULong = 0uL, public var SystemMemoryBudget: ULong = 0uL)
 
@@ -1733,7 +1740,7 @@ public data class D3DKMT_VIDMM_ESCAPE_0_8(
     public var IdleTrimInterval: UInt = 0u,
 )
 
-public data class D3DKMT_VIDMM_ESCAPE_0_5(public var hProcess: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(), public var bAllowWakeOnSubmission: BOOL = 0)
+public data class D3DKMT_VIDMM_ESCAPE_0_5(public var hProcess: HANDLE = 0L, public var bAllowWakeOnSubmission: BOOL = 0)
 
 public data class D3DKMT_VIDMM_ESCAPE_0_12(public var SegmentId: UInt = 0u)
 
@@ -1844,7 +1851,7 @@ public data class D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU(
     public var ObjectCount: UInt = 0u,
     public var ObjectHandleArray: Long = 0L,
     public var FenceValueArray: Long = 0L,
-    public var hAsyncEvent: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var hAsyncEvent: HANDLE = 0L,
     public var Flags: D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS = D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS(),
 )
 

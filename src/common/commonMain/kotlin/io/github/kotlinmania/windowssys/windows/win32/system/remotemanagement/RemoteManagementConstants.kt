@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.w
@@ -1206,7 +1207,7 @@ public val WSMAN_STREAM_ID_STDIN: PCWSTR = w("stdin")
 
 public val WSMAN_STREAM_ID_STDOUT: PCWSTR = w("stdout")
 
-public val WSMan: GUID = GUID.from_u128(0xbced617bec03420buL, 0x8508977dc7a686bduL)
+public val WSMan: GUID = GUID.from_u128(U128(0xbced617bec03420buL, 0x8508977dc7a686bduL))
 
 public val WSManFlagAllowNegotiateImplicitCredentials: WSManSessionFlags = 67108864
 
@@ -1266,7 +1267,7 @@ public val WSManFlagUseNoAuthentication: WSManSessionFlags = 32768
 
 public val WSManFlagUseSsl: WSManSessionFlags = 134217728
 
-public val WSManInternal: GUID = GUID.from_u128(0x7de087a55dcb4df7uL, 0xbb120924ad8fbd9auL)
+public val WSManInternal: GUID = GUID.from_u128(U128(0x7de087a55dcb4df7uL, 0xbb120924ad8fbd9auL))
 
 public val WSManProxyAutoDetect: WSManProxyAccessTypeFlags = 4
 

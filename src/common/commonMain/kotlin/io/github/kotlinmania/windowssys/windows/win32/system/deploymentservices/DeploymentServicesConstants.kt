@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.deploymentservices
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 
@@ -549,44 +550,44 @@ public val WdsTptUdpPortPolicyDynamic: WDSTRANSPORT_UDP_PORT_POLICY = 0
 
 public val WdsTptUdpPortPolicyFixed: WDSTRANSPORT_UDP_PORT_POLICY = 1
 
-public val WdsTransportCacheable: GUID = GUID.from_u128(0x70590b16f14646bduL, 0xbd9d4aaa90084bf5uL)
+public val WdsTransportCacheable: GUID = GUID.from_u128(U128(0x70590b16f14646bduL, 0xbd9d4aaa90084bf5uL))
 
-public val WdsTransportClient: GUID = GUID.from_u128(0x66d2c5e90ff649ecuL, 0x9733dafb1e01df1cuL)
+public val WdsTransportClient: GUID = GUID.from_u128(U128(0x66d2c5e90ff649ecuL, 0x9733dafb1e01df1cuL))
 
-public val WdsTransportCollection: GUID = GUID.from_u128(0xc7f18b09391e436euL, 0xb10bc3ef46f2c34fuL)
+public val WdsTransportCollection: GUID = GUID.from_u128(U128(0xc7f18b09391e436euL, 0xb10bc3ef46f2c34fuL))
 
-public val WdsTransportConfigurationManager: GUID = GUID.from_u128(0x8743f674904c47cauL, 0x851235fe98f6b0acuL)
+public val WdsTransportConfigurationManager: GUID = GUID.from_u128(U128(0x8743f674904c47cauL, 0x851235fe98f6b0acuL))
 
-public val WdsTransportContent: GUID = GUID.from_u128(0xa891fe74a3f4c65uL, 0xb6f21467619679eauL)
+public val WdsTransportContent: GUID = GUID.from_u128(U128(0xa891fe74a3f4c65uL, 0xb6f21467619679eauL))
 
-public val WdsTransportContentProvider: GUID = GUID.from_u128(0xe0be741f5a754eb9uL, 0x8a2d5e189b45f327uL)
+public val WdsTransportContentProvider: GUID = GUID.from_u128(U128(0xe0be741f5a754eb9uL, 0x8a2d5e189b45f327uL))
 
-public val WdsTransportDiagnosticsPolicy: GUID = GUID.from_u128(0xeb3333e1a7ad46f5uL, 0x80d66b740204e509uL)
+public val WdsTransportDiagnosticsPolicy: GUID = GUID.from_u128(U128(0xeb3333e1a7ad46f5uL, 0x80d66b740204e509uL))
 
-public val WdsTransportManager: GUID = GUID.from_u128(0xf21523f6837c4a58uL, 0xaf998a7e27f8ff59uL)
+public val WdsTransportManager: GUID = GUID.from_u128(U128(0xf21523f6837c4a58uL, 0xaf998a7e27f8ff59uL))
 
-public val WdsTransportMulticastSessionPolicy: GUID = GUID.from_u128(0x3c6bc3f46418472auL, 0xb6f152d457195437uL)
+public val WdsTransportMulticastSessionPolicy: GUID = GUID.from_u128(U128(0x3c6bc3f46418472auL, 0xb6f152d457195437uL))
 
-public val WdsTransportNamespace: GUID = GUID.from_u128(0xd838576807324ec1uL, 0x95ea16da581908a1uL)
+public val WdsTransportNamespace: GUID = GUID.from_u128(U128(0xd838576807324ec1uL, 0x95ea16da581908a1uL))
 
-public val WdsTransportNamespaceAutoCast: GUID = GUID.from_u128(0xb091f5a86a99478duL, 0xb23b09e8fee04574uL)
+public val WdsTransportNamespaceAutoCast: GUID = GUID.from_u128(U128(0xb091f5a86a99478duL, 0xb23b09e8fee04574uL))
 
-public val WdsTransportNamespaceManager: GUID = GUID.from_u128(0xf08cdb6385de4a28uL, 0xa1a95ca3e7efda73uL)
+public val WdsTransportNamespaceManager: GUID = GUID.from_u128(U128(0xf08cdb6385de4a28uL, 0xa1a95ca3e7efda73uL))
 
-public val WdsTransportNamespaceScheduledCast: GUID = GUID.from_u128(0xbadc1897702544ebuL, 0x9108fb61c4055792uL)
+public val WdsTransportNamespaceScheduledCast: GUID = GUID.from_u128(U128(0xbadc1897702544ebuL, 0x9108fb61c4055792uL))
 
-public val WdsTransportNamespaceScheduledCastAutoStart: GUID = GUID.from_u128(0xa1107052122c4b81uL, 0x9b7c386e6855383fuL)
+public val WdsTransportNamespaceScheduledCastAutoStart: GUID = GUID.from_u128(U128(0xa1107052122c4b81uL, 0x9b7c386e6855383fuL))
 
-public val WdsTransportNamespaceScheduledCastManualStart: GUID = GUID.from_u128(0xd3e1a2aacaac460euL, 0xb98a47f9f318a1fauL)
+public val WdsTransportNamespaceScheduledCastManualStart: GUID = GUID.from_u128(U128(0xd3e1a2aacaac460euL, 0xb98a47f9f318a1fauL))
 
-public val WdsTransportServer: GUID = GUID.from_u128(0xea19b6434adf4413uL, 0x942c14f379118760uL)
+public val WdsTransportServer: GUID = GUID.from_u128(U128(0xea19b6434adf4413uL, 0x942c14f379118760uL))
 
-public val WdsTransportServicePolicy: GUID = GUID.from_u128(0x65aceadc2f0b4f43uL, 0x9f4d811865d8ceaduL)
+public val WdsTransportServicePolicy: GUID = GUID.from_u128(U128(0x65aceadc2f0b4f43uL, 0x9f4d811865d8ceaduL))
 
-public val WdsTransportSession: GUID = GUID.from_u128(0x749ac4e067bc4743uL, 0xbfe5cacb1f26f57fuL)
+public val WdsTransportSession: GUID = GUID.from_u128(U128(0x749ac4e067bc4743uL, 0xbfe5cacb1f26f57fuL))
 
-public val WdsTransportSetupManager: GUID = GUID.from_u128(0xc7beeaad9f044923uL, 0x9f0cfbf52bc7590fuL)
+public val WdsTransportSetupManager: GUID = GUID.from_u128(U128(0xc7beeaad9f044923uL, 0x9f0cfbf52bc7590fuL))
 
-public val WdsTransportTftpClient: GUID = GUID.from_u128(0x503439257c5c4c8cuL, 0x96c4ad9fa5005fbauL)
+public val WdsTransportTftpClient: GUID = GUID.from_u128(U128(0x503439257c5c4c8cuL, 0x96c4ad9fa5005fbauL))
 
-public val WdsTransportTftpManager: GUID = GUID.from_u128(0xc8e9dca232414e4duL, 0xb806bc74019dfedauL)
+public val WdsTransportTftpManager: GUID = GUID.from_u128(U128(0xc8e9dca232414e4duL, 0xb806bc74019dfedauL))

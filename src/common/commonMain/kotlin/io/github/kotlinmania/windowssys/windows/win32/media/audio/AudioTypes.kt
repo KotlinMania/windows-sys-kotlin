@@ -1,6 +1,11 @@
 package io.github.kotlinmania.windowssys.windows.win32.media.audio
 
 import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LRESULT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
+import io.github.kotlinmania.windowssys.windows.win32.media.multimedia.HDRVR
 
 public fun interface ACMDRIVERENUMCBFn {
     public operator fun invoke(hadid: HACMDRIVERID, dwinstance: ULong, fdwsupport: UInt): BOOL
@@ -9,13 +14,13 @@ public fun interface ACMDRIVERENUMCBFn {
 public typealias ACMDRIVERENUMCB = ACMDRIVERENUMCBFn?
 
 public fun interface ACMFILTERCHOOSEHOOKPROCAFn {
-    public operator fun invoke(hwnd: Foundation.HWND, umsg: UInt, wparam: Foundation.WPARAM, lparam: Foundation.LPARAM): UInt
+    public operator fun invoke(hwnd: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): UInt
 }
 
 public typealias ACMFILTERCHOOSEHOOKPROCA = ACMFILTERCHOOSEHOOKPROCAFn?
 
 public fun interface ACMFILTERCHOOSEHOOKPROCWFn {
-    public operator fun invoke(hwnd: Foundation.HWND, umsg: UInt, wparam: Foundation.WPARAM, lparam: Foundation.LPARAM): UInt
+    public operator fun invoke(hwnd: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): UInt
 }
 
 public typealias ACMFILTERCHOOSEHOOKPROCW = ACMFILTERCHOOSEHOOKPROCWFn?
@@ -45,13 +50,13 @@ public fun interface ACMFILTERTAGENUMCBWFn {
 public typealias ACMFILTERTAGENUMCBW = ACMFILTERTAGENUMCBWFn?
 
 public fun interface ACMFORMATCHOOSEHOOKPROCAFn {
-    public operator fun invoke(hwnd: Foundation.HWND, umsg: UInt, wparam: Foundation.WPARAM, lparam: Foundation.LPARAM): UInt
+    public operator fun invoke(hwnd: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): UInt
 }
 
 public typealias ACMFORMATCHOOSEHOOKPROCA = ACMFORMATCHOOSEHOOKPROCAFn?
 
 public fun interface ACMFORMATCHOOSEHOOKPROCWFn {
-    public operator fun invoke(hwnd: Foundation.HWND, umsg: UInt, wparam: Foundation.WPARAM, lparam: Foundation.LPARAM): UInt
+    public operator fun invoke(hwnd: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): UInt
 }
 
 public typealias ACMFORMATCHOOSEHOOKPROCW = ACMFORMATCHOOSEHOOKPROCWFn?
@@ -145,19 +150,19 @@ public typealias HWAVEIN = Long
 public typealias HWAVEOUT = Long
 
 public fun interface LPACMDRIVERPROCFn {
-    public operator fun invoke(param0: ULong, param1: HACMDRIVERID, param2: UInt, param3: Foundation.LPARAM, param4: Foundation.LPARAM): Foundation.LRESULT
+    public operator fun invoke(param0: ULong, param1: HACMDRIVERID, param2: UInt, param3: LPARAM, param4: LPARAM): LRESULT
 }
 
 public typealias LPACMDRIVERPROC = LPACMDRIVERPROCFn?
 
 public fun interface LPMIDICALLBACKFn {
-    public operator fun invoke(hdrvr: Multimedia.HDRVR, umsg: UInt, dwuser: ULong, dw1: ULong, dw2: ULong)
+    public operator fun invoke(hdrvr: HDRVR, umsg: UInt, dwuser: ULong, dw1: ULong, dw2: ULong)
 }
 
 public typealias LPMIDICALLBACK = LPMIDICALLBACKFn?
 
 public fun interface LPWAVECALLBACKFn {
-    public operator fun invoke(hdrvr: Multimedia.HDRVR, umsg: UInt, dwuser: ULong, dw1: ULong, dw2: ULong)
+    public operator fun invoke(hdrvr: HDRVR, umsg: UInt, dwuser: ULong, dw1: ULong, dw2: ULong)
 }
 
 public typealias LPWAVECALLBACK = LPWAVECALLBACKFn?

@@ -2,6 +2,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis
 
 import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 
 public data class BSSID_INFO(public var BSSID: UByteArray = UByteArray(6), public var PMKID: UByteArray = UByteArray(16)) {
     override fun equals(other: Any?): Boolean {
@@ -1337,7 +1338,7 @@ public data class OFFLOAD_IPSEC_ADD_SA(
     public var Flags: UShort = 0u,
     public var NumSAs: Short = 0,
     public var SecAssoc: List<OFFLOAD_SECURITY_ASSOCIATION> = List(3) { OFFLOAD_SECURITY_ASSOCIATION() },
-    public var OffloadHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var OffloadHandle: HANDLE = 0L,
     public var KeyLen: UInt = 0u,
     public var KeyMat: UByteArray = UByteArray(1),
 ) {
@@ -1395,16 +1396,16 @@ public class OFFLOAD_IPSEC_ADD_UDPESP_SA(
     public var Flags: UShort = 0u,
     public var NumSAs: Short = 0,
     public var SecAssoc: List<OFFLOAD_SECURITY_ASSOCIATION> = List(3) { OFFLOAD_SECURITY_ASSOCIATION() },
-    public var OffloadHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var OffloadHandle: HANDLE = 0L,
     public var EncapTypeEntry: OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY = OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY(),
-    public var EncapTypeEntryOffldHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var EncapTypeEntryOffldHandle: HANDLE = 0L,
     public var KeyLen: UInt = 0u,
     public var KeyMat: UByteArray = UByteArray(1),
 )
 
-public data class OFFLOAD_IPSEC_DELETE_SA(public var OffloadHandle: Foundation.HANDLE = Foundation.HANDLE())
+public data class OFFLOAD_IPSEC_DELETE_SA(public var OffloadHandle: HANDLE = 0L)
 
-public data class OFFLOAD_IPSEC_DELETE_UDPESP_SA(public var OffloadHandle: Foundation.HANDLE = Foundation.HANDLE(), public var EncapTypeEntryOffldHandle: Foundation.HANDLE = Foundation.HANDLE())
+public data class OFFLOAD_IPSEC_DELETE_UDPESP_SA(public var OffloadHandle: HANDLE = 0L, public var EncapTypeEntryOffldHandle: HANDLE = 0L)
 
 public data class OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY(public var UdpEncapType: UDP_ENCAP_TYPE = 0, public var DstEncapPort: UShort = 0u)
 

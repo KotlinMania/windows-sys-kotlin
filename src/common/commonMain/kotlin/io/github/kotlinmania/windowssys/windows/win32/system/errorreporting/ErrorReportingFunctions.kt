@@ -5,6 +5,8 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
 
 public fun AddERExcludedApplicationA(szapplication: PCSTR): BOOL {
     return Win32DynamicFfi.invoke("faultrep.dll", "AddERExcludedApplicationA", longArrayOf(szapplication)).toInt()
@@ -26,8 +28,8 @@ public fun WerFreeString(pwszstr: PCWSTR) {
     Win32DynamicFfi.invoke("wer.dll", "WerFreeString", longArrayOf(pwszstr))
 }
 
-public fun WerGetFlags(hprocess: Foundation.HANDLE, pdwflags: Long): HRESULT {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WerGetFlags", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), pdwflags)).toInt()
+public fun WerGetFlags(hprocess: HANDLE, pdwflags: Long): HRESULT {
+    return Win32DynamicFfi.invoke("kernel32.dll", "WerGetFlags", longArrayOf(hprocess, pdwflags)).toInt()
 }
 
 public fun WerRegisterAdditionalProcess(processid: UInt, captureextrainfoforthreadid: UInt): HRESULT {
@@ -62,8 +64,8 @@ public fun WerRemoveExcludedApplication(pwzexename: PCWSTR, ballusers: BOOL): HR
     return Win32DynamicFfi.invoke("wer.dll", "WerRemoveExcludedApplication", longArrayOf(pwzexename, ballusers.toLong())).toInt()
 }
 
-public fun WerReportAddDump(hreporthandle: HREPORT, hprocess: Foundation.HANDLE, hthread: Foundation.HANDLE, dumptype: WER_DUMP_TYPE, pexceptionparam: Long, pdumpcustomoptions: Long, dwflags: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("wer.dll", "WerReportAddDump", longArrayOf(hreporthandle, Win32DynamicFfi.objectSlot(hprocess), Win32DynamicFfi.objectSlot(hthread), dumptype.toLong(), pexceptionparam, pdumpcustomoptions, dwflags.toLong())).toInt()
+public fun WerReportAddDump(hreporthandle: HREPORT, hprocess: HANDLE, hthread: HANDLE, dumptype: WER_DUMP_TYPE, pexceptionparam: Long, pdumpcustomoptions: Long, dwflags: UInt): HRESULT {
+    return Win32DynamicFfi.invoke("wer.dll", "WerReportAddDump", longArrayOf(hreporthandle, hprocess, hthread, dumptype.toLong(), pexceptionparam, pdumpcustomoptions, dwflags.toLong())).toInt()
 }
 
 public fun WerReportAddFile(hreporthandle: HREPORT, pwzpath: PCWSTR, repfiletype: WER_FILE_TYPE, dwfileflags: WER_FILE): HRESULT {
@@ -78,8 +80,8 @@ public fun WerReportCreate(pwzeventtype: PCWSTR, reptype: WER_REPORT_TYPE, prepo
     return Win32DynamicFfi.invoke("wer.dll", "WerReportCreate", longArrayOf(pwzeventtype, reptype.toLong(), preportinformation, phreporthandle)).toInt()
 }
 
-public fun WerReportHang(hwndhungapp: Foundation.HWND, pwzhungapplicationname: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("faultrep.dll", "WerReportHang", longArrayOf(Win32DynamicFfi.objectSlot(hwndhungapp), pwzhungapplicationname)).toInt()
+public fun WerReportHang(hwndhungapp: HWND, pwzhungapplicationname: PCWSTR): HRESULT {
+    return Win32DynamicFfi.invoke("faultrep.dll", "WerReportHang", longArrayOf(hwndhungapp, pwzhungapplicationname)).toInt()
 }
 
 public fun WerReportSetParameter(hreporthandle: HREPORT, dwparamid: UInt, pwzname: PCWSTR, pwzvalue: PCWSTR): HRESULT {

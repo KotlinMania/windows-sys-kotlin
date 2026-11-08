@@ -7,6 +7,7 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
 
 public fun ChooseColorA(param0: Long): BOOL {
     return Win32DynamicFfi.invoke("comdlg32.dll", "ChooseColorA", longArrayOf(param0)).toInt()
@@ -28,14 +29,12 @@ public fun CommDlgExtendedError(): COMMON_DLG_ERRORS {
     return Win32DynamicFfi.invoke("comdlg32.dll", "CommDlgExtendedError", longArrayOf()).toUInt()
 }
 
-public fun FindTextA(param0: Long): Foundation.HWND {
-    Win32DynamicFfi.invoke("comdlg32.dll", "FindTextA", longArrayOf(param0))
-    return Foundation.HWND()
+public fun FindTextA(param0: Long): HWND {
+    return Win32DynamicFfi.invoke("comdlg32.dll", "FindTextA", longArrayOf(param0))
 }
 
-public fun FindTextW(param0: Long): Foundation.HWND {
-    Win32DynamicFfi.invoke("comdlg32.dll", "FindTextW", longArrayOf(param0))
-    return Foundation.HWND()
+public fun FindTextW(param0: Long): HWND {
+    return Win32DynamicFfi.invoke("comdlg32.dll", "FindTextW", longArrayOf(param0))
 }
 
 public fun GetFileTitleA(param0: PCSTR, buf: PSTR, cchsize: UShort): Short {
@@ -86,12 +85,10 @@ public fun PrintDlgW(ppd: Long): BOOL {
     return Win32DynamicFfi.invoke("comdlg32.dll", "PrintDlgW", longArrayOf(ppd)).toInt()
 }
 
-public fun ReplaceTextA(param0: Long): Foundation.HWND {
-    Win32DynamicFfi.invoke("comdlg32.dll", "ReplaceTextA", longArrayOf(param0))
-    return Foundation.HWND()
+public fun ReplaceTextA(param0: Long): HWND {
+    return Win32DynamicFfi.invoke("comdlg32.dll", "ReplaceTextA", longArrayOf(param0))
 }
 
-public fun ReplaceTextW(param0: Long): Foundation.HWND {
-    Win32DynamicFfi.invoke("comdlg32.dll", "ReplaceTextW", longArrayOf(param0))
-    return Foundation.HWND()
+public fun ReplaceTextW(param0: Long): HWND {
+    return Win32DynamicFfi.invoke("comdlg32.dll", "ReplaceTextW", longArrayOf(param0))
 }

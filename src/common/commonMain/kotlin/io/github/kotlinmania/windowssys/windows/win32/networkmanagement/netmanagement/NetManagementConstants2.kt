@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
@@ -170,7 +171,7 @@ public val NetComputerNameTypeMax: NET_COMPUTER_NAME_TYPE = 3
 
 public val NetPrimaryComputerName: NET_COMPUTER_NAME_TYPE = 0
 
-public val NetProvisioning: GUID = GUID.from_u128(0x2aa2b5feb8464d07uL, 0x810cb21ee45320e3uL)
+public val NetProvisioning: GUID = GUID.from_u128(U128(0x2aa2b5feb8464d07uL, 0x810cb21ee45320e3uL))
 
 public val NetSetupDnsMachine: NETSETUP_NAME_TYPE = 5
 
@@ -1166,7 +1167,7 @@ public val SW_AUTOPROF_LOAD_MASK: UInt = 1u
 
 public val SW_AUTOPROF_SAVE_MASK: UInt = 2u
 
-public val ServiceAccountPasswordGUID: GUID = GUID.from_u128(0x262e99c961604871uL, 0xacec4e61736b6f21uL)
+public val ServiceAccountPasswordGUID: GUID = GUID.from_u128(U128(0x262e99c961604871uL, 0xacec4e61736b6f21uL))
 
 public val TITLE_SC_MESSAGE_BOX: Int = -1073734795
 

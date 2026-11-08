@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 
 public val OID_FDDI_LONG_MAX_LIST_SIZE: UInt = 50397444u
@@ -1256,7 +1257,7 @@ public val TUNNEL_TYPE_OTHER: TUNNEL_TYPE = 1
 
 public val TUNNEL_TYPE_TEREDO: TUNNEL_TYPE = 14
 
-public val UNSPECIFIED_NETWORK_GUID: GUID = GUID.from_u128(0x12ba5bde143e4c0duL, 0xb66d2379bb141913uL)
+public val UNSPECIFIED_NETWORK_GUID: GUID = GUID.from_u128(U128(0x12ba5bde143e4c0duL, 0xb66d2379bb141913uL))
 
 public val WAN_PROTOCOL_KEEPS_STATS: UInt = 1u
 

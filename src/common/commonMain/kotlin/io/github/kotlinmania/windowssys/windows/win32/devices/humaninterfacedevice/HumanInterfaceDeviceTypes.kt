@@ -3,6 +3,8 @@ package io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedev
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
 
 public typealias GPIOBUTTONS_BUTTON_TYPE = Int
 
@@ -83,13 +85,13 @@ public fun interface LPDIJOYTYPECALLBACKFn {
 public typealias LPDIJOYTYPECALLBACK = LPDIJOYTYPECALLBACKFn?
 
 public fun interface LPFNSHOWJOYCPLFn {
-    public operator fun invoke(hwnd: Foundation.HWND)
+    public operator fun invoke(hwnd: HWND)
 }
 
 public typealias LPFNSHOWJOYCPL = LPFNSHOWJOYCPLFn?
 
 public fun interface PFN_HidP_GetVersionInternalFn {
-    public operator fun invoke(version: Long): Foundation.NTSTATUS
+    public operator fun invoke(version: Long): NTSTATUS
 }
 
 public typealias PFN_HidP_GetVersionInternal = PFN_HidP_GetVersionInternalFn?

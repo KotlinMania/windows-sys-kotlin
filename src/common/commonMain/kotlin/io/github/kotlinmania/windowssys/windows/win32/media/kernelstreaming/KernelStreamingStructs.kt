@@ -3,6 +3,10 @@ package io.github.kotlinmania.windowssys.windows.win32.media.kernelstreaming
 
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
+import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.SIZE
 import io.github.kotlinmania.windowssys.windows.win32.media.TIMECODE_SAMPLE
 
 public class ALLOCATOR_PROPERTIES_EX(
@@ -301,9 +305,9 @@ public data class KSAUDIO_POSITIONEX(
 public data class KSAUDIO_PRESENTATION_POSITION(public var u64PositionInBlocks: ULong = 0uL, public var u64QPCPosition: ULong = 0uL)
 
 public data class KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS(
-    public var Resolution: Foundation.SIZE = Foundation.SIZE(),
+    public var Resolution: SIZE = SIZE(),
     public var MaxFrameRate: KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0 = KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0(),
-    public var MaskResolution: Foundation.SIZE = Foundation.SIZE(),
+    public var MaskResolution: SIZE = SIZE(),
     public var SubType: GUID = GUID(),
 )
 
@@ -394,7 +398,7 @@ public data class KSCAMERA_EXTENDEDPROP_ROI_EXPOSURE(public var ROIInfo: KSCAMER
 public data class KSCAMERA_EXTENDEDPROP_ROI_FOCUS(public var ROIInfo: KSCAMERA_EXTENDEDPROP_ROI_INFO = KSCAMERA_EXTENDEDPROP_ROI_INFO(), public var Reserved: ULong = 0uL)
 
 public data class KSCAMERA_EXTENDEDPROP_ROI_INFO(
-    public var Region: Foundation.RECT = Foundation.RECT(),
+    public var Region: RECT = RECT(),
     public var Flags: ULong = 0uL,
     public var Weight: Int = 0,
     public var RegionOfInterestType: Int = 0,
@@ -446,9 +450,9 @@ public data class KSCAMERA_MAXVIDEOFPS_FORPHOTORES(
 
 public data class KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK(
     public var Header: KSCAMERA_METADATA_ITEMHEADER = KSCAMERA_METADATA_ITEMHEADER(),
-    public var MaskCoverageBoundingBox: Foundation.RECT = Foundation.RECT(),
-    public var MaskResolution: Foundation.SIZE = Foundation.SIZE(),
-    public var ForegroundBoundingBox: Foundation.RECT = Foundation.RECT(),
+    public var MaskCoverageBoundingBox: RECT = RECT(),
+    public var MaskResolution: SIZE = SIZE(),
+    public var ForegroundBoundingBox: RECT = RECT(),
     public var MaskData: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
@@ -762,7 +766,7 @@ public data class KSEVENTDATA_0_2(public var Unused: Long = 0L, public var Align
     }
 }
 
-public data class KSEVENTDATA_0_0(public var Event: Foundation.HANDLE = Foundation.HANDLE(), public var Reserved: ULongArray = ULongArray(2)) {
+public data class KSEVENTDATA_0_0(public var Event: HANDLE = 0L, public var Reserved: ULongArray = ULongArray(2)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is KSEVENTDATA_0_0) return false
@@ -779,7 +783,7 @@ public data class KSEVENTDATA_0_0(public var Event: Foundation.HANDLE = Foundati
 }
 
 public data class KSEVENTDATA_0_1(
-    public var Semaphore: Foundation.HANDLE = Foundation.HANDLE(),
+    public var Semaphore: HANDLE = 0L,
     public var Reserved: UInt = 0u,
     public var Adjustment: Int = 0,
 )
@@ -876,7 +880,7 @@ public data class KSJACK_SINK_INFORMATION(
     public var AICapable: BOOL = 0,
     public var SinkDescriptionLength: UByte = 0u,
     public var SinkDescription: UShortArray = UShortArray(32),
-    public var PortId: Foundation.LUID = Foundation.LUID(),
+    public var PortId: LUID = LUID(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -961,7 +965,7 @@ public data class KSPIN_CONNECT(
     public var Interface: KSIDENTIFIER = KSIDENTIFIER(),
     public var Medium: KSIDENTIFIER = KSIDENTIFIER(),
     public var PinId: UInt = 0u,
-    public var PinToHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var PinToHandle: HANDLE = 0L,
     public var Priority: KSPRIORITY = KSPRIORITY(),
 )
 
@@ -1045,7 +1049,7 @@ public data class KSPROPERTY_CAMERACONTROL_NODE_S2(
 )
 
 public data class KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S(
-    public var FocusRect: Foundation.RECT = Foundation.RECT(),
+    public var FocusRect: RECT = RECT(),
     public var AutoFocusLock: BOOL = 0,
     public var AutoExposureLock: BOOL = 0,
     public var AutoWhitebalanceLock: BOOL = 0,
@@ -1074,7 +1078,7 @@ public data class KSPROPERTY_CAMERACONTROL_S_EX(
     public var Value: Int = 0,
     public var Flags: UInt = 0u,
     public var Capabilities: UInt = 0u,
-    public var FocusRect: Foundation.RECT = Foundation.RECT(),
+    public var FocusRect: RECT = RECT(),
 )
 
 public data class KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S(public var VideoStabilizationMode: UInt = 0u, public var Capabilities: UInt = 0u)
@@ -1441,7 +1445,7 @@ public data class KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S(
     public var Property: KSIDENTIFIER = KSIDENTIFIER(),
     public var StreamIndex: UInt = 0u,
     public var RangeIndex: UInt = 0u,
-    public var Dimensions: Foundation.SIZE = Foundation.SIZE(),
+    public var Dimensions: SIZE = SIZE(),
     public var CurrentActualFrameRate: Long = 0L,
     public var CurrentMaxAvailableFrameRate: Long = 0L,
 )
@@ -1456,7 +1460,7 @@ public data class KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S(
     public var Property: KSIDENTIFIER = KSIDENTIFIER(),
     public var StreamIndex: UInt = 0u,
     public var RangeIndex: UInt = 0u,
-    public var Dimensions: Foundation.SIZE = Foundation.SIZE(),
+    public var Dimensions: SIZE = SIZE(),
 )
 
 public data class KSPROPERTY_VIDEOCONTROL_MODE_S(
@@ -1552,7 +1556,7 @@ public data class KSQUALITY(
     public var DeltaTime: Long = 0L,
 )
 
-public data class KSQUALITY_MANAGER(public var QualityManager: Foundation.HANDLE = Foundation.HANDLE(), public var Context: Long = 0L)
+public data class KSQUALITY_MANAGER(public var QualityManager: HANDLE = 0L, public var Context: Long = 0L)
 
 public data class KSQUERYBUFFER(
     public var Event: KSIDENTIFIER = KSIDENTIFIER(),

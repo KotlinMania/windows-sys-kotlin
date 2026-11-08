@@ -1,6 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.power
 
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
 
 public typealias ACPI_TIME_RESOLUTION = Int
 
@@ -61,13 +62,13 @@ public typealias POWER_SETTING_ALTITUDE = Int
 public typealias POWER_USER_PRESENCE_TYPE = Int
 
 public fun interface PWRSCHEMESENUMPROCFn {
-    public operator fun invoke(index: UInt, namesize: UInt, name: PCWSTR, descriptionsize: UInt, description: PCWSTR, policy: Long, context: Foundation.LPARAM): Boolean
+    public operator fun invoke(index: UInt, namesize: UInt, name: PCWSTR, descriptionsize: UInt, description: PCWSTR, policy: Long, context: LPARAM): Boolean
 }
 
 public typealias PWRSCHEMESENUMPROC = PWRSCHEMESENUMPROCFn?
 
 public fun interface PWRSCHEMESENUMPROC_V1Fn {
-    public operator fun invoke(index: UInt, namesize: UInt, name: Long, descriptionsize: UInt, description: Long, policy: Long, context: Foundation.LPARAM): Boolean
+    public operator fun invoke(index: UInt, namesize: UInt, name: Long, descriptionsize: UInt, description: Long, policy: Long, context: LPARAM): Boolean
 }
 
 public typealias PWRSCHEMESENUMPROC_V1 = PWRSCHEMESENUMPROC_V1Fn?

@@ -6,6 +6,8 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
 
 public fun ActivateKeyboardLayout(hkl: HKL, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS): HKL {
     return Win32DynamicFfi.invoke("user32.dll", "ActivateKeyboardLayout", longArrayOf(hkl, flags.toLong()))
@@ -15,35 +17,32 @@ public fun BlockInput(fblockit: BOOL): BOOL {
     return Win32DynamicFfi.invoke("user32.dll", "BlockInput", longArrayOf(fblockit.toLong())).toInt()
 }
 
-public fun DragDetect(hwnd: Foundation.HWND, pt: Foundation.POINT): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "DragDetect", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), Win32DynamicFfi.objectSlot(pt))).toInt()
+public fun DragDetect(hwnd: HWND, pt: POINT): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "DragDetect", longArrayOf(hwnd, ((pt.x.toLong() and 0xFFFF_FFFFL) or ((pt.y.toLong() and 0xFFFF_FFFFL) shl 32)))).toInt()
 }
 
-public fun EnableWindow(hwnd: Foundation.HWND, benable: BOOL): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "EnableWindow", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), benable.toLong())).toInt()
+public fun EnableWindow(hwnd: HWND, benable: BOOL): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "EnableWindow", longArrayOf(hwnd, benable.toLong())).toInt()
 }
 
-public fun GetActiveWindow(): Foundation.HWND {
-    Win32DynamicFfi.invoke("user32.dll", "GetActiveWindow", longArrayOf())
-    return Foundation.HWND()
+public fun GetActiveWindow(): HWND {
+    return Win32DynamicFfi.invoke("user32.dll", "GetActiveWindow", longArrayOf())
 }
 
 public fun GetAsyncKeyState(vkey: Int): Short {
     return Win32DynamicFfi.invoke("user32.dll", "GetAsyncKeyState", longArrayOf(vkey.toLong())).toShort()
 }
 
-public fun GetCapture(): Foundation.HWND {
-    Win32DynamicFfi.invoke("user32.dll", "GetCapture", longArrayOf())
-    return Foundation.HWND()
+public fun GetCapture(): HWND {
+    return Win32DynamicFfi.invoke("user32.dll", "GetCapture", longArrayOf())
 }
 
 public fun GetDoubleClickTime(): UInt {
     return Win32DynamicFfi.invoke("user32.dll", "GetDoubleClickTime", longArrayOf()).toUInt()
 }
 
-public fun GetFocus(): Foundation.HWND {
-    Win32DynamicFfi.invoke("user32.dll", "GetFocus", longArrayOf())
-    return Foundation.HWND()
+public fun GetFocus(): HWND {
+    return Win32DynamicFfi.invoke("user32.dll", "GetFocus", longArrayOf())
 }
 
 public fun GetKBCodePage(): UInt {
@@ -94,8 +93,8 @@ public fun GetMouseMovePointsEx(cbsize: UInt, lppt: Long, lpptbuf: Long, nbufpoi
     return Win32DynamicFfi.invoke("user32.dll", "GetMouseMovePointsEx", longArrayOf(cbsize.toLong(), lppt, lpptbuf, nbufpoints.toLong(), resolution.toLong())).toInt()
 }
 
-public fun IsWindowEnabled(hwnd: Foundation.HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "IsWindowEnabled", longArrayOf(Win32DynamicFfi.objectSlot(hwnd))).toInt()
+public fun IsWindowEnabled(hwnd: HWND): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "IsWindowEnabled", longArrayOf(hwnd)).toInt()
 }
 
 public fun LoadKeyboardLayoutA(pwszklid: PCSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS): HKL {
@@ -126,8 +125,8 @@ public fun OemKeyScan(woemchar: UShort): UInt {
     return Win32DynamicFfi.invoke("user32.dll", "OemKeyScan", longArrayOf(woemchar.toLong())).toUInt()
 }
 
-public fun RegisterHotKey(hwnd: Foundation.HWND, id: Int, fsmodifiers: HOT_KEY_MODIFIERS, vk: UInt): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "RegisterHotKey", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), id.toLong(), fsmodifiers.toLong(), vk.toLong())).toInt()
+public fun RegisterHotKey(hwnd: HWND, id: Int, fsmodifiers: HOT_KEY_MODIFIERS, vk: UInt): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "RegisterHotKey", longArrayOf(hwnd, id.toLong(), fsmodifiers.toLong(), vk.toLong())).toInt()
 }
 
 public fun ReleaseCapture(): BOOL {
@@ -138,23 +137,20 @@ public fun SendInput(cinputs: UInt, pinputs: Long, cbsize: Int): UInt {
     return Win32DynamicFfi.invoke("user32.dll", "SendInput", longArrayOf(cinputs.toLong(), pinputs, cbsize.toLong())).toUInt()
 }
 
-public fun SetActiveWindow(hwnd: Foundation.HWND): Foundation.HWND {
-    Win32DynamicFfi.invoke("user32.dll", "SetActiveWindow", longArrayOf(Win32DynamicFfi.objectSlot(hwnd)))
-    return Foundation.HWND()
+public fun SetActiveWindow(hwnd: HWND): HWND {
+    return Win32DynamicFfi.invoke("user32.dll", "SetActiveWindow", longArrayOf(hwnd))
 }
 
-public fun SetCapture(hwnd: Foundation.HWND): Foundation.HWND {
-    Win32DynamicFfi.invoke("user32.dll", "SetCapture", longArrayOf(Win32DynamicFfi.objectSlot(hwnd)))
-    return Foundation.HWND()
+public fun SetCapture(hwnd: HWND): HWND {
+    return Win32DynamicFfi.invoke("user32.dll", "SetCapture", longArrayOf(hwnd))
 }
 
 public fun SetDoubleClickTime(param0: UInt): BOOL {
     return Win32DynamicFfi.invoke("user32.dll", "SetDoubleClickTime", longArrayOf(param0.toLong())).toInt()
 }
 
-public fun SetFocus(hwnd: Foundation.HWND): Foundation.HWND {
-    Win32DynamicFfi.invoke("user32.dll", "SetFocus", longArrayOf(Win32DynamicFfi.objectSlot(hwnd)))
-    return Foundation.HWND()
+public fun SetFocus(hwnd: HWND): HWND {
+    return Win32DynamicFfi.invoke("user32.dll", "SetFocus", longArrayOf(hwnd))
 }
 
 public fun SetKeyboardState(lpkeystate: Long): BOOL {
@@ -189,8 +185,8 @@ public fun UnloadKeyboardLayout(hkl: HKL): BOOL {
     return Win32DynamicFfi.invoke("user32.dll", "UnloadKeyboardLayout", longArrayOf(hkl)).toInt()
 }
 
-public fun UnregisterHotKey(hwnd: Foundation.HWND, id: Int): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "UnregisterHotKey", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), id.toLong())).toInt()
+public fun UnregisterHotKey(hwnd: HWND, id: Int): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "UnregisterHotKey", longArrayOf(hwnd, id.toLong())).toInt()
 }
 
 public fun VkKeyScanA(ch: Byte): Short {

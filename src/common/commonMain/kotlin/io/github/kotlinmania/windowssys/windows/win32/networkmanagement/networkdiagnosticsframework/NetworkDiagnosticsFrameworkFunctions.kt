@@ -5,6 +5,8 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SOCKET
 
 public fun NdfCancelIncident(handle: Long): HRESULT {
     return Win32DynamicFfi.invoke("ndfapi.dll", "NdfCancelIncident", longArrayOf(handle)).toInt()
@@ -31,7 +33,7 @@ public fun NdfCreateIncident(helperclassname: PCWSTR, celt: UInt, attributes: Lo
 }
 
 public fun NdfCreateNetConnectionIncident(handle: Long, id: GUID): HRESULT {
-    return Win32DynamicFfi.invoke("ndfapi.dll", "NdfCreateNetConnectionIncident", longArrayOf(handle, Win32DynamicFfi.guidSlot(id.data1, id.data2, id.data3, id.data4))).toInt()
+    return Win32DynamicFfi.invoke("ndfapi.dll", "NdfCreateNetConnectionIncident", longArrayOf(handle, run { val buf = ByteArray(16); buf[0] = (id.data1.toInt() and 0xFF).toByte(); buf[1] = ((id.data1.toInt() ushr 8) and 0xFF).toByte(); buf[2] = ((id.data1.toInt() ushr 16) and 0xFF).toByte(); buf[3] = ((id.data1.toInt() ushr 24) and 0xFF).toByte(); buf[4] = (id.data2.toInt() and 0xFF).toByte(); buf[5] = ((id.data2.toInt() ushr 8) and 0xFF).toByte(); buf[6] = (id.data3.toInt() and 0xFF).toByte(); buf[7] = ((id.data3.toInt() ushr 8) and 0xFF).toByte(); for (i in 0 until minOf(8, id.data4.size)) buf[8 + i] = id.data4[i].toByte(); val ptr = Win32DynamicFfi.allocZeroed(16); Win32DynamicFfi.writeBytes(ptr, buf); ptr })).toInt()
 }
 
 public fun NdfCreatePnrpIncident(cloudname: PCWSTR, peername: PCWSTR, diagnosepublish: BOOL, appid: PCWSTR, handle: Long): HRESULT {
@@ -50,16 +52,16 @@ public fun NdfCreateWebIncidentEx(url: PCWSTR, usewinhttp: BOOL, modulename: PCW
     return Win32DynamicFfi.invoke("ndfapi.dll", "NdfCreateWebIncidentEx", longArrayOf(url, usewinhttp.toLong(), modulename, handle)).toInt()
 }
 
-public fun NdfCreateWinSockIncident(sock: Networking.WinSock.SOCKET, host: PCWSTR, port: UShort, appid: PCWSTR, userid: Long, handle: Long): HRESULT {
-    return Win32DynamicFfi.invoke("ndfapi.dll", "NdfCreateWinSockIncident", longArrayOf(Win32DynamicFfi.objectSlot(sock), host, port.toLong(), appid, userid, handle)).toInt()
+public fun NdfCreateWinSockIncident(sock: SOCKET, host: PCWSTR, port: UShort, appid: PCWSTR, userid: Long, handle: Long): HRESULT {
+    return Win32DynamicFfi.invoke("ndfapi.dll", "NdfCreateWinSockIncident", longArrayOf(sock.toLong(), host, port.toLong(), appid, userid, handle)).toInt()
 }
 
 public fun NdfDiagnoseIncident(handle: Long, rootcausecount: Long, rootcauses: Long, dwwait: UInt, dwflags: UInt): HRESULT {
     return Win32DynamicFfi.invoke("ndfapi.dll", "NdfDiagnoseIncident", longArrayOf(handle, rootcausecount, rootcauses, dwwait.toLong(), dwflags.toLong())).toInt()
 }
 
-public fun NdfExecuteDiagnosis(handle: Long, hwnd: Foundation.HWND): HRESULT {
-    return Win32DynamicFfi.invoke("ndfapi.dll", "NdfExecuteDiagnosis", longArrayOf(handle, Win32DynamicFfi.objectSlot(hwnd))).toInt()
+public fun NdfExecuteDiagnosis(handle: Long, hwnd: HWND): HRESULT {
+    return Win32DynamicFfi.invoke("ndfapi.dll", "NdfExecuteDiagnosis", longArrayOf(handle, hwnd)).toInt()
 }
 
 public fun NdfGetTraceFile(handle: Long, tracefilelocation: Long): HRESULT {

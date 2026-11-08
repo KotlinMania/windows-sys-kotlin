@@ -2,10 +2,13 @@ package io.github.kotlinmania.windowssys.windows.win32.system.variant
 
 import io.github.kotlinmania.windowssys.core.BSTR
 import io.github.kotlinmania.windowssys.core.PSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.DECIMAL
+import io.github.kotlinmania.windowssys.windows.win32.foundation.VARIANT_BOOL
+import io.github.kotlinmania.windowssys.windows.win32.system.com.CY
 
 public data class VARIANT(public var Anonymous: VARIANT_0 = VARIANT_0())
 
-public data class VARIANT_0(public var Anonymous: VARIANT_0_0 = VARIANT_0_0(), public var decVal: Foundation.DECIMAL = Foundation.DECIMAL())
+public data class VARIANT_0(public var Anonymous: VARIANT_0_0 = VARIANT_0_0(), public var decVal: DECIMAL = DECIMAL())
 
 public data class VARIANT_0_0(
     public var vt: VARENUM = 0u,
@@ -22,10 +25,10 @@ public class VARIANT_0_0_0(
     public var iVal: Short = 0,
     public var fltVal: Float = 0.0f,
     public var dblVal: Double = 0.0,
-    public var boolVal: Foundation.VARIANT_BOOL = Foundation.VARIANT_BOOL(),
-    public var __OBSOLETE__VARIANT_BOOL: Foundation.VARIANT_BOOL = Foundation.VARIANT_BOOL(),
+    public var boolVal: VARIANT_BOOL = 0,
+    public var __OBSOLETE__VARIANT_BOOL: VARIANT_BOOL = 0,
     public var scode: Int = 0,
-    public var cyVal: Com.CY = Com.CY(),
+    public var cyVal: CY = CY(),
     public var date: Double = 0.0,
     public var bstrVal: BSTR = 0L,
     public var punkVal: Long = 0L,

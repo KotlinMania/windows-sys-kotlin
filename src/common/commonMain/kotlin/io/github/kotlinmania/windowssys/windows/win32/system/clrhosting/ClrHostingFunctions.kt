@@ -5,6 +5,9 @@ import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
 
 public fun interface FnCallback {
     public operator fun invoke(): HRESULT
@@ -94,8 +97,8 @@ public fun GetRequestedRuntimeVersionForCLSID(rclsid: Long, pversion: PWSTR, cch
     return Win32DynamicFfi.invoke("mscoree.dll", "GetRequestedRuntimeVersionForCLSID", longArrayOf(rclsid, pversion, cchbuffer.toLong(), dwlength, dwresolutionflags.toLong())).toInt()
 }
 
-public fun GetVersionFromProcess(hprocess: Foundation.HANDLE, pversion: PWSTR, cchbuffer: UInt, dwlength: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mscoree.dll", "GetVersionFromProcess", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), pversion, cchbuffer.toLong(), dwlength)).toInt()
+public fun GetVersionFromProcess(hprocess: HANDLE, pversion: PWSTR, cchbuffer: UInt, dwlength: Long): HRESULT {
+    return Win32DynamicFfi.invoke("mscoree.dll", "GetVersionFromProcess", longArrayOf(hprocess, pversion, cchbuffer.toLong(), dwlength)).toInt()
 }
 
 public fun LoadLibraryShim(szdllname: PCWSTR, szversion: PCWSTR, pvreserved: Long, phmoddll: Long): HRESULT {
@@ -114,6 +117,6 @@ public fun LockClrVersion(hostcallback: FLockClrVersionCallback, pbeginhostsetup
     return Win32DynamicFfi.invoke("mscoree.dll", "LockClrVersion", longArrayOf(Win32DynamicFfi.objectSlot(hostcallback), pbeginhostsetup, pendhostsetup)).toInt()
 }
 
-public fun RunDll32ShimW(hwnd: Foundation.HWND, hinst: Foundation.HINSTANCE, lpszcmdline: PCWSTR, ncmdshow: Int): HRESULT {
-    return Win32DynamicFfi.invoke("mscoree.dll", "RunDll32ShimW", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), Win32DynamicFfi.objectSlot(hinst), lpszcmdline, ncmdshow.toLong())).toInt()
+public fun RunDll32ShimW(hwnd: HWND, hinst: HINSTANCE, lpszcmdline: PCWSTR, ncmdshow: Int): HRESULT {
+    return Win32DynamicFfi.invoke("mscoree.dll", "RunDll32ShimW", longArrayOf(hwnd, hinst, lpszcmdline, ncmdshow.toLong())).toInt()
 }

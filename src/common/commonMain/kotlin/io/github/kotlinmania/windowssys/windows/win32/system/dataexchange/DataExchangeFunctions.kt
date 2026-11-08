@@ -6,6 +6,11 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HENHMETAFILE
 
 public fun interface FnCallback {
     public operator fun invoke(wtype: UInt, wfmt: UInt, hconv: HCONV, hsz1: HSZ, hsz2: HSZ, hdata: HDDEDATA, dwdata1: ULong, dwdata2: ULong): HDDEDATA
@@ -19,12 +24,12 @@ public fun AddAtomW(lpstring: PCWSTR): UShort {
     return Win32DynamicFfi.invoke("kernel32.dll", "AddAtomW", longArrayOf(lpstring)).toUShort()
 }
 
-public fun AddClipboardFormatListener(hwnd: Foundation.HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "AddClipboardFormatListener", longArrayOf(Win32DynamicFfi.objectSlot(hwnd))).toInt()
+public fun AddClipboardFormatListener(hwnd: HWND): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "AddClipboardFormatListener", longArrayOf(hwnd)).toInt()
 }
 
-public fun ChangeClipboardChain(hwndremove: Foundation.HWND, hwndnewnext: Foundation.HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "ChangeClipboardChain", longArrayOf(Win32DynamicFfi.objectSlot(hwndremove), Win32DynamicFfi.objectSlot(hwndnewnext))).toInt()
+public fun ChangeClipboardChain(hwndremove: HWND, hwndnewnext: HWND): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "ChangeClipboardChain", longArrayOf(hwndremove, hwndnewnext)).toInt()
 }
 
 public fun CloseClipboard(): BOOL {
@@ -147,8 +152,8 @@ public fun DdeReconnect(hconv: HCONV): HCONV {
     return Win32DynamicFfi.invoke("user32.dll", "DdeReconnect", longArrayOf(hconv))
 }
 
-public fun DdeSetQualityOfService(hwndclient: Foundation.HWND, pqosnew: Long, pqosprev: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "DdeSetQualityOfService", longArrayOf(Win32DynamicFfi.objectSlot(hwndclient), pqosnew, pqosprev)).toInt()
+public fun DdeSetQualityOfService(hwndclient: HWND, pqosnew: Long, pqosprev: Long): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "DdeSetQualityOfService", longArrayOf(hwndclient, pqosnew, pqosprev)).toInt()
 }
 
 public fun DdeSetUserHandle(hconv: HCONV, id: UInt, huser: ULong): BOOL {
@@ -183,8 +188,8 @@ public fun FindAtomW(lpstring: PCWSTR): UShort {
     return Win32DynamicFfi.invoke("kernel32.dll", "FindAtomW", longArrayOf(lpstring)).toUShort()
 }
 
-public fun FreeDDElParam(msg: UInt, lparam: Foundation.LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "FreeDDElParam", longArrayOf(msg.toLong(), Win32DynamicFfi.objectSlot(lparam))).toInt()
+public fun FreeDDElParam(msg: UInt, lparam: LPARAM): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "FreeDDElParam", longArrayOf(msg.toLong(), lparam)).toInt()
 }
 
 public fun GetAtomNameA(natom: UShort, lpbuffer: PSTR, nsize: Int): UInt {
@@ -195,9 +200,8 @@ public fun GetAtomNameW(natom: UShort, lpbuffer: PWSTR, nsize: Int): UInt {
     return Win32DynamicFfi.invoke("kernel32.dll", "GetAtomNameW", longArrayOf(natom.toLong(), lpbuffer, nsize.toLong())).toUInt()
 }
 
-public fun GetClipboardData(uformat: UInt): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("user32.dll", "GetClipboardData", longArrayOf(uformat.toLong()))
-    return Foundation.HANDLE()
+public fun GetClipboardData(uformat: UInt): HANDLE {
+    return Win32DynamicFfi.invoke("user32.dll", "GetClipboardData", longArrayOf(uformat.toLong()))
 }
 
 public fun GetClipboardFormatNameA(format: UInt, lpszformatname: PSTR, cchmaxcount: Int): Int {
@@ -208,23 +212,20 @@ public fun GetClipboardFormatNameW(format: UInt, lpszformatname: PWSTR, cchmaxco
     return Win32DynamicFfi.invoke("user32.dll", "GetClipboardFormatNameW", longArrayOf(format.toLong(), lpszformatname, cchmaxcount.toLong())).toInt()
 }
 
-public fun GetClipboardOwner(): Foundation.HWND {
-    Win32DynamicFfi.invoke("user32.dll", "GetClipboardOwner", longArrayOf())
-    return Foundation.HWND()
+public fun GetClipboardOwner(): HWND {
+    return Win32DynamicFfi.invoke("user32.dll", "GetClipboardOwner", longArrayOf())
 }
 
 public fun GetClipboardSequenceNumber(): UInt {
     return Win32DynamicFfi.invoke("user32.dll", "GetClipboardSequenceNumber", longArrayOf()).toUInt()
 }
 
-public fun GetClipboardViewer(): Foundation.HWND {
-    Win32DynamicFfi.invoke("user32.dll", "GetClipboardViewer", longArrayOf())
-    return Foundation.HWND()
+public fun GetClipboardViewer(): HWND {
+    return Win32DynamicFfi.invoke("user32.dll", "GetClipboardViewer", longArrayOf())
 }
 
-public fun GetOpenClipboardWindow(): Foundation.HWND {
-    Win32DynamicFfi.invoke("user32.dll", "GetOpenClipboardWindow", longArrayOf())
-    return Foundation.HWND()
+public fun GetOpenClipboardWindow(): HWND {
+    return Win32DynamicFfi.invoke("user32.dll", "GetOpenClipboardWindow", longArrayOf())
 }
 
 public fun GetPriorityClipboardFormat(paformatprioritylist: Long, cformats: Int): Int {
@@ -271,8 +272,8 @@ public fun GlobalGetAtomNameW(natom: UShort, lpbuffer: PWSTR, nsize: Int): UInt 
     return Win32DynamicFfi.invoke("kernel32.dll", "GlobalGetAtomNameW", longArrayOf(natom.toLong(), lpbuffer, nsize.toLong())).toUInt()
 }
 
-public fun ImpersonateDdeClientWindow(hwndclient: Foundation.HWND, hwndserver: Foundation.HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "ImpersonateDdeClientWindow", longArrayOf(Win32DynamicFfi.objectSlot(hwndclient), Win32DynamicFfi.objectSlot(hwndserver))).toInt()
+public fun ImpersonateDdeClientWindow(hwndclient: HWND, hwndserver: HWND): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "ImpersonateDdeClientWindow", longArrayOf(hwndclient, hwndserver)).toInt()
 }
 
 public fun InitAtomTable(nsize: UInt): BOOL {
@@ -283,13 +284,12 @@ public fun IsClipboardFormatAvailable(format: UInt): BOOL {
     return Win32DynamicFfi.invoke("user32.dll", "IsClipboardFormatAvailable", longArrayOf(format.toLong())).toInt()
 }
 
-public fun OpenClipboard(hwndnewowner: Foundation.HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "OpenClipboard", longArrayOf(Win32DynamicFfi.objectSlot(hwndnewowner))).toInt()
+public fun OpenClipboard(hwndnewowner: HWND): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "OpenClipboard", longArrayOf(hwndnewowner)).toInt()
 }
 
-public fun PackDDElParam(msg: UInt, uilo: ULong, uihi: ULong): Foundation.LPARAM {
-    Win32DynamicFfi.invoke("user32.dll", "PackDDElParam", longArrayOf(msg.toLong(), uilo.toLong(), uihi.toLong()))
-    return Foundation.LPARAM()
+public fun PackDDElParam(msg: UInt, uilo: ULong, uihi: ULong): LPARAM {
+    return Win32DynamicFfi.invoke("user32.dll", "PackDDElParam", longArrayOf(msg.toLong(), uilo.toLong(), uihi.toLong()))
 }
 
 public fun RegisterClipboardFormatA(lpszformat: PCSTR): UInt {
@@ -300,30 +300,26 @@ public fun RegisterClipboardFormatW(lpszformat: PCWSTR): UInt {
     return Win32DynamicFfi.invoke("user32.dll", "RegisterClipboardFormatW", longArrayOf(lpszformat)).toUInt()
 }
 
-public fun RemoveClipboardFormatListener(hwnd: Foundation.HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "RemoveClipboardFormatListener", longArrayOf(Win32DynamicFfi.objectSlot(hwnd))).toInt()
+public fun RemoveClipboardFormatListener(hwnd: HWND): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "RemoveClipboardFormatListener", longArrayOf(hwnd)).toInt()
 }
 
-public fun ReuseDDElParam(lparam: Foundation.LPARAM, msgin: UInt, msgout: UInt, uilo: ULong, uihi: ULong): Foundation.LPARAM {
-    Win32DynamicFfi.invoke("user32.dll", "ReuseDDElParam", longArrayOf(Win32DynamicFfi.objectSlot(lparam), msgin.toLong(), msgout.toLong(), uilo.toLong(), uihi.toLong()))
-    return Foundation.LPARAM()
+public fun ReuseDDElParam(lparam: LPARAM, msgin: UInt, msgout: UInt, uilo: ULong, uihi: ULong): LPARAM {
+    return Win32DynamicFfi.invoke("user32.dll", "ReuseDDElParam", longArrayOf(lparam, msgin.toLong(), msgout.toLong(), uilo.toLong(), uihi.toLong()))
 }
 
-public fun SetClipboardData(uformat: UInt, hmem: Foundation.HANDLE): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("user32.dll", "SetClipboardData", longArrayOf(uformat.toLong(), Win32DynamicFfi.objectSlot(hmem)))
-    return Foundation.HANDLE()
+public fun SetClipboardData(uformat: UInt, hmem: HANDLE): HANDLE {
+    return Win32DynamicFfi.invoke("user32.dll", "SetClipboardData", longArrayOf(uformat.toLong(), hmem))
 }
 
-public fun SetClipboardViewer(hwndnewviewer: Foundation.HWND): Foundation.HWND {
-    Win32DynamicFfi.invoke("user32.dll", "SetClipboardViewer", longArrayOf(Win32DynamicFfi.objectSlot(hwndnewviewer)))
-    return Foundation.HWND()
+public fun SetClipboardViewer(hwndnewviewer: HWND): HWND {
+    return Win32DynamicFfi.invoke("user32.dll", "SetClipboardViewer", longArrayOf(hwndnewviewer))
 }
 
-public fun SetWinMetaFileBits(nsize: UInt, lpmeta16data: Long, hdcref: Graphics.Gdi.HDC, lpmfp: Long): Graphics.Gdi.HENHMETAFILE {
-    Win32DynamicFfi.invoke("gdi32.dll", "SetWinMetaFileBits", longArrayOf(nsize.toLong(), lpmeta16data, Win32DynamicFfi.objectSlot(hdcref), lpmfp))
-    return Graphics.Gdi.HENHMETAFILE()
+public fun SetWinMetaFileBits(nsize: UInt, lpmeta16data: Long, hdcref: HDC, lpmfp: Long): HENHMETAFILE {
+    return Win32DynamicFfi.invoke("gdi32.dll", "SetWinMetaFileBits", longArrayOf(nsize.toLong(), lpmeta16data, hdcref, lpmfp))
 }
 
-public fun UnpackDDElParam(msg: UInt, lparam: Foundation.LPARAM, puilo: Long, puihi: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "UnpackDDElParam", longArrayOf(msg.toLong(), Win32DynamicFfi.objectSlot(lparam), puilo, puihi)).toInt()
+public fun UnpackDDElParam(msg: UInt, lparam: LPARAM, puilo: Long, puihi: Long): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "UnpackDDElParam", longArrayOf(msg.toLong(), lparam, puilo, puihi)).toInt()
 }

@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.search
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
@@ -375,7 +376,7 @@ public val FTE_S_STATUS_CHANGE_REQUEST: Int = 276011
 
 public val FTE_S_TRY_TO_FLUSH: Int = 276055
 
-public val FilterRegistration: GUID = GUID.from_u128(0x9e175b8df52a11d8uL, 0xb9a5505054503030uL)
+public val FilterRegistration: GUID = GUID.from_u128(U128(0x9e175b8df52a11d8uL, 0xb9a5505054503030uL))
 
 public val GENERATE_METHOD_PREFIXMATCH: UInt = 1u
 
@@ -807,7 +808,7 @@ public val INET_S_AGENT_INCREASED_CACHE_SIZE: HRESULT = 0xC0F90u.toInt()
 
 public val INET_S_AGENT_PART_FAIL: HRESULT = 0xC0F81u.toInt()
 
-public val Interval: GUID = GUID.from_u128(0xd957171f4bf94de2uL, 0xbcd5c70a7ca55836uL)
+public val Interval: GUID = GUID.from_u128(U128(0xd957171f4bf94de2uL, 0xbcd5c70a7ca55836uL))
 
 public val JET_GET_PROP_STORE_ERROR: Int = -1073732822
 
@@ -933,7 +934,7 @@ public val LOCKMODE_INVALID: LOCKMODEENUM = 0
 
 public val LOCKMODE_SHARED: LOCKMODEENUM = 2
 
-public val LeafCondition: GUID = GUID.from_u128(0x52f15c895a1748e1uL, 0xbbcd46a3f89c7cc2uL)
+public val LeafCondition: GUID = GUID.from_u128(U128(0x52f15c895a1748e1uL, 0xbbcd46a3f89c7cc2uL))
 
 public val MAXNAME: UInt = 129u
 
@@ -1293,15 +1294,15 @@ public val MINFATALERR: UInt = 20u
 
 public val MIN_USER_DATATYPE: UInt = 256u
 
-public val MSDAINITIALIZE: GUID = GUID.from_u128(0x2206cdb019c111d1uL, 0x89e000c04fd7a829uL)
+public val MSDAINITIALIZE: GUID = GUID.from_u128(U128(0x2206cdb019c111d1uL, 0x89e000c04fd7a829uL))
 
-public val MSDAORA: GUID = GUID.from_u128(0xe8cc4cbefdff11d0uL, 0xb86500a0c9081c1duL)
+public val MSDAORA: GUID = GUID.from_u128(U128(0xe8cc4cbefdff11d0uL, 0xb86500a0c9081c1duL))
 
-public val MSDAORA8: GUID = GUID.from_u128(0x7f06a373dd6a43dbuL, 0xb4e01fc121e5e62buL)
+public val MSDAORA8: GUID = GUID.from_u128(U128(0x7f06a373dd6a43dbuL, 0xb4e01fc121e5e62buL))
 
-public val MSDAORA8_ERROR: GUID = GUID.from_u128(0x7f06a374dd6a43dbuL, 0xb4e01fc121e5e62buL)
+public val MSDAORA8_ERROR: GUID = GUID.from_u128(U128(0x7f06a374dd6a43dbuL, 0xb4e01fc121e5e62buL))
 
-public val MSDAORA_ERROR: GUID = GUID.from_u128(0xe8cc4cbffdff11d0uL, 0xb86500a0c9081c1duL)
+public val MSDAORA_ERROR: GUID = GUID.from_u128(U128(0xe8cc4cbffdff11d0uL, 0xb86500a0c9081c1duL))
 
 public val MSG_CI_CORRUPT_INDEX_COMPONENT: HRESULT = 0x4000102Au.toInt()
 
@@ -1393,7 +1394,7 @@ public val NOTESPH_S_LISTKNOWNFIELDS: Int = 271888
 
 public val NOT_N_PARSE_ERROR: HRESULT = 0x8092Eu.toInt()
 
-public val NegationCondition: GUID = GUID.from_u128(0x8de9c74c605a4acduL, 0xbee32b222aa2d23duL)
+public val NegationCondition: GUID = GUID.from_u128(U128(0x8de9c74c605a4acduL, 0xbee32b222aa2d23duL))
 
 public val OCC_INVALID: UInt = 4294967295u
 
@@ -1537,7 +1538,7 @@ public val OSPXFER_ERROR: OSPXFER = 2
 
 public val OSP_IndexLabel: UInt = 0u
 
-public val PDPO: GUID = GUID.from_u128(0xccb4ec60b9dc11d1uL, 0xac8000a0c9034873uL)
+public val PDPO: GUID = GUID.from_u128(U128(0xccb4ec60b9dc11d1uL, 0xac8000a0c9034873uL))
 
 public val PEOPLE_IMPORT_E_CANONICALURL_TOOLONG: Int = -2147205110
 
@@ -1711,11 +1712,11 @@ public val PRTH_S_TRY_IMPERSONATING: Int = 266789
 
 public val PRTH_S_USE_ROSEBUD: Int = 266772
 
-public val PSGUID_CHARACTERIZATION: GUID = GUID.from_u128(0x560c36c0503a11cfuL, 0xbaa100004c752a9auL)
+public val PSGUID_CHARACTERIZATION: GUID = GUID.from_u128(U128(0x560c36c0503a11cfuL, 0xbaa100004c752a9auL))
 
-public val PSGUID_QUERY_METADATA: GUID = GUID.from_u128(0x624c936093d011cfuL, 0xa78700004c752752uL)
+public val PSGUID_QUERY_METADATA: GUID = GUID.from_u128(U128(0x624c936093d011cfuL, 0xa78700004c752752uL))
 
-public val PSGUID_STORAGE: GUID = GUID.from_u128(0xb725f13047ef101auL, 0xa5f102608c9eebacuL)
+public val PSGUID_STORAGE: GUID = GUID.from_u128(U128(0xb725f13047ef101auL, 0xa5f102608c9eebacuL))
 
 public val PWPROP_OSPVALUE: UInt = 2u
 
@@ -1831,9 +1832,9 @@ public val QUERY_SORTXDESCEND: UInt = 3u
 
 public val QUERY_VALIDBITS: UInt = 3u
 
-public val QueryParser: GUID = GUID.from_u128(0xb72f8fd80fab4dd9uL, 0xbdbf245a6ce1485buL)
+public val QueryParser: GUID = GUID.from_u128(U128(0xb72f8fd80fab4dd9uL, 0xbdbf245a6ce1485buL))
 
-public val QueryParserManager: GUID = GUID.from_u128(0x5088b39a29b44d9duL, 0x82454ee289222f66uL)
+public val QueryParserManager: GUID = GUID.from_u128(U128(0x5088b39a29b44d9duL, 0x82454ee289222f66uL))
 
 public val REXSPH_E_DUPLICATE_PROPERTY: Int = -2147207927
 
@@ -1897,7 +1898,7 @@ public val RTProximity: UInt = 6u
 
 public val RTVector: UInt = 7u
 
-public val RootBinder: GUID = GUID.from_u128(0xff151822b0bf11d1uL, 0xa80d000000000000uL)
+public val RootBinder: GUID = GUID.from_u128(U128(0xff151822b0bf11d1uL, 0xa80d000000000000uL))
 
 public val SCHEMA_E_ADDSTOPWORDS: Int = -2147218420
 

@@ -6,6 +6,9 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
 
 public fun interface FnCallback {
     public operator fun invoke(requestcode: UInt, buffer: Long, buffersize: UInt): UInt
@@ -87,8 +90,8 @@ public fun PdhCollectQueryData(hquery: PDH_HQUERY): UInt {
     return Win32DynamicFfi.invoke("pdh.dll", "PdhCollectQueryData", longArrayOf(hquery)).toUInt()
 }
 
-public fun PdhCollectQueryDataEx(hquery: PDH_HQUERY, dwintervaltime: UInt, hnewdataevent: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("pdh.dll", "PdhCollectQueryDataEx", longArrayOf(hquery, dwintervaltime.toLong(), Win32DynamicFfi.objectSlot(hnewdataevent))).toUInt()
+public fun PdhCollectQueryDataEx(hquery: PDH_HQUERY, dwintervaltime: UInt, hnewdataevent: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("pdh.dll", "PdhCollectQueryDataEx", longArrayOf(hquery, dwintervaltime.toLong(), hnewdataevent)).toUInt()
 }
 
 public fun PdhCollectQueryDataWithTime(hquery: PDH_HQUERY, plltimestamp: Long): UInt {
@@ -355,20 +358,20 @@ public fun PdhParseInstanceNameW(szinstancestring: PCWSTR, szinstancename: PWSTR
     return Win32DynamicFfi.invoke("pdh.dll", "PdhParseInstanceNameW", longArrayOf(szinstancestring, szinstancename, pcchinstancenamelength, szparentname, pcchparentnamelength, lpindex)).toUInt()
 }
 
-public fun PdhReadRawLogRecord(hlog: PDH_HLOG, ftrecord: Foundation.FILETIME, prawlogrecord: Long, pdwbufferlength: Long): UInt {
-    return Win32DynamicFfi.invoke("pdh.dll", "PdhReadRawLogRecord", longArrayOf(hlog, Win32DynamicFfi.objectSlot(ftrecord), prawlogrecord, pdwbufferlength)).toUInt()
+public fun PdhReadRawLogRecord(hlog: PDH_HLOG, ftrecord: FILETIME, prawlogrecord: Long, pdwbufferlength: Long): UInt {
+    return Win32DynamicFfi.invoke("pdh.dll", "PdhReadRawLogRecord", longArrayOf(hlog, ((ftrecord.dwLowDateTime.toLong() and 0xFFFF_FFFFL) or ((ftrecord.dwHighDateTime.toLong() and 0xFFFF_FFFFL) shl 32)), prawlogrecord, pdwbufferlength)).toUInt()
 }
 
 public fun PdhRemoveCounter(hcounter: PDH_HCOUNTER): UInt {
     return Win32DynamicFfi.invoke("pdh.dll", "PdhRemoveCounter", longArrayOf(hcounter)).toUInt()
 }
 
-public fun PdhSelectDataSourceA(hwndowner: Foundation.HWND, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: PSTR, pcchbufferlength: Long): UInt {
-    return Win32DynamicFfi.invoke("pdh.dll", "PdhSelectDataSourceA", longArrayOf(Win32DynamicFfi.objectSlot(hwndowner), dwflags.toLong(), szdatasource, pcchbufferlength)).toUInt()
+public fun PdhSelectDataSourceA(hwndowner: HWND, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: PSTR, pcchbufferlength: Long): UInt {
+    return Win32DynamicFfi.invoke("pdh.dll", "PdhSelectDataSourceA", longArrayOf(hwndowner, dwflags.toLong(), szdatasource, pcchbufferlength)).toUInt()
 }
 
-public fun PdhSelectDataSourceW(hwndowner: Foundation.HWND, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: PWSTR, pcchbufferlength: Long): UInt {
-    return Win32DynamicFfi.invoke("pdh.dll", "PdhSelectDataSourceW", longArrayOf(Win32DynamicFfi.objectSlot(hwndowner), dwflags.toLong(), szdatasource, pcchbufferlength)).toUInt()
+public fun PdhSelectDataSourceW(hwndowner: HWND, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: PWSTR, pcchbufferlength: Long): UInt {
+    return Win32DynamicFfi.invoke("pdh.dll", "PdhSelectDataSourceW", longArrayOf(hwndowner, dwflags.toLong(), szdatasource, pcchbufferlength)).toUInt()
 }
 
 public fun PdhSetCounterScaleFactor(hcounter: PDH_HCOUNTER, lfactor: Int): UInt {
@@ -423,32 +426,32 @@ public fun PdhVerifySQLDBW(szdatasource: PCWSTR): UInt {
     return Win32DynamicFfi.invoke("pdh.dll", "PdhVerifySQLDBW", longArrayOf(szdatasource)).toUInt()
 }
 
-public fun PerfAddCounters(hquery: Foundation.HANDLE, pcounters: Long, cbcounters: UInt): UInt {
-    return Win32DynamicFfi.invoke("advapi32.dll", "PerfAddCounters", longArrayOf(Win32DynamicFfi.objectSlot(hquery), pcounters, cbcounters.toLong())).toUInt()
+public fun PerfAddCounters(hquery: HANDLE, pcounters: Long, cbcounters: UInt): UInt {
+    return Win32DynamicFfi.invoke("advapi32.dll", "PerfAddCounters", longArrayOf(hquery, pcounters, cbcounters.toLong())).toUInt()
 }
 
-public fun PerfCloseQueryHandle(hquery: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("advapi32.dll", "PerfCloseQueryHandle", longArrayOf(Win32DynamicFfi.objectSlot(hquery))).toUInt()
+public fun PerfCloseQueryHandle(hquery: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("advapi32.dll", "PerfCloseQueryHandle", longArrayOf(hquery)).toUInt()
 }
 
-public fun PerfCreateInstance(providerhandle: Foundation.HANDLE, countersetguid: Long, name: PCWSTR, id: UInt): Long {
-    return Win32DynamicFfi.invoke("advapi32.dll", "PerfCreateInstance", longArrayOf(Win32DynamicFfi.objectSlot(providerhandle), countersetguid, name, id.toLong()))
+public fun PerfCreateInstance(providerhandle: HANDLE, countersetguid: Long, name: PCWSTR, id: UInt): Long {
+    return Win32DynamicFfi.invoke("advapi32.dll", "PerfCreateInstance", longArrayOf(providerhandle, countersetguid, name, id.toLong()))
 }
 
-public fun PerfDecrementULongCounterValue(provider: Foundation.HANDLE, instance: Long, counterid: UInt, value: UInt): UInt {
-    return Win32DynamicFfi.invoke("advapi32.dll", "PerfDecrementULongCounterValue", longArrayOf(Win32DynamicFfi.objectSlot(provider), instance, counterid.toLong(), value.toLong())).toUInt()
+public fun PerfDecrementULongCounterValue(provider: HANDLE, instance: Long, counterid: UInt, value: UInt): UInt {
+    return Win32DynamicFfi.invoke("advapi32.dll", "PerfDecrementULongCounterValue", longArrayOf(provider, instance, counterid.toLong(), value.toLong())).toUInt()
 }
 
-public fun PerfDecrementULongLongCounterValue(provider: Foundation.HANDLE, instance: Long, counterid: UInt, value: ULong): UInt {
-    return Win32DynamicFfi.invoke("advapi32.dll", "PerfDecrementULongLongCounterValue", longArrayOf(Win32DynamicFfi.objectSlot(provider), instance, counterid.toLong(), value.toLong())).toUInt()
+public fun PerfDecrementULongLongCounterValue(provider: HANDLE, instance: Long, counterid: UInt, value: ULong): UInt {
+    return Win32DynamicFfi.invoke("advapi32.dll", "PerfDecrementULongLongCounterValue", longArrayOf(provider, instance, counterid.toLong(), value.toLong())).toUInt()
 }
 
-public fun PerfDeleteCounters(hquery: Foundation.HANDLE, pcounters: Long, cbcounters: UInt): UInt {
-    return Win32DynamicFfi.invoke("advapi32.dll", "PerfDeleteCounters", longArrayOf(Win32DynamicFfi.objectSlot(hquery), pcounters, cbcounters.toLong())).toUInt()
+public fun PerfDeleteCounters(hquery: HANDLE, pcounters: Long, cbcounters: UInt): UInt {
+    return Win32DynamicFfi.invoke("advapi32.dll", "PerfDeleteCounters", longArrayOf(hquery, pcounters, cbcounters.toLong())).toUInt()
 }
 
-public fun PerfDeleteInstance(provider: Foundation.HANDLE, instanceblock: Long): UInt {
-    return Win32DynamicFfi.invoke("advapi32.dll", "PerfDeleteInstance", longArrayOf(Win32DynamicFfi.objectSlot(provider), instanceblock)).toUInt()
+public fun PerfDeleteInstance(provider: HANDLE, instanceblock: Long): UInt {
+    return Win32DynamicFfi.invoke("advapi32.dll", "PerfDeleteInstance", longArrayOf(provider, instanceblock)).toUInt()
 }
 
 public fun PerfEnumerateCounterSet(szmachine: PCWSTR, pcountersetids: Long, ccountersetids: UInt, pccountersetidsactual: Long): UInt {
@@ -459,48 +462,48 @@ public fun PerfEnumerateCounterSetInstances(szmachine: PCWSTR, pcountersetid: Lo
     return Win32DynamicFfi.invoke("advapi32.dll", "PerfEnumerateCounterSetInstances", longArrayOf(szmachine, pcountersetid, pinstances, cbinstances.toLong(), pcbinstancesactual)).toUInt()
 }
 
-public fun PerfIncrementULongCounterValue(provider: Foundation.HANDLE, instance: Long, counterid: UInt, value: UInt): UInt {
-    return Win32DynamicFfi.invoke("advapi32.dll", "PerfIncrementULongCounterValue", longArrayOf(Win32DynamicFfi.objectSlot(provider), instance, counterid.toLong(), value.toLong())).toUInt()
+public fun PerfIncrementULongCounterValue(provider: HANDLE, instance: Long, counterid: UInt, value: UInt): UInt {
+    return Win32DynamicFfi.invoke("advapi32.dll", "PerfIncrementULongCounterValue", longArrayOf(provider, instance, counterid.toLong(), value.toLong())).toUInt()
 }
 
-public fun PerfIncrementULongLongCounterValue(provider: Foundation.HANDLE, instance: Long, counterid: UInt, value: ULong): UInt {
-    return Win32DynamicFfi.invoke("advapi32.dll", "PerfIncrementULongLongCounterValue", longArrayOf(Win32DynamicFfi.objectSlot(provider), instance, counterid.toLong(), value.toLong())).toUInt()
+public fun PerfIncrementULongLongCounterValue(provider: HANDLE, instance: Long, counterid: UInt, value: ULong): UInt {
+    return Win32DynamicFfi.invoke("advapi32.dll", "PerfIncrementULongLongCounterValue", longArrayOf(provider, instance, counterid.toLong(), value.toLong())).toUInt()
 }
 
 public fun PerfOpenQueryHandle(szmachine: PCWSTR, phquery: Long): UInt {
     return Win32DynamicFfi.invoke("advapi32.dll", "PerfOpenQueryHandle", longArrayOf(szmachine, phquery)).toUInt()
 }
 
-public fun PerfQueryCounterData(hquery: Foundation.HANDLE, pcounterblock: Long, cbcounterblock: UInt, pcbcounterblockactual: Long): UInt {
-    return Win32DynamicFfi.invoke("advapi32.dll", "PerfQueryCounterData", longArrayOf(Win32DynamicFfi.objectSlot(hquery), pcounterblock, cbcounterblock.toLong(), pcbcounterblockactual)).toUInt()
+public fun PerfQueryCounterData(hquery: HANDLE, pcounterblock: Long, cbcounterblock: UInt, pcbcounterblockactual: Long): UInt {
+    return Win32DynamicFfi.invoke("advapi32.dll", "PerfQueryCounterData", longArrayOf(hquery, pcounterblock, cbcounterblock.toLong(), pcbcounterblockactual)).toUInt()
 }
 
-public fun PerfQueryCounterInfo(hquery: Foundation.HANDLE, pcounters: Long, cbcounters: UInt, pcbcountersactual: Long): UInt {
-    return Win32DynamicFfi.invoke("advapi32.dll", "PerfQueryCounterInfo", longArrayOf(Win32DynamicFfi.objectSlot(hquery), pcounters, cbcounters.toLong(), pcbcountersactual)).toUInt()
+public fun PerfQueryCounterInfo(hquery: HANDLE, pcounters: Long, cbcounters: UInt, pcbcountersactual: Long): UInt {
+    return Win32DynamicFfi.invoke("advapi32.dll", "PerfQueryCounterInfo", longArrayOf(hquery, pcounters, cbcounters.toLong(), pcbcountersactual)).toUInt()
 }
 
 public fun PerfQueryCounterSetRegistrationInfo(szmachine: PCWSTR, pcountersetid: Long, requestcode: PerfRegInfoType, requestlangid: UInt, pbreginfo: Long, cbreginfo: UInt, pcbreginfoactual: Long): UInt {
     return Win32DynamicFfi.invoke("advapi32.dll", "PerfQueryCounterSetRegistrationInfo", longArrayOf(szmachine, pcountersetid, requestcode.toLong(), requestlangid.toLong(), pbreginfo, cbreginfo.toLong(), pcbreginfoactual)).toUInt()
 }
 
-public fun PerfQueryInstance(providerhandle: Foundation.HANDLE, countersetguid: Long, name: PCWSTR, id: UInt): Long {
-    return Win32DynamicFfi.invoke("advapi32.dll", "PerfQueryInstance", longArrayOf(Win32DynamicFfi.objectSlot(providerhandle), countersetguid, name, id.toLong()))
+public fun PerfQueryInstance(providerhandle: HANDLE, countersetguid: Long, name: PCWSTR, id: UInt): Long {
+    return Win32DynamicFfi.invoke("advapi32.dll", "PerfQueryInstance", longArrayOf(providerhandle, countersetguid, name, id.toLong()))
 }
 
-public fun PerfSetCounterRefValue(provider: Foundation.HANDLE, instance: Long, counterid: UInt, address: Long): UInt {
-    return Win32DynamicFfi.invoke("advapi32.dll", "PerfSetCounterRefValue", longArrayOf(Win32DynamicFfi.objectSlot(provider), instance, counterid.toLong(), address)).toUInt()
+public fun PerfSetCounterRefValue(provider: HANDLE, instance: Long, counterid: UInt, address: Long): UInt {
+    return Win32DynamicFfi.invoke("advapi32.dll", "PerfSetCounterRefValue", longArrayOf(provider, instance, counterid.toLong(), address)).toUInt()
 }
 
-public fun PerfSetCounterSetInfo(providerhandle: Foundation.HANDLE, template: Long, templatesize: UInt): UInt {
-    return Win32DynamicFfi.invoke("advapi32.dll", "PerfSetCounterSetInfo", longArrayOf(Win32DynamicFfi.objectSlot(providerhandle), template, templatesize.toLong())).toUInt()
+public fun PerfSetCounterSetInfo(providerhandle: HANDLE, template: Long, templatesize: UInt): UInt {
+    return Win32DynamicFfi.invoke("advapi32.dll", "PerfSetCounterSetInfo", longArrayOf(providerhandle, template, templatesize.toLong())).toUInt()
 }
 
-public fun PerfSetULongCounterValue(provider: Foundation.HANDLE, instance: Long, counterid: UInt, value: UInt): UInt {
-    return Win32DynamicFfi.invoke("advapi32.dll", "PerfSetULongCounterValue", longArrayOf(Win32DynamicFfi.objectSlot(provider), instance, counterid.toLong(), value.toLong())).toUInt()
+public fun PerfSetULongCounterValue(provider: HANDLE, instance: Long, counterid: UInt, value: UInt): UInt {
+    return Win32DynamicFfi.invoke("advapi32.dll", "PerfSetULongCounterValue", longArrayOf(provider, instance, counterid.toLong(), value.toLong())).toUInt()
 }
 
-public fun PerfSetULongLongCounterValue(provider: Foundation.HANDLE, instance: Long, counterid: UInt, value: ULong): UInt {
-    return Win32DynamicFfi.invoke("advapi32.dll", "PerfSetULongLongCounterValue", longArrayOf(Win32DynamicFfi.objectSlot(provider), instance, counterid.toLong(), value.toLong())).toUInt()
+public fun PerfSetULongLongCounterValue(provider: HANDLE, instance: Long, counterid: UInt, value: ULong): UInt {
+    return Win32DynamicFfi.invoke("advapi32.dll", "PerfSetULongLongCounterValue", longArrayOf(provider, instance, counterid.toLong(), value.toLong())).toUInt()
 }
 
 public fun PerfStartProvider(providerguid: Long, controlcallback: PERFLIBREQUEST, phprovider: Long): UInt {
@@ -511,8 +514,8 @@ public fun PerfStartProviderEx(providerguid: Long, providercontext: Long, provid
     return Win32DynamicFfi.invoke("advapi32.dll", "PerfStartProviderEx", longArrayOf(providerguid, providercontext, provider)).toUInt()
 }
 
-public fun PerfStopProvider(providerhandle: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("advapi32.dll", "PerfStopProvider", longArrayOf(Win32DynamicFfi.objectSlot(providerhandle))).toUInt()
+public fun PerfStopProvider(providerhandle: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("advapi32.dll", "PerfStopProvider", longArrayOf(providerhandle)).toUInt()
 }
 
 public fun QueryPerformanceCounter(lpperformancecount: Long): BOOL {

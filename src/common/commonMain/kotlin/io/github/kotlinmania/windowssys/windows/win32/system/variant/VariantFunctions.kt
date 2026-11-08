@@ -5,6 +5,7 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
 
 public fun ClearVariantArray(pvars: Long, cvars: UInt) {
     Win32DynamicFfi.invoke("propsys.dll", "ClearVariantArray", longArrayOf(pvars, cvars.toLong()))
@@ -50,8 +51,8 @@ public fun InitVariantFromInt64Array(prgn: Long, celems: UInt, pvar: Long): HRES
     return Win32DynamicFfi.invoke("propsys.dll", "InitVariantFromInt64Array", longArrayOf(prgn, celems.toLong(), pvar)).toInt()
 }
 
-public fun InitVariantFromResource(hinst: Foundation.HINSTANCE, id: UInt, pvar: Long): HRESULT {
-    return Win32DynamicFfi.invoke("propsys.dll", "InitVariantFromResource", longArrayOf(Win32DynamicFfi.objectSlot(hinst), id.toLong(), pvar)).toInt()
+public fun InitVariantFromResource(hinst: HINSTANCE, id: UInt, pvar: Long): HRESULT {
+    return Win32DynamicFfi.invoke("propsys.dll", "InitVariantFromResource", longArrayOf(hinst, id.toLong(), pvar)).toInt()
 }
 
 public fun InitVariantFromStringArray(prgsz: Long, celems: UInt, pvar: Long): HRESULT {

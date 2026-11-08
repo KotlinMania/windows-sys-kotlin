@@ -4,6 +4,13 @@ package io.github.kotlinmania.windowssys.windows.win32.data.htmlhelp
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.COLORREF
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.VARIANT
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.NMHDR
 
 public data class COLUMNSTATUS(public var cPropCount: Int = 0, public var cPropsLoaded: Int = 0)
 
@@ -22,13 +29,13 @@ public data class CProperty_0(
 )
 
 public data class HHNTRACK(
-    public var hdr: UI.Controls.NMHDR = UI.Controls.NMHDR(),
+    public var hdr: NMHDR = NMHDR(),
     public var pszCurUrl: PCSTR = 0L,
     public var idAction: Int = 0,
     public var phhWinType: Long = 0L,
 )
 
-public data class HHN_NOTIFY(public var hdr: UI.Controls.NMHDR = UI.Controls.NMHDR(), public var pszUrl: PCSTR = 0L)
+public data class HHN_NOTIFY(public var hdr: NMHDR = NMHDR(), public var pszUrl: PCSTR = 0L)
 
 public data class HH_AKLINK(
     public var cbStruct: Int = 0,
@@ -66,17 +73,17 @@ public data class HH_FTS_QUERY(
     public var pszWindow: Long = 0L,
 )
 
-public data class HH_GLOBAL_PROPERTY(public var id: HH_GPROPID = 0, public var variable: System.Variant.VARIANT = System.Variant.VARIANT())
+public data class HH_GLOBAL_PROPERTY(public var id: HH_GPROPID = 0, public var variable: VARIANT = VARIANT())
 
 public data class HH_POPUP(
     public var cbStruct: Int = 0,
-    public var hinst: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hinst: HINSTANCE = 0L,
     public var idString: UInt = 0u,
     public var pszText: Long = 0L,
-    public var pt: Foundation.POINT = Foundation.POINT(),
-    public var clrForeground: Foundation.COLORREF = Foundation.COLORREF(),
-    public var clrBackground: Foundation.COLORREF = Foundation.COLORREF(),
-    public var rcMargins: Foundation.RECT = Foundation.RECT(),
+    public var pt: POINT = POINT(),
+    public var clrForeground: COLORREF = 0u,
+    public var clrBackground: COLORREF = 0u,
+    public var rcMargins: RECT = RECT(),
     public var pszFont: Long = 0L,
 )
 
@@ -95,16 +102,16 @@ public class HH_WINTYPE(
     public var pszCaption: Long = 0L,
     public var dwStyles: UInt = 0u,
     public var dwExStyles: UInt = 0u,
-    public var rcWindowPos: Foundation.RECT = Foundation.RECT(),
+    public var rcWindowPos: RECT = RECT(),
     public var nShowState: Int = 0,
-    public var hwndHelp: Foundation.HWND = Foundation.HWND(),
-    public var hwndCaller: Foundation.HWND = Foundation.HWND(),
+    public var hwndHelp: HWND = 0L,
+    public var hwndCaller: HWND = 0L,
     public var paInfoTypes: Long = 0L,
-    public var hwndToolBar: Foundation.HWND = Foundation.HWND(),
-    public var hwndNavigation: Foundation.HWND = Foundation.HWND(),
-    public var hwndHTML: Foundation.HWND = Foundation.HWND(),
+    public var hwndToolBar: HWND = 0L,
+    public var hwndNavigation: HWND = 0L,
+    public var hwndHTML: HWND = 0L,
     public var iNavWidth: Int = 0,
-    public var rcHTML: Foundation.RECT = Foundation.RECT(),
+    public var rcHTML: RECT = RECT(),
     public var pszToc: Long = 0L,
     public var pszIndex: Long = 0L,
     public var pszFile: Long = 0L,
@@ -120,7 +127,7 @@ public class HH_WINTYPE(
     public var pszJump2: Long = 0L,
     public var pszUrlJump1: Long = 0L,
     public var pszUrlJump2: Long = 0L,
-    public var rcMinSize: Foundation.RECT = Foundation.RECT(),
+    public var rcMinSize: RECT = RECT(),
     public var cbInfoTypes: Int = 0,
     public var pszCustomTabs: Long = 0L,
 )

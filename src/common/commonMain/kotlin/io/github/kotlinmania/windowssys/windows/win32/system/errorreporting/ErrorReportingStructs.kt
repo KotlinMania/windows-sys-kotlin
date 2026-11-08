@@ -5,6 +5,11 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.CONTEXT
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.EXCEPTION_RECORD
 
 public data class WER_DUMP_CUSTOM_OPTIONS(
     public var dwSize: UInt = 0u,
@@ -119,7 +124,7 @@ public data class WER_DUMP_CUSTOM_OPTIONS_V3(
     public var dwPreferredModuleResetFlags: UInt = 0u,
     public var dwOtherModuleResetFlags: UInt = 0u,
     public var pvDumpKey: Long = 0L,
-    public var hSnapshot: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hSnapshot: HANDLE = 0L,
     public var dwThreadID: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
@@ -169,13 +174,13 @@ public data class WER_EXCEPTION_INFORMATION(public var pExceptionPointers: Long 
 
 public data class WER_REPORT_INFORMATION(
     public var dwSize: UInt = 0u,
-    public var hProcess: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hProcess: HANDLE = 0L,
     public var wzConsentKey: UShortArray = UShortArray(64),
     public var wzFriendlyEventName: UShortArray = UShortArray(128),
     public var wzApplicationName: UShortArray = UShortArray(128),
     public var wzApplicationPath: UShortArray = UShortArray(260),
     public var wzDescription: UShortArray = UShortArray(512),
-    public var hwndParent: Foundation.HWND = Foundation.HWND(),
+    public var hwndParent: HWND = 0L,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -206,13 +211,13 @@ public data class WER_REPORT_INFORMATION(
 
 public data class WER_REPORT_INFORMATION_V3(
     public var dwSize: UInt = 0u,
-    public var hProcess: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hProcess: HANDLE = 0L,
     public var wzConsentKey: UShortArray = UShortArray(64),
     public var wzFriendlyEventName: UShortArray = UShortArray(128),
     public var wzApplicationName: UShortArray = UShortArray(128),
     public var wzApplicationPath: UShortArray = UShortArray(260),
     public var wzDescription: UShortArray = UShortArray(512),
-    public var hwndParent: Foundation.HWND = Foundation.HWND(),
+    public var hwndParent: HWND = 0L,
     public var wzNamespacePartner: UShortArray = UShortArray(64),
     public var wzNamespaceGroup: UShortArray = UShortArray(64),
 ) {
@@ -249,18 +254,18 @@ public data class WER_REPORT_INFORMATION_V3(
 
 public data class WER_REPORT_INFORMATION_V4(
     public var dwSize: UInt = 0u,
-    public var hProcess: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hProcess: HANDLE = 0L,
     public var wzConsentKey: UShortArray = UShortArray(64),
     public var wzFriendlyEventName: UShortArray = UShortArray(128),
     public var wzApplicationName: UShortArray = UShortArray(128),
     public var wzApplicationPath: UShortArray = UShortArray(260),
     public var wzDescription: UShortArray = UShortArray(512),
-    public var hwndParent: Foundation.HWND = Foundation.HWND(),
+    public var hwndParent: HWND = 0L,
     public var wzNamespacePartner: UShortArray = UShortArray(64),
     public var wzNamespaceGroup: UShortArray = UShortArray(64),
     public var rgbApplicationIdentity: UByteArray = UByteArray(16),
-    public var hSnapshot: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hDeleteFilesImpersonationToken: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hSnapshot: HANDLE = 0L,
+    public var hDeleteFilesImpersonationToken: HANDLE = 0L,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -301,18 +306,18 @@ public data class WER_REPORT_INFORMATION_V4(
 
 public data class WER_REPORT_INFORMATION_V5(
     public var dwSize: UInt = 0u,
-    public var hProcess: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hProcess: HANDLE = 0L,
     public var wzConsentKey: UShortArray = UShortArray(64),
     public var wzFriendlyEventName: UShortArray = UShortArray(128),
     public var wzApplicationName: UShortArray = UShortArray(128),
     public var wzApplicationPath: UShortArray = UShortArray(260),
     public var wzDescription: UShortArray = UShortArray(512),
-    public var hwndParent: Foundation.HWND = Foundation.HWND(),
+    public var hwndParent: HWND = 0L,
     public var wzNamespacePartner: UShortArray = UShortArray(64),
     public var wzNamespaceGroup: UShortArray = UShortArray(64),
     public var rgbApplicationIdentity: UByteArray = UByteArray(16),
-    public var hSnapshot: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hDeleteFilesImpersonationToken: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hSnapshot: HANDLE = 0L,
+    public var hDeleteFilesImpersonationToken: HANDLE = 0L,
     public var submitResultMax: WER_SUBMIT_RESULT = 0,
 ) {
     override fun equals(other: Any?): Boolean {
@@ -358,7 +363,7 @@ public data class WER_REPORT_METADATA_V1(
     public var Signature: WER_REPORT_SIGNATURE = WER_REPORT_SIGNATURE(),
     public var BucketId: GUID = GUID(),
     public var ReportId: GUID = GUID(),
-    public var CreationTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var CreationTime: FILETIME = FILETIME(),
     public var SizeInBytes: ULong = 0uL,
 )
 
@@ -366,7 +371,7 @@ public data class WER_REPORT_METADATA_V2(
     public var Signature: WER_REPORT_SIGNATURE = WER_REPORT_SIGNATURE(),
     public var BucketId: GUID = GUID(),
     public var ReportId: GUID = GUID(),
-    public var CreationTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var CreationTime: FILETIME = FILETIME(),
     public var SizeInBytes: ULong = 0uL,
     public var CabId: UShortArray = UShortArray(260),
     public var ReportStatus: UInt = 0u,
@@ -412,7 +417,7 @@ public class WER_REPORT_METADATA_V3(
     public var Signature: WER_REPORT_SIGNATURE = WER_REPORT_SIGNATURE(),
     public var BucketId: GUID = GUID(),
     public var ReportId: GUID = GUID(),
-    public var CreationTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var CreationTime: FILETIME = FILETIME(),
     public var SizeInBytes: ULong = 0uL,
     public var CabId: UShortArray = UShortArray(260),
     public var ReportStatus: UInt = 0u,
@@ -462,10 +467,10 @@ public data class WER_REPORT_SIGNATURE(public var EventName: UShortArray = UShor
 
 public data class WER_RUNTIME_EXCEPTION_INFORMATION(
     public var dwSize: UInt = 0u,
-    public var hProcess: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hThread: Foundation.HANDLE = Foundation.HANDLE(),
-    public var exceptionRecord: Diagnostics.Debug.EXCEPTION_RECORD = Diagnostics.Debug.EXCEPTION_RECORD(),
-    public var context: Diagnostics.Debug.CONTEXT = Diagnostics.Debug.CONTEXT(),
+    public var hProcess: HANDLE = 0L,
+    public var hThread: HANDLE = 0L,
+    public var exceptionRecord: EXCEPTION_RECORD = EXCEPTION_RECORD(),
+    public var context: CONTEXT = CONTEXT(),
     public var pwszReportId: PCWSTR = 0L,
     public var bIsFatal: BOOL = 0,
     public var dwReserved: UInt = 0u,

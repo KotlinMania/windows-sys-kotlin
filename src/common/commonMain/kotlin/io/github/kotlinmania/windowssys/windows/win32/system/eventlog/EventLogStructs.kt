@@ -5,6 +5,7 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.security.PSID
 
 public data class EVENTLOGRECORD(
     public var Length: UInt = 0u,
@@ -84,7 +85,7 @@ public class EVT_VARIANT_0(
     public var StringVal: PCWSTR = 0L,
     public var AnsiStringVal: PCSTR = 0L,
     public var BinaryVal: Long = 0L,
-    public var SidVal: Security.PSID = Security.PSID(),
+    public var SidVal: PSID = 0L,
     public var SizeTVal: ULong = 0uL,
     public var BooleanArr: Long = 0L,
     public var SByteArr: Long = 0L,

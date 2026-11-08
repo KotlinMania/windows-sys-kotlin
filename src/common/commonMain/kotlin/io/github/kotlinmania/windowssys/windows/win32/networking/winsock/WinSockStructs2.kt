@@ -5,6 +5,10 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
+import io.github.kotlinmania.windowssys.windows.win32.system.com.BLOB
 
 public data class SOCKET_SECURITY_SETTINGS_IPSEC(
     public var SecurityProtocol: SOCKET_SECURITY_PROTOCOL = 0,
@@ -204,7 +208,7 @@ public data class TRANSMIT_PACKETS_ELEMENT(
 
 public data class TRANSMIT_PACKETS_ELEMENT_0(public var Anonymous: TRANSMIT_PACKETS_ELEMENT_0_0 = TRANSMIT_PACKETS_ELEMENT_0_0(), public var pBuffer: Long = 0L)
 
-public data class TRANSMIT_PACKETS_ELEMENT_0_0(public var nFileOffset: Long = 0L, public var hFile: Foundation.HANDLE = Foundation.HANDLE())
+public data class TRANSMIT_PACKETS_ELEMENT_0_0(public var nFileOffset: Long = 0L, public var hFile: HANDLE = 0L)
 
 public data class TRANSPORT_SETTING_ID(public var Guid: GUID = GUID())
 
@@ -426,14 +430,14 @@ public data class WSACOMPLETION_0_1(public var lpOverlapped: Long = 0L)
 
 public data class WSACOMPLETION_0_3(
     public var lpOverlapped: Long = 0L,
-    public var hPort: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hPort: HANDLE = 0L,
     public var Key: ULong = 0uL,
 )
 
 public data class WSACOMPLETION_0_0(
-    public var hWnd: Foundation.HWND = Foundation.HWND(),
+    public var hWnd: HWND = 0L,
     public var uMsg: UInt = 0u,
-    public var context: Foundation.WPARAM = Foundation.WPARAM(),
+    public var context: WPARAM = 0uL,
 )
 
 public data class WSADATA(
@@ -493,7 +497,7 @@ public data class WSANAMESPACE_INFOEXA(
     public var fActive: BOOL = 0,
     public var dwVersion: UInt = 0u,
     public var lpszIdentifier: PSTR = 0L,
-    public var ProviderSpecific: System.Com.BLOB = System.Com.BLOB(),
+    public var ProviderSpecific: BLOB = BLOB(),
 )
 
 public data class WSANAMESPACE_INFOEXW(
@@ -502,7 +506,7 @@ public data class WSANAMESPACE_INFOEXW(
     public var fActive: BOOL = 0,
     public var dwVersion: UInt = 0u,
     public var lpszIdentifier: PWSTR = 0L,
-    public var ProviderSpecific: System.Com.BLOB = System.Com.BLOB(),
+    public var ProviderSpecific: BLOB = BLOB(),
 )
 
 public data class WSANAMESPACE_INFOW(
@@ -712,7 +716,7 @@ public data class WSASERVICECLASSINFOW(
     public var lpClassInfos: Long = 0L,
 )
 
-public data class WSATHREADID(public var ThreadHandle: Foundation.HANDLE = Foundation.HANDLE(), public var Reserved: ULong = 0uL)
+public data class WSATHREADID(public var ThreadHandle: HANDLE = 0L, public var Reserved: ULong = 0uL)
 
 public data class WSAVERSION(public var dwVersion: UInt = 0u, public var ecHow: WSAECOMPARATOR = 0)
 

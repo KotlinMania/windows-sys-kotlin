@@ -2,27 +2,30 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.console
 
 import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
 
 public data class CHAR_INFO(public var Char: CHAR_INFO_0 = CHAR_INFO_0(), public var Attributes: UShort = 0u)
 
 public data class CHAR_INFO_0(public var UnicodeChar: UShort = 0u, public var AsciiChar: Byte = 0)
 
 public data class CONSOLEENDTASK(
-    public var ProcessId: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hwnd: Foundation.HWND = Foundation.HWND(),
+    public var ProcessId: HANDLE = 0L,
+    public var hwnd: HWND = 0L,
     public var ConsoleEventCode: UInt = 0u,
     public var ConsoleFlags: UInt = 0u,
 )
 
-public data class CONSOLESETFOREGROUND(public var hProcess: Foundation.HANDLE = Foundation.HANDLE(), public var bForeground: BOOL = 0)
+public data class CONSOLESETFOREGROUND(public var hProcess: HANDLE = 0L, public var bForeground: BOOL = 0)
 
 public data class CONSOLEWINDOWOWNER(
-    public var hwnd: Foundation.HWND = Foundation.HWND(),
+    public var hwnd: HWND = 0L,
     public var ProcessId: UInt = 0u,
     public var ThreadId: UInt = 0u,
 )
 
-public data class CONSOLE_CARET_INFO(public var hwnd: Foundation.HWND = Foundation.HWND(), public var rc: Foundation.RECT = Foundation.RECT())
+public data class CONSOLE_CARET_INFO(public var hwnd: HWND = 0L, public var rc: RECT = RECT())
 
 public data class CONSOLE_CURSOR_INFO(public var dwSize: UInt = 0u, public var bVisible: BOOL = 0)
 
@@ -92,8 +95,36 @@ public data class CONSOLE_SCREEN_BUFFER_INFOEX(
     public var dwMaximumWindowSize: COORD = COORD(),
     public var wPopupAttributes: UShort = 0u,
     public var bFullscreenSupported: BOOL = 0,
-    public var ColorTable: List<Foundation.COLORREF> = List(16) { Foundation.COLORREF() },
-)
+    public var ColorTable: UIntArray = UIntArray(16),
+) {
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is CONSOLE_SCREEN_BUFFER_INFOEX) return false
+        if (this.cbSize != other.cbSize) return false
+        if (this.dwSize != other.dwSize) return false
+        if (this.dwCursorPosition != other.dwCursorPosition) return false
+        if (this.wAttributes != other.wAttributes) return false
+        if (this.srWindow != other.srWindow) return false
+        if (this.dwMaximumWindowSize != other.dwMaximumWindowSize) return false
+        if (this.wPopupAttributes != other.wPopupAttributes) return false
+        if (this.bFullscreenSupported != other.bFullscreenSupported) return false
+        if (!this.ColorTable.contentEquals(other.ColorTable)) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.cbSize.hashCode()
+        result = 31 * result + this.dwSize.hashCode()
+        result = 31 * result + this.dwCursorPosition.hashCode()
+        result = 31 * result + this.wAttributes.hashCode()
+        result = 31 * result + this.srWindow.hashCode()
+        result = 31 * result + this.dwMaximumWindowSize.hashCode()
+        result = 31 * result + this.wPopupAttributes.hashCode()
+        result = 31 * result + this.bFullscreenSupported.hashCode()
+        result = 31 * result + this.ColorTable.contentHashCode()
+        return result
+    }
+}
 
 public data class CONSOLE_SELECTION_INFO(
     public var dwFlags: UInt = 0u,

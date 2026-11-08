@@ -5,6 +5,11 @@ import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.security.PSID
+import io.github.kotlinmania.windowssys.windows.win32.security.SID
+import io.github.kotlinmania.windowssys.windows.win32.security.SID_AND_ATTRIBUTES
+import io.github.kotlinmania.windowssys.windows.win32.security.TOKEN_USER
 
 public data class ANON_OBJECT_HEADER(
     public var Sig1: UShort = 0u,
@@ -1316,7 +1321,7 @@ public data class RATE_QUOTA_LIMIT_0(public var _bitfield: UInt = 0u)
 public data class REARRANGE_FILE_DATA(
     public var SourceStartingOffset: ULong = 0uL,
     public var TargetOffset: ULong = 0uL,
-    public var SourceFileHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var SourceFileHandle: HANDLE = 0L,
     public var Length: UInt = 0u,
     public var Flags: UInt = 0u,
 )
@@ -1358,7 +1363,7 @@ public data class RESOURCEMANAGER_BASIC_INFORMATION(
     }
 }
 
-public data class RESOURCEMANAGER_COMPLETION_INFORMATION(public var IoCompletionPortHandle: Foundation.HANDLE = Foundation.HANDLE(), public var CompletionKey: ULong = 0uL)
+public data class RESOURCEMANAGER_COMPLETION_INFORMATION(public var IoCompletionPortHandle: HANDLE = 0L, public var CompletionKey: ULong = 0uL)
 
 public data class RemHBITMAP(public var cbData: UInt = 0u, public var data: UByteArray = UByteArray(1)) {
     override fun equals(other: Any?): Boolean {
@@ -1586,9 +1591,9 @@ public data class SERVERSILO_BASIC_INFORMATION(
 
 public data class SE_TOKEN_USER(public var Anonymous1: SE_TOKEN_USER_0 = SE_TOKEN_USER_0(), public var Anonymous2: SE_TOKEN_USER_1 = SE_TOKEN_USER_1())
 
-public data class SE_TOKEN_USER_0(public var TokenUser: Security.TOKEN_USER = Security.TOKEN_USER(), public var User: Security.SID_AND_ATTRIBUTES = Security.SID_AND_ATTRIBUTES())
+public data class SE_TOKEN_USER_0(public var TokenUser: TOKEN_USER = TOKEN_USER(), public var User: SID_AND_ATTRIBUTES = SID_AND_ATTRIBUTES())
 
-public data class SE_TOKEN_USER_1(public var Sid: Security.SID = Security.SID(), public var Buffer: UByteArray = UByteArray(68)) {
+public data class SE_TOKEN_USER_1(public var Sid: SID = SID(), public var Buffer: UByteArray = UByteArray(68)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SE_TOKEN_USER_1) return false
@@ -1688,7 +1693,7 @@ public data class TAPE_WMI_OPERATIONS(
 
 public data class TOKEN_BNO_ISOLATION_INFORMATION(public var IsolationPrefix: PWSTR = 0L, public var IsolationEnabled: Boolean = false)
 
-public data class TOKEN_SID_INFORMATION(public var Sid: Security.PSID = Security.PSID())
+public data class TOKEN_SID_INFORMATION(public var Sid: PSID = 0L)
 
 public data class TRANSACTIONMANAGER_BASIC_INFORMATION(public var TmIdentity: GUID = GUID(), public var VirtualClock: Long = 0L)
 
@@ -1720,7 +1725,7 @@ public data class TRANSACTION_BASIC_INFORMATION(
     public var Outcome: UInt = 0u,
 )
 
-public data class TRANSACTION_BIND_INFORMATION(public var TmHandle: Foundation.HANDLE = Foundation.HANDLE())
+public data class TRANSACTION_BIND_INFORMATION(public var TmHandle: HANDLE = 0L)
 
 public data class TRANSACTION_ENLISTMENTS_INFORMATION(public var NumberOfEnlistments: UInt = 0u, public var EnlistmentPair: List<TRANSACTION_ENLISTMENT_PAIR> = List(1) { TRANSACTION_ENLISTMENT_PAIR() })
 

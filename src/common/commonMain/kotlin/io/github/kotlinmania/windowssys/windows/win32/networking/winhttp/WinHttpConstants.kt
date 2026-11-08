@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.networking.winhttp
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 
 public val API_GET_PROXY_FOR_URL: UInt = 6u
@@ -1298,7 +1299,7 @@ public val WinHttpReceiveResponseHeadersEnd: WINHTTP_REQUEST_TIME_ENTRY = 25
 
 public val WinHttpReceiveResponseStart: WINHTTP_REQUEST_TIME_ENTRY = 22
 
-public val WinHttpRequest: GUID = GUID.from_u128(0x2087c2f42cef4953uL, 0xa8ab66779b670495uL)
+public val WinHttpRequest: GUID = GUID.from_u128(U128(0x2087c2f42cef4953uL, 0xa8ab66779b670495uL))
 
 public val WinHttpRequestHeadersCompressedSize: WINHTTP_REQUEST_STAT_ENTRY = 7
 

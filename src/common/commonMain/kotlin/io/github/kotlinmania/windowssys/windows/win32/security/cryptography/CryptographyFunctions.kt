@@ -7,10 +7,15 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
 import io.github.kotlinmania.windowssys.windows.win32.security.NCRYPT_DESCRIPTOR_HANDLE
 import io.github.kotlinmania.windowssys.windows.win32.security.NCRYPT_STREAM_HANDLE
 import io.github.kotlinmania.windowssys.windows.win32.security.OBJECT_SECURITY_INFORMATION
 import io.github.kotlinmania.windowssys.windows.win32.security.PSID
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.REG_VALUE_TYPE
 
 public fun interface FnCallback {
     public operator fun invoke(pvsystemstore: Long, dwflags: UInt, pwszstorename: PCWSTR, pstoreinfo: Long, pvreserved: Long, pvarg: Long): BOOL
@@ -48,288 +53,232 @@ public fun interface FnCallback8 {
     public operator fun invoke(pvcallbackstate: Long, pbdata: Long, cbdata: UInt): HRESULT
 }
 
-public fun BCryptAddContextFunction(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pszfunction: PCWSTR, dwposition: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptAddContextFunction", longArrayOf(dwtable.toLong(), pszcontext, dwinterface.toLong(), pszfunction, dwposition.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptAddContextFunction(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pszfunction: PCWSTR, dwposition: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptAddContextFunction", longArrayOf(dwtable.toLong(), pszcontext, dwinterface.toLong(), pszfunction, dwposition.toLong())).toInt()
 }
 
-public fun BCryptAddContextFunctionProvider(dwtable: UInt, pszcontext: PCWSTR, dwinterface: UInt, pszfunction: PCWSTR, pszprovider: PCWSTR, dwposition: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptAddContextFunctionProvider", longArrayOf(dwtable.toLong(), pszcontext, dwinterface.toLong(), pszfunction, pszprovider, dwposition.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptAddContextFunctionProvider(dwtable: UInt, pszcontext: PCWSTR, dwinterface: UInt, pszfunction: PCWSTR, pszprovider: PCWSTR, dwposition: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptAddContextFunctionProvider", longArrayOf(dwtable.toLong(), pszcontext, dwinterface.toLong(), pszfunction, pszprovider, dwposition.toLong())).toInt()
 }
 
-public fun BCryptCloseAlgorithmProvider(halgorithm: BCRYPT_ALG_HANDLE, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptCloseAlgorithmProvider", longArrayOf(halgorithm, dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptCloseAlgorithmProvider(halgorithm: BCRYPT_ALG_HANDLE, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptCloseAlgorithmProvider", longArrayOf(halgorithm, dwflags.toLong())).toInt()
 }
 
-public fun BCryptConfigureContext(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, pconfig: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptConfigureContext", longArrayOf(dwtable.toLong(), pszcontext, pconfig))
-    return Foundation.NTSTATUS()
+public fun BCryptConfigureContext(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, pconfig: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptConfigureContext", longArrayOf(dwtable.toLong(), pszcontext, pconfig)).toInt()
 }
 
-public fun BCryptConfigureContextFunction(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pszfunction: PCWSTR, pconfig: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptConfigureContextFunction", longArrayOf(dwtable.toLong(), pszcontext, dwinterface.toLong(), pszfunction, pconfig))
-    return Foundation.NTSTATUS()
+public fun BCryptConfigureContextFunction(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pszfunction: PCWSTR, pconfig: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptConfigureContextFunction", longArrayOf(dwtable.toLong(), pszcontext, dwinterface.toLong(), pszfunction, pconfig)).toInt()
 }
 
-public fun BCryptCreateContext(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, pconfig: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptCreateContext", longArrayOf(dwtable.toLong(), pszcontext, pconfig))
-    return Foundation.NTSTATUS()
+public fun BCryptCreateContext(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, pconfig: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptCreateContext", longArrayOf(dwtable.toLong(), pszcontext, pconfig)).toInt()
 }
 
-public fun BCryptCreateHash(halgorithm: BCRYPT_ALG_HANDLE, phhash: Long, pbhashobject: Long, cbhashobject: UInt, pbsecret: Long, cbsecret: UInt, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptCreateHash", longArrayOf(halgorithm, phhash, pbhashobject, cbhashobject.toLong(), pbsecret, cbsecret.toLong(), dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptCreateHash(halgorithm: BCRYPT_ALG_HANDLE, phhash: Long, pbhashobject: Long, cbhashobject: UInt, pbsecret: Long, cbsecret: UInt, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptCreateHash", longArrayOf(halgorithm, phhash, pbhashobject, cbhashobject.toLong(), pbsecret, cbsecret.toLong(), dwflags.toLong())).toInt()
 }
 
-public fun BCryptCreateMultiHash(halgorithm: BCRYPT_ALG_HANDLE, phhash: Long, nhashes: UInt, pbhashobject: Long, cbhashobject: UInt, pbsecret: Long, cbsecret: UInt, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptCreateMultiHash", longArrayOf(halgorithm, phhash, nhashes.toLong(), pbhashobject, cbhashobject.toLong(), pbsecret, cbsecret.toLong(), dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptCreateMultiHash(halgorithm: BCRYPT_ALG_HANDLE, phhash: Long, nhashes: UInt, pbhashobject: Long, cbhashobject: UInt, pbsecret: Long, cbsecret: UInt, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptCreateMultiHash", longArrayOf(halgorithm, phhash, nhashes.toLong(), pbhashobject, cbhashobject.toLong(), pbsecret, cbsecret.toLong(), dwflags.toLong())).toInt()
 }
 
-public fun BCryptDecrypt(hkey: BCRYPT_KEY_HANDLE, pbinput: Long, cbinput: UInt, ppaddinginfo: Long, pbiv: Long, cbiv: UInt, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: BCRYPT_FLAGS): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptDecrypt", longArrayOf(hkey, pbinput, cbinput.toLong(), ppaddinginfo, pbiv, cbiv.toLong(), pboutput, cboutput.toLong(), pcbresult, dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptDecrypt(hkey: BCRYPT_KEY_HANDLE, pbinput: Long, cbinput: UInt, ppaddinginfo: Long, pbiv: Long, cbiv: UInt, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: BCRYPT_FLAGS): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptDecrypt", longArrayOf(hkey, pbinput, cbinput.toLong(), ppaddinginfo, pbiv, cbiv.toLong(), pboutput, cboutput.toLong(), pcbresult, dwflags.toLong())).toInt()
 }
 
-public fun BCryptDeleteContext(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptDeleteContext", longArrayOf(dwtable.toLong(), pszcontext))
-    return Foundation.NTSTATUS()
+public fun BCryptDeleteContext(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptDeleteContext", longArrayOf(dwtable.toLong(), pszcontext)).toInt()
 }
 
-public fun BCryptDeriveKey(hsharedsecret: BCRYPT_SECRET_HANDLE, pwszkdf: PCWSTR, pparameterlist: Long, pbderivedkey: Long, cbderivedkey: UInt, pcbresult: Long, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptDeriveKey", longArrayOf(hsharedsecret, pwszkdf, pparameterlist, pbderivedkey, cbderivedkey.toLong(), pcbresult, dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptDeriveKey(hsharedsecret: BCRYPT_SECRET_HANDLE, pwszkdf: PCWSTR, pparameterlist: Long, pbderivedkey: Long, cbderivedkey: UInt, pcbresult: Long, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptDeriveKey", longArrayOf(hsharedsecret, pwszkdf, pparameterlist, pbderivedkey, cbderivedkey.toLong(), pcbresult, dwflags.toLong())).toInt()
 }
 
-public fun BCryptDeriveKeyCapi(hhash: BCRYPT_HASH_HANDLE, htargetalg: BCRYPT_ALG_HANDLE, pbderivedkey: Long, cbderivedkey: UInt, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptDeriveKeyCapi", longArrayOf(hhash, htargetalg, pbderivedkey, cbderivedkey.toLong(), dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptDeriveKeyCapi(hhash: BCRYPT_HASH_HANDLE, htargetalg: BCRYPT_ALG_HANDLE, pbderivedkey: Long, cbderivedkey: UInt, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptDeriveKeyCapi", longArrayOf(hhash, htargetalg, pbderivedkey, cbderivedkey.toLong(), dwflags.toLong())).toInt()
 }
 
-public fun BCryptDeriveKeyPBKDF2(hprf: BCRYPT_ALG_HANDLE, pbpassword: Long, cbpassword: UInt, pbsalt: Long, cbsalt: UInt, citerations: ULong, pbderivedkey: Long, cbderivedkey: UInt, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptDeriveKeyPBKDF2", longArrayOf(hprf, pbpassword, cbpassword.toLong(), pbsalt, cbsalt.toLong(), citerations.toLong(), pbderivedkey, cbderivedkey.toLong(), dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptDeriveKeyPBKDF2(hprf: BCRYPT_ALG_HANDLE, pbpassword: Long, cbpassword: UInt, pbsalt: Long, cbsalt: UInt, citerations: ULong, pbderivedkey: Long, cbderivedkey: UInt, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptDeriveKeyPBKDF2", longArrayOf(hprf, pbpassword, cbpassword.toLong(), pbsalt, cbsalt.toLong(), citerations.toLong(), pbderivedkey, cbderivedkey.toLong(), dwflags.toLong())).toInt()
 }
 
-public fun BCryptDestroyHash(hhash: BCRYPT_HASH_HANDLE): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptDestroyHash", longArrayOf(hhash))
-    return Foundation.NTSTATUS()
+public fun BCryptDestroyHash(hhash: BCRYPT_HASH_HANDLE): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptDestroyHash", longArrayOf(hhash)).toInt()
 }
 
-public fun BCryptDestroyKey(hkey: BCRYPT_KEY_HANDLE): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptDestroyKey", longArrayOf(hkey))
-    return Foundation.NTSTATUS()
+public fun BCryptDestroyKey(hkey: BCRYPT_KEY_HANDLE): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptDestroyKey", longArrayOf(hkey)).toInt()
 }
 
-public fun BCryptDestroySecret(hsecret: BCRYPT_SECRET_HANDLE): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptDestroySecret", longArrayOf(hsecret))
-    return Foundation.NTSTATUS()
+public fun BCryptDestroySecret(hsecret: BCRYPT_SECRET_HANDLE): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptDestroySecret", longArrayOf(hsecret)).toInt()
 }
 
-public fun BCryptDuplicateHash(hhash: BCRYPT_HASH_HANDLE, phnewhash: Long, pbhashobject: Long, cbhashobject: UInt, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptDuplicateHash", longArrayOf(hhash, phnewhash, pbhashobject, cbhashobject.toLong(), dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptDuplicateHash(hhash: BCRYPT_HASH_HANDLE, phnewhash: Long, pbhashobject: Long, cbhashobject: UInt, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptDuplicateHash", longArrayOf(hhash, phnewhash, pbhashobject, cbhashobject.toLong(), dwflags.toLong())).toInt()
 }
 
-public fun BCryptDuplicateKey(hkey: BCRYPT_KEY_HANDLE, phnewkey: Long, pbkeyobject: Long, cbkeyobject: UInt, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptDuplicateKey", longArrayOf(hkey, phnewkey, pbkeyobject, cbkeyobject.toLong(), dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptDuplicateKey(hkey: BCRYPT_KEY_HANDLE, phnewkey: Long, pbkeyobject: Long, cbkeyobject: UInt, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptDuplicateKey", longArrayOf(hkey, phnewkey, pbkeyobject, cbkeyobject.toLong(), dwflags.toLong())).toInt()
 }
 
-public fun BCryptEncrypt(hkey: BCRYPT_KEY_HANDLE, pbinput: Long, cbinput: UInt, ppaddinginfo: Long, pbiv: Long, cbiv: UInt, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: BCRYPT_FLAGS): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptEncrypt", longArrayOf(hkey, pbinput, cbinput.toLong(), ppaddinginfo, pbiv, cbiv.toLong(), pboutput, cboutput.toLong(), pcbresult, dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptEncrypt(hkey: BCRYPT_KEY_HANDLE, pbinput: Long, cbinput: UInt, ppaddinginfo: Long, pbiv: Long, cbiv: UInt, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: BCRYPT_FLAGS): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptEncrypt", longArrayOf(hkey, pbinput, cbinput.toLong(), ppaddinginfo, pbiv, cbiv.toLong(), pboutput, cboutput.toLong(), pcbresult, dwflags.toLong())).toInt()
 }
 
-public fun BCryptEnumAlgorithms(dwalgoperations: BCRYPT_OPERATION, palgcount: Long, ppalglist: Long, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptEnumAlgorithms", longArrayOf(dwalgoperations.toLong(), palgcount, ppalglist, dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptEnumAlgorithms(dwalgoperations: BCRYPT_OPERATION, palgcount: Long, ppalglist: Long, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptEnumAlgorithms", longArrayOf(dwalgoperations.toLong(), palgcount, ppalglist, dwflags.toLong())).toInt()
 }
 
-public fun BCryptEnumContextFunctionProviders(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pszfunction: PCWSTR, pcbbuffer: Long, ppbuffer: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptEnumContextFunctionProviders", longArrayOf(dwtable.toLong(), pszcontext, dwinterface.toLong(), pszfunction, pcbbuffer, ppbuffer))
-    return Foundation.NTSTATUS()
+public fun BCryptEnumContextFunctionProviders(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pszfunction: PCWSTR, pcbbuffer: Long, ppbuffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptEnumContextFunctionProviders", longArrayOf(dwtable.toLong(), pszcontext, dwinterface.toLong(), pszfunction, pcbbuffer, ppbuffer)).toInt()
 }
 
-public fun BCryptEnumContextFunctions(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pcbbuffer: Long, ppbuffer: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptEnumContextFunctions", longArrayOf(dwtable.toLong(), pszcontext, dwinterface.toLong(), pcbbuffer, ppbuffer))
-    return Foundation.NTSTATUS()
+public fun BCryptEnumContextFunctions(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pcbbuffer: Long, ppbuffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptEnumContextFunctions", longArrayOf(dwtable.toLong(), pszcontext, dwinterface.toLong(), pcbbuffer, ppbuffer)).toInt()
 }
 
-public fun BCryptEnumContexts(dwtable: BCRYPT_TABLE, pcbbuffer: Long, ppbuffer: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptEnumContexts", longArrayOf(dwtable.toLong(), pcbbuffer, ppbuffer))
-    return Foundation.NTSTATUS()
+public fun BCryptEnumContexts(dwtable: BCRYPT_TABLE, pcbbuffer: Long, ppbuffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptEnumContexts", longArrayOf(dwtable.toLong(), pcbbuffer, ppbuffer)).toInt()
 }
 
-public fun BCryptEnumProviders(pszalgid: PCWSTR, pimplcount: Long, ppimpllist: Long, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptEnumProviders", longArrayOf(pszalgid, pimplcount, ppimpllist, dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptEnumProviders(pszalgid: PCWSTR, pimplcount: Long, ppimpllist: Long, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptEnumProviders", longArrayOf(pszalgid, pimplcount, ppimpllist, dwflags.toLong())).toInt()
 }
 
-public fun BCryptEnumRegisteredProviders(pcbbuffer: Long, ppbuffer: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptEnumRegisteredProviders", longArrayOf(pcbbuffer, ppbuffer))
-    return Foundation.NTSTATUS()
+public fun BCryptEnumRegisteredProviders(pcbbuffer: Long, ppbuffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptEnumRegisteredProviders", longArrayOf(pcbbuffer, ppbuffer)).toInt()
 }
 
-public fun BCryptExportKey(hkey: BCRYPT_KEY_HANDLE, hexportkey: BCRYPT_KEY_HANDLE, pszblobtype: PCWSTR, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptExportKey", longArrayOf(hkey, hexportkey, pszblobtype, pboutput, cboutput.toLong(), pcbresult, dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptExportKey(hkey: BCRYPT_KEY_HANDLE, hexportkey: BCRYPT_KEY_HANDLE, pszblobtype: PCWSTR, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptExportKey", longArrayOf(hkey, hexportkey, pszblobtype, pboutput, cboutput.toLong(), pcbresult, dwflags.toLong())).toInt()
 }
 
-public fun BCryptFinalizeKeyPair(hkey: BCRYPT_KEY_HANDLE, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptFinalizeKeyPair", longArrayOf(hkey, dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptFinalizeKeyPair(hkey: BCRYPT_KEY_HANDLE, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptFinalizeKeyPair", longArrayOf(hkey, dwflags.toLong())).toInt()
 }
 
-public fun BCryptFinishHash(hhash: BCRYPT_HASH_HANDLE, pboutput: Long, cboutput: UInt, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptFinishHash", longArrayOf(hhash, pboutput, cboutput.toLong(), dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptFinishHash(hhash: BCRYPT_HASH_HANDLE, pboutput: Long, cboutput: UInt, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptFinishHash", longArrayOf(hhash, pboutput, cboutput.toLong(), dwflags.toLong())).toInt()
 }
 
 public fun BCryptFreeBuffer(pvbuffer: Long) {
     Win32DynamicFfi.invoke("bcrypt.dll", "BCryptFreeBuffer", longArrayOf(pvbuffer))
 }
 
-public fun BCryptGenRandom(halgorithm: BCRYPT_ALG_HANDLE, pbbuffer: Long, cbbuffer: UInt, dwflags: BCRYPTGENRANDOM_FLAGS): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptGenRandom", longArrayOf(halgorithm, pbbuffer, cbbuffer.toLong(), dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptGenRandom(halgorithm: BCRYPT_ALG_HANDLE, pbbuffer: Long, cbbuffer: UInt, dwflags: BCRYPTGENRANDOM_FLAGS): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptGenRandom", longArrayOf(halgorithm, pbbuffer, cbbuffer.toLong(), dwflags.toLong())).toInt()
 }
 
-public fun BCryptGenerateKeyPair(halgorithm: BCRYPT_ALG_HANDLE, phkey: Long, dwlength: UInt, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptGenerateKeyPair", longArrayOf(halgorithm, phkey, dwlength.toLong(), dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptGenerateKeyPair(halgorithm: BCRYPT_ALG_HANDLE, phkey: Long, dwlength: UInt, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptGenerateKeyPair", longArrayOf(halgorithm, phkey, dwlength.toLong(), dwflags.toLong())).toInt()
 }
 
-public fun BCryptGenerateSymmetricKey(halgorithm: BCRYPT_ALG_HANDLE, phkey: Long, pbkeyobject: Long, cbkeyobject: UInt, pbsecret: Long, cbsecret: UInt, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptGenerateSymmetricKey", longArrayOf(halgorithm, phkey, pbkeyobject, cbkeyobject.toLong(), pbsecret, cbsecret.toLong(), dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptGenerateSymmetricKey(halgorithm: BCRYPT_ALG_HANDLE, phkey: Long, pbkeyobject: Long, cbkeyobject: UInt, pbsecret: Long, cbsecret: UInt, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptGenerateSymmetricKey", longArrayOf(halgorithm, phkey, pbkeyobject, cbkeyobject.toLong(), pbsecret, cbsecret.toLong(), dwflags.toLong())).toInt()
 }
 
-public fun BCryptGetFipsAlgorithmMode(pfenabled: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptGetFipsAlgorithmMode", longArrayOf(pfenabled))
-    return Foundation.NTSTATUS()
+public fun BCryptGetFipsAlgorithmMode(pfenabled: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptGetFipsAlgorithmMode", longArrayOf(pfenabled)).toInt()
 }
 
-public fun BCryptGetProperty(hobject: BCRYPT_HANDLE, pszproperty: PCWSTR, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptGetProperty", longArrayOf(hobject, pszproperty, pboutput, cboutput.toLong(), pcbresult, dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptGetProperty(hobject: BCRYPT_HANDLE, pszproperty: PCWSTR, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptGetProperty", longArrayOf(hobject, pszproperty, pboutput, cboutput.toLong(), pcbresult, dwflags.toLong())).toInt()
 }
 
-public fun BCryptHash(halgorithm: BCRYPT_ALG_HANDLE, pbsecret: Long, cbsecret: UInt, pbinput: Long, cbinput: UInt, pboutput: Long, cboutput: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptHash", longArrayOf(halgorithm, pbsecret, cbsecret.toLong(), pbinput, cbinput.toLong(), pboutput, cboutput.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptHash(halgorithm: BCRYPT_ALG_HANDLE, pbsecret: Long, cbsecret: UInt, pbinput: Long, cbinput: UInt, pboutput: Long, cboutput: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptHash", longArrayOf(halgorithm, pbsecret, cbsecret.toLong(), pbinput, cbinput.toLong(), pboutput, cboutput.toLong())).toInt()
 }
 
-public fun BCryptHashData(hhash: BCRYPT_HASH_HANDLE, pbinput: Long, cbinput: UInt, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptHashData", longArrayOf(hhash, pbinput, cbinput.toLong(), dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptHashData(hhash: BCRYPT_HASH_HANDLE, pbinput: Long, cbinput: UInt, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptHashData", longArrayOf(hhash, pbinput, cbinput.toLong(), dwflags.toLong())).toInt()
 }
 
-public fun BCryptImportKey(halgorithm: BCRYPT_ALG_HANDLE, himportkey: BCRYPT_KEY_HANDLE, pszblobtype: PCWSTR, phkey: Long, pbkeyobject: Long, cbkeyobject: UInt, pbinput: Long, cbinput: UInt, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptImportKey", longArrayOf(halgorithm, himportkey, pszblobtype, phkey, pbkeyobject, cbkeyobject.toLong(), pbinput, cbinput.toLong(), dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptImportKey(halgorithm: BCRYPT_ALG_HANDLE, himportkey: BCRYPT_KEY_HANDLE, pszblobtype: PCWSTR, phkey: Long, pbkeyobject: Long, cbkeyobject: UInt, pbinput: Long, cbinput: UInt, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptImportKey", longArrayOf(halgorithm, himportkey, pszblobtype, phkey, pbkeyobject, cbkeyobject.toLong(), pbinput, cbinput.toLong(), dwflags.toLong())).toInt()
 }
 
-public fun BCryptImportKeyPair(halgorithm: BCRYPT_ALG_HANDLE, himportkey: BCRYPT_KEY_HANDLE, pszblobtype: PCWSTR, phkey: Long, pbinput: Long, cbinput: UInt, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptImportKeyPair", longArrayOf(halgorithm, himportkey, pszblobtype, phkey, pbinput, cbinput.toLong(), dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptImportKeyPair(halgorithm: BCRYPT_ALG_HANDLE, himportkey: BCRYPT_KEY_HANDLE, pszblobtype: PCWSTR, phkey: Long, pbinput: Long, cbinput: UInt, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptImportKeyPair", longArrayOf(halgorithm, himportkey, pszblobtype, phkey, pbinput, cbinput.toLong(), dwflags.toLong())).toInt()
 }
 
-public fun BCryptKeyDerivation(hkey: BCRYPT_KEY_HANDLE, pparameterlist: Long, pbderivedkey: Long, cbderivedkey: UInt, pcbresult: Long, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptKeyDerivation", longArrayOf(hkey, pparameterlist, pbderivedkey, cbderivedkey.toLong(), pcbresult, dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptKeyDerivation(hkey: BCRYPT_KEY_HANDLE, pparameterlist: Long, pbderivedkey: Long, cbderivedkey: UInt, pcbresult: Long, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptKeyDerivation", longArrayOf(hkey, pparameterlist, pbderivedkey, cbderivedkey.toLong(), pcbresult, dwflags.toLong())).toInt()
 }
 
-public fun BCryptOpenAlgorithmProvider(phalgorithm: Long, pszalgid: PCWSTR, pszimplementation: PCWSTR, dwflags: BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptOpenAlgorithmProvider", longArrayOf(phalgorithm, pszalgid, pszimplementation, dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptOpenAlgorithmProvider(phalgorithm: Long, pszalgid: PCWSTR, pszimplementation: PCWSTR, dwflags: BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptOpenAlgorithmProvider", longArrayOf(phalgorithm, pszalgid, pszimplementation, dwflags.toLong())).toInt()
 }
 
-public fun BCryptProcessMultiOperations(hobject: BCRYPT_HANDLE, operationtype: BCRYPT_MULTI_OPERATION_TYPE, poperations: Long, cboperations: UInt, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptProcessMultiOperations", longArrayOf(hobject, operationtype.toLong(), poperations, cboperations.toLong(), dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptProcessMultiOperations(hobject: BCRYPT_HANDLE, operationtype: BCRYPT_MULTI_OPERATION_TYPE, poperations: Long, cboperations: UInt, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptProcessMultiOperations", longArrayOf(hobject, operationtype.toLong(), poperations, cboperations.toLong(), dwflags.toLong())).toInt()
 }
 
-public fun BCryptQueryContextConfiguration(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, pcbbuffer: Long, ppbuffer: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptQueryContextConfiguration", longArrayOf(dwtable.toLong(), pszcontext, pcbbuffer, ppbuffer))
-    return Foundation.NTSTATUS()
+public fun BCryptQueryContextConfiguration(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, pcbbuffer: Long, ppbuffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptQueryContextConfiguration", longArrayOf(dwtable.toLong(), pszcontext, pcbbuffer, ppbuffer)).toInt()
 }
 
-public fun BCryptQueryContextFunctionConfiguration(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pszfunction: PCWSTR, pcbbuffer: Long, ppbuffer: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptQueryContextFunctionConfiguration", longArrayOf(dwtable.toLong(), pszcontext, dwinterface.toLong(), pszfunction, pcbbuffer, ppbuffer))
-    return Foundation.NTSTATUS()
+public fun BCryptQueryContextFunctionConfiguration(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pszfunction: PCWSTR, pcbbuffer: Long, ppbuffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptQueryContextFunctionConfiguration", longArrayOf(dwtable.toLong(), pszcontext, dwinterface.toLong(), pszfunction, pcbbuffer, ppbuffer)).toInt()
 }
 
-public fun BCryptQueryContextFunctionProperty(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pszfunction: PCWSTR, pszproperty: PCWSTR, pcbvalue: Long, ppbvalue: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptQueryContextFunctionProperty", longArrayOf(dwtable.toLong(), pszcontext, dwinterface.toLong(), pszfunction, pszproperty, pcbvalue, ppbvalue))
-    return Foundation.NTSTATUS()
+public fun BCryptQueryContextFunctionProperty(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pszfunction: PCWSTR, pszproperty: PCWSTR, pcbvalue: Long, ppbvalue: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptQueryContextFunctionProperty", longArrayOf(dwtable.toLong(), pszcontext, dwinterface.toLong(), pszfunction, pszproperty, pcbvalue, ppbvalue)).toInt()
 }
 
-public fun BCryptQueryProviderRegistration(pszprovider: PCWSTR, dwmode: BCRYPT_QUERY_PROVIDER_MODE, dwinterface: BCRYPT_INTERFACE, pcbbuffer: Long, ppbuffer: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptQueryProviderRegistration", longArrayOf(pszprovider, dwmode.toLong(), dwinterface.toLong(), pcbbuffer, ppbuffer))
-    return Foundation.NTSTATUS()
+public fun BCryptQueryProviderRegistration(pszprovider: PCWSTR, dwmode: BCRYPT_QUERY_PROVIDER_MODE, dwinterface: BCRYPT_INTERFACE, pcbbuffer: Long, ppbuffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptQueryProviderRegistration", longArrayOf(pszprovider, dwmode.toLong(), dwinterface.toLong(), pcbbuffer, ppbuffer)).toInt()
 }
 
-public fun BCryptRegisterConfigChangeNotify(phevent: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptRegisterConfigChangeNotify", longArrayOf(phevent))
-    return Foundation.NTSTATUS()
+public fun BCryptRegisterConfigChangeNotify(phevent: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptRegisterConfigChangeNotify", longArrayOf(phevent)).toInt()
 }
 
-public fun BCryptRegisterProvider(pszprovider: PCWSTR, dwflags: UInt, preg: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptRegisterProvider", longArrayOf(pszprovider, dwflags.toLong(), preg))
-    return Foundation.NTSTATUS()
+public fun BCryptRegisterProvider(pszprovider: PCWSTR, dwflags: UInt, preg: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptRegisterProvider", longArrayOf(pszprovider, dwflags.toLong(), preg)).toInt()
 }
 
-public fun BCryptRemoveContextFunction(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pszfunction: PCWSTR): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptRemoveContextFunction", longArrayOf(dwtable.toLong(), pszcontext, dwinterface.toLong(), pszfunction))
-    return Foundation.NTSTATUS()
+public fun BCryptRemoveContextFunction(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pszfunction: PCWSTR): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptRemoveContextFunction", longArrayOf(dwtable.toLong(), pszcontext, dwinterface.toLong(), pszfunction)).toInt()
 }
 
-public fun BCryptRemoveContextFunctionProvider(dwtable: UInt, pszcontext: PCWSTR, dwinterface: UInt, pszfunction: PCWSTR, pszprovider: PCWSTR): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptRemoveContextFunctionProvider", longArrayOf(dwtable.toLong(), pszcontext, dwinterface.toLong(), pszfunction, pszprovider))
-    return Foundation.NTSTATUS()
+public fun BCryptRemoveContextFunctionProvider(dwtable: UInt, pszcontext: PCWSTR, dwinterface: UInt, pszfunction: PCWSTR, pszprovider: PCWSTR): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptRemoveContextFunctionProvider", longArrayOf(dwtable.toLong(), pszcontext, dwinterface.toLong(), pszfunction, pszprovider)).toInt()
 }
 
-public fun BCryptResolveProviders(pszcontext: PCWSTR, dwinterface: UInt, pszfunction: PCWSTR, pszprovider: PCWSTR, dwmode: BCRYPT_QUERY_PROVIDER_MODE, dwflags: BCRYPT_RESOLVE_PROVIDERS_FLAGS, pcbbuffer: Long, ppbuffer: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptResolveProviders", longArrayOf(pszcontext, dwinterface.toLong(), pszfunction, pszprovider, dwmode.toLong(), dwflags.toLong(), pcbbuffer, ppbuffer))
-    return Foundation.NTSTATUS()
+public fun BCryptResolveProviders(pszcontext: PCWSTR, dwinterface: UInt, pszfunction: PCWSTR, pszprovider: PCWSTR, dwmode: BCRYPT_QUERY_PROVIDER_MODE, dwflags: BCRYPT_RESOLVE_PROVIDERS_FLAGS, pcbbuffer: Long, ppbuffer: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptResolveProviders", longArrayOf(pszcontext, dwinterface.toLong(), pszfunction, pszprovider, dwmode.toLong(), dwflags.toLong(), pcbbuffer, ppbuffer)).toInt()
 }
 
-public fun BCryptSecretAgreement(hprivkey: BCRYPT_KEY_HANDLE, hpubkey: BCRYPT_KEY_HANDLE, phagreedsecret: Long, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptSecretAgreement", longArrayOf(hprivkey, hpubkey, phagreedsecret, dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptSecretAgreement(hprivkey: BCRYPT_KEY_HANDLE, hpubkey: BCRYPT_KEY_HANDLE, phagreedsecret: Long, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptSecretAgreement", longArrayOf(hprivkey, hpubkey, phagreedsecret, dwflags.toLong())).toInt()
 }
 
-public fun BCryptSetContextFunctionProperty(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pszfunction: PCWSTR, pszproperty: PCWSTR, cbvalue: UInt, pbvalue: Long): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptSetContextFunctionProperty", longArrayOf(dwtable.toLong(), pszcontext, dwinterface.toLong(), pszfunction, pszproperty, cbvalue.toLong(), pbvalue))
-    return Foundation.NTSTATUS()
+public fun BCryptSetContextFunctionProperty(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pszfunction: PCWSTR, pszproperty: PCWSTR, cbvalue: UInt, pbvalue: Long): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptSetContextFunctionProperty", longArrayOf(dwtable.toLong(), pszcontext, dwinterface.toLong(), pszfunction, pszproperty, cbvalue.toLong(), pbvalue)).toInt()
 }
 
-public fun BCryptSetProperty(hobject: BCRYPT_HANDLE, pszproperty: PCWSTR, pbinput: Long, cbinput: UInt, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptSetProperty", longArrayOf(hobject, pszproperty, pbinput, cbinput.toLong(), dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptSetProperty(hobject: BCRYPT_HANDLE, pszproperty: PCWSTR, pbinput: Long, cbinput: UInt, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptSetProperty", longArrayOf(hobject, pszproperty, pbinput, cbinput.toLong(), dwflags.toLong())).toInt()
 }
 
-public fun BCryptSignHash(hkey: BCRYPT_KEY_HANDLE, ppaddinginfo: Long, pbinput: Long, cbinput: UInt, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: BCRYPT_FLAGS): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptSignHash", longArrayOf(hkey, ppaddinginfo, pbinput, cbinput.toLong(), pboutput, cboutput.toLong(), pcbresult, dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptSignHash(hkey: BCRYPT_KEY_HANDLE, ppaddinginfo: Long, pbinput: Long, cbinput: UInt, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: BCRYPT_FLAGS): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptSignHash", longArrayOf(hkey, ppaddinginfo, pbinput, cbinput.toLong(), pboutput, cboutput.toLong(), pcbresult, dwflags.toLong())).toInt()
 }
 
-public fun BCryptUnregisterConfigChangeNotify(hevent: Foundation.HANDLE): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptUnregisterConfigChangeNotify", longArrayOf(Win32DynamicFfi.objectSlot(hevent)))
-    return Foundation.NTSTATUS()
+public fun BCryptUnregisterConfigChangeNotify(hevent: HANDLE): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptUnregisterConfigChangeNotify", longArrayOf(hevent)).toInt()
 }
 
-public fun BCryptUnregisterProvider(pszprovider: PCWSTR): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptUnregisterProvider", longArrayOf(pszprovider))
-    return Foundation.NTSTATUS()
+public fun BCryptUnregisterProvider(pszprovider: PCWSTR): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptUnregisterProvider", longArrayOf(pszprovider)).toInt()
 }
 
-public fun BCryptVerifySignature(hkey: BCRYPT_KEY_HANDLE, ppaddinginfo: Long, pbhash: Long, cbhash: UInt, pbsignature: Long, cbsignature: UInt, dwflags: BCRYPT_FLAGS): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcrypt.dll", "BCryptVerifySignature", longArrayOf(hkey, ppaddinginfo, pbhash, cbhash.toLong(), pbsignature, cbsignature.toLong(), dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun BCryptVerifySignature(hkey: BCRYPT_KEY_HANDLE, ppaddinginfo: Long, pbhash: Long, cbhash: UInt, pbsignature: Long, cbsignature: UInt, dwflags: BCRYPT_FLAGS): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcrypt.dll", "BCryptVerifySignature", longArrayOf(hkey, ppaddinginfo, pbhash, cbhash.toLong(), pbsignature, cbsignature.toLong(), dwflags.toLong())).toInt()
 }
 
 public fun CertAddCRLContextToStore(hcertstore: HCERTSTORE, pcrlcontext: Long, dwadddisposition: UInt, ppstorecontext: Long): BOOL {
@@ -1097,7 +1046,7 @@ public fun CryptImportKey(hprov: ULong, pbdata: Long, dwdatalen: UInt, hpubkey: 
 }
 
 public fun CryptImportPKCS8(sprivatekeyandparams: CRYPT_PKCS8_IMPORT_PARAMS, dwflags: CRYPT_KEY_FLAGS, phcryptprov: Long, pvauxinfo: Long): BOOL {
-    return Win32DynamicFfi.invoke("crypt32.dll", "CryptImportPKCS8", longArrayOf(Win32DynamicFfi.objectSlot(sprivatekeyandparams), dwflags.toLong(), phcryptprov, pvauxinfo)).toInt()
+    return Win32DynamicFfi.invoke("crypt32.dll", "CryptImportPKCS8", longArrayOf(run { val buf = ByteArray(48); buf[0] = (sprivatekeyandparams.PrivateKey.cbData.toInt() and 0xFF).toByte(); buf[1] = ((sprivatekeyandparams.PrivateKey.cbData.toInt() ushr 8) and 0xFF).toByte(); buf[2] = ((sprivatekeyandparams.PrivateKey.cbData.toInt() ushr 16) and 0xFF).toByte(); buf[3] = ((sprivatekeyandparams.PrivateKey.cbData.toInt() ushr 24) and 0xFF).toByte(); buf[8] = (sprivatekeyandparams.PrivateKey.pbData and 0xFF).toByte(); buf[9] = ((sprivatekeyandparams.PrivateKey.pbData ushr 8) and 0xFF).toByte(); buf[10] = ((sprivatekeyandparams.PrivateKey.pbData ushr 16) and 0xFF).toByte(); buf[11] = ((sprivatekeyandparams.PrivateKey.pbData ushr 24) and 0xFF).toByte(); buf[12] = ((sprivatekeyandparams.PrivateKey.pbData ushr 32) and 0xFF).toByte(); buf[13] = ((sprivatekeyandparams.PrivateKey.pbData ushr 40) and 0xFF).toByte(); buf[14] = ((sprivatekeyandparams.PrivateKey.pbData ushr 48) and 0xFF).toByte(); buf[15] = ((sprivatekeyandparams.PrivateKey.pbData ushr 56) and 0xFF).toByte(); buf[16] = (Win32DynamicFfi.objectSlot(sprivatekeyandparams.pResolvehCryptProvFunc) and 0xFF).toByte(); buf[17] = ((Win32DynamicFfi.objectSlot(sprivatekeyandparams.pResolvehCryptProvFunc) ushr 8) and 0xFF).toByte(); buf[18] = ((Win32DynamicFfi.objectSlot(sprivatekeyandparams.pResolvehCryptProvFunc) ushr 16) and 0xFF).toByte(); buf[19] = ((Win32DynamicFfi.objectSlot(sprivatekeyandparams.pResolvehCryptProvFunc) ushr 24) and 0xFF).toByte(); buf[20] = ((Win32DynamicFfi.objectSlot(sprivatekeyandparams.pResolvehCryptProvFunc) ushr 32) and 0xFF).toByte(); buf[21] = ((Win32DynamicFfi.objectSlot(sprivatekeyandparams.pResolvehCryptProvFunc) ushr 40) and 0xFF).toByte(); buf[22] = ((Win32DynamicFfi.objectSlot(sprivatekeyandparams.pResolvehCryptProvFunc) ushr 48) and 0xFF).toByte(); buf[23] = ((Win32DynamicFfi.objectSlot(sprivatekeyandparams.pResolvehCryptProvFunc) ushr 56) and 0xFF).toByte(); buf[24] = (sprivatekeyandparams.pVoidResolveFunc and 0xFF).toByte(); buf[25] = ((sprivatekeyandparams.pVoidResolveFunc ushr 8) and 0xFF).toByte(); buf[26] = ((sprivatekeyandparams.pVoidResolveFunc ushr 16) and 0xFF).toByte(); buf[27] = ((sprivatekeyandparams.pVoidResolveFunc ushr 24) and 0xFF).toByte(); buf[28] = ((sprivatekeyandparams.pVoidResolveFunc ushr 32) and 0xFF).toByte(); buf[29] = ((sprivatekeyandparams.pVoidResolveFunc ushr 40) and 0xFF).toByte(); buf[30] = ((sprivatekeyandparams.pVoidResolveFunc ushr 48) and 0xFF).toByte(); buf[31] = ((sprivatekeyandparams.pVoidResolveFunc ushr 56) and 0xFF).toByte(); buf[32] = (Win32DynamicFfi.objectSlot(sprivatekeyandparams.pDecryptPrivateKeyFunc) and 0xFF).toByte(); buf[33] = ((Win32DynamicFfi.objectSlot(sprivatekeyandparams.pDecryptPrivateKeyFunc) ushr 8) and 0xFF).toByte(); buf[34] = ((Win32DynamicFfi.objectSlot(sprivatekeyandparams.pDecryptPrivateKeyFunc) ushr 16) and 0xFF).toByte(); buf[35] = ((Win32DynamicFfi.objectSlot(sprivatekeyandparams.pDecryptPrivateKeyFunc) ushr 24) and 0xFF).toByte(); buf[36] = ((Win32DynamicFfi.objectSlot(sprivatekeyandparams.pDecryptPrivateKeyFunc) ushr 32) and 0xFF).toByte(); buf[37] = ((Win32DynamicFfi.objectSlot(sprivatekeyandparams.pDecryptPrivateKeyFunc) ushr 40) and 0xFF).toByte(); buf[38] = ((Win32DynamicFfi.objectSlot(sprivatekeyandparams.pDecryptPrivateKeyFunc) ushr 48) and 0xFF).toByte(); buf[39] = ((Win32DynamicFfi.objectSlot(sprivatekeyandparams.pDecryptPrivateKeyFunc) ushr 56) and 0xFF).toByte(); buf[40] = (sprivatekeyandparams.pVoidDecryptFunc and 0xFF).toByte(); buf[41] = ((sprivatekeyandparams.pVoidDecryptFunc ushr 8) and 0xFF).toByte(); buf[42] = ((sprivatekeyandparams.pVoidDecryptFunc ushr 16) and 0xFF).toByte(); buf[43] = ((sprivatekeyandparams.pVoidDecryptFunc ushr 24) and 0xFF).toByte(); buf[44] = ((sprivatekeyandparams.pVoidDecryptFunc ushr 32) and 0xFF).toByte(); buf[45] = ((sprivatekeyandparams.pVoidDecryptFunc ushr 40) and 0xFF).toByte(); buf[46] = ((sprivatekeyandparams.pVoidDecryptFunc ushr 48) and 0xFF).toByte(); buf[47] = ((sprivatekeyandparams.pVoidDecryptFunc ushr 56) and 0xFF).toByte(); val ptr = Win32DynamicFfi.allocZeroed(48); Win32DynamicFfi.writeBytes(ptr, buf); ptr }, dwflags.toLong(), phcryptprov, pvauxinfo)).toInt()
 }
 
 public fun CryptImportPublicKeyInfo(hcryptprov: ULong, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pinfo: Long, phkey: Long): BOOL {
@@ -1124,8 +1073,8 @@ public fun CryptInstallDefaultContext(hcryptprov: ULong, dwdefaulttype: CRYPT_DE
     return Win32DynamicFfi.invoke("crypt32.dll", "CryptInstallDefaultContext", longArrayOf(hcryptprov.toLong(), dwdefaulttype.toLong(), pvdefaultpara, dwflags.toLong(), pvreserved, phdefaultcontext)).toInt()
 }
 
-public fun CryptInstallOIDFunctionAddress(hmodule: Foundation.HMODULE, dwencodingtype: UInt, pszfuncname: PCSTR, cfuncentry: UInt, rgfuncentry: Long, dwflags: UInt): BOOL {
-    return Win32DynamicFfi.invoke("crypt32.dll", "CryptInstallOIDFunctionAddress", longArrayOf(Win32DynamicFfi.objectSlot(hmodule), dwencodingtype.toLong(), pszfuncname, cfuncentry.toLong(), rgfuncentry, dwflags.toLong())).toInt()
+public fun CryptInstallOIDFunctionAddress(hmodule: HMODULE, dwencodingtype: UInt, pszfuncname: PCSTR, cfuncentry: UInt, rgfuncentry: Long, dwflags: UInt): BOOL {
+    return Win32DynamicFfi.invoke("crypt32.dll", "CryptInstallOIDFunctionAddress", longArrayOf(hmodule, dwencodingtype.toLong(), pszfuncname, cfuncentry.toLong(), rgfuncentry, dwflags.toLong())).toInt()
 }
 
 public fun CryptMemAlloc(cbsize: UInt): Long {
@@ -1256,8 +1205,8 @@ public fun CryptSetKeyParam(hkey: ULong, dwparam: CRYPT_KEY_PARAM_ID, pbdata: Lo
     return Win32DynamicFfi.invoke("advapi32.dll", "CryptSetKeyParam", longArrayOf(hkey.toLong(), dwparam.toLong(), pbdata, dwflags.toLong())).toInt()
 }
 
-public fun CryptSetOIDFunctionValue(dwencodingtype: UInt, pszfuncname: PCSTR, pszoid: PCSTR, pwszvaluename: PCWSTR, dwvaluetype: System.Registry.REG_VALUE_TYPE, pbvaluedata: Long, cbvaluedata: UInt): BOOL {
-    return Win32DynamicFfi.invoke("crypt32.dll", "CryptSetOIDFunctionValue", longArrayOf(dwencodingtype.toLong(), pszfuncname, pszoid, pwszvaluename, Win32DynamicFfi.objectSlot(dwvaluetype), pbvaluedata, cbvaluedata.toLong())).toInt()
+public fun CryptSetOIDFunctionValue(dwencodingtype: UInt, pszfuncname: PCSTR, pszoid: PCSTR, pwszvaluename: PCWSTR, dwvaluetype: REG_VALUE_TYPE, pbvaluedata: Long, cbvaluedata: UInt): BOOL {
+    return Win32DynamicFfi.invoke("crypt32.dll", "CryptSetOIDFunctionValue", longArrayOf(dwencodingtype.toLong(), pszfuncname, pszoid, pwszvaluename, dwvaluetype.toLong(), pbvaluedata, cbvaluedata.toLong())).toInt()
 }
 
 public fun CryptSetProvParam(hprov: ULong, dwparam: CRYPT_SET_PROV_PARAM_ID, pbdata: Long, dwflags: UInt): BOOL {
@@ -1484,61 +1433,52 @@ public fun GenerateDerivedKey(hcrypto: Long, cblabel: UInt, plabel: Long, cbnonc
     return Win32DynamicFfi.invoke("infocardapi.dll", "GenerateDerivedKey", longArrayOf(hcrypto, cblabel.toLong(), plabel, cbnonce.toLong(), pnonce, derivedkeylength.toLong(), offset.toLong(), algid, pcbkey, ppkey)).toInt()
 }
 
-public fun GetAsymmetricEncryptionInterface(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcryptprimitives.dll", "GetAsymmetricEncryptionInterface", longArrayOf(pszprovidername, pszalgid, ppfunctiontable, dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun GetAsymmetricEncryptionInterface(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcryptprimitives.dll", "GetAsymmetricEncryptionInterface", longArrayOf(pszprovidername, pszalgid, ppfunctiontable, dwflags.toLong())).toInt()
 }
 
 public fun GetBrowserToken(dwparamtype: UInt, pparam: Long, pcbtoken: Long, pptoken: Long): HRESULT {
     return Win32DynamicFfi.invoke("infocardapi.dll", "GetBrowserToken", longArrayOf(dwparamtype.toLong(), pparam, pcbtoken, pptoken)).toInt()
 }
 
-public fun GetCipherInterface(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcryptprimitives.dll", "GetCipherInterface", longArrayOf(pszprovidername, pszalgid, ppfunctiontable, dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun GetCipherInterface(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcryptprimitives.dll", "GetCipherInterface", longArrayOf(pszprovidername, pszalgid, ppfunctiontable, dwflags.toLong())).toInt()
 }
 
 public fun GetCryptoTransform(hsymmetriccrypto: Long, mode: UInt, padding: PaddingMode, feedbacksize: UInt, direction: Direction, cbiv: UInt, piv: Long, pphtransform: Long): HRESULT {
-    return Win32DynamicFfi.invoke("infocardapi.dll", "GetCryptoTransform", longArrayOf(hsymmetriccrypto, mode.toLong(), Win32DynamicFfi.objectSlot(padding), feedbacksize.toLong(), direction.toLong(), cbiv.toLong(), piv, pphtransform)).toInt()
+    return Win32DynamicFfi.invoke("infocardapi.dll", "GetCryptoTransform", longArrayOf(hsymmetriccrypto, mode.toLong(), (padding.value.toLong() and 0xFFFF_FFFFL), feedbacksize.toLong(), direction.toLong(), cbiv.toLong(), piv, pphtransform)).toInt()
 }
 
-public fun GetHashInterface(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcryptprimitives.dll", "GetHashInterface", longArrayOf(pszprovidername, pszalgid, ppfunctiontable, dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun GetHashInterface(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcryptprimitives.dll", "GetHashInterface", longArrayOf(pszprovidername, pszalgid, ppfunctiontable, dwflags.toLong())).toInt()
 }
 
-public fun GetKeyDerivationInterface(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcryptprimitives.dll", "GetKeyDerivationInterface", longArrayOf(pszprovidername, pszalgid, ppfunctiontable, dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun GetKeyDerivationInterface(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcryptprimitives.dll", "GetKeyDerivationInterface", longArrayOf(pszprovidername, pszalgid, ppfunctiontable, dwflags.toLong())).toInt()
 }
 
-public fun GetKeyStorageInterface(pszprovidername: PCWSTR, ppfunctiontable: Long, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ncrypt.dll", "GetKeyStorageInterface", longArrayOf(pszprovidername, ppfunctiontable, dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun GetKeyStorageInterface(pszprovidername: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("ncrypt.dll", "GetKeyStorageInterface", longArrayOf(pszprovidername, ppfunctiontable, dwflags.toLong())).toInt()
 }
 
 public fun GetKeyedHash(hsymmetriccrypto: Long, pphhash: Long): HRESULT {
     return Win32DynamicFfi.invoke("infocardapi.dll", "GetKeyedHash", longArrayOf(hsymmetriccrypto, pphhash)).toInt()
 }
 
-public fun GetRngInterface(pszprovidername: PCWSTR, ppfunctiontable: Long, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcryptprimitives.dll", "GetRngInterface", longArrayOf(pszprovidername, ppfunctiontable, dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun GetRngInterface(pszprovidername: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcryptprimitives.dll", "GetRngInterface", longArrayOf(pszprovidername, ppfunctiontable, dwflags.toLong())).toInt()
 }
 
-public fun GetSChannelInterface(pszprovidername: PCWSTR, ppfunctiontable: Long, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ncrypt.dll", "GetSChannelInterface", longArrayOf(pszprovidername, ppfunctiontable, dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun GetSChannelInterface(pszprovidername: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("ncrypt.dll", "GetSChannelInterface", longArrayOf(pszprovidername, ppfunctiontable, dwflags.toLong())).toInt()
 }
 
-public fun GetSecretAgreementInterface(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcryptprimitives.dll", "GetSecretAgreementInterface", longArrayOf(pszprovidername, pszalgid, ppfunctiontable, dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun GetSecretAgreementInterface(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcryptprimitives.dll", "GetSecretAgreementInterface", longArrayOf(pszprovidername, pszalgid, ppfunctiontable, dwflags.toLong())).toInt()
 }
 
-public fun GetSignatureInterface(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("bcryptprimitives.dll", "GetSignatureInterface", longArrayOf(pszprovidername, pszalgid, ppfunctiontable, dwflags.toLong()))
-    return Foundation.NTSTATUS()
+public fun GetSignatureInterface(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS {
+    return Win32DynamicFfi.invoke("bcryptprimitives.dll", "GetSignatureInterface", longArrayOf(pszprovidername, pszalgid, ppfunctiontable, dwflags.toLong())).toInt()
 }
 
 public fun GetToken(cpolicychain: UInt, ppolicychain: Long, securitytoken: Long, phprooftokencrypto: Long): HRESULT {
@@ -1657,8 +1597,8 @@ public fun NCryptOpenStorageProvider(phprovider: Long, pszprovidername: PCWSTR, 
     return Win32DynamicFfi.invoke("ncrypt.dll", "NCryptOpenStorageProvider", longArrayOf(phprovider, pszprovidername, dwflags.toLong())).toInt()
 }
 
-public fun NCryptProtectSecret(hdescriptor: NCRYPT_DESCRIPTOR_HANDLE, dwflags: UInt, pbdata: Long, cbdata: UInt, pmempara: Long, hwnd: Foundation.HWND, ppbprotectedblob: Long, pcbprotectedblob: Long): HRESULT {
-    return Win32DynamicFfi.invoke("ncrypt.dll", "NCryptProtectSecret", longArrayOf(hdescriptor, dwflags.toLong(), pbdata, cbdata.toLong(), pmempara, Win32DynamicFfi.objectSlot(hwnd), ppbprotectedblob, pcbprotectedblob)).toInt()
+public fun NCryptProtectSecret(hdescriptor: NCRYPT_DESCRIPTOR_HANDLE, dwflags: UInt, pbdata: Long, cbdata: UInt, pmempara: Long, hwnd: HWND, ppbprotectedblob: Long, pcbprotectedblob: Long): HRESULT {
+    return Win32DynamicFfi.invoke("ncrypt.dll", "NCryptProtectSecret", longArrayOf(hdescriptor, dwflags.toLong(), pbdata, cbdata.toLong(), pmempara, hwnd, ppbprotectedblob, pcbprotectedblob)).toInt()
 }
 
 public fun NCryptQueryProtectionDescriptorName(pwszname: PCWSTR, pwszdescriptorstring: PWSTR, pcdescriptorstring: Long, dwflags: UInt): HRESULT {
@@ -1685,16 +1625,16 @@ public fun NCryptStreamClose(hstream: NCRYPT_STREAM_HANDLE): HRESULT {
     return Win32DynamicFfi.invoke("ncrypt.dll", "NCryptStreamClose", longArrayOf(hstream)).toInt()
 }
 
-public fun NCryptStreamOpenToProtect(hdescriptor: NCRYPT_DESCRIPTOR_HANDLE, dwflags: UInt, hwnd: Foundation.HWND, pstreaminfo: Long, phstream: Long): HRESULT {
-    return Win32DynamicFfi.invoke("ncrypt.dll", "NCryptStreamOpenToProtect", longArrayOf(hdescriptor, dwflags.toLong(), Win32DynamicFfi.objectSlot(hwnd), pstreaminfo, phstream)).toInt()
+public fun NCryptStreamOpenToProtect(hdescriptor: NCRYPT_DESCRIPTOR_HANDLE, dwflags: UInt, hwnd: HWND, pstreaminfo: Long, phstream: Long): HRESULT {
+    return Win32DynamicFfi.invoke("ncrypt.dll", "NCryptStreamOpenToProtect", longArrayOf(hdescriptor, dwflags.toLong(), hwnd, pstreaminfo, phstream)).toInt()
 }
 
-public fun NCryptStreamOpenToUnprotect(pstreaminfo: Long, dwflags: UInt, hwnd: Foundation.HWND, phstream: Long): HRESULT {
-    return Win32DynamicFfi.invoke("ncrypt.dll", "NCryptStreamOpenToUnprotect", longArrayOf(pstreaminfo, dwflags.toLong(), Win32DynamicFfi.objectSlot(hwnd), phstream)).toInt()
+public fun NCryptStreamOpenToUnprotect(pstreaminfo: Long, dwflags: UInt, hwnd: HWND, phstream: Long): HRESULT {
+    return Win32DynamicFfi.invoke("ncrypt.dll", "NCryptStreamOpenToUnprotect", longArrayOf(pstreaminfo, dwflags.toLong(), hwnd, phstream)).toInt()
 }
 
-public fun NCryptStreamOpenToUnprotectEx(pstreaminfo: Long, dwflags: UInt, hwnd: Foundation.HWND, phstream: Long): HRESULT {
-    return Win32DynamicFfi.invoke("ncrypt.dll", "NCryptStreamOpenToUnprotectEx", longArrayOf(pstreaminfo, dwflags.toLong(), Win32DynamicFfi.objectSlot(hwnd), phstream)).toInt()
+public fun NCryptStreamOpenToUnprotectEx(pstreaminfo: Long, dwflags: UInt, hwnd: HWND, phstream: Long): HRESULT {
+    return Win32DynamicFfi.invoke("ncrypt.dll", "NCryptStreamOpenToUnprotectEx", longArrayOf(pstreaminfo, dwflags.toLong(), hwnd, phstream)).toInt()
 }
 
 public fun NCryptStreamUpdate(hstream: NCRYPT_STREAM_HANDLE, pbdata: Long, cbdata: ULong, ffinal: BOOL): HRESULT {
@@ -1705,8 +1645,8 @@ public fun NCryptTranslateHandle(phprovider: Long, phkey: Long, hlegacyprov: ULo
     return Win32DynamicFfi.invoke("ncrypt.dll", "NCryptTranslateHandle", longArrayOf(phprovider, phkey, hlegacyprov.toLong(), hlegacykey.toLong(), dwlegacykeyspec.toLong(), dwflags.toLong())).toInt()
 }
 
-public fun NCryptUnprotectSecret(phdescriptor: Long, dwflags: NCRYPT_FLAGS, pbprotectedblob: Long, cbprotectedblob: UInt, pmempara: Long, hwnd: Foundation.HWND, ppbdata: Long, pcbdata: Long): HRESULT {
-    return Win32DynamicFfi.invoke("ncrypt.dll", "NCryptUnprotectSecret", longArrayOf(phdescriptor, dwflags.toLong(), pbprotectedblob, cbprotectedblob.toLong(), pmempara, Win32DynamicFfi.objectSlot(hwnd), ppbdata, pcbdata)).toInt()
+public fun NCryptUnprotectSecret(phdescriptor: Long, dwflags: NCRYPT_FLAGS, pbprotectedblob: Long, cbprotectedblob: UInt, pmempara: Long, hwnd: HWND, ppbdata: Long, pcbdata: Long): HRESULT {
+    return Win32DynamicFfi.invoke("ncrypt.dll", "NCryptUnprotectSecret", longArrayOf(phdescriptor, dwflags.toLong(), pbprotectedblob, cbprotectedblob.toLong(), pmempara, hwnd, ppbdata, pcbdata)).toInt()
 }
 
 public fun NCryptVerifyClaim(hsubjectkey: NCRYPT_KEY_HANDLE, hauthoritykey: NCRYPT_KEY_HANDLE, dwclaimtype: UInt, pparameterlist: Long, pbclaimblob: Long, cbclaimblob: UInt, poutput: Long, dwflags: UInt): HRESULT {
@@ -1785,8 +1725,8 @@ public fun SignerTimeStampEx3(dwflags: SIGNER_TIMESTAMP_FLAGS, dwindex: UInt, ps
     return Win32DynamicFfi.invoke("mssign32.dll", "SignerTimeStampEx3", longArrayOf(dwflags.toLong(), dwindex.toLong(), psubjectinfo, pwszhttptimestamp, pszalgorithmoid, psrequest, psipdata, ppsignercontext, pcryptopolicy, preserved)).toInt()
 }
 
-public fun SslChangeNotify(hevent: Foundation.HANDLE, dwflags: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("ncrypt.dll", "SslChangeNotify", longArrayOf(Win32DynamicFfi.objectSlot(hevent), dwflags.toLong())).toInt()
+public fun SslChangeNotify(hevent: HANDLE, dwflags: UInt): HRESULT {
+    return Win32DynamicFfi.invoke("ncrypt.dll", "SslChangeNotify", longArrayOf(hevent, dwflags.toLong())).toInt()
 }
 
 public fun SslComputeClientAuthHash(hsslprovider: NCRYPT_PROV_HANDLE, hmasterkey: NCRYPT_KEY_HANDLE, hhandshakehash: NCRYPT_HASH_HANDLE, pszalgid: PCWSTR, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): HRESULT {

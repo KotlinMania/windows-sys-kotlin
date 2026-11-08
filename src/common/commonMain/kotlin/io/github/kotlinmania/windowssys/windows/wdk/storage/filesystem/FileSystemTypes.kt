@@ -1,7 +1,11 @@
 package io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem
 
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PESILO
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+
 public fun interface ALLOCATE_VIRTUAL_MEMORY_EX_CALLBACKFn {
-    public operator fun invoke(callbackcontext: Win32.Foundation.HANDLE, processhandle: Win32.Foundation.HANDLE, baseaddress: Long, regionsize: Long, allocationtype: UInt, pageprotection: UInt, extendedparameters: Long, extendedparametercount: UInt): Win32.Foundation.NTSTATUS
+    public operator fun invoke(callbackcontext: HANDLE, processhandle: HANDLE, baseaddress: Long, regionsize: Long, allocationtype: UInt, pageprotection: UInt, extendedparameters: Long, extendedparametercount: UInt): NTSTATUS
 }
 
 public typealias ALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK = ALLOCATE_VIRTUAL_MEMORY_EX_CALLBACKFn?
@@ -17,7 +21,7 @@ public typealias FILE_INFORMATION_CLASS = Int
 public typealias FILE_KNOWN_FOLDER_TYPE = Int
 
 public fun interface FREE_VIRTUAL_MEMORY_EX_CALLBACKFn {
-    public operator fun invoke(callbackcontext: Win32.Foundation.HANDLE, processhandle: Win32.Foundation.HANDLE, baseaddress: Long, regionsize: Long, freetype: UInt): Win32.Foundation.NTSTATUS
+    public operator fun invoke(callbackcontext: HANDLE, processhandle: HANDLE, baseaddress: Long, regionsize: Long, freetype: UInt): NTSTATUS
 }
 
 public typealias FREE_VIRTUAL_MEMORY_EX_CALLBACK = FREE_VIRTUAL_MEMORY_EX_CALLBACKFn?
@@ -71,7 +75,7 @@ public fun interface PACQUIRE_FOR_READ_AHEADFn {
 public typealias PACQUIRE_FOR_READ_AHEAD = PACQUIRE_FOR_READ_AHEADFn?
 
 public fun interface PALLOCATE_VIRTUAL_MEMORY_EX_CALLBACKFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK = PALLOCATE_VIRTUAL_MEMORY_EX_CALLBACKFn?
@@ -95,7 +99,7 @@ public fun interface PCHECK_FOR_TRAVERSE_ACCESSFn {
 public typealias PCHECK_FOR_TRAVERSE_ACCESS = PCHECK_FOR_TRAVERSE_ACCESSFn?
 
 public fun interface PCOMPLETE_LOCK_IRP_ROUTINEFn {
-    public operator fun invoke(context: Long, irp: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(context: Long, irp: Long): NTSTATUS
 }
 
 public typealias PCOMPLETE_LOCK_IRP_ROUTINE = PCOMPLETE_LOCK_IRP_ROUTINEFn?
@@ -125,7 +129,7 @@ public fun interface PFN_FSRTLTEARDOWNPERSTREAMCONTEXTSFn {
 public typealias PFN_FSRTLTEARDOWNPERSTREAMCONTEXTS = PFN_FSRTLTEARDOWNPERSTREAMCONTEXTSFn?
 
 public fun interface PFREE_VIRTUAL_MEMORY_EX_CALLBACKFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PFREE_VIRTUAL_MEMORY_EX_CALLBACK = PFREE_VIRTUAL_MEMORY_EX_CALLBACKFn?
@@ -143,13 +147,13 @@ public fun interface PFSRTL_STACK_OVERFLOW_ROUTINEFn {
 public typealias PFSRTL_STACK_OVERFLOW_ROUTINE = PFSRTL_STACK_OVERFLOW_ROUTINEFn?
 
 public fun interface PFS_FILTER_CALLBACKFn {
-    public operator fun invoke(data: Long, completioncontext: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(data: Long, completioncontext: Long): NTSTATUS
 }
 
 public typealias PFS_FILTER_CALLBACK = PFS_FILTER_CALLBACKFn?
 
 public fun interface PFS_FILTER_COMPLETION_CALLBACKFn {
-    public operator fun invoke(data: Long, operationstatus: Win32.Foundation.NTSTATUS, completioncontext: Long)
+    public operator fun invoke(data: Long, operationstatus: NTSTATUS, completioncontext: Long)
 }
 
 public typealias PFS_FILTER_COMPLETION_CALLBACK = PFS_FILTER_COMPLETION_CALLBACKFn?
@@ -161,7 +165,7 @@ public fun interface POPLOCK_FS_PREPOST_IRPFn {
 public typealias POPLOCK_FS_PREPOST_IRP = POPLOCK_FS_PREPOST_IRPFn?
 
 public fun interface POPLOCK_NOTIFY_ROUTINEFn {
-    public operator fun invoke(notifyparams: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(notifyparams: Long): NTSTATUS
 }
 
 public typealias POPLOCK_NOTIFY_ROUTINE = POPLOCK_NOTIFY_ROUTINEFn?
@@ -179,7 +183,7 @@ public fun interface PQUERY_LOG_USAGEFn {
 public typealias PQUERY_LOG_USAGE = PQUERY_LOG_USAGEFn?
 
 public fun interface PQUERY_VIRTUAL_MEMORY_CALLBACKFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PQUERY_VIRTUAL_MEMORY_CALLBACK = PQUERY_VIRTUAL_MEMORY_CALLBACKFn?
@@ -209,7 +213,7 @@ public fun interface PRTL_FREE_STRING_ROUTINEFn {
 public typealias PRTL_FREE_STRING_ROUTINE = PRTL_FREE_STRING_ROUTINEFn?
 
 public fun interface PRTL_HEAP_COMMIT_ROUTINEFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PRTL_HEAP_COMMIT_ROUTINE = PRTL_HEAP_COMMIT_ROUTINEFn?
@@ -221,13 +225,13 @@ public fun interface PRTL_REALLOCATE_STRING_ROUTINEFn {
 public typealias PRTL_REALLOCATE_STRING_ROUTINE = PRTL_REALLOCATE_STRING_ROUTINEFn?
 
 public fun interface PSE_LOGON_SESSION_TERMINATED_ROUTINEFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PSE_LOGON_SESSION_TERMINATED_ROUTINE = PSE_LOGON_SESSION_TERMINATED_ROUTINEFn?
 
 public fun interface PSE_LOGON_SESSION_TERMINATED_ROUTINE_EXFn {
-    public operator fun invoke(): Win32.Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PSE_LOGON_SESSION_TERMINATED_ROUTINE_EX = PSE_LOGON_SESSION_TERMINATED_ROUTINE_EXFn?
@@ -239,7 +243,7 @@ public fun interface PUNLOCK_ROUTINEFn {
 public typealias PUNLOCK_ROUTINE = PUNLOCK_ROUTINEFn?
 
 public fun interface QUERY_VIRTUAL_MEMORY_CALLBACKFn {
-    public operator fun invoke(callbackcontext: Win32.Foundation.HANDLE, processhandle: Win32.Foundation.HANDLE, baseaddress: Long, memoryinformationclass: HEAP_MEMORY_INFO_CLASS, memoryinformation: Long, memoryinformationlength: ULong, returnlength: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(callbackcontext: HANDLE, processhandle: HANDLE, baseaddress: Long, memoryinformationclass: HEAP_MEMORY_INFO_CLASS, memoryinformation: Long, memoryinformationlength: ULong, returnlength: Long): NTSTATUS
 }
 
 public typealias QUERY_VIRTUAL_MEMORY_CALLBACK = QUERY_VIRTUAL_MEMORY_CALLBACKFn?
@@ -265,7 +269,7 @@ public fun interface RTL_FREE_STRING_ROUTINEFn {
 public typealias RTL_FREE_STRING_ROUTINE = RTL_FREE_STRING_ROUTINEFn?
 
 public fun interface RTL_HEAP_COMMIT_ROUTINEFn {
-    public operator fun invoke(base: Long, commitaddress: Long, commitsize: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(base: Long, commitaddress: Long, commitsize: Long): NTSTATUS
 }
 
 public typealias RTL_HEAP_COMMIT_ROUTINE = RTL_HEAP_COMMIT_ROUTINEFn?
@@ -281,13 +285,13 @@ public typealias RTL_REALLOCATE_STRING_ROUTINE = RTL_REALLOCATE_STRING_ROUTINEFn
 public typealias SE_AUDIT_OPERATION = Int
 
 public fun interface SE_LOGON_SESSION_TERMINATED_ROUTINEFn {
-    public operator fun invoke(logonid: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(logonid: Long): NTSTATUS
 }
 
 public typealias SE_LOGON_SESSION_TERMINATED_ROUTINE = SE_LOGON_SESSION_TERMINATED_ROUTINEFn?
 
 public fun interface SE_LOGON_SESSION_TERMINATED_ROUTINE_EXFn {
-    public operator fun invoke(logonid: Long, pserversilo: Foundation.PESILO, context: Long): Win32.Foundation.NTSTATUS
+    public operator fun invoke(logonid: Long, pserversilo: PESILO, context: Long): NTSTATUS
 }
 
 public typealias SE_LOGON_SESSION_TERMINATED_ROUTINE_EX = SE_LOGON_SESSION_TERMINATED_ROUTINE_EXFn?

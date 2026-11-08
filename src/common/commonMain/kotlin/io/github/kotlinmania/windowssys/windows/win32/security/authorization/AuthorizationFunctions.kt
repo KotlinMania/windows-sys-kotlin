@@ -6,10 +6,14 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
 import io.github.kotlinmania.windowssys.windows.win32.security.ACE_FLAGS
 import io.github.kotlinmania.windowssys.windows.win32.security.OBJECT_SECURITY_INFORMATION
 import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
 import io.github.kotlinmania.windowssys.windows.win32.security.PSID
+import io.github.kotlinmania.windowssys.windows.win32.system.threading.LPTHREAD_START_ROUTINE
 
 public fun interface FnCallback {
     public operator fun invoke(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pace: Long, pargs: Long, pbaceapplicable: Long): BOOL
@@ -75,16 +79,16 @@ public fun AuthzInitializeCompoundContext(usercontext: AUTHZ_CLIENT_CONTEXT_HAND
     return Win32DynamicFfi.invoke("authz.dll", "AuthzInitializeCompoundContext", longArrayOf(usercontext, devicecontext, phcompoundcontext)).toInt()
 }
 
-public fun AuthzInitializeContextFromAuthzContext(flags: UInt, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pexpirationtime: Long, identifier: Foundation.LUID, dynamicgroupargs: Long, phnewauthzclientcontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("authz.dll", "AuthzInitializeContextFromAuthzContext", longArrayOf(flags.toLong(), hauthzclientcontext, pexpirationtime, Win32DynamicFfi.objectSlot(identifier), dynamicgroupargs, phnewauthzclientcontext)).toInt()
+public fun AuthzInitializeContextFromAuthzContext(flags: UInt, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pexpirationtime: Long, identifier: LUID, dynamicgroupargs: Long, phnewauthzclientcontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("authz.dll", "AuthzInitializeContextFromAuthzContext", longArrayOf(flags.toLong(), hauthzclientcontext, pexpirationtime, ((identifier.LowPart.toLong() and 0xFFFF_FFFFL) or ((identifier.HighPart.toLong() and 0xFFFF_FFFFL) shl 32)), dynamicgroupargs, phnewauthzclientcontext)).toInt()
 }
 
-public fun AuthzInitializeContextFromSid(flags: UInt, usersid: PSID, hauthzresourcemanager: AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime: Long, identifier: Foundation.LUID, dynamicgroupargs: Long, phauthzclientcontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("authz.dll", "AuthzInitializeContextFromSid", longArrayOf(flags.toLong(), usersid, hauthzresourcemanager, pexpirationtime, Win32DynamicFfi.objectSlot(identifier), dynamicgroupargs, phauthzclientcontext)).toInt()
+public fun AuthzInitializeContextFromSid(flags: UInt, usersid: PSID, hauthzresourcemanager: AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime: Long, identifier: LUID, dynamicgroupargs: Long, phauthzclientcontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("authz.dll", "AuthzInitializeContextFromSid", longArrayOf(flags.toLong(), usersid, hauthzresourcemanager, pexpirationtime, ((identifier.LowPart.toLong() and 0xFFFF_FFFFL) or ((identifier.HighPart.toLong() and 0xFFFF_FFFFL) shl 32)), dynamicgroupargs, phauthzclientcontext)).toInt()
 }
 
-public fun AuthzInitializeContextFromToken(flags: UInt, tokenhandle: Foundation.HANDLE, hauthzresourcemanager: AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime: Long, identifier: Foundation.LUID, dynamicgroupargs: Long, phauthzclientcontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("authz.dll", "AuthzInitializeContextFromToken", longArrayOf(flags.toLong(), Win32DynamicFfi.objectSlot(tokenhandle), hauthzresourcemanager, pexpirationtime, Win32DynamicFfi.objectSlot(identifier), dynamicgroupargs, phauthzclientcontext)).toInt()
+public fun AuthzInitializeContextFromToken(flags: UInt, tokenhandle: HANDLE, hauthzresourcemanager: AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime: Long, identifier: LUID, dynamicgroupargs: Long, phauthzclientcontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("authz.dll", "AuthzInitializeContextFromToken", longArrayOf(flags.toLong(), tokenhandle, hauthzresourcemanager, pexpirationtime, ((identifier.LowPart.toLong() and 0xFFFF_FFFFL) or ((identifier.HighPart.toLong() and 0xFFFF_FFFFL) shl 32)), dynamicgroupargs, phauthzclientcontext)).toInt()
 }
 
 public fun AuthzInitializeObjectAccessAuditEvent(flags: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS, hauditeventtype: AUTHZ_AUDIT_EVENT_TYPE_HANDLE, szoperationtype: PCWSTR, szobjecttype: PCWSTR, szobjectname: PCWSTR, szadditionalinfo: PCWSTR, phauditevent: Long, dwadditionalparametercount: UInt, vararg variadicArgs: Long): BOOL {
@@ -127,7 +131,7 @@ public fun AuthzOpenObjectAudit(flags: UInt, hauthzclientcontext: AUTHZ_CLIENT_C
     return Win32DynamicFfi.invoke("authz.dll", "AuthzOpenObjectAudit", longArrayOf(flags.toLong(), hauthzclientcontext, prequest, hauditevent, psecuritydescriptor, optionalsecuritydescriptorarray, optionalsecuritydescriptorcount.toLong(), preply)).toInt()
 }
 
-public fun AuthzRegisterCapChangeNotification(phcapchangesubscription: Long, pfncapchangecallback: System.Threading.LPTHREAD_START_ROUTINE, pcallbackcontext: Long): BOOL {
+public fun AuthzRegisterCapChangeNotification(phcapchangesubscription: Long, pfncapchangecallback: LPTHREAD_START_ROUTINE, pcallbackcontext: Long): BOOL {
     return Win32DynamicFfi.invoke("authz.dll", "AuthzRegisterCapChangeNotification", longArrayOf(phcapchangesubscription, Win32DynamicFfi.objectSlot(pfncapchangecallback), pcallbackcontext)).toInt()
 }
 
@@ -183,14 +187,12 @@ public fun BuildImpersonateTrusteeW(ptrustee: Long, pimpersonatetrustee: Long) {
     Win32DynamicFfi.invoke("advapi32.dll", "BuildImpersonateTrusteeW", longArrayOf(ptrustee, pimpersonatetrustee))
 }
 
-public fun BuildSecurityDescriptorA(powner: Long, pgroup: Long, ccountofaccessentries: UInt, plistofaccessentries: Long, ccountofauditentries: UInt, plistofauditentries: Long, poldsd: PSECURITY_DESCRIPTOR, psizenewsd: Long, pnewsd: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "BuildSecurityDescriptorA", longArrayOf(powner, pgroup, ccountofaccessentries.toLong(), plistofaccessentries, ccountofauditentries.toLong(), plistofauditentries, poldsd, psizenewsd, pnewsd))
-    return Foundation.WIN32_ERROR()
+public fun BuildSecurityDescriptorA(powner: Long, pgroup: Long, ccountofaccessentries: UInt, plistofaccessentries: Long, ccountofauditentries: UInt, plistofauditentries: Long, poldsd: PSECURITY_DESCRIPTOR, psizenewsd: Long, pnewsd: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "BuildSecurityDescriptorA", longArrayOf(powner, pgroup, ccountofaccessentries.toLong(), plistofaccessentries, ccountofauditentries.toLong(), plistofauditentries, poldsd, psizenewsd, pnewsd)).toUInt()
 }
 
-public fun BuildSecurityDescriptorW(powner: Long, pgroup: Long, ccountofaccessentries: UInt, plistofaccessentries: Long, ccountofauditentries: UInt, plistofauditentries: Long, poldsd: PSECURITY_DESCRIPTOR, psizenewsd: Long, pnewsd: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "BuildSecurityDescriptorW", longArrayOf(powner, pgroup, ccountofaccessentries.toLong(), plistofaccessentries, ccountofauditentries.toLong(), plistofauditentries, poldsd, psizenewsd, pnewsd))
-    return Foundation.WIN32_ERROR()
+public fun BuildSecurityDescriptorW(powner: Long, pgroup: Long, ccountofaccessentries: UInt, plistofaccessentries: Long, ccountofauditentries: UInt, plistofauditentries: Long, poldsd: PSECURITY_DESCRIPTOR, psizenewsd: Long, pnewsd: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "BuildSecurityDescriptorW", longArrayOf(powner, pgroup, ccountofaccessentries.toLong(), plistofaccessentries, ccountofauditentries.toLong(), plistofauditentries, poldsd, psizenewsd, pnewsd)).toUInt()
 }
 
 public fun BuildTrusteeWithNameA(ptrustee: Long, pname: PCSTR) {
@@ -257,49 +259,40 @@ public fun ConvertStringSidToSidW(stringsid: PCWSTR, sid: Long): BOOL {
     return Win32DynamicFfi.invoke("advapi32.dll", "ConvertStringSidToSidW", longArrayOf(stringsid, sid)).toInt()
 }
 
-public fun FreeInheritedFromArray(pinheritarray: Long, acecnt: UShort, pfnarray: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "FreeInheritedFromArray", longArrayOf(pinheritarray, acecnt.toLong(), pfnarray))
-    return Foundation.WIN32_ERROR()
+public fun FreeInheritedFromArray(pinheritarray: Long, acecnt: UShort, pfnarray: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "FreeInheritedFromArray", longArrayOf(pinheritarray, acecnt.toLong(), pfnarray)).toUInt()
 }
 
-public fun GetAuditedPermissionsFromAclA(pacl: Long, ptrustee: Long, psuccessfulauditedrights: Long, pfailedauditrights: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "GetAuditedPermissionsFromAclA", longArrayOf(pacl, ptrustee, psuccessfulauditedrights, pfailedauditrights))
-    return Foundation.WIN32_ERROR()
+public fun GetAuditedPermissionsFromAclA(pacl: Long, ptrustee: Long, psuccessfulauditedrights: Long, pfailedauditrights: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "GetAuditedPermissionsFromAclA", longArrayOf(pacl, ptrustee, psuccessfulauditedrights, pfailedauditrights)).toUInt()
 }
 
-public fun GetAuditedPermissionsFromAclW(pacl: Long, ptrustee: Long, psuccessfulauditedrights: Long, pfailedauditrights: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "GetAuditedPermissionsFromAclW", longArrayOf(pacl, ptrustee, psuccessfulauditedrights, pfailedauditrights))
-    return Foundation.WIN32_ERROR()
+public fun GetAuditedPermissionsFromAclW(pacl: Long, ptrustee: Long, psuccessfulauditedrights: Long, pfailedauditrights: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "GetAuditedPermissionsFromAclW", longArrayOf(pacl, ptrustee, psuccessfulauditedrights, pfailedauditrights)).toUInt()
 }
 
-public fun GetEffectiveRightsFromAclA(pacl: Long, ptrustee: Long, paccessrights: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "GetEffectiveRightsFromAclA", longArrayOf(pacl, ptrustee, paccessrights))
-    return Foundation.WIN32_ERROR()
+public fun GetEffectiveRightsFromAclA(pacl: Long, ptrustee: Long, paccessrights: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "GetEffectiveRightsFromAclA", longArrayOf(pacl, ptrustee, paccessrights)).toUInt()
 }
 
-public fun GetEffectiveRightsFromAclW(pacl: Long, ptrustee: Long, paccessrights: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "GetEffectiveRightsFromAclW", longArrayOf(pacl, ptrustee, paccessrights))
-    return Foundation.WIN32_ERROR()
+public fun GetEffectiveRightsFromAclW(pacl: Long, ptrustee: Long, paccessrights: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "GetEffectiveRightsFromAclW", longArrayOf(pacl, ptrustee, paccessrights)).toUInt()
 }
 
-public fun GetExplicitEntriesFromAclA(pacl: Long, pccountofexplicitentries: Long, plistofexplicitentries: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "GetExplicitEntriesFromAclA", longArrayOf(pacl, pccountofexplicitentries, plistofexplicitentries))
-    return Foundation.WIN32_ERROR()
+public fun GetExplicitEntriesFromAclA(pacl: Long, pccountofexplicitentries: Long, plistofexplicitentries: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "GetExplicitEntriesFromAclA", longArrayOf(pacl, pccountofexplicitentries, plistofexplicitentries)).toUInt()
 }
 
-public fun GetExplicitEntriesFromAclW(pacl: Long, pccountofexplicitentries: Long, plistofexplicitentries: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "GetExplicitEntriesFromAclW", longArrayOf(pacl, pccountofexplicitentries, plistofexplicitentries))
-    return Foundation.WIN32_ERROR()
+public fun GetExplicitEntriesFromAclW(pacl: Long, pccountofexplicitentries: Long, plistofexplicitentries: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "GetExplicitEntriesFromAclW", longArrayOf(pacl, pccountofexplicitentries, plistofexplicitentries)).toUInt()
 }
 
-public fun GetInheritanceSourceA(pobjectname: PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, container: BOOL, pobjectclassguids: Long, guidcount: UInt, pacl: Long, pfnarray: Long, pgenericmapping: Long, pinheritarray: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "GetInheritanceSourceA", longArrayOf(pobjectname, objecttype.toLong(), securityinfo.toLong(), container.toLong(), pobjectclassguids, guidcount.toLong(), pacl, pfnarray, pgenericmapping, pinheritarray))
-    return Foundation.WIN32_ERROR()
+public fun GetInheritanceSourceA(pobjectname: PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, container: BOOL, pobjectclassguids: Long, guidcount: UInt, pacl: Long, pfnarray: Long, pgenericmapping: Long, pinheritarray: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "GetInheritanceSourceA", longArrayOf(pobjectname, objecttype.toLong(), securityinfo.toLong(), container.toLong(), pobjectclassguids, guidcount.toLong(), pacl, pfnarray, pgenericmapping, pinheritarray)).toUInt()
 }
 
-public fun GetInheritanceSourceW(pobjectname: PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, container: BOOL, pobjectclassguids: Long, guidcount: UInt, pacl: Long, pfnarray: Long, pgenericmapping: Long, pinheritarray: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "GetInheritanceSourceW", longArrayOf(pobjectname, objecttype.toLong(), securityinfo.toLong(), container.toLong(), pobjectclassguids, guidcount.toLong(), pacl, pfnarray, pgenericmapping, pinheritarray))
-    return Foundation.WIN32_ERROR()
+public fun GetInheritanceSourceW(pobjectname: PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, container: BOOL, pobjectclassguids: Long, guidcount: UInt, pacl: Long, pfnarray: Long, pgenericmapping: Long, pinheritarray: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "GetInheritanceSourceW", longArrayOf(pobjectname, objecttype.toLong(), securityinfo.toLong(), container.toLong(), pobjectclassguids, guidcount.toLong(), pacl, pfnarray, pgenericmapping, pinheritarray)).toUInt()
 }
 
 public fun GetMultipleTrusteeA(ptrustee: Long): Long {
@@ -318,19 +311,16 @@ public fun GetMultipleTrusteeW(ptrustee: Long): Long {
     return Win32DynamicFfi.invoke("advapi32.dll", "GetMultipleTrusteeW", longArrayOf(ptrustee))
 }
 
-public fun GetNamedSecurityInfoA(pobjectname: PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, ppsidowner: Long, ppsidgroup: Long, ppdacl: Long, ppsacl: Long, ppsecuritydescriptor: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "GetNamedSecurityInfoA", longArrayOf(pobjectname, objecttype.toLong(), securityinfo.toLong(), ppsidowner, ppsidgroup, ppdacl, ppsacl, ppsecuritydescriptor))
-    return Foundation.WIN32_ERROR()
+public fun GetNamedSecurityInfoA(pobjectname: PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, ppsidowner: Long, ppsidgroup: Long, ppdacl: Long, ppsacl: Long, ppsecuritydescriptor: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "GetNamedSecurityInfoA", longArrayOf(pobjectname, objecttype.toLong(), securityinfo.toLong(), ppsidowner, ppsidgroup, ppdacl, ppsacl, ppsecuritydescriptor)).toUInt()
 }
 
-public fun GetNamedSecurityInfoW(pobjectname: PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, ppsidowner: Long, ppsidgroup: Long, ppdacl: Long, ppsacl: Long, ppsecuritydescriptor: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "GetNamedSecurityInfoW", longArrayOf(pobjectname, objecttype.toLong(), securityinfo.toLong(), ppsidowner, ppsidgroup, ppdacl, ppsacl, ppsecuritydescriptor))
-    return Foundation.WIN32_ERROR()
+public fun GetNamedSecurityInfoW(pobjectname: PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, ppsidowner: Long, ppsidgroup: Long, ppdacl: Long, ppsacl: Long, ppsecuritydescriptor: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "GetNamedSecurityInfoW", longArrayOf(pobjectname, objecttype.toLong(), securityinfo.toLong(), ppsidowner, ppsidgroup, ppdacl, ppsacl, ppsecuritydescriptor)).toUInt()
 }
 
-public fun GetSecurityInfo(handle: Foundation.HANDLE, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, ppsidowner: Long, ppsidgroup: Long, ppdacl: Long, ppsacl: Long, ppsecuritydescriptor: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "GetSecurityInfo", longArrayOf(Win32DynamicFfi.objectSlot(handle), objecttype.toLong(), securityinfo.toLong(), ppsidowner, ppsidgroup, ppdacl, ppsacl, ppsecuritydescriptor))
-    return Foundation.WIN32_ERROR()
+public fun GetSecurityInfo(handle: HANDLE, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, ppsidowner: Long, ppsidgroup: Long, ppdacl: Long, ppsacl: Long, ppsecuritydescriptor: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "GetSecurityInfo", longArrayOf(handle, objecttype.toLong(), securityinfo.toLong(), ppsidowner, ppsidgroup, ppdacl, ppsacl, ppsecuritydescriptor)).toUInt()
 }
 
 public fun GetTrusteeFormA(ptrustee: Long): TRUSTEE_FORM {
@@ -357,57 +347,46 @@ public fun GetTrusteeTypeW(ptrustee: Long): TRUSTEE_TYPE {
     return Win32DynamicFfi.invoke("advapi32.dll", "GetTrusteeTypeW", longArrayOf(ptrustee)).toInt()
 }
 
-public fun LookupSecurityDescriptorPartsA(ppowner: Long, ppgroup: Long, pccountofaccessentries: Long, pplistofaccessentries: Long, pccountofauditentries: Long, pplistofauditentries: Long, psd: PSECURITY_DESCRIPTOR): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "LookupSecurityDescriptorPartsA", longArrayOf(ppowner, ppgroup, pccountofaccessentries, pplistofaccessentries, pccountofauditentries, pplistofauditentries, psd))
-    return Foundation.WIN32_ERROR()
+public fun LookupSecurityDescriptorPartsA(ppowner: Long, ppgroup: Long, pccountofaccessentries: Long, pplistofaccessentries: Long, pccountofauditentries: Long, pplistofauditentries: Long, psd: PSECURITY_DESCRIPTOR): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LookupSecurityDescriptorPartsA", longArrayOf(ppowner, ppgroup, pccountofaccessentries, pplistofaccessentries, pccountofauditentries, pplistofauditentries, psd)).toUInt()
 }
 
-public fun LookupSecurityDescriptorPartsW(ppowner: Long, ppgroup: Long, pccountofaccessentries: Long, pplistofaccessentries: Long, pccountofauditentries: Long, pplistofauditentries: Long, psd: PSECURITY_DESCRIPTOR): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "LookupSecurityDescriptorPartsW", longArrayOf(ppowner, ppgroup, pccountofaccessentries, pplistofaccessentries, pccountofauditentries, pplistofauditentries, psd))
-    return Foundation.WIN32_ERROR()
+public fun LookupSecurityDescriptorPartsW(ppowner: Long, ppgroup: Long, pccountofaccessentries: Long, pplistofaccessentries: Long, pccountofauditentries: Long, pplistofauditentries: Long, psd: PSECURITY_DESCRIPTOR): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "LookupSecurityDescriptorPartsW", longArrayOf(ppowner, ppgroup, pccountofaccessentries, pplistofaccessentries, pccountofauditentries, pplistofauditentries, psd)).toUInt()
 }
 
-public fun SetEntriesInAclA(ccountofexplicitentries: UInt, plistofexplicitentries: Long, oldacl: Long, newacl: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "SetEntriesInAclA", longArrayOf(ccountofexplicitentries.toLong(), plistofexplicitentries, oldacl, newacl))
-    return Foundation.WIN32_ERROR()
+public fun SetEntriesInAclA(ccountofexplicitentries: UInt, plistofexplicitentries: Long, oldacl: Long, newacl: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "SetEntriesInAclA", longArrayOf(ccountofexplicitentries.toLong(), plistofexplicitentries, oldacl, newacl)).toUInt()
 }
 
-public fun SetEntriesInAclW(ccountofexplicitentries: UInt, plistofexplicitentries: Long, oldacl: Long, newacl: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "SetEntriesInAclW", longArrayOf(ccountofexplicitentries.toLong(), plistofexplicitentries, oldacl, newacl))
-    return Foundation.WIN32_ERROR()
+public fun SetEntriesInAclW(ccountofexplicitentries: UInt, plistofexplicitentries: Long, oldacl: Long, newacl: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "SetEntriesInAclW", longArrayOf(ccountofexplicitentries.toLong(), plistofexplicitentries, oldacl, newacl)).toUInt()
 }
 
-public fun SetNamedSecurityInfoA(pobjectname: PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, psidowner: PSID, psidgroup: PSID, pdacl: Long, psacl: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "SetNamedSecurityInfoA", longArrayOf(pobjectname, objecttype.toLong(), securityinfo.toLong(), psidowner, psidgroup, pdacl, psacl))
-    return Foundation.WIN32_ERROR()
+public fun SetNamedSecurityInfoA(pobjectname: PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, psidowner: PSID, psidgroup: PSID, pdacl: Long, psacl: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "SetNamedSecurityInfoA", longArrayOf(pobjectname, objecttype.toLong(), securityinfo.toLong(), psidowner, psidgroup, pdacl, psacl)).toUInt()
 }
 
-public fun SetNamedSecurityInfoW(pobjectname: PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, psidowner: PSID, psidgroup: PSID, pdacl: Long, psacl: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "SetNamedSecurityInfoW", longArrayOf(pobjectname, objecttype.toLong(), securityinfo.toLong(), psidowner, psidgroup, pdacl, psacl))
-    return Foundation.WIN32_ERROR()
+public fun SetNamedSecurityInfoW(pobjectname: PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, psidowner: PSID, psidgroup: PSID, pdacl: Long, psacl: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "SetNamedSecurityInfoW", longArrayOf(pobjectname, objecttype.toLong(), securityinfo.toLong(), psidowner, psidgroup, pdacl, psacl)).toUInt()
 }
 
-public fun SetSecurityInfo(handle: Foundation.HANDLE, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, psidowner: PSID, psidgroup: PSID, pdacl: Long, psacl: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "SetSecurityInfo", longArrayOf(Win32DynamicFfi.objectSlot(handle), objecttype.toLong(), securityinfo.toLong(), psidowner, psidgroup, pdacl, psacl))
-    return Foundation.WIN32_ERROR()
+public fun SetSecurityInfo(handle: HANDLE, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, psidowner: PSID, psidgroup: PSID, pdacl: Long, psacl: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "SetSecurityInfo", longArrayOf(handle, objecttype.toLong(), securityinfo.toLong(), psidowner, psidgroup, pdacl, psacl)).toUInt()
 }
 
-public fun TreeResetNamedSecurityInfoA(pobjectname: PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, powner: PSID, pgroup: PSID, pdacl: Long, psacl: Long, keepexplicit: BOOL, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "TreeResetNamedSecurityInfoA", longArrayOf(pobjectname, objecttype.toLong(), securityinfo.toLong(), powner, pgroup, pdacl, psacl, keepexplicit.toLong(), Win32DynamicFfi.objectSlot(fnprogress), progressinvokesetting.toLong(), args))
-    return Foundation.WIN32_ERROR()
+public fun TreeResetNamedSecurityInfoA(pobjectname: PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, powner: PSID, pgroup: PSID, pdacl: Long, psacl: Long, keepexplicit: BOOL, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "TreeResetNamedSecurityInfoA", longArrayOf(pobjectname, objecttype.toLong(), securityinfo.toLong(), powner, pgroup, pdacl, psacl, keepexplicit.toLong(), Win32DynamicFfi.objectSlot(fnprogress), progressinvokesetting.toLong(), args)).toUInt()
 }
 
-public fun TreeResetNamedSecurityInfoW(pobjectname: PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, powner: PSID, pgroup: PSID, pdacl: Long, psacl: Long, keepexplicit: BOOL, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "TreeResetNamedSecurityInfoW", longArrayOf(pobjectname, objecttype.toLong(), securityinfo.toLong(), powner, pgroup, pdacl, psacl, keepexplicit.toLong(), Win32DynamicFfi.objectSlot(fnprogress), progressinvokesetting.toLong(), args))
-    return Foundation.WIN32_ERROR()
+public fun TreeResetNamedSecurityInfoW(pobjectname: PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, powner: PSID, pgroup: PSID, pdacl: Long, psacl: Long, keepexplicit: BOOL, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "TreeResetNamedSecurityInfoW", longArrayOf(pobjectname, objecttype.toLong(), securityinfo.toLong(), powner, pgroup, pdacl, psacl, keepexplicit.toLong(), Win32DynamicFfi.objectSlot(fnprogress), progressinvokesetting.toLong(), args)).toUInt()
 }
 
-public fun TreeSetNamedSecurityInfoA(pobjectname: PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, powner: PSID, pgroup: PSID, pdacl: Long, psacl: Long, dwaction: TREE_SEC_INFO, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "TreeSetNamedSecurityInfoA", longArrayOf(pobjectname, objecttype.toLong(), securityinfo.toLong(), powner, pgroup, pdacl, psacl, dwaction.toLong(), Win32DynamicFfi.objectSlot(fnprogress), progressinvokesetting.toLong(), args))
-    return Foundation.WIN32_ERROR()
+public fun TreeSetNamedSecurityInfoA(pobjectname: PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, powner: PSID, pgroup: PSID, pdacl: Long, psacl: Long, dwaction: TREE_SEC_INFO, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "TreeSetNamedSecurityInfoA", longArrayOf(pobjectname, objecttype.toLong(), securityinfo.toLong(), powner, pgroup, pdacl, psacl, dwaction.toLong(), Win32DynamicFfi.objectSlot(fnprogress), progressinvokesetting.toLong(), args)).toUInt()
 }
 
-public fun TreeSetNamedSecurityInfoW(pobjectname: PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, powner: PSID, pgroup: PSID, pdacl: Long, psacl: Long, dwaction: TREE_SEC_INFO, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("advapi32.dll", "TreeSetNamedSecurityInfoW", longArrayOf(pobjectname, objecttype.toLong(), securityinfo.toLong(), powner, pgroup, pdacl, psacl, dwaction.toLong(), Win32DynamicFfi.objectSlot(fnprogress), progressinvokesetting.toLong(), args))
-    return Foundation.WIN32_ERROR()
+public fun TreeSetNamedSecurityInfoW(pobjectname: PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: OBJECT_SECURITY_INFORMATION, powner: PSID, pgroup: PSID, pdacl: Long, psacl: Long, dwaction: TREE_SEC_INFO, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("advapi32.dll", "TreeSetNamedSecurityInfoW", longArrayOf(pobjectname, objecttype.toLong(), securityinfo.toLong(), powner, pgroup, pdacl, psacl, dwaction.toLong(), Win32DynamicFfi.objectSlot(fnprogress), progressinvokesetting.toLong(), args)).toUInt()
 }

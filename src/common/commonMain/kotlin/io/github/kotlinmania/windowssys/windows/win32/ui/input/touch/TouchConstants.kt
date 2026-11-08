@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.touch
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 
 public val GID_BEGIN: GESTURECONFIG_ID = 1u
@@ -18,7 +19,7 @@ public val GID_TWOFINGERTAP: GESTURECONFIG_ID = 6u
 
 public val GID_ZOOM: GESTURECONFIG_ID = 3u
 
-public val InertiaProcessor: GUID = GUID.from_u128(0xabb270874ce04e58uL, 0xa0cbe24df96814beuL)
+public val InertiaProcessor: GUID = GUID.from_u128(U128(0xabb270874ce04e58uL, 0xa0cbe24df96814beuL))
 
 public val MANIPULATION_ALL: MANIPULATION_PROCESSOR_MANIPULATIONS = 15
 
@@ -32,7 +33,7 @@ public val MANIPULATION_TRANSLATE_X: MANIPULATION_PROCESSOR_MANIPULATIONS = 1
 
 public val MANIPULATION_TRANSLATE_Y: MANIPULATION_PROCESSOR_MANIPULATIONS = 2
 
-public val ManipulationProcessor: GUID = GUID.from_u128(0x597d4fb047fd4affuL, 0x89b9c6cfae8cf08euL)
+public val ManipulationProcessor: GUID = GUID.from_u128(U128(0x597d4fb047fd4affuL, 0x89b9c6cfae8cf08euL))
 
 public val TOUCHEVENTF_DOWN: TOUCHEVENTF_FLAGS = 2u
 

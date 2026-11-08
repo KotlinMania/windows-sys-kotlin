@@ -6,6 +6,7 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 
 public typealias CallingConventionKind = Int
 
@@ -420,19 +421,19 @@ public fun interface PWINDBG_EXTENSION_DLL_INIT64Fn {
 public typealias PWINDBG_EXTENSION_DLL_INIT64 = PWINDBG_EXTENSION_DLL_INIT64Fn?
 
 public fun interface PWINDBG_EXTENSION_ROUTINEFn {
-    public operator fun invoke(hcurrentprocess: Foundation.HANDLE, hcurrentthread: Foundation.HANDLE, dwcurrentpc: UInt, dwprocessor: UInt, lpargumentstring: PCSTR)
+    public operator fun invoke(hcurrentprocess: HANDLE, hcurrentthread: HANDLE, dwcurrentpc: UInt, dwprocessor: UInt, lpargumentstring: PCSTR)
 }
 
 public typealias PWINDBG_EXTENSION_ROUTINE = PWINDBG_EXTENSION_ROUTINEFn?
 
 public fun interface PWINDBG_EXTENSION_ROUTINE32Fn {
-    public operator fun invoke(hcurrentprocess: Foundation.HANDLE, hcurrentthread: Foundation.HANDLE, dwcurrentpc: UInt, dwprocessor: UInt, lpargumentstring: PCSTR)
+    public operator fun invoke(hcurrentprocess: HANDLE, hcurrentthread: HANDLE, dwcurrentpc: UInt, dwprocessor: UInt, lpargumentstring: PCSTR)
 }
 
 public typealias PWINDBG_EXTENSION_ROUTINE32 = PWINDBG_EXTENSION_ROUTINE32Fn?
 
 public fun interface PWINDBG_EXTENSION_ROUTINE64Fn {
-    public operator fun invoke(hcurrentprocess: Foundation.HANDLE, hcurrentthread: Foundation.HANDLE, dwcurrentpc: ULong, dwprocessor: UInt, lpargumentstring: PCSTR)
+    public operator fun invoke(hcurrentprocess: HANDLE, hcurrentthread: HANDLE, dwcurrentpc: ULong, dwprocessor: UInt, lpargumentstring: PCSTR)
 }
 
 public typealias PWINDBG_EXTENSION_ROUTINE64 = PWINDBG_EXTENSION_ROUTINE64Fn?

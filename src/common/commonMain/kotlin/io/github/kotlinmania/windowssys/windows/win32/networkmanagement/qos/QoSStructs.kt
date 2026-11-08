@@ -3,8 +3,11 @@ package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos
 
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.FLOWSPEC
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.IN_ADDR
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NETWORK_ADDRESS_LIST
 
-public data class ADDRESS_LIST_DESCRIPTOR(public var MediaType: UInt = 0u, public var AddressList: Ndis.NETWORK_ADDRESS_LIST = Ndis.NETWORK_ADDRESS_LIST())
+public data class ADDRESS_LIST_DESCRIPTOR(public var MediaType: UInt = 0u, public var AddressList: NETWORK_ADDRESS_LIST = NETWORK_ADDRESS_LIST())
 
 public data class ADSPEC(public var adspec_header: RsvpObjHdr = RsvpObjHdr(), public var adspec_body: IS_ADSPEC_BODY = IS_ADSPEC_BODY())
 
@@ -77,7 +80,7 @@ public data class ERROR_SPEC(public var errs_header: RsvpObjHdr = RsvpObjHdr(), 
 public data class ERROR_SPEC_0(public var errs_ipv4: Error_Spec_IPv4 = Error_Spec_IPv4())
 
 public data class Error_Spec_IPv4(
-    public var errs_errnode: Networking.WinSock.IN_ADDR = Networking.WinSock.IN_ADDR(),
+    public var errs_errnode: IN_ADDR = IN_ADDR(),
     public var errs_flags: UByte = 0u,
     public var errs_code: UByte = 0u,
     public var errs_value: UShort = 0u,
@@ -88,7 +91,7 @@ public data class FILTER_SPEC(public var filt_header: RsvpObjHdr = RsvpObjHdr(),
 public data class FILTER_SPEC_0(public var filt_ipv4: Filter_Spec_IPv4 = Filter_Spec_IPv4(), public var filt_ipv4gpi: Filter_Spec_IPv4GPI = Filter_Spec_IPv4GPI())
 
 public data class FLOWDESCRIPTOR(
-    public var FlowSpec: Networking.WinSock.FLOWSPEC = Networking.WinSock.FLOWSPEC(),
+    public var FlowSpec: FLOWSPEC = FLOWSPEC(),
     public var NumFilters: UInt = 0u,
     public var FilterList: Long = 0L,
 )
@@ -100,12 +103,12 @@ public data class FLOW_DESC_0(public var stspec: Long = 0L, public var isflow: L
 public data class FLOW_DESC_1(public var stemp: Long = 0L, public var fspec: Long = 0L)
 
 public data class Filter_Spec_IPv4(
-    public var filt_ipaddr: Networking.WinSock.IN_ADDR = Networking.WinSock.IN_ADDR(),
+    public var filt_ipaddr: IN_ADDR = IN_ADDR(),
     public var filt_unused: UShort = 0u,
     public var filt_port: UShort = 0u,
 )
 
-public data class Filter_Spec_IPv4GPI(public var filt_ipaddr: Networking.WinSock.IN_ADDR = Networking.WinSock.IN_ADDR(), public var filt_gpi: UInt = 0u)
+public data class Filter_Spec_IPv4GPI(public var filt_ipaddr: IN_ADDR = IN_ADDR(), public var filt_gpi: UInt = 0u)
 
 public data class Gads_parms_t(
     public var Gads_serv_hdr: IntServServiceHdr = IntServServiceHdr(),
@@ -374,8 +377,8 @@ public data class IntServTspecBody_0(public var gen_stspec: GenTspec = GenTspec(
 public data class LPMIPTABLE(
     public var ulIfIndex: UInt = 0u,
     public var MediaType: UInt = 0u,
-    public var IfIpAddr: Networking.WinSock.IN_ADDR = Networking.WinSock.IN_ADDR(),
-    public var IfNetMask: Networking.WinSock.IN_ADDR = Networking.WinSock.IN_ADDR(),
+    public var IfIpAddr: IN_ADDR = IN_ADDR(),
+    public var IfNetMask: IN_ADDR = IN_ADDR(),
 )
 
 public data class LPM_INIT_INFO(
@@ -680,7 +683,7 @@ public data class RsvpObjHdr(
     public var obj_ctype: UByte = 0u,
 )
 
-public data class Rsvp_Hop_IPv4(public var hop_ipaddr: Networking.WinSock.IN_ADDR = Networking.WinSock.IN_ADDR(), public var hop_LIH: UInt = 0u)
+public data class Rsvp_Hop_IPv4(public var hop_ipaddr: IN_ADDR = IN_ADDR(), public var hop_LIH: UInt = 0u)
 
 public data class SENDER_TSPEC(public var stspec_header: RsvpObjHdr = RsvpObjHdr(), public var stspec_body: IntServTspecBody = IntServTspecBody())
 
@@ -822,10 +825,10 @@ public data class SIPAEVENT_VSM_IDK_RSA_INFO(
     }
 }
 
-public data class Scope_list_ipv4(public var scopl_ipaddr: List<Networking.WinSock.IN_ADDR> = List(1) { Networking.WinSock.IN_ADDR() })
+public data class Scope_list_ipv4(public var scopl_ipaddr: List<IN_ADDR> = List(1) { IN_ADDR() })
 
 public data class Session_IPv4(
-    public var sess_destaddr: Networking.WinSock.IN_ADDR = Networking.WinSock.IN_ADDR(),
+    public var sess_destaddr: IN_ADDR = IN_ADDR(),
     public var sess_protid: UByte = 0u,
     public var sess_flags: UByte = 0u,
     public var sess_destport: UShort = 0u,
@@ -896,8 +899,8 @@ public data class TC_GEN_FILTER(
 )
 
 public data class TC_GEN_FLOW(
-    public var SendingFlowspec: Networking.WinSock.FLOWSPEC = Networking.WinSock.FLOWSPEC(),
-    public var ReceivingFlowspec: Networking.WinSock.FLOWSPEC = Networking.WinSock.FLOWSPEC(),
+    public var SendingFlowspec: FLOWSPEC = FLOWSPEC(),
+    public var ReceivingFlowspec: FLOWSPEC = FLOWSPEC(),
     public var TcObjectsLength: UInt = 0u,
     public var TcObjects: List<QOS_OBJECT_HDR> = List(1) { QOS_OBJECT_HDR() },
 )

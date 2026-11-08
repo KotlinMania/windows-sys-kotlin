@@ -6,6 +6,9 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
 
 public fun interface FnCallback {
     public operator fun invoke(hdevice: UInt, dwmessage: UInt, dwinstance: ULong, dwparam1: ULong, dwparam2: ULong, dwparam3: ULong)
@@ -27,16 +30,16 @@ public fun lineAccept(hcall: UInt, lpsuseruserinfo: PCSTR, dwsize: UInt): Int {
     return Win32DynamicFfi.invoke("tapi32.dll", "lineAccept", longArrayOf(hcall.toLong(), lpsuseruserinfo, dwsize.toLong())).toInt()
 }
 
-public fun lineAddProvider(lpszproviderfilename: PCSTR, hwndowner: Foundation.HWND, lpdwpermanentproviderid: Long): Int {
-    return Win32DynamicFfi.invoke("tapi32.dll", "lineAddProvider", longArrayOf(lpszproviderfilename, Win32DynamicFfi.objectSlot(hwndowner), lpdwpermanentproviderid)).toInt()
+public fun lineAddProvider(lpszproviderfilename: PCSTR, hwndowner: HWND, lpdwpermanentproviderid: Long): Int {
+    return Win32DynamicFfi.invoke("tapi32.dll", "lineAddProvider", longArrayOf(lpszproviderfilename, hwndowner, lpdwpermanentproviderid)).toInt()
 }
 
-public fun lineAddProviderA(lpszproviderfilename: PCSTR, hwndowner: Foundation.HWND, lpdwpermanentproviderid: Long): Int {
-    return Win32DynamicFfi.invoke("tapi32.dll", "lineAddProviderA", longArrayOf(lpszproviderfilename, Win32DynamicFfi.objectSlot(hwndowner), lpdwpermanentproviderid)).toInt()
+public fun lineAddProviderA(lpszproviderfilename: PCSTR, hwndowner: HWND, lpdwpermanentproviderid: Long): Int {
+    return Win32DynamicFfi.invoke("tapi32.dll", "lineAddProviderA", longArrayOf(lpszproviderfilename, hwndowner, lpdwpermanentproviderid)).toInt()
 }
 
-public fun lineAddProviderW(lpszproviderfilename: PCWSTR, hwndowner: Foundation.HWND, lpdwpermanentproviderid: Long): Int {
-    return Win32DynamicFfi.invoke("tapi32.dll", "lineAddProviderW", longArrayOf(lpszproviderfilename, Win32DynamicFfi.objectSlot(hwndowner), lpdwpermanentproviderid)).toInt()
+public fun lineAddProviderW(lpszproviderfilename: PCWSTR, hwndowner: HWND, lpdwpermanentproviderid: Long): Int {
+    return Win32DynamicFfi.invoke("tapi32.dll", "lineAddProviderW", longArrayOf(lpszproviderfilename, hwndowner, lpdwpermanentproviderid)).toInt()
 }
 
 public fun lineAddToConference(hconfcall: UInt, hconsultcall: UInt): Int {
@@ -75,32 +78,32 @@ public fun lineCompleteTransfer(hcall: UInt, hconsultcall: UInt, lphconfcall: Lo
     return Win32DynamicFfi.invoke("tapi32.dll", "lineCompleteTransfer", longArrayOf(hcall.toLong(), hconsultcall.toLong(), lphconfcall, dwtransfermode.toLong())).toInt()
 }
 
-public fun lineConfigDialog(dwdeviceid: UInt, hwndowner: Foundation.HWND, lpszdeviceclass: PCSTR): Int {
-    return Win32DynamicFfi.invoke("tapi32.dll", "lineConfigDialog", longArrayOf(dwdeviceid.toLong(), Win32DynamicFfi.objectSlot(hwndowner), lpszdeviceclass)).toInt()
+public fun lineConfigDialog(dwdeviceid: UInt, hwndowner: HWND, lpszdeviceclass: PCSTR): Int {
+    return Win32DynamicFfi.invoke("tapi32.dll", "lineConfigDialog", longArrayOf(dwdeviceid.toLong(), hwndowner, lpszdeviceclass)).toInt()
 }
 
-public fun lineConfigDialogA(dwdeviceid: UInt, hwndowner: Foundation.HWND, lpszdeviceclass: PCSTR): Int {
-    return Win32DynamicFfi.invoke("tapi32.dll", "lineConfigDialogA", longArrayOf(dwdeviceid.toLong(), Win32DynamicFfi.objectSlot(hwndowner), lpszdeviceclass)).toInt()
+public fun lineConfigDialogA(dwdeviceid: UInt, hwndowner: HWND, lpszdeviceclass: PCSTR): Int {
+    return Win32DynamicFfi.invoke("tapi32.dll", "lineConfigDialogA", longArrayOf(dwdeviceid.toLong(), hwndowner, lpszdeviceclass)).toInt()
 }
 
-public fun lineConfigDialogEdit(dwdeviceid: UInt, hwndowner: Foundation.HWND, lpszdeviceclass: PCSTR, lpdeviceconfigin: Long, dwsize: UInt, lpdeviceconfigout: Long): Int {
-    return Win32DynamicFfi.invoke("tapi32.dll", "lineConfigDialogEdit", longArrayOf(dwdeviceid.toLong(), Win32DynamicFfi.objectSlot(hwndowner), lpszdeviceclass, lpdeviceconfigin, dwsize.toLong(), lpdeviceconfigout)).toInt()
+public fun lineConfigDialogEdit(dwdeviceid: UInt, hwndowner: HWND, lpszdeviceclass: PCSTR, lpdeviceconfigin: Long, dwsize: UInt, lpdeviceconfigout: Long): Int {
+    return Win32DynamicFfi.invoke("tapi32.dll", "lineConfigDialogEdit", longArrayOf(dwdeviceid.toLong(), hwndowner, lpszdeviceclass, lpdeviceconfigin, dwsize.toLong(), lpdeviceconfigout)).toInt()
 }
 
-public fun lineConfigDialogEditA(dwdeviceid: UInt, hwndowner: Foundation.HWND, lpszdeviceclass: PCSTR, lpdeviceconfigin: Long, dwsize: UInt, lpdeviceconfigout: Long): Int {
-    return Win32DynamicFfi.invoke("tapi32.dll", "lineConfigDialogEditA", longArrayOf(dwdeviceid.toLong(), Win32DynamicFfi.objectSlot(hwndowner), lpszdeviceclass, lpdeviceconfigin, dwsize.toLong(), lpdeviceconfigout)).toInt()
+public fun lineConfigDialogEditA(dwdeviceid: UInt, hwndowner: HWND, lpszdeviceclass: PCSTR, lpdeviceconfigin: Long, dwsize: UInt, lpdeviceconfigout: Long): Int {
+    return Win32DynamicFfi.invoke("tapi32.dll", "lineConfigDialogEditA", longArrayOf(dwdeviceid.toLong(), hwndowner, lpszdeviceclass, lpdeviceconfigin, dwsize.toLong(), lpdeviceconfigout)).toInt()
 }
 
-public fun lineConfigDialogEditW(dwdeviceid: UInt, hwndowner: Foundation.HWND, lpszdeviceclass: PCWSTR, lpdeviceconfigin: Long, dwsize: UInt, lpdeviceconfigout: Long): Int {
-    return Win32DynamicFfi.invoke("tapi32.dll", "lineConfigDialogEditW", longArrayOf(dwdeviceid.toLong(), Win32DynamicFfi.objectSlot(hwndowner), lpszdeviceclass, lpdeviceconfigin, dwsize.toLong(), lpdeviceconfigout)).toInt()
+public fun lineConfigDialogEditW(dwdeviceid: UInt, hwndowner: HWND, lpszdeviceclass: PCWSTR, lpdeviceconfigin: Long, dwsize: UInt, lpdeviceconfigout: Long): Int {
+    return Win32DynamicFfi.invoke("tapi32.dll", "lineConfigDialogEditW", longArrayOf(dwdeviceid.toLong(), hwndowner, lpszdeviceclass, lpdeviceconfigin, dwsize.toLong(), lpdeviceconfigout)).toInt()
 }
 
-public fun lineConfigDialogW(dwdeviceid: UInt, hwndowner: Foundation.HWND, lpszdeviceclass: PCWSTR): Int {
-    return Win32DynamicFfi.invoke("tapi32.dll", "lineConfigDialogW", longArrayOf(dwdeviceid.toLong(), Win32DynamicFfi.objectSlot(hwndowner), lpszdeviceclass)).toInt()
+public fun lineConfigDialogW(dwdeviceid: UInt, hwndowner: HWND, lpszdeviceclass: PCWSTR): Int {
+    return Win32DynamicFfi.invoke("tapi32.dll", "lineConfigDialogW", longArrayOf(dwdeviceid.toLong(), hwndowner, lpszdeviceclass)).toInt()
 }
 
-public fun lineConfigProvider(hwndowner: Foundation.HWND, dwpermanentproviderid: UInt): Int {
-    return Win32DynamicFfi.invoke("tapi32.dll", "lineConfigProvider", longArrayOf(Win32DynamicFfi.objectSlot(hwndowner), dwpermanentproviderid.toLong())).toInt()
+public fun lineConfigProvider(hwndowner: HWND, dwpermanentproviderid: UInt): Int {
+    return Win32DynamicFfi.invoke("tapi32.dll", "lineConfigProvider", longArrayOf(hwndowner, dwpermanentproviderid.toLong())).toInt()
 }
 
 public fun lineCreateAgentA(hline: UInt, lpszagentid: PCSTR, lpszagentpin: PCSTR, lphagent: Long): Int {
@@ -463,16 +466,16 @@ public fun lineHold(hcall: UInt): Int {
     return Win32DynamicFfi.invoke("tapi32.dll", "lineHold", longArrayOf(hcall.toLong())).toInt()
 }
 
-public fun lineInitialize(lphlineapp: Long, hinstance: Foundation.HINSTANCE, lpfncallback: LINECALLBACK, lpszappname: PCSTR, lpdwnumdevs: Long): Int {
-    return Win32DynamicFfi.invoke("tapi32.dll", "lineInitialize", longArrayOf(lphlineapp, Win32DynamicFfi.objectSlot(hinstance), Win32DynamicFfi.objectSlot(lpfncallback), lpszappname, lpdwnumdevs)).toInt()
+public fun lineInitialize(lphlineapp: Long, hinstance: HINSTANCE, lpfncallback: LINECALLBACK, lpszappname: PCSTR, lpdwnumdevs: Long): Int {
+    return Win32DynamicFfi.invoke("tapi32.dll", "lineInitialize", longArrayOf(lphlineapp, hinstance, Win32DynamicFfi.objectSlot(lpfncallback), lpszappname, lpdwnumdevs)).toInt()
 }
 
-public fun lineInitializeExA(lphlineapp: Long, hinstance: Foundation.HINSTANCE, lpfncallback: LINECALLBACK, lpszfriendlyappname: PCSTR, lpdwnumdevs: Long, lpdwapiversion: Long, lplineinitializeexparams: Long): Int {
-    return Win32DynamicFfi.invoke("tapi32.dll", "lineInitializeExA", longArrayOf(lphlineapp, Win32DynamicFfi.objectSlot(hinstance), Win32DynamicFfi.objectSlot(lpfncallback), lpszfriendlyappname, lpdwnumdevs, lpdwapiversion, lplineinitializeexparams)).toInt()
+public fun lineInitializeExA(lphlineapp: Long, hinstance: HINSTANCE, lpfncallback: LINECALLBACK, lpszfriendlyappname: PCSTR, lpdwnumdevs: Long, lpdwapiversion: Long, lplineinitializeexparams: Long): Int {
+    return Win32DynamicFfi.invoke("tapi32.dll", "lineInitializeExA", longArrayOf(lphlineapp, hinstance, Win32DynamicFfi.objectSlot(lpfncallback), lpszfriendlyappname, lpdwnumdevs, lpdwapiversion, lplineinitializeexparams)).toInt()
 }
 
-public fun lineInitializeExW(lphlineapp: Long, hinstance: Foundation.HINSTANCE, lpfncallback: LINECALLBACK, lpszfriendlyappname: PCWSTR, lpdwnumdevs: Long, lpdwapiversion: Long, lplineinitializeexparams: Long): Int {
-    return Win32DynamicFfi.invoke("tapi32.dll", "lineInitializeExW", longArrayOf(lphlineapp, Win32DynamicFfi.objectSlot(hinstance), Win32DynamicFfi.objectSlot(lpfncallback), lpszfriendlyappname, lpdwnumdevs, lpdwapiversion, lplineinitializeexparams)).toInt()
+public fun lineInitializeExW(lphlineapp: Long, hinstance: HINSTANCE, lpfncallback: LINECALLBACK, lpszfriendlyappname: PCWSTR, lpdwnumdevs: Long, lpdwapiversion: Long, lplineinitializeexparams: Long): Int {
+    return Win32DynamicFfi.invoke("tapi32.dll", "lineInitializeExW", longArrayOf(lphlineapp, hinstance, Win32DynamicFfi.objectSlot(lpfncallback), lpszfriendlyappname, lpdwnumdevs, lpdwapiversion, lplineinitializeexparams)).toInt()
 }
 
 public fun lineMakeCall(hline: UInt, lphcall: Long, lpszdestaddress: PCSTR, dwcountrycode: UInt, lpcallparams: Long): Int {
@@ -587,8 +590,8 @@ public fun lineRemoveFromConference(hcall: UInt): Int {
     return Win32DynamicFfi.invoke("tapi32.dll", "lineRemoveFromConference", longArrayOf(hcall.toLong())).toInt()
 }
 
-public fun lineRemoveProvider(dwpermanentproviderid: UInt, hwndowner: Foundation.HWND): Int {
-    return Win32DynamicFfi.invoke("tapi32.dll", "lineRemoveProvider", longArrayOf(dwpermanentproviderid.toLong(), Win32DynamicFfi.objectSlot(hwndowner))).toInt()
+public fun lineRemoveProvider(dwpermanentproviderid: UInt, hwndowner: HWND): Int {
+    return Win32DynamicFfi.invoke("tapi32.dll", "lineRemoveProvider", longArrayOf(dwpermanentproviderid.toLong(), hwndowner)).toInt()
 }
 
 public fun lineSecureCall(hcall: UInt): Int {
@@ -759,16 +762,16 @@ public fun lineTranslateAddressW(hlineapp: UInt, dwdeviceid: UInt, dwapiversion:
     return Win32DynamicFfi.invoke("tapi32.dll", "lineTranslateAddressW", longArrayOf(hlineapp.toLong(), dwdeviceid.toLong(), dwapiversion.toLong(), lpszaddressin, dwcard.toLong(), dwtranslateoptions.toLong(), lptranslateoutput)).toInt()
 }
 
-public fun lineTranslateDialog(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, hwndowner: Foundation.HWND, lpszaddressin: PCSTR): Int {
-    return Win32DynamicFfi.invoke("tapi32.dll", "lineTranslateDialog", longArrayOf(hlineapp.toLong(), dwdeviceid.toLong(), dwapiversion.toLong(), Win32DynamicFfi.objectSlot(hwndowner), lpszaddressin)).toInt()
+public fun lineTranslateDialog(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, hwndowner: HWND, lpszaddressin: PCSTR): Int {
+    return Win32DynamicFfi.invoke("tapi32.dll", "lineTranslateDialog", longArrayOf(hlineapp.toLong(), dwdeviceid.toLong(), dwapiversion.toLong(), hwndowner, lpszaddressin)).toInt()
 }
 
-public fun lineTranslateDialogA(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, hwndowner: Foundation.HWND, lpszaddressin: PCSTR): Int {
-    return Win32DynamicFfi.invoke("tapi32.dll", "lineTranslateDialogA", longArrayOf(hlineapp.toLong(), dwdeviceid.toLong(), dwapiversion.toLong(), Win32DynamicFfi.objectSlot(hwndowner), lpszaddressin)).toInt()
+public fun lineTranslateDialogA(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, hwndowner: HWND, lpszaddressin: PCSTR): Int {
+    return Win32DynamicFfi.invoke("tapi32.dll", "lineTranslateDialogA", longArrayOf(hlineapp.toLong(), dwdeviceid.toLong(), dwapiversion.toLong(), hwndowner, lpszaddressin)).toInt()
 }
 
-public fun lineTranslateDialogW(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, hwndowner: Foundation.HWND, lpszaddressin: PCWSTR): Int {
-    return Win32DynamicFfi.invoke("tapi32.dll", "lineTranslateDialogW", longArrayOf(hlineapp.toLong(), dwdeviceid.toLong(), dwapiversion.toLong(), Win32DynamicFfi.objectSlot(hwndowner), lpszaddressin)).toInt()
+public fun lineTranslateDialogW(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, hwndowner: HWND, lpszaddressin: PCWSTR): Int {
+    return Win32DynamicFfi.invoke("tapi32.dll", "lineTranslateDialogW", longArrayOf(hlineapp.toLong(), dwdeviceid.toLong(), dwapiversion.toLong(), hwndowner, lpszaddressin)).toInt()
 }
 
 public fun lineUncompleteCall(hline: UInt, dwcompletionid: UInt): Int {
@@ -795,16 +798,16 @@ public fun phoneClose(hphone: UInt): Int {
     return Win32DynamicFfi.invoke("tapi32.dll", "phoneClose", longArrayOf(hphone.toLong())).toInt()
 }
 
-public fun phoneConfigDialog(dwdeviceid: UInt, hwndowner: Foundation.HWND, lpszdeviceclass: PCSTR): Int {
-    return Win32DynamicFfi.invoke("tapi32.dll", "phoneConfigDialog", longArrayOf(dwdeviceid.toLong(), Win32DynamicFfi.objectSlot(hwndowner), lpszdeviceclass)).toInt()
+public fun phoneConfigDialog(dwdeviceid: UInt, hwndowner: HWND, lpszdeviceclass: PCSTR): Int {
+    return Win32DynamicFfi.invoke("tapi32.dll", "phoneConfigDialog", longArrayOf(dwdeviceid.toLong(), hwndowner, lpszdeviceclass)).toInt()
 }
 
-public fun phoneConfigDialogA(dwdeviceid: UInt, hwndowner: Foundation.HWND, lpszdeviceclass: PCSTR): Int {
-    return Win32DynamicFfi.invoke("tapi32.dll", "phoneConfigDialogA", longArrayOf(dwdeviceid.toLong(), Win32DynamicFfi.objectSlot(hwndowner), lpszdeviceclass)).toInt()
+public fun phoneConfigDialogA(dwdeviceid: UInt, hwndowner: HWND, lpszdeviceclass: PCSTR): Int {
+    return Win32DynamicFfi.invoke("tapi32.dll", "phoneConfigDialogA", longArrayOf(dwdeviceid.toLong(), hwndowner, lpszdeviceclass)).toInt()
 }
 
-public fun phoneConfigDialogW(dwdeviceid: UInt, hwndowner: Foundation.HWND, lpszdeviceclass: PCWSTR): Int {
-    return Win32DynamicFfi.invoke("tapi32.dll", "phoneConfigDialogW", longArrayOf(dwdeviceid.toLong(), Win32DynamicFfi.objectSlot(hwndowner), lpszdeviceclass)).toInt()
+public fun phoneConfigDialogW(dwdeviceid: UInt, hwndowner: HWND, lpszdeviceclass: PCWSTR): Int {
+    return Win32DynamicFfi.invoke("tapi32.dll", "phoneConfigDialogW", longArrayOf(dwdeviceid.toLong(), hwndowner, lpszdeviceclass)).toInt()
 }
 
 public fun phoneDevSpecific(hphone: UInt, lpparams: Long, dwsize: UInt): Int {
@@ -907,16 +910,16 @@ public fun phoneGetVolume(hphone: UInt, dwhookswitchdev: UInt, lpdwvolume: Long)
     return Win32DynamicFfi.invoke("tapi32.dll", "phoneGetVolume", longArrayOf(hphone.toLong(), dwhookswitchdev.toLong(), lpdwvolume)).toInt()
 }
 
-public fun phoneInitialize(lphphoneapp: Long, hinstance: Foundation.HINSTANCE, lpfncallback: PHONECALLBACK, lpszappname: PCSTR, lpdwnumdevs: Long): Int {
-    return Win32DynamicFfi.invoke("tapi32.dll", "phoneInitialize", longArrayOf(lphphoneapp, Win32DynamicFfi.objectSlot(hinstance), Win32DynamicFfi.objectSlot(lpfncallback), lpszappname, lpdwnumdevs)).toInt()
+public fun phoneInitialize(lphphoneapp: Long, hinstance: HINSTANCE, lpfncallback: PHONECALLBACK, lpszappname: PCSTR, lpdwnumdevs: Long): Int {
+    return Win32DynamicFfi.invoke("tapi32.dll", "phoneInitialize", longArrayOf(lphphoneapp, hinstance, Win32DynamicFfi.objectSlot(lpfncallback), lpszappname, lpdwnumdevs)).toInt()
 }
 
-public fun phoneInitializeExA(lphphoneapp: Long, hinstance: Foundation.HINSTANCE, lpfncallback: PHONECALLBACK, lpszfriendlyappname: PCSTR, lpdwnumdevs: Long, lpdwapiversion: Long, lpphoneinitializeexparams: Long): Int {
-    return Win32DynamicFfi.invoke("tapi32.dll", "phoneInitializeExA", longArrayOf(lphphoneapp, Win32DynamicFfi.objectSlot(hinstance), Win32DynamicFfi.objectSlot(lpfncallback), lpszfriendlyappname, lpdwnumdevs, lpdwapiversion, lpphoneinitializeexparams)).toInt()
+public fun phoneInitializeExA(lphphoneapp: Long, hinstance: HINSTANCE, lpfncallback: PHONECALLBACK, lpszfriendlyappname: PCSTR, lpdwnumdevs: Long, lpdwapiversion: Long, lpphoneinitializeexparams: Long): Int {
+    return Win32DynamicFfi.invoke("tapi32.dll", "phoneInitializeExA", longArrayOf(lphphoneapp, hinstance, Win32DynamicFfi.objectSlot(lpfncallback), lpszfriendlyappname, lpdwnumdevs, lpdwapiversion, lpphoneinitializeexparams)).toInt()
 }
 
-public fun phoneInitializeExW(lphphoneapp: Long, hinstance: Foundation.HINSTANCE, lpfncallback: PHONECALLBACK, lpszfriendlyappname: PCWSTR, lpdwnumdevs: Long, lpdwapiversion: Long, lpphoneinitializeexparams: Long): Int {
-    return Win32DynamicFfi.invoke("tapi32.dll", "phoneInitializeExW", longArrayOf(lphphoneapp, Win32DynamicFfi.objectSlot(hinstance), Win32DynamicFfi.objectSlot(lpfncallback), lpszfriendlyappname, lpdwnumdevs, lpdwapiversion, lpphoneinitializeexparams)).toInt()
+public fun phoneInitializeExW(lphphoneapp: Long, hinstance: HINSTANCE, lpfncallback: PHONECALLBACK, lpszfriendlyappname: PCWSTR, lpdwnumdevs: Long, lpdwapiversion: Long, lpphoneinitializeexparams: Long): Int {
+    return Win32DynamicFfi.invoke("tapi32.dll", "phoneInitializeExW", longArrayOf(lphphoneapp, hinstance, Win32DynamicFfi.objectSlot(lpfncallback), lpszfriendlyappname, lpdwnumdevs, lpdwapiversion, lpphoneinitializeexparams)).toInt()
 }
 
 public fun phoneNegotiateAPIVersion(hphoneapp: UInt, dwdeviceid: UInt, dwapilowversion: UInt, dwapihighversion: UInt, lpdwapiversion: Long, lpextensionid: Long): Int {
@@ -991,8 +994,8 @@ public fun tapiGetLocationInfoW(lpszcountrycodew: PWSTR, lpszcitycodew: PWSTR): 
     return Win32DynamicFfi.invoke("tapi32.dll", "tapiGetLocationInfoW", longArrayOf(lpszcountrycodew, lpszcitycodew)).toInt()
 }
 
-public fun tapiRequestDrop(hwnd: Foundation.HWND, wrequestid: Foundation.WPARAM): Int {
-    return Win32DynamicFfi.invoke("tapi32.dll", "tapiRequestDrop", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), Win32DynamicFfi.objectSlot(wrequestid))).toInt()
+public fun tapiRequestDrop(hwnd: HWND, wrequestid: WPARAM): Int {
+    return Win32DynamicFfi.invoke("tapi32.dll", "tapiRequestDrop", longArrayOf(hwnd, wrequestid.toLong())).toInt()
 }
 
 public fun tapiRequestMakeCall(lpszdestaddress: PCSTR, lpszappname: PCSTR, lpszcalledparty: PCSTR, lpszcomment: PCSTR): Int {
@@ -1007,14 +1010,14 @@ public fun tapiRequestMakeCallW(lpszdestaddress: PCWSTR, lpszappname: PCWSTR, lp
     return Win32DynamicFfi.invoke("tapi32.dll", "tapiRequestMakeCallW", longArrayOf(lpszdestaddress, lpszappname, lpszcalledparty, lpszcomment)).toInt()
 }
 
-public fun tapiRequestMediaCall(hwnd: Foundation.HWND, wrequestid: Foundation.WPARAM, lpszdeviceclass: PCSTR, lpdeviceid: PCSTR, dwsize: UInt, dwsecure: UInt, lpszdestaddress: PCSTR, lpszappname: PCSTR, lpszcalledparty: PCSTR, lpszcomment: PCSTR): Int {
-    return Win32DynamicFfi.invoke("tapi32.dll", "tapiRequestMediaCall", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), Win32DynamicFfi.objectSlot(wrequestid), lpszdeviceclass, lpdeviceid, dwsize.toLong(), dwsecure.toLong(), lpszdestaddress, lpszappname, lpszcalledparty, lpszcomment)).toInt()
+public fun tapiRequestMediaCall(hwnd: HWND, wrequestid: WPARAM, lpszdeviceclass: PCSTR, lpdeviceid: PCSTR, dwsize: UInt, dwsecure: UInt, lpszdestaddress: PCSTR, lpszappname: PCSTR, lpszcalledparty: PCSTR, lpszcomment: PCSTR): Int {
+    return Win32DynamicFfi.invoke("tapi32.dll", "tapiRequestMediaCall", longArrayOf(hwnd, wrequestid.toLong(), lpszdeviceclass, lpdeviceid, dwsize.toLong(), dwsecure.toLong(), lpszdestaddress, lpszappname, lpszcalledparty, lpszcomment)).toInt()
 }
 
-public fun tapiRequestMediaCallA(hwnd: Foundation.HWND, wrequestid: Foundation.WPARAM, lpszdeviceclass: PCSTR, lpdeviceid: PCSTR, dwsize: UInt, dwsecure: UInt, lpszdestaddress: PCSTR, lpszappname: PCSTR, lpszcalledparty: PCSTR, lpszcomment: PCSTR): Int {
-    return Win32DynamicFfi.invoke("tapi32.dll", "tapiRequestMediaCallA", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), Win32DynamicFfi.objectSlot(wrequestid), lpszdeviceclass, lpdeviceid, dwsize.toLong(), dwsecure.toLong(), lpszdestaddress, lpszappname, lpszcalledparty, lpszcomment)).toInt()
+public fun tapiRequestMediaCallA(hwnd: HWND, wrequestid: WPARAM, lpszdeviceclass: PCSTR, lpdeviceid: PCSTR, dwsize: UInt, dwsecure: UInt, lpszdestaddress: PCSTR, lpszappname: PCSTR, lpszcalledparty: PCSTR, lpszcomment: PCSTR): Int {
+    return Win32DynamicFfi.invoke("tapi32.dll", "tapiRequestMediaCallA", longArrayOf(hwnd, wrequestid.toLong(), lpszdeviceclass, lpdeviceid, dwsize.toLong(), dwsecure.toLong(), lpszdestaddress, lpszappname, lpszcalledparty, lpszcomment)).toInt()
 }
 
-public fun tapiRequestMediaCallW(hwnd: Foundation.HWND, wrequestid: Foundation.WPARAM, lpszdeviceclass: PCWSTR, lpdeviceid: PCWSTR, dwsize: UInt, dwsecure: UInt, lpszdestaddress: PCWSTR, lpszappname: PCWSTR, lpszcalledparty: PCWSTR, lpszcomment: PCWSTR): Int {
-    return Win32DynamicFfi.invoke("tapi32.dll", "tapiRequestMediaCallW", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), Win32DynamicFfi.objectSlot(wrequestid), lpszdeviceclass, lpdeviceid, dwsize.toLong(), dwsecure.toLong(), lpszdestaddress, lpszappname, lpszcalledparty, lpszcomment)).toInt()
+public fun tapiRequestMediaCallW(hwnd: HWND, wrequestid: WPARAM, lpszdeviceclass: PCWSTR, lpdeviceid: PCWSTR, dwsize: UInt, dwsecure: UInt, lpszdestaddress: PCWSTR, lpszappname: PCWSTR, lpszcalledparty: PCWSTR, lpszcomment: PCWSTR): Int {
+    return Win32DynamicFfi.invoke("tapi32.dll", "tapiRequestMediaCallW", longArrayOf(hwnd, wrequestid.toLong(), lpszdeviceclass, lpdeviceid, dwsize.toLong(), dwsecure.toLong(), lpszdestaddress, lpszappname, lpszcalledparty, lpszcomment)).toInt()
 }

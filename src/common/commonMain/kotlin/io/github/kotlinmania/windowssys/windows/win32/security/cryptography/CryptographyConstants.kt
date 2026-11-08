@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
@@ -1035,13 +1036,13 @@ public val CCP_CONTAINER_INFO: PCWSTR = w("Container Info")
 
 public val CCP_PIN_IDENTIFIER: PCWSTR = w("PIN Identifier")
 
-public val CCertSrvSetup: GUID = GUID.from_u128(0x961f180ff55c413duL, 0xa9b37d2af4d8e42fuL)
+public val CCertSrvSetup: GUID = GUID.from_u128(U128(0x961f180ff55c413duL, 0xa9b37d2af4d8e42fuL))
 
-public val CCertSrvSetupKeyInformation: GUID = GUID.from_u128(0x3837390654334633uL, 0xb0fb29b7e78262e1uL)
+public val CCertSrvSetupKeyInformation: GUID = GUID.from_u128(U128(0x3837390654334633uL, 0xb0fb29b7e78262e1uL))
 
-public val CCertificateEnrollmentPolicyServerSetup: GUID = GUID.from_u128(0xafe2fa3241b1459duL, 0xa5de49add8a72182uL)
+public val CCertificateEnrollmentPolicyServerSetup: GUID = GUID.from_u128(U128(0xafe2fa3241b1459duL, 0xa5de49add8a72182uL))
 
-public val CCertificateEnrollmentServerSetup: GUID = GUID.from_u128(0x9902f3bc88af4cf8uL, 0xae627140531552b6uL)
+public val CCertificateEnrollmentServerSetup: GUID = GUID.from_u128(U128(0x9902f3bc88af4cf8uL, 0xae627140531552b6uL))
 
 public val CERT_ACCESS_STATE_GP_SYSTEM_STORE_FLAG: UInt = 8u
 
@@ -2795,7 +2796,7 @@ public val CMC_STATUS_SUCCESS: UInt = 0u
 
 public val CMC_TAGGED_CERT_REQUEST_CHOICE: UInt = 1u
 
-public val CMSCEPSetup: GUID = GUID.from_u128(0xaa4f5c028e7c49c4uL, 0x94fa67a5cc5eadb4uL)
+public val CMSCEPSetup: GUID = GUID.from_u128(U128(0xaa4f5c028e7c49c4uL, 0x94fa67a5cc5eadb4uL))
 
 public val CMSG_ATTR_CERT_COUNT_PARAM: UInt = 31u
 

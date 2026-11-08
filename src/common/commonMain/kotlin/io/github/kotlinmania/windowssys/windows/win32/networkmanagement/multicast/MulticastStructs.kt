@@ -1,6 +1,8 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.multicast
 
+import io.github.kotlinmania.windowssys.windows.win32.foundation.UNICODE_STRING
+
 public data class IPNG_ADDRESS(public var IpAddrV4: UInt = 0u, public var IpAddrV6: UByteArray = UByteArray(16)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -48,5 +50,5 @@ public data class MCAST_SCOPE_ENTRY(
     public var ScopeCtx: MCAST_SCOPE_CTX = MCAST_SCOPE_CTX(),
     public var LastAddr: IPNG_ADDRESS = IPNG_ADDRESS(),
     public var TTL: UInt = 0u,
-    public var ScopeDesc: Foundation.UNICODE_STRING = Foundation.UNICODE_STRING(),
+    public var ScopeDesc: UNICODE_STRING = UNICODE_STRING(),
 )

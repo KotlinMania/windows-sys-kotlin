@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.networking.clustering
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
@@ -246,7 +247,7 @@ public val DNS_LENGTH: UInt = 64u
 
 public val DoNotFailbackGroups: CLUSTER_NODE_RESUME_FAILBACK_TYPE = 0
 
-public val DomainNames: GUID = GUID.from_u128(0xf2e606e1263111d1uL, 0x89f100a0c90d061euL)
+public val DomainNames: GUID = GUID.from_u128(U128(0xf2e606e1263111d1uL, 0x89f100a0c90d061euL))
 
 public val ENABLE_CLUSTER_SHARED_VOLUMES: PCWSTR = w("EnableSharedVolumes")
 

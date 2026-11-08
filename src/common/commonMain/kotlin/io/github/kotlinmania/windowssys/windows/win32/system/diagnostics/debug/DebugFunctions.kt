@@ -8,6 +8,13 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.EXCEPTION_ROUTINE
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.EXCEPTION_ROUTINEFn
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.MESSAGEBOX_STYLE
 
 public fun interface FnCallback {
     public operator fun invoke(exceptioninfo: Long): Int
@@ -38,11 +45,11 @@ public fun interface FnCallback6 {
 }
 
 public fun interface FnCallback7 {
-    public operator fun invoke(filehandle: Foundation.HANDLE, filename: PCSTR, callerdata: Long): BOOL
+    public operator fun invoke(filehandle: HANDLE, filename: PCSTR, callerdata: Long): BOOL
 }
 
 public fun interface FnCallback8 {
-    public operator fun invoke(filehandle: Foundation.HANDLE, filename: PCWSTR, callerdata: Long): BOOL
+    public operator fun invoke(filehandle: HANDLE, filename: PCWSTR, callerdata: Long): BOOL
 }
 
 public fun interface FnCallback9 {
@@ -70,23 +77,23 @@ public fun interface FnCallback14 {
 }
 
 public fun interface FnCallback15 {
-    public operator fun invoke(hprocess: Foundation.HANDLE, qwbaseaddress: ULong, lpbuffer: Long, nsize: UInt, lpnumberofbytesread: Long): BOOL
+    public operator fun invoke(hprocess: HANDLE, qwbaseaddress: ULong, lpbuffer: Long, nsize: UInt, lpnumberofbytesread: Long): BOOL
 }
 
 public fun interface FnCallback16 {
-    public operator fun invoke(ahprocess: Foundation.HANDLE, addrbase: ULong): Long
+    public operator fun invoke(ahprocess: HANDLE, addrbase: ULong): Long
 }
 
 public fun interface FnCallback17 {
-    public operator fun invoke(hprocess: Foundation.HANDLE, address: ULong): ULong
+    public operator fun invoke(hprocess: HANDLE, address: ULong): ULong
 }
 
 public fun interface FnCallback18 {
-    public operator fun invoke(hprocess: Foundation.HANDLE, hthread: Foundation.HANDLE, lpaddr: Long): ULong
+    public operator fun invoke(hprocess: HANDLE, hthread: HANDLE, lpaddr: Long): ULong
 }
 
 public fun interface FnCallback19 {
-    public operator fun invoke(hprocess: Foundation.HANDLE, attribute: UInt, attributedata: ULong, attributevalue: Long): BOOL
+    public operator fun invoke(hprocess: HANDLE, attribute: UInt, attributedata: ULong, attributevalue: Long): BOOL
 }
 
 public fun interface FnCallback20 {
@@ -94,7 +101,7 @@ public fun interface FnCallback20 {
 }
 
 public fun interface FnCallback21 {
-    public operator fun invoke(hprocess: Foundation.HANDLE, usercontext: Long): BOOL
+    public operator fun invoke(hprocess: HANDLE, usercontext: Long): BOOL
 }
 
 public fun interface FnCallback22 {
@@ -114,11 +121,11 @@ public fun interface FnCallback25 {
 }
 
 public fun interface FnCallback26 {
-    public operator fun invoke(hprocess: Foundation.HANDLE, actioncode: UInt, callbackdata: ULong, usercontext: ULong): BOOL
+    public operator fun invoke(hprocess: HANDLE, actioncode: UInt, callbackdata: ULong, usercontext: ULong): BOOL
 }
 
 public fun interface FnCallback27 {
-    public operator fun invoke(hprocess: Foundation.HANDLE, addrbase: ULong, usercontext: ULong): Long
+    public operator fun invoke(hprocess: HANDLE, addrbase: ULong, usercontext: ULong): Long
 }
 
 public fun AddVectoredContinueHandler(first: UInt, handler: PVECTORED_EXCEPTION_HANDLER): Long {
@@ -141,8 +148,8 @@ public fun BindImageEx(flags: UInt, imagename: PCSTR, dllpath: PCSTR, symbolpath
     return Win32DynamicFfi.invoke("imagehlp.dll", "BindImageEx", longArrayOf(flags.toLong(), imagename, dllpath, symbolpath, Win32DynamicFfi.objectSlot(statusroutine))).toInt()
 }
 
-public fun CheckRemoteDebuggerPresent(hprocess: Foundation.HANDLE, pbdebuggerpresent: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "CheckRemoteDebuggerPresent", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), pbdebuggerpresent)).toInt()
+public fun CheckRemoteDebuggerPresent(hprocess: HANDLE, pbdebuggerpresent: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CheckRemoteDebuggerPresent", longArrayOf(hprocess, pbdebuggerpresent)).toInt()
 }
 
 public fun CheckSumMappedFile(baseaddress: Long, filelength: UInt, headersum: Long, checksum: Long): Long {
@@ -153,8 +160,8 @@ public fun CloseThreadWaitChainSession(wcthandle: Long) {
     Win32DynamicFfi.invoke("advapi32.dll", "CloseThreadWaitChainSession", longArrayOf(wcthandle))
 }
 
-public fun ContinueDebugEvent(dwprocessid: UInt, dwthreadid: UInt, dwcontinuestatus: Foundation.NTSTATUS): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "ContinueDebugEvent", longArrayOf(dwprocessid.toLong(), dwthreadid.toLong(), Win32DynamicFfi.objectSlot(dwcontinuestatus))).toInt()
+public fun ContinueDebugEvent(dwprocessid: UInt, dwthreadid: UInt, dwcontinuestatus: NTSTATUS): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "ContinueDebugEvent", longArrayOf(dwprocessid.toLong(), dwthreadid.toLong(), dwcontinuestatus.toLong())).toInt()
 }
 
 public fun CopyContext(destination: Long, contextflags: CONTEXT_FLAGS, source: Long): BOOL {
@@ -181,8 +188,8 @@ public fun DebugBreak() {
     Win32DynamicFfi.invoke("kernel32.dll", "DebugBreak", longArrayOf())
 }
 
-public fun DebugBreakProcess(process: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "DebugBreakProcess", longArrayOf(Win32DynamicFfi.objectSlot(process))).toInt()
+public fun DebugBreakProcess(process: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "DebugBreakProcess", longArrayOf(process)).toInt()
 }
 
 public fun DebugSetProcessKillOnExit(killonexit: BOOL): BOOL {
@@ -193,8 +200,8 @@ public fun DecodePointer(ptr: Long): Long {
     return Win32DynamicFfi.invoke("kernel32.dll", "DecodePointer", longArrayOf(ptr))
 }
 
-public fun DecodeRemotePointer(processhandle: Foundation.HANDLE, ptr: Long, decodedptr: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-core-util-l1-1-1.dll", "DecodeRemotePointer", longArrayOf(Win32DynamicFfi.objectSlot(processhandle), ptr, decodedptr)).toInt()
+public fun DecodeRemotePointer(processhandle: HANDLE, ptr: Long, decodedptr: Long): HRESULT {
+    return Win32DynamicFfi.invoke("api-ms-win-core-util-l1-1-1.dll", "DecodeRemotePointer", longArrayOf(processhandle, ptr, decodedptr)).toInt()
 }
 
 public fun DecodeSystemPointer(ptr: Long): Long {
@@ -205,36 +212,36 @@ public fun EncodePointer(ptr: Long): Long {
     return Win32DynamicFfi.invoke("kernel32.dll", "EncodePointer", longArrayOf(ptr))
 }
 
-public fun EncodeRemotePointer(processhandle: Foundation.HANDLE, ptr: Long, encodedptr: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-core-util-l1-1-1.dll", "EncodeRemotePointer", longArrayOf(Win32DynamicFfi.objectSlot(processhandle), ptr, encodedptr)).toInt()
+public fun EncodeRemotePointer(processhandle: HANDLE, ptr: Long, encodedptr: Long): HRESULT {
+    return Win32DynamicFfi.invoke("api-ms-win-core-util-l1-1-1.dll", "EncodeRemotePointer", longArrayOf(processhandle, ptr, encodedptr)).toInt()
 }
 
 public fun EncodeSystemPointer(ptr: Long): Long {
     return Win32DynamicFfi.invoke("kernel32.dll", "EncodeSystemPointer", longArrayOf(ptr))
 }
 
-public fun EnumDirTree(hprocess: Foundation.HANDLE, rootpath: PCSTR, inputpathname: PCSTR, outputpathbuffer: PSTR, cb: PENUMDIRTREE_CALLBACK, data: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "EnumDirTree", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), rootpath, inputpathname, outputpathbuffer, Win32DynamicFfi.objectSlot(cb), data)).toInt()
+public fun EnumDirTree(hprocess: HANDLE, rootpath: PCSTR, inputpathname: PCSTR, outputpathbuffer: PSTR, cb: PENUMDIRTREE_CALLBACK, data: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "EnumDirTree", longArrayOf(hprocess, rootpath, inputpathname, outputpathbuffer, Win32DynamicFfi.objectSlot(cb), data)).toInt()
 }
 
-public fun EnumDirTreeW(hprocess: Foundation.HANDLE, rootpath: PCWSTR, inputpathname: PCWSTR, outputpathbuffer: PWSTR, cb: PENUMDIRTREE_CALLBACKW, data: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "EnumDirTreeW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), rootpath, inputpathname, outputpathbuffer, Win32DynamicFfi.objectSlot(cb), data)).toInt()
+public fun EnumDirTreeW(hprocess: HANDLE, rootpath: PCWSTR, inputpathname: PCWSTR, outputpathbuffer: PWSTR, cb: PENUMDIRTREE_CALLBACKW, data: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "EnumDirTreeW", longArrayOf(hprocess, rootpath, inputpathname, outputpathbuffer, Win32DynamicFfi.objectSlot(cb), data)).toInt()
 }
 
-public fun EnumerateLoadedModules64(hprocess: Foundation.HANDLE, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACK64, usercontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "EnumerateLoadedModules64", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), Win32DynamicFfi.objectSlot(enumloadedmodulescallback), usercontext)).toInt()
+public fun EnumerateLoadedModules64(hprocess: HANDLE, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACK64, usercontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "EnumerateLoadedModules64", longArrayOf(hprocess, Win32DynamicFfi.objectSlot(enumloadedmodulescallback), usercontext)).toInt()
 }
 
-public fun EnumerateLoadedModulesEx(hprocess: Foundation.HANDLE, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACK64, usercontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "EnumerateLoadedModulesEx", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), Win32DynamicFfi.objectSlot(enumloadedmodulescallback), usercontext)).toInt()
+public fun EnumerateLoadedModulesEx(hprocess: HANDLE, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACK64, usercontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "EnumerateLoadedModulesEx", longArrayOf(hprocess, Win32DynamicFfi.objectSlot(enumloadedmodulescallback), usercontext)).toInt()
 }
 
-public fun EnumerateLoadedModulesExW(hprocess: Foundation.HANDLE, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACKW64, usercontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "EnumerateLoadedModulesExW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), Win32DynamicFfi.objectSlot(enumloadedmodulescallback), usercontext)).toInt()
+public fun EnumerateLoadedModulesExW(hprocess: HANDLE, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACKW64, usercontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "EnumerateLoadedModulesExW", longArrayOf(hprocess, Win32DynamicFfi.objectSlot(enumloadedmodulescallback), usercontext)).toInt()
 }
 
-public fun EnumerateLoadedModulesW64(hprocess: Foundation.HANDLE, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACKW64, usercontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "EnumerateLoadedModulesW64", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), Win32DynamicFfi.objectSlot(enumloadedmodulescallback), usercontext)).toInt()
+public fun EnumerateLoadedModulesW64(hprocess: HANDLE, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACKW64, usercontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "EnumerateLoadedModulesW64", longArrayOf(hprocess, Win32DynamicFfi.objectSlot(enumloadedmodulescallback), usercontext)).toInt()
 }
 
 public fun FatalAppExitA(uaction: UInt, lpmessagetext: PCSTR) {
@@ -250,46 +257,40 @@ public fun FatalExit(exitcode: Int): Nothing {
     error("unreachable")
 }
 
-public fun FindDebugInfoFile(filename: PCSTR, symbolpath: PCSTR, debugfilepath: PSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("dbghelp.dll", "FindDebugInfoFile", longArrayOf(filename, symbolpath, debugfilepath))
-    return Foundation.HANDLE()
+public fun FindDebugInfoFile(filename: PCSTR, symbolpath: PCSTR, debugfilepath: PSTR): HANDLE {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "FindDebugInfoFile", longArrayOf(filename, symbolpath, debugfilepath))
 }
 
-public fun FindDebugInfoFileEx(filename: PCSTR, symbolpath: PCSTR, debugfilepath: PSTR, callback: PFIND_DEBUG_FILE_CALLBACK, callerdata: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("dbghelp.dll", "FindDebugInfoFileEx", longArrayOf(filename, symbolpath, debugfilepath, Win32DynamicFfi.objectSlot(callback), callerdata))
-    return Foundation.HANDLE()
+public fun FindDebugInfoFileEx(filename: PCSTR, symbolpath: PCSTR, debugfilepath: PSTR, callback: PFIND_DEBUG_FILE_CALLBACK, callerdata: Long): HANDLE {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "FindDebugInfoFileEx", longArrayOf(filename, symbolpath, debugfilepath, Win32DynamicFfi.objectSlot(callback), callerdata))
 }
 
-public fun FindDebugInfoFileExW(filename: PCWSTR, symbolpath: PCWSTR, debugfilepath: PWSTR, callback: PFIND_DEBUG_FILE_CALLBACKW, callerdata: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("dbghelp.dll", "FindDebugInfoFileExW", longArrayOf(filename, symbolpath, debugfilepath, Win32DynamicFfi.objectSlot(callback), callerdata))
-    return Foundation.HANDLE()
+public fun FindDebugInfoFileExW(filename: PCWSTR, symbolpath: PCWSTR, debugfilepath: PWSTR, callback: PFIND_DEBUG_FILE_CALLBACKW, callerdata: Long): HANDLE {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "FindDebugInfoFileExW", longArrayOf(filename, symbolpath, debugfilepath, Win32DynamicFfi.objectSlot(callback), callerdata))
 }
 
-public fun FindExecutableImage(filename: PCSTR, symbolpath: PCSTR, imagefilepath: PSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("dbghelp.dll", "FindExecutableImage", longArrayOf(filename, symbolpath, imagefilepath))
-    return Foundation.HANDLE()
+public fun FindExecutableImage(filename: PCSTR, symbolpath: PCSTR, imagefilepath: PSTR): HANDLE {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "FindExecutableImage", longArrayOf(filename, symbolpath, imagefilepath))
 }
 
-public fun FindExecutableImageEx(filename: PCSTR, symbolpath: PCSTR, imagefilepath: PSTR, callback: PFIND_EXE_FILE_CALLBACK, callerdata: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("dbghelp.dll", "FindExecutableImageEx", longArrayOf(filename, symbolpath, imagefilepath, Win32DynamicFfi.objectSlot(callback), callerdata))
-    return Foundation.HANDLE()
+public fun FindExecutableImageEx(filename: PCSTR, symbolpath: PCSTR, imagefilepath: PSTR, callback: PFIND_EXE_FILE_CALLBACK, callerdata: Long): HANDLE {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "FindExecutableImageEx", longArrayOf(filename, symbolpath, imagefilepath, Win32DynamicFfi.objectSlot(callback), callerdata))
 }
 
-public fun FindExecutableImageExW(filename: PCWSTR, symbolpath: PCWSTR, imagefilepath: PWSTR, callback: PFIND_EXE_FILE_CALLBACKW, callerdata: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("dbghelp.dll", "FindExecutableImageExW", longArrayOf(filename, symbolpath, imagefilepath, Win32DynamicFfi.objectSlot(callback), callerdata))
-    return Foundation.HANDLE()
+public fun FindExecutableImageExW(filename: PCWSTR, symbolpath: PCWSTR, imagefilepath: PWSTR, callback: PFIND_EXE_FILE_CALLBACKW, callerdata: Long): HANDLE {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "FindExecutableImageExW", longArrayOf(filename, symbolpath, imagefilepath, Win32DynamicFfi.objectSlot(callback), callerdata))
 }
 
-public fun FindFileInPath(hprocess: Foundation.HANDLE, searchpatha: PCSTR, filename: PCSTR, id: Long, two: UInt, three: UInt, flags: UInt, filepath: PSTR): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "FindFileInPath", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), searchpatha, filename, id, two.toLong(), three.toLong(), flags.toLong(), filepath)).toInt()
+public fun FindFileInPath(hprocess: HANDLE, searchpatha: PCSTR, filename: PCSTR, id: Long, two: UInt, three: UInt, flags: UInt, filepath: PSTR): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "FindFileInPath", longArrayOf(hprocess, searchpatha, filename, id, two.toLong(), three.toLong(), flags.toLong(), filepath)).toInt()
 }
 
-public fun FindFileInSearchPath(hprocess: Foundation.HANDLE, searchpatha: PCSTR, filename: PCSTR, one: UInt, two: UInt, three: UInt, filepath: PSTR): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "FindFileInSearchPath", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), searchpatha, filename, one.toLong(), two.toLong(), three.toLong(), filepath)).toInt()
+public fun FindFileInSearchPath(hprocess: HANDLE, searchpatha: PCSTR, filename: PCSTR, one: UInt, two: UInt, three: UInt, filepath: PSTR): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "FindFileInSearchPath", longArrayOf(hprocess, searchpatha, filename, one.toLong(), two.toLong(), three.toLong(), filepath)).toInt()
 }
 
-public fun FlushInstructionCache(hprocess: Foundation.HANDLE, lpbaseaddress: Long, dwsize: ULong): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "FlushInstructionCache", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), lpbaseaddress, dwsize.toLong())).toInt()
+public fun FlushInstructionCache(hprocess: HANDLE, lpbaseaddress: Long, dwsize: ULong): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "FlushInstructionCache", longArrayOf(hprocess, lpbaseaddress, dwsize.toLong())).toInt()
 }
 
 public fun FormatMessageA(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: Long, dwmessageid: UInt, dwlanguageid: UInt, lpbuffer: PSTR, nsize: UInt, arguments: Long): UInt {
@@ -320,32 +321,32 @@ public fun GetSymLoadError(): UInt {
     return Win32DynamicFfi.invoke("dbghelp.dll", "GetSymLoadError", longArrayOf()).toUInt()
 }
 
-public fun GetThreadContext(hthread: Foundation.HANDLE, lpcontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetThreadContext", longArrayOf(Win32DynamicFfi.objectSlot(hthread), lpcontext)).toInt()
+public fun GetThreadContext(hthread: HANDLE, lpcontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetThreadContext", longArrayOf(hthread, lpcontext)).toInt()
 }
 
 public fun GetThreadErrorMode(): UInt {
     return Win32DynamicFfi.invoke("kernel32.dll", "GetThreadErrorMode", longArrayOf()).toUInt()
 }
 
-public fun GetThreadSelectorEntry(hthread: Foundation.HANDLE, dwselector: UInt, lpselectorentry: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetThreadSelectorEntry", longArrayOf(Win32DynamicFfi.objectSlot(hthread), dwselector.toLong(), lpselectorentry)).toInt()
+public fun GetThreadSelectorEntry(hthread: HANDLE, dwselector: UInt, lpselectorentry: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetThreadSelectorEntry", longArrayOf(hthread, dwselector.toLong(), lpselectorentry)).toInt()
 }
 
 public fun GetThreadWaitChain(wcthandle: Long, context: ULong, flags: WAIT_CHAIN_THREAD_OPTIONS, threadid: UInt, nodecount: Long, nodeinfoarray: Long, iscycle: Long): BOOL {
     return Win32DynamicFfi.invoke("advapi32.dll", "GetThreadWaitChain", longArrayOf(wcthandle, context.toLong(), flags.toLong(), threadid.toLong(), nodecount, nodeinfoarray, iscycle)).toInt()
 }
 
-public fun GetTimestampForLoadedLibrary(module: Foundation.HMODULE): UInt {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "GetTimestampForLoadedLibrary", longArrayOf(Win32DynamicFfi.objectSlot(module))).toUInt()
+public fun GetTimestampForLoadedLibrary(module: HMODULE): UInt {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "GetTimestampForLoadedLibrary", longArrayOf(module)).toUInt()
 }
 
 public fun GetXStateFeaturesMask(context: Long, featuremask: Long): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "GetXStateFeaturesMask", longArrayOf(context, featuremask)).toInt()
 }
 
-public fun ImageAddCertificate(filehandle: Foundation.HANDLE, certificate: Long, index: Long): BOOL {
-    return Win32DynamicFfi.invoke("imagehlp.dll", "ImageAddCertificate", longArrayOf(Win32DynamicFfi.objectSlot(filehandle), certificate, index)).toInt()
+public fun ImageAddCertificate(filehandle: HANDLE, certificate: Long, index: Long): BOOL {
+    return Win32DynamicFfi.invoke("imagehlp.dll", "ImageAddCertificate", longArrayOf(filehandle, certificate, index)).toInt()
 }
 
 public fun ImageDirectoryEntryToData(base: Long, mappedasimage: Boolean, directoryentry: IMAGE_DIRECTORY_ENTRY, size: Long): Long {
@@ -356,20 +357,20 @@ public fun ImageDirectoryEntryToDataEx(base: Long, mappedasimage: Boolean, direc
     return Win32DynamicFfi.invoke("dbghelp.dll", "ImageDirectoryEntryToDataEx", longArrayOf(base, if (mappedasimage) 1L else 0L, directoryentry.toLong(), size, foundheader))
 }
 
-public fun ImageEnumerateCertificates(filehandle: Foundation.HANDLE, typefilter: UShort, certificatecount: Long, indices: Long, indexcount: UInt): BOOL {
-    return Win32DynamicFfi.invoke("imagehlp.dll", "ImageEnumerateCertificates", longArrayOf(Win32DynamicFfi.objectSlot(filehandle), typefilter.toLong(), certificatecount, indices, indexcount.toLong())).toInt()
+public fun ImageEnumerateCertificates(filehandle: HANDLE, typefilter: UShort, certificatecount: Long, indices: Long, indexcount: UInt): BOOL {
+    return Win32DynamicFfi.invoke("imagehlp.dll", "ImageEnumerateCertificates", longArrayOf(filehandle, typefilter.toLong(), certificatecount, indices, indexcount.toLong())).toInt()
 }
 
-public fun ImageGetCertificateData(filehandle: Foundation.HANDLE, certificateindex: UInt, certificate: Long, requiredlength: Long): BOOL {
-    return Win32DynamicFfi.invoke("imagehlp.dll", "ImageGetCertificateData", longArrayOf(Win32DynamicFfi.objectSlot(filehandle), certificateindex.toLong(), certificate, requiredlength)).toInt()
+public fun ImageGetCertificateData(filehandle: HANDLE, certificateindex: UInt, certificate: Long, requiredlength: Long): BOOL {
+    return Win32DynamicFfi.invoke("imagehlp.dll", "ImageGetCertificateData", longArrayOf(filehandle, certificateindex.toLong(), certificate, requiredlength)).toInt()
 }
 
-public fun ImageGetCertificateHeader(filehandle: Foundation.HANDLE, certificateindex: UInt, certificateheader: Long): BOOL {
-    return Win32DynamicFfi.invoke("imagehlp.dll", "ImageGetCertificateHeader", longArrayOf(Win32DynamicFfi.objectSlot(filehandle), certificateindex.toLong(), certificateheader)).toInt()
+public fun ImageGetCertificateHeader(filehandle: HANDLE, certificateindex: UInt, certificateheader: Long): BOOL {
+    return Win32DynamicFfi.invoke("imagehlp.dll", "ImageGetCertificateHeader", longArrayOf(filehandle, certificateindex.toLong(), certificateheader)).toInt()
 }
 
-public fun ImageGetDigestStream(filehandle: Foundation.HANDLE, digestlevel: UInt, digestfunction: DIGEST_FUNCTION, digesthandle: Long): BOOL {
-    return Win32DynamicFfi.invoke("imagehlp.dll", "ImageGetDigestStream", longArrayOf(Win32DynamicFfi.objectSlot(filehandle), digestlevel.toLong(), Win32DynamicFfi.objectSlot(digestfunction), digesthandle)).toInt()
+public fun ImageGetDigestStream(filehandle: HANDLE, digestlevel: UInt, digestfunction: DIGEST_FUNCTION, digesthandle: Long): BOOL {
+    return Win32DynamicFfi.invoke("imagehlp.dll", "ImageGetDigestStream", longArrayOf(filehandle, digestlevel.toLong(), Win32DynamicFfi.objectSlot(digestfunction), digesthandle)).toInt()
 }
 
 public fun ImageLoad(dllname: PCSTR, dllpath: PCSTR): Long {
@@ -380,8 +381,8 @@ public fun ImageNtHeader(base: Long): Long {
     return Win32DynamicFfi.invoke("dbghelp.dll", "ImageNtHeader", longArrayOf(base))
 }
 
-public fun ImageRemoveCertificate(filehandle: Foundation.HANDLE, index: UInt): BOOL {
-    return Win32DynamicFfi.invoke("imagehlp.dll", "ImageRemoveCertificate", longArrayOf(Win32DynamicFfi.objectSlot(filehandle), index.toLong())).toInt()
+public fun ImageRemoveCertificate(filehandle: HANDLE, index: UInt): BOOL {
+    return Win32DynamicFfi.invoke("imagehlp.dll", "ImageRemoveCertificate", longArrayOf(filehandle, index.toLong())).toInt()
 }
 
 public fun ImageRvaToSection(ntheaders: Long, base: Long, rva: UInt): Long {
@@ -436,16 +437,16 @@ public fun MapFileAndCheckSumW(filename: PCWSTR, headersum: Long, checksum: Long
     return Win32DynamicFfi.invoke("imagehlp.dll", "MapFileAndCheckSumW", longArrayOf(filename, headersum, checksum)).toUInt()
 }
 
-public fun MessageBeep(utype: UI.WindowsAndMessaging.MESSAGEBOX_STYLE): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "MessageBeep", longArrayOf(Win32DynamicFfi.objectSlot(utype))).toInt()
+public fun MessageBeep(utype: MESSAGEBOX_STYLE): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "MessageBeep", longArrayOf(utype.toLong())).toInt()
 }
 
 public fun MiniDumpReadDumpStream(baseofdump: Long, streamnumber: UInt, dir: Long, streampointer: Long, streamsize: Long): BOOL {
     return Win32DynamicFfi.invoke("dbghelp.dll", "MiniDumpReadDumpStream", longArrayOf(baseofdump, streamnumber.toLong(), dir, streampointer, streamsize)).toInt()
 }
 
-public fun MiniDumpWriteDump(hprocess: Foundation.HANDLE, processid: UInt, hfile: Foundation.HANDLE, dumptype: MINIDUMP_TYPE, exceptionparam: Long, userstreamparam: Long, callbackparam: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "MiniDumpWriteDump", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), processid.toLong(), Win32DynamicFfi.objectSlot(hfile), dumptype.toLong(), exceptionparam, userstreamparam, callbackparam)).toInt()
+public fun MiniDumpWriteDump(hprocess: HANDLE, processid: UInt, hfile: HANDLE, dumptype: MINIDUMP_TYPE, exceptionparam: Long, userstreamparam: Long, callbackparam: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "MiniDumpWriteDump", longArrayOf(hprocess, processid.toLong(), hfile, dumptype.toLong(), exceptionparam, userstreamparam, callbackparam)).toInt()
 }
 
 public fun OpenThreadWaitChainSession(flags: OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS, callback: PWAITCHAINCALLBACK): Long {
@@ -500,16 +501,16 @@ public fun ReBaseImage64(currentimagename: PCSTR, symbolpath: PCSTR, frebase: BO
     return Win32DynamicFfi.invoke("imagehlp.dll", "ReBaseImage64", longArrayOf(currentimagename, symbolpath, frebase.toLong(), frebasesysfileok.toLong(), fgoingdown.toLong(), checkimagesize.toLong(), oldimagesize, oldimagebase, newimagesize, newimagebase, timestamp.toLong())).toInt()
 }
 
-public fun ReadProcessMemory(hprocess: Foundation.HANDLE, lpbaseaddress: Long, lpbuffer: Long, nsize: ULong, lpnumberofbytesread: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "ReadProcessMemory", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), lpbaseaddress, lpbuffer, nsize.toLong(), lpnumberofbytesread)).toInt()
+public fun ReadProcessMemory(hprocess: HANDLE, lpbaseaddress: Long, lpbuffer: Long, nsize: ULong, lpnumberofbytesread: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "ReadProcessMemory", longArrayOf(hprocess, lpbaseaddress, lpbuffer, nsize.toLong(), lpnumberofbytesread)).toInt()
 }
 
 public fun RegisterWaitChainCOMCallback(callstatecallback: PCOGETCALLSTATE, activationstatecallback: PCOGETACTIVATIONSTATE) {
     Win32DynamicFfi.invoke("advapi32.dll", "RegisterWaitChainCOMCallback", longArrayOf(Win32DynamicFfi.objectSlot(callstatecallback), Win32DynamicFfi.objectSlot(activationstatecallback)))
 }
 
-public fun RemoveInvalidModuleList(hprocess: Foundation.HANDLE) {
-    Win32DynamicFfi.invoke("dbghelp.dll", "RemoveInvalidModuleList", longArrayOf(Win32DynamicFfi.objectSlot(hprocess)))
+public fun RemoveInvalidModuleList(hprocess: HANDLE) {
+    Win32DynamicFfi.invoke("dbghelp.dll", "RemoveInvalidModuleList", longArrayOf(hprocess))
 }
 
 public fun RemoveVectoredContinueHandler(handle: Long): UInt {
@@ -520,8 +521,8 @@ public fun RemoveVectoredExceptionHandler(handle: Long): UInt {
     return Win32DynamicFfi.invoke("kernel32.dll", "RemoveVectoredExceptionHandler", longArrayOf(handle)).toUInt()
 }
 
-public fun ReportSymbolLoadSummary(hprocess: Foundation.HANDLE, ploadmodule: PCWSTR, psymboldata: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "ReportSymbolLoadSummary", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), ploadmodule, psymboldata)).toInt()
+public fun ReportSymbolLoadSummary(hprocess: HANDLE, ploadmodule: PCWSTR, psymboldata: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "ReportSymbolLoadSummary", longArrayOf(hprocess, ploadmodule, psymboldata)).toInt()
 }
 
 public fun RtlAddFunctionTable(functiontable: Long, entrycount: UInt, baseaddress: ULong): Boolean {
@@ -587,9 +588,9 @@ public fun RtlUnwindEx(targetframe: Long, targetip: Long, exceptionrecord: Long,
     Win32DynamicFfi.invoke("kernel32.dll", "RtlUnwindEx", longArrayOf(targetframe, targetip, exceptionrecord, returnvalue, contextrecord, historytable))
 }
 
-public fun RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: ULong, controlpc: ULong, functionentry: Long, contextrecord: Long, handlerdata: Long, establisherframe: Long, contextpointers: Long): Kernel.EXCEPTION_ROUTINE {
-    Win32DynamicFfi.invoke("kernel32.dll", "RtlVirtualUnwind", longArrayOf(handlertype.toLong(), imagebase.toLong(), controlpc.toLong(), functionentry, contextrecord, handlerdata, establisherframe, contextpointers))
-    return Kernel.EXCEPTION_ROUTINE()
+public fun RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: ULong, controlpc: ULong, functionentry: Long, contextrecord: Long, handlerdata: Long, establisherframe: Long, contextpointers: Long): EXCEPTION_ROUTINE {
+    val rawRet = Win32DynamicFfi.invoke("kernel32.dll", "RtlVirtualUnwind", longArrayOf(handlertype.toLong(), imagebase.toLong(), controlpc.toLong(), functionentry, contextrecord, handlerdata, establisherframe, contextpointers))
+    return if (rawRet == 0L) null else EXCEPTION_ROUTINEFn { p0, p1, p2, p3 -> Win32DynamicFfi.invokePtr(rawRet, longArrayOf(p0, p1, p2, p3)).toInt() }
 }
 
 public fun SearchTreeForFile(rootpath: PCSTR, inputpathname: PCSTR, outputpathbuffer: PSTR): BOOL {
@@ -616,8 +617,8 @@ public fun SetSymLoadError(error: UInt) {
     Win32DynamicFfi.invoke("dbghelp.dll", "SetSymLoadError", longArrayOf(error.toLong()))
 }
 
-public fun SetThreadContext(hthread: Foundation.HANDLE, lpcontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetThreadContext", longArrayOf(Win32DynamicFfi.objectSlot(hthread), lpcontext)).toInt()
+public fun SetThreadContext(hthread: HANDLE, lpcontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetThreadContext", longArrayOf(hthread, lpcontext)).toInt()
 }
 
 public fun SetThreadErrorMode(dwnewmode: THREAD_ERROR_MODE, lpoldmode: Long): BOOL {
@@ -626,239 +627,235 @@ public fun SetThreadErrorMode(dwnewmode: THREAD_ERROR_MODE, lpoldmode: Long): BO
 
 public fun SetUnhandledExceptionFilter(lptoplevelexceptionfilter: LPTOP_LEVEL_EXCEPTION_FILTER): LPTOP_LEVEL_EXCEPTION_FILTER {
     val rawRet = Win32DynamicFfi.invoke("kernel32.dll", "SetUnhandledExceptionFilter", longArrayOf(Win32DynamicFfi.objectSlot(lptoplevelexceptionfilter)))
-    return if (rawRet == 0L) null else LPTOP_LEVEL_EXCEPTION_FILTERFn { _ -> 0 }
+    return if (rawRet == 0L) null else LPTOP_LEVEL_EXCEPTION_FILTERFn { p0 -> Win32DynamicFfi.invokePtr(rawRet, longArrayOf(p0)).toInt() }
 }
 
 public fun SetXStateFeaturesMask(context: Long, featuremask: ULong): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "SetXStateFeaturesMask", longArrayOf(context, featuremask.toLong())).toInt()
 }
 
-public fun StackWalk2(machinetype: UInt, hprocess: Foundation.HANDLE, hthread: Foundation.HANDLE, stackframe: Long, contextrecord: Long, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64, translateaddress: PTRANSLATE_ADDRESS_ROUTINE64, gettargetattributevalue: PGET_TARGET_ATTRIBUTE_VALUE64, flags: UInt): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "StackWalk2", longArrayOf(machinetype.toLong(), Win32DynamicFfi.objectSlot(hprocess), Win32DynamicFfi.objectSlot(hthread), stackframe, contextrecord, Win32DynamicFfi.objectSlot(readmemoryroutine), Win32DynamicFfi.objectSlot(functiontableaccessroutine), Win32DynamicFfi.objectSlot(getmodulebaseroutine), Win32DynamicFfi.objectSlot(translateaddress), Win32DynamicFfi.objectSlot(gettargetattributevalue), flags.toLong())).toInt()
+public fun StackWalk2(machinetype: UInt, hprocess: HANDLE, hthread: HANDLE, stackframe: Long, contextrecord: Long, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64, translateaddress: PTRANSLATE_ADDRESS_ROUTINE64, gettargetattributevalue: PGET_TARGET_ATTRIBUTE_VALUE64, flags: UInt): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "StackWalk2", longArrayOf(machinetype.toLong(), hprocess, hthread, stackframe, contextrecord, Win32DynamicFfi.objectSlot(readmemoryroutine), Win32DynamicFfi.objectSlot(functiontableaccessroutine), Win32DynamicFfi.objectSlot(getmodulebaseroutine), Win32DynamicFfi.objectSlot(translateaddress), Win32DynamicFfi.objectSlot(gettargetattributevalue), flags.toLong())).toInt()
 }
 
-public fun StackWalk64(machinetype: UInt, hprocess: Foundation.HANDLE, hthread: Foundation.HANDLE, stackframe: Long, contextrecord: Long, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64, translateaddress: PTRANSLATE_ADDRESS_ROUTINE64): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "StackWalk64", longArrayOf(machinetype.toLong(), Win32DynamicFfi.objectSlot(hprocess), Win32DynamicFfi.objectSlot(hthread), stackframe, contextrecord, Win32DynamicFfi.objectSlot(readmemoryroutine), Win32DynamicFfi.objectSlot(functiontableaccessroutine), Win32DynamicFfi.objectSlot(getmodulebaseroutine), Win32DynamicFfi.objectSlot(translateaddress))).toInt()
+public fun StackWalk64(machinetype: UInt, hprocess: HANDLE, hthread: HANDLE, stackframe: Long, contextrecord: Long, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64, translateaddress: PTRANSLATE_ADDRESS_ROUTINE64): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "StackWalk64", longArrayOf(machinetype.toLong(), hprocess, hthread, stackframe, contextrecord, Win32DynamicFfi.objectSlot(readmemoryroutine), Win32DynamicFfi.objectSlot(functiontableaccessroutine), Win32DynamicFfi.objectSlot(getmodulebaseroutine), Win32DynamicFfi.objectSlot(translateaddress))).toInt()
 }
 
-public fun StackWalkEx(machinetype: UInt, hprocess: Foundation.HANDLE, hthread: Foundation.HANDLE, stackframe: Long, contextrecord: Long, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64, translateaddress: PTRANSLATE_ADDRESS_ROUTINE64, flags: UInt): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "StackWalkEx", longArrayOf(machinetype.toLong(), Win32DynamicFfi.objectSlot(hprocess), Win32DynamicFfi.objectSlot(hthread), stackframe, contextrecord, Win32DynamicFfi.objectSlot(readmemoryroutine), Win32DynamicFfi.objectSlot(functiontableaccessroutine), Win32DynamicFfi.objectSlot(getmodulebaseroutine), Win32DynamicFfi.objectSlot(translateaddress), flags.toLong())).toInt()
+public fun StackWalkEx(machinetype: UInt, hprocess: HANDLE, hthread: HANDLE, stackframe: Long, contextrecord: Long, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64, translateaddress: PTRANSLATE_ADDRESS_ROUTINE64, flags: UInt): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "StackWalkEx", longArrayOf(machinetype.toLong(), hprocess, hthread, stackframe, contextrecord, Win32DynamicFfi.objectSlot(readmemoryroutine), Win32DynamicFfi.objectSlot(functiontableaccessroutine), Win32DynamicFfi.objectSlot(getmodulebaseroutine), Win32DynamicFfi.objectSlot(translateaddress), flags.toLong())).toInt()
 }
 
-public fun SymAddSourceStream(hprocess: Foundation.HANDLE, base: ULong, streamfile: PCSTR, buffer: Long, size: ULong): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymAddSourceStream", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), base.toLong(), streamfile, buffer, size.toLong())).toInt()
+public fun SymAddSourceStream(hprocess: HANDLE, base: ULong, streamfile: PCSTR, buffer: Long, size: ULong): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymAddSourceStream", longArrayOf(hprocess, base.toLong(), streamfile, buffer, size.toLong())).toInt()
 }
 
-public fun SymAddSourceStreamA(hprocess: Foundation.HANDLE, base: ULong, streamfile: PCSTR, buffer: Long, size: ULong): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymAddSourceStreamA", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), base.toLong(), streamfile, buffer, size.toLong())).toInt()
+public fun SymAddSourceStreamA(hprocess: HANDLE, base: ULong, streamfile: PCSTR, buffer: Long, size: ULong): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymAddSourceStreamA", longArrayOf(hprocess, base.toLong(), streamfile, buffer, size.toLong())).toInt()
 }
 
-public fun SymAddSourceStreamW(hprocess: Foundation.HANDLE, base: ULong, filespec: PCWSTR, buffer: Long, size: ULong): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymAddSourceStreamW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), base.toLong(), filespec, buffer, size.toLong())).toInt()
+public fun SymAddSourceStreamW(hprocess: HANDLE, base: ULong, filespec: PCWSTR, buffer: Long, size: ULong): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymAddSourceStreamW", longArrayOf(hprocess, base.toLong(), filespec, buffer, size.toLong())).toInt()
 }
 
-public fun SymAddSymbol(hprocess: Foundation.HANDLE, baseofdll: ULong, name: PCSTR, address: ULong, size: UInt, flags: UInt): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymAddSymbol", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), baseofdll.toLong(), name, address.toLong(), size.toLong(), flags.toLong())).toInt()
+public fun SymAddSymbol(hprocess: HANDLE, baseofdll: ULong, name: PCSTR, address: ULong, size: UInt, flags: UInt): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymAddSymbol", longArrayOf(hprocess, baseofdll.toLong(), name, address.toLong(), size.toLong(), flags.toLong())).toInt()
 }
 
-public fun SymAddSymbolW(hprocess: Foundation.HANDLE, baseofdll: ULong, name: PCWSTR, address: ULong, size: UInt, flags: UInt): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymAddSymbolW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), baseofdll.toLong(), name, address.toLong(), size.toLong(), flags.toLong())).toInt()
+public fun SymAddSymbolW(hprocess: HANDLE, baseofdll: ULong, name: PCWSTR, address: ULong, size: UInt, flags: UInt): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymAddSymbolW", longArrayOf(hprocess, baseofdll.toLong(), name, address.toLong(), size.toLong(), flags.toLong())).toInt()
 }
 
-public fun SymAddrIncludeInlineTrace(hprocess: Foundation.HANDLE, address: ULong): UInt {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymAddrIncludeInlineTrace", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), address.toLong())).toUInt()
+public fun SymAddrIncludeInlineTrace(hprocess: HANDLE, address: ULong): UInt {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymAddrIncludeInlineTrace", longArrayOf(hprocess, address.toLong())).toUInt()
 }
 
-public fun SymCleanup(hprocess: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymCleanup", longArrayOf(Win32DynamicFfi.objectSlot(hprocess))).toInt()
+public fun SymCleanup(hprocess: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymCleanup", longArrayOf(hprocess)).toInt()
 }
 
-public fun SymCompareInlineTrace(hprocess: Foundation.HANDLE, address1: ULong, inlinecontext1: UInt, retaddress1: ULong, address2: ULong, retaddress2: ULong): UInt {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymCompareInlineTrace", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), address1.toLong(), inlinecontext1.toLong(), retaddress1.toLong(), address2.toLong(), retaddress2.toLong())).toUInt()
+public fun SymCompareInlineTrace(hprocess: HANDLE, address1: ULong, inlinecontext1: UInt, retaddress1: ULong, address2: ULong, retaddress2: ULong): UInt {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymCompareInlineTrace", longArrayOf(hprocess, address1.toLong(), inlinecontext1.toLong(), retaddress1.toLong(), address2.toLong(), retaddress2.toLong())).toUInt()
 }
 
-public fun SymDeleteSymbol(hprocess: Foundation.HANDLE, baseofdll: ULong, name: PCSTR, address: ULong, flags: UInt): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymDeleteSymbol", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), baseofdll.toLong(), name, address.toLong(), flags.toLong())).toInt()
+public fun SymDeleteSymbol(hprocess: HANDLE, baseofdll: ULong, name: PCSTR, address: ULong, flags: UInt): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymDeleteSymbol", longArrayOf(hprocess, baseofdll.toLong(), name, address.toLong(), flags.toLong())).toInt()
 }
 
-public fun SymDeleteSymbolW(hprocess: Foundation.HANDLE, baseofdll: ULong, name: PCWSTR, address: ULong, flags: UInt): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymDeleteSymbolW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), baseofdll.toLong(), name, address.toLong(), flags.toLong())).toInt()
+public fun SymDeleteSymbolW(hprocess: HANDLE, baseofdll: ULong, name: PCWSTR, address: ULong, flags: UInt): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymDeleteSymbolW", longArrayOf(hprocess, baseofdll.toLong(), name, address.toLong(), flags.toLong())).toInt()
 }
 
-public fun SymEnumLines(hprocess: Foundation.HANDLE, base: ULong, obj: PCSTR, file: PCSTR, enumlinescallback: PSYM_ENUMLINES_CALLBACK, usercontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumLines", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), base.toLong(), obj, file, Win32DynamicFfi.objectSlot(enumlinescallback), usercontext)).toInt()
+public fun SymEnumLines(hprocess: HANDLE, base: ULong, obj: PCSTR, file: PCSTR, enumlinescallback: PSYM_ENUMLINES_CALLBACK, usercontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumLines", longArrayOf(hprocess, base.toLong(), obj, file, Win32DynamicFfi.objectSlot(enumlinescallback), usercontext)).toInt()
 }
 
-public fun SymEnumLinesW(hprocess: Foundation.HANDLE, base: ULong, obj: PCWSTR, file: PCWSTR, enumlinescallback: PSYM_ENUMLINES_CALLBACKW, usercontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumLinesW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), base.toLong(), obj, file, Win32DynamicFfi.objectSlot(enumlinescallback), usercontext)).toInt()
+public fun SymEnumLinesW(hprocess: HANDLE, base: ULong, obj: PCWSTR, file: PCWSTR, enumlinescallback: PSYM_ENUMLINES_CALLBACKW, usercontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumLinesW", longArrayOf(hprocess, base.toLong(), obj, file, Win32DynamicFfi.objectSlot(enumlinescallback), usercontext)).toInt()
 }
 
 public fun SymEnumProcesses(enumprocessescallback: PSYM_ENUMPROCESSES_CALLBACK, usercontext: Long): BOOL {
     return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumProcesses", longArrayOf(Win32DynamicFfi.objectSlot(enumprocessescallback), usercontext)).toInt()
 }
 
-public fun SymEnumSourceFileTokens(hprocess: Foundation.HANDLE, base: ULong, callback: PENUMSOURCEFILETOKENSCALLBACK): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumSourceFileTokens", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), base.toLong(), Win32DynamicFfi.objectSlot(callback))).toInt()
+public fun SymEnumSourceFileTokens(hprocess: HANDLE, base: ULong, callback: PENUMSOURCEFILETOKENSCALLBACK): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumSourceFileTokens", longArrayOf(hprocess, base.toLong(), Win32DynamicFfi.objectSlot(callback))).toInt()
 }
 
-public fun SymEnumSourceFiles(hprocess: Foundation.HANDLE, modbase: ULong, mask: PCSTR, cbsrcfiles: PSYM_ENUMSOURCEFILES_CALLBACK, usercontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumSourceFiles", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), modbase.toLong(), mask, Win32DynamicFfi.objectSlot(cbsrcfiles), usercontext)).toInt()
+public fun SymEnumSourceFiles(hprocess: HANDLE, modbase: ULong, mask: PCSTR, cbsrcfiles: PSYM_ENUMSOURCEFILES_CALLBACK, usercontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumSourceFiles", longArrayOf(hprocess, modbase.toLong(), mask, Win32DynamicFfi.objectSlot(cbsrcfiles), usercontext)).toInt()
 }
 
-public fun SymEnumSourceFilesW(hprocess: Foundation.HANDLE, modbase: ULong, mask: PCWSTR, cbsrcfiles: PSYM_ENUMSOURCEFILES_CALLBACKW, usercontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumSourceFilesW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), modbase.toLong(), mask, Win32DynamicFfi.objectSlot(cbsrcfiles), usercontext)).toInt()
+public fun SymEnumSourceFilesW(hprocess: HANDLE, modbase: ULong, mask: PCWSTR, cbsrcfiles: PSYM_ENUMSOURCEFILES_CALLBACKW, usercontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumSourceFilesW", longArrayOf(hprocess, modbase.toLong(), mask, Win32DynamicFfi.objectSlot(cbsrcfiles), usercontext)).toInt()
 }
 
-public fun SymEnumSourceLines(hprocess: Foundation.HANDLE, base: ULong, obj: PCSTR, file: PCSTR, line: UInt, flags: UInt, enumlinescallback: PSYM_ENUMLINES_CALLBACK, usercontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumSourceLines", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), base.toLong(), obj, file, line.toLong(), flags.toLong(), Win32DynamicFfi.objectSlot(enumlinescallback), usercontext)).toInt()
+public fun SymEnumSourceLines(hprocess: HANDLE, base: ULong, obj: PCSTR, file: PCSTR, line: UInt, flags: UInt, enumlinescallback: PSYM_ENUMLINES_CALLBACK, usercontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumSourceLines", longArrayOf(hprocess, base.toLong(), obj, file, line.toLong(), flags.toLong(), Win32DynamicFfi.objectSlot(enumlinescallback), usercontext)).toInt()
 }
 
-public fun SymEnumSourceLinesW(hprocess: Foundation.HANDLE, base: ULong, obj: PCWSTR, file: PCWSTR, line: UInt, flags: UInt, enumlinescallback: PSYM_ENUMLINES_CALLBACKW, usercontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumSourceLinesW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), base.toLong(), obj, file, line.toLong(), flags.toLong(), Win32DynamicFfi.objectSlot(enumlinescallback), usercontext)).toInt()
+public fun SymEnumSourceLinesW(hprocess: HANDLE, base: ULong, obj: PCWSTR, file: PCWSTR, line: UInt, flags: UInt, enumlinescallback: PSYM_ENUMLINES_CALLBACKW, usercontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumSourceLinesW", longArrayOf(hprocess, base.toLong(), obj, file, line.toLong(), flags.toLong(), Win32DynamicFfi.objectSlot(enumlinescallback), usercontext)).toInt()
 }
 
-public fun SymEnumSym(hprocess: Foundation.HANDLE, baseofdll: ULong, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumSym", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), baseofdll.toLong(), Win32DynamicFfi.objectSlot(enumsymbolscallback), usercontext)).toInt()
+public fun SymEnumSym(hprocess: HANDLE, baseofdll: ULong, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumSym", longArrayOf(hprocess, baseofdll.toLong(), Win32DynamicFfi.objectSlot(enumsymbolscallback), usercontext)).toInt()
 }
 
-public fun SymEnumSymbols(hprocess: Foundation.HANDLE, baseofdll: ULong, mask: PCSTR, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumSymbols", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), baseofdll.toLong(), mask, Win32DynamicFfi.objectSlot(enumsymbolscallback), usercontext)).toInt()
+public fun SymEnumSymbols(hprocess: HANDLE, baseofdll: ULong, mask: PCSTR, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumSymbols", longArrayOf(hprocess, baseofdll.toLong(), mask, Win32DynamicFfi.objectSlot(enumsymbolscallback), usercontext)).toInt()
 }
 
-public fun SymEnumSymbolsEx(hprocess: Foundation.HANDLE, baseofdll: ULong, mask: PCSTR, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Long, options: UInt): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumSymbolsEx", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), baseofdll.toLong(), mask, Win32DynamicFfi.objectSlot(enumsymbolscallback), usercontext, options.toLong())).toInt()
+public fun SymEnumSymbolsEx(hprocess: HANDLE, baseofdll: ULong, mask: PCSTR, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Long, options: UInt): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumSymbolsEx", longArrayOf(hprocess, baseofdll.toLong(), mask, Win32DynamicFfi.objectSlot(enumsymbolscallback), usercontext, options.toLong())).toInt()
 }
 
-public fun SymEnumSymbolsExW(hprocess: Foundation.HANDLE, baseofdll: ULong, mask: PCWSTR, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Long, options: UInt): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumSymbolsExW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), baseofdll.toLong(), mask, Win32DynamicFfi.objectSlot(enumsymbolscallback), usercontext, options.toLong())).toInt()
+public fun SymEnumSymbolsExW(hprocess: HANDLE, baseofdll: ULong, mask: PCWSTR, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Long, options: UInt): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumSymbolsExW", longArrayOf(hprocess, baseofdll.toLong(), mask, Win32DynamicFfi.objectSlot(enumsymbolscallback), usercontext, options.toLong())).toInt()
 }
 
-public fun SymEnumSymbolsForAddr(hprocess: Foundation.HANDLE, address: ULong, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumSymbolsForAddr", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), address.toLong(), Win32DynamicFfi.objectSlot(enumsymbolscallback), usercontext)).toInt()
+public fun SymEnumSymbolsForAddr(hprocess: HANDLE, address: ULong, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumSymbolsForAddr", longArrayOf(hprocess, address.toLong(), Win32DynamicFfi.objectSlot(enumsymbolscallback), usercontext)).toInt()
 }
 
-public fun SymEnumSymbolsForAddrW(hprocess: Foundation.HANDLE, address: ULong, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumSymbolsForAddrW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), address.toLong(), Win32DynamicFfi.objectSlot(enumsymbolscallback), usercontext)).toInt()
+public fun SymEnumSymbolsForAddrW(hprocess: HANDLE, address: ULong, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumSymbolsForAddrW", longArrayOf(hprocess, address.toLong(), Win32DynamicFfi.objectSlot(enumsymbolscallback), usercontext)).toInt()
 }
 
-public fun SymEnumSymbolsW(hprocess: Foundation.HANDLE, baseofdll: ULong, mask: PCWSTR, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumSymbolsW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), baseofdll.toLong(), mask, Win32DynamicFfi.objectSlot(enumsymbolscallback), usercontext)).toInt()
+public fun SymEnumSymbolsW(hprocess: HANDLE, baseofdll: ULong, mask: PCWSTR, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumSymbolsW", longArrayOf(hprocess, baseofdll.toLong(), mask, Win32DynamicFfi.objectSlot(enumsymbolscallback), usercontext)).toInt()
 }
 
-public fun SymEnumTypes(hprocess: Foundation.HANDLE, baseofdll: ULong, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumTypes", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), baseofdll.toLong(), Win32DynamicFfi.objectSlot(enumsymbolscallback), usercontext)).toInt()
+public fun SymEnumTypes(hprocess: HANDLE, baseofdll: ULong, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumTypes", longArrayOf(hprocess, baseofdll.toLong(), Win32DynamicFfi.objectSlot(enumsymbolscallback), usercontext)).toInt()
 }
 
-public fun SymEnumTypesByName(hprocess: Foundation.HANDLE, baseofdll: ULong, mask: PCSTR, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumTypesByName", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), baseofdll.toLong(), mask, Win32DynamicFfi.objectSlot(enumsymbolscallback), usercontext)).toInt()
+public fun SymEnumTypesByName(hprocess: HANDLE, baseofdll: ULong, mask: PCSTR, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumTypesByName", longArrayOf(hprocess, baseofdll.toLong(), mask, Win32DynamicFfi.objectSlot(enumsymbolscallback), usercontext)).toInt()
 }
 
-public fun SymEnumTypesByNameW(hprocess: Foundation.HANDLE, baseofdll: ULong, mask: PCWSTR, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumTypesByNameW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), baseofdll.toLong(), mask, Win32DynamicFfi.objectSlot(enumsymbolscallback), usercontext)).toInt()
+public fun SymEnumTypesByNameW(hprocess: HANDLE, baseofdll: ULong, mask: PCWSTR, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumTypesByNameW", longArrayOf(hprocess, baseofdll.toLong(), mask, Win32DynamicFfi.objectSlot(enumsymbolscallback), usercontext)).toInt()
 }
 
-public fun SymEnumTypesW(hprocess: Foundation.HANDLE, baseofdll: ULong, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumTypesW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), baseofdll.toLong(), Win32DynamicFfi.objectSlot(enumsymbolscallback), usercontext)).toInt()
+public fun SymEnumTypesW(hprocess: HANDLE, baseofdll: ULong, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumTypesW", longArrayOf(hprocess, baseofdll.toLong(), Win32DynamicFfi.objectSlot(enumsymbolscallback), usercontext)).toInt()
 }
 
-public fun SymEnumerateModules64(hprocess: Foundation.HANDLE, enummodulescallback: PSYM_ENUMMODULES_CALLBACK64, usercontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumerateModules64", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), Win32DynamicFfi.objectSlot(enummodulescallback), usercontext)).toInt()
+public fun SymEnumerateModules64(hprocess: HANDLE, enummodulescallback: PSYM_ENUMMODULES_CALLBACK64, usercontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumerateModules64", longArrayOf(hprocess, Win32DynamicFfi.objectSlot(enummodulescallback), usercontext)).toInt()
 }
 
-public fun SymEnumerateModulesW64(hprocess: Foundation.HANDLE, enummodulescallback: PSYM_ENUMMODULES_CALLBACKW64, usercontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumerateModulesW64", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), Win32DynamicFfi.objectSlot(enummodulescallback), usercontext)).toInt()
+public fun SymEnumerateModulesW64(hprocess: HANDLE, enummodulescallback: PSYM_ENUMMODULES_CALLBACKW64, usercontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumerateModulesW64", longArrayOf(hprocess, Win32DynamicFfi.objectSlot(enummodulescallback), usercontext)).toInt()
 }
 
-public fun SymEnumerateSymbols64(hprocess: Foundation.HANDLE, baseofdll: ULong, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACK64, usercontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumerateSymbols64", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), baseofdll.toLong(), Win32DynamicFfi.objectSlot(enumsymbolscallback), usercontext)).toInt()
+public fun SymEnumerateSymbols64(hprocess: HANDLE, baseofdll: ULong, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACK64, usercontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumerateSymbols64", longArrayOf(hprocess, baseofdll.toLong(), Win32DynamicFfi.objectSlot(enumsymbolscallback), usercontext)).toInt()
 }
 
-public fun SymEnumerateSymbolsW64(hprocess: Foundation.HANDLE, baseofdll: ULong, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACK64W, usercontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumerateSymbolsW64", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), baseofdll.toLong(), Win32DynamicFfi.objectSlot(enumsymbolscallback), usercontext)).toInt()
+public fun SymEnumerateSymbolsW64(hprocess: HANDLE, baseofdll: ULong, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACK64W, usercontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymEnumerateSymbolsW64", longArrayOf(hprocess, baseofdll.toLong(), Win32DynamicFfi.objectSlot(enumsymbolscallback), usercontext)).toInt()
 }
 
-public fun SymFindDebugInfoFile(hprocess: Foundation.HANDLE, filename: PCSTR, debugfilepath: PSTR, callback: PFIND_DEBUG_FILE_CALLBACK, callerdata: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("dbghelp.dll", "SymFindDebugInfoFile", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), filename, debugfilepath, Win32DynamicFfi.objectSlot(callback), callerdata))
-    return Foundation.HANDLE()
+public fun SymFindDebugInfoFile(hprocess: HANDLE, filename: PCSTR, debugfilepath: PSTR, callback: PFIND_DEBUG_FILE_CALLBACK, callerdata: Long): HANDLE {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFindDebugInfoFile", longArrayOf(hprocess, filename, debugfilepath, Win32DynamicFfi.objectSlot(callback), callerdata))
 }
 
-public fun SymFindDebugInfoFileW(hprocess: Foundation.HANDLE, filename: PCWSTR, debugfilepath: PWSTR, callback: PFIND_DEBUG_FILE_CALLBACKW, callerdata: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("dbghelp.dll", "SymFindDebugInfoFileW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), filename, debugfilepath, Win32DynamicFfi.objectSlot(callback), callerdata))
-    return Foundation.HANDLE()
+public fun SymFindDebugInfoFileW(hprocess: HANDLE, filename: PCWSTR, debugfilepath: PWSTR, callback: PFIND_DEBUG_FILE_CALLBACKW, callerdata: Long): HANDLE {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFindDebugInfoFileW", longArrayOf(hprocess, filename, debugfilepath, Win32DynamicFfi.objectSlot(callback), callerdata))
 }
 
-public fun SymFindExecutableImage(hprocess: Foundation.HANDLE, filename: PCSTR, imagefilepath: PSTR, callback: PFIND_EXE_FILE_CALLBACK, callerdata: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("dbghelp.dll", "SymFindExecutableImage", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), filename, imagefilepath, Win32DynamicFfi.objectSlot(callback), callerdata))
-    return Foundation.HANDLE()
+public fun SymFindExecutableImage(hprocess: HANDLE, filename: PCSTR, imagefilepath: PSTR, callback: PFIND_EXE_FILE_CALLBACK, callerdata: Long): HANDLE {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFindExecutableImage", longArrayOf(hprocess, filename, imagefilepath, Win32DynamicFfi.objectSlot(callback), callerdata))
 }
 
-public fun SymFindExecutableImageW(hprocess: Foundation.HANDLE, filename: PCWSTR, imagefilepath: PWSTR, callback: PFIND_EXE_FILE_CALLBACKW, callerdata: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("dbghelp.dll", "SymFindExecutableImageW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), filename, imagefilepath, Win32DynamicFfi.objectSlot(callback), callerdata))
-    return Foundation.HANDLE()
+public fun SymFindExecutableImageW(hprocess: HANDLE, filename: PCWSTR, imagefilepath: PWSTR, callback: PFIND_EXE_FILE_CALLBACKW, callerdata: Long): HANDLE {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFindExecutableImageW", longArrayOf(hprocess, filename, imagefilepath, Win32DynamicFfi.objectSlot(callback), callerdata))
 }
 
-public fun SymFindFileInPath(hprocess: Foundation.HANDLE, searchpatha: PCSTR, filename: PCSTR, id: Long, two: UInt, three: UInt, flags: SYM_FIND_ID_OPTION, foundfile: PSTR, callback: PFINDFILEINPATHCALLBACK, context: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFindFileInPath", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), searchpatha, filename, id, two.toLong(), three.toLong(), flags.toLong(), foundfile, Win32DynamicFfi.objectSlot(callback), context)).toInt()
+public fun SymFindFileInPath(hprocess: HANDLE, searchpatha: PCSTR, filename: PCSTR, id: Long, two: UInt, three: UInt, flags: SYM_FIND_ID_OPTION, foundfile: PSTR, callback: PFINDFILEINPATHCALLBACK, context: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFindFileInPath", longArrayOf(hprocess, searchpatha, filename, id, two.toLong(), three.toLong(), flags.toLong(), foundfile, Win32DynamicFfi.objectSlot(callback), context)).toInt()
 }
 
-public fun SymFindFileInPathW(hprocess: Foundation.HANDLE, searchpatha: PCWSTR, filename: PCWSTR, id: Long, two: UInt, three: UInt, flags: SYM_FIND_ID_OPTION, foundfile: PWSTR, callback: PFINDFILEINPATHCALLBACKW, context: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFindFileInPathW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), searchpatha, filename, id, two.toLong(), three.toLong(), flags.toLong(), foundfile, Win32DynamicFfi.objectSlot(callback), context)).toInt()
+public fun SymFindFileInPathW(hprocess: HANDLE, searchpatha: PCWSTR, filename: PCWSTR, id: Long, two: UInt, three: UInt, flags: SYM_FIND_ID_OPTION, foundfile: PWSTR, callback: PFINDFILEINPATHCALLBACKW, context: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFindFileInPathW", longArrayOf(hprocess, searchpatha, filename, id, two.toLong(), three.toLong(), flags.toLong(), foundfile, Win32DynamicFfi.objectSlot(callback), context)).toInt()
 }
 
-public fun SymFromAddr(hprocess: Foundation.HANDLE, address: ULong, displacement: Long, symbol: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFromAddr", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), address.toLong(), displacement, symbol)).toInt()
+public fun SymFromAddr(hprocess: HANDLE, address: ULong, displacement: Long, symbol: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFromAddr", longArrayOf(hprocess, address.toLong(), displacement, symbol)).toInt()
 }
 
-public fun SymFromAddrW(hprocess: Foundation.HANDLE, address: ULong, displacement: Long, symbol: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFromAddrW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), address.toLong(), displacement, symbol)).toInt()
+public fun SymFromAddrW(hprocess: HANDLE, address: ULong, displacement: Long, symbol: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFromAddrW", longArrayOf(hprocess, address.toLong(), displacement, symbol)).toInt()
 }
 
-public fun SymFromIndex(hprocess: Foundation.HANDLE, baseofdll: ULong, index: UInt, symbol: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFromIndex", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), baseofdll.toLong(), index.toLong(), symbol)).toInt()
+public fun SymFromIndex(hprocess: HANDLE, baseofdll: ULong, index: UInt, symbol: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFromIndex", longArrayOf(hprocess, baseofdll.toLong(), index.toLong(), symbol)).toInt()
 }
 
-public fun SymFromIndexW(hprocess: Foundation.HANDLE, baseofdll: ULong, index: UInt, symbol: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFromIndexW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), baseofdll.toLong(), index.toLong(), symbol)).toInt()
+public fun SymFromIndexW(hprocess: HANDLE, baseofdll: ULong, index: UInt, symbol: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFromIndexW", longArrayOf(hprocess, baseofdll.toLong(), index.toLong(), symbol)).toInt()
 }
 
-public fun SymFromInlineContext(hprocess: Foundation.HANDLE, address: ULong, inlinecontext: UInt, displacement: Long, symbol: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFromInlineContext", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), address.toLong(), inlinecontext.toLong(), displacement, symbol)).toInt()
+public fun SymFromInlineContext(hprocess: HANDLE, address: ULong, inlinecontext: UInt, displacement: Long, symbol: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFromInlineContext", longArrayOf(hprocess, address.toLong(), inlinecontext.toLong(), displacement, symbol)).toInt()
 }
 
-public fun SymFromInlineContextW(hprocess: Foundation.HANDLE, address: ULong, inlinecontext: UInt, displacement: Long, symbol: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFromInlineContextW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), address.toLong(), inlinecontext.toLong(), displacement, symbol)).toInt()
+public fun SymFromInlineContextW(hprocess: HANDLE, address: ULong, inlinecontext: UInt, displacement: Long, symbol: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFromInlineContextW", longArrayOf(hprocess, address.toLong(), inlinecontext.toLong(), displacement, symbol)).toInt()
 }
 
-public fun SymFromName(hprocess: Foundation.HANDLE, name: PCSTR, symbol: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFromName", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), name, symbol)).toInt()
+public fun SymFromName(hprocess: HANDLE, name: PCSTR, symbol: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFromName", longArrayOf(hprocess, name, symbol)).toInt()
 }
 
-public fun SymFromNameW(hprocess: Foundation.HANDLE, name: PCWSTR, symbol: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFromNameW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), name, symbol)).toInt()
+public fun SymFromNameW(hprocess: HANDLE, name: PCWSTR, symbol: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFromNameW", longArrayOf(hprocess, name, symbol)).toInt()
 }
 
-public fun SymFromToken(hprocess: Foundation.HANDLE, base: ULong, token: UInt, symbol: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFromToken", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), base.toLong(), token.toLong(), symbol)).toInt()
+public fun SymFromToken(hprocess: HANDLE, base: ULong, token: UInt, symbol: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFromToken", longArrayOf(hprocess, base.toLong(), token.toLong(), symbol)).toInt()
 }
 
-public fun SymFromTokenW(hprocess: Foundation.HANDLE, base: ULong, token: UInt, symbol: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFromTokenW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), base.toLong(), token.toLong(), symbol)).toInt()
+public fun SymFromTokenW(hprocess: HANDLE, base: ULong, token: UInt, symbol: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFromTokenW", longArrayOf(hprocess, base.toLong(), token.toLong(), symbol)).toInt()
 }
 
-public fun SymFunctionTableAccess64(hprocess: Foundation.HANDLE, addrbase: ULong): Long {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFunctionTableAccess64", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), addrbase.toLong()))
+public fun SymFunctionTableAccess64(hprocess: HANDLE, addrbase: ULong): Long {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFunctionTableAccess64", longArrayOf(hprocess, addrbase.toLong()))
 }
 
-public fun SymFunctionTableAccess64AccessRoutines(hprocess: Foundation.HANDLE, addrbase: ULong, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64): Long {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFunctionTableAccess64AccessRoutines", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), addrbase.toLong(), Win32DynamicFfi.objectSlot(readmemoryroutine), Win32DynamicFfi.objectSlot(getmodulebaseroutine)))
+public fun SymFunctionTableAccess64AccessRoutines(hprocess: HANDLE, addrbase: ULong, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64): Long {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymFunctionTableAccess64AccessRoutines", longArrayOf(hprocess, addrbase.toLong(), Win32DynamicFfi.objectSlot(readmemoryroutine), Win32DynamicFfi.objectSlot(getmodulebaseroutine)))
 }
 
 public fun SymGetExtendedOption(option: IMAGEHLP_EXTENDED_OPTIONS): BOOL {
     return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetExtendedOption", longArrayOf(option.toLong())).toInt()
 }
 
-public fun SymGetFileLineOffsets64(hprocess: Foundation.HANDLE, modulename: PCSTR, filename: PCSTR, buffer: Long, bufferlines: UInt): UInt {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetFileLineOffsets64", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), modulename, filename, buffer, bufferlines.toLong())).toUInt()
+public fun SymGetFileLineOffsets64(hprocess: HANDLE, modulename: PCSTR, filename: PCSTR, buffer: Long, bufferlines: UInt): UInt {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetFileLineOffsets64", longArrayOf(hprocess, modulename, filename, buffer, bufferlines.toLong())).toUInt()
 }
 
 public fun SymGetHomeDirectory(type: UInt, dir: PSTR, size: ULong): PSTR {
@@ -869,200 +866,200 @@ public fun SymGetHomeDirectoryW(type: UInt, dir: PWSTR, size: ULong): PWSTR {
     return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetHomeDirectoryW", longArrayOf(type.toLong(), dir, size.toLong()))
 }
 
-public fun SymGetLineFromAddr64(hprocess: Foundation.HANDLE, qwaddr: ULong, pdwdisplacement: Long, line64: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetLineFromAddr64", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), qwaddr.toLong(), pdwdisplacement, line64)).toInt()
+public fun SymGetLineFromAddr64(hprocess: HANDLE, qwaddr: ULong, pdwdisplacement: Long, line64: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetLineFromAddr64", longArrayOf(hprocess, qwaddr.toLong(), pdwdisplacement, line64)).toInt()
 }
 
-public fun SymGetLineFromAddrW64(hprocess: Foundation.HANDLE, dwaddr: ULong, pdwdisplacement: Long, line: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetLineFromAddrW64", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), dwaddr.toLong(), pdwdisplacement, line)).toInt()
+public fun SymGetLineFromAddrW64(hprocess: HANDLE, dwaddr: ULong, pdwdisplacement: Long, line: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetLineFromAddrW64", longArrayOf(hprocess, dwaddr.toLong(), pdwdisplacement, line)).toInt()
 }
 
-public fun SymGetLineFromInlineContext(hprocess: Foundation.HANDLE, qwaddr: ULong, inlinecontext: UInt, qwmodulebaseaddress: ULong, pdwdisplacement: Long, line64: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetLineFromInlineContext", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), qwaddr.toLong(), inlinecontext.toLong(), qwmodulebaseaddress.toLong(), pdwdisplacement, line64)).toInt()
+public fun SymGetLineFromInlineContext(hprocess: HANDLE, qwaddr: ULong, inlinecontext: UInt, qwmodulebaseaddress: ULong, pdwdisplacement: Long, line64: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetLineFromInlineContext", longArrayOf(hprocess, qwaddr.toLong(), inlinecontext.toLong(), qwmodulebaseaddress.toLong(), pdwdisplacement, line64)).toInt()
 }
 
-public fun SymGetLineFromInlineContextW(hprocess: Foundation.HANDLE, dwaddr: ULong, inlinecontext: UInt, qwmodulebaseaddress: ULong, pdwdisplacement: Long, line: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetLineFromInlineContextW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), dwaddr.toLong(), inlinecontext.toLong(), qwmodulebaseaddress.toLong(), pdwdisplacement, line)).toInt()
+public fun SymGetLineFromInlineContextW(hprocess: HANDLE, dwaddr: ULong, inlinecontext: UInt, qwmodulebaseaddress: ULong, pdwdisplacement: Long, line: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetLineFromInlineContextW", longArrayOf(hprocess, dwaddr.toLong(), inlinecontext.toLong(), qwmodulebaseaddress.toLong(), pdwdisplacement, line)).toInt()
 }
 
-public fun SymGetLineFromName64(hprocess: Foundation.HANDLE, modulename: PCSTR, filename: PCSTR, dwlinenumber: UInt, pldisplacement: Long, line: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetLineFromName64", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), modulename, filename, dwlinenumber.toLong(), pldisplacement, line)).toInt()
+public fun SymGetLineFromName64(hprocess: HANDLE, modulename: PCSTR, filename: PCSTR, dwlinenumber: UInt, pldisplacement: Long, line: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetLineFromName64", longArrayOf(hprocess, modulename, filename, dwlinenumber.toLong(), pldisplacement, line)).toInt()
 }
 
-public fun SymGetLineFromNameW64(hprocess: Foundation.HANDLE, modulename: PCWSTR, filename: PCWSTR, dwlinenumber: UInt, pldisplacement: Long, line: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetLineFromNameW64", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), modulename, filename, dwlinenumber.toLong(), pldisplacement, line)).toInt()
+public fun SymGetLineFromNameW64(hprocess: HANDLE, modulename: PCWSTR, filename: PCWSTR, dwlinenumber: UInt, pldisplacement: Long, line: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetLineFromNameW64", longArrayOf(hprocess, modulename, filename, dwlinenumber.toLong(), pldisplacement, line)).toInt()
 }
 
-public fun SymGetLineNext64(hprocess: Foundation.HANDLE, line: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetLineNext64", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), line)).toInt()
+public fun SymGetLineNext64(hprocess: HANDLE, line: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetLineNext64", longArrayOf(hprocess, line)).toInt()
 }
 
-public fun SymGetLineNextW64(hprocess: Foundation.HANDLE, line: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetLineNextW64", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), line)).toInt()
+public fun SymGetLineNextW64(hprocess: HANDLE, line: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetLineNextW64", longArrayOf(hprocess, line)).toInt()
 }
 
-public fun SymGetLinePrev64(hprocess: Foundation.HANDLE, line: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetLinePrev64", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), line)).toInt()
+public fun SymGetLinePrev64(hprocess: HANDLE, line: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetLinePrev64", longArrayOf(hprocess, line)).toInt()
 }
 
-public fun SymGetLinePrevW64(hprocess: Foundation.HANDLE, line: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetLinePrevW64", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), line)).toInt()
+public fun SymGetLinePrevW64(hprocess: HANDLE, line: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetLinePrevW64", longArrayOf(hprocess, line)).toInt()
 }
 
-public fun SymGetModuleBase64(hprocess: Foundation.HANDLE, qwaddr: ULong): ULong {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetModuleBase64", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), qwaddr.toLong())).toULong()
+public fun SymGetModuleBase64(hprocess: HANDLE, qwaddr: ULong): ULong {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetModuleBase64", longArrayOf(hprocess, qwaddr.toLong())).toULong()
 }
 
-public fun SymGetModuleInfo64(hprocess: Foundation.HANDLE, qwaddr: ULong, moduleinfo: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetModuleInfo64", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), qwaddr.toLong(), moduleinfo)).toInt()
+public fun SymGetModuleInfo64(hprocess: HANDLE, qwaddr: ULong, moduleinfo: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetModuleInfo64", longArrayOf(hprocess, qwaddr.toLong(), moduleinfo)).toInt()
 }
 
-public fun SymGetModuleInfoW64(hprocess: Foundation.HANDLE, qwaddr: ULong, moduleinfo: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetModuleInfoW64", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), qwaddr.toLong(), moduleinfo)).toInt()
+public fun SymGetModuleInfoW64(hprocess: HANDLE, qwaddr: ULong, moduleinfo: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetModuleInfoW64", longArrayOf(hprocess, qwaddr.toLong(), moduleinfo)).toInt()
 }
 
-public fun SymGetOmaps(hprocess: Foundation.HANDLE, baseofdll: ULong, omapto: Long, comapto: Long, omapfrom: Long, comapfrom: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetOmaps", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), baseofdll.toLong(), omapto, comapto, omapfrom, comapfrom)).toInt()
+public fun SymGetOmaps(hprocess: HANDLE, baseofdll: ULong, omapto: Long, comapto: Long, omapfrom: Long, comapfrom: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetOmaps", longArrayOf(hprocess, baseofdll.toLong(), omapto, comapto, omapfrom, comapfrom)).toInt()
 }
 
 public fun SymGetOptions(): UInt {
     return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetOptions", longArrayOf()).toUInt()
 }
 
-public fun SymGetScope(hprocess: Foundation.HANDLE, baseofdll: ULong, index: UInt, symbol: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetScope", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), baseofdll.toLong(), index.toLong(), symbol)).toInt()
+public fun SymGetScope(hprocess: HANDLE, baseofdll: ULong, index: UInt, symbol: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetScope", longArrayOf(hprocess, baseofdll.toLong(), index.toLong(), symbol)).toInt()
 }
 
-public fun SymGetScopeW(hprocess: Foundation.HANDLE, baseofdll: ULong, index: UInt, symbol: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetScopeW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), baseofdll.toLong(), index.toLong(), symbol)).toInt()
+public fun SymGetScopeW(hprocess: HANDLE, baseofdll: ULong, index: UInt, symbol: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetScopeW", longArrayOf(hprocess, baseofdll.toLong(), index.toLong(), symbol)).toInt()
 }
 
-public fun SymGetSearchPath(hprocess: Foundation.HANDLE, searchpatha: PSTR, searchpathlength: UInt): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSearchPath", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), searchpatha, searchpathlength.toLong())).toInt()
+public fun SymGetSearchPath(hprocess: HANDLE, searchpatha: PSTR, searchpathlength: UInt): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSearchPath", longArrayOf(hprocess, searchpatha, searchpathlength.toLong())).toInt()
 }
 
-public fun SymGetSearchPathW(hprocess: Foundation.HANDLE, searchpatha: PWSTR, searchpathlength: UInt): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSearchPathW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), searchpatha, searchpathlength.toLong())).toInt()
+public fun SymGetSearchPathW(hprocess: HANDLE, searchpatha: PWSTR, searchpathlength: UInt): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSearchPathW", longArrayOf(hprocess, searchpatha, searchpathlength.toLong())).toInt()
 }
 
-public fun SymGetSourceFile(hprocess: Foundation.HANDLE, base: ULong, params: PCSTR, filespec: PCSTR, filepath: PSTR, size: UInt): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSourceFile", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), base.toLong(), params, filespec, filepath, size.toLong())).toInt()
+public fun SymGetSourceFile(hprocess: HANDLE, base: ULong, params: PCSTR, filespec: PCSTR, filepath: PSTR, size: UInt): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSourceFile", longArrayOf(hprocess, base.toLong(), params, filespec, filepath, size.toLong())).toInt()
 }
 
-public fun SymGetSourceFileChecksum(hprocess: Foundation.HANDLE, base: ULong, filespec: PCSTR, pchecksumtype: Long, pchecksum: Long, checksumsize: UInt, pactualbyteswritten: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSourceFileChecksum", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), base.toLong(), filespec, pchecksumtype, pchecksum, checksumsize.toLong(), pactualbyteswritten)).toInt()
+public fun SymGetSourceFileChecksum(hprocess: HANDLE, base: ULong, filespec: PCSTR, pchecksumtype: Long, pchecksum: Long, checksumsize: UInt, pactualbyteswritten: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSourceFileChecksum", longArrayOf(hprocess, base.toLong(), filespec, pchecksumtype, pchecksum, checksumsize.toLong(), pactualbyteswritten)).toInt()
 }
 
-public fun SymGetSourceFileChecksumW(hprocess: Foundation.HANDLE, base: ULong, filespec: PCWSTR, pchecksumtype: Long, pchecksum: Long, checksumsize: UInt, pactualbyteswritten: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSourceFileChecksumW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), base.toLong(), filespec, pchecksumtype, pchecksum, checksumsize.toLong(), pactualbyteswritten)).toInt()
+public fun SymGetSourceFileChecksumW(hprocess: HANDLE, base: ULong, filespec: PCWSTR, pchecksumtype: Long, pchecksum: Long, checksumsize: UInt, pactualbyteswritten: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSourceFileChecksumW", longArrayOf(hprocess, base.toLong(), filespec, pchecksumtype, pchecksum, checksumsize.toLong(), pactualbyteswritten)).toInt()
 }
 
-public fun SymGetSourceFileFromToken(hprocess: Foundation.HANDLE, token: Long, params: PCSTR, filepath: PSTR, size: UInt): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSourceFileFromToken", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), token, params, filepath, size.toLong())).toInt()
+public fun SymGetSourceFileFromToken(hprocess: HANDLE, token: Long, params: PCSTR, filepath: PSTR, size: UInt): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSourceFileFromToken", longArrayOf(hprocess, token, params, filepath, size.toLong())).toInt()
 }
 
-public fun SymGetSourceFileFromTokenByTokenName(hprocess: Foundation.HANDLE, token: Long, tokenname: PCSTR, params: PCSTR, filepath: PSTR, size: UInt): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSourceFileFromTokenByTokenName", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), token, tokenname, params, filepath, size.toLong())).toInt()
+public fun SymGetSourceFileFromTokenByTokenName(hprocess: HANDLE, token: Long, tokenname: PCSTR, params: PCSTR, filepath: PSTR, size: UInt): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSourceFileFromTokenByTokenName", longArrayOf(hprocess, token, tokenname, params, filepath, size.toLong())).toInt()
 }
 
-public fun SymGetSourceFileFromTokenByTokenNameW(hprocess: Foundation.HANDLE, token: Long, tokenname: PCWSTR, params: PCWSTR, filepath: PWSTR, size: UInt): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSourceFileFromTokenByTokenNameW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), token, tokenname, params, filepath, size.toLong())).toInt()
+public fun SymGetSourceFileFromTokenByTokenNameW(hprocess: HANDLE, token: Long, tokenname: PCWSTR, params: PCWSTR, filepath: PWSTR, size: UInt): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSourceFileFromTokenByTokenNameW", longArrayOf(hprocess, token, tokenname, params, filepath, size.toLong())).toInt()
 }
 
-public fun SymGetSourceFileFromTokenW(hprocess: Foundation.HANDLE, token: Long, params: PCWSTR, filepath: PWSTR, size: UInt): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSourceFileFromTokenW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), token, params, filepath, size.toLong())).toInt()
+public fun SymGetSourceFileFromTokenW(hprocess: HANDLE, token: Long, params: PCWSTR, filepath: PWSTR, size: UInt): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSourceFileFromTokenW", longArrayOf(hprocess, token, params, filepath, size.toLong())).toInt()
 }
 
-public fun SymGetSourceFileToken(hprocess: Foundation.HANDLE, base: ULong, filespec: PCSTR, token: Long, size: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSourceFileToken", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), base.toLong(), filespec, token, size)).toInt()
+public fun SymGetSourceFileToken(hprocess: HANDLE, base: ULong, filespec: PCSTR, token: Long, size: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSourceFileToken", longArrayOf(hprocess, base.toLong(), filespec, token, size)).toInt()
 }
 
-public fun SymGetSourceFileTokenByTokenName(hprocess: Foundation.HANDLE, base: ULong, filespec: PCSTR, tokenname: PCSTR, tokenparameters: PCSTR, token: Long, size: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSourceFileTokenByTokenName", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), base.toLong(), filespec, tokenname, tokenparameters, token, size)).toInt()
+public fun SymGetSourceFileTokenByTokenName(hprocess: HANDLE, base: ULong, filespec: PCSTR, tokenname: PCSTR, tokenparameters: PCSTR, token: Long, size: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSourceFileTokenByTokenName", longArrayOf(hprocess, base.toLong(), filespec, tokenname, tokenparameters, token, size)).toInt()
 }
 
-public fun SymGetSourceFileTokenByTokenNameW(hprocess: Foundation.HANDLE, base: ULong, filespec: PCWSTR, tokenname: PCWSTR, tokenparameters: PCWSTR, token: Long, size: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSourceFileTokenByTokenNameW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), base.toLong(), filespec, tokenname, tokenparameters, token, size)).toInt()
+public fun SymGetSourceFileTokenByTokenNameW(hprocess: HANDLE, base: ULong, filespec: PCWSTR, tokenname: PCWSTR, tokenparameters: PCWSTR, token: Long, size: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSourceFileTokenByTokenNameW", longArrayOf(hprocess, base.toLong(), filespec, tokenname, tokenparameters, token, size)).toInt()
 }
 
-public fun SymGetSourceFileTokenW(hprocess: Foundation.HANDLE, base: ULong, filespec: PCWSTR, token: Long, size: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSourceFileTokenW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), base.toLong(), filespec, token, size)).toInt()
+public fun SymGetSourceFileTokenW(hprocess: HANDLE, base: ULong, filespec: PCWSTR, token: Long, size: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSourceFileTokenW", longArrayOf(hprocess, base.toLong(), filespec, token, size)).toInt()
 }
 
-public fun SymGetSourceFileW(hprocess: Foundation.HANDLE, base: ULong, params: PCWSTR, filespec: PCWSTR, filepath: PWSTR, size: UInt): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSourceFileW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), base.toLong(), params, filespec, filepath, size.toLong())).toInt()
+public fun SymGetSourceFileW(hprocess: HANDLE, base: ULong, params: PCWSTR, filespec: PCWSTR, filepath: PWSTR, size: UInt): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSourceFileW", longArrayOf(hprocess, base.toLong(), params, filespec, filepath, size.toLong())).toInt()
 }
 
-public fun SymGetSourceVarFromToken(hprocess: Foundation.HANDLE, token: Long, params: PCSTR, varname: PCSTR, value: PSTR, size: UInt): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSourceVarFromToken", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), token, params, varname, value, size.toLong())).toInt()
+public fun SymGetSourceVarFromToken(hprocess: HANDLE, token: Long, params: PCSTR, varname: PCSTR, value: PSTR, size: UInt): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSourceVarFromToken", longArrayOf(hprocess, token, params, varname, value, size.toLong())).toInt()
 }
 
-public fun SymGetSourceVarFromTokenW(hprocess: Foundation.HANDLE, token: Long, params: PCWSTR, varname: PCWSTR, value: PWSTR, size: UInt): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSourceVarFromTokenW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), token, params, varname, value, size.toLong())).toInt()
+public fun SymGetSourceVarFromTokenW(hprocess: HANDLE, token: Long, params: PCWSTR, varname: PCWSTR, value: PWSTR, size: UInt): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSourceVarFromTokenW", longArrayOf(hprocess, token, params, varname, value, size.toLong())).toInt()
 }
 
-public fun SymGetSymFromAddr64(hprocess: Foundation.HANDLE, qwaddr: ULong, pdwdisplacement: Long, symbol: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSymFromAddr64", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), qwaddr.toLong(), pdwdisplacement, symbol)).toInt()
+public fun SymGetSymFromAddr64(hprocess: HANDLE, qwaddr: ULong, pdwdisplacement: Long, symbol: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSymFromAddr64", longArrayOf(hprocess, qwaddr.toLong(), pdwdisplacement, symbol)).toInt()
 }
 
-public fun SymGetSymFromName64(hprocess: Foundation.HANDLE, name: PCSTR, symbol: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSymFromName64", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), name, symbol)).toInt()
+public fun SymGetSymFromName64(hprocess: HANDLE, name: PCSTR, symbol: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSymFromName64", longArrayOf(hprocess, name, symbol)).toInt()
 }
 
-public fun SymGetSymNext64(hprocess: Foundation.HANDLE, symbol: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSymNext64", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), symbol)).toInt()
+public fun SymGetSymNext64(hprocess: HANDLE, symbol: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSymNext64", longArrayOf(hprocess, symbol)).toInt()
 }
 
-public fun SymGetSymPrev64(hprocess: Foundation.HANDLE, symbol: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSymPrev64", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), symbol)).toInt()
+public fun SymGetSymPrev64(hprocess: HANDLE, symbol: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSymPrev64", longArrayOf(hprocess, symbol)).toInt()
 }
 
-public fun SymGetSymbolFile(hprocess: Foundation.HANDLE, sympath: PCSTR, imagefile: PCSTR, type: UInt, symbolfile: PSTR, csymbolfile: ULong, dbgfile: PSTR, cdbgfile: ULong): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSymbolFile", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), sympath, imagefile, type.toLong(), symbolfile, csymbolfile.toLong(), dbgfile, cdbgfile.toLong())).toInt()
+public fun SymGetSymbolFile(hprocess: HANDLE, sympath: PCSTR, imagefile: PCSTR, type: UInt, symbolfile: PSTR, csymbolfile: ULong, dbgfile: PSTR, cdbgfile: ULong): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSymbolFile", longArrayOf(hprocess, sympath, imagefile, type.toLong(), symbolfile, csymbolfile.toLong(), dbgfile, cdbgfile.toLong())).toInt()
 }
 
-public fun SymGetSymbolFileW(hprocess: Foundation.HANDLE, sympath: PCWSTR, imagefile: PCWSTR, type: UInt, symbolfile: PWSTR, csymbolfile: ULong, dbgfile: PWSTR, cdbgfile: ULong): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSymbolFileW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), sympath, imagefile, type.toLong(), symbolfile, csymbolfile.toLong(), dbgfile, cdbgfile.toLong())).toInt()
+public fun SymGetSymbolFileW(hprocess: HANDLE, sympath: PCWSTR, imagefile: PCWSTR, type: UInt, symbolfile: PWSTR, csymbolfile: ULong, dbgfile: PWSTR, cdbgfile: ULong): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetSymbolFileW", longArrayOf(hprocess, sympath, imagefile, type.toLong(), symbolfile, csymbolfile.toLong(), dbgfile, cdbgfile.toLong())).toInt()
 }
 
-public fun SymGetTypeFromName(hprocess: Foundation.HANDLE, baseofdll: ULong, name: PCSTR, symbol: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetTypeFromName", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), baseofdll.toLong(), name, symbol)).toInt()
+public fun SymGetTypeFromName(hprocess: HANDLE, baseofdll: ULong, name: PCSTR, symbol: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetTypeFromName", longArrayOf(hprocess, baseofdll.toLong(), name, symbol)).toInt()
 }
 
-public fun SymGetTypeFromNameW(hprocess: Foundation.HANDLE, baseofdll: ULong, name: PCWSTR, symbol: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetTypeFromNameW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), baseofdll.toLong(), name, symbol)).toInt()
+public fun SymGetTypeFromNameW(hprocess: HANDLE, baseofdll: ULong, name: PCWSTR, symbol: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetTypeFromNameW", longArrayOf(hprocess, baseofdll.toLong(), name, symbol)).toInt()
 }
 
-public fun SymGetTypeInfo(hprocess: Foundation.HANDLE, modbase: ULong, typeid: UInt, gettype: IMAGEHLP_SYMBOL_TYPE_INFO, pinfo: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetTypeInfo", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), modbase.toLong(), typeid.toLong(), gettype.toLong(), pinfo)).toInt()
+public fun SymGetTypeInfo(hprocess: HANDLE, modbase: ULong, typeid: UInt, gettype: IMAGEHLP_SYMBOL_TYPE_INFO, pinfo: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetTypeInfo", longArrayOf(hprocess, modbase.toLong(), typeid.toLong(), gettype.toLong(), pinfo)).toInt()
 }
 
-public fun SymGetTypeInfoEx(hprocess: Foundation.HANDLE, modbase: ULong, params: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetTypeInfoEx", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), modbase.toLong(), params)).toInt()
+public fun SymGetTypeInfoEx(hprocess: HANDLE, modbase: ULong, params: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetTypeInfoEx", longArrayOf(hprocess, modbase.toLong(), params)).toInt()
 }
 
-public fun SymGetUnwindInfo(hprocess: Foundation.HANDLE, address: ULong, buffer: Long, size: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetUnwindInfo", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), address.toLong(), buffer, size)).toInt()
+public fun SymGetUnwindInfo(hprocess: HANDLE, address: ULong, buffer: Long, size: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymGetUnwindInfo", longArrayOf(hprocess, address.toLong(), buffer, size)).toInt()
 }
 
-public fun SymInitialize(hprocess: Foundation.HANDLE, usersearchpath: PCSTR, finvadeprocess: BOOL): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymInitialize", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), usersearchpath, finvadeprocess.toLong())).toInt()
+public fun SymInitialize(hprocess: HANDLE, usersearchpath: PCSTR, finvadeprocess: BOOL): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymInitialize", longArrayOf(hprocess, usersearchpath, finvadeprocess.toLong())).toInt()
 }
 
-public fun SymInitializeW(hprocess: Foundation.HANDLE, usersearchpath: PCWSTR, finvadeprocess: BOOL): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymInitializeW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), usersearchpath, finvadeprocess.toLong())).toInt()
+public fun SymInitializeW(hprocess: HANDLE, usersearchpath: PCWSTR, finvadeprocess: BOOL): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymInitializeW", longArrayOf(hprocess, usersearchpath, finvadeprocess.toLong())).toInt()
 }
 
-public fun SymLoadModule64(hprocess: Foundation.HANDLE, hfile: Foundation.HANDLE, imagename: PCSTR, modulename: PCSTR, baseofdll: ULong, sizeofdll: UInt): ULong {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymLoadModule64", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), Win32DynamicFfi.objectSlot(hfile), imagename, modulename, baseofdll.toLong(), sizeofdll.toLong())).toULong()
+public fun SymLoadModule64(hprocess: HANDLE, hfile: HANDLE, imagename: PCSTR, modulename: PCSTR, baseofdll: ULong, sizeofdll: UInt): ULong {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymLoadModule64", longArrayOf(hprocess, hfile, imagename, modulename, baseofdll.toLong(), sizeofdll.toLong())).toULong()
 }
 
-public fun SymLoadModuleEx(hprocess: Foundation.HANDLE, hfile: Foundation.HANDLE, imagename: PCSTR, modulename: PCSTR, baseofdll: ULong, dllsize: UInt, data: Long, flags: SYM_LOAD_FLAGS): ULong {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymLoadModuleEx", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), Win32DynamicFfi.objectSlot(hfile), imagename, modulename, baseofdll.toLong(), dllsize.toLong(), data, flags.toLong())).toULong()
+public fun SymLoadModuleEx(hprocess: HANDLE, hfile: HANDLE, imagename: PCSTR, modulename: PCSTR, baseofdll: ULong, dllsize: UInt, data: Long, flags: SYM_LOAD_FLAGS): ULong {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymLoadModuleEx", longArrayOf(hprocess, hfile, imagename, modulename, baseofdll.toLong(), dllsize.toLong(), data, flags.toLong())).toULong()
 }
 
-public fun SymLoadModuleExW(hprocess: Foundation.HANDLE, hfile: Foundation.HANDLE, imagename: PCWSTR, modulename: PCWSTR, baseofdll: ULong, dllsize: UInt, data: Long, flags: SYM_LOAD_FLAGS): ULong {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymLoadModuleExW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), Win32DynamicFfi.objectSlot(hfile), imagename, modulename, baseofdll.toLong(), dllsize.toLong(), data, flags.toLong())).toULong()
+public fun SymLoadModuleExW(hprocess: HANDLE, hfile: HANDLE, imagename: PCWSTR, modulename: PCWSTR, baseofdll: ULong, dllsize: UInt, data: Long, flags: SYM_LOAD_FLAGS): ULong {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymLoadModuleExW", longArrayOf(hprocess, hfile, imagename, modulename, baseofdll.toLong(), dllsize.toLong(), data, flags.toLong())).toULong()
 }
 
 public fun SymMatchFileName(filename: PCSTR, match: PCSTR, filenamestop: Long, matchstop: Long): BOOL {
@@ -1085,100 +1082,100 @@ public fun SymMatchStringW(string: PCWSTR, expression: PCWSTR, fcase: BOOL): BOO
     return Win32DynamicFfi.invoke("dbghelp.dll", "SymMatchStringW", longArrayOf(string, expression, fcase.toLong())).toInt()
 }
 
-public fun SymNext(hprocess: Foundation.HANDLE, si: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymNext", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), si)).toInt()
+public fun SymNext(hprocess: HANDLE, si: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymNext", longArrayOf(hprocess, si)).toInt()
 }
 
-public fun SymNextW(hprocess: Foundation.HANDLE, siw: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymNextW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), siw)).toInt()
+public fun SymNextW(hprocess: HANDLE, siw: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymNextW", longArrayOf(hprocess, siw)).toInt()
 }
 
-public fun SymPrev(hprocess: Foundation.HANDLE, si: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymPrev", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), si)).toInt()
+public fun SymPrev(hprocess: HANDLE, si: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymPrev", longArrayOf(hprocess, si)).toInt()
 }
 
-public fun SymPrevW(hprocess: Foundation.HANDLE, siw: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymPrevW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), siw)).toInt()
+public fun SymPrevW(hprocess: HANDLE, siw: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymPrevW", longArrayOf(hprocess, siw)).toInt()
 }
 
-public fun SymQueryInlineTrace(hprocess: Foundation.HANDLE, startaddress: ULong, startcontext: UInt, startretaddress: ULong, curaddress: ULong, curcontext: Long, curframeindex: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymQueryInlineTrace", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), startaddress.toLong(), startcontext.toLong(), startretaddress.toLong(), curaddress.toLong(), curcontext, curframeindex)).toInt()
+public fun SymQueryInlineTrace(hprocess: HANDLE, startaddress: ULong, startcontext: UInt, startretaddress: ULong, curaddress: ULong, curcontext: Long, curframeindex: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymQueryInlineTrace", longArrayOf(hprocess, startaddress.toLong(), startcontext.toLong(), startretaddress.toLong(), curaddress.toLong(), curcontext, curframeindex)).toInt()
 }
 
-public fun SymRefreshModuleList(hprocess: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymRefreshModuleList", longArrayOf(Win32DynamicFfi.objectSlot(hprocess))).toInt()
+public fun SymRefreshModuleList(hprocess: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymRefreshModuleList", longArrayOf(hprocess)).toInt()
 }
 
-public fun SymRegisterCallback64(hprocess: Foundation.HANDLE, callbackfunction: PSYMBOL_REGISTERED_CALLBACK64, usercontext: ULong): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymRegisterCallback64", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), Win32DynamicFfi.objectSlot(callbackfunction), usercontext.toLong())).toInt()
+public fun SymRegisterCallback64(hprocess: HANDLE, callbackfunction: PSYMBOL_REGISTERED_CALLBACK64, usercontext: ULong): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymRegisterCallback64", longArrayOf(hprocess, Win32DynamicFfi.objectSlot(callbackfunction), usercontext.toLong())).toInt()
 }
 
-public fun SymRegisterCallbackW64(hprocess: Foundation.HANDLE, callbackfunction: PSYMBOL_REGISTERED_CALLBACK64, usercontext: ULong): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymRegisterCallbackW64", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), Win32DynamicFfi.objectSlot(callbackfunction), usercontext.toLong())).toInt()
+public fun SymRegisterCallbackW64(hprocess: HANDLE, callbackfunction: PSYMBOL_REGISTERED_CALLBACK64, usercontext: ULong): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymRegisterCallbackW64", longArrayOf(hprocess, Win32DynamicFfi.objectSlot(callbackfunction), usercontext.toLong())).toInt()
 }
 
-public fun SymRegisterFunctionEntryCallback64(hprocess: Foundation.HANDLE, callbackfunction: PSYMBOL_FUNCENTRY_CALLBACK64, usercontext: ULong): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymRegisterFunctionEntryCallback64", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), Win32DynamicFfi.objectSlot(callbackfunction), usercontext.toLong())).toInt()
+public fun SymRegisterFunctionEntryCallback64(hprocess: HANDLE, callbackfunction: PSYMBOL_FUNCENTRY_CALLBACK64, usercontext: ULong): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymRegisterFunctionEntryCallback64", longArrayOf(hprocess, Win32DynamicFfi.objectSlot(callbackfunction), usercontext.toLong())).toInt()
 }
 
-public fun SymSearch(hprocess: Foundation.HANDLE, baseofdll: ULong, index: UInt, symtag: UInt, mask: PCSTR, address: ULong, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Long, options: UInt): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSearch", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), baseofdll.toLong(), index.toLong(), symtag.toLong(), mask, address.toLong(), Win32DynamicFfi.objectSlot(enumsymbolscallback), usercontext, options.toLong())).toInt()
+public fun SymSearch(hprocess: HANDLE, baseofdll: ULong, index: UInt, symtag: UInt, mask: PCSTR, address: ULong, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Long, options: UInt): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSearch", longArrayOf(hprocess, baseofdll.toLong(), index.toLong(), symtag.toLong(), mask, address.toLong(), Win32DynamicFfi.objectSlot(enumsymbolscallback), usercontext, options.toLong())).toInt()
 }
 
-public fun SymSearchW(hprocess: Foundation.HANDLE, baseofdll: ULong, index: UInt, symtag: UInt, mask: PCWSTR, address: ULong, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Long, options: UInt): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSearchW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), baseofdll.toLong(), index.toLong(), symtag.toLong(), mask, address.toLong(), Win32DynamicFfi.objectSlot(enumsymbolscallback), usercontext, options.toLong())).toInt()
+public fun SymSearchW(hprocess: HANDLE, baseofdll: ULong, index: UInt, symtag: UInt, mask: PCWSTR, address: ULong, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Long, options: UInt): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSearchW", longArrayOf(hprocess, baseofdll.toLong(), index.toLong(), symtag.toLong(), mask, address.toLong(), Win32DynamicFfi.objectSlot(enumsymbolscallback), usercontext, options.toLong())).toInt()
 }
 
-public fun SymSetContext(hprocess: Foundation.HANDLE, stackframe: Long, context: Long): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSetContext", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), stackframe, context)).toInt()
+public fun SymSetContext(hprocess: HANDLE, stackframe: Long, context: Long): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSetContext", longArrayOf(hprocess, stackframe, context)).toInt()
 }
 
 public fun SymSetExtendedOption(option: IMAGEHLP_EXTENDED_OPTIONS, value: BOOL): BOOL {
     return Win32DynamicFfi.invoke("dbghelp.dll", "SymSetExtendedOption", longArrayOf(option.toLong(), value.toLong())).toInt()
 }
 
-public fun SymSetHomeDirectory(hprocess: Foundation.HANDLE, dir: PCSTR): PSTR {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSetHomeDirectory", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), dir))
+public fun SymSetHomeDirectory(hprocess: HANDLE, dir: PCSTR): PSTR {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSetHomeDirectory", longArrayOf(hprocess, dir))
 }
 
-public fun SymSetHomeDirectoryW(hprocess: Foundation.HANDLE, dir: PCWSTR): PWSTR {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSetHomeDirectoryW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), dir))
+public fun SymSetHomeDirectoryW(hprocess: HANDLE, dir: PCWSTR): PWSTR {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSetHomeDirectoryW", longArrayOf(hprocess, dir))
 }
 
 public fun SymSetOptions(symoptions: UInt): UInt {
     return Win32DynamicFfi.invoke("dbghelp.dll", "SymSetOptions", longArrayOf(symoptions.toLong())).toUInt()
 }
 
-public fun SymSetParentWindow(hwnd: Foundation.HWND): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSetParentWindow", longArrayOf(Win32DynamicFfi.objectSlot(hwnd))).toInt()
+public fun SymSetParentWindow(hwnd: HWND): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSetParentWindow", longArrayOf(hwnd)).toInt()
 }
 
-public fun SymSetScopeFromAddr(hprocess: Foundation.HANDLE, address: ULong): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSetScopeFromAddr", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), address.toLong())).toInt()
+public fun SymSetScopeFromAddr(hprocess: HANDLE, address: ULong): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSetScopeFromAddr", longArrayOf(hprocess, address.toLong())).toInt()
 }
 
-public fun SymSetScopeFromIndex(hprocess: Foundation.HANDLE, baseofdll: ULong, index: UInt): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSetScopeFromIndex", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), baseofdll.toLong(), index.toLong())).toInt()
+public fun SymSetScopeFromIndex(hprocess: HANDLE, baseofdll: ULong, index: UInt): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSetScopeFromIndex", longArrayOf(hprocess, baseofdll.toLong(), index.toLong())).toInt()
 }
 
-public fun SymSetScopeFromInlineContext(hprocess: Foundation.HANDLE, address: ULong, inlinecontext: UInt): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSetScopeFromInlineContext", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), address.toLong(), inlinecontext.toLong())).toInt()
+public fun SymSetScopeFromInlineContext(hprocess: HANDLE, address: ULong, inlinecontext: UInt): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSetScopeFromInlineContext", longArrayOf(hprocess, address.toLong(), inlinecontext.toLong())).toInt()
 }
 
-public fun SymSetSearchPath(hprocess: Foundation.HANDLE, searchpatha: PCSTR): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSetSearchPath", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), searchpatha)).toInt()
+public fun SymSetSearchPath(hprocess: HANDLE, searchpatha: PCSTR): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSetSearchPath", longArrayOf(hprocess, searchpatha)).toInt()
 }
 
-public fun SymSetSearchPathW(hprocess: Foundation.HANDLE, searchpatha: PCWSTR): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSetSearchPathW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), searchpatha)).toInt()
+public fun SymSetSearchPathW(hprocess: HANDLE, searchpatha: PCWSTR): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSetSearchPathW", longArrayOf(hprocess, searchpatha)).toInt()
 }
 
-public fun SymSrvDeltaName(hprocess: Foundation.HANDLE, sympath: PCSTR, type: PCSTR, file1: PCSTR, file2: PCSTR): PCSTR {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSrvDeltaName", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), sympath, type, file1, file2))
+public fun SymSrvDeltaName(hprocess: HANDLE, sympath: PCSTR, type: PCSTR, file1: PCSTR, file2: PCSTR): PCSTR {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSrvDeltaName", longArrayOf(hprocess, sympath, type, file1, file2))
 }
 
-public fun SymSrvDeltaNameW(hprocess: Foundation.HANDLE, sympath: PCWSTR, type: PCWSTR, file1: PCWSTR, file2: PCWSTR): PCWSTR {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSrvDeltaNameW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), sympath, type, file1, file2))
+public fun SymSrvDeltaNameW(hprocess: HANDLE, sympath: PCWSTR, type: PCWSTR, file1: PCWSTR, file2: PCWSTR): PCWSTR {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSrvDeltaNameW", longArrayOf(hprocess, sympath, type, file1, file2))
 }
 
 public fun SymSrvGetFileIndexInfo(file: PCSTR, info: Long, flags: UInt): BOOL {
@@ -1189,12 +1186,12 @@ public fun SymSrvGetFileIndexInfoW(file: PCWSTR, info: Long, flags: UInt): BOOL 
     return Win32DynamicFfi.invoke("dbghelp.dll", "SymSrvGetFileIndexInfoW", longArrayOf(file, info, flags.toLong())).toInt()
 }
 
-public fun SymSrvGetFileIndexString(hprocess: Foundation.HANDLE, srvpath: PCSTR, file: PCSTR, index: PSTR, size: ULong, flags: UInt): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSrvGetFileIndexString", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), srvpath, file, index, size.toLong(), flags.toLong())).toInt()
+public fun SymSrvGetFileIndexString(hprocess: HANDLE, srvpath: PCSTR, file: PCSTR, index: PSTR, size: ULong, flags: UInt): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSrvGetFileIndexString", longArrayOf(hprocess, srvpath, file, index, size.toLong(), flags.toLong())).toInt()
 }
 
-public fun SymSrvGetFileIndexStringW(hprocess: Foundation.HANDLE, srvpath: PCWSTR, file: PCWSTR, index: PWSTR, size: ULong, flags: UInt): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSrvGetFileIndexStringW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), srvpath, file, index, size.toLong(), flags.toLong())).toInt()
+public fun SymSrvGetFileIndexStringW(hprocess: HANDLE, srvpath: PCWSTR, file: PCWSTR, index: PWSTR, size: ULong, flags: UInt): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSrvGetFileIndexStringW", longArrayOf(hprocess, srvpath, file, index, size.toLong(), flags.toLong())).toInt()
 }
 
 public fun SymSrvGetFileIndexes(file: PCSTR, id: Long, val1: Long, val2: Long, flags: UInt): BOOL {
@@ -1205,52 +1202,52 @@ public fun SymSrvGetFileIndexesW(file: PCWSTR, id: Long, val1: Long, val2: Long,
     return Win32DynamicFfi.invoke("dbghelp.dll", "SymSrvGetFileIndexesW", longArrayOf(file, id, val1, val2, flags.toLong())).toInt()
 }
 
-public fun SymSrvGetSupplement(hprocess: Foundation.HANDLE, sympath: PCSTR, node: PCSTR, file: PCSTR): PCSTR {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSrvGetSupplement", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), sympath, node, file))
+public fun SymSrvGetSupplement(hprocess: HANDLE, sympath: PCSTR, node: PCSTR, file: PCSTR): PCSTR {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSrvGetSupplement", longArrayOf(hprocess, sympath, node, file))
 }
 
-public fun SymSrvGetSupplementW(hprocess: Foundation.HANDLE, sympath: PCWSTR, node: PCWSTR, file: PCWSTR): PCWSTR {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSrvGetSupplementW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), sympath, node, file))
+public fun SymSrvGetSupplementW(hprocess: HANDLE, sympath: PCWSTR, node: PCWSTR, file: PCWSTR): PCWSTR {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSrvGetSupplementW", longArrayOf(hprocess, sympath, node, file))
 }
 
-public fun SymSrvIsStore(hprocess: Foundation.HANDLE, path: PCSTR): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSrvIsStore", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), path)).toInt()
+public fun SymSrvIsStore(hprocess: HANDLE, path: PCSTR): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSrvIsStore", longArrayOf(hprocess, path)).toInt()
 }
 
-public fun SymSrvIsStoreW(hprocess: Foundation.HANDLE, path: PCWSTR): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSrvIsStoreW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), path)).toInt()
+public fun SymSrvIsStoreW(hprocess: HANDLE, path: PCWSTR): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSrvIsStoreW", longArrayOf(hprocess, path)).toInt()
 }
 
-public fun SymSrvStoreFile(hprocess: Foundation.HANDLE, srvpath: PCSTR, file: PCSTR, flags: SYM_SRV_STORE_FILE_FLAGS): PCSTR {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSrvStoreFile", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), srvpath, file, flags.toLong()))
+public fun SymSrvStoreFile(hprocess: HANDLE, srvpath: PCSTR, file: PCSTR, flags: SYM_SRV_STORE_FILE_FLAGS): PCSTR {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSrvStoreFile", longArrayOf(hprocess, srvpath, file, flags.toLong()))
 }
 
-public fun SymSrvStoreFileW(hprocess: Foundation.HANDLE, srvpath: PCWSTR, file: PCWSTR, flags: SYM_SRV_STORE_FILE_FLAGS): PCWSTR {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSrvStoreFileW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), srvpath, file, flags.toLong()))
+public fun SymSrvStoreFileW(hprocess: HANDLE, srvpath: PCWSTR, file: PCWSTR, flags: SYM_SRV_STORE_FILE_FLAGS): PCWSTR {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSrvStoreFileW", longArrayOf(hprocess, srvpath, file, flags.toLong()))
 }
 
-public fun SymSrvStoreSupplement(hprocess: Foundation.HANDLE, srvpath: PCSTR, node: PCSTR, file: PCSTR, flags: UInt): PCSTR {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSrvStoreSupplement", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), srvpath, node, file, flags.toLong()))
+public fun SymSrvStoreSupplement(hprocess: HANDLE, srvpath: PCSTR, node: PCSTR, file: PCSTR, flags: UInt): PCSTR {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSrvStoreSupplement", longArrayOf(hprocess, srvpath, node, file, flags.toLong()))
 }
 
-public fun SymSrvStoreSupplementW(hprocess: Foundation.HANDLE, sympath: PCWSTR, node: PCWSTR, file: PCWSTR, flags: UInt): PCWSTR {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSrvStoreSupplementW", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), sympath, node, file, flags.toLong()))
+public fun SymSrvStoreSupplementW(hprocess: HANDLE, sympath: PCWSTR, node: PCWSTR, file: PCWSTR, flags: UInt): PCWSTR {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymSrvStoreSupplementW", longArrayOf(hprocess, sympath, node, file, flags.toLong()))
 }
 
 public fun SymUnDName64(sym: Long, undecname: PSTR, undecnamelength: UInt): BOOL {
     return Win32DynamicFfi.invoke("dbghelp.dll", "SymUnDName64", longArrayOf(sym, undecname, undecnamelength.toLong())).toInt()
 }
 
-public fun SymUnloadModule64(hprocess: Foundation.HANDLE, baseofdll: ULong): BOOL {
-    return Win32DynamicFfi.invoke("dbghelp.dll", "SymUnloadModule64", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), baseofdll.toLong())).toInt()
+public fun SymUnloadModule64(hprocess: HANDLE, baseofdll: ULong): BOOL {
+    return Win32DynamicFfi.invoke("dbghelp.dll", "SymUnloadModule64", longArrayOf(hprocess, baseofdll.toLong())).toInt()
 }
 
 public fun TerminateProcessOnMemoryExhaustion(failedallocationsize: ULong) {
     Win32DynamicFfi.invoke("api-ms-win-core-errorhandling-l1-1-3.dll", "TerminateProcessOnMemoryExhaustion", longArrayOf(failedallocationsize.toLong()))
 }
 
-public fun TouchFileTimes(filehandle: Foundation.HANDLE, psystemtime: Long): BOOL {
-    return Win32DynamicFfi.invoke("imagehlp.dll", "TouchFileTimes", longArrayOf(Win32DynamicFfi.objectSlot(filehandle), psystemtime)).toInt()
+public fun TouchFileTimes(filehandle: HANDLE, psystemtime: Long): BOOL {
+    return Win32DynamicFfi.invoke("imagehlp.dll", "TouchFileTimes", longArrayOf(filehandle, psystemtime)).toInt()
 }
 
 public fun UnDecorateSymbolName(name: PCSTR, outputstring: PSTR, maxstringlength: UInt, flags: UInt): UInt {
@@ -1285,18 +1282,18 @@ public fun WaitForDebugEventEx(lpdebugevent: Long, dwmilliseconds: UInt): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "WaitForDebugEventEx", longArrayOf(lpdebugevent, dwmilliseconds.toLong())).toInt()
 }
 
-public fun Wow64GetThreadContext(hthread: Foundation.HANDLE, lpcontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "Wow64GetThreadContext", longArrayOf(Win32DynamicFfi.objectSlot(hthread), lpcontext)).toInt()
+public fun Wow64GetThreadContext(hthread: HANDLE, lpcontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "Wow64GetThreadContext", longArrayOf(hthread, lpcontext)).toInt()
 }
 
-public fun Wow64GetThreadSelectorEntry(hthread: Foundation.HANDLE, dwselector: UInt, lpselectorentry: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "Wow64GetThreadSelectorEntry", longArrayOf(Win32DynamicFfi.objectSlot(hthread), dwselector.toLong(), lpselectorentry)).toInt()
+public fun Wow64GetThreadSelectorEntry(hthread: HANDLE, dwselector: UInt, lpselectorentry: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "Wow64GetThreadSelectorEntry", longArrayOf(hthread, dwselector.toLong(), lpselectorentry)).toInt()
 }
 
-public fun Wow64SetThreadContext(hthread: Foundation.HANDLE, lpcontext: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "Wow64SetThreadContext", longArrayOf(Win32DynamicFfi.objectSlot(hthread), lpcontext)).toInt()
+public fun Wow64SetThreadContext(hthread: HANDLE, lpcontext: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "Wow64SetThreadContext", longArrayOf(hthread, lpcontext)).toInt()
 }
 
-public fun WriteProcessMemory(hprocess: Foundation.HANDLE, lpbaseaddress: Long, lpbuffer: Long, nsize: ULong, lpnumberofbyteswritten: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WriteProcessMemory", longArrayOf(Win32DynamicFfi.objectSlot(hprocess), lpbaseaddress, lpbuffer, nsize.toLong(), lpnumberofbyteswritten)).toInt()
+public fun WriteProcessMemory(hprocess: HANDLE, lpbaseaddress: Long, lpbuffer: Long, nsize: ULong, lpnumberofbyteswritten: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "WriteProcessMemory", longArrayOf(hprocess, lpbaseaddress, lpbuffer, nsize.toLong(), lpnumberofbyteswritten)).toInt()
 }

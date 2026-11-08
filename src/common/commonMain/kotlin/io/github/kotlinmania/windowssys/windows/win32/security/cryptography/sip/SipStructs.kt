@@ -3,6 +3,7 @@ package io.github.kotlinmania.windowssys.windows.win32.security.cryptography.sip
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CRYPT_ALGORITHM_IDENTIFIER
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CRYPT_ATTRIBUTE_TYPE_VALUE
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CRYPT_INTEGER_BLOB
@@ -50,7 +51,7 @@ public data class SIP_CAP_SET_V3_0(public var dwFlags: UInt = 0u, public var dwR
 
 public data class SIP_DISPATCH_INFO(
     public var cbSize: UInt = 0u,
-    public var hSIP: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hSIP: HANDLE = 0L,
     public var pfGet: pCryptSIPGetSignedDataMsg = null,
     public var pfPut: pCryptSIPPutSignedDataMsg = null,
     public var pfCreate: pCryptSIPCreateIndirectData = null,
@@ -67,7 +68,7 @@ public data class SIP_INDIRECT_DATA(
 public class SIP_SUBJECTINFO(
     public var cbSize: UInt = 0u,
     public var pgSubjectType: Long = 0L,
-    public var hFile: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hFile: HANDLE = 0L,
     public var pwsFileName: PCWSTR = 0L,
     public var pwsDisplayName: PCWSTR = 0L,
     public var dwReserved1: UInt = 0u,

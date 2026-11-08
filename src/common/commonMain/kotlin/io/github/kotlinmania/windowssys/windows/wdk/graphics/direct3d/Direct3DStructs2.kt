@@ -3,6 +3,12 @@ package io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d
 
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
+import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
 
 public data class D3DKMT_ADAPTER_VERIFIER_OPTION(
     public var Type: D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE = 0,
@@ -99,7 +105,7 @@ public data class D3DKMT_CANCEL_PRESENTS(
     public var Flags: D3DKMT_CANCEL_PRESENTS_FLAGS = D3DKMT_CANCEL_PRESENTS_FLAGS(),
     public var Operation: D3DKMT_CANCEL_PRESENTS_OPERATION = 0,
     public var CancelFromPresentId: ULong = 0uL,
-    public var CompSurfaceLuid: Win32.Foundation.LUID = Win32.Foundation.LUID(),
+    public var CompSurfaceLuid: LUID = LUID(),
     public var BindId: ULong = 0uL,
 )
 
@@ -110,8 +116,8 @@ public data class D3DKMT_CANCEL_PRESENTS_FLAGS_0(public var ReprogramInterrupt: 
 public data class D3DKMT_CANCEL_PRESENTS_FLAGS_0_0(public var _bitfield: UInt = 0u)
 
 public data class D3DKMT_CHANGESURFACEPOINTER(
-    public var hDC: Win32.Graphics.Gdi.HDC = Win32.Graphics.Gdi.HDC(),
-    public var hBitmap: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var hDC: HDC = 0L,
+    public var hBitmap: HANDLE = 0L,
     public var pSurfacePointer: Long = 0L,
     public var Width: UInt = 0u,
     public var Height: UInt = 0u,
@@ -119,7 +125,7 @@ public data class D3DKMT_CHANGESURFACEPOINTER(
 )
 
 public data class D3DKMT_CHANGEVIDEOMEMORYRESERVATION(
-    public var hProcess: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var hProcess: HANDLE = 0L,
     public var hAdapter: UInt = 0u,
     public var MemorySegmentGroup: D3DKMT_MEMORY_SEGMENT_GROUP = 0,
     public var Reservation: ULong = 0uL,
@@ -156,7 +162,7 @@ public data class D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3(
     public var ReturnInfo: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO = D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO(),
 )
 
-public data class D3DKMT_CHECKOCCLUSION(public var hWindow: Win32.Foundation.HWND = Win32.Foundation.HWND())
+public data class D3DKMT_CHECKOCCLUSION(public var hWindow: HWND = 0L)
 
 public data class D3DKMT_CHECKSHAREDRESOURCEACCESS(public var hResource: UInt = 0u, public var ClientPid: UInt = 0u)
 
@@ -164,7 +170,7 @@ public data class D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP(public var hAdapter: UInt 
 
 public data class D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE(
     public var hResource: UInt = 0u,
-    public var CompSurfaceLuid: Win32.Foundation.LUID = Win32.Foundation.LUID(),
+    public var CompSurfaceLuid: LUID = LUID(),
     public var VidPnSourceId: UInt = 0u,
     public var PlaneAttributes: D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES = D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES(),
 )
@@ -172,7 +178,7 @@ public data class D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE(
 public data class D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2(
     public var LayerIndex: UInt = 0u,
     public var hResource: UInt = 0u,
-    public var CompSurfaceLuid: Win32.Foundation.LUID = Win32.Foundation.LUID(),
+    public var CompSurfaceLuid: LUID = LUID(),
     public var VidPnSourceId: UInt = 0u,
     public var PlaneAttributes: D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2 = D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2(),
 )
@@ -180,7 +186,7 @@ public data class D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2(
 public data class D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3(
     public var LayerIndex: UInt = 0u,
     public var hResource: UInt = 0u,
-    public var CompSurfaceLuid: Win32.Foundation.LUID = Win32.Foundation.LUID(),
+    public var CompSurfaceLuid: LUID = LUID(),
     public var VidPnSourceId: UInt = 0u,
     public var pPlaneAttributes: Long = 0L,
 )
@@ -199,7 +205,7 @@ public data class D3DKMT_CONFIGURESHAREDRESOURCE(
     public var hDevice: UInt = 0u,
     public var hResource: UInt = 0u,
     public var IsDwm: Boolean = false,
-    public var hProcess: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var hProcess: HANDLE = 0L,
     public var AllowAccess: Boolean = false,
 )
 
@@ -235,7 +241,7 @@ public data class D3DKMT_CREATEALLOCATION(
     public var NumAllocations: UInt = 0u,
     public var Anonymous2: D3DKMT_CREATEALLOCATION_1 = D3DKMT_CREATEALLOCATION_1(),
     public var Flags: D3DKMT_CREATEALLOCATIONFLAGS = D3DKMT_CREATEALLOCATIONFLAGS(),
-    public var hPrivateRuntimeResourceHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var hPrivateRuntimeResourceHandle: HANDLE = 0L,
 )
 
 public data class D3DKMT_CREATEALLOCATION_0(public var pStandardAllocation: Long = 0L, public var pPrivateDriverData: Long = 0L)
@@ -279,10 +285,10 @@ public data class D3DKMT_CREATEDCFROMMEMORY(
     public var Width: UInt = 0u,
     public var Height: UInt = 0u,
     public var Pitch: UInt = 0u,
-    public var hDeviceDc: Win32.Graphics.Gdi.HDC = Win32.Graphics.Gdi.HDC(),
+    public var hDeviceDc: HDC = 0L,
     public var pColorTable: Long = 0L,
-    public var hDc: Win32.Graphics.Gdi.HDC = Win32.Graphics.Gdi.HDC(),
-    public var hBitmap: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var hDc: HDC = 0L,
+    public var hBitmap: HANDLE = 0L,
 )
 
 public data class D3DKMT_CREATEDEVICE(
@@ -468,7 +474,7 @@ public data class D3DKMT_DESTROYALLOCATION2(
 
 public data class D3DKMT_DESTROYCONTEXT(public var hContext: UInt = 0u)
 
-public data class D3DKMT_DESTROYDCFROMMEMORY(public var hDc: Win32.Graphics.Gdi.HDC = Win32.Graphics.Gdi.HDC(), public var hBitmap: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE())
+public data class D3DKMT_DESTROYDCFROMMEMORY(public var hDc: HDC = 0L, public var hBitmap: HANDLE = 0L)
 
 public data class D3DKMT_DESTROYDEVICE(public var hDevice: UInt = 0u)
 
@@ -530,7 +536,7 @@ public data class D3DKMT_DEVICE_IDS(
 
 public data class D3DKMT_DIRECTFLIP_SUPPORT(public var Supported: BOOL = 0)
 
-public data class D3DKMT_DIRTYREGIONS(public var NumRects: UInt = 0u, public var Rects: List<Win32.Foundation.RECT> = List(16) { Win32.Foundation.RECT() })
+public data class D3DKMT_DIRTYREGIONS(public var NumRects: UInt = 0u, public var Rects: List<RECT> = List(16) { RECT() })
 
 public data class D3DKMT_DISPLAYMODE(
     public var Width: UInt = 0u,
@@ -714,7 +720,7 @@ public data class D3DKMT_FLIPMANAGER_AUXILIARYPRESENTINFO(
     public var auxiliaryPresentInfo: D3DKMT_AUXILIARYPRESENTINFO = D3DKMT_AUXILIARYPRESENTINFO(),
     public var flipManagerTracingId: UInt = 0u,
     public var customDurationChanged: BOOL = 0,
-    public var FlipAdapterLuid: Win32.Foundation.LUID = Win32.Foundation.LUID(),
+    public var FlipAdapterLuid: LUID = LUID(),
     public var VidPnSourceId: UInt = 0u,
     public var independentFlipStage: D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE = 0,
     public var FlipCompletedQpc: ULong = 0uL,
@@ -743,21 +749,21 @@ public class D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN(
     public var FlipInterval: D3DDDI_FLIPINTERVAL_TYPE = 0,
     public var Flags: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS = D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS(),
     public var hCompSurf: Long = 0L,
-    public var compSurfLuid: Win32.Foundation.LUID = Win32.Foundation.LUID(),
+    public var compSurfLuid: LUID = LUID(),
     public var confirmationCookie: ULong = 0uL,
     public var CompositionSyncKey: ULong = 0uL,
     public var RemainingTokens: UInt = 0u,
-    public var ScrollRect: Win32.Foundation.RECT = Win32.Foundation.RECT(),
-    public var ScrollOffset: Win32.Foundation.POINT = Win32.Foundation.POINT(),
+    public var ScrollRect: RECT = RECT(),
+    public var ScrollOffset: POINT = POINT(),
     public var PresentCount: UInt = 0u,
     public var RevealColor: FloatArray = FloatArray(4),
     public var Rotation: D3DDDI_ROTATION = 0,
     public var Anonymous: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0 = D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0(),
     public var InkCookie: UInt = 0u,
-    public var SourceRect: Win32.Foundation.RECT = Win32.Foundation.RECT(),
+    public var SourceRect: RECT = RECT(),
     public var DestWidth: UInt = 0u,
     public var DestHeight: UInt = 0u,
-    public var TargetRect: Win32.Foundation.RECT = Win32.Foundation.RECT(),
+    public var TargetRect: RECT = RECT(),
     public var Transform: FloatArray = FloatArray(6),
     public var CustomDuration: UInt = 0u,
     public var CustomDurationFlipInterval: D3DDDI_FLIPINTERVAL_TYPE = 0,
@@ -769,7 +775,7 @@ public class D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN(
 public data class D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0(public var ScatterBlts: D3DKMT_SCATTERBLTS = D3DKMT_SCATTERBLTS(), public var Anonymous: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0 = D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0())
 
 public data class D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0(
-    public var hSyncObject: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var hSyncObject: HANDLE = 0L,
     public var HDRMetaDataType: D3DDDI_HDR_METADATA_TYPE = 0,
     public var Anonymous: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0_0 = D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0_0(),
 )
@@ -807,8 +813,8 @@ public data class D3DKMT_FREEGPUVIRTUALADDRESS(
 public data class D3DKMT_GDIMODEL_PRESENTHISTORYTOKEN(
     public var hLogicalSurface: ULong = 0uL,
     public var hPhysicalSurface: ULong = 0uL,
-    public var ScrollRect: Win32.Foundation.RECT = Win32.Foundation.RECT(),
-    public var ScrollOffset: Win32.Foundation.POINT = Win32.Foundation.POINT(),
+    public var ScrollRect: RECT = RECT(),
+    public var ScrollOffset: POINT = POINT(),
     public var DirtyRegions: D3DKMT_DIRTYREGIONS = D3DKMT_DIRTYREGIONS(),
 )
 
@@ -877,8 +883,8 @@ public data class D3DKMT_GETPRESENTHISTORY(
 )
 
 public data class D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT(
-    public var hProcess: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
-    public var AdapterLuid: Win32.Foundation.LUID = Win32.Foundation.LUID(),
+    public var hProcess: HANDLE = 0L,
+    public var AdapterLuid: LUID = LUID(),
     public var Support: Boolean = false,
 )
 
@@ -904,8 +910,8 @@ public data class D3DKMT_GETSHAREDPRIMARYHANDLE(
 
 public data class D3DKMT_GETSHAREDRESOURCEADAPTERLUID(
     public var hGlobalShare: UInt = 0u,
-    public var hNtHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
-    public var AdapterLuid: Win32.Foundation.LUID = Win32.Foundation.LUID(),
+    public var hNtHandle: HANDLE = 0L,
+    public var AdapterLuid: LUID = LUID(),
 )
 
 public data class D3DKMT_GETVERTICALBLANKEVENT(
@@ -1013,7 +1019,7 @@ public data class D3DKMT_HYBRID_DLIST_DLL_SUPPORT(public var Supported: BOOL = 0
 
 public data class D3DKMT_HYBRID_LIST(
     public var State: D3DKMT_GPU_PREFERENCE_QUERY_STATE = 0,
-    public var AdapterLuid: Win32.Foundation.LUID = Win32.Foundation.LUID(),
+    public var AdapterLuid: LUID = LUID(),
     public var bUserPreferenceQuery: BOOL = 0,
     public var QueryType: D3DKMT_GPU_PREFERENCE_QUERY_TYPE = 0,
 )
@@ -1103,12 +1109,12 @@ public data class D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS(
 public data class D3DKMT_MIRACAST_DISPLAY_DEVICE_STATUS(public var State: D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE = 0)
 
 public data class D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS(
-    public var AdapterLuid: Win32.Foundation.LUID = Win32.Foundation.LUID(),
+    public var AdapterLuid: LUID = LUID(),
     public var TargetId: UInt = 0u,
     public var StopReason: UInt = 0u,
 )
 
-public data class D3DKMT_MOVE_RECT(public var SourcePoint: Win32.Foundation.POINT = Win32.Foundation.POINT(), public var DestRect: Win32.Foundation.RECT = Win32.Foundation.RECT())
+public data class D3DKMT_MOVE_RECT(public var SourcePoint: POINT = POINT(), public var DestRect: RECT = RECT())
 
 public data class D3DKMT_MPO3DDI_SUPPORT(public var Supported: BOOL = 0)
 
@@ -1165,9 +1171,9 @@ public data class D3DKMT_MULTIPLANE_OVERLAY3(
 
 public data class D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES(
     public var Flags: UInt = 0u,
-    public var SrcRect: Win32.Foundation.RECT = Win32.Foundation.RECT(),
-    public var DstRect: Win32.Foundation.RECT = Win32.Foundation.RECT(),
-    public var ClipRect: Win32.Foundation.RECT = Win32.Foundation.RECT(),
+    public var SrcRect: RECT = RECT(),
+    public var DstRect: RECT = RECT(),
+    public var ClipRect: RECT = RECT(),
     public var Rotation: D3DDDI_ROTATION = 0,
     public var Blend: D3DKMT_MULTIPLANE_OVERLAY_BLEND = 0,
     public var DirtyRectCount: UInt = 0u,
@@ -1183,9 +1189,9 @@ public data class D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES(
 
 public data class D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2(
     public var Flags: UInt = 0u,
-    public var SrcRect: Win32.Foundation.RECT = Win32.Foundation.RECT(),
-    public var DstRect: Win32.Foundation.RECT = Win32.Foundation.RECT(),
-    public var ClipRect: Win32.Foundation.RECT = Win32.Foundation.RECT(),
+    public var SrcRect: RECT = RECT(),
+    public var DstRect: RECT = RECT(),
+    public var ClipRect: RECT = RECT(),
     public var Rotation: D3DDDI_ROTATION = 0,
     public var Blend: D3DKMT_MULTIPLANE_OVERLAY_BLEND = 0,
     public var DirtyRectCount: UInt = 0u,
@@ -1202,9 +1208,9 @@ public data class D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2(
 
 public data class D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3(
     public var Flags: UInt = 0u,
-    public var SrcRect: Win32.Foundation.RECT = Win32.Foundation.RECT(),
-    public var DstRect: Win32.Foundation.RECT = Win32.Foundation.RECT(),
-    public var ClipRect: Win32.Foundation.RECT = Win32.Foundation.RECT(),
+    public var SrcRect: RECT = RECT(),
+    public var DstRect: RECT = RECT(),
+    public var ClipRect: RECT = RECT(),
     public var Rotation: D3DDDI_ROTATION = 0,
     public var Blend: D3DKMT_MULTIPLANE_OVERLAY_BLEND = 0,
     public var DirtyRectCount: UInt = 0u,
@@ -1222,8 +1228,8 @@ public data class D3DKMT_MULTIPLANE_OVERLAY_CAPS_0_0(public var _bitfield: UInt 
 
 public data class D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION(
     public var Flags: D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS = D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS(),
-    public var SrcRect: Win32.Foundation.RECT = Win32.Foundation.RECT(),
-    public var DstRect: Win32.Foundation.RECT = Win32.Foundation.RECT(),
+    public var SrcRect: RECT = RECT(),
+    public var DstRect: RECT = RECT(),
     public var Rotation: D3DDDI_ROTATION = 0,
 )
 
@@ -1281,13 +1287,13 @@ public data class D3DKMT_OFFER_FLAGS_0_0(public var _bitfield: UInt = 0u)
 public data class D3DKMT_OPENADAPTERFROMDEVICENAME(
     public var pDeviceName: PCWSTR = 0L,
     public var hAdapter: UInt = 0u,
-    public var AdapterLuid: Win32.Foundation.LUID = Win32.Foundation.LUID(),
+    public var AdapterLuid: LUID = LUID(),
 )
 
 public data class D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME(
     public var DeviceName: UShortArray = UShortArray(32),
     public var hAdapter: UInt = 0u,
-    public var AdapterLuid: Win32.Foundation.LUID = Win32.Foundation.LUID(),
+    public var AdapterLuid: LUID = LUID(),
     public var VidPnSourceId: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
@@ -1310,13 +1316,13 @@ public data class D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME(
 }
 
 public data class D3DKMT_OPENADAPTERFROMHDC(
-    public var hDc: Win32.Graphics.Gdi.HDC = Win32.Graphics.Gdi.HDC(),
+    public var hDc: HDC = 0L,
     public var hAdapter: UInt = 0u,
-    public var AdapterLuid: Win32.Foundation.LUID = Win32.Foundation.LUID(),
+    public var AdapterLuid: LUID = LUID(),
     public var VidPnSourceId: UInt = 0u,
 )
 
-public data class D3DKMT_OPENADAPTERFROMLUID(public var AdapterLuid: Win32.Foundation.LUID = Win32.Foundation.LUID(), public var hAdapter: UInt = 0u)
+public data class D3DKMT_OPENADAPTERFROMLUID(public var AdapterLuid: LUID = LUID(), public var hAdapter: UInt = 0u)
 
 public data class D3DKMT_OPENGLINFO(
     public var UmdOpenGlIcdFileName: UShortArray = UShortArray(260),
@@ -1350,14 +1356,14 @@ public data class D3DKMT_OPENKEYEDMUTEX2(
 )
 
 public data class D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE(
-    public var hNtHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var hNtHandle: HANDLE = 0L,
     public var hKeyedMutex: UInt = 0u,
     public var pPrivateRuntimeData: Long = 0L,
     public var PrivateRuntimeDataSize: UInt = 0u,
 )
 
 public data class D3DKMT_OPENNATIVEFENCEFROMNTHANDLE(
-    public var hNtHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var hNtHandle: HANDLE = 0L,
     public var hDevice: UInt = 0u,
     public var EngineAffinity: UInt = 0u,
     public var Flags: D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS = D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS(),
@@ -1368,10 +1374,10 @@ public data class D3DKMT_OPENNATIVEFENCEFROMNTHANDLE(
 public data class D3DKMT_OPENNTHANDLEFROMNAME(
     public var dwDesiredAccess: UInt = 0u,
     public var pObjAttrib: Long = 0L,
-    public var hNtHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var hNtHandle: HANDLE = 0L,
 )
 
-public data class D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE(public var hNtHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(), public var hHandle: UInt = 0u)
+public data class D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE(public var hNtHandle: HANDLE = 0L, public var hHandle: UInt = 0u)
 
 public data class D3DKMT_OPENRESOURCE(
     public var hDevice: UInt = 0u,
@@ -1391,7 +1397,7 @@ public data class D3DKMT_OPENRESOURCE_0(public var pOpenAllocationInfo: Long = 0
 
 public data class D3DKMT_OPENRESOURCEFROMNTHANDLE(
     public var hDevice: UInt = 0u,
-    public var hNtHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var hNtHandle: HANDLE = 0L,
     public var NumAllocations: UInt = 0u,
     public var pOpenAllocationInfo2: Long = 0L,
     public var PrivateRuntimeDataSize: UInt = 0u,
@@ -1429,10 +1435,10 @@ public data class D3DKMT_OPENSYNCHRONIZATIONOBJECT(
     }
 }
 
-public data class D3DKMT_OPENSYNCOBJECTFROMNTHANDLE(public var hNtHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(), public var hSyncObject: UInt = 0u)
+public data class D3DKMT_OPENSYNCOBJECTFROMNTHANDLE(public var hNtHandle: HANDLE = 0L, public var hSyncObject: UInt = 0u)
 
 public data class D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2(
-    public var hNtHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var hNtHandle: HANDLE = 0L,
     public var hDevice: UInt = 0u,
     public var Flags: D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS = D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS(),
     public var hSyncObject: UInt = 0u,
@@ -1464,7 +1470,7 @@ public data class D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0(
 public data class D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME(
     public var dwDesiredAccess: UInt = 0u,
     public var pObjAttrib: Long = 0L,
-    public var hNtHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var hNtHandle: HANDLE = 0L,
 )
 
 public data class D3DKMT_OUTDUPL_POINTER_SHAPE_INFO(
@@ -1472,7 +1478,7 @@ public data class D3DKMT_OUTDUPL_POINTER_SHAPE_INFO(
     public var Width: UInt = 0u,
     public var Height: UInt = 0u,
     public var Pitch: UInt = 0u,
-    public var HotSpot: Win32.Foundation.POINT = Win32.Foundation.POINT(),
+    public var HotSpot: POINT = POINT(),
 )
 
 public data class D3DKMT_OUTPUTDUPLCONTEXTSCOUNT(public var VidPnSourceId: UInt = 0u, public var OutputDuplicationCount: UInt = 0u)

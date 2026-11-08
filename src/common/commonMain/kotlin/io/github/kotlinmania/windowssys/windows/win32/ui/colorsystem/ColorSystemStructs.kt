@@ -6,6 +6,12 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.CIEXYZ
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.CIEXYZTRIPLE
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.EMR
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.DLGPROC
 
 public data class BlackInformation(public var fBlackOnly: BOOL = 0, public var blackWeight: Float = 0.0f)
 
@@ -35,7 +41,7 @@ public class COLORMATCHSETUPA(
     public var dwSize: UInt = 0u,
     public var dwVersion: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hwndOwner: Foundation.HWND = Foundation.HWND(),
+    public var hwndOwner: HWND = 0L,
     public var pSourceName: PCSTR = 0L,
     public var pDisplayName: PCSTR = 0L,
     public var pPrinterName: PCSTR = 0L,
@@ -47,17 +53,17 @@ public class COLORMATCHSETUPA(
     public var ccPrinterProfile: UInt = 0u,
     public var pTargetProfile: PSTR = 0L,
     public var ccTargetProfile: UInt = 0u,
-    public var lpfnHook: WindowsAndMessaging.DLGPROC = WindowsAndMessaging.DLGPROC(),
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lpfnHook: DLGPROC = null,
+    public var lParam: LPARAM = 0L,
     public var lpfnApplyCallback: PCMSCALLBACKA = null,
-    public var lParamApplyCallback: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParamApplyCallback: LPARAM = 0L,
 )
 
 public class COLORMATCHSETUPW(
     public var dwSize: UInt = 0u,
     public var dwVersion: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hwndOwner: Foundation.HWND = Foundation.HWND(),
+    public var hwndOwner: HWND = 0L,
     public var pSourceName: PCWSTR = 0L,
     public var pDisplayName: PCWSTR = 0L,
     public var pPrinterName: PCWSTR = 0L,
@@ -69,20 +75,20 @@ public class COLORMATCHSETUPW(
     public var ccPrinterProfile: UInt = 0u,
     public var pTargetProfile: PWSTR = 0L,
     public var ccTargetProfile: UInt = 0u,
-    public var lpfnHook: WindowsAndMessaging.DLGPROC = WindowsAndMessaging.DLGPROC(),
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lpfnHook: DLGPROC = null,
+    public var lParam: LPARAM = 0L,
     public var lpfnApplyCallback: PCMSCALLBACKW = null,
-    public var lParamApplyCallback: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParamApplyCallback: LPARAM = 0L,
 )
 
 public data class EMRCREATECOLORSPACE(
-    public var emr: Graphics.Gdi.EMR = Graphics.Gdi.EMR(),
+    public var emr: EMR = EMR(),
     public var ihCS: UInt = 0u,
     public var lcs: LOGCOLORSPACEA = LOGCOLORSPACEA(),
 )
 
 public data class EMRCREATECOLORSPACEW(
-    public var emr: Graphics.Gdi.EMR = Graphics.Gdi.EMR(),
+    public var emr: EMR = EMR(),
     public var ihCS: UInt = 0u,
     public var lcs: LOGCOLORSPACEW = LOGCOLORSPACEW(),
     public var dwFlags: UInt = 0u,
@@ -228,7 +234,7 @@ public data class LOGCOLORSPACEA(
     public var lcsSize: UInt = 0u,
     public var lcsCSType: LCSCSTYPE = 0,
     public var lcsIntent: Int = 0,
-    public var lcsEndpoints: Graphics.Gdi.CIEXYZTRIPLE = Graphics.Gdi.CIEXYZTRIPLE(),
+    public var lcsEndpoints: CIEXYZTRIPLE = CIEXYZTRIPLE(),
     public var lcsGammaRed: UInt = 0u,
     public var lcsGammaGreen: UInt = 0u,
     public var lcsGammaBlue: UInt = 0u,
@@ -271,7 +277,7 @@ public data class LOGCOLORSPACEW(
     public var lcsSize: UInt = 0u,
     public var lcsCSType: LCSCSTYPE = 0,
     public var lcsIntent: Int = 0,
-    public var lcsEndpoints: Graphics.Gdi.CIEXYZTRIPLE = Graphics.Gdi.CIEXYZTRIPLE(),
+    public var lcsEndpoints: CIEXYZTRIPLE = CIEXYZTRIPLE(),
     public var lcsGammaRed: UInt = 0u,
     public var lcsGammaGreen: UInt = 0u,
     public var lcsGammaBlue: UInt = 0u,
@@ -365,7 +371,7 @@ public class PROFILEHEADER(
     public var phModel: UInt = 0u,
     public var phAttributes: UIntArray = UIntArray(2),
     public var phRenderingIntent: UInt = 0u,
-    public var phIlluminant: Graphics.Gdi.CIEXYZ = Graphics.Gdi.CIEXYZ(),
+    public var phIlluminant: CIEXYZ = CIEXYZ(),
     public var phCreator: UInt = 0u,
     public var phReserved: UByteArray = UByteArray(44),
 )

@@ -8,9 +8,12 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CERT_CONTEXT
 
 public data class CERT_CONTEXT_EX(
-    public var CertContext: Security.Cryptography.CERT_CONTEXT = Security.Cryptography.CERT_CONTEXT(),
+    public var CertContext: CERT_CONTEXT = CERT_CONTEXT(),
     public var cbAllocated: UInt = 0u,
     public var dwCertificateFlags: UInt = 0u,
 )
@@ -53,7 +56,7 @@ public data class HSE_EXEC_UNICODE_URL_INFO(
 )
 
 public data class HSE_EXEC_UNICODE_URL_USER_INFO(
-    public var hImpersonationToken: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hImpersonationToken: HANDLE = 0L,
     public var pszCustomUserName: PWSTR = 0L,
     public var pszCustomAuthType: PSTR = 0L,
 )
@@ -76,7 +79,7 @@ public data class HSE_EXEC_URL_STATUS(
 )
 
 public data class HSE_EXEC_URL_USER_INFO(
-    public var hImpersonationToken: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hImpersonationToken: HANDLE = 0L,
     public var pszCustomUserName: PSTR = 0L,
     public var pszCustomAuthType: PSTR = 0L,
 )
@@ -100,7 +103,7 @@ public data class HSE_SEND_HEADER_EX_INFO(
 public data class HSE_TF_INFO(
     public var pfnHseIO: PFN_HSE_IO_COMPLETION = null,
     public var pContext: Long = 0L,
-    public var hFile: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hFile: HANDLE = 0L,
     public var pszStatusCode: PCSTR = 0L,
     public var BytesToWrite: UInt = 0u,
     public var Offset: UInt = 0u,
@@ -433,7 +436,7 @@ public class POST_PROCESS_PARAMETERS(
     public var FtpStatus: UInt = 0u,
     public var FtpSubStatus: UInt = 0u,
     public var hrStatus: HRESULT = 0,
-    public var SessionStartTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var SessionStartTime: FILETIME = FILETIME(),
     public var BytesSentPerSession: ULong = 0uL,
     public var BytesReceivedPerSession: ULong = 0uL,
 )
@@ -449,7 +452,7 @@ public data class PRE_PROCESS_PARAMETERS(
     public var dwLocalIpPort: UInt = 0u,
     public var pszCommand: PCWSTR = 0L,
     public var pszCommandParameters: PCWSTR = 0L,
-    public var SessionStartTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var SessionStartTime: FILETIME = FILETIME(),
     public var BytesSentPerSession: ULong = 0uL,
     public var BytesReceivedPerSession: ULong = 0uL,
 )

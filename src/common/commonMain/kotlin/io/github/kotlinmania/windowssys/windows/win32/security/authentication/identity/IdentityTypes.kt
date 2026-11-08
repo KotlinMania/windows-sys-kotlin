@@ -4,6 +4,13 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.windows.win32.security.PSID
+import io.github.kotlinmania.windowssys.windows.win32.security.SECURITY_IMPERSONATION_LEVEL
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CRYPT_INTEGER_BLOB
+import io.github.kotlinmania.windowssys.windows.win32.system.threading.LPTHREAD_START_ROUTINE
 
 public fun interface ACCEPT_SECURITY_CONTEXT_FNFn {
     public operator fun invoke(param0: Long, param1: Long, param2: Long, param3: UInt, param4: UInt, param5: Long, param6: Long, param7: Long, param8: Long): HRESULT
@@ -72,25 +79,25 @@ public fun interface CredFreeCredentialsFnFn {
 public typealias CredFreeCredentialsFn = CredFreeCredentialsFnFn?
 
 public fun interface CredReadDomainCredentialsFnFn {
-    public operator fun invoke(logonid: Long, credflags: UInt, targetinfo: Long, flags: UInt, count: Long, credential: Long): Foundation.NTSTATUS
+    public operator fun invoke(logonid: Long, credflags: UInt, targetinfo: Long, flags: UInt, count: Long, credential: Long): NTSTATUS
 }
 
 public typealias CredReadDomainCredentialsFn = CredReadDomainCredentialsFnFn?
 
 public fun interface CredReadFnFn {
-    public operator fun invoke(logonid: Long, credflags: UInt, targetname: PCWSTR, type: UInt, flags: UInt, credential: Long): Foundation.NTSTATUS
+    public operator fun invoke(logonid: Long, credflags: UInt, targetname: PCWSTR, type: UInt, flags: UInt, credential: Long): NTSTATUS
 }
 
 public typealias CredReadFn = CredReadFnFn?
 
 public fun interface CredWriteFnFn {
-    public operator fun invoke(logonid: Long, credflags: UInt, credential: Long, flags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(logonid: Long, credflags: UInt, credential: Long, flags: UInt): NTSTATUS
 }
 
 public typealias CredWriteFn = CredWriteFnFn?
 
 public fun interface CrediUnmarshalandDecodeStringFnFn {
-    public operator fun invoke(marshaledstring: PCWSTR, blob: Long, blobsize: Long, isfailurefatal: Long): Foundation.NTSTATUS
+    public operator fun invoke(marshaledstring: PCWSTR, blob: Long, blobsize: Long, isfailurefatal: Long): NTSTATUS
 }
 
 public typealias CrediUnmarshalandDecodeStringFn = CrediUnmarshalandDecodeStringFnFn?
@@ -214,85 +221,85 @@ public typealias KERB_TICKET_FLAGS = UInt
 public typealias KSEC_CONTEXT_TYPE = Int
 
 public fun interface KspCompleteTokenFnFn {
-    public operator fun invoke(contextid: ULong, token: Long): Foundation.NTSTATUS
+    public operator fun invoke(contextid: ULong, token: Long): NTSTATUS
 }
 
 public typealias KspCompleteTokenFn = KspCompleteTokenFnFn?
 
 public fun interface KspDeleteContextFnFn {
-    public operator fun invoke(contextid: ULong, lsacontextid: Long): Foundation.NTSTATUS
+    public operator fun invoke(contextid: ULong, lsacontextid: Long): NTSTATUS
 }
 
 public typealias KspDeleteContextFn = KspDeleteContextFnFn?
 
 public fun interface KspGetTokenFnFn {
-    public operator fun invoke(contextid: ULong, impersonationtoken: Long, rawtoken: Long): Foundation.NTSTATUS
+    public operator fun invoke(contextid: ULong, impersonationtoken: Long, rawtoken: Long): NTSTATUS
 }
 
 public typealias KspGetTokenFn = KspGetTokenFnFn?
 
 public fun interface KspInitContextFnFn {
-    public operator fun invoke(contextid: ULong, contextdata: Long, newcontextid: Long): Foundation.NTSTATUS
+    public operator fun invoke(contextid: ULong, contextdata: Long, newcontextid: Long): NTSTATUS
 }
 
 public typealias KspInitContextFn = KspInitContextFnFn?
 
 public fun interface KspInitPackageFnFn {
-    public operator fun invoke(functiontable: Long): Foundation.NTSTATUS
+    public operator fun invoke(functiontable: Long): NTSTATUS
 }
 
 public typealias KspInitPackageFn = KspInitPackageFnFn?
 
 public fun interface KspMakeSignatureFnFn {
-    public operator fun invoke(contextid: ULong, fqop: UInt, message: Long, messageseqno: UInt): Foundation.NTSTATUS
+    public operator fun invoke(contextid: ULong, fqop: UInt, message: Long, messageseqno: UInt): NTSTATUS
 }
 
 public typealias KspMakeSignatureFn = KspMakeSignatureFnFn?
 
 public fun interface KspMapHandleFnFn {
-    public operator fun invoke(contextid: ULong, lsacontextid: Long): Foundation.NTSTATUS
+    public operator fun invoke(contextid: ULong, lsacontextid: Long): NTSTATUS
 }
 
 public typealias KspMapHandleFn = KspMapHandleFnFn?
 
 public fun interface KspQueryAttributesFnFn {
-    public operator fun invoke(contextid: ULong, attribute: UInt, buffer: Long): Foundation.NTSTATUS
+    public operator fun invoke(contextid: ULong, attribute: UInt, buffer: Long): NTSTATUS
 }
 
 public typealias KspQueryAttributesFn = KspQueryAttributesFnFn?
 
 public fun interface KspSealMessageFnFn {
-    public operator fun invoke(contextid: ULong, fqop: UInt, message: Long, messageseqno: UInt): Foundation.NTSTATUS
+    public operator fun invoke(contextid: ULong, fqop: UInt, message: Long, messageseqno: UInt): NTSTATUS
 }
 
 public typealias KspSealMessageFn = KspSealMessageFnFn?
 
 public fun interface KspSerializeAuthDataFnFn {
-    public operator fun invoke(pvauthdata: Long, size: Long, serializeddata: Long): Foundation.NTSTATUS
+    public operator fun invoke(pvauthdata: Long, size: Long, serializeddata: Long): NTSTATUS
 }
 
 public typealias KspSerializeAuthDataFn = KspSerializeAuthDataFnFn?
 
 public fun interface KspSetPagingModeFnFn {
-    public operator fun invoke(pagingmode: Boolean): Foundation.NTSTATUS
+    public operator fun invoke(pagingmode: Boolean): NTSTATUS
 }
 
 public typealias KspSetPagingModeFn = KspSetPagingModeFnFn?
 
 public fun interface KspUnsealMessageFnFn {
-    public operator fun invoke(contextid: ULong, message: Long, messageseqno: UInt, pfqop: Long): Foundation.NTSTATUS
+    public operator fun invoke(contextid: ULong, message: Long, messageseqno: UInt, pfqop: Long): NTSTATUS
 }
 
 public typealias KspUnsealMessageFn = KspUnsealMessageFnFn?
 
 public fun interface KspVerifySignatureFnFn {
-    public operator fun invoke(contextid: ULong, message: Long, messageseqno: UInt, pfqop: Long): Foundation.NTSTATUS
+    public operator fun invoke(contextid: ULong, message: Long, messageseqno: UInt, pfqop: Long): NTSTATUS
 }
 
 public typealias KspVerifySignatureFn = KspVerifySignatureFnFn?
 
 public fun interface LSA_AP_POST_LOGON_USERFn {
-    public operator fun invoke(postlogonuserinfo: Long): Foundation.NTSTATUS
+    public operator fun invoke(postlogonuserinfo: Long): NTSTATUS
 }
 
 public typealias LSA_AP_POST_LOGON_USER = LSA_AP_POST_LOGON_USERFn?
@@ -362,19 +369,19 @@ public fun interface PKSEC_LOCATE_PKG_BY_IDFn {
 public typealias PKSEC_LOCATE_PKG_BY_ID = PKSEC_LOCATE_PKG_BY_IDFn?
 
 public fun interface PKSEC_REFERENCE_LIST_ENTRYFn {
-    public operator fun invoke(entry: Long, signature: UInt, removenoref: Boolean): Foundation.NTSTATUS
+    public operator fun invoke(entry: Long, signature: UInt, removenoref: Boolean): NTSTATUS
 }
 
 public typealias PKSEC_REFERENCE_LIST_ENTRY = PKSEC_REFERENCE_LIST_ENTRYFn?
 
 public fun interface PKSEC_SERIALIZE_SCHANNEL_AUTH_DATAFn {
-    public operator fun invoke(pvauthdata: Long, size: Long, serializeddata: Long): Foundation.NTSTATUS
+    public operator fun invoke(pvauthdata: Long, size: Long, serializeddata: Long): NTSTATUS
 }
 
 public typealias PKSEC_SERIALIZE_SCHANNEL_AUTH_DATA = PKSEC_SERIALIZE_SCHANNEL_AUTH_DATAFn?
 
 public fun interface PKSEC_SERIALIZE_WINNT_AUTH_DATAFn {
-    public operator fun invoke(pvauthdata: Long, size: Long, serializeddata: Long): Foundation.NTSTATUS
+    public operator fun invoke(pvauthdata: Long, size: Long, serializeddata: Long): NTSTATUS
 }
 
 public typealias PKSEC_SERIALIZE_WINNT_AUTH_DATA = PKSEC_SERIALIZE_WINNT_AUTH_DATAFn?
@@ -382,13 +389,13 @@ public typealias PKSEC_SERIALIZE_WINNT_AUTH_DATA = PKSEC_SERIALIZE_WINNT_AUTH_DA
 public typealias PKU2U_LOGON_SUBMIT_TYPE = Int
 
 public fun interface PLSA_ADD_CREDENTIALFn {
-    public operator fun invoke(logonid: Long, authenticationpackage: UInt, primarykeyvalue: Long, credentials: Long): Foundation.NTSTATUS
+    public operator fun invoke(logonid: Long, authenticationpackage: UInt, primarykeyvalue: Long, credentials: Long): NTSTATUS
 }
 
 public typealias PLSA_ADD_CREDENTIAL = PLSA_ADD_CREDENTIALFn?
 
 public fun interface PLSA_ALLOCATE_CLIENT_BUFFERFn {
-    public operator fun invoke(clientrequest: Long, lengthrequired: UInt, clientbaseaddress: Long): Foundation.NTSTATUS
+    public operator fun invoke(clientrequest: Long, lengthrequired: UInt, clientbaseaddress: Long): NTSTATUS
 }
 
 public typealias PLSA_ALLOCATE_CLIENT_BUFFER = PLSA_ALLOCATE_CLIENT_BUFFERFn?
@@ -412,19 +419,19 @@ public fun interface PLSA_ALLOCATE_SHARED_MEMORYFn {
 public typealias PLSA_ALLOCATE_SHARED_MEMORY = PLSA_ALLOCATE_SHARED_MEMORYFn?
 
 public fun interface PLSA_AP_CALL_PACKAGEFn {
-    public operator fun invoke(clientrequest: Long, protocolsubmitbuffer: Long, clientbufferbase: Long, submitbufferlength: UInt, protocolreturnbuffer: Long, returnbufferlength: Long, protocolstatus: Long): Foundation.NTSTATUS
+    public operator fun invoke(clientrequest: Long, protocolsubmitbuffer: Long, clientbufferbase: Long, submitbufferlength: UInt, protocolreturnbuffer: Long, returnbufferlength: Long, protocolstatus: Long): NTSTATUS
 }
 
 public typealias PLSA_AP_CALL_PACKAGE = PLSA_AP_CALL_PACKAGEFn?
 
 public fun interface PLSA_AP_CALL_PACKAGE_PASSTHROUGHFn {
-    public operator fun invoke(clientrequest: Long, protocolsubmitbuffer: Long, clientbufferbase: Long, submitbufferlength: UInt, protocolreturnbuffer: Long, returnbufferlength: Long, protocolstatus: Long): Foundation.NTSTATUS
+    public operator fun invoke(clientrequest: Long, protocolsubmitbuffer: Long, clientbufferbase: Long, submitbufferlength: UInt, protocolreturnbuffer: Long, returnbufferlength: Long, protocolstatus: Long): NTSTATUS
 }
 
 public typealias PLSA_AP_CALL_PACKAGE_PASSTHROUGH = PLSA_AP_CALL_PACKAGE_PASSTHROUGHFn?
 
 public fun interface PLSA_AP_INITIALIZE_PACKAGEFn {
-    public operator fun invoke(authenticationpackageid: UInt, lsadispatchtable: Long, database: Long, confidentiality: Long, authenticationpackagename: Long): Foundation.NTSTATUS
+    public operator fun invoke(authenticationpackageid: UInt, lsadispatchtable: Long, database: Long, confidentiality: Long, authenticationpackagename: Long): NTSTATUS
 }
 
 public typealias PLSA_AP_INITIALIZE_PACKAGE = PLSA_AP_INITIALIZE_PACKAGEFn?
@@ -436,133 +443,133 @@ public fun interface PLSA_AP_LOGON_TERMINATEDFn {
 public typealias PLSA_AP_LOGON_TERMINATED = PLSA_AP_LOGON_TERMINATEDFn?
 
 public fun interface PLSA_AP_LOGON_USERFn {
-    public operator fun invoke(clientrequest: Long, logontype: SECURITY_LOGON_TYPE, authenticationinformation: Long, clientauthenticationbase: Long, authenticationinformationlength: UInt, profilebuffer: Long, profilebufferlength: Long, logonid: Long, substatus: Long, tokeninformationtype: Long, tokeninformation: Long, accountname: Long, authenticatingauthority: Long): Foundation.NTSTATUS
+    public operator fun invoke(clientrequest: Long, logontype: SECURITY_LOGON_TYPE, authenticationinformation: Long, clientauthenticationbase: Long, authenticationinformationlength: UInt, profilebuffer: Long, profilebufferlength: Long, logonid: Long, substatus: Long, tokeninformationtype: Long, tokeninformation: Long, accountname: Long, authenticatingauthority: Long): NTSTATUS
 }
 
 public typealias PLSA_AP_LOGON_USER = PLSA_AP_LOGON_USERFn?
 
 public fun interface PLSA_AP_LOGON_USER_EXFn {
-    public operator fun invoke(clientrequest: Long, logontype: SECURITY_LOGON_TYPE, authenticationinformation: Long, clientauthenticationbase: Long, authenticationinformationlength: UInt, profilebuffer: Long, profilebufferlength: Long, logonid: Long, substatus: Long, tokeninformationtype: Long, tokeninformation: Long, accountname: Long, authenticatingauthority: Long, machinename: Long): Foundation.NTSTATUS
+    public operator fun invoke(clientrequest: Long, logontype: SECURITY_LOGON_TYPE, authenticationinformation: Long, clientauthenticationbase: Long, authenticationinformationlength: UInt, profilebuffer: Long, profilebufferlength: Long, logonid: Long, substatus: Long, tokeninformationtype: Long, tokeninformation: Long, accountname: Long, authenticatingauthority: Long, machinename: Long): NTSTATUS
 }
 
 public typealias PLSA_AP_LOGON_USER_EX = PLSA_AP_LOGON_USER_EXFn?
 
 public fun interface PLSA_AP_LOGON_USER_EX2Fn {
-    public operator fun invoke(clientrequest: Long, logontype: SECURITY_LOGON_TYPE, protocolsubmitbuffer: Long, clientbufferbase: Long, submitbuffersize: UInt, profilebuffer: Long, profilebuffersize: Long, logonid: Long, substatus: Long, tokeninformationtype: Long, tokeninformation: Long, accountname: Long, authenticatingauthority: Long, machinename: Long, primarycredentials: Long, supplementalcredentials: Long): Foundation.NTSTATUS
+    public operator fun invoke(clientrequest: Long, logontype: SECURITY_LOGON_TYPE, protocolsubmitbuffer: Long, clientbufferbase: Long, submitbuffersize: UInt, profilebuffer: Long, profilebuffersize: Long, logonid: Long, substatus: Long, tokeninformationtype: Long, tokeninformation: Long, accountname: Long, authenticatingauthority: Long, machinename: Long, primarycredentials: Long, supplementalcredentials: Long): NTSTATUS
 }
 
 public typealias PLSA_AP_LOGON_USER_EX2 = PLSA_AP_LOGON_USER_EX2Fn?
 
 public fun interface PLSA_AP_LOGON_USER_EX3Fn {
-    public operator fun invoke(clientrequest: Long, logontype: SECURITY_LOGON_TYPE, protocolsubmitbuffer: Long, clientbufferbase: Long, submitbuffersize: UInt, surrogatelogon: Long, profilebuffer: Long, profilebuffersize: Long, logonid: Long, substatus: Long, tokeninformationtype: Long, tokeninformation: Long, accountname: Long, authenticatingauthority: Long, machinename: Long, primarycredentials: Long, supplementalcredentials: Long): Foundation.NTSTATUS
+    public operator fun invoke(clientrequest: Long, logontype: SECURITY_LOGON_TYPE, protocolsubmitbuffer: Long, clientbufferbase: Long, submitbuffersize: UInt, surrogatelogon: Long, profilebuffer: Long, profilebuffersize: Long, logonid: Long, substatus: Long, tokeninformationtype: Long, tokeninformation: Long, accountname: Long, authenticatingauthority: Long, machinename: Long, primarycredentials: Long, supplementalcredentials: Long): NTSTATUS
 }
 
 public typealias PLSA_AP_LOGON_USER_EX3 = PLSA_AP_LOGON_USER_EX3Fn?
 
 public fun interface PLSA_AP_POST_LOGON_USER_SURROGATEFn {
-    public operator fun invoke(clientrequest: Long, logontype: SECURITY_LOGON_TYPE, protocolsubmitbuffer: Long, clientbufferbase: Long, submitbuffersize: UInt, surrogatelogon: Long, profilebuffer: Long, profilebuffersize: UInt, logonid: Long, status: Foundation.NTSTATUS, substatus: Foundation.NTSTATUS, tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE, tokeninformation: Long, accountname: Long, authenticatingauthority: Long, machinename: Long, primarycredentials: Long, supplementalcredentials: Long): Foundation.NTSTATUS
+    public operator fun invoke(clientrequest: Long, logontype: SECURITY_LOGON_TYPE, protocolsubmitbuffer: Long, clientbufferbase: Long, submitbuffersize: UInt, surrogatelogon: Long, profilebuffer: Long, profilebuffersize: UInt, logonid: Long, status: NTSTATUS, substatus: NTSTATUS, tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE, tokeninformation: Long, accountname: Long, authenticatingauthority: Long, machinename: Long, primarycredentials: Long, supplementalcredentials: Long): NTSTATUS
 }
 
 public typealias PLSA_AP_POST_LOGON_USER_SURROGATE = PLSA_AP_POST_LOGON_USER_SURROGATEFn?
 
 public fun interface PLSA_AP_PRE_LOGON_USER_SURROGATEFn {
-    public operator fun invoke(clientrequest: Long, logontype: SECURITY_LOGON_TYPE, protocolsubmitbuffer: Long, clientbufferbase: Long, submitbuffersize: UInt, surrogatelogon: Long, substatus: Long): Foundation.NTSTATUS
+    public operator fun invoke(clientrequest: Long, logontype: SECURITY_LOGON_TYPE, protocolsubmitbuffer: Long, clientbufferbase: Long, submitbuffersize: UInt, surrogatelogon: Long, substatus: Long): NTSTATUS
 }
 
 public typealias PLSA_AP_PRE_LOGON_USER_SURROGATE = PLSA_AP_PRE_LOGON_USER_SURROGATEFn?
 
 public fun interface PLSA_AUDIT_ACCOUNT_LOGONFn {
-    public operator fun invoke(auditid: UInt, success: Boolean, source: Long, clientname: Long, mappedname: Long, status: Foundation.NTSTATUS): Foundation.NTSTATUS
+    public operator fun invoke(auditid: UInt, success: Boolean, source: Long, clientname: Long, mappedname: Long, status: NTSTATUS): NTSTATUS
 }
 
 public typealias PLSA_AUDIT_ACCOUNT_LOGON = PLSA_AUDIT_ACCOUNT_LOGONFn?
 
 public fun interface PLSA_AUDIT_LOGONFn {
-    public operator fun invoke(status: Foundation.NTSTATUS, substatus: Foundation.NTSTATUS, accountname: Long, authenticatingauthority: Long, workstationname: Long, usersid: PSID, logontype: SECURITY_LOGON_TYPE, tokensource: Long, logonid: Long)
+    public operator fun invoke(status: NTSTATUS, substatus: NTSTATUS, accountname: Long, authenticatingauthority: Long, workstationname: Long, usersid: PSID, logontype: SECURITY_LOGON_TYPE, tokensource: Long, logonid: Long)
 }
 
 public typealias PLSA_AUDIT_LOGON = PLSA_AUDIT_LOGONFn?
 
 public fun interface PLSA_AUDIT_LOGON_EXFn {
-    public operator fun invoke(status: Foundation.NTSTATUS, substatus: Foundation.NTSTATUS, accountname: Long, authenticatingauthority: Long, workstationname: Long, usersid: PSID, logontype: SECURITY_LOGON_TYPE, impersonationlevel: SECURITY_IMPERSONATION_LEVEL, tokensource: Long, logonid: Long)
+    public operator fun invoke(status: NTSTATUS, substatus: NTSTATUS, accountname: Long, authenticatingauthority: Long, workstationname: Long, usersid: PSID, logontype: SECURITY_LOGON_TYPE, impersonationlevel: SECURITY_IMPERSONATION_LEVEL, tokensource: Long, logonid: Long)
 }
 
 public typealias PLSA_AUDIT_LOGON_EX = PLSA_AUDIT_LOGON_EXFn?
 
 public fun interface PLSA_CALLBACK_FUNCTIONFn {
-    public operator fun invoke(argument1: ULong, argument2: ULong, inputbuffer: Long, outputbuffer: Long): Foundation.NTSTATUS
+    public operator fun invoke(argument1: ULong, argument2: ULong, inputbuffer: Long, outputbuffer: Long): NTSTATUS
 }
 
 public typealias PLSA_CALLBACK_FUNCTION = PLSA_CALLBACK_FUNCTIONFn?
 
 public fun interface PLSA_CALL_PACKAGEFn {
-    public operator fun invoke(authenticationpackage: Long, protocolsubmitbuffer: Long, submitbufferlength: UInt, protocolreturnbuffer: Long, returnbufferlength: Long, protocolstatus: Long): Foundation.NTSTATUS
+    public operator fun invoke(authenticationpackage: Long, protocolsubmitbuffer: Long, submitbufferlength: UInt, protocolreturnbuffer: Long, returnbufferlength: Long, protocolstatus: Long): NTSTATUS
 }
 
 public typealias PLSA_CALL_PACKAGE = PLSA_CALL_PACKAGEFn?
 
 public fun interface PLSA_CALL_PACKAGEEXFn {
-    public operator fun invoke(authenticationpackage: Long, clientbufferbase: Long, protocolsubmitbuffer: Long, submitbufferlength: UInt, protocolreturnbuffer: Long, returnbufferlength: Long, protocolstatus: Long): Foundation.NTSTATUS
+    public operator fun invoke(authenticationpackage: Long, clientbufferbase: Long, protocolsubmitbuffer: Long, submitbufferlength: UInt, protocolreturnbuffer: Long, returnbufferlength: Long, protocolstatus: Long): NTSTATUS
 }
 
 public typealias PLSA_CALL_PACKAGEEX = PLSA_CALL_PACKAGEEXFn?
 
 public fun interface PLSA_CALL_PACKAGE_PASSTHROUGHFn {
-    public operator fun invoke(authenticationpackage: Long, clientbufferbase: Long, protocolsubmitbuffer: Long, submitbufferlength: UInt, protocolreturnbuffer: Long, returnbufferlength: Long, protocolstatus: Long): Foundation.NTSTATUS
+    public operator fun invoke(authenticationpackage: Long, clientbufferbase: Long, protocolsubmitbuffer: Long, submitbufferlength: UInt, protocolreturnbuffer: Long, returnbufferlength: Long, protocolstatus: Long): NTSTATUS
 }
 
 public typealias PLSA_CALL_PACKAGE_PASSTHROUGH = PLSA_CALL_PACKAGE_PASSTHROUGHFn?
 
 public fun interface PLSA_CANCEL_NOTIFICATIONFn {
-    public operator fun invoke(notifyhandle: Foundation.HANDLE): Foundation.NTSTATUS
+    public operator fun invoke(notifyhandle: HANDLE): NTSTATUS
 }
 
 public typealias PLSA_CANCEL_NOTIFICATION = PLSA_CANCEL_NOTIFICATIONFn?
 
 public fun interface PLSA_CHECK_PROTECTED_USER_BY_TOKENFn {
-    public operator fun invoke(usertoken: Foundation.HANDLE, protecteduser: Long): Foundation.NTSTATUS
+    public operator fun invoke(usertoken: HANDLE, protecteduser: Long): NTSTATUS
 }
 
 public typealias PLSA_CHECK_PROTECTED_USER_BY_TOKEN = PLSA_CHECK_PROTECTED_USER_BY_TOKENFn?
 
 public fun interface PLSA_CLIENT_CALLBACKFn {
-    public operator fun invoke(callback: PCSTR, argument1: ULong, argument2: ULong, input: Long, output: Long): Foundation.NTSTATUS
+    public operator fun invoke(callback: PCSTR, argument1: ULong, argument2: ULong, input: Long, output: Long): NTSTATUS
 }
 
 public typealias PLSA_CLIENT_CALLBACK = PLSA_CLIENT_CALLBACKFn?
 
 public fun interface PLSA_CLOSE_SAM_USERFn {
-    public operator fun invoke(userhandle: Long): Foundation.NTSTATUS
+    public operator fun invoke(userhandle: Long): NTSTATUS
 }
 
 public typealias PLSA_CLOSE_SAM_USER = PLSA_CLOSE_SAM_USERFn?
 
 public fun interface PLSA_CONVERT_AUTH_DATA_TO_TOKENFn {
-    public operator fun invoke(userauthdata: Long, userauthdatasize: UInt, impersonationlevel: SECURITY_IMPERSONATION_LEVEL, tokensource: Long, logontype: SECURITY_LOGON_TYPE, authorityname: Long, token: Long, logonid: Long, accountname: Long, substatus: Long): Foundation.NTSTATUS
+    public operator fun invoke(userauthdata: Long, userauthdatasize: UInt, impersonationlevel: SECURITY_IMPERSONATION_LEVEL, tokensource: Long, logontype: SECURITY_LOGON_TYPE, authorityname: Long, token: Long, logonid: Long, accountname: Long, substatus: Long): NTSTATUS
 }
 
 public typealias PLSA_CONVERT_AUTH_DATA_TO_TOKEN = PLSA_CONVERT_AUTH_DATA_TO_TOKENFn?
 
 public fun interface PLSA_COPY_FROM_CLIENT_BUFFERFn {
-    public operator fun invoke(clientrequest: Long, length: UInt, buffertocopy: Long, clientbaseaddress: Long): Foundation.NTSTATUS
+    public operator fun invoke(clientrequest: Long, length: UInt, buffertocopy: Long, clientbaseaddress: Long): NTSTATUS
 }
 
 public typealias PLSA_COPY_FROM_CLIENT_BUFFER = PLSA_COPY_FROM_CLIENT_BUFFERFn?
 
 public fun interface PLSA_COPY_TO_CLIENT_BUFFERFn {
-    public operator fun invoke(clientrequest: Long, length: UInt, clientbaseaddress: Long, buffertocopy: Long): Foundation.NTSTATUS
+    public operator fun invoke(clientrequest: Long, length: UInt, clientbaseaddress: Long, buffertocopy: Long): NTSTATUS
 }
 
 public typealias PLSA_COPY_TO_CLIENT_BUFFER = PLSA_COPY_TO_CLIENT_BUFFERFn?
 
 public fun interface PLSA_CRACK_SINGLE_NAMEFn {
-    public operator fun invoke(formatoffered: UInt, performatgc: Boolean, nameinput: Long, prefix: Long, requestedformat: UInt, crackedname: Long, dnsdomainname: Long, substatus: Long): Foundation.NTSTATUS
+    public operator fun invoke(formatoffered: UInt, performatgc: Boolean, nameinput: Long, prefix: Long, requestedformat: UInt, crackedname: Long, dnsdomainname: Long, substatus: Long): NTSTATUS
 }
 
 public typealias PLSA_CRACK_SINGLE_NAME = PLSA_CRACK_SINGLE_NAMEFn?
 
 public fun interface PLSA_CREATE_LOGON_SESSIONFn {
-    public operator fun invoke(logonid: Long): Foundation.NTSTATUS
+    public operator fun invoke(logonid: Long): NTSTATUS
 }
 
 public typealias PLSA_CREATE_LOGON_SESSION = PLSA_CREATE_LOGON_SESSIONFn?
@@ -574,31 +581,31 @@ public fun interface PLSA_CREATE_SHARED_MEMORYFn {
 public typealias PLSA_CREATE_SHARED_MEMORY = PLSA_CREATE_SHARED_MEMORYFn?
 
 public fun interface PLSA_CREATE_THREADFn {
-    public operator fun invoke(securityattributes: Long, stacksize: UInt, startfunction: System.Threading.LPTHREAD_START_ROUTINE, threadparameter: Long, creationflags: UInt, threadid: Long): Foundation.HANDLE
+    public operator fun invoke(securityattributes: Long, stacksize: UInt, startfunction: LPTHREAD_START_ROUTINE, threadparameter: Long, creationflags: UInt, threadid: Long): HANDLE
 }
 
 public typealias PLSA_CREATE_THREAD = PLSA_CREATE_THREADFn?
 
 public fun interface PLSA_CREATE_TOKENFn {
-    public operator fun invoke(logonid: Long, tokensource: Long, logontype: SECURITY_LOGON_TYPE, impersonationlevel: SECURITY_IMPERSONATION_LEVEL, tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE, tokeninformation: Long, tokengroups: Long, accountname: Long, authorityname: Long, workstation: Long, profilepath: Long, token: Long, substatus: Long): Foundation.NTSTATUS
+    public operator fun invoke(logonid: Long, tokensource: Long, logontype: SECURITY_LOGON_TYPE, impersonationlevel: SECURITY_IMPERSONATION_LEVEL, tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE, tokeninformation: Long, tokengroups: Long, accountname: Long, authorityname: Long, workstation: Long, profilepath: Long, token: Long, substatus: Long): NTSTATUS
 }
 
 public typealias PLSA_CREATE_TOKEN = PLSA_CREATE_TOKENFn?
 
 public fun interface PLSA_CREATE_TOKEN_EXFn {
-    public operator fun invoke(logonid: Long, tokensource: Long, logontype: SECURITY_LOGON_TYPE, impersonationlevel: SECURITY_IMPERSONATION_LEVEL, tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE, tokeninformation: Long, tokengroups: Long, workstation: Long, profilepath: Long, sessioninformation: Long, sessioninformationtype: SECPKG_SESSIONINFO_TYPE, token: Long, substatus: Long): Foundation.NTSTATUS
+    public operator fun invoke(logonid: Long, tokensource: Long, logontype: SECURITY_LOGON_TYPE, impersonationlevel: SECURITY_IMPERSONATION_LEVEL, tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE, tokeninformation: Long, tokengroups: Long, workstation: Long, profilepath: Long, sessioninformation: Long, sessioninformationtype: SECPKG_SESSIONINFO_TYPE, token: Long, substatus: Long): NTSTATUS
 }
 
 public typealias PLSA_CREATE_TOKEN_EX = PLSA_CREATE_TOKEN_EXFn?
 
 public fun interface PLSA_DELETE_CREDENTIALFn {
-    public operator fun invoke(logonid: Long, authenticationpackage: UInt, primarykeyvalue: Long): Foundation.NTSTATUS
+    public operator fun invoke(logonid: Long, authenticationpackage: UInt, primarykeyvalue: Long): NTSTATUS
 }
 
 public typealias PLSA_DELETE_CREDENTIAL = PLSA_DELETE_CREDENTIALFn?
 
 public fun interface PLSA_DELETE_LOGON_SESSIONFn {
-    public operator fun invoke(logonid: Long): Foundation.NTSTATUS
+    public operator fun invoke(logonid: Long): NTSTATUS
 }
 
 public typealias PLSA_DELETE_LOGON_SESSION = PLSA_DELETE_LOGON_SESSIONFn?
@@ -610,19 +617,19 @@ public fun interface PLSA_DELETE_SHARED_MEMORYFn {
 public typealias PLSA_DELETE_SHARED_MEMORY = PLSA_DELETE_SHARED_MEMORYFn?
 
 public fun interface PLSA_DUPLICATE_HANDLEFn {
-    public operator fun invoke(sourcehandle: Foundation.HANDLE, destionationhandle: Long): Foundation.NTSTATUS
+    public operator fun invoke(sourcehandle: HANDLE, destionationhandle: Long): NTSTATUS
 }
 
 public typealias PLSA_DUPLICATE_HANDLE = PLSA_DUPLICATE_HANDLEFn?
 
 public fun interface PLSA_EXPAND_AUTH_DATA_FOR_DOMAINFn {
-    public operator fun invoke(userauthdata: Long, userauthdatasize: UInt, reserved: Long, expandedauthdata: Long, expandedauthdatasize: Long): Foundation.NTSTATUS
+    public operator fun invoke(userauthdata: Long, userauthdatasize: UInt, reserved: Long, expandedauthdata: Long, expandedauthdatasize: Long): NTSTATUS
 }
 
 public typealias PLSA_EXPAND_AUTH_DATA_FOR_DOMAIN = PLSA_EXPAND_AUTH_DATA_FOR_DOMAINFn?
 
 public fun interface PLSA_FREE_CLIENT_BUFFERFn {
-    public operator fun invoke(clientrequest: Long, clientbaseaddress: Long): Foundation.NTSTATUS
+    public operator fun invoke(clientrequest: Long, clientbaseaddress: Long): NTSTATUS
 }
 
 public typealias PLSA_FREE_CLIENT_BUFFER = PLSA_FREE_CLIENT_BUFFERFn?
@@ -646,13 +653,13 @@ public fun interface PLSA_FREE_SHARED_MEMORYFn {
 public typealias PLSA_FREE_SHARED_MEMORY = PLSA_FREE_SHARED_MEMORYFn?
 
 public fun interface PLSA_GET_APP_MODE_INFOFn {
-    public operator fun invoke(userfunction: Long, argument1: Long, argument2: Long, userdata: Long, returntolsa: Long): Foundation.NTSTATUS
+    public operator fun invoke(userfunction: Long, argument1: Long, argument2: Long, userdata: Long, returntolsa: Long): NTSTATUS
 }
 
 public typealias PLSA_GET_APP_MODE_INFO = PLSA_GET_APP_MODE_INFOFn?
 
 public fun interface PLSA_GET_AUTH_DATA_FOR_USERFn {
-    public operator fun invoke(name: Long, nametype: SECPKG_NAME_TYPE, prefix: Long, userauthdata: Long, userauthdatasize: Long, userflatname: Long): Foundation.NTSTATUS
+    public operator fun invoke(name: Long, nametype: SECPKG_NAME_TYPE, prefix: Long, userauthdata: Long, userauthdatasize: Long, userflatname: Long): NTSTATUS
 }
 
 public typealias PLSA_GET_AUTH_DATA_FOR_USER = PLSA_GET_AUTH_DATA_FOR_USERFn?
@@ -664,49 +671,49 @@ public fun interface PLSA_GET_CALL_INFOFn {
 public typealias PLSA_GET_CALL_INFO = PLSA_GET_CALL_INFOFn?
 
 public fun interface PLSA_GET_CLIENT_INFOFn {
-    public operator fun invoke(clientinfo: Long): Foundation.NTSTATUS
+    public operator fun invoke(clientinfo: Long): NTSTATUS
 }
 
 public typealias PLSA_GET_CLIENT_INFO = PLSA_GET_CLIENT_INFOFn?
 
 public fun interface PLSA_GET_CLIENT_INFO_EXFn {
-    public operator fun invoke(clientinfo: Long, structsize: UInt): Foundation.NTSTATUS
+    public operator fun invoke(clientinfo: Long, structsize: UInt): NTSTATUS
 }
 
 public typealias PLSA_GET_CLIENT_INFO_EX = PLSA_GET_CLIENT_INFO_EXFn?
 
 public fun interface PLSA_GET_CREDENTIALSFn {
-    public operator fun invoke(logonid: Long, authenticationpackage: UInt, querycontext: Long, retrieveallcredentials: Boolean, primarykeyvalue: Long, primarykeylength: Long, credentials: Long): Foundation.NTSTATUS
+    public operator fun invoke(logonid: Long, authenticationpackage: UInt, querycontext: Long, retrieveallcredentials: Boolean, primarykeyvalue: Long, primarykeylength: Long, credentials: Long): NTSTATUS
 }
 
 public typealias PLSA_GET_CREDENTIALS = PLSA_GET_CREDENTIALSFn?
 
 public fun interface PLSA_GET_EXTENDED_CALL_FLAGSFn {
-    public operator fun invoke(flags: Long): Foundation.NTSTATUS
+    public operator fun invoke(flags: Long): NTSTATUS
 }
 
 public typealias PLSA_GET_EXTENDED_CALL_FLAGS = PLSA_GET_EXTENDED_CALL_FLAGSFn?
 
 public fun interface PLSA_GET_SERVICE_ACCOUNT_PASSWORDFn {
-    public operator fun invoke(accountname: Long, domainname: Long, credfetch: CRED_FETCH, filetimeexpiry: Long, currentpassword: Long, previouspassword: Long, filetimecurrpwdvalidforoutbound: Long): Foundation.NTSTATUS
+    public operator fun invoke(accountname: Long, domainname: Long, credfetch: CRED_FETCH, filetimeexpiry: Long, currentpassword: Long, previouspassword: Long, filetimecurrpwdvalidforoutbound: Long): NTSTATUS
 }
 
 public typealias PLSA_GET_SERVICE_ACCOUNT_PASSWORD = PLSA_GET_SERVICE_ACCOUNT_PASSWORDFn?
 
 public fun interface PLSA_GET_USER_AUTH_DATAFn {
-    public operator fun invoke(userhandle: Long, userauthdata: Long, userauthdatasize: Long): Foundation.NTSTATUS
+    public operator fun invoke(userhandle: Long, userauthdata: Long, userauthdatasize: Long): NTSTATUS
 }
 
 public typealias PLSA_GET_USER_AUTH_DATA = PLSA_GET_USER_AUTH_DATAFn?
 
 public fun interface PLSA_GET_USER_CREDENTIALSFn {
-    public operator fun invoke(userhandle: Long, primarycreds: Long, primarycredssize: Long, supplementalcreds: Long, supplementalcredssize: Long): Foundation.NTSTATUS
+    public operator fun invoke(userhandle: Long, primarycreds: Long, primarycredssize: Long, supplementalcreds: Long, supplementalcredssize: Long): NTSTATUS
 }
 
 public typealias PLSA_GET_USER_CREDENTIALS = PLSA_GET_USER_CREDENTIALSFn?
 
 public fun interface PLSA_IMPERSONATE_CLIENTFn {
-    public operator fun invoke(): Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PLSA_IMPERSONATE_CLIENT = PLSA_IMPERSONATE_CLIENTFn?
@@ -718,19 +725,19 @@ public fun interface PLSA_LOCATE_PKG_BY_IDFn {
 public typealias PLSA_LOCATE_PKG_BY_ID = PLSA_LOCATE_PKG_BY_IDFn?
 
 public fun interface PLSA_MAP_BUFFERFn {
-    public operator fun invoke(inputbuffer: Long, outputbuffer: Long): Foundation.NTSTATUS
+    public operator fun invoke(inputbuffer: Long, outputbuffer: Long): NTSTATUS
 }
 
 public typealias PLSA_MAP_BUFFER = PLSA_MAP_BUFFERFn?
 
 public fun interface PLSA_OPEN_SAM_USERFn {
-    public operator fun invoke(name: Long, nametype: SECPKG_NAME_TYPE, prefix: Long, allowguest: Boolean, reserved: UInt, userhandle: Long): Foundation.NTSTATUS
+    public operator fun invoke(name: Long, nametype: SECPKG_NAME_TYPE, prefix: Long, allowguest: Boolean, reserved: UInt, userhandle: Long): NTSTATUS
 }
 
 public typealias PLSA_OPEN_SAM_USER = PLSA_OPEN_SAM_USERFn?
 
 public fun interface PLSA_OPEN_TOKEN_BY_LOGON_IDFn {
-    public operator fun invoke(logonid: Long, rettokenhandle: Long): Foundation.NTSTATUS
+    public operator fun invoke(logonid: Long, rettokenhandle: Long): NTSTATUS
 }
 
 public typealias PLSA_OPEN_TOKEN_BY_LOGON_ID = PLSA_OPEN_TOKEN_BY_LOGON_IDFn?
@@ -742,79 +749,79 @@ public fun interface PLSA_PROTECT_MEMORYFn {
 public typealias PLSA_PROTECT_MEMORY = PLSA_PROTECT_MEMORYFn?
 
 public fun interface PLSA_QUERY_CLIENT_REQUESTFn {
-    public operator fun invoke(clientrequest: Long, querytype: UInt, replybuffer: Long): Foundation.NTSTATUS
+    public operator fun invoke(clientrequest: Long, querytype: UInt, replybuffer: Long): NTSTATUS
 }
 
 public typealias PLSA_QUERY_CLIENT_REQUEST = PLSA_QUERY_CLIENT_REQUESTFn?
 
 public fun interface PLSA_REDIRECTED_LOGON_CALLBACKFn {
-    public operator fun invoke(redirectedlogonhandle: Foundation.HANDLE, buffer: Long, bufferlength: UInt, returnbuffer: Long, returnbufferlength: Long): Foundation.NTSTATUS
+    public operator fun invoke(redirectedlogonhandle: HANDLE, buffer: Long, bufferlength: UInt, returnbuffer: Long, returnbufferlength: Long): NTSTATUS
 }
 
 public typealias PLSA_REDIRECTED_LOGON_CALLBACK = PLSA_REDIRECTED_LOGON_CALLBACKFn?
 
 public fun interface PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACKFn {
-    public operator fun invoke(redirectedlogonhandle: Foundation.HANDLE)
+    public operator fun invoke(redirectedlogonhandle: HANDLE)
 }
 
 public typealias PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACK = PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACKFn?
 
 public fun interface PLSA_REDIRECTED_LOGON_GET_LOGON_CREDSFn {
-    public operator fun invoke(redirectedlogonhandle: Foundation.HANDLE, logonbuffer: Long, logonbufferlength: Long): Foundation.NTSTATUS
+    public operator fun invoke(redirectedlogonhandle: HANDLE, logonbuffer: Long, logonbufferlength: Long): NTSTATUS
 }
 
 public typealias PLSA_REDIRECTED_LOGON_GET_LOGON_CREDS = PLSA_REDIRECTED_LOGON_GET_LOGON_CREDSFn?
 
 public fun interface PLSA_REDIRECTED_LOGON_GET_SIDFn {
-    public operator fun invoke(redirectedlogonhandle: Foundation.HANDLE, sid: Long): Foundation.NTSTATUS
+    public operator fun invoke(redirectedlogonhandle: HANDLE, sid: Long): NTSTATUS
 }
 
 public typealias PLSA_REDIRECTED_LOGON_GET_SID = PLSA_REDIRECTED_LOGON_GET_SIDFn?
 
 public fun interface PLSA_REDIRECTED_LOGON_GET_SUPP_CREDSFn {
-    public operator fun invoke(redirectedlogonhandle: Foundation.HANDLE, supplementalcredentials: Long): Foundation.NTSTATUS
+    public operator fun invoke(redirectedlogonhandle: HANDLE, supplementalcredentials: Long): NTSTATUS
 }
 
 public typealias PLSA_REDIRECTED_LOGON_GET_SUPP_CREDS = PLSA_REDIRECTED_LOGON_GET_SUPP_CREDSFn?
 
 public fun interface PLSA_REDIRECTED_LOGON_INITFn {
-    public operator fun invoke(redirectedlogonhandle: Foundation.HANDLE, packagename: Long, sessionid: UInt, logonid: Long): Foundation.NTSTATUS
+    public operator fun invoke(redirectedlogonhandle: HANDLE, packagename: Long, sessionid: UInt, logonid: Long): NTSTATUS
 }
 
 public typealias PLSA_REDIRECTED_LOGON_INIT = PLSA_REDIRECTED_LOGON_INITFn?
 
 public fun interface PLSA_REGISTER_CALLBACKFn {
-    public operator fun invoke(callbackid: UInt, callback: PLSA_CALLBACK_FUNCTION): Foundation.NTSTATUS
+    public operator fun invoke(callbackid: UInt, callback: PLSA_CALLBACK_FUNCTION): NTSTATUS
 }
 
 public typealias PLSA_REGISTER_CALLBACK = PLSA_REGISTER_CALLBACKFn?
 
 public fun interface PLSA_REGISTER_NOTIFICATIONFn {
-    public operator fun invoke(startfunction: System.Threading.LPTHREAD_START_ROUTINE, parameter: Long, notificationtype: UInt, notificationclass: UInt, notificationflags: UInt, intervalminutes: UInt, waitevent: Foundation.HANDLE): Foundation.HANDLE
+    public operator fun invoke(startfunction: LPTHREAD_START_ROUTINE, parameter: Long, notificationtype: UInt, notificationclass: UInt, notificationflags: UInt, intervalminutes: UInt, waitevent: HANDLE): HANDLE
 }
 
 public typealias PLSA_REGISTER_NOTIFICATION = PLSA_REGISTER_NOTIFICATIONFn?
 
 public fun interface PLSA_SAVE_SUPPLEMENTAL_CREDENTIALSFn {
-    public operator fun invoke(logonid: Long, supplementalcredsize: UInt, supplementalcreds: Long, synchronous: Boolean): Foundation.NTSTATUS
+    public operator fun invoke(logonid: Long, supplementalcredsize: UInt, supplementalcreds: Long, synchronous: Boolean): NTSTATUS
 }
 
 public typealias PLSA_SAVE_SUPPLEMENTAL_CREDENTIALS = PLSA_SAVE_SUPPLEMENTAL_CREDENTIALSFn?
 
 public fun interface PLSA_SET_APP_MODE_INFOFn {
-    public operator fun invoke(userfunction: UInt, argument1: ULong, argument2: ULong, userdata: Long, returntolsa: Boolean): Foundation.NTSTATUS
+    public operator fun invoke(userfunction: UInt, argument1: ULong, argument2: ULong, userdata: Long, returntolsa: Boolean): NTSTATUS
 }
 
 public typealias PLSA_SET_APP_MODE_INFO = PLSA_SET_APP_MODE_INFOFn?
 
 public fun interface PLSA_UNLOAD_PACKAGEFn {
-    public operator fun invoke(): Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias PLSA_UNLOAD_PACKAGE = PLSA_UNLOAD_PACKAGEFn?
 
 public fun interface PLSA_UPDATE_PRIMARY_CREDENTIALSFn {
-    public operator fun invoke(primarycredentials: Long, credentials: Long): Foundation.NTSTATUS
+    public operator fun invoke(primarycredentials: Long, credentials: Long): NTSTATUS
 }
 
 public typealias PLSA_UPDATE_PRIMARY_CREDENTIALS = PLSA_UPDATE_PRIMARY_CREDENTIALSFn?
@@ -836,13 +843,13 @@ public fun interface PSAM_CREDENTIAL_UPDATE_FREE_ROUTINEFn {
 public typealias PSAM_CREDENTIAL_UPDATE_FREE_ROUTINE = PSAM_CREDENTIAL_UPDATE_FREE_ROUTINEFn?
 
 public fun interface PSAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINEFn {
-    public operator fun invoke(clearpassword: Long, oldcredentials: Long, oldcredentialsize: UInt, useraccountcontrol: UInt, upn: Long, username: Long, netbiosdomainname: Long, dnsdomainname: Long, newcredentials: Long, newcredentialsize: Long): Foundation.NTSTATUS
+    public operator fun invoke(clearpassword: Long, oldcredentials: Long, oldcredentialsize: UInt, useraccountcontrol: UInt, upn: Long, username: Long, netbiosdomainname: Long, dnsdomainname: Long, newcredentials: Long, newcredentialsize: Long): NTSTATUS
 }
 
 public typealias PSAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINE = PSAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINEFn?
 
 public fun interface PSAM_CREDENTIAL_UPDATE_REGISTER_MAPPED_ENTRYPOINTS_ROUTINEFn {
-    public operator fun invoke(table: Long): Foundation.NTSTATUS
+    public operator fun invoke(table: Long): NTSTATUS
 }
 
 public typealias PSAM_CREDENTIAL_UPDATE_REGISTER_MAPPED_ENTRYPOINTS_ROUTINE = PSAM_CREDENTIAL_UPDATE_REGISTER_MAPPED_ENTRYPOINTS_ROUTINEFn?
@@ -866,7 +873,7 @@ public fun interface PSAM_PASSWORD_FILTER_ROUTINEFn {
 public typealias PSAM_PASSWORD_FILTER_ROUTINE = PSAM_PASSWORD_FILTER_ROUTINEFn?
 
 public fun interface PSAM_PASSWORD_NOTIFICATION_ROUTINEFn {
-    public operator fun invoke(username: Long, relativeid: UInt, newpassword: Long): Foundation.NTSTATUS
+    public operator fun invoke(username: Long, relativeid: UInt, newpassword: Long): NTSTATUS
 }
 
 public typealias PSAM_PASSWORD_NOTIFICATION_ROUTINE = PSAM_PASSWORD_NOTIFICATION_ROUTINEFn?
@@ -1050,283 +1057,283 @@ public typealias SchGetExtensionsOptions = Int
 public typealias SecDelegationType = Int
 
 public fun interface SpAcceptCredentialsFnFn {
-    public operator fun invoke(logontype: SECURITY_LOGON_TYPE, accountname: Long, primarycredentials: Long, supplementalcredentials: Long): Foundation.NTSTATUS
+    public operator fun invoke(logontype: SECURITY_LOGON_TYPE, accountname: Long, primarycredentials: Long, supplementalcredentials: Long): NTSTATUS
 }
 
 public typealias SpAcceptCredentialsFn = SpAcceptCredentialsFnFn?
 
 public fun interface SpAcceptLsaModeContextFnFn {
-    public operator fun invoke(credentialhandle: ULong, contexthandle: ULong, inputbuffer: Long, contextrequirements: UInt, targetdatarep: UInt, newcontexthandle: Long, outputbuffer: Long, contextattributes: Long, expirationtime: Long, mappedcontext: Long, contextdata: Long): Foundation.NTSTATUS
+    public operator fun invoke(credentialhandle: ULong, contexthandle: ULong, inputbuffer: Long, contextrequirements: UInt, targetdatarep: UInt, newcontexthandle: Long, outputbuffer: Long, contextattributes: Long, expirationtime: Long, mappedcontext: Long, contextdata: Long): NTSTATUS
 }
 
 public typealias SpAcceptLsaModeContextFn = SpAcceptLsaModeContextFnFn?
 
 public fun interface SpAcquireCredentialsHandleFnFn {
-    public operator fun invoke(principalname: Long, credentialuseflags: UInt, logonid: Long, authorizationdata: Long, getkeyfunciton: Long, getkeyargument: Long, credentialhandle: Long, expirationtime: Long): Foundation.NTSTATUS
+    public operator fun invoke(principalname: Long, credentialuseflags: UInt, logonid: Long, authorizationdata: Long, getkeyfunciton: Long, getkeyargument: Long, credentialhandle: Long, expirationtime: Long): NTSTATUS
 }
 
 public typealias SpAcquireCredentialsHandleFn = SpAcquireCredentialsHandleFnFn?
 
 public fun interface SpAddCredentialsFnFn {
-    public operator fun invoke(credentialhandle: ULong, principalname: Long, pkg: Long, credentialuseflags: UInt, authorizationdata: Long, getkeyfunciton: Long, getkeyargument: Long, expirationtime: Long): Foundation.NTSTATUS
+    public operator fun invoke(credentialhandle: ULong, principalname: Long, pkg: Long, credentialuseflags: UInt, authorizationdata: Long, getkeyfunciton: Long, getkeyargument: Long, expirationtime: Long): NTSTATUS
 }
 
 public typealias SpAddCredentialsFn = SpAddCredentialsFnFn?
 
 public fun interface SpApplyControlTokenFnFn {
-    public operator fun invoke(contexthandle: ULong, controltoken: Long): Foundation.NTSTATUS
+    public operator fun invoke(contexthandle: ULong, controltoken: Long): NTSTATUS
 }
 
 public typealias SpApplyControlTokenFn = SpApplyControlTokenFnFn?
 
 public fun interface SpChangeAccountPasswordFnFn {
-    public operator fun invoke(pdomainname: Long, paccountname: Long, poldpassword: Long, pnewpassword: Long, impersonating: Boolean, poutput: Long): Foundation.NTSTATUS
+    public operator fun invoke(pdomainname: Long, paccountname: Long, poldpassword: Long, pnewpassword: Long, impersonating: Boolean, poutput: Long): NTSTATUS
 }
 
 public typealias SpChangeAccountPasswordFn = SpChangeAccountPasswordFnFn?
 
 public fun interface SpCompleteAuthTokenFnFn {
-    public operator fun invoke(contexthandle: ULong, inputbuffer: Long): Foundation.NTSTATUS
+    public operator fun invoke(contexthandle: ULong, inputbuffer: Long): NTSTATUS
 }
 
 public typealias SpCompleteAuthTokenFn = SpCompleteAuthTokenFnFn?
 
 public fun interface SpDeleteContextFnFn {
-    public operator fun invoke(contexthandle: ULong): Foundation.NTSTATUS
+    public operator fun invoke(contexthandle: ULong): NTSTATUS
 }
 
 public typealias SpDeleteContextFn = SpDeleteContextFnFn?
 
 public fun interface SpDeleteCredentialsFnFn {
-    public operator fun invoke(credentialhandle: ULong, key: Long): Foundation.NTSTATUS
+    public operator fun invoke(credentialhandle: ULong, key: Long): NTSTATUS
 }
 
 public typealias SpDeleteCredentialsFn = SpDeleteCredentialsFnFn?
 
 public fun interface SpExchangeMetaDataFnFn {
-    public operator fun invoke(credentialhandle: ULong, targetname: Long, contextrequirements: UInt, metadatalength: UInt, metadata: Long, contexthandle: Long): Foundation.NTSTATUS
+    public operator fun invoke(credentialhandle: ULong, targetname: Long, contextrequirements: UInt, metadatalength: UInt, metadata: Long, contexthandle: Long): NTSTATUS
 }
 
 public typealias SpExchangeMetaDataFn = SpExchangeMetaDataFnFn?
 
 public fun interface SpExportSecurityContextFnFn {
-    public operator fun invoke(phcontext: ULong, fflags: UInt, ppackedcontext: Long, ptoken: Long): Foundation.NTSTATUS
+    public operator fun invoke(phcontext: ULong, fflags: UInt, ppackedcontext: Long, ptoken: Long): NTSTATUS
 }
 
 public typealias SpExportSecurityContextFn = SpExportSecurityContextFnFn?
 
 public fun interface SpExtractTargetInfoFnFn {
-    public operator fun invoke(clientrequest: Long, protocolsubmitbuffer: Long, clientbufferbase: Long, submitbufferlength: UInt, ppvtargetinfo: Long, pcbtargetinfo: Long): Foundation.NTSTATUS
+    public operator fun invoke(clientrequest: Long, protocolsubmitbuffer: Long, clientbufferbase: Long, submitbufferlength: UInt, ppvtargetinfo: Long, pcbtargetinfo: Long): NTSTATUS
 }
 
 public typealias SpExtractTargetInfoFn = SpExtractTargetInfoFnFn?
 
 public fun interface SpFormatCredentialsFnFn {
-    public operator fun invoke(credentials: Long, formattedcredentials: Long): Foundation.NTSTATUS
+    public operator fun invoke(credentials: Long, formattedcredentials: Long): NTSTATUS
 }
 
 public typealias SpFormatCredentialsFn = SpFormatCredentialsFnFn?
 
 public fun interface SpFreeCredentialsHandleFnFn {
-    public operator fun invoke(credentialhandle: ULong): Foundation.NTSTATUS
+    public operator fun invoke(credentialhandle: ULong): NTSTATUS
 }
 
 public typealias SpFreeCredentialsHandleFn = SpFreeCredentialsHandleFnFn?
 
 public fun interface SpGetContextTokenFnFn {
-    public operator fun invoke(contexthandle: ULong, impersonationtoken: Long): Foundation.NTSTATUS
+    public operator fun invoke(contexthandle: ULong, impersonationtoken: Long): NTSTATUS
 }
 
 public typealias SpGetContextTokenFn = SpGetContextTokenFnFn?
 
 public fun interface SpGetCredUIContextFnFn {
-    public operator fun invoke(contexthandle: ULong, credtype: Long, flatcreduicontextlength: Long, flatcreduicontext: Long): Foundation.NTSTATUS
+    public operator fun invoke(contexthandle: ULong, credtype: Long, flatcreduicontextlength: Long, flatcreduicontext: Long): NTSTATUS
 }
 
 public typealias SpGetCredUIContextFn = SpGetCredUIContextFnFn?
 
 public fun interface SpGetCredentialsFnFn {
-    public operator fun invoke(credentialhandle: ULong, credentials: Long): Foundation.NTSTATUS
+    public operator fun invoke(credentialhandle: ULong, credentials: Long): NTSTATUS
 }
 
 public typealias SpGetCredentialsFn = SpGetCredentialsFnFn?
 
 public fun interface SpGetExtendedInformationFnFn {
-    public operator fun invoke(cls: SECPKG_EXTENDED_INFORMATION_CLASS, ppinformation: Long): Foundation.NTSTATUS
+    public operator fun invoke(cls: SECPKG_EXTENDED_INFORMATION_CLASS, ppinformation: Long): NTSTATUS
 }
 
 public typealias SpGetExtendedInformationFn = SpGetExtendedInformationFnFn?
 
 public fun interface SpGetInfoFnFn {
-    public operator fun invoke(packageinfo: Long): Foundation.NTSTATUS
+    public operator fun invoke(packageinfo: Long): NTSTATUS
 }
 
 public typealias SpGetInfoFn = SpGetInfoFnFn?
 
 public fun interface SpGetRemoteCredGuardLogonBufferFnFn {
-    public operator fun invoke(credhandle: ULong, contexthandle: ULong, targetname: Long, redirectedlogonhandle: Long, callback: Long, cleanupcallback: Long, logonbuffersize: Long, logonbuffer: Long): Foundation.NTSTATUS
+    public operator fun invoke(credhandle: ULong, contexthandle: ULong, targetname: Long, redirectedlogonhandle: Long, callback: Long, cleanupcallback: Long, logonbuffersize: Long, logonbuffer: Long): NTSTATUS
 }
 
 public typealias SpGetRemoteCredGuardLogonBufferFn = SpGetRemoteCredGuardLogonBufferFnFn?
 
 public fun interface SpGetRemoteCredGuardSupplementalCredsFnFn {
-    public operator fun invoke(credhandle: ULong, targetname: Long, redirectedlogonhandle: Long, callback: Long, cleanupcallback: Long, supplementalcredssize: Long, supplementalcreds: Long): Foundation.NTSTATUS
+    public operator fun invoke(credhandle: ULong, targetname: Long, redirectedlogonhandle: Long, callback: Long, cleanupcallback: Long, supplementalcredssize: Long, supplementalcreds: Long): NTSTATUS
 }
 
 public typealias SpGetRemoteCredGuardSupplementalCredsFn = SpGetRemoteCredGuardSupplementalCredsFnFn?
 
 public fun interface SpGetTbalSupplementalCredsFnFn {
-    public operator fun invoke(logonid: Foundation.LUID, supplementalcredssize: Long, supplementalcreds: Long): Foundation.NTSTATUS
+    public operator fun invoke(logonid: LUID, supplementalcredssize: Long, supplementalcreds: Long): NTSTATUS
 }
 
 public typealias SpGetTbalSupplementalCredsFn = SpGetTbalSupplementalCredsFnFn?
 
 public fun interface SpGetUserInfoFnFn {
-    public operator fun invoke(logonid: Long, flags: UInt, userdata: Long): Foundation.NTSTATUS
+    public operator fun invoke(logonid: Long, flags: UInt, userdata: Long): NTSTATUS
 }
 
 public typealias SpGetUserInfoFn = SpGetUserInfoFnFn?
 
 public fun interface SpImportSecurityContextFnFn {
-    public operator fun invoke(ppackedcontext: Long, token: Foundation.HANDLE, phcontext: Long): Foundation.NTSTATUS
+    public operator fun invoke(ppackedcontext: Long, token: HANDLE, phcontext: Long): NTSTATUS
 }
 
 public typealias SpImportSecurityContextFn = SpImportSecurityContextFnFn?
 
 public fun interface SpInitLsaModeContextFnFn {
-    public operator fun invoke(credentialhandle: ULong, contexthandle: ULong, targetname: Long, contextrequirements: UInt, targetdatarep: UInt, inputbuffers: Long, newcontexthandle: Long, outputbuffers: Long, contextattributes: Long, expirationtime: Long, mappedcontext: Long, contextdata: Long): Foundation.NTSTATUS
+    public operator fun invoke(credentialhandle: ULong, contexthandle: ULong, targetname: Long, contextrequirements: UInt, targetdatarep: UInt, inputbuffers: Long, newcontexthandle: Long, outputbuffers: Long, contextattributes: Long, expirationtime: Long, mappedcontext: Long, contextdata: Long): NTSTATUS
 }
 
 public typealias SpInitLsaModeContextFn = SpInitLsaModeContextFnFn?
 
 public fun interface SpInitUserModeContextFnFn {
-    public operator fun invoke(contexthandle: ULong, packedcontext: Long): Foundation.NTSTATUS
+    public operator fun invoke(contexthandle: ULong, packedcontext: Long): NTSTATUS
 }
 
 public typealias SpInitUserModeContextFn = SpInitUserModeContextFnFn?
 
 public fun interface SpInitializeFnFn {
-    public operator fun invoke(packageid: ULong, parameters: Long, functiontable: Long): Foundation.NTSTATUS
+    public operator fun invoke(packageid: ULong, parameters: Long, functiontable: Long): NTSTATUS
 }
 
 public typealias SpInitializeFn = SpInitializeFnFn?
 
 public fun interface SpInstanceInitFnFn {
-    public operator fun invoke(version: UInt, functiontable: Long, userfunctions: Long): Foundation.NTSTATUS
+    public operator fun invoke(version: UInt, functiontable: Long, userfunctions: Long): NTSTATUS
 }
 
 public typealias SpInstanceInitFn = SpInstanceInitFnFn?
 
 public fun interface SpLsaModeInitializeFnFn {
-    public operator fun invoke(lsaversion: UInt, packageversion: Long, pptables: Long, pctables: Long): Foundation.NTSTATUS
+    public operator fun invoke(lsaversion: UInt, packageversion: Long, pptables: Long, pctables: Long): NTSTATUS
 }
 
 public typealias SpLsaModeInitializeFn = SpLsaModeInitializeFnFn?
 
 public fun interface SpMakeSignatureFnFn {
-    public operator fun invoke(contexthandle: ULong, qualityofprotection: UInt, messagebuffers: Long, messagesequencenumber: UInt): Foundation.NTSTATUS
+    public operator fun invoke(contexthandle: ULong, qualityofprotection: UInt, messagebuffers: Long, messagesequencenumber: UInt): NTSTATUS
 }
 
 public typealias SpMakeSignatureFn = SpMakeSignatureFnFn?
 
 public fun interface SpMarshalAttributeDataFnFn {
-    public operator fun invoke(attributeinfo: UInt, attribute: UInt, attributedatasize: UInt, attributedata: Long, marshaledattributedatasize: Long, marshaledattributedata: Long): Foundation.NTSTATUS
+    public operator fun invoke(attributeinfo: UInt, attribute: UInt, attributedatasize: UInt, attributedata: Long, marshaledattributedatasize: Long, marshaledattributedata: Long): NTSTATUS
 }
 
 public typealias SpMarshalAttributeDataFn = SpMarshalAttributeDataFnFn?
 
 public fun interface SpMarshallSupplementalCredsFnFn {
-    public operator fun invoke(credentialsize: UInt, credentials: Long, marshalledcredsize: Long, marshalledcreds: Long): Foundation.NTSTATUS
+    public operator fun invoke(credentialsize: UInt, credentials: Long, marshalledcredsize: Long, marshalledcreds: Long): NTSTATUS
 }
 
 public typealias SpMarshallSupplementalCredsFn = SpMarshallSupplementalCredsFnFn?
 
 public fun interface SpQueryContextAttributesFnFn {
-    public operator fun invoke(contexthandle: ULong, contextattribute: UInt, buffer: Long): Foundation.NTSTATUS
+    public operator fun invoke(contexthandle: ULong, contextattribute: UInt, buffer: Long): NTSTATUS
 }
 
 public typealias SpQueryContextAttributesFn = SpQueryContextAttributesFnFn?
 
 public fun interface SpQueryCredentialsAttributesFnFn {
-    public operator fun invoke(credentialhandle: ULong, credentialattribute: UInt, buffer: Long): Foundation.NTSTATUS
+    public operator fun invoke(credentialhandle: ULong, credentialattribute: UInt, buffer: Long): NTSTATUS
 }
 
 public typealias SpQueryCredentialsAttributesFn = SpQueryCredentialsAttributesFnFn?
 
 public fun interface SpQueryMetaDataFnFn {
-    public operator fun invoke(credentialhandle: ULong, targetname: Long, contextrequirements: UInt, metadatalength: Long, metadata: Long, contexthandle: Long): Foundation.NTSTATUS
+    public operator fun invoke(credentialhandle: ULong, targetname: Long, contextrequirements: UInt, metadatalength: Long, metadata: Long, contexthandle: Long): NTSTATUS
 }
 
 public typealias SpQueryMetaDataFn = SpQueryMetaDataFnFn?
 
 public fun interface SpSaveCredentialsFnFn {
-    public operator fun invoke(credentialhandle: ULong, credentials: Long): Foundation.NTSTATUS
+    public operator fun invoke(credentialhandle: ULong, credentials: Long): NTSTATUS
 }
 
 public typealias SpSaveCredentialsFn = SpSaveCredentialsFnFn?
 
 public fun interface SpSealMessageFnFn {
-    public operator fun invoke(contexthandle: ULong, qualityofprotection: UInt, messagebuffers: Long, messagesequencenumber: UInt): Foundation.NTSTATUS
+    public operator fun invoke(contexthandle: ULong, qualityofprotection: UInt, messagebuffers: Long, messagesequencenumber: UInt): NTSTATUS
 }
 
 public typealias SpSealMessageFn = SpSealMessageFnFn?
 
 public fun interface SpSetContextAttributesFnFn {
-    public operator fun invoke(contexthandle: ULong, contextattribute: UInt, buffer: Long, buffersize: UInt): Foundation.NTSTATUS
+    public operator fun invoke(contexthandle: ULong, contextattribute: UInt, buffer: Long, buffersize: UInt): NTSTATUS
 }
 
 public typealias SpSetContextAttributesFn = SpSetContextAttributesFnFn?
 
 public fun interface SpSetCredentialsAttributesFnFn {
-    public operator fun invoke(credentialhandle: ULong, credentialattribute: UInt, buffer: Long, buffersize: UInt): Foundation.NTSTATUS
+    public operator fun invoke(credentialhandle: ULong, credentialattribute: UInt, buffer: Long, buffersize: UInt): NTSTATUS
 }
 
 public typealias SpSetCredentialsAttributesFn = SpSetCredentialsAttributesFnFn?
 
 public fun interface SpSetExtendedInformationFnFn {
-    public operator fun invoke(cls: SECPKG_EXTENDED_INFORMATION_CLASS, info: Long): Foundation.NTSTATUS
+    public operator fun invoke(cls: SECPKG_EXTENDED_INFORMATION_CLASS, info: Long): NTSTATUS
 }
 
 public typealias SpSetExtendedInformationFn = SpSetExtendedInformationFnFn?
 
 public fun interface SpShutdownFnFn {
-    public operator fun invoke(): Foundation.NTSTATUS
+    public operator fun invoke(): NTSTATUS
 }
 
 public typealias SpShutdownFn = SpShutdownFnFn?
 
 public fun interface SpUnsealMessageFnFn {
-    public operator fun invoke(contexthandle: ULong, messagebuffers: Long, messagesequencenumber: UInt, qualityofprotection: Long): Foundation.NTSTATUS
+    public operator fun invoke(contexthandle: ULong, messagebuffers: Long, messagesequencenumber: UInt, qualityofprotection: Long): NTSTATUS
 }
 
 public typealias SpUnsealMessageFn = SpUnsealMessageFnFn?
 
 public fun interface SpUpdateCredentialsFnFn {
-    public operator fun invoke(contexthandle: ULong, credtype: Long, flatcreduicontextlength: UInt, flatcreduicontext: Long): Foundation.NTSTATUS
+    public operator fun invoke(contexthandle: ULong, credtype: Long, flatcreduicontextlength: UInt, flatcreduicontext: Long): NTSTATUS
 }
 
 public typealias SpUpdateCredentialsFn = SpUpdateCredentialsFnFn?
 
 public fun interface SpUserModeInitializeFnFn {
-    public operator fun invoke(lsaversion: UInt, packageversion: Long, pptables: Long, pctables: Long): Foundation.NTSTATUS
+    public operator fun invoke(lsaversion: UInt, packageversion: Long, pptables: Long, pctables: Long): NTSTATUS
 }
 
 public typealias SpUserModeInitializeFn = SpUserModeInitializeFnFn?
 
 public fun interface SpValidateTargetInfoFnFn {
-    public operator fun invoke(clientrequest: Long, protocolsubmitbuffer: Long, clientbufferbase: Long, submitbufferlength: UInt, targetinfo: Long): Foundation.NTSTATUS
+    public operator fun invoke(clientrequest: Long, protocolsubmitbuffer: Long, clientbufferbase: Long, submitbufferlength: UInt, targetinfo: Long): NTSTATUS
 }
 
 public typealias SpValidateTargetInfoFn = SpValidateTargetInfoFnFn?
 
 public fun interface SpVerifySignatureFnFn {
-    public operator fun invoke(contexthandle: ULong, messagebuffers: Long, messagesequencenumber: UInt, qualityofprotection: Long): Foundation.NTSTATUS
+    public operator fun invoke(contexthandle: ULong, messagebuffers: Long, messagesequencenumber: UInt, qualityofprotection: Long): NTSTATUS
 }
 
 public typealias SpVerifySignatureFn = SpVerifySignatureFnFn?
 
 public fun interface SslDeserializeCertificateStoreFnFn {
-    public operator fun invoke(serializedcertificatestore: Cryptography.CRYPT_INTEGER_BLOB, ppcertcontext: Long): HRESULT
+    public operator fun invoke(serializedcertificatestore: CRYPT_INTEGER_BLOB, ppcertcontext: Long): HRESULT
 }
 
 public typealias SslDeserializeCertificateStoreFn = SslDeserializeCertificateStoreFnFn?

@@ -6,6 +6,8 @@ import io.github.kotlinmania.windowssys.core.BSTR
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.security.PSID
 
 public data class AAAccountingData(
     public var userName: BSTR = 0L,
@@ -922,8 +924,8 @@ public data class WTSSBX_SESSION_INFO(
     public var wszDomainName: UShortArray = UShortArray(257),
     public var ApplicationType: UShortArray = UShortArray(257),
     public var dwSessionId: UInt = 0u,
-    public var CreateTime: Foundation.FILETIME = Foundation.FILETIME(),
-    public var DisconnectTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var CreateTime: FILETIME = FILETIME(),
+    public var DisconnectTime: FILETIME = FILETIME(),
     public var SessionState: WTSSBX_SESSION_STATE = 0,
 ) {
     override fun equals(other: Any?): Boolean {
@@ -1168,21 +1170,21 @@ public data class WTS_PROCESS_INFOA(
     public var SessionId: UInt = 0u,
     public var ProcessId: UInt = 0u,
     public var pProcessName: PSTR = 0L,
-    public var pUserSid: Security.PSID = Security.PSID(),
+    public var pUserSid: PSID = 0L,
 )
 
 public data class WTS_PROCESS_INFOW(
     public var SessionId: UInt = 0u,
     public var ProcessId: UInt = 0u,
     public var pProcessName: PWSTR = 0L,
-    public var pUserSid: Security.PSID = Security.PSID(),
+    public var pUserSid: PSID = 0L,
 )
 
 public data class WTS_PROCESS_INFO_EXA(
     public var SessionId: UInt = 0u,
     public var ProcessId: UInt = 0u,
     public var pProcessName: PSTR = 0L,
-    public var pUserSid: Security.PSID = Security.PSID(),
+    public var pUserSid: PSID = 0L,
     public var NumberOfThreads: UInt = 0u,
     public var HandleCount: UInt = 0u,
     public var PagefileUsage: UInt = 0u,
@@ -1197,7 +1199,7 @@ public data class WTS_PROCESS_INFO_EXW(
     public var SessionId: UInt = 0u,
     public var ProcessId: UInt = 0u,
     public var pProcessName: PWSTR = 0L,
-    public var pUserSid: Security.PSID = Security.PSID(),
+    public var pUserSid: PSID = 0L,
     public var NumberOfThreads: UInt = 0u,
     public var HandleCount: UInt = 0u,
     public var PagefileUsage: UInt = 0u,

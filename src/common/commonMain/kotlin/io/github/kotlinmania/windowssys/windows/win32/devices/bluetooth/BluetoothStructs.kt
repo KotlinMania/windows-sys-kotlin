@@ -5,6 +5,9 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.SYSTEMTIME
 
 public data class BLUETOOTH_ADDRESS(public var Anonymous: BLUETOOTH_ADDRESS_0 = BLUETOOTH_ADDRESS_0())
 
@@ -57,8 +60,8 @@ public data class BLUETOOTH_DEVICE_INFO(
     public var fConnected: BOOL = 0,
     public var fRemembered: BOOL = 0,
     public var fAuthenticated: BOOL = 0,
-    public var stLastSeen: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
-    public var stLastUsed: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var stLastSeen: SYSTEMTIME = SYSTEMTIME(),
+    public var stLastUsed: SYSTEMTIME = SYSTEMTIME(),
     public var szName: UShortArray = UShortArray(248),
 ) {
     override fun equals(other: Any?): Boolean {
@@ -98,7 +101,7 @@ public data class BLUETOOTH_DEVICE_SEARCH_PARAMS(
     public var fReturnConnected: BOOL = 0,
     public var fIssueInquiry: BOOL = 0,
     public var cTimeoutMultiplier: UByte = 0u,
-    public var hRadio: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hRadio: HANDLE = 0L,
 )
 
 public data class BLUETOOTH_FIND_RADIO_PARAMS(public var dwSize: UInt = 0u)
@@ -208,7 +211,7 @@ public data class BLUETOOTH_SELECT_DEVICE_PARAMS(
     public var cNumOfClasses: UInt = 0u,
     public var prgClassOfDevices: Long = 0L,
     public var pszInfo: PWSTR = 0L,
-    public var hwndParent: Foundation.HWND = Foundation.HWND(),
+    public var hwndParent: HWND = 0L,
     public var fForceAuthentication: BOOL = 0,
     public var fShowAuthenticated: BOOL = 0,
     public var fShowRemembered: BOOL = 0,

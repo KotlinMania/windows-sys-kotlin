@@ -8,6 +8,17 @@ import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.VS_FIXEDFILEINFO
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.EXCEPTION_ROUTINE
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.LIST_ENTRY
+import io.github.kotlinmania.windowssys.windows.win32.system.memory.VIRTUAL_ALLOCATION_TYPE
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.IMAGE_FILE_MACHINE
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.PROCESSOR_ARCHITECTURE
+import io.github.kotlinmania.windowssys.windows.win32.system.threading.LPTHREAD_START_ROUTINE
+import io.github.kotlinmania.windowssys.windows.win32.system.time.TIME_ZONE_INFORMATION
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.VARIANT
 
 public data class ADDRESS64(
     public var Offset: ULong = 0uL,
@@ -283,22 +294,22 @@ public data class CPU_INFORMATION_0(
 }
 
 public data class CREATE_PROCESS_DEBUG_INFO(
-    public var hFile: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hProcess: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hThread: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hFile: HANDLE = 0L,
+    public var hProcess: HANDLE = 0L,
+    public var hThread: HANDLE = 0L,
     public var lpBaseOfImage: Long = 0L,
     public var dwDebugInfoFileOffset: UInt = 0u,
     public var nDebugInfoSize: UInt = 0u,
     public var lpThreadLocalBase: Long = 0L,
-    public var lpStartAddress: Threading.LPTHREAD_START_ROUTINE = Threading.LPTHREAD_START_ROUTINE(),
+    public var lpStartAddress: LPTHREAD_START_ROUTINE = null,
     public var lpImageName: Long = 0L,
     public var fUnicode: UShort = 0u,
 )
 
 public data class CREATE_THREAD_DEBUG_INFO(
-    public var hThread: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hThread: HANDLE = 0L,
     public var lpThreadLocalBase: Long = 0L,
-    public var lpStartAddress: Threading.LPTHREAD_START_ROUTINE = Threading.LPTHREAD_START_ROUTINE(),
+    public var lpStartAddress: LPTHREAD_START_ROUTINE = null,
 )
 
 public data class DBGHELP_DATA_REPORT_STRUCT(public var pBinPathNonExist: PCWSTR = 0L, public var pSymbolPathNonExist: PCWSTR = 0L)
@@ -329,7 +340,7 @@ public data class DISPATCHER_CONTEXT(
     public var EstablisherFrame: ULong = 0uL,
     public var TargetIp: ULong = 0uL,
     public var ContextRecord: Long = 0L,
-    public var LanguageHandler: Kernel.EXCEPTION_ROUTINE = Kernel.EXCEPTION_ROUTINE(),
+    public var LanguageHandler: EXCEPTION_ROUTINE = null,
     public var HandlerData: Long = 0L,
     public var HistoryTable: Long = 0L,
     public var ScopeIndex: UInt = 0u,
@@ -467,7 +478,7 @@ public data class EXCEPTION_DEBUG_INFO(public var ExceptionRecord: EXCEPTION_REC
 public data class EXCEPTION_POINTERS(public var ExceptionRecord: Long = 0L, public var ContextRecord: Long = 0L)
 
 public data class EXCEPTION_RECORD(
-    public var ExceptionCode: Foundation.NTSTATUS = Foundation.NTSTATUS(),
+    public var ExceptionCode: NTSTATUS = 0,
     public var ExceptionFlags: UInt = 0u,
     public var ExceptionRecord: Long = 0L,
     public var ExceptionAddress: Long = 0L,
@@ -498,7 +509,7 @@ public data class EXCEPTION_RECORD(
 }
 
 public data class EXCEPTION_RECORD32(
-    public var ExceptionCode: Foundation.NTSTATUS = Foundation.NTSTATUS(),
+    public var ExceptionCode: NTSTATUS = 0,
     public var ExceptionFlags: UInt = 0u,
     public var ExceptionRecord: UInt = 0u,
     public var ExceptionAddress: UInt = 0u,
@@ -529,7 +540,7 @@ public data class EXCEPTION_RECORD32(
 }
 
 public data class EXCEPTION_RECORD64(
-    public var ExceptionCode: Foundation.NTSTATUS = Foundation.NTSTATUS(),
+    public var ExceptionCode: NTSTATUS = 0,
     public var ExceptionFlags: UInt = 0u,
     public var ExceptionRecord: ULong = 0uL,
     public var ExceptionAddress: ULong = 0uL,
@@ -576,7 +587,7 @@ public data class ExtendedDebugPropertyInfo(
     public var pDebugProp: Long = 0L,
     public var nDISPID: UInt = 0u,
     public var nType: UInt = 0u,
-    public var varValue: Variant.VARIANT = Variant.VARIANT(),
+    public var varValue: VARIANT = VARIANT(),
     public var plbValue: Long = 0L,
     public var pDebugExtProp: Long = 0L,
 )
@@ -617,7 +628,7 @@ public data class IMAGEHLP_DEFERRED_SYMBOL_LOAD64(
     public var TimeDateStamp: UInt = 0u,
     public var FileName: ByteArray = ByteArray(260),
     public var Reparse: Boolean = false,
-    public var hFile: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hFile: HANDLE = 0L,
     public var Flags: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
@@ -654,7 +665,7 @@ public data class IMAGEHLP_DEFERRED_SYMBOL_LOADW64(
     public var TimeDateStamp: UInt = 0u,
     public var FileName: UShortArray = UShortArray(261),
     public var Reparse: Boolean = false,
-    public var hFile: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hFile: HANDLE = 0L,
     public var Flags: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
@@ -1001,7 +1012,7 @@ public data class IMAGE_DEBUG_DIRECTORY(
 )
 
 public data class IMAGE_FILE_HEADER(
-    public var Machine: SystemInformation.IMAGE_FILE_MACHINE = SystemInformation.IMAGE_FILE_MACHINE(),
+    public var Machine: IMAGE_FILE_MACHINE = 0u,
     public var NumberOfSections: UShort = 0u,
     public var TimeDateStamp: UInt = 0u,
     public var PointerToSymbolTable: UInt = 0u,
@@ -1463,7 +1474,7 @@ public data class LDT_ENTRY_0_0(
 
 public data class LOADED_IMAGE(
     public var ModuleName: PSTR = 0L,
-    public var hFile: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hFile: HANDLE = 0L,
     public var MappedAddress: Long = 0L,
     public var FileHeader: Long = 0L,
     public var LastRvaSection: Long = 0L,
@@ -1474,12 +1485,12 @@ public data class LOADED_IMAGE(
     public var fDOSImage: Boolean = false,
     public var fReadOnly: Boolean = false,
     public var Version: UByte = 0u,
-    public var Links: Kernel.LIST_ENTRY = Kernel.LIST_ENTRY(),
+    public var Links: LIST_ENTRY = LIST_ENTRY(),
     public var SizeOfImage: UInt = 0u,
 )
 
 public data class LOAD_DLL_DEBUG_INFO(
-    public var hFile: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hFile: HANDLE = 0L,
     public var lpBaseOfDll: Long = 0L,
     public var dwDebugInfoFileOffset: UInt = 0u,
     public var nDebugInfoSize: UInt = 0u,
@@ -1493,7 +1504,7 @@ public data class MINIDUMP_CALLBACK_INFORMATION(public var CallbackRoutine: MINI
 
 public data class MINIDUMP_CALLBACK_INPUT(
     public var ProcessId: UInt = 0u,
-    public var ProcessHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var ProcessHandle: HANDLE = 0L,
     public var CallbackType: UInt = 0u,
     public var Anonymous: MINIDUMP_CALLBACK_INPUT_0 = MINIDUMP_CALLBACK_INPUT_0(),
 )
@@ -1521,7 +1532,7 @@ public data class MINIDUMP_CALLBACK_OUTPUT_0(
     public var SecondaryFlags: UInt = 0u,
     public var Anonymous1: MINIDUMP_CALLBACK_OUTPUT_0_0 = MINIDUMP_CALLBACK_OUTPUT_0_0(),
     public var Anonymous2: MINIDUMP_CALLBACK_OUTPUT_0_1 = MINIDUMP_CALLBACK_OUTPUT_0_1(),
-    public var Handle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var Handle: HANDLE = 0L,
     public var Anonymous3: MINIDUMP_CALLBACK_OUTPUT_0_2 = MINIDUMP_CALLBACK_OUTPUT_0_2(),
     public var Anonymous4: MINIDUMP_CALLBACK_OUTPUT_0_3 = MINIDUMP_CALLBACK_OUTPUT_0_3(),
     public var Anonymous5: MINIDUMP_CALLBACK_OUTPUT_0_4 = MINIDUMP_CALLBACK_OUTPUT_0_4(),
@@ -1670,7 +1681,7 @@ public data class MINIDUMP_INCLUDE_MODULE_CALLBACK(public var BaseOfImage: ULong
 public data class MINIDUMP_INCLUDE_THREAD_CALLBACK(public var ThreadId: UInt = 0u)
 
 public data class MINIDUMP_IO_CALLBACK(
-    public var Handle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var Handle: HANDLE = 0L,
     public var Offset: ULong = 0uL,
     public var Buffer: Long = 0L,
     public var BufferBytes: UInt = 0u,
@@ -1696,7 +1707,7 @@ public data class MINIDUMP_MEMORY_INFO(
     public var AllocationProtect: UInt = 0u,
     public var __alignment1: UInt = 0u,
     public var RegionSize: ULong = 0uL,
-    public var State: Memory.VIRTUAL_ALLOCATION_TYPE = Memory.VIRTUAL_ALLOCATION_TYPE(),
+    public var State: VIRTUAL_ALLOCATION_TYPE = 0u,
     public var Protect: UInt = 0u,
     public var Type: UInt = 0u,
     public var __alignment2: UInt = 0u,
@@ -1749,7 +1760,7 @@ public data class MINIDUMP_MISC_INFO_3(
     public var ProcessExecuteFlags: UInt = 0u,
     public var ProtectedProcess: UInt = 0u,
     public var TimeZoneId: UInt = 0u,
-    public var TimeZone: Time.TIME_ZONE_INFORMATION = Time.TIME_ZONE_INFORMATION(),
+    public var TimeZone: TIME_ZONE_INFORMATION = TIME_ZONE_INFORMATION(),
 )
 
 public class MINIDUMP_MISC_INFO_4(
@@ -1768,7 +1779,7 @@ public class MINIDUMP_MISC_INFO_4(
     public var ProcessExecuteFlags: UInt = 0u,
     public var ProtectedProcess: UInt = 0u,
     public var TimeZoneId: UInt = 0u,
-    public var TimeZone: Time.TIME_ZONE_INFORMATION = Time.TIME_ZONE_INFORMATION(),
+    public var TimeZone: TIME_ZONE_INFORMATION = TIME_ZONE_INFORMATION(),
     public var BuildString: UShortArray = UShortArray(260),
     public var DbgBldStr: UShortArray = UShortArray(40),
 )
@@ -1789,7 +1800,7 @@ public class MINIDUMP_MISC_INFO_5(
     public var ProcessExecuteFlags: UInt = 0u,
     public var ProtectedProcess: UInt = 0u,
     public var TimeZoneId: UInt = 0u,
-    public var TimeZone: Time.TIME_ZONE_INFORMATION = Time.TIME_ZONE_INFORMATION(),
+    public var TimeZone: TIME_ZONE_INFORMATION = TIME_ZONE_INFORMATION(),
     public var BuildString: UShortArray = UShortArray(260),
     public var DbgBldStr: UShortArray = UShortArray(40),
     public var XStateData: XSTATE_CONFIG_FEATURE_MSC_INFO = XSTATE_CONFIG_FEATURE_MSC_INFO(),
@@ -1802,7 +1813,7 @@ public data class MINIDUMP_MODULE(
     public var CheckSum: UInt = 0u,
     public var TimeDateStamp: UInt = 0u,
     public var ModuleNameRva: UInt = 0u,
-    public var VersionInfo: Storage.FileSystem.VS_FIXEDFILEINFO = Storage.FileSystem.VS_FIXEDFILEINFO(),
+    public var VersionInfo: VS_FIXEDFILEINFO = VS_FIXEDFILEINFO(),
     public var CvRecord: MINIDUMP_LOCATION_DESCRIPTOR = MINIDUMP_LOCATION_DESCRIPTOR(),
     public var MiscRecord: MINIDUMP_LOCATION_DESCRIPTOR = MINIDUMP_LOCATION_DESCRIPTOR(),
     public var Reserved0: ULong = 0uL,
@@ -1815,7 +1826,7 @@ public data class MINIDUMP_MODULE_CALLBACK(
     public var SizeOfImage: UInt = 0u,
     public var CheckSum: UInt = 0u,
     public var TimeDateStamp: UInt = 0u,
-    public var VersionInfo: Storage.FileSystem.VS_FIXEDFILEINFO = Storage.FileSystem.VS_FIXEDFILEINFO(),
+    public var VersionInfo: VS_FIXEDFILEINFO = VS_FIXEDFILEINFO(),
     public var CvRecord: Long = 0L,
     public var SizeOfCvRecord: UInt = 0u,
     public var MiscRecord: Long = 0L,
@@ -1917,7 +1928,7 @@ public data class MINIDUMP_SYSTEM_FILECACHE_INFORMATION(
 )
 
 public data class MINIDUMP_SYSTEM_INFO(
-    public var ProcessorArchitecture: SystemInformation.PROCESSOR_ARCHITECTURE = SystemInformation.PROCESSOR_ARCHITECTURE(),
+    public var ProcessorArchitecture: PROCESSOR_ARCHITECTURE = 0u,
     public var ProcessorLevel: UShort = 0u,
     public var ProcessorRevision: UShort = 0u,
     public var Anonymous1: MINIDUMP_SYSTEM_INFO_0 = MINIDUMP_SYSTEM_INFO_0(),
@@ -2117,7 +2128,7 @@ public data class MINIDUMP_THREAD(
 
 public data class MINIDUMP_THREAD_CALLBACK(
     public var ThreadId: UInt = 0u,
-    public var ThreadHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var ThreadHandle: HANDLE = 0L,
     public var Context: CONTEXT = CONTEXT(),
     public var SizeOfContext: UInt = 0u,
     public var StackBase: ULong = 0uL,
@@ -2137,7 +2148,7 @@ public data class MINIDUMP_THREAD_EX(
 
 public data class MINIDUMP_THREAD_EX_CALLBACK(
     public var ThreadId: UInt = 0u,
-    public var ThreadHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var ThreadHandle: HANDLE = 0L,
     public var Context: CONTEXT = CONTEXT(),
     public var SizeOfContext: UInt = 0u,
     public var StackBase: ULong = 0uL,
@@ -3140,97 +3151,3 @@ public data class WHEA_XPF_MCE_DESCRIPTOR(
     public var MCG_GlobalControl: ULong = 0uL,
     public var Banks: List<WHEA_XPF_MC_BANK_DESCRIPTOR> = List(32) { WHEA_XPF_MC_BANK_DESCRIPTOR() },
 )
-
-public data class WHEA_XPF_MC_BANK_DESCRIPTOR(
-    public var BankNumber: UByte = 0u,
-    public var ClearOnInitialization: Boolean = false,
-    public var StatusDataFormat: UByte = 0u,
-    public var Flags: XPF_MC_BANK_FLAGS = XPF_MC_BANK_FLAGS(),
-    public var ControlMsr: UInt = 0u,
-    public var StatusMsr: UInt = 0u,
-    public var AddressMsr: UInt = 0u,
-    public var MiscMsr: UInt = 0u,
-    public var ControlData: ULong = 0uL,
-)
-
-public data class WHEA_XPF_NMI_DESCRIPTOR(public var Type: UShort = 0u, public var Enabled: Boolean = false)
-
-public class WOW64_CONTEXT(
-    public var ContextFlags: WOW64_CONTEXT_FLAGS = 0u,
-    public var Dr0: UInt = 0u,
-    public var Dr1: UInt = 0u,
-    public var Dr2: UInt = 0u,
-    public var Dr3: UInt = 0u,
-    public var Dr6: UInt = 0u,
-    public var Dr7: UInt = 0u,
-    public var FloatSave: WOW64_FLOATING_SAVE_AREA = WOW64_FLOATING_SAVE_AREA(),
-    public var SegGs: UInt = 0u,
-    public var SegFs: UInt = 0u,
-    public var SegEs: UInt = 0u,
-    public var SegDs: UInt = 0u,
-    public var Edi: UInt = 0u,
-    public var Esi: UInt = 0u,
-    public var Ebx: UInt = 0u,
-    public var Edx: UInt = 0u,
-    public var Ecx: UInt = 0u,
-    public var Eax: UInt = 0u,
-    public var Ebp: UInt = 0u,
-    public var Eip: UInt = 0u,
-    public var SegCs: UInt = 0u,
-    public var EFlags: UInt = 0u,
-    public var Esp: UInt = 0u,
-    public var SegSs: UInt = 0u,
-    public var ExtendedRegisters: UByteArray = UByteArray(512),
-)
-
-public data class WOW64_DESCRIPTOR_TABLE_ENTRY(public var Selector: UInt = 0u, public var Descriptor: WOW64_LDT_ENTRY = WOW64_LDT_ENTRY())
-
-public data class WOW64_FLOATING_SAVE_AREA(
-    public var ControlWord: UInt = 0u,
-    public var StatusWord: UInt = 0u,
-    public var TagWord: UInt = 0u,
-    public var ErrorOffset: UInt = 0u,
-    public var ErrorSelector: UInt = 0u,
-    public var DataOffset: UInt = 0u,
-    public var DataSelector: UInt = 0u,
-    public var RegisterArea: UByteArray = UByteArray(80),
-    public var Cr0NpxState: UInt = 0u,
-) {
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (other !is WOW64_FLOATING_SAVE_AREA) return false
-        if (this.ControlWord != other.ControlWord) return false
-        if (this.StatusWord != other.StatusWord) return false
-        if (this.TagWord != other.TagWord) return false
-        if (this.ErrorOffset != other.ErrorOffset) return false
-        if (this.ErrorSelector != other.ErrorSelector) return false
-        if (this.DataOffset != other.DataOffset) return false
-        if (this.DataSelector != other.DataSelector) return false
-        if (!this.RegisterArea.contentEquals(other.RegisterArea)) return false
-        if (this.Cr0NpxState != other.Cr0NpxState) return false
-        return true
-    }
-
-    override fun hashCode(): Int {
-        var result = this.ControlWord.hashCode()
-        result = 31 * result + this.StatusWord.hashCode()
-        result = 31 * result + this.TagWord.hashCode()
-        result = 31 * result + this.ErrorOffset.hashCode()
-        result = 31 * result + this.ErrorSelector.hashCode()
-        result = 31 * result + this.DataOffset.hashCode()
-        result = 31 * result + this.DataSelector.hashCode()
-        result = 31 * result + this.RegisterArea.contentHashCode()
-        result = 31 * result + this.Cr0NpxState.hashCode()
-        return result
-    }
-}
-
-public data class WOW64_LDT_ENTRY(
-    public var LimitLow: UShort = 0u,
-    public var BaseLow: UShort = 0u,
-    public var HighWord: WOW64_LDT_ENTRY_0 = WOW64_LDT_ENTRY_0(),
-)
-
-public data class WOW64_LDT_ENTRY_0(public var Bytes: WOW64_LDT_ENTRY_0_0 = WOW64_LDT_ENTRY_0_0(), public var Bits: WOW64_LDT_ENTRY_0_1 = WOW64_LDT_ENTRY_0_1())
-
-public data class WOW64_LDT_ENTRY_0_1(public var _bitfield: UInt = 0u)

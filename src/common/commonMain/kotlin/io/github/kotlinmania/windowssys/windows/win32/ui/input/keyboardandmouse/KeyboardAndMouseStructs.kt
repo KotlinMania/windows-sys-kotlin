@@ -2,6 +2,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse
 
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
 
 public data class DEADKEY(
     public var dwBoth: UInt = 0u,
@@ -242,7 +243,7 @@ public data class MOUSEMOVEPOINT(
 public data class TRACKMOUSEEVENT(
     public var cbSize: UInt = 0u,
     public var dwFlags: TRACKMOUSEEVENT_FLAGS = 0u,
-    public var hwndTrack: Foundation.HWND = Foundation.HWND(),
+    public var hwndTrack: HWND = 0L,
     public var dwHoverTime: UInt = 0u,
 )
 

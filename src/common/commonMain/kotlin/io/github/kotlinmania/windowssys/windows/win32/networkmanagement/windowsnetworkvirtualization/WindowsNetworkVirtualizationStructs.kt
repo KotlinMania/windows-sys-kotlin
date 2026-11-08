@@ -1,12 +1,18 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsnetworkvirtualization
 
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.ADDRESS_FAMILY
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.DL_EUI48
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.IN6_ADDR
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.IN_ADDR
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NL_DAD_STATE
+
 public data class WNV_CUSTOMER_ADDRESS_CHANGE_PARAM(
-    public var MACAddress: Networking.WinSock.DL_EUI48 = Networking.WinSock.DL_EUI48(),
-    public var CAFamily: Networking.WinSock.ADDRESS_FAMILY = Networking.WinSock.ADDRESS_FAMILY(),
+    public var MACAddress: DL_EUI48 = DL_EUI48(),
+    public var CAFamily: ADDRESS_FAMILY = 0u,
     public var CA: WNV_IP_ADDRESS = WNV_IP_ADDRESS(),
     public var VirtualSubnetId: UInt = 0u,
-    public var PAFamily: Networking.WinSock.ADDRESS_FAMILY = Networking.WinSock.ADDRESS_FAMILY(),
+    public var PAFamily: ADDRESS_FAMILY = 0u,
     public var PA: WNV_IP_ADDRESS = WNV_IP_ADDRESS(),
     public var NotificationReason: WNV_CA_NOTIFICATION_TYPE = 0,
 )
@@ -14,8 +20,8 @@ public data class WNV_CUSTOMER_ADDRESS_CHANGE_PARAM(
 public data class WNV_IP_ADDRESS(public var IP: WNV_IP_ADDRESS_0 = WNV_IP_ADDRESS_0())
 
 public data class WNV_IP_ADDRESS_0(
-    public var v4: Networking.WinSock.IN_ADDR = Networking.WinSock.IN_ADDR(),
-    public var v6: Networking.WinSock.IN6_ADDR = Networking.WinSock.IN6_ADDR(),
+    public var v4: IN_ADDR = IN_ADDR(),
+    public var v6: IN6_ADDR = IN6_ADDR(),
     public var Addr: UByteArray = UByteArray(16),
 ) {
     override fun equals(other: Any?): Boolean {
@@ -53,23 +59,23 @@ public data class WNV_OBJECT_HEADER(
 )
 
 public data class WNV_POLICY_MISMATCH_PARAM(
-    public var CAFamily: Networking.WinSock.ADDRESS_FAMILY = Networking.WinSock.ADDRESS_FAMILY(),
-    public var PAFamily: Networking.WinSock.ADDRESS_FAMILY = Networking.WinSock.ADDRESS_FAMILY(),
+    public var CAFamily: ADDRESS_FAMILY = 0u,
+    public var PAFamily: ADDRESS_FAMILY = 0u,
     public var VirtualSubnetId: UInt = 0u,
     public var CA: WNV_IP_ADDRESS = WNV_IP_ADDRESS(),
     public var PA: WNV_IP_ADDRESS = WNV_IP_ADDRESS(),
 )
 
 public data class WNV_PROVIDER_ADDRESS_CHANGE_PARAM(
-    public var PAFamily: Networking.WinSock.ADDRESS_FAMILY = Networking.WinSock.ADDRESS_FAMILY(),
+    public var PAFamily: ADDRESS_FAMILY = 0u,
     public var PA: WNV_IP_ADDRESS = WNV_IP_ADDRESS(),
-    public var AddressState: Networking.WinSock.NL_DAD_STATE = Networking.WinSock.NL_DAD_STATE(),
+    public var AddressState: NL_DAD_STATE = 0,
 )
 
 public data class WNV_REDIRECT_PARAM(
-    public var CAFamily: Networking.WinSock.ADDRESS_FAMILY = Networking.WinSock.ADDRESS_FAMILY(),
-    public var PAFamily: Networking.WinSock.ADDRESS_FAMILY = Networking.WinSock.ADDRESS_FAMILY(),
-    public var NewPAFamily: Networking.WinSock.ADDRESS_FAMILY = Networking.WinSock.ADDRESS_FAMILY(),
+    public var CAFamily: ADDRESS_FAMILY = 0u,
+    public var PAFamily: ADDRESS_FAMILY = 0u,
+    public var NewPAFamily: ADDRESS_FAMILY = 0u,
     public var VirtualSubnetId: UInt = 0u,
     public var CA: WNV_IP_ADDRESS = WNV_IP_ADDRESS(),
     public var PA: WNV_IP_ADDRESS = WNV_IP_ADDRESS(),

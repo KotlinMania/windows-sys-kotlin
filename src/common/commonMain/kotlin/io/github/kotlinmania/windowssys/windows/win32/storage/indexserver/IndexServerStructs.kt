@@ -2,6 +2,7 @@ package io.github.kotlinmania.windowssys.windows.win32.storage.indexserver
 
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.PROPSPEC
 
 public data class CI_STATE(
     public var cbStruct: UInt = 0u,
@@ -37,7 +38,7 @@ public data class FILTERREGION(
     public var cwcExtent: UInt = 0u,
 )
 
-public data class FULLPROPSPEC(public var guidPropSet: GUID = GUID(), public var psProperty: System.Com.StructuredStorage.PROPSPEC = System.Com.StructuredStorage.PROPSPEC())
+public data class FULLPROPSPEC(public var guidPropSet: GUID = GUID(), public var psProperty: PROPSPEC = PROPSPEC())
 
 public data class STAT_CHUNK(
     public var idChunk: UInt = 0u,

@@ -3,6 +3,12 @@ package io.github.kotlinmania.windowssys.windows.win32.system.threading
 
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.windows.win32.foundation.UNICODE_STRING
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.LIST_ENTRY
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.IMAGE_FILE_MACHINE
 
 public data class APP_MEMORY_INFORMATION(
     public var AvailableCommit: ULong = 0uL,
@@ -17,8 +23,8 @@ public data class CRITICAL_SECTION(
     public var DebugInfo: Long = 0L,
     public var LockCount: Int = 0,
     public var RecursionCount: Int = 0,
-    public var OwningThread: Foundation.HANDLE = Foundation.HANDLE(),
-    public var LockSemaphore: Foundation.HANDLE = Foundation.HANDLE(),
+    public var OwningThread: HANDLE = 0L,
+    public var LockSemaphore: HANDLE = 0L,
     public var SpinCount: ULong = 0uL,
 )
 
@@ -26,7 +32,7 @@ public data class CRITICAL_SECTION_DEBUG(
     public var Type: UShort = 0u,
     public var CreatorBackTraceIndex: UShort = 0u,
     public var CriticalSection: Long = 0L,
-    public var ProcessLocksList: Kernel.LIST_ENTRY = Kernel.LIST_ENTRY(),
+    public var ProcessLocksList: LIST_ENTRY = LIST_ENTRY(),
     public var EntryCount: UInt = 0u,
     public var ContentionCount: UInt = 0u,
     public var Flags: UInt = 0u,
@@ -74,7 +80,7 @@ public class PEB(
 public data class PEB_LDR_DATA(
     public var Reserved1: UByteArray = UByteArray(8),
     public var Reserved2: LongArray = LongArray(3),
-    public var InMemoryOrderModuleList: Kernel.LIST_ENTRY = Kernel.LIST_ENTRY(),
+    public var InMemoryOrderModuleList: LIST_ENTRY = LIST_ENTRY(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -94,7 +100,7 @@ public data class PEB_LDR_DATA(
 }
 
 public data class PROCESS_BASIC_INFORMATION(
-    public var ExitStatus: Foundation.NTSTATUS = Foundation.NTSTATUS(),
+    public var ExitStatus: NTSTATUS = 0,
     public var PebBaseAddress: Long = 0L,
     public var AffinityMask: ULong = 0uL,
     public var BasePriority: Int = 0,
@@ -125,8 +131,8 @@ public data class PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION(
 )
 
 public data class PROCESS_INFORMATION(
-    public var hProcess: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hThread: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hProcess: HANDLE = 0L,
+    public var hThread: HANDLE = 0L,
     public var dwProcessId: UInt = 0u,
     public var dwThreadId: UInt = 0u,
 )
@@ -134,7 +140,7 @@ public data class PROCESS_INFORMATION(
 public data class PROCESS_LEAP_SECOND_INFO(public var Flags: UInt = 0u, public var Reserved: UInt = 0u)
 
 public data class PROCESS_MACHINE_INFORMATION(
-    public var ProcessMachine: SystemInformation.IMAGE_FILE_MACHINE = SystemInformation.IMAGE_FILE_MACHINE(),
+    public var ProcessMachine: IMAGE_FILE_MACHINE = 0u,
     public var Res0: UShort = 0u,
     public var MachineAttributes: MACHINE_ATTRIBUTES = 0,
 )
@@ -163,7 +169,7 @@ public data class REASON_CONTEXT(
 public data class REASON_CONTEXT_0(public var Detailed: REASON_CONTEXT_0_0 = REASON_CONTEXT_0_0(), public var SimpleReasonString: PWSTR = 0L)
 
 public data class REASON_CONTEXT_0_0(
-    public var LocalizedReasonModule: Foundation.HMODULE = Foundation.HMODULE(),
+    public var LocalizedReasonModule: HMODULE = 0L,
     public var LocalizedReasonId: UInt = 0u,
     public var ReasonStringCount: UInt = 0u,
     public var ReasonStrings: Long = 0L,
@@ -172,8 +178,8 @@ public data class REASON_CONTEXT_0_0(
 public data class RTL_USER_PROCESS_PARAMETERS(
     public var Reserved1: UByteArray = UByteArray(16),
     public var Reserved2: LongArray = LongArray(10),
-    public var ImagePathName: Foundation.UNICODE_STRING = Foundation.UNICODE_STRING(),
-    public var CommandLine: Foundation.UNICODE_STRING = Foundation.UNICODE_STRING(),
+    public var ImagePathName: UNICODE_STRING = UNICODE_STRING(),
+    public var CommandLine: UNICODE_STRING = UNICODE_STRING(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -212,9 +218,9 @@ public class STARTUPINFOA(
     public var wShowWindow: UShort = 0u,
     public var cbReserved2: UShort = 0u,
     public var lpReserved2: Long = 0L,
-    public var hStdInput: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hStdOutput: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hStdError: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hStdInput: HANDLE = 0L,
+    public var hStdOutput: HANDLE = 0L,
+    public var hStdError: HANDLE = 0L,
 )
 
 public data class STARTUPINFOEXA(public var StartupInfo: STARTUPINFOA = STARTUPINFOA(), public var lpAttributeList: LPPROC_THREAD_ATTRIBUTE_LIST = 0L)
@@ -237,9 +243,9 @@ public class STARTUPINFOW(
     public var wShowWindow: UShort = 0u,
     public var cbReserved2: UShort = 0u,
     public var lpReserved2: Long = 0L,
-    public var hStdInput: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hStdOutput: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hStdError: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hStdInput: HANDLE = 0L,
+    public var hStdOutput: HANDLE = 0L,
+    public var hStdError: HANDLE = 0L,
 )
 
 public data class SYNCHRONIZATION_BARRIER(

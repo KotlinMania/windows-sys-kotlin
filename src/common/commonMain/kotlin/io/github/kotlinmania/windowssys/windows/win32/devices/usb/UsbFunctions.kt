@@ -2,13 +2,14 @@ package io.github.kotlinmania.windowssys.windows.win32.devices.usb
 
 import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 
 public fun WinUsb_AbortPipe(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: UByte): BOOL {
     return Win32DynamicFfi.invoke("winusb.dll", "WinUsb_AbortPipe", longArrayOf(interfacehandle, pipeid.toLong())).toInt()
 }
 
 public fun WinUsb_ControlTransfer(interfacehandle: WINUSB_INTERFACE_HANDLE, setuppacket: WINUSB_SETUP_PACKET, buffer: Long, bufferlength: UInt, lengthtransferred: Long, overlapped: Long): BOOL {
-    return Win32DynamicFfi.invoke("winusb.dll", "WinUsb_ControlTransfer", longArrayOf(interfacehandle, Win32DynamicFfi.objectSlot(setuppacket), buffer, bufferlength.toLong(), lengthtransferred, overlapped)).toInt()
+    return Win32DynamicFfi.invoke("winusb.dll", "WinUsb_ControlTransfer", longArrayOf(interfacehandle, ((setuppacket.RequestType.toLong() and 0xFFL) or ((setuppacket.Request.toLong() and 0xFFL) shl 8) or ((setuppacket.Value.toLong() and 0xFFFFL) shl 16) or ((setuppacket.Index.toLong() and 0xFFFFL) shl 32) or ((setuppacket.Length.toLong() and 0xFFFFL) shl 48)), buffer, bufferlength.toLong(), lengthtransferred, overlapped)).toInt()
 }
 
 public fun WinUsb_FlushPipe(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: UByte): BOOL {
@@ -55,8 +56,8 @@ public fun WinUsb_GetPowerPolicy(interfacehandle: WINUSB_INTERFACE_HANDLE, polic
     return Win32DynamicFfi.invoke("winusb.dll", "WinUsb_GetPowerPolicy", longArrayOf(interfacehandle, policytype.toLong(), valuelength, value)).toInt()
 }
 
-public fun WinUsb_Initialize(devicehandle: Foundation.HANDLE, interfacehandle: Long): BOOL {
-    return Win32DynamicFfi.invoke("winusb.dll", "WinUsb_Initialize", longArrayOf(Win32DynamicFfi.objectSlot(devicehandle), interfacehandle)).toInt()
+public fun WinUsb_Initialize(devicehandle: HANDLE, interfacehandle: Long): BOOL {
+    return Win32DynamicFfi.invoke("winusb.dll", "WinUsb_Initialize", longArrayOf(devicehandle, interfacehandle)).toInt()
 }
 
 public fun WinUsb_ParseConfigurationDescriptor(configurationdescriptor: Long, startposition: Long, interfacenumber: Int, alternatesetting: Int, interfaceclass: Int, interfacesubclass: Int, interfaceprotocol: Int): Long {

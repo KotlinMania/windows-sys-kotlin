@@ -5,6 +5,10 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.SYSTEMTIME
+import io.github.kotlinmania.windowssys.windows.win32.security.SECURITY_DESCRIPTOR_RELATIVE
 
 public class CLRES_CALLBACK_FUNCTION_TABLE(
     public var LogEvent: PLOG_EVENT_ROUTINE = null,
@@ -104,7 +108,7 @@ public data class CLUSAPI_REASON_HANDLER(public var lpParameter: Long = 0L, publ
 
 public data class CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT(
     public var GetTickCount64: ULong = 0uL,
-    public var GetSystemTime: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var GetSystemTime: SYSTEMTIME = SYSTEMTIME(),
     public var NodeId: UInt = 0u,
 )
 
@@ -165,7 +169,7 @@ public class CLUSPROP_BUFFER_HELPER(
 
 public data class CLUSPROP_DWORD(public var Base: CLUSPROP_VALUE = CLUSPROP_VALUE(), public var dw: UInt = 0u)
 
-public data class CLUSPROP_FILETIME(public var Base: CLUSPROP_VALUE = CLUSPROP_VALUE(), public var ft: Foundation.FILETIME = Foundation.FILETIME())
+public data class CLUSPROP_FILETIME(public var Base: CLUSPROP_VALUE = CLUSPROP_VALUE(), public var ft: FILETIME = FILETIME())
 
 public data class CLUSPROP_FTSET_INFO(public var Base: CLUSPROP_VALUE = CLUSPROP_VALUE(), public var Base2: CLUS_FTSET_INFO = CLUS_FTSET_INFO())
 
@@ -195,7 +199,7 @@ public data class CLUSPROP_SCSI_ADDRESS(public var Base: CLUSPROP_VALUE = CLUSPR
 
 public data class CLUSPROP_SECURITY_DESCRIPTOR(public var Base: CLUSPROP_VALUE = CLUSPROP_VALUE(), public var Anonymous: CLUSPROP_SECURITY_DESCRIPTOR_0 = CLUSPROP_SECURITY_DESCRIPTOR_0())
 
-public data class CLUSPROP_SECURITY_DESCRIPTOR_0(public var sd: Security.SECURITY_DESCRIPTOR_RELATIVE = Security.SECURITY_DESCRIPTOR_RELATIVE(), public var rgbSecurityDescriptor: UByteArray = UByteArray(1)) {
+public data class CLUSPROP_SECURITY_DESCRIPTOR_0(public var sd: SECURITY_DESCRIPTOR_RELATIVE = SECURITY_DESCRIPTOR_RELATIVE(), public var rgbSecurityDescriptor: UByteArray = UByteArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is CLUSPROP_SECURITY_DESCRIPTOR_0) return false
@@ -1049,7 +1053,7 @@ public data class CLUS_STORAGE_REMAP_DRIVELETTER(public var CurrentDriveLetterMa
 
 public data class CLUS_STORAGE_SET_DRIVELETTER(public var PartitionNumber: UInt = 0u, public var DriveLetterMask: UInt = 0u)
 
-public data class CLUS_WORKER(public var hThread: Foundation.HANDLE = Foundation.HANDLE(), public var Terminate: BOOL = 0)
+public data class CLUS_WORKER(public var hThread: HANDLE = 0L, public var Terminate: BOOL = 0)
 
 public data class CREATE_CLUSTER_CONFIG(
     public var dwVersion: UInt = 0u,
@@ -1107,7 +1111,7 @@ public data class GROUP_FAILURE_INFO_BUFFER(public var dwVersion: UInt = 0u, pub
 public data class MONITOR_STATE(
     public var LastUpdate: Long = 0L,
     public var State: RESOURCE_MONITOR_STATE = 0,
-    public var ActiveResource: Foundation.HANDLE = Foundation.HANDLE(),
+    public var ActiveResource: HANDLE = 0L,
     public var ResmonStop: BOOL = 0,
 )
 
@@ -1151,13 +1155,13 @@ public data class RESOURCE_STATUS(
     public var ResourceState: CLUSTER_RESOURCE_STATE = 0,
     public var CheckPoint: UInt = 0u,
     public var WaitHint: UInt = 0u,
-    public var EventHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var EventHandle: HANDLE = 0L,
 )
 
 public data class RESOURCE_STATUS_EX(
     public var ResourceState: CLUSTER_RESOURCE_STATE = 0,
     public var CheckPoint: UInt = 0u,
-    public var EventHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var EventHandle: HANDLE = 0L,
     public var ApplicationSpecificErrorCode: UInt = 0u,
     public var Flags: UInt = 0u,
     public var WaitHint: UInt = 0u,
@@ -1166,9 +1170,9 @@ public data class RESOURCE_STATUS_EX(
 public data class RESOURCE_TERMINAL_FAILURE_INFO_BUFFER(public var isTerminalFailure: BOOL = 0, public var restartPeriodRemaining: UInt = 0u)
 
 public data class RESUTIL_FILETIME_DATA(
-    public var Default: Foundation.FILETIME = Foundation.FILETIME(),
-    public var Minimum: Foundation.FILETIME = Foundation.FILETIME(),
-    public var Maximum: Foundation.FILETIME = Foundation.FILETIME(),
+    public var Default: FILETIME = FILETIME(),
+    public var Minimum: FILETIME = FILETIME(),
+    public var Maximum: FILETIME = FILETIME(),
 )
 
 public data class RESUTIL_LARGEINT_DATA(

@@ -1,6 +1,8 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.storage.installablefilesystems
 
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+
 public data class FILTER_AGGREGATE_BASIC_INFORMATION(
     public var NextEntryOffset: UInt = 0u,
     public var Flags: UInt = 0u,
@@ -76,7 +78,7 @@ public data class FILTER_FULL_INFORMATION(
 
 public data class FILTER_MESSAGE_HEADER(public var ReplyLength: UInt = 0u, public var MessageId: ULong = 0uL)
 
-public data class FILTER_REPLY_HEADER(public var Status: Foundation.NTSTATUS = Foundation.NTSTATUS(), public var MessageId: ULong = 0uL)
+public data class FILTER_REPLY_HEADER(public var Status: NTSTATUS = 0, public var MessageId: ULong = 0uL)
 
 public data class FILTER_VOLUME_BASIC_INFORMATION(public var FilterVolumeNameLength: UShort = 0u, public var FilterVolumeName: UShortArray = UShortArray(1)) {
     override fun equals(other: Any?): Boolean {

@@ -1,5 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext
 
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.POINTER_INPUT_TYPE
+
 public data class CROSS_SLIDE_PARAMETER(public var threshold: CROSS_SLIDE_THRESHOLD = 0, public var distance: Float = 0.0f)
 
 public data class INTERACTION_ARGUMENTS_CROSS_SLIDE(public var flags: CROSS_SLIDE_FLAGS = 0u)
@@ -18,7 +20,7 @@ public data class INTERACTION_CONTEXT_CONFIGURATION(public var interactionId: IN
 public data class INTERACTION_CONTEXT_OUTPUT(
     public var interactionId: INTERACTION_ID = 0,
     public var interactionFlags: INTERACTION_FLAGS = 0u,
-    public var inputType: WindowsAndMessaging.POINTER_INPUT_TYPE = WindowsAndMessaging.POINTER_INPUT_TYPE(),
+    public var inputType: POINTER_INPUT_TYPE = 0,
     public var x: Float = 0.0f,
     public var y: Float = 0.0f,
     public var arguments: INTERACTION_CONTEXT_OUTPUT_0 = INTERACTION_CONTEXT_OUTPUT_0(),
@@ -33,7 +35,7 @@ public data class INTERACTION_CONTEXT_OUTPUT_0(
 public data class INTERACTION_CONTEXT_OUTPUT2(
     public var interactionId: INTERACTION_ID = 0,
     public var interactionFlags: INTERACTION_FLAGS = 0u,
-    public var inputType: WindowsAndMessaging.POINTER_INPUT_TYPE = WindowsAndMessaging.POINTER_INPUT_TYPE(),
+    public var inputType: POINTER_INPUT_TYPE = 0,
     public var contactCount: UInt = 0u,
     public var currentContactCount: UInt = 0u,
     public var x: Float = 0.0f,

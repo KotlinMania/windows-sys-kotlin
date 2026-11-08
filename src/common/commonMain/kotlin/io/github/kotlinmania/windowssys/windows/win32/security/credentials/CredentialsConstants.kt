@@ -1,10 +1,12 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.credentials
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
 
 public val BinaryBlobCredential: CRED_MARSHAL_TYPE = 3
 
@@ -288,7 +290,7 @@ public val CredsspSubmitBufferBothOld: CREDSPP_SUBMIT_TYPE = 51
 
 public val FILE_DEVICE_SMARTCARD: UInt = 49u
 
-public val GUID_DEVINTERFACE_SMARTCARD_READER: GUID = GUID.from_u128(0x50dd5230ba8a11d1uL, 0xbf5d0000f805f530uL)
+public val GUID_DEVINTERFACE_SMARTCARD_READER: GUID = GUID.from_u128(U128(0x50dd5230ba8a11d1uL, 0xbf5d0000f805f530uL))
 
 public val KeyCredentialManagerOperationErrorStateCertificateFailure: KeyCredentialManagerOperationErrorStates = 4
 
@@ -500,31 +502,31 @@ public val SECPKG_ALT_ATTR: UInt = 2147483648u
 
 public val SECPKG_ATTR_C_FULL_IDENT_TOKEN: UInt = 2147483781u
 
-public val STATUS_ACCOUNT_DISABLED: Foundation.NTSTATUS = null
+public val STATUS_ACCOUNT_DISABLED: NTSTATUS = 0xC0000072u.toInt()
 
-public val STATUS_ACCOUNT_EXPIRED: Foundation.NTSTATUS = null
+public val STATUS_ACCOUNT_EXPIRED: NTSTATUS = 0xC0000193u.toInt()
 
-public val STATUS_ACCOUNT_LOCKED_OUT: Foundation.NTSTATUS = null
+public val STATUS_ACCOUNT_LOCKED_OUT: NTSTATUS = 0xC0000234u.toInt()
 
-public val STATUS_ACCOUNT_RESTRICTION: Foundation.NTSTATUS = null
+public val STATUS_ACCOUNT_RESTRICTION: NTSTATUS = 0xC000006Eu.toInt()
 
-public val STATUS_AUTHENTICATION_FIREWALL_FAILED: Foundation.NTSTATUS = null
+public val STATUS_AUTHENTICATION_FIREWALL_FAILED: NTSTATUS = 0xC0000413u.toInt()
 
-public val STATUS_DOWNGRADE_DETECTED: Foundation.NTSTATUS = null
+public val STATUS_DOWNGRADE_DETECTED: NTSTATUS = 0xC0000388u.toInt()
 
-public val STATUS_LOGON_FAILURE: Foundation.NTSTATUS = null
+public val STATUS_LOGON_FAILURE: NTSTATUS = 0xC000006Du.toInt()
 
-public val STATUS_LOGON_TYPE_NOT_GRANTED: Foundation.NTSTATUS = null
+public val STATUS_LOGON_TYPE_NOT_GRANTED: NTSTATUS = 0xC000015Bu.toInt()
 
-public val STATUS_NO_SUCH_LOGON_SESSION: Foundation.NTSTATUS = null
+public val STATUS_NO_SUCH_LOGON_SESSION: NTSTATUS = 0xC000005Fu.toInt()
 
-public val STATUS_NO_SUCH_USER: Foundation.NTSTATUS = null
+public val STATUS_NO_SUCH_USER: NTSTATUS = 0xC0000064u.toInt()
 
-public val STATUS_PASSWORD_EXPIRED: Foundation.NTSTATUS = null
+public val STATUS_PASSWORD_EXPIRED: NTSTATUS = 0xC0000071u.toInt()
 
-public val STATUS_PASSWORD_MUST_CHANGE: Foundation.NTSTATUS = null
+public val STATUS_PASSWORD_MUST_CHANGE: NTSTATUS = 0xC0000224u.toInt()
 
-public val STATUS_WRONG_PASSWORD: Foundation.NTSTATUS = null
+public val STATUS_WRONG_PASSWORD: NTSTATUS = 0xC000006Au.toInt()
 
 public val TS_SSP_NAME: PCWSTR = w("TSSSP")
 

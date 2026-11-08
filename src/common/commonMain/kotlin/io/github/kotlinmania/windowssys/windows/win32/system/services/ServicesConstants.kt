@@ -1,32 +1,33 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.services
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
 
-public val CUSTOM_SYSTEM_STATE_CHANGE_EVENT_GUID: GUID = GUID.from_u128(0x2d7a28160c5e45fcuL, 0x9ce7570e5ecde9c9uL)
+public val CUSTOM_SYSTEM_STATE_CHANGE_EVENT_GUID: GUID = GUID.from_u128(U128(0x2d7a28160c5e45fcuL, 0x9ce7570e5ecde9c9uL))
 
-public val DOMAIN_JOIN_GUID: GUID = GUID.from_u128(0x1ce20aba98514421uL, 0x94301ddeb766e809uL)
+public val DOMAIN_JOIN_GUID: GUID = GUID.from_u128(U128(0x1ce20aba98514421uL, 0x94301ddeb766e809uL))
 
-public val DOMAIN_LEAVE_GUID: GUID = GUID.from_u128(0xddaf516e58c24866uL, 0x9574c3b615d42ea1uL)
+public val DOMAIN_LEAVE_GUID: GUID = GUID.from_u128(U128(0xddaf516e58c24866uL, 0x9574c3b615d42ea1uL))
 
-public val FIREWALL_PORT_CLOSE_GUID: GUID = GUID.from_u128(0xa144ed388e124de4uL, 0x9d96e64740b1a524uL)
+public val FIREWALL_PORT_CLOSE_GUID: GUID = GUID.from_u128(U128(0xa144ed388e124de4uL, 0x9d96e64740b1a524uL))
 
-public val FIREWALL_PORT_OPEN_GUID: GUID = GUID.from_u128(0xb7569e0784214ee0uL, 0xad1086915afdad09uL)
+public val FIREWALL_PORT_OPEN_GUID: GUID = GUID.from_u128(U128(0xb7569e0784214ee0uL, 0xad1086915afdad09uL))
 
-public val MACHINE_POLICY_PRESENT_GUID: GUID = GUID.from_u128(0x659fcae65bdb4da9uL, 0xb1ffca2a178d46e0uL)
+public val MACHINE_POLICY_PRESENT_GUID: GUID = GUID.from_u128(U128(0x659fcae65bdb4da9uL, 0xb1ffca2a178d46e0uL))
 
 public val MaxServiceRegistryStateType: SERVICE_REGISTRY_STATE_TYPE = 2
 
-public val NAMED_PIPE_EVENT_GUID: GUID = GUID.from_u128(0x1f81d1313fac4537uL, 0x9e0c7e7b0c2f4b55uL)
+public val NAMED_PIPE_EVENT_GUID: GUID = GUID.from_u128(U128(0x1f81d1313fac4537uL, 0x9e0c7e7b0c2f4b55uL))
 
-public val NETWORK_MANAGER_FIRST_IP_ADDRESS_ARRIVAL_GUID: GUID = GUID.from_u128(0x4f27f2de14e2430buL, 0xa5497cd48cbc8245uL)
+public val NETWORK_MANAGER_FIRST_IP_ADDRESS_ARRIVAL_GUID: GUID = GUID.from_u128(U128(0x4f27f2de14e2430buL, 0xa5497cd48cbc8245uL))
 
-public val NETWORK_MANAGER_LAST_IP_ADDRESS_REMOVAL_GUID: GUID = GUID.from_u128(0xcc4ba62a162e4648uL, 0x847ab6bdf993e335uL)
+public val NETWORK_MANAGER_LAST_IP_ADDRESS_REMOVAL_GUID: GUID = GUID.from_u128(U128(0xcc4ba62a162e4648uL, 0x847ab6bdf993e335uL))
 
-public val RPC_INTERFACE_EVENT_GUID: GUID = GUID.from_u128(0xbc90d16794704139uL, 0xa9babe0bbbf5b74duL)
+public val RPC_INTERFACE_EVENT_GUID: GUID = GUID.from_u128(U128(0xbc90d16794704139uL, 0xa9babe0bbbf5b74duL))
 
 public val SC_ACTION_NONE: SC_ACTION_TYPE = 0
 
@@ -430,4 +431,4 @@ public val ServiceSharedDirectoryPersistentState: SERVICE_SHARED_DIRECTORY_TYPE 
 
 public val ServiceSharedRegistryPersistentState: SERVICE_SHARED_REGISTRY_STATE_TYPE = 0
 
-public val USER_POLICY_PRESENT_GUID: GUID = GUID.from_u128(0x54fb46c8f089464cuL, 0xb1fd59d1b62c3b50uL)
+public val USER_POLICY_PRESENT_GUID: GUID = GUID.from_u128(U128(0x54fb46c8f089464cuL, 0xb1fd59d1b62c3b50uL))

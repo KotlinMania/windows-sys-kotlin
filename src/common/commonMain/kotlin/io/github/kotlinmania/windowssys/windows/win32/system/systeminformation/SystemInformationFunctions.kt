@@ -7,6 +7,7 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 
 public fun DnsHostnameToComputerNameExW(hostname: PCWSTR, computername: PWSTR, nsize: Long): BOOL {
     return Win32DynamicFfi.invoke("kernel32.dll", "DnsHostnameToComputerNameExW", longArrayOf(hostname, computername, nsize)).toInt()
@@ -72,8 +73,8 @@ public fun GetProductInfo(dwosmajorversion: UInt, dwosminorversion: UInt, dwspma
     return Win32DynamicFfi.invoke("kernel32.dll", "GetProductInfo", longArrayOf(dwosmajorversion.toLong(), dwosminorversion.toLong(), dwspmajorversion.toLong(), dwspminorversion.toLong(), pdwreturnedproducttype)).toInt()
 }
 
-public fun GetSystemCpuSetInformation(information: Long, bufferlength: UInt, returnedlength: Long, process: Foundation.HANDLE, flags: UInt): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetSystemCpuSetInformation", longArrayOf(information, bufferlength.toLong(), returnedlength, Win32DynamicFfi.objectSlot(process), flags.toLong())).toInt()
+public fun GetSystemCpuSetInformation(information: Long, bufferlength: UInt, returnedlength: Long, process: HANDLE, flags: UInt): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetSystemCpuSetInformation", longArrayOf(information, bufferlength.toLong(), returnedlength, process, flags.toLong())).toInt()
 }
 
 public fun GetSystemDEPPolicy(): DEP_SYSTEM_POLICY_TYPE {

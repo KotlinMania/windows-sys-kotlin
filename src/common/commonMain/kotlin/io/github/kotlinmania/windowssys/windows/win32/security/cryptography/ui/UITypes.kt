@@ -2,6 +2,9 @@ package io.github.kotlinmania.windowssys.windows.win32.security.cryptography.ui
 
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
 
 public typealias CERT_SELECT_STRUCT_FLAGS = UInt
 
@@ -36,19 +39,19 @@ public fun interface PFNCFILTERPROCFn {
 public typealias PFNCFILTERPROC = PFNCFILTERPROCFn?
 
 public fun interface PFNCMFILTERPROCFn {
-    public operator fun invoke(pcertcontext: Long, param1: Foundation.LPARAM, param2: UInt, param3: UInt): BOOL
+    public operator fun invoke(pcertcontext: Long, param1: LPARAM, param2: UInt, param3: UInt): BOOL
 }
 
 public typealias PFNCMFILTERPROC = PFNCMFILTERPROCFn?
 
 public fun interface PFNCMHOOKPROCFn {
-    public operator fun invoke(hwnddialog: Foundation.HWND, message: UInt, wparam: Foundation.WPARAM, lparam: Foundation.LPARAM): UInt
+    public operator fun invoke(hwnddialog: HWND, message: UInt, wparam: WPARAM, lparam: LPARAM): UInt
 }
 
 public typealias PFNCMHOOKPROC = PFNCMHOOKPROCFn?
 
 public fun interface PFNTRUSTHELPERFn {
-    public operator fun invoke(pcertcontext: Long, lcustdata: Foundation.LPARAM, fleafcertificate: BOOL, pbtrustblob: Long): HRESULT
+    public operator fun invoke(pcertcontext: Long, lcustdata: LPARAM, fleafcertificate: BOOL, pbtrustblob: Long): HRESULT
 }
 
 public typealias PFNTRUSTHELPER = PFNTRUSTHELPERFn?

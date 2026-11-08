@@ -5,6 +5,8 @@ import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
 import io.github.kotlinmania.windowssys.windows.win32.security.NCRYPT_DESCRIPTOR_HANDLE
 
 public typealias ALG_ID = UInt
@@ -46,97 +48,97 @@ public typealias BCRYPT_SECRET_HANDLE = Long
 public typealias BCRYPT_TABLE = UInt
 
 public fun interface BCryptCloseAlgorithmProviderFnFn {
-    public operator fun invoke(halgorithm: BCRYPT_ALG_HANDLE, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(halgorithm: BCRYPT_ALG_HANDLE, dwflags: UInt): NTSTATUS
 }
 
 public typealias BCryptCloseAlgorithmProviderFn = BCryptCloseAlgorithmProviderFnFn?
 
 public fun interface BCryptCreateHashFnFn {
-    public operator fun invoke(halgorithm: BCRYPT_ALG_HANDLE, phhash: Long, pbhashobject: Long, cbhashobject: UInt, pbsecret: Long, cbsecret: UInt, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(halgorithm: BCRYPT_ALG_HANDLE, phhash: Long, pbhashobject: Long, cbhashobject: UInt, pbsecret: Long, cbsecret: UInt, dwflags: UInt): NTSTATUS
 }
 
 public typealias BCryptCreateHashFn = BCryptCreateHashFnFn?
 
 public fun interface BCryptCreateMultiHashFnFn {
-    public operator fun invoke(halgorithm: BCRYPT_ALG_HANDLE, phhash: Long, nhashes: UInt, pbhashobject: Long, cbhashobject: UInt, pbsecret: Long, cbsecret: UInt, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(halgorithm: BCRYPT_ALG_HANDLE, phhash: Long, nhashes: UInt, pbhashobject: Long, cbhashobject: UInt, pbsecret: Long, cbsecret: UInt, dwflags: UInt): NTSTATUS
 }
 
 public typealias BCryptCreateMultiHashFn = BCryptCreateMultiHashFnFn?
 
 public fun interface BCryptDecryptFnFn {
-    public operator fun invoke(hkey: BCRYPT_KEY_HANDLE, pbinput: Long, cbinput: UInt, ppaddinginfo: Long, pbiv: Long, cbiv: UInt, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(hkey: BCRYPT_KEY_HANDLE, pbinput: Long, cbinput: UInt, ppaddinginfo: Long, pbiv: Long, cbiv: UInt, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): NTSTATUS
 }
 
 public typealias BCryptDecryptFn = BCryptDecryptFnFn?
 
 public fun interface BCryptDeriveKeyCapiFnFn {
-    public operator fun invoke(hhash: BCRYPT_HASH_HANDLE, htargetalg: BCRYPT_ALG_HANDLE, pbderivedkey: Long, cbderivedkey: UInt, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(hhash: BCRYPT_HASH_HANDLE, htargetalg: BCRYPT_ALG_HANDLE, pbderivedkey: Long, cbderivedkey: UInt, dwflags: UInt): NTSTATUS
 }
 
 public typealias BCryptDeriveKeyCapiFn = BCryptDeriveKeyCapiFnFn?
 
 public fun interface BCryptDeriveKeyFnFn {
-    public operator fun invoke(hsharedsecret: BCRYPT_SECRET_HANDLE, pwszkdf: PCWSTR, pparameterlist: Long, pbderivedkey: Long, cbderivedkey: UInt, pcbresult: Long, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(hsharedsecret: BCRYPT_SECRET_HANDLE, pwszkdf: PCWSTR, pparameterlist: Long, pbderivedkey: Long, cbderivedkey: UInt, pcbresult: Long, dwflags: UInt): NTSTATUS
 }
 
 public typealias BCryptDeriveKeyFn = BCryptDeriveKeyFnFn?
 
 public fun interface BCryptDeriveKeyPBKDF2FnFn {
-    public operator fun invoke(hprf: BCRYPT_ALG_HANDLE, pbpassword: Long, cbpassword: UInt, pbsalt: Long, cbsalt: UInt, citerations: ULong, pbderivedkey: Long, cbderivedkey: UInt, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(hprf: BCRYPT_ALG_HANDLE, pbpassword: Long, cbpassword: UInt, pbsalt: Long, cbsalt: UInt, citerations: ULong, pbderivedkey: Long, cbderivedkey: UInt, dwflags: UInt): NTSTATUS
 }
 
 public typealias BCryptDeriveKeyPBKDF2Fn = BCryptDeriveKeyPBKDF2FnFn?
 
 public fun interface BCryptDestroyHashFnFn {
-    public operator fun invoke(hhash: BCRYPT_HASH_HANDLE): Foundation.NTSTATUS
+    public operator fun invoke(hhash: BCRYPT_HASH_HANDLE): NTSTATUS
 }
 
 public typealias BCryptDestroyHashFn = BCryptDestroyHashFnFn?
 
 public fun interface BCryptDestroyKeyFnFn {
-    public operator fun invoke(hkey: BCRYPT_KEY_HANDLE): Foundation.NTSTATUS
+    public operator fun invoke(hkey: BCRYPT_KEY_HANDLE): NTSTATUS
 }
 
 public typealias BCryptDestroyKeyFn = BCryptDestroyKeyFnFn?
 
 public fun interface BCryptDestroySecretFnFn {
-    public operator fun invoke(hsecret: BCRYPT_SECRET_HANDLE): Foundation.NTSTATUS
+    public operator fun invoke(hsecret: BCRYPT_SECRET_HANDLE): NTSTATUS
 }
 
 public typealias BCryptDestroySecretFn = BCryptDestroySecretFnFn?
 
 public fun interface BCryptDuplicateHashFnFn {
-    public operator fun invoke(hhash: BCRYPT_HASH_HANDLE, phnewhash: Long, pbhashobject: Long, cbhashobject: UInt, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(hhash: BCRYPT_HASH_HANDLE, phnewhash: Long, pbhashobject: Long, cbhashobject: UInt, dwflags: UInt): NTSTATUS
 }
 
 public typealias BCryptDuplicateHashFn = BCryptDuplicateHashFnFn?
 
 public fun interface BCryptDuplicateKeyFnFn {
-    public operator fun invoke(hkey: BCRYPT_KEY_HANDLE, phnewkey: Long, pbkeyobject: Long, cbkeyobject: UInt, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(hkey: BCRYPT_KEY_HANDLE, phnewkey: Long, pbkeyobject: Long, cbkeyobject: UInt, dwflags: UInt): NTSTATUS
 }
 
 public typealias BCryptDuplicateKeyFn = BCryptDuplicateKeyFnFn?
 
 public fun interface BCryptEncryptFnFn {
-    public operator fun invoke(hkey: BCRYPT_KEY_HANDLE, pbinput: Long, cbinput: UInt, ppaddinginfo: Long, pbiv: Long, cbiv: UInt, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(hkey: BCRYPT_KEY_HANDLE, pbinput: Long, cbinput: UInt, ppaddinginfo: Long, pbiv: Long, cbiv: UInt, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): NTSTATUS
 }
 
 public typealias BCryptEncryptFn = BCryptEncryptFnFn?
 
 public fun interface BCryptExportKeyFnFn {
-    public operator fun invoke(hkey: BCRYPT_KEY_HANDLE, hexportkey: BCRYPT_KEY_HANDLE, pszblobtype: PCWSTR, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(hkey: BCRYPT_KEY_HANDLE, hexportkey: BCRYPT_KEY_HANDLE, pszblobtype: PCWSTR, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): NTSTATUS
 }
 
 public typealias BCryptExportKeyFn = BCryptExportKeyFnFn?
 
 public fun interface BCryptFinalizeKeyPairFnFn {
-    public operator fun invoke(hkey: BCRYPT_KEY_HANDLE, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(hkey: BCRYPT_KEY_HANDLE, dwflags: UInt): NTSTATUS
 }
 
 public typealias BCryptFinalizeKeyPairFn = BCryptFinalizeKeyPairFnFn?
 
 public fun interface BCryptFinishHashFnFn {
-    public operator fun invoke(hhash: BCRYPT_HASH_HANDLE, pboutput: Long, cboutput: UInt, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(hhash: BCRYPT_HASH_HANDLE, pboutput: Long, cboutput: UInt, dwflags: UInt): NTSTATUS
 }
 
 public typealias BCryptFinishHashFn = BCryptFinishHashFnFn?
@@ -148,85 +150,85 @@ public fun interface BCryptFreeBufferFnFn {
 public typealias BCryptFreeBufferFn = BCryptFreeBufferFnFn?
 
 public fun interface BCryptGenRandomFnFn {
-    public operator fun invoke(halgorithm: BCRYPT_ALG_HANDLE, pbbuffer: Long, cbbuffer: UInt, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(halgorithm: BCRYPT_ALG_HANDLE, pbbuffer: Long, cbbuffer: UInt, dwflags: UInt): NTSTATUS
 }
 
 public typealias BCryptGenRandomFn = BCryptGenRandomFnFn?
 
 public fun interface BCryptGenerateKeyPairFnFn {
-    public operator fun invoke(halgorithm: BCRYPT_ALG_HANDLE, phkey: Long, dwlength: UInt, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(halgorithm: BCRYPT_ALG_HANDLE, phkey: Long, dwlength: UInt, dwflags: UInt): NTSTATUS
 }
 
 public typealias BCryptGenerateKeyPairFn = BCryptGenerateKeyPairFnFn?
 
 public fun interface BCryptGenerateSymmetricKeyFnFn {
-    public operator fun invoke(halgorithm: BCRYPT_ALG_HANDLE, phkey: Long, pbkeyobject: Long, cbkeyobject: UInt, pbsecret: Long, cbsecret: UInt, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(halgorithm: BCRYPT_ALG_HANDLE, phkey: Long, pbkeyobject: Long, cbkeyobject: UInt, pbsecret: Long, cbsecret: UInt, dwflags: UInt): NTSTATUS
 }
 
 public typealias BCryptGenerateSymmetricKeyFn = BCryptGenerateSymmetricKeyFnFn?
 
 public fun interface BCryptGetPropertyFnFn {
-    public operator fun invoke(hobject: BCRYPT_HANDLE, pszproperty: PCWSTR, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(hobject: BCRYPT_HANDLE, pszproperty: PCWSTR, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): NTSTATUS
 }
 
 public typealias BCryptGetPropertyFn = BCryptGetPropertyFnFn?
 
 public fun interface BCryptHashDataFnFn {
-    public operator fun invoke(hhash: BCRYPT_HASH_HANDLE, pbinput: Long, cbinput: UInt, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(hhash: BCRYPT_HASH_HANDLE, pbinput: Long, cbinput: UInt, dwflags: UInt): NTSTATUS
 }
 
 public typealias BCryptHashDataFn = BCryptHashDataFnFn?
 
 public fun interface BCryptImportKeyFnFn {
-    public operator fun invoke(halgorithm: BCRYPT_ALG_HANDLE, himportkey: BCRYPT_KEY_HANDLE, pszblobtype: PCWSTR, phkey: Long, pbkeyobject: Long, cbkeyobject: UInt, pbinput: Long, cbinput: UInt, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(halgorithm: BCRYPT_ALG_HANDLE, himportkey: BCRYPT_KEY_HANDLE, pszblobtype: PCWSTR, phkey: Long, pbkeyobject: Long, cbkeyobject: UInt, pbinput: Long, cbinput: UInt, dwflags: UInt): NTSTATUS
 }
 
 public typealias BCryptImportKeyFn = BCryptImportKeyFnFn?
 
 public fun interface BCryptImportKeyPairFnFn {
-    public operator fun invoke(halgorithm: BCRYPT_ALG_HANDLE, himportkey: BCRYPT_KEY_HANDLE, pszblobtype: PCWSTR, phkey: Long, pbinput: Long, cbinput: UInt, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(halgorithm: BCRYPT_ALG_HANDLE, himportkey: BCRYPT_KEY_HANDLE, pszblobtype: PCWSTR, phkey: Long, pbinput: Long, cbinput: UInt, dwflags: UInt): NTSTATUS
 }
 
 public typealias BCryptImportKeyPairFn = BCryptImportKeyPairFnFn?
 
 public fun interface BCryptKeyDerivationFnFn {
-    public operator fun invoke(hkey: BCRYPT_KEY_HANDLE, pparameterlist: Long, pbderivedkey: Long, cbderivedkey: UInt, pcbresult: Long, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(hkey: BCRYPT_KEY_HANDLE, pparameterlist: Long, pbderivedkey: Long, cbderivedkey: UInt, pcbresult: Long, dwflags: UInt): NTSTATUS
 }
 
 public typealias BCryptKeyDerivationFn = BCryptKeyDerivationFnFn?
 
 public fun interface BCryptOpenAlgorithmProviderFnFn {
-    public operator fun invoke(phalgorithm: Long, pszalgid: PCWSTR, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(phalgorithm: Long, pszalgid: PCWSTR, dwflags: UInt): NTSTATUS
 }
 
 public typealias BCryptOpenAlgorithmProviderFn = BCryptOpenAlgorithmProviderFnFn?
 
 public fun interface BCryptProcessMultiOperationsFnFn {
-    public operator fun invoke(hobject: BCRYPT_HANDLE, operationtype: BCRYPT_MULTI_OPERATION_TYPE, poperations: Long, cboperations: UInt, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(hobject: BCRYPT_HANDLE, operationtype: BCRYPT_MULTI_OPERATION_TYPE, poperations: Long, cboperations: UInt, dwflags: UInt): NTSTATUS
 }
 
 public typealias BCryptProcessMultiOperationsFn = BCryptProcessMultiOperationsFnFn?
 
 public fun interface BCryptSecretAgreementFnFn {
-    public operator fun invoke(hprivkey: BCRYPT_KEY_HANDLE, hpubkey: BCRYPT_KEY_HANDLE, phagreedsecret: Long, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(hprivkey: BCRYPT_KEY_HANDLE, hpubkey: BCRYPT_KEY_HANDLE, phagreedsecret: Long, dwflags: UInt): NTSTATUS
 }
 
 public typealias BCryptSecretAgreementFn = BCryptSecretAgreementFnFn?
 
 public fun interface BCryptSetPropertyFnFn {
-    public operator fun invoke(hobject: BCRYPT_HANDLE, pszproperty: PCWSTR, pbinput: Long, cbinput: UInt, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(hobject: BCRYPT_HANDLE, pszproperty: PCWSTR, pbinput: Long, cbinput: UInt, dwflags: UInt): NTSTATUS
 }
 
 public typealias BCryptSetPropertyFn = BCryptSetPropertyFnFn?
 
 public fun interface BCryptSignHashFnFn {
-    public operator fun invoke(hkey: BCRYPT_KEY_HANDLE, ppaddinginfo: Long, pbinput: Long, cbinput: UInt, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(hkey: BCRYPT_KEY_HANDLE, ppaddinginfo: Long, pbinput: Long, cbinput: UInt, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): NTSTATUS
 }
 
 public typealias BCryptSignHashFn = BCryptSignHashFnFn?
 
 public fun interface BCryptVerifySignatureFnFn {
-    public operator fun invoke(hkey: BCRYPT_KEY_HANDLE, ppaddinginfo: Long, pbhash: Long, cbhash: UInt, pbsignature: Long, cbsignature: UInt, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(hkey: BCRYPT_KEY_HANDLE, ppaddinginfo: Long, pbhash: Long, cbhash: UInt, pbsignature: Long, cbsignature: UInt, dwflags: UInt): NTSTATUS
 }
 
 public typealias BCryptVerifySignatureFn = BCryptVerifySignatureFnFn?
@@ -458,55 +460,55 @@ public typealias ECC_CURVE_ALG_ID_ENUM = Int
 public typealias ECC_CURVE_TYPE_ENUM = Int
 
 public fun interface GetAsymmetricEncryptionInterfaceFnFn {
-    public operator fun invoke(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS
 }
 
 public typealias GetAsymmetricEncryptionInterfaceFn = GetAsymmetricEncryptionInterfaceFnFn?
 
 public fun interface GetCipherInterfaceFnFn {
-    public operator fun invoke(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS
 }
 
 public typealias GetCipherInterfaceFn = GetCipherInterfaceFnFn?
 
 public fun interface GetHashInterfaceFnFn {
-    public operator fun invoke(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS
 }
 
 public typealias GetHashInterfaceFn = GetHashInterfaceFnFn?
 
 public fun interface GetKeyDerivationInterfaceFnFn {
-    public operator fun invoke(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS
 }
 
 public typealias GetKeyDerivationInterfaceFn = GetKeyDerivationInterfaceFnFn?
 
 public fun interface GetKeyStorageInterfaceFnFn {
-    public operator fun invoke(pszprovidername: PCWSTR, ppfunctiontable: Long, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(pszprovidername: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS
 }
 
 public typealias GetKeyStorageInterfaceFn = GetKeyStorageInterfaceFnFn?
 
 public fun interface GetRngInterfaceFnFn {
-    public operator fun invoke(pszprovidername: PCWSTR, ppfunctiontable: Long, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(pszprovidername: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS
 }
 
 public typealias GetRngInterfaceFn = GetRngInterfaceFnFn?
 
 public fun interface GetSChannelInterfaceFnFn {
-    public operator fun invoke(pszprovidername: PCWSTR, ppfunctiontable: Long, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(pszprovidername: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS
 }
 
 public typealias GetSChannelInterfaceFn = GetSChannelInterfaceFnFn?
 
 public fun interface GetSecretAgreementInterfaceFnFn {
-    public operator fun invoke(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS
 }
 
 public typealias GetSecretAgreementInterfaceFn = GetSecretAgreementInterfaceFnFn?
 
 public fun interface GetSignatureInterfaceFnFn {
-    public operator fun invoke(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): Foundation.NTSTATUS
+    public operator fun invoke(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS
 }
 
 public typealias GetSignatureInterfaceFn = GetSignatureInterfaceFnFn?
@@ -768,13 +770,13 @@ public fun interface PFN_AUTHENTICODE_DIGEST_SIGN_EXFn {
 public typealias PFN_AUTHENTICODE_DIGEST_SIGN_EX = PFN_AUTHENTICODE_DIGEST_SIGN_EXFn?
 
 public fun interface PFN_AUTHENTICODE_DIGEST_SIGN_EX_WITHFILEHANDLEFn {
-    public operator fun invoke(pmetadatablob: Long, digestalgid: ALG_ID, pbtobesigneddigest: Long, cbtobesigneddigest: UInt, hfile: Foundation.HANDLE, psigneddigest: Long, ppsignercert: Long, hcertchainstore: HCERTSTORE): HRESULT
+    public operator fun invoke(pmetadatablob: Long, digestalgid: ALG_ID, pbtobesigneddigest: Long, cbtobesigneddigest: UInt, hfile: HANDLE, psigneddigest: Long, ppsignercert: Long, hcertchainstore: HCERTSTORE): HRESULT
 }
 
 public typealias PFN_AUTHENTICODE_DIGEST_SIGN_EX_WITHFILEHANDLE = PFN_AUTHENTICODE_DIGEST_SIGN_EX_WITHFILEHANDLEFn?
 
 public fun interface PFN_AUTHENTICODE_DIGEST_SIGN_WITHFILEHANDLEFn {
-    public operator fun invoke(psigningcert: Long, pmetadatablob: Long, digestalgid: ALG_ID, pbtobesigneddigest: Long, cbtobesigneddigest: UInt, hfile: Foundation.HANDLE, psigneddigest: Long): HRESULT
+    public operator fun invoke(psigningcert: Long, pmetadatablob: Long, digestalgid: ALG_ID, pbtobesigneddigest: Long, cbtobesigneddigest: UInt, hfile: HANDLE, psigneddigest: Long): HRESULT
 }
 
 public typealias PFN_AUTHENTICODE_DIGEST_SIGN_WITHFILEHANDLE = PFN_AUTHENTICODE_DIGEST_SIGN_WITHFILEHANDLEFn?

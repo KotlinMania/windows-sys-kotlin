@@ -7,6 +7,14 @@ import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CRYPT_ALGORITHM_IDENTIFIER
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CRYPT_ATTRIBUTE_TYPE_VALUE
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CRYPT_BIT_BLOB
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CRYPT_INTEGER_BLOB
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.HCERTCHAINENGINE
 
 public data class CAT_MEMBERINFO(public var pwszSubjGuid: PWSTR = 0L, public var dwCertVersion: UInt = 0u)
 
@@ -15,7 +23,7 @@ public data class CAT_MEMBERINFO2(public var SubjectGuid: GUID = GUID(), public 
 public data class CAT_NAMEVALUE(
     public var pwszTag: PWSTR = 0L,
     public var fdwFlags: UInt = 0u,
-    public var Value: Cryptography.CRYPT_INTEGER_BLOB = Cryptography.CRYPT_INTEGER_BLOB(),
+    public var Value: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
 )
 
 public data class CONFIG_CI_PROV_INFO(
@@ -66,7 +74,7 @@ public class CRYPT_PROVIDER_DATA(
     public var cbStruct: UInt = 0u,
     public var pWintrustData: Long = 0L,
     public var fOpenedFile: BOOL = 0,
-    public var hWndParent: Foundation.HWND = Foundation.HWND(),
+    public var hWndParent: HWND = 0L,
     public var pgActionID: Long = 0L,
     public var hProv: ULong = 0uL,
     public var dwError: UInt = 0u,
@@ -87,7 +95,7 @@ public class CRYPT_PROVIDER_DATA(
     public var Anonymous: CRYPT_PROVIDER_DATA_0 = CRYPT_PROVIDER_DATA_0(),
     public var pszUsageOID: PSTR = 0L,
     public var fRecallWithState: BOOL = 0,
-    public var sftSystemTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var sftSystemTime: FILETIME = FILETIME(),
     public var pszCTLSignerUsageOID: PSTR = 0L,
     public var dwProvFlags: UInt = 0u,
     public var dwFinalError: UInt = 0u,
@@ -143,7 +151,7 @@ public data class CRYPT_PROVIDER_REGDEFUSAGE(
 
 public data class CRYPT_PROVIDER_SGNR(
     public var cbStruct: UInt = 0u,
-    public var sftVerifyAsOf: Foundation.FILETIME = Foundation.FILETIME(),
+    public var sftVerifyAsOf: FILETIME = FILETIME(),
     public var csCertChain: UInt = 0u,
     public var pasCertChain: Long = 0L,
     public var dwSignerType: UInt = 0u,
@@ -274,30 +282,30 @@ public data class PROVDATA_SIP(
 public data class SEALING_SIGNATURE_ATTRIBUTE(
     public var version: UInt = 0u,
     public var signerIndex: UInt = 0u,
-    public var signatureAlgorithm: Cryptography.CRYPT_ALGORITHM_IDENTIFIER = Cryptography.CRYPT_ALGORITHM_IDENTIFIER(),
-    public var encryptedDigest: Cryptography.CRYPT_INTEGER_BLOB = Cryptography.CRYPT_INTEGER_BLOB(),
+    public var signatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
+    public var encryptedDigest: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
 )
 
 public data class SEALING_TIMESTAMP_ATTRIBUTE(
     public var version: UInt = 0u,
     public var signerIndex: UInt = 0u,
-    public var sealTimeStampToken: Cryptography.CRYPT_INTEGER_BLOB = Cryptography.CRYPT_INTEGER_BLOB(),
+    public var sealTimeStampToken: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
 )
 
 public data class SPC_FINANCIAL_CRITERIA(public var fFinancialInfoAvailable: BOOL = 0, public var fMeetsCriteria: BOOL = 0)
 
 public data class SPC_IMAGE(
     public var pImageLink: Long = 0L,
-    public var Bitmap: Cryptography.CRYPT_INTEGER_BLOB = Cryptography.CRYPT_INTEGER_BLOB(),
-    public var Metafile: Cryptography.CRYPT_INTEGER_BLOB = Cryptography.CRYPT_INTEGER_BLOB(),
-    public var EnhancedMetafile: Cryptography.CRYPT_INTEGER_BLOB = Cryptography.CRYPT_INTEGER_BLOB(),
-    public var GifFile: Cryptography.CRYPT_INTEGER_BLOB = Cryptography.CRYPT_INTEGER_BLOB(),
+    public var Bitmap: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
+    public var Metafile: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
+    public var EnhancedMetafile: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
+    public var GifFile: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
 )
 
 public data class SPC_INDIRECT_DATA_CONTENT(
-    public var Data: Cryptography.CRYPT_ATTRIBUTE_TYPE_VALUE = Cryptography.CRYPT_ATTRIBUTE_TYPE_VALUE(),
-    public var DigestAlgorithm: Cryptography.CRYPT_ALGORITHM_IDENTIFIER = Cryptography.CRYPT_ALGORITHM_IDENTIFIER(),
-    public var Digest: Cryptography.CRYPT_INTEGER_BLOB = Cryptography.CRYPT_INTEGER_BLOB(),
+    public var Data: CRYPT_ATTRIBUTE_TYPE_VALUE = CRYPT_ATTRIBUTE_TYPE_VALUE(),
+    public var DigestAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
+    public var Digest: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
 )
 
 public data class SPC_LINK(public var dwLinkChoice: UInt = 0u, public var Anonymous: SPC_LINK_0 = SPC_LINK_0())
@@ -308,9 +316,9 @@ public data class SPC_LINK_0(
     public var pwszFile: PWSTR = 0L,
 )
 
-public data class SPC_PE_IMAGE_DATA(public var Flags: Cryptography.CRYPT_BIT_BLOB = Cryptography.CRYPT_BIT_BLOB(), public var pFile: Long = 0L)
+public data class SPC_PE_IMAGE_DATA(public var Flags: CRYPT_BIT_BLOB = CRYPT_BIT_BLOB(), public var pFile: Long = 0L)
 
-public data class SPC_SERIALIZED_OBJECT(public var ClassId: UByteArray = UByteArray(16), public var SerializedData: Cryptography.CRYPT_INTEGER_BLOB = Cryptography.CRYPT_INTEGER_BLOB()) {
+public data class SPC_SERIALIZED_OBJECT(public var ClassId: UByteArray = UByteArray(16), public var SerializedData: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB()) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SPC_SERIALIZED_OBJECT) return false
@@ -367,7 +375,7 @@ public data class WINTRUST_CATALOG_INFO(
     public var pcwszCatalogFilePath: PCWSTR = 0L,
     public var pcwszMemberTag: PCWSTR = 0L,
     public var pcwszMemberFilePath: PCWSTR = 0L,
-    public var hMemberFile: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hMemberFile: HANDLE = 0L,
     public var pbCalculatedFileHash: Long = 0L,
     public var cbCalculatedFileHash: UInt = 0u,
     public var pcCatalogContext: Long = 0L,
@@ -393,7 +401,7 @@ public data class WINTRUST_DATA(
     public var dwUnionChoice: WINTRUST_DATA_UNION_CHOICE = 0u,
     public var Anonymous: WINTRUST_DATA_0 = WINTRUST_DATA_0(),
     public var dwStateAction: WINTRUST_DATA_STATE_ACTION = 0u,
-    public var hWVTStateData: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hWVTStateData: HANDLE = 0L,
     public var pwszURLReference: PWSTR = 0L,
     public var dwProvFlags: WINTRUST_DATA_PROVIDER_FLAGS = 0u,
     public var dwUIContext: WINTRUST_DATA_UICONTEXT = 0u,
@@ -411,7 +419,7 @@ public data class WINTRUST_DATA_0(
 public data class WINTRUST_FILE_INFO(
     public var cbStruct: UInt = 0u,
     public var pcwszFilePath: PCWSTR = 0L,
-    public var hFile: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hFile: HANDLE = 0L,
     public var pgKnownSubject: Long = 0L,
 )
 
@@ -457,27 +465,27 @@ public data class WIN_CERTIFICATE(
     }
 }
 
-public data class WIN_SPUB_TRUSTED_PUBLISHER_DATA(public var hClientToken: Foundation.HANDLE = Foundation.HANDLE(), public var lpCertificate: Long = 0L)
+public data class WIN_SPUB_TRUSTED_PUBLISHER_DATA(public var hClientToken: HANDLE = 0L, public var lpCertificate: Long = 0L)
 
 public data class WIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT(
-    public var hClientToken: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hClientToken: HANDLE = 0L,
     public var SubjectType: Long = 0L,
     public var Subject: Long = 0L,
 )
 
 public data class WIN_TRUST_ACTDATA_SUBJECT_ONLY(public var SubjectType: Long = 0L, public var Subject: Long = 0L)
 
-public data class WIN_TRUST_SUBJECT_FILE(public var hFile: Foundation.HANDLE = Foundation.HANDLE(), public var lpPath: PCWSTR = 0L)
+public data class WIN_TRUST_SUBJECT_FILE(public var hFile: HANDLE = 0L, public var lpPath: PCWSTR = 0L)
 
 public data class WIN_TRUST_SUBJECT_FILE_AND_DISPLAY(
-    public var hFile: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hFile: HANDLE = 0L,
     public var lpPath: PCWSTR = 0L,
     public var lpDisplayName: PCWSTR = 0L,
 )
 
 public data class WTD_GENERIC_CHAIN_POLICY_CREATE_INFO(
     public var Anonymous: WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0 = WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0(),
-    public var hChainEngine: Cryptography.HCERTCHAINENGINE = Cryptography.HCERTCHAINENGINE(),
+    public var hChainEngine: HCERTCHAINENGINE = 0L,
     public var pChainPara: Long = 0L,
     public var dwFlags: UInt = 0u,
     public var pvReserved: Long = 0L,

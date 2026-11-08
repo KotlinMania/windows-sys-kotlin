@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.windowsprogramming
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
@@ -176,7 +177,7 @@ public val BAUD_9600: UInt = 2048u
 
 public val BAUD_USER: UInt = 268435456u
 
-public val CATID_DeleteBrowsingHistory: GUID = GUID.from_u128(0x31caf6e4d6aa4090uL, 0xa050a5ac8972e9efuL)
+public val CATID_DeleteBrowsingHistory: GUID = GUID.from_u128(U128(0x31caf6e4d6aa4090uL, 0xa050a5ac8972e9efuL))
 
 public val CBR_110: UInt = 110u
 
@@ -290,7 +291,7 @@ public val CREATE_FOR_IMPORT: UInt = 1u
 
 public val CRITICAL_SECTION_NO_DEBUG_INFO: UInt = 16777216u
 
-public val CameraUIControl: GUID = GUID.from_u128(0x16d5a2beb1c547b3uL, 0x8eaeccbcf452c7e8uL)
+public val CameraUIControl: GUID = GUID.from_u128(U128(0x16d5a2beb1c547b3uL, 0x8eaeccbcf452c7e8uL))
 
 public val DCICREATEOFFSCREENSURFACE: UInt = 2u
 
@@ -456,7 +457,7 @@ public val DTR_CONTROL_ENABLE: UInt = 1u
 
 public val DTR_CONTROL_HANDSHAKE: UInt = 2u
 
-public val DefaultBrowserSyncSettings: GUID = GUID.from_u128(0x3ac8342331124aa6uL, 0x9b5b1feb23d0c5f9uL)
+public val DefaultBrowserSyncSettings: GUID = GUID.from_u128(U128(0x3ac8342331124aa6uL, 0x9b5b1feb23d0c5f9uL))
 
 public val EFSRPC_SECURE_ONLY: UInt = 8u
 
@@ -474,9 +475,9 @@ public val ER_ICMP: UInt = 896u
 
 public val EVENTLOG_FULL_INFO: UInt = 0u
 
-public val EditionUpgradeBroker: GUID = GUID.from_u128(0xc42708274f3945dfuL, 0x928812ff6b85a921uL)
+public val EditionUpgradeBroker: GUID = GUID.from_u128(U128(0xc42708274f3945dfuL, 0x928812ff6b85a921uL))
 
-public val EditionUpgradeHelper: GUID = GUID.from_u128(0x1776df3b9af4e50uL, 0x9b1c56e93116d704uL)
+public val EditionUpgradeHelper: GUID = GUID.from_u128(U128(0x1776df3b9af4e50uL, 0x9b1c56e93116d704uL))
 
 public val EndpointIoControlType: TDI_TL_IO_CONTROL_TYPE = 0
 
@@ -1184,9 +1185,9 @@ public val WLDP_FLAGS_SKIPSIGNATUREVALIDATION: UInt = 256u
 
 public val WLDP_GETLOCKDOWNPOLICY_FN: PCSTR = s("WldpGetLockdownPolicy")
 
-public val WLDP_HOST_CMD: GUID = GUID.from_u128(0x5baea1d66f1c488euL, 0x8490347fa5c5067fuL)
+public val WLDP_HOST_CMD: GUID = GUID.from_u128(U128(0x5baea1d66f1c488euL, 0x8490347fa5c5067fuL))
 
-public val WLDP_HOST_HTML: GUID = GUID.from_u128(0xb35a71b6fe5648d6uL, 0x95432dff0ecded66uL)
+public val WLDP_HOST_HTML: GUID = GUID.from_u128(U128(0xb35a71b6fe5648d6uL, 0x95432dff0ecded66uL))
 
 public val WLDP_HOST_ID_ALL: WLDP_HOST_ID = 7
 
@@ -1208,25 +1209,25 @@ public val WLDP_HOST_ID_WSH: WLDP_HOST_ID = 3
 
 public val WLDP_HOST_INFORMATION_REVISION: UInt = 1u
 
-public val WLDP_HOST_JAVASCRIPT: GUID = GUID.from_u128(0x5629f0d51cca4feduL, 0xa1a336a8c18d74c0uL)
+public val WLDP_HOST_JAVASCRIPT: GUID = GUID.from_u128(U128(0x5629f0d51cca4feduL, 0xa1a336a8c18d74c0uL))
 
 public val WLDP_HOST_MAX: WLDP_HOST = 2
 
-public val WLDP_HOST_MSI: GUID = GUID.from_u128(0x624eb6116e7e4eecuL, 0x9bfef0ecdbfcf390uL)
+public val WLDP_HOST_MSI: GUID = GUID.from_u128(U128(0x624eb6116e7e4eecuL, 0x9bfef0ecdbfcf390uL))
 
-public val WLDP_HOST_OTHER: GUID = GUID.from_u128(0x626cbec3e1fa4227uL, 0x9800ed210274cf7cuL)
+public val WLDP_HOST_OTHER: GUID = GUID.from_u128(U128(0x626cbec3e1fa4227uL, 0x9800ed210274cf7cuL))
 
-public val WLDP_HOST_POWERSHELL: GUID = GUID.from_u128(0x8e9aaa7c198b4879uL, 0xae41a50d47ad6458uL)
+public val WLDP_HOST_POWERSHELL: GUID = GUID.from_u128(U128(0x8e9aaa7c198b4879uL, 0xae41a50d47ad6458uL))
 
-public val WLDP_HOST_PYTHON: GUID = GUID.from_u128(0xbfd557ef244842ecuL, 0x810b0d9f09352d4auL)
+public val WLDP_HOST_PYTHON: GUID = GUID.from_u128(U128(0xbfd557ef244842ecuL, 0x810b0d9f09352d4auL))
 
 public val WLDP_HOST_RUNDLL32: WLDP_HOST = 0
 
 public val WLDP_HOST_SVCHOST: WLDP_HOST = 1
 
-public val WLDP_HOST_WINDOWS_SCRIPT_HOST: GUID = GUID.from_u128(0xd30b84c529ce4ff3uL, 0x86eca30007a82e49uL)
+public val WLDP_HOST_WINDOWS_SCRIPT_HOST: GUID = GUID.from_u128(U128(0xd30b84c529ce4ff3uL, 0x86eca30007a82e49uL))
 
-public val WLDP_HOST_XML: GUID = GUID.from_u128(0x5594be58c6bf4295uL, 0x82f4d494d20e3a36uL)
+public val WLDP_HOST_XML: GUID = GUID.from_u128(U128(0x5594be58c6bf4295uL, 0x82f4d494d20e3a36uL))
 
 public val WLDP_ISAPPAPPROVEDBYPOLICY_FN: PCSTR = s("WldpIsAppApprovedByPolicy")
 

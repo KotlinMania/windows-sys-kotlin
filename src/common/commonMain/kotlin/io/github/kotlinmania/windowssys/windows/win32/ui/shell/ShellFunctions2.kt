@@ -7,108 +7,102 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LRESULT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.HKEY
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.LPFNSVADDPROPSHEETPAGE
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HICON
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HMENU
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.MESSAGEBOX_STYLE
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.SHOW_WINDOW_CMD
 
-public fun interface FnCallback {
-    public operator fun invoke(hwnd: Foundation.HWND, umsg: UInt, wparam: Foundation.WPARAM, lparam: Foundation.LPARAM, uidsubclass: ULong, dwrefdata: ULong): Foundation.LRESULT
+public fun interface FnCallbackPart2 {
+    public operator fun invoke(hwnd: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM, uidsubclass: ULong, dwrefdata: ULong): LRESULT
 }
 
-public fun SHRegGetIntW(hk: System.Registry.HKEY, pwzkey: PCWSTR, idefault: Int): Int {
-    return Win32DynamicFfi.invoke("shlwapi.dll", "SHRegGetIntW", longArrayOf(Win32DynamicFfi.objectSlot(hk), pwzkey, idefault.toLong())).toInt()
+public fun SHRegGetIntW(hk: HKEY, pwzkey: PCWSTR, idefault: Int): Int {
+    return Win32DynamicFfi.invoke("shlwapi.dll", "SHRegGetIntW", longArrayOf(hk, pwzkey, idefault.toLong())).toInt()
 }
 
-public fun SHRegGetPathA(hkey: System.Registry.HKEY, pcszsubkey: PCSTR, pcszvalue: PCSTR, pszpath: PSTR, dwflags: UInt): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("shlwapi.dll", "SHRegGetPathA", longArrayOf(Win32DynamicFfi.objectSlot(hkey), pcszsubkey, pcszvalue, pszpath, dwflags.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun SHRegGetPathA(hkey: HKEY, pcszsubkey: PCSTR, pcszvalue: PCSTR, pszpath: PSTR, dwflags: UInt): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("shlwapi.dll", "SHRegGetPathA", longArrayOf(hkey, pcszsubkey, pcszvalue, pszpath, dwflags.toLong())).toUInt()
 }
 
-public fun SHRegGetPathW(hkey: System.Registry.HKEY, pcszsubkey: PCWSTR, pcszvalue: PCWSTR, pszpath: PWSTR, dwflags: UInt): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("shlwapi.dll", "SHRegGetPathW", longArrayOf(Win32DynamicFfi.objectSlot(hkey), pcszsubkey, pcszvalue, pszpath, dwflags.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun SHRegGetPathW(hkey: HKEY, pcszsubkey: PCWSTR, pcszvalue: PCWSTR, pszpath: PWSTR, dwflags: UInt): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("shlwapi.dll", "SHRegGetPathW", longArrayOf(hkey, pcszsubkey, pcszvalue, pszpath, dwflags.toLong())).toUInt()
 }
 
-public fun SHRegGetUSValueA(pszsubkey: PCSTR, pszvalue: PCSTR, pdwtype: Long, pvdata: Long, pcbdata: Long, fignorehkcu: BOOL, pvdefaultdata: Long, dwdefaultdatasize: UInt): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("shlwapi.dll", "SHRegGetUSValueA", longArrayOf(pszsubkey, pszvalue, pdwtype, pvdata, pcbdata, fignorehkcu.toLong(), pvdefaultdata, dwdefaultdatasize.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun SHRegGetUSValueA(pszsubkey: PCSTR, pszvalue: PCSTR, pdwtype: Long, pvdata: Long, pcbdata: Long, fignorehkcu: BOOL, pvdefaultdata: Long, dwdefaultdatasize: UInt): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("shlwapi.dll", "SHRegGetUSValueA", longArrayOf(pszsubkey, pszvalue, pdwtype, pvdata, pcbdata, fignorehkcu.toLong(), pvdefaultdata, dwdefaultdatasize.toLong())).toUInt()
 }
 
-public fun SHRegGetUSValueW(pszsubkey: PCWSTR, pszvalue: PCWSTR, pdwtype: Long, pvdata: Long, pcbdata: Long, fignorehkcu: BOOL, pvdefaultdata: Long, dwdefaultdatasize: UInt): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("shlwapi.dll", "SHRegGetUSValueW", longArrayOf(pszsubkey, pszvalue, pdwtype, pvdata, pcbdata, fignorehkcu.toLong(), pvdefaultdata, dwdefaultdatasize.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun SHRegGetUSValueW(pszsubkey: PCWSTR, pszvalue: PCWSTR, pdwtype: Long, pvdata: Long, pcbdata: Long, fignorehkcu: BOOL, pvdefaultdata: Long, dwdefaultdatasize: UInt): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("shlwapi.dll", "SHRegGetUSValueW", longArrayOf(pszsubkey, pszvalue, pdwtype, pvdata, pcbdata, fignorehkcu.toLong(), pvdefaultdata, dwdefaultdatasize.toLong())).toUInt()
 }
 
-public fun SHRegGetValueA(hkey: System.Registry.HKEY, pszsubkey: PCSTR, pszvalue: PCSTR, srrfflags: Int, pdwtype: Long, pvdata: Long, pcbdata: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("shlwapi.dll", "SHRegGetValueA", longArrayOf(Win32DynamicFfi.objectSlot(hkey), pszsubkey, pszvalue, srrfflags.toLong(), pdwtype, pvdata, pcbdata))
-    return Foundation.WIN32_ERROR()
+public fun SHRegGetValueA(hkey: HKEY, pszsubkey: PCSTR, pszvalue: PCSTR, srrfflags: Int, pdwtype: Long, pvdata: Long, pcbdata: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("shlwapi.dll", "SHRegGetValueA", longArrayOf(hkey, pszsubkey, pszvalue, srrfflags.toLong(), pdwtype, pvdata, pcbdata)).toUInt()
 }
 
-public fun SHRegGetValueFromHKCUHKLM(pwszkey: PCWSTR, pwszvalue: PCWSTR, srrfflags: Int, pdwtype: Long, pvdata: Long, pcbdata: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("shlwapi.dll", "SHRegGetValueFromHKCUHKLM", longArrayOf(pwszkey, pwszvalue, srrfflags.toLong(), pdwtype, pvdata, pcbdata))
-    return Foundation.WIN32_ERROR()
+public fun SHRegGetValueFromHKCUHKLM(pwszkey: PCWSTR, pwszvalue: PCWSTR, srrfflags: Int, pdwtype: Long, pvdata: Long, pcbdata: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("shlwapi.dll", "SHRegGetValueFromHKCUHKLM", longArrayOf(pwszkey, pwszvalue, srrfflags.toLong(), pdwtype, pvdata, pcbdata)).toUInt()
 }
 
-public fun SHRegGetValueW(hkey: System.Registry.HKEY, pszsubkey: PCWSTR, pszvalue: PCWSTR, srrfflags: Int, pdwtype: Long, pvdata: Long, pcbdata: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("shlwapi.dll", "SHRegGetValueW", longArrayOf(Win32DynamicFfi.objectSlot(hkey), pszsubkey, pszvalue, srrfflags.toLong(), pdwtype, pvdata, pcbdata))
-    return Foundation.WIN32_ERROR()
+public fun SHRegGetValueW(hkey: HKEY, pszsubkey: PCWSTR, pszvalue: PCWSTR, srrfflags: Int, pdwtype: Long, pvdata: Long, pcbdata: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("shlwapi.dll", "SHRegGetValueW", longArrayOf(hkey, pszsubkey, pszvalue, srrfflags.toLong(), pdwtype, pvdata, pcbdata)).toUInt()
 }
 
-public fun SHRegOpenUSKeyA(pszpath: PCSTR, samdesired: UInt, hrelativeuskey: Long, phnewuskey: Long, fignorehkcu: BOOL): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("shlwapi.dll", "SHRegOpenUSKeyA", longArrayOf(pszpath, samdesired.toLong(), hrelativeuskey, phnewuskey, fignorehkcu.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun SHRegOpenUSKeyA(pszpath: PCSTR, samdesired: UInt, hrelativeuskey: Long, phnewuskey: Long, fignorehkcu: BOOL): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("shlwapi.dll", "SHRegOpenUSKeyA", longArrayOf(pszpath, samdesired.toLong(), hrelativeuskey, phnewuskey, fignorehkcu.toLong())).toUInt()
 }
 
-public fun SHRegOpenUSKeyW(pwzpath: PCWSTR, samdesired: UInt, hrelativeuskey: Long, phnewuskey: Long, fignorehkcu: BOOL): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("shlwapi.dll", "SHRegOpenUSKeyW", longArrayOf(pwzpath, samdesired.toLong(), hrelativeuskey, phnewuskey, fignorehkcu.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun SHRegOpenUSKeyW(pwzpath: PCWSTR, samdesired: UInt, hrelativeuskey: Long, phnewuskey: Long, fignorehkcu: BOOL): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("shlwapi.dll", "SHRegOpenUSKeyW", longArrayOf(pwzpath, samdesired.toLong(), hrelativeuskey, phnewuskey, fignorehkcu.toLong())).toUInt()
 }
 
-public fun SHRegQueryInfoUSKeyA(huskey: Long, pcsubkeys: Long, pcchmaxsubkeylen: Long, pcvalues: Long, pcchmaxvaluenamelen: Long, enumregflags: SHREGENUM_FLAGS): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("shlwapi.dll", "SHRegQueryInfoUSKeyA", longArrayOf(huskey, pcsubkeys, pcchmaxsubkeylen, pcvalues, pcchmaxvaluenamelen, enumregflags.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun SHRegQueryInfoUSKeyA(huskey: Long, pcsubkeys: Long, pcchmaxsubkeylen: Long, pcvalues: Long, pcchmaxvaluenamelen: Long, enumregflags: SHREGENUM_FLAGS): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("shlwapi.dll", "SHRegQueryInfoUSKeyA", longArrayOf(huskey, pcsubkeys, pcchmaxsubkeylen, pcvalues, pcchmaxvaluenamelen, enumregflags.toLong())).toUInt()
 }
 
-public fun SHRegQueryInfoUSKeyW(huskey: Long, pcsubkeys: Long, pcchmaxsubkeylen: Long, pcvalues: Long, pcchmaxvaluenamelen: Long, enumregflags: SHREGENUM_FLAGS): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("shlwapi.dll", "SHRegQueryInfoUSKeyW", longArrayOf(huskey, pcsubkeys, pcchmaxsubkeylen, pcvalues, pcchmaxvaluenamelen, enumregflags.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun SHRegQueryInfoUSKeyW(huskey: Long, pcsubkeys: Long, pcchmaxsubkeylen: Long, pcvalues: Long, pcchmaxvaluenamelen: Long, enumregflags: SHREGENUM_FLAGS): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("shlwapi.dll", "SHRegQueryInfoUSKeyW", longArrayOf(huskey, pcsubkeys, pcchmaxsubkeylen, pcvalues, pcchmaxvaluenamelen, enumregflags.toLong())).toUInt()
 }
 
-public fun SHRegQueryUSValueA(huskey: Long, pszvalue: PCSTR, pdwtype: Long, pvdata: Long, pcbdata: Long, fignorehkcu: BOOL, pvdefaultdata: Long, dwdefaultdatasize: UInt): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("shlwapi.dll", "SHRegQueryUSValueA", longArrayOf(huskey, pszvalue, pdwtype, pvdata, pcbdata, fignorehkcu.toLong(), pvdefaultdata, dwdefaultdatasize.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun SHRegQueryUSValueA(huskey: Long, pszvalue: PCSTR, pdwtype: Long, pvdata: Long, pcbdata: Long, fignorehkcu: BOOL, pvdefaultdata: Long, dwdefaultdatasize: UInt): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("shlwapi.dll", "SHRegQueryUSValueA", longArrayOf(huskey, pszvalue, pdwtype, pvdata, pcbdata, fignorehkcu.toLong(), pvdefaultdata, dwdefaultdatasize.toLong())).toUInt()
 }
 
-public fun SHRegQueryUSValueW(huskey: Long, pszvalue: PCWSTR, pdwtype: Long, pvdata: Long, pcbdata: Long, fignorehkcu: BOOL, pvdefaultdata: Long, dwdefaultdatasize: UInt): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("shlwapi.dll", "SHRegQueryUSValueW", longArrayOf(huskey, pszvalue, pdwtype, pvdata, pcbdata, fignorehkcu.toLong(), pvdefaultdata, dwdefaultdatasize.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun SHRegQueryUSValueW(huskey: Long, pszvalue: PCWSTR, pdwtype: Long, pvdata: Long, pcbdata: Long, fignorehkcu: BOOL, pvdefaultdata: Long, dwdefaultdatasize: UInt): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("shlwapi.dll", "SHRegQueryUSValueW", longArrayOf(huskey, pszvalue, pdwtype, pvdata, pcbdata, fignorehkcu.toLong(), pvdefaultdata, dwdefaultdatasize.toLong())).toUInt()
 }
 
-public fun SHRegSetPathA(hkey: System.Registry.HKEY, pcszsubkey: PCSTR, pcszvalue: PCSTR, pcszpath: PCSTR, dwflags: UInt): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("shlwapi.dll", "SHRegSetPathA", longArrayOf(Win32DynamicFfi.objectSlot(hkey), pcszsubkey, pcszvalue, pcszpath, dwflags.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun SHRegSetPathA(hkey: HKEY, pcszsubkey: PCSTR, pcszvalue: PCSTR, pcszpath: PCSTR, dwflags: UInt): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("shlwapi.dll", "SHRegSetPathA", longArrayOf(hkey, pcszsubkey, pcszvalue, pcszpath, dwflags.toLong())).toUInt()
 }
 
-public fun SHRegSetPathW(hkey: System.Registry.HKEY, pcszsubkey: PCWSTR, pcszvalue: PCWSTR, pcszpath: PCWSTR, dwflags: UInt): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("shlwapi.dll", "SHRegSetPathW", longArrayOf(Win32DynamicFfi.objectSlot(hkey), pcszsubkey, pcszvalue, pcszpath, dwflags.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun SHRegSetPathW(hkey: HKEY, pcszsubkey: PCWSTR, pcszvalue: PCWSTR, pcszpath: PCWSTR, dwflags: UInt): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("shlwapi.dll", "SHRegSetPathW", longArrayOf(hkey, pcszsubkey, pcszvalue, pcszpath, dwflags.toLong())).toUInt()
 }
 
-public fun SHRegSetUSValueA(pszsubkey: PCSTR, pszvalue: PCSTR, dwtype: UInt, pvdata: Long, cbdata: UInt, dwflags: UInt): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("shlwapi.dll", "SHRegSetUSValueA", longArrayOf(pszsubkey, pszvalue, dwtype.toLong(), pvdata, cbdata.toLong(), dwflags.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun SHRegSetUSValueA(pszsubkey: PCSTR, pszvalue: PCSTR, dwtype: UInt, pvdata: Long, cbdata: UInt, dwflags: UInt): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("shlwapi.dll", "SHRegSetUSValueA", longArrayOf(pszsubkey, pszvalue, dwtype.toLong(), pvdata, cbdata.toLong(), dwflags.toLong())).toUInt()
 }
 
-public fun SHRegSetUSValueW(pwzsubkey: PCWSTR, pwzvalue: PCWSTR, dwtype: UInt, pvdata: Long, cbdata: UInt, dwflags: UInt): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("shlwapi.dll", "SHRegSetUSValueW", longArrayOf(pwzsubkey, pwzvalue, dwtype.toLong(), pvdata, cbdata.toLong(), dwflags.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun SHRegSetUSValueW(pwzsubkey: PCWSTR, pwzvalue: PCWSTR, dwtype: UInt, pvdata: Long, cbdata: UInt, dwflags: UInt): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("shlwapi.dll", "SHRegSetUSValueW", longArrayOf(pwzsubkey, pwzvalue, dwtype.toLong(), pvdata, cbdata.toLong(), dwflags.toLong())).toUInt()
 }
 
-public fun SHRegWriteUSValueA(huskey: Long, pszvalue: PCSTR, dwtype: UInt, pvdata: Long, cbdata: UInt, dwflags: UInt): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("shlwapi.dll", "SHRegWriteUSValueA", longArrayOf(huskey, pszvalue, dwtype.toLong(), pvdata, cbdata.toLong(), dwflags.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun SHRegWriteUSValueA(huskey: Long, pszvalue: PCSTR, dwtype: UInt, pvdata: Long, cbdata: UInt, dwflags: UInt): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("shlwapi.dll", "SHRegWriteUSValueA", longArrayOf(huskey, pszvalue, dwtype.toLong(), pvdata, cbdata.toLong(), dwflags.toLong())).toUInt()
 }
 
-public fun SHRegWriteUSValueW(huskey: Long, pwzvalue: PCWSTR, dwtype: UInt, pvdata: Long, cbdata: UInt, dwflags: UInt): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("shlwapi.dll", "SHRegWriteUSValueW", longArrayOf(huskey, pwzvalue, dwtype.toLong(), pvdata, cbdata.toLong(), dwflags.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun SHRegWriteUSValueW(huskey: Long, pwzvalue: PCWSTR, dwtype: UInt, pvdata: Long, cbdata: UInt, dwflags: UInt): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("shlwapi.dll", "SHRegWriteUSValueW", longArrayOf(huskey, pwzvalue, dwtype.toLong(), pvdata, cbdata.toLong(), dwflags.toLong())).toUInt()
 }
 
 public fun SHReleaseThreadRef(): HRESULT {
@@ -119,8 +113,8 @@ public fun SHRemoveLocalizedName(pszpath: PCWSTR): HRESULT {
     return Win32DynamicFfi.invoke("shell32.dll", "SHRemoveLocalizedName", longArrayOf(pszpath)).toInt()
 }
 
-public fun SHReplaceFromPropSheetExtArray(hpsxa: HPSXA, upageid: UInt, lpfnreplacewith: Controls.LPFNSVADDPROPSHEETPAGE, lparam: Foundation.LPARAM): UInt {
-    return Win32DynamicFfi.invoke("shell32.dll", "SHReplaceFromPropSheetExtArray", longArrayOf(hpsxa, upageid.toLong(), Win32DynamicFfi.objectSlot(lpfnreplacewith), Win32DynamicFfi.objectSlot(lparam))).toUInt()
+public fun SHReplaceFromPropSheetExtArray(hpsxa: HPSXA, upageid: UInt, lpfnreplacewith: LPFNSVADDPROPSHEETPAGE, lparam: LPARAM): UInt {
+    return Win32DynamicFfi.invoke("shell32.dll", "SHReplaceFromPropSheetExtArray", longArrayOf(hpsxa, upageid.toLong(), Win32DynamicFfi.objectSlot(lpfnreplacewith), lparam)).toUInt()
 }
 
 public fun SHResolveLibrary(psilibrary: Long): HRESULT {
@@ -131,34 +125,32 @@ public fun SHRestricted(rest: RESTRICTIONS): UInt {
     return Win32DynamicFfi.invoke("shell32.dll", "SHRestricted", longArrayOf(rest.toLong())).toUInt()
 }
 
-public fun SHSendMessageBroadcastA(umsg: UInt, wparam: Foundation.WPARAM, lparam: Foundation.LPARAM): Foundation.LRESULT {
-    Win32DynamicFfi.invoke("shlwapi.dll", "SHSendMessageBroadcastA", longArrayOf(umsg.toLong(), Win32DynamicFfi.objectSlot(wparam), Win32DynamicFfi.objectSlot(lparam)))
-    return Foundation.LRESULT()
+public fun SHSendMessageBroadcastA(umsg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT {
+    return Win32DynamicFfi.invoke("shlwapi.dll", "SHSendMessageBroadcastA", longArrayOf(umsg.toLong(), wparam.toLong(), lparam))
 }
 
-public fun SHSendMessageBroadcastW(umsg: UInt, wparam: Foundation.WPARAM, lparam: Foundation.LPARAM): Foundation.LRESULT {
-    Win32DynamicFfi.invoke("shlwapi.dll", "SHSendMessageBroadcastW", longArrayOf(umsg.toLong(), Win32DynamicFfi.objectSlot(wparam), Win32DynamicFfi.objectSlot(lparam)))
-    return Foundation.LRESULT()
+public fun SHSendMessageBroadcastW(umsg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT {
+    return Win32DynamicFfi.invoke("shlwapi.dll", "SHSendMessageBroadcastW", longArrayOf(umsg.toLong(), wparam.toLong(), lparam))
 }
 
-public fun SHSetDefaultProperties(hwnd: Foundation.HWND, psi: Long, dwfileopflags: UInt, pfops: Long): HRESULT {
-    return Win32DynamicFfi.invoke("shell32.dll", "SHSetDefaultProperties", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), psi, dwfileopflags.toLong(), pfops)).toInt()
+public fun SHSetDefaultProperties(hwnd: HWND, psi: Long, dwfileopflags: UInt, pfops: Long): HRESULT {
+    return Win32DynamicFfi.invoke("shell32.dll", "SHSetDefaultProperties", longArrayOf(hwnd, psi, dwfileopflags.toLong(), pfops)).toInt()
 }
 
-public fun SHSetFolderPathA(csidl: Int, htoken: Foundation.HANDLE, dwflags: UInt, pszpath: PCSTR): HRESULT {
-    return Win32DynamicFfi.invoke("shell32.dll", "SHSetFolderPathA", longArrayOf(csidl.toLong(), Win32DynamicFfi.objectSlot(htoken), dwflags.toLong(), pszpath)).toInt()
+public fun SHSetFolderPathA(csidl: Int, htoken: HANDLE, dwflags: UInt, pszpath: PCSTR): HRESULT {
+    return Win32DynamicFfi.invoke("shell32.dll", "SHSetFolderPathA", longArrayOf(csidl.toLong(), htoken, dwflags.toLong(), pszpath)).toInt()
 }
 
-public fun SHSetFolderPathW(csidl: Int, htoken: Foundation.HANDLE, dwflags: UInt, pszpath: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("shell32.dll", "SHSetFolderPathW", longArrayOf(csidl.toLong(), Win32DynamicFfi.objectSlot(htoken), dwflags.toLong(), pszpath)).toInt()
+public fun SHSetFolderPathW(csidl: Int, htoken: HANDLE, dwflags: UInt, pszpath: PCWSTR): HRESULT {
+    return Win32DynamicFfi.invoke("shell32.dll", "SHSetFolderPathW", longArrayOf(csidl.toLong(), htoken, dwflags.toLong(), pszpath)).toInt()
 }
 
 public fun SHSetInstanceExplorer(punk: Long) {
     Win32DynamicFfi.invoke("shell32.dll", "SHSetInstanceExplorer", longArrayOf(punk))
 }
 
-public fun SHSetKnownFolderPath(rfid: Long, dwflags: UInt, htoken: Foundation.HANDLE, pszpath: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("shell32.dll", "SHSetKnownFolderPath", longArrayOf(rfid, dwflags.toLong(), Win32DynamicFfi.objectSlot(htoken), pszpath)).toInt()
+public fun SHSetKnownFolderPath(rfid: Long, dwflags: UInt, htoken: HANDLE, pszpath: PCWSTR): HRESULT {
+    return Win32DynamicFfi.invoke("shell32.dll", "SHSetKnownFolderPath", longArrayOf(rfid, dwflags.toLong(), htoken, pszpath)).toInt()
 }
 
 public fun SHSetLocalizedName(pszpath: PCWSTR, pszresmodule: PCWSTR, idsres: Int): HRESULT {
@@ -177,21 +169,20 @@ public fun SHSetUnreadMailCountW(pszmailaddress: PCWSTR, dwcount: UInt, pszshell
     return Win32DynamicFfi.invoke("shell32.dll", "SHSetUnreadMailCountW", longArrayOf(pszmailaddress, dwcount.toLong(), pszshellexecutecommand)).toInt()
 }
 
-public fun SHSetValueA(hkey: System.Registry.HKEY, pszsubkey: PCSTR, pszvalue: PCSTR, dwtype: UInt, pvdata: Long, cbdata: UInt): Int {
-    return Win32DynamicFfi.invoke("shlwapi.dll", "SHSetValueA", longArrayOf(Win32DynamicFfi.objectSlot(hkey), pszsubkey, pszvalue, dwtype.toLong(), pvdata, cbdata.toLong())).toInt()
+public fun SHSetValueA(hkey: HKEY, pszsubkey: PCSTR, pszvalue: PCSTR, dwtype: UInt, pvdata: Long, cbdata: UInt): Int {
+    return Win32DynamicFfi.invoke("shlwapi.dll", "SHSetValueA", longArrayOf(hkey, pszsubkey, pszvalue, dwtype.toLong(), pvdata, cbdata.toLong())).toInt()
 }
 
-public fun SHSetValueW(hkey: System.Registry.HKEY, pszsubkey: PCWSTR, pszvalue: PCWSTR, dwtype: UInt, pvdata: Long, cbdata: UInt): Int {
-    return Win32DynamicFfi.invoke("shlwapi.dll", "SHSetValueW", longArrayOf(Win32DynamicFfi.objectSlot(hkey), pszsubkey, pszvalue, dwtype.toLong(), pvdata, cbdata.toLong())).toInt()
+public fun SHSetValueW(hkey: HKEY, pszsubkey: PCWSTR, pszvalue: PCWSTR, dwtype: UInt, pvdata: Long, cbdata: UInt): Int {
+    return Win32DynamicFfi.invoke("shlwapi.dll", "SHSetValueW", longArrayOf(hkey, pszsubkey, pszvalue, dwtype.toLong(), pvdata, cbdata.toLong())).toInt()
 }
 
-public fun SHShellFolderView_Message(hwndmain: Foundation.HWND, umsg: UInt, lparam: Foundation.LPARAM): Foundation.LRESULT {
-    Win32DynamicFfi.invoke("shell32.dll", "SHShellFolderView_Message", longArrayOf(Win32DynamicFfi.objectSlot(hwndmain), umsg.toLong(), Win32DynamicFfi.objectSlot(lparam)))
-    return Foundation.LRESULT()
+public fun SHShellFolderView_Message(hwndmain: HWND, umsg: UInt, lparam: LPARAM): LRESULT {
+    return Win32DynamicFfi.invoke("shell32.dll", "SHShellFolderView_Message", longArrayOf(hwndmain, umsg.toLong(), lparam))
 }
 
-public fun SHShowManageLibraryUI(psilibrary: Long, hwndowner: Foundation.HWND, psztitle: PCWSTR, pszinstruction: PCWSTR, lmdoptions: LIBRARYMANAGEDIALOGOPTIONS): HRESULT {
-    return Win32DynamicFfi.invoke("shell32.dll", "SHShowManageLibraryUI", longArrayOf(psilibrary, Win32DynamicFfi.objectSlot(hwndowner), psztitle, pszinstruction, lmdoptions.toLong())).toInt()
+public fun SHShowManageLibraryUI(psilibrary: Long, hwndowner: HWND, psztitle: PCWSTR, pszinstruction: PCWSTR, lmdoptions: LIBRARYMANAGEDIALOGOPTIONS): HRESULT {
+    return Win32DynamicFfi.invoke("shell32.dll", "SHShowManageLibraryUI", longArrayOf(psilibrary, hwndowner, psztitle, pszinstruction, lmdoptions.toLong())).toInt()
 }
 
 public fun SHSimpleIDListFromPath(pszpath: PCWSTR): Long {
@@ -202,8 +193,8 @@ public fun SHSkipJunction(pbc: Long, pclsid: Long): BOOL {
     return Win32DynamicFfi.invoke("shlwapi.dll", "SHSkipJunction", longArrayOf(pbc, pclsid)).toInt()
 }
 
-public fun SHStartNetConnectionDialogW(hwnd: Foundation.HWND, pszremotename: PCWSTR, dwtype: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("shell32.dll", "SHStartNetConnectionDialogW", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), pszremotename, dwtype.toLong())).toInt()
+public fun SHStartNetConnectionDialogW(hwnd: HWND, pszremotename: PCWSTR, dwtype: UInt): HRESULT {
+    return Win32DynamicFfi.invoke("shell32.dll", "SHStartNetConnectionDialogW", longArrayOf(hwnd, pszremotename, dwtype.toLong())).toInt()
 }
 
 public fun SHStrDupA(psz: PCSTR, ppwsz: Long): HRESULT {
@@ -222,8 +213,8 @@ public fun SHStripMneumonicW(pszmenu: PWSTR): UShort {
     return Win32DynamicFfi.invoke("shlwapi.dll", "SHStripMneumonicW", longArrayOf(pszmenu)).toUShort()
 }
 
-public fun SHTestTokenMembership(htoken: Foundation.HANDLE, ulrid: UInt): BOOL {
-    return Win32DynamicFfi.invoke("shell32.dll", "SHTestTokenMembership", longArrayOf(Win32DynamicFfi.objectSlot(htoken), ulrid.toLong())).toInt()
+public fun SHTestTokenMembership(htoken: HANDLE, ulrid: UInt): BOOL {
+    return Win32DynamicFfi.invoke("shell32.dll", "SHTestTokenMembership", longArrayOf(htoken, ulrid.toLong())).toInt()
 }
 
 public fun SHUnicodeToAnsi(pwszsrc: PCWSTR, pszdst: PSTR, cchbuf: Int): Int {
@@ -246,37 +237,36 @@ public fun SHUpdateImageW(pszhashitem: PCWSTR, iindex: Int, uflags: UInt, iimage
     Win32DynamicFfi.invoke("shell32.dll", "SHUpdateImageW", longArrayOf(pszhashitem, iindex.toLong(), uflags.toLong(), iimageindex.toLong()))
 }
 
-public fun SHValidateUNC(hwndowner: Foundation.HWND, pszfile: PWSTR, fconnect: UInt): BOOL {
-    return Win32DynamicFfi.invoke("shell32.dll", "SHValidateUNC", longArrayOf(Win32DynamicFfi.objectSlot(hwndowner), pszfile, fconnect.toLong())).toInt()
+public fun SHValidateUNC(hwndowner: HWND, pszfile: PWSTR, fconnect: UInt): BOOL {
+    return Win32DynamicFfi.invoke("shell32.dll", "SHValidateUNC", longArrayOf(hwndowner, pszfile, fconnect.toLong())).toInt()
 }
 
 public fun SetCurrentProcessExplicitAppUserModelID(appid: PCWSTR): HRESULT {
     return Win32DynamicFfi.invoke("shell32.dll", "SetCurrentProcessExplicitAppUserModelID", longArrayOf(appid)).toInt()
 }
 
-public fun SetMenuContextHelpId(param0: WindowsAndMessaging.HMENU, param1: UInt): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetMenuContextHelpId", longArrayOf(Win32DynamicFfi.objectSlot(param0), param1.toLong())).toInt()
+public fun SetMenuContextHelpId(param0: HMENU, param1: UInt): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "SetMenuContextHelpId", longArrayOf(param0, param1.toLong())).toInt()
 }
 
-public fun SetWindowContextHelpId(param0: Foundation.HWND, param1: UInt): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetWindowContextHelpId", longArrayOf(Win32DynamicFfi.objectSlot(param0), param1.toLong())).toInt()
+public fun SetWindowContextHelpId(param0: HWND, param1: UInt): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "SetWindowContextHelpId", longArrayOf(param0, param1.toLong())).toInt()
 }
 
-public fun SetWindowSubclass(hwnd: Foundation.HWND, pfnsubclass: SUBCLASSPROC, uidsubclass: ULong, dwrefdata: ULong): BOOL {
-    return Win32DynamicFfi.invoke("comctl32.dll", "SetWindowSubclass", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), Win32DynamicFfi.objectSlot(pfnsubclass), uidsubclass.toLong(), dwrefdata.toLong())).toInt()
+public fun SetWindowSubclass(hwnd: HWND, pfnsubclass: SUBCLASSPROC, uidsubclass: ULong, dwrefdata: ULong): BOOL {
+    return Win32DynamicFfi.invoke("comctl32.dll", "SetWindowSubclass", longArrayOf(hwnd, Win32DynamicFfi.objectSlot(pfnsubclass), uidsubclass.toLong(), dwrefdata.toLong())).toInt()
 }
 
-public fun ShellAboutA(hwnd: Foundation.HWND, szapp: PCSTR, szotherstuff: PCSTR, hicon: WindowsAndMessaging.HICON): Int {
-    return Win32DynamicFfi.invoke("shell32.dll", "ShellAboutA", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), szapp, szotherstuff, Win32DynamicFfi.objectSlot(hicon))).toInt()
+public fun ShellAboutA(hwnd: HWND, szapp: PCSTR, szotherstuff: PCSTR, hicon: HICON): Int {
+    return Win32DynamicFfi.invoke("shell32.dll", "ShellAboutA", longArrayOf(hwnd, szapp, szotherstuff, hicon)).toInt()
 }
 
-public fun ShellAboutW(hwnd: Foundation.HWND, szapp: PCWSTR, szotherstuff: PCWSTR, hicon: WindowsAndMessaging.HICON): Int {
-    return Win32DynamicFfi.invoke("shell32.dll", "ShellAboutW", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), szapp, szotherstuff, Win32DynamicFfi.objectSlot(hicon))).toInt()
+public fun ShellAboutW(hwnd: HWND, szapp: PCWSTR, szotherstuff: PCWSTR, hicon: HICON): Int {
+    return Win32DynamicFfi.invoke("shell32.dll", "ShellAboutW", longArrayOf(hwnd, szapp, szotherstuff, hicon)).toInt()
 }
 
-public fun ShellExecuteA(hwnd: Foundation.HWND, lpoperation: PCSTR, lpfile: PCSTR, lpparameters: PCSTR, lpdirectory: PCSTR, nshowcmd: WindowsAndMessaging.SHOW_WINDOW_CMD): Foundation.HINSTANCE {
-    Win32DynamicFfi.invoke("shell32.dll", "ShellExecuteA", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), lpoperation, lpfile, lpparameters, lpdirectory, Win32DynamicFfi.objectSlot(nshowcmd)))
-    return Foundation.HINSTANCE()
+public fun ShellExecuteA(hwnd: HWND, lpoperation: PCSTR, lpfile: PCSTR, lpparameters: PCSTR, lpdirectory: PCSTR, nshowcmd: SHOW_WINDOW_CMD): HINSTANCE {
+    return Win32DynamicFfi.invoke("shell32.dll", "ShellExecuteA", longArrayOf(hwnd, lpoperation, lpfile, lpparameters, lpdirectory, nshowcmd.toLong()))
 }
 
 public fun ShellExecuteExA(pexecinfo: Long): BOOL {
@@ -287,17 +277,16 @@ public fun ShellExecuteExW(pexecinfo: Long): BOOL {
     return Win32DynamicFfi.invoke("shell32.dll", "ShellExecuteExW", longArrayOf(pexecinfo)).toInt()
 }
 
-public fun ShellExecuteW(hwnd: Foundation.HWND, lpoperation: PCWSTR, lpfile: PCWSTR, lpparameters: PCWSTR, lpdirectory: PCWSTR, nshowcmd: WindowsAndMessaging.SHOW_WINDOW_CMD): Foundation.HINSTANCE {
-    Win32DynamicFfi.invoke("shell32.dll", "ShellExecuteW", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), lpoperation, lpfile, lpparameters, lpdirectory, Win32DynamicFfi.objectSlot(nshowcmd)))
-    return Foundation.HINSTANCE()
+public fun ShellExecuteW(hwnd: HWND, lpoperation: PCWSTR, lpfile: PCWSTR, lpparameters: PCWSTR, lpdirectory: PCWSTR, nshowcmd: SHOW_WINDOW_CMD): HINSTANCE {
+    return Win32DynamicFfi.invoke("shell32.dll", "ShellExecuteW", longArrayOf(hwnd, lpoperation, lpfile, lpparameters, lpdirectory, nshowcmd.toLong()))
 }
 
-public fun ShellMessageBoxA(happinst: Foundation.HINSTANCE, hwnd: Foundation.HWND, lpctext: PCSTR, lpctitle: PCSTR, fustyle: WindowsAndMessaging.MESSAGEBOX_STYLE, vararg variadicArgs: Long): Int {
-    return Win32DynamicFfi.invoke("shlwapi.dll", "ShellMessageBoxA", longArrayOf(Win32DynamicFfi.objectSlot(happinst), Win32DynamicFfi.objectSlot(hwnd), lpctext, lpctitle, Win32DynamicFfi.objectSlot(fustyle)) + variadicArgs).toInt()
+public fun ShellMessageBoxA(happinst: HINSTANCE, hwnd: HWND, lpctext: PCSTR, lpctitle: PCSTR, fustyle: MESSAGEBOX_STYLE, vararg variadicArgs: Long): Int {
+    return Win32DynamicFfi.invoke("shlwapi.dll", "ShellMessageBoxA", longArrayOf(happinst, hwnd, lpctext, lpctitle, fustyle.toLong()) + variadicArgs).toInt()
 }
 
-public fun ShellMessageBoxW(happinst: Foundation.HINSTANCE, hwnd: Foundation.HWND, lpctext: PCWSTR, lpctitle: PCWSTR, fustyle: WindowsAndMessaging.MESSAGEBOX_STYLE, vararg variadicArgs: Long): Int {
-    return Win32DynamicFfi.invoke("shlwapi.dll", "ShellMessageBoxW", longArrayOf(Win32DynamicFfi.objectSlot(happinst), Win32DynamicFfi.objectSlot(hwnd), lpctext, lpctitle, Win32DynamicFfi.objectSlot(fustyle)) + variadicArgs).toInt()
+public fun ShellMessageBoxW(happinst: HINSTANCE, hwnd: HWND, lpctext: PCWSTR, lpctitle: PCWSTR, fustyle: MESSAGEBOX_STYLE, vararg variadicArgs: Long): Int {
+    return Win32DynamicFfi.invoke("shlwapi.dll", "ShellMessageBoxW", longArrayOf(happinst, hwnd, lpctext, lpctitle, fustyle.toLong()) + variadicArgs).toInt()
 }
 
 public fun Shell_GetCachedImageIndex(pwsziconpath: PCWSTR, iiconindex: Int, uiconflags: UInt): Int {
@@ -316,8 +305,8 @@ public fun Shell_GetImageLists(phiml: Long, phimlsmall: Long): BOOL {
     return Win32DynamicFfi.invoke("shell32.dll", "Shell_GetImageLists", longArrayOf(phiml, phimlsmall)).toInt()
 }
 
-public fun Shell_MergeMenus(hmdst: WindowsAndMessaging.HMENU, hmsrc: WindowsAndMessaging.HMENU, uinsert: UInt, uidadjust: UInt, uidadjustmax: UInt, uflags: MM_FLAGS): UInt {
-    return Win32DynamicFfi.invoke("shell32.dll", "Shell_MergeMenus", longArrayOf(Win32DynamicFfi.objectSlot(hmdst), Win32DynamicFfi.objectSlot(hmsrc), uinsert.toLong(), uidadjust.toLong(), uidadjustmax.toLong(), uflags.toLong())).toUInt()
+public fun Shell_MergeMenus(hmdst: HMENU, hmsrc: HMENU, uinsert: UInt, uidadjust: UInt, uidadjustmax: UInt, uflags: MM_FLAGS): UInt {
+    return Win32DynamicFfi.invoke("shell32.dll", "Shell_MergeMenus", longArrayOf(hmdst, hmsrc, uinsert.toLong(), uidadjust.toLong(), uidadjustmax.toLong(), uflags.toLong())).toUInt()
 }
 
 public fun Shell_NotifyIconA(dwmessage: NOTIFY_ICON_MESSAGE, lpdata: Long): BOOL {
@@ -336,8 +325,8 @@ public fun SignalFileOpen(pidl: Long): BOOL {
     return Win32DynamicFfi.invoke("shell32.dll", "SignalFileOpen", longArrayOf(pidl)).toInt()
 }
 
-public fun SoftwareUpdateMessageBox(hwnd: Foundation.HWND, pszdistunit: PCWSTR, dwflags: UInt, psdi: Long): UInt {
-    return Win32DynamicFfi.invoke("shdocvw.dll", "SoftwareUpdateMessageBox", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), pszdistunit, dwflags.toLong(), psdi)).toUInt()
+public fun SoftwareUpdateMessageBox(hwnd: HWND, pszdistunit: PCWSTR, dwflags: UInt, psdi: Long): UInt {
+    return Win32DynamicFfi.invoke("shdocvw.dll", "SoftwareUpdateMessageBox", longArrayOf(hwnd, pszdistunit, dwflags.toLong(), psdi)).toUInt()
 }
 
 public fun StgMakeUniqueName(pstgparent: Long, pszfilespec: PCWSTR, grfmode: UInt, riid: Long, ppv: Long): HRESULT {
@@ -640,8 +629,8 @@ public fun StrTrimW(psz: PWSTR, psztrimchars: PCWSTR): BOOL {
     return Win32DynamicFfi.invoke("shlwapi.dll", "StrTrimW", longArrayOf(psz, psztrimchars)).toInt()
 }
 
-public fun UnloadUserProfile(htoken: Foundation.HANDLE, hprofile: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("userenv.dll", "UnloadUserProfile", longArrayOf(Win32DynamicFfi.objectSlot(htoken), Win32DynamicFfi.objectSlot(hprofile))).toInt()
+public fun UnloadUserProfile(htoken: HANDLE, hprofile: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("userenv.dll", "UnloadUserProfile", longArrayOf(htoken, hprofile)).toInt()
 }
 
 public fun UnregisterAppConstrainedChangeNotification(registration: PAPPCONSTRAIN_REGISTRATION) {
@@ -776,12 +765,12 @@ public fun Win32DeleteFile(pszpath: PCWSTR): BOOL {
     return Win32DynamicFfi.invoke("shell32.dll", "Win32DeleteFile", longArrayOf(pszpath)).toInt()
 }
 
-public fun WinHelpA(hwndmain: Foundation.HWND, lpszhelp: PCSTR, ucommand: UInt, dwdata: ULong): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "WinHelpA", longArrayOf(Win32DynamicFfi.objectSlot(hwndmain), lpszhelp, ucommand.toLong(), dwdata.toLong())).toInt()
+public fun WinHelpA(hwndmain: HWND, lpszhelp: PCSTR, ucommand: UInt, dwdata: ULong): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "WinHelpA", longArrayOf(hwndmain, lpszhelp, ucommand.toLong(), dwdata.toLong())).toInt()
 }
 
-public fun WinHelpW(hwndmain: Foundation.HWND, lpszhelp: PCWSTR, ucommand: UInt, dwdata: ULong): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "WinHelpW", longArrayOf(Win32DynamicFfi.objectSlot(hwndmain), lpszhelp, ucommand.toLong(), dwdata.toLong())).toInt()
+public fun WinHelpW(hwndmain: HWND, lpszhelp: PCWSTR, ucommand: UInt, dwdata: ULong): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "WinHelpW", longArrayOf(hwndmain, lpszhelp, ucommand.toLong(), dwdata.toLong())).toInt()
 }
 
 public fun WriteCabinetState(pcs: Long): BOOL {

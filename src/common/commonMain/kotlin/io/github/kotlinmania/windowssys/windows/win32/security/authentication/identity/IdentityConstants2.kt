@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
@@ -927,6 +928,6 @@ public val WDIGEST_SP_NAME_A: PCSTR = s("WDigest")
 
 public val WDIGEST_SP_NAME_W: PCWSTR = w("WDigest")
 
-public val WINDOWS_SLID: GUID = GUID.from_u128(0x55c92734d6824d71uL, 0x983ed6ec3f16059fuL)
+public val WINDOWS_SLID: GUID = GUID.from_u128(U128(0x55c92734d6824d71uL, 0x983ed6ec3f16059fuL))
 
 public val _FACILITY_WINDOWS_STORE: UInt = 63u

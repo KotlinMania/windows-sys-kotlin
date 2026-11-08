@@ -3,15 +3,15 @@ package io.github.kotlinmania.windowssys.windows.win32.globalization
 import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.PCSTR
 
-public fun interface FnCallback {
+public fun interface FnCallbackPart3 {
     public operator fun invoke(context: Long, fnnumber: Int)
 }
 
-public fun interface FnCallback1 {
+public fun interface FnCallback1Part3 {
     public operator fun invoke(context: Long, fnnumber: Int, fmt: PCSTR, args: Long)
 }
 
-public fun interface FnCallback2 {
+public fun interface FnCallback2Part3 {
     public operator fun invoke(context: Long, fnnumber: Int, level: Int, fmt: PCSTR, args: Long)
 }
 

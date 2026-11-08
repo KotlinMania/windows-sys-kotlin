@@ -1,6 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.threading
 
 import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.windows.win32.system.systemservices.RTL_UMS_SCHEDULER_REASON
 
 public fun interface APC_CALLBACK_FUNCTIONFn {
     public operator fun invoke(param0: UInt, param1: Long, param2: Long)
@@ -77,7 +78,7 @@ public typealias PROCESS_PROTECTION_LEVEL = UInt
 public typealias PROC_THREAD_ATTRIBUTE_NUM = UInt
 
 public fun interface PRTL_UMS_SCHEDULER_ENTRY_POINTFn {
-    public operator fun invoke(reason: SystemServices.RTL_UMS_SCHEDULER_REASON, activationpayload: ULong, schedulerparam: Long)
+    public operator fun invoke(reason: RTL_UMS_SCHEDULER_REASON, activationpayload: ULong, schedulerparam: Long)
 }
 
 public typealias PRTL_UMS_SCHEDULER_ENTRY_POINT = PRTL_UMS_SCHEDULER_ENTRY_POINTFn?

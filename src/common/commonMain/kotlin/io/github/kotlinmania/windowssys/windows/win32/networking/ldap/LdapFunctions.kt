@@ -5,6 +5,8 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
 
 public fun interface FnCallback {
     public operator fun invoke(format: PCSTR): UInt
@@ -14,9 +16,8 @@ public fun LdapGetLastError(): UInt {
     return Win32DynamicFfi.invoke("wldap32.dll", "LdapGetLastError", longArrayOf()).toUInt()
 }
 
-public fun LdapMapErrorToWin32(ldaperror: UInt): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("wldap32.dll", "LdapMapErrorToWin32", longArrayOf(ldaperror.toLong()))
-    return Foundation.WIN32_ERROR()
+public fun LdapMapErrorToWin32(ldaperror: UInt): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("wldap32.dll", "LdapMapErrorToWin32", longArrayOf(ldaperror.toLong())).toUInt()
 }
 
 public fun LdapUTF8ToUnicode(lpsrcstr: PCSTR, cchsrc: Int, lpdeststr: PWSTR, cchdest: Int): Int {
@@ -175,8 +176,8 @@ public fun ldap_check_filterW(ld: Long, searchfilter: PCWSTR): UInt {
     return Win32DynamicFfi.invoke("wldap32.dll", "ldap_check_filterW", longArrayOf(ld, searchfilter)).toUInt()
 }
 
-public fun ldap_cleanup(hinstance: Foundation.HANDLE): UInt {
-    return Win32DynamicFfi.invoke("wldap32.dll", "ldap_cleanup", longArrayOf(Win32DynamicFfi.objectSlot(hinstance))).toUInt()
+public fun ldap_cleanup(hinstance: HANDLE): UInt {
+    return Win32DynamicFfi.invoke("wldap32.dll", "ldap_cleanup", longArrayOf(hinstance)).toUInt()
 }
 
 public fun ldap_close_extended_op(ld: Long, messagenumber: UInt): UInt {

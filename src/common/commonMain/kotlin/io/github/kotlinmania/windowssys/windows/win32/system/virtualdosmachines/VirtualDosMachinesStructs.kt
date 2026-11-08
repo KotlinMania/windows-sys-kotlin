@@ -2,17 +2,19 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.virtualdosmachines
 
 import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.FLOATING_SAVE_AREA
 
 public data class GLOBALENTRY(
     public var dwSize: UInt = 0u,
     public var dwAddress: UInt = 0u,
     public var dwBlockSize: UInt = 0u,
-    public var hBlock: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hBlock: HANDLE = 0L,
     public var wcLock: UShort = 0u,
     public var wcPageLock: UShort = 0u,
     public var wFlags: UShort = 0u,
     public var wHeapPresent: BOOL = 0,
-    public var hOwner: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hOwner: HANDLE = 0L,
     public var wType: UShort = 0u,
     public var wData: UShort = 0u,
     public var dwNext: UInt = 0u,
@@ -47,7 +49,7 @@ public data class IMAGE_NOTE(
 public data class MODULEENTRY(
     public var dwSize: UInt = 0u,
     public var szModule: ByteArray = ByteArray(10),
-    public var hModule: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hModule: HANDLE = 0L,
     public var wcUsage: UShort = 0u,
     public var szExePath: ByteArray = ByteArray(256),
     public var wNext: UShort = 0u,
@@ -123,7 +125,7 @@ public class VDMCONTEXT(
     public var Dr3: UInt = 0u,
     public var Dr6: UInt = 0u,
     public var Dr7: UInt = 0u,
-    public var FloatSave: Kernel.FLOATING_SAVE_AREA = Kernel.FLOATING_SAVE_AREA(),
+    public var FloatSave: FLOATING_SAVE_AREA = FLOATING_SAVE_AREA(),
     public var SegGs: UInt = 0u,
     public var SegFs: UInt = 0u,
     public var SegEs: UInt = 0u,
@@ -151,7 +153,7 @@ public class VDMCONTEXT_WITHOUT_XSAVE(
     public var Dr3: UInt = 0u,
     public var Dr6: UInt = 0u,
     public var Dr7: UInt = 0u,
-    public var FloatSave: Kernel.FLOATING_SAVE_AREA = Kernel.FLOATING_SAVE_AREA(),
+    public var FloatSave: FLOATING_SAVE_AREA = FLOATING_SAVE_AREA(),
     public var SegGs: UInt = 0u,
     public var SegFs: UInt = 0u,
     public var SegEs: UInt = 0u,

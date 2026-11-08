@@ -4,6 +4,7 @@ import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 
 public fun interface FnCallback {
     public operator fun invoke(dwerrorarea: UInt, dwlocalerror: UInt, pwszline: PCWSTR)
@@ -21,12 +22,12 @@ public fun CryptCATAdminAddCatalog(hcatadmin: Long, pwszcatalogfile: PCWSTR, pws
     return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATAdminAddCatalog", longArrayOf(hcatadmin, pwszcatalogfile, pwszselectbasename, dwflags.toLong()))
 }
 
-public fun CryptCATAdminCalcHashFromFileHandle(hfile: Foundation.HANDLE, pcbhash: Long, pbhash: Long, dwflags: UInt): BOOL {
-    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATAdminCalcHashFromFileHandle", longArrayOf(Win32DynamicFfi.objectSlot(hfile), pcbhash, pbhash, dwflags.toLong())).toInt()
+public fun CryptCATAdminCalcHashFromFileHandle(hfile: HANDLE, pcbhash: Long, pbhash: Long, dwflags: UInt): BOOL {
+    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATAdminCalcHashFromFileHandle", longArrayOf(hfile, pcbhash, pbhash, dwflags.toLong())).toInt()
 }
 
-public fun CryptCATAdminCalcHashFromFileHandle2(hcatadmin: Long, hfile: Foundation.HANDLE, pcbhash: Long, pbhash: Long, dwflags: UInt): BOOL {
-    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATAdminCalcHashFromFileHandle2", longArrayOf(hcatadmin, Win32DynamicFfi.objectSlot(hfile), pcbhash, pbhash, dwflags.toLong())).toInt()
+public fun CryptCATAdminCalcHashFromFileHandle2(hcatadmin: Long, hfile: HANDLE, pcbhash: Long, pbhash: Long, dwflags: UInt): BOOL {
+    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATAdminCalcHashFromFileHandle2", longArrayOf(hcatadmin, hfile, pcbhash, pbhash, dwflags.toLong())).toInt()
 }
 
 public fun CryptCATAdminEnumCatalogFromHash(hcatadmin: Long, pbhash: Long, cbhash: UInt, dwflags: UInt, phprevcatinfo: Long): Long {
@@ -53,8 +54,8 @@ public fun CryptCATAdminResolveCatalogPath(hcatadmin: Long, pwszcatalogfile: PCW
     return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATAdminResolveCatalogPath", longArrayOf(hcatadmin, pwszcatalogfile, pscatinfo, dwflags.toLong())).toInt()
 }
 
-public fun CryptCATAllocSortedMemberInfo(hcatalog: Foundation.HANDLE, pwszreferencetag: PCWSTR): Long {
-    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATAllocSortedMemberInfo", longArrayOf(Win32DynamicFfi.objectSlot(hcatalog), pwszreferencetag))
+public fun CryptCATAllocSortedMemberInfo(hcatalog: HANDLE, pwszreferencetag: PCWSTR): Long {
+    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATAllocSortedMemberInfo", longArrayOf(hcatalog, pwszreferencetag))
 }
 
 public fun CryptCATCDFClose(pcdf: Long): BOOL {
@@ -89,68 +90,66 @@ public fun CryptCATCatalogInfoFromContext(hcatinfo: Long, pscatinfo: Long, dwfla
     return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATCatalogInfoFromContext", longArrayOf(hcatinfo, pscatinfo, dwflags.toLong())).toInt()
 }
 
-public fun CryptCATClose(hcatalog: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATClose", longArrayOf(Win32DynamicFfi.objectSlot(hcatalog))).toInt()
+public fun CryptCATClose(hcatalog: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATClose", longArrayOf(hcatalog)).toInt()
 }
 
-public fun CryptCATEnumerateAttr(hcatalog: Foundation.HANDLE, pcatmember: Long, pprevattr: Long): Long {
-    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATEnumerateAttr", longArrayOf(Win32DynamicFfi.objectSlot(hcatalog), pcatmember, pprevattr))
+public fun CryptCATEnumerateAttr(hcatalog: HANDLE, pcatmember: Long, pprevattr: Long): Long {
+    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATEnumerateAttr", longArrayOf(hcatalog, pcatmember, pprevattr))
 }
 
-public fun CryptCATEnumerateCatAttr(hcatalog: Foundation.HANDLE, pprevattr: Long): Long {
-    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATEnumerateCatAttr", longArrayOf(Win32DynamicFfi.objectSlot(hcatalog), pprevattr))
+public fun CryptCATEnumerateCatAttr(hcatalog: HANDLE, pprevattr: Long): Long {
+    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATEnumerateCatAttr", longArrayOf(hcatalog, pprevattr))
 }
 
-public fun CryptCATEnumerateMember(hcatalog: Foundation.HANDLE, pprevmember: Long): Long {
-    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATEnumerateMember", longArrayOf(Win32DynamicFfi.objectSlot(hcatalog), pprevmember))
+public fun CryptCATEnumerateMember(hcatalog: HANDLE, pprevmember: Long): Long {
+    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATEnumerateMember", longArrayOf(hcatalog, pprevmember))
 }
 
-public fun CryptCATFreeSortedMemberInfo(hcatalog: Foundation.HANDLE, pcatmember: Long) {
-    Win32DynamicFfi.invoke("wintrust.dll", "CryptCATFreeSortedMemberInfo", longArrayOf(Win32DynamicFfi.objectSlot(hcatalog), pcatmember))
+public fun CryptCATFreeSortedMemberInfo(hcatalog: HANDLE, pcatmember: Long) {
+    Win32DynamicFfi.invoke("wintrust.dll", "CryptCATFreeSortedMemberInfo", longArrayOf(hcatalog, pcatmember))
 }
 
-public fun CryptCATGetAttrInfo(hcatalog: Foundation.HANDLE, pcatmember: Long, pwszreferencetag: PCWSTR): Long {
-    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATGetAttrInfo", longArrayOf(Win32DynamicFfi.objectSlot(hcatalog), pcatmember, pwszreferencetag))
+public fun CryptCATGetAttrInfo(hcatalog: HANDLE, pcatmember: Long, pwszreferencetag: PCWSTR): Long {
+    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATGetAttrInfo", longArrayOf(hcatalog, pcatmember, pwszreferencetag))
 }
 
-public fun CryptCATGetCatAttrInfo(hcatalog: Foundation.HANDLE, pwszreferencetag: PCWSTR): Long {
-    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATGetCatAttrInfo", longArrayOf(Win32DynamicFfi.objectSlot(hcatalog), pwszreferencetag))
+public fun CryptCATGetCatAttrInfo(hcatalog: HANDLE, pwszreferencetag: PCWSTR): Long {
+    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATGetCatAttrInfo", longArrayOf(hcatalog, pwszreferencetag))
 }
 
-public fun CryptCATGetMemberInfo(hcatalog: Foundation.HANDLE, pwszreferencetag: PCWSTR): Long {
-    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATGetMemberInfo", longArrayOf(Win32DynamicFfi.objectSlot(hcatalog), pwszreferencetag))
+public fun CryptCATGetMemberInfo(hcatalog: HANDLE, pwszreferencetag: PCWSTR): Long {
+    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATGetMemberInfo", longArrayOf(hcatalog, pwszreferencetag))
 }
 
-public fun CryptCATHandleFromStore(pcatstore: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("wintrust.dll", "CryptCATHandleFromStore", longArrayOf(pcatstore))
-    return Foundation.HANDLE()
+public fun CryptCATHandleFromStore(pcatstore: Long): HANDLE {
+    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATHandleFromStore", longArrayOf(pcatstore))
 }
 
-public fun CryptCATOpen(pwszfilename: PCWSTR, fdwopenflags: CRYPTCAT_OPEN_FLAGS, hprov: ULong, dwpublicversion: CRYPTCAT_VERSION, dwencodingtype: UInt): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("wintrust.dll", "CryptCATOpen", longArrayOf(pwszfilename, fdwopenflags.toLong(), hprov.toLong(), dwpublicversion.toLong(), dwencodingtype.toLong()))
-    return Foundation.HANDLE()
+public fun CryptCATOpen(pwszfilename: PCWSTR, fdwopenflags: CRYPTCAT_OPEN_FLAGS, hprov: ULong, dwpublicversion: CRYPTCAT_VERSION, dwencodingtype: UInt): HANDLE {
+    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATOpen", longArrayOf(pwszfilename, fdwopenflags.toLong(), hprov.toLong(), dwpublicversion.toLong(), dwencodingtype.toLong()))
 }
 
-public fun CryptCATPersistStore(hcatalog: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATPersistStore", longArrayOf(Win32DynamicFfi.objectSlot(hcatalog))).toInt()
+public fun CryptCATPersistStore(hcatalog: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATPersistStore", longArrayOf(hcatalog)).toInt()
 }
 
-public fun CryptCATPutAttrInfo(hcatalog: Foundation.HANDLE, pcatmember: Long, pwszreferencetag: PCWSTR, dwattrtypeandaction: UInt, cbdata: UInt, pbdata: Long): Long {
-    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATPutAttrInfo", longArrayOf(Win32DynamicFfi.objectSlot(hcatalog), pcatmember, pwszreferencetag, dwattrtypeandaction.toLong(), cbdata.toLong(), pbdata))
+public fun CryptCATPutAttrInfo(hcatalog: HANDLE, pcatmember: Long, pwszreferencetag: PCWSTR, dwattrtypeandaction: UInt, cbdata: UInt, pbdata: Long): Long {
+    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATPutAttrInfo", longArrayOf(hcatalog, pcatmember, pwszreferencetag, dwattrtypeandaction.toLong(), cbdata.toLong(), pbdata))
 }
 
-public fun CryptCATPutCatAttrInfo(hcatalog: Foundation.HANDLE, pwszreferencetag: PCWSTR, dwattrtypeandaction: UInt, cbdata: UInt, pbdata: Long): Long {
-    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATPutCatAttrInfo", longArrayOf(Win32DynamicFfi.objectSlot(hcatalog), pwszreferencetag, dwattrtypeandaction.toLong(), cbdata.toLong(), pbdata))
+public fun CryptCATPutCatAttrInfo(hcatalog: HANDLE, pwszreferencetag: PCWSTR, dwattrtypeandaction: UInt, cbdata: UInt, pbdata: Long): Long {
+    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATPutCatAttrInfo", longArrayOf(hcatalog, pwszreferencetag, dwattrtypeandaction.toLong(), cbdata.toLong(), pbdata))
 }
 
-public fun CryptCATPutMemberInfo(hcatalog: Foundation.HANDLE, pwszfilename: PCWSTR, pwszreferencetag: PCWSTR, pgsubjecttype: Long, dwcertversion: UInt, cbsipindirectdata: UInt, pbsipindirectdata: Long): Long {
-    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATPutMemberInfo", longArrayOf(Win32DynamicFfi.objectSlot(hcatalog), pwszfilename, pwszreferencetag, pgsubjecttype, dwcertversion.toLong(), cbsipindirectdata.toLong(), pbsipindirectdata))
+public fun CryptCATPutMemberInfo(hcatalog: HANDLE, pwszfilename: PCWSTR, pwszreferencetag: PCWSTR, pgsubjecttype: Long, dwcertversion: UInt, cbsipindirectdata: UInt, pbsipindirectdata: Long): Long {
+    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATPutMemberInfo", longArrayOf(hcatalog, pwszfilename, pwszreferencetag, pgsubjecttype, dwcertversion.toLong(), cbsipindirectdata.toLong(), pbsipindirectdata))
 }
 
-public fun CryptCATStoreFromHandle(hcatalog: Foundation.HANDLE): Long {
-    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATStoreFromHandle", longArrayOf(Win32DynamicFfi.objectSlot(hcatalog)))
+public fun CryptCATStoreFromHandle(hcatalog: HANDLE): Long {
+    return Win32DynamicFfi.invoke("wintrust.dll", "CryptCATStoreFromHandle", longArrayOf(hcatalog))
 }
 
-public fun IsCatalogFile(hfile: Foundation.HANDLE, pwszfilename: PCWSTR): BOOL {
-    return Win32DynamicFfi.invoke("wintrust.dll", "IsCatalogFile", longArrayOf(Win32DynamicFfi.objectSlot(hfile), pwszfilename)).toInt()
+public fun IsCatalogFile(hfile: HANDLE, pwszfilename: PCWSTR): BOOL {
+    return Win32DynamicFfi.invoke("wintrust.dll", "IsCatalogFile", longArrayOf(hfile, pwszfilename)).toInt()
 }

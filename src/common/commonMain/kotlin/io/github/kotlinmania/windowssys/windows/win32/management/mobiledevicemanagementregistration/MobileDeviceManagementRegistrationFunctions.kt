@@ -5,6 +5,7 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 
 public fun ApplyLocalManagementSyncML(syncmlrequest: PCWSTR, syncmlresult: Long): HRESULT {
     return Win32DynamicFfi.invoke("mdmlocalmanagement.dll", "ApplyLocalManagementSyncML", longArrayOf(syncmlrequest, syncmlresult)).toInt()
@@ -50,8 +51,8 @@ public fun RegisterDeviceWithManagement(pszupn: PCWSTR, ppszmdmserviceuri: PCWST
     return Win32DynamicFfi.invoke("mdmregistration.dll", "RegisterDeviceWithManagement", longArrayOf(pszupn, ppszmdmserviceuri, ppzsaccesstoken)).toInt()
 }
 
-public fun RegisterDeviceWithManagementUsingAADCredentials(usertoken: Foundation.HANDLE): HRESULT {
-    return Win32DynamicFfi.invoke("mdmregistration.dll", "RegisterDeviceWithManagementUsingAADCredentials", longArrayOf(Win32DynamicFfi.objectSlot(usertoken))).toInt()
+public fun RegisterDeviceWithManagementUsingAADCredentials(usertoken: HANDLE): HRESULT {
+    return Win32DynamicFfi.invoke("mdmregistration.dll", "RegisterDeviceWithManagementUsingAADCredentials", longArrayOf(usertoken)).toInt()
 }
 
 public fun RegisterDeviceWithManagementUsingAADDeviceCredentials(): HRESULT {

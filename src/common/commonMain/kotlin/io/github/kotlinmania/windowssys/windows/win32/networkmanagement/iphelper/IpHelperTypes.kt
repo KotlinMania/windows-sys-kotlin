@@ -1,5 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper
 
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NL_NETWORK_CONNECTIVITY_HINT
+
 public typealias DNS_SERVER_PROPERTY_TYPE = Int
 
 public typealias GET_ADAPTERS_ADDRESSES_FLAGS = UInt
@@ -57,7 +59,7 @@ public fun interface PIPINTERFACE_CHANGE_CALLBACKFn {
 public typealias PIPINTERFACE_CHANGE_CALLBACK = PIPINTERFACE_CHANGE_CALLBACKFn?
 
 public fun interface PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACKFn {
-    public operator fun invoke(callercontext: Long, connectivityhint: Networking.WinSock.NL_NETWORK_CONNECTIVITY_HINT)
+    public operator fun invoke(callercontext: Long, connectivityhint: NL_NETWORK_CONNECTIVITY_HINT)
 }
 
 public typealias PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK = PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACKFn?

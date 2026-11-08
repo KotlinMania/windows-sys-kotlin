@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.com
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCWSTR
 
@@ -177,7 +178,7 @@ public val CLSCTX_RESERVED6: CLSCTX = 16777216u
 
 public val CLSCTX_SERVER: CLSCTX = 21u
 
-public val CLSID_GlobalOptions: GUID = GUID.from_u128(0x34b00000000uL, 0xc000000000000046uL)
+public val CLSID_GlobalOptions: GUID = GUID.from_u128(U128(0x34b00000000uL, 0xc000000000000046uL))
 
 public val COINITBASE_MULTITHREADED: COINITBASE = 0
 

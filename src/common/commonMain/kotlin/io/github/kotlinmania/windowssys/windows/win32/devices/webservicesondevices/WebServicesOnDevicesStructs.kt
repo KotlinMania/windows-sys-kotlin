@@ -4,6 +4,8 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.HCERTSTORE
 
 public data class REQUESTBODY_GetStatus(public var Any: Long = 0L)
 
@@ -273,8 +275,8 @@ public data class WSD_SCOPES(public var MatchBy: PCWSTR = 0L, public var Scopes:
 public data class WSD_SECURITY_CERT_VALIDATION(
     public var certMatchArray: Long = 0L,
     public var dwCertMatchArrayCount: UInt = 0u,
-    public var hCertMatchStore: Security.Cryptography.HCERTSTORE = Security.Cryptography.HCERTSTORE(),
-    public var hCertIssuerStore: Security.Cryptography.HCERTSTORE = Security.Cryptography.HCERTSTORE(),
+    public var hCertMatchStore: HCERTSTORE = 0L,
+    public var hCertIssuerStore: HCERTSTORE = 0L,
     public var dwCertCheckOptions: UInt = 0u,
     public var pszCNGHashAlgId: PCWSTR = 0L,
     public var pbCertHash: Long = 0L,
@@ -284,15 +286,15 @@ public data class WSD_SECURITY_CERT_VALIDATION(
 public data class WSD_SECURITY_CERT_VALIDATION_V1(
     public var certMatchArray: Long = 0L,
     public var dwCertMatchArrayCount: UInt = 0u,
-    public var hCertMatchStore: Security.Cryptography.HCERTSTORE = Security.Cryptography.HCERTSTORE(),
-    public var hCertIssuerStore: Security.Cryptography.HCERTSTORE = Security.Cryptography.HCERTSTORE(),
+    public var hCertMatchStore: HCERTSTORE = 0L,
+    public var hCertIssuerStore: HCERTSTORE = 0L,
     public var dwCertCheckOptions: UInt = 0u,
 )
 
 public data class WSD_SECURITY_SIGNATURE_VALIDATION(
     public var signingCertArray: Long = 0L,
     public var dwSigningCertArrayCount: UInt = 0u,
-    public var hSigningCertStore: Security.Cryptography.HCERTSTORE = Security.Cryptography.HCERTSTORE(),
+    public var hSigningCertStore: HCERTSTORE = 0L,
     public var dwFlags: UInt = 0u,
 )
 
@@ -339,7 +341,7 @@ public data class WSD_SOAP_MESSAGE(
 
 public data class WSD_SYNCHRONOUS_RESPONSE_CONTEXT(
     public var hr: HRESULT = 0,
-    public var eventHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var eventHandle: HANDLE = 0L,
     public var messageParameters: Long = 0L,
     public var results: Long = 0L,
 )

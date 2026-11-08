@@ -5,6 +5,8 @@ import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
 import io.github.kotlinmania.windowssys.windows.win32.security.ACE_FLAGS
 import io.github.kotlinmania.windowssys.windows.win32.security.PSID
 import io.github.kotlinmania.windowssys.windows.win32.security.SYSTEM_AUDIT_OBJECT_ACE_FLAGS
@@ -46,7 +48,7 @@ public data class ACTRL_CONTROL_INFOW(public var lpControlId: PWSTR = 0L, public
 public data class ACTRL_OVERLAPPED(
     public var Anonymous: ACTRL_OVERLAPPED_0 = ACTRL_OVERLAPPED_0(),
     public var Reserved2: UInt = 0u,
-    public var hEvent: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hEvent: HANDLE = 0L,
 )
 
 public data class ACTRL_OVERLAPPED_0(public var Provider: Long = 0L, public var Reserved1: UInt = 0u)
@@ -143,7 +145,7 @@ public data class AUTHZ_AUDIT_EVENT_TYPE_OLD(
     public var dwFlags: UInt = 0u,
     public var RefCount: Int = 0,
     public var hAudit: ULong = 0uL,
-    public var LinkId: Foundation.LUID = Foundation.LUID(),
+    public var LinkId: LUID = LUID(),
     public var u: AUTHZ_AUDIT_EVENT_TYPE_UNION = AUTHZ_AUDIT_EVENT_TYPE_UNION(),
 )
 

@@ -3,6 +3,20 @@ package io.github.kotlinmania.windowssys.windows.wdk.system.systemservices
 
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.IO_PRIORITY_HINT
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.KDEVICE_QUEUE
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PCALLBACK_OBJECT
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PESILO
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PKDEFERRED_ROUTINE
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PKINTERRUPT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.windows.win32.foundation.UNICODE_STRING
+import io.github.kotlinmania.windowssys.windows.win32.security.LUID_AND_ATTRIBUTES
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.ARM64_NT_NEON128
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.LIST_ENTRY
+import io.github.kotlinmania.windowssys.windows.win32.system.power.DEVICE_POWER_CAPABILITIES
+import io.github.kotlinmania.windowssys.windows.win32.system.power.DEVICE_POWER_STATE
+import io.github.kotlinmania.windowssys.windows.win32.system.power.SYSTEM_POWER_STATE
 
 public data class ACPI_DEBUGGING_DEVICE_IN_USE(public var NameSpacePathLength: UInt = 0u, public var NameSpacePath: UShortArray = UShortArray(1)) {
     override fun equals(other: Any?): Boolean {
@@ -107,7 +121,7 @@ public data class ARBITER_INTERFACE(
 )
 
 public data class ARBITER_LIST_ENTRY(
-    public var ListEntry: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(),
+    public var ListEntry: LIST_ENTRY = LIST_ENTRY(),
     public var AlternativeCount: UInt = 0u,
     public var Alternatives: Long = 0L,
     public var PhysicalDeviceObject: Long = 0L,
@@ -163,7 +177,7 @@ public data class ARM64_NT_CONTEXT(
     public var Anonymous: ARM64_NT_CONTEXT_0 = ARM64_NT_CONTEXT_0(),
     public var Sp: ULong = 0uL,
     public var Pc: ULong = 0uL,
-    public var V: List<Win32.System.Diagnostics.Debug.ARM64_NT_NEON128> = List(32) { Win32.System.Diagnostics.Debug.ARM64_NT_NEON128() },
+    public var V: List<ARM64_NT_NEON128> = List(32) { ARM64_NT_NEON128() },
     public var Fpcr: UInt = 0u,
     public var Fpsr: UInt = 0u,
     public var Bcr: UIntArray = UIntArray(8),
@@ -259,10 +273,10 @@ public class ARM64_NT_CONTEXT_0_0(
 public data class BDCB_IMAGE_INFORMATION(
     public var Classification: BDCB_CLASSIFICATION = 0,
     public var ImageFlags: UInt = 0u,
-    public var ImageName: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
-    public var RegistryPath: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
-    public var CertificatePublisher: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
-    public var CertificateIssuer: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
+    public var ImageName: UNICODE_STRING = UNICODE_STRING(),
+    public var RegistryPath: UNICODE_STRING = UNICODE_STRING(),
+    public var CertificatePublisher: UNICODE_STRING = UNICODE_STRING(),
+    public var CertificateIssuer: UNICODE_STRING = UNICODE_STRING(),
     public var ImageHash: Long = 0L,
     public var CertificateThumbprint: Long = 0L,
     public var ImageHashAlgorithm: UInt = 0u,
@@ -330,7 +344,7 @@ public data class CLFS_MGMT_CLIENT_REGISTRATION(
 
 public data class CMC_DRIVER_INFO(
     public var ExceptionCallback: PDRIVER_CMC_EXCEPTION_CALLBACK = null,
-    public var DpcCallback: Foundation.PKDEFERRED_ROUTINE = Foundation.PKDEFERRED_ROUTINE(),
+    public var DpcCallback: PKDEFERRED_ROUTINE = null,
     public var DeviceContext: Long = 0L,
 )
 
@@ -723,14 +737,40 @@ public data class CM_PNP_BIOS_INSTALLATION_CHECK(
 
 public data class CM_POWER_DATA(
     public var PD_Size: UInt = 0u,
-    public var PD_MostRecentPowerState: Win32.System.Power.DEVICE_POWER_STATE = Win32.System.Power.DEVICE_POWER_STATE(),
-    public var PD_Capabilities: Win32.System.Power.DEVICE_POWER_CAPABILITIES = Win32.System.Power.DEVICE_POWER_CAPABILITIES(),
+    public var PD_MostRecentPowerState: DEVICE_POWER_STATE = 0,
+    public var PD_Capabilities: DEVICE_POWER_CAPABILITIES = 0u,
     public var PD_D1Latency: UInt = 0u,
     public var PD_D2Latency: UInt = 0u,
     public var PD_D3Latency: UInt = 0u,
-    public var PD_PowerStateMapping: List<Win32.System.Power.DEVICE_POWER_STATE> = List(7) { Win32.System.Power.DEVICE_POWER_STATE() },
-    public var PD_DeepestSystemWake: Win32.System.Power.SYSTEM_POWER_STATE = Win32.System.Power.SYSTEM_POWER_STATE(),
-)
+    public var PD_PowerStateMapping: IntArray = IntArray(7),
+    public var PD_DeepestSystemWake: SYSTEM_POWER_STATE = 0,
+) {
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is CM_POWER_DATA) return false
+        if (this.PD_Size != other.PD_Size) return false
+        if (this.PD_MostRecentPowerState != other.PD_MostRecentPowerState) return false
+        if (this.PD_Capabilities != other.PD_Capabilities) return false
+        if (this.PD_D1Latency != other.PD_D1Latency) return false
+        if (this.PD_D2Latency != other.PD_D2Latency) return false
+        if (this.PD_D3Latency != other.PD_D3Latency) return false
+        if (!this.PD_PowerStateMapping.contentEquals(other.PD_PowerStateMapping)) return false
+        if (this.PD_DeepestSystemWake != other.PD_DeepestSystemWake) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.PD_Size.hashCode()
+        result = 31 * result + this.PD_MostRecentPowerState.hashCode()
+        result = 31 * result + this.PD_Capabilities.hashCode()
+        result = 31 * result + this.PD_D1Latency.hashCode()
+        result = 31 * result + this.PD_D2Latency.hashCode()
+        result = 31 * result + this.PD_D3Latency.hashCode()
+        result = 31 * result + this.PD_PowerStateMapping.contentHashCode()
+        result = 31 * result + this.PD_DeepestSystemWake.hashCode()
+        return result
+    }
+}
 
 public data class CM_RESOURCE_LIST(public var Count: UInt = 0u, public var List: List<CM_FULL_RESOURCE_DESCRIPTOR> = List(1) { CM_FULL_RESOURCE_DESCRIPTOR() })
 
@@ -797,7 +837,7 @@ public data class CONTROLLER_OBJECT(
     public var Type: Short = 0,
     public var Size: Short = 0,
     public var ControllerExtension: Long = 0L,
-    public var DeviceWaitQueue: Foundation.KDEVICE_QUEUE = Foundation.KDEVICE_QUEUE(),
+    public var DeviceWaitQueue: KDEVICE_QUEUE = KDEVICE_QUEUE(),
     public var Spare1: UInt = 0u,
     public var Spare2: Long = 0L,
 )
@@ -808,10 +848,10 @@ public data class COUNTED_REASON_CONTEXT(
     public var Anonymous: COUNTED_REASON_CONTEXT_0 = COUNTED_REASON_CONTEXT_0(),
 )
 
-public data class COUNTED_REASON_CONTEXT_0(public var Anonymous: COUNTED_REASON_CONTEXT_0_0 = COUNTED_REASON_CONTEXT_0_0(), public var SimpleString: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING())
+public data class COUNTED_REASON_CONTEXT_0(public var Anonymous: COUNTED_REASON_CONTEXT_0_0 = COUNTED_REASON_CONTEXT_0_0(), public var SimpleString: UNICODE_STRING = UNICODE_STRING())
 
 public data class COUNTED_REASON_CONTEXT_0_0(
-    public var ResourceFileName: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
+    public var ResourceFileName: UNICODE_STRING = UNICODE_STRING(),
     public var ResourceReasonId: UShort = 0u,
     public var StringCount: UInt = 0u,
     public var ReasonStrings: Long = 0L,
@@ -819,7 +859,7 @@ public data class COUNTED_REASON_CONTEXT_0_0(
 
 public data class CPE_DRIVER_INFO(
     public var ExceptionCallback: PDRIVER_CPE_EXCEPTION_CALLBACK = null,
-    public var DpcCallback: Foundation.PKDEFERRED_ROUTINE = Foundation.PKDEFERRED_ROUTINE(),
+    public var DpcCallback: PKDEFERRED_ROUTINE = null,
     public var DeviceContext: Long = 0L,
 )
 
@@ -966,13 +1006,45 @@ public data class DEVICE_CAPABILITIES(
     public var _bitfield: UInt = 0u,
     public var Address: UInt = 0u,
     public var UINumber: UInt = 0u,
-    public var DeviceState: List<Win32.System.Power.DEVICE_POWER_STATE> = List(7) { Win32.System.Power.DEVICE_POWER_STATE() },
-    public var SystemWake: Win32.System.Power.SYSTEM_POWER_STATE = Win32.System.Power.SYSTEM_POWER_STATE(),
-    public var DeviceWake: Win32.System.Power.DEVICE_POWER_STATE = Win32.System.Power.DEVICE_POWER_STATE(),
+    public var DeviceState: IntArray = IntArray(7),
+    public var SystemWake: SYSTEM_POWER_STATE = 0,
+    public var DeviceWake: DEVICE_POWER_STATE = 0,
     public var D1Latency: UInt = 0u,
     public var D2Latency: UInt = 0u,
     public var D3Latency: UInt = 0u,
-)
+) {
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is DEVICE_CAPABILITIES) return false
+        if (this.Size != other.Size) return false
+        if (this.Version != other.Version) return false
+        if (this._bitfield != other._bitfield) return false
+        if (this.Address != other.Address) return false
+        if (this.UINumber != other.UINumber) return false
+        if (!this.DeviceState.contentEquals(other.DeviceState)) return false
+        if (this.SystemWake != other.SystemWake) return false
+        if (this.DeviceWake != other.DeviceWake) return false
+        if (this.D1Latency != other.D1Latency) return false
+        if (this.D2Latency != other.D2Latency) return false
+        if (this.D3Latency != other.D3Latency) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.Size.hashCode()
+        result = 31 * result + this.Version.hashCode()
+        result = 31 * result + this._bitfield.hashCode()
+        result = 31 * result + this.Address.hashCode()
+        result = 31 * result + this.UINumber.hashCode()
+        result = 31 * result + this.DeviceState.contentHashCode()
+        result = 31 * result + this.SystemWake.hashCode()
+        result = 31 * result + this.DeviceWake.hashCode()
+        result = 31 * result + this.D1Latency.hashCode()
+        result = 31 * result + this.D2Latency.hashCode()
+        result = 31 * result + this.D3Latency.hashCode()
+        return result
+    }
+}
 
 public class DEVICE_DESCRIPTION(
     public var Version: UInt = 0u,
@@ -1461,9 +1533,9 @@ public data class FILE_IOSTATUSBLOCK_RANGE_INFORMATION(public var IoStatusBlockR
 
 public data class FILE_IO_COMPLETION_NOTIFICATION_INFORMATION(public var Flags: UInt = 0u)
 
-public data class FILE_IO_PRIORITY_HINT_INFORMATION(public var PriorityHint: Foundation.IO_PRIORITY_HINT = Foundation.IO_PRIORITY_HINT())
+public data class FILE_IO_PRIORITY_HINT_INFORMATION(public var PriorityHint: IO_PRIORITY_HINT = 0)
 
-public data class FILE_IO_PRIORITY_HINT_INFORMATION_EX(public var PriorityHint: Foundation.IO_PRIORITY_HINT = Foundation.IO_PRIORITY_HINT(), public var BoostOutstanding: Boolean = false)
+public data class FILE_IO_PRIORITY_HINT_INFORMATION_EX(public var PriorityHint: IO_PRIORITY_HINT = 0, public var BoostOutstanding: Boolean = false)
 
 public data class FILE_IS_REMOTE_DEVICE_INFORMATION(public var IsRemote: Boolean = false)
 
@@ -1604,7 +1676,7 @@ public data class HAL_BUS_INFORMATION(
     public var Reserved: UInt = 0u,
 )
 
-public data class HAL_CALLBACKS(public var SetSystemInformation: Foundation.PCALLBACK_OBJECT = Foundation.PCALLBACK_OBJECT(), public var BusCheck: Foundation.PCALLBACK_OBJECT = Foundation.PCALLBACK_OBJECT())
+public data class HAL_CALLBACKS(public var SetSystemInformation: PCALLBACK_OBJECT = 0L, public var BusCheck: PCALLBACK_OBJECT = 0L)
 
 public class HAL_DISPATCH(
     public var Version: UInt = 0u,
@@ -1710,7 +1782,7 @@ public data class IMAGE_INFO_EX(
 public data class INITIAL_PRIVILEGE_SET(
     public var PrivilegeCount: UInt = 0u,
     public var Control: UInt = 0u,
-    public var Privilege: List<Win32.Security.LUID_AND_ATTRIBUTES> = List(3) { Win32.Security.LUID_AND_ATTRIBUTES() },
+    public var Privilege: List<LUID_AND_ATTRIBUTES> = List(3) { LUID_AND_ATTRIBUTES() },
 )
 
 public data class INPUT_MAPPING_ELEMENT(public var InputMappingId: UInt = 0u)
@@ -1732,7 +1804,7 @@ public data class INTERFACE(
 )
 
 public data class IOMMU_DEVICE_CREATION_CONFIGURATION(
-    public var NextConfiguration: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(),
+    public var NextConfiguration: LIST_ENTRY = LIST_ENTRY(),
     public var ConfigType: IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = 0,
     public var Anonymous: IOMMU_DEVICE_CREATION_CONFIGURATION_0 = IOMMU_DEVICE_CREATION_CONFIGURATION_0(),
 )
@@ -1870,7 +1942,7 @@ public data class IO_DISCONNECT_INTERRUPT_PARAMETERS(public var Version: UInt = 
 
 public data class IO_DISCONNECT_INTERRUPT_PARAMETERS_0(
     public var Generic: Long = 0L,
-    public var InterruptObject: Foundation.PKINTERRUPT = Foundation.PKINTERRUPT(),
+    public var InterruptObject: PKINTERRUPT = 0L,
     public var InterruptMessageTable: Long = 0L,
 )
 
@@ -1879,7 +1951,7 @@ public data class IO_DRIVER_CREATE_CONTEXT(
     public var ExtraCreateParameter: Long = 0L,
     public var DeviceObjectHint: Long = 0L,
     public var TxnParameters: Long = 0L,
-    public var SiloContext: Foundation.PESILO = Foundation.PESILO(),
+    public var SiloContext: PESILO = 0L,
 )
 
 public data class IO_ERROR_LOG_MESSAGE(
@@ -1898,9 +1970,9 @@ public data class IO_ERROR_LOG_PACKET(
     public var NumberOfStrings: UShort = 0u,
     public var StringOffset: UShort = 0u,
     public var EventCategory: UShort = 0u,
-    public var ErrorCode: Win32.Foundation.NTSTATUS = Win32.Foundation.NTSTATUS(),
+    public var ErrorCode: NTSTATUS = 0,
     public var UniqueErrorValue: UInt = 0u,
-    public var FinalStatus: Win32.Foundation.NTSTATUS = Win32.Foundation.NTSTATUS(),
+    public var FinalStatus: NTSTATUS = 0,
     public var SequenceNumber: UInt = 0u,
     public var IoControlCode: UInt = 0u,
     public var DeviceOffset: Long = 0L,
@@ -1948,7 +2020,7 @@ public data class IO_FOEXT_SHADOW_FILE(public var BackingFileObject: Long = 0L, 
 public data class IO_FOEXT_SILO_PARAMETERS(
     public var Length: UInt = 0u,
     public var Anonymous: IO_FOEXT_SILO_PARAMETERS_0 = IO_FOEXT_SILO_PARAMETERS_0(),
-    public var SiloContext: Foundation.PESILO = Foundation.PESILO(),
+    public var SiloContext: PESILO = 0L,
 )
 
 public data class IO_FOEXT_SILO_PARAMETERS_0(public var Anonymous: IO_FOEXT_SILO_PARAMETERS_0_0 = IO_FOEXT_SILO_PARAMETERS_0_0(), public var Flags: UInt = 0u)

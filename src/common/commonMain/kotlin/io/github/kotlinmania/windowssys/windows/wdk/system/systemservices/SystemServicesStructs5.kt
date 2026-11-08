@@ -2,6 +2,9 @@
 package io.github.kotlinmania.windowssys.windows.wdk.system.systemservices
 
 import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.M128A
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.SINGLE_LIST_ENTRY
 
 public data class WHEA_RECOVERY_CONTEXT_0(public var MemoryError: WHEA_RECOVERY_CONTEXT_0_0 = WHEA_RECOVERY_CONTEXT_0_0(), public var PmemError: WHEA_RECOVERY_CONTEXT_0_1 = WHEA_RECOVERY_CONTEXT_0_1())
 
@@ -84,7 +87,7 @@ public data class WHEA_SRAR_DETAIL_EVENT(
     public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY(),
     public var RecoveryContextFlags: UInt = 0u,
     public var RecoveryContextPa: ULong = 0uL,
-    public var PageOfflineStatus: Win32.Foundation.NTSTATUS = Win32.Foundation.NTSTATUS(),
+    public var PageOfflineStatus: NTSTATUS = 0,
     public var KernelConsumerError: Boolean = false,
 )
 
@@ -131,7 +134,7 @@ public data class WHEA_THROTTLE_PCIE_ADD_EVENT(
     public var Address: WHEA_PCIE_ADDRESS = WHEA_PCIE_ADDRESS(),
     public var Mask: UInt = 0u,
     public var Updated: Boolean = false,
-    public var Status: Win32.Foundation.NTSTATUS = Win32.Foundation.NTSTATUS(),
+    public var Status: NTSTATUS = 0,
 )
 
 public data class WHEA_THROTTLE_PCIE_REMOVE_EVENT(
@@ -352,8 +355,8 @@ public data class XSAVE_FORMAT(
     public var Reserved3: UShort = 0u,
     public var MxCsr: UInt = 0u,
     public var MxCsr_Mask: UInt = 0u,
-    public var FloatRegisters: List<Win32.System.Diagnostics.Debug.M128A> = List(8) { Win32.System.Diagnostics.Debug.M128A() },
-    public var XmmRegisters: List<Win32.System.Diagnostics.Debug.M128A> = List(8) { Win32.System.Diagnostics.Debug.M128A() },
+    public var FloatRegisters: List<M128A> = List(8) { M128A() },
+    public var XmmRegisters: List<M128A> = List(8) { M128A() },
     public var Reserved4: UByteArray = UByteArray(224),
 ) {
     override fun equals(other: Any?): Boolean {
@@ -424,13 +427,13 @@ public data class XSTATE_SAVE_0_0(
 )
 
 public data class ZONE_HEADER(
-    public var FreeList: Win32.System.Kernel.SINGLE_LIST_ENTRY = Win32.System.Kernel.SINGLE_LIST_ENTRY(),
-    public var SegmentList: Win32.System.Kernel.SINGLE_LIST_ENTRY = Win32.System.Kernel.SINGLE_LIST_ENTRY(),
+    public var FreeList: SINGLE_LIST_ENTRY = SINGLE_LIST_ENTRY(),
+    public var SegmentList: SINGLE_LIST_ENTRY = SINGLE_LIST_ENTRY(),
     public var BlockSize: UInt = 0u,
     public var TotalSegmentSize: UInt = 0u,
 )
 
-public data class ZONE_SEGMENT_HEADER(public var SegmentList: Win32.System.Kernel.SINGLE_LIST_ENTRY = Win32.System.Kernel.SINGLE_LIST_ENTRY(), public var Reserved: Long = 0L)
+public data class ZONE_SEGMENT_HEADER(public var SegmentList: SINGLE_LIST_ENTRY = SINGLE_LIST_ENTRY(), public var Reserved: Long = 0L)
 
 public data class _EXT_SET_PARAMETERS_V0(
     public var Version: UInt = 0u,

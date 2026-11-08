@@ -3,6 +3,7 @@ package io.github.kotlinmania.windowssys.windows.win32.devices.biometricframewor
 import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
 
 public fun interface FnCallback {
     public operator fun invoke(asyncresult: Long)
@@ -48,12 +49,12 @@ public fun WinBioAsyncMonitorFrameworkChanges(frameworkhandle: UInt, changetypes
     return Win32DynamicFfi.invoke("winbio.dll", "WinBioAsyncMonitorFrameworkChanges", longArrayOf(frameworkhandle.toLong(), changetypes.toLong())).toInt()
 }
 
-public fun WinBioAsyncOpenFramework(notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: Foundation.HWND, messagecode: UInt, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: Long, asynchronousopen: BOOL, frameworkhandle: Long): HRESULT {
-    return Win32DynamicFfi.invoke("winbio.dll", "WinBioAsyncOpenFramework", longArrayOf(notificationmethod.toLong(), Win32DynamicFfi.objectSlot(targetwindow), messagecode.toLong(), Win32DynamicFfi.objectSlot(callbackroutine), userdata, asynchronousopen.toLong(), frameworkhandle)).toInt()
+public fun WinBioAsyncOpenFramework(notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: HWND, messagecode: UInt, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: Long, asynchronousopen: BOOL, frameworkhandle: Long): HRESULT {
+    return Win32DynamicFfi.invoke("winbio.dll", "WinBioAsyncOpenFramework", longArrayOf(notificationmethod.toLong(), targetwindow, messagecode.toLong(), Win32DynamicFfi.objectSlot(callbackroutine), userdata, asynchronousopen.toLong(), frameworkhandle)).toInt()
 }
 
-public fun WinBioAsyncOpenSession(factor: UInt, pooltype: WINBIO_POOL, flags: UInt, unitarray: Long, unitcount: ULong, databaseid: Long, notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: Foundation.HWND, messagecode: UInt, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: Long, asynchronousopen: BOOL, sessionhandle: Long): HRESULT {
-    return Win32DynamicFfi.invoke("winbio.dll", "WinBioAsyncOpenSession", longArrayOf(factor.toLong(), pooltype.toLong(), flags.toLong(), unitarray, unitcount.toLong(), databaseid, notificationmethod.toLong(), Win32DynamicFfi.objectSlot(targetwindow), messagecode.toLong(), Win32DynamicFfi.objectSlot(callbackroutine), userdata, asynchronousopen.toLong(), sessionhandle)).toInt()
+public fun WinBioAsyncOpenSession(factor: UInt, pooltype: WINBIO_POOL, flags: UInt, unitarray: Long, unitcount: ULong, databaseid: Long, notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: HWND, messagecode: UInt, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: Long, asynchronousopen: BOOL, sessionhandle: Long): HRESULT {
+    return Win32DynamicFfi.invoke("winbio.dll", "WinBioAsyncOpenSession", longArrayOf(factor.toLong(), pooltype.toLong(), flags.toLong(), unitarray, unitcount.toLong(), databaseid, notificationmethod.toLong(), targetwindow, messagecode.toLong(), Win32DynamicFfi.objectSlot(callbackroutine), userdata, asynchronousopen.toLong(), sessionhandle)).toInt()
 }
 
 public fun WinBioCancel(sessionhandle: UInt): HRESULT {

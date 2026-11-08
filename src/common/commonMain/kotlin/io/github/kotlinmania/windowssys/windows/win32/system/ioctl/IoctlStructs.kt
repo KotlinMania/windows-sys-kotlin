@@ -2,6 +2,10 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.ioctl
 
 import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.security.SID
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_ID_128
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.STORAGE_BUS_TYPE
 
 public data class ASYNC_DUPLICATE_EXTENTS_STATUS(
     public var Version: UInt = 0u,
@@ -272,7 +276,7 @@ public data class CSV_QUERY_FILE_REVISION(public var FileId: Long = 0L, public v
     }
 }
 
-public data class CSV_QUERY_FILE_REVISION_FILE_ID_128(public var FileId: Storage.FileSystem.FILE_ID_128 = Storage.FileSystem.FILE_ID_128(), public var FileRevision: LongArray = LongArray(3)) {
+public data class CSV_QUERY_FILE_REVISION_FILE_ID_128(public var FileId: FILE_ID_128 = FILE_ID_128(), public var FileRevision: LongArray = LongArray(3)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is CSV_QUERY_FILE_REVISION_FILE_ID_128) return false
@@ -1068,7 +1072,7 @@ public data class DEVICE_MEDIA_INFO_0_2(
     public var MediaType: STORAGE_MEDIA_TYPE = 0,
     public var MediaCharacteristics: UInt = 0u,
     public var CurrentBlockSize: UInt = 0u,
-    public var BusType: Storage.FileSystem.STORAGE_BUS_TYPE = Storage.FileSystem.STORAGE_BUS_TYPE(),
+    public var BusType: STORAGE_BUS_TYPE = 0,
     public var BusSpecificData: DEVICE_MEDIA_INFO_0_2_0 = DEVICE_MEDIA_INFO_0_2_0(),
 )
 
@@ -1380,7 +1384,7 @@ public data class DRIVE_LAYOUT_INFORMATION_GPT(
 public data class DRIVE_LAYOUT_INFORMATION_MBR(public var Signature: UInt = 0u, public var CheckSum: UInt = 0u)
 
 public data class DUPLICATE_EXTENTS_DATA(
-    public var FileHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var FileHandle: HANDLE = 0L,
     public var SourceFileOffset: Long = 0L,
     public var TargetFileOffset: Long = 0L,
     public var ByteCount: Long = 0L,
@@ -1395,7 +1399,7 @@ public data class DUPLICATE_EXTENTS_DATA32(
 
 public data class DUPLICATE_EXTENTS_DATA_EX(
     public var Size: ULong = 0uL,
-    public var FileHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var FileHandle: HANDLE = 0L,
     public var SourceFileOffset: Long = 0L,
     public var TargetFileOffset: Long = 0L,
     public var ByteCount: Long = 0L,
@@ -1895,7 +1899,7 @@ public data class FILE_ZERO_DATA_INFORMATION_EX(
     public var Flags: UInt = 0u,
 )
 
-public data class FIND_BY_SID_DATA(public var Restart: UInt = 0u, public var Sid: Security.SID = Security.SID())
+public data class FIND_BY_SID_DATA(public var Restart: UInt = 0u, public var Sid: SID = SID())
 
 public data class FIND_BY_SID_OUTPUT(
     public var NextEntryOffset: UInt = 0u,
@@ -2395,7 +2399,7 @@ public data class LOOKUP_STREAM_FROM_CLUSTER_OUTPUT(
 
 public data class MARK_HANDLE_INFO(
     public var Anonymous: MARK_HANDLE_INFO_0 = MARK_HANDLE_INFO_0(),
-    public var VolumeHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var VolumeHandle: HANDLE = 0L,
     public var HandleInfo: UInt = 0u,
 )
 
@@ -2424,7 +2428,7 @@ public data class MFT_ENUM_DATA_V1(
 )
 
 public data class MOVE_FILE_DATA(
-    public var FileHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var FileHandle: HANDLE = 0L,
     public var StartingVcn: Long = 0L,
     public var StartingLcn: Long = 0L,
     public var ClusterCount: UInt = 0u,
@@ -2438,7 +2442,7 @@ public data class MOVE_FILE_DATA32(
 )
 
 public data class MOVE_FILE_RECORD_DATA(
-    public var FileHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var FileHandle: HANDLE = 0L,
     public var SourceFileRecord: Long = 0L,
     public var TargetFileRecord: Long = 0L,
 )

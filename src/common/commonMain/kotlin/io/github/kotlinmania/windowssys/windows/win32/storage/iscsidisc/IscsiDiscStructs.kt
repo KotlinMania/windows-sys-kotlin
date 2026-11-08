@@ -4,6 +4,7 @@ package io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.system.ioctl.STORAGE_DEVICE_NUMBER
 
 public data class ATA_PASS_THROUGH_DIRECT(
     public var Length: UShort = 0u,
@@ -550,7 +551,7 @@ public data class ISCSI_DEVICE_ON_SESSIONA(
     public var DeviceInterfaceType: GUID = GUID(),
     public var DeviceInterfaceName: ByteArray = ByteArray(260),
     public var LegacyName: ByteArray = ByteArray(260),
-    public var StorageDeviceNumber: System.Ioctl.STORAGE_DEVICE_NUMBER = System.Ioctl.STORAGE_DEVICE_NUMBER(),
+    public var StorageDeviceNumber: STORAGE_DEVICE_NUMBER = STORAGE_DEVICE_NUMBER(),
     public var DeviceInstance: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
@@ -587,7 +588,7 @@ public data class ISCSI_DEVICE_ON_SESSIONW(
     public var DeviceInterfaceType: GUID = GUID(),
     public var DeviceInterfaceName: UShortArray = UShortArray(260),
     public var LegacyName: UShortArray = UShortArray(260),
-    public var StorageDeviceNumber: System.Ioctl.STORAGE_DEVICE_NUMBER = System.Ioctl.STORAGE_DEVICE_NUMBER(),
+    public var StorageDeviceNumber: STORAGE_DEVICE_NUMBER = STORAGE_DEVICE_NUMBER(),
     public var DeviceInstance: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {

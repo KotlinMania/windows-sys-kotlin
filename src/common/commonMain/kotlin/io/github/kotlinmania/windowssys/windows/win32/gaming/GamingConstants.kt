@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.gaming
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.w
@@ -38,9 +39,9 @@ public val GIS_CURRENT_USER: GAME_INSTALL_SCOPE = 2
 
 public val GIS_NOT_INSTALLED: GAME_INSTALL_SCOPE = 1
 
-public val GameExplorer: GUID = GUID.from_u128(0x9a5ea99030344d6fuL, 0x912801f3c61022bcuL)
+public val GameExplorer: GUID = GUID.from_u128(U128(0x9a5ea99030344d6fuL, 0x912801f3c61022bcuL))
 
-public val GameStatistics: GUID = GUID.from_u128(0xdbc85a2cc0dc4961uL, 0xb6e2d28b62c11ad4uL)
+public val GameStatistics: GUID = GUID.from_u128(U128(0xdbc85a2cc0dc4961uL, 0xb6e2d28b62c11ad4uL))
 
 public val ID_GDF_THUMBNAIL_STR: PCWSTR = w("__GDF_THUMBNAIL")
 
@@ -108,6 +109,6 @@ public val XPRIVILEGE_VIDEO_COMMUNICATIONS: KnownGamingPrivileges = 235
 
 public val XPRIVILEGE_VIEW_FRIENDS_LIST: KnownGamingPrivileges = 197
 
-public val XblIdpAuthManager: GUID = GUID.from_u128(0xce23534b56d84978uL, 0x86a27ee570640468uL)
+public val XblIdpAuthManager: GUID = GUID.from_u128(U128(0xce23534b56d84978uL, 0x86a27ee570640468uL))
 
-public val XblIdpAuthTokenResult: GUID = GUID.from_u128(0x9f493441744a410cuL, 0xae2b9a22f7c7731fuL)
+public val XblIdpAuthTokenResult: GUID = GUID.from_u128(U128(0x9f493441744a410cuL, 0xae2b9a22f7c7731fuL))

@@ -4,6 +4,7 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
 
 public typealias GET_CONVERSION_LIST_FLAG = UInt
 
@@ -14,7 +15,7 @@ public typealias HIMC = Long
 public typealias HIMCC = Long
 
 public fun interface IMCENUMPROCFn {
-    public operator fun invoke(param0: HIMC, param1: Foundation.LPARAM): BOOL
+    public operator fun invoke(param0: HIMC, param1: LPARAM): BOOL
 }
 
 public typealias IMCENUMPROC = IMCENUMPROCFn?

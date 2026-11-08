@@ -2,6 +2,7 @@ package io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cer
 
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
 
 public typealias ADDED_CERT_TYPE = Int
 
@@ -176,7 +177,7 @@ public fun interface FNCERTSRVSERVERCONTROLWFn {
 public typealias FNCERTSRVSERVERCONTROLW = FNCERTSRVSERVERCONTROLWFn?
 
 public fun interface FNIMPORTPFXTOPROVIDERFn {
-    public operator fun invoke(hwndparent: Foundation.HWND, pbpfx: Long, cbpfx: UInt, importflags: ImportPFXFlags, pwszpassword: PCWSTR, pwszprovidername: PCWSTR, pwszreadername: PCWSTR, pwszcontainernameprefix: PCWSTR, pwszpin: PCWSTR, pwszfriendlyname: PCWSTR, pccertout: Long, prgpcertout: Long): HRESULT
+    public operator fun invoke(hwndparent: HWND, pbpfx: Long, cbpfx: UInt, importflags: ImportPFXFlags, pwszpassword: PCWSTR, pwszprovidername: PCWSTR, pwszreadername: PCWSTR, pwszcontainernameprefix: PCWSTR, pwszpin: PCWSTR, pwszfriendlyname: PCWSTR, pccertout: Long, prgpcertout: Long): HRESULT
 }
 
 public typealias FNIMPORTPFXTOPROVIDER = FNIMPORTPFXTOPROVIDERFn?

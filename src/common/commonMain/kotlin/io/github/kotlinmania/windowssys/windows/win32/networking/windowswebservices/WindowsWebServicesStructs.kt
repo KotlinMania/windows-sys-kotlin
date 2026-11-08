@@ -4,6 +4,8 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.DECIMAL
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.NCRYPT_KEY_HANDLE
 
 public data class CTAPCBOR_HYBRID_STORAGE_LINKED_DATA(
     public var dwVersion: UInt = 0u,
@@ -382,7 +384,7 @@ public data class WS_DATETIME(public var ticks: ULong = 0uL, public var format: 
 
 public data class WS_DATETIME_DESCRIPTION(public var minValue: WS_DATETIME = WS_DATETIME(), public var maxValue: WS_DATETIME = WS_DATETIME())
 
-public data class WS_DECIMAL_DESCRIPTION(public var minValue: Foundation.DECIMAL = Foundation.DECIMAL(), public var maxValue: Foundation.DECIMAL = Foundation.DECIMAL())
+public data class WS_DECIMAL_DESCRIPTION(public var minValue: DECIMAL = DECIMAL(), public var maxValue: DECIMAL = DECIMAL())
 
 public data class WS_DEFAULT_VALUE(public var value: Long = 0L, public var valueSize: UInt = 0u)
 
@@ -717,7 +719,7 @@ public data class WS_METADATA_PROPERTY(
 
 public data class WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING(public var binding: WS_SECURITY_BINDING = WS_SECURITY_BINDING(), public var clientCredential: Long = 0L)
 
-public data class WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE(public var keyHandle: WS_SECURITY_KEY_HANDLE = WS_SECURITY_KEY_HANDLE(), public var asymmetricKey: Security.Cryptography.NCRYPT_KEY_HANDLE = Security.Cryptography.NCRYPT_KEY_HANDLE())
+public data class WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE(public var keyHandle: WS_SECURITY_KEY_HANDLE = WS_SECURITY_KEY_HANDLE(), public var asymmetricKey: NCRYPT_KEY_HANDLE = 0uL)
 
 public data class WS_NETPIPE_URL(
     public var url: WS_URL = WS_URL(),
@@ -1227,7 +1229,7 @@ public data class WS_XML_COMMENT_NODE(public var node: WS_XML_NODE = WS_XML_NODE
 
 public data class WS_XML_DATETIME_TEXT(public var text: WS_XML_TEXT = WS_XML_TEXT(), public var value: WS_DATETIME = WS_DATETIME())
 
-public data class WS_XML_DECIMAL_TEXT(public var text: WS_XML_TEXT = WS_XML_TEXT(), public var value: Foundation.DECIMAL = Foundation.DECIMAL())
+public data class WS_XML_DECIMAL_TEXT(public var text: WS_XML_TEXT = WS_XML_TEXT(), public var value: DECIMAL = DECIMAL())
 
 public data class WS_XML_DICTIONARY(
     public var guid: GUID = GUID(),

@@ -1,8 +1,10 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.w
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 
 public val AA_AUTH_ANY: AAAuthSchemes = 6
 
@@ -46,7 +48,7 @@ public val AA_UNTRUSTED: AATrustClassID = 0
 
 public val ACQUIRE_TARGET_LOCK_TIMEOUT: UInt = 300000u
 
-public val ADsTSUserEx: GUID = GUID.from_u128(0xe2e9cae61e7b4b8euL, 0xbabde9bf6292ac29uL)
+public val ADsTSUserEx: GUID = GUID.from_u128(U128(0xe2e9cae61e7b4b8euL, 0xbabde9bf6292ac29uL))
 
 public val AllowOnlySDRServers: PolicyAttributeType = 7
 
@@ -156,9 +158,9 @@ public val CLIENT_MESSAGE_CONNECTION_INVALID: CLIENT_MESSAGE_TYPE = 0
 
 public val CLIENT_MESSAGE_CONNECTION_STATUS: CLIENT_MESSAGE_TYPE = 1
 
-public val CONNECTION_PROPERTY_CURSOR_BLINK_DISABLED: GUID = GUID.from_u128(0x4b150580fea44d3cuL, 0x9de47433a66618f7uL)
+public val CONNECTION_PROPERTY_CURSOR_BLINK_DISABLED: GUID = GUID.from_u128(U128(0x4b150580fea44d3cuL, 0x9de47433a66618f7uL))
 
-public val CONNECTION_PROPERTY_IDLE_TIME_WARNING: GUID = GUID.from_u128(0x693f7ff50c4e4d17uL, 0xb8e01f70325e5d58uL)
+public val CONNECTION_PROPERTY_IDLE_TIME_WARNING: GUID = GUID.from_u128(U128(0x693f7ff50c4e4d17uL, 0xb8e01f70325e5d58uL))
 
 public val CONNECTION_REQUEST_CANCELLED: CONNECTION_CHANGE_NOTIFICATION = 5
 
@@ -332,13 +334,13 @@ public val PRODUCTINFO_COMPANYNAME_LENGTH: UInt = 256u
 
 public val PRODUCTINFO_PRODUCTID_LENGTH: UInt = 4u
 
-public val PROPERTY_DYNAMIC_TIME_ZONE_INFORMATION: GUID = GUID.from_u128(0xcdfd28ed0b94c1fuL, 0xa5eb6d1f6c6535b9uL)
+public val PROPERTY_DYNAMIC_TIME_ZONE_INFORMATION: GUID = GUID.from_u128(U128(0xcdfd28ed0b94c1fuL, 0xa5eb6d1f6c6535b9uL))
 
-public val PROPERTY_TYPE_ENABLE_UNIVERSAL_APPS_FOR_CUSTOM_SHELL: GUID = GUID.from_u128(0xed2c3fda338d4d3fuL, 0x81a3e767310d908euL)
+public val PROPERTY_TYPE_ENABLE_UNIVERSAL_APPS_FOR_CUSTOM_SHELL: GUID = GUID.from_u128(U128(0xed2c3fda338d4d3fuL, 0x81a3e767310d908euL))
 
-public val PROPERTY_TYPE_GET_FAST_RECONNECT: GUID = GUID.from_u128(0x6212d75700434862uL, 0x99c39f3059ac2a3buL)
+public val PROPERTY_TYPE_GET_FAST_RECONNECT: GUID = GUID.from_u128(U128(0x6212d75700434862uL, 0x99c39f3059ac2a3buL))
 
-public val PROPERTY_TYPE_GET_FAST_RECONNECT_USER_SID: GUID = GUID.from_u128(0x197c427a01354b6duL, 0x9c5ee6579a0ab625uL)
+public val PROPERTY_TYPE_GET_FAST_RECONNECT_USER_SID: GUID = GUID.from_u128(U128(0x197c427a01354b6duL, 0x9c5ee6579a0ab625uL))
 
 public val PROVISIONING_PLUGIN: PLUGIN_TYPE = 32
 
@@ -354,7 +356,7 @@ public val PortRedirectionDisabled: PolicyAttributeType = 4
 
 public val PrinterRedirectionDisabled: PolicyAttributeType = 3
 
-public val RDCLIENT_BITMAP_RENDER_SERVICE: GUID = GUID.from_u128(0xe4cc08cb942e4b19uL, 0x8504bd5a89a747f5uL)
+public val RDCLIENT_BITMAP_RENDER_SERVICE: GUID = GUID.from_u128(U128(0xe4cc08cb942e4b19uL, 0x8504bd5a89a747f5uL))
 
 public val RDV_TASK_STATUS_APPLYING: RDV_TASK_STATUS = 3
 
@@ -542,7 +544,7 @@ public val TSSD_ADDR_IPv6: TSSD_AddrV46Type = 6
 
 public val TSSD_ADDR_UNDEFINED: TSSD_AddrV46Type = 0
 
-public val TSUserExInterfaces: GUID = GUID.from_u128(0x910dd01df8c11d1uL, 0xae2700c04fa35813uL)
+public val TSUserExInterfaces: GUID = GUID.from_u128(U128(0x910dd01df8c11d1uL, 0xae2700c04fa35813uL))
 
 public val TS_SB_SORT_BY_NAME: TS_SB_SORT_BY = 1
 
@@ -658,7 +660,7 @@ public val WRDS_PERF_ENABLE_FONT_SMOOTHING: UInt = 128u
 
 public val WRDS_PROTOCOL_NAME_LENGTH: UInt = 8u
 
-public val WRDS_SERVICE_ID_GRAPHICS_GUID: GUID = GUID.from_u128(0xd2993f4d02cf4280uL, 0x8c481624b44f8706uL)
+public val WRDS_SERVICE_ID_GRAPHICS_GUID: GUID = GUID.from_u128(U128(0xd2993f4d02cf4280uL, 0x8c481624b44f8706uL))
 
 public val WRDS_SETTING_LEVEL_1: WRDS_SETTING_LEVEL = 1
 
@@ -896,9 +898,9 @@ public val WTS_CLIENT_PRODUCT_ID_LENGTH: UInt = 32u
 
 public val WTS_COMMENT_LENGTH: UInt = 60u
 
-public val WTS_CURRENT_SERVER: Foundation.HANDLE = null
+public val WTS_CURRENT_SERVER: HANDLE = 0.toLong()
 
-public val WTS_CURRENT_SERVER_HANDLE: Foundation.HANDLE = null
+public val WTS_CURRENT_SERVER_HANDLE: HANDLE = 0.toLong()
 
 public val WTS_CURRENT_SERVER_NAME: PCWSTR = w("")
 
@@ -1018,13 +1020,13 @@ public val WTS_PROTOCOL_TYPE_ICA: UInt = 1u
 
 public val WTS_PROTOCOL_TYPE_RDP: UInt = 2u
 
-public val WTS_QUERY_ALLOWED_INITIAL_APP: GUID = GUID.from_u128(0xc77d1b305be14c6buL, 0xa0e1bd6d2e5c9fccuL)
+public val WTS_QUERY_ALLOWED_INITIAL_APP: GUID = GUID.from_u128(U128(0xc77d1b305be14c6buL, 0xa0e1bd6d2e5c9fccuL))
 
-public val WTS_QUERY_AUDIOENUM_DLL: GUID = GUID.from_u128(0x9bf4fa97c8834c2auL, 0x80ab5a39c9af00dbuL)
+public val WTS_QUERY_AUDIOENUM_DLL: GUID = GUID.from_u128(U128(0x9bf4fa97c8834c2auL, 0x80ab5a39c9af00dbuL))
 
-public val WTS_QUERY_LOGON_SCREEN_SIZE: GUID = GUID.from_u128(0x8b8e0fe708044a0euL, 0xb2798660b1df0049uL)
+public val WTS_QUERY_LOGON_SCREEN_SIZE: GUID = GUID.from_u128(U128(0x8b8e0fe708044a0euL, 0xb2798660b1df0049uL))
 
-public val WTS_QUERY_MF_FORMAT_SUPPORT: GUID = GUID.from_u128(0x41869ad063324dc8uL, 0x95d5db749e2f1d94uL)
+public val WTS_QUERY_MF_FORMAT_SUPPORT: GUID = GUID.from_u128(U128(0x41869ad063324dc8uL, 0x95d5db749e2f1d94uL))
 
 public val WTS_SECURITY_ALL_ACCESS: WTS_SECURITY_FLAGS = 983999u
 
@@ -1088,4 +1090,4 @@ public val WTS_WSD_REBOOT: UInt = 4u
 
 public val WTS_WSD_SHUTDOWN: UInt = 2u
 
-public val Workspace: GUID = GUID.from_u128(0x4f1dfca63aad48e1uL, 0x84064bc21a501d7cuL)
+public val Workspace: GUID = GUID.from_u128(U128(0x4f1dfca63aad48e1uL, 0x84064bc21a501d7cuL))

@@ -2,6 +2,14 @@
 package io.github.kotlinmania.windowssys.windows.wdk.system.systemservices
 
 import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PPCW_BUFFER
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.windows.win32.foundation.UNICODE_STRING
+import io.github.kotlinmania.windowssys.windows.win32.system.power.DEVICE_POWER_STATE
+import io.github.kotlinmania.windowssys.windows.win32.system.power.SYSTEM_POWER_STATE
+import io.github.kotlinmania.windowssys.windows.win32.system.threading.PROCESS_BASIC_INFORMATION
+import io.github.kotlinmania.windowssys.windows.win32.system.windowsprogramming.CLIENT_ID
 
 public data class PCI_EXPRESS_ERROR_SOURCE_ID_0(public var _bitfield1: UShort = 0u, public var _bitfield2: UShort = 0u)
 
@@ -597,7 +605,7 @@ public data class PCW_MASK_INFORMATION(
     public var InstanceMask: Long = 0L,
     public var InstanceId: UInt = 0u,
     public var CollectMultiple: Boolean = false,
-    public var Buffer: Foundation.PPCW_BUFFER = Foundation.PPCW_BUFFER(),
+    public var Buffer: PPCW_BUFFER = 0L,
     public var CancelEvent: Long = 0L,
 )
 
@@ -806,7 +814,7 @@ public data class POOL_EXTENDED_PARAMETER_1(
 )
 
 public data class POOL_EXTENDED_PARAMS_SECURE_POOL(
-    public var SecurePoolHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var SecurePoolHandle: HANDLE = 0L,
     public var Buffer: Long = 0L,
     public var Cookie: ULong = 0uL,
     public var SecurePoolFlags: UInt = 0u,
@@ -834,7 +842,7 @@ public data class POWER_SESSION_WINLOGON(
     public var Locked: Boolean = false,
 )
 
-public data class POWER_STATE(public var SystemState: Win32.System.Power.SYSTEM_POWER_STATE = Win32.System.Power.SYSTEM_POWER_STATE(), public var DeviceState: Win32.System.Power.DEVICE_POWER_STATE = Win32.System.Power.DEVICE_POWER_STATE())
+public data class POWER_STATE(public var SystemState: SYSTEM_POWER_STATE = 0, public var DeviceState: DEVICE_POWER_STATE = 0)
 
 public data class POWER_THROTTLING_PROCESS_STATE(
     public var Version: UInt = 0u,
@@ -857,7 +865,7 @@ public data class PO_FX_COMPONENT_IDLE_STATE(
 public data class PO_FX_COMPONENT_PERF_INFO(public var PerfStateSetsCount: UInt = 0u, public var PerfStateSets: List<PO_FX_COMPONENT_PERF_SET> = List(1) { PO_FX_COMPONENT_PERF_SET() })
 
 public data class PO_FX_COMPONENT_PERF_SET(
-    public var Name: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
+    public var Name: UNICODE_STRING = UNICODE_STRING(),
     public var Flags: ULong = 0uL,
     public var Unit: PO_FX_PERF_STATE_UNIT = 0,
     public var Type: PO_FX_PERF_STATE_TYPE = 0,
@@ -937,7 +945,7 @@ public data class PO_FX_PERF_STATE_CHANGE(public var Set: UInt = 0u, public var 
 
 public data class PO_FX_PERF_STATE_CHANGE_0(public var StateIndex: UInt = 0u, public var StateValue: ULong = 0uL)
 
-public data class PROCESS_ACCESS_TOKEN(public var Token: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(), public var Thread: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE())
+public data class PROCESS_ACCESS_TOKEN(public var Token: HANDLE = 0L, public var Thread: HANDLE = 0L)
 
 public data class PROCESS_DEVICEMAP_INFORMATION(public var Anonymous: PROCESS_DEVICEMAP_INFORMATION_0 = PROCESS_DEVICEMAP_INFORMATION_0())
 
@@ -959,7 +967,7 @@ public data class PROCESS_DEVICEMAP_INFORMATION_0_1(public var DriveMap: UInt = 
     }
 }
 
-public data class PROCESS_DEVICEMAP_INFORMATION_0_0(public var DirectoryHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE())
+public data class PROCESS_DEVICEMAP_INFORMATION_0_0(public var DirectoryHandle: HANDLE = 0L)
 
 public data class PROCESS_DEVICEMAP_INFORMATION_EX(public var Anonymous: PROCESS_DEVICEMAP_INFORMATION_EX_0 = PROCESS_DEVICEMAP_INFORMATION_EX_0(), public var Flags: UInt = 0u)
 
@@ -981,13 +989,13 @@ public data class PROCESS_DEVICEMAP_INFORMATION_EX_0_1(public var DriveMap: UInt
     }
 }
 
-public data class PROCESS_DEVICEMAP_INFORMATION_EX_0_0(public var DirectoryHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE())
+public data class PROCESS_DEVICEMAP_INFORMATION_EX_0_0(public var DirectoryHandle: HANDLE = 0L)
 
-public data class PROCESS_EXCEPTION_PORT(public var ExceptionPortHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(), public var StateFlags: UInt = 0u)
+public data class PROCESS_EXCEPTION_PORT(public var ExceptionPortHandle: HANDLE = 0L, public var StateFlags: UInt = 0u)
 
 public data class PROCESS_EXTENDED_BASIC_INFORMATION(
     public var Size: ULong = 0uL,
-    public var BasicInfo: Win32.System.Threading.PROCESS_BASIC_INFORMATION = Win32.System.Threading.PROCESS_BASIC_INFORMATION(),
+    public var BasicInfo: PROCESS_BASIC_INFORMATION = PROCESS_BASIC_INFORMATION(),
     public var Anonymous: PROCESS_EXTENDED_BASIC_INFORMATION_0 = PROCESS_EXTENDED_BASIC_INFORMATION_0(),
 )
 
@@ -1000,8 +1008,8 @@ public data class PROCESS_HANDLE_TRACING_ENABLE(public var Flags: UInt = 0u)
 public data class PROCESS_HANDLE_TRACING_ENABLE_EX(public var Flags: UInt = 0u, public var TotalSlots: UInt = 0u)
 
 public data class PROCESS_HANDLE_TRACING_ENTRY(
-    public var Handle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
-    public var ClientId: Win32.System.WindowsProgramming.CLIENT_ID = Win32.System.WindowsProgramming.CLIENT_ID(),
+    public var Handle: HANDLE = 0L,
+    public var ClientId: CLIENT_ID = CLIENT_ID(),
     public var Type: UInt = 0u,
     public var Stacks: LongArray = LongArray(16),
 ) {
@@ -1025,7 +1033,7 @@ public data class PROCESS_HANDLE_TRACING_ENTRY(
 }
 
 public data class PROCESS_HANDLE_TRACING_QUERY(
-    public var Handle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var Handle: HANDLE = 0L,
     public var TotalTraces: UInt = 0u,
     public var HandleTrace: List<PROCESS_HANDLE_TRACING_ENTRY> = List(1) { PROCESS_HANDLE_TRACING_ENTRY() },
 )
@@ -1034,7 +1042,7 @@ public data class PROCESS_KEEPALIVE_COUNT_INFORMATION(public var WakeCount: UInt
 
 public data class PROCESS_MEMBERSHIP_INFORMATION(public var ServerSiloId: UInt = 0u)
 
-public data class PROCESS_REVOKE_FILE_HANDLES_INFORMATION(public var TargetDevicePath: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING())
+public data class PROCESS_REVOKE_FILE_HANDLES_INFORMATION(public var TargetDevicePath: UNICODE_STRING = UNICODE_STRING())
 
 public data class PROCESS_SESSION_INFORMATION(public var SessionId: UInt = 0u)
 
@@ -1045,12 +1053,12 @@ public data class PROCESS_WS_WATCH_INFORMATION(public var FaultingPc: Long = 0L,
 public data class PS_CREATE_NOTIFY_INFO(
     public var Size: ULong = 0uL,
     public var Anonymous: PS_CREATE_NOTIFY_INFO_0 = PS_CREATE_NOTIFY_INFO_0(),
-    public var ParentProcessId: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
-    public var CreatingThreadId: Win32.System.WindowsProgramming.CLIENT_ID = Win32.System.WindowsProgramming.CLIENT_ID(),
+    public var ParentProcessId: HANDLE = 0L,
+    public var CreatingThreadId: CLIENT_ID = CLIENT_ID(),
     public var FileObject: Long = 0L,
     public var ImageFileName: Long = 0L,
     public var CommandLine: Long = 0L,
-    public var CreationStatus: Win32.Foundation.NTSTATUS = Win32.Foundation.NTSTATUS(),
+    public var CreationStatus: NTSTATUS = 0,
 )
 
 public data class PS_CREATE_NOTIFY_INFO_0(public var Flags: UInt = 0u, public var Anonymous: PS_CREATE_NOTIFY_INFO_0_0 = PS_CREATE_NOTIFY_INFO_0_0())

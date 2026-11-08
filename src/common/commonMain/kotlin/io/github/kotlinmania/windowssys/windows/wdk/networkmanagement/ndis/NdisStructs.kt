@@ -2,6 +2,19 @@
 package io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis
 
 import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.KDPC
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.KEVENT
+import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.DMA_SPEED
+import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.DMA_WIDTH
+import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.KTIMER
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.UNICODE_STRING
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.FLOWSPEC
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NET_IF_DIRECTION_TYPE
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NET_IF_MEDIA_CONNECT_STATE
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NET_IF_MEDIA_DUPLEX_STATE
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NET_IF_OPER_STATUS
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NET_LUID_LH
 
 public data class BINARY_DATA(public var Length: UShort = 0u, public var Buffer: Long = 0L)
 
@@ -50,8 +63,8 @@ public data class CO_ADDRESS_LIST(
 )
 
 public data class CO_CALL_MANAGER_PARAMETERS(
-    public var Transmit: Win32.Networking.WinSock.FLOWSPEC = Win32.Networking.WinSock.FLOWSPEC(),
-    public var Receive: Win32.Networking.WinSock.FLOWSPEC = Win32.Networking.WinSock.FLOWSPEC(),
+    public var Transmit: FLOWSPEC = FLOWSPEC(),
+    public var Receive: FLOWSPEC = FLOWSPEC(),
     public var CallMgrSpecific: CO_SPECIFIC_PARAMETERS = CO_SPECIFIC_PARAMETERS(),
 )
 
@@ -444,7 +457,7 @@ public data class NDIS_CONFIGURATION_PARAMETER(public var ParameterType: NDIS_PA
 
 public data class NDIS_CONFIGURATION_PARAMETER_0(
     public var IntegerData: UInt = 0u,
-    public var StringData: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
+    public var StringData: UNICODE_STRING = UNICODE_STRING(),
     public var BinaryData: BINARY_DATA = BINARY_DATA(),
 )
 
@@ -483,7 +496,7 @@ public data class NDIS_CO_LINK_SPEED(public var Outbound: UInt = 0u, public var 
 
 public data class NDIS_DMA_BLOCK(
     public var MapRegisterBase: Long = 0L,
-    public var AllocationEvent: Foundation.KEVENT = Foundation.KEVENT(),
+    public var AllocationEvent: KEVENT = KEVENT(),
     public var SystemAdapterObject: Long = 0L,
     public var Miniport: Long = 0L,
     public var InProgress: Boolean = false,
@@ -493,13 +506,13 @@ public data class NDIS_DMA_DESCRIPTION(
     public var DemandMode: Boolean = false,
     public var AutoInitialize: Boolean = false,
     public var DmaChannelSpecified: Boolean = false,
-    public var DmaWidth: System.SystemServices.DMA_WIDTH = System.SystemServices.DMA_WIDTH(),
-    public var DmaSpeed: System.SystemServices.DMA_SPEED = System.SystemServices.DMA_SPEED(),
+    public var DmaWidth: DMA_WIDTH = 0,
+    public var DmaSpeed: DMA_SPEED = 0,
     public var DmaPort: UInt = 0u,
     public var DmaChannel: UInt = 0u,
 )
 
-public data class NDIS_EVENT(public var Event: Foundation.KEVENT = Foundation.KEVENT())
+public data class NDIS_EVENT(public var Event: KEVENT = KEVENT())
 
 public data class NDIS_GUID(
     public var Guid: GUID = GUID(),
@@ -550,7 +563,7 @@ public data class NDIS_IP_OPER_STATE(
 
 public data class NDIS_IP_OPER_STATUS(
     public var AddressFamily: UInt = 0u,
-    public var OperationalStatus: Win32.NetworkManagement.Ndis.NET_IF_OPER_STATUS = Win32.NetworkManagement.Ndis.NET_IF_OPER_STATUS(),
+    public var OperationalStatus: NET_IF_OPER_STATUS = 0,
     public var OperationalStatusFlags: UInt = 0u,
 )
 
@@ -565,7 +578,7 @@ public data class NDIS_IRDA_PACKET_INFO(public var ExtraBOFs: UInt = 0u, public 
 
 public data class NDIS_LINK_PARAMETERS(
     public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var MediaDuplexState: Win32.NetworkManagement.Ndis.NET_IF_MEDIA_DUPLEX_STATE = Win32.NetworkManagement.Ndis.NET_IF_MEDIA_DUPLEX_STATE(),
+    public var MediaDuplexState: NET_IF_MEDIA_DUPLEX_STATE = 0,
     public var XmitLinkSpeed: ULong = 0uL,
     public var RcvLinkSpeed: ULong = 0uL,
     public var PauseFunctions: NDIS_SUPPORTED_PAUSE_FUNCTIONS = 0,
@@ -576,8 +589,8 @@ public data class NDIS_LINK_SPEED(public var XmitLinkSpeed: ULong = 0uL, public 
 
 public data class NDIS_LINK_STATE(
     public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var MediaConnectState: Win32.NetworkManagement.Ndis.NET_IF_MEDIA_CONNECT_STATE = Win32.NetworkManagement.Ndis.NET_IF_MEDIA_CONNECT_STATE(),
-    public var MediaDuplexState: Win32.NetworkManagement.Ndis.NET_IF_MEDIA_DUPLEX_STATE = Win32.NetworkManagement.Ndis.NET_IF_MEDIA_DUPLEX_STATE(),
+    public var MediaConnectState: NET_IF_MEDIA_CONNECT_STATE = 0,
+    public var MediaDuplexState: NET_IF_MEDIA_DUPLEX_STATE = 0,
     public var XmitLinkSpeed: ULong = 0uL,
     public var RcvLinkSpeed: ULong = 0uL,
     public var PauseFunctions: NDIS_SUPPORTED_PAUSE_FUNCTIONS = 0,
@@ -585,8 +598,8 @@ public data class NDIS_LINK_STATE(
 )
 
 public data class NDIS_MINIPORT_TIMER(
-    public var Timer: System.SystemServices.KTIMER = System.SystemServices.KTIMER(),
-    public var Dpc: Foundation.KDPC = Foundation.KDPC(),
+    public var Timer: KTIMER = KTIMER(),
+    public var Dpc: KDPC = KDPC(),
     public var MiniportTimerFunction: PNDIS_TIMER_FUNCTION = null,
     public var MiniportTimerContext: Long = 0L,
     public var Miniport: Long = 0L,
@@ -626,7 +639,7 @@ public data class NDIS_OFFLOAD_PARAMETERS(
 
 public data class NDIS_OPER_STATE(
     public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var OperationalStatus: Win32.NetworkManagement.Ndis.NET_IF_OPER_STATUS = Win32.NetworkManagement.Ndis.NET_IF_OPER_STATUS(),
+    public var OperationalStatus: NET_IF_OPER_STATUS = 0,
     public var OperationalStatusFlags: UInt = 0u,
 )
 
@@ -700,10 +713,10 @@ public data class NDIS_PORT_CHARACTERISTICS(
     public var PortNumber: UInt = 0u,
     public var Flags: UInt = 0u,
     public var Type: NDIS_PORT_TYPE = 0,
-    public var MediaConnectState: Win32.NetworkManagement.Ndis.NET_IF_MEDIA_CONNECT_STATE = Win32.NetworkManagement.Ndis.NET_IF_MEDIA_CONNECT_STATE(),
+    public var MediaConnectState: NET_IF_MEDIA_CONNECT_STATE = 0,
     public var XmitLinkSpeed: ULong = 0uL,
     public var RcvLinkSpeed: ULong = 0uL,
-    public var Direction: Win32.NetworkManagement.Ndis.NET_IF_DIRECTION_TYPE = Win32.NetworkManagement.Ndis.NET_IF_DIRECTION_TYPE(),
+    public var Direction: NET_IF_DIRECTION_TYPE = 0,
     public var SendControlState: NDIS_PORT_CONTROL_STATE = 0,
     public var RcvControlState: NDIS_PORT_CONTROL_STATE = 0,
     public var SendAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE = 0,
@@ -712,10 +725,10 @@ public data class NDIS_PORT_CHARACTERISTICS(
 
 public data class NDIS_PORT_STATE(
     public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var MediaConnectState: Win32.NetworkManagement.Ndis.NET_IF_MEDIA_CONNECT_STATE = Win32.NetworkManagement.Ndis.NET_IF_MEDIA_CONNECT_STATE(),
+    public var MediaConnectState: NET_IF_MEDIA_CONNECT_STATE = 0,
     public var XmitLinkSpeed: ULong = 0uL,
     public var RcvLinkSpeed: ULong = 0uL,
-    public var Direction: Win32.NetworkManagement.Ndis.NET_IF_DIRECTION_TYPE = Win32.NetworkManagement.Ndis.NET_IF_DIRECTION_TYPE(),
+    public var Direction: NET_IF_DIRECTION_TYPE = 0,
     public var SendControlState: NDIS_PORT_CONTROL_STATE = 0,
     public var RcvControlState: NDIS_PORT_CONTROL_STATE = 0,
     public var SendAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE = 0,
@@ -969,7 +982,7 @@ public data class NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES(
     }
 }
 
-public data class NDIS_TIMER(public var Timer: System.SystemServices.KTIMER = System.SystemServices.KTIMER(), public var Dpc: Foundation.KDPC = Foundation.KDPC())
+public data class NDIS_TIMER(public var Timer: KTIMER = KTIMER(), public var Dpc: KDPC = KDPC())
 
 public data class NDIS_TIMESTAMP_CAPABILITIES(
     public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
@@ -1103,7 +1116,7 @@ public data class NDIS_WAN_LINE_UP(
     public var ProtocolBufferLength: UInt = 0u,
     public var ProtocolBuffer: Long = 0L,
     public var ProtocolType: UShort = 0u,
-    public var DeviceName: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
+    public var DeviceName: UNICODE_STRING = UNICODE_STRING(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1233,7 +1246,7 @@ public data class NDIS_WLAN_BSSID_EX(
 public data class NDIS_WMI_ENUM_ADAPTER(
     public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var IfIndex: UInt = 0u,
-    public var NetLuid: Win32.NetworkManagement.Ndis.NET_LUID_LH = Win32.NetworkManagement.Ndis.NET_LUID_LH(),
+    public var NetLuid: NET_LUID_LH = NET_LUID_LH(),
     public var DeviceNameLength: UShort = 0u,
     public var DeviceName: ByteArray = ByteArray(1),
 ) {
@@ -1261,7 +1274,7 @@ public data class NDIS_WMI_ENUM_ADAPTER(
 public data class NDIS_WMI_EVENT_HEADER(
     public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var IfIndex: UInt = 0u,
-    public var NetLuid: Win32.NetworkManagement.Ndis.NET_LUID_LH = Win32.NetworkManagement.Ndis.NET_LUID_LH(),
+    public var NetLuid: NET_LUID_LH = NET_LUID_LH(),
     public var RequestId: ULong = 0uL,
     public var PortNumber: UInt = 0u,
     public var DeviceNameLength: UInt = 0u,
@@ -1332,7 +1345,7 @@ public data class NDIS_WMI_IPSEC_OFFLOAD_V1_0(
 public data class NDIS_WMI_METHOD_HEADER(
     public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var PortNumber: UInt = 0u,
-    public var NetLuid: Win32.NetworkManagement.Ndis.NET_LUID_LH = Win32.NetworkManagement.Ndis.NET_LUID_LH(),
+    public var NetLuid: NET_LUID_LH = NET_LUID_LH(),
     public var RequestId: ULong = 0uL,
     public var Timeout: UInt = 0u,
     public var Padding: UByteArray = UByteArray(4),
@@ -1379,7 +1392,7 @@ public data class NDIS_WMI_OUTPUT_INFO(
 public data class NDIS_WMI_SET_HEADER(
     public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var PortNumber: UInt = 0u,
-    public var NetLuid: Win32.NetworkManagement.Ndis.NET_LUID_LH = Win32.NetworkManagement.Ndis.NET_LUID_LH(),
+    public var NetLuid: NET_LUID_LH = NET_LUID_LH(),
     public var RequestId: ULong = 0uL,
     public var Timeout: UInt = 0u,
     public var Padding: UByteArray = UByteArray(4),
@@ -1623,7 +1636,7 @@ public data class OFFLOAD_IPSEC_ADD_SA(
     public var Flags: UShort = 0u,
     public var NumSAs: Short = 0,
     public var SecAssoc: List<OFFLOAD_SECURITY_ASSOCIATION> = List(3) { OFFLOAD_SECURITY_ASSOCIATION() },
-    public var OffloadHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var OffloadHandle: HANDLE = 0L,
     public var KeyLen: UInt = 0u,
     public var KeyMat: UByteArray = UByteArray(1),
 ) {
@@ -1681,16 +1694,16 @@ public class OFFLOAD_IPSEC_ADD_UDPESP_SA(
     public var Flags: UShort = 0u,
     public var NumSAs: Short = 0,
     public var SecAssoc: List<OFFLOAD_SECURITY_ASSOCIATION> = List(3) { OFFLOAD_SECURITY_ASSOCIATION() },
-    public var OffloadHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var OffloadHandle: HANDLE = 0L,
     public var EncapTypeEntry: OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY = OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY(),
-    public var EncapTypeEntryOffldHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var EncapTypeEntryOffldHandle: HANDLE = 0L,
     public var KeyLen: UInt = 0u,
     public var KeyMat: UByteArray = UByteArray(1),
 )
 
-public data class OFFLOAD_IPSEC_DELETE_SA(public var OffloadHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE())
+public data class OFFLOAD_IPSEC_DELETE_SA(public var OffloadHandle: HANDLE = 0L)
 
-public data class OFFLOAD_IPSEC_DELETE_UDPESP_SA(public var OffloadHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(), public var EncapTypeEntryOffldHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE())
+public data class OFFLOAD_IPSEC_DELETE_UDPESP_SA(public var OffloadHandle: HANDLE = 0L, public var EncapTypeEntryOffldHandle: HANDLE = 0L)
 
 public data class OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY(public var UdpEncapType: UDP_ENCAP_TYPE = 0, public var DstEncapPort: UShort = 0u)
 

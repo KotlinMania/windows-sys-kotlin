@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.offlinefiles
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.w
@@ -516,6 +517,6 @@ public val OFFLINEFILES_TRANSITION_FLAG_CONSOLE: UInt = 2u
 
 public val OFFLINEFILES_TRANSITION_FLAG_INTERACTIVE: UInt = 1u
 
-public val OfflineFilesCache: GUID = GUID.from_u128(0x48c6be7c387143ccuL, 0xb46f1449a1bb2ff3uL)
+public val OfflineFilesCache: GUID = GUID.from_u128(U128(0x48c6be7c387143ccuL, 0xb46f1449a1bb2ff3uL))
 
-public val OfflineFilesSetting: GUID = GUID.from_u128(0xfd3659e9a9204123uL, 0xad647fc76c7aacdfuL)
+public val OfflineFilesSetting: GUID = GUID.from_u128(U128(0xfd3659e9a9204123uL, 0xad647fc76c7aacdfuL))

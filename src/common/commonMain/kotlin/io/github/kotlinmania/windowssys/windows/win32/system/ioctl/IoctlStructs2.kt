@@ -2,6 +2,10 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.ioctl
 
 import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_ID_128
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.STORAGE_BUS_TYPE
+import io.github.kotlinmania.windowssys.windows.win32.storage.vhd.VIRTUAL_STORAGE_TYPE
 
 public data class PERSISTENT_RESERVE_COMMAND_0_1(
     public var _bitfield1: UByte = 0u,
@@ -1406,7 +1410,7 @@ public data class STORAGE_DEVICE_DESCRIPTOR(
     public var ProductIdOffset: UInt = 0u,
     public var ProductRevisionOffset: UInt = 0u,
     public var SerialNumberOffset: UInt = 0u,
-    public var BusType: Storage.FileSystem.STORAGE_BUS_TYPE = Storage.FileSystem.STORAGE_BUS_TYPE(),
+    public var BusType: STORAGE_BUS_TYPE = 0,
     public var RawPropertiesLength: UInt = 0u,
     public var RawDeviceProperties: UByteArray = UByteArray(1),
 ) {
@@ -2506,14 +2510,14 @@ public data class STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY(
     public var EntryLength: UInt = 0u,
     public var DependencyTypeFlags: UInt = 0u,
     public var ProviderSpecificFlags: UInt = 0u,
-    public var VirtualStorageType: Storage.Vhd.VIRTUAL_STORAGE_TYPE = Storage.Vhd.VIRTUAL_STORAGE_TYPE(),
+    public var VirtualStorageType: VIRTUAL_STORAGE_TYPE = VIRTUAL_STORAGE_TYPE(),
 )
 
 public data class STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY(
     public var EntryLength: UInt = 0u,
     public var DependencyTypeFlags: UInt = 0u,
     public var ProviderSpecificFlags: UInt = 0u,
-    public var VirtualStorageType: Storage.Vhd.VIRTUAL_STORAGE_TYPE = Storage.Vhd.VIRTUAL_STORAGE_TYPE(),
+    public var VirtualStorageType: VIRTUAL_STORAGE_TYPE = VIRTUAL_STORAGE_TYPE(),
     public var AncestorLevel: UInt = 0u,
     public var HostVolumeNameOffset: UInt = 0u,
     public var HostVolumeNameSize: UInt = 0u,
@@ -3046,7 +3050,7 @@ public data class TXFS_ROLLFORWARD_REDO_INFORMATION(
 )
 
 public data class TXFS_SAVEPOINT_INFORMATION(
-    public var KtmTransaction: Foundation.HANDLE = Foundation.HANDLE(),
+    public var KtmTransaction: HANDLE = 0L,
     public var ActionCode: UInt = 0u,
     public var SavepointId: UInt = 0u,
 )
@@ -3228,8 +3232,8 @@ public data class USN_RECORD_V3(
     public var RecordLength: UInt = 0u,
     public var MajorVersion: UShort = 0u,
     public var MinorVersion: UShort = 0u,
-    public var FileReferenceNumber: Storage.FileSystem.FILE_ID_128 = Storage.FileSystem.FILE_ID_128(),
-    public var ParentFileReferenceNumber: Storage.FileSystem.FILE_ID_128 = Storage.FileSystem.FILE_ID_128(),
+    public var FileReferenceNumber: FILE_ID_128 = FILE_ID_128(),
+    public var ParentFileReferenceNumber: FILE_ID_128 = FILE_ID_128(),
     public var Usn: Long = 0L,
     public var TimeStamp: Long = 0L,
     public var Reason: UInt = 0u,
@@ -3281,8 +3285,8 @@ public data class USN_RECORD_V3(
 
 public data class USN_RECORD_V4(
     public var Header: USN_RECORD_COMMON_HEADER = USN_RECORD_COMMON_HEADER(),
-    public var FileReferenceNumber: Storage.FileSystem.FILE_ID_128 = Storage.FileSystem.FILE_ID_128(),
-    public var ParentFileReferenceNumber: Storage.FileSystem.FILE_ID_128 = Storage.FileSystem.FILE_ID_128(),
+    public var FileReferenceNumber: FILE_ID_128 = FILE_ID_128(),
+    public var ParentFileReferenceNumber: FILE_ID_128 = FILE_ID_128(),
     public var Usn: Long = 0L,
     public var Reason: UInt = 0u,
     public var SourceInfo: USN_SOURCE_INFO_ID = 0u,

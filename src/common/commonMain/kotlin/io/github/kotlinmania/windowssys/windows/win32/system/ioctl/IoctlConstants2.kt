@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.ioctl
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.s
@@ -300,7 +301,7 @@ public val WIM_PROVIDER_EXTERNAL_FLAG_NOT_ACTIVE: UInt = 1u
 
 public val WIM_PROVIDER_EXTERNAL_FLAG_SUSPENDED: UInt = 2u
 
-public val WMI_DISK_GEOMETRY_GUID: GUID = GUID.from_u128(0x25007f5157c211d1uL, 0xa52800a0c9062910uL)
+public val WMI_DISK_GEOMETRY_GUID: GUID = GUID.from_u128(U128(0x25007f5157c211d1uL, 0xa52800a0c9062910uL))
 
 public val WOF_CURRENT_VERSION: UInt = 1u
 

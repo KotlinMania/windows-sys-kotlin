@@ -3,9 +3,11 @@ package io.github.kotlinmania.windowssys.windows.win32.storage.filesystem
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
 
 public fun interface CACHE_ACCESS_CHECKFn {
-    public operator fun invoke(psecuritydescriptor: Security.PSECURITY_DESCRIPTOR, hclienttoken: Foundation.HANDLE, dwdesiredaccess: UInt, genericmapping: Long, privilegeset: Long, privilegesetlength: Long, grantedaccess: Long, accessstatus: Long): BOOL
+    public operator fun invoke(psecuritydescriptor: PSECURITY_DESCRIPTOR, hclienttoken: HANDLE, dwdesiredaccess: UInt, genericmapping: Long, privilegeset: Long, privilegesetlength: Long, grantedaccess: Long, accessstatus: Long): BOOL
 }
 
 public typealias CACHE_ACCESS_CHECK = CACHE_ACCESS_CHECKFn?
@@ -99,13 +101,13 @@ public typealias DISKQUOTA_USERNAME_RESOLVE = UInt
 public typealias ERASE_TAPE_TYPE = UInt
 
 public fun interface FCACHE_CREATE_CALLBACKFn {
-    public operator fun invoke(lpstrname: PCSTR, lpvdata: Long, cbfilesize: Long, cbfilesizehigh: Long): Foundation.HANDLE
+    public operator fun invoke(lpstrname: PCSTR, lpvdata: Long, cbfilesize: Long, cbfilesizehigh: Long): HANDLE
 }
 
 public typealias FCACHE_CREATE_CALLBACK = FCACHE_CREATE_CALLBACKFn?
 
 public fun interface FCACHE_RICHCREATE_CALLBACKFn {
-    public operator fun invoke(lpstrname: PCSTR, lpvdata: Long, cbfilesize: Long, cbfilesizehigh: Long, pfdidwescanit: Long, pfisstuffed: Long, pfstoredwithdots: Long, pfstoredwithterminatingdot: Long): Foundation.HANDLE
+    public operator fun invoke(lpstrname: PCSTR, lpvdata: Long, cbfilesize: Long, cbfilesizehigh: Long, pfdidwescanit: Long, pfisstuffed: Long, pfstoredwithdots: Long, pfstoredwithterminatingdot: Long): HANDLE
 }
 
 public typealias FCACHE_RICHCREATE_CALLBACK = FCACHE_RICHCREATE_CALLBACKFn?
@@ -171,7 +173,7 @@ public typealias IORING_VERSION = Int
 public typealias LOCK_FILE_FLAGS = UInt
 
 public fun interface LPPROGRESS_ROUTINEFn {
-    public operator fun invoke(totalfilesize: Long, totalbytestransferred: Long, streamsize: Long, streambytestransferred: Long, dwstreamnumber: UInt, dwcallbackreason: LPPROGRESS_ROUTINE_CALLBACK_REASON, hsourcefile: Foundation.HANDLE, hdestinationfile: Foundation.HANDLE, lpdata: Long): COPYPROGRESSROUTINE_PROGRESS
+    public operator fun invoke(totalfilesize: Long, totalbytestransferred: Long, streamsize: Long, streambytestransferred: Long, dwstreamnumber: UInt, dwcallbackreason: LPPROGRESS_ROUTINE_CALLBACK_REASON, hsourcefile: HANDLE, hdestinationfile: HANDLE, lpdata: Long): COPYPROGRESSROUTINE_PROGRESS
 }
 
 public typealias LPPROGRESS_ROUTINE = LPPROGRESS_ROUTINEFn?
@@ -303,19 +305,19 @@ public fun interface PFN_IO_COMPLETIONFn {
 public typealias PFN_IO_COMPLETION = PFN_IO_COMPLETIONFn?
 
 public fun interface PLOG_FULL_HANDLER_CALLBACKFn {
-    public operator fun invoke(hlogfile: Foundation.HANDLE, dwerror: UInt, flogispinned: BOOL, pvclientcontext: Long)
+    public operator fun invoke(hlogfile: HANDLE, dwerror: UInt, flogispinned: BOOL, pvclientcontext: Long)
 }
 
 public typealias PLOG_FULL_HANDLER_CALLBACK = PLOG_FULL_HANDLER_CALLBACKFn?
 
 public fun interface PLOG_TAIL_ADVANCE_CALLBACKFn {
-    public operator fun invoke(hlogfile: Foundation.HANDLE, lsntarget: CLS_LSN, pvclientcontext: Long)
+    public operator fun invoke(hlogfile: HANDLE, lsntarget: CLS_LSN, pvclientcontext: Long)
 }
 
 public typealias PLOG_TAIL_ADVANCE_CALLBACK = PLOG_TAIL_ADVANCE_CALLBACKFn?
 
 public fun interface PLOG_UNPINNED_CALLBACKFn {
-    public operator fun invoke(hlogfile: Foundation.HANDLE, pvclientcontext: Long)
+    public operator fun invoke(hlogfile: HANDLE, pvclientcontext: Long)
 }
 
 public typealias PLOG_UNPINNED_CALLBACK = PLOG_UNPINNED_CALLBACKFn?

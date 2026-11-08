@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.systemservices
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
@@ -42,7 +43,7 @@ public val NONVOL_INT_NUMREG_ARM64: UInt = 11u
 
 public val NON_PAGED_DEBUG_SIGNATURE: UInt = 18766u
 
-public val NO_SUBGROUP_GUID: GUID = GUID.from_u128(0xfea3413e7e054911uL, 0x9a71700331f1c294uL)
+public val NO_SUBGROUP_GUID: GUID = GUID.from_u128(U128(0xfea3413e7e054911uL, 0x9a71700331f1c294uL))
 
 public val NUMA_NO_PREFERRED_NODE: UInt = 4294967295u
 

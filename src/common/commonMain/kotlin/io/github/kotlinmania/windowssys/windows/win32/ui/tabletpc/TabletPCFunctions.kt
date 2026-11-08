@@ -80,7 +80,7 @@ public fun IsStringSupported(hrc: HRECOCONTEXT, wcstring: UInt, pwcstring: PCWST
 }
 
 public fun LoadCachedAttributes(clsid: GUID, precoattributes: Long): HRESULT {
-    return Win32DynamicFfi.invoke("inkobjcore.dll", "LoadCachedAttributes", longArrayOf(Win32DynamicFfi.guidSlot(clsid.data1, clsid.data2, clsid.data3, clsid.data4), precoattributes)).toInt()
+    return Win32DynamicFfi.invoke("inkobjcore.dll", "LoadCachedAttributes", longArrayOf(run { val buf = ByteArray(16); buf[0] = (clsid.data1.toInt() and 0xFF).toByte(); buf[1] = ((clsid.data1.toInt() ushr 8) and 0xFF).toByte(); buf[2] = ((clsid.data1.toInt() ushr 16) and 0xFF).toByte(); buf[3] = ((clsid.data1.toInt() ushr 24) and 0xFF).toByte(); buf[4] = (clsid.data2.toInt() and 0xFF).toByte(); buf[5] = ((clsid.data2.toInt() ushr 8) and 0xFF).toByte(); buf[6] = (clsid.data3.toInt() and 0xFF).toByte(); buf[7] = ((clsid.data3.toInt() ushr 8) and 0xFF).toByte(); for (i in 0 until minOf(8, clsid.data4.size)) buf[8 + i] = clsid.data4[i].toByte(); val ptr = Win32DynamicFfi.allocZeroed(16); Win32DynamicFfi.writeBytes(ptr, buf); ptr }, precoattributes)).toInt()
 }
 
 public fun MakeWordList(hrec: HRECOGNIZER, pbuffer: PCWSTR, phwl: Long): HRESULT {

@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 
 public val AlgorithmFlagsNone: AlgorithmFlags = 0
@@ -86,11 +87,11 @@ public val CA_DISP_UNDER_SUBMISSION: UInt = 5u
 
 public val CA_DISP_VALID: UInt = 3u
 
-public val CAlternativeName: GUID = GUID.from_u128(0x884e2013217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CAlternativeName: GUID = GUID.from_u128(U128(0x884e2013217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CAlternativeNames: GUID = GUID.from_u128(0x884e2014217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CAlternativeNames: GUID = GUID.from_u128(U128(0x884e2014217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CBinaryConverter: GUID = GUID.from_u128(0x884e2002217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CBinaryConverter: GUID = GUID.from_u128(U128(0x884e2002217d11dauL, 0xb2a4000e7bbb2b09uL))
 
 public val CCLOCKSKEWMINUTESDEFAULT: UInt = 10u
 
@@ -106,75 +107,75 @@ public val CC_UIPICKCONFIG: CERT_GET_CONFIG_FLAGS = 1
 
 public val CC_UIPICKCONFIGSKIPLOCALCA: CERT_GET_CONFIG_FLAGS = 5
 
-public val CCertAdmin: GUID = GUID.from_u128(0x37eabaf07fb611d0uL, 0x881700a0c903b83cuL)
+public val CCertAdmin: GUID = GUID.from_u128(U128(0x37eabaf07fb611d0uL, 0x881700a0c903b83cuL))
 
-public val CCertConfig: GUID = GUID.from_u128(0x372fce38432411d0uL, 0x881000a0c903b83cuL)
+public val CCertConfig: GUID = GUID.from_u128(U128(0x372fce38432411d0uL, 0x881000a0c903b83cuL))
 
-public val CCertEncodeAltName: GUID = GUID.from_u128(0x1cfc4cda127111d1uL, 0x9bd400c04fb683fauL)
+public val CCertEncodeAltName: GUID = GUID.from_u128(U128(0x1cfc4cda127111d1uL, 0x9bd400c04fb683fauL))
 
-public val CCertEncodeBitString: GUID = GUID.from_u128(0x6d6b3cd8127811d1uL, 0x9bd400c04fb683fauL)
+public val CCertEncodeBitString: GUID = GUID.from_u128(U128(0x6d6b3cd8127811d1uL, 0x9bd400c04fb683fauL))
 
-public val CCertEncodeCRLDistInfo: GUID = GUID.from_u128(0x1fa60a0bbff11d0uL, 0x882500a0c903b83cuL)
+public val CCertEncodeCRLDistInfo: GUID = GUID.from_u128(U128(0x1fa60a0bbff11d0uL, 0x882500a0c903b83cuL))
 
-public val CCertEncodeDateArray: GUID = GUID.from_u128(0x301f77b0a47011d0uL, 0x882100a0c903b83cuL)
+public val CCertEncodeDateArray: GUID = GUID.from_u128(U128(0x301f77b0a47011d0uL, 0x882100a0c903b83cuL))
 
-public val CCertEncodeLongArray: GUID = GUID.from_u128(0x4e0680a0a0a211d0uL, 0x882100a0c903b83cuL)
+public val CCertEncodeLongArray: GUID = GUID.from_u128(U128(0x4e0680a0a0a211d0uL, 0x882100a0c903b83cuL))
 
-public val CCertEncodeStringArray: GUID = GUID.from_u128(0x19a76fe0749411d0uL, 0x881600a0c903b83cuL)
+public val CCertEncodeStringArray: GUID = GUID.from_u128(U128(0x19a76fe0749411d0uL, 0x881600a0c903b83cuL))
 
-public val CCertGetConfig: GUID = GUID.from_u128(0xc6cc49b0ce1711d0uL, 0x883300a0c903b83cuL)
+public val CCertGetConfig: GUID = GUID.from_u128(U128(0xc6cc49b0ce1711d0uL, 0x883300a0c903b83cuL))
 
-public val CCertProperties: GUID = GUID.from_u128(0x884e202f217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CCertProperties: GUID = GUID.from_u128(U128(0x884e202f217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CCertProperty: GUID = GUID.from_u128(0x884e202e217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CCertProperty: GUID = GUID.from_u128(U128(0x884e202e217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CCertPropertyArchived: GUID = GUID.from_u128(0x884e2037217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CCertPropertyArchived: GUID = GUID.from_u128(U128(0x884e2037217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CCertPropertyArchivedKeyHash: GUID = GUID.from_u128(0x884e203b217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CCertPropertyArchivedKeyHash: GUID = GUID.from_u128(U128(0x884e203b217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CCertPropertyAutoEnroll: GUID = GUID.from_u128(0x884e2032217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CCertPropertyAutoEnroll: GUID = GUID.from_u128(U128(0x884e2032217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CCertPropertyBackedUp: GUID = GUID.from_u128(0x884e2038217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CCertPropertyBackedUp: GUID = GUID.from_u128(U128(0x884e2038217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CCertPropertyDescription: GUID = GUID.from_u128(0x884e2031217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CCertPropertyDescription: GUID = GUID.from_u128(U128(0x884e2031217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CCertPropertyEnrollment: GUID = GUID.from_u128(0x884e2039217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CCertPropertyEnrollment: GUID = GUID.from_u128(U128(0x884e2039217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CCertPropertyEnrollmentPolicyServer: GUID = GUID.from_u128(0x884e204c217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CCertPropertyEnrollmentPolicyServer: GUID = GUID.from_u128(U128(0x884e204c217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CCertPropertyFriendlyName: GUID = GUID.from_u128(0x884e2030217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CCertPropertyFriendlyName: GUID = GUID.from_u128(U128(0x884e2030217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CCertPropertyKeyProvInfo: GUID = GUID.from_u128(0x884e2036217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CCertPropertyKeyProvInfo: GUID = GUID.from_u128(U128(0x884e2036217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CCertPropertyRenewal: GUID = GUID.from_u128(0x884e203a217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CCertPropertyRenewal: GUID = GUID.from_u128(U128(0x884e203a217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CCertPropertyRequestOriginator: GUID = GUID.from_u128(0x884e2033217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CCertPropertyRequestOriginator: GUID = GUID.from_u128(U128(0x884e2033217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CCertPropertySHA1Hash: GUID = GUID.from_u128(0x884e2034217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CCertPropertySHA1Hash: GUID = GUID.from_u128(U128(0x884e2034217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CCertRequest: GUID = GUID.from_u128(0x98aff3f0552411d0uL, 0x881200a0c903b83cuL)
+public val CCertRequest: GUID = GUID.from_u128(U128(0x98aff3f0552411d0uL, 0x881200a0c903b83cuL))
 
-public val CCertServerExit: GUID = GUID.from_u128(0x4c4a5e40732c11d0uL, 0x881600a0c903b83cuL)
+public val CCertServerExit: GUID = GUID.from_u128(U128(0x4c4a5e40732c11d0uL, 0x881600a0c903b83cuL))
 
-public val CCertServerPolicy: GUID = GUID.from_u128(0xaa000926ffbe11cfuL, 0x880000a0c903b83cuL)
+public val CCertServerPolicy: GUID = GUID.from_u128(U128(0xaa000926ffbe11cfuL, 0x880000a0c903b83cuL))
 
-public val CCertView: GUID = GUID.from_u128(0xa12d0f7a1e8411d1uL, 0x9bd600c04fb683fauL)
+public val CCertView: GUID = GUID.from_u128(U128(0xa12d0f7a1e8411d1uL, 0x9bd600c04fb683fauL))
 
-public val CCertificateAttestationChallenge: GUID = GUID.from_u128(0x1362ada1eb60456auL, 0xb6e1118050db741buL)
+public val CCertificateAttestationChallenge: GUID = GUID.from_u128(U128(0x1362ada1eb60456auL, 0xb6e1118050db741buL))
 
-public val CCertificatePolicies: GUID = GUID.from_u128(0x884e201f217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CCertificatePolicies: GUID = GUID.from_u128(U128(0x884e201f217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CCertificatePolicy: GUID = GUID.from_u128(0x884e201e217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CCertificatePolicy: GUID = GUID.from_u128(U128(0x884e201e217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CCryptAttribute: GUID = GUID.from_u128(0x884e202c217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CCryptAttribute: GUID = GUID.from_u128(U128(0x884e202c217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CCryptAttributes: GUID = GUID.from_u128(0x884e202d217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CCryptAttributes: GUID = GUID.from_u128(U128(0x884e202d217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CCspInformation: GUID = GUID.from_u128(0x884e2007217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CCspInformation: GUID = GUID.from_u128(U128(0x884e2007217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CCspInformations: GUID = GUID.from_u128(0x884e2008217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CCspInformations: GUID = GUID.from_u128(U128(0x884e2008217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CCspStatus: GUID = GUID.from_u128(0x884e2009217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CCspStatus: GUID = GUID.from_u128(U128(0x884e2009217d11dauL, 0xb2a4000e7bbb2b09uL))
 
 public val CDR_EXPIRED: CERT_DELETE_ROW_FLAGS = 1
 
@@ -196,17 +197,17 @@ public val CERT_ALT_NAME_RFC822_NAME: CERT_ALT_NAME = 2
 
 public val CERT_ALT_NAME_URL: CERT_ALT_NAME = 7
 
-public val CEnroll: GUID = GUID.from_u128(0x43f8f2897a2011d0uL, 0x8f0600c04fc295e1uL)
+public val CEnroll: GUID = GUID.from_u128(U128(0x43f8f2897a2011d0uL, 0x8f0600c04fc295e1uL))
 
-public val CEnroll2: GUID = GUID.from_u128(0x127698e4e7304e5cuL, 0xa2b121490a70c8a1uL)
+public val CEnroll2: GUID = GUID.from_u128(U128(0x127698e4e7304e5cuL, 0xa2b121490a70c8a1uL))
 
 public val CMM_READONLY: UInt = 2u
 
 public val CMM_REFRESHONLY: UInt = 1u
 
-public val CObjectId: GUID = GUID.from_u128(0x884e2000217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CObjectId: GUID = GUID.from_u128(U128(0x884e2000217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CObjectIds: GUID = GUID.from_u128(0x884e2001217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CObjectIds: GUID = GUID.from_u128(U128(0x884e2001217d11dauL, 0xb2a4000e7bbb2b09uL))
 
 public val CPF_BADURL_ERROR: UInt = 32u
 
@@ -236,9 +237,9 @@ public val CPF_SHADOW: UInt = 8u
 
 public val CPF_SIGNATURE_ERROR: UInt = 128u
 
-public val CPolicyQualifier: GUID = GUID.from_u128(0x884e201c217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CPolicyQualifier: GUID = GUID.from_u128(U128(0x884e201c217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CPolicyQualifiers: GUID = GUID.from_u128(0x884e201d217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CPolicyQualifiers: GUID = GUID.from_u128(U128(0x884e201d217d11dauL, 0xb2a4000e7bbb2b09uL))
 
 public val CRLF_ALLOW_REQUEST_ATTRIBUTE_SUBJECT: UInt = 65536u
 
@@ -598,11 +599,11 @@ public val CSVER_MINOR_WIN8: UInt = 1u
 
 public val CSVER_MINOR_WINBLUE: UInt = 1u
 
-public val CSignerCertificate: GUID = GUID.from_u128(0x884e203d217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CSignerCertificate: GUID = GUID.from_u128(U128(0x884e203d217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CSmimeCapabilities: GUID = GUID.from_u128(0x884e201a217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CSmimeCapabilities: GUID = GUID.from_u128(U128(0x884e201a217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CSmimeCapability: GUID = GUID.from_u128(0x884e2019217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CSmimeCapability: GUID = GUID.from_u128(U128(0x884e2019217d11dauL, 0xb2a4000e7bbb2b09uL))
 
 public val CVIEWAGEMINUTESDEFAULT: UInt = 16u
 
@@ -688,95 +689,95 @@ public val CV_OUT_NOCR: UInt = 2147483648u
 
 public val CV_OUT_NOCRLF: UInt = 1073741824u
 
-public val CX500DistinguishedName: GUID = GUID.from_u128(0x884e2003217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX500DistinguishedName: GUID = GUID.from_u128(U128(0x884e2003217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509Attribute: GUID = GUID.from_u128(0x884e2022217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509Attribute: GUID = GUID.from_u128(U128(0x884e2022217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509AttributeArchiveKey: GUID = GUID.from_u128(0x884e2027217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509AttributeArchiveKey: GUID = GUID.from_u128(U128(0x884e2027217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509AttributeArchiveKeyHash: GUID = GUID.from_u128(0x884e2028217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509AttributeArchiveKeyHash: GUID = GUID.from_u128(U128(0x884e2028217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509AttributeClientId: GUID = GUID.from_u128(0x884e2025217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509AttributeClientId: GUID = GUID.from_u128(U128(0x884e2025217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509AttributeCspProvider: GUID = GUID.from_u128(0x884e202b217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509AttributeCspProvider: GUID = GUID.from_u128(U128(0x884e202b217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509AttributeExtensions: GUID = GUID.from_u128(0x884e2024217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509AttributeExtensions: GUID = GUID.from_u128(U128(0x884e2024217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509AttributeOSVersion: GUID = GUID.from_u128(0x884e202a217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509AttributeOSVersion: GUID = GUID.from_u128(U128(0x884e202a217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509AttributeRenewalCertificate: GUID = GUID.from_u128(0x884e2026217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509AttributeRenewalCertificate: GUID = GUID.from_u128(U128(0x884e2026217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509Attributes: GUID = GUID.from_u128(0x884e2023217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509Attributes: GUID = GUID.from_u128(U128(0x884e2023217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509CertificateRequestCertificate: GUID = GUID.from_u128(0x884e2043217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509CertificateRequestCertificate: GUID = GUID.from_u128(U128(0x884e2043217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509CertificateRequestCmc: GUID = GUID.from_u128(0x884e2045217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509CertificateRequestCmc: GUID = GUID.from_u128(U128(0x884e2045217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509CertificateRequestPkcs10: GUID = GUID.from_u128(0x884e2042217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509CertificateRequestPkcs10: GUID = GUID.from_u128(U128(0x884e2042217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509CertificateRequestPkcs7: GUID = GUID.from_u128(0x884e2044217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509CertificateRequestPkcs7: GUID = GUID.from_u128(U128(0x884e2044217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509CertificateRevocationList: GUID = GUID.from_u128(0x884e2060217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509CertificateRevocationList: GUID = GUID.from_u128(U128(0x884e2060217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509CertificateRevocationListEntries: GUID = GUID.from_u128(0x884e205f217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509CertificateRevocationListEntries: GUID = GUID.from_u128(U128(0x884e205f217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509CertificateRevocationListEntry: GUID = GUID.from_u128(0x884e205e217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509CertificateRevocationListEntry: GUID = GUID.from_u128(U128(0x884e205e217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509CertificateTemplateADWritable: GUID = GUID.from_u128(0x8336e3232e6a4a04uL, 0x937c548f681839b3uL)
+public val CX509CertificateTemplateADWritable: GUID = GUID.from_u128(U128(0x8336e3232e6a4a04uL, 0x937c548f681839b3uL))
 
-public val CX509EndorsementKey: GUID = GUID.from_u128(0x11a25a1db9a34edduL, 0xaf833b59adbed361uL)
+public val CX509EndorsementKey: GUID = GUID.from_u128(U128(0x11a25a1db9a34edduL, 0xaf833b59adbed361uL))
 
-public val CX509Enrollment: GUID = GUID.from_u128(0x884e2046217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509Enrollment: GUID = GUID.from_u128(U128(0x884e2046217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509EnrollmentHelper: GUID = GUID.from_u128(0x884e2050217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509EnrollmentHelper: GUID = GUID.from_u128(U128(0x884e2050217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509EnrollmentPolicyActiveDirectory: GUID = GUID.from_u128(0x91f39027217f11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509EnrollmentPolicyActiveDirectory: GUID = GUID.from_u128(U128(0x91f39027217f11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509EnrollmentPolicyWebService: GUID = GUID.from_u128(0x91f39028217f11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509EnrollmentPolicyWebService: GUID = GUID.from_u128(U128(0x91f39028217f11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509EnrollmentWebClassFactory: GUID = GUID.from_u128(0x884e2049217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509EnrollmentWebClassFactory: GUID = GUID.from_u128(U128(0x884e2049217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509Extension: GUID = GUID.from_u128(0x884e200d217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509Extension: GUID = GUID.from_u128(U128(0x884e200d217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509ExtensionAlternativeNames: GUID = GUID.from_u128(0x884e2015217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509ExtensionAlternativeNames: GUID = GUID.from_u128(U128(0x884e2015217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509ExtensionAuthorityKeyIdentifier: GUID = GUID.from_u128(0x884e2018217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509ExtensionAuthorityKeyIdentifier: GUID = GUID.from_u128(U128(0x884e2018217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509ExtensionBasicConstraints: GUID = GUID.from_u128(0x884e2016217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509ExtensionBasicConstraints: GUID = GUID.from_u128(U128(0x884e2016217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509ExtensionCertificatePolicies: GUID = GUID.from_u128(0x884e2020217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509ExtensionCertificatePolicies: GUID = GUID.from_u128(U128(0x884e2020217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509ExtensionEnhancedKeyUsage: GUID = GUID.from_u128(0x884e2010217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509ExtensionEnhancedKeyUsage: GUID = GUID.from_u128(U128(0x884e2010217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509ExtensionKeyUsage: GUID = GUID.from_u128(0x884e200f217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509ExtensionKeyUsage: GUID = GUID.from_u128(U128(0x884e200f217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509ExtensionMSApplicationPolicies: GUID = GUID.from_u128(0x884e2021217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509ExtensionMSApplicationPolicies: GUID = GUID.from_u128(U128(0x884e2021217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509ExtensionSmimeCapabilities: GUID = GUID.from_u128(0x884e201b217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509ExtensionSmimeCapabilities: GUID = GUID.from_u128(U128(0x884e201b217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509ExtensionSubjectKeyIdentifier: GUID = GUID.from_u128(0x884e2017217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509ExtensionSubjectKeyIdentifier: GUID = GUID.from_u128(U128(0x884e2017217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509ExtensionTemplate: GUID = GUID.from_u128(0x884e2012217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509ExtensionTemplate: GUID = GUID.from_u128(U128(0x884e2012217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509ExtensionTemplateName: GUID = GUID.from_u128(0x884e2011217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509ExtensionTemplateName: GUID = GUID.from_u128(U128(0x884e2011217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509Extensions: GUID = GUID.from_u128(0x884e200e217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509Extensions: GUID = GUID.from_u128(U128(0x884e200e217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509MachineEnrollmentFactory: GUID = GUID.from_u128(0x884e2051217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509MachineEnrollmentFactory: GUID = GUID.from_u128(U128(0x884e2051217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509NameValuePair: GUID = GUID.from_u128(0x884e203f217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509NameValuePair: GUID = GUID.from_u128(U128(0x884e203f217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509PolicyServerListManager: GUID = GUID.from_u128(0x91f39029217f11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509PolicyServerListManager: GUID = GUID.from_u128(U128(0x91f39029217f11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509PolicyServerUrl: GUID = GUID.from_u128(0x91f3902a217f11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509PolicyServerUrl: GUID = GUID.from_u128(U128(0x91f3902a217f11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509PrivateKey: GUID = GUID.from_u128(0x884e200c217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509PrivateKey: GUID = GUID.from_u128(U128(0x884e200c217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509PublicKey: GUID = GUID.from_u128(0x884e200b217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509PublicKey: GUID = GUID.from_u128(U128(0x884e200b217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509SCEPEnrollment: GUID = GUID.from_u128(0x884e2061217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509SCEPEnrollment: GUID = GUID.from_u128(U128(0x884e2061217d11dauL, 0xb2a4000e7bbb2b09uL))
 
-public val CX509SCEPEnrollmentHelper: GUID = GUID.from_u128(0x884e2062217d11dauL, 0xb2a4000e7bbb2b09uL)
+public val CX509SCEPEnrollmentHelper: GUID = GUID.from_u128(U128(0x884e2062217d11dauL, 0xb2a4000e7bbb2b09uL))
 
 public val ClientIdAutoEnroll: RequestClientInfoClientId = 6
 
@@ -1294,9 +1295,9 @@ public val LoadOptionRegisterForADChanges: X509EnrollmentPolicyLoadOption = 4
 
 public val LoadOptionReload: X509EnrollmentPolicyLoadOption = 2
 
-public val OCSPAdmin: GUID = GUID.from_u128(0xd3f7351192c947cbuL, 0x8ff28d891a7c4de4uL)
+public val OCSPAdmin: GUID = GUID.from_u128(U128(0xd3f7351192c947cbuL, 0x8ff28d891a7c4de4uL))
 
-public val OCSPPropertyCollection: GUID = GUID.from_u128(0xf935a528ba8a4dd9uL, 0xba79f283275cb2deuL)
+public val OCSPPropertyCollection: GUID = GUID.from_u128(U128(0xf935a528ba8a4dd9uL, 0xba79f283275cb2deuL))
 
 public val OCSP_RF_REJECT_SIGNED_REQUESTS: OCSPRequestFlag = 1
 

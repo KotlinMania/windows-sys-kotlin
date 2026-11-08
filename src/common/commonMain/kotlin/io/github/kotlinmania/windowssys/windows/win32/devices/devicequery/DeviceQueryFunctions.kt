@@ -3,6 +3,7 @@ package io.github.kotlinmania.windowssys.windows.win32.devices.devicequery
 import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.devices.properties.DEVPROPSTORE
 
 public fun interface FnCallback {
     public operator fun invoke(hdevquery: HDEVQUERY, pcontext: Long, pactiondata: Long)
@@ -36,8 +37,8 @@ public fun DevCreateObjectQueryFromIdsEx(objecttype: DEV_OBJECT_TYPE, pszzobject
     return Win32DynamicFfi.invoke("api-ms-win-devices-query-l1-1-1.dll", "DevCreateObjectQueryFromIdsEx", longArrayOf(objecttype.toLong(), pszzobjectids, queryflags.toLong(), crequestedproperties.toLong(), prequestedproperties, cfilterexpressioncount.toLong(), pfilter, cextendedparametercount.toLong(), pextendedparameters, Win32DynamicFfi.objectSlot(pcallback), pcontext, phdevquery)).toInt()
 }
 
-public fun DevFindProperty(pkey: Long, store: Properties.DEVPROPSTORE, pszlocalename: PCWSTR, cproperties: UInt, pproperties: Long): Long {
-    return Win32DynamicFfi.invoke("api-ms-win-devices-query-l1-1-0.dll", "DevFindProperty", longArrayOf(pkey, Win32DynamicFfi.objectSlot(store), pszlocalename, cproperties.toLong(), pproperties))
+public fun DevFindProperty(pkey: Long, store: DEVPROPSTORE, pszlocalename: PCWSTR, cproperties: UInt, pproperties: Long): Long {
+    return Win32DynamicFfi.invoke("api-ms-win-devices-query-l1-1-0.dll", "DevFindProperty", longArrayOf(pkey, store.toLong(), pszlocalename, cproperties.toLong(), pproperties))
 }
 
 public fun DevFreeObjectProperties(cpropertycount: UInt, pproperties: Long) {

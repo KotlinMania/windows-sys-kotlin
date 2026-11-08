@@ -1,9 +1,12 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp
 
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
+
 public data class HEAPENTRY32(
     public var dwSize: ULong = 0uL,
-    public var hHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hHandle: HANDLE = 0L,
     public var dwAddress: ULong = 0uL,
     public var dwBlockSize: ULong = 0uL,
     public var dwFlags: HEAPENTRY32_FLAGS = 0u,
@@ -28,7 +31,7 @@ public data class MODULEENTRY32(
     public var ProccntUsage: UInt = 0u,
     public var modBaseAddr: Long = 0L,
     public var modBaseSize: UInt = 0u,
-    public var hModule: Foundation.HMODULE = Foundation.HMODULE(),
+    public var hModule: HMODULE = 0L,
     public var szModule: ByteArray = ByteArray(256),
     public var szExePath: ByteArray = ByteArray(260),
 ) {
@@ -71,7 +74,7 @@ public data class MODULEENTRY32W(
     public var ProccntUsage: UInt = 0u,
     public var modBaseAddr: Long = 0L,
     public var modBaseSize: UInt = 0u,
-    public var hModule: Foundation.HMODULE = Foundation.HMODULE(),
+    public var hModule: HMODULE = 0L,
     public var szModule: UShortArray = UShortArray(256),
     public var szExePath: UShortArray = UShortArray(260),
 ) {

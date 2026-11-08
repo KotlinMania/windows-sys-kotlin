@@ -1,5 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.systemservices
 
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+
 public typealias ACCESS_REASON_TYPE = Int
 
 public typealias ACTIVATION_CONTEXT_INFO_CLASS = Int
@@ -53,7 +55,7 @@ public fun interface PIMAGE_TLS_CALLBACKFn {
 public typealias PIMAGE_TLS_CALLBACK = PIMAGE_TLS_CALLBACKFn?
 
 public fun interface POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACKFn {
-    public operator fun invoke(process: Foundation.HANDLE, tableaddress: Long, entries: Long, functions: Long): UInt
+    public operator fun invoke(process: HANDLE, tableaddress: Long, entries: Long, functions: Long): UInt
 }
 
 public typealias POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACKFn?

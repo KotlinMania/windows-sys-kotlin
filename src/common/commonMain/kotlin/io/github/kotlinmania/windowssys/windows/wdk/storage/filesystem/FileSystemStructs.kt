@@ -2,6 +2,31 @@
 package io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem
 
 import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.IO_PRIORITY_HINT
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.KEVENT
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PESILO
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PFREE_FUNCTION
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.RTL_SPLAY_LINKS
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.windows.win32.foundation.UNICODE_STRING
+import io.github.kotlinmania.windowssys.windows.win32.security.PSID
+import io.github.kotlinmania.windowssys.windows.win32.security.SECURITY_QUALITY_OF_SERVICE
+import io.github.kotlinmania.windowssys.windows.win32.security.SID
+import io.github.kotlinmania.windowssys.windows.win32.security.TOKEN_CONTROL
+import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.MSV1_0_PROTOCOL_MESSAGE_TYPE
+import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.SECURITY_LOGON_TYPE
+import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.SEC_APPLICATION_PROTOCOL_LIST
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_ID_128
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_SEGMENT_ELEMENT
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.REPARSE_GUID_DATA_BUFFER
+import io.github.kotlinmania.windowssys.windows.win32.system.ioctl.FS_BPIO_INFLAGS
+import io.github.kotlinmania.windowssys.windows.win32.system.ioctl.FS_BPIO_OPERATIONS
+import io.github.kotlinmania.windowssys.windows.win32.system.ioctl.QUERY_BAD_RANGES_INPUT_RANGE
+import io.github.kotlinmania.windowssys.windows.win32.system.ioctl.STORAGE_RESERVE_ID
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.LIST_ENTRY
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.STRING
 
 public data class ACE_HEADER(
     public var AceType: UByte = 0u,
@@ -63,7 +88,7 @@ public data class CACHE_MANAGER_CALLBACK_FUNCTIONS(
     public var ReleaseFromReadAhead: PRELEASE_FROM_READ_AHEAD = null,
 )
 
-public data class CACHE_UNINITIALIZE_EVENT(public var Next: Long = 0L, public var Event: Foundation.KEVENT = Foundation.KEVENT())
+public data class CACHE_UNINITIALIZE_EVENT(public var Next: Long = 0L, public var Event: KEVENT = KEVENT())
 
 public data class CC_ASYNC_READ_CONTEXT(
     public var CompletionRoutine: PASYNC_READ_COMPLETION_CALLBACK = null,
@@ -73,7 +98,7 @@ public data class CC_ASYNC_READ_CONTEXT(
     public var NestingLevel: UInt = 0u,
 )
 
-public data class CC_ERROR_CALLBACK_CONTEXT(public var NodeByteSize: Short = 0, public var ErrorCode: Win32.Foundation.NTSTATUS = Win32.Foundation.NTSTATUS())
+public data class CC_ERROR_CALLBACK_CONTEXT(public var NodeByteSize: Short = 0, public var ErrorCode: NTSTATUS = 0)
 
 public data class CC_FILE_SIZES(
     public var AllocationSize: Long = 0L,
@@ -189,7 +214,7 @@ public data class CPTABLEINFO(
 public data class CREATE_REDIRECTION_ECP_CONTEXT(
     public var Size: UShort = 0u,
     public var Flags: UShort = 0u,
-    public var FileId: Win32.Storage.FileSystem.FILE_ID_128 = Win32.Storage.FileSystem.FILE_ID_128(),
+    public var FileId: FILE_ID_128 = FILE_ID_128(),
     public var VolumeGuid: GUID = GUID(),
 )
 
@@ -219,7 +244,7 @@ public data class CSV_QUERY_FILE_REVISION_ECP_CONTEXT(public var FileId: Long = 
     }
 }
 
-public data class CSV_QUERY_FILE_REVISION_ECP_CONTEXT_FILE_ID_128(public var FileId: Win32.Storage.FileSystem.FILE_ID_128 = Win32.Storage.FileSystem.FILE_ID_128(), public var FileRevision: LongArray = LongArray(3)) {
+public data class CSV_QUERY_FILE_REVISION_ECP_CONTEXT_FILE_ID_128(public var FileId: FILE_ID_128 = FILE_ID_128(), public var FileRevision: LongArray = LongArray(3)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is CSV_QUERY_FILE_REVISION_ECP_CONTEXT_FILE_ID_128) return false
@@ -261,7 +286,7 @@ public data class ECP_OPEN_PARAMETERS(
     public var Flags: UInt = 0u,
 )
 
-public data class EOF_WAIT_BLOCK(public var EofWaitLinks: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(), public var Event: Foundation.KEVENT = Foundation.KEVENT())
+public data class EOF_WAIT_BLOCK(public var EofWaitLinks: LIST_ENTRY = LIST_ENTRY(), public var Event: KEVENT = KEVENT())
 
 public data class EXTENT_READ_CACHE_INFO_BUFFER(
     public var AllocatedCache: Long = 0L,
@@ -352,7 +377,7 @@ public data class FILE_BOTH_DIR_INFORMATION(
 
 public data class FILE_CASE_SENSITIVE_INFORMATION(public var Flags: UInt = 0u)
 
-public data class FILE_COMPLETION_INFORMATION(public var Port: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(), public var Key: Long = 0L)
+public data class FILE_COMPLETION_INFORMATION(public var Port: HANDLE = 0L, public var Key: Long = 0L)
 
 public data class FILE_COMPRESSION_INFORMATION(
     public var CompressedFileSize: Long = 0L,
@@ -616,7 +641,7 @@ public data class FILE_GET_EA_INFORMATION(
 public data class FILE_GET_QUOTA_INFORMATION(
     public var NextEntryOffset: UInt = 0u,
     public var SidLength: UInt = 0u,
-    public var Sid: Win32.Security.SID = Win32.Security.SID(),
+    public var Sid: SID = SID(),
 )
 
 public data class FILE_ID_BOTH_DIR_INFORMATION(
@@ -690,7 +715,7 @@ public data class FILE_ID_EXTD_BOTH_DIR_INFORMATION(
     public var FileNameLength: UInt = 0u,
     public var EaSize: UInt = 0u,
     public var ReparsePointTag: UInt = 0u,
-    public var FileId: Win32.Storage.FileSystem.FILE_ID_128 = Win32.Storage.FileSystem.FILE_ID_128(),
+    public var FileId: FILE_ID_128 = FILE_ID_128(),
     public var ShortNameLength: Byte = 0,
     public var ShortName: UShortArray = UShortArray(12),
     public var FileName: UShortArray = UShortArray(1),
@@ -751,7 +776,7 @@ public data class FILE_ID_EXTD_DIR_INFORMATION(
     public var FileNameLength: UInt = 0u,
     public var EaSize: UInt = 0u,
     public var ReparsePointTag: UInt = 0u,
-    public var FileId: Win32.Storage.FileSystem.FILE_ID_128 = Win32.Storage.FileSystem.FILE_ID_128(),
+    public var FileId: FILE_ID_128 = FILE_ID_128(),
     public var FileName: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
@@ -900,7 +925,7 @@ public data class FILE_ID_GLOBAL_TX_DIR_INFORMATION(
     }
 }
 
-public data class FILE_ID_INFORMATION(public var VolumeSerialNumber: ULong = 0uL, public var FileId: Win32.Storage.FileSystem.FILE_ID_128 = Win32.Storage.FileSystem.FILE_ID_128())
+public data class FILE_ID_INFORMATION(public var VolumeSerialNumber: ULong = 0uL, public var FileId: FILE_ID_128 = FILE_ID_128())
 
 public data class FILE_INFORMATION_DEFINITION(
     public var Class: FILE_INFORMATION_CLASS = 0,
@@ -927,7 +952,7 @@ public data class FILE_LINKS_INFORMATION(
 
 public data class FILE_LINK_ENTRY_FULL_ID_INFORMATION(
     public var NextEntryOffset: UInt = 0u,
-    public var ParentFileId: Win32.Storage.FileSystem.FILE_ID_128 = Win32.Storage.FileSystem.FILE_ID_128(),
+    public var ParentFileId: FILE_ID_128 = FILE_ID_128(),
     public var FileNameLength: UInt = 0u,
     public var FileName: UShortArray = UShortArray(1),
 ) {
@@ -977,7 +1002,7 @@ public data class FILE_LINK_ENTRY_INFORMATION(
 
 public data class FILE_LINK_INFORMATION(
     public var Anonymous: FILE_LINK_INFORMATION_0 = FILE_LINK_INFORMATION_0(),
-    public var RootDirectory: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var RootDirectory: HANDLE = 0L,
     public var FileNameLength: UInt = 0u,
     public var FileName: UShortArray = UShortArray(1),
 ) {
@@ -1063,7 +1088,7 @@ public data class FILE_MODE_INFORMATION(public var Mode: UInt = 0u)
 
 public data class FILE_MOVE_CLUSTER_INFORMATION(
     public var ClusterCount: UInt = 0u,
-    public var RootDirectory: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var RootDirectory: HANDLE = 0L,
     public var FileNameLength: UInt = 0u,
     public var FileName: UShortArray = UShortArray(1),
 ) {
@@ -1213,7 +1238,7 @@ public data class FILE_OBJECTID_INFORMATION_0_0(
     }
 }
 
-public data class FILE_PIPE_ASSIGN_EVENT_BUFFER(public var EventHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(), public var KeyValue: UInt = 0u)
+public data class FILE_PIPE_ASSIGN_EVENT_BUFFER(public var EventHandle: HANDLE = 0L, public var KeyValue: UInt = 0u)
 
 public data class FILE_PIPE_CLIENT_PROCESS_BUFFER(public var ClientSession: Long = 0L, public var ClientProcess: Long = 0L)
 
@@ -1307,7 +1332,7 @@ public data class FILE_PIPE_PEEK_BUFFER(
 
 public data class FILE_PIPE_REMOTE_INFORMATION(public var CollectDataTime: Long = 0L, public var MaximumCollectionCount: UInt = 0u)
 
-public data class FILE_PIPE_SILO_ARRIVAL_INPUT(public var JobHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE())
+public data class FILE_PIPE_SILO_ARRIVAL_INPUT(public var JobHandle: HANDLE = 0L)
 
 public data class FILE_PIPE_WAIT_FOR_BUFFER(
     public var Timeout: Long = 0L,
@@ -1343,7 +1368,7 @@ public data class FILE_QUOTA_INFORMATION(
     public var QuotaUsed: Long = 0L,
     public var QuotaThreshold: Long = 0L,
     public var QuotaLimit: Long = 0L,
-    public var Sid: Win32.Security.SID = Win32.Security.SID(),
+    public var Sid: SID = SID(),
 )
 
 public data class FILE_REMOTE_PROTOCOL_INFORMATION(
@@ -1422,7 +1447,7 @@ public data class FILE_REMOTE_PROTOCOL_INFORMATION_1_0_1(
 
 public data class FILE_RENAME_INFORMATION(
     public var Anonymous: FILE_RENAME_INFORMATION_0 = FILE_RENAME_INFORMATION_0(),
-    public var RootDirectory: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var RootDirectory: HANDLE = 0L,
     public var FileNameLength: UInt = 0u,
     public var FileName: UShortArray = UShortArray(1),
 ) {
@@ -1498,7 +1523,7 @@ public class FILE_STAT_LX_INFORMATION(
     public var LxDeviceIdMinor: UInt = 0u,
 )
 
-public data class FILE_STORAGE_RESERVE_ID_INFORMATION(public var StorageReserveId: Win32.System.Ioctl.STORAGE_RESERVE_ID = Win32.System.Ioctl.STORAGE_RESERVE_ID())
+public data class FILE_STORAGE_RESERVE_ID_INFORMATION(public var StorageReserveId: STORAGE_RESERVE_ID = 0)
 
 public data class FILE_STREAM_INFORMATION(
     public var NextEntryOffset: UInt = 0u,
@@ -1536,7 +1561,7 @@ public data class FILE_TIMESTAMPS(
 )
 
 public data class FILE_TRACKING_INFORMATION(
-    public var DestinationFile: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var DestinationFile: HANDLE = 0L,
     public var ObjectInformationLength: UInt = 0u,
     public var ObjectInformation: ByteArray = ByteArray(1),
 ) {
@@ -1634,7 +1659,7 @@ public data class FSCTL_UNMAP_SPACE_OUTPUT(public var BytesUnmapped: Long = 0L)
 public data class FSRTL_ADVANCED_FCB_HEADER(
     public var Base: FSRTL_COMMON_FCB_HEADER = FSRTL_COMMON_FCB_HEADER(),
     public var FastMutex: Long = 0L,
-    public var FilterContexts: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(),
+    public var FilterContexts: LIST_ENTRY = LIST_ENTRY(),
     public var PushLock: ULong = 0uL,
     public var FileContextSupportPointer: Long = 0L,
     public var Anonymous: FSRTL_ADVANCED_FCB_HEADER_0 = FSRTL_ADVANCED_FCB_HEADER_0(),
@@ -1667,26 +1692,26 @@ public data class FSRTL_COMMON_FCB_HEADER(
 
 public data class FSRTL_MUP_PROVIDER_INFO_LEVEL_1(public var ProviderId: UInt = 0u)
 
-public data class FSRTL_MUP_PROVIDER_INFO_LEVEL_2(public var ProviderId: UInt = 0u, public var ProviderName: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING())
+public data class FSRTL_MUP_PROVIDER_INFO_LEVEL_2(public var ProviderId: UInt = 0u, public var ProviderName: UNICODE_STRING = UNICODE_STRING())
 
 public data class FSRTL_PER_FILEOBJECT_CONTEXT(
-    public var Links: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(),
+    public var Links: LIST_ENTRY = LIST_ENTRY(),
     public var OwnerId: Long = 0L,
     public var InstanceId: Long = 0L,
 )
 
 public data class FSRTL_PER_FILE_CONTEXT(
-    public var Links: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(),
+    public var Links: LIST_ENTRY = LIST_ENTRY(),
     public var OwnerId: Long = 0L,
     public var InstanceId: Long = 0L,
-    public var FreeCallback: Foundation.PFREE_FUNCTION = Foundation.PFREE_FUNCTION(),
+    public var FreeCallback: PFREE_FUNCTION = null,
 )
 
 public data class FSRTL_PER_STREAM_CONTEXT(
-    public var Links: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(),
+    public var Links: LIST_ENTRY = LIST_ENTRY(),
     public var OwnerId: Long = 0L,
     public var InstanceId: Long = 0L,
-    public var FreeCallback: Foundation.PFREE_FUNCTION = Foundation.PFREE_FUNCTION(),
+    public var FreeCallback: PFREE_FUNCTION = null,
 )
 
 public data class FSRTL_UNC_PROVIDER_REGISTRATION(
@@ -1727,8 +1752,8 @@ public data class FS_BPIO_INFO(
 }
 
 public data class FS_BPIO_INPUT(
-    public var Operation: Win32.System.Ioctl.FS_BPIO_OPERATIONS = Win32.System.Ioctl.FS_BPIO_OPERATIONS(),
-    public var InFlags: Win32.System.Ioctl.FS_BPIO_INFLAGS = Win32.System.Ioctl.FS_BPIO_INFLAGS(),
+    public var Operation: FS_BPIO_OPERATIONS = 0,
+    public var InFlags: FS_BPIO_INFLAGS = 0,
     public var Reserved1: ULong = 0uL,
     public var Reserved2: ULong = 0uL,
 )
@@ -1792,7 +1817,7 @@ public data class FS_FILTER_PARAMETERS_3(
     public var FileInformation: Long = 0L,
     public var Length: Long = 0L,
     public var FileInformationClass: FILE_INFORMATION_CLASS = 0,
-    public var CompletionStatus: Win32.Foundation.NTSTATUS = Win32.Foundation.NTSTATUS(),
+    public var CompletionStatus: NTSTATUS = 0,
 )
 
 public data class FS_FILTER_PARAMETERS_1(public var ResourceToRelease: Long = 0L)
@@ -1875,13 +1900,13 @@ public data class IO_CREATE_STREAM_FILE_OPTIONS(
     public var TargetDeviceObject: Long = 0L,
 )
 
-public data class IO_DEVICE_HINT_ECP_CONTEXT(public var TargetDevice: Long = 0L, public var RemainingName: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING())
+public data class IO_DEVICE_HINT_ECP_CONTEXT(public var TargetDevice: Long = 0L, public var RemainingName: UNICODE_STRING = UNICODE_STRING())
 
 public data class IO_PRIORITY_INFO(
     public var Size: UInt = 0u,
     public var ThreadPriority: UInt = 0u,
     public var PagePriority: UInt = 0u,
-    public var IoPriority: Foundation.IO_PRIORITY_HINT = Foundation.IO_PRIORITY_HINT(),
+    public var IoPriority: IO_PRIORITY_HINT = 0,
 )
 
 public data class IO_STOP_ON_SYMLINK_FILTER_ECP_v0(public var Out: IO_STOP_ON_SYMLINK_FILTER_ECP_v0_0 = IO_STOP_ON_SYMLINK_FILTER_ECP_v0_0())
@@ -1889,7 +1914,7 @@ public data class IO_STOP_ON_SYMLINK_FILTER_ECP_v0(public var Out: IO_STOP_ON_SY
 public data class IO_STOP_ON_SYMLINK_FILTER_ECP_v0_0(public var ReparseCount: UInt = 0u, public var RemainingPathLength: UInt = 0u)
 
 public data class KAPC_STATE(
-    public var ApcListHead: List<Win32.System.Kernel.LIST_ENTRY> = List(2) { Win32.System.Kernel.LIST_ENTRY() },
+    public var ApcListHead: List<LIST_ENTRY> = List(2) { LIST_ENTRY() },
     public var Process: Long = 0L,
     public var Anonymous1: KAPC_STATE_0 = KAPC_STATE_0(),
     public var KernelApcPending: Boolean = false,
@@ -1952,24 +1977,24 @@ public data class MM_PREFETCH_FLAGS(public var Flags: MM_PREFETCH_FLAGS_0 = MM_P
 
 public data class MM_PREFETCH_FLAGS_0(public var _bitfield: UInt = 0u)
 
-public data class MSV1_0_ENUMUSERS_REQUEST(public var MessageType: Win32.Security.Authentication.Identity.MSV1_0_PROTOCOL_MESSAGE_TYPE = Win32.Security.Authentication.Identity.MSV1_0_PROTOCOL_MESSAGE_TYPE())
+public data class MSV1_0_ENUMUSERS_REQUEST(public var MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE = 0)
 
 public data class MSV1_0_ENUMUSERS_RESPONSE(
-    public var MessageType: Win32.Security.Authentication.Identity.MSV1_0_PROTOCOL_MESSAGE_TYPE = Win32.Security.Authentication.Identity.MSV1_0_PROTOCOL_MESSAGE_TYPE(),
+    public var MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE = 0,
     public var NumberOfLoggedOnUsers: UInt = 0u,
     public var LogonIds: Long = 0L,
     public var EnumHandles: Long = 0L,
 )
 
 public data class MSV1_0_GETCHALLENRESP_REQUEST(
-    public var MessageType: Win32.Security.Authentication.Identity.MSV1_0_PROTOCOL_MESSAGE_TYPE = Win32.Security.Authentication.Identity.MSV1_0_PROTOCOL_MESSAGE_TYPE(),
+    public var MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE = 0,
     public var ParameterControl: UInt = 0u,
-    public var LogonId: Win32.Foundation.LUID = Win32.Foundation.LUID(),
-    public var Password: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
+    public var LogonId: LUID = LUID(),
+    public var Password: UNICODE_STRING = UNICODE_STRING(),
     public var ChallengeToClient: UByteArray = UByteArray(8),
-    public var UserName: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
-    public var LogonDomainName: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
-    public var ServerName: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
+    public var UserName: UNICODE_STRING = UNICODE_STRING(),
+    public var LogonDomainName: UNICODE_STRING = UNICODE_STRING(),
+    public var ServerName: UNICODE_STRING = UNICODE_STRING(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1999,10 +2024,10 @@ public data class MSV1_0_GETCHALLENRESP_REQUEST(
 }
 
 public data class MSV1_0_GETCHALLENRESP_REQUEST_V1(
-    public var MessageType: Win32.Security.Authentication.Identity.MSV1_0_PROTOCOL_MESSAGE_TYPE = Win32.Security.Authentication.Identity.MSV1_0_PROTOCOL_MESSAGE_TYPE(),
+    public var MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE = 0,
     public var ParameterControl: UInt = 0u,
-    public var LogonId: Win32.Foundation.LUID = Win32.Foundation.LUID(),
-    public var Password: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
+    public var LogonId: LUID = LUID(),
+    public var Password: UNICODE_STRING = UNICODE_STRING(),
     public var ChallengeToClient: UByteArray = UByteArray(8),
 ) {
     override fun equals(other: Any?): Boolean {
@@ -2027,11 +2052,11 @@ public data class MSV1_0_GETCHALLENRESP_REQUEST_V1(
 }
 
 public data class MSV1_0_GETCHALLENRESP_RESPONSE(
-    public var MessageType: Win32.Security.Authentication.Identity.MSV1_0_PROTOCOL_MESSAGE_TYPE = Win32.Security.Authentication.Identity.MSV1_0_PROTOCOL_MESSAGE_TYPE(),
-    public var CaseSensitiveChallengeResponse: Win32.System.Kernel.STRING = Win32.System.Kernel.STRING(),
-    public var CaseInsensitiveChallengeResponse: Win32.System.Kernel.STRING = Win32.System.Kernel.STRING(),
-    public var UserName: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
-    public var LogonDomainName: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
+    public var MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE = 0,
+    public var CaseSensitiveChallengeResponse: STRING = STRING(),
+    public var CaseInsensitiveChallengeResponse: STRING = STRING(),
+    public var UserName: UNICODE_STRING = UNICODE_STRING(),
+    public var LogonDomainName: UNICODE_STRING = UNICODE_STRING(),
     public var UserSessionKey: UByteArray = UByteArray(16),
     public var LanmanSessionKey: UByteArray = UByteArray(8),
 ) {
@@ -2060,20 +2085,20 @@ public data class MSV1_0_GETCHALLENRESP_RESPONSE(
     }
 }
 
-public data class MSV1_0_GETUSERINFO_REQUEST(public var MessageType: Win32.Security.Authentication.Identity.MSV1_0_PROTOCOL_MESSAGE_TYPE = Win32.Security.Authentication.Identity.MSV1_0_PROTOCOL_MESSAGE_TYPE(), public var LogonId: Win32.Foundation.LUID = Win32.Foundation.LUID())
+public data class MSV1_0_GETUSERINFO_REQUEST(public var MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE = 0, public var LogonId: LUID = LUID())
 
 public data class MSV1_0_GETUSERINFO_RESPONSE(
-    public var MessageType: Win32.Security.Authentication.Identity.MSV1_0_PROTOCOL_MESSAGE_TYPE = Win32.Security.Authentication.Identity.MSV1_0_PROTOCOL_MESSAGE_TYPE(),
-    public var UserSid: Win32.Security.PSID = Win32.Security.PSID(),
-    public var UserName: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
-    public var LogonDomainName: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
-    public var LogonServer: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
-    public var LogonType: Win32.Security.Authentication.Identity.SECURITY_LOGON_TYPE = Win32.Security.Authentication.Identity.SECURITY_LOGON_TYPE(),
+    public var MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE = 0,
+    public var UserSid: PSID = 0L,
+    public var UserName: UNICODE_STRING = UNICODE_STRING(),
+    public var LogonDomainName: UNICODE_STRING = UNICODE_STRING(),
+    public var LogonServer: UNICODE_STRING = UNICODE_STRING(),
+    public var LogonType: SECURITY_LOGON_TYPE = SECURITY_LOGON_TYPE(),
 )
 
-public data class MSV1_0_LM20_CHALLENGE_REQUEST(public var MessageType: Win32.Security.Authentication.Identity.MSV1_0_PROTOCOL_MESSAGE_TYPE = Win32.Security.Authentication.Identity.MSV1_0_PROTOCOL_MESSAGE_TYPE())
+public data class MSV1_0_LM20_CHALLENGE_REQUEST(public var MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE = 0)
 
-public data class MSV1_0_LM20_CHALLENGE_RESPONSE(public var MessageType: Win32.Security.Authentication.Identity.MSV1_0_PROTOCOL_MESSAGE_TYPE = Win32.Security.Authentication.Identity.MSV1_0_PROTOCOL_MESSAGE_TYPE(), public var ChallengeToClient: UByteArray = UByteArray(8)) {
+public data class MSV1_0_LM20_CHALLENGE_RESPONSE(public var MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE = 0, public var ChallengeToClient: UByteArray = UByteArray(8)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is MSV1_0_LM20_CHALLENGE_RESPONSE) return false
@@ -2143,10 +2168,10 @@ public data class NLSTABLEINFO(
     public var LowerCaseTable: Long = 0L,
 )
 
-public data class OPEN_REPARSE_LIST(public var OpenReparseList: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY())
+public data class OPEN_REPARSE_LIST(public var OpenReparseList: LIST_ENTRY = LIST_ENTRY())
 
 public data class OPEN_REPARSE_LIST_ENTRY(
-    public var OpenReparseListEntry: Win32.System.Kernel.LIST_ENTRY = Win32.System.Kernel.LIST_ENTRY(),
+    public var OpenReparseListEntry: LIST_ENTRY = LIST_ENTRY(),
     public var ReparseTag: UInt = 0u,
     public var Flags: UInt = 0u,
     public var ReparseGuid: GUID = GUID(),
@@ -2168,7 +2193,7 @@ public data class OPLOCK_NOTIFY_PARAMS(
     public var NotifyReason: OPLOCK_NOTIFY_REASON = 0,
     public var NotifyContext: Long = 0L,
     public var Irp: Long = 0L,
-    public var Status: Win32.Foundation.NTSTATUS = Win32.Foundation.NTSTATUS(),
+    public var Status: NTSTATUS = 0,
 )
 
 public data class PHYSICAL_EXTENTS_DESCRIPTOR(
@@ -2197,7 +2222,7 @@ public data class PREFIX_TABLE_ENTRY(
     public var NodeTypeCode: Short = 0,
     public var NameLength: Short = 0,
     public var NextPrefixTree: Long = 0L,
-    public var Links: Foundation.RTL_SPLAY_LINKS = Foundation.RTL_SPLAY_LINKS(),
+    public var Links: RTL_SPLAY_LINKS = RTL_SPLAY_LINKS(),
     public var Prefix: Long = 0L,
 )
 
@@ -2211,7 +2236,7 @@ public data class PUBLIC_BCB(
 public data class QUERY_BAD_RANGES_INPUT(
     public var Flags: UInt = 0u,
     public var NumRanges: UInt = 0u,
-    public var Ranges: List<Win32.System.Ioctl.QUERY_BAD_RANGES_INPUT_RANGE> = List(1) { Win32.System.Ioctl.QUERY_BAD_RANGES_INPUT_RANGE() },
+    public var Ranges: List<QUERY_BAD_RANGES_INPUT_RANGE> = List(1) { QUERY_BAD_RANGES_INPUT_RANGE() },
 )
 
 public data class QUERY_DIRECT_ACCESS_EXTENTS(
@@ -2282,10 +2307,10 @@ public data class QUERY_PATH_REQUEST_EX(
     public var pSecurityContext: Long = 0L,
     public var EaLength: UInt = 0u,
     public var pEaBuffer: Long = 0L,
-    public var PathName: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
-    public var DomainServiceName: Win32.Foundation.UNICODE_STRING = Win32.Foundation.UNICODE_STRING(),
+    public var PathName: UNICODE_STRING = UNICODE_STRING(),
+    public var DomainServiceName: UNICODE_STRING = UNICODE_STRING(),
     public var EcpList: Long = 0L,
-    public var Silo: Foundation.PESILO = Foundation.PESILO(),
+    public var Silo: PESILO = 0L,
     public var Reserved: ULong = 0uL,
 )
 
@@ -2302,7 +2327,7 @@ public data class READ_LIST(
     public var FileObject: Long = 0L,
     public var NumberOfEntries: UInt = 0u,
     public var IsImage: UInt = 0u,
-    public var List: List<Win32.Storage.FileSystem.FILE_SEGMENT_ELEMENT> = List(1) { Win32.Storage.FileSystem.FILE_SEGMENT_ELEMENT() },
+    public var List: List<FILE_SEGMENT_ELEMENT> = List(1) { FILE_SEGMENT_ELEMENT() },
 )
 
 public data class READ_USN_JOURNAL_DATA(
@@ -2748,7 +2773,7 @@ public data class REPARSE_DATA_BUFFER_EX(
     public var Anonymous: REPARSE_DATA_BUFFER_EX_0 = REPARSE_DATA_BUFFER_EX_0(),
 )
 
-public data class REPARSE_DATA_BUFFER_EX_0(public var ReparseDataBuffer: REPARSE_DATA_BUFFER = REPARSE_DATA_BUFFER(), public var ReparseGuidDataBuffer: Win32.Storage.FileSystem.REPARSE_GUID_DATA_BUFFER = Win32.Storage.FileSystem.REPARSE_GUID_DATA_BUFFER())
+public data class REPARSE_DATA_BUFFER_EX_0(public var ReparseDataBuffer: REPARSE_DATA_BUFFER = REPARSE_DATA_BUFFER(), public var ReparseGuidDataBuffer: REPARSE_GUID_DATA_BUFFER = REPARSE_GUID_DATA_BUFFER())
 
 public data class REPARSE_INDEX_KEY(public var FileReparseTag: UInt = 0u, public var FileId: Long = 0L)
 
@@ -2861,7 +2886,7 @@ public data class RTL_SEGMENT_HEAP_MEMORY_SOURCE(
     }
 }
 
-public data class RTL_SEGMENT_HEAP_MEMORY_SOURCE_0(public var PartitionHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(), public var Callbacks: Long = 0L)
+public data class RTL_SEGMENT_HEAP_MEMORY_SOURCE_0(public var PartitionHandle: HANDLE = 0L, public var Callbacks: Long = 0L)
 
 public data class RTL_SEGMENT_HEAP_PARAMETERS(
     public var Version: UShort = 0u,
@@ -2892,21 +2917,21 @@ public data class RTL_SEGMENT_HEAP_PARAMETERS(
 }
 
 public data class RTL_SEGMENT_HEAP_VA_CALLBACKS(
-    public var CallbackContext: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var CallbackContext: HANDLE = 0L,
     public var AllocateVirtualMemory: PALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK = null,
     public var FreeVirtualMemory: PFREE_VIRTUAL_MEMORY_EX_CALLBACK = null,
     public var QueryVirtualMemory: PQUERY_VIRTUAL_MEMORY_CALLBACK = null,
 )
 
 public data class SECURITY_CLIENT_CONTEXT(
-    public var SecurityQos: Win32.Security.SECURITY_QUALITY_OF_SERVICE = Win32.Security.SECURITY_QUALITY_OF_SERVICE(),
+    public var SecurityQos: SECURITY_QUALITY_OF_SERVICE = SECURITY_QUALITY_OF_SERVICE(),
     public var ClientToken: Long = 0L,
     public var DirectlyAccessClientToken: Boolean = false,
     public var DirectAccessEffectiveOnly: Boolean = false,
     public var ServerIsRemote: Boolean = false,
-    public var ClientTokenControl: Win32.Security.TOKEN_CONTROL = Win32.Security.TOKEN_CONTROL(),
+    public var ClientTokenControl: TOKEN_CONTROL = TOKEN_CONTROL(),
 )
 
-public data class SEC_APPLICATION_PROTOCOLS(public var ProtocolListsSize: UInt = 0u, public var ProtocolLists: List<Win32.Security.Authentication.Identity.SEC_APPLICATION_PROTOCOL_LIST> = List(1) { Win32.Security.Authentication.Identity.SEC_APPLICATION_PROTOCOL_LIST() })
+public data class SEC_APPLICATION_PROTOCOLS(public var ProtocolListsSize: UInt = 0u, public var ProtocolLists: List<SEC_APPLICATION_PROTOCOL_LIST> = List(1) { SEC_APPLICATION_PROTOCOL_LIST() })
 
 public data class SEC_DTLS_MTU(public var PathMTU: UShort = 0u)

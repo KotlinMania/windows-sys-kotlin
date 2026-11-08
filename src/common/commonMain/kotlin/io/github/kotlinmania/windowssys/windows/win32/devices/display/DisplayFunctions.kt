@@ -6,10 +6,15 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.SIZE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBITMAP
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HMONITOR
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HPALETTE
 
-public fun BRUSHOBJ_hGetColorTransform(pbo: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("gdi32.dll", "BRUSHOBJ_hGetColorTransform", longArrayOf(pbo))
-    return Foundation.HANDLE()
+public fun BRUSHOBJ_hGetColorTransform(pbo: Long): HANDLE {
+    return Win32DynamicFfi.invoke("gdi32.dll", "BRUSHOBJ_hGetColorTransform", longArrayOf(pbo))
 }
 
 public fun BRUSHOBJ_pvAllocRbrush(pbo: Long, cj: UInt): Long {
@@ -36,16 +41,16 @@ public fun CLIPOBJ_ppoGetPath(pco: Long): Long {
     return Win32DynamicFfi.invoke("gdi32.dll", "CLIPOBJ_ppoGetPath", longArrayOf(pco))
 }
 
-public fun CapabilitiesRequestAndCapabilitiesReply(hmonitor: Foundation.HANDLE, pszasciicapabilitiesstring: PSTR, dwcapabilitiesstringlengthincharacters: UInt): Int {
-    return Win32DynamicFfi.invoke("dxva2.dll", "CapabilitiesRequestAndCapabilitiesReply", longArrayOf(Win32DynamicFfi.objectSlot(hmonitor), pszasciicapabilitiesstring, dwcapabilitiesstringlengthincharacters.toLong())).toInt()
+public fun CapabilitiesRequestAndCapabilitiesReply(hmonitor: HANDLE, pszasciicapabilitiesstring: PSTR, dwcapabilitiesstringlengthincharacters: UInt): Int {
+    return Win32DynamicFfi.invoke("dxva2.dll", "CapabilitiesRequestAndCapabilitiesReply", longArrayOf(hmonitor, pszasciicapabilitiesstring, dwcapabilitiesstringlengthincharacters.toLong())).toInt()
 }
 
-public fun DegaussMonitor(hmonitor: Foundation.HANDLE): Int {
-    return Win32DynamicFfi.invoke("dxva2.dll", "DegaussMonitor", longArrayOf(Win32DynamicFfi.objectSlot(hmonitor))).toInt()
+public fun DegaussMonitor(hmonitor: HANDLE): Int {
+    return Win32DynamicFfi.invoke("dxva2.dll", "DegaussMonitor", longArrayOf(hmonitor)).toInt()
 }
 
-public fun DestroyPhysicalMonitor(hmonitor: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("dxva2.dll", "DestroyPhysicalMonitor", longArrayOf(Win32DynamicFfi.objectSlot(hmonitor))).toInt()
+public fun DestroyPhysicalMonitor(hmonitor: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("dxva2.dll", "DestroyPhysicalMonitor", longArrayOf(hmonitor)).toInt()
 }
 
 public fun DestroyPhysicalMonitors(dwphysicalmonitorarraysize: UInt, pphysicalmonitorarray: Long): BOOL {
@@ -88,27 +93,24 @@ public fun EngCopyBits(psodest: Long, psosrc: Long, pco: Long, pxlo: Long, prcld
     return Win32DynamicFfi.invoke("gdi32.dll", "EngCopyBits", longArrayOf(psodest, psosrc, pco, pxlo, prcldest, pptlsrc)).toInt()
 }
 
-public fun EngCreateBitmap(sizl: Foundation.SIZE, lwidth: Int, iformat: UInt, fl: UInt, pvbits: Long): Graphics.Gdi.HBITMAP {
-    Win32DynamicFfi.invoke("gdi32.dll", "EngCreateBitmap", longArrayOf(Win32DynamicFfi.objectSlot(sizl), lwidth.toLong(), iformat.toLong(), fl.toLong(), pvbits))
-    return Graphics.Gdi.HBITMAP()
+public fun EngCreateBitmap(sizl: SIZE, lwidth: Int, iformat: UInt, fl: UInt, pvbits: Long): HBITMAP {
+    return Win32DynamicFfi.invoke("gdi32.dll", "EngCreateBitmap", longArrayOf(((sizl.cx.toLong() and 0xFFFF_FFFFL) or ((sizl.cy.toLong() and 0xFFFF_FFFFL) shl 32)), lwidth.toLong(), iformat.toLong(), fl.toLong(), pvbits))
 }
 
 public fun EngCreateClip(): Long {
     return Win32DynamicFfi.invoke("gdi32.dll", "EngCreateClip", longArrayOf())
 }
 
-public fun EngCreateDeviceBitmap(dhsurf: DHSURF, sizl: Foundation.SIZE, iformatcompat: UInt): Graphics.Gdi.HBITMAP {
-    Win32DynamicFfi.invoke("gdi32.dll", "EngCreateDeviceBitmap", longArrayOf(dhsurf, Win32DynamicFfi.objectSlot(sizl), iformatcompat.toLong()))
-    return Graphics.Gdi.HBITMAP()
+public fun EngCreateDeviceBitmap(dhsurf: DHSURF, sizl: SIZE, iformatcompat: UInt): HBITMAP {
+    return Win32DynamicFfi.invoke("gdi32.dll", "EngCreateDeviceBitmap", longArrayOf(dhsurf, ((sizl.cx.toLong() and 0xFFFF_FFFFL) or ((sizl.cy.toLong() and 0xFFFF_FFFFL) shl 32)), iformatcompat.toLong()))
 }
 
-public fun EngCreateDeviceSurface(dhsurf: DHSURF, sizl: Foundation.SIZE, iformatcompat: UInt): HSURF {
-    return Win32DynamicFfi.invoke("gdi32.dll", "EngCreateDeviceSurface", longArrayOf(dhsurf, Win32DynamicFfi.objectSlot(sizl), iformatcompat.toLong()))
+public fun EngCreateDeviceSurface(dhsurf: DHSURF, sizl: SIZE, iformatcompat: UInt): HSURF {
+    return Win32DynamicFfi.invoke("gdi32.dll", "EngCreateDeviceSurface", longArrayOf(dhsurf, ((sizl.cx.toLong() and 0xFFFF_FFFFL) or ((sizl.cy.toLong() and 0xFFFF_FFFFL) shl 32)), iformatcompat.toLong()))
 }
 
-public fun EngCreatePalette(imode: UInt, ccolors: UInt, pulcolors: Long, flred: UInt, flgreen: UInt, flblue: UInt): Graphics.Gdi.HPALETTE {
-    Win32DynamicFfi.invoke("gdi32.dll", "EngCreatePalette", longArrayOf(imode.toLong(), ccolors.toLong(), pulcolors, flred.toLong(), flgreen.toLong(), flblue.toLong()))
-    return Graphics.Gdi.HPALETTE()
+public fun EngCreatePalette(imode: UInt, ccolors: UInt, pulcolors: Long, flred: UInt, flgreen: UInt, flblue: UInt): HPALETTE {
+    return Win32DynamicFfi.invoke("gdi32.dll", "EngCreatePalette", longArrayOf(imode.toLong(), ccolors.toLong(), pulcolors, flred.toLong(), flgreen.toLong(), flblue.toLong()))
 }
 
 public fun EngCreateSemaphore(): HSEMAPHORE {
@@ -119,8 +121,8 @@ public fun EngDeleteClip(pco: Long) {
     Win32DynamicFfi.invoke("gdi32.dll", "EngDeleteClip", longArrayOf(pco))
 }
 
-public fun EngDeletePalette(hpal: Graphics.Gdi.HPALETTE): BOOL {
-    return Win32DynamicFfi.invoke("gdi32.dll", "EngDeletePalette", longArrayOf(Win32DynamicFfi.objectSlot(hpal))).toInt()
+public fun EngDeletePalette(hpal: HPALETTE): BOOL {
+    return Win32DynamicFfi.invoke("gdi32.dll", "EngDeletePalette", longArrayOf(hpal)).toInt()
 }
 
 public fun EngDeletePath(ppo: Long) {
@@ -143,12 +145,12 @@ public fun EngFillPath(pso: Long, ppo: Long, pco: Long, pbo: Long, pptlbrushorg:
     return Win32DynamicFfi.invoke("gdi32.dll", "EngFillPath", longArrayOf(pso, ppo, pco, pbo, pptlbrushorg, mix.toLong(), floptions.toLong())).toInt()
 }
 
-public fun EngFindResource(h: Foundation.HANDLE, iname: Int, itype: Int, pulsize: Long): Long {
-    return Win32DynamicFfi.invoke("gdi32.dll", "EngFindResource", longArrayOf(Win32DynamicFfi.objectSlot(h), iname.toLong(), itype.toLong(), pulsize))
+public fun EngFindResource(h: HANDLE, iname: Int, itype: Int, pulsize: Long): Long {
+    return Win32DynamicFfi.invoke("gdi32.dll", "EngFindResource", longArrayOf(h, iname.toLong(), itype.toLong(), pulsize))
 }
 
-public fun EngFreeModule(h: Foundation.HANDLE) {
-    Win32DynamicFfi.invoke("gdi32.dll", "EngFreeModule", longArrayOf(Win32DynamicFfi.objectSlot(h)))
+public fun EngFreeModule(h: HANDLE) {
+    Win32DynamicFfi.invoke("gdi32.dll", "EngFreeModule", longArrayOf(h))
 }
 
 public fun EngGetCurrentCodePage(oemcodepage: Long, ansicodepage: Long) {
@@ -171,9 +173,8 @@ public fun EngLineTo(pso: Long, pco: Long, pbo: Long, x1: Int, y1: Int, x2: Int,
     return Win32DynamicFfi.invoke("gdi32.dll", "EngLineTo", longArrayOf(pso, pco, pbo, x1.toLong(), y1.toLong(), x2.toLong(), y2.toLong(), prclbounds, mix.toLong())).toInt()
 }
 
-public fun EngLoadModule(pwsz: PCWSTR): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("gdi32.dll", "EngLoadModule", longArrayOf(pwsz))
-    return Foundation.HANDLE()
+public fun EngLoadModule(pwsz: PCWSTR): HANDLE {
+    return Win32DynamicFfi.invoke("gdi32.dll", "EngLoadModule", longArrayOf(pwsz))
 }
 
 public fun EngLockSurface(hsurf: HSURF): Long {
@@ -284,69 +285,68 @@ public fun GetAutoRotationState(pstate: Long): BOOL {
     return Win32DynamicFfi.invoke("user32.dll", "GetAutoRotationState", longArrayOf(pstate)).toInt()
 }
 
-public fun GetCapabilitiesStringLength(hmonitor: Foundation.HANDLE, pdwcapabilitiesstringlengthincharacters: Long): Int {
-    return Win32DynamicFfi.invoke("dxva2.dll", "GetCapabilitiesStringLength", longArrayOf(Win32DynamicFfi.objectSlot(hmonitor), pdwcapabilitiesstringlengthincharacters)).toInt()
+public fun GetCapabilitiesStringLength(hmonitor: HANDLE, pdwcapabilitiesstringlengthincharacters: Long): Int {
+    return Win32DynamicFfi.invoke("dxva2.dll", "GetCapabilitiesStringLength", longArrayOf(hmonitor, pdwcapabilitiesstringlengthincharacters)).toInt()
 }
 
 public fun GetDisplayAutoRotationPreferences(porientation: Long): BOOL {
     return Win32DynamicFfi.invoke("user32.dll", "GetDisplayAutoRotationPreferences", longArrayOf(porientation)).toInt()
 }
 
-public fun GetDisplayConfigBufferSizes(flags: QUERY_DISPLAY_CONFIG_FLAGS, numpatharrayelements: Long, nummodeinfoarrayelements: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("user32.dll", "GetDisplayConfigBufferSizes", longArrayOf(flags.toLong(), numpatharrayelements, nummodeinfoarrayelements))
-    return Foundation.WIN32_ERROR()
+public fun GetDisplayConfigBufferSizes(flags: QUERY_DISPLAY_CONFIG_FLAGS, numpatharrayelements: Long, nummodeinfoarrayelements: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("user32.dll", "GetDisplayConfigBufferSizes", longArrayOf(flags.toLong(), numpatharrayelements, nummodeinfoarrayelements)).toUInt()
 }
 
-public fun GetMonitorBrightness(hmonitor: Foundation.HANDLE, pdwminimumbrightness: Long, pdwcurrentbrightness: Long, pdwmaximumbrightness: Long): Int {
-    return Win32DynamicFfi.invoke("dxva2.dll", "GetMonitorBrightness", longArrayOf(Win32DynamicFfi.objectSlot(hmonitor), pdwminimumbrightness, pdwcurrentbrightness, pdwmaximumbrightness)).toInt()
+public fun GetMonitorBrightness(hmonitor: HANDLE, pdwminimumbrightness: Long, pdwcurrentbrightness: Long, pdwmaximumbrightness: Long): Int {
+    return Win32DynamicFfi.invoke("dxva2.dll", "GetMonitorBrightness", longArrayOf(hmonitor, pdwminimumbrightness, pdwcurrentbrightness, pdwmaximumbrightness)).toInt()
 }
 
-public fun GetMonitorCapabilities(hmonitor: Foundation.HANDLE, pdwmonitorcapabilities: Long, pdwsupportedcolortemperatures: Long): Int {
-    return Win32DynamicFfi.invoke("dxva2.dll", "GetMonitorCapabilities", longArrayOf(Win32DynamicFfi.objectSlot(hmonitor), pdwmonitorcapabilities, pdwsupportedcolortemperatures)).toInt()
+public fun GetMonitorCapabilities(hmonitor: HANDLE, pdwmonitorcapabilities: Long, pdwsupportedcolortemperatures: Long): Int {
+    return Win32DynamicFfi.invoke("dxva2.dll", "GetMonitorCapabilities", longArrayOf(hmonitor, pdwmonitorcapabilities, pdwsupportedcolortemperatures)).toInt()
 }
 
-public fun GetMonitorColorTemperature(hmonitor: Foundation.HANDLE, pctcurrentcolortemperature: Long): Int {
-    return Win32DynamicFfi.invoke("dxva2.dll", "GetMonitorColorTemperature", longArrayOf(Win32DynamicFfi.objectSlot(hmonitor), pctcurrentcolortemperature)).toInt()
+public fun GetMonitorColorTemperature(hmonitor: HANDLE, pctcurrentcolortemperature: Long): Int {
+    return Win32DynamicFfi.invoke("dxva2.dll", "GetMonitorColorTemperature", longArrayOf(hmonitor, pctcurrentcolortemperature)).toInt()
 }
 
-public fun GetMonitorContrast(hmonitor: Foundation.HANDLE, pdwminimumcontrast: Long, pdwcurrentcontrast: Long, pdwmaximumcontrast: Long): Int {
-    return Win32DynamicFfi.invoke("dxva2.dll", "GetMonitorContrast", longArrayOf(Win32DynamicFfi.objectSlot(hmonitor), pdwminimumcontrast, pdwcurrentcontrast, pdwmaximumcontrast)).toInt()
+public fun GetMonitorContrast(hmonitor: HANDLE, pdwminimumcontrast: Long, pdwcurrentcontrast: Long, pdwmaximumcontrast: Long): Int {
+    return Win32DynamicFfi.invoke("dxva2.dll", "GetMonitorContrast", longArrayOf(hmonitor, pdwminimumcontrast, pdwcurrentcontrast, pdwmaximumcontrast)).toInt()
 }
 
-public fun GetMonitorDisplayAreaPosition(hmonitor: Foundation.HANDLE, ptpositiontype: MC_POSITION_TYPE, pdwminimumposition: Long, pdwcurrentposition: Long, pdwmaximumposition: Long): Int {
-    return Win32DynamicFfi.invoke("dxva2.dll", "GetMonitorDisplayAreaPosition", longArrayOf(Win32DynamicFfi.objectSlot(hmonitor), ptpositiontype.toLong(), pdwminimumposition, pdwcurrentposition, pdwmaximumposition)).toInt()
+public fun GetMonitorDisplayAreaPosition(hmonitor: HANDLE, ptpositiontype: MC_POSITION_TYPE, pdwminimumposition: Long, pdwcurrentposition: Long, pdwmaximumposition: Long): Int {
+    return Win32DynamicFfi.invoke("dxva2.dll", "GetMonitorDisplayAreaPosition", longArrayOf(hmonitor, ptpositiontype.toLong(), pdwminimumposition, pdwcurrentposition, pdwmaximumposition)).toInt()
 }
 
-public fun GetMonitorDisplayAreaSize(hmonitor: Foundation.HANDLE, stsizetype: MC_SIZE_TYPE, pdwminimumwidthorheight: Long, pdwcurrentwidthorheight: Long, pdwmaximumwidthorheight: Long): Int {
-    return Win32DynamicFfi.invoke("dxva2.dll", "GetMonitorDisplayAreaSize", longArrayOf(Win32DynamicFfi.objectSlot(hmonitor), stsizetype.toLong(), pdwminimumwidthorheight, pdwcurrentwidthorheight, pdwmaximumwidthorheight)).toInt()
+public fun GetMonitorDisplayAreaSize(hmonitor: HANDLE, stsizetype: MC_SIZE_TYPE, pdwminimumwidthorheight: Long, pdwcurrentwidthorheight: Long, pdwmaximumwidthorheight: Long): Int {
+    return Win32DynamicFfi.invoke("dxva2.dll", "GetMonitorDisplayAreaSize", longArrayOf(hmonitor, stsizetype.toLong(), pdwminimumwidthorheight, pdwcurrentwidthorheight, pdwmaximumwidthorheight)).toInt()
 }
 
-public fun GetMonitorRedGreenOrBlueDrive(hmonitor: Foundation.HANDLE, dtdrivetype: MC_DRIVE_TYPE, pdwminimumdrive: Long, pdwcurrentdrive: Long, pdwmaximumdrive: Long): Int {
-    return Win32DynamicFfi.invoke("dxva2.dll", "GetMonitorRedGreenOrBlueDrive", longArrayOf(Win32DynamicFfi.objectSlot(hmonitor), dtdrivetype.toLong(), pdwminimumdrive, pdwcurrentdrive, pdwmaximumdrive)).toInt()
+public fun GetMonitorRedGreenOrBlueDrive(hmonitor: HANDLE, dtdrivetype: MC_DRIVE_TYPE, pdwminimumdrive: Long, pdwcurrentdrive: Long, pdwmaximumdrive: Long): Int {
+    return Win32DynamicFfi.invoke("dxva2.dll", "GetMonitorRedGreenOrBlueDrive", longArrayOf(hmonitor, dtdrivetype.toLong(), pdwminimumdrive, pdwcurrentdrive, pdwmaximumdrive)).toInt()
 }
 
-public fun GetMonitorRedGreenOrBlueGain(hmonitor: Foundation.HANDLE, gtgaintype: MC_GAIN_TYPE, pdwminimumgain: Long, pdwcurrentgain: Long, pdwmaximumgain: Long): Int {
-    return Win32DynamicFfi.invoke("dxva2.dll", "GetMonitorRedGreenOrBlueGain", longArrayOf(Win32DynamicFfi.objectSlot(hmonitor), gtgaintype.toLong(), pdwminimumgain, pdwcurrentgain, pdwmaximumgain)).toInt()
+public fun GetMonitorRedGreenOrBlueGain(hmonitor: HANDLE, gtgaintype: MC_GAIN_TYPE, pdwminimumgain: Long, pdwcurrentgain: Long, pdwmaximumgain: Long): Int {
+    return Win32DynamicFfi.invoke("dxva2.dll", "GetMonitorRedGreenOrBlueGain", longArrayOf(hmonitor, gtgaintype.toLong(), pdwminimumgain, pdwcurrentgain, pdwmaximumgain)).toInt()
 }
 
-public fun GetMonitorTechnologyType(hmonitor: Foundation.HANDLE, pdtydisplaytechnologytype: Long): Int {
-    return Win32DynamicFfi.invoke("dxva2.dll", "GetMonitorTechnologyType", longArrayOf(Win32DynamicFfi.objectSlot(hmonitor), pdtydisplaytechnologytype)).toInt()
+public fun GetMonitorTechnologyType(hmonitor: HANDLE, pdtydisplaytechnologytype: Long): Int {
+    return Win32DynamicFfi.invoke("dxva2.dll", "GetMonitorTechnologyType", longArrayOf(hmonitor, pdtydisplaytechnologytype)).toInt()
 }
 
-public fun GetNumberOfPhysicalMonitorsFromHMONITOR(hmonitor: Graphics.Gdi.HMONITOR, pdwnumberofphysicalmonitors: Long): BOOL {
-    return Win32DynamicFfi.invoke("dxva2.dll", "GetNumberOfPhysicalMonitorsFromHMONITOR", longArrayOf(Win32DynamicFfi.objectSlot(hmonitor), pdwnumberofphysicalmonitors)).toInt()
+public fun GetNumberOfPhysicalMonitorsFromHMONITOR(hmonitor: HMONITOR, pdwnumberofphysicalmonitors: Long): BOOL {
+    return Win32DynamicFfi.invoke("dxva2.dll", "GetNumberOfPhysicalMonitorsFromHMONITOR", longArrayOf(hmonitor, pdwnumberofphysicalmonitors)).toInt()
 }
 
-public fun GetPhysicalMonitorsFromHMONITOR(hmonitor: Graphics.Gdi.HMONITOR, dwphysicalmonitorarraysize: UInt, pphysicalmonitorarray: Long): BOOL {
-    return Win32DynamicFfi.invoke("dxva2.dll", "GetPhysicalMonitorsFromHMONITOR", longArrayOf(Win32DynamicFfi.objectSlot(hmonitor), dwphysicalmonitorarraysize.toLong(), pphysicalmonitorarray)).toInt()
+public fun GetPhysicalMonitorsFromHMONITOR(hmonitor: HMONITOR, dwphysicalmonitorarraysize: UInt, pphysicalmonitorarray: Long): BOOL {
+    return Win32DynamicFfi.invoke("dxva2.dll", "GetPhysicalMonitorsFromHMONITOR", longArrayOf(hmonitor, dwphysicalmonitorarraysize.toLong(), pphysicalmonitorarray)).toInt()
 }
 
-public fun GetTimingReport(hmonitor: Foundation.HANDLE, pmtrmonitortimingreport: Long): Int {
-    return Win32DynamicFfi.invoke("dxva2.dll", "GetTimingReport", longArrayOf(Win32DynamicFfi.objectSlot(hmonitor), pmtrmonitortimingreport)).toInt()
+public fun GetTimingReport(hmonitor: HANDLE, pmtrmonitortimingreport: Long): Int {
+    return Win32DynamicFfi.invoke("dxva2.dll", "GetTimingReport", longArrayOf(hmonitor, pmtrmonitortimingreport)).toInt()
 }
 
-public fun GetVCPFeatureAndVCPFeatureReply(hmonitor: Foundation.HANDLE, bvcpcode: UByte, pvct: Long, pdwcurrentvalue: Long, pdwmaximumvalue: Long): Int {
-    return Win32DynamicFfi.invoke("dxva2.dll", "GetVCPFeatureAndVCPFeatureReply", longArrayOf(Win32DynamicFfi.objectSlot(hmonitor), bvcpcode.toLong(), pvct, pdwcurrentvalue, pdwmaximumvalue)).toInt()
+public fun GetVCPFeatureAndVCPFeatureReply(hmonitor: HANDLE, bvcpcode: UByte, pvct: Long, pdwcurrentvalue: Long, pdwmaximumvalue: Long): Int {
+    return Win32DynamicFfi.invoke("dxva2.dll", "GetVCPFeatureAndVCPFeatureReply", longArrayOf(hmonitor, bvcpcode.toLong(), pvct, pdwcurrentvalue, pdwmaximumvalue)).toInt()
 }
 
 public fun HT_Get8BPPFormatPalette(ppaletteentry: Long, redgamma: UShort, greengamma: UShort, bluegamma: UShort): Int {
@@ -377,17 +377,16 @@ public fun PATHOBJ_vGetBounds(ppo: Long, prectfx: Long) {
     Win32DynamicFfi.invoke("gdi32.dll", "PATHOBJ_vGetBounds", longArrayOf(ppo, prectfx))
 }
 
-public fun QueryDisplayConfig(flags: QUERY_DISPLAY_CONFIG_FLAGS, numpatharrayelements: Long, patharray: Long, nummodeinfoarrayelements: Long, modeinfoarray: Long, currenttopologyid: Long): Foundation.WIN32_ERROR {
-    Win32DynamicFfi.invoke("user32.dll", "QueryDisplayConfig", longArrayOf(flags.toLong(), numpatharrayelements, patharray, nummodeinfoarrayelements, modeinfoarray, currenttopologyid))
-    return Foundation.WIN32_ERROR()
+public fun QueryDisplayConfig(flags: QUERY_DISPLAY_CONFIG_FLAGS, numpatharrayelements: Long, patharray: Long, nummodeinfoarrayelements: Long, modeinfoarray: Long, currenttopologyid: Long): WIN32_ERROR {
+    return Win32DynamicFfi.invoke("user32.dll", "QueryDisplayConfig", longArrayOf(flags.toLong(), numpatharrayelements, patharray, nummodeinfoarrayelements, modeinfoarray, currenttopologyid)).toUInt()
 }
 
-public fun RestoreMonitorFactoryColorDefaults(hmonitor: Foundation.HANDLE): Int {
-    return Win32DynamicFfi.invoke("dxva2.dll", "RestoreMonitorFactoryColorDefaults", longArrayOf(Win32DynamicFfi.objectSlot(hmonitor))).toInt()
+public fun RestoreMonitorFactoryColorDefaults(hmonitor: HANDLE): Int {
+    return Win32DynamicFfi.invoke("dxva2.dll", "RestoreMonitorFactoryColorDefaults", longArrayOf(hmonitor)).toInt()
 }
 
-public fun RestoreMonitorFactoryDefaults(hmonitor: Foundation.HANDLE): Int {
-    return Win32DynamicFfi.invoke("dxva2.dll", "RestoreMonitorFactoryDefaults", longArrayOf(Win32DynamicFfi.objectSlot(hmonitor))).toInt()
+public fun RestoreMonitorFactoryDefaults(hmonitor: HANDLE): Int {
+    return Win32DynamicFfi.invoke("dxva2.dll", "RestoreMonitorFactoryDefaults", longArrayOf(hmonitor)).toInt()
 }
 
 public fun STROBJ_bEnum(pstro: Long, pc: Long, ppgpos: Long): BOOL {
@@ -410,12 +409,12 @@ public fun STROBJ_vEnumStart(pstro: Long) {
     Win32DynamicFfi.invoke("gdi32.dll", "STROBJ_vEnumStart", longArrayOf(pstro))
 }
 
-public fun SaveCurrentMonitorSettings(hmonitor: Foundation.HANDLE): Int {
-    return Win32DynamicFfi.invoke("dxva2.dll", "SaveCurrentMonitorSettings", longArrayOf(Win32DynamicFfi.objectSlot(hmonitor))).toInt()
+public fun SaveCurrentMonitorSettings(hmonitor: HANDLE): Int {
+    return Win32DynamicFfi.invoke("dxva2.dll", "SaveCurrentMonitorSettings", longArrayOf(hmonitor)).toInt()
 }
 
-public fun SaveCurrentSettings(hmonitor: Foundation.HANDLE): Int {
-    return Win32DynamicFfi.invoke("dxva2.dll", "SaveCurrentSettings", longArrayOf(Win32DynamicFfi.objectSlot(hmonitor))).toInt()
+public fun SaveCurrentSettings(hmonitor: HANDLE): Int {
+    return Win32DynamicFfi.invoke("dxva2.dll", "SaveCurrentSettings", longArrayOf(hmonitor)).toInt()
 }
 
 public fun SetDisplayAutoRotationPreferences(orientation: ORIENTATION_PREFERENCE): BOOL {
@@ -426,36 +425,36 @@ public fun SetDisplayConfig(numpatharrayelements: UInt, patharray: Long, nummode
     return Win32DynamicFfi.invoke("user32.dll", "SetDisplayConfig", longArrayOf(numpatharrayelements.toLong(), patharray, nummodeinfoarrayelements.toLong(), modeinfoarray, flags.toLong())).toInt()
 }
 
-public fun SetMonitorBrightness(hmonitor: Foundation.HANDLE, dwnewbrightness: UInt): Int {
-    return Win32DynamicFfi.invoke("dxva2.dll", "SetMonitorBrightness", longArrayOf(Win32DynamicFfi.objectSlot(hmonitor), dwnewbrightness.toLong())).toInt()
+public fun SetMonitorBrightness(hmonitor: HANDLE, dwnewbrightness: UInt): Int {
+    return Win32DynamicFfi.invoke("dxva2.dll", "SetMonitorBrightness", longArrayOf(hmonitor, dwnewbrightness.toLong())).toInt()
 }
 
-public fun SetMonitorColorTemperature(hmonitor: Foundation.HANDLE, ctcurrentcolortemperature: MC_COLOR_TEMPERATURE): Int {
-    return Win32DynamicFfi.invoke("dxva2.dll", "SetMonitorColorTemperature", longArrayOf(Win32DynamicFfi.objectSlot(hmonitor), ctcurrentcolortemperature.toLong())).toInt()
+public fun SetMonitorColorTemperature(hmonitor: HANDLE, ctcurrentcolortemperature: MC_COLOR_TEMPERATURE): Int {
+    return Win32DynamicFfi.invoke("dxva2.dll", "SetMonitorColorTemperature", longArrayOf(hmonitor, ctcurrentcolortemperature.toLong())).toInt()
 }
 
-public fun SetMonitorContrast(hmonitor: Foundation.HANDLE, dwnewcontrast: UInt): Int {
-    return Win32DynamicFfi.invoke("dxva2.dll", "SetMonitorContrast", longArrayOf(Win32DynamicFfi.objectSlot(hmonitor), dwnewcontrast.toLong())).toInt()
+public fun SetMonitorContrast(hmonitor: HANDLE, dwnewcontrast: UInt): Int {
+    return Win32DynamicFfi.invoke("dxva2.dll", "SetMonitorContrast", longArrayOf(hmonitor, dwnewcontrast.toLong())).toInt()
 }
 
-public fun SetMonitorDisplayAreaPosition(hmonitor: Foundation.HANDLE, ptpositiontype: MC_POSITION_TYPE, dwnewposition: UInt): Int {
-    return Win32DynamicFfi.invoke("dxva2.dll", "SetMonitorDisplayAreaPosition", longArrayOf(Win32DynamicFfi.objectSlot(hmonitor), ptpositiontype.toLong(), dwnewposition.toLong())).toInt()
+public fun SetMonitorDisplayAreaPosition(hmonitor: HANDLE, ptpositiontype: MC_POSITION_TYPE, dwnewposition: UInt): Int {
+    return Win32DynamicFfi.invoke("dxva2.dll", "SetMonitorDisplayAreaPosition", longArrayOf(hmonitor, ptpositiontype.toLong(), dwnewposition.toLong())).toInt()
 }
 
-public fun SetMonitorDisplayAreaSize(hmonitor: Foundation.HANDLE, stsizetype: MC_SIZE_TYPE, dwnewdisplayareawidthorheight: UInt): Int {
-    return Win32DynamicFfi.invoke("dxva2.dll", "SetMonitorDisplayAreaSize", longArrayOf(Win32DynamicFfi.objectSlot(hmonitor), stsizetype.toLong(), dwnewdisplayareawidthorheight.toLong())).toInt()
+public fun SetMonitorDisplayAreaSize(hmonitor: HANDLE, stsizetype: MC_SIZE_TYPE, dwnewdisplayareawidthorheight: UInt): Int {
+    return Win32DynamicFfi.invoke("dxva2.dll", "SetMonitorDisplayAreaSize", longArrayOf(hmonitor, stsizetype.toLong(), dwnewdisplayareawidthorheight.toLong())).toInt()
 }
 
-public fun SetMonitorRedGreenOrBlueDrive(hmonitor: Foundation.HANDLE, dtdrivetype: MC_DRIVE_TYPE, dwnewdrive: UInt): Int {
-    return Win32DynamicFfi.invoke("dxva2.dll", "SetMonitorRedGreenOrBlueDrive", longArrayOf(Win32DynamicFfi.objectSlot(hmonitor), dtdrivetype.toLong(), dwnewdrive.toLong())).toInt()
+public fun SetMonitorRedGreenOrBlueDrive(hmonitor: HANDLE, dtdrivetype: MC_DRIVE_TYPE, dwnewdrive: UInt): Int {
+    return Win32DynamicFfi.invoke("dxva2.dll", "SetMonitorRedGreenOrBlueDrive", longArrayOf(hmonitor, dtdrivetype.toLong(), dwnewdrive.toLong())).toInt()
 }
 
-public fun SetMonitorRedGreenOrBlueGain(hmonitor: Foundation.HANDLE, gtgaintype: MC_GAIN_TYPE, dwnewgain: UInt): Int {
-    return Win32DynamicFfi.invoke("dxva2.dll", "SetMonitorRedGreenOrBlueGain", longArrayOf(Win32DynamicFfi.objectSlot(hmonitor), gtgaintype.toLong(), dwnewgain.toLong())).toInt()
+public fun SetMonitorRedGreenOrBlueGain(hmonitor: HANDLE, gtgaintype: MC_GAIN_TYPE, dwnewgain: UInt): Int {
+    return Win32DynamicFfi.invoke("dxva2.dll", "SetMonitorRedGreenOrBlueGain", longArrayOf(hmonitor, gtgaintype.toLong(), dwnewgain.toLong())).toInt()
 }
 
-public fun SetVCPFeature(hmonitor: Foundation.HANDLE, bvcpcode: UByte, dwnewvalue: UInt): Int {
-    return Win32DynamicFfi.invoke("dxva2.dll", "SetVCPFeature", longArrayOf(Win32DynamicFfi.objectSlot(hmonitor), bvcpcode.toLong(), dwnewvalue.toLong())).toInt()
+public fun SetVCPFeature(hmonitor: HANDLE, bvcpcode: UByte, dwnewvalue: UInt): Int {
+    return Win32DynamicFfi.invoke("dxva2.dll", "SetVCPFeature", longArrayOf(hmonitor, bvcpcode.toLong(), dwnewvalue.toLong())).toInt()
 }
 
 public fun XFORMOBJ_bApplyXform(pxo: Long, imode: UInt, cpoints: UInt, pvin: Long, pvout: Long): BOOL {
@@ -470,9 +469,8 @@ public fun XLATEOBJ_cGetPalette(pxlo: Long, ipal: UInt, cpal: UInt, ppal: Long):
     return Win32DynamicFfi.invoke("gdi32.dll", "XLATEOBJ_cGetPalette", longArrayOf(pxlo, ipal.toLong(), cpal.toLong(), ppal)).toUInt()
 }
 
-public fun XLATEOBJ_hGetColorTransform(pxlo: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("gdi32.dll", "XLATEOBJ_hGetColorTransform", longArrayOf(pxlo))
-    return Foundation.HANDLE()
+public fun XLATEOBJ_hGetColorTransform(pxlo: Long): HANDLE {
+    return Win32DynamicFfi.invoke("gdi32.dll", "XLATEOBJ_hGetColorTransform", longArrayOf(pxlo))
 }
 
 public fun XLATEOBJ_iXlate(pxlo: Long, icolor: UInt): UInt {

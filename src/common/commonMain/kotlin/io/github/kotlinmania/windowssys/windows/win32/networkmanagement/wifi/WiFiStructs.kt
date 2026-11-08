@@ -4,6 +4,9 @@ package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NDIS_OBJECT_HEADER
+import io.github.kotlinmania.windowssys.windows.win32.security.extensibleauthenticationprotocol.EAP_METHOD_TYPE
 
 public class DOT11EXT_APIS(
     public var Dot11ExtAllocateBuffer: DOT11EXT_ALLOCATE_BUFFER = null,
@@ -154,7 +157,7 @@ public data class DOT11_ADAPTER(
 )
 
 public data class DOT11_ADDITIONAL_IE(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uBeaconIEsOffset: UInt = 0u,
     public var uBeaconIEsLength: UInt = 0u,
     public var uResponseIEsOffset: UInt = 0u,
@@ -162,9 +165,9 @@ public data class DOT11_ADDITIONAL_IE(
 )
 
 public data class DOT11_ANQP_QUERY_COMPLETE_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var Status: DOT11_ANQP_QUERY_RESULT = 0,
-    public var hContext: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hContext: HANDLE = 0L,
     public var uResponseLength: UInt = 0u,
 )
 
@@ -176,7 +179,7 @@ public data class DOT11_AP_JOIN_REQUEST(
 )
 
 public class DOT11_ASSOCIATION_COMPLETION_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var MacAddr: UByteArray = UByteArray(6),
     public var uStatus: UInt = 0u,
     public var bReAssocReq: Boolean = false,
@@ -257,14 +260,14 @@ public data class DOT11_ASSOCIATION_INFO_EX(
 }
 
 public data class DOT11_ASSOCIATION_INFO_LIST(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uNumOfEntries: UInt = 0u,
     public var uTotalNumOfEntries: UInt = 0u,
     public var dot11AssocInfo: List<DOT11_ASSOCIATION_INFO_EX> = List(1) { DOT11_ASSOCIATION_INFO_EX() },
 )
 
 public data class DOT11_ASSOCIATION_PARAMS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var BSSID: UByteArray = UByteArray(6),
     public var uAssocRequestIEsOffset: UInt = 0u,
     public var uAssocRequestIEsLength: UInt = 0u,
@@ -289,7 +292,7 @@ public data class DOT11_ASSOCIATION_PARAMS(
 }
 
 public data class DOT11_ASSOCIATION_START_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var MacAddr: UByteArray = UByteArray(6),
     public var SSID: DOT11_SSID = DOT11_SSID(),
     public var uIHVDataOffset: UInt = 0u,
@@ -317,7 +320,7 @@ public data class DOT11_ASSOCIATION_START_PARAMETERS(
 }
 
 public data class DOT11_AUTH_ALGORITHM_LIST(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uNumOfEntries: UInt = 0u,
     public var uTotalNumOfEntries: UInt = 0u,
     public var AlgorithmIds: IntArray = IntArray(1),
@@ -344,14 +347,14 @@ public data class DOT11_AUTH_ALGORITHM_LIST(
 public data class DOT11_AUTH_CIPHER_PAIR(public var AuthAlgoId: DOT11_AUTH_ALGORITHM = 0, public var CipherAlgoId: DOT11_CIPHER_ALGORITHM = 0)
 
 public data class DOT11_AUTH_CIPHER_PAIR_LIST(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uNumOfEntries: UInt = 0u,
     public var uTotalNumOfEntries: UInt = 0u,
     public var AuthCipherPairs: List<DOT11_AUTH_CIPHER_PAIR> = List(1) { DOT11_AUTH_CIPHER_PAIR() },
 )
 
 public data class DOT11_AVAILABLE_CHANNEL_LIST(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uNumOfEntries: UInt = 0u,
     public var uTotalNumOfEntries: UInt = 0u,
     public var uChannelNumber: UIntArray = UIntArray(1),
@@ -376,7 +379,7 @@ public data class DOT11_AVAILABLE_CHANNEL_LIST(
 }
 
 public data class DOT11_AVAILABLE_FREQUENCY_LIST(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uNumOfEntries: UInt = 0u,
     public var uTotalNumOfEntries: UInt = 0u,
     public var uFrequencyValue: UIntArray = UIntArray(1),
@@ -417,7 +420,7 @@ public data class DOT11_BSSID_CANDIDATE(public var BSSID: UByteArray = UByteArra
 }
 
 public data class DOT11_BSSID_LIST(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uNumOfEntries: UInt = 0u,
     public var uTotalNumOfEntries: UInt = 0u,
     public var BSSIDs: UByteArray = UByteArray(6),
@@ -541,7 +544,7 @@ public data class DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0(
 public data class DOT11_BSS_LIST(public var uNumOfBytes: UInt = 0u, public var pucBuffer: Long = 0L)
 
 public data class DOT11_BYTE_ARRAY(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uNumOfBytes: UInt = 0u,
     public var uTotalNumOfBytes: UInt = 0u,
     public var ucBuffer: UByteArray = UByteArray(1),
@@ -565,12 +568,12 @@ public data class DOT11_BYTE_ARRAY(
     }
 }
 
-public data class DOT11_CAN_SUSTAIN_AP_PARAMETERS(public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(), public var ulReason: UInt = 0u)
+public data class DOT11_CAN_SUSTAIN_AP_PARAMETERS(public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(), public var ulReason: UInt = 0u)
 
 public data class DOT11_CHANNEL_HINT(public var Dot11PhyType: DOT11_PHY_TYPE = 0, public var uChannelNumber: UInt = 0u)
 
 public data class DOT11_CIPHER_ALGORITHM_LIST(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uNumOfEntries: UInt = 0u,
     public var uTotalNumOfEntries: UInt = 0u,
     public var AlgorithmIds: IntArray = IntArray(1),
@@ -595,7 +598,7 @@ public data class DOT11_CIPHER_ALGORITHM_LIST(
 }
 
 public data class DOT11_CIPHER_DEFAULT_KEY_VALUE(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uKeyIndex: UInt = 0u,
     public var AlgorithmId: DOT11_CIPHER_ALGORITHM = 0,
     public var MacAddr: UByteArray = UByteArray(6),
@@ -665,10 +668,10 @@ public data class DOT11_CIPHER_KEY_MAPPING_KEY_VALUE(
     }
 }
 
-public data class DOT11_CONNECTION_COMPLETION_PARAMETERS(public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(), public var uStatus: UInt = 0u)
+public data class DOT11_CONNECTION_COMPLETION_PARAMETERS(public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(), public var uStatus: UInt = 0u)
 
 public data class DOT11_CONNECTION_START_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var BSSType: DOT11_BSS_TYPE = 0,
     public var AdhocBSSID: UByteArray = UByteArray(6),
     public var AdhocSSID: DOT11_SSID = DOT11_SSID(),
@@ -709,7 +712,7 @@ public data class DOT11_COUNTERS_ENTRY(
 )
 
 public data class DOT11_COUNTRY_OR_REGION_STRING_LIST(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uNumOfEntries: UInt = 0u,
     public var uTotalNumOfEntries: UInt = 0u,
     public var CountryOrRegionStrings: UByteArray = UByteArray(3),
@@ -752,15 +755,15 @@ public data class DOT11_DATA_RATE_MAPPING_ENTRY(
 )
 
 public data class DOT11_DATA_RATE_MAPPING_TABLE(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uDataRateMappingLength: UInt = 0u,
     public var DataRateMappingEntries: List<DOT11_DATA_RATE_MAPPING_ENTRY> = List(126) { DOT11_DATA_RATE_MAPPING_ENTRY() },
 )
 
 public data class DOT11_DEFAULT_WEP_OFFLOAD(
     public var uReserved: UInt = 0u,
-    public var hOffloadContext: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hOffload: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hOffloadContext: HANDLE = 0L,
+    public var hOffload: HANDLE = 0L,
     public var dwIndex: UInt = 0u,
     public var dot11OffloadType: DOT11_OFFLOAD_TYPE = 0,
     public var dwAlgorithm: UInt = 0u,
@@ -815,7 +818,7 @@ public data class DOT11_DEFAULT_WEP_OFFLOAD(
 public data class DOT11_DEFAULT_WEP_UPLOAD(
     public var uReserved: UInt = 0u,
     public var dot11OffloadType: DOT11_OFFLOAD_TYPE = 0,
-    public var hOffload: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hOffload: HANDLE = 0L,
     public var uNumOfRWsUsed: UInt = 0u,
     public var dot11IV48Counters: List<DOT11_IV48_COUNTER> = List(16) { DOT11_IV48_COUNTER() },
     public var usDot11RWBitMaps: UShortArray = UShortArray(16),
@@ -844,7 +847,7 @@ public data class DOT11_DEFAULT_WEP_UPLOAD(
 }
 
 public data class DOT11_DISASSOCIATE_PEER_REQUEST(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var PeerMacAddr: UByteArray = UByteArray(6),
     public var usReason: UShort = 0u,
 ) {
@@ -866,7 +869,7 @@ public data class DOT11_DISASSOCIATE_PEER_REQUEST(
 }
 
 public data class DOT11_DISASSOCIATION_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var MacAddr: UByteArray = UByteArray(6),
     public var uReason: UInt = 0u,
     public var uIHVDataOffset: UInt = 0u,
@@ -913,7 +916,7 @@ public data class DOT11_ERP_PHY_ATTRIBUTES(
 )
 
 public data class DOT11_EXTAP_ATTRIBUTES(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uScanSSIDListSize: UInt = 0u,
     public var uDesiredSSIDListSize: UInt = 0u,
     public var uPrivacyExemptionListSize: UInt = 0u,
@@ -930,7 +933,7 @@ public data class DOT11_EXTAP_ATTRIBUTES(
 )
 
 public class DOT11_EXTSTA_ATTRIBUTES(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uScanSSIDListSize: UInt = 0u,
     public var uDesiredBSSIDListSize: UInt = 0u,
     public var uDesiredSSIDListSize: UInt = 0u,
@@ -967,7 +970,7 @@ public class DOT11_EXTSTA_ATTRIBUTES(
 )
 
 public data class DOT11_EXTSTA_CAPABILITY(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uScanSSIDListSize: UInt = 0u,
     public var uDesiredBSSIDListSize: UInt = 0u,
     public var uDesiredSSIDListSize: UInt = 0u,
@@ -981,7 +984,7 @@ public data class DOT11_EXTSTA_CAPABILITY(
 )
 
 public data class DOT11_EXTSTA_RECV_CONTEXT(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uReceiveFlags: UInt = 0u,
     public var uPhyId: UInt = 0u,
     public var uChCenterFrequency: UInt = 0u,
@@ -994,7 +997,7 @@ public data class DOT11_EXTSTA_RECV_CONTEXT(
 )
 
 public data class DOT11_EXTSTA_SEND_CONTEXT(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var usExemptionActionType: UShort = 0u,
     public var uPhyId: UInt = 0u,
     public var uDelayedSleepValue: UInt = 0u,
@@ -1005,7 +1008,7 @@ public data class DOT11_EXTSTA_SEND_CONTEXT(
 public data class DOT11_FRAGMENT_DESCRIPTOR(public var uOffset: UInt = 0u, public var uLength: UInt = 0u)
 
 public data class DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var PeerDeviceAddress: UByteArray = UByteArray(6),
     public var DialogToken: UByte = 0u,
     public var Status: Int = 0,
@@ -1036,7 +1039,7 @@ public data class DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS(
 }
 
 public data class DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var PeerDeviceAddress: UByteArray = UByteArray(6),
     public var DialogToken: UByte = 0u,
     public var Status: Int = 0,
@@ -1067,7 +1070,7 @@ public data class DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS(
 }
 
 public data class DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var PeerDeviceAddress: UByteArray = UByteArray(6),
     public var DialogToken: UByte = 0u,
     public var Status: Int = 0,
@@ -1113,7 +1116,7 @@ public data class DOT11_HRDSSS_PHY_ATTRIBUTES(
 )
 
 public data class DOT11_IBSS_PARAMS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var bJoinOnly: Boolean = false,
     public var uIEsOffset: UInt = 0u,
     public var uIEsLength: UInt = 0u,
@@ -1122,7 +1125,7 @@ public data class DOT11_IBSS_PARAMS(
 public data class DOT11_IHV_VERSION_INFO(public var dwVerMin: UInt = 0u, public var dwVerMax: UInt = 0u)
 
 public class DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var PeerMacAddr: UByteArray = UByteArray(6),
     public var uStatus: UInt = 0u,
     public var ucErrorSource: UByte = 0u,
@@ -1142,7 +1145,7 @@ public class DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS(
 )
 
 public data class DOT11_INCOMING_ASSOC_DECISION(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var PeerMacAddr: UByteArray = UByteArray(6),
     public var bAccept: Boolean = false,
     public var usReasonCode: UShort = 0u,
@@ -1173,7 +1176,7 @@ public data class DOT11_INCOMING_ASSOC_DECISION(
 }
 
 public data class DOT11_INCOMING_ASSOC_DECISION_V2(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var PeerMacAddr: UByteArray = UByteArray(6),
     public var bAccept: Boolean = false,
     public var usReasonCode: UShort = 0u,
@@ -1207,7 +1210,7 @@ public data class DOT11_INCOMING_ASSOC_DECISION_V2(
 }
 
 public data class DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var PeerMacAddr: UByteArray = UByteArray(6),
     public var bReAssocReq: Boolean = false,
     public var uAssocReqOffset: UInt = 0u,
@@ -1234,7 +1237,7 @@ public data class DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS(
     }
 }
 
-public data class DOT11_INCOMING_ASSOC_STARTED_PARAMETERS(public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(), public var PeerMacAddr: UByteArray = UByteArray(6)) {
+public data class DOT11_INCOMING_ASSOC_STARTED_PARAMETERS(public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(), public var PeerMacAddr: UByteArray = UByteArray(6)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DOT11_INCOMING_ASSOC_STARTED_PARAMETERS) return false
@@ -1251,7 +1254,7 @@ public data class DOT11_INCOMING_ASSOC_STARTED_PARAMETERS(public var Header: Ndi
 }
 
 public data class DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var PeerDeviceAddress: UByteArray = UByteArray(6),
     public var ReceiverAddress: UByteArray = UByteArray(6),
     public var DialogToken: UByte = 0u,
@@ -1285,7 +1288,7 @@ public data class DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS(
 }
 
 public data class DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var ReceiverDeviceAddress: UByteArray = UByteArray(6),
     public var DialogToken: UByte = 0u,
     public var Status: Int = 0,
@@ -1476,13 +1479,13 @@ public data class DOT11_LINK_QUALITY_ENTRY(public var PeerMacAddr: UByteArray = 
 }
 
 public data class DOT11_LINK_QUALITY_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uLinkQualityListSize: UInt = 0u,
     public var uLinkQualityListOffset: UInt = 0u,
 )
 
 public data class DOT11_MAC_ADDRESS_LIST(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uNumOfEntries: UInt = 0u,
     public var uTotalNumOfEntries: UInt = 0u,
     public var MacAddrs: UByteArray = UByteArray(6),
@@ -1545,10 +1548,10 @@ public data class DOT11_MAC_INFO(
     }
 }
 
-public data class DOT11_MAC_PARAMETERS(public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(), public var uOpmodeMask: UInt = 0u)
+public data class DOT11_MAC_PARAMETERS(public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(), public var uOpmodeMask: UInt = 0u)
 
 public data class DOT11_MANUFACTURING_CALLBACK_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var dot11ManufacturingCallbackType: DOT11_MANUFACTURING_CALLBACK_TYPE = 0,
     public var uStatus: UInt = 0u,
     public var pvContext: Long = 0L,
@@ -1725,7 +1728,7 @@ public data class DOT11_MD_CAPABILITY_ENTRY_LIST(
 )
 
 public data class DOT11_MPDU_MAX_LENGTH_INDICATION(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uPhyId: UInt = 0u,
     public var uMPDUMaxLength: UInt = 0u,
 )
@@ -1744,7 +1747,7 @@ public data class DOT11_MSSECURITY_SETTINGS(
     public var dot11AuthAlgorithm: DOT11_AUTH_ALGORITHM = 0,
     public var dot11CipherAlgorithm: DOT11_CIPHER_ALGORITHM = 0,
     public var fOneXEnabled: BOOL = 0,
-    public var eapMethodType: Security.ExtensibleAuthenticationProtocol.EAP_METHOD_TYPE = Security.ExtensibleAuthenticationProtocol.EAP_METHOD_TYPE(),
+    public var eapMethodType: EAP_METHOD_TYPE = EAP_METHOD_TYPE(),
     public var dwEapConnectionDataLen: UInt = 0u,
     public var pEapConnectionData: Long = 0L,
 )
@@ -1806,7 +1809,7 @@ public data class DOT11_OFFLOAD_NETWORK(
 )
 
 public data class DOT11_OFFLOAD_NETWORK_LIST_INFO(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var ulFlags: UInt = 0u,
     public var FastScanPeriod: UInt = 0u,
     public var FastScanIterations: UInt = 0u,
@@ -1815,7 +1818,7 @@ public data class DOT11_OFFLOAD_NETWORK_LIST_INFO(
     public var offloadNetworkList: List<DOT11_OFFLOAD_NETWORK> = List(1) { DOT11_OFFLOAD_NETWORK() },
 )
 
-public data class DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS(public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(), public var Status: Int = 0)
+public data class DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS(public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(), public var Status: Int = 0)
 
 public data class DOT11_OI(public var OILength: UShort = 0u, public var OI: UByteArray = UByteArray(5)) {
     override fun equals(other: Any?): Boolean {
@@ -1902,7 +1905,7 @@ public data class DOT11_PEER_INFO(
 }
 
 public data class DOT11_PEER_INFO_LIST(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uNumOfEntries: UInt = 0u,
     public var uTotalNumOfEntries: UInt = 0u,
     public var PeerInfo: List<DOT11_PEER_INFO> = List(1) { DOT11_PEER_INFO() },
@@ -1926,7 +1929,7 @@ public data class DOT11_PER_MSDU_COUNTERS(
 )
 
 public data class DOT11_PHY_ATTRIBUTES(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var PhyType: DOT11_PHY_TYPE = 0,
     public var bHardwarePhyState: Boolean = false,
     public var bSoftwarePhyState: Boolean = false,
@@ -2008,7 +2011,7 @@ public class DOT11_PHY_FRAME_STATISTICS(
 )
 
 public data class DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var ulPhyId: UInt = 0u,
     public var Anonymous: DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 = DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0(),
 )
@@ -2016,7 +2019,7 @@ public data class DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS(
 public data class DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0(public var ulChannel: UInt = 0u, public var ulFrequency: UInt = 0u)
 
 public data class DOT11_PHY_ID_LIST(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uNumOfEntries: UInt = 0u,
     public var uTotalNumOfEntries: UInt = 0u,
     public var dot11PhyId: UIntArray = UIntArray(1),
@@ -2041,7 +2044,7 @@ public data class DOT11_PHY_ID_LIST(
 }
 
 public data class DOT11_PHY_STATE_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uPhyId: UInt = 0u,
     public var bHardwarePhyState: Boolean = false,
     public var bSoftwarePhyState: Boolean = false,
@@ -2085,7 +2088,7 @@ public data class DOT11_PHY_TYPE_INFO(
 }
 
 public data class DOT11_PHY_TYPE_LIST(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uNumOfEntries: UInt = 0u,
     public var uTotalNumOfEntries: UInt = 0u,
     public var dot11PhyType: IntArray = IntArray(1),
@@ -2110,7 +2113,7 @@ public data class DOT11_PHY_TYPE_LIST(
 }
 
 public data class DOT11_PMKID_CANDIDATE_LIST_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uCandidateListSize: UInt = 0u,
     public var uCandidateListOffset: UInt = 0u,
 )
@@ -2138,7 +2141,7 @@ public data class DOT11_PMKID_ENTRY(
 }
 
 public data class DOT11_PMKID_LIST(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uNumOfEntries: UInt = 0u,
     public var uTotalNumOfEntries: UInt = 0u,
     public var PMKIDs: List<DOT11_PMKID_ENTRY> = List(1) { DOT11_PMKID_ENTRY() },
@@ -2170,7 +2173,7 @@ public data class DOT11_PORT_STATE(
 }
 
 public data class DOT11_PORT_STATE_NOTIFICATION(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var PeerMac: UByteArray = UByteArray(6),
     public var bOpen: Boolean = false,
 ) {
@@ -2191,7 +2194,7 @@ public data class DOT11_PORT_STATE_NOTIFICATION(
     }
 }
 
-public data class DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO(public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(), public var bEnabled: Boolean = false)
+public data class DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO(public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(), public var bEnabled: Boolean = false)
 
 public data class DOT11_POWER_MGMT_MODE(
     public var dot11PowerMode: DOT11_POWER_MODE = 0,
@@ -2202,7 +2205,7 @@ public data class DOT11_POWER_MGMT_MODE(
 )
 
 public data class DOT11_POWER_MGMT_MODE_STATUS_INFO(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var PowerSaveMode: DOT11_POWER_MODE = 0,
     public var uPowerSaveLevel: UInt = 0u,
     public var Reason: DOT11_POWER_MODE_REASON = 0,
@@ -2215,14 +2218,14 @@ public data class DOT11_PRIVACY_EXEMPTION(
 )
 
 public data class DOT11_PRIVACY_EXEMPTION_LIST(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uNumOfEntries: UInt = 0u,
     public var uTotalNumOfEntries: UInt = 0u,
     public var PrivacyExemptionEntries: List<DOT11_PRIVACY_EXEMPTION> = List(1) { DOT11_PRIVACY_EXEMPTION() },
 )
 
 public data class DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var PeerDeviceAddress: UByteArray = UByteArray(6),
     public var ReceiverAddress: UByteArray = UByteArray(6),
     public var DialogToken: UByte = 0u,
@@ -2256,7 +2259,7 @@ public data class DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS(
 }
 
 public data class DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var ReceiverDeviceAddress: UByteArray = UByteArray(6),
     public var DialogToken: UByte = 0u,
     public var Status: Int = 0,
@@ -2286,7 +2289,7 @@ public data class DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS(
     }
 }
 
-public data class DOT11_QOS_PARAMS(public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(), public var ucEnabledQoSProtocolFlags: UByte = 0u)
+public data class DOT11_QOS_PARAMS(public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(), public var ucEnabledQoSProtocolFlags: UByte = 0u)
 
 public data class DOT11_QOS_TX_DURATION(
     public var uNominalMSDUSize: UInt = 0u,
@@ -2333,7 +2336,7 @@ public data class DOT11_RATE_SET(public var uRateSetLength: UInt = 0u, public va
 }
 
 public data class DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var PeerDeviceAddress: UByteArray = UByteArray(6),
     public var DialogToken: UByte = 0u,
     public var uIEsOffset: UInt = 0u,
@@ -2361,7 +2364,7 @@ public data class DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS(
 }
 
 public data class DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var PeerDeviceAddress: UByteArray = UByteArray(6),
     public var DialogToken: UByte = 0u,
     public var RequestContext: Long = 0L,
@@ -2392,7 +2395,7 @@ public data class DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS(
 }
 
 public data class DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var PeerDeviceAddress: UByteArray = UByteArray(6),
     public var DialogToken: UByte = 0u,
     public var ResponseContext: Long = 0L,
@@ -2423,7 +2426,7 @@ public data class DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS(
 }
 
 public data class DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var TransmitterDeviceAddress: UByteArray = UByteArray(6),
     public var BSSID: UByteArray = UByteArray(6),
     public var DialogToken: UByte = 0u,
@@ -2457,7 +2460,7 @@ public data class DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS(
 }
 
 public data class DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var TransmitterDeviceAddress: UByteArray = UByteArray(6),
     public var BSSID: UByteArray = UByteArray(6),
     public var DialogToken: UByte = 0u,
@@ -2488,7 +2491,7 @@ public data class DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS(
 }
 
 public data class DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var TransmitterDeviceAddress: UByteArray = UByteArray(6),
     public var BSSID: UByteArray = UByteArray(6),
     public var DialogToken: UByte = 0u,
@@ -2522,7 +2525,7 @@ public data class DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS(
 }
 
 public data class DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var TransmitterDeviceAddress: UByteArray = UByteArray(6),
     public var BSSID: UByteArray = UByteArray(6),
     public var DialogToken: UByte = 0u,
@@ -2565,8 +2568,8 @@ public class DOT11_RECV_EXTENSION_INFO(
     public var ucDataRate: UByte = 0u,
     public var ucPeerMacAddress: UByteArray = UByteArray(6),
     public var dwExtendedStatus: UInt = 0u,
-    public var hWEPOffloadContext: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hAuthOffloadContext: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hWEPOffloadContext: HANDLE = 0L,
+    public var hAuthOffloadContext: HANDLE = 0L,
     public var usWEPAppliedMask: UShort = 0u,
     public var usWPAMSDUPriority: UShort = 0u,
     public var dot11LowestIV48Counter: DOT11_IV48_COUNTER = DOT11_IV48_COUNTER(),
@@ -2589,8 +2592,8 @@ public class DOT11_RECV_EXTENSION_INFO_V2(
     public var ucDataRate: UByte = 0u,
     public var ucPeerMacAddress: UByteArray = UByteArray(6),
     public var dwExtendedStatus: UInt = 0u,
-    public var hWEPOffloadContext: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hAuthOffloadContext: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hWEPOffloadContext: HANDLE = 0L,
+    public var hAuthOffloadContext: HANDLE = 0L,
     public var usWEPAppliedMask: UShort = 0u,
     public var usWPAMSDUPriority: UShort = 0u,
     public var dot11LowestIV48Counter: DOT11_IV48_COUNTER = DOT11_IV48_COUNTER(),
@@ -2647,10 +2650,10 @@ public data class DOT11_RESET_REQUEST(
     }
 }
 
-public data class DOT11_ROAMING_COMPLETION_PARAMETERS(public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(), public var uStatus: UInt = 0u)
+public data class DOT11_ROAMING_COMPLETION_PARAMETERS(public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(), public var uStatus: UInt = 0u)
 
 public data class DOT11_ROAMING_START_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var AdhocBSSID: UByteArray = UByteArray(6),
     public var AdhocSSID: DOT11_SSID = DOT11_SSID(),
     public var uRoamingReason: UInt = 0u,
@@ -2810,7 +2813,7 @@ public data class DOT11_SECURITY_PACKET_HEADER(
 }
 
 public data class DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var PeerDeviceAddress: UByteArray = UByteArray(6),
     public var DialogToken: UByte = 0u,
     public var ResponseContext: Long = 0L,
@@ -2856,7 +2859,7 @@ public data class DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS(
 }
 
 public data class DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var PeerDeviceAddress: UByteArray = UByteArray(6),
     public var DialogToken: UByte = 0u,
     public var uSendTimeout: UInt = 0u,
@@ -2899,7 +2902,7 @@ public data class DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS(
 }
 
 public data class DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var PeerDeviceAddress: UByteArray = UByteArray(6),
     public var DialogToken: UByte = 0u,
     public var RequestContext: Long = 0L,
@@ -2954,7 +2957,7 @@ public data class DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS(
 }
 
 public data class DOT11_SEND_INVITATION_REQUEST_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var DialogToken: UByte = 0u,
     public var PeerDeviceAddress: UByteArray = UByteArray(6),
     public var uSendTimeout: UInt = 0u,
@@ -3009,7 +3012,7 @@ public data class DOT11_SEND_INVITATION_REQUEST_PARAMETERS(
 }
 
 public data class DOT11_SEND_INVITATION_RESPONSE_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var ReceiverDeviceAddress: UByteArray = UByteArray(6),
     public var DialogToken: UByte = 0u,
     public var RequestContext: Long = 0L,
@@ -3061,7 +3064,7 @@ public data class DOT11_SEND_INVITATION_RESPONSE_PARAMETERS(
 }
 
 public data class DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var DialogToken: UByte = 0u,
     public var PeerDeviceAddress: UByteArray = UByteArray(6),
     public var uSendTimeout: UInt = 0u,
@@ -3101,7 +3104,7 @@ public data class DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS(
 }
 
 public data class DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var ReceiverDeviceAddress: UByteArray = UByteArray(6),
     public var DialogToken: UByte = 0u,
     public var RequestContext: Long = 0L,
@@ -3151,7 +3154,7 @@ public data class DOT11_SSID(public var uSSIDLength: UInt = 0u, public var ucSSI
 }
 
 public data class DOT11_SSID_LIST(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uNumOfEntries: UInt = 0u,
     public var uTotalNumOfEntries: UInt = 0u,
     public var SSIDs: List<DOT11_SSID> = List(1) { DOT11_SSID() },
@@ -3165,7 +3168,7 @@ public data class DOT11_START_REQUEST(
 )
 
 public data class DOT11_STATISTICS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var ullFourWayHandshakeFailures: ULong = 0uL,
     public var ullTKIPCounterMeasuresInvoked: ULong = 0uL,
     public var ullReserved: ULong = 0uL,
@@ -3176,7 +3179,7 @@ public data class DOT11_STATISTICS(
 
 public data class DOT11_STATUS_INDICATION(public var uStatusType: UInt = 0u, public var ndisStatus: Int = 0)
 
-public data class DOT11_STOP_AP_PARAMETERS(public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(), public var ulReason: UInt = 0u)
+public data class DOT11_STOP_AP_PARAMETERS(public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(), public var ulReason: UInt = 0u)
 
 public data class DOT11_SUPPORTED_ANTENNA(public var uAntennaListIndex: UInt = 0u, public var bSupportedAntenna: Boolean = false)
 
@@ -3273,7 +3276,7 @@ public data class DOT11_SUPPORTED_POWER_LEVELS(public var uNumOfSupportedPowerLe
 }
 
 public data class DOT11_TKIPMIC_FAILURE_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var bDefaultKeyFailure: Boolean = false,
     public var uKeyIndex: UInt = 0u,
     public var PeerMac: UByteArray = UByteArray(6),
@@ -3322,20 +3325,20 @@ public data class DOT11_UPDATE_IE(
 public data class DOT11_VENUEINFO(public var VenueGroup: UByte = 0u, public var VenueType: UByte = 0u)
 
 public data class DOT11_VWIFI_ATTRIBUTES(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uTotalNumOfEntries: UInt = 0u,
     public var Combinations: List<DOT11_VWIFI_COMBINATION> = List(1) { DOT11_VWIFI_COMBINATION() },
 )
 
 public data class DOT11_VWIFI_COMBINATION(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uNumInfrastructure: UInt = 0u,
     public var uNumAdhoc: UInt = 0u,
     public var uNumSoftAP: UInt = 0u,
 )
 
 public data class DOT11_VWIFI_COMBINATION_V2(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uNumInfrastructure: UInt = 0u,
     public var uNumAdhoc: UInt = 0u,
     public var uNumSoftAP: UInt = 0u,
@@ -3343,7 +3346,7 @@ public data class DOT11_VWIFI_COMBINATION_V2(
 )
 
 public data class DOT11_VWIFI_COMBINATION_V3(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uNumInfrastructure: UInt = 0u,
     public var uNumAdhoc: UInt = 0u,
     public var uNumSoftAP: UInt = 0u,
@@ -3353,8 +3356,8 @@ public data class DOT11_VWIFI_COMBINATION_V3(
 
 public data class DOT11_WEP_OFFLOAD(
     public var uReserved: UInt = 0u,
-    public var hOffloadContext: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hOffload: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hOffloadContext: HANDLE = 0L,
+    public var hOffload: HANDLE = 0L,
     public var dot11OffloadType: DOT11_OFFLOAD_TYPE = 0,
     public var dwAlgorithm: UInt = 0u,
     public var bRowIsOutbound: Boolean = false,
@@ -3412,7 +3415,7 @@ public data class DOT11_WEP_OFFLOAD(
 public data class DOT11_WEP_UPLOAD(
     public var uReserved: UInt = 0u,
     public var dot11OffloadType: DOT11_OFFLOAD_TYPE = 0,
-    public var hOffload: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hOffload: HANDLE = 0L,
     public var uNumOfRWsUsed: UInt = 0u,
     public var dot11IV48Counters: List<DOT11_IV48_COUNTER> = List(16) { DOT11_IV48_COUNTER() },
     public var usDot11RWBitMaps: UShortArray = UShortArray(16),
@@ -3441,7 +3444,7 @@ public data class DOT11_WEP_UPLOAD(
 }
 
 public data class DOT11_WFD_ADDITIONAL_IE(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uBeaconIEsOffset: UInt = 0u,
     public var uBeaconIEsLength: UInt = 0u,
     public var uProbeResponseIEsOffset: UInt = 0u,
@@ -3494,7 +3497,7 @@ public data class DOT11_WFD_ADVERTISEMENT_ID(public var AdvertisementID: UInt = 
 }
 
 public data class DOT11_WFD_ATTRIBUTES(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uNumConcurrentGORole: UInt = 0u,
     public var uNumConcurrentClientRole: UInt = 0u,
     public var WPSVersionsSupported: UInt = 0u,
@@ -3576,7 +3579,7 @@ public data class DOT11_WFD_CHANNEL(
 public data class DOT11_WFD_CONFIGURATION_TIMEOUT(public var GOTimeout: UByte = 0u, public var ClientTimeout: UByte = 0u)
 
 public data class DOT11_WFD_DEVICE_CAPABILITY_CONFIG(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var bServiceDiscoveryEnabled: Boolean = false,
     public var bClientDiscoverabilityEnabled: Boolean = false,
     public var bConcurrentOperationSupported: Boolean = false,
@@ -3648,7 +3651,7 @@ public data class DOT11_WFD_DEVICE_ENTRY(
 }
 
 public data class DOT11_WFD_DEVICE_INFO(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var DeviceAddress: UByteArray = UByteArray(6),
     public var ConfigMethods: UShort = 0u,
     public var PrimaryDeviceType: DOT11_WFD_DEVICE_TYPE = DOT11_WFD_DEVICE_TYPE(),
@@ -3675,7 +3678,7 @@ public data class DOT11_WFD_DEVICE_INFO(
     }
 }
 
-public data class DOT11_WFD_DEVICE_LISTEN_CHANNEL(public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(), public var ChannelNumber: UByte = 0u)
+public data class DOT11_WFD_DEVICE_LISTEN_CHANNEL(public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(), public var ChannelNumber: UByte = 0u)
 
 public data class DOT11_WFD_DEVICE_TYPE(
     public var CategoryID: UShort = 0u,
@@ -3700,7 +3703,7 @@ public data class DOT11_WFD_DEVICE_TYPE(
 }
 
 public data class DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var Status: Int = 0,
     public var uNumOfEntries: UInt = 0u,
     public var uTotalNumOfEntries: UInt = 0u,
@@ -3731,7 +3734,7 @@ public data class DOT11_WFD_DISCOVER_DEVICE_FILTER(
 }
 
 public data class DOT11_WFD_DISCOVER_REQUEST(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var DiscoverType: DOT11_WFD_DISCOVER_TYPE = 0,
     public var ScanType: DOT11_WFD_SCAN_TYPE = 0,
     public var uDiscoverTimeout: UInt = 0u,
@@ -3761,7 +3764,7 @@ public data class DOT11_WFD_GROUP_ID(public var DeviceAddress: UByteArray = UByt
 }
 
 public data class DOT11_WFD_GROUP_JOIN_PARAMETERS(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var GOOperatingChannel: DOT11_WFD_CHANNEL = DOT11_WFD_CHANNEL(),
     public var GOConfigTime: UInt = 0u,
     public var bInGroupFormation: Boolean = false,
@@ -3769,7 +3772,7 @@ public data class DOT11_WFD_GROUP_JOIN_PARAMETERS(
 )
 
 public data class DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var bPersistentGroupEnabled: Boolean = false,
     public var bIntraBSSDistributionSupported: Boolean = false,
     public var bCrossConnectionSupported: Boolean = false,
@@ -3779,7 +3782,7 @@ public data class DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG(
 )
 
 public data class DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var bPersistentGroupEnabled: Boolean = false,
     public var bIntraBSSDistributionSupported: Boolean = false,
     public var bCrossConnectionSupported: Boolean = false,
@@ -3789,12 +3792,12 @@ public data class DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2(
     public var bEapolKeyIpAddressAllocationSupported: Boolean = false,
 )
 
-public data class DOT11_WFD_GROUP_START_PARAMETERS(public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(), public var AdvertisedOperatingChannel: DOT11_WFD_CHANNEL = DOT11_WFD_CHANNEL())
+public data class DOT11_WFD_GROUP_START_PARAMETERS(public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(), public var AdvertisedOperatingChannel: DOT11_WFD_CHANNEL = DOT11_WFD_CHANNEL())
 
 public data class DOT11_WFD_INVITATION_FLAGS(public var _bitfield: UByte = 0u)
 
 public data class DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST(
-    public var Header: Ndis.NDIS_OBJECT_HEADER = Ndis.NDIS_OBJECT_HEADER(),
+    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
     public var uNumOfEntries: UInt = 0u,
     public var uTotalNumOfEntries: UInt = 0u,
     public var SecondaryDeviceTypes: List<DOT11_WFD_DEVICE_TYPE> = List(1) { DOT11_WFD_DEVICE_TYPE() },
@@ -3896,7 +3899,7 @@ public data class DOT11_WME_UPDATE_IE(
 public data class DOT11_WPA_TSC(
     public var uReserved: UInt = 0u,
     public var dot11OffloadType: DOT11_OFFLOAD_TYPE = 0,
-    public var hOffload: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hOffload: HANDLE = 0L,
     public var dot11IV48Counter: DOT11_IV48_COUNTER = DOT11_IV48_COUNTER(),
 )
 
@@ -3931,7 +3934,7 @@ public data class ONEX_AUTH_PARAMS(
     public var dwQuarantineState: UInt = 0u,
     public var _bitfield: UInt = 0u,
     public var dwSessionId: UInt = 0u,
-    public var hUserToken: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hUserToken: HANDLE = 0L,
     public var OneXUserProfile: ONEX_VARIABLE_BLOB = ONEX_VARIABLE_BLOB(),
     public var Identity: ONEX_VARIABLE_BLOB = ONEX_VARIABLE_BLOB(),
     public var UserName: ONEX_VARIABLE_BLOB = ONEX_VARIABLE_BLOB(),
@@ -3940,7 +3943,7 @@ public data class ONEX_AUTH_PARAMS(
 
 public data class ONEX_EAP_ERROR(
     public var dwWinError: UInt = 0u,
-    public var type: Security.ExtensibleAuthenticationProtocol.EAP_METHOD_TYPE = Security.ExtensibleAuthenticationProtocol.EAP_METHOD_TYPE(),
+    public var type: EAP_METHOD_TYPE = EAP_METHOD_TYPE(),
     public var dwReasonCode: UInt = 0u,
     public var rootCauseGuid: GUID = GUID(),
     public var repairGuid: GUID = GUID(),

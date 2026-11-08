@@ -6,6 +6,29 @@ import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
+import io.github.kotlinmania.windowssys.windows.win32.security.PSID
+import io.github.kotlinmania.windowssys.windows.win32.security.QUOTA_LIMITS
+import io.github.kotlinmania.windowssys.windows.win32.security.SECURITY_IMPERSONATION_LEVEL
+import io.github.kotlinmania.windowssys.windows.win32.security.SID_NAME_USE
+import io.github.kotlinmania.windowssys.windows.win32.security.TOKEN_DEFAULT_DACL
+import io.github.kotlinmania.windowssys.windows.win32.security.TOKEN_DEVICE_CLAIMS
+import io.github.kotlinmania.windowssys.windows.win32.security.TOKEN_OWNER
+import io.github.kotlinmania.windowssys.windows.win32.security.TOKEN_PRIMARY_GROUP
+import io.github.kotlinmania.windowssys.windows.win32.security.TOKEN_USER
+import io.github.kotlinmania.windowssys.windows.win32.security.TOKEN_USER_CLAIMS
+import io.github.kotlinmania.windowssys.windows.win32.security.credentials.CREDENTIALW
+import io.github.kotlinmania.windowssys.windows.win32.security.credentials.SecHandle
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.ALG_ID
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.HCERTSTORE
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.LIST_ENTRY
+import io.github.kotlinmania.windowssys.windows.win32.system.passwordmanagement.LM_OWF_PASSWORD
+import io.github.kotlinmania.windowssys.windows.win32.system.rpc.SEC_WINNT_AUTH_IDENTITY_A
+import io.github.kotlinmania.windowssys.windows.win32.system.rpc.SEC_WINNT_AUTH_IDENTITY_W
 
 public data class AUDIT_POLICY_INFORMATION(
     public var AuditSubCategoryGuid: GUID = GUID(),
@@ -66,7 +89,7 @@ public data class DOMAIN_PASSWORD_INFORMATION(
     public var MinPasswordAge: Long = 0L,
 )
 
-public data class ENCRYPTED_CREDENTIALW(public var Cred: Credentials.CREDENTIALW = Credentials.CREDENTIALW(), public var ClearCredentialBlobSize: UInt = 0u)
+public data class ENCRYPTED_CREDENTIALW(public var Cred: CREDENTIALW = CREDENTIALW(), public var ClearCredentialBlobSize: UInt = 0u)
 
 public data class KDC_PROXY_CACHE_ENTRY_DATA(
     public var SinceLastUsed: ULong = 0uL,
@@ -74,7 +97,7 @@ public data class KDC_PROXY_CACHE_ENTRY_DATA(
     public var ProxyServerName: LSA_UNICODE_STRING = LSA_UNICODE_STRING(),
     public var ProxyServerVdir: LSA_UNICODE_STRING = LSA_UNICODE_STRING(),
     public var ProxyServerPort: UShort = 0u,
-    public var LogonId: Foundation.LUID = Foundation.LUID(),
+    public var LogonId: LUID = LUID(),
     public var CredUserName: LSA_UNICODE_STRING = LSA_UNICODE_STRING(),
     public var CredDomainName: LSA_UNICODE_STRING = LSA_UNICODE_STRING(),
     public var GlobalCache: Boolean = false,
@@ -100,7 +123,7 @@ public data class KERB_ADD_CREDENTIALS_REQUEST(
     public var UserName: LSA_UNICODE_STRING = LSA_UNICODE_STRING(),
     public var DomainName: LSA_UNICODE_STRING = LSA_UNICODE_STRING(),
     public var Password: LSA_UNICODE_STRING = LSA_UNICODE_STRING(),
-    public var LogonId: Foundation.LUID = Foundation.LUID(),
+    public var LogonId: LUID = LUID(),
     public var Flags: KERB_REQUEST_FLAGS = 0u,
 )
 
@@ -150,7 +173,7 @@ public data class KERB_CERTIFICATE_S4U_LOGON(
     public var Certificate: Long = 0L,
 )
 
-public data class KERB_CERTIFICATE_UNLOCK_LOGON(public var Logon: KERB_CERTIFICATE_LOGON = KERB_CERTIFICATE_LOGON(), public var LogonId: Foundation.LUID = Foundation.LUID())
+public data class KERB_CERTIFICATE_UNLOCK_LOGON(public var Logon: KERB_CERTIFICATE_LOGON = KERB_CERTIFICATE_LOGON(), public var LogonId: LUID = LUID())
 
 public data class KERB_CHANGEPASSWORD_REQUEST(
     public var MessageType: KERB_PROTOCOL_MESSAGE_TYPE = 0,
@@ -161,13 +184,13 @@ public data class KERB_CHANGEPASSWORD_REQUEST(
     public var Impersonating: Boolean = false,
 )
 
-public data class KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST(public var MessageType: KERB_PROTOCOL_MESSAGE_TYPE = 0, public var LogonId: Foundation.LUID = Foundation.LUID())
+public data class KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST(public var MessageType: KERB_PROTOCOL_MESSAGE_TYPE = 0, public var LogonId: LUID = LUID())
 
 public data class KERB_CLOUD_KERBEROS_DEBUG_DATA(public var _bitfield: UInt = 0u)
 
 public data class KERB_CLOUD_KERBEROS_DEBUG_DATA_V0(public var _bitfield: UInt = 0u)
 
-public data class KERB_CLOUD_KERBEROS_DEBUG_REQUEST(public var MessageType: KERB_PROTOCOL_MESSAGE_TYPE = 0, public var LogonId: Foundation.LUID = Foundation.LUID())
+public data class KERB_CLOUD_KERBEROS_DEBUG_REQUEST(public var MessageType: KERB_PROTOCOL_MESSAGE_TYPE = 0, public var LogonId: LUID = LUID())
 
 public data class KERB_CLOUD_KERBEROS_DEBUG_RESPONSE(
     public var MessageType: KERB_PROTOCOL_MESSAGE_TYPE = 0,
@@ -208,7 +231,7 @@ public data class KERB_CRYPTO_KEY32(
 
 public data class KERB_DECRYPT_REQUEST(
     public var MessageType: KERB_PROTOCOL_MESSAGE_TYPE = 0,
-    public var LogonId: Foundation.LUID = Foundation.LUID(),
+    public var LogonId: LUID = LUID(),
     public var Flags: UInt = 0u,
     public var CryptoType: Int = 0,
     public var KeyUsage: Int = 0,
@@ -283,7 +306,7 @@ public data class KERB_INTERACTIVE_PROFILE(
     public var UserFlags: UInt = 0u,
 )
 
-public data class KERB_INTERACTIVE_UNLOCK_LOGON(public var Logon: KERB_INTERACTIVE_LOGON = KERB_INTERACTIVE_LOGON(), public var LogonId: Foundation.LUID = Foundation.LUID())
+public data class KERB_INTERACTIVE_UNLOCK_LOGON(public var Logon: KERB_INTERACTIVE_LOGON = KERB_INTERACTIVE_LOGON(), public var LogonId: LUID = LUID())
 
 public data class KERB_NET_ADDRESS(
     public var Family: UInt = 0u,
@@ -298,21 +321,21 @@ public data class KERB_PURGE_BINDING_CACHE_REQUEST(public var MessageType: KERB_
 public data class KERB_PURGE_KDC_PROXY_CACHE_REQUEST(
     public var MessageType: KERB_PROTOCOL_MESSAGE_TYPE = 0,
     public var Flags: UInt = 0u,
-    public var LogonId: Foundation.LUID = Foundation.LUID(),
+    public var LogonId: LUID = LUID(),
 )
 
 public data class KERB_PURGE_KDC_PROXY_CACHE_RESPONSE(public var MessageType: KERB_PROTOCOL_MESSAGE_TYPE = 0, public var CountOfPurged: UInt = 0u)
 
 public data class KERB_PURGE_TKT_CACHE_EX_REQUEST(
     public var MessageType: KERB_PROTOCOL_MESSAGE_TYPE = 0,
-    public var LogonId: Foundation.LUID = Foundation.LUID(),
+    public var LogonId: LUID = LUID(),
     public var Flags: UInt = 0u,
     public var TicketTemplate: KERB_TICKET_CACHE_INFO_EX = KERB_TICKET_CACHE_INFO_EX(),
 )
 
 public data class KERB_PURGE_TKT_CACHE_REQUEST(
     public var MessageType: KERB_PROTOCOL_MESSAGE_TYPE = 0,
-    public var LogonId: Foundation.LUID = Foundation.LUID(),
+    public var LogonId: LUID = LUID(),
     public var ServerName: LSA_UNICODE_STRING = LSA_UNICODE_STRING(),
     public var RealmName: LSA_UNICODE_STRING = LSA_UNICODE_STRING(),
 )
@@ -341,7 +364,7 @@ public data class KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE(
 public data class KERB_QUERY_KDC_PROXY_CACHE_REQUEST(
     public var MessageType: KERB_PROTOCOL_MESSAGE_TYPE = 0,
     public var Flags: UInt = 0u,
-    public var LogonId: Foundation.LUID = Foundation.LUID(),
+    public var LogonId: LUID = LUID(),
 )
 
 public data class KERB_QUERY_KDC_PROXY_CACHE_RESPONSE(
@@ -353,7 +376,7 @@ public data class KERB_QUERY_KDC_PROXY_CACHE_RESPONSE(
 public data class KERB_QUERY_S4U2PROXY_CACHE_REQUEST(
     public var MessageType: KERB_PROTOCOL_MESSAGE_TYPE = 0,
     public var Flags: UInt = 0u,
-    public var LogonId: Foundation.LUID = Foundation.LUID(),
+    public var LogonId: LUID = LUID(),
 )
 
 public data class KERB_QUERY_S4U2PROXY_CACHE_RESPONSE(
@@ -380,7 +403,7 @@ public data class KERB_QUERY_TKT_CACHE_EX_RESPONSE(
     public var Tickets: List<KERB_TICKET_CACHE_INFO_EX> = List(1) { KERB_TICKET_CACHE_INFO_EX() },
 )
 
-public data class KERB_QUERY_TKT_CACHE_REQUEST(public var MessageType: KERB_PROTOCOL_MESSAGE_TYPE = 0, public var LogonId: Foundation.LUID = Foundation.LUID())
+public data class KERB_QUERY_TKT_CACHE_REQUEST(public var MessageType: KERB_PROTOCOL_MESSAGE_TYPE = 0, public var LogonId: LUID = LUID())
 
 public data class KERB_QUERY_TKT_CACHE_RESPONSE(
     public var MessageType: KERB_PROTOCOL_MESSAGE_TYPE = 0,
@@ -395,7 +418,7 @@ public data class KERB_REFRESH_POLICY_RESPONSE(public var MessageType: KERB_PROT
 public data class KERB_REFRESH_SCCRED_REQUEST(
     public var MessageType: KERB_PROTOCOL_MESSAGE_TYPE = 0,
     public var CredentialBlob: LSA_UNICODE_STRING = LSA_UNICODE_STRING(),
-    public var LogonId: Foundation.LUID = Foundation.LUID(),
+    public var LogonId: LUID = LUID(),
     public var Flags: UInt = 0u,
 )
 
@@ -415,12 +438,12 @@ public data class KERB_RETRIEVE_KEY_TAB_RESPONSE(
 
 public data class KERB_RETRIEVE_TKT_REQUEST(
     public var MessageType: KERB_PROTOCOL_MESSAGE_TYPE = 0,
-    public var LogonId: Foundation.LUID = Foundation.LUID(),
+    public var LogonId: LUID = LUID(),
     public var TargetName: LSA_UNICODE_STRING = LSA_UNICODE_STRING(),
     public var TicketFlags: UInt = 0u,
     public var CacheOptions: UInt = 0u,
     public var EncryptionType: KERB_CRYPTO_KEY_TYPE = 0,
-    public var CredentialsHandle: Credentials.SecHandle = Credentials.SecHandle(),
+    public var CredentialsHandle: SecHandle = SecHandle(),
 )
 
 public data class KERB_RETRIEVE_TKT_RESPONSE(public var Ticket: KERB_EXTERNAL_TICKET = KERB_EXTERNAL_TICKET())
@@ -428,7 +451,7 @@ public data class KERB_RETRIEVE_TKT_RESPONSE(public var Ticket: KERB_EXTERNAL_TI
 public data class KERB_S4U2PROXY_CACHE_ENTRY_INFO(
     public var ServerName: LSA_UNICODE_STRING = LSA_UNICODE_STRING(),
     public var Flags: UInt = 0u,
-    public var LastStatus: Foundation.NTSTATUS = Foundation.NTSTATUS(),
+    public var LastStatus: NTSTATUS = 0,
     public var Expiry: Long = 0L,
 )
 
@@ -436,7 +459,7 @@ public data class KERB_S4U2PROXY_CRED(
     public var UserName: LSA_UNICODE_STRING = LSA_UNICODE_STRING(),
     public var DomainName: LSA_UNICODE_STRING = LSA_UNICODE_STRING(),
     public var Flags: UInt = 0u,
-    public var LastStatus: Foundation.NTSTATUS = Foundation.NTSTATUS(),
+    public var LastStatus: NTSTATUS = 0,
     public var Expiry: Long = 0L,
     public var CountOfEntries: UInt = 0u,
     public var Entries: Long = 0L,
@@ -451,8 +474,8 @@ public data class KERB_S4U_LOGON(
 
 public data class KERB_SETPASSWORD_EX_REQUEST(
     public var MessageType: KERB_PROTOCOL_MESSAGE_TYPE = 0,
-    public var LogonId: Foundation.LUID = Foundation.LUID(),
-    public var CredentialsHandle: Credentials.SecHandle = Credentials.SecHandle(),
+    public var LogonId: LUID = LUID(),
+    public var CredentialsHandle: SecHandle = SecHandle(),
     public var Flags: UInt = 0u,
     public var AccountRealm: LSA_UNICODE_STRING = LSA_UNICODE_STRING(),
     public var AccountName: LSA_UNICODE_STRING = LSA_UNICODE_STRING(),
@@ -466,8 +489,8 @@ public data class KERB_SETPASSWORD_EX_REQUEST(
 
 public data class KERB_SETPASSWORD_REQUEST(
     public var MessageType: KERB_PROTOCOL_MESSAGE_TYPE = 0,
-    public var LogonId: Foundation.LUID = Foundation.LUID(),
-    public var CredentialsHandle: Credentials.SecHandle = Credentials.SecHandle(),
+    public var LogonId: LUID = LUID(),
+    public var CredentialsHandle: SecHandle = SecHandle(),
     public var Flags: UInt = 0u,
     public var DomainName: LSA_UNICODE_STRING = LSA_UNICODE_STRING(),
     public var AccountName: LSA_UNICODE_STRING = LSA_UNICODE_STRING(),
@@ -487,11 +510,11 @@ public data class KERB_SMART_CARD_PROFILE(
     public var CertificateData: Long = 0L,
 )
 
-public data class KERB_SMART_CARD_UNLOCK_LOGON(public var Logon: KERB_SMART_CARD_LOGON = KERB_SMART_CARD_LOGON(), public var LogonId: Foundation.LUID = Foundation.LUID())
+public data class KERB_SMART_CARD_UNLOCK_LOGON(public var Logon: KERB_SMART_CARD_LOGON = KERB_SMART_CARD_LOGON(), public var LogonId: LUID = LUID())
 
 public data class KERB_SUBMIT_TKT_REQUEST(
     public var MessageType: KERB_PROTOCOL_MESSAGE_TYPE = 0,
-    public var LogonId: Foundation.LUID = Foundation.LUID(),
+    public var LogonId: LUID = LUID(),
     public var Flags: UInt = 0u,
     public var Key: KERB_CRYPTO_KEY32 = KERB_CRYPTO_KEY32(),
     public var KerbCredSize: UInt = 0u,
@@ -561,17 +584,17 @@ public data class KERB_TICKET_LOGON(
 
 public data class KERB_TICKET_PROFILE(public var Profile: KERB_INTERACTIVE_PROFILE = KERB_INTERACTIVE_PROFILE(), public var SessionKey: KERB_CRYPTO_KEY = KERB_CRYPTO_KEY())
 
-public data class KERB_TICKET_UNLOCK_LOGON(public var Logon: KERB_TICKET_LOGON = KERB_TICKET_LOGON(), public var LogonId: Foundation.LUID = Foundation.LUID())
+public data class KERB_TICKET_UNLOCK_LOGON(public var Logon: KERB_TICKET_LOGON = KERB_TICKET_LOGON(), public var LogonId: LUID = LUID())
 
 public data class KERB_TRANSFER_CRED_REQUEST(
     public var MessageType: KERB_PROTOCOL_MESSAGE_TYPE = 0,
-    public var OriginLogonId: Foundation.LUID = Foundation.LUID(),
-    public var DestinationLogonId: Foundation.LUID = Foundation.LUID(),
+    public var OriginLogonId: LUID = LUID(),
+    public var DestinationLogonId: LUID = LUID(),
     public var Flags: UInt = 0u,
 )
 
 public data class KSEC_LIST_ENTRY(
-    public var List: System.Kernel.LIST_ENTRY = System.Kernel.LIST_ENTRY(),
+    public var List: LIST_ENTRY = LIST_ENTRY(),
     public var RefCount: Int = 0,
     public var Signature: UInt = 0u,
     public var OwningList: Long = 0L,
@@ -665,7 +688,7 @@ public data class LSA_LAST_INTER_LOGON_INFO(
 
 public data class LSA_OBJECT_ATTRIBUTES(
     public var Length: UInt = 0u,
-    public var RootDirectory: Foundation.HANDLE = Foundation.HANDLE(),
+    public var RootDirectory: HANDLE = 0L,
     public var ObjectName: Long = 0L,
     public var Attributes: UInt = 0u,
     public var SecurityDescriptor: Long = 0L,
@@ -1194,7 +1217,7 @@ public data class MSV1_0_VALIDATION_INFO(
     public var UserId: UInt = 0u,
 )
 
-public data class NEGOTIATE_CALLER_NAME_REQUEST(public var MessageType: UInt = 0u, public var LogonId: Foundation.LUID = Foundation.LUID())
+public data class NEGOTIATE_CALLER_NAME_REQUEST(public var MessageType: UInt = 0u, public var LogonId: LUID = LUID())
 
 public data class NEGOTIATE_CALLER_NAME_RESPONSE(public var MessageType: UInt = 0u, public var CallerName: PWSTR = 0L)
 
@@ -1242,8 +1265,8 @@ public data class NETLOGON_GENERIC_INFO(
 
 public data class NETLOGON_INTERACTIVE_INFO(
     public var Identity: NETLOGON_LOGON_IDENTITY_INFO = NETLOGON_LOGON_IDENTITY_INFO(),
-    public var LmOwfPassword: System.PasswordManagement.LM_OWF_PASSWORD = System.PasswordManagement.LM_OWF_PASSWORD(),
-    public var NtOwfPassword: System.PasswordManagement.LM_OWF_PASSWORD = System.PasswordManagement.LM_OWF_PASSWORD(),
+    public var LmOwfPassword: LM_OWF_PASSWORD = LM_OWF_PASSWORD(),
+    public var NtOwfPassword: LM_OWF_PASSWORD = LM_OWF_PASSWORD(),
 )
 
 public data class NETLOGON_LOGON_IDENTITY_INFO(
@@ -1263,8 +1286,8 @@ public data class NETLOGON_NETWORK_INFO(
 
 public data class NETLOGON_SERVICE_INFO(
     public var Identity: NETLOGON_LOGON_IDENTITY_INFO = NETLOGON_LOGON_IDENTITY_INFO(),
-    public var LmOwfPassword: System.PasswordManagement.LM_OWF_PASSWORD = System.PasswordManagement.LM_OWF_PASSWORD(),
-    public var NtOwfPassword: System.PasswordManagement.LM_OWF_PASSWORD = System.PasswordManagement.LM_OWF_PASSWORD(),
+    public var LmOwfPassword: LM_OWF_PASSWORD = LM_OWF_PASSWORD(),
+    public var NtOwfPassword: LM_OWF_PASSWORD = LM_OWF_PASSWORD(),
 )
 
 public data class PKU2U_CERTIFICATE_S4U_LOGON(
@@ -1445,7 +1468,7 @@ public data class SCHANNEL_CERT_HASH_STORE(
 
 public data class SCHANNEL_CLIENT_SIGNATURE(
     public var cbLength: UInt = 0u,
-    public var aiHash: Cryptography.ALG_ID = Cryptography.ALG_ID(),
+    public var aiHash: ALG_ID = 0u,
     public var cbHash: UInt = 0u,
     public var HashValue: UByteArray = UByteArray(36),
     public var CertThumbprint: UByteArray = UByteArray(20),
@@ -1475,7 +1498,7 @@ public data class SCHANNEL_CRED(
     public var dwVersion: UInt = 0u,
     public var cCreds: UInt = 0u,
     public var paCred: Long = 0L,
-    public var hRootStore: Cryptography.HCERTSTORE = Cryptography.HCERTSTORE(),
+    public var hRootStore: HCERTSTORE = 0L,
     public var cMappers: UInt = 0u,
     public var aphMappers: Long = 0L,
     public var cSupportedAlgs: UInt = 0u,
@@ -1504,7 +1527,7 @@ public data class SCH_CREDENTIALS(
     public var dwCredFormat: UInt = 0u,
     public var cCreds: UInt = 0u,
     public var paCred: Long = 0L,
-    public var hRootStore: Cryptography.HCERTSTORE = Cryptography.HCERTSTORE(),
+    public var hRootStore: HCERTSTORE = 0L,
     public var cMappers: UInt = 0u,
     public var aphMappers: Long = 0L,
     public var dwSessionLifespan: UInt = 0u,
@@ -1562,15 +1585,15 @@ public data class SECPKG_CALL_PACKAGE_PIN_DC_REQUEST(
 
 public data class SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST(
     public var MessageType: UInt = 0u,
-    public var OriginLogonId: Foundation.LUID = Foundation.LUID(),
-    public var DestinationLogonId: Foundation.LUID = Foundation.LUID(),
+    public var OriginLogonId: LUID = LUID(),
+    public var DestinationLogonId: LUID = LUID(),
     public var Flags: UInt = 0u,
 )
 
 public data class SECPKG_CALL_PACKAGE_UNPIN_ALL_DCS_REQUEST(public var MessageType: UInt = 0u, public var Flags: UInt = 0u)
 
 public data class SECPKG_CLIENT_INFO(
-    public var LogonId: Foundation.LUID = Foundation.LUID(),
+    public var LogonId: LUID = LUID(),
     public var ProcessID: UInt = 0u,
     public var ThreadID: UInt = 0u,
     public var HasTcbPrivilege: Boolean = false,
@@ -1578,11 +1601,11 @@ public data class SECPKG_CLIENT_INFO(
     public var Restricted: Boolean = false,
     public var ClientFlags: UByte = 0u,
     public var ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL = 0,
-    public var ClientToken: Foundation.HANDLE = Foundation.HANDLE(),
+    public var ClientToken: HANDLE = 0L,
 )
 
 public data class SECPKG_CLIENT_INFO_EX(
-    public var LogonId: Foundation.LUID = Foundation.LUID(),
+    public var LogonId: LUID = LUID(),
     public var ProcessID: UInt = 0u,
     public var ThreadID: UInt = 0u,
     public var HasTcbPrivilege: Boolean = false,
@@ -1590,9 +1613,9 @@ public data class SECPKG_CLIENT_INFO_EX(
     public var Restricted: Boolean = false,
     public var ClientFlags: UByte = 0u,
     public var ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL = 0,
-    public var ClientToken: Foundation.HANDLE = Foundation.HANDLE(),
-    public var IdentificationLogonId: Foundation.LUID = Foundation.LUID(),
-    public var IdentificationToken: Foundation.HANDLE = Foundation.HANDLE(),
+    public var ClientToken: HANDLE = 0L,
+    public var IdentificationLogonId: LUID = LUID(),
+    public var IdentificationToken: HANDLE = 0L,
 )
 
 public data class SECPKG_CONTEXT_THUNKS(public var InfoLevelCount: UInt = 0u, public var Levels: UIntArray = UIntArray(1)) {
@@ -1617,10 +1640,10 @@ public data class SECPKG_CREDENTIAL(
     public var cbStructureLength: UInt = 0u,
     public var ClientProcess: UInt = 0u,
     public var ClientThread: UInt = 0u,
-    public var LogonId: Foundation.LUID = Foundation.LUID(),
-    public var ClientToken: Foundation.HANDLE = Foundation.HANDLE(),
+    public var LogonId: LUID = LUID(),
+    public var ClientToken: HANDLE = 0L,
     public var SessionId: UInt = 0u,
-    public var ModifiedId: Foundation.LUID = Foundation.LUID(),
+    public var ModifiedId: LUID = LUID(),
     public var fCredentials: UInt = 0u,
     public var Flags: UInt = 0u,
     public var PrincipalName: SECPKG_BYTE_VECTOR = SECPKG_BYTE_VECTOR(),
@@ -1782,7 +1805,7 @@ public data class SECPKG_NTLM_TARGETINFO(
     public var MsvAvDnsDomainName: PWSTR = 0L,
     public var MsvAvDnsTreeName: PWSTR = 0L,
     public var MsvAvFlags: UInt = 0u,
-    public var MsvAvTimestamp: Foundation.FILETIME = Foundation.FILETIME(),
+    public var MsvAvTimestamp: FILETIME = FILETIME(),
     public var MsvAvTargetName: PWSTR = 0L,
 )
 
@@ -1798,12 +1821,12 @@ public data class SECPKG_PARAMETERS(
 
 public data class SECPKG_POST_LOGON_USER_INFO(
     public var Flags: UInt = 0u,
-    public var LogonId: Foundation.LUID = Foundation.LUID(),
-    public var LinkedLogonId: Foundation.LUID = Foundation.LUID(),
+    public var LogonId: LUID = LUID(),
+    public var LinkedLogonId: LUID = LUID(),
 )
 
 public data class SECPKG_PRIMARY_CRED(
-    public var LogonId: Foundation.LUID = Foundation.LUID(),
+    public var LogonId: LUID = LUID(),
     public var DownlevelName: LSA_UNICODE_STRING = LSA_UNICODE_STRING(),
     public var DomainName: LSA_UNICODE_STRING = LSA_UNICODE_STRING(),
     public var Password: LSA_UNICODE_STRING = LSA_UNICODE_STRING(),
@@ -1820,7 +1843,7 @@ public data class SECPKG_PRIMARY_CRED(
 )
 
 public class SECPKG_PRIMARY_CRED_EX(
-    public var LogonId: Foundation.LUID = Foundation.LUID(),
+    public var LogonId: LUID = LUID(),
     public var DownlevelName: LSA_UNICODE_STRING = LSA_UNICODE_STRING(),
     public var DomainName: LSA_UNICODE_STRING = LSA_UNICODE_STRING(),
     public var Password: LSA_UNICODE_STRING = LSA_UNICODE_STRING(),
@@ -1835,13 +1858,13 @@ public class SECPKG_PRIMARY_CRED_EX(
     public var Spare3: LSA_UNICODE_STRING = LSA_UNICODE_STRING(),
     public var Spare4: LSA_UNICODE_STRING = LSA_UNICODE_STRING(),
     public var PackageId: ULong = 0uL,
-    public var PrevLogonId: Foundation.LUID = Foundation.LUID(),
+    public var PrevLogonId: LUID = LUID(),
     public var FlagsEx: UInt = 0u,
 )
 
 public data class SECPKG_REDIRECTED_LOGON_BUFFER(
     public var RedirectedLogonGuid: GUID = GUID(),
-    public var RedirectedLogonHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var RedirectedLogonHandle: HANDLE = 0L,
     public var Init: PLSA_REDIRECTED_LOGON_INIT = null,
     public var Callback: PLSA_REDIRECTED_LOGON_CALLBACK = null,
     public var CleanupCallback: PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACK = null,
@@ -1893,7 +1916,7 @@ public data class SECPKG_SUPPLIED_CREDENTIAL(
 
 public data class SECPKG_SURROGATE_LOGON(
     public var Version: UInt = 0u,
-    public var SurrogateLogonID: Foundation.LUID = Foundation.LUID(),
+    public var SurrogateLogonID: LUID = LUID(),
     public var EntryCount: UInt = 0u,
     public var Entries: Long = 0L,
 )
@@ -1924,7 +1947,7 @@ public data class SECPKG_WOW_CLIENT_DLL(public var WowClientDllPath: SECURITY_ST
 
 public class SECURITY_LOGON_SESSION_DATA(
     public var Size: UInt = 0u,
-    public var LogonId: Foundation.LUID = Foundation.LUID(),
+    public var LogonId: LUID = LUID(),
     public var UserName: LSA_UNICODE_STRING = LSA_UNICODE_STRING(),
     public var LogonDomain: LSA_UNICODE_STRING = LSA_UNICODE_STRING(),
     public var AuthenticationPackage: LSA_UNICODE_STRING = LSA_UNICODE_STRING(),
@@ -2284,8 +2307,8 @@ public data class SEC_WINNT_AUTH_IDENTITY_EXW(
 public data class SEC_WINNT_AUTH_IDENTITY_INFO(
     public var AuthIdExw: SEC_WINNT_AUTH_IDENTITY_EXW = SEC_WINNT_AUTH_IDENTITY_EXW(),
     public var AuthIdExa: SEC_WINNT_AUTH_IDENTITY_EXA = SEC_WINNT_AUTH_IDENTITY_EXA(),
-    public var AuthId_a: System.Rpc.SEC_WINNT_AUTH_IDENTITY_A = System.Rpc.SEC_WINNT_AUTH_IDENTITY_A(),
-    public var AuthId_w: System.Rpc.SEC_WINNT_AUTH_IDENTITY_W = System.Rpc.SEC_WINNT_AUTH_IDENTITY_W(),
+    public var AuthId_a: SEC_WINNT_AUTH_IDENTITY_A = SEC_WINNT_AUTH_IDENTITY_A(),
+    public var AuthId_w: SEC_WINNT_AUTH_IDENTITY_W = SEC_WINNT_AUTH_IDENTITY_W(),
     public var AuthIdEx2: SEC_WINNT_AUTH_IDENTITY_EX2 = SEC_WINNT_AUTH_IDENTITY_EX2(),
 )
 

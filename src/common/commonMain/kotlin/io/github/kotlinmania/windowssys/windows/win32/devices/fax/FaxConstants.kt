@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.fax
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
@@ -18,11 +19,11 @@ public val CF_MSFAXSRV_ROUTING_METHOD_GUID: PCWSTR = w("FAXSRV_RoutingMethodGuid
 
 public val CF_MSFAXSRV_SERVER_NAME: PCWSTR = w("FAXSRV_ServerName")
 
-public val CLSID_Sti: GUID = GUID.from_u128(0xb323f8e02e6811d0uL, 0x90ea00aa0060f86cuL)
+public val CLSID_Sti: GUID = GUID.from_u128(U128(0xb323f8e02e6811d0uL, 0x90ea00aa0060f86cuL))
 
-public val DEVPKEY_WIA_DeviceType: Foundation.DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(0x6bdd1fc6810f11d0uL, 0xbec708002be2092fuL), pid = 2u)
+public val DEVPKEY_WIA_DeviceType: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x6bdd1fc6810f11d0uL, 0xbec708002be2092fuL)), pid = 2u)
 
-public val DEVPKEY_WIA_USDClassId: Foundation.DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(0x6bdd1fc6810f11d0uL, 0xbec708002be2092fuL), pid = 3u)
+public val DEVPKEY_WIA_USDClassId: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x6bdd1fc6810f11d0uL, 0xbec708002be2092fuL)), pid = 3u)
 
 public val DEV_ID_SRC_FAX: FAX_ENUM_DEVICE_ID_SOURCE = 0
 
@@ -54,11 +55,11 @@ public val FAXLOG_LEVEL_MIN: FAX_ENUM_LOG_LEVELS = 1
 
 public val FAXLOG_LEVEL_NONE: FAX_ENUM_LOG_LEVELS = 0
 
-public val FAXSRV_DEVICE_NODETYPE_GUID: GUID = GUID.from_u128(0x3115a19a625146acuL, 0x942514782858b8c9uL)
+public val FAXSRV_DEVICE_NODETYPE_GUID: GUID = GUID.from_u128(U128(0x3115a19a625146acuL, 0x942514782858b8c9uL))
 
-public val FAXSRV_DEVICE_PROVIDER_NODETYPE_GUID: GUID = GUID.from_u128(0xbd38e2acb9264161uL, 0x86400f6956ee2ba3uL)
+public val FAXSRV_DEVICE_PROVIDER_NODETYPE_GUID: GUID = GUID.from_u128(U128(0xbd38e2acb9264161uL, 0x86400f6956ee2ba3uL))
 
-public val FAXSRV_ROUTING_METHOD_NODETYPE_GUID: GUID = GUID.from_u128(0x220d2cb085a94a43uL, 0xb6e89d66b44f1af5uL)
+public val FAXSRV_ROUTING_METHOD_NODETYPE_GUID: GUID = GUID.from_u128(U128(0x220d2cb085a94a43uL, 0xb6e89d66b44f1af5uL))
 
 public val FAX_CONFIG_QUERY: UInt = 4u
 
@@ -272,119 +273,119 @@ public val FS_TRANSMITTING: UInt = 536870914u
 
 public val FS_USER_ABORT: UInt = 538968064u
 
-public val FaxAccount: GUID = GUID.from_u128(0xa7e0647f45244464uL, 0xa56db9fe666f715euL)
+public val FaxAccount: GUID = GUID.from_u128(U128(0xa7e0647f45244464uL, 0xa56db9fe666f715euL))
 
-public val FaxAccountFolders: GUID = GUID.from_u128(0x85398f49c0344a3fuL, 0x821cdb7d685e8129uL)
+public val FaxAccountFolders: GUID = GUID.from_u128(U128(0x85398f49c0344a3fuL, 0x821cdb7d685e8129uL))
 
-public val FaxAccountIncomingArchive: GUID = GUID.from_u128(0x14b33db54c404ecfuL, 0x9ef8a360cbe809eduL)
+public val FaxAccountIncomingArchive: GUID = GUID.from_u128(U128(0x14b33db54c404ecfuL, 0x9ef8a360cbe809eduL))
 
-public val FaxAccountIncomingQueue: GUID = GUID.from_u128(0x9bcf6094b4da45f4uL, 0xb8d6ddeb2186652cuL)
+public val FaxAccountIncomingQueue: GUID = GUID.from_u128(U128(0x9bcf6094b4da45f4uL, 0xb8d6ddeb2186652cuL))
 
-public val FaxAccountOutgoingArchive: GUID = GUID.from_u128(0x851e7af5433a4739uL, 0xa2dfad245c2cb98euL)
+public val FaxAccountOutgoingArchive: GUID = GUID.from_u128(U128(0x851e7af5433a4739uL, 0xa2dfad245c2cb98euL))
 
-public val FaxAccountOutgoingQueue: GUID = GUID.from_u128(0xfeeceefbc14948bauL, 0xbab8b791e101f62fuL)
+public val FaxAccountOutgoingQueue: GUID = GUID.from_u128(U128(0xfeeceefbc14948bauL, 0xbab8b791e101f62fuL))
 
-public val FaxAccountSet: GUID = GUID.from_u128(0xfbc23c4b79e04291uL, 0xbc56c12e253bbf3auL)
+public val FaxAccountSet: GUID = GUID.from_u128(U128(0xfbc23c4b79e04291uL, 0xbc56c12e253bbf3auL))
 
-public val FaxAccounts: GUID = GUID.from_u128(0xda1f94aaee2c47c0uL, 0x8f4f2a217075b76euL)
+public val FaxAccounts: GUID = GUID.from_u128(U128(0xda1f94aaee2c47c0uL, 0x8f4f2a217075b76euL))
 
-public val FaxActivity: GUID = GUID.from_u128(0xcfef5d0ee84d462euL, 0xaabb87d31eb04fefuL)
+public val FaxActivity: GUID = GUID.from_u128(U128(0xcfef5d0ee84d462euL, 0xaabb87d31eb04fefuL))
 
-public val FaxActivityLogging: GUID = GUID.from_u128(0xf0a0294e3bbd48b8uL, 0x8f138c591a55bdbcuL)
+public val FaxActivityLogging: GUID = GUID.from_u128(U128(0xf0a0294e3bbd48b8uL, 0x8f138c591a55bdbcuL))
 
-public val FaxConfiguration: GUID = GUID.from_u128(0x5857326fe7b341a7uL, 0x9c19a91b463e2d56uL)
+public val FaxConfiguration: GUID = GUID.from_u128(U128(0x5857326fe7b341a7uL, 0x9c19a91b463e2d56uL))
 
-public val FaxDevice: GUID = GUID.from_u128(0x59e3a5b2d676484buL, 0xa6de720bfa89b5afuL)
+public val FaxDevice: GUID = GUID.from_u128(U128(0x59e3a5b2d676484buL, 0xa6de720bfa89b5afuL))
 
-public val FaxDeviceIds: GUID = GUID.from_u128(0xcdc539ea7277460euL, 0x8de048a0a5760d1fuL)
+public val FaxDeviceIds: GUID = GUID.from_u128(U128(0xcdc539ea7277460euL, 0x8de048a0a5760d1fuL))
 
-public val FaxDeviceProvider: GUID = GUID.from_u128(0x17cf1aa3f5eb484auL, 0x9c9a4440a5baabfcuL)
+public val FaxDeviceProvider: GUID = GUID.from_u128(U128(0x17cf1aa3f5eb484auL, 0x9c9a4440a5baabfcuL))
 
-public val FaxDeviceProviders: GUID = GUID.from_u128(0xeb8fe768875a4f5fuL, 0x82c503f23aac1bd7uL)
+public val FaxDeviceProviders: GUID = GUID.from_u128(U128(0xeb8fe768875a4f5fuL, 0x82c503f23aac1bd7uL))
 
-public val FaxDevices: GUID = GUID.from_u128(0x5589e28e23cb4919uL, 0x8808e6101846e80duL)
+public val FaxDevices: GUID = GUID.from_u128(U128(0x5589e28e23cb4919uL, 0x8808e6101846e80duL))
 
-public val FaxDocument: GUID = GUID.from_u128(0xf3f9f91c838415euL, 0xa4f33e828ca445e0uL)
+public val FaxDocument: GUID = GUID.from_u128(U128(0xf3f9f91c838415euL, 0xa4f33e828ca445e0uL))
 
-public val FaxEventLogging: GUID = GUID.from_u128(0xa6850930a0f64a6fuL, 0x95b7db2ebf3d02e3uL)
+public val FaxEventLogging: GUID = GUID.from_u128(U128(0xa6850930a0f64a6fuL, 0x95b7db2ebf3d02e3uL))
 
-public val FaxFolders: GUID = GUID.from_u128(0xc35211d7577648cbuL, 0xaf44c31be3b2cfe5uL)
+public val FaxFolders: GUID = GUID.from_u128(U128(0xc35211d7577648cbuL, 0xaf44c31be3b2cfe5uL))
 
-public val FaxInboundRouting: GUID = GUID.from_u128(0xe80248edad654218uL, 0x8108991924d4e7eduL)
+public val FaxInboundRouting: GUID = GUID.from_u128(U128(0xe80248edad654218uL, 0x8108991924d4e7eduL))
 
-public val FaxInboundRoutingExtension: GUID = GUID.from_u128(0x1d7dfb5172074436uL, 0xa0d924e32ee56988uL)
+public val FaxInboundRoutingExtension: GUID = GUID.from_u128(U128(0x1d7dfb5172074436uL, 0xa0d924e32ee56988uL))
 
-public val FaxInboundRoutingExtensions: GUID = GUID.from_u128(0x189a48ed623c4c0duL, 0x80f2d66c7b9efec2uL)
+public val FaxInboundRoutingExtensions: GUID = GUID.from_u128(U128(0x189a48ed623c4c0duL, 0x80f2d66c7b9efec2uL))
 
-public val FaxInboundRoutingMethod: GUID = GUID.from_u128(0x4b9fd75c01944b72uL, 0x9ce502a8205ac7d4uL)
+public val FaxInboundRoutingMethod: GUID = GUID.from_u128(U128(0x4b9fd75c01944b72uL, 0x9ce502a8205ac7d4uL))
 
-public val FaxInboundRoutingMethods: GUID = GUID.from_u128(0x25fcb76ab7504b82uL, 0x9266fbbbae8922bauL)
+public val FaxInboundRoutingMethods: GUID = GUID.from_u128(U128(0x25fcb76ab7504b82uL, 0x9266fbbbae8922bauL))
 
-public val FaxIncomingArchive: GUID = GUID.from_u128(0x8426c56a35a14c6fuL, 0xaf93fc952422e2c2uL)
+public val FaxIncomingArchive: GUID = GUID.from_u128(U128(0x8426c56a35a14c6fuL, 0xaf93fc952422e2c2uL))
 
-public val FaxIncomingJob: GUID = GUID.from_u128(0xc47311ecae3241b8uL, 0xae4b3eae0629d0c9uL)
+public val FaxIncomingJob: GUID = GUID.from_u128(U128(0xc47311ecae3241b8uL, 0xae4b3eae0629d0c9uL))
 
-public val FaxIncomingJobs: GUID = GUID.from_u128(0xa1bb8a4388664fb7uL, 0xa15d6266c875a5ccuL)
+public val FaxIncomingJobs: GUID = GUID.from_u128(U128(0xa1bb8a4388664fb7uL, 0xa15d6266c875a5ccuL))
 
-public val FaxIncomingMessage: GUID = GUID.from_u128(0x1932fcf79d434d5auL, 0x89ff03861b321736uL)
+public val FaxIncomingMessage: GUID = GUID.from_u128(U128(0x1932fcf79d434d5auL, 0x89ff03861b321736uL))
 
-public val FaxIncomingMessageIterator: GUID = GUID.from_u128(0x6088e1d83fc845c2uL, 0x87b1909a29607ea9uL)
+public val FaxIncomingMessageIterator: GUID = GUID.from_u128(U128(0x6088e1d83fc845c2uL, 0x87b1909a29607ea9uL))
 
-public val FaxIncomingQueue: GUID = GUID.from_u128(0x69131717f3f140e3uL, 0x809da6cbf7bd85e5uL)
+public val FaxIncomingQueue: GUID = GUID.from_u128(U128(0x69131717f3f140e3uL, 0x809da6cbf7bd85e5uL))
 
-public val FaxJobStatus: GUID = GUID.from_u128(0x7bf222f4be8d442fuL, 0x841d6132742423bbuL)
+public val FaxJobStatus: GUID = GUID.from_u128(U128(0x7bf222f4be8d442fuL, 0x841d6132742423bbuL))
 
-public val FaxLoggingOptions: GUID = GUID.from_u128(0x1bf9eea6ece04785uL, 0xa18bde56e9eef96auL)
+public val FaxLoggingOptions: GUID = GUID.from_u128(U128(0x1bf9eea6ece04785uL, 0xa18bde56e9eef96auL))
 
-public val FaxOutboundRouting: GUID = GUID.from_u128(0xc81b385eb8694afduL, 0x86c0616498ed9be2uL)
+public val FaxOutboundRouting: GUID = GUID.from_u128(U128(0xc81b385eb8694afduL, 0x86c0616498ed9be2uL))
 
-public val FaxOutboundRoutingGroup: GUID = GUID.from_u128(0x213f3e067914d77uL, 0xa27104d2357c50d6uL)
+public val FaxOutboundRoutingGroup: GUID = GUID.from_u128(U128(0x213f3e067914d77uL, 0xa27104d2357c50d6uL))
 
-public val FaxOutboundRoutingGroups: GUID = GUID.from_u128(0xccbea1a5e2b44b57uL, 0x9421b04b6289464buL)
+public val FaxOutboundRoutingGroups: GUID = GUID.from_u128(U128(0xccbea1a5e2b44b57uL, 0x9421b04b6289464buL))
 
-public val FaxOutboundRoutingRule: GUID = GUID.from_u128(0x6549eebf08d1475auL, 0x828b3bf105952fa0uL)
+public val FaxOutboundRoutingRule: GUID = GUID.from_u128(U128(0x6549eebf08d1475auL, 0x828b3bf105952fa0uL))
 
-public val FaxOutboundRoutingRules: GUID = GUID.from_u128(0xd385becae6244473uL, 0xbfaa9f4000831f54uL)
+public val FaxOutboundRoutingRules: GUID = GUID.from_u128(U128(0xd385becae6244473uL, 0xbfaa9f4000831f54uL))
 
-public val FaxOutgoingArchive: GUID = GUID.from_u128(0x43c28403e04f474duL, 0x990cb94669148f59uL)
+public val FaxOutgoingArchive: GUID = GUID.from_u128(U128(0x43c28403e04f474duL, 0x990cb94669148f59uL))
 
-public val FaxOutgoingJob: GUID = GUID.from_u128(0x71bb429c0ef94915uL, 0xbec5a5d897a3e924uL)
+public val FaxOutgoingJob: GUID = GUID.from_u128(U128(0x71bb429c0ef94915uL, 0xbec5a5d897a3e924uL))
 
-public val FaxOutgoingJobs: GUID = GUID.from_u128(0x92bf2a6c37be43fauL, 0xa37dcb0e5f753b35uL)
+public val FaxOutgoingJobs: GUID = GUID.from_u128(U128(0x92bf2a6c37be43fauL, 0xa37dcb0e5f753b35uL))
 
-public val FaxOutgoingMessage: GUID = GUID.from_u128(0x91b4a3784ad84aefuL, 0xa4dc97d96e939a3auL)
+public val FaxOutgoingMessage: GUID = GUID.from_u128(U128(0x91b4a3784ad84aefuL, 0xa4dc97d96e939a3auL))
 
-public val FaxOutgoingMessageIterator: GUID = GUID.from_u128(0x8a3224d0d30b49deuL, 0x9813cb385790fbbbuL)
+public val FaxOutgoingMessageIterator: GUID = GUID.from_u128(U128(0x8a3224d0d30b49deuL, 0x9813cb385790fbbbuL))
 
-public val FaxOutgoingQueue: GUID = GUID.from_u128(0x7421169e8c434b0duL, 0xbb16645c8fa40357uL)
+public val FaxOutgoingQueue: GUID = GUID.from_u128(U128(0x7421169e8c434b0duL, 0xbb16645c8fa40357uL))
 
-public val FaxReceiptOptions: GUID = GUID.from_u128(0x6982487b227b4c96uL, 0xa61c248348b05ab6uL)
+public val FaxReceiptOptions: GUID = GUID.from_u128(U128(0x6982487b227b4c96uL, 0xa61c248348b05ab6uL))
 
-public val FaxRecipient: GUID = GUID.from_u128(0x60bf33017df84bd8uL, 0x91487b5801f9efdfuL)
+public val FaxRecipient: GUID = GUID.from_u128(U128(0x60bf33017df84bd8uL, 0x91487b5801f9efdfuL))
 
-public val FaxRecipients: GUID = GUID.from_u128(0xea9bdf5310a94d4fuL, 0xa06763c8f84f01b0uL)
+public val FaxRecipients: GUID = GUID.from_u128(U128(0xea9bdf5310a94d4fuL, 0xa06763c8f84f01b0uL))
 
-public val FaxSecurity: GUID = GUID.from_u128(0x10c4dddeabf043dfuL, 0x964f7f3ac21a4c7buL)
+public val FaxSecurity: GUID = GUID.from_u128(U128(0x10c4dddeabf043dfuL, 0x964f7f3ac21a4c7buL))
 
-public val FaxSecurity2: GUID = GUID.from_u128(0x735c1248ec894c30uL, 0xa127656e92e3c4eauL)
+public val FaxSecurity2: GUID = GUID.from_u128(U128(0x735c1248ec894c30uL, 0xa127656e92e3c4eauL))
 
-public val FaxSender: GUID = GUID.from_u128(0x265d84d018504360uL, 0xb7c8758bbb5f0b96uL)
+public val FaxSender: GUID = GUID.from_u128(U128(0x265d84d018504360uL, 0xb7c8758bbb5f0b96uL))
 
-public val FaxServer: GUID = GUID.from_u128(0xcda8acb08cf54f6cuL, 0x9ba25931d40c8caeuL)
+public val FaxServer: GUID = GUID.from_u128(U128(0xcda8acb08cf54f6cuL, 0x9ba25931d40c8caeuL))
 
-public val GUID_DeviceArrivedLaunch: GUID = GUID.from_u128(0x740d9ee670f111d1uL, 0xad1000a02438ad48uL)
+public val GUID_DeviceArrivedLaunch: GUID = GUID.from_u128(U128(0x740d9ee670f111d1uL, 0xad1000a02438ad48uL))
 
-public val GUID_STIUserDefined1: GUID = GUID.from_u128(0xc00eb7958c6e11d2uL, 0x977a0000f87a926fuL)
+public val GUID_STIUserDefined1: GUID = GUID.from_u128(U128(0xc00eb7958c6e11d2uL, 0x977a0000f87a926fuL))
 
-public val GUID_STIUserDefined2: GUID = GUID.from_u128(0xc77ae9c58c6e11d2uL, 0x977a0000f87a926fuL)
+public val GUID_STIUserDefined2: GUID = GUID.from_u128(U128(0xc77ae9c58c6e11d2uL, 0x977a0000f87a926fuL))
 
-public val GUID_STIUserDefined3: GUID = GUID.from_u128(0xc77ae9c68c6e11d2uL, 0x977a0000f87a926fuL)
+public val GUID_STIUserDefined3: GUID = GUID.from_u128(U128(0xc77ae9c68c6e11d2uL, 0x977a0000f87a926fuL))
 
-public val GUID_ScanFaxImage: GUID = GUID.from_u128(0xc00eb7938c6e11d2uL, 0x977a0000f87a926fuL)
+public val GUID_ScanFaxImage: GUID = GUID.from_u128(U128(0xc00eb7938c6e11d2uL, 0x977a0000f87a926fuL))
 
-public val GUID_ScanImage: GUID = GUID.from_u128(0xa6c5a7158c6e11d2uL, 0x977a0000f87a926fuL)
+public val GUID_ScanImage: GUID = GUID.from_u128(U128(0xa6c5a7158c6e11d2uL, 0x977a0000f87a926fuL))
 
-public val GUID_ScanPrintImage: GUID = GUID.from_u128(0xb441f4258c6e11d2uL, 0x977a0000f87a926fuL)
+public val GUID_ScanPrintImage: GUID = GUID.from_u128(U128(0xb441f4258c6e11d2uL, 0x977a0000f87a926fuL))
 
 public val IS_DIGITAL_CAMERA_STR: PCWSTR = w("IsDigitalCamera")
 

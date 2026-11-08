@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.hypervisor
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.w
@@ -196,7 +197,7 @@ public val Arch_x64: VIRTUAL_PROCESSOR_ARCH = 2
 
 public val Arch_x86: VIRTUAL_PROCESSOR_ARCH = 1
 
-public val GUID_DEVINTERFACE_VM_GENCOUNTER: GUID = GUID.from_u128(0x3ff2c92b65984e60uL, 0x8e1c0ccf4927e319uL)
+public val GUID_DEVINTERFACE_VM_GENCOUNTER: GUID = GUID.from_u128(U128(0x3ff2c92b65984e60uL, 0x8e1c0ccf4927e319uL))
 
 public val GuestOsMicrosoftMSDOS: GUEST_OS_MICROSOFT_IDS = 1
 
@@ -264,19 +265,19 @@ public val HVSOCKET_CONNECT_TIMEOUT_MAX: UInt = 300000u
 
 public val HVSOCKET_HIGH_VTL: UInt = 8u
 
-public val HV_GUID_BROADCAST: GUID = GUID.from_u128(0xffffffffffffffffuL, 0xffffffffffffffffuL)
+public val HV_GUID_BROADCAST: GUID = GUID.from_u128(U128(0xffffffffffffffffuL, 0xffffffffffffffffuL))
 
-public val HV_GUID_CHILDREN: GUID = GUID.from_u128(0x90db8b890d354f79uL, 0x8ce949ea0ac8b7cduL)
+public val HV_GUID_CHILDREN: GUID = GUID.from_u128(U128(0x90db8b890d354f79uL, 0x8ce949ea0ac8b7cduL))
 
-public val HV_GUID_LOOPBACK: GUID = GUID.from_u128(0xe0e16197dd564a10uL, 0x91955ee7a155a838uL)
+public val HV_GUID_LOOPBACK: GUID = GUID.from_u128(U128(0xe0e16197dd564a10uL, 0x91955ee7a155a838uL))
 
-public val HV_GUID_PARENT: GUID = GUID.from_u128(0xa42e7cdad03f480cuL, 0x9cc2a4de20abb878uL)
+public val HV_GUID_PARENT: GUID = GUID.from_u128(U128(0xa42e7cdad03f480cuL, 0x9cc2a4de20abb878uL))
 
-public val HV_GUID_SILOHOST: GUID = GUID.from_u128(0x36bd0c5c72764223uL, 0x88ba7d03b654c568uL)
+public val HV_GUID_SILOHOST: GUID = GUID.from_u128(U128(0x36bd0c5c72764223uL, 0x88ba7d03b654c568uL))
 
-public val HV_GUID_VSOCK_TEMPLATE: GUID = GUID.from_u128(0xfacb11e6uL, 0xbd5864006a7986d3uL)
+public val HV_GUID_VSOCK_TEMPLATE: GUID = GUID.from_u128(U128(0xfacb11e6uL, 0xbd5864006a7986d3uL))
 
-public val HV_GUID_ZERO: GUID = GUID.from_u128(0x0uL, 0x0uL)
+public val HV_GUID_ZERO: GUID = GUID.from_u128(U128(0x0uL, 0x0uL))
 
 public val HV_PROTOCOL_RAW: UInt = 1u
 

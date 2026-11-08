@@ -7,6 +7,9 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
 
 public data class CRYPT_ASYNC_RETRIEVAL_COMPLETION(public var pfnCompletion: PFN_CRYPT_ASYNC_RETRIEVAL_COMPLETION_FUNC = null, public var pvCompletion: Long = 0L)
 
@@ -445,7 +448,7 @@ public data class CRYPT_TIMESTAMP_INFO(
     public var HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
     public var HashedMessage: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
     public var SerialNumber: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var ftTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftTime: FILETIME = FILETIME(),
     public var pvAccuracy: Long = 0L,
     public var fOrdering: BOOL = 0,
     public var Nonce: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
@@ -774,8 +777,8 @@ public data class CTL_INFO(
     public var SubjectUsage: CTL_USAGE = CTL_USAGE(),
     public var ListIdentifier: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
     public var SequenceNumber: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
-    public var ThisUpdate: Foundation.FILETIME = Foundation.FILETIME(),
-    public var NextUpdate: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ThisUpdate: FILETIME = FILETIME(),
+    public var NextUpdate: FILETIME = FILETIME(),
     public var SubjectAlgorithm: CRYPT_ALGORITHM_IDENTIFIER = CRYPT_ALGORITHM_IDENTIFIER(),
     public var cCTLEntry: UInt = 0u,
     public var rgCTLEntry: Long = 0L,
@@ -844,8 +847,8 @@ public data class EV_EXTRA_CERT_CHAIN_POLICY_STATUS(
 )
 
 public data class GENERIC_XML_TOKEN(
-    public var createDate: Foundation.FILETIME = Foundation.FILETIME(),
-    public var expiryDate: Foundation.FILETIME = Foundation.FILETIME(),
+    public var createDate: FILETIME = FILETIME(),
+    public var expiryDate: FILETIME = FILETIME(),
     public var xmlToken: PWSTR = 0L,
     public var internalTokenReference: PWSTR = 0L,
     public var externalTokenReference: PWSTR = 0L,
@@ -1354,8 +1357,8 @@ public data class OCSP_BASIC_RESPONSE_ENTRY(
     public var CertId: OCSP_CERT_ID = OCSP_CERT_ID(),
     public var dwCertStatus: UInt = 0u,
     public var Anonymous: OCSP_BASIC_RESPONSE_ENTRY_0 = OCSP_BASIC_RESPONSE_ENTRY_0(),
-    public var ThisUpdate: Foundation.FILETIME = Foundation.FILETIME(),
-    public var NextUpdate: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ThisUpdate: FILETIME = FILETIME(),
+    public var NextUpdate: FILETIME = FILETIME(),
     public var cExtension: UInt = 0u,
     public var rgExtension: Long = 0L,
 )
@@ -1366,7 +1369,7 @@ public data class OCSP_BASIC_RESPONSE_INFO(
     public var dwVersion: UInt = 0u,
     public var dwResponderIdChoice: UInt = 0u,
     public var Anonymous: OCSP_BASIC_RESPONSE_INFO_0 = OCSP_BASIC_RESPONSE_INFO_0(),
-    public var ProducedAt: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ProducedAt: FILETIME = FILETIME(),
     public var cResponseEntry: UInt = 0u,
     public var rgResponseEntry: Long = 0L,
     public var cExtension: UInt = 0u,
@@ -1375,7 +1378,7 @@ public data class OCSP_BASIC_RESPONSE_INFO(
 
 public data class OCSP_BASIC_RESPONSE_INFO_0(public var ByNameResponderId: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(), public var ByKeyResponderId: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB())
 
-public data class OCSP_BASIC_REVOKED_INFO(public var RevocationDate: Foundation.FILETIME = Foundation.FILETIME(), public var dwCrlReasonCode: CERT_REVOCATION_STATUS_REASON = 0u)
+public data class OCSP_BASIC_REVOKED_INFO(public var RevocationDate: FILETIME = FILETIME(), public var dwCrlReasonCode: CERT_REVOCATION_STATUS_REASON = 0u)
 
 public data class OCSP_BASIC_SIGNED_RESPONSE_INFO(public var ToBeSigned: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(), public var SignatureInfo: OCSP_SIGNATURE_INFO = OCSP_SIGNATURE_INFO())
 
@@ -1620,7 +1623,7 @@ public data class SIGNER_CERT(
     public var cbSize: UInt = 0u,
     public var dwCertChoice: SIGNER_CERT_CHOICE = 0u,
     public var Anonymous: SIGNER_CERT_0 = SIGNER_CERT_0(),
-    public var hwnd: Foundation.HWND = Foundation.HWND(),
+    public var hwnd: HWND = 0L,
 )
 
 public data class SIGNER_CERT_0(
@@ -1675,7 +1678,7 @@ public data class SIGNER_DIGEST_SIGN_INFO_V2(
 public data class SIGNER_FILE_INFO(
     public var cbSize: UInt = 0u,
     public var pwszFileName: PCWSTR = 0L,
-    public var hFile: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hFile: HANDLE = 0L,
 )
 
 public data class SIGNER_PROVIDER_INFO(

@@ -7,6 +7,20 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.COLORREF
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LRESULT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBITMAP
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBRUSH
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.LOGFONTA
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.LOGFONTW
 
 public data class ACCEL(
     public var fVirt: ACCEL_VIRT_FLAGS = 0u,
@@ -23,7 +37,7 @@ public data class ALTTABINFO(
     public var iRowFocus: Int = 0,
     public var cxItem: Int = 0,
     public var cyItem: Int = 0,
-    public var ptStart: Foundation.POINT = Foundation.POINT(),
+    public var ptStart: POINT = POINT(),
 )
 
 public data class ANIMATIONINFO(public var cbSize: UInt = 0u, public var iMinAnimate: Int = 0)
@@ -34,21 +48,21 @@ public data class AUDIODESCRIPTION(
     public var Locale: UInt = 0u,
 )
 
-public data class CBTACTIVATESTRUCT(public var fMouse: BOOL = 0, public var hWndActive: Foundation.HWND = Foundation.HWND())
+public data class CBTACTIVATESTRUCT(public var fMouse: BOOL = 0, public var hWndActive: HWND = 0L)
 
-public data class CBT_CREATEWNDA(public var lpcs: Long = 0L, public var hwndInsertAfter: Foundation.HWND = Foundation.HWND())
+public data class CBT_CREATEWNDA(public var lpcs: Long = 0L, public var hwndInsertAfter: HWND = 0L)
 
-public data class CBT_CREATEWNDW(public var lpcs: Long = 0L, public var hwndInsertAfter: Foundation.HWND = Foundation.HWND())
+public data class CBT_CREATEWNDW(public var lpcs: Long = 0L, public var hwndInsertAfter: HWND = 0L)
 
 public data class CHANGEFILTERSTRUCT(public var cbSize: UInt = 0u, public var ExtStatus: MSGFLTINFO_STATUS = 0u)
 
-public data class CLIENTCREATESTRUCT(public var hWindowMenu: Foundation.HANDLE = Foundation.HANDLE(), public var idFirstChild: UInt = 0u)
+public data class CLIENTCREATESTRUCT(public var hWindowMenu: HANDLE = 0L, public var idFirstChild: UInt = 0u)
 
 public data class CREATESTRUCTA(
     public var lpCreateParams: Long = 0L,
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hInstance: HINSTANCE = 0L,
     public var hMenu: HMENU = 0L,
-    public var hwndParent: Foundation.HWND = Foundation.HWND(),
+    public var hwndParent: HWND = 0L,
     public var cy: Int = 0,
     public var cx: Int = 0,
     public var y: Int = 0,
@@ -61,9 +75,9 @@ public data class CREATESTRUCTA(
 
 public data class CREATESTRUCTW(
     public var lpCreateParams: Long = 0L,
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hInstance: HINSTANCE = 0L,
     public var hMenu: HMENU = 0L,
-    public var hwndParent: Foundation.HWND = Foundation.HWND(),
+    public var hwndParent: HWND = 0L,
     public var cy: Int = 0,
     public var cx: Int = 0,
     public var y: Int = 0,
@@ -78,7 +92,7 @@ public data class CURSORINFO(
     public var cbSize: UInt = 0u,
     public var flags: CURSORINFO_FLAGS = 0u,
     public var hCursor: HCURSOR = 0L,
-    public var ptScreenPos: Foundation.POINT = Foundation.POINT(),
+    public var ptScreenPos: POINT = POINT(),
 )
 
 public data class CURSORSHAPE(
@@ -92,25 +106,25 @@ public data class CURSORSHAPE(
 )
 
 public data class CWPRETSTRUCT(
-    public var lResult: Foundation.LRESULT = Foundation.LRESULT(),
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
-    public var wParam: Foundation.WPARAM = Foundation.WPARAM(),
+    public var lResult: LRESULT = 0L,
+    public var lParam: LPARAM = 0L,
+    public var wParam: WPARAM = 0uL,
     public var message: UInt = 0u,
-    public var hwnd: Foundation.HWND = Foundation.HWND(),
+    public var hwnd: HWND = 0L,
 )
 
 public data class CWPSTRUCT(
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
-    public var wParam: Foundation.WPARAM = Foundation.WPARAM(),
+    public var lParam: LPARAM = 0L,
+    public var wParam: WPARAM = 0uL,
     public var message: UInt = 0u,
-    public var hwnd: Foundation.HWND = Foundation.HWND(),
+    public var hwnd: HWND = 0L,
 )
 
 public data class DEBUGHOOKINFO(
     public var idThread: UInt = 0u,
     public var idThreadInstaller: UInt = 0u,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
-    public var wParam: Foundation.WPARAM = Foundation.WPARAM(),
+    public var lParam: LPARAM = 0L,
+    public var wParam: WPARAM = 0uL,
     public var code: Int = 0,
 )
 
@@ -213,7 +227,7 @@ public data class DEV_BROADCAST_HANDLE(
     public var dbch_size: UInt = 0u,
     public var dbch_devicetype: UInt = 0u,
     public var dbch_reserved: UInt = 0u,
-    public var dbch_handle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var dbch_handle: HANDLE = 0L,
     public var dbch_hdevnotify: HDEVNOTIFY = 0L,
     public var dbch_eventguid: GUID = GUID(),
     public var dbch_nameoffset: Int = 0,
@@ -423,11 +437,11 @@ public data class DLGTEMPLATE(
 )
 
 public data class DROPSTRUCT(
-    public var hwndSource: Foundation.HWND = Foundation.HWND(),
-    public var hwndSink: Foundation.HWND = Foundation.HWND(),
+    public var hwndSource: HWND = 0L,
+    public var hwndSink: HWND = 0L,
     public var wFmt: UInt = 0u,
     public var dwData: ULong = 0uL,
-    public var ptDrop: Foundation.POINT = Foundation.POINT(),
+    public var ptDrop: POINT = POINT(),
     public var dwControlData: UInt = 0u,
 )
 
@@ -436,12 +450,12 @@ public data class EVENTMSG(
     public var paramL: UInt = 0u,
     public var paramH: UInt = 0u,
     public var time: UInt = 0u,
-    public var hwnd: Foundation.HWND = Foundation.HWND(),
+    public var hwnd: HWND = 0L,
 )
 
 public data class FLASHWINFO(
     public var cbSize: UInt = 0u,
-    public var hwnd: Foundation.HWND = Foundation.HWND(),
+    public var hwnd: HWND = 0L,
     public var dwFlags: FLASHWINFO_FLAGS = 0u,
     public var uCount: UInt = 0u,
     public var dwTimeout: UInt = 0u,
@@ -458,28 +472,28 @@ public data class GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION(public var DiskNumber: 
 public data class GUITHREADINFO(
     public var cbSize: UInt = 0u,
     public var flags: GUITHREADINFO_FLAGS = 0u,
-    public var hwndActive: Foundation.HWND = Foundation.HWND(),
-    public var hwndFocus: Foundation.HWND = Foundation.HWND(),
-    public var hwndCapture: Foundation.HWND = Foundation.HWND(),
-    public var hwndMenuOwner: Foundation.HWND = Foundation.HWND(),
-    public var hwndMoveSize: Foundation.HWND = Foundation.HWND(),
-    public var hwndCaret: Foundation.HWND = Foundation.HWND(),
-    public var rcCaret: Foundation.RECT = Foundation.RECT(),
+    public var hwndActive: HWND = 0L,
+    public var hwndFocus: HWND = 0L,
+    public var hwndCapture: HWND = 0L,
+    public var hwndMenuOwner: HWND = 0L,
+    public var hwndMoveSize: HWND = 0L,
+    public var hwndCaret: HWND = 0L,
+    public var rcCaret: RECT = RECT(),
 )
 
 public data class HARDWAREHOOKSTRUCT(
-    public var hwnd: Foundation.HWND = Foundation.HWND(),
+    public var hwnd: HWND = 0L,
     public var message: UInt = 0u,
-    public var wParam: Foundation.WPARAM = Foundation.WPARAM(),
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var wParam: WPARAM = 0uL,
+    public var lParam: LPARAM = 0L,
 )
 
 public data class ICONINFO(
     public var fIcon: BOOL = 0,
     public var xHotspot: UInt = 0u,
     public var yHotspot: UInt = 0u,
-    public var hbmMask: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(),
-    public var hbmColor: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(),
+    public var hbmMask: HBITMAP = 0L,
+    public var hbmColor: HBITMAP = 0L,
 )
 
 public data class ICONINFOEXA(
@@ -487,8 +501,8 @@ public data class ICONINFOEXA(
     public var fIcon: BOOL = 0,
     public var xHotspot: UInt = 0u,
     public var yHotspot: UInt = 0u,
-    public var hbmMask: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(),
-    public var hbmColor: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(),
+    public var hbmMask: HBITMAP = 0L,
+    public var hbmColor: HBITMAP = 0L,
     public var wResID: UShort = 0u,
     public var szModName: ByteArray = ByteArray(260),
     public var szResName: ByteArray = ByteArray(260),
@@ -527,8 +541,8 @@ public data class ICONINFOEXW(
     public var fIcon: BOOL = 0,
     public var xHotspot: UInt = 0u,
     public var yHotspot: UInt = 0u,
-    public var hbmMask: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(),
-    public var hbmColor: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(),
+    public var hbmMask: HBITMAP = 0L,
+    public var hbmColor: HBITMAP = 0L,
     public var wResID: UShort = 0u,
     public var szModName: UShortArray = UShortArray(260),
     public var szResName: UShortArray = UShortArray(260),
@@ -567,7 +581,7 @@ public data class ICONMETRICSA(
     public var iHorzSpacing: Int = 0,
     public var iVertSpacing: Int = 0,
     public var iTitleWrap: Int = 0,
-    public var lfFont: Graphics.Gdi.LOGFONTA = Graphics.Gdi.LOGFONTA(),
+    public var lfFont: LOGFONTA = LOGFONTA(),
 )
 
 public data class ICONMETRICSW(
@@ -575,7 +589,7 @@ public data class ICONMETRICSW(
     public var iHorzSpacing: Int = 0,
     public var iVertSpacing: Int = 0,
     public var iTitleWrap: Int = 0,
-    public var lfFont: Graphics.Gdi.LOGFONTW = Graphics.Gdi.LOGFONTW(),
+    public var lfFont: LOGFONTW = LOGFONTW(),
 )
 
 public data class IndexedResourceQualifier(public var name: PWSTR = 0L, public var value: PWSTR = 0L)
@@ -591,38 +605,38 @@ public data class KBDLLHOOKSTRUCT(
 public data class MDICREATESTRUCTA(
     public var szClass: PCSTR = 0L,
     public var szTitle: PCSTR = 0L,
-    public var hOwner: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hOwner: HANDLE = 0L,
     public var x: Int = 0,
     public var y: Int = 0,
     public var cx: Int = 0,
     public var cy: Int = 0,
     public var style: WINDOW_STYLE = 0u,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
 )
 
 public data class MDICREATESTRUCTW(
     public var szClass: PCWSTR = 0L,
     public var szTitle: PCWSTR = 0L,
-    public var hOwner: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hOwner: HANDLE = 0L,
     public var x: Int = 0,
     public var y: Int = 0,
     public var cx: Int = 0,
     public var cy: Int = 0,
     public var style: WINDOW_STYLE = 0u,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
 )
 
 public data class MDINEXTMENU(
     public var hmenuIn: HMENU = 0L,
     public var hmenuNext: HMENU = 0L,
-    public var hwndNext: Foundation.HWND = Foundation.HWND(),
+    public var hwndNext: HWND = 0L,
 )
 
 public data class MENUBARINFO(
     public var cbSize: UInt = 0u,
-    public var rcBar: Foundation.RECT = Foundation.RECT(),
+    public var rcBar: RECT = RECT(),
     public var hMenu: HMENU = 0L,
-    public var hwndMenu: Foundation.HWND = Foundation.HWND(),
+    public var hwndMenu: HWND = 0L,
     public var _bitfield: Int = 0,
 )
 
@@ -673,7 +687,7 @@ public data class MENUINFO(
     public var fMask: MENUINFO_MASK = 0u,
     public var dwStyle: MENUINFO_STYLE = 0u,
     public var cyMax: UInt = 0u,
-    public var hbrBack: Graphics.Gdi.HBRUSH = Graphics.Gdi.HBRUSH(),
+    public var hbrBack: HBRUSH = 0L,
     public var dwContextHelpID: UInt = 0u,
     public var dwMenuData: ULong = 0uL,
 )
@@ -685,12 +699,12 @@ public data class MENUITEMINFOA(
     public var fState: MENU_ITEM_STATE = 0u,
     public var wID: UInt = 0u,
     public var hSubMenu: HMENU = 0L,
-    public var hbmpChecked: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(),
-    public var hbmpUnchecked: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(),
+    public var hbmpChecked: HBITMAP = 0L,
+    public var hbmpUnchecked: HBITMAP = 0L,
     public var dwItemData: ULong = 0uL,
     public var dwTypeData: PSTR = 0L,
     public var cch: UInt = 0u,
-    public var hbmpItem: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(),
+    public var hbmpItem: HBITMAP = 0L,
 )
 
 public data class MENUITEMINFOW(
@@ -700,12 +714,12 @@ public data class MENUITEMINFOW(
     public var fState: MENU_ITEM_STATE = 0u,
     public var wID: UInt = 0u,
     public var hSubMenu: HMENU = 0L,
-    public var hbmpChecked: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(),
-    public var hbmpUnchecked: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(),
+    public var hbmpChecked: HBITMAP = 0L,
+    public var hbmpUnchecked: HBITMAP = 0L,
     public var dwItemData: ULong = 0uL,
     public var dwTypeData: PWSTR = 0L,
     public var cch: UInt = 0u,
-    public var hbmpItem: Graphics.Gdi.HBITMAP = Graphics.Gdi.HBITMAP(),
+    public var hbmpItem: HBITMAP = 0L,
 )
 
 public data class MENUITEMTEMPLATE(
@@ -779,16 +793,16 @@ public data class MINIMIZEDMETRICS(
 )
 
 public data class MINMAXINFO(
-    public var ptReserved: Foundation.POINT = Foundation.POINT(),
-    public var ptMaxSize: Foundation.POINT = Foundation.POINT(),
-    public var ptMaxPosition: Foundation.POINT = Foundation.POINT(),
-    public var ptMinTrackSize: Foundation.POINT = Foundation.POINT(),
-    public var ptMaxTrackSize: Foundation.POINT = Foundation.POINT(),
+    public var ptReserved: POINT = POINT(),
+    public var ptMaxSize: POINT = POINT(),
+    public var ptMaxPosition: POINT = POINT(),
+    public var ptMinTrackSize: POINT = POINT(),
+    public var ptMaxTrackSize: POINT = POINT(),
 )
 
 public data class MOUSEHOOKSTRUCT(
-    public var pt: Foundation.POINT = Foundation.POINT(),
-    public var hwnd: Foundation.HWND = Foundation.HWND(),
+    public var pt: POINT = POINT(),
+    public var hwnd: HWND = 0L,
     public var wHitTestCode: UInt = 0u,
     public var dwExtraInfo: ULong = 0uL,
 )
@@ -796,18 +810,18 @@ public data class MOUSEHOOKSTRUCT(
 public data class MOUSEHOOKSTRUCTEX(public var Base: MOUSEHOOKSTRUCT = MOUSEHOOKSTRUCT(), public var mouseData: UInt = 0u)
 
 public data class MSG(
-    public var hwnd: Foundation.HWND = Foundation.HWND(),
+    public var hwnd: HWND = 0L,
     public var message: UInt = 0u,
-    public var wParam: Foundation.WPARAM = Foundation.WPARAM(),
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var wParam: WPARAM = 0uL,
+    public var lParam: LPARAM = 0L,
     public var time: UInt = 0u,
-    public var pt: Foundation.POINT = Foundation.POINT(),
+    public var pt: POINT = POINT(),
 )
 
 public data class MSGBOXPARAMSA(
     public var cbSize: UInt = 0u,
-    public var hwndOwner: Foundation.HWND = Foundation.HWND(),
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hwndOwner: HWND = 0L,
+    public var hInstance: HINSTANCE = 0L,
     public var lpszText: PCSTR = 0L,
     public var lpszCaption: PCSTR = 0L,
     public var dwStyle: MESSAGEBOX_STYLE = 0u,
@@ -819,8 +833,8 @@ public data class MSGBOXPARAMSA(
 
 public data class MSGBOXPARAMSW(
     public var cbSize: UInt = 0u,
-    public var hwndOwner: Foundation.HWND = Foundation.HWND(),
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hwndOwner: HWND = 0L,
+    public var hInstance: HINSTANCE = 0L,
     public var lpszText: PCWSTR = 0L,
     public var lpszCaption: PCWSTR = 0L,
     public var dwStyle: MESSAGEBOX_STYLE = 0u,
@@ -831,7 +845,7 @@ public data class MSGBOXPARAMSW(
 )
 
 public data class MSLLHOOKSTRUCT(
-    public var pt: Foundation.POINT = Foundation.POINT(),
+    public var pt: POINT = POINT(),
     public var mouseData: UInt = 0u,
     public var flags: UInt = 0u,
     public var time: UInt = 0u,
@@ -846,7 +860,7 @@ public data class MrmResourceIndexerMessage(
     public var text: PCWSTR = 0L,
 )
 
-public data class NCCALCSIZE_PARAMS(public var rgrc: List<Foundation.RECT> = List(3) { Foundation.RECT() }, public var lppos: Long = 0L)
+public data class NCCALCSIZE_PARAMS(public var rgrc: List<RECT> = List(3) { RECT() }, public var lppos: Long = 0L)
 
 public data class NONCLIENTMETRICSA(
     public var cbSize: UInt = 0u,
@@ -855,15 +869,15 @@ public data class NONCLIENTMETRICSA(
     public var iScrollHeight: Int = 0,
     public var iCaptionWidth: Int = 0,
     public var iCaptionHeight: Int = 0,
-    public var lfCaptionFont: Graphics.Gdi.LOGFONTA = Graphics.Gdi.LOGFONTA(),
+    public var lfCaptionFont: LOGFONTA = LOGFONTA(),
     public var iSmCaptionWidth: Int = 0,
     public var iSmCaptionHeight: Int = 0,
-    public var lfSmCaptionFont: Graphics.Gdi.LOGFONTA = Graphics.Gdi.LOGFONTA(),
+    public var lfSmCaptionFont: LOGFONTA = LOGFONTA(),
     public var iMenuWidth: Int = 0,
     public var iMenuHeight: Int = 0,
-    public var lfMenuFont: Graphics.Gdi.LOGFONTA = Graphics.Gdi.LOGFONTA(),
-    public var lfStatusFont: Graphics.Gdi.LOGFONTA = Graphics.Gdi.LOGFONTA(),
-    public var lfMessageFont: Graphics.Gdi.LOGFONTA = Graphics.Gdi.LOGFONTA(),
+    public var lfMenuFont: LOGFONTA = LOGFONTA(),
+    public var lfStatusFont: LOGFONTA = LOGFONTA(),
+    public var lfMessageFont: LOGFONTA = LOGFONTA(),
     public var iPaddedBorderWidth: Int = 0,
 )
 
@@ -874,21 +888,21 @@ public data class NONCLIENTMETRICSW(
     public var iScrollHeight: Int = 0,
     public var iCaptionWidth: Int = 0,
     public var iCaptionHeight: Int = 0,
-    public var lfCaptionFont: Graphics.Gdi.LOGFONTW = Graphics.Gdi.LOGFONTW(),
+    public var lfCaptionFont: LOGFONTW = LOGFONTW(),
     public var iSmCaptionWidth: Int = 0,
     public var iSmCaptionHeight: Int = 0,
-    public var lfSmCaptionFont: Graphics.Gdi.LOGFONTW = Graphics.Gdi.LOGFONTW(),
+    public var lfSmCaptionFont: LOGFONTW = LOGFONTW(),
     public var iMenuWidth: Int = 0,
     public var iMenuHeight: Int = 0,
-    public var lfMenuFont: Graphics.Gdi.LOGFONTW = Graphics.Gdi.LOGFONTW(),
-    public var lfStatusFont: Graphics.Gdi.LOGFONTW = Graphics.Gdi.LOGFONTW(),
-    public var lfMessageFont: Graphics.Gdi.LOGFONTW = Graphics.Gdi.LOGFONTW(),
+    public var lfMenuFont: LOGFONTW = LOGFONTW(),
+    public var lfStatusFont: LOGFONTW = LOGFONTW(),
+    public var lfMessageFont: LOGFONTW = LOGFONTW(),
     public var iPaddedBorderWidth: Int = 0,
 )
 
 public data class SCROLLBARINFO(
     public var cbSize: UInt = 0u,
-    public var rcScrollBar: Foundation.RECT = Foundation.RECT(),
+    public var rcScrollBar: RECT = RECT(),
     public var dxyLineButton: Int = 0,
     public var xyThumbTop: Int = 0,
     public var xyThumbBottom: Int = 0,
@@ -930,13 +944,13 @@ public data class SCROLLINFO(
     public var nTrackPos: Int = 0,
 )
 
-public data class SHELLHOOKINFO(public var hwnd: Foundation.HWND = Foundation.HWND(), public var rc: Foundation.RECT = Foundation.RECT())
+public data class SHELLHOOKINFO(public var hwnd: HWND = 0L, public var rc: RECT = RECT())
 
 public data class STYLESTRUCT(public var styleOld: UInt = 0u, public var styleNew: UInt = 0u)
 
 public data class TITLEBARINFO(
     public var cbSize: UInt = 0u,
-    public var rcTitleBar: Foundation.RECT = Foundation.RECT(),
+    public var rcTitleBar: RECT = RECT(),
     public var rgstate: UIntArray = UIntArray(6),
 ) {
     override fun equals(other: Any?): Boolean {
@@ -958,9 +972,9 @@ public data class TITLEBARINFO(
 
 public data class TITLEBARINFOEX(
     public var cbSize: UInt = 0u,
-    public var rcTitleBar: Foundation.RECT = Foundation.RECT(),
+    public var rcTitleBar: RECT = RECT(),
     public var rgstate: UIntArray = UIntArray(6),
-    public var rgrect: List<Foundation.RECT> = List(6) { Foundation.RECT() },
+    public var rgrect: List<RECT> = List(6) { RECT() },
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -988,16 +1002,16 @@ public data class TOUCHPREDICTIONPARAMETERS(
     public var bUseHWTimeStamp: UInt = 0u,
 )
 
-public data class TPMPARAMS(public var cbSize: UInt = 0u, public var rcExclude: Foundation.RECT = Foundation.RECT())
+public data class TPMPARAMS(public var cbSize: UInt = 0u, public var rcExclude: RECT = RECT())
 
 public data class UPDATELAYEREDWINDOWINFO(
     public var cbSize: UInt = 0u,
-    public var hdcDst: Graphics.Gdi.HDC = Graphics.Gdi.HDC(),
+    public var hdcDst: HDC = 0L,
     public var pptDst: Long = 0L,
     public var psize: Long = 0L,
-    public var hdcSrc: Graphics.Gdi.HDC = Graphics.Gdi.HDC(),
+    public var hdcSrc: HDC = 0L,
     public var pptSrc: Long = 0L,
-    public var crKey: Foundation.COLORREF = Foundation.COLORREF(),
+    public var crKey: COLORREF = 0u,
     public var pblend: Long = 0L,
     public var dwFlags: UPDATE_LAYERED_WINDOW_FLAGS = 0u,
     public var prcDirty: Long = 0L,
@@ -1014,8 +1028,8 @@ public data class VolLockBroadcast(
 
 public data class WINDOWINFO(
     public var cbSize: UInt = 0u,
-    public var rcWindow: Foundation.RECT = Foundation.RECT(),
-    public var rcClient: Foundation.RECT = Foundation.RECT(),
+    public var rcWindow: RECT = RECT(),
+    public var rcClient: RECT = RECT(),
     public var dwStyle: WINDOW_STYLE = 0u,
     public var dwExStyle: WINDOW_EX_STYLE = 0u,
     public var dwWindowStatus: UInt = 0u,
@@ -1029,14 +1043,14 @@ public data class WINDOWPLACEMENT(
     public var length: UInt = 0u,
     public var flags: WINDOWPLACEMENT_FLAGS = 0u,
     public var showCmd: UInt = 0u,
-    public var ptMinPosition: Foundation.POINT = Foundation.POINT(),
-    public var ptMaxPosition: Foundation.POINT = Foundation.POINT(),
-    public var rcNormalPosition: Foundation.RECT = Foundation.RECT(),
+    public var ptMinPosition: POINT = POINT(),
+    public var ptMaxPosition: POINT = POINT(),
+    public var rcNormalPosition: RECT = RECT(),
 )
 
 public data class WINDOWPOS(
-    public var hwnd: Foundation.HWND = Foundation.HWND(),
-    public var hwndInsertAfter: Foundation.HWND = Foundation.HWND(),
+    public var hwnd: HWND = 0L,
+    public var hwndInsertAfter: HWND = 0L,
     public var x: Int = 0,
     public var y: Int = 0,
     public var cx: Int = 0,
@@ -1049,10 +1063,10 @@ public data class WNDCLASSA(
     public var lpfnWndProc: WNDPROC = null,
     public var cbClsExtra: Int = 0,
     public var cbWndExtra: Int = 0,
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hInstance: HINSTANCE = 0L,
     public var hIcon: HICON = 0L,
     public var hCursor: HCURSOR = 0L,
-    public var hbrBackground: Graphics.Gdi.HBRUSH = Graphics.Gdi.HBRUSH(),
+    public var hbrBackground: HBRUSH = 0L,
     public var lpszMenuName: PCSTR = 0L,
     public var lpszClassName: PCSTR = 0L,
 )
@@ -1063,10 +1077,10 @@ public data class WNDCLASSEXA(
     public var lpfnWndProc: WNDPROC = null,
     public var cbClsExtra: Int = 0,
     public var cbWndExtra: Int = 0,
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hInstance: HINSTANCE = 0L,
     public var hIcon: HICON = 0L,
     public var hCursor: HCURSOR = 0L,
-    public var hbrBackground: Graphics.Gdi.HBRUSH = Graphics.Gdi.HBRUSH(),
+    public var hbrBackground: HBRUSH = 0L,
     public var lpszMenuName: PCSTR = 0L,
     public var lpszClassName: PCSTR = 0L,
     public var hIconSm: HICON = 0L,
@@ -1078,10 +1092,10 @@ public data class WNDCLASSEXW(
     public var lpfnWndProc: WNDPROC = null,
     public var cbClsExtra: Int = 0,
     public var cbWndExtra: Int = 0,
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hInstance: HINSTANCE = 0L,
     public var hIcon: HICON = 0L,
     public var hCursor: HCURSOR = 0L,
-    public var hbrBackground: Graphics.Gdi.HBRUSH = Graphics.Gdi.HBRUSH(),
+    public var hbrBackground: HBRUSH = 0L,
     public var lpszMenuName: PCWSTR = 0L,
     public var lpszClassName: PCWSTR = 0L,
     public var hIconSm: HICON = 0L,
@@ -1092,10 +1106,10 @@ public data class WNDCLASSW(
     public var lpfnWndProc: WNDPROC = null,
     public var cbClsExtra: Int = 0,
     public var cbWndExtra: Int = 0,
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hInstance: HINSTANCE = 0L,
     public var hIcon: HICON = 0L,
     public var hCursor: HCURSOR = 0L,
-    public var hbrBackground: Graphics.Gdi.HBRUSH = Graphics.Gdi.HBRUSH(),
+    public var hbrBackground: HBRUSH = 0L,
     public var lpszMenuName: PCWSTR = 0L,
     public var lpszClassName: PCWSTR = 0L,
 )

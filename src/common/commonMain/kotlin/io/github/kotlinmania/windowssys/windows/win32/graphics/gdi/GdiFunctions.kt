@@ -6,6 +6,14 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.COLORREF
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HGLOBAL
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
 
 public fun interface FnCallback {
     public operator fun invoke(param0: ULong): Long
@@ -20,31 +28,31 @@ public fun interface FnCallback2 {
 }
 
 public fun interface FnCallback3 {
-    public operator fun invoke(hdc: HDC, ldata: Foundation.LPARAM, wdata: Foundation.WPARAM, cx: Int, cy: Int): BOOL
+    public operator fun invoke(hdc: HDC, ldata: LPARAM, wdata: WPARAM, cx: Int, cy: Int): BOOL
 }
 
 public fun interface FnCallback4 {
-    public operator fun invoke(param0: HMONITOR, param1: HDC, param2: Long, param3: Foundation.LPARAM): BOOL
+    public operator fun invoke(param0: HMONITOR, param1: HDC, param2: Long, param3: LPARAM): BOOL
 }
 
 public fun interface FnCallback5 {
-    public operator fun invoke(hdc: HDC, lpht: Long, lpmr: Long, nhandles: Int, data: Foundation.LPARAM): Int
+    public operator fun invoke(hdc: HDC, lpht: Long, lpmr: Long, nhandles: Int, data: LPARAM): Int
 }
 
 public fun interface FnCallback6 {
-    public operator fun invoke(param0: Long, param1: Long, param2: UInt, param3: Foundation.LPARAM): Int
+    public operator fun invoke(param0: Long, param1: Long, param2: UInt, param3: LPARAM): Int
 }
 
 public fun interface FnCallback7 {
-    public operator fun invoke(param0: Long, param1: Foundation.LPARAM): Int
+    public operator fun invoke(param0: Long, param1: LPARAM): Int
 }
 
 public fun interface FnCallback8 {
-    public operator fun invoke(param0: HDC, param1: Foundation.LPARAM, param2: Int): BOOL
+    public operator fun invoke(param0: HDC, param1: LPARAM, param2: Int): BOOL
 }
 
 public fun interface FnCallback9 {
-    public operator fun invoke(param0: Int, param1: Int, param2: Foundation.LPARAM)
+    public operator fun invoke(param0: Int, param1: Int, param2: LPARAM)
 }
 
 public fun interface FnCallback10 {
@@ -55,9 +63,8 @@ public fun AbortPath(hdc: HDC): BOOL {
     return Win32DynamicFfi.invoke("gdi32.dll", "AbortPath", longArrayOf(hdc)).toInt()
 }
 
-public fun AddFontMemResourceEx(pfileview: Long, cjsize: UInt, pvresrved: Long, pnumfonts: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("gdi32.dll", "AddFontMemResourceEx", longArrayOf(pfileview, cjsize.toLong(), pvresrved, pnumfonts))
-    return Foundation.HANDLE()
+public fun AddFontMemResourceEx(pfileview: Long, cjsize: UInt, pvresrved: Long, pnumfonts: Long): HANDLE {
+    return Win32DynamicFfi.invoke("gdi32.dll", "AddFontMemResourceEx", longArrayOf(pfileview, cjsize.toLong(), pvresrved, pnumfonts))
 }
 
 public fun AddFontResourceA(param0: PCSTR): Int {
@@ -77,7 +84,7 @@ public fun AddFontResourceW(param0: PCWSTR): Int {
 }
 
 public fun AlphaBlend(hdcdest: HDC, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: HDC, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, ftn: BLENDFUNCTION): BOOL {
-    return Win32DynamicFfi.invoke("msimg32.dll", "AlphaBlend", longArrayOf(hdcdest, xorigindest.toLong(), yorigindest.toLong(), wdest.toLong(), hdest.toLong(), hdcsrc, xoriginsrc.toLong(), yoriginsrc.toLong(), wsrc.toLong(), hsrc.toLong(), Win32DynamicFfi.objectSlot(ftn))).toInt()
+    return Win32DynamicFfi.invoke("msimg32.dll", "AlphaBlend", longArrayOf(hdcdest, xorigindest.toLong(), yorigindest.toLong(), wdest.toLong(), hdest.toLong(), hdcsrc, xoriginsrc.toLong(), yoriginsrc.toLong(), wsrc.toLong(), hsrc.toLong(), ((ftn.BlendOp.toLong() and 0xFFL) or ((ftn.BlendFlags.toLong() and 0xFFL) shl 8) or ((ftn.SourceConstantAlpha.toLong() and 0xFFL) shl 16) or ((ftn.AlphaFormat.toLong() and 0xFFL) shl 24)))).toInt()
 }
 
 public fun AngleArc(hdc: HDC, x: Int, y: Int, r: UInt, startangle: Float, sweepangle: Float): BOOL {
@@ -96,8 +103,8 @@ public fun ArcTo(hdc: HDC, left: Int, top: Int, right: Int, bottom: Int, xr1: In
     return Win32DynamicFfi.invoke("gdi32.dll", "ArcTo", longArrayOf(hdc, left.toLong(), top.toLong(), right.toLong(), bottom.toLong(), xr1.toLong(), yr1.toLong(), xr2.toLong(), yr2.toLong())).toInt()
 }
 
-public fun BeginPaint(hwnd: Foundation.HWND, lppaint: Long): HDC {
-    return Win32DynamicFfi.invoke("user32.dll", "BeginPaint", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), lppaint))
+public fun BeginPaint(hwnd: HWND, lppaint: Long): HDC {
+    return Win32DynamicFfi.invoke("user32.dll", "BeginPaint", longArrayOf(hwnd, lppaint))
 }
 
 public fun BeginPath(hdc: HDC): BOOL {
@@ -116,12 +123,12 @@ public fun ChangeDisplaySettingsA(lpdevmode: Long, dwflags: CDS_TYPE): DISP_CHAN
     return Win32DynamicFfi.invoke("user32.dll", "ChangeDisplaySettingsA", longArrayOf(lpdevmode, dwflags.toLong())).toInt()
 }
 
-public fun ChangeDisplaySettingsExA(lpszdevicename: PCSTR, lpdevmode: Long, hwnd: Foundation.HWND, dwflags: CDS_TYPE, lparam: Long): DISP_CHANGE {
-    return Win32DynamicFfi.invoke("user32.dll", "ChangeDisplaySettingsExA", longArrayOf(lpszdevicename, lpdevmode, Win32DynamicFfi.objectSlot(hwnd), dwflags.toLong(), lparam)).toInt()
+public fun ChangeDisplaySettingsExA(lpszdevicename: PCSTR, lpdevmode: Long, hwnd: HWND, dwflags: CDS_TYPE, lparam: Long): DISP_CHANGE {
+    return Win32DynamicFfi.invoke("user32.dll", "ChangeDisplaySettingsExA", longArrayOf(lpszdevicename, lpdevmode, hwnd, dwflags.toLong(), lparam)).toInt()
 }
 
-public fun ChangeDisplaySettingsExW(lpszdevicename: PCWSTR, lpdevmode: Long, hwnd: Foundation.HWND, dwflags: CDS_TYPE, lparam: Long): DISP_CHANGE {
-    return Win32DynamicFfi.invoke("user32.dll", "ChangeDisplaySettingsExW", longArrayOf(lpszdevicename, lpdevmode, Win32DynamicFfi.objectSlot(hwnd), dwflags.toLong(), lparam)).toInt()
+public fun ChangeDisplaySettingsExW(lpszdevicename: PCWSTR, lpdevmode: Long, hwnd: HWND, dwflags: CDS_TYPE, lparam: Long): DISP_CHANGE {
+    return Win32DynamicFfi.invoke("user32.dll", "ChangeDisplaySettingsExW", longArrayOf(lpszdevicename, lpdevmode, hwnd, dwflags.toLong(), lparam)).toInt()
 }
 
 public fun ChangeDisplaySettingsW(lpdevmode: Long, dwflags: CDS_TYPE): DISP_CHANGE {
@@ -132,8 +139,8 @@ public fun Chord(hdc: HDC, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int,
     return Win32DynamicFfi.invoke("gdi32.dll", "Chord", longArrayOf(hdc, x1.toLong(), y1.toLong(), x2.toLong(), y2.toLong(), x3.toLong(), y3.toLong(), x4.toLong(), y4.toLong())).toInt()
 }
 
-public fun ClientToScreen(hwnd: Foundation.HWND, lppoint: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "ClientToScreen", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), lppoint)).toInt()
+public fun ClientToScreen(hwnd: HWND, lppoint: Long): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "ClientToScreen", longArrayOf(hwnd, lppoint)).toInt()
 }
 
 public fun CloseEnhMetaFile(hdc: HDC): HENHMETAFILE {
@@ -204,16 +211,16 @@ public fun CreateDCW(pwszdriver: PCWSTR, pwszdevice: PCWSTR, pszport: PCWSTR, pd
     return Win32DynamicFfi.invoke("gdi32.dll", "CreateDCW", longArrayOf(pwszdriver, pwszdevice, pszport, pdm))
 }
 
-public fun CreateDIBPatternBrush(h: Foundation.HGLOBAL, iusage: DIB_USAGE): HBRUSH {
-    return Win32DynamicFfi.invoke("gdi32.dll", "CreateDIBPatternBrush", longArrayOf(Win32DynamicFfi.objectSlot(h), iusage.toLong()))
+public fun CreateDIBPatternBrush(h: HGLOBAL, iusage: DIB_USAGE): HBRUSH {
+    return Win32DynamicFfi.invoke("gdi32.dll", "CreateDIBPatternBrush", longArrayOf(h, iusage.toLong()))
 }
 
 public fun CreateDIBPatternBrushPt(lppackeddib: Long, iusage: DIB_USAGE): HBRUSH {
     return Win32DynamicFfi.invoke("gdi32.dll", "CreateDIBPatternBrushPt", longArrayOf(lppackeddib, iusage.toLong()))
 }
 
-public fun CreateDIBSection(hdc: HDC, pbmi: Long, usage: DIB_USAGE, ppvbits: Long, hsection: Foundation.HANDLE, offset: UInt): HBITMAP {
-    return Win32DynamicFfi.invoke("gdi32.dll", "CreateDIBSection", longArrayOf(hdc, pbmi, usage.toLong(), ppvbits, Win32DynamicFfi.objectSlot(hsection), offset.toLong()))
+public fun CreateDIBSection(hdc: HDC, pbmi: Long, usage: DIB_USAGE, ppvbits: Long, hsection: HANDLE, offset: UInt): HBITMAP {
+    return Win32DynamicFfi.invoke("gdi32.dll", "CreateDIBSection", longArrayOf(hdc, pbmi, usage.toLong(), ppvbits, hsection, offset.toLong()))
 }
 
 public fun CreateDIBitmap(hdc: HDC, pbmih: Long, flinit: UInt, pjbits: Long, pbmi: Long, iusage: DIB_USAGE): HBITMAP {
@@ -272,8 +279,8 @@ public fun CreateHalftonePalette(hdc: HDC): HPALETTE {
     return Win32DynamicFfi.invoke("gdi32.dll", "CreateHalftonePalette", longArrayOf(hdc))
 }
 
-public fun CreateHatchBrush(ihatch: HATCH_BRUSH_STYLE, color: Foundation.COLORREF): HBRUSH {
-    return Win32DynamicFfi.invoke("gdi32.dll", "CreateHatchBrush", longArrayOf(ihatch.toLong(), Win32DynamicFfi.objectSlot(color)))
+public fun CreateHatchBrush(ihatch: HATCH_BRUSH_STYLE, color: COLORREF): HBRUSH {
+    return Win32DynamicFfi.invoke("gdi32.dll", "CreateHatchBrush", longArrayOf(ihatch.toLong(), color.toLong()))
 }
 
 public fun CreateICA(pszdriver: PCSTR, pszdevice: PCSTR, pszport: PCSTR, pdm: Long): HDC {
@@ -300,8 +307,8 @@ public fun CreatePatternBrush(hbm: HBITMAP): HBRUSH {
     return Win32DynamicFfi.invoke("gdi32.dll", "CreatePatternBrush", longArrayOf(hbm))
 }
 
-public fun CreatePen(istyle: PEN_STYLE, cwidth: Int, color: Foundation.COLORREF): HPEN {
-    return Win32DynamicFfi.invoke("gdi32.dll", "CreatePen", longArrayOf(istyle.toLong(), cwidth.toLong(), Win32DynamicFfi.objectSlot(color)))
+public fun CreatePen(istyle: PEN_STYLE, cwidth: Int, color: COLORREF): HPEN {
+    return Win32DynamicFfi.invoke("gdi32.dll", "CreatePen", longArrayOf(istyle.toLong(), cwidth.toLong(), color.toLong()))
 }
 
 public fun CreatePenIndirect(plpen: Long): HPEN {
@@ -336,8 +343,8 @@ public fun CreateScalableFontResourceW(fdwhidden: UInt, lpszfont: PCWSTR, lpszfi
     return Win32DynamicFfi.invoke("gdi32.dll", "CreateScalableFontResourceW", longArrayOf(fdwhidden.toLong(), lpszfont, lpszfile, lpszpath)).toInt()
 }
 
-public fun CreateSolidBrush(color: Foundation.COLORREF): HBRUSH {
-    return Win32DynamicFfi.invoke("gdi32.dll", "CreateSolidBrush", longArrayOf(Win32DynamicFfi.objectSlot(color)))
+public fun CreateSolidBrush(color: COLORREF): HBRUSH {
+    return Win32DynamicFfi.invoke("gdi32.dll", "CreateSolidBrush", longArrayOf(color.toLong()))
 }
 
 public fun DPtoLP(hdc: HDC, lppt: Long, c: Int): BOOL {
@@ -360,12 +367,12 @@ public fun DeleteObject(ho: HGDIOBJ): BOOL {
     return Win32DynamicFfi.invoke("gdi32.dll", "DeleteObject", longArrayOf(ho)).toInt()
 }
 
-public fun DrawAnimatedRects(hwnd: Foundation.HWND, idani: Int, lprcfrom: Long, lprcto: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "DrawAnimatedRects", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), idani.toLong(), lprcfrom, lprcto)).toInt()
+public fun DrawAnimatedRects(hwnd: HWND, idani: Int, lprcfrom: Long, lprcto: Long): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "DrawAnimatedRects", longArrayOf(hwnd, idani.toLong(), lprcfrom, lprcto)).toInt()
 }
 
-public fun DrawCaption(hwnd: Foundation.HWND, hdc: HDC, lprect: Long, flags: DRAW_CAPTION_FLAGS): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "DrawCaption", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), hdc, lprect, flags.toLong())).toInt()
+public fun DrawCaption(hwnd: HWND, hdc: HDC, lprect: Long, flags: DRAW_CAPTION_FLAGS): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "DrawCaption", longArrayOf(hwnd, hdc, lprect, flags.toLong())).toInt()
 }
 
 public fun DrawEdge(hdc: HDC, qrc: Long, edge: DRAWEDGE_FLAGS, grfflags: DRAW_EDGE_FLAGS): BOOL {
@@ -384,12 +391,12 @@ public fun DrawFrameControl(param0: HDC, param1: Long, param2: DFC_TYPE, param3:
     return Win32DynamicFfi.invoke("user32.dll", "DrawFrameControl", longArrayOf(param0, param1, param2.toLong(), param3.toLong())).toInt()
 }
 
-public fun DrawStateA(hdc: HDC, hbrfore: HBRUSH, qfncallback: DRAWSTATEPROC, ldata: Foundation.LPARAM, wdata: Foundation.WPARAM, x: Int, y: Int, cx: Int, cy: Int, uflags: DRAWSTATE_FLAGS): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "DrawStateA", longArrayOf(hdc, hbrfore, Win32DynamicFfi.objectSlot(qfncallback), Win32DynamicFfi.objectSlot(ldata), Win32DynamicFfi.objectSlot(wdata), x.toLong(), y.toLong(), cx.toLong(), cy.toLong(), uflags.toLong())).toInt()
+public fun DrawStateA(hdc: HDC, hbrfore: HBRUSH, qfncallback: DRAWSTATEPROC, ldata: LPARAM, wdata: WPARAM, x: Int, y: Int, cx: Int, cy: Int, uflags: DRAWSTATE_FLAGS): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "DrawStateA", longArrayOf(hdc, hbrfore, Win32DynamicFfi.objectSlot(qfncallback), ldata, wdata.toLong(), x.toLong(), y.toLong(), cx.toLong(), cy.toLong(), uflags.toLong())).toInt()
 }
 
-public fun DrawStateW(hdc: HDC, hbrfore: HBRUSH, qfncallback: DRAWSTATEPROC, ldata: Foundation.LPARAM, wdata: Foundation.WPARAM, x: Int, y: Int, cx: Int, cy: Int, uflags: DRAWSTATE_FLAGS): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "DrawStateW", longArrayOf(hdc, hbrfore, Win32DynamicFfi.objectSlot(qfncallback), Win32DynamicFfi.objectSlot(ldata), Win32DynamicFfi.objectSlot(wdata), x.toLong(), y.toLong(), cx.toLong(), cy.toLong(), uflags.toLong())).toInt()
+public fun DrawStateW(hdc: HDC, hbrfore: HBRUSH, qfncallback: DRAWSTATEPROC, ldata: LPARAM, wdata: WPARAM, x: Int, y: Int, cx: Int, cy: Int, uflags: DRAWSTATE_FLAGS): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "DrawStateW", longArrayOf(hdc, hbrfore, Win32DynamicFfi.objectSlot(qfncallback), ldata, wdata.toLong(), x.toLong(), y.toLong(), cx.toLong(), cy.toLong(), uflags.toLong())).toInt()
 }
 
 public fun DrawTextA(hdc: HDC, lpchtext: PCSTR, cchtext: Int, lprc: Long, format: DRAW_TEXT_FORMAT): Int {
@@ -412,8 +419,8 @@ public fun Ellipse(hdc: HDC, left: Int, top: Int, right: Int, bottom: Int): BOOL
     return Win32DynamicFfi.invoke("gdi32.dll", "Ellipse", longArrayOf(hdc, left.toLong(), top.toLong(), right.toLong(), bottom.toLong())).toInt()
 }
 
-public fun EndPaint(hwnd: Foundation.HWND, lppaint: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "EndPaint", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), lppaint)).toInt()
+public fun EndPaint(hwnd: HWND, lppaint: Long): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "EndPaint", longArrayOf(hwnd, lppaint)).toInt()
 }
 
 public fun EndPath(hdc: HDC): BOOL {
@@ -428,8 +435,8 @@ public fun EnumDisplayDevicesW(lpdevice: PCWSTR, idevnum: UInt, lpdisplaydevice:
     return Win32DynamicFfi.invoke("user32.dll", "EnumDisplayDevicesW", longArrayOf(lpdevice, idevnum.toLong(), lpdisplaydevice, dwflags.toLong())).toInt()
 }
 
-public fun EnumDisplayMonitors(hdc: HDC, lprcclip: Long, lpfnenum: MONITORENUMPROC, dwdata: Foundation.LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "EnumDisplayMonitors", longArrayOf(hdc, lprcclip, Win32DynamicFfi.objectSlot(lpfnenum), Win32DynamicFfi.objectSlot(dwdata))).toInt()
+public fun EnumDisplayMonitors(hdc: HDC, lprcclip: Long, lpfnenum: MONITORENUMPROC, dwdata: LPARAM): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "EnumDisplayMonitors", longArrayOf(hdc, lprcclip, Win32DynamicFfi.objectSlot(lpfnenum), dwdata)).toInt()
 }
 
 public fun EnumDisplaySettingsA(lpszdevicename: PCSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: Long): BOOL {
@@ -452,36 +459,36 @@ public fun EnumEnhMetaFile(hdc: HDC, hmf: HENHMETAFILE, proc: ENHMFENUMPROC, par
     return Win32DynamicFfi.invoke("gdi32.dll", "EnumEnhMetaFile", longArrayOf(hdc, hmf, Win32DynamicFfi.objectSlot(proc), param3, lprect)).toInt()
 }
 
-public fun EnumFontFamiliesA(hdc: HDC, lplogfont: PCSTR, lpproc: FONTENUMPROCA, lparam: Foundation.LPARAM): Int {
-    return Win32DynamicFfi.invoke("gdi32.dll", "EnumFontFamiliesA", longArrayOf(hdc, lplogfont, Win32DynamicFfi.objectSlot(lpproc), Win32DynamicFfi.objectSlot(lparam))).toInt()
+public fun EnumFontFamiliesA(hdc: HDC, lplogfont: PCSTR, lpproc: FONTENUMPROCA, lparam: LPARAM): Int {
+    return Win32DynamicFfi.invoke("gdi32.dll", "EnumFontFamiliesA", longArrayOf(hdc, lplogfont, Win32DynamicFfi.objectSlot(lpproc), lparam)).toInt()
 }
 
-public fun EnumFontFamiliesExA(hdc: HDC, lplogfont: Long, lpproc: FONTENUMPROCA, lparam: Foundation.LPARAM, dwflags: UInt): Int {
-    return Win32DynamicFfi.invoke("gdi32.dll", "EnumFontFamiliesExA", longArrayOf(hdc, lplogfont, Win32DynamicFfi.objectSlot(lpproc), Win32DynamicFfi.objectSlot(lparam), dwflags.toLong())).toInt()
+public fun EnumFontFamiliesExA(hdc: HDC, lplogfont: Long, lpproc: FONTENUMPROCA, lparam: LPARAM, dwflags: UInt): Int {
+    return Win32DynamicFfi.invoke("gdi32.dll", "EnumFontFamiliesExA", longArrayOf(hdc, lplogfont, Win32DynamicFfi.objectSlot(lpproc), lparam, dwflags.toLong())).toInt()
 }
 
-public fun EnumFontFamiliesExW(hdc: HDC, lplogfont: Long, lpproc: FONTENUMPROCW, lparam: Foundation.LPARAM, dwflags: UInt): Int {
-    return Win32DynamicFfi.invoke("gdi32.dll", "EnumFontFamiliesExW", longArrayOf(hdc, lplogfont, Win32DynamicFfi.objectSlot(lpproc), Win32DynamicFfi.objectSlot(lparam), dwflags.toLong())).toInt()
+public fun EnumFontFamiliesExW(hdc: HDC, lplogfont: Long, lpproc: FONTENUMPROCW, lparam: LPARAM, dwflags: UInt): Int {
+    return Win32DynamicFfi.invoke("gdi32.dll", "EnumFontFamiliesExW", longArrayOf(hdc, lplogfont, Win32DynamicFfi.objectSlot(lpproc), lparam, dwflags.toLong())).toInt()
 }
 
-public fun EnumFontFamiliesW(hdc: HDC, lplogfont: PCWSTR, lpproc: FONTENUMPROCW, lparam: Foundation.LPARAM): Int {
-    return Win32DynamicFfi.invoke("gdi32.dll", "EnumFontFamiliesW", longArrayOf(hdc, lplogfont, Win32DynamicFfi.objectSlot(lpproc), Win32DynamicFfi.objectSlot(lparam))).toInt()
+public fun EnumFontFamiliesW(hdc: HDC, lplogfont: PCWSTR, lpproc: FONTENUMPROCW, lparam: LPARAM): Int {
+    return Win32DynamicFfi.invoke("gdi32.dll", "EnumFontFamiliesW", longArrayOf(hdc, lplogfont, Win32DynamicFfi.objectSlot(lpproc), lparam)).toInt()
 }
 
-public fun EnumFontsA(hdc: HDC, lplogfont: PCSTR, lpproc: FONTENUMPROCA, lparam: Foundation.LPARAM): Int {
-    return Win32DynamicFfi.invoke("gdi32.dll", "EnumFontsA", longArrayOf(hdc, lplogfont, Win32DynamicFfi.objectSlot(lpproc), Win32DynamicFfi.objectSlot(lparam))).toInt()
+public fun EnumFontsA(hdc: HDC, lplogfont: PCSTR, lpproc: FONTENUMPROCA, lparam: LPARAM): Int {
+    return Win32DynamicFfi.invoke("gdi32.dll", "EnumFontsA", longArrayOf(hdc, lplogfont, Win32DynamicFfi.objectSlot(lpproc), lparam)).toInt()
 }
 
-public fun EnumFontsW(hdc: HDC, lplogfont: PCWSTR, lpproc: FONTENUMPROCW, lparam: Foundation.LPARAM): Int {
-    return Win32DynamicFfi.invoke("gdi32.dll", "EnumFontsW", longArrayOf(hdc, lplogfont, Win32DynamicFfi.objectSlot(lpproc), Win32DynamicFfi.objectSlot(lparam))).toInt()
+public fun EnumFontsW(hdc: HDC, lplogfont: PCWSTR, lpproc: FONTENUMPROCW, lparam: LPARAM): Int {
+    return Win32DynamicFfi.invoke("gdi32.dll", "EnumFontsW", longArrayOf(hdc, lplogfont, Win32DynamicFfi.objectSlot(lpproc), lparam)).toInt()
 }
 
-public fun EnumMetaFile(hdc: HDC, hmf: HMETAFILE, proc: MFENUMPROC, param3: Foundation.LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("gdi32.dll", "EnumMetaFile", longArrayOf(hdc, hmf, Win32DynamicFfi.objectSlot(proc), Win32DynamicFfi.objectSlot(param3))).toInt()
+public fun EnumMetaFile(hdc: HDC, hmf: HMETAFILE, proc: MFENUMPROC, param3: LPARAM): BOOL {
+    return Win32DynamicFfi.invoke("gdi32.dll", "EnumMetaFile", longArrayOf(hdc, hmf, Win32DynamicFfi.objectSlot(proc), param3)).toInt()
 }
 
-public fun EnumObjects(hdc: HDC, ntype: OBJ_TYPE, lpfunc: GOBJENUMPROC, lparam: Foundation.LPARAM): Int {
-    return Win32DynamicFfi.invoke("gdi32.dll", "EnumObjects", longArrayOf(hdc, ntype.toLong(), Win32DynamicFfi.objectSlot(lpfunc), Win32DynamicFfi.objectSlot(lparam))).toInt()
+public fun EnumObjects(hdc: HDC, ntype: OBJ_TYPE, lpfunc: GOBJENUMPROC, lparam: LPARAM): Int {
+    return Win32DynamicFfi.invoke("gdi32.dll", "EnumObjects", longArrayOf(hdc, ntype.toLong(), Win32DynamicFfi.objectSlot(lpfunc), lparam)).toInt()
 }
 
 public fun EqualRect(lprc1: Long, lprc2: Long): BOOL {
@@ -496,8 +503,8 @@ public fun ExcludeClipRect(hdc: HDC, left: Int, top: Int, right: Int, bottom: In
     return Win32DynamicFfi.invoke("gdi32.dll", "ExcludeClipRect", longArrayOf(hdc, left.toLong(), top.toLong(), right.toLong(), bottom.toLong())).toInt()
 }
 
-public fun ExcludeUpdateRgn(hdc: HDC, hwnd: Foundation.HWND): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "ExcludeUpdateRgn", longArrayOf(hdc, Win32DynamicFfi.objectSlot(hwnd))).toInt()
+public fun ExcludeUpdateRgn(hdc: HDC, hwnd: HWND): Int {
+    return Win32DynamicFfi.invoke("user32.dll", "ExcludeUpdateRgn", longArrayOf(hdc, hwnd)).toInt()
 }
 
 public fun ExtCreatePen(ipenstyle: UInt, cwidth: UInt, plbrush: Long, cstyle: UInt, pstyle: Long): HPEN {
@@ -508,8 +515,8 @@ public fun ExtCreateRegion(lpx: Long, ncount: UInt, lpdata: Long): HRGN {
     return Win32DynamicFfi.invoke("gdi32.dll", "ExtCreateRegion", longArrayOf(lpx, ncount.toLong(), lpdata))
 }
 
-public fun ExtFloodFill(hdc: HDC, x: Int, y: Int, color: Foundation.COLORREF, type: EXT_FLOOD_FILL_TYPE): BOOL {
-    return Win32DynamicFfi.invoke("gdi32.dll", "ExtFloodFill", longArrayOf(hdc, x.toLong(), y.toLong(), Win32DynamicFfi.objectSlot(color), type.toLong())).toInt()
+public fun ExtFloodFill(hdc: HDC, x: Int, y: Int, color: COLORREF, type: EXT_FLOOD_FILL_TYPE): BOOL {
+    return Win32DynamicFfi.invoke("gdi32.dll", "ExtFloodFill", longArrayOf(hdc, x.toLong(), y.toLong(), color.toLong(), type.toLong())).toInt()
 }
 
 public fun ExtSelectClipRgn(hdc: HDC, hrgn: HRGN, mode: RGN_COMBINE_MODE): GDI_REGION_TYPE {
@@ -544,8 +551,8 @@ public fun FlattenPath(hdc: HDC): BOOL {
     return Win32DynamicFfi.invoke("gdi32.dll", "FlattenPath", longArrayOf(hdc)).toInt()
 }
 
-public fun FloodFill(hdc: HDC, x: Int, y: Int, color: Foundation.COLORREF): BOOL {
-    return Win32DynamicFfi.invoke("gdi32.dll", "FloodFill", longArrayOf(hdc, x.toLong(), y.toLong(), Win32DynamicFfi.objectSlot(color))).toInt()
+public fun FloodFill(hdc: HDC, x: Int, y: Int, color: COLORREF): BOOL {
+    return Win32DynamicFfi.invoke("gdi32.dll", "FloodFill", longArrayOf(hdc, x.toLong(), y.toLong(), color.toLong())).toInt()
 }
 
 public fun FrameRect(hdc: HDC, lprc: Long, hbr: HBRUSH): Int {
@@ -557,7 +564,7 @@ public fun FrameRgn(hdc: HDC, hrgn: HRGN, hbr: HBRUSH, w: Int, h: Int): BOOL {
 }
 
 public fun GdiAlphaBlend(hdcdest: HDC, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: HDC, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, ftn: BLENDFUNCTION): BOOL {
-    return Win32DynamicFfi.invoke("gdi32.dll", "GdiAlphaBlend", longArrayOf(hdcdest, xorigindest.toLong(), yorigindest.toLong(), wdest.toLong(), hdest.toLong(), hdcsrc, xoriginsrc.toLong(), yoriginsrc.toLong(), wsrc.toLong(), hsrc.toLong(), Win32DynamicFfi.objectSlot(ftn))).toInt()
+    return Win32DynamicFfi.invoke("gdi32.dll", "GdiAlphaBlend", longArrayOf(hdcdest, xorigindest.toLong(), yorigindest.toLong(), wdest.toLong(), hdest.toLong(), hdcsrc, xoriginsrc.toLong(), yoriginsrc.toLong(), wsrc.toLong(), hsrc.toLong(), ((ftn.BlendOp.toLong() and 0xFFL) or ((ftn.BlendFlags.toLong() and 0xFFL) shl 8) or ((ftn.SourceConstantAlpha.toLong() and 0xFFL) shl 16) or ((ftn.AlphaFormat.toLong() and 0xFFL) shl 24)))).toInt()
 }
 
 public fun GdiComment(hdc: HDC, nsize: UInt, lpdata: Long): BOOL {
@@ -600,9 +607,8 @@ public fun GetBitmapDimensionEx(hbit: HBITMAP, lpsize: Long): BOOL {
     return Win32DynamicFfi.invoke("gdi32.dll", "GetBitmapDimensionEx", longArrayOf(hbit, lpsize)).toInt()
 }
 
-public fun GetBkColor(hdc: HDC): Foundation.COLORREF {
-    Win32DynamicFfi.invoke("gdi32.dll", "GetBkColor", longArrayOf(hdc))
-    return Foundation.COLORREF()
+public fun GetBkColor(hdc: HDC): COLORREF {
+    return Win32DynamicFfi.invoke("gdi32.dll", "GetBkColor", longArrayOf(hdc)).toUInt()
 }
 
 public fun GetBkMode(hdc: HDC): Int {
@@ -693,26 +699,24 @@ public fun GetCurrentPositionEx(hdc: HDC, lppt: Long): BOOL {
     return Win32DynamicFfi.invoke("gdi32.dll", "GetCurrentPositionEx", longArrayOf(hdc, lppt)).toInt()
 }
 
-public fun GetDC(hwnd: Foundation.HWND): HDC {
-    return Win32DynamicFfi.invoke("user32.dll", "GetDC", longArrayOf(Win32DynamicFfi.objectSlot(hwnd)))
+public fun GetDC(hwnd: HWND): HDC {
+    return Win32DynamicFfi.invoke("user32.dll", "GetDC", longArrayOf(hwnd))
 }
 
-public fun GetDCBrushColor(hdc: HDC): Foundation.COLORREF {
-    Win32DynamicFfi.invoke("gdi32.dll", "GetDCBrushColor", longArrayOf(hdc))
-    return Foundation.COLORREF()
+public fun GetDCBrushColor(hdc: HDC): COLORREF {
+    return Win32DynamicFfi.invoke("gdi32.dll", "GetDCBrushColor", longArrayOf(hdc)).toUInt()
 }
 
-public fun GetDCEx(hwnd: Foundation.HWND, hrgnclip: HRGN, flags: GET_DCX_FLAGS): HDC {
-    return Win32DynamicFfi.invoke("user32.dll", "GetDCEx", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), hrgnclip, flags.toLong()))
+public fun GetDCEx(hwnd: HWND, hrgnclip: HRGN, flags: GET_DCX_FLAGS): HDC {
+    return Win32DynamicFfi.invoke("user32.dll", "GetDCEx", longArrayOf(hwnd, hrgnclip, flags.toLong()))
 }
 
 public fun GetDCOrgEx(hdc: HDC, lppt: Long): BOOL {
     return Win32DynamicFfi.invoke("gdi32.dll", "GetDCOrgEx", longArrayOf(hdc, lppt)).toInt()
 }
 
-public fun GetDCPenColor(hdc: HDC): Foundation.COLORREF {
-    Win32DynamicFfi.invoke("gdi32.dll", "GetDCPenColor", longArrayOf(hdc))
-    return Foundation.COLORREF()
+public fun GetDCPenColor(hdc: HDC): COLORREF {
+    return Win32DynamicFfi.invoke("gdi32.dll", "GetDCPenColor", longArrayOf(hdc)).toUInt()
 }
 
 public fun GetDIBColorTable(hdc: HDC, istart: UInt, centries: UInt, prgbq: Long): UInt {
@@ -831,13 +835,12 @@ public fun GetMonitorInfoW(hmonitor: HMONITOR, lpmi: Long): BOOL {
     return Win32DynamicFfi.invoke("user32.dll", "GetMonitorInfoW", longArrayOf(hmonitor, lpmi)).toInt()
 }
 
-public fun GetNearestColor(hdc: HDC, color: Foundation.COLORREF): Foundation.COLORREF {
-    Win32DynamicFfi.invoke("gdi32.dll", "GetNearestColor", longArrayOf(hdc, Win32DynamicFfi.objectSlot(color)))
-    return Foundation.COLORREF()
+public fun GetNearestColor(hdc: HDC, color: COLORREF): COLORREF {
+    return Win32DynamicFfi.invoke("gdi32.dll", "GetNearestColor", longArrayOf(hdc, color.toLong())).toUInt()
 }
 
-public fun GetNearestPaletteIndex(h: HPALETTE, color: Foundation.COLORREF): UInt {
-    return Win32DynamicFfi.invoke("gdi32.dll", "GetNearestPaletteIndex", longArrayOf(h, Win32DynamicFfi.objectSlot(color))).toUInt()
+public fun GetNearestPaletteIndex(h: HPALETTE, color: COLORREF): UInt {
+    return Win32DynamicFfi.invoke("gdi32.dll", "GetNearestPaletteIndex", longArrayOf(h, color.toLong())).toUInt()
 }
 
 public fun GetObjectA(h: HGDIOBJ, c: Int, pv: Long): Int {
@@ -868,9 +871,8 @@ public fun GetPath(hdc: HDC, apt: Long, aj: Long, cpt: Int): Int {
     return Win32DynamicFfi.invoke("gdi32.dll", "GetPath", longArrayOf(hdc, apt, aj, cpt.toLong())).toInt()
 }
 
-public fun GetPixel(hdc: HDC, x: Int, y: Int): Foundation.COLORREF {
-    Win32DynamicFfi.invoke("gdi32.dll", "GetPixel", longArrayOf(hdc, x.toLong(), y.toLong()))
-    return Foundation.COLORREF()
+public fun GetPixel(hdc: HDC, x: Int, y: Int): COLORREF {
+    return Win32DynamicFfi.invoke("gdi32.dll", "GetPixel", longArrayOf(hdc, x.toLong(), y.toLong())).toUInt()
 }
 
 public fun GetPolyFillMode(hdc: HDC): Int {
@@ -937,9 +939,8 @@ public fun GetTextCharacterExtra(hdc: HDC): Int {
     return Win32DynamicFfi.invoke("gdi32.dll", "GetTextCharacterExtra", longArrayOf(hdc)).toInt()
 }
 
-public fun GetTextColor(hdc: HDC): Foundation.COLORREF {
-    Win32DynamicFfi.invoke("gdi32.dll", "GetTextColor", longArrayOf(hdc))
-    return Foundation.COLORREF()
+public fun GetTextColor(hdc: HDC): COLORREF {
+    return Win32DynamicFfi.invoke("gdi32.dll", "GetTextColor", longArrayOf(hdc)).toUInt()
 }
 
 public fun GetTextExtentExPointA(hdc: HDC, lpszstring: PCSTR, cchstring: Int, nmaxextent: Int, lpnfit: Long, lpndx: Long, lpsize: Long): BOOL {
@@ -990,12 +991,12 @@ public fun GetTextMetricsW(hdc: HDC, lptm: Long): BOOL {
     return Win32DynamicFfi.invoke("gdi32.dll", "GetTextMetricsW", longArrayOf(hdc, lptm)).toInt()
 }
 
-public fun GetUpdateRect(hwnd: Foundation.HWND, lprect: Long, berase: BOOL): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetUpdateRect", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), lprect, berase.toLong())).toInt()
+public fun GetUpdateRect(hwnd: HWND, lprect: Long, berase: BOOL): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "GetUpdateRect", longArrayOf(hwnd, lprect, berase.toLong())).toInt()
 }
 
-public fun GetUpdateRgn(hwnd: Foundation.HWND, hrgn: HRGN, berase: BOOL): GDI_REGION_TYPE {
-    return Win32DynamicFfi.invoke("user32.dll", "GetUpdateRgn", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), hrgn, berase.toLong())).toInt()
+public fun GetUpdateRgn(hwnd: HWND, hrgn: HRGN, berase: BOOL): GDI_REGION_TYPE {
+    return Win32DynamicFfi.invoke("user32.dll", "GetUpdateRgn", longArrayOf(hwnd, hrgn, berase.toLong())).toInt()
 }
 
 public fun GetViewportExtEx(hdc: HDC, lpsize: Long): BOOL {
@@ -1010,8 +1011,8 @@ public fun GetWinMetaFileBits(hemf: HENHMETAFILE, cbdata16: UInt, pdata16: Long,
     return Win32DynamicFfi.invoke("gdi32.dll", "GetWinMetaFileBits", longArrayOf(hemf, cbdata16.toLong(), pdata16, imapmode.toLong(), hdcref)).toUInt()
 }
 
-public fun GetWindowDC(hwnd: Foundation.HWND): HDC {
-    return Win32DynamicFfi.invoke("user32.dll", "GetWindowDC", longArrayOf(Win32DynamicFfi.objectSlot(hwnd)))
+public fun GetWindowDC(hwnd: HWND): HDC {
+    return Win32DynamicFfi.invoke("user32.dll", "GetWindowDC", longArrayOf(hwnd))
 }
 
 public fun GetWindowExtEx(hdc: HDC, lpsize: Long): BOOL {
@@ -1022,12 +1023,12 @@ public fun GetWindowOrgEx(hdc: HDC, lppoint: Long): BOOL {
     return Win32DynamicFfi.invoke("gdi32.dll", "GetWindowOrgEx", longArrayOf(hdc, lppoint)).toInt()
 }
 
-public fun GetWindowRgn(hwnd: Foundation.HWND, hrgn: HRGN): GDI_REGION_TYPE {
-    return Win32DynamicFfi.invoke("user32.dll", "GetWindowRgn", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), hrgn)).toInt()
+public fun GetWindowRgn(hwnd: HWND, hrgn: HRGN): GDI_REGION_TYPE {
+    return Win32DynamicFfi.invoke("user32.dll", "GetWindowRgn", longArrayOf(hwnd, hrgn)).toInt()
 }
 
-public fun GetWindowRgnBox(hwnd: Foundation.HWND, lprc: Long): GDI_REGION_TYPE {
-    return Win32DynamicFfi.invoke("user32.dll", "GetWindowRgnBox", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), lprc)).toInt()
+public fun GetWindowRgnBox(hwnd: HWND, lprc: Long): GDI_REGION_TYPE {
+    return Win32DynamicFfi.invoke("user32.dll", "GetWindowRgnBox", longArrayOf(hwnd, lprc)).toInt()
 }
 
 public fun GetWorldTransform(hdc: HDC, lpxf: Long): BOOL {
@@ -1038,12 +1039,12 @@ public fun GradientFill(hdc: HDC, pvertex: Long, nvertex: UInt, pmesh: Long, nme
     return Win32DynamicFfi.invoke("msimg32.dll", "GradientFill", longArrayOf(hdc, pvertex, nvertex.toLong(), pmesh, nmesh.toLong(), ulmode.toLong())).toInt()
 }
 
-public fun GrayStringA(hdc: HDC, hbrush: HBRUSH, lpoutputfunc: GRAYSTRINGPROC, lpdata: Foundation.LPARAM, ncount: Int, x: Int, y: Int, nwidth: Int, nheight: Int): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GrayStringA", longArrayOf(hdc, hbrush, Win32DynamicFfi.objectSlot(lpoutputfunc), Win32DynamicFfi.objectSlot(lpdata), ncount.toLong(), x.toLong(), y.toLong(), nwidth.toLong(), nheight.toLong())).toInt()
+public fun GrayStringA(hdc: HDC, hbrush: HBRUSH, lpoutputfunc: GRAYSTRINGPROC, lpdata: LPARAM, ncount: Int, x: Int, y: Int, nwidth: Int, nheight: Int): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "GrayStringA", longArrayOf(hdc, hbrush, Win32DynamicFfi.objectSlot(lpoutputfunc), lpdata, ncount.toLong(), x.toLong(), y.toLong(), nwidth.toLong(), nheight.toLong())).toInt()
 }
 
-public fun GrayStringW(hdc: HDC, hbrush: HBRUSH, lpoutputfunc: GRAYSTRINGPROC, lpdata: Foundation.LPARAM, ncount: Int, x: Int, y: Int, nwidth: Int, nheight: Int): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GrayStringW", longArrayOf(hdc, hbrush, Win32DynamicFfi.objectSlot(lpoutputfunc), Win32DynamicFfi.objectSlot(lpdata), ncount.toLong(), x.toLong(), y.toLong(), nwidth.toLong(), nheight.toLong())).toInt()
+public fun GrayStringW(hdc: HDC, hbrush: HBRUSH, lpoutputfunc: GRAYSTRINGPROC, lpdata: LPARAM, ncount: Int, x: Int, y: Int, nwidth: Int, nheight: Int): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "GrayStringW", longArrayOf(hdc, hbrush, Win32DynamicFfi.objectSlot(lpoutputfunc), lpdata, ncount.toLong(), x.toLong(), y.toLong(), nwidth.toLong(), nheight.toLong())).toInt()
 }
 
 public fun InflateRect(lprc: Long, dx: Int, dy: Int): BOOL {
@@ -1058,12 +1059,12 @@ public fun IntersectRect(lprcdst: Long, lprcsrc1: Long, lprcsrc2: Long): BOOL {
     return Win32DynamicFfi.invoke("user32.dll", "IntersectRect", longArrayOf(lprcdst, lprcsrc1, lprcsrc2)).toInt()
 }
 
-public fun InvalidateRect(hwnd: Foundation.HWND, lprect: Long, berase: BOOL): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "InvalidateRect", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), lprect, berase.toLong())).toInt()
+public fun InvalidateRect(hwnd: HWND, lprect: Long, berase: BOOL): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "InvalidateRect", longArrayOf(hwnd, lprect, berase.toLong())).toInt()
 }
 
-public fun InvalidateRgn(hwnd: Foundation.HWND, hrgn: HRGN, berase: BOOL): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "InvalidateRgn", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), hrgn, berase.toLong())).toInt()
+public fun InvalidateRgn(hwnd: HWND, hrgn: HRGN, berase: BOOL): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "InvalidateRgn", longArrayOf(hwnd, hrgn, berase.toLong())).toInt()
 }
 
 public fun InvertRect(hdc: HDC, lprc: Long): BOOL {
@@ -1082,28 +1083,28 @@ public fun LPtoDP(hdc: HDC, lppt: Long, c: Int): BOOL {
     return Win32DynamicFfi.invoke("gdi32.dll", "LPtoDP", longArrayOf(hdc, lppt, c.toLong())).toInt()
 }
 
-public fun LineDDA(xstart: Int, ystart: Int, xend: Int, yend: Int, lpproc: LINEDDAPROC, data: Foundation.LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("gdi32.dll", "LineDDA", longArrayOf(xstart.toLong(), ystart.toLong(), xend.toLong(), yend.toLong(), Win32DynamicFfi.objectSlot(lpproc), Win32DynamicFfi.objectSlot(data))).toInt()
+public fun LineDDA(xstart: Int, ystart: Int, xend: Int, yend: Int, lpproc: LINEDDAPROC, data: LPARAM): BOOL {
+    return Win32DynamicFfi.invoke("gdi32.dll", "LineDDA", longArrayOf(xstart.toLong(), ystart.toLong(), xend.toLong(), yend.toLong(), Win32DynamicFfi.objectSlot(lpproc), data)).toInt()
 }
 
 public fun LineTo(hdc: HDC, x: Int, y: Int): BOOL {
     return Win32DynamicFfi.invoke("gdi32.dll", "LineTo", longArrayOf(hdc, x.toLong(), y.toLong())).toInt()
 }
 
-public fun LoadBitmapA(hinstance: Foundation.HINSTANCE, lpbitmapname: PCSTR): HBITMAP {
-    return Win32DynamicFfi.invoke("user32.dll", "LoadBitmapA", longArrayOf(Win32DynamicFfi.objectSlot(hinstance), lpbitmapname))
+public fun LoadBitmapA(hinstance: HINSTANCE, lpbitmapname: PCSTR): HBITMAP {
+    return Win32DynamicFfi.invoke("user32.dll", "LoadBitmapA", longArrayOf(hinstance, lpbitmapname))
 }
 
-public fun LoadBitmapW(hinstance: Foundation.HINSTANCE, lpbitmapname: PCWSTR): HBITMAP {
-    return Win32DynamicFfi.invoke("user32.dll", "LoadBitmapW", longArrayOf(Win32DynamicFfi.objectSlot(hinstance), lpbitmapname))
+public fun LoadBitmapW(hinstance: HINSTANCE, lpbitmapname: PCWSTR): HBITMAP {
+    return Win32DynamicFfi.invoke("user32.dll", "LoadBitmapW", longArrayOf(hinstance, lpbitmapname))
 }
 
-public fun LockWindowUpdate(hwndlock: Foundation.HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "LockWindowUpdate", longArrayOf(Win32DynamicFfi.objectSlot(hwndlock))).toInt()
+public fun LockWindowUpdate(hwndlock: HWND): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "LockWindowUpdate", longArrayOf(hwndlock)).toInt()
 }
 
-public fun MapWindowPoints(hwndfrom: Foundation.HWND, hwndto: Foundation.HWND, lppoints: Long, cpoints: UInt): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "MapWindowPoints", longArrayOf(Win32DynamicFfi.objectSlot(hwndfrom), Win32DynamicFfi.objectSlot(hwndto), lppoints, cpoints.toLong())).toInt()
+public fun MapWindowPoints(hwndfrom: HWND, hwndto: HWND, lppoints: Long, cpoints: UInt): Int {
+    return Win32DynamicFfi.invoke("user32.dll", "MapWindowPoints", longArrayOf(hwndfrom, hwndto, lppoints, cpoints.toLong())).toInt()
 }
 
 public fun MaskBlt(hdcdest: HDC, xdest: Int, ydest: Int, width: Int, height: Int, hdcsrc: HDC, xsrc: Int, ysrc: Int, hbmmask: HBITMAP, xmask: Int, ymask: Int, rop: UInt): BOOL {
@@ -1118,16 +1119,16 @@ public fun ModifyWorldTransform(hdc: HDC, lpxf: Long, mode: MODIFY_WORLD_TRANSFO
     return Win32DynamicFfi.invoke("gdi32.dll", "ModifyWorldTransform", longArrayOf(hdc, lpxf, mode.toLong())).toInt()
 }
 
-public fun MonitorFromPoint(pt: Foundation.POINT, dwflags: MONITOR_FROM_FLAGS): HMONITOR {
-    return Win32DynamicFfi.invoke("user32.dll", "MonitorFromPoint", longArrayOf(Win32DynamicFfi.objectSlot(pt), dwflags.toLong()))
+public fun MonitorFromPoint(pt: POINT, dwflags: MONITOR_FROM_FLAGS): HMONITOR {
+    return Win32DynamicFfi.invoke("user32.dll", "MonitorFromPoint", longArrayOf(((pt.x.toLong() and 0xFFFF_FFFFL) or ((pt.y.toLong() and 0xFFFF_FFFFL) shl 32)), dwflags.toLong()))
 }
 
 public fun MonitorFromRect(lprc: Long, dwflags: MONITOR_FROM_FLAGS): HMONITOR {
     return Win32DynamicFfi.invoke("user32.dll", "MonitorFromRect", longArrayOf(lprc, dwflags.toLong()))
 }
 
-public fun MonitorFromWindow(hwnd: Foundation.HWND, dwflags: MONITOR_FROM_FLAGS): HMONITOR {
-    return Win32DynamicFfi.invoke("user32.dll", "MonitorFromWindow", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), dwflags.toLong()))
+public fun MonitorFromWindow(hwnd: HWND, dwflags: MONITOR_FROM_FLAGS): HMONITOR {
+    return Win32DynamicFfi.invoke("user32.dll", "MonitorFromWindow", longArrayOf(hwnd, dwflags.toLong()))
 }
 
 public fun MoveToEx(hdc: HDC, x: Int, y: Int, lppt: Long): BOOL {
@@ -1234,8 +1235,8 @@ public fun PolylineTo(hdc: HDC, apt: Long, cpt: UInt): BOOL {
     return Win32DynamicFfi.invoke("gdi32.dll", "PolylineTo", longArrayOf(hdc, apt, cpt.toLong())).toInt()
 }
 
-public fun PtInRect(lprc: Long, pt: Foundation.POINT): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "PtInRect", longArrayOf(lprc, Win32DynamicFfi.objectSlot(pt))).toInt()
+public fun PtInRect(lprc: Long, pt: POINT): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "PtInRect", longArrayOf(lprc, ((pt.x.toLong() and 0xFFFF_FFFFL) or ((pt.y.toLong() and 0xFFFF_FFFFL) shl 32)))).toInt()
 }
 
 public fun PtInRegion(hrgn: HRGN, x: Int, y: Int): BOOL {
@@ -1262,16 +1263,16 @@ public fun Rectangle(hdc: HDC, left: Int, top: Int, right: Int, bottom: Int): BO
     return Win32DynamicFfi.invoke("gdi32.dll", "Rectangle", longArrayOf(hdc, left.toLong(), top.toLong(), right.toLong(), bottom.toLong())).toInt()
 }
 
-public fun RedrawWindow(hwnd: Foundation.HWND, lprcupdate: Long, hrgnupdate: HRGN, flags: REDRAW_WINDOW_FLAGS): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "RedrawWindow", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), lprcupdate, hrgnupdate, flags.toLong())).toInt()
+public fun RedrawWindow(hwnd: HWND, lprcupdate: Long, hrgnupdate: HRGN, flags: REDRAW_WINDOW_FLAGS): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "RedrawWindow", longArrayOf(hwnd, lprcupdate, hrgnupdate, flags.toLong())).toInt()
 }
 
-public fun ReleaseDC(hwnd: Foundation.HWND, hdc: HDC): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "ReleaseDC", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), hdc)).toInt()
+public fun ReleaseDC(hwnd: HWND, hdc: HDC): Int {
+    return Win32DynamicFfi.invoke("user32.dll", "ReleaseDC", longArrayOf(hwnd, hdc)).toInt()
 }
 
-public fun RemoveFontMemResourceEx(h: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("gdi32.dll", "RemoveFontMemResourceEx", longArrayOf(Win32DynamicFfi.objectSlot(h))).toInt()
+public fun RemoveFontMemResourceEx(h: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("gdi32.dll", "RemoveFontMemResourceEx", longArrayOf(h)).toInt()
 }
 
 public fun RemoveFontResourceA(lpfilename: PCSTR): BOOL {
@@ -1322,8 +1323,8 @@ public fun ScaleWindowExtEx(hdc: HDC, xn: Int, xd: Int, yn: Int, yd: Int, lpsz: 
     return Win32DynamicFfi.invoke("gdi32.dll", "ScaleWindowExtEx", longArrayOf(hdc, xn.toLong(), xd.toLong(), yn.toLong(), yd.toLong(), lpsz)).toInt()
 }
 
-public fun ScreenToClient(hwnd: Foundation.HWND, lppoint: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "ScreenToClient", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), lppoint)).toInt()
+public fun ScreenToClient(hwnd: HWND, lppoint: Long): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "ScreenToClient", longArrayOf(hwnd, lppoint)).toInt()
 }
 
 public fun SelectClipPath(hdc: HDC, mode: RGN_COMBINE_MODE): BOOL {
@@ -1354,9 +1355,8 @@ public fun SetBitmapDimensionEx(hbm: HBITMAP, w: Int, h: Int, lpsz: Long): BOOL 
     return Win32DynamicFfi.invoke("gdi32.dll", "SetBitmapDimensionEx", longArrayOf(hbm, w.toLong(), h.toLong(), lpsz)).toInt()
 }
 
-public fun SetBkColor(hdc: HDC, color: Foundation.COLORREF): Foundation.COLORREF {
-    Win32DynamicFfi.invoke("gdi32.dll", "SetBkColor", longArrayOf(hdc, Win32DynamicFfi.objectSlot(color)))
-    return Foundation.COLORREF()
+public fun SetBkColor(hdc: HDC, color: COLORREF): COLORREF {
+    return Win32DynamicFfi.invoke("gdi32.dll", "SetBkColor", longArrayOf(hdc, color.toLong())).toUInt()
 }
 
 public fun SetBkMode(hdc: HDC, mode: Int): Int {
@@ -1375,14 +1375,12 @@ public fun SetColorAdjustment(hdc: HDC, lpca: Long): BOOL {
     return Win32DynamicFfi.invoke("gdi32.dll", "SetColorAdjustment", longArrayOf(hdc, lpca)).toInt()
 }
 
-public fun SetDCBrushColor(hdc: HDC, color: Foundation.COLORREF): Foundation.COLORREF {
-    Win32DynamicFfi.invoke("gdi32.dll", "SetDCBrushColor", longArrayOf(hdc, Win32DynamicFfi.objectSlot(color)))
-    return Foundation.COLORREF()
+public fun SetDCBrushColor(hdc: HDC, color: COLORREF): COLORREF {
+    return Win32DynamicFfi.invoke("gdi32.dll", "SetDCBrushColor", longArrayOf(hdc, color.toLong())).toUInt()
 }
 
-public fun SetDCPenColor(hdc: HDC, color: Foundation.COLORREF): Foundation.COLORREF {
-    Win32DynamicFfi.invoke("gdi32.dll", "SetDCPenColor", longArrayOf(hdc, Win32DynamicFfi.objectSlot(color)))
-    return Foundation.COLORREF()
+public fun SetDCPenColor(hdc: HDC, color: COLORREF): COLORREF {
+    return Win32DynamicFfi.invoke("gdi32.dll", "SetDCPenColor", longArrayOf(hdc, color.toLong())).toUInt()
 }
 
 public fun SetDIBColorTable(hdc: HDC, istart: UInt, centries: UInt, prgbq: Long): UInt {
@@ -1433,13 +1431,12 @@ public fun SetPaletteEntries(hpal: HPALETTE, istart: UInt, centries: UInt, ppale
     return Win32DynamicFfi.invoke("gdi32.dll", "SetPaletteEntries", longArrayOf(hpal, istart.toLong(), centries.toLong(), ppalentries)).toUInt()
 }
 
-public fun SetPixel(hdc: HDC, x: Int, y: Int, color: Foundation.COLORREF): Foundation.COLORREF {
-    Win32DynamicFfi.invoke("gdi32.dll", "SetPixel", longArrayOf(hdc, x.toLong(), y.toLong(), Win32DynamicFfi.objectSlot(color)))
-    return Foundation.COLORREF()
+public fun SetPixel(hdc: HDC, x: Int, y: Int, color: COLORREF): COLORREF {
+    return Win32DynamicFfi.invoke("gdi32.dll", "SetPixel", longArrayOf(hdc, x.toLong(), y.toLong(), color.toLong())).toUInt()
 }
 
-public fun SetPixelV(hdc: HDC, x: Int, y: Int, color: Foundation.COLORREF): BOOL {
-    return Win32DynamicFfi.invoke("gdi32.dll", "SetPixelV", longArrayOf(hdc, x.toLong(), y.toLong(), Win32DynamicFfi.objectSlot(color))).toInt()
+public fun SetPixelV(hdc: HDC, x: Int, y: Int, color: COLORREF): BOOL {
+    return Win32DynamicFfi.invoke("gdi32.dll", "SetPixelV", longArrayOf(hdc, x.toLong(), y.toLong(), color.toLong())).toInt()
 }
 
 public fun SetPolyFillMode(hdc: HDC, mode: CREATE_POLYGON_RGN_MODE): Int {
@@ -1482,9 +1479,8 @@ public fun SetTextCharacterExtra(hdc: HDC, extra: Int): Int {
     return Win32DynamicFfi.invoke("gdi32.dll", "SetTextCharacterExtra", longArrayOf(hdc, extra.toLong())).toInt()
 }
 
-public fun SetTextColor(hdc: HDC, color: Foundation.COLORREF): Foundation.COLORREF {
-    Win32DynamicFfi.invoke("gdi32.dll", "SetTextColor", longArrayOf(hdc, Win32DynamicFfi.objectSlot(color)))
-    return Foundation.COLORREF()
+public fun SetTextColor(hdc: HDC, color: COLORREF): COLORREF {
+    return Win32DynamicFfi.invoke("gdi32.dll", "SetTextColor", longArrayOf(hdc, color.toLong())).toUInt()
 }
 
 public fun SetTextJustification(hdc: HDC, extra: Int, count: Int): BOOL {
@@ -1507,8 +1503,8 @@ public fun SetWindowOrgEx(hdc: HDC, x: Int, y: Int, lppt: Long): BOOL {
     return Win32DynamicFfi.invoke("gdi32.dll", "SetWindowOrgEx", longArrayOf(hdc, x.toLong(), y.toLong(), lppt)).toInt()
 }
 
-public fun SetWindowRgn(hwnd: Foundation.HWND, hrgn: HRGN, bredraw: BOOL): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "SetWindowRgn", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), hrgn, bredraw.toLong())).toInt()
+public fun SetWindowRgn(hwnd: HWND, hrgn: HRGN, bredraw: BOOL): Int {
+    return Win32DynamicFfi.invoke("user32.dll", "SetWindowRgn", longArrayOf(hwnd, hrgn, bredraw.toLong())).toInt()
 }
 
 public fun SetWorldTransform(hdc: HDC, lpxf: Long): BOOL {
@@ -1539,8 +1535,8 @@ public fun TTCharToUnicode(hdc: HDC, puccharcodes: Long, ulcharcodesize: UInt, p
     return Win32DynamicFfi.invoke("t2embed.dll", "TTCharToUnicode", longArrayOf(hdc, puccharcodes, ulcharcodesize.toLong(), pusshortcodes, ulshortcodesize.toLong(), ulflags.toLong())).toInt()
 }
 
-public fun TTDeleteEmbeddedFont(hfontreference: Foundation.HANDLE, ulflags: UInt, pulstatus: Long): Int {
-    return Win32DynamicFfi.invoke("t2embed.dll", "TTDeleteEmbeddedFont", longArrayOf(Win32DynamicFfi.objectSlot(hfontreference), ulflags.toLong(), pulstatus)).toInt()
+public fun TTDeleteEmbeddedFont(hfontreference: HANDLE, ulflags: UInt, pulstatus: Long): Int {
+    return Win32DynamicFfi.invoke("t2embed.dll", "TTDeleteEmbeddedFont", longArrayOf(hfontreference, ulflags.toLong(), pulstatus)).toInt()
 }
 
 public fun TTEmbedFont(hdc: HDC, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: Long, pulstatus: Long, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: Long, puscharcodeset: Long, uscharcodecount: UShort, uslanguage: UShort, pttembedinfo: Long): Int {
@@ -1623,25 +1619,24 @@ public fun UpdateColors(hdc: HDC): BOOL {
     return Win32DynamicFfi.invoke("gdi32.dll", "UpdateColors", longArrayOf(hdc)).toInt()
 }
 
-public fun UpdateWindow(hwnd: Foundation.HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "UpdateWindow", longArrayOf(Win32DynamicFfi.objectSlot(hwnd))).toInt()
+public fun UpdateWindow(hwnd: HWND): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "UpdateWindow", longArrayOf(hwnd)).toInt()
 }
 
-public fun ValidateRect(hwnd: Foundation.HWND, lprect: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "ValidateRect", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), lprect)).toInt()
+public fun ValidateRect(hwnd: HWND, lprect: Long): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "ValidateRect", longArrayOf(hwnd, lprect)).toInt()
 }
 
-public fun ValidateRgn(hwnd: Foundation.HWND, hrgn: HRGN): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "ValidateRgn", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), hrgn)).toInt()
+public fun ValidateRgn(hwnd: HWND, hrgn: HRGN): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "ValidateRgn", longArrayOf(hwnd, hrgn)).toInt()
 }
 
 public fun WidenPath(hdc: HDC): BOOL {
     return Win32DynamicFfi.invoke("gdi32.dll", "WidenPath", longArrayOf(hdc)).toInt()
 }
 
-public fun WindowFromDC(hdc: HDC): Foundation.HWND {
-    Win32DynamicFfi.invoke("user32.dll", "WindowFromDC", longArrayOf(hdc))
-    return Foundation.HWND()
+public fun WindowFromDC(hdc: HDC): HWND {
+    return Win32DynamicFfi.invoke("user32.dll", "WindowFromDC", longArrayOf(hdc))
 }
 
 public fun wglSwapMultipleBuffers(param0: UInt, param1: Long): UInt {

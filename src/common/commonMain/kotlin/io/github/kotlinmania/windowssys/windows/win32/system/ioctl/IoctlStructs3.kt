@@ -2,6 +2,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.ioctl
 
 import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_ID_128
 
 public data class USN_TRACK_MODIFIED_RANGES(
     public var Flags: UInt = 0u,
@@ -104,7 +105,7 @@ public data class WIM_PROVIDER_UPDATE_OVERLAY_INPUT(
     public var WimFileNameLength: UInt = 0u,
 )
 
-public data class WOF_EXTERNAL_FILE_ID(public var FileId: Storage.FileSystem.FILE_ID_128 = Storage.FileSystem.FILE_ID_128())
+public data class WOF_EXTERNAL_FILE_ID(public var FileId: FILE_ID_128 = FILE_ID_128())
 
 public data class WOF_EXTERNAL_INFO(public var Version: UInt = 0u, public var Provider: UInt = 0u)
 

@@ -5,6 +5,12 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
+import io.github.kotlinmania.windowssys.windows.win32.system.com.BLOB
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.COMPARTMENT_ID
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.PROCESSOR_NUMBER
 
 public data class AAL5_PARAMETERS(
     public var ForwardMaxCPCSSDUSize: UInt = 0u,
@@ -94,7 +100,7 @@ public data class ADDRINFOEX4(
     public var ai_version: Int = 0,
     public var ai_fqdn: PWSTR = 0L,
     public var ai_interfaceindex: Int = 0,
-    public var ai_resolutionhandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var ai_resolutionhandle: HANDLE = 0L,
 )
 
 public data class ADDRINFOEX5(
@@ -112,7 +118,7 @@ public data class ADDRINFOEX5(
     public var ai_version: Int = 0,
     public var ai_fqdn: PWSTR = 0L,
     public var ai_interfaceindex: Int = 0,
-    public var ai_resolutionhandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var ai_resolutionhandle: HANDLE = 0L,
     public var ai_ttl: UInt = 0u,
 )
 
@@ -131,7 +137,7 @@ public class ADDRINFOEX6(
     public var ai_version: Int = 0,
     public var ai_fqdn: PWSTR = 0L,
     public var ai_interfaceindex: Int = 0,
-    public var ai_resolutionhandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var ai_resolutionhandle: HANDLE = 0L,
     public var ai_ttl: UInt = 0u,
     public var ai_numservers: UInt = 0u,
     public var ai_servers: Long = 0L,
@@ -593,7 +599,7 @@ public data class DL_TEREDO_ADDRESS_PRV_0_0(
 )
 
 public data class DL_TUNNEL_ADDRESS(
-    public var CompartmentId: System.Kernel.COMPARTMENT_ID = System.Kernel.COMPARTMENT_ID(),
+    public var CompartmentId: COMPARTMENT_ID = 0,
     public var ScopeId: SCOPE_ID = SCOPE_ID(),
     public var IpAddress: UByteArray = UByteArray(1),
 ) {
@@ -1422,7 +1428,7 @@ public data class NPI_MODULEID(
     public var Anonymous: NPI_MODULEID_0 = NPI_MODULEID_0(),
 )
 
-public data class NPI_MODULEID_0(public var Guid: GUID = GUID(), public var IfLuid: Foundation.LUID = Foundation.LUID())
+public data class NPI_MODULEID_0(public var Guid: GUID = GUID(), public var IfLuid: LUID = LUID())
 
 public data class NSPV2_ROUTINE(
     public var cbSize: UInt = 0u,
@@ -1574,10 +1580,10 @@ public data class RIO_NOTIFICATION_COMPLETION(public var Type: RIO_NOTIFICATION_
 
 public data class RIO_NOTIFICATION_COMPLETION_0(public var Event: RIO_NOTIFICATION_COMPLETION_0_0 = RIO_NOTIFICATION_COMPLETION_0_0(), public var Iocp: RIO_NOTIFICATION_COMPLETION_0_1 = RIO_NOTIFICATION_COMPLETION_0_1())
 
-public data class RIO_NOTIFICATION_COMPLETION_0_0(public var EventHandle: Foundation.HANDLE = Foundation.HANDLE(), public var NotifyReset: BOOL = 0)
+public data class RIO_NOTIFICATION_COMPLETION_0_0(public var EventHandle: HANDLE = 0L, public var NotifyReset: BOOL = 0)
 
 public data class RIO_NOTIFICATION_COMPLETION_0_1(
-    public var IocpHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var IocpHandle: HANDLE = 0L,
     public var CompletionKey: Long = 0L,
     public var Overlapped: Long = 0L,
 )
@@ -1660,8 +1666,8 @@ public data class SERVICE_ADDRESSES(public var dwAddressCount: UInt = 0u, public
 
 public data class SERVICE_ASYNC_INFO(
     public var lpServiceCallbackProc: LPSERVICE_CALLBACK_PROC = null,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
-    public var hAsyncTaskHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var lParam: LPARAM = 0L,
+    public var hAsyncTaskHandle: HANDLE = 0L,
 )
 
 public data class SERVICE_INFOA(
@@ -1674,7 +1680,7 @@ public data class SERVICE_INFOA(
     public var dwTime: UInt = 0u,
     public var lpMachineName: PSTR = 0L,
     public var lpServiceAddress: Long = 0L,
-    public var ServiceSpecificInfo: System.Com.BLOB = System.Com.BLOB(),
+    public var ServiceSpecificInfo: BLOB = BLOB(),
 )
 
 public data class SERVICE_INFOW(
@@ -1687,7 +1693,7 @@ public data class SERVICE_INFOW(
     public var dwTime: UInt = 0u,
     public var lpMachineName: PWSTR = 0L,
     public var lpServiceAddress: Long = 0L,
-    public var ServiceSpecificInfo: System.Com.BLOB = System.Com.BLOB(),
+    public var ServiceSpecificInfo: BLOB = BLOB(),
 )
 
 public data class SERVICE_TYPE_INFO(
@@ -2080,7 +2086,7 @@ public data class SOCKET_PEER_TARGET_NAME(
 }
 
 public data class SOCKET_PROCESSOR_AFFINITY(
-    public var Processor: System.Kernel.PROCESSOR_NUMBER = System.Kernel.PROCESSOR_NUMBER(),
+    public var Processor: PROCESSOR_NUMBER = PROCESSOR_NUMBER(),
     public var NumaNodeId: UShort = 0u,
     public var Reserved: UShort = 0u,
 )

@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.ime
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
@@ -17,21 +18,21 @@ public val ATTR_TARGET_CONVERTED: UInt = 1u
 
 public val ATTR_TARGET_NOTCONVERTED: UInt = 3u
 
-public val CATID_MSIME_IImePadApplet: GUID = GUID.from_u128(0x7566cad14ec94478uL, 0x9fe98ed766619edfuL)
+public val CATID_MSIME_IImePadApplet: GUID = GUID.from_u128(U128(0x7566cad14ec94478uL, 0x9fe98ed766619edfuL))
 
-public val CATID_MSIME_IImePadApplet1000: GUID = GUID.from_u128(0xe081e1d6238943cbuL, 0xb66f609f823d9f9cuL)
+public val CATID_MSIME_IImePadApplet1000: GUID = GUID.from_u128(U128(0xe081e1d6238943cbuL, 0xb66f609f823d9f9cuL))
 
-public val CATID_MSIME_IImePadApplet1200: GUID = GUID.from_u128(0xa47fb5fc7d154223uL, 0xa789b781bf9ae667uL)
+public val CATID_MSIME_IImePadApplet1200: GUID = GUID.from_u128(U128(0xa47fb5fc7d154223uL, 0xa789b781bf9ae667uL))
 
-public val CATID_MSIME_IImePadApplet900: GUID = GUID.from_u128(0xfaae51bf5e5b4a1duL, 0x8de117c1d9e1728duL)
+public val CATID_MSIME_IImePadApplet900: GUID = GUID.from_u128(U128(0xfaae51bf5e5b4a1duL, 0x8de117c1d9e1728duL))
 
-public val CATID_MSIME_IImePadApplet_VER7: GUID = GUID.from_u128(0x4a0f8e31c3ee11d1uL, 0xafef00805f0c8b6duL)
+public val CATID_MSIME_IImePadApplet_VER7: GUID = GUID.from_u128(U128(0x4a0f8e31c3ee11d1uL, 0xafef00805f0c8b6duL))
 
-public val CATID_MSIME_IImePadApplet_VER80: GUID = GUID.from_u128(0x56f7a792fef111d3uL, 0x846300c04f7a06e5uL)
+public val CATID_MSIME_IImePadApplet_VER80: GUID = GUID.from_u128(U128(0x56f7a792fef111d3uL, 0x846300c04f7a06e5uL))
 
-public val CATID_MSIME_IImePadApplet_VER81: GUID = GUID.from_u128(0x656520b0bb8811d4uL, 0x84c000c04f7a06e5uL)
+public val CATID_MSIME_IImePadApplet_VER81: GUID = GUID.from_u128(U128(0x656520b0bb8811d4uL, 0x84c000c04f7a06e5uL))
 
-public val CActiveIMM: GUID = GUID.from_u128(0x4955dd33b15911d0uL, 0x8fcf00aa006bcc59uL)
+public val CActiveIMM: GUID = GUID.from_u128(U128(0x4955dd33b15911d0uL, 0x8fcf00aa006bcc59uL))
 
 public val CFS_CANDIDATEPOS: UInt = 64u
 
@@ -51,11 +52,11 @@ public val CHARINFO_CHARID_MASK: UInt = 65535u
 
 public val CHARINFO_FEID_MASK: UInt = 15728640u
 
-public val CLSID_ImePlugInDictDictionaryList_CHS: GUID = GUID.from_u128(0x7bf0129b5bef4de4uL, 0x9b0b5edb66ac2fa6uL)
+public val CLSID_ImePlugInDictDictionaryList_CHS: GUID = GUID.from_u128(U128(0x7bf0129b5bef4de4uL, 0x9b0b5edb66ac2fa6uL))
 
-public val CLSID_ImePlugInDictDictionaryList_JPN: GUID = GUID.from_u128(0x4fe2776bb0f94396uL, 0xb5fce9d4cf1ec195uL)
+public val CLSID_ImePlugInDictDictionaryList_JPN: GUID = GUID.from_u128(U128(0x4fe2776bb0f94396uL, 0xb5fce9d4cf1ec195uL))
 
-public val CLSID_VERSION_DEPENDENT_MSIME_JAPANESE: GUID = GUID.from_u128(0x6a91029eaa49471buL, 0xaee77d332785660duL)
+public val CLSID_VERSION_DEPENDENT_MSIME_JAPANESE: GUID = GUID.from_u128(U128(0x6a91029eaa49471buL, 0xaee77d332785660duL))
 
 public val CPS_CANCEL: NOTIFY_IME_INDEX = 4u
 

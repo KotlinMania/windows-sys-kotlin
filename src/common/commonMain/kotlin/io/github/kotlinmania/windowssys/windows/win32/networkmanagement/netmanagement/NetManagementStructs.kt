@@ -5,6 +5,9 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.security.PSID
+import io.github.kotlinmania.windowssys.windows.win32.security.SID_NAME_USE
 
 public data class ACCESS_INFO_0(public var acc0_resource_name: PWSTR = 0L)
 
@@ -257,7 +260,7 @@ public data class GROUP_INFO_2(
 public data class GROUP_INFO_3(
     public var grpi3_name: PWSTR = 0L,
     public var grpi3_comment: PWSTR = 0L,
-    public var grpi3_group_sid: Security.PSID = Security.PSID(),
+    public var grpi3_group_sid: PSID = 0L,
     public var grpi3_attributes: UInt = 0u,
 )
 
@@ -291,17 +294,17 @@ public data class LOCALGROUP_INFO_1(public var lgrpi1_name: PWSTR = 0L, public v
 
 public data class LOCALGROUP_INFO_1002(public var lgrpi1002_comment: PWSTR = 0L)
 
-public data class LOCALGROUP_MEMBERS_INFO_0(public var lgrmi0_sid: Security.PSID = Security.PSID())
+public data class LOCALGROUP_MEMBERS_INFO_0(public var lgrmi0_sid: PSID = 0L)
 
 public data class LOCALGROUP_MEMBERS_INFO_1(
-    public var lgrmi1_sid: Security.PSID = Security.PSID(),
-    public var lgrmi1_sidusage: Security.SID_NAME_USE = Security.SID_NAME_USE(),
+    public var lgrmi1_sid: PSID = 0L,
+    public var lgrmi1_sidusage: SID_NAME_USE = 0,
     public var lgrmi1_name: PWSTR = 0L,
 )
 
 public data class LOCALGROUP_MEMBERS_INFO_2(
-    public var lgrmi2_sid: Security.PSID = Security.PSID(),
-    public var lgrmi2_sidusage: Security.SID_NAME_USE = Security.SID_NAME_USE(),
+    public var lgrmi2_sid: PSID = 0L,
+    public var lgrmi2_sidusage: SID_NAME_USE = 0,
     public var lgrmi2_domainandname: PWSTR = 0L,
 )
 
@@ -432,9 +435,9 @@ public data class NET_VALIDATE_PASSWORD_RESET_INPUT_ARG(
 
 public data class NET_VALIDATE_PERSISTED_FIELDS(
     public var PresentFields: UInt = 0u,
-    public var PasswordLastSet: Foundation.FILETIME = Foundation.FILETIME(),
-    public var BadPasswordTime: Foundation.FILETIME = Foundation.FILETIME(),
-    public var LockoutTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var PasswordLastSet: FILETIME = FILETIME(),
+    public var BadPasswordTime: FILETIME = FILETIME(),
+    public var LockoutTime: FILETIME = FILETIME(),
     public var BadPasswordCount: UInt = 0u,
     public var PasswordHistoryLength: UInt = 0u,
     public var PasswordHistory: Long = 0L,
@@ -1362,7 +1365,7 @@ public data class USER_INFO_23(
     public var usri23_full_name: PWSTR = 0L,
     public var usri23_comment: PWSTR = 0L,
     public var usri23_flags: USER_ACCOUNT_FLAGS = 0u,
-    public var usri23_user_sid: Security.PSID = Security.PSID(),
+    public var usri23_user_sid: PSID = 0L,
 )
 
 public data class USER_INFO_24(
@@ -1370,7 +1373,7 @@ public data class USER_INFO_24(
     public var usri24_flags: UInt = 0u,
     public var usri24_internet_provider_name: PWSTR = 0L,
     public var usri24_internet_principal_name: PWSTR = 0L,
-    public var usri24_user_sid: Security.PSID = Security.PSID(),
+    public var usri24_user_sid: PSID = 0L,
 )
 
 public class USER_INFO_3(
@@ -1430,7 +1433,7 @@ public class USER_INFO_4(
     public var usri4_logon_server: PWSTR = 0L,
     public var usri4_country_code: UInt = 0u,
     public var usri4_code_page: UInt = 0u,
-    public var usri4_user_sid: Security.PSID = Security.PSID(),
+    public var usri4_user_sid: PSID = 0L,
     public var usri4_primary_group_id: UInt = 0u,
     public var usri4_profile: PWSTR = 0L,
     public var usri4_home_dir_drive: PWSTR = 0L,
@@ -1461,7 +1464,7 @@ public data class USER_MODALS_INFO_1006(public var usrmod1006_role: USER_MODALS_
 
 public data class USER_MODALS_INFO_1007(public var usrmod1007_primary: PWSTR = 0L)
 
-public data class USER_MODALS_INFO_2(public var usrmod2_domain_name: PWSTR = 0L, public var usrmod2_domain_id: Security.PSID = Security.PSID())
+public data class USER_MODALS_INFO_2(public var usrmod2_domain_name: PWSTR = 0L, public var usrmod2_domain_id: PSID = 0L)
 
 public data class USER_MODALS_INFO_3(
     public var usrmod3_lockout_duration: UInt = 0u,

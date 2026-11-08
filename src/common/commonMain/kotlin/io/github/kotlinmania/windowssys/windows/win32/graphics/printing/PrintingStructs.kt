@@ -8,6 +8,23 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.devices.display.FD_KERNINGPAIR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FARPROC
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LRESULT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.POINTL
+import io.github.kotlinmania.windowssys.windows.win32.foundation.RECTL
+import io.github.kotlinmania.windowssys.windows.win32.foundation.SIZE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.SYSTEMTIME
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.PANOSE
+import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.HKEY
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.DLGPROC
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HICON
 
 public data class ADDJOB_INFO_1A(public var Path: PSTR = 0L, public var JobId: UInt = 0u)
 
@@ -167,7 +184,7 @@ public data class BranchOfficeLogOfflineFileFull(public var pMachineName: PWSTR 
 public data class COMPROPSHEETUI(
     public var cbSize: UShort = 0u,
     public var Flags: UShort = 0u,
-    public var hInstCaller: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hInstCaller: HINSTANCE = 0L,
     public var pCallerName: Long = 0L,
     public var UserData: ULong = 0uL,
     public var pHelpFile: Long = 0L,
@@ -243,7 +260,7 @@ public data class CONFIG_INFO_DATA_1(public var Reserved: UByteArray = UByteArra
 
 public data class CORE_PRINTER_DRIVERA(
     public var CoreDriverGUID: GUID = GUID(),
-    public var ftDriverDate: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftDriverDate: FILETIME = FILETIME(),
     public var dwlDriverVersion: ULong = 0uL,
     public var szPackageID: ByteArray = ByteArray(260),
 ) {
@@ -268,7 +285,7 @@ public data class CORE_PRINTER_DRIVERA(
 
 public data class CORE_PRINTER_DRIVERW(
     public var CoreDriverGUID: GUID = GUID(),
-    public var ftDriverDate: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftDriverDate: FILETIME = FILETIME(),
     public var dwlDriverVersion: ULong = 0uL,
     public var szPackageID: UShortArray = UShortArray(260),
 ) {
@@ -294,7 +311,7 @@ public data class CORE_PRINTER_DRIVERW(
 public data class CPSUICBPARAM(
     public var cbSize: UShort = 0u,
     public var Reason: UShort = 0u,
-    public var hDlg: Foundation.HWND = Foundation.HWND(),
+    public var hDlg: HWND = 0L,
     public var pOptItem: Long = 0L,
     public var cOptItem: UShort = 0u,
     public var Flags: UShort = 0u,
@@ -354,14 +371,14 @@ public data class DELETE_PORT_DATA_1(
 public data class DEVICEPROPERTYHEADER(
     public var cbSize: UShort = 0u,
     public var Flags: UShort = 0u,
-    public var hPrinter: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hPrinter: HANDLE = 0L,
     public var pszPrinterName: Long = 0L,
 )
 
 public data class DEVQUERYPRINT_INFO(
     public var cbSize: UShort = 0u,
     public var Level: UShort = 0u,
-    public var hPrinter: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hPrinter: HANDLE = 0L,
     public var pDevMode: Long = 0L,
     public var pszErrorStr: PWSTR = 0L,
     public var cchErrorStr: UInt = 0u,
@@ -371,13 +388,13 @@ public data class DEVQUERYPRINT_INFO(
 public data class DLGPAGE(
     public var cbSize: UShort = 0u,
     public var Flags: UShort = 0u,
-    public var DlgProc: UI.WindowsAndMessaging.DLGPROC = UI.WindowsAndMessaging.DLGPROC(),
+    public var DlgProc: DLGPROC = null,
     public var pTabName: Long = 0L,
     public var IconID: ULong = 0uL,
     public var Anonymous: DLGPAGE_0 = DLGPAGE_0(),
 )
 
-public data class DLGPAGE_0(public var DlgTemplateID: UShort = 0u, public var hDlgTemplate: Foundation.HANDLE = Foundation.HANDLE())
+public data class DLGPAGE_0(public var DlgTemplateID: UShort = 0u, public var hDlgTemplate: HANDLE = 0L)
 
 public data class DOCEVENT_CREATEDCPRE(
     public var pszDriver: PWSTR = 0L,
@@ -423,7 +440,7 @@ public data class DOCEVENT_FILTER(
 public data class DOCUMENTPROPERTYHEADER(
     public var cbSize: UShort = 0u,
     public var Reserved: UShort = 0u,
-    public var hPrinter: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hPrinter: HANDLE = 0L,
     public var pszPrinterName: Long = 0L,
     public var pdmIn: Long = 0L,
     public var pdmOut: Long = 0L,
@@ -478,7 +495,7 @@ public data class DOC_INFO_INTERNAL(
     public var pOutputFile: Long = 0L,
     public var pDatatype: Long = 0L,
     public var bLowILJob: BOOL = 0,
-    public var hTokenLowIL: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hTokenLowIL: HANDLE = 0L,
 )
 
 public data class DRIVER_INFO_1A(public var pName: PSTR = 0L)
@@ -593,7 +610,7 @@ public class DRIVER_INFO_6A(
     public var pMonitorName: PSTR = 0L,
     public var pDefaultDataType: PSTR = 0L,
     public var pszzPreviousNames: PSTR = 0L,
-    public var ftDriverDate: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftDriverDate: FILETIME = FILETIME(),
     public var dwlDriverVersion: ULong = 0uL,
     public var pszMfgName: PSTR = 0L,
     public var pszOEMUrl: PSTR = 0L,
@@ -613,7 +630,7 @@ public class DRIVER_INFO_6W(
     public var pMonitorName: PWSTR = 0L,
     public var pDefaultDataType: PWSTR = 0L,
     public var pszzPreviousNames: PWSTR = 0L,
-    public var ftDriverDate: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftDriverDate: FILETIME = FILETIME(),
     public var dwlDriverVersion: ULong = 0uL,
     public var pszMfgName: PWSTR = 0L,
     public var pszOEMUrl: PWSTR = 0L,
@@ -633,7 +650,7 @@ public class DRIVER_INFO_8A(
     public var pMonitorName: PSTR = 0L,
     public var pDefaultDataType: PSTR = 0L,
     public var pszzPreviousNames: PSTR = 0L,
-    public var ftDriverDate: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftDriverDate: FILETIME = FILETIME(),
     public var dwlDriverVersion: ULong = 0uL,
     public var pszMfgName: PSTR = 0L,
     public var pszOEMUrl: PSTR = 0L,
@@ -645,7 +662,7 @@ public class DRIVER_INFO_8A(
     public var pszInfPath: PSTR = 0L,
     public var dwPrinterDriverAttributes: UInt = 0u,
     public var pszzCoreDriverDependencies: PSTR = 0L,
-    public var ftMinInboxDriverVerDate: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftMinInboxDriverVerDate: FILETIME = FILETIME(),
     public var dwlMinInboxDriverVerVersion: ULong = 0uL,
 )
 
@@ -661,7 +678,7 @@ public class DRIVER_INFO_8W(
     public var pMonitorName: PWSTR = 0L,
     public var pDefaultDataType: PWSTR = 0L,
     public var pszzPreviousNames: PWSTR = 0L,
-    public var ftDriverDate: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftDriverDate: FILETIME = FILETIME(),
     public var dwlDriverVersion: ULong = 0uL,
     public var pszMfgName: PWSTR = 0L,
     public var pszOEMUrl: PWSTR = 0L,
@@ -673,7 +690,7 @@ public class DRIVER_INFO_8W(
     public var pszInfPath: PWSTR = 0L,
     public var dwPrinterDriverAttributes: UInt = 0u,
     public var pszzCoreDriverDependencies: PWSTR = 0L,
-    public var ftMinInboxDriverVerDate: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftMinInboxDriverVerDate: FILETIME = FILETIME(),
     public var dwlMinInboxDriverVerVersion: ULong = 0uL,
 )
 
@@ -766,9 +783,9 @@ public data class EXTPUSH(
     }
 }
 
-public data class EXTPUSH_0(public var DlgProc: UI.WindowsAndMessaging.DLGPROC = UI.WindowsAndMessaging.DLGPROC(), public var pfnCallBack: Foundation.FARPROC = Foundation.FARPROC())
+public data class EXTPUSH_0(public var DlgProc: DLGPROC = null, public var pfnCallBack: FARPROC = null)
 
-public data class EXTPUSH_1(public var DlgTemplateID: UShort = 0u, public var hDlgTemplate: Foundation.HANDLE = Foundation.HANDLE())
+public data class EXTPUSH_1(public var DlgTemplateID: UShort = 0u, public var hDlgTemplate: HANDLE = 0L)
 
 public class EXTTEXTMETRIC(
     public var emSize: Short = 0,
@@ -802,22 +819,22 @@ public class EXTTEXTMETRIC(
 public data class FORM_INFO_1A(
     public var Flags: UInt = 0u,
     public var pName: PSTR = 0L,
-    public var Size: Foundation.SIZE = Foundation.SIZE(),
-    public var ImageableArea: Foundation.RECTL = Foundation.RECTL(),
+    public var Size: SIZE = SIZE(),
+    public var ImageableArea: RECTL = RECTL(),
 )
 
 public data class FORM_INFO_1W(
     public var Flags: UInt = 0u,
     public var pName: PWSTR = 0L,
-    public var Size: Foundation.SIZE = Foundation.SIZE(),
-    public var ImageableArea: Foundation.RECTL = Foundation.RECTL(),
+    public var Size: SIZE = SIZE(),
+    public var ImageableArea: RECTL = RECTL(),
 )
 
 public data class FORM_INFO_2A(
     public var Flags: UInt = 0u,
     public var pName: PCSTR = 0L,
-    public var Size: Foundation.SIZE = Foundation.SIZE(),
-    public var ImageableArea: Foundation.RECTL = Foundation.RECTL(),
+    public var Size: SIZE = SIZE(),
+    public var ImageableArea: RECTL = RECTL(),
     public var pKeyword: PCSTR = 0L,
     public var StringType: UInt = 0u,
     public var pMuiDll: PCSTR = 0L,
@@ -829,8 +846,8 @@ public data class FORM_INFO_2A(
 public data class FORM_INFO_2W(
     public var Flags: UInt = 0u,
     public var pName: PCWSTR = 0L,
-    public var Size: Foundation.SIZE = Foundation.SIZE(),
-    public var ImageableArea: Foundation.RECTL = Foundation.RECTL(),
+    public var Size: SIZE = SIZE(),
+    public var ImageableArea: RECTL = RECTL(),
     public var pKeyword: PCSTR = 0L,
     public var StringType: UInt = 0u,
     public var pMuiDll: PCWSTR = 0L,
@@ -879,7 +896,7 @@ public data class JOB_INFO_1A(
     public var Position: UInt = 0u,
     public var TotalPages: UInt = 0u,
     public var PagesPrinted: UInt = 0u,
-    public var Submitted: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var Submitted: SYSTEMTIME = SYSTEMTIME(),
 )
 
 public data class JOB_INFO_1W(
@@ -895,7 +912,7 @@ public data class JOB_INFO_1W(
     public var Position: UInt = 0u,
     public var TotalPages: UInt = 0u,
     public var PagesPrinted: UInt = 0u,
-    public var Submitted: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var Submitted: SYSTEMTIME = SYSTEMTIME(),
 )
 
 public class JOB_INFO_2A(
@@ -911,7 +928,7 @@ public class JOB_INFO_2A(
     public var pDriverName: PSTR = 0L,
     public var pDevMode: Long = 0L,
     public var pStatus: PSTR = 0L,
-    public var pSecurityDescriptor: Security.PSECURITY_DESCRIPTOR = Security.PSECURITY_DESCRIPTOR(),
+    public var pSecurityDescriptor: PSECURITY_DESCRIPTOR = 0L,
     public var Status: UInt = 0u,
     public var Priority: UInt = 0u,
     public var Position: UInt = 0u,
@@ -919,7 +936,7 @@ public class JOB_INFO_2A(
     public var UntilTime: UInt = 0u,
     public var TotalPages: UInt = 0u,
     public var Size: UInt = 0u,
-    public var Submitted: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var Submitted: SYSTEMTIME = SYSTEMTIME(),
     public var Time: UInt = 0u,
     public var PagesPrinted: UInt = 0u,
 )
@@ -937,7 +954,7 @@ public class JOB_INFO_2W(
     public var pDriverName: PWSTR = 0L,
     public var pDevMode: Long = 0L,
     public var pStatus: PWSTR = 0L,
-    public var pSecurityDescriptor: Security.PSECURITY_DESCRIPTOR = Security.PSECURITY_DESCRIPTOR(),
+    public var pSecurityDescriptor: PSECURITY_DESCRIPTOR = 0L,
     public var Status: UInt = 0u,
     public var Priority: UInt = 0u,
     public var Position: UInt = 0u,
@@ -945,7 +962,7 @@ public class JOB_INFO_2W(
     public var UntilTime: UInt = 0u,
     public var TotalPages: UInt = 0u,
     public var Size: UInt = 0u,
-    public var Submitted: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var Submitted: SYSTEMTIME = SYSTEMTIME(),
     public var Time: UInt = 0u,
     public var PagesPrinted: UInt = 0u,
 )
@@ -969,7 +986,7 @@ public class JOB_INFO_4A(
     public var pDriverName: PSTR = 0L,
     public var pDevMode: Long = 0L,
     public var pStatus: PSTR = 0L,
-    public var pSecurityDescriptor: Security.PSECURITY_DESCRIPTOR = Security.PSECURITY_DESCRIPTOR(),
+    public var pSecurityDescriptor: PSECURITY_DESCRIPTOR = 0L,
     public var Status: UInt = 0u,
     public var Priority: UInt = 0u,
     public var Position: UInt = 0u,
@@ -977,7 +994,7 @@ public class JOB_INFO_4A(
     public var UntilTime: UInt = 0u,
     public var TotalPages: UInt = 0u,
     public var Size: UInt = 0u,
-    public var Submitted: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var Submitted: SYSTEMTIME = SYSTEMTIME(),
     public var Time: UInt = 0u,
     public var PagesPrinted: UInt = 0u,
     public var SizeHigh: Int = 0,
@@ -996,7 +1013,7 @@ public class JOB_INFO_4W(
     public var pDriverName: PWSTR = 0L,
     public var pDevMode: Long = 0L,
     public var pStatus: PWSTR = 0L,
-    public var pSecurityDescriptor: Security.PSECURITY_DESCRIPTOR = Security.PSECURITY_DESCRIPTOR(),
+    public var pSecurityDescriptor: PSECURITY_DESCRIPTOR = 0L,
     public var Status: UInt = 0u,
     public var Priority: UInt = 0u,
     public var Position: UInt = 0u,
@@ -1004,7 +1021,7 @@ public class JOB_INFO_4W(
     public var UntilTime: UInt = 0u,
     public var TotalPages: UInt = 0u,
     public var Size: UInt = 0u,
-    public var Submitted: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var Submitted: SYSTEMTIME = SYSTEMTIME(),
     public var Time: UInt = 0u,
     public var PagesPrinted: UInt = 0u,
     public var SizeHigh: Int = 0,
@@ -1013,7 +1030,7 @@ public class JOB_INFO_4W(
 public data class KERNDATA(
     public var dwSize: UInt = 0u,
     public var dwKernPairNum: UInt = 0u,
-    public var KernPair: List<Devices.Display.FD_KERNINGPAIR> = List(1) { Devices.Display.FD_KERNINGPAIR() },
+    public var KernPair: List<FD_KERNINGPAIR> = List(1) { FD_KERNINGPAIR() },
 )
 
 public data class MAPTABLE(
@@ -1081,8 +1098,8 @@ public data class MONITOREX(public var dwMonitorSize: UInt = 0u, public var Moni
 
 public data class MONITORINIT(
     public var cbSize: UInt = 0u,
-    public var hSpooler: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hckRegistryRoot: System.Registry.HKEY = System.Registry.HKEY(),
+    public var hSpooler: HANDLE = 0L,
+    public var hckRegistryRoot: HKEY = 0L,
     public var pMonitorReg: Long = 0L,
     public var bLocal: BOOL = 0,
     public var pszServerName: PCWSTR = 0L,
@@ -1223,10 +1240,10 @@ public data class NOTIFICATION_CONFIG_1(
 public data class OEMCUIPPARAM(
     public var cbSize: UInt = 0u,
     public var poemuiobj: Long = 0L,
-    public var hPrinter: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hPrinter: HANDLE = 0L,
     public var pPrinterName: PWSTR = 0L,
-    public var hModule: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hOEMHeap: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hModule: HANDLE = 0L,
+    public var hOEMHeap: HANDLE = 0L,
     public var pPublicDM: Long = 0L,
     public var pOEMDM: Long = 0L,
     public var dwFlags: UInt = 0u,
@@ -1241,8 +1258,8 @@ public data class OEMCUIPPARAM(
 public data class OEMDMPARAM(
     public var cbSize: UInt = 0u,
     public var pdriverobj: Long = 0L,
-    public var hPrinter: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hModule: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hPrinter: HANDLE = 0L,
+    public var hModule: HANDLE = 0L,
     public var pPublicDMIn: Long = 0L,
     public var pPublicDMOut: Long = 0L,
     public var pOEMDMIn: Long = 0L,
@@ -1252,9 +1269,9 @@ public data class OEMDMPARAM(
 
 public data class OEMFONTINSTPARAM(
     public var cbSize: UInt = 0u,
-    public var hPrinter: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hModule: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hHeap: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hPrinter: HANDLE = 0L,
+    public var hModule: HANDLE = 0L,
+    public var hHeap: HANDLE = 0L,
     public var dwFlags: UInt = 0u,
     public var pFontInstallerName: PWSTR = 0L,
 )
@@ -1266,10 +1283,10 @@ public data class OEMUIPROCS(public var DrvGetDriverSetting: PFN_DrvGetDriverSet
 public data class OEMUIPSPARAM(
     public var cbSize: UInt = 0u,
     public var poemuiobj: Long = 0L,
-    public var hPrinter: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hPrinter: HANDLE = 0L,
     public var pPrinterName: PWSTR = 0L,
-    public var hModule: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hOEMHeap: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hModule: HANDLE = 0L,
+    public var hOEMHeap: HANDLE = 0L,
     public var pPublicDM: Long = 0L,
     public var pOEMDM: Long = 0L,
     public var pOEMUserData: Long = 0L,
@@ -1286,7 +1303,7 @@ public data class OEM_DMEXTRAHEADER(
 public data class OIEXT(
     public var cbSize: UShort = 0u,
     public var Flags: UShort = 0u,
-    public var hInstCaller: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hInstCaller: HINSTANCE = 0L,
     public var pHelpFile: Long = 0L,
     public var dwReserved: ULongArray = ULongArray(4),
 ) {
@@ -1410,7 +1427,7 @@ public data class OPTPARAM(
     public var Style: UByte = 0u,
     public var pData: Long = 0L,
     public var IconID: ULong = 0uL,
-    public var lParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParam: LPARAM = 0L,
     public var dwReserved: ULongArray = ULongArray(2),
 ) {
     override fun equals(other: Any?): Boolean {
@@ -1693,7 +1710,7 @@ public class PRINTER_INFO_2A(
     public var pPrintProcessor: PSTR = 0L,
     public var pDatatype: PSTR = 0L,
     public var pParameters: PSTR = 0L,
-    public var pSecurityDescriptor: Security.PSECURITY_DESCRIPTOR = Security.PSECURITY_DESCRIPTOR(),
+    public var pSecurityDescriptor: PSECURITY_DESCRIPTOR = 0L,
     public var Attributes: UInt = 0u,
     public var Priority: UInt = 0u,
     public var DefaultPriority: UInt = 0u,
@@ -1717,7 +1734,7 @@ public class PRINTER_INFO_2W(
     public var pPrintProcessor: PWSTR = 0L,
     public var pDatatype: PWSTR = 0L,
     public var pParameters: PWSTR = 0L,
-    public var pSecurityDescriptor: Security.PSECURITY_DESCRIPTOR = Security.PSECURITY_DESCRIPTOR(),
+    public var pSecurityDescriptor: PSECURITY_DESCRIPTOR = 0L,
     public var Attributes: UInt = 0u,
     public var Priority: UInt = 0u,
     public var DefaultPriority: UInt = 0u,
@@ -1728,7 +1745,7 @@ public class PRINTER_INFO_2W(
     public var AveragePPM: UInt = 0u,
 )
 
-public data class PRINTER_INFO_3(public var pSecurityDescriptor: Security.PSECURITY_DESCRIPTOR = Security.PSECURITY_DESCRIPTOR())
+public data class PRINTER_INFO_3(public var pSecurityDescriptor: PSECURITY_DESCRIPTOR = 0L)
 
 public data class PRINTER_INFO_4A(
     public var pPrinterName: PSTR = 0L,
@@ -1883,14 +1900,14 @@ public class PRINTIFI32(
     public var wcLastChar: UShort = 0u,
     public var wcDefaultChar: UShort = 0u,
     public var wcBreakChar: UShort = 0u,
-    public var ptlBaseline: Foundation.POINTL = Foundation.POINTL(),
-    public var ptlAspect: Foundation.POINTL = Foundation.POINTL(),
-    public var ptlCaret: Foundation.POINTL = Foundation.POINTL(),
-    public var rclFontBox: Foundation.RECTL = Foundation.RECTL(),
+    public var ptlBaseline: POINTL = POINTL(),
+    public var ptlAspect: POINTL = POINTL(),
+    public var ptlCaret: POINTL = POINTL(),
+    public var rclFontBox: RECTL = RECTL(),
     public var achVendId: UByteArray = UByteArray(4),
     public var cKerningPairs: UInt = 0u,
     public var ulPanoseCulture: UInt = 0u,
-    public var panose: Gdi.PANOSE = Gdi.PANOSE(),
+    public var panose: PANOSE = PANOSE(),
 )
 
 public data class PRINTPROCESSOROPENDATA(
@@ -2153,7 +2170,7 @@ public data class PROPSHEETUI_GETICON_INFO(
     public var Flags: UShort = 0u,
     public var cxIcon: UShort = 0u,
     public var cyIcon: UShort = 0u,
-    public var hIcon: UI.WindowsAndMessaging.HICON = UI.WindowsAndMessaging.HICON(),
+    public var hIcon: HICON = 0L,
 )
 
 public data class PROPSHEETUI_INFO(
@@ -2161,9 +2178,9 @@ public data class PROPSHEETUI_INFO(
     public var Version: UShort = 0u,
     public var Flags: UShort = 0u,
     public var Reason: UShort = 0u,
-    public var hComPropSheet: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hComPropSheet: HANDLE = 0L,
     public var pfnComPropSheet: PFNCOMPROPSHEET = null,
-    public var lParamInit: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lParamInit: LPARAM = 0L,
     public var UserData: ULong = 0uL,
     public var Result: ULong = 0uL,
 )
@@ -2172,12 +2189,12 @@ public data class PROPSHEETUI_INFO_HEADER(
     public var cbSize: UShort = 0u,
     public var Flags: UShort = 0u,
     public var pTitle: Long = 0L,
-    public var hWndParent: Foundation.HWND = Foundation.HWND(),
-    public var hInst: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hWndParent: HWND = 0L,
+    public var hInst: HINSTANCE = 0L,
     public var Anonymous: PROPSHEETUI_INFO_HEADER_0 = PROPSHEETUI_INFO_HEADER_0(),
 )
 
-public data class PROPSHEETUI_INFO_HEADER_0(public var hIcon: UI.WindowsAndMessaging.HICON = UI.WindowsAndMessaging.HICON(), public var IconID: ULong = 0uL)
+public data class PROPSHEETUI_INFO_HEADER_0(public var hIcon: HICON = 0L, public var IconID: ULong = 0uL)
 
 public data class PROVIDOR_INFO_1A(
     public var pName: PSTR = 0L,
@@ -2214,8 +2231,8 @@ public data class PSCRIPT5_PRIVATE_DEVMODE(public var wReserved: UShortArray = U
 public data class PSPINFO(
     public var cbSize: UShort = 0u,
     public var wReserved: UShort = 0u,
-    public var hComPropSheet: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hCPSUIPage: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hComPropSheet: HANDLE = 0L,
+    public var hCPSUIPage: HANDLE = 0L,
     public var pfnComPropSheet: PFNCOMPROPSHEET = null,
 )
 
@@ -2244,8 +2261,8 @@ public data class PrintPropertyValue_0_0(public var cbBuf: UInt = 0u, public var
 public data class SETRESULT_INFO(
     public var cbSize: UShort = 0u,
     public var wReserved: UShort = 0u,
-    public var hSetResult: Foundation.HANDLE = Foundation.HANDLE(),
-    public var Result: Foundation.LRESULT = Foundation.LRESULT(),
+    public var hSetResult: HANDLE = 0L,
+    public var Result: LRESULT = 0L,
 )
 
 public data class SHOWUIPARAMS(public var UIType: UI_TYPE = 0, public var MessageBoxParams: MESSAGEBOX_PARAMS = MESSAGEBOX_PARAMS())

@@ -5,6 +5,9 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.system.hostcomputesystem.HCS_SYSTEM
+import io.github.kotlinmania.windowssys.windows.win32.system.power.DEVICE_POWER_STATE
 
 public fun interface FnCallback {
     public operator fun invoke(context: Long, imageinfo: Long): BOOL
@@ -94,9 +97,8 @@ public fun GetSavedStateSymbolFieldInfo(vmsavedstatedumphandle: Long, vpid: UInt
     return Win32DynamicFfi.invoke("vmsavedstatedumpprovider.dll", "GetSavedStateSymbolFieldInfo", longArrayOf(vmsavedstatedumphandle, vpid.toLong(), typename, typefieldinfomap)).toInt()
 }
 
-public fun GetSavedStateSymbolProviderHandle(vmsavedstatedumphandle: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("vmsavedstatedumpprovider.dll", "GetSavedStateSymbolProviderHandle", longArrayOf(vmsavedstatedumphandle))
-    return Foundation.HANDLE()
+public fun GetSavedStateSymbolProviderHandle(vmsavedstatedumphandle: Long): HANDLE {
+    return Win32DynamicFfi.invoke("vmsavedstatedumpprovider.dll", "GetSavedStateSymbolProviderHandle", longArrayOf(vmsavedstatedumphandle))
 }
 
 public fun GetSavedStateSymbolTypeSize(vmsavedstatedumphandle: Long, vpid: UInt, typename: PCSTR, size: Long): HRESULT {
@@ -123,8 +125,8 @@ public fun HdvCreateGuestMemoryAperture(requestor: Long, guestphysicaladdress: U
     return Win32DynamicFfi.invoke("vmdevicehost.dll", "HdvCreateGuestMemoryAperture", longArrayOf(requestor, guestphysicaladdress.toLong(), bytecount.toLong(), writeprotected.toLong(), mappedaddress)).toInt()
 }
 
-public fun HdvCreateSectionBackedMmioRange(requestor: Long, barindex: HDV_PCI_BAR_SELECTOR, offsetinpages: ULong, lengthinpages: ULong, mappingflags: HDV_MMIO_MAPPING_FLAGS, sectionhandle: Foundation.HANDLE, sectionoffsetinpages: ULong): HRESULT {
-    return Win32DynamicFfi.invoke("vmdevicehost.dll", "HdvCreateSectionBackedMmioRange", longArrayOf(requestor, barindex.toLong(), offsetinpages.toLong(), lengthinpages.toLong(), mappingflags.toLong(), Win32DynamicFfi.objectSlot(sectionhandle), sectionoffsetinpages.toLong())).toInt()
+public fun HdvCreateSectionBackedMmioRange(requestor: Long, barindex: HDV_PCI_BAR_SELECTOR, offsetinpages: ULong, lengthinpages: ULong, mappingflags: HDV_MMIO_MAPPING_FLAGS, sectionhandle: HANDLE, sectionoffsetinpages: ULong): HRESULT {
+    return Win32DynamicFfi.invoke("vmdevicehost.dll", "HdvCreateSectionBackedMmioRange", longArrayOf(requestor, barindex.toLong(), offsetinpages.toLong(), lengthinpages.toLong(), mappingflags.toLong(), sectionhandle, sectionoffsetinpages.toLong())).toInt()
 }
 
 public fun HdvDeliverGuestInterrupt(requestor: Long, msiaddress: ULong, msidata: UInt): HRESULT {
@@ -139,20 +141,20 @@ public fun HdvDestroySectionBackedMmioRange(requestor: Long, barindex: HDV_PCI_B
     return Win32DynamicFfi.invoke("vmdevicehost.dll", "HdvDestroySectionBackedMmioRange", longArrayOf(requestor, barindex.toLong(), offsetinpages.toLong())).toInt()
 }
 
-public fun HdvInitializeDeviceHost(computesystem: HostComputeSystem.HCS_SYSTEM, devicehosthandle: Long): HRESULT {
-    return Win32DynamicFfi.invoke("vmdevicehost.dll", "HdvInitializeDeviceHost", longArrayOf(Win32DynamicFfi.objectSlot(computesystem), devicehosthandle)).toInt()
+public fun HdvInitializeDeviceHost(computesystem: HCS_SYSTEM, devicehosthandle: Long): HRESULT {
+    return Win32DynamicFfi.invoke("vmdevicehost.dll", "HdvInitializeDeviceHost", longArrayOf(computesystem, devicehosthandle)).toInt()
 }
 
-public fun HdvInitializeDeviceHostEx(computesystem: HostComputeSystem.HCS_SYSTEM, flags: HDV_DEVICE_HOST_FLAGS, devicehosthandle: Long): HRESULT {
-    return Win32DynamicFfi.invoke("vmdevicehost.dll", "HdvInitializeDeviceHostEx", longArrayOf(Win32DynamicFfi.objectSlot(computesystem), flags.toLong(), devicehosthandle)).toInt()
+public fun HdvInitializeDeviceHostEx(computesystem: HCS_SYSTEM, flags: HDV_DEVICE_HOST_FLAGS, devicehosthandle: Long): HRESULT {
+    return Win32DynamicFfi.invoke("vmdevicehost.dll", "HdvInitializeDeviceHostEx", longArrayOf(computesystem, flags.toLong(), devicehosthandle)).toInt()
 }
 
 public fun HdvReadGuestMemory(requestor: Long, guestphysicaladdress: ULong, bytecount: UInt, buffer: Long): HRESULT {
     return Win32DynamicFfi.invoke("vmdevicehost.dll", "HdvReadGuestMemory", longArrayOf(requestor, guestphysicaladdress.toLong(), bytecount.toLong(), buffer)).toInt()
 }
 
-public fun HdvRegisterDoorbell(requestor: Long, barindex: HDV_PCI_BAR_SELECTOR, baroffset: ULong, triggervalue: ULong, flags: ULong, doorbellevent: Foundation.HANDLE): HRESULT {
-    return Win32DynamicFfi.invoke("vmdevicehost.dll", "HdvRegisterDoorbell", longArrayOf(requestor, barindex.toLong(), baroffset.toLong(), triggervalue.toLong(), flags.toLong(), Win32DynamicFfi.objectSlot(doorbellevent))).toInt()
+public fun HdvRegisterDoorbell(requestor: Long, barindex: HDV_PCI_BAR_SELECTOR, baroffset: ULong, triggervalue: ULong, flags: ULong, doorbellevent: HANDLE): HRESULT {
+    return Win32DynamicFfi.invoke("vmdevicehost.dll", "HdvRegisterDoorbell", longArrayOf(requestor, barindex.toLong(), baroffset.toLong(), triggervalue.toLong(), flags.toLong(), doorbellevent)).toInt()
 }
 
 public fun HdvTeardownDeviceHost(devicehosthandle: Long): HRESULT {
@@ -239,8 +241,8 @@ public fun SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle: 
     return Win32DynamicFfi.invoke("vmsavedstatedumpprovider.dll", "SetSavedStateSymbolProviderDebugInfoCallback", longArrayOf(vmsavedstatedumphandle, Win32DynamicFfi.objectSlot(callback))).toInt()
 }
 
-public fun WHvAcceptPartitionMigration(migrationhandle: Foundation.HANDLE, partition: Long): HRESULT {
-    return Win32DynamicFfi.invoke("winhvplatform.dll", "WHvAcceptPartitionMigration", longArrayOf(Win32DynamicFfi.objectSlot(migrationhandle), partition)).toInt()
+public fun WHvAcceptPartitionMigration(migrationhandle: HANDLE, partition: Long): HRESULT {
+    return Win32DynamicFfi.invoke("winhvplatform.dll", "WHvAcceptPartitionMigration", longArrayOf(migrationhandle, partition)).toInt()
 }
 
 public fun WHvAdviseGpaRange(partition: WHV_PARTITION_HANDLE, gparanges: Long, gparangescount: UInt, advice: WHV_ADVISE_GPA_RANGE_CODE, advicebuffer: Long, advicebuffersizeinbytes: UInt): HRESULT {
@@ -263,8 +265,8 @@ public fun WHvCompletePartitionMigration(partition: WHV_PARTITION_HANDLE): HRESU
     return Win32DynamicFfi.invoke("winhvplatform.dll", "WHvCompletePartitionMigration", longArrayOf(partition)).toInt()
 }
 
-public fun WHvCreateNotificationPort(partition: WHV_PARTITION_HANDLE, parameters: Long, eventhandle: Foundation.HANDLE, porthandle: Long): HRESULT {
-    return Win32DynamicFfi.invoke("winhvplatform.dll", "WHvCreateNotificationPort", longArrayOf(partition, parameters, Win32DynamicFfi.objectSlot(eventhandle), porthandle)).toInt()
+public fun WHvCreateNotificationPort(partition: WHV_PARTITION_HANDLE, parameters: Long, eventhandle: HANDLE, porthandle: Long): HRESULT {
+    return Win32DynamicFfi.invoke("winhvplatform.dll", "WHvCreateNotificationPort", longArrayOf(partition, parameters, eventhandle, porthandle)).toInt()
 }
 
 public fun WHvCreatePartition(partition: Long): HRESULT {
@@ -283,8 +285,8 @@ public fun WHvCreateVirtualProcessor2(partition: WHV_PARTITION_HANDLE, vpindex: 
     return Win32DynamicFfi.invoke("winhvplatform.dll", "WHvCreateVirtualProcessor2", longArrayOf(partition, vpindex.toLong(), properties, propertycount.toLong())).toInt()
 }
 
-public fun WHvCreateVpciDevice(partition: WHV_PARTITION_HANDLE, logicaldeviceid: ULong, vpciresource: Foundation.HANDLE, flags: WHV_CREATE_VPCI_DEVICE_FLAGS, notificationeventhandle: Foundation.HANDLE): HRESULT {
-    return Win32DynamicFfi.invoke("winhvplatform.dll", "WHvCreateVpciDevice", longArrayOf(partition, logicaldeviceid.toLong(), Win32DynamicFfi.objectSlot(vpciresource), flags.toLong(), Win32DynamicFfi.objectSlot(notificationeventhandle))).toInt()
+public fun WHvCreateVpciDevice(partition: WHV_PARTITION_HANDLE, logicaldeviceid: ULong, vpciresource: HANDLE, flags: WHV_CREATE_VPCI_DEVICE_FLAGS, notificationeventhandle: HANDLE): HRESULT {
+    return Win32DynamicFfi.invoke("winhvplatform.dll", "WHvCreateVpciDevice", longArrayOf(partition, logicaldeviceid.toLong(), vpciresource, flags.toLong(), notificationeventhandle)).toInt()
 }
 
 public fun WHvDeleteNotificationPort(partition: WHV_PARTITION_HANDLE, porthandle: Long): HRESULT {
@@ -383,8 +385,8 @@ public fun WHvMapGpaRange(partition: WHV_PARTITION_HANDLE, sourceaddress: Long, 
     return Win32DynamicFfi.invoke("winhvplatform.dll", "WHvMapGpaRange", longArrayOf(partition, sourceaddress, guestaddress.toLong(), sizeinbytes.toLong(), flags.toLong())).toInt()
 }
 
-public fun WHvMapGpaRange2(partition: WHV_PARTITION_HANDLE, process: Foundation.HANDLE, sourceaddress: Long, guestaddress: ULong, sizeinbytes: ULong, flags: WHV_MAP_GPA_RANGE_FLAGS): HRESULT {
-    return Win32DynamicFfi.invoke("winhvplatform.dll", "WHvMapGpaRange2", longArrayOf(partition, Win32DynamicFfi.objectSlot(process), sourceaddress, guestaddress.toLong(), sizeinbytes.toLong(), flags.toLong())).toInt()
+public fun WHvMapGpaRange2(partition: WHV_PARTITION_HANDLE, process: HANDLE, sourceaddress: Long, guestaddress: ULong, sizeinbytes: ULong, flags: WHV_MAP_GPA_RANGE_FLAGS): HRESULT {
+    return Win32DynamicFfi.invoke("winhvplatform.dll", "WHvMapGpaRange2", longArrayOf(partition, process, sourceaddress, guestaddress.toLong(), sizeinbytes.toLong(), flags.toLong())).toInt()
 }
 
 public fun WHvMapVpciDeviceInterrupt(partition: WHV_PARTITION_HANDLE, logicaldeviceid: ULong, index: UInt, messagecount: UInt, target: Long, msiaddress: Long, msidata: Long): HRESULT {
@@ -404,15 +406,15 @@ public fun WHvQueryGpaRangeDirtyBitmap(partition: WHV_PARTITION_HANDLE, guestadd
 }
 
 public fun WHvReadGpaRange(partition: WHV_PARTITION_HANDLE, vpindex: UInt, guestaddress: ULong, controls: WHV_ACCESS_GPA_CONTROLS, data: Long, datasizeinbytes: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("winhvplatform.dll", "WHvReadGpaRange", longArrayOf(partition, vpindex.toLong(), guestaddress.toLong(), Win32DynamicFfi.objectSlot(controls), data, datasizeinbytes.toLong())).toInt()
+    return Win32DynamicFfi.invoke("winhvplatform.dll", "WHvReadGpaRange", longArrayOf(partition, vpindex.toLong(), guestaddress.toLong(), (controls.AsUINT64.toLong() or ((controls.Anonymous.CacheType.toLong() and 0xFFFF_FFFFL) or ((controls.Anonymous.Reserved.toLong() and 0xFFFF_FFFFL) shl 32))), data, datasizeinbytes.toLong())).toInt()
 }
 
 public fun WHvReadVpciDeviceRegister(partition: WHV_PARTITION_HANDLE, logicaldeviceid: ULong, register: Long, data: Long): HRESULT {
     return Win32DynamicFfi.invoke("winhvplatform.dll", "WHvReadVpciDeviceRegister", longArrayOf(partition, logicaldeviceid.toLong(), register, data)).toInt()
 }
 
-public fun WHvRegisterPartitionDoorbellEvent(partition: WHV_PARTITION_HANDLE, matchdata: Long, eventhandle: Foundation.HANDLE): HRESULT {
-    return Win32DynamicFfi.invoke("winhvplatform.dll", "WHvRegisterPartitionDoorbellEvent", longArrayOf(partition, matchdata, Win32DynamicFfi.objectSlot(eventhandle))).toInt()
+public fun WHvRegisterPartitionDoorbellEvent(partition: WHV_PARTITION_HANDLE, matchdata: Long, eventhandle: HANDLE): HRESULT {
+    return Win32DynamicFfi.invoke("winhvplatform.dll", "WHvRegisterPartitionDoorbellEvent", longArrayOf(partition, matchdata, eventhandle)).toInt()
 }
 
 public fun WHvRequestInterrupt(partition: WHV_PARTITION_HANDLE, interrupt: Long, interruptcontrolsize: UInt): HRESULT {
@@ -467,8 +469,8 @@ public fun WHvSetVirtualProcessorXsaveState(partition: WHV_PARTITION_HANDLE, vpi
     return Win32DynamicFfi.invoke("winhvplatform.dll", "WHvSetVirtualProcessorXsaveState", longArrayOf(partition, vpindex.toLong(), buffer, buffersizeinbytes.toLong())).toInt()
 }
 
-public fun WHvSetVpciDevicePowerState(partition: WHV_PARTITION_HANDLE, logicaldeviceid: ULong, powerstate: Power.DEVICE_POWER_STATE): HRESULT {
-    return Win32DynamicFfi.invoke("winhvplatform.dll", "WHvSetVpciDevicePowerState", longArrayOf(partition, logicaldeviceid.toLong(), Win32DynamicFfi.objectSlot(powerstate))).toInt()
+public fun WHvSetVpciDevicePowerState(partition: WHV_PARTITION_HANDLE, logicaldeviceid: ULong, powerstate: DEVICE_POWER_STATE): HRESULT {
+    return Win32DynamicFfi.invoke("winhvplatform.dll", "WHvSetVpciDevicePowerState", longArrayOf(partition, logicaldeviceid.toLong(), powerstate.toLong())).toInt()
 }
 
 public fun WHvSetupPartition(partition: WHV_PARTITION_HANDLE): HRESULT {
@@ -476,7 +478,7 @@ public fun WHvSetupPartition(partition: WHV_PARTITION_HANDLE): HRESULT {
 }
 
 public fun WHvSignalVirtualProcessorSynicEvent(partition: WHV_PARTITION_HANDLE, synicevent: WHV_SYNIC_EVENT_PARAMETERS, newlysignaled: Long): HRESULT {
-    return Win32DynamicFfi.invoke("winhvplatform.dll", "WHvSignalVirtualProcessorSynicEvent", longArrayOf(partition, Win32DynamicFfi.objectSlot(synicevent), newlysignaled)).toInt()
+    return Win32DynamicFfi.invoke("winhvplatform.dll", "WHvSignalVirtualProcessorSynicEvent", longArrayOf(partition, ((synicevent.VpIndex.toLong() and 0xFFFF_FFFFL) or ((synicevent.TargetSint.toLong() and 0xFFL) shl 32) or ((synicevent.Reserved.toLong() and 0xFFL) shl 40) or ((synicevent.FlagNumber.toLong() and 0xFFFFL) shl 48)), newlysignaled)).toInt()
 }
 
 public fun WHvStartPartitionMigration(partition: WHV_PARTITION_HANDLE, migrationhandle: Long): HRESULT {
@@ -512,7 +514,7 @@ public fun WHvUpdateTriggerParameters(partition: WHV_PARTITION_HANDLE, parameter
 }
 
 public fun WHvWriteGpaRange(partition: WHV_PARTITION_HANDLE, vpindex: UInt, guestaddress: ULong, controls: WHV_ACCESS_GPA_CONTROLS, data: Long, datasizeinbytes: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("winhvplatform.dll", "WHvWriteGpaRange", longArrayOf(partition, vpindex.toLong(), guestaddress.toLong(), Win32DynamicFfi.objectSlot(controls), data, datasizeinbytes.toLong())).toInt()
+    return Win32DynamicFfi.invoke("winhvplatform.dll", "WHvWriteGpaRange", longArrayOf(partition, vpindex.toLong(), guestaddress.toLong(), (controls.AsUINT64.toLong() or ((controls.Anonymous.CacheType.toLong() and 0xFFFF_FFFFL) or ((controls.Anonymous.Reserved.toLong() and 0xFFFF_FFFFL) shl 32))), data, datasizeinbytes.toLong())).toInt()
 }
 
 public fun WHvWriteVpciDeviceRegister(partition: WHV_PARTITION_HANDLE, logicaldeviceid: ULong, register: Long, data: Long): HRESULT {

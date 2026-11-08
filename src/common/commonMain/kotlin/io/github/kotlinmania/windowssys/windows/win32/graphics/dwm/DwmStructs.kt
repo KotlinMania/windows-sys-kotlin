@@ -1,11 +1,13 @@
 package io.github.kotlinmania.windowssys.windows.win32.graphics.dwm
 
 import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HRGN
 
 public data class DWM_BLURBEHIND(
     public var dwFlags: UInt = 0u,
     public var fEnable: BOOL = 0,
-    public var hRgnBlur: Gdi.HRGN = Gdi.HRGN(),
+    public var hRgnBlur: HRGN = 0L,
     public var fTransitionOnMaximized: BOOL = 0,
 )
 
@@ -22,8 +24,8 @@ public data class DWM_PRESENT_PARAMETERS(
 
 public data class DWM_THUMBNAIL_PROPERTIES(
     public var dwFlags: UInt = 0u,
-    public var rcDestination: Foundation.RECT = Foundation.RECT(),
-    public var rcSource: Foundation.RECT = Foundation.RECT(),
+    public var rcDestination: RECT = RECT(),
+    public var rcSource: RECT = RECT(),
     public var opacity: UByte = 0u,
     public var fVisible: BOOL = 0,
     public var fSourceClientAreaOnly: BOOL = 0,

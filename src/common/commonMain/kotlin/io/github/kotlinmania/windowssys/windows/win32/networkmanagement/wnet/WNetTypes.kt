@@ -3,6 +3,8 @@ package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wnet
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
 
 public typealias CONNECTDLGSTRUCT_FLAGS = UInt
 
@@ -41,13 +43,13 @@ public fun interface PF_NPAddConnectionFn {
 public typealias PF_NPAddConnection = PF_NPAddConnectionFn?
 
 public fun interface PF_NPAddConnection3Fn {
-    public operator fun invoke(hwndowner: Foundation.HWND, lpnetresource: Long, lppassword: PCWSTR, lpusername: PCWSTR, dwflags: UInt): UInt
+    public operator fun invoke(hwndowner: HWND, lpnetresource: Long, lppassword: PCWSTR, lpusername: PCWSTR, dwflags: UInt): UInt
 }
 
 public typealias PF_NPAddConnection3 = PF_NPAddConnection3Fn?
 
 public fun interface PF_NPAddConnection4Fn {
-    public operator fun invoke(hwndowner: Foundation.HWND, lpnetresource: Long, lpauthbuffer: Long, cbauthbuffer: UInt, dwflags: UInt, lpuseoptions: Long, cbuseoptions: UInt): UInt
+    public operator fun invoke(hwndowner: HWND, lpnetresource: Long, lpauthbuffer: Long, cbauthbuffer: UInt, dwflags: UInt, lpuseoptions: Long, cbuseoptions: UInt): UInt
 }
 
 public typealias PF_NPAddConnection4 = PF_NPAddConnection4Fn?
@@ -65,31 +67,31 @@ public fun interface PF_NPCancelConnection2Fn {
 public typealias PF_NPCancelConnection2 = PF_NPCancelConnection2Fn?
 
 public fun interface PF_NPCloseEnumFn {
-    public operator fun invoke(henum: Foundation.HANDLE): UInt
+    public operator fun invoke(henum: HANDLE): UInt
 }
 
 public typealias PF_NPCloseEnum = PF_NPCloseEnumFn?
 
 public fun interface PF_NPDeviceModeFn {
-    public operator fun invoke(hparent: Foundation.HWND): UInt
+    public operator fun invoke(hparent: HWND): UInt
 }
 
 public typealias PF_NPDeviceMode = PF_NPDeviceModeFn?
 
 public fun interface PF_NPDirectoryNotifyFn {
-    public operator fun invoke(hwnd: Foundation.HWND, lpdir: PCWSTR, dwoper: UInt): UInt
+    public operator fun invoke(hwnd: HWND, lpdir: PCWSTR, dwoper: UInt): UInt
 }
 
 public typealias PF_NPDirectoryNotify = PF_NPDirectoryNotifyFn?
 
 public fun interface PF_NPEnumResourceFn {
-    public operator fun invoke(henum: Foundation.HANDLE, lpccount: Long, lpbuffer: Long, lpbuffersize: Long): UInt
+    public operator fun invoke(henum: HANDLE, lpccount: Long, lpbuffer: Long, lpbuffersize: Long): UInt
 }
 
 public typealias PF_NPEnumResource = PF_NPEnumResourceFn?
 
 public fun interface PF_NPFMXEditPermFn {
-    public operator fun invoke(lpdrivename: PCWSTR, hwndfmx: Foundation.HWND, ndialogtype: UInt): UInt
+    public operator fun invoke(lpdrivename: PCWSTR, hwndfmx: HWND, ndialogtype: UInt): UInt
 }
 
 public typealias PF_NPFMXEditPerm = PF_NPFMXEditPermFn?
@@ -197,13 +199,13 @@ public fun interface PF_NPPasswordChangeNotifyFn {
 public typealias PF_NPPasswordChangeNotify = PF_NPPasswordChangeNotifyFn?
 
 public fun interface PF_NPPropertyDialogFn {
-    public operator fun invoke(hwndparent: Foundation.HWND, ibuttondlg: UInt, npropsel: UInt, lpfilename: PCWSTR, ntype: UInt): UInt
+    public operator fun invoke(hwndparent: HWND, ibuttondlg: UInt, npropsel: UInt, lpfilename: PCWSTR, ntype: UInt): UInt
 }
 
 public typealias PF_NPPropertyDialog = PF_NPPropertyDialogFn?
 
 public fun interface PF_NPSearchDialogFn {
-    public operator fun invoke(hwndparent: Foundation.HWND, lpnetresource: Long, lpbuffer: Long, cbbuffer: UInt, lpnflags: Long): UInt
+    public operator fun invoke(hwndparent: HWND, lpnetresource: Long, lpbuffer: Long, cbbuffer: UInt, lpnflags: Long): UInt
 }
 
 public typealias PF_NPSearchDialog = PF_NPSearchDialogFn?

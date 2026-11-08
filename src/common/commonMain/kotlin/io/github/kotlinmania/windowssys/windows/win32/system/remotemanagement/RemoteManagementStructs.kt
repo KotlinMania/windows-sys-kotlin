@@ -2,6 +2,7 @@ package io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement
 
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 
 public data class WSMAN_AUTHENTICATION_CREDENTIALS(public var authenticationMechanism: UInt = 0u, public var Anonymous: WSMAN_AUTHENTICATION_CREDENTIALS_0 = WSMAN_AUTHENTICATION_CREDENTIALS_0())
 
@@ -101,7 +102,7 @@ public data class WSMAN_PLUGIN_REQUEST(
     public var resourceUri: PCWSTR = 0L,
     public var operationInfo: Long = 0L,
     public var shutdownNotification: BOOL = 0,
-    public var shutdownNotificationHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var shutdownNotificationHandle: HANDLE = 0L,
     public var dataLocale: PCWSTR = 0L,
 )
 
@@ -126,7 +127,7 @@ public data class WSMAN_SENDER_DETAILS(
     public var senderName: PCWSTR = 0L,
     public var authenticationMechanism: PCWSTR = 0L,
     public var certificateDetails: Long = 0L,
-    public var clientToken: Foundation.HANDLE = Foundation.HANDLE(),
+    public var clientToken: HANDLE = 0L,
     public var httpURL: PCWSTR = 0L,
 )
 

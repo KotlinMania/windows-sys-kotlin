@@ -2,12 +2,13 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.useraccesslogging
 
 import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SOCKADDR_STORAGE
 
 public data class UAL_DATA_BLOB(
     public var Size: UInt = 0u,
     public var RoleGuid: GUID = GUID(),
     public var TenantId: GUID = GUID(),
-    public var Address: Networking.WinSock.SOCKADDR_STORAGE = Networking.WinSock.SOCKADDR_STORAGE(),
+    public var Address: SOCKADDR_STORAGE = SOCKADDR_STORAGE(),
     public var UserName: UShortArray = UShortArray(260),
 ) {
     override fun equals(other: Any?): Boolean {

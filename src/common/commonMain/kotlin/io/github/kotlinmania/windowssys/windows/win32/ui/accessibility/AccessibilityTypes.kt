@@ -2,6 +2,10 @@ package io.github.kotlinmania.windowssys.windows.win32.ui.accessibility
 
 import io.github.kotlinmania.windowssys.core.BSTR
 import io.github.kotlinmania.windowssys.core.HRESULT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LRESULT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
 
 public typealias ACC_UTILITY_STATE_FLAGS = UInt
 
@@ -62,31 +66,31 @@ public fun interface LPFNACCESSIBLECHILDRENFn {
 public typealias LPFNACCESSIBLECHILDREN = LPFNACCESSIBLECHILDRENFn?
 
 public fun interface LPFNACCESSIBLEOBJECTFROMPOINTFn {
-    public operator fun invoke(ptscreen: Foundation.POINT, ppacc: Long, pvarchild: Long): HRESULT
+    public operator fun invoke(ptscreen: POINT, ppacc: Long, pvarchild: Long): HRESULT
 }
 
 public typealias LPFNACCESSIBLEOBJECTFROMPOINT = LPFNACCESSIBLEOBJECTFROMPOINTFn?
 
 public fun interface LPFNACCESSIBLEOBJECTFROMWINDOWFn {
-    public operator fun invoke(hwnd: Foundation.HWND, dwid: UInt, riid: Long, ppvobject: Long): HRESULT
+    public operator fun invoke(hwnd: HWND, dwid: UInt, riid: Long, ppvobject: Long): HRESULT
 }
 
 public typealias LPFNACCESSIBLEOBJECTFROMWINDOW = LPFNACCESSIBLEOBJECTFROMWINDOWFn?
 
 public fun interface LPFNCREATESTDACCESSIBLEOBJECTFn {
-    public operator fun invoke(hwnd: Foundation.HWND, idobject: Int, riid: Long, ppvobject: Long): HRESULT
+    public operator fun invoke(hwnd: HWND, idobject: Int, riid: Long, ppvobject: Long): HRESULT
 }
 
 public typealias LPFNCREATESTDACCESSIBLEOBJECT = LPFNCREATESTDACCESSIBLEOBJECTFn?
 
 public fun interface LPFNLRESULTFROMOBJECTFn {
-    public operator fun invoke(riid: Long, wparam: Foundation.WPARAM, punk: Long): Foundation.LRESULT
+    public operator fun invoke(riid: Long, wparam: WPARAM, punk: Long): LRESULT
 }
 
 public typealias LPFNLRESULTFROMOBJECT = LPFNLRESULTFROMOBJECTFn?
 
 public fun interface LPFNOBJECTFROMLRESULTFn {
-    public operator fun invoke(lresult: Foundation.LRESULT, riid: Long, wparam: Foundation.WPARAM, ppvobject: Long): HRESULT
+    public operator fun invoke(lresult: LRESULT, riid: Long, wparam: WPARAM, ppvobject: Long): HRESULT
 }
 
 public typealias LPFNOBJECTFROMLRESULT = LPFNOBJECTFROMLRESULTFn?
@@ -180,7 +184,7 @@ public fun interface UiaEventCallbackFn {
 public typealias UiaEventCallback = UiaEventCallbackFn?
 
 public fun interface UiaProviderCallbackFn {
-    public operator fun invoke(hwnd: Foundation.HWND, providertype: ProviderType): Long
+    public operator fun invoke(hwnd: HWND, providertype: ProviderType): Long
 }
 
 public typealias UiaProviderCallback = UiaProviderCallbackFn?
@@ -188,7 +192,7 @@ public typealias UiaProviderCallback = UiaProviderCallbackFn?
 public typealias VisualEffects = Int
 
 public fun interface WINEVENTPROCFn {
-    public operator fun invoke(hwineventhook: HWINEVENTHOOK, event: UInt, hwnd: Foundation.HWND, idobject: Int, idchild: Int, ideventthread: UInt, dwmseventtime: UInt)
+    public operator fun invoke(hwineventhook: HWINEVENTHOOK, event: UInt, hwnd: HWND, idobject: Int, idchild: Int, ideventthread: UInt, dwmseventtime: UInt)
 }
 
 public typealias WINEVENTPROC = WINEVENTPROCFn?

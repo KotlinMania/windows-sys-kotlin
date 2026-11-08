@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.vhd
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 
 public val APPLY_SNAPSHOT_VHDSET_FLAG_NONE: APPLY_SNAPSHOT_VHDSET_FLAG = 0
@@ -334,6 +335,6 @@ public val VIRTUAL_STORAGE_TYPE_DEVICE_VHDSET: UInt = 4u
 
 public val VIRTUAL_STORAGE_TYPE_DEVICE_VHDX: UInt = 3u
 
-public val VIRTUAL_STORAGE_TYPE_VENDOR_MICROSOFT: GUID = GUID.from_u128(0xec984aeca0f947e9uL, 0x901f71415a66345buL)
+public val VIRTUAL_STORAGE_TYPE_VENDOR_MICROSOFT: GUID = GUID.from_u128(U128(0xec984aeca0f947e9uL, 0x901f71415a66345buL))
 
-public val VIRTUAL_STORAGE_TYPE_VENDOR_UNKNOWN: GUID = GUID.from_u128(0x0uL, 0x0uL)
+public val VIRTUAL_STORAGE_TYPE_VENDOR_UNKNOWN: GUID = GUID.from_u128(U128(0x0uL, 0x0uL))

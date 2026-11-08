@@ -3,8 +3,9 @@ package io.github.kotlinmania.windowssys.windows.win32.security.networkaccesspro
 
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
 
-public data class CorrelationId(public var connId: GUID = GUID(), public var timeStamp: Foundation.FILETIME = Foundation.FILETIME())
+public data class CorrelationId(public var connId: GUID = GUID(), public var timeStamp: FILETIME = FILETIME())
 
 public data class CountedString(public var length: UShort = 0u, public var string: PWSTR = 0L)
 
@@ -56,14 +57,14 @@ public data class Ipv6Address(public var addr: UByteArray = UByteArray(16)) {
 
 public data class IsolationInfo(
     public var isolationState: IsolationState = 0,
-    public var probEndTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var probEndTime: FILETIME = FILETIME(),
     public var failureUrl: CountedString = CountedString(),
 )
 
 public data class IsolationInfoEx(
     public var isolationState: IsolationState = 0,
     public var extendedIsolationState: ExtendedIsolationState = 0,
-    public var probEndTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var probEndTime: FILETIME = FILETIME(),
     public var failureUrl: CountedString = CountedString(),
 )
 
@@ -75,7 +76,7 @@ public data class NapComponentRegistrationInfo(
     public var vendorName: CountedString = CountedString(),
     public var infoClsid: GUID = GUID(),
     public var configClsid: GUID = GUID(),
-    public var registrationDate: Foundation.FILETIME = Foundation.FILETIME(),
+    public var registrationDate: FILETIME = FILETIME(),
     public var componentType: UInt = 0u,
 )
 

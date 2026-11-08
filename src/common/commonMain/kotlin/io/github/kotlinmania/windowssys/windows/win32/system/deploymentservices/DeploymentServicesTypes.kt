@@ -1,13 +1,16 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.deploymentservices
 
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
 
 public typealias CPU_ARCHITECTURE = UInt
 
 public typealias PFN_WDS_CLI_CALLBACK_MESSAGE_ID = UInt
 
 public fun interface PFN_WdsCliCallbackFn {
-    public operator fun invoke(dwmessageid: PFN_WDS_CLI_CALLBACK_MESSAGE_ID, wparam: Foundation.WPARAM, lparam: Foundation.LPARAM, pvuserdata: Long)
+    public operator fun invoke(dwmessageid: PFN_WDS_CLI_CALLBACK_MESSAGE_ID, wparam: WPARAM, lparam: LPARAM, pvuserdata: Long)
 }
 
 public typealias PFN_WdsCliCallback = PFN_WdsCliCallbackFn?
@@ -19,37 +22,37 @@ public fun interface PFN_WdsCliTraceFunctionFn {
 public typealias PFN_WdsCliTraceFunction = PFN_WdsCliTraceFunctionFn?
 
 public fun interface PFN_WdsTransportClientReceiveContentsFn {
-    public operator fun invoke(hsessionkey: Foundation.HANDLE, pcallerdata: Long, pcontents: Long, ulsize: UInt, pullcontentoffset: Long)
+    public operator fun invoke(hsessionkey: HANDLE, pcallerdata: Long, pcontents: Long, ulsize: UInt, pullcontentoffset: Long)
 }
 
 public typealias PFN_WdsTransportClientReceiveContents = PFN_WdsTransportClientReceiveContentsFn?
 
 public fun interface PFN_WdsTransportClientReceiveMetadataFn {
-    public operator fun invoke(hsessionkey: Foundation.HANDLE, pcallerdata: Long, pmetadata: Long, ulsize: UInt)
+    public operator fun invoke(hsessionkey: HANDLE, pcallerdata: Long, pmetadata: Long, ulsize: UInt)
 }
 
 public typealias PFN_WdsTransportClientReceiveMetadata = PFN_WdsTransportClientReceiveMetadataFn?
 
 public fun interface PFN_WdsTransportClientSessionCompleteFn {
-    public operator fun invoke(hsessionkey: Foundation.HANDLE, pcallerdata: Long, dwerror: UInt)
+    public operator fun invoke(hsessionkey: HANDLE, pcallerdata: Long, dwerror: UInt)
 }
 
 public typealias PFN_WdsTransportClientSessionComplete = PFN_WdsTransportClientSessionCompleteFn?
 
 public fun interface PFN_WdsTransportClientSessionNegotiateFn {
-    public operator fun invoke(hsessionkey: Foundation.HANDLE, pcallerdata: Long, pinfo: Long, hnegotiatekey: Foundation.HANDLE)
+    public operator fun invoke(hsessionkey: HANDLE, pcallerdata: Long, pinfo: Long, hnegotiatekey: HANDLE)
 }
 
 public typealias PFN_WdsTransportClientSessionNegotiate = PFN_WdsTransportClientSessionNegotiateFn?
 
 public fun interface PFN_WdsTransportClientSessionStartFn {
-    public operator fun invoke(hsessionkey: Foundation.HANDLE, pcallerdata: Long, ullfilesize: Long)
+    public operator fun invoke(hsessionkey: HANDLE, pcallerdata: Long, ullfilesize: Long)
 }
 
 public typealias PFN_WdsTransportClientSessionStart = PFN_WdsTransportClientSessionStartFn?
 
 public fun interface PFN_WdsTransportClientSessionStartExFn {
-    public operator fun invoke(hsessionkey: Foundation.HANDLE, pcallerdata: Long, info: Long)
+    public operator fun invoke(hsessionkey: HANDLE, pcallerdata: Long, info: Long)
 }
 
 public typealias PFN_WdsTransportClientSessionStartEx = PFN_WdsTransportClientSessionStartExFn?

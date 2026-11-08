@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.minifilters
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 
 public val FLTFL_CALLBACK_DATA_DIRTY: UInt = 2147483648u
@@ -184,7 +185,7 @@ public val FLT_VALID_FILE_NAME_QUERY_METHODS: UInt = 65280u
 
 public val FLT_VOLUME_CONTEXT: UInt = 1u
 
-public val GUID_ECP_FLT_CREATEFILE_TARGET: GUID = GUID.from_u128(0xce08041df411447fuL, 0xb70dccee45c23facuL)
+public val GUID_ECP_FLT_CREATEFILE_TARGET: GUID = GUID.from_u128(U128(0xce08041df411447fuL, 0xb70dccee45c23facuL))
 
 public val IRP_MJ_ACQUIRE_FOR_CC_FLUSH: UShort = 65531u
 

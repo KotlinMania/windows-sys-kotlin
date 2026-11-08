@@ -5,6 +5,35 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.ADDRESS_FAMILY
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.IN6_ADDR
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NL_BANDWIDTH_INFORMATION
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NL_DAD_STATE
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NL_INTERFACE_OFFLOAD_ROD
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NL_LINK_LOCAL_ADDRESS_BEHAVIOR
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NL_NEIGHBOR_STATE
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NL_PREFIX_ORIGIN
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NL_ROUTER_DISCOVERY_BEHAVIOR
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NL_ROUTE_ORIGIN
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NL_ROUTE_PROTOCOL
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NL_SUFFIX_ORIGIN
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SCOPE_ID
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SOCKADDR
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SOCKADDR_IN
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SOCKADDR_IN6
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SOCKADDR_INET
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SOCKET_ADDRESS
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.IF_OPER_STATUS
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NDIS_MEDIUM
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NDIS_PHYSICAL_MEDIUM
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NET_IF_ACCESS_TYPE
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NET_IF_ADMIN_STATUS
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NET_IF_COMPARTMENT_ID
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NET_IF_CONNECTION_TYPE
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NET_IF_DIRECTION_TYPE
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NET_IF_MEDIA_CONNECT_STATE
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NET_LUID_LH
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.TUNNEL_TYPE
 
 public data class ARP_SEND_REPLY(public var DestAddress: UInt = 0u, public var SrcAddress: UInt = 0u)
 
@@ -234,7 +263,7 @@ public class IP_ADAPTER_ADDRESSES_LH(
     public var Anonymous2: IP_ADAPTER_ADDRESSES_LH_1 = IP_ADAPTER_ADDRESSES_LH_1(),
     public var Mtu: UInt = 0u,
     public var IfType: UInt = 0u,
-    public var OperStatus: Ndis.IF_OPER_STATUS = Ndis.IF_OPER_STATUS(),
+    public var OperStatus: IF_OPER_STATUS = 0,
     public var Ipv6IfIndex: UInt = 0u,
     public var ZoneIndices: UIntArray = UIntArray(16),
     public var FirstPrefix: Long = 0L,
@@ -244,13 +273,13 @@ public class IP_ADAPTER_ADDRESSES_LH(
     public var FirstGatewayAddress: Long = 0L,
     public var Ipv4Metric: UInt = 0u,
     public var Ipv6Metric: UInt = 0u,
-    public var Luid: Ndis.NET_LUID_LH = Ndis.NET_LUID_LH(),
-    public var Dhcpv4Server: Networking.WinSock.SOCKET_ADDRESS = Networking.WinSock.SOCKET_ADDRESS(),
-    public var CompartmentId: Ndis.NET_IF_COMPARTMENT_ID = Ndis.NET_IF_COMPARTMENT_ID(),
+    public var Luid: NET_LUID_LH = NET_LUID_LH(),
+    public var Dhcpv4Server: SOCKET_ADDRESS = SOCKET_ADDRESS(),
+    public var CompartmentId: NET_IF_COMPARTMENT_ID = 0u,
     public var NetworkGuid: GUID = GUID(),
-    public var ConnectionType: Ndis.NET_IF_CONNECTION_TYPE = Ndis.NET_IF_CONNECTION_TYPE(),
-    public var TunnelType: Ndis.TUNNEL_TYPE = Ndis.TUNNEL_TYPE(),
-    public var Dhcpv6Server: Networking.WinSock.SOCKET_ADDRESS = Networking.WinSock.SOCKET_ADDRESS(),
+    public var ConnectionType: NET_IF_CONNECTION_TYPE = 0,
+    public var TunnelType: TUNNEL_TYPE = 0,
+    public var Dhcpv6Server: SOCKET_ADDRESS = SOCKET_ADDRESS(),
     public var Dhcpv6ClientDuid: UByteArray = UByteArray(130),
     public var Dhcpv6ClientDuidLength: UInt = 0u,
     public var Dhcpv6Iaid: UInt = 0u,
@@ -281,7 +310,7 @@ public class IP_ADAPTER_ADDRESSES_XP(
     public var Flags: UInt = 0u,
     public var Mtu: UInt = 0u,
     public var IfType: UInt = 0u,
-    public var OperStatus: Ndis.IF_OPER_STATUS = Ndis.IF_OPER_STATUS(),
+    public var OperStatus: IF_OPER_STATUS = 0,
     public var Ipv6IfIndex: UInt = 0u,
     public var ZoneIndices: UIntArray = UIntArray(16),
     public var FirstPrefix: Long = 0L,
@@ -294,7 +323,7 @@ public data class IP_ADAPTER_ADDRESSES_XP_0_0(public var Length: UInt = 0u, publ
 public data class IP_ADAPTER_ANYCAST_ADDRESS_XP(
     public var Anonymous: IP_ADAPTER_ANYCAST_ADDRESS_XP_0 = IP_ADAPTER_ANYCAST_ADDRESS_XP_0(),
     public var Next: Long = 0L,
-    public var Address: Networking.WinSock.SOCKET_ADDRESS = Networking.WinSock.SOCKET_ADDRESS(),
+    public var Address: SOCKET_ADDRESS = SOCKET_ADDRESS(),
 )
 
 public data class IP_ADAPTER_ANYCAST_ADDRESS_XP_0(public var Alignment: ULong = 0uL, public var Anonymous: IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 = IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0())
@@ -304,7 +333,7 @@ public data class IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0(public var Length: UInt = 0u
 public data class IP_ADAPTER_DNS_SERVER_ADDRESS_XP(
     public var Anonymous: IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 = IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0(),
     public var Next: Long = 0L,
-    public var Address: Networking.WinSock.SOCKET_ADDRESS = Networking.WinSock.SOCKET_ADDRESS(),
+    public var Address: SOCKET_ADDRESS = SOCKET_ADDRESS(),
 )
 
 public data class IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0(public var Alignment: ULong = 0uL, public var Anonymous: IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 = IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0())
@@ -330,7 +359,7 @@ public data class IP_ADAPTER_DNS_SUFFIX(public var Next: Long = 0L, public var S
 public data class IP_ADAPTER_GATEWAY_ADDRESS_LH(
     public var Anonymous: IP_ADAPTER_GATEWAY_ADDRESS_LH_0 = IP_ADAPTER_GATEWAY_ADDRESS_LH_0(),
     public var Next: Long = 0L,
-    public var Address: Networking.WinSock.SOCKET_ADDRESS = Networking.WinSock.SOCKET_ADDRESS(),
+    public var Address: SOCKET_ADDRESS = SOCKET_ADDRESS(),
 )
 
 public data class IP_ADAPTER_GATEWAY_ADDRESS_LH_0(public var Alignment: ULong = 0uL, public var Anonymous: IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 = IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0())
@@ -377,7 +406,7 @@ public class IP_ADAPTER_INFO(
 public data class IP_ADAPTER_MULTICAST_ADDRESS_XP(
     public var Anonymous: IP_ADAPTER_MULTICAST_ADDRESS_XP_0 = IP_ADAPTER_MULTICAST_ADDRESS_XP_0(),
     public var Next: Long = 0L,
-    public var Address: Networking.WinSock.SOCKET_ADDRESS = Networking.WinSock.SOCKET_ADDRESS(),
+    public var Address: SOCKET_ADDRESS = SOCKET_ADDRESS(),
 )
 
 public data class IP_ADAPTER_MULTICAST_ADDRESS_XP_0(public var Alignment: ULong = 0uL, public var Anonymous: IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 = IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0())
@@ -403,7 +432,7 @@ public data class IP_ADAPTER_ORDER_MAP(public var NumAdapters: UInt = 0u, public
 public data class IP_ADAPTER_PREFIX_XP(
     public var Anonymous: IP_ADAPTER_PREFIX_XP_0 = IP_ADAPTER_PREFIX_XP_0(),
     public var Next: Long = 0L,
-    public var Address: Networking.WinSock.SOCKET_ADDRESS = Networking.WinSock.SOCKET_ADDRESS(),
+    public var Address: SOCKET_ADDRESS = SOCKET_ADDRESS(),
     public var PrefixLength: UInt = 0u,
 )
 
@@ -414,10 +443,10 @@ public data class IP_ADAPTER_PREFIX_XP_0_0(public var Length: UInt = 0u, public 
 public data class IP_ADAPTER_UNICAST_ADDRESS_LH(
     public var Anonymous: IP_ADAPTER_UNICAST_ADDRESS_LH_0 = IP_ADAPTER_UNICAST_ADDRESS_LH_0(),
     public var Next: Long = 0L,
-    public var Address: Networking.WinSock.SOCKET_ADDRESS = Networking.WinSock.SOCKET_ADDRESS(),
-    public var PrefixOrigin: Networking.WinSock.NL_PREFIX_ORIGIN = Networking.WinSock.NL_PREFIX_ORIGIN(),
-    public var SuffixOrigin: Networking.WinSock.NL_SUFFIX_ORIGIN = Networking.WinSock.NL_SUFFIX_ORIGIN(),
-    public var DadState: Networking.WinSock.NL_DAD_STATE = Networking.WinSock.NL_DAD_STATE(),
+    public var Address: SOCKET_ADDRESS = SOCKET_ADDRESS(),
+    public var PrefixOrigin: NL_PREFIX_ORIGIN = 0,
+    public var SuffixOrigin: NL_SUFFIX_ORIGIN = 0,
+    public var DadState: NL_DAD_STATE = 0,
     public var ValidLifetime: UInt = 0u,
     public var PreferredLifetime: UInt = 0u,
     public var LeaseLifetime: UInt = 0u,
@@ -431,10 +460,10 @@ public data class IP_ADAPTER_UNICAST_ADDRESS_LH_0_0(public var Length: UInt = 0u
 public data class IP_ADAPTER_UNICAST_ADDRESS_XP(
     public var Anonymous: IP_ADAPTER_UNICAST_ADDRESS_XP_0 = IP_ADAPTER_UNICAST_ADDRESS_XP_0(),
     public var Next: Long = 0L,
-    public var Address: Networking.WinSock.SOCKET_ADDRESS = Networking.WinSock.SOCKET_ADDRESS(),
-    public var PrefixOrigin: Networking.WinSock.NL_PREFIX_ORIGIN = Networking.WinSock.NL_PREFIX_ORIGIN(),
-    public var SuffixOrigin: Networking.WinSock.NL_SUFFIX_ORIGIN = Networking.WinSock.NL_SUFFIX_ORIGIN(),
-    public var DadState: Networking.WinSock.NL_DAD_STATE = Networking.WinSock.NL_DAD_STATE(),
+    public var Address: SOCKET_ADDRESS = SOCKET_ADDRESS(),
+    public var PrefixOrigin: NL_PREFIX_ORIGIN = 0,
+    public var SuffixOrigin: NL_SUFFIX_ORIGIN = 0,
+    public var DadState: NL_DAD_STATE = 0,
     public var ValidLifetime: UInt = 0u,
     public var PreferredLifetime: UInt = 0u,
     public var LeaseLifetime: UInt = 0u,
@@ -447,14 +476,14 @@ public data class IP_ADAPTER_UNICAST_ADDRESS_XP_0_0(public var Length: UInt = 0u
 public data class IP_ADAPTER_WINS_SERVER_ADDRESS_LH(
     public var Anonymous: IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 = IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0(),
     public var Next: Long = 0L,
-    public var Address: Networking.WinSock.SOCKET_ADDRESS = Networking.WinSock.SOCKET_ADDRESS(),
+    public var Address: SOCKET_ADDRESS = SOCKET_ADDRESS(),
 )
 
 public data class IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0(public var Alignment: ULong = 0uL, public var Anonymous: IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 = IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0())
 
 public data class IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0(public var Length: UInt = 0u, public var Reserved: UInt = 0u)
 
-public data class IP_ADDRESS_PREFIX(public var Prefix: Networking.WinSock.SOCKADDR_INET = Networking.WinSock.SOCKADDR_INET(), public var PrefixLength: UByte = 0u)
+public data class IP_ADDRESS_PREFIX(public var Prefix: SOCKADDR_INET = SOCKADDR_INET(), public var PrefixLength: UByte = 0u)
 
 public data class IP_ADDRESS_STRING(public var String: ByteArray = ByteArray(16)) {
     override fun equals(other: Any?): Boolean {
@@ -574,10 +603,10 @@ public data class MIBICMPSTATS_EX_XPSP1(
 }
 
 public data class MIB_ANYCASTIPADDRESS_ROW(
-    public var Address: Networking.WinSock.SOCKADDR_INET = Networking.WinSock.SOCKADDR_INET(),
-    public var InterfaceLuid: Ndis.NET_LUID_LH = Ndis.NET_LUID_LH(),
+    public var Address: SOCKADDR_INET = SOCKADDR_INET(),
+    public var InterfaceLuid: NET_LUID_LH = NET_LUID_LH(),
     public var InterfaceIndex: UInt = 0u,
-    public var ScopeId: Networking.WinSock.SCOPE_ID = Networking.WinSock.SCOPE_ID(),
+    public var ScopeId: SCOPE_ID = SCOPE_ID(),
 )
 
 public data class MIB_ANYCASTIPADDRESS_TABLE(public var NumEntries: UInt = 0u, public var Table: List<MIB_ANYCASTIPADDRESS_ROW> = List(1) { MIB_ANYCASTIPADDRESS_ROW() })
@@ -634,7 +663,7 @@ public data class MIB_IFSTATUS(
 public data class MIB_IFTABLE(public var dwNumEntries: UInt = 0u, public var table: List<MIB_IFROW> = List(1) { MIB_IFROW() })
 
 public class MIB_IF_ROW2(
-    public var InterfaceLuid: Ndis.NET_LUID_LH = Ndis.NET_LUID_LH(),
+    public var InterfaceLuid: NET_LUID_LH = NET_LUID_LH(),
     public var InterfaceIndex: UInt = 0u,
     public var InterfaceGuid: GUID = GUID(),
     public var Alias: UShortArray = UShortArray(257),
@@ -644,17 +673,17 @@ public class MIB_IF_ROW2(
     public var PermanentPhysicalAddress: UByteArray = UByteArray(32),
     public var Mtu: UInt = 0u,
     public var Type: UInt = 0u,
-    public var TunnelType: Ndis.TUNNEL_TYPE = Ndis.TUNNEL_TYPE(),
-    public var MediaType: Ndis.NDIS_MEDIUM = Ndis.NDIS_MEDIUM(),
-    public var PhysicalMediumType: Ndis.NDIS_PHYSICAL_MEDIUM = Ndis.NDIS_PHYSICAL_MEDIUM(),
-    public var AccessType: Ndis.NET_IF_ACCESS_TYPE = Ndis.NET_IF_ACCESS_TYPE(),
-    public var DirectionType: Ndis.NET_IF_DIRECTION_TYPE = Ndis.NET_IF_DIRECTION_TYPE(),
+    public var TunnelType: TUNNEL_TYPE = 0,
+    public var MediaType: NDIS_MEDIUM = 0,
+    public var PhysicalMediumType: NDIS_PHYSICAL_MEDIUM = 0,
+    public var AccessType: NET_IF_ACCESS_TYPE = 0,
+    public var DirectionType: NET_IF_DIRECTION_TYPE = 0,
     public var InterfaceAndOperStatusFlags: MIB_IF_ROW2_0 = MIB_IF_ROW2_0(),
-    public var OperStatus: Ndis.IF_OPER_STATUS = Ndis.IF_OPER_STATUS(),
-    public var AdminStatus: Ndis.NET_IF_ADMIN_STATUS = Ndis.NET_IF_ADMIN_STATUS(),
-    public var MediaConnectState: Ndis.NET_IF_MEDIA_CONNECT_STATE = Ndis.NET_IF_MEDIA_CONNECT_STATE(),
+    public var OperStatus: IF_OPER_STATUS = 0,
+    public var AdminStatus: NET_IF_ADMIN_STATUS = 0,
+    public var MediaConnectState: NET_IF_MEDIA_CONNECT_STATE = 0,
     public var NetworkGuid: GUID = GUID(),
-    public var ConnectionType: Ndis.NET_IF_CONNECTION_TYPE = Ndis.NET_IF_CONNECTION_TYPE(),
+    public var ConnectionType: NET_IF_CONNECTION_TYPE = 0,
     public var TransmitLinkSpeed: ULong = 0uL,
     public var ReceiveLinkSpeed: ULong = 0uL,
     public var InOctets: ULong = 0uL,
@@ -736,33 +765,33 @@ public data class MIB_IPFORWARDROW(
 
 public data class MIB_IPFORWARDROW_0(public var dwForwardType: UInt = 0u, public var ForwardType: MIB_IPFORWARD_TYPE = 0)
 
-public data class MIB_IPFORWARDROW_1(public var dwForwardProto: UInt = 0u, public var ForwardProto: Networking.WinSock.NL_ROUTE_PROTOCOL = Networking.WinSock.NL_ROUTE_PROTOCOL())
+public data class MIB_IPFORWARDROW_1(public var dwForwardProto: UInt = 0u, public var ForwardProto: NL_ROUTE_PROTOCOL = 0)
 
 public data class MIB_IPFORWARDTABLE(public var dwNumEntries: UInt = 0u, public var table: List<MIB_IPFORWARDROW> = List(1) { MIB_IPFORWARDROW() })
 
 public data class MIB_IPFORWARD_ROW2(
-    public var InterfaceLuid: Ndis.NET_LUID_LH = Ndis.NET_LUID_LH(),
+    public var InterfaceLuid: NET_LUID_LH = NET_LUID_LH(),
     public var InterfaceIndex: UInt = 0u,
     public var DestinationPrefix: IP_ADDRESS_PREFIX = IP_ADDRESS_PREFIX(),
-    public var NextHop: Networking.WinSock.SOCKADDR_INET = Networking.WinSock.SOCKADDR_INET(),
+    public var NextHop: SOCKADDR_INET = SOCKADDR_INET(),
     public var SitePrefixLength: UByte = 0u,
     public var ValidLifetime: UInt = 0u,
     public var PreferredLifetime: UInt = 0u,
     public var Metric: UInt = 0u,
-    public var Protocol: Networking.WinSock.NL_ROUTE_PROTOCOL = Networking.WinSock.NL_ROUTE_PROTOCOL(),
+    public var Protocol: NL_ROUTE_PROTOCOL = 0,
     public var Loopback: Boolean = false,
     public var AutoconfigureAddress: Boolean = false,
     public var Publish: Boolean = false,
     public var Immortal: Boolean = false,
     public var Age: UInt = 0u,
-    public var Origin: Networking.WinSock.NL_ROUTE_ORIGIN = Networking.WinSock.NL_ROUTE_ORIGIN(),
+    public var Origin: NL_ROUTE_ORIGIN = 0,
 )
 
 public data class MIB_IPFORWARD_TABLE2(public var NumEntries: UInt = 0u, public var Table: List<MIB_IPFORWARD_ROW2> = List(1) { MIB_IPFORWARD_ROW2() })
 
 public class MIB_IPINTERFACE_ROW(
-    public var Family: Networking.WinSock.ADDRESS_FAMILY = Networking.WinSock.ADDRESS_FAMILY(),
-    public var InterfaceLuid: Ndis.NET_LUID_LH = Ndis.NET_LUID_LH(),
+    public var Family: ADDRESS_FAMILY = 0u,
+    public var InterfaceLuid: NET_LUID_LH = NET_LUID_LH(),
     public var InterfaceIndex: UInt = 0u,
     public var MaxReassemblySize: UInt = 0u,
     public var InterfaceIdentifier: ULong = 0uL,
@@ -777,12 +806,12 @@ public class MIB_IPINTERFACE_ROW(
     public var ManagedAddressConfigurationSupported: Boolean = false,
     public var OtherStatefulConfigurationSupported: Boolean = false,
     public var AdvertiseDefaultRoute: Boolean = false,
-    public var RouterDiscoveryBehavior: Networking.WinSock.NL_ROUTER_DISCOVERY_BEHAVIOR = Networking.WinSock.NL_ROUTER_DISCOVERY_BEHAVIOR(),
+    public var RouterDiscoveryBehavior: NL_ROUTER_DISCOVERY_BEHAVIOR = 0,
     public var DadTransmits: UInt = 0u,
     public var BaseReachableTime: UInt = 0u,
     public var RetransmitTime: UInt = 0u,
     public var PathMtuDiscoveryTimeout: UInt = 0u,
-    public var LinkLocalAddressBehavior: Networking.WinSock.NL_LINK_LOCAL_ADDRESS_BEHAVIOR = Networking.WinSock.NL_LINK_LOCAL_ADDRESS_BEHAVIOR(),
+    public var LinkLocalAddressBehavior: NL_LINK_LOCAL_ADDRESS_BEHAVIOR = 0,
     public var LinkLocalAddressTimeout: UInt = 0u,
     public var ZoneIndices: UIntArray = UIntArray(16),
     public var SitePrefixLength: UInt = 0u,
@@ -793,8 +822,8 @@ public class MIB_IPINTERFACE_ROW(
     public var SupportsNeighborDiscovery: Boolean = false,
     public var SupportsRouterDiscovery: Boolean = false,
     public var ReachableTime: UInt = 0u,
-    public var TransmitOffload: Networking.WinSock.NL_INTERFACE_OFFLOAD_ROD = Networking.WinSock.NL_INTERFACE_OFFLOAD_ROD(),
-    public var ReceiveOffload: Networking.WinSock.NL_INTERFACE_OFFLOAD_ROD = Networking.WinSock.NL_INTERFACE_OFFLOAD_ROD(),
+    public var TransmitOffload: NL_INTERFACE_OFFLOAD_ROD = NL_INTERFACE_OFFLOAD_ROD(),
+    public var ReceiveOffload: NL_INTERFACE_OFFLOAD_ROD = NL_INTERFACE_OFFLOAD_ROD(),
     public var DisableDefaultRoutes: Boolean = false,
 )
 
@@ -1006,12 +1035,12 @@ public data class MIB_IPNETROW_W2K(
 public data class MIB_IPNETTABLE(public var dwNumEntries: UInt = 0u, public var table: List<MIB_IPNETROW_LH> = List(1) { MIB_IPNETROW_LH() })
 
 public data class MIB_IPNET_ROW2(
-    public var Address: Networking.WinSock.SOCKADDR_INET = Networking.WinSock.SOCKADDR_INET(),
+    public var Address: SOCKADDR_INET = SOCKADDR_INET(),
     public var InterfaceIndex: UInt = 0u,
-    public var InterfaceLuid: Ndis.NET_LUID_LH = Ndis.NET_LUID_LH(),
+    public var InterfaceLuid: NET_LUID_LH = NET_LUID_LH(),
     public var PhysicalAddress: UByteArray = UByteArray(32),
     public var PhysicalAddressLength: UInt = 0u,
-    public var State: Networking.WinSock.NL_NEIGHBOR_STATE = Networking.WinSock.NL_NEIGHBOR_STATE(),
+    public var State: NL_NEIGHBOR_STATE = 0,
     public var Anonymous: MIB_IPNET_ROW2_0 = MIB_IPNET_ROW2_0(),
     public var ReachabilityTime: MIB_IPNET_ROW2_1 = MIB_IPNET_ROW2_1(),
 ) {
@@ -1051,11 +1080,11 @@ public data class MIB_IPNET_ROW2_1(public var LastReachable: UInt = 0u, public v
 public data class MIB_IPNET_TABLE2(public var NumEntries: UInt = 0u, public var Table: List<MIB_IPNET_ROW2> = List(1) { MIB_IPNET_ROW2() })
 
 public data class MIB_IPPATH_ROW(
-    public var Source: Networking.WinSock.SOCKADDR_INET = Networking.WinSock.SOCKADDR_INET(),
-    public var Destination: Networking.WinSock.SOCKADDR_INET = Networking.WinSock.SOCKADDR_INET(),
-    public var InterfaceLuid: Ndis.NET_LUID_LH = Ndis.NET_LUID_LH(),
+    public var Source: SOCKADDR_INET = SOCKADDR_INET(),
+    public var Destination: SOCKADDR_INET = SOCKADDR_INET(),
+    public var InterfaceLuid: NET_LUID_LH = NET_LUID_LH(),
     public var InterfaceIndex: UInt = 0u,
-    public var CurrentNextHop: Networking.WinSock.SOCKADDR_INET = Networking.WinSock.SOCKADDR_INET(),
+    public var CurrentNextHop: SOCKADDR_INET = SOCKADDR_INET(),
     public var PathMtu: UInt = 0u,
     public var RttMean: UInt = 0u,
     public var RttDeviation: UInt = 0u,
@@ -1123,7 +1152,7 @@ public class MIB_IPSTATS_W2K(
     public var dwNumRoutes: UInt = 0u,
 )
 
-public data class MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES(public var InboundBandwidthInformation: Networking.WinSock.NL_BANDWIDTH_INFORMATION = Networking.WinSock.NL_BANDWIDTH_INFORMATION(), public var OutboundBandwidthInformation: Networking.WinSock.NL_BANDWIDTH_INFORMATION = Networking.WinSock.NL_BANDWIDTH_INFORMATION())
+public data class MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES(public var InboundBandwidthInformation: NL_BANDWIDTH_INFORMATION = NL_BANDWIDTH_INFORMATION(), public var OutboundBandwidthInformation: NL_BANDWIDTH_INFORMATION = NL_BANDWIDTH_INFORMATION())
 
 public data class MIB_MCAST_LIMIT_ROW(public var dwTtl: UInt = 0u, public var dwRateLimit: UInt = 0u)
 
@@ -1148,10 +1177,10 @@ public data class MIB_MFE_STATS_TABLE_EX_XP(public var dwNumEntries: UInt = 0u, 
 public data class MIB_MFE_TABLE(public var dwNumEntries: UInt = 0u, public var table: List<MIB_IPMCAST_MFE> = List(1) { MIB_IPMCAST_MFE() })
 
 public data class MIB_MULTICASTIPADDRESS_ROW(
-    public var Address: Networking.WinSock.SOCKADDR_INET = Networking.WinSock.SOCKADDR_INET(),
+    public var Address: SOCKADDR_INET = SOCKADDR_INET(),
     public var InterfaceIndex: UInt = 0u,
-    public var InterfaceLuid: Ndis.NET_LUID_LH = Ndis.NET_LUID_LH(),
-    public var ScopeId: Networking.WinSock.SCOPE_ID = Networking.WinSock.SCOPE_ID(),
+    public var InterfaceLuid: NET_LUID_LH = NET_LUID_LH(),
+    public var ScopeId: SCOPE_ID = SCOPE_ID(),
 )
 
 public data class MIB_MULTICASTIPADDRESS_TABLE(public var NumEntries: UInt = 0u, public var Table: List<MIB_MULTICASTIPADDRESS_ROW> = List(1) { MIB_MULTICASTIPADDRESS_ROW() })
@@ -1200,19 +1229,19 @@ public data class MIB_ROUTESTATE(public var bRoutesSetToStack: BOOL = 0)
 
 public data class MIB_TCP6ROW(
     public var State: MIB_TCP_STATE = 0,
-    public var LocalAddr: Networking.WinSock.IN6_ADDR = Networking.WinSock.IN6_ADDR(),
+    public var LocalAddr: IN6_ADDR = IN6_ADDR(),
     public var dwLocalScopeId: UInt = 0u,
     public var dwLocalPort: UInt = 0u,
-    public var RemoteAddr: Networking.WinSock.IN6_ADDR = Networking.WinSock.IN6_ADDR(),
+    public var RemoteAddr: IN6_ADDR = IN6_ADDR(),
     public var dwRemoteScopeId: UInt = 0u,
     public var dwRemotePort: UInt = 0u,
 )
 
 public data class MIB_TCP6ROW2(
-    public var LocalAddr: Networking.WinSock.IN6_ADDR = Networking.WinSock.IN6_ADDR(),
+    public var LocalAddr: IN6_ADDR = IN6_ADDR(),
     public var dwLocalScopeId: UInt = 0u,
     public var dwLocalPort: UInt = 0u,
-    public var RemoteAddr: Networking.WinSock.IN6_ADDR = Networking.WinSock.IN6_ADDR(),
+    public var RemoteAddr: IN6_ADDR = IN6_ADDR(),
     public var dwRemoteScopeId: UInt = 0u,
     public var dwRemotePort: UInt = 0u,
     public var State: MIB_TCP_STATE = 0,
@@ -1447,7 +1476,7 @@ public data class MIB_TCPTABLE_OWNER_MODULE(public var dwNumEntries: UInt = 0u, 
 public data class MIB_TCPTABLE_OWNER_PID(public var dwNumEntries: UInt = 0u, public var table: List<MIB_TCPROW_OWNER_PID> = List(1) { MIB_TCPROW_OWNER_PID() })
 
 public data class MIB_UDP6ROW(
-    public var dwLocalAddr: Networking.WinSock.IN6_ADDR = Networking.WinSock.IN6_ADDR(),
+    public var dwLocalAddr: IN6_ADDR = IN6_ADDR(),
     public var dwLocalScopeId: UInt = 0u,
     public var dwLocalPort: UInt = 0u,
 )
@@ -1679,17 +1708,17 @@ public data class MIB_UDPTABLE_OWNER_MODULE(public var dwNumEntries: UInt = 0u, 
 public data class MIB_UDPTABLE_OWNER_PID(public var dwNumEntries: UInt = 0u, public var table: List<MIB_UDPROW_OWNER_PID> = List(1) { MIB_UDPROW_OWNER_PID() })
 
 public data class MIB_UNICASTIPADDRESS_ROW(
-    public var Address: Networking.WinSock.SOCKADDR_INET = Networking.WinSock.SOCKADDR_INET(),
-    public var InterfaceLuid: Ndis.NET_LUID_LH = Ndis.NET_LUID_LH(),
+    public var Address: SOCKADDR_INET = SOCKADDR_INET(),
+    public var InterfaceLuid: NET_LUID_LH = NET_LUID_LH(),
     public var InterfaceIndex: UInt = 0u,
-    public var PrefixOrigin: Networking.WinSock.NL_PREFIX_ORIGIN = Networking.WinSock.NL_PREFIX_ORIGIN(),
-    public var SuffixOrigin: Networking.WinSock.NL_SUFFIX_ORIGIN = Networking.WinSock.NL_SUFFIX_ORIGIN(),
+    public var PrefixOrigin: NL_PREFIX_ORIGIN = 0,
+    public var SuffixOrigin: NL_SUFFIX_ORIGIN = 0,
     public var ValidLifetime: UInt = 0u,
     public var PreferredLifetime: UInt = 0u,
     public var OnLinkPrefixLength: UByte = 0u,
     public var SkipAsSource: Boolean = false,
-    public var DadState: Networking.WinSock.NL_DAD_STATE = Networking.WinSock.NL_DAD_STATE(),
-    public var ScopeId: Networking.WinSock.SCOPE_ID = Networking.WinSock.SCOPE_ID(),
+    public var DadState: NL_DAD_STATE = 0,
+    public var ScopeId: SCOPE_ID = SCOPE_ID(),
     public var CreationTimeStamp: Long = 0L,
 )
 
@@ -1699,9 +1728,9 @@ public data class NET_ADDRESS_INFO(public var Format: NET_ADDRESS_FORMAT = 0, pu
 
 public data class NET_ADDRESS_INFO_0(
     public var NamedAddress: NET_ADDRESS_INFO_0_0 = NET_ADDRESS_INFO_0_0(),
-    public var Ipv4Address: Networking.WinSock.SOCKADDR_IN = Networking.WinSock.SOCKADDR_IN(),
-    public var Ipv6Address: Networking.WinSock.SOCKADDR_IN6 = Networking.WinSock.SOCKADDR_IN6(),
-    public var IpAddress: Networking.WinSock.SOCKADDR = Networking.WinSock.SOCKADDR(),
+    public var Ipv4Address: SOCKADDR_IN = SOCKADDR_IN(),
+    public var Ipv6Address: SOCKADDR_IN6 = SOCKADDR_IN6(),
+    public var IpAddress: SOCKADDR = SOCKADDR(),
 )
 
 public data class NET_ADDRESS_INFO_0_0(public var Address: UShortArray = UShortArray(256), public var Port: UShortArray = UShortArray(6)) {

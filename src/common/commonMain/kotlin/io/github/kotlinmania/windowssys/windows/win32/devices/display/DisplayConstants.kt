@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.display
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
@@ -207,13 +208,13 @@ public val DEVHTADJF_ADDITIVE_DEVICE: UInt = 2u
 
 public val DEVHTADJF_COLOR_DEVICE: UInt = 1u
 
-public val DEVPKEY_Device_ActivityId: Foundation.DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(0xc50a3f10aa5c4247uL, 0xb830d6a6f8eaa310uL), pid = 4u)
+public val DEVPKEY_Device_ActivityId: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xc50a3f10aa5c4247uL, 0xb830d6a6f8eaa310uL)), pid = 4u)
 
-public val DEVPKEY_Device_AdapterLuid: Foundation.DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(0xc50a3f10aa5c4247uL, 0xb830d6a6f8eaa310uL), pid = 3u)
+public val DEVPKEY_Device_AdapterLuid: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xc50a3f10aa5c4247uL, 0xb830d6a6f8eaa310uL)), pid = 3u)
 
-public val DEVPKEY_Device_TerminalLuid: Foundation.DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(0xc50a3f10aa5c4247uL, 0xb830d6a6f8eaa310uL), pid = 2u)
+public val DEVPKEY_Device_TerminalLuid: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xc50a3f10aa5c4247uL, 0xb830d6a6f8eaa310uL)), pid = 2u)
 
-public val DEVPKEY_IndirectDisplay: Foundation.DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(0xc50a3f10aa5c4247uL, 0xb830d6a6f8eaa310uL), pid = 1u)
+public val DEVPKEY_IndirectDisplay: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xc50a3f10aa5c4247uL, 0xb830d6a6f8eaa310uL)), pid = 1u)
 
 public val DISPLAYCONFIG_DEVICE_INFO_GET_ADAPTER_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = 4
 
@@ -719,15 +720,15 @@ public val GS_8BIT_HANDLES: UInt = 2u
 
 public val GS_UNICODE_HANDLES: UInt = 1u
 
-public val GUID_DEVINTERFACE_DISPLAY_ADAPTER: GUID = GUID.from_u128(0x5b45201df2f24f3buL, 0x85bb30ff1f953599uL)
+public val GUID_DEVINTERFACE_DISPLAY_ADAPTER: GUID = GUID.from_u128(U128(0x5b45201df2f24f3buL, 0x85bb30ff1f953599uL))
 
-public val GUID_DEVINTERFACE_MONITOR: GUID = GUID.from_u128(0xe6f07b5fee974a90uL, 0xb07633f57bf4eaa7uL)
+public val GUID_DEVINTERFACE_MONITOR: GUID = GUID.from_u128(U128(0xe6f07b5fee974a90uL, 0xb07633f57bf4eaa7uL))
 
-public val GUID_DEVINTERFACE_VIDEO_OUTPUT_ARRIVAL: GUID = GUID.from_u128(0x1ad9e4f0f88d4360uL, 0xbab94c2d55e564cduL)
+public val GUID_DEVINTERFACE_VIDEO_OUTPUT_ARRIVAL: GUID = GUID.from_u128(U128(0x1ad9e4f0f88d4360uL, 0xbab94c2d55e564cduL))
 
-public val GUID_DISPLAY_DEVICE_ARRIVAL: GUID = GUID.from_u128(0x1ca05180a699450auL, 0x9a0cde4fbe3ddd89uL)
+public val GUID_DISPLAY_DEVICE_ARRIVAL: GUID = GUID.from_u128(U128(0x1ca05180a699450auL, 0x9a0cde4fbe3ddd89uL))
 
-public val GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED: GUID = GUID.from_u128(0xf196c02ff86f4f9auL, 0xaa15e9cebdfe3b96uL)
+public val GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED: GUID = GUID.from_u128(U128(0xf196c02ff86f4f9auL, 0xaa15e9cebdfe3b96uL))
 
 public val GX_GENERAL: Int = 3
 

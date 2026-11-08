@@ -6,10 +6,13 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.SYSTEMTIME
 
 public data class PDH_BROWSE_DLG_CONFIG_A(
     public var _bitfield: UInt = 0u,
-    public var hWndOwner: Foundation.HWND = Foundation.HWND(),
+    public var hWndOwner: HWND = 0L,
     public var szDataSource: PSTR = 0L,
     public var szReturnPathBuffer: PSTR = 0L,
     public var cchReturnPathLength: UInt = 0u,
@@ -22,7 +25,7 @@ public data class PDH_BROWSE_DLG_CONFIG_A(
 
 public data class PDH_BROWSE_DLG_CONFIG_HA(
     public var _bitfield: UInt = 0u,
-    public var hWndOwner: Foundation.HWND = Foundation.HWND(),
+    public var hWndOwner: HWND = 0L,
     public var hDataSource: PDH_HLOG = 0L,
     public var szReturnPathBuffer: PSTR = 0L,
     public var cchReturnPathLength: UInt = 0u,
@@ -35,7 +38,7 @@ public data class PDH_BROWSE_DLG_CONFIG_HA(
 
 public data class PDH_BROWSE_DLG_CONFIG_HW(
     public var _bitfield: UInt = 0u,
-    public var hWndOwner: Foundation.HWND = Foundation.HWND(),
+    public var hWndOwner: HWND = 0L,
     public var hDataSource: PDH_HLOG = 0L,
     public var szReturnPathBuffer: PWSTR = 0L,
     public var cchReturnPathLength: UInt = 0u,
@@ -48,7 +51,7 @@ public data class PDH_BROWSE_DLG_CONFIG_HW(
 
 public data class PDH_BROWSE_DLG_CONFIG_W(
     public var _bitfield: UInt = 0u,
-    public var hWndOwner: Foundation.HWND = Foundation.HWND(),
+    public var hWndOwner: HWND = 0L,
     public var szDataSource: PWSTR = 0L,
     public var szReturnPathBuffer: PWSTR = 0L,
     public var cchReturnPathLength: UInt = 0u,
@@ -254,8 +257,8 @@ public data class PDH_LOG_SERVICE_QUERY_INFO_A_0_0(
     public var PdlCounterList: PSTR = 0L,
     public var PdlAutoNameFormat: UInt = 0u,
     public var PdlSampleInterval: UInt = 0u,
-    public var PdlLogStartTime: Foundation.FILETIME = Foundation.FILETIME(),
-    public var PdlLogEndTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var PdlLogStartTime: FILETIME = FILETIME(),
+    public var PdlLogEndTime: FILETIME = FILETIME(),
 )
 
 public data class PDH_LOG_SERVICE_QUERY_INFO_A_0_1(
@@ -292,8 +295,8 @@ public data class PDH_LOG_SERVICE_QUERY_INFO_W_0_0(
     public var PdlCounterList: PWSTR = 0L,
     public var PdlAutoNameFormat: UInt = 0u,
     public var PdlSampleInterval: UInt = 0u,
-    public var PdlLogStartTime: Foundation.FILETIME = Foundation.FILETIME(),
-    public var PdlLogEndTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var PdlLogStartTime: FILETIME = FILETIME(),
+    public var PdlLogEndTime: FILETIME = FILETIME(),
 )
 
 public data class PDH_LOG_SERVICE_QUERY_INFO_W_0_1(
@@ -311,7 +314,7 @@ public data class PDH_LOG_SERVICE_QUERY_INFO_W_0_1(
 
 public data class PDH_RAW_COUNTER(
     public var CStatus: UInt = 0u,
-    public var TimeStamp: Foundation.FILETIME = Foundation.FILETIME(),
+    public var TimeStamp: FILETIME = FILETIME(),
     public var FirstValue: Long = 0L,
     public var SecondValue: Long = 0L,
     public var MultiCount: UInt = 0u,
@@ -460,7 +463,7 @@ public data class PERF_DATA_BLOCK(
     public var HeaderLength: UInt = 0u,
     public var NumObjectTypes: UInt = 0u,
     public var DefaultObject: Int = 0,
-    public var SystemTime: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var SystemTime: SYSTEMTIME = SYSTEMTIME(),
     public var PerfTime: Long = 0L,
     public var PerfFreq: Long = 0L,
     public var PerfTime100nSec: Long = 0L,
@@ -512,7 +515,7 @@ public data class PERF_DATA_HEADER(
     public var PerfTimeStamp: Long = 0L,
     public var PerfTime100NSec: Long = 0L,
     public var PerfFreq: Long = 0L,
-    public var SystemTime: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var SystemTime: SYSTEMTIME = SYSTEMTIME(),
 )
 
 public data class PERF_INSTANCE_DEFINITION(

@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.iis
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
@@ -30,23 +31,23 @@ public val ASP_MD_UT_APP: UInt = 101u
 
 public val BINARY_METADATA: METADATATYPES = 3
 
-public val CLSID_IImgCtx: GUID = GUID.from_u128(0x3050f3d698b511cfuL, 0xbb8200aa00bdce0buL)
+public val CLSID_IImgCtx: GUID = GUID.from_u128(U128(0x3050f3d698b511cfuL, 0xbb8200aa00bdce0buL))
 
-public val CLSID_IisServiceControl: GUID = GUID.from_u128(0xe8fb8621588f11d2uL, 0x9d6100c04f79c5feuL)
+public val CLSID_IisServiceControl: GUID = GUID.from_u128(U128(0xe8fb8621588f11d2uL, 0x9d6100c04f79c5feuL))
 
-public val CLSID_MSAdminBase_W: GUID = GUID.from_u128(0xa9e69610b80d11d0uL, 0xb9b900a0c922e750uL)
+public val CLSID_MSAdminBase_W: GUID = GUID.from_u128(U128(0xa9e69610b80d11d0uL, 0xb9b900a0c922e750uL))
 
-public val CLSID_Request: GUID = GUID.from_u128(0x920c25d025d911d0uL, 0xa55f00a0c90c2091uL)
+public val CLSID_Request: GUID = GUID.from_u128(U128(0x920c25d025d911d0uL, 0xa55f00a0c90c2091uL))
 
-public val CLSID_Response: GUID = GUID.from_u128(0x46e19ba025dd11d0uL, 0xa55f00a0c90c2091uL)
+public val CLSID_Response: GUID = GUID.from_u128(U128(0x46e19ba025dd11d0uL, 0xa55f00a0c90c2091uL))
 
-public val CLSID_ScriptingContext: GUID = GUID.from_u128(0xd97a6da0a86811cfuL, 0x83ae11b0c90c2bd8uL)
+public val CLSID_ScriptingContext: GUID = GUID.from_u128(U128(0xd97a6da0a86811cfuL, 0x83ae11b0c90c2bd8uL))
 
-public val CLSID_Server: GUID = GUID.from_u128(0xa506d16025e011d0uL, 0xa55f00a0c90c2091uL)
+public val CLSID_Server: GUID = GUID.from_u128(U128(0xa506d16025e011d0uL, 0xa55f00a0c90c2091uL))
 
-public val CLSID_Session: GUID = GUID.from_u128(0x509f8f2025de11d0uL, 0xa55f00a0c90c2091uL)
+public val CLSID_Session: GUID = GUID.from_u128(U128(0x509f8f2025de11d0uL, 0xa55f00a0c90c2091uL))
 
-public val CLSID_WamAdmin: GUID = GUID.from_u128(0x61738644f19611d0uL, 0x995300c04fd919c1uL)
+public val CLSID_WamAdmin: GUID = GUID.from_u128(U128(0x61738644f19611d0uL, 0x995300c04fd919c1uL))
 
 public val DISPID_HTTPREQUEST_ABORT: UInt = 12u
 
@@ -120,21 +121,21 @@ public val FTP_PROCESS_REJECT_COMMAND: FTP_PROCESS_STATUS = 3
 
 public val FTP_PROCESS_TERMINATE_SESSION: FTP_PROCESS_STATUS = 2
 
-public val FtpProvider: GUID = GUID.from_u128(0x70bdc66733b245f0uL, 0xac52c3ca46f7a656uL)
+public val FtpProvider: GUID = GUID.from_u128(U128(0x70bdc66733b245f0uL, 0xac52c3ca46f7a656uL))
 
-public val GUID_IIS_ALL_TRACE_PROVIDERS: GUID = GUID.from_u128(0x0uL, 0x0uL)
+public val GUID_IIS_ALL_TRACE_PROVIDERS: GUID = GUID.from_u128(U128(0x0uL, 0x0uL))
 
-public val GUID_IIS_ASPNET_TRACE_PROVIDER: GUID = GUID.from_u128(0xaff081fe02474275uL, 0x9c4e021f3dc1da35uL)
+public val GUID_IIS_ASPNET_TRACE_PROVIDER: GUID = GUID.from_u128(U128(0xaff081fe02474275uL, 0x9c4e021f3dc1da35uL))
 
-public val GUID_IIS_ASP_TRACE_TRACE_PROVIDER: GUID = GUID.from_u128(0x6b94d9ab15e456euL, 0xa4ef37c984a2cb4buL)
+public val GUID_IIS_ASP_TRACE_TRACE_PROVIDER: GUID = GUID.from_u128(U128(0x6b94d9ab15e456euL, 0xa4ef37c984a2cb4buL))
 
-public val GUID_IIS_ISAPI_TRACE_PROVIDER: GUID = GUID.from_u128(0xa1c2040e88404c31uL, 0xba119871031a19eauL)
+public val GUID_IIS_ISAPI_TRACE_PROVIDER: GUID = GUID.from_u128(U128(0xa1c2040e88404c31uL, 0xba119871031a19eauL))
 
-public val GUID_IIS_WWW_GLOBAL_TRACE_PROVIDER: GUID = GUID.from_u128(0xd55d3bc9cba944dfuL, 0x827e132d3a4596c2uL)
+public val GUID_IIS_WWW_GLOBAL_TRACE_PROVIDER: GUID = GUID.from_u128(U128(0xd55d3bc9cba944dfuL, 0x827e132d3a4596c2uL))
 
-public val GUID_IIS_WWW_SERVER_TRACE_PROVIDER: GUID = GUID.from_u128(0x3a2a4e844c214981uL, 0xae103fda0d9b0f83uL)
+public val GUID_IIS_WWW_SERVER_TRACE_PROVIDER: GUID = GUID.from_u128(U128(0x3a2a4e844c214981uL, 0xae103fda0d9b0f83uL))
 
-public val GUID_IIS_WWW_SERVER_V2_TRACE_PROVIDER: GUID = GUID.from_u128(0xde4649c915e84feauL, 0x9d851cdda520c334uL)
+public val GUID_IIS_WWW_SERVER_V2_TRACE_PROVIDER: GUID = GUID.from_u128(U128(0xde4649c915e84feauL, 0x9d851cdda520c334uL))
 
 public val HSE_APPEND_LOG_PARAMETER: UInt = 1003u
 
@@ -520,11 +521,11 @@ public val IMGTRANS_OPAQUE: UInt = 536870912u
 
 public val INVALID_END_METADATA: METADATATYPES = 6
 
-public val LIBID_ASPTypeLibrary: GUID = GUID.from_u128(0xd97a6da0a85c11cfuL, 0x83ae00a0c90c2bd8uL)
+public val LIBID_ASPTypeLibrary: GUID = GUID.from_u128(U128(0xd97a6da0a85c11cfuL, 0x83ae00a0c90c2bd8uL))
 
-public val LIBID_IISRSTALib: GUID = GUID.from_u128(0xe8fb8614588f11d2uL, 0x9d6100c04f79c5feuL)
+public val LIBID_IISRSTALib: GUID = GUID.from_u128(U128(0xe8fb8614588f11d2uL, 0x9d6100c04f79c5feuL))
 
-public val LIBID_WAMREGLib: GUID = GUID.from_u128(0x29822aa8f30211d0uL, 0x995300c04fd919c1uL)
+public val LIBID_WAMREGLib: GUID = GUID.from_u128(U128(0x29822aa8f30211d0uL, 0x995300c04fd919c1uL))
 
 public val MB_DONT_IMPERSONATE: UInt = 9033u
 

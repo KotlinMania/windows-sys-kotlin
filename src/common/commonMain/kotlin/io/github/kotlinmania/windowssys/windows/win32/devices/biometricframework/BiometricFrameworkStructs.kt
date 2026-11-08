@@ -4,6 +4,9 @@ package io.github.kotlinmania.windowssys.windows.win32.devices.biometricframewor
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
 
 public data class WINBIO_ACCOUNT_POLICY(public var Identity: WINBIO_IDENTITY = WINBIO_IDENTITY(), public var AntiSpoofBehavior: WINBIO_ANTI_SPOOF_POLICY_ACTION = 0)
 
@@ -400,7 +403,7 @@ public data class WINBIO_EXTENDED_ENROLLMENT_STATUS_0(
 )
 
 public data class WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0(
-    public var BoundingBox: Foundation.RECT = Foundation.RECT(),
+    public var BoundingBox: RECT = RECT(),
     public var Distance: Int = 0,
     public var OpaqueEngineData: WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 = WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0(),
 )
@@ -431,10 +434,10 @@ public data class WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1(
 )
 
 public data class WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2(
-    public var EyeBoundingBox_1: Foundation.RECT = Foundation.RECT(),
-    public var EyeBoundingBox_2: Foundation.RECT = Foundation.RECT(),
-    public var PupilCenter_1: Foundation.POINT = Foundation.POINT(),
-    public var PupilCenter_2: Foundation.POINT = Foundation.POINT(),
+    public var EyeBoundingBox_1: RECT = RECT(),
+    public var EyeBoundingBox_2: RECT = RECT(),
+    public var PupilCenter_1: POINT = POINT(),
+    public var PupilCenter_2: POINT = POINT(),
     public var Distance: Int = 0,
     public var GridPointCompletionPercent: UInt = 0u,
     public var GridPointIndex: UShort = 0u,
@@ -465,8 +468,8 @@ public data class WINBIO_EXTENDED_SENSOR_INFO_0(
 )
 
 public data class WINBIO_EXTENDED_SENSOR_INFO_0_0(
-    public var FrameSize: Foundation.RECT = Foundation.RECT(),
-    public var FrameOffset: Foundation.POINT = Foundation.POINT(),
+    public var FrameSize: RECT = RECT(),
+    public var FrameOffset: POINT = POINT(),
     public var MandatoryOrientation: UInt = 0u,
     public var HardwareInfo: WINBIO_EXTENDED_SENSOR_INFO_0_0_0 = WINBIO_EXTENDED_SENSOR_INFO_0_0_0(),
 )
@@ -496,8 +499,8 @@ public data class WINBIO_EXTENDED_SENSOR_INFO_0_0_0(
 public data class WINBIO_EXTENDED_SENSOR_INFO_0_1(public var Reserved: UInt = 0u)
 
 public data class WINBIO_EXTENDED_SENSOR_INFO_0_2(
-    public var FrameSize: Foundation.RECT = Foundation.RECT(),
-    public var FrameOffset: Foundation.POINT = Foundation.POINT(),
+    public var FrameSize: RECT = RECT(),
+    public var FrameOffset: POINT = POINT(),
     public var MandatoryOrientation: UInt = 0u,
 )
 
@@ -646,9 +649,9 @@ public data class WINBIO_NOTIFY_WAKE(
 )
 
 public data class WINBIO_PIPELINE(
-    public var SensorHandle: Foundation.HANDLE = Foundation.HANDLE(),
-    public var EngineHandle: Foundation.HANDLE = Foundation.HANDLE(),
-    public var StorageHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var SensorHandle: HANDLE = 0L,
+    public var EngineHandle: HANDLE = 0L,
+    public var StorageHandle: HANDLE = 0L,
     public var SensorInterface: Long = 0L,
     public var EngineInterface: Long = 0L,
     public var StorageInterface: Long = 0L,
@@ -689,7 +692,7 @@ public data class WINBIO_PRESENCE_0(public var Size: UInt = 0u, public var Data:
 public data class WINBIO_PRESENCE_PROPERTIES(public var FacialFeatures: WINBIO_PRESENCE_PROPERTIES_0 = WINBIO_PRESENCE_PROPERTIES_0(), public var Iris: WINBIO_PRESENCE_PROPERTIES_1 = WINBIO_PRESENCE_PROPERTIES_1())
 
 public data class WINBIO_PRESENCE_PROPERTIES_0(
-    public var BoundingBox: Foundation.RECT = Foundation.RECT(),
+    public var BoundingBox: RECT = RECT(),
     public var Distance: Int = 0,
     public var OpaqueEngineData: WINBIO_PRESENCE_PROPERTIES_0_0 = WINBIO_PRESENCE_PROPERTIES_0_0(),
 )
@@ -711,10 +714,10 @@ public data class WINBIO_PRESENCE_PROPERTIES_0_0(public var AdapterId: GUID = GU
 }
 
 public data class WINBIO_PRESENCE_PROPERTIES_1(
-    public var EyeBoundingBox_1: Foundation.RECT = Foundation.RECT(),
-    public var EyeBoundingBox_2: Foundation.RECT = Foundation.RECT(),
-    public var PupilCenter_1: Foundation.POINT = Foundation.POINT(),
-    public var PupilCenter_2: Foundation.POINT = Foundation.POINT(),
+    public var EyeBoundingBox_1: RECT = RECT(),
+    public var EyeBoundingBox_2: RECT = RECT(),
+    public var PupilCenter_1: POINT = POINT(),
+    public var PupilCenter_2: POINT = POINT(),
     public var Distance: Int = 0,
 )
 

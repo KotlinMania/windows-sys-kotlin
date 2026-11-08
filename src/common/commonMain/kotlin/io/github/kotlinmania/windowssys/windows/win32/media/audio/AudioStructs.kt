@@ -7,6 +7,11 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HICON
 
 public data class ACMDRIVERDETAILSA(
     public var cbStruct: UInt = 0u,
@@ -19,7 +24,7 @@ public data class ACMDRIVERDETAILSA(
     public var fdwSupport: UInt = 0u,
     public var cFormatTags: UInt = 0u,
     public var cFilterTags: UInt = 0u,
-    public var hicon: UI.WindowsAndMessaging.HICON = UI.WindowsAndMessaging.HICON(),
+    public var hicon: HICON = 0L,
     public var szShortName: ByteArray = ByteArray(32),
     public var szLongName: ByteArray = ByteArray(128),
     public var szCopyright: ByteArray = ByteArray(80),
@@ -80,7 +85,7 @@ public data class ACMDRIVERDETAILSW(
     public var fdwSupport: UInt = 0u,
     public var cFormatTags: UInt = 0u,
     public var cFilterTags: UInt = 0u,
-    public var hicon: UI.WindowsAndMessaging.HICON = UI.WindowsAndMessaging.HICON(),
+    public var hicon: HICON = 0L,
     public var szShortName: UShortArray = UShortArray(32),
     public var szLongName: UShortArray = UShortArray(128),
     public var szCopyright: UShortArray = UShortArray(80),
@@ -210,7 +215,7 @@ public data class ACMDRVSTREAMSIZE(
 public data class ACMFILTERCHOOSEA(
     public var cbStruct: UInt = 0u,
     public var fdwStyle: UInt = 0u,
-    public var hwndOwner: Foundation.HWND = Foundation.HWND(),
+    public var hwndOwner: HWND = 0L,
     public var pwfltr: Long = 0L,
     public var cbwfltr: UInt = 0u,
     public var pszTitle: PCSTR = 0L,
@@ -220,9 +225,9 @@ public data class ACMFILTERCHOOSEA(
     public var cchName: UInt = 0u,
     public var fdwEnum: UInt = 0u,
     public var pwfltrEnum: Long = 0L,
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hInstance: HINSTANCE = 0L,
     public var pszTemplateName: PCSTR = 0L,
-    public var lCustData: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lCustData: LPARAM = 0L,
     public var pfnHook: ACMFILTERCHOOSEHOOKPROCA = null,
 ) {
     override fun equals(other: Any?): Boolean {
@@ -271,7 +276,7 @@ public data class ACMFILTERCHOOSEA(
 public data class ACMFILTERCHOOSEW(
     public var cbStruct: UInt = 0u,
     public var fdwStyle: UInt = 0u,
-    public var hwndOwner: Foundation.HWND = Foundation.HWND(),
+    public var hwndOwner: HWND = 0L,
     public var pwfltr: Long = 0L,
     public var cbwfltr: UInt = 0u,
     public var pszTitle: PCWSTR = 0L,
@@ -281,9 +286,9 @@ public data class ACMFILTERCHOOSEW(
     public var cchName: UInt = 0u,
     public var fdwEnum: UInt = 0u,
     public var pwfltrEnum: Long = 0L,
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hInstance: HINSTANCE = 0L,
     public var pszTemplateName: PCWSTR = 0L,
-    public var lCustData: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lCustData: LPARAM = 0L,
     public var pfnHook: ACMFILTERCHOOSEHOOKPROCW = null,
 ) {
     override fun equals(other: Any?): Boolean {
@@ -468,7 +473,7 @@ public data class ACMFILTERTAGDETAILSW(
 public data class ACMFORMATCHOOSEA(
     public var cbStruct: UInt = 0u,
     public var fdwStyle: UInt = 0u,
-    public var hwndOwner: Foundation.HWND = Foundation.HWND(),
+    public var hwndOwner: HWND = 0L,
     public var pwfx: Long = 0L,
     public var cbwfx: UInt = 0u,
     public var pszTitle: PCSTR = 0L,
@@ -478,9 +483,9 @@ public data class ACMFORMATCHOOSEA(
     public var cchName: UInt = 0u,
     public var fdwEnum: UInt = 0u,
     public var pwfxEnum: Long = 0L,
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hInstance: HINSTANCE = 0L,
     public var pszTemplateName: PCSTR = 0L,
-    public var lCustData: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lCustData: LPARAM = 0L,
     public var pfnHook: ACMFORMATCHOOSEHOOKPROCA = null,
 ) {
     override fun equals(other: Any?): Boolean {
@@ -529,7 +534,7 @@ public data class ACMFORMATCHOOSEA(
 public data class ACMFORMATCHOOSEW(
     public var cbStruct: UInt = 0u,
     public var fdwStyle: UInt = 0u,
-    public var hwndOwner: Foundation.HWND = Foundation.HWND(),
+    public var hwndOwner: HWND = 0L,
     public var pwfx: Long = 0L,
     public var cbwfx: UInt = 0u,
     public var pszTitle: PCWSTR = 0L,
@@ -539,9 +544,9 @@ public data class ACMFORMATCHOOSEW(
     public var cchName: UInt = 0u,
     public var fdwEnum: UInt = 0u,
     public var pwfxEnum: Long = 0L,
-    public var hInstance: Foundation.HINSTANCE = Foundation.HINSTANCE(),
+    public var hInstance: HINSTANCE = 0L,
     public var pszTemplateName: PCWSTR = 0L,
-    public var lCustData: Foundation.LPARAM = Foundation.LPARAM(),
+    public var lCustData: LPARAM = 0L,
     public var pfnHook: ACMFORMATCHOOSEHOOKPROCW = null,
 ) {
     override fun equals(other: Any?): Boolean {
@@ -953,7 +958,7 @@ public data class AudioClientProperties(
 )
 
 public data class AudioExtensionParams(
-    public var AddPageParam: Foundation.LPARAM = Foundation.LPARAM(),
+    public var AddPageParam: LPARAM = 0L,
     public var pEndpoint: Long = 0L,
     public var pPnpInterface: Long = 0L,
     public var pPnpDevnode: Long = 0L,
@@ -1613,7 +1618,7 @@ public data class MIXERCONTROLDETAILS(
     public var paDetails: Long = 0L,
 )
 
-public data class MIXERCONTROLDETAILS_0(public var hwndOwner: Foundation.HWND = Foundation.HWND(), public var cMultipleItems: UInt = 0u)
+public data class MIXERCONTROLDETAILS_0(public var hwndOwner: HWND = 0L, public var cMultipleItems: UInt = 0u)
 
 public data class MIXERCONTROLDETAILS_BOOLEAN(public var fValue: Int = 0)
 
@@ -1958,7 +1963,7 @@ public data class SpatialAudioHrtfActivationParams(
     public var MinDynamicObjectCount: UInt = 0u,
     public var MaxDynamicObjectCount: UInt = 0u,
     public var Category: AUDIO_STREAM_CATEGORY = 0,
-    public var EventHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var EventHandle: HANDLE = 0L,
     public var NotifyObject: Long = 0L,
     public var DistanceDecay: Long = 0L,
     public var Directivity: Long = 0L,
@@ -1972,7 +1977,7 @@ public data class SpatialAudioHrtfActivationParams2(
     public var MinDynamicObjectCount: UInt = 0u,
     public var MaxDynamicObjectCount: UInt = 0u,
     public var Category: AUDIO_STREAM_CATEGORY = 0,
-    public var EventHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var EventHandle: HANDLE = 0L,
     public var NotifyObject: Long = 0L,
     public var DistanceDecay: Long = 0L,
     public var Directivity: Long = 0L,
@@ -2018,7 +2023,7 @@ public data class SpatialAudioObjectRenderStreamActivationParams(
     public var MinDynamicObjectCount: UInt = 0u,
     public var MaxDynamicObjectCount: UInt = 0u,
     public var Category: AUDIO_STREAM_CATEGORY = 0,
-    public var EventHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var EventHandle: HANDLE = 0L,
     public var NotifyObject: Long = 0L,
 )
 
@@ -2028,7 +2033,7 @@ public data class SpatialAudioObjectRenderStreamActivationParams2(
     public var MinDynamicObjectCount: UInt = 0u,
     public var MaxDynamicObjectCount: UInt = 0u,
     public var Category: AUDIO_STREAM_CATEGORY = 0,
-    public var EventHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var EventHandle: HANDLE = 0L,
     public var NotifyObject: Long = 0L,
     public var Options: SPATIAL_AUDIO_STREAM_OPTIONS = 0,
 )
@@ -2039,7 +2044,7 @@ public data class SpatialAudioObjectRenderStreamForMetadataActivationParams(
     public var MinDynamicObjectCount: UInt = 0u,
     public var MaxDynamicObjectCount: UInt = 0u,
     public var Category: AUDIO_STREAM_CATEGORY = 0,
-    public var EventHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var EventHandle: HANDLE = 0L,
     public var MetadataFormatId: GUID = GUID(),
     public var MaxMetadataItemCount: UShort = 0u,
     public var MetadataActivationParams: Long = 0L,
@@ -2052,7 +2057,7 @@ public data class SpatialAudioObjectRenderStreamForMetadataActivationParams2(
     public var MinDynamicObjectCount: UInt = 0u,
     public var MaxDynamicObjectCount: UInt = 0u,
     public var Category: AUDIO_STREAM_CATEGORY = 0,
-    public var EventHandle: Foundation.HANDLE = Foundation.HANDLE(),
+    public var EventHandle: HANDLE = 0L,
     public var MetadataFormatId: GUID = GUID(),
     public var MaxMetadataItemCount: UInt = 0u,
     public var MetadataActivationParams: Long = 0L,

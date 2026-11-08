@@ -6,6 +6,14 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.data.htmlhelp.PRIORITY
+import io.github.kotlinmania.windowssys.windows.win32.devices.properties.DEVPROPTYPE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.HKEY
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.HPROPSHEETPAGE
 
 public fun interface FnCallback {
     public operator fun invoke(hnotify: HCMNOTIFICATION, context: Long, action: CM_NOTIFY_ACTION, eventdata: Long, eventdatasize: UInt): UInt
@@ -23,12 +31,12 @@ public fun CMP_WaitNoPendingInstallEvents(dwtimeout: UInt): UInt {
     return Win32DynamicFfi.invoke("cfgmgr32.dll", "CMP_WaitNoPendingInstallEvents", longArrayOf(dwtimeout.toLong())).toUInt()
 }
 
-public fun CM_Add_Empty_Log_Conf(plclogconf: Long, dndevinst: UInt, priority: Data.HtmlHelp.PRIORITY, ulflags: UInt): CONFIGRET {
-    return Win32DynamicFfi.invoke("cfgmgr32.dll", "CM_Add_Empty_Log_Conf", longArrayOf(plclogconf, dndevinst.toLong(), Win32DynamicFfi.objectSlot(priority), ulflags.toLong())).toUInt()
+public fun CM_Add_Empty_Log_Conf(plclogconf: Long, dndevinst: UInt, priority: PRIORITY, ulflags: UInt): CONFIGRET {
+    return Win32DynamicFfi.invoke("cfgmgr32.dll", "CM_Add_Empty_Log_Conf", longArrayOf(plclogconf, dndevinst.toLong(), priority.toLong(), ulflags.toLong())).toUInt()
 }
 
-public fun CM_Add_Empty_Log_Conf_Ex(plclogconf: Long, dndevinst: UInt, priority: Data.HtmlHelp.PRIORITY, ulflags: UInt, hmachine: Long): CONFIGRET {
-    return Win32DynamicFfi.invoke("cfgmgr32.dll", "CM_Add_Empty_Log_Conf_Ex", longArrayOf(plclogconf, dndevinst.toLong(), Win32DynamicFfi.objectSlot(priority), ulflags.toLong(), hmachine)).toUInt()
+public fun CM_Add_Empty_Log_Conf_Ex(plclogconf: Long, dndevinst: UInt, priority: PRIORITY, ulflags: UInt, hmachine: Long): CONFIGRET {
+    return Win32DynamicFfi.invoke("cfgmgr32.dll", "CM_Add_Empty_Log_Conf_Ex", longArrayOf(plclogconf, dndevinst.toLong(), priority.toLong(), ulflags.toLong(), hmachine)).toUInt()
 }
 
 public fun CM_Add_IDA(dndevinst: UInt, pszid: PCSTR, ulflags: UInt): CONFIGRET {
@@ -819,12 +827,12 @@ public fun CM_Run_Detection_Ex(ulflags: UInt, hmachine: Long): CONFIGRET {
     return Win32DynamicFfi.invoke("cfgmgr32.dll", "CM_Run_Detection_Ex", longArrayOf(ulflags.toLong(), hmachine)).toUInt()
 }
 
-public fun CM_Set_Class_PropertyW(classguid: Long, propertykey: Long, propertytype: Properties.DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, ulflags: UInt): CONFIGRET {
-    return Win32DynamicFfi.invoke("cfgmgr32.dll", "CM_Set_Class_PropertyW", longArrayOf(classguid, propertykey, Win32DynamicFfi.objectSlot(propertytype), propertybuffer, propertybuffersize.toLong(), ulflags.toLong())).toUInt()
+public fun CM_Set_Class_PropertyW(classguid: Long, propertykey: Long, propertytype: DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, ulflags: UInt): CONFIGRET {
+    return Win32DynamicFfi.invoke("cfgmgr32.dll", "CM_Set_Class_PropertyW", longArrayOf(classguid, propertykey, propertytype.toLong(), propertybuffer, propertybuffersize.toLong(), ulflags.toLong())).toUInt()
 }
 
-public fun CM_Set_Class_Property_ExW(classguid: Long, propertykey: Long, propertytype: Properties.DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, ulflags: UInt, hmachine: Long): CONFIGRET {
-    return Win32DynamicFfi.invoke("cfgmgr32.dll", "CM_Set_Class_Property_ExW", longArrayOf(classguid, propertykey, Win32DynamicFfi.objectSlot(propertytype), propertybuffer, propertybuffersize.toLong(), ulflags.toLong(), hmachine)).toUInt()
+public fun CM_Set_Class_Property_ExW(classguid: Long, propertykey: Long, propertytype: DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, ulflags: UInt, hmachine: Long): CONFIGRET {
+    return Win32DynamicFfi.invoke("cfgmgr32.dll", "CM_Set_Class_Property_ExW", longArrayOf(classguid, propertykey, propertytype.toLong(), propertybuffer, propertybuffersize.toLong(), ulflags.toLong(), hmachine)).toUInt()
 }
 
 public fun CM_Set_Class_Registry_PropertyA(classguid: Long, ulproperty: UInt, buffer: Long, ullength: UInt, ulflags: UInt, hmachine: Long): CONFIGRET {
@@ -843,12 +851,12 @@ public fun CM_Set_DevNode_Problem_Ex(dndevinst: UInt, ulproblem: UInt, ulflags: 
     return Win32DynamicFfi.invoke("cfgmgr32.dll", "CM_Set_DevNode_Problem_Ex", longArrayOf(dndevinst.toLong(), ulproblem.toLong(), ulflags.toLong(), hmachine)).toUInt()
 }
 
-public fun CM_Set_DevNode_PropertyW(dndevinst: UInt, propertykey: Long, propertytype: Properties.DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, ulflags: UInt): CONFIGRET {
-    return Win32DynamicFfi.invoke("cfgmgr32.dll", "CM_Set_DevNode_PropertyW", longArrayOf(dndevinst.toLong(), propertykey, Win32DynamicFfi.objectSlot(propertytype), propertybuffer, propertybuffersize.toLong(), ulflags.toLong())).toUInt()
+public fun CM_Set_DevNode_PropertyW(dndevinst: UInt, propertykey: Long, propertytype: DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, ulflags: UInt): CONFIGRET {
+    return Win32DynamicFfi.invoke("cfgmgr32.dll", "CM_Set_DevNode_PropertyW", longArrayOf(dndevinst.toLong(), propertykey, propertytype.toLong(), propertybuffer, propertybuffersize.toLong(), ulflags.toLong())).toUInt()
 }
 
-public fun CM_Set_DevNode_Property_ExW(dndevinst: UInt, propertykey: Long, propertytype: Properties.DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, ulflags: UInt, hmachine: Long): CONFIGRET {
-    return Win32DynamicFfi.invoke("cfgmgr32.dll", "CM_Set_DevNode_Property_ExW", longArrayOf(dndevinst.toLong(), propertykey, Win32DynamicFfi.objectSlot(propertytype), propertybuffer, propertybuffersize.toLong(), ulflags.toLong(), hmachine)).toUInt()
+public fun CM_Set_DevNode_Property_ExW(dndevinst: UInt, propertykey: Long, propertytype: DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, ulflags: UInt, hmachine: Long): CONFIGRET {
+    return Win32DynamicFfi.invoke("cfgmgr32.dll", "CM_Set_DevNode_Property_ExW", longArrayOf(dndevinst.toLong(), propertykey, propertytype.toLong(), propertybuffer, propertybuffersize.toLong(), ulflags.toLong(), hmachine)).toUInt()
 }
 
 public fun CM_Set_DevNode_Registry_PropertyA(dndevinst: UInt, ulproperty: UInt, buffer: Long, ullength: UInt, ulflags: UInt): CONFIGRET {
@@ -867,12 +875,12 @@ public fun CM_Set_DevNode_Registry_Property_ExW(dndevinst: UInt, ulproperty: UIn
     return Win32DynamicFfi.invoke("cfgmgr32.dll", "CM_Set_DevNode_Registry_Property_ExW", longArrayOf(dndevinst.toLong(), ulproperty.toLong(), buffer, ullength.toLong(), ulflags.toLong(), hmachine)).toUInt()
 }
 
-public fun CM_Set_Device_Interface_PropertyW(pszdeviceinterface: PCWSTR, propertykey: Long, propertytype: Properties.DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, ulflags: UInt): CONFIGRET {
-    return Win32DynamicFfi.invoke("cfgmgr32.dll", "CM_Set_Device_Interface_PropertyW", longArrayOf(pszdeviceinterface, propertykey, Win32DynamicFfi.objectSlot(propertytype), propertybuffer, propertybuffersize.toLong(), ulflags.toLong())).toUInt()
+public fun CM_Set_Device_Interface_PropertyW(pszdeviceinterface: PCWSTR, propertykey: Long, propertytype: DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, ulflags: UInt): CONFIGRET {
+    return Win32DynamicFfi.invoke("cfgmgr32.dll", "CM_Set_Device_Interface_PropertyW", longArrayOf(pszdeviceinterface, propertykey, propertytype.toLong(), propertybuffer, propertybuffersize.toLong(), ulflags.toLong())).toUInt()
 }
 
-public fun CM_Set_Device_Interface_Property_ExW(pszdeviceinterface: PCWSTR, propertykey: Long, propertytype: Properties.DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, ulflags: UInt, hmachine: Long): CONFIGRET {
-    return Win32DynamicFfi.invoke("cfgmgr32.dll", "CM_Set_Device_Interface_Property_ExW", longArrayOf(pszdeviceinterface, propertykey, Win32DynamicFfi.objectSlot(propertytype), propertybuffer, propertybuffersize.toLong(), ulflags.toLong(), hmachine)).toUInt()
+public fun CM_Set_Device_Interface_Property_ExW(pszdeviceinterface: PCWSTR, propertykey: Long, propertytype: DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, ulflags: UInt, hmachine: Long): CONFIGRET {
+    return Win32DynamicFfi.invoke("cfgmgr32.dll", "CM_Set_Device_Interface_Property_ExW", longArrayOf(pszdeviceinterface, propertykey, propertytype.toLong(), propertybuffer, propertybuffersize.toLong(), ulflags.toLong(), hmachine)).toUInt()
 }
 
 public fun CM_Set_HW_Prof(ulhardwareprofile: UInt, ulflags: UInt): CONFIGRET {
@@ -939,48 +947,48 @@ public fun CM_Unregister_Notification(notifycontext: HCMNOTIFICATION): CONFIGRET
     return Win32DynamicFfi.invoke("cfgmgr32.dll", "CM_Unregister_Notification", longArrayOf(notifycontext)).toUInt()
 }
 
-public fun DiInstallDevice(hwndparent: Foundation.HWND, deviceinfoset: HDEVINFO, deviceinfodata: Long, driverinfodata: Long, flags: DIINSTALLDEVICE_FLAGS, needreboot: Long): BOOL {
-    return Win32DynamicFfi.invoke("newdev.dll", "DiInstallDevice", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), deviceinfoset, deviceinfodata, driverinfodata, flags.toLong(), needreboot)).toInt()
+public fun DiInstallDevice(hwndparent: HWND, deviceinfoset: HDEVINFO, deviceinfodata: Long, driverinfodata: Long, flags: DIINSTALLDEVICE_FLAGS, needreboot: Long): BOOL {
+    return Win32DynamicFfi.invoke("newdev.dll", "DiInstallDevice", longArrayOf(hwndparent, deviceinfoset, deviceinfodata, driverinfodata, flags.toLong(), needreboot)).toInt()
 }
 
-public fun DiInstallDriverA(hwndparent: Foundation.HWND, infpath: PCSTR, flags: DIINSTALLDRIVER_FLAGS, needreboot: Long): BOOL {
-    return Win32DynamicFfi.invoke("newdev.dll", "DiInstallDriverA", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), infpath, flags.toLong(), needreboot)).toInt()
+public fun DiInstallDriverA(hwndparent: HWND, infpath: PCSTR, flags: DIINSTALLDRIVER_FLAGS, needreboot: Long): BOOL {
+    return Win32DynamicFfi.invoke("newdev.dll", "DiInstallDriverA", longArrayOf(hwndparent, infpath, flags.toLong(), needreboot)).toInt()
 }
 
-public fun DiInstallDriverW(hwndparent: Foundation.HWND, infpath: PCWSTR, flags: DIINSTALLDRIVER_FLAGS, needreboot: Long): BOOL {
-    return Win32DynamicFfi.invoke("newdev.dll", "DiInstallDriverW", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), infpath, flags.toLong(), needreboot)).toInt()
+public fun DiInstallDriverW(hwndparent: HWND, infpath: PCWSTR, flags: DIINSTALLDRIVER_FLAGS, needreboot: Long): BOOL {
+    return Win32DynamicFfi.invoke("newdev.dll", "DiInstallDriverW", longArrayOf(hwndparent, infpath, flags.toLong(), needreboot)).toInt()
 }
 
-public fun DiRollbackDriver(deviceinfoset: HDEVINFO, deviceinfodata: Long, hwndparent: Foundation.HWND, flags: DIROLLBACKDRIVER_FLAGS, needreboot: Long): BOOL {
-    return Win32DynamicFfi.invoke("newdev.dll", "DiRollbackDriver", longArrayOf(deviceinfoset, deviceinfodata, Win32DynamicFfi.objectSlot(hwndparent), flags.toLong(), needreboot)).toInt()
+public fun DiRollbackDriver(deviceinfoset: HDEVINFO, deviceinfodata: Long, hwndparent: HWND, flags: DIROLLBACKDRIVER_FLAGS, needreboot: Long): BOOL {
+    return Win32DynamicFfi.invoke("newdev.dll", "DiRollbackDriver", longArrayOf(deviceinfoset, deviceinfodata, hwndparent, flags.toLong(), needreboot)).toInt()
 }
 
-public fun DiShowUpdateDevice(hwndparent: Foundation.HWND, deviceinfoset: HDEVINFO, deviceinfodata: Long, flags: UInt, needreboot: Long): BOOL {
-    return Win32DynamicFfi.invoke("newdev.dll", "DiShowUpdateDevice", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), deviceinfoset, deviceinfodata, flags.toLong(), needreboot)).toInt()
+public fun DiShowUpdateDevice(hwndparent: HWND, deviceinfoset: HDEVINFO, deviceinfodata: Long, flags: UInt, needreboot: Long): BOOL {
+    return Win32DynamicFfi.invoke("newdev.dll", "DiShowUpdateDevice", longArrayOf(hwndparent, deviceinfoset, deviceinfodata, flags.toLong(), needreboot)).toInt()
 }
 
-public fun DiShowUpdateDriver(hwndparent: Foundation.HWND, filepath: PCWSTR, flags: UInt, needreboot: Long): BOOL {
-    return Win32DynamicFfi.invoke("newdev.dll", "DiShowUpdateDriver", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), filepath, flags.toLong(), needreboot)).toInt()
+public fun DiShowUpdateDriver(hwndparent: HWND, filepath: PCWSTR, flags: UInt, needreboot: Long): BOOL {
+    return Win32DynamicFfi.invoke("newdev.dll", "DiShowUpdateDriver", longArrayOf(hwndparent, filepath, flags.toLong(), needreboot)).toInt()
 }
 
-public fun DiUninstallDevice(hwndparent: Foundation.HWND, deviceinfoset: HDEVINFO, deviceinfodata: Long, flags: UInt, needreboot: Long): BOOL {
-    return Win32DynamicFfi.invoke("newdev.dll", "DiUninstallDevice", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), deviceinfoset, deviceinfodata, flags.toLong(), needreboot)).toInt()
+public fun DiUninstallDevice(hwndparent: HWND, deviceinfoset: HDEVINFO, deviceinfodata: Long, flags: UInt, needreboot: Long): BOOL {
+    return Win32DynamicFfi.invoke("newdev.dll", "DiUninstallDevice", longArrayOf(hwndparent, deviceinfoset, deviceinfodata, flags.toLong(), needreboot)).toInt()
 }
 
-public fun DiUninstallDriverA(hwndparent: Foundation.HWND, infpath: PCSTR, flags: DIUNINSTALLDRIVER_FLAGS, needreboot: Long): BOOL {
-    return Win32DynamicFfi.invoke("newdev.dll", "DiUninstallDriverA", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), infpath, flags.toLong(), needreboot)).toInt()
+public fun DiUninstallDriverA(hwndparent: HWND, infpath: PCSTR, flags: DIUNINSTALLDRIVER_FLAGS, needreboot: Long): BOOL {
+    return Win32DynamicFfi.invoke("newdev.dll", "DiUninstallDriverA", longArrayOf(hwndparent, infpath, flags.toLong(), needreboot)).toInt()
 }
 
-public fun DiUninstallDriverW(hwndparent: Foundation.HWND, infpath: PCWSTR, flags: DIUNINSTALLDRIVER_FLAGS, needreboot: Long): BOOL {
-    return Win32DynamicFfi.invoke("newdev.dll", "DiUninstallDriverW", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), infpath, flags.toLong(), needreboot)).toInt()
+public fun DiUninstallDriverW(hwndparent: HWND, infpath: PCWSTR, flags: DIUNINSTALLDRIVER_FLAGS, needreboot: Long): BOOL {
+    return Win32DynamicFfi.invoke("newdev.dll", "DiUninstallDriverW", longArrayOf(hwndparent, infpath, flags.toLong(), needreboot)).toInt()
 }
 
-public fun InstallHinfSectionA(window: Foundation.HWND, modulehandle: Foundation.HINSTANCE, commandline: PCSTR, showcommand: Int) {
-    Win32DynamicFfi.invoke("setupapi.dll", "InstallHinfSectionA", longArrayOf(Win32DynamicFfi.objectSlot(window), Win32DynamicFfi.objectSlot(modulehandle), commandline, showcommand.toLong()))
+public fun InstallHinfSectionA(window: HWND, modulehandle: HINSTANCE, commandline: PCSTR, showcommand: Int) {
+    Win32DynamicFfi.invoke("setupapi.dll", "InstallHinfSectionA", longArrayOf(window, modulehandle, commandline, showcommand.toLong()))
 }
 
-public fun InstallHinfSectionW(window: Foundation.HWND, modulehandle: Foundation.HINSTANCE, commandline: PCWSTR, showcommand: Int) {
-    Win32DynamicFfi.invoke("setupapi.dll", "InstallHinfSectionW", longArrayOf(Win32DynamicFfi.objectSlot(window), Win32DynamicFfi.objectSlot(modulehandle), commandline, showcommand.toLong()))
+public fun InstallHinfSectionW(window: HWND, modulehandle: HINSTANCE, commandline: PCWSTR, showcommand: Int) {
+    Win32DynamicFfi.invoke("setupapi.dll", "InstallHinfSectionW", longArrayOf(window, modulehandle, commandline, showcommand.toLong()))
 }
 
 public fun SetupAddInstallSectionToDiskSpaceListA(diskspace: Long, infhandle: Long, layoutinfhandle: Long, sectionname: PCSTR, reserved1: Long, reserved2: UInt): BOOL {
@@ -1023,12 +1031,12 @@ public fun SetupAdjustDiskSpaceListW(diskspace: Long, driveroot: PCWSTR, amount:
     return Win32DynamicFfi.invoke("setupapi.dll", "SetupAdjustDiskSpaceListW", longArrayOf(diskspace, driveroot, amount, reserved1, reserved2.toLong())).toInt()
 }
 
-public fun SetupBackupErrorA(hwndparent: Foundation.HWND, dialogtitle: PCSTR, sourcefile: PCSTR, targetfile: PCSTR, win32errorcode: UInt, style: UInt): UInt {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupBackupErrorA", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), dialogtitle, sourcefile, targetfile, win32errorcode.toLong(), style.toLong())).toUInt()
+public fun SetupBackupErrorA(hwndparent: HWND, dialogtitle: PCSTR, sourcefile: PCSTR, targetfile: PCSTR, win32errorcode: UInt, style: UInt): UInt {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupBackupErrorA", longArrayOf(hwndparent, dialogtitle, sourcefile, targetfile, win32errorcode.toLong(), style.toLong())).toUInt()
 }
 
-public fun SetupBackupErrorW(hwndparent: Foundation.HWND, dialogtitle: PCWSTR, sourcefile: PCWSTR, targetfile: PCWSTR, win32errorcode: UInt, style: UInt): UInt {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupBackupErrorW", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), dialogtitle, sourcefile, targetfile, win32errorcode.toLong(), style.toLong())).toUInt()
+public fun SetupBackupErrorW(hwndparent: HWND, dialogtitle: PCWSTR, sourcefile: PCWSTR, targetfile: PCWSTR, win32errorcode: UInt, style: UInt): UInt {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupBackupErrorW", longArrayOf(hwndparent, dialogtitle, sourcefile, targetfile, win32errorcode.toLong(), style.toLong())).toUInt()
 }
 
 public fun SetupCancelTemporarySourceList(): BOOL {
@@ -1047,12 +1055,12 @@ public fun SetupCloseLog() {
     Win32DynamicFfi.invoke("setupapi.dll", "SetupCloseLog", longArrayOf())
 }
 
-public fun SetupCommitFileQueueA(owner: Foundation.HWND, queuehandle: Long, msghandler: PSP_FILE_CALLBACK_A, context: Long): BOOL {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupCommitFileQueueA", longArrayOf(Win32DynamicFfi.objectSlot(owner), queuehandle, Win32DynamicFfi.objectSlot(msghandler), context)).toInt()
+public fun SetupCommitFileQueueA(owner: HWND, queuehandle: Long, msghandler: PSP_FILE_CALLBACK_A, context: Long): BOOL {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupCommitFileQueueA", longArrayOf(owner, queuehandle, Win32DynamicFfi.objectSlot(msghandler), context)).toInt()
 }
 
-public fun SetupCommitFileQueueW(owner: Foundation.HWND, queuehandle: Long, msghandler: PSP_FILE_CALLBACK_W, context: Long): BOOL {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupCommitFileQueueW", longArrayOf(Win32DynamicFfi.objectSlot(owner), queuehandle, Win32DynamicFfi.objectSlot(msghandler), context)).toInt()
+public fun SetupCommitFileQueueW(owner: HWND, queuehandle: Long, msghandler: PSP_FILE_CALLBACK_W, context: Long): BOOL {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupCommitFileQueueW", longArrayOf(owner, queuehandle, Win32DynamicFfi.objectSlot(msghandler), context)).toInt()
 }
 
 public fun SetupConfigureWmiFromInfSectionA(infhandle: Long, sectionname: PCSTR, flags: UInt): BOOL {
@@ -1063,12 +1071,12 @@ public fun SetupConfigureWmiFromInfSectionW(infhandle: Long, sectionname: PCWSTR
     return Win32DynamicFfi.invoke("setupapi.dll", "SetupConfigureWmiFromInfSectionW", longArrayOf(infhandle, sectionname, flags.toLong())).toInt()
 }
 
-public fun SetupCopyErrorA(hwndparent: Foundation.HWND, dialogtitle: PCSTR, diskname: PCSTR, pathtosource: PCSTR, sourcefile: PCSTR, targetpathfile: PCSTR, win32errorcode: UInt, style: UInt, pathbuffer: PSTR, pathbuffersize: UInt, pathrequiredsize: Long): UInt {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupCopyErrorA", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), dialogtitle, diskname, pathtosource, sourcefile, targetpathfile, win32errorcode.toLong(), style.toLong(), pathbuffer, pathbuffersize.toLong(), pathrequiredsize)).toUInt()
+public fun SetupCopyErrorA(hwndparent: HWND, dialogtitle: PCSTR, diskname: PCSTR, pathtosource: PCSTR, sourcefile: PCSTR, targetpathfile: PCSTR, win32errorcode: UInt, style: UInt, pathbuffer: PSTR, pathbuffersize: UInt, pathrequiredsize: Long): UInt {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupCopyErrorA", longArrayOf(hwndparent, dialogtitle, diskname, pathtosource, sourcefile, targetpathfile, win32errorcode.toLong(), style.toLong(), pathbuffer, pathbuffersize.toLong(), pathrequiredsize)).toUInt()
 }
 
-public fun SetupCopyErrorW(hwndparent: Foundation.HWND, dialogtitle: PCWSTR, diskname: PCWSTR, pathtosource: PCWSTR, sourcefile: PCWSTR, targetpathfile: PCWSTR, win32errorcode: UInt, style: UInt, pathbuffer: PWSTR, pathbuffersize: UInt, pathrequiredsize: Long): UInt {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupCopyErrorW", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), dialogtitle, diskname, pathtosource, sourcefile, targetpathfile, win32errorcode.toLong(), style.toLong(), pathbuffer, pathbuffersize.toLong(), pathrequiredsize)).toUInt()
+public fun SetupCopyErrorW(hwndparent: HWND, dialogtitle: PCWSTR, diskname: PCWSTR, pathtosource: PCWSTR, sourcefile: PCWSTR, targetpathfile: PCWSTR, win32errorcode: UInt, style: UInt, pathbuffer: PWSTR, pathbuffersize: UInt, pathrequiredsize: Long): UInt {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupCopyErrorW", longArrayOf(hwndparent, dialogtitle, diskname, pathtosource, sourcefile, targetpathfile, win32errorcode.toLong(), style.toLong(), pathbuffer, pathbuffersize.toLong(), pathrequiredsize)).toUInt()
 }
 
 public fun SetupCopyOEMInfA(sourceinffilename: PCSTR, oemsourcemedialocation: PCSTR, oemsourcemediatype: OEM_SOURCE_MEDIA_TYPE, copystyle: SP_COPY_STYLE, destinationinffilename: PSTR, destinationinffilenamesize: UInt, requiredsize: Long, destinationinffilenamecomponent: Long): BOOL {
@@ -1103,12 +1111,12 @@ public fun SetupDefaultQueueCallbackW(context: Long, notification: UInt, param1:
     return Win32DynamicFfi.invoke("setupapi.dll", "SetupDefaultQueueCallbackW", longArrayOf(context, notification.toLong(), param1.toLong(), param2.toLong())).toUInt()
 }
 
-public fun SetupDeleteErrorA(hwndparent: Foundation.HWND, dialogtitle: PCSTR, file: PCSTR, win32errorcode: UInt, style: UInt): UInt {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDeleteErrorA", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), dialogtitle, file, win32errorcode.toLong(), style.toLong())).toUInt()
+public fun SetupDeleteErrorA(hwndparent: HWND, dialogtitle: PCSTR, file: PCSTR, win32errorcode: UInt, style: UInt): UInt {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDeleteErrorA", longArrayOf(hwndparent, dialogtitle, file, win32errorcode.toLong(), style.toLong())).toUInt()
 }
 
-public fun SetupDeleteErrorW(hwndparent: Foundation.HWND, dialogtitle: PCWSTR, file: PCWSTR, win32errorcode: UInt, style: UInt): UInt {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDeleteErrorW", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), dialogtitle, file, win32errorcode.toLong(), style.toLong())).toUInt()
+public fun SetupDeleteErrorW(hwndparent: HWND, dialogtitle: PCWSTR, file: PCWSTR, win32errorcode: UInt, style: UInt): UInt {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDeleteErrorW", longArrayOf(hwndparent, dialogtitle, file, win32errorcode.toLong(), style.toLong())).toUInt()
 }
 
 public fun SetupDestroyDiskSpaceList(diskspace: Long): BOOL {
@@ -1179,48 +1187,44 @@ public fun SetupDiClassNameFromGuidW(classguid: Long, classname: PWSTR, classnam
     return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiClassNameFromGuidW", longArrayOf(classguid, classname, classnamesize.toLong(), requiredsize)).toInt()
 }
 
-public fun SetupDiCreateDevRegKeyA(deviceinfoset: HDEVINFO, deviceinfodata: Long, scope: UInt, hwprofile: UInt, keytype: UInt, infhandle: Long, infsectionname: PCSTR): System.Registry.HKEY {
-    Win32DynamicFfi.invoke("setupapi.dll", "SetupDiCreateDevRegKeyA", longArrayOf(deviceinfoset, deviceinfodata, scope.toLong(), hwprofile.toLong(), keytype.toLong(), infhandle, infsectionname))
-    return System.Registry.HKEY()
+public fun SetupDiCreateDevRegKeyA(deviceinfoset: HDEVINFO, deviceinfodata: Long, scope: UInt, hwprofile: UInt, keytype: UInt, infhandle: Long, infsectionname: PCSTR): HKEY {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiCreateDevRegKeyA", longArrayOf(deviceinfoset, deviceinfodata, scope.toLong(), hwprofile.toLong(), keytype.toLong(), infhandle, infsectionname))
 }
 
-public fun SetupDiCreateDevRegKeyW(deviceinfoset: HDEVINFO, deviceinfodata: Long, scope: UInt, hwprofile: UInt, keytype: UInt, infhandle: Long, infsectionname: PCWSTR): System.Registry.HKEY {
-    Win32DynamicFfi.invoke("setupapi.dll", "SetupDiCreateDevRegKeyW", longArrayOf(deviceinfoset, deviceinfodata, scope.toLong(), hwprofile.toLong(), keytype.toLong(), infhandle, infsectionname))
-    return System.Registry.HKEY()
+public fun SetupDiCreateDevRegKeyW(deviceinfoset: HDEVINFO, deviceinfodata: Long, scope: UInt, hwprofile: UInt, keytype: UInt, infhandle: Long, infsectionname: PCWSTR): HKEY {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiCreateDevRegKeyW", longArrayOf(deviceinfoset, deviceinfodata, scope.toLong(), hwprofile.toLong(), keytype.toLong(), infhandle, infsectionname))
 }
 
-public fun SetupDiCreateDeviceInfoA(deviceinfoset: HDEVINFO, devicename: PCSTR, classguid: Long, devicedescription: PCSTR, hwndparent: Foundation.HWND, creationflags: SETUP_DI_DEVICE_CREATION_FLAGS, deviceinfodata: Long): BOOL {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiCreateDeviceInfoA", longArrayOf(deviceinfoset, devicename, classguid, devicedescription, Win32DynamicFfi.objectSlot(hwndparent), creationflags.toLong(), deviceinfodata)).toInt()
+public fun SetupDiCreateDeviceInfoA(deviceinfoset: HDEVINFO, devicename: PCSTR, classguid: Long, devicedescription: PCSTR, hwndparent: HWND, creationflags: SETUP_DI_DEVICE_CREATION_FLAGS, deviceinfodata: Long): BOOL {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiCreateDeviceInfoA", longArrayOf(deviceinfoset, devicename, classguid, devicedescription, hwndparent, creationflags.toLong(), deviceinfodata)).toInt()
 }
 
-public fun SetupDiCreateDeviceInfoList(classguid: Long, hwndparent: Foundation.HWND): HDEVINFO {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiCreateDeviceInfoList", longArrayOf(classguid, Win32DynamicFfi.objectSlot(hwndparent)))
+public fun SetupDiCreateDeviceInfoList(classguid: Long, hwndparent: HWND): HDEVINFO {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiCreateDeviceInfoList", longArrayOf(classguid, hwndparent))
 }
 
-public fun SetupDiCreateDeviceInfoListExA(classguid: Long, hwndparent: Foundation.HWND, machinename: PCSTR, reserved: Long): HDEVINFO {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiCreateDeviceInfoListExA", longArrayOf(classguid, Win32DynamicFfi.objectSlot(hwndparent), machinename, reserved))
+public fun SetupDiCreateDeviceInfoListExA(classguid: Long, hwndparent: HWND, machinename: PCSTR, reserved: Long): HDEVINFO {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiCreateDeviceInfoListExA", longArrayOf(classguid, hwndparent, machinename, reserved))
 }
 
-public fun SetupDiCreateDeviceInfoListExW(classguid: Long, hwndparent: Foundation.HWND, machinename: PCWSTR, reserved: Long): HDEVINFO {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiCreateDeviceInfoListExW", longArrayOf(classguid, Win32DynamicFfi.objectSlot(hwndparent), machinename, reserved))
+public fun SetupDiCreateDeviceInfoListExW(classguid: Long, hwndparent: HWND, machinename: PCWSTR, reserved: Long): HDEVINFO {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiCreateDeviceInfoListExW", longArrayOf(classguid, hwndparent, machinename, reserved))
 }
 
-public fun SetupDiCreateDeviceInfoW(deviceinfoset: HDEVINFO, devicename: PCWSTR, classguid: Long, devicedescription: PCWSTR, hwndparent: Foundation.HWND, creationflags: SETUP_DI_DEVICE_CREATION_FLAGS, deviceinfodata: Long): BOOL {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiCreateDeviceInfoW", longArrayOf(deviceinfoset, devicename, classguid, devicedescription, Win32DynamicFfi.objectSlot(hwndparent), creationflags.toLong(), deviceinfodata)).toInt()
+public fun SetupDiCreateDeviceInfoW(deviceinfoset: HDEVINFO, devicename: PCWSTR, classguid: Long, devicedescription: PCWSTR, hwndparent: HWND, creationflags: SETUP_DI_DEVICE_CREATION_FLAGS, deviceinfodata: Long): BOOL {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiCreateDeviceInfoW", longArrayOf(deviceinfoset, devicename, classguid, devicedescription, hwndparent, creationflags.toLong(), deviceinfodata)).toInt()
 }
 
 public fun SetupDiCreateDeviceInterfaceA(deviceinfoset: HDEVINFO, deviceinfodata: Long, interfaceclassguid: Long, referencestring: PCSTR, creationflags: UInt, deviceinterfacedata: Long): BOOL {
     return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiCreateDeviceInterfaceA", longArrayOf(deviceinfoset, deviceinfodata, interfaceclassguid, referencestring, creationflags.toLong(), deviceinterfacedata)).toInt()
 }
 
-public fun SetupDiCreateDeviceInterfaceRegKeyA(deviceinfoset: HDEVINFO, deviceinterfacedata: Long, reserved: UInt, samdesired: UInt, infhandle: Long, infsectionname: PCSTR): System.Registry.HKEY {
-    Win32DynamicFfi.invoke("setupapi.dll", "SetupDiCreateDeviceInterfaceRegKeyA", longArrayOf(deviceinfoset, deviceinterfacedata, reserved.toLong(), samdesired.toLong(), infhandle, infsectionname))
-    return System.Registry.HKEY()
+public fun SetupDiCreateDeviceInterfaceRegKeyA(deviceinfoset: HDEVINFO, deviceinterfacedata: Long, reserved: UInt, samdesired: UInt, infhandle: Long, infsectionname: PCSTR): HKEY {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiCreateDeviceInterfaceRegKeyA", longArrayOf(deviceinfoset, deviceinterfacedata, reserved.toLong(), samdesired.toLong(), infhandle, infsectionname))
 }
 
-public fun SetupDiCreateDeviceInterfaceRegKeyW(deviceinfoset: HDEVINFO, deviceinterfacedata: Long, reserved: UInt, samdesired: UInt, infhandle: Long, infsectionname: PCWSTR): System.Registry.HKEY {
-    Win32DynamicFfi.invoke("setupapi.dll", "SetupDiCreateDeviceInterfaceRegKeyW", longArrayOf(deviceinfoset, deviceinterfacedata, reserved.toLong(), samdesired.toLong(), infhandle, infsectionname))
-    return System.Registry.HKEY()
+public fun SetupDiCreateDeviceInterfaceRegKeyW(deviceinfoset: HDEVINFO, deviceinterfacedata: Long, reserved: UInt, samdesired: UInt, infhandle: Long, infsectionname: PCWSTR): HKEY {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiCreateDeviceInterfaceRegKeyW", longArrayOf(deviceinfoset, deviceinterfacedata, reserved.toLong(), samdesired.toLong(), infhandle, infsectionname))
 }
 
 public fun SetupDiCreateDeviceInterfaceW(deviceinfoset: HDEVINFO, deviceinfodata: Long, interfaceclassguid: Long, referencestring: PCWSTR, creationflags: UInt, deviceinterfacedata: Long): BOOL {
@@ -1255,8 +1259,8 @@ public fun SetupDiDestroyDriverInfoList(deviceinfoset: HDEVINFO, deviceinfodata:
     return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiDestroyDriverInfoList", longArrayOf(deviceinfoset, deviceinfodata, drivertype.toLong())).toInt()
 }
 
-public fun SetupDiDrawMiniIcon(hdc: Graphics.Gdi.HDC, rc: Foundation.RECT, miniiconindex: Int, flags: UInt): Int {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiDrawMiniIcon", longArrayOf(Win32DynamicFfi.objectSlot(hdc), Win32DynamicFfi.objectSlot(rc), miniiconindex.toLong(), flags.toLong())).toInt()
+public fun SetupDiDrawMiniIcon(hdc: HDC, rc: RECT, miniiconindex: Int, flags: UInt): Int {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiDrawMiniIcon", longArrayOf(hdc, run { val buf = ByteArray(16); buf[0] = (rc.left and 0xFF).toByte(); buf[1] = ((rc.left ushr 8) and 0xFF).toByte(); buf[2] = ((rc.left ushr 16) and 0xFF).toByte(); buf[3] = ((rc.left ushr 24) and 0xFF).toByte(); buf[4] = (rc.top and 0xFF).toByte(); buf[5] = ((rc.top ushr 8) and 0xFF).toByte(); buf[6] = ((rc.top ushr 16) and 0xFF).toByte(); buf[7] = ((rc.top ushr 24) and 0xFF).toByte(); buf[8] = (rc.right and 0xFF).toByte(); buf[9] = ((rc.right ushr 8) and 0xFF).toByte(); buf[10] = ((rc.right ushr 16) and 0xFF).toByte(); buf[11] = ((rc.right ushr 24) and 0xFF).toByte(); buf[12] = (rc.bottom and 0xFF).toByte(); buf[13] = ((rc.bottom ushr 8) and 0xFF).toByte(); buf[14] = ((rc.bottom ushr 16) and 0xFF).toByte(); buf[15] = ((rc.bottom ushr 24) and 0xFF).toByte(); val ptr = Win32DynamicFfi.allocZeroed(16); Win32DynamicFfi.writeBytes(ptr, buf); ptr }, miniiconindex.toLong(), flags.toLong())).toInt()
 }
 
 public fun SetupDiEnumDeviceInfo(deviceinfoset: HDEVINFO, memberindex: UInt, deviceinfodata: Long): BOOL {
@@ -1327,20 +1331,20 @@ public fun SetupDiGetClassDevPropertySheetsW(deviceinfoset: HDEVINFO, deviceinfo
     return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiGetClassDevPropertySheetsW", longArrayOf(deviceinfoset, deviceinfodata, propertysheetheader, propertysheetheaderpagelistsize.toLong(), requiredsize, propertysheettype.toLong())).toInt()
 }
 
-public fun SetupDiGetClassDevsA(classguid: Long, enumerator: PCSTR, hwndparent: Foundation.HWND, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS): HDEVINFO {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiGetClassDevsA", longArrayOf(classguid, enumerator, Win32DynamicFfi.objectSlot(hwndparent), flags.toLong()))
+public fun SetupDiGetClassDevsA(classguid: Long, enumerator: PCSTR, hwndparent: HWND, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS): HDEVINFO {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiGetClassDevsA", longArrayOf(classguid, enumerator, hwndparent, flags.toLong()))
 }
 
-public fun SetupDiGetClassDevsExA(classguid: Long, enumerator: PCSTR, hwndparent: Foundation.HWND, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS, deviceinfoset: HDEVINFO, machinename: PCSTR, reserved: Long): HDEVINFO {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiGetClassDevsExA", longArrayOf(classguid, enumerator, Win32DynamicFfi.objectSlot(hwndparent), flags.toLong(), deviceinfoset, machinename, reserved))
+public fun SetupDiGetClassDevsExA(classguid: Long, enumerator: PCSTR, hwndparent: HWND, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS, deviceinfoset: HDEVINFO, machinename: PCSTR, reserved: Long): HDEVINFO {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiGetClassDevsExA", longArrayOf(classguid, enumerator, hwndparent, flags.toLong(), deviceinfoset, machinename, reserved))
 }
 
-public fun SetupDiGetClassDevsExW(classguid: Long, enumerator: PCWSTR, hwndparent: Foundation.HWND, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS, deviceinfoset: HDEVINFO, machinename: PCWSTR, reserved: Long): HDEVINFO {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiGetClassDevsExW", longArrayOf(classguid, enumerator, Win32DynamicFfi.objectSlot(hwndparent), flags.toLong(), deviceinfoset, machinename, reserved))
+public fun SetupDiGetClassDevsExW(classguid: Long, enumerator: PCWSTR, hwndparent: HWND, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS, deviceinfoset: HDEVINFO, machinename: PCWSTR, reserved: Long): HDEVINFO {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiGetClassDevsExW", longArrayOf(classguid, enumerator, hwndparent, flags.toLong(), deviceinfoset, machinename, reserved))
 }
 
-public fun SetupDiGetClassDevsW(classguid: Long, enumerator: PCWSTR, hwndparent: Foundation.HWND, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS): HDEVINFO {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiGetClassDevsW", longArrayOf(classguid, enumerator, Win32DynamicFfi.objectSlot(hwndparent), flags.toLong()))
+public fun SetupDiGetClassDevsW(classguid: Long, enumerator: PCWSTR, hwndparent: HWND, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS): HDEVINFO {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiGetClassDevsW", longArrayOf(classguid, enumerator, hwndparent, flags.toLong()))
 }
 
 public fun SetupDiGetClassImageIndex(classimagelistdata: Long, classguid: Long, imageindex: Long): BOOL {
@@ -1527,25 +1531,24 @@ public fun SetupDiGetSelectedDriverW(deviceinfoset: HDEVINFO, deviceinfodata: Lo
     return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiGetSelectedDriverW", longArrayOf(deviceinfoset, deviceinfodata, driverinfodata)).toInt()
 }
 
-public fun SetupDiGetWizardPage(deviceinfoset: HDEVINFO, deviceinfodata: Long, installwizarddata: Long, pagetype: UInt, flags: UInt): UI.Controls.HPROPSHEETPAGE {
-    Win32DynamicFfi.invoke("setupapi.dll", "SetupDiGetWizardPage", longArrayOf(deviceinfoset, deviceinfodata, installwizarddata, pagetype.toLong(), flags.toLong()))
-    return UI.Controls.HPROPSHEETPAGE()
+public fun SetupDiGetWizardPage(deviceinfoset: HDEVINFO, deviceinfodata: Long, installwizarddata: Long, pagetype: UInt, flags: UInt): HPROPSHEETPAGE {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiGetWizardPage", longArrayOf(deviceinfoset, deviceinfodata, installwizarddata, pagetype.toLong(), flags.toLong()))
 }
 
-public fun SetupDiInstallClassA(hwndparent: Foundation.HWND, inffilename: PCSTR, flags: UInt, filequeue: Long): BOOL {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiInstallClassA", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), inffilename, flags.toLong(), filequeue)).toInt()
+public fun SetupDiInstallClassA(hwndparent: HWND, inffilename: PCSTR, flags: UInt, filequeue: Long): BOOL {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiInstallClassA", longArrayOf(hwndparent, inffilename, flags.toLong(), filequeue)).toInt()
 }
 
-public fun SetupDiInstallClassExA(hwndparent: Foundation.HWND, inffilename: PCSTR, flags: UInt, filequeue: Long, interfaceclassguid: Long, reserved1: Long, reserved2: Long): BOOL {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiInstallClassExA", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), inffilename, flags.toLong(), filequeue, interfaceclassguid, reserved1, reserved2)).toInt()
+public fun SetupDiInstallClassExA(hwndparent: HWND, inffilename: PCSTR, flags: UInt, filequeue: Long, interfaceclassguid: Long, reserved1: Long, reserved2: Long): BOOL {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiInstallClassExA", longArrayOf(hwndparent, inffilename, flags.toLong(), filequeue, interfaceclassguid, reserved1, reserved2)).toInt()
 }
 
-public fun SetupDiInstallClassExW(hwndparent: Foundation.HWND, inffilename: PCWSTR, flags: UInt, filequeue: Long, interfaceclassguid: Long, reserved1: Long, reserved2: Long): BOOL {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiInstallClassExW", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), inffilename, flags.toLong(), filequeue, interfaceclassguid, reserved1, reserved2)).toInt()
+public fun SetupDiInstallClassExW(hwndparent: HWND, inffilename: PCWSTR, flags: UInt, filequeue: Long, interfaceclassguid: Long, reserved1: Long, reserved2: Long): BOOL {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiInstallClassExW", longArrayOf(hwndparent, inffilename, flags.toLong(), filequeue, interfaceclassguid, reserved1, reserved2)).toInt()
 }
 
-public fun SetupDiInstallClassW(hwndparent: Foundation.HWND, inffilename: PCWSTR, flags: UInt, filequeue: Long): BOOL {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiInstallClassW", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), inffilename, flags.toLong(), filequeue)).toInt()
+public fun SetupDiInstallClassW(hwndparent: HWND, inffilename: PCWSTR, flags: UInt, filequeue: Long): BOOL {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiInstallClassW", longArrayOf(hwndparent, inffilename, flags.toLong(), filequeue)).toInt()
 }
 
 public fun SetupDiInstallDevice(deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL {
@@ -1568,41 +1571,36 @@ public fun SetupDiLoadDeviceIcon(deviceinfoset: HDEVINFO, deviceinfodata: Long, 
     return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiLoadDeviceIcon", longArrayOf(deviceinfoset, deviceinfodata, cxicon.toLong(), cyicon.toLong(), flags.toLong(), hicon)).toInt()
 }
 
-public fun SetupDiOpenClassRegKey(classguid: Long, samdesired: UInt): System.Registry.HKEY {
-    Win32DynamicFfi.invoke("setupapi.dll", "SetupDiOpenClassRegKey", longArrayOf(classguid, samdesired.toLong()))
-    return System.Registry.HKEY()
+public fun SetupDiOpenClassRegKey(classguid: Long, samdesired: UInt): HKEY {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiOpenClassRegKey", longArrayOf(classguid, samdesired.toLong()))
 }
 
-public fun SetupDiOpenClassRegKeyExA(classguid: Long, samdesired: UInt, flags: UInt, machinename: PCSTR, reserved: Long): System.Registry.HKEY {
-    Win32DynamicFfi.invoke("setupapi.dll", "SetupDiOpenClassRegKeyExA", longArrayOf(classguid, samdesired.toLong(), flags.toLong(), machinename, reserved))
-    return System.Registry.HKEY()
+public fun SetupDiOpenClassRegKeyExA(classguid: Long, samdesired: UInt, flags: UInt, machinename: PCSTR, reserved: Long): HKEY {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiOpenClassRegKeyExA", longArrayOf(classguid, samdesired.toLong(), flags.toLong(), machinename, reserved))
 }
 
-public fun SetupDiOpenClassRegKeyExW(classguid: Long, samdesired: UInt, flags: UInt, machinename: PCWSTR, reserved: Long): System.Registry.HKEY {
-    Win32DynamicFfi.invoke("setupapi.dll", "SetupDiOpenClassRegKeyExW", longArrayOf(classguid, samdesired.toLong(), flags.toLong(), machinename, reserved))
-    return System.Registry.HKEY()
+public fun SetupDiOpenClassRegKeyExW(classguid: Long, samdesired: UInt, flags: UInt, machinename: PCWSTR, reserved: Long): HKEY {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiOpenClassRegKeyExW", longArrayOf(classguid, samdesired.toLong(), flags.toLong(), machinename, reserved))
 }
 
-public fun SetupDiOpenDevRegKey(deviceinfoset: HDEVINFO, deviceinfodata: Long, scope: UInt, hwprofile: UInt, keytype: UInt, samdesired: UInt): System.Registry.HKEY {
-    Win32DynamicFfi.invoke("setupapi.dll", "SetupDiOpenDevRegKey", longArrayOf(deviceinfoset, deviceinfodata, scope.toLong(), hwprofile.toLong(), keytype.toLong(), samdesired.toLong()))
-    return System.Registry.HKEY()
+public fun SetupDiOpenDevRegKey(deviceinfoset: HDEVINFO, deviceinfodata: Long, scope: UInt, hwprofile: UInt, keytype: UInt, samdesired: UInt): HKEY {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiOpenDevRegKey", longArrayOf(deviceinfoset, deviceinfodata, scope.toLong(), hwprofile.toLong(), keytype.toLong(), samdesired.toLong()))
 }
 
-public fun SetupDiOpenDeviceInfoA(deviceinfoset: HDEVINFO, deviceinstanceid: PCSTR, hwndparent: Foundation.HWND, openflags: UInt, deviceinfodata: Long): BOOL {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiOpenDeviceInfoA", longArrayOf(deviceinfoset, deviceinstanceid, Win32DynamicFfi.objectSlot(hwndparent), openflags.toLong(), deviceinfodata)).toInt()
+public fun SetupDiOpenDeviceInfoA(deviceinfoset: HDEVINFO, deviceinstanceid: PCSTR, hwndparent: HWND, openflags: UInt, deviceinfodata: Long): BOOL {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiOpenDeviceInfoA", longArrayOf(deviceinfoset, deviceinstanceid, hwndparent, openflags.toLong(), deviceinfodata)).toInt()
 }
 
-public fun SetupDiOpenDeviceInfoW(deviceinfoset: HDEVINFO, deviceinstanceid: PCWSTR, hwndparent: Foundation.HWND, openflags: UInt, deviceinfodata: Long): BOOL {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiOpenDeviceInfoW", longArrayOf(deviceinfoset, deviceinstanceid, Win32DynamicFfi.objectSlot(hwndparent), openflags.toLong(), deviceinfodata)).toInt()
+public fun SetupDiOpenDeviceInfoW(deviceinfoset: HDEVINFO, deviceinstanceid: PCWSTR, hwndparent: HWND, openflags: UInt, deviceinfodata: Long): BOOL {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiOpenDeviceInfoW", longArrayOf(deviceinfoset, deviceinstanceid, hwndparent, openflags.toLong(), deviceinfodata)).toInt()
 }
 
 public fun SetupDiOpenDeviceInterfaceA(deviceinfoset: HDEVINFO, devicepath: PCSTR, openflags: UInt, deviceinterfacedata: Long): BOOL {
     return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiOpenDeviceInterfaceA", longArrayOf(deviceinfoset, devicepath, openflags.toLong(), deviceinterfacedata)).toInt()
 }
 
-public fun SetupDiOpenDeviceInterfaceRegKey(deviceinfoset: HDEVINFO, deviceinterfacedata: Long, reserved: UInt, samdesired: UInt): System.Registry.HKEY {
-    Win32DynamicFfi.invoke("setupapi.dll", "SetupDiOpenDeviceInterfaceRegKey", longArrayOf(deviceinfoset, deviceinterfacedata, reserved.toLong(), samdesired.toLong()))
-    return System.Registry.HKEY()
+public fun SetupDiOpenDeviceInterfaceRegKey(deviceinfoset: HDEVINFO, deviceinterfacedata: Long, reserved: UInt, samdesired: UInt): HKEY {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiOpenDeviceInterfaceRegKey", longArrayOf(deviceinfoset, deviceinterfacedata, reserved.toLong(), samdesired.toLong()))
 }
 
 public fun SetupDiOpenDeviceInterfaceW(deviceinfoset: HDEVINFO, devicepath: PCWSTR, openflags: UInt, deviceinterfacedata: Long): BOOL {
@@ -1637,8 +1635,8 @@ public fun SetupDiSelectDevice(deviceinfoset: HDEVINFO, deviceinfodata: Long): B
     return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiSelectDevice", longArrayOf(deviceinfoset, deviceinfodata)).toInt()
 }
 
-public fun SetupDiSelectOEMDrv(hwndparent: Foundation.HWND, deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiSelectOEMDrv", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), deviceinfoset, deviceinfodata)).toInt()
+public fun SetupDiSelectOEMDrv(hwndparent: HWND, deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiSelectOEMDrv", longArrayOf(hwndparent, deviceinfoset, deviceinfodata)).toInt()
 }
 
 public fun SetupDiSetClassInstallParamsA(deviceinfoset: HDEVINFO, deviceinfodata: Long, classinstallparams: Long, classinstallparamssize: UInt): BOOL {
@@ -1649,12 +1647,12 @@ public fun SetupDiSetClassInstallParamsW(deviceinfoset: HDEVINFO, deviceinfodata
     return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiSetClassInstallParamsW", longArrayOf(deviceinfoset, deviceinfodata, classinstallparams, classinstallparamssize.toLong())).toInt()
 }
 
-public fun SetupDiSetClassPropertyExW(classguid: Long, propertykey: Long, propertytype: Properties.DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, flags: UInt, machinename: PCWSTR, reserved: Long): BOOL {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiSetClassPropertyExW", longArrayOf(classguid, propertykey, Win32DynamicFfi.objectSlot(propertytype), propertybuffer, propertybuffersize.toLong(), flags.toLong(), machinename, reserved)).toInt()
+public fun SetupDiSetClassPropertyExW(classguid: Long, propertykey: Long, propertytype: DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, flags: UInt, machinename: PCWSTR, reserved: Long): BOOL {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiSetClassPropertyExW", longArrayOf(classguid, propertykey, propertytype.toLong(), propertybuffer, propertybuffersize.toLong(), flags.toLong(), machinename, reserved)).toInt()
 }
 
-public fun SetupDiSetClassPropertyW(classguid: Long, propertykey: Long, propertytype: Properties.DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, flags: UInt): BOOL {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiSetClassPropertyW", longArrayOf(classguid, propertykey, Win32DynamicFfi.objectSlot(propertytype), propertybuffer, propertybuffersize.toLong(), flags.toLong())).toInt()
+public fun SetupDiSetClassPropertyW(classguid: Long, propertykey: Long, propertytype: DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, flags: UInt): BOOL {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiSetClassPropertyW", longArrayOf(classguid, propertykey, propertytype.toLong(), propertybuffer, propertybuffersize.toLong(), flags.toLong())).toInt()
 }
 
 public fun SetupDiSetClassRegistryPropertyA(classguid: Long, property: UInt, propertybuffer: Long, propertybuffersize: UInt, machinename: PCSTR, reserved: Long): BOOL {
@@ -1677,12 +1675,12 @@ public fun SetupDiSetDeviceInterfaceDefault(deviceinfoset: HDEVINFO, deviceinter
     return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiSetDeviceInterfaceDefault", longArrayOf(deviceinfoset, deviceinterfacedata, flags.toLong(), reserved)).toInt()
 }
 
-public fun SetupDiSetDeviceInterfacePropertyW(deviceinfoset: HDEVINFO, deviceinterfacedata: Long, propertykey: Long, propertytype: Properties.DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, flags: UInt): BOOL {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiSetDeviceInterfacePropertyW", longArrayOf(deviceinfoset, deviceinterfacedata, propertykey, Win32DynamicFfi.objectSlot(propertytype), propertybuffer, propertybuffersize.toLong(), flags.toLong())).toInt()
+public fun SetupDiSetDeviceInterfacePropertyW(deviceinfoset: HDEVINFO, deviceinterfacedata: Long, propertykey: Long, propertytype: DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, flags: UInt): BOOL {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiSetDeviceInterfacePropertyW", longArrayOf(deviceinfoset, deviceinterfacedata, propertykey, propertytype.toLong(), propertybuffer, propertybuffersize.toLong(), flags.toLong())).toInt()
 }
 
-public fun SetupDiSetDevicePropertyW(deviceinfoset: HDEVINFO, deviceinfodata: Long, propertykey: Long, propertytype: Properties.DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, flags: UInt): BOOL {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiSetDevicePropertyW", longArrayOf(deviceinfoset, deviceinfodata, propertykey, Win32DynamicFfi.objectSlot(propertytype), propertybuffer, propertybuffersize.toLong(), flags.toLong())).toInt()
+public fun SetupDiSetDevicePropertyW(deviceinfoset: HDEVINFO, deviceinfodata: Long, propertykey: Long, propertytype: DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, flags: UInt): BOOL {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupDiSetDevicePropertyW", longArrayOf(deviceinfoset, deviceinfodata, propertykey, propertytype.toLong(), propertybuffer, propertybuffersize.toLong(), flags.toLong())).toInt()
 }
 
 public fun SetupDiSetDeviceRegistryPropertyA(deviceinfoset: HDEVINFO, deviceinfodata: Long, property: SETUP_DI_REGISTRY_PROPERTY, propertybuffer: Long, propertybuffersize: UInt): BOOL {
@@ -1917,12 +1915,12 @@ public fun SetupGetThreadLogToken(): ULong {
     return Win32DynamicFfi.invoke("setupapi.dll", "SetupGetThreadLogToken", longArrayOf()).toULong()
 }
 
-public fun SetupInitDefaultQueueCallback(ownerwindow: Foundation.HWND): Long {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupInitDefaultQueueCallback", longArrayOf(Win32DynamicFfi.objectSlot(ownerwindow)))
+public fun SetupInitDefaultQueueCallback(ownerwindow: HWND): Long {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupInitDefaultQueueCallback", longArrayOf(ownerwindow))
 }
 
-public fun SetupInitDefaultQueueCallbackEx(ownerwindow: Foundation.HWND, alternateprogresswindow: Foundation.HWND, progressmessage: UInt, reserved1: UInt, reserved2: Long): Long {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupInitDefaultQueueCallbackEx", longArrayOf(Win32DynamicFfi.objectSlot(ownerwindow), Win32DynamicFfi.objectSlot(alternateprogresswindow), progressmessage.toLong(), reserved1.toLong(), reserved2))
+public fun SetupInitDefaultQueueCallbackEx(ownerwindow: HWND, alternateprogresswindow: HWND, progressmessage: UInt, reserved1: UInt, reserved2: Long): Long {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupInitDefaultQueueCallbackEx", longArrayOf(ownerwindow, alternateprogresswindow, progressmessage.toLong(), reserved1.toLong(), reserved2))
 }
 
 public fun SetupInitializeFileLogA(logfilename: PCSTR, flags: UInt): Long {
@@ -1957,12 +1955,12 @@ public fun SetupInstallFilesFromInfSectionW(infhandle: Long, layoutinfhandle: Lo
     return Win32DynamicFfi.invoke("setupapi.dll", "SetupInstallFilesFromInfSectionW", longArrayOf(infhandle, layoutinfhandle, filequeue, sectionname, sourcerootpath, copyflags.toLong())).toInt()
 }
 
-public fun SetupInstallFromInfSectionA(owner: Foundation.HWND, infhandle: Long, sectionname: PCSTR, flags: UInt, relativekeyroot: System.Registry.HKEY, sourcerootpath: PCSTR, copyflags: UInt, msghandler: PSP_FILE_CALLBACK_A, context: Long, deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupInstallFromInfSectionA", longArrayOf(Win32DynamicFfi.objectSlot(owner), infhandle, sectionname, flags.toLong(), Win32DynamicFfi.objectSlot(relativekeyroot), sourcerootpath, copyflags.toLong(), Win32DynamicFfi.objectSlot(msghandler), context, deviceinfoset, deviceinfodata)).toInt()
+public fun SetupInstallFromInfSectionA(owner: HWND, infhandle: Long, sectionname: PCSTR, flags: UInt, relativekeyroot: HKEY, sourcerootpath: PCSTR, copyflags: UInt, msghandler: PSP_FILE_CALLBACK_A, context: Long, deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupInstallFromInfSectionA", longArrayOf(owner, infhandle, sectionname, flags.toLong(), relativekeyroot, sourcerootpath, copyflags.toLong(), Win32DynamicFfi.objectSlot(msghandler), context, deviceinfoset, deviceinfodata)).toInt()
 }
 
-public fun SetupInstallFromInfSectionW(owner: Foundation.HWND, infhandle: Long, sectionname: PCWSTR, flags: UInt, relativekeyroot: System.Registry.HKEY, sourcerootpath: PCWSTR, copyflags: UInt, msghandler: PSP_FILE_CALLBACK_W, context: Long, deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL {
-    return Win32DynamicFfi.invoke("setupapi.dll", "SetupInstallFromInfSectionW", longArrayOf(Win32DynamicFfi.objectSlot(owner), infhandle, sectionname, flags.toLong(), Win32DynamicFfi.objectSlot(relativekeyroot), sourcerootpath, copyflags.toLong(), Win32DynamicFfi.objectSlot(msghandler), context, deviceinfoset, deviceinfodata)).toInt()
+public fun SetupInstallFromInfSectionW(owner: HWND, infhandle: Long, sectionname: PCWSTR, flags: UInt, relativekeyroot: HKEY, sourcerootpath: PCWSTR, copyflags: UInt, msghandler: PSP_FILE_CALLBACK_W, context: Long, deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL {
+    return Win32DynamicFfi.invoke("setupapi.dll", "SetupInstallFromInfSectionW", longArrayOf(owner, infhandle, sectionname, flags.toLong(), relativekeyroot, sourcerootpath, copyflags.toLong(), Win32DynamicFfi.objectSlot(msghandler), context, deviceinfoset, deviceinfodata)).toInt()
 }
 
 public fun SetupInstallServicesFromInfSectionA(infhandle: Long, sectionname: PCSTR, flags: SPSVCINST_FLAGS): BOOL {

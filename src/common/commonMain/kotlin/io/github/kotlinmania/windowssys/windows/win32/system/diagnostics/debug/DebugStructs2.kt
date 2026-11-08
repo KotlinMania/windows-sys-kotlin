@@ -1,6 +1,100 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug
 
+public data class WHEA_XPF_MC_BANK_DESCRIPTOR(
+    public var BankNumber: UByte = 0u,
+    public var ClearOnInitialization: Boolean = false,
+    public var StatusDataFormat: UByte = 0u,
+    public var Flags: XPF_MC_BANK_FLAGS = XPF_MC_BANK_FLAGS(),
+    public var ControlMsr: UInt = 0u,
+    public var StatusMsr: UInt = 0u,
+    public var AddressMsr: UInt = 0u,
+    public var MiscMsr: UInt = 0u,
+    public var ControlData: ULong = 0uL,
+)
+
+public data class WHEA_XPF_NMI_DESCRIPTOR(public var Type: UShort = 0u, public var Enabled: Boolean = false)
+
+public class WOW64_CONTEXT(
+    public var ContextFlags: WOW64_CONTEXT_FLAGS = 0u,
+    public var Dr0: UInt = 0u,
+    public var Dr1: UInt = 0u,
+    public var Dr2: UInt = 0u,
+    public var Dr3: UInt = 0u,
+    public var Dr6: UInt = 0u,
+    public var Dr7: UInt = 0u,
+    public var FloatSave: WOW64_FLOATING_SAVE_AREA = WOW64_FLOATING_SAVE_AREA(),
+    public var SegGs: UInt = 0u,
+    public var SegFs: UInt = 0u,
+    public var SegEs: UInt = 0u,
+    public var SegDs: UInt = 0u,
+    public var Edi: UInt = 0u,
+    public var Esi: UInt = 0u,
+    public var Ebx: UInt = 0u,
+    public var Edx: UInt = 0u,
+    public var Ecx: UInt = 0u,
+    public var Eax: UInt = 0u,
+    public var Ebp: UInt = 0u,
+    public var Eip: UInt = 0u,
+    public var SegCs: UInt = 0u,
+    public var EFlags: UInt = 0u,
+    public var Esp: UInt = 0u,
+    public var SegSs: UInt = 0u,
+    public var ExtendedRegisters: UByteArray = UByteArray(512),
+)
+
+public data class WOW64_DESCRIPTOR_TABLE_ENTRY(public var Selector: UInt = 0u, public var Descriptor: WOW64_LDT_ENTRY = WOW64_LDT_ENTRY())
+
+public data class WOW64_FLOATING_SAVE_AREA(
+    public var ControlWord: UInt = 0u,
+    public var StatusWord: UInt = 0u,
+    public var TagWord: UInt = 0u,
+    public var ErrorOffset: UInt = 0u,
+    public var ErrorSelector: UInt = 0u,
+    public var DataOffset: UInt = 0u,
+    public var DataSelector: UInt = 0u,
+    public var RegisterArea: UByteArray = UByteArray(80),
+    public var Cr0NpxState: UInt = 0u,
+) {
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is WOW64_FLOATING_SAVE_AREA) return false
+        if (this.ControlWord != other.ControlWord) return false
+        if (this.StatusWord != other.StatusWord) return false
+        if (this.TagWord != other.TagWord) return false
+        if (this.ErrorOffset != other.ErrorOffset) return false
+        if (this.ErrorSelector != other.ErrorSelector) return false
+        if (this.DataOffset != other.DataOffset) return false
+        if (this.DataSelector != other.DataSelector) return false
+        if (!this.RegisterArea.contentEquals(other.RegisterArea)) return false
+        if (this.Cr0NpxState != other.Cr0NpxState) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.ControlWord.hashCode()
+        result = 31 * result + this.StatusWord.hashCode()
+        result = 31 * result + this.TagWord.hashCode()
+        result = 31 * result + this.ErrorOffset.hashCode()
+        result = 31 * result + this.ErrorSelector.hashCode()
+        result = 31 * result + this.DataOffset.hashCode()
+        result = 31 * result + this.DataSelector.hashCode()
+        result = 31 * result + this.RegisterArea.contentHashCode()
+        result = 31 * result + this.Cr0NpxState.hashCode()
+        return result
+    }
+}
+
+public data class WOW64_LDT_ENTRY(
+    public var LimitLow: UShort = 0u,
+    public var BaseLow: UShort = 0u,
+    public var HighWord: WOW64_LDT_ENTRY_0 = WOW64_LDT_ENTRY_0(),
+)
+
+public data class WOW64_LDT_ENTRY_0(public var Bytes: WOW64_LDT_ENTRY_0_0 = WOW64_LDT_ENTRY_0_0(), public var Bits: WOW64_LDT_ENTRY_0_1 = WOW64_LDT_ENTRY_0_1())
+
+public data class WOW64_LDT_ENTRY_0_1(public var _bitfield: UInt = 0u)
+
 public data class WOW64_LDT_ENTRY_0_0(
     public var BaseMid: UByte = 0u,
     public var Flags1: UByte = 0u,

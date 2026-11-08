@@ -4,6 +4,7 @@ package io.github.kotlinmania.windowssys.windows.win32.security.cryptography.cat
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CRYPT_INTEGER_BLOB
 
 public data class CATALOG_INFO(public var cbStruct: UInt = 0u, public var wszCatalogFile: UShortArray = UShortArray(260)) {
@@ -33,12 +34,12 @@ public data class CRYPTCATATTRIBUTE(
 
 public data class CRYPTCATCDF(
     public var cbStruct: UInt = 0u,
-    public var hFile: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hFile: HANDLE = 0L,
     public var dwCurFilePos: UInt = 0u,
     public var dwLastMemberOffset: UInt = 0u,
     public var fEOF: BOOL = 0,
     public var pwszResultDir: PWSTR = 0L,
-    public var hCATStore: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hCATStore: HANDLE = 0L,
 )
 
 public data class CRYPTCATMEMBER(
@@ -50,7 +51,7 @@ public data class CRYPTCATMEMBER(
     public var pIndirectData: Long = 0L,
     public var dwCertVersion: UInt = 0u,
     public var dwReserved: UInt = 0u,
-    public var hReserved: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hReserved: HANDLE = 0L,
     public var sEncodedIndirectData: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
     public var sEncodedMemberInfo: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
 )
@@ -62,10 +63,10 @@ public data class CRYPTCATSTORE(
     public var hProv: ULong = 0uL,
     public var dwEncodingType: UInt = 0u,
     public var fdwStoreFlags: CRYPTCAT_OPEN_FLAGS = 0u,
-    public var hReserved: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hAttrs: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hReserved: HANDLE = 0L,
+    public var hAttrs: HANDLE = 0L,
     public var hCryptMsg: Long = 0L,
-    public var hSorted: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hSorted: HANDLE = 0L,
 )
 
 public data class MS_ADDINFO_CATALOGMEMBER(

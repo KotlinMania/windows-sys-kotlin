@@ -5,6 +5,13 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.IN6_ADDR
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.IN_ADDR
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CRYPT_INTEGER_BLOB
 
 public fun interface RTM_ENTITY_EXPORT_METHODSMethodsCallback {
     public operator fun invoke(callerhandle: Long, calleehandle: Long, input: Long, output: Long)
@@ -12,7 +19,7 @@ public fun interface RTM_ENTITY_EXPORT_METHODSMethodsCallback {
 
 public data class AUTH_VALIDATION_EX(
     public var Header: MPRAPI_OBJECT_HEADER = MPRAPI_OBJECT_HEADER(),
-    public var hRasConnection: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hRasConnection: HANDLE = 0L,
     public var wszUserName: UShortArray = UShortArray(257),
     public var wszLogonDomain: UShortArray = UShortArray(16),
     public var AuthInfoSize: UInt = 0u,
@@ -177,7 +184,7 @@ public data class IKEV2_TUNNEL_CONFIG_PARAMS2(
     public var dwConfigOptions: UInt = 0u,
     public var dwTotalCertificates: UInt = 0u,
     public var certificateNames: Long = 0L,
-    public var machineCertificateName: Security.Cryptography.CRYPT_INTEGER_BLOB = Security.Cryptography.CRYPT_INTEGER_BLOB(),
+    public var machineCertificateName: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
     public var dwEncryptionType: UInt = 0u,
     public var customPolicy: Long = 0L,
 )
@@ -190,12 +197,12 @@ public data class IKEV2_TUNNEL_CONFIG_PARAMS3(
     public var dwConfigOptions: UInt = 0u,
     public var dwTotalCertificates: UInt = 0u,
     public var certificateNames: Long = 0L,
-    public var machineCertificateName: Security.Cryptography.CRYPT_INTEGER_BLOB = Security.Cryptography.CRYPT_INTEGER_BLOB(),
+    public var machineCertificateName: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
     public var dwEncryptionType: UInt = 0u,
     public var customPolicy: Long = 0L,
     public var dwTotalEkus: UInt = 0u,
     public var certificateEKUs: Long = 0L,
-    public var machineCertificateHash: Security.Cryptography.CRYPT_INTEGER_BLOB = Security.Cryptography.CRYPT_INTEGER_BLOB(),
+    public var machineCertificateHash: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
 )
 
 public data class IKEV2_TUNNEL_CONFIG_PARAMS4(
@@ -206,12 +213,12 @@ public data class IKEV2_TUNNEL_CONFIG_PARAMS4(
     public var dwConfigOptions: UInt = 0u,
     public var dwTotalCertificates: UInt = 0u,
     public var certificateNames: Long = 0L,
-    public var machineCertificateName: Security.Cryptography.CRYPT_INTEGER_BLOB = Security.Cryptography.CRYPT_INTEGER_BLOB(),
+    public var machineCertificateName: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
     public var dwEncryptionType: UInt = 0u,
     public var customPolicy: Long = 0L,
     public var dwTotalEkus: UInt = 0u,
     public var certificateEKUs: Long = 0L,
-    public var machineCertificateHash: Security.Cryptography.CRYPT_INTEGER_BLOB = Security.Cryptography.CRYPT_INTEGER_BLOB(),
+    public var machineCertificateHash: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
     public var dwMmSaLifeTime: UInt = 0u,
 )
 
@@ -340,7 +347,7 @@ public data class MPR_FILTER_0(public var fEnable: BOOL = 0)
 
 public data class MPR_IFTRANSPORT_0(
     public var dwTransportId: UInt = 0u,
-    public var hIfTransport: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hIfTransport: HANDLE = 0L,
     public var wszIfTransportName: UShortArray = UShortArray(41),
 ) {
     override fun equals(other: Any?): Boolean {
@@ -380,7 +387,7 @@ public data class MPR_IF_CUSTOMINFOEX2(
 
 public data class MPR_INTERFACE_0(
     public var wszInterfaceName: UShortArray = UShortArray(257),
-    public var hInterface: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hInterface: HANDLE = 0L,
     public var fEnabled: BOOL = 0,
     public var dwIfType: ROUTER_INTERFACE_TYPE = 0,
     public var dwConnectionState: ROUTER_CONNECTION_STATE = 0,
@@ -414,7 +421,7 @@ public data class MPR_INTERFACE_0(
 
 public data class MPR_INTERFACE_1(
     public var wszInterfaceName: UShortArray = UShortArray(257),
-    public var hInterface: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hInterface: HANDLE = 0L,
     public var fEnabled: BOOL = 0,
     public var dwIfType: ROUTER_INTERFACE_TYPE = 0,
     public var dwConnectionState: ROUTER_CONNECTION_STATE = 0,
@@ -451,7 +458,7 @@ public data class MPR_INTERFACE_1(
 
 public class MPR_INTERFACE_2(
     public var wszInterfaceName: UShortArray = UShortArray(257),
-    public var hInterface: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hInterface: HANDLE = 0L,
     public var fEnabled: BOOL = 0,
     public var dwIfType: ROUTER_INTERFACE_TYPE = 0,
     public var dwConnectionState: ROUTER_CONNECTION_STATE = 0,
@@ -491,7 +498,7 @@ public class MPR_INTERFACE_2(
 
 public class MPR_INTERFACE_3(
     public var wszInterfaceName: UShortArray = UShortArray(257),
-    public var hInterface: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hInterface: HANDLE = 0L,
     public var fEnabled: BOOL = 0,
     public var dwIfType: ROUTER_INTERFACE_TYPE = 0,
     public var dwConnectionState: ROUTER_CONNECTION_STATE = 0,
@@ -528,8 +535,8 @@ public class MPR_INTERFACE_3(
     public var guidId: GUID = GUID(),
     public var dwVpnStrategy: MPR_VS = 0u,
     public var AddressCount: UInt = 0u,
-    public var ipv6addrDns: Networking.WinSock.IN6_ADDR = Networking.WinSock.IN6_ADDR(),
-    public var ipv6addrDnsAlt: Networking.WinSock.IN6_ADDR = Networking.WinSock.IN6_ADDR(),
+    public var ipv6addrDns: IN6_ADDR = IN6_ADDR(),
+    public var ipv6addrDnsAlt: IN6_ADDR = IN6_ADDR(),
     public var ipv6addr: Long = 0L,
 )
 
@@ -606,7 +613,7 @@ public data class MPR_SERVER_SET_CONFIG_EX1(
 
 public data class MPR_TRANSPORT_0(
     public var dwTransportId: UInt = 0u,
-    public var hTransport: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hTransport: HANDLE = 0L,
     public var wszTransportName: UShortArray = UShortArray(41),
 ) {
     override fun equals(other: Any?): Boolean {
@@ -902,7 +909,7 @@ public data class PROJECTION_INFO2_0(public var PppProjectionInfo: PPP_PROJECTIO
 
 public data class RASADPARAMS(
     public var dwSize: UInt = 0u,
-    public var hwndOwner: Foundation.HWND = Foundation.HWND(),
+    public var hwndOwner: HWND = 0L,
     public var dwFlags: UInt = 0u,
     public var xDlg: Int = 0,
     public var yDlg: Int = 0,
@@ -1026,7 +1033,7 @@ public data class RASCONNA(
     public var dwSubEntry: UInt = 0u,
     public var guidEntry: GUID = GUID(),
     public var dwFlags: UInt = 0u,
-    public var luid: Foundation.LUID = Foundation.LUID(),
+    public var luid: LUID = LUID(),
     public var guidCorrelationId: GUID = GUID(),
 ) {
     override fun equals(other: Any?): Boolean {
@@ -1152,7 +1159,7 @@ public data class RASCONNW(
     public var dwSubEntry: UInt = 0u,
     public var guidEntry: GUID = GUID(),
     public var dwFlags: UInt = 0u,
-    public var luid: Foundation.LUID = Foundation.LUID(),
+    public var luid: LUID = LUID(),
     public var guidCorrelationId: GUID = GUID(),
 ) {
     override fun equals(other: Any?): Boolean {
@@ -1302,7 +1309,7 @@ public data class RASDEVSPECIFICINFO(public var dwSize: UInt = 0u, public var pb
 
 public data class RASDIALDLG(
     public var dwSize: UInt = 0u,
-    public var hwndOwner: Foundation.HWND = Foundation.HWND(),
+    public var hwndOwner: HWND = 0L,
     public var dwFlags: UInt = 0u,
     public var xDlg: Int = 0,
     public var yDlg: Int = 0,
@@ -1315,7 +1322,7 @@ public data class RASDIALDLG(
 public data class RASDIALEXTENSIONS(
     public var dwSize: UInt = 0u,
     public var dwfOptions: UInt = 0u,
-    public var hwndParent: Foundation.HWND = Foundation.HWND(),
+    public var hwndParent: HWND = 0L,
     public var reserved: ULong = 0uL,
     public var reserved1: ULong = 0uL,
     public var RasEapInfo: RASEAPINFO = RASEAPINFO(),
@@ -1510,11 +1517,11 @@ public class RASENTRYA(
     public var szPrerequisiteEntry: ByteArray = ByteArray(257),
     public var dwRedialCount: UInt = 0u,
     public var dwRedialPause: UInt = 0u,
-    public var ipv6addrDns: Networking.WinSock.IN6_ADDR = Networking.WinSock.IN6_ADDR(),
-    public var ipv6addrDnsAlt: Networking.WinSock.IN6_ADDR = Networking.WinSock.IN6_ADDR(),
+    public var ipv6addrDns: IN6_ADDR = IN6_ADDR(),
+    public var ipv6addrDnsAlt: IN6_ADDR = IN6_ADDR(),
     public var dwIPv4InterfaceMetric: UInt = 0u,
     public var dwIPv6InterfaceMetric: UInt = 0u,
-    public var ipv6addr: Networking.WinSock.IN6_ADDR = Networking.WinSock.IN6_ADDR(),
+    public var ipv6addr: IN6_ADDR = IN6_ADDR(),
     public var dwIPv6PrefixLength: UInt = 0u,
     public var dwNetworkOutageTime: UInt = 0u,
     public var szIDi: ByteArray = ByteArray(257),
@@ -1527,7 +1534,7 @@ public class RASENTRYA(
 
 public data class RASENTRYDLGA(
     public var dwSize: UInt = 0u,
-    public var hwndOwner: Foundation.HWND = Foundation.HWND(),
+    public var hwndOwner: HWND = 0L,
     public var dwFlags: UInt = 0u,
     public var xDlg: Int = 0,
     public var yDlg: Int = 0,
@@ -1567,7 +1574,7 @@ public data class RASENTRYDLGA(
 
 public data class RASENTRYDLGW(
     public var dwSize: UInt = 0u,
-    public var hwndOwner: Foundation.HWND = Foundation.HWND(),
+    public var hwndOwner: HWND = 0L,
     public var dwFlags: UInt = 0u,
     public var xDlg: Int = 0,
     public var yDlg: Int = 0,
@@ -1704,11 +1711,11 @@ public class RASENTRYW(
     public var szPrerequisiteEntry: UShortArray = UShortArray(257),
     public var dwRedialCount: UInt = 0u,
     public var dwRedialPause: UInt = 0u,
-    public var ipv6addrDns: Networking.WinSock.IN6_ADDR = Networking.WinSock.IN6_ADDR(),
-    public var ipv6addrDnsAlt: Networking.WinSock.IN6_ADDR = Networking.WinSock.IN6_ADDR(),
+    public var ipv6addrDns: IN6_ADDR = IN6_ADDR(),
+    public var ipv6addrDnsAlt: IN6_ADDR = IN6_ADDR(),
     public var dwIPv4InterfaceMetric: UInt = 0u,
     public var dwIPv6InterfaceMetric: UInt = 0u,
-    public var ipv6addr: Networking.WinSock.IN6_ADDR = Networking.WinSock.IN6_ADDR(),
+    public var ipv6addr: IN6_ADDR = IN6_ADDR(),
     public var dwIPv6PrefixLength: UInt = 0u,
     public var dwNetworkOutageTime: UInt = 0u,
     public var szIDi: UShortArray = UShortArray(257),
@@ -1721,11 +1728,11 @@ public class RASENTRYW(
 
 public data class RASIKEV2_PROJECTION_INFO(
     public var dwIPv4NegotiationError: UInt = 0u,
-    public var ipv4Address: Networking.WinSock.IN_ADDR = Networking.WinSock.IN_ADDR(),
-    public var ipv4ServerAddress: Networking.WinSock.IN_ADDR = Networking.WinSock.IN_ADDR(),
+    public var ipv4Address: IN_ADDR = IN_ADDR(),
+    public var ipv4ServerAddress: IN_ADDR = IN_ADDR(),
     public var dwIPv6NegotiationError: UInt = 0u,
-    public var ipv6Address: Networking.WinSock.IN6_ADDR = Networking.WinSock.IN6_ADDR(),
-    public var ipv6ServerAddress: Networking.WinSock.IN6_ADDR = Networking.WinSock.IN6_ADDR(),
+    public var ipv6Address: IN6_ADDR = IN6_ADDR(),
+    public var ipv6ServerAddress: IN6_ADDR = IN6_ADDR(),
     public var dwPrefixLength: UInt = 0u,
     public var dwAuthenticationProtocol: UInt = 0u,
     public var dwEapTypeId: UInt = 0u,
@@ -1830,7 +1837,7 @@ public data class RASNOUSERW(
 
 public data class RASPBDLGA(
     public var dwSize: UInt = 0u,
-    public var hwndOwner: Foundation.HWND = Foundation.HWND(),
+    public var hwndOwner: HWND = 0L,
     public var dwFlags: UInt = 0u,
     public var xDlg: Int = 0,
     public var yDlg: Int = 0,
@@ -1843,7 +1850,7 @@ public data class RASPBDLGA(
 
 public data class RASPBDLGW(
     public var dwSize: UInt = 0u,
-    public var hwndOwner: Foundation.HWND = Foundation.HWND(),
+    public var hwndOwner: HWND = 0L,
     public var dwFlags: UInt = 0u,
     public var xDlg: Int = 0,
     public var yDlg: Int = 0,
@@ -2158,8 +2165,8 @@ public data class RASPPPNBFW(
 
 public class RASPPP_PROJECTION_INFO(
     public var dwIPv4NegotiationError: UInt = 0u,
-    public var ipv4Address: Networking.WinSock.IN_ADDR = Networking.WinSock.IN_ADDR(),
-    public var ipv4ServerAddress: Networking.WinSock.IN_ADDR = Networking.WinSock.IN_ADDR(),
+    public var ipv4Address: IN_ADDR = IN_ADDR(),
+    public var ipv4ServerAddress: IN_ADDR = IN_ADDR(),
     public var dwIPv4Options: UInt = 0u,
     public var dwIPv4ServerOptions: UInt = 0u,
     public var dwIPv6NegotiationError: UInt = 0u,
@@ -2246,7 +2253,7 @@ public data class RASSUBENTRYW(
 
 public data class RASTUNNELENDPOINT(public var dwType: UInt = 0u, public var Anonymous: RASTUNNELENDPOINT_0 = RASTUNNELENDPOINT_0())
 
-public data class RASTUNNELENDPOINT_0(public var ipv4: Networking.WinSock.IN_ADDR = Networking.WinSock.IN_ADDR(), public var ipv6: Networking.WinSock.IN6_ADDR = Networking.WinSock.IN6_ADDR())
+public data class RASTUNNELENDPOINT_0(public var ipv4: IN_ADDR = IN_ADDR(), public var ipv6: IN6_ADDR = IN6_ADDR())
 
 public data class RASUPDATECONN(
     public var version: RASAPIVERSION = 0,
@@ -2258,8 +2265,8 @@ public data class RASUPDATECONN(
 )
 
 public data class RAS_CONNECTION_0(
-    public var hConnection: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hInterface: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hConnection: HANDLE = 0L,
+    public var hInterface: HANDLE = 0L,
     public var dwConnectDuration: UInt = 0u,
     public var dwInterfaceType: ROUTER_INTERFACE_TYPE = 0,
     public var dwConnectionFlags: RAS_FLAGS = 0u,
@@ -2298,8 +2305,8 @@ public data class RAS_CONNECTION_0(
 }
 
 public data class RAS_CONNECTION_1(
-    public var hConnection: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hInterface: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hConnection: HANDLE = 0L,
+    public var hInterface: HANDLE = 0L,
     public var PppInfo: PPP_INFO = PPP_INFO(),
     public var dwBytesXmited: UInt = 0u,
     public var dwBytesRcved: UInt = 0u,
@@ -2316,7 +2323,7 @@ public data class RAS_CONNECTION_1(
 )
 
 public data class RAS_CONNECTION_2(
-    public var hConnection: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hConnection: HANDLE = 0L,
     public var wszUserName: UShortArray = UShortArray(257),
     public var dwInterfaceType: ROUTER_INTERFACE_TYPE = 0,
     public var guid: GUID = GUID(),
@@ -2346,13 +2353,13 @@ public data class RAS_CONNECTION_2(
 public data class RAS_CONNECTION_3(
     public var dwVersion: UInt = 0u,
     public var dwSize: UInt = 0u,
-    public var hConnection: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hConnection: HANDLE = 0L,
     public var wszUserName: UShortArray = UShortArray(257),
     public var dwInterfaceType: ROUTER_INTERFACE_TYPE = 0,
     public var guid: GUID = GUID(),
     public var PppInfo3: PPP_INFO_3 = PPP_INFO_3(),
     public var rasQuarState: RAS_QUARANTINE_STATE = 0,
-    public var timer: Foundation.FILETIME = Foundation.FILETIME(),
+    public var timer: FILETIME = FILETIME(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2393,8 +2400,8 @@ public class RAS_CONNECTION_4(
     public var wszRemoteComputer: UShortArray = UShortArray(17),
     public var guid: GUID = GUID(),
     public var rasQuarState: RAS_QUARANTINE_STATE = 0,
-    public var probationTime: Foundation.FILETIME = Foundation.FILETIME(),
-    public var connectionStartTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var probationTime: FILETIME = FILETIME(),
+    public var connectionStartTime: FILETIME = FILETIME(),
     public var ullBytesXmited: ULong = 0uL,
     public var ullBytesRcved: ULong = 0uL,
     public var dwFramesXmited: UInt = 0u,
@@ -2411,8 +2418,8 @@ public class RAS_CONNECTION_4(
     public var wszRemoteEndpointAddress: UShortArray = UShortArray(65),
     public var wszLocalEndpointAddress: UShortArray = UShortArray(65),
     public var ProjectionInfo: PROJECTION_INFO2 = PROJECTION_INFO2(),
-    public var hConnection: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hInterface: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hConnection: HANDLE = 0L,
+    public var hInterface: HANDLE = 0L,
     public var dwDeviceType: UInt = 0u,
 )
 
@@ -2427,7 +2434,7 @@ public class RAS_CONNECTION_EX(
     public var wszRemoteComputer: UShortArray = UShortArray(17),
     public var guid: GUID = GUID(),
     public var rasQuarState: RAS_QUARANTINE_STATE = 0,
-    public var probationTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var probationTime: FILETIME = FILETIME(),
     public var dwBytesXmited: UInt = 0u,
     public var dwBytesRcved: UInt = 0u,
     public var dwFramesXmited: UInt = 0u,
@@ -2444,13 +2451,13 @@ public class RAS_CONNECTION_EX(
     public var wszRemoteEndpointAddress: UShortArray = UShortArray(65),
     public var wszLocalEndpointAddress: UShortArray = UShortArray(65),
     public var ProjectionInfo: PROJECTION_INFO = PROJECTION_INFO(),
-    public var hConnection: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hInterface: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hConnection: HANDLE = 0L,
+    public var hInterface: HANDLE = 0L,
 )
 
 public data class RAS_PORT_0(
-    public var hPort: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hConnection: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hPort: HANDLE = 0L,
+    public var hConnection: HANDLE = 0L,
     public var dwPortCondition: RAS_PORT_CONDITION = 0,
     public var dwTotalNumberOfCalls: UInt = 0u,
     public var dwConnectDuration: UInt = 0u,
@@ -2489,8 +2496,8 @@ public data class RAS_PORT_0(
 }
 
 public data class RAS_PORT_1(
-    public var hPort: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hConnection: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hPort: HANDLE = 0L,
+    public var hConnection: HANDLE = 0L,
     public var dwHardwareCondition: RAS_HARDWARE_CONDITION = 0,
     public var dwLineSpeed: UInt = 0u,
     public var dwBytesXmited: UInt = 0u,
@@ -2508,8 +2515,8 @@ public data class RAS_PORT_1(
 )
 
 public class RAS_PORT_2(
-    public var hPort: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hConnection: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hPort: HANDLE = 0L,
+    public var hConnection: HANDLE = 0L,
     public var dwConn_State: UInt = 0u,
     public var wszPortName: UShortArray = UShortArray(17),
     public var wszMediaName: UShortArray = UShortArray(17),
@@ -2660,24 +2667,24 @@ public data class ROUTER_CUSTOM_IKEv2_POLICY0(
 public data class ROUTER_IKEv2_IF_CUSTOM_CONFIG0(
     public var dwSaLifeTime: UInt = 0u,
     public var dwSaDataSize: UInt = 0u,
-    public var certificateName: Security.Cryptography.CRYPT_INTEGER_BLOB = Security.Cryptography.CRYPT_INTEGER_BLOB(),
+    public var certificateName: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
     public var customPolicy: Long = 0L,
 )
 
 public data class ROUTER_IKEv2_IF_CUSTOM_CONFIG1(
     public var dwSaLifeTime: UInt = 0u,
     public var dwSaDataSize: UInt = 0u,
-    public var certificateName: Security.Cryptography.CRYPT_INTEGER_BLOB = Security.Cryptography.CRYPT_INTEGER_BLOB(),
+    public var certificateName: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
     public var customPolicy: Long = 0L,
-    public var certificateHash: Security.Cryptography.CRYPT_INTEGER_BLOB = Security.Cryptography.CRYPT_INTEGER_BLOB(),
+    public var certificateHash: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
 )
 
 public data class ROUTER_IKEv2_IF_CUSTOM_CONFIG2(
     public var dwSaLifeTime: UInt = 0u,
     public var dwSaDataSize: UInt = 0u,
-    public var certificateName: Security.Cryptography.CRYPT_INTEGER_BLOB = Security.Cryptography.CRYPT_INTEGER_BLOB(),
+    public var certificateName: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
     public var customPolicy: Long = 0L,
-    public var certificateHash: Security.Cryptography.CRYPT_INTEGER_BLOB = Security.Cryptography.CRYPT_INTEGER_BLOB(),
+    public var certificateHash: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB(),
     public var dwMmSaLifeTime: UInt = 0u,
     public var vpnTrafficSelectors: MPR_VPN_TRAFFIC_SELECTORS = MPR_VPN_TRAFFIC_SELECTORS(),
 )
@@ -2698,7 +2705,7 @@ public data class ROUTING_PROTOCOL_CONFIG(
 public data class RTM_DEST_INFO(
     public var DestHandle: Long = 0L,
     public var DestAddress: RTM_NET_ADDRESS = RTM_NET_ADDRESS(),
-    public var LastChanged: Foundation.FILETIME = Foundation.FILETIME(),
+    public var LastChanged: FILETIME = FILETIME(),
     public var BelongsToViews: UInt = 0u,
     public var NumberOfViews: UInt = 0u,
     public var ViewInfo: List<RTM_DEST_INFO_0> = List(1) { RTM_DEST_INFO_0() },
@@ -2879,7 +2886,7 @@ public data class SOURCE_GROUP_ENTRY(
     public var dwGroupMask: UInt = 0u,
 )
 
-public data class SSTP_CERT_INFO(public var isDefault: BOOL = 0, public var certBlob: Security.Cryptography.CRYPT_INTEGER_BLOB = Security.Cryptography.CRYPT_INTEGER_BLOB())
+public data class SSTP_CERT_INFO(public var isDefault: BOOL = 0, public var certBlob: CRYPT_INTEGER_BLOB = CRYPT_INTEGER_BLOB())
 
 public data class SSTP_CONFIG_PARAMS(
     public var dwNumPorts: UInt = 0u,
@@ -2891,4 +2898,4 @@ public data class SSTP_CONFIG_PARAMS(
 
 public data class VPN_TS_IP_ADDRESS(public var Type: UShort = 0u, public var Anonymous: VPN_TS_IP_ADDRESS_0 = VPN_TS_IP_ADDRESS_0())
 
-public data class VPN_TS_IP_ADDRESS_0(public var v4: Networking.WinSock.IN_ADDR = Networking.WinSock.IN_ADDR(), public var v6: Networking.WinSock.IN6_ADDR = Networking.WinSock.IN6_ADDR())
+public data class VPN_TS_IP_ADDRESS_0(public var v4: IN_ADDR = IN_ADDR(), public var v6: IN6_ADDR = IN6_ADDR())

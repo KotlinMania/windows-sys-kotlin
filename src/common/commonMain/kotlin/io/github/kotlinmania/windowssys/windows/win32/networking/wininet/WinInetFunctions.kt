@@ -6,6 +6,12 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.WIN_HTTP_CREATE_URL_FLAGS
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.ALG_ID
 
 public fun interface FnCallback {
     public operator fun invoke(lpattributeinfo: Long, dwerror: UInt): BOOL
@@ -55,12 +61,12 @@ public fun AppCacheFreeGroupList(pappcachegrouplist: Long) {
     Win32DynamicFfi.invoke("wininet.dll", "AppCacheFreeGroupList", longArrayOf(pappcachegrouplist))
 }
 
-public fun AppCacheFreeIESpace(ftcutoff: Foundation.FILETIME): UInt {
-    return Win32DynamicFfi.invoke("wininet.dll", "AppCacheFreeIESpace", longArrayOf(Win32DynamicFfi.objectSlot(ftcutoff))).toUInt()
+public fun AppCacheFreeIESpace(ftcutoff: FILETIME): UInt {
+    return Win32DynamicFfi.invoke("wininet.dll", "AppCacheFreeIESpace", longArrayOf(((ftcutoff.dwLowDateTime.toLong() and 0xFFFF_FFFFL) or ((ftcutoff.dwHighDateTime.toLong() and 0xFFFF_FFFFL) shl 32)))).toUInt()
 }
 
-public fun AppCacheFreeSpace(ftcutoff: Foundation.FILETIME): UInt {
-    return Win32DynamicFfi.invoke("wininet.dll", "AppCacheFreeSpace", longArrayOf(Win32DynamicFfi.objectSlot(ftcutoff))).toUInt()
+public fun AppCacheFreeSpace(ftcutoff: FILETIME): UInt {
+    return Win32DynamicFfi.invoke("wininet.dll", "AppCacheFreeSpace", longArrayOf(((ftcutoff.dwLowDateTime.toLong() and 0xFFFF_FFFFL) or ((ftcutoff.dwHighDateTime.toLong() and 0xFFFF_FFFFL) shl 32)))).toUInt()
 }
 
 public fun AppCacheGetDownloadList(happcache: Long, pdownloadlist: Long): UInt {
@@ -91,16 +97,16 @@ public fun AppCacheLookup(pwszurl: PCWSTR, dwflags: UInt, phappcache: Long): UIn
     return Win32DynamicFfi.invoke("wininet.dll", "AppCacheLookup", longArrayOf(pwszurl, dwflags.toLong(), phappcache)).toUInt()
 }
 
-public fun CommitUrlCacheEntryA(lpszurlname: PCSTR, lpszlocalfilename: PCSTR, expiretime: Foundation.FILETIME, lastmodifiedtime: Foundation.FILETIME, cacheentrytype: UInt, lpheaderinfo: Long, cchheaderinfo: UInt, lpszfileextension: PCSTR, lpszoriginalurl: PCSTR): BOOL {
-    return Win32DynamicFfi.invoke("wininet.dll", "CommitUrlCacheEntryA", longArrayOf(lpszurlname, lpszlocalfilename, Win32DynamicFfi.objectSlot(expiretime), Win32DynamicFfi.objectSlot(lastmodifiedtime), cacheentrytype.toLong(), lpheaderinfo, cchheaderinfo.toLong(), lpszfileextension, lpszoriginalurl)).toInt()
+public fun CommitUrlCacheEntryA(lpszurlname: PCSTR, lpszlocalfilename: PCSTR, expiretime: FILETIME, lastmodifiedtime: FILETIME, cacheentrytype: UInt, lpheaderinfo: Long, cchheaderinfo: UInt, lpszfileextension: PCSTR, lpszoriginalurl: PCSTR): BOOL {
+    return Win32DynamicFfi.invoke("wininet.dll", "CommitUrlCacheEntryA", longArrayOf(lpszurlname, lpszlocalfilename, ((expiretime.dwLowDateTime.toLong() and 0xFFFF_FFFFL) or ((expiretime.dwHighDateTime.toLong() and 0xFFFF_FFFFL) shl 32)), ((lastmodifiedtime.dwLowDateTime.toLong() and 0xFFFF_FFFFL) or ((lastmodifiedtime.dwHighDateTime.toLong() and 0xFFFF_FFFFL) shl 32)), cacheentrytype.toLong(), lpheaderinfo, cchheaderinfo.toLong(), lpszfileextension, lpszoriginalurl)).toInt()
 }
 
-public fun CommitUrlCacheEntryBinaryBlob(pwszurlname: PCWSTR, dwtype: UInt, ftexpiretime: Foundation.FILETIME, ftmodifiedtime: Foundation.FILETIME, pbblob: Long, cbblob: UInt): UInt {
-    return Win32DynamicFfi.invoke("wininet.dll", "CommitUrlCacheEntryBinaryBlob", longArrayOf(pwszurlname, dwtype.toLong(), Win32DynamicFfi.objectSlot(ftexpiretime), Win32DynamicFfi.objectSlot(ftmodifiedtime), pbblob, cbblob.toLong())).toUInt()
+public fun CommitUrlCacheEntryBinaryBlob(pwszurlname: PCWSTR, dwtype: UInt, ftexpiretime: FILETIME, ftmodifiedtime: FILETIME, pbblob: Long, cbblob: UInt): UInt {
+    return Win32DynamicFfi.invoke("wininet.dll", "CommitUrlCacheEntryBinaryBlob", longArrayOf(pwszurlname, dwtype.toLong(), ((ftexpiretime.dwLowDateTime.toLong() and 0xFFFF_FFFFL) or ((ftexpiretime.dwHighDateTime.toLong() and 0xFFFF_FFFFL) shl 32)), ((ftmodifiedtime.dwLowDateTime.toLong() and 0xFFFF_FFFFL) or ((ftmodifiedtime.dwHighDateTime.toLong() and 0xFFFF_FFFFL) shl 32)), pbblob, cbblob.toLong())).toUInt()
 }
 
-public fun CommitUrlCacheEntryW(lpszurlname: PCWSTR, lpszlocalfilename: PCWSTR, expiretime: Foundation.FILETIME, lastmodifiedtime: Foundation.FILETIME, cacheentrytype: UInt, lpszheaderinfo: PCWSTR, cchheaderinfo: UInt, lpszfileextension: PCWSTR, lpszoriginalurl: PCWSTR): BOOL {
-    return Win32DynamicFfi.invoke("wininet.dll", "CommitUrlCacheEntryW", longArrayOf(lpszurlname, lpszlocalfilename, Win32DynamicFfi.objectSlot(expiretime), Win32DynamicFfi.objectSlot(lastmodifiedtime), cacheentrytype.toLong(), lpszheaderinfo, cchheaderinfo.toLong(), lpszfileextension, lpszoriginalurl)).toInt()
+public fun CommitUrlCacheEntryW(lpszurlname: PCWSTR, lpszlocalfilename: PCWSTR, expiretime: FILETIME, lastmodifiedtime: FILETIME, cacheentrytype: UInt, lpszheaderinfo: PCWSTR, cchheaderinfo: UInt, lpszfileextension: PCWSTR, lpszoriginalurl: PCWSTR): BOOL {
+    return Win32DynamicFfi.invoke("wininet.dll", "CommitUrlCacheEntryW", longArrayOf(lpszurlname, lpszlocalfilename, ((expiretime.dwLowDateTime.toLong() and 0xFFFF_FFFFL) or ((expiretime.dwHighDateTime.toLong() and 0xFFFF_FFFFL) shl 32)), ((lastmodifiedtime.dwLowDateTime.toLong() and 0xFFFF_FFFFL) or ((lastmodifiedtime.dwHighDateTime.toLong() and 0xFFFF_FFFFL) shl 32)), cacheentrytype.toLong(), lpszheaderinfo, cchheaderinfo.toLong(), lpszfileextension, lpszoriginalurl)).toInt()
 }
 
 public fun CreateMD5SSOHash(pszchallengeinfo: PCWSTR, pwszrealm: PCWSTR, pwsztarget: PCWSTR, pbhexhash: Long): BOOL {
@@ -131,8 +137,8 @@ public fun CreateUrlCacheGroup(dwflags: UInt, lpreserved: Long): Long {
     return Win32DynamicFfi.invoke("wininet.dll", "CreateUrlCacheGroup", longArrayOf(dwflags.toLong(), lpreserved))
 }
 
-public fun DeleteIE3Cache(hwnd: Foundation.HWND, hinst: Foundation.HINSTANCE, lpszcmd: PCSTR, ncmdshow: Int): UInt {
-    return Win32DynamicFfi.invoke("wininet.dll", "DeleteIE3Cache", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), Win32DynamicFfi.objectSlot(hinst), lpszcmd, ncmdshow.toLong())).toUInt()
+public fun DeleteIE3Cache(hwnd: HWND, hinst: HINSTANCE, lpszcmd: PCSTR, ncmdshow: Int): UInt {
+    return Win32DynamicFfi.invoke("wininet.dll", "DeleteIE3Cache", longArrayOf(hwnd, hinst, lpszcmd, ncmdshow.toLong())).toUInt()
 }
 
 public fun DeleteUrlCacheContainerA(name: PCSTR, dwoptions: UInt): BOOL {
@@ -179,71 +185,64 @@ public fun ExportCookieFileW(szfilename: PCWSTR, fappend: BOOL): BOOL {
     return Win32DynamicFfi.invoke("wininet.dll", "ExportCookieFileW", longArrayOf(szfilename, fappend.toLong())).toInt()
 }
 
-public fun FindCloseUrlCache(henumhandle: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("wininet.dll", "FindCloseUrlCache", longArrayOf(Win32DynamicFfi.objectSlot(henumhandle))).toInt()
+public fun FindCloseUrlCache(henumhandle: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("wininet.dll", "FindCloseUrlCache", longArrayOf(henumhandle)).toInt()
 }
 
-public fun FindFirstUrlCacheContainerA(pdwmodified: Long, lpcontainerinfo: Long, lpcbcontainerinfo: Long, dwoptions: UInt): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("wininet.dll", "FindFirstUrlCacheContainerA", longArrayOf(pdwmodified, lpcontainerinfo, lpcbcontainerinfo, dwoptions.toLong()))
-    return Foundation.HANDLE()
+public fun FindFirstUrlCacheContainerA(pdwmodified: Long, lpcontainerinfo: Long, lpcbcontainerinfo: Long, dwoptions: UInt): HANDLE {
+    return Win32DynamicFfi.invoke("wininet.dll", "FindFirstUrlCacheContainerA", longArrayOf(pdwmodified, lpcontainerinfo, lpcbcontainerinfo, dwoptions.toLong()))
 }
 
-public fun FindFirstUrlCacheContainerW(pdwmodified: Long, lpcontainerinfo: Long, lpcbcontainerinfo: Long, dwoptions: UInt): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("wininet.dll", "FindFirstUrlCacheContainerW", longArrayOf(pdwmodified, lpcontainerinfo, lpcbcontainerinfo, dwoptions.toLong()))
-    return Foundation.HANDLE()
+public fun FindFirstUrlCacheContainerW(pdwmodified: Long, lpcontainerinfo: Long, lpcbcontainerinfo: Long, dwoptions: UInt): HANDLE {
+    return Win32DynamicFfi.invoke("wininet.dll", "FindFirstUrlCacheContainerW", longArrayOf(pdwmodified, lpcontainerinfo, lpcbcontainerinfo, dwoptions.toLong()))
 }
 
-public fun FindFirstUrlCacheEntryA(lpszurlsearchpattern: PCSTR, lpfirstcacheentryinfo: Long, lpcbcacheentryinfo: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("wininet.dll", "FindFirstUrlCacheEntryA", longArrayOf(lpszurlsearchpattern, lpfirstcacheentryinfo, lpcbcacheentryinfo))
-    return Foundation.HANDLE()
+public fun FindFirstUrlCacheEntryA(lpszurlsearchpattern: PCSTR, lpfirstcacheentryinfo: Long, lpcbcacheentryinfo: Long): HANDLE {
+    return Win32DynamicFfi.invoke("wininet.dll", "FindFirstUrlCacheEntryA", longArrayOf(lpszurlsearchpattern, lpfirstcacheentryinfo, lpcbcacheentryinfo))
 }
 
-public fun FindFirstUrlCacheEntryExA(lpszurlsearchpattern: PCSTR, dwflags: UInt, dwfilter: UInt, groupid: Long, lpfirstcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpgroupattributes: Long, lpcbgroupattributes: Long, lpreserved: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("wininet.dll", "FindFirstUrlCacheEntryExA", longArrayOf(lpszurlsearchpattern, dwflags.toLong(), dwfilter.toLong(), groupid, lpfirstcacheentryinfo, lpcbcacheentryinfo, lpgroupattributes, lpcbgroupattributes, lpreserved))
-    return Foundation.HANDLE()
+public fun FindFirstUrlCacheEntryExA(lpszurlsearchpattern: PCSTR, dwflags: UInt, dwfilter: UInt, groupid: Long, lpfirstcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpgroupattributes: Long, lpcbgroupattributes: Long, lpreserved: Long): HANDLE {
+    return Win32DynamicFfi.invoke("wininet.dll", "FindFirstUrlCacheEntryExA", longArrayOf(lpszurlsearchpattern, dwflags.toLong(), dwfilter.toLong(), groupid, lpfirstcacheentryinfo, lpcbcacheentryinfo, lpgroupattributes, lpcbgroupattributes, lpreserved))
 }
 
-public fun FindFirstUrlCacheEntryExW(lpszurlsearchpattern: PCWSTR, dwflags: UInt, dwfilter: UInt, groupid: Long, lpfirstcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpgroupattributes: Long, lpcbgroupattributes: Long, lpreserved: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("wininet.dll", "FindFirstUrlCacheEntryExW", longArrayOf(lpszurlsearchpattern, dwflags.toLong(), dwfilter.toLong(), groupid, lpfirstcacheentryinfo, lpcbcacheentryinfo, lpgroupattributes, lpcbgroupattributes, lpreserved))
-    return Foundation.HANDLE()
+public fun FindFirstUrlCacheEntryExW(lpszurlsearchpattern: PCWSTR, dwflags: UInt, dwfilter: UInt, groupid: Long, lpfirstcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpgroupattributes: Long, lpcbgroupattributes: Long, lpreserved: Long): HANDLE {
+    return Win32DynamicFfi.invoke("wininet.dll", "FindFirstUrlCacheEntryExW", longArrayOf(lpszurlsearchpattern, dwflags.toLong(), dwfilter.toLong(), groupid, lpfirstcacheentryinfo, lpcbcacheentryinfo, lpgroupattributes, lpcbgroupattributes, lpreserved))
 }
 
-public fun FindFirstUrlCacheEntryW(lpszurlsearchpattern: PCWSTR, lpfirstcacheentryinfo: Long, lpcbcacheentryinfo: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("wininet.dll", "FindFirstUrlCacheEntryW", longArrayOf(lpszurlsearchpattern, lpfirstcacheentryinfo, lpcbcacheentryinfo))
-    return Foundation.HANDLE()
+public fun FindFirstUrlCacheEntryW(lpszurlsearchpattern: PCWSTR, lpfirstcacheentryinfo: Long, lpcbcacheentryinfo: Long): HANDLE {
+    return Win32DynamicFfi.invoke("wininet.dll", "FindFirstUrlCacheEntryW", longArrayOf(lpszurlsearchpattern, lpfirstcacheentryinfo, lpcbcacheentryinfo))
 }
 
-public fun FindFirstUrlCacheGroup(dwflags: UInt, dwfilter: UInt, lpsearchcondition: Long, dwsearchcondition: UInt, lpgroupid: Long, lpreserved: Long): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("wininet.dll", "FindFirstUrlCacheGroup", longArrayOf(dwflags.toLong(), dwfilter.toLong(), lpsearchcondition, dwsearchcondition.toLong(), lpgroupid, lpreserved))
-    return Foundation.HANDLE()
+public fun FindFirstUrlCacheGroup(dwflags: UInt, dwfilter: UInt, lpsearchcondition: Long, dwsearchcondition: UInt, lpgroupid: Long, lpreserved: Long): HANDLE {
+    return Win32DynamicFfi.invoke("wininet.dll", "FindFirstUrlCacheGroup", longArrayOf(dwflags.toLong(), dwfilter.toLong(), lpsearchcondition, dwsearchcondition.toLong(), lpgroupid, lpreserved))
 }
 
-public fun FindNextUrlCacheContainerA(henumhandle: Foundation.HANDLE, lpcontainerinfo: Long, lpcbcontainerinfo: Long): BOOL {
-    return Win32DynamicFfi.invoke("wininet.dll", "FindNextUrlCacheContainerA", longArrayOf(Win32DynamicFfi.objectSlot(henumhandle), lpcontainerinfo, lpcbcontainerinfo)).toInt()
+public fun FindNextUrlCacheContainerA(henumhandle: HANDLE, lpcontainerinfo: Long, lpcbcontainerinfo: Long): BOOL {
+    return Win32DynamicFfi.invoke("wininet.dll", "FindNextUrlCacheContainerA", longArrayOf(henumhandle, lpcontainerinfo, lpcbcontainerinfo)).toInt()
 }
 
-public fun FindNextUrlCacheContainerW(henumhandle: Foundation.HANDLE, lpcontainerinfo: Long, lpcbcontainerinfo: Long): BOOL {
-    return Win32DynamicFfi.invoke("wininet.dll", "FindNextUrlCacheContainerW", longArrayOf(Win32DynamicFfi.objectSlot(henumhandle), lpcontainerinfo, lpcbcontainerinfo)).toInt()
+public fun FindNextUrlCacheContainerW(henumhandle: HANDLE, lpcontainerinfo: Long, lpcbcontainerinfo: Long): BOOL {
+    return Win32DynamicFfi.invoke("wininet.dll", "FindNextUrlCacheContainerW", longArrayOf(henumhandle, lpcontainerinfo, lpcbcontainerinfo)).toInt()
 }
 
-public fun FindNextUrlCacheEntryA(henumhandle: Foundation.HANDLE, lpnextcacheentryinfo: Long, lpcbcacheentryinfo: Long): BOOL {
-    return Win32DynamicFfi.invoke("wininet.dll", "FindNextUrlCacheEntryA", longArrayOf(Win32DynamicFfi.objectSlot(henumhandle), lpnextcacheentryinfo, lpcbcacheentryinfo)).toInt()
+public fun FindNextUrlCacheEntryA(henumhandle: HANDLE, lpnextcacheentryinfo: Long, lpcbcacheentryinfo: Long): BOOL {
+    return Win32DynamicFfi.invoke("wininet.dll", "FindNextUrlCacheEntryA", longArrayOf(henumhandle, lpnextcacheentryinfo, lpcbcacheentryinfo)).toInt()
 }
 
-public fun FindNextUrlCacheEntryExA(henumhandle: Foundation.HANDLE, lpnextcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpgroupattributes: Long, lpcbgroupattributes: Long, lpreserved: Long): BOOL {
-    return Win32DynamicFfi.invoke("wininet.dll", "FindNextUrlCacheEntryExA", longArrayOf(Win32DynamicFfi.objectSlot(henumhandle), lpnextcacheentryinfo, lpcbcacheentryinfo, lpgroupattributes, lpcbgroupattributes, lpreserved)).toInt()
+public fun FindNextUrlCacheEntryExA(henumhandle: HANDLE, lpnextcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpgroupattributes: Long, lpcbgroupattributes: Long, lpreserved: Long): BOOL {
+    return Win32DynamicFfi.invoke("wininet.dll", "FindNextUrlCacheEntryExA", longArrayOf(henumhandle, lpnextcacheentryinfo, lpcbcacheentryinfo, lpgroupattributes, lpcbgroupattributes, lpreserved)).toInt()
 }
 
-public fun FindNextUrlCacheEntryExW(henumhandle: Foundation.HANDLE, lpnextcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpgroupattributes: Long, lpcbgroupattributes: Long, lpreserved: Long): BOOL {
-    return Win32DynamicFfi.invoke("wininet.dll", "FindNextUrlCacheEntryExW", longArrayOf(Win32DynamicFfi.objectSlot(henumhandle), lpnextcacheentryinfo, lpcbcacheentryinfo, lpgroupattributes, lpcbgroupattributes, lpreserved)).toInt()
+public fun FindNextUrlCacheEntryExW(henumhandle: HANDLE, lpnextcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpgroupattributes: Long, lpcbgroupattributes: Long, lpreserved: Long): BOOL {
+    return Win32DynamicFfi.invoke("wininet.dll", "FindNextUrlCacheEntryExW", longArrayOf(henumhandle, lpnextcacheentryinfo, lpcbcacheentryinfo, lpgroupattributes, lpcbgroupattributes, lpreserved)).toInt()
 }
 
-public fun FindNextUrlCacheEntryW(henumhandle: Foundation.HANDLE, lpnextcacheentryinfo: Long, lpcbcacheentryinfo: Long): BOOL {
-    return Win32DynamicFfi.invoke("wininet.dll", "FindNextUrlCacheEntryW", longArrayOf(Win32DynamicFfi.objectSlot(henumhandle), lpnextcacheentryinfo, lpcbcacheentryinfo)).toInt()
+public fun FindNextUrlCacheEntryW(henumhandle: HANDLE, lpnextcacheentryinfo: Long, lpcbcacheentryinfo: Long): BOOL {
+    return Win32DynamicFfi.invoke("wininet.dll", "FindNextUrlCacheEntryW", longArrayOf(henumhandle, lpnextcacheentryinfo, lpcbcacheentryinfo)).toInt()
 }
 
-public fun FindNextUrlCacheGroup(hfind: Foundation.HANDLE, lpgroupid: Long, lpreserved: Long): BOOL {
-    return Win32DynamicFfi.invoke("wininet.dll", "FindNextUrlCacheGroup", longArrayOf(Win32DynamicFfi.objectSlot(hfind), lpgroupid, lpreserved)).toInt()
+public fun FindNextUrlCacheGroup(hfind: HANDLE, lpgroupid: Long, lpreserved: Long): BOOL {
+    return Win32DynamicFfi.invoke("wininet.dll", "FindNextUrlCacheGroup", longArrayOf(hfind, lpgroupid, lpreserved)).toInt()
 }
 
 public fun FindP3PPolicySymbol(pszsymbol: PCSTR): Int {
@@ -450,12 +449,12 @@ public fun HttpAddRequestHeadersW(hrequest: Long, lpszheaders: PCWSTR, dwheaders
     return Win32DynamicFfi.invoke("wininet.dll", "HttpAddRequestHeadersW", longArrayOf(hrequest, lpszheaders, dwheaderslength.toLong(), dwmodifiers.toLong())).toInt()
 }
 
-public fun HttpCheckDavComplianceA(lpszurl: PCSTR, lpszcompliancetoken: PCSTR, lpffound: Long, hwnd: Foundation.HWND, lpvreserved: Long): BOOL {
-    return Win32DynamicFfi.invoke("wininet.dll", "HttpCheckDavComplianceA", longArrayOf(lpszurl, lpszcompliancetoken, lpffound, Win32DynamicFfi.objectSlot(hwnd), lpvreserved)).toInt()
+public fun HttpCheckDavComplianceA(lpszurl: PCSTR, lpszcompliancetoken: PCSTR, lpffound: Long, hwnd: HWND, lpvreserved: Long): BOOL {
+    return Win32DynamicFfi.invoke("wininet.dll", "HttpCheckDavComplianceA", longArrayOf(lpszurl, lpszcompliancetoken, lpffound, hwnd, lpvreserved)).toInt()
 }
 
-public fun HttpCheckDavComplianceW(lpszurl: PCWSTR, lpszcompliancetoken: PCWSTR, lpffound: Long, hwnd: Foundation.HWND, lpvreserved: Long): BOOL {
-    return Win32DynamicFfi.invoke("wininet.dll", "HttpCheckDavComplianceW", longArrayOf(lpszurl, lpszcompliancetoken, lpffound, Win32DynamicFfi.objectSlot(hwnd), lpvreserved)).toInt()
+public fun HttpCheckDavComplianceW(lpszurl: PCWSTR, lpszcompliancetoken: PCWSTR, lpffound: Long, hwnd: HWND, lpvreserved: Long): BOOL {
+    return Win32DynamicFfi.invoke("wininet.dll", "HttpCheckDavComplianceW", longArrayOf(lpszurl, lpszcompliancetoken, lpffound, hwnd, lpvreserved)).toInt()
 }
 
 public fun HttpCloseDependencyHandle(hdependencyhandle: Long) {
@@ -574,20 +573,20 @@ public fun InternalInternetGetCookie(lpszurl: PCSTR, lpszcookiedata: PSTR, lpdwd
     return Win32DynamicFfi.invoke("wininet.dll", "InternalInternetGetCookie", longArrayOf(lpszurl, lpszcookiedata, lpdwdatasize)).toUInt()
 }
 
-public fun InternetAlgIdToStringA(ai: Security.Cryptography.ALG_ID, lpstr: PSTR, lpdwstrlength: Long, dwreserved: UInt): BOOL {
-    return Win32DynamicFfi.invoke("wininet.dll", "InternetAlgIdToStringA", longArrayOf(Win32DynamicFfi.objectSlot(ai), lpstr, lpdwstrlength, dwreserved.toLong())).toInt()
+public fun InternetAlgIdToStringA(ai: ALG_ID, lpstr: PSTR, lpdwstrlength: Long, dwreserved: UInt): BOOL {
+    return Win32DynamicFfi.invoke("wininet.dll", "InternetAlgIdToStringA", longArrayOf(ai.toLong(), lpstr, lpdwstrlength, dwreserved.toLong())).toInt()
 }
 
-public fun InternetAlgIdToStringW(ai: Security.Cryptography.ALG_ID, lpstr: PWSTR, lpdwstrlength: Long, dwreserved: UInt): BOOL {
-    return Win32DynamicFfi.invoke("wininet.dll", "InternetAlgIdToStringW", longArrayOf(Win32DynamicFfi.objectSlot(ai), lpstr, lpdwstrlength, dwreserved.toLong())).toInt()
+public fun InternetAlgIdToStringW(ai: ALG_ID, lpstr: PWSTR, lpdwstrlength: Long, dwreserved: UInt): BOOL {
+    return Win32DynamicFfi.invoke("wininet.dll", "InternetAlgIdToStringW", longArrayOf(ai.toLong(), lpstr, lpdwstrlength, dwreserved.toLong())).toInt()
 }
 
 public fun InternetAttemptConnect(dwreserved: UInt): UInt {
     return Win32DynamicFfi.invoke("wininet.dll", "InternetAttemptConnect", longArrayOf(dwreserved.toLong())).toUInt()
 }
 
-public fun InternetAutodial(dwflags: INTERNET_AUTODIAL, hwndparent: Foundation.HWND): BOOL {
-    return Win32DynamicFfi.invoke("wininet.dll", "InternetAutodial", longArrayOf(dwflags.toLong(), Win32DynamicFfi.objectSlot(hwndparent))).toInt()
+public fun InternetAutodial(dwflags: INTERNET_AUTODIAL, hwndparent: HWND): BOOL {
+    return Win32DynamicFfi.invoke("wininet.dll", "InternetAutodial", longArrayOf(dwflags.toLong(), hwndparent)).toInt()
 }
 
 public fun InternetAutodialHangup(dwreserved: UInt): BOOL {
@@ -626,16 +625,16 @@ public fun InternetCombineUrlW(lpszbaseurl: PCWSTR, lpszrelativeurl: PCWSTR, lps
     return Win32DynamicFfi.invoke("wininet.dll", "InternetCombineUrlW", longArrayOf(lpszbaseurl, lpszrelativeurl, lpszbuffer, lpdwbufferlength, dwflags.toLong())).toInt()
 }
 
-public fun InternetConfirmZoneCrossing(hwnd: Foundation.HWND, szurlprev: PCSTR, szurlnew: PCSTR, bpost: BOOL): UInt {
-    return Win32DynamicFfi.invoke("wininet.dll", "InternetConfirmZoneCrossing", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), szurlprev, szurlnew, bpost.toLong())).toUInt()
+public fun InternetConfirmZoneCrossing(hwnd: HWND, szurlprev: PCSTR, szurlnew: PCSTR, bpost: BOOL): UInt {
+    return Win32DynamicFfi.invoke("wininet.dll", "InternetConfirmZoneCrossing", longArrayOf(hwnd, szurlprev, szurlnew, bpost.toLong())).toUInt()
 }
 
-public fun InternetConfirmZoneCrossingA(hwnd: Foundation.HWND, szurlprev: PCSTR, szurlnew: PCSTR, bpost: BOOL): UInt {
-    return Win32DynamicFfi.invoke("wininet.dll", "InternetConfirmZoneCrossingA", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), szurlprev, szurlnew, bpost.toLong())).toUInt()
+public fun InternetConfirmZoneCrossingA(hwnd: HWND, szurlprev: PCSTR, szurlnew: PCSTR, bpost: BOOL): UInt {
+    return Win32DynamicFfi.invoke("wininet.dll", "InternetConfirmZoneCrossingA", longArrayOf(hwnd, szurlprev, szurlnew, bpost.toLong())).toUInt()
 }
 
-public fun InternetConfirmZoneCrossingW(hwnd: Foundation.HWND, szurlprev: PCWSTR, szurlnew: PCWSTR, bpost: BOOL): UInt {
-    return Win32DynamicFfi.invoke("wininet.dll", "InternetConfirmZoneCrossingW", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), szurlprev, szurlnew, bpost.toLong())).toUInt()
+public fun InternetConfirmZoneCrossingW(hwnd: HWND, szurlprev: PCWSTR, szurlnew: PCWSTR, bpost: BOOL): UInt {
+    return Win32DynamicFfi.invoke("wininet.dll", "InternetConfirmZoneCrossingW", longArrayOf(hwnd, szurlprev, szurlnew, bpost.toLong())).toUInt()
 }
 
 public fun InternetConnectA(hinternet: Long, lpszservername: PCSTR, nserverport: UShort, lpszusername: PCSTR, lpszpassword: PCSTR, dwservice: UInt, dwflags: UInt, dwcontext: ULong): Long {
@@ -650,12 +649,12 @@ public fun InternetConvertUrlFromWireToWideChar(pcszurl: PCSTR, cchurl: UInt, pc
     return Win32DynamicFfi.invoke("wininet.dll", "InternetConvertUrlFromWireToWideChar", longArrayOf(pcszurl, cchurl.toLong(), pcwszbaseurl, dwcodepagehost.toLong(), dwcodepagepath.toLong(), fencodepathextra.toLong(), dwcodepageextra.toLong(), ppwszconvertedurl)).toUInt()
 }
 
-public fun InternetCrackUrlA(lpszurl: PCSTR, dwurllength: UInt, dwflags: WinHttp.WIN_HTTP_CREATE_URL_FLAGS, lpurlcomponents: Long): BOOL {
-    return Win32DynamicFfi.invoke("wininet.dll", "InternetCrackUrlA", longArrayOf(lpszurl, dwurllength.toLong(), Win32DynamicFfi.objectSlot(dwflags), lpurlcomponents)).toInt()
+public fun InternetCrackUrlA(lpszurl: PCSTR, dwurllength: UInt, dwflags: WIN_HTTP_CREATE_URL_FLAGS, lpurlcomponents: Long): BOOL {
+    return Win32DynamicFfi.invoke("wininet.dll", "InternetCrackUrlA", longArrayOf(lpszurl, dwurllength.toLong(), dwflags.toLong(), lpurlcomponents)).toInt()
 }
 
-public fun InternetCrackUrlW(lpszurl: PCWSTR, dwurllength: UInt, dwflags: WinHttp.WIN_HTTP_CREATE_URL_FLAGS, lpurlcomponents: Long): BOOL {
-    return Win32DynamicFfi.invoke("wininet.dll", "InternetCrackUrlW", longArrayOf(lpszurl, dwurllength.toLong(), Win32DynamicFfi.objectSlot(dwflags), lpurlcomponents)).toInt()
+public fun InternetCrackUrlW(lpszurl: PCWSTR, dwurllength: UInt, dwflags: WIN_HTTP_CREATE_URL_FLAGS, lpurlcomponents: Long): BOOL {
+    return Win32DynamicFfi.invoke("wininet.dll", "InternetCrackUrlW", longArrayOf(lpszurl, dwurllength.toLong(), dwflags.toLong(), lpurlcomponents)).toInt()
 }
 
 public fun InternetCreateUrlA(lpurlcomponents: Long, dwflags: UInt, lpszurl: PSTR, lpdwurllength: Long): BOOL {
@@ -666,16 +665,16 @@ public fun InternetCreateUrlW(lpurlcomponents: Long, dwflags: UInt, lpszurl: PWS
     return Win32DynamicFfi.invoke("wininet.dll", "InternetCreateUrlW", longArrayOf(lpurlcomponents, dwflags.toLong(), lpszurl, lpdwurllength)).toInt()
 }
 
-public fun InternetDial(hwndparent: Foundation.HWND, lpszconnectoid: PCSTR, dwflags: UInt, lpdwconnection: Long, dwreserved: UInt): UInt {
-    return Win32DynamicFfi.invoke("wininet.dll", "InternetDial", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), lpszconnectoid, dwflags.toLong(), lpdwconnection, dwreserved.toLong())).toUInt()
+public fun InternetDial(hwndparent: HWND, lpszconnectoid: PCSTR, dwflags: UInt, lpdwconnection: Long, dwreserved: UInt): UInt {
+    return Win32DynamicFfi.invoke("wininet.dll", "InternetDial", longArrayOf(hwndparent, lpszconnectoid, dwflags.toLong(), lpdwconnection, dwreserved.toLong())).toUInt()
 }
 
-public fun InternetDialA(hwndparent: Foundation.HWND, lpszconnectoid: PCSTR, dwflags: UInt, lpdwconnection: Long, dwreserved: UInt): UInt {
-    return Win32DynamicFfi.invoke("wininet.dll", "InternetDialA", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), lpszconnectoid, dwflags.toLong(), lpdwconnection, dwreserved.toLong())).toUInt()
+public fun InternetDialA(hwndparent: HWND, lpszconnectoid: PCSTR, dwflags: UInt, lpdwconnection: Long, dwreserved: UInt): UInt {
+    return Win32DynamicFfi.invoke("wininet.dll", "InternetDialA", longArrayOf(hwndparent, lpszconnectoid, dwflags.toLong(), lpdwconnection, dwreserved.toLong())).toUInt()
 }
 
-public fun InternetDialW(hwndparent: Foundation.HWND, lpszconnectoid: PCWSTR, dwflags: UInt, lpdwconnection: Long, dwreserved: UInt): UInt {
-    return Win32DynamicFfi.invoke("wininet.dll", "InternetDialW", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), lpszconnectoid, dwflags.toLong(), lpdwconnection, dwreserved.toLong())).toUInt()
+public fun InternetDialW(hwndparent: HWND, lpszconnectoid: PCWSTR, dwflags: UInt, lpdwconnection: Long, dwreserved: UInt): UInt {
+    return Win32DynamicFfi.invoke("wininet.dll", "InternetDialW", longArrayOf(hwndparent, lpszconnectoid, dwflags.toLong(), lpdwconnection, dwreserved.toLong())).toUInt()
 }
 
 public fun InternetEnumPerSiteCookieDecisionA(pszsitename: PSTR, pcsitenamesize: Long, pdwdecision: Long, dwindex: UInt): BOOL {
@@ -686,8 +685,8 @@ public fun InternetEnumPerSiteCookieDecisionW(pszsitename: PWSTR, pcsitenamesize
     return Win32DynamicFfi.invoke("wininet.dll", "InternetEnumPerSiteCookieDecisionW", longArrayOf(pszsitename, pcsitenamesize, pdwdecision, dwindex.toLong())).toInt()
 }
 
-public fun InternetErrorDlg(hwnd: Foundation.HWND, hrequest: Long, dwerror: UInt, dwflags: UInt, lppvdata: Long): UInt {
-    return Win32DynamicFfi.invoke("wininet.dll", "InternetErrorDlg", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), hrequest, dwerror.toLong(), dwflags.toLong(), lppvdata)).toUInt()
+public fun InternetErrorDlg(hwnd: HWND, hrequest: Long, dwerror: UInt, dwflags: UInt, lppvdata: Long): UInt {
+    return Win32DynamicFfi.invoke("wininet.dll", "InternetErrorDlg", longArrayOf(hwnd, hrequest, dwerror.toLong(), dwflags.toLong(), lppvdata)).toUInt()
 }
 
 public fun InternetFindNextFileA(hfind: Long, lpvfinddata: Long): BOOL {
@@ -698,8 +697,8 @@ public fun InternetFindNextFileW(hfind: Long, lpvfinddata: Long): BOOL {
     return Win32DynamicFfi.invoke("wininet.dll", "InternetFindNextFileW", longArrayOf(hfind, lpvfinddata)).toInt()
 }
 
-public fun InternetFortezzaCommand(dwcommand: UInt, hwnd: Foundation.HWND, dwreserved: ULong): BOOL {
-    return Win32DynamicFfi.invoke("wininet.dll", "InternetFortezzaCommand", longArrayOf(dwcommand.toLong(), Win32DynamicFfi.objectSlot(hwnd), dwreserved.toLong())).toInt()
+public fun InternetFortezzaCommand(dwcommand: UInt, hwnd: HWND, dwreserved: ULong): BOOL {
+    return Win32DynamicFfi.invoke("wininet.dll", "InternetFortezzaCommand", longArrayOf(dwcommand.toLong(), hwnd, dwreserved.toLong())).toInt()
 }
 
 public fun InternetFreeCookies(pcookies: Long, dwcookiecount: UInt) {
@@ -778,16 +777,16 @@ public fun InternetGetSecurityInfoByURLW(lpszurl: PCWSTR, ppcertchain: Long, pdw
     return Win32DynamicFfi.invoke("wininet.dll", "InternetGetSecurityInfoByURLW", longArrayOf(lpszurl, ppcertchain, pdwsecureflags)).toInt()
 }
 
-public fun InternetGoOnline(lpszurl: PCSTR, hwndparent: Foundation.HWND, dwflags: UInt): BOOL {
-    return Win32DynamicFfi.invoke("wininet.dll", "InternetGoOnline", longArrayOf(lpszurl, Win32DynamicFfi.objectSlot(hwndparent), dwflags.toLong())).toInt()
+public fun InternetGoOnline(lpszurl: PCSTR, hwndparent: HWND, dwflags: UInt): BOOL {
+    return Win32DynamicFfi.invoke("wininet.dll", "InternetGoOnline", longArrayOf(lpszurl, hwndparent, dwflags.toLong())).toInt()
 }
 
-public fun InternetGoOnlineA(lpszurl: PCSTR, hwndparent: Foundation.HWND, dwflags: UInt): BOOL {
-    return Win32DynamicFfi.invoke("wininet.dll", "InternetGoOnlineA", longArrayOf(lpszurl, Win32DynamicFfi.objectSlot(hwndparent), dwflags.toLong())).toInt()
+public fun InternetGoOnlineA(lpszurl: PCSTR, hwndparent: HWND, dwflags: UInt): BOOL {
+    return Win32DynamicFfi.invoke("wininet.dll", "InternetGoOnlineA", longArrayOf(lpszurl, hwndparent, dwflags.toLong())).toInt()
 }
 
-public fun InternetGoOnlineW(lpszurl: PCWSTR, hwndparent: Foundation.HWND, dwflags: UInt): BOOL {
-    return Win32DynamicFfi.invoke("wininet.dll", "InternetGoOnlineW", longArrayOf(lpszurl, Win32DynamicFfi.objectSlot(hwndparent), dwflags.toLong())).toInt()
+public fun InternetGoOnlineW(lpszurl: PCWSTR, hwndparent: HWND, dwflags: UInt): BOOL {
+    return Win32DynamicFfi.invoke("wininet.dll", "InternetGoOnlineW", longArrayOf(lpszurl, hwndparent, dwflags.toLong())).toInt()
 }
 
 public fun InternetHangUp(dwconnection: ULong, dwreserved: UInt): UInt {
@@ -916,29 +915,29 @@ public fun InternetSetPerSiteCookieDecisionW(pchhostname: PCWSTR, dwdecision: UI
 
 public fun InternetSetStatusCallback(hinternet: Long, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK): LPINTERNET_STATUS_CALLBACK {
     val rawRet = Win32DynamicFfi.invoke("wininet.dll", "InternetSetStatusCallback", longArrayOf(hinternet, Win32DynamicFfi.objectSlot(lpfninternetcallback)))
-    return if (rawRet == 0L) null else LPINTERNET_STATUS_CALLBACKFn { _, _, _, _, _ ->  }
+    return if (rawRet == 0L) null else LPINTERNET_STATUS_CALLBACKFn { p0, p1, p2, p3, p4 -> Win32DynamicFfi.invokePtr(rawRet, longArrayOf(p0, p1.toLong(), p2.toLong(), p3, p4.toLong())) }
 }
 
 public fun InternetSetStatusCallbackA(hinternet: Long, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK): LPINTERNET_STATUS_CALLBACK {
     val rawRet = Win32DynamicFfi.invoke("wininet.dll", "InternetSetStatusCallbackA", longArrayOf(hinternet, Win32DynamicFfi.objectSlot(lpfninternetcallback)))
-    return if (rawRet == 0L) null else LPINTERNET_STATUS_CALLBACKFn { _, _, _, _, _ ->  }
+    return if (rawRet == 0L) null else LPINTERNET_STATUS_CALLBACKFn { p0, p1, p2, p3, p4 -> Win32DynamicFfi.invokePtr(rawRet, longArrayOf(p0, p1.toLong(), p2.toLong(), p3, p4.toLong())) }
 }
 
 public fun InternetSetStatusCallbackW(hinternet: Long, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK): LPINTERNET_STATUS_CALLBACK {
     val rawRet = Win32DynamicFfi.invoke("wininet.dll", "InternetSetStatusCallbackW", longArrayOf(hinternet, Win32DynamicFfi.objectSlot(lpfninternetcallback)))
-    return if (rawRet == 0L) null else LPINTERNET_STATUS_CALLBACKFn { _, _, _, _, _ ->  }
+    return if (rawRet == 0L) null else LPINTERNET_STATUS_CALLBACKFn { p0, p1, p2, p3, p4 -> Win32DynamicFfi.invokePtr(rawRet, longArrayOf(p0, p1.toLong(), p2.toLong(), p3, p4.toLong())) }
 }
 
-public fun InternetShowSecurityInfoByURL(lpszurl: PCSTR, hwndparent: Foundation.HWND): BOOL {
-    return Win32DynamicFfi.invoke("wininet.dll", "InternetShowSecurityInfoByURL", longArrayOf(lpszurl, Win32DynamicFfi.objectSlot(hwndparent))).toInt()
+public fun InternetShowSecurityInfoByURL(lpszurl: PCSTR, hwndparent: HWND): BOOL {
+    return Win32DynamicFfi.invoke("wininet.dll", "InternetShowSecurityInfoByURL", longArrayOf(lpszurl, hwndparent)).toInt()
 }
 
-public fun InternetShowSecurityInfoByURLA(lpszurl: PCSTR, hwndparent: Foundation.HWND): BOOL {
-    return Win32DynamicFfi.invoke("wininet.dll", "InternetShowSecurityInfoByURLA", longArrayOf(lpszurl, Win32DynamicFfi.objectSlot(hwndparent))).toInt()
+public fun InternetShowSecurityInfoByURLA(lpszurl: PCSTR, hwndparent: HWND): BOOL {
+    return Win32DynamicFfi.invoke("wininet.dll", "InternetShowSecurityInfoByURLA", longArrayOf(lpszurl, hwndparent)).toInt()
 }
 
-public fun InternetShowSecurityInfoByURLW(lpszurl: PCWSTR, hwndparent: Foundation.HWND): BOOL {
-    return Win32DynamicFfi.invoke("wininet.dll", "InternetShowSecurityInfoByURLW", longArrayOf(lpszurl, Win32DynamicFfi.objectSlot(hwndparent))).toInt()
+public fun InternetShowSecurityInfoByURLW(lpszurl: PCWSTR, hwndparent: HWND): BOOL {
+    return Win32DynamicFfi.invoke("wininet.dll", "InternetShowSecurityInfoByURLW", longArrayOf(lpszurl, hwndparent)).toInt()
 }
 
 public fun InternetTimeFromSystemTime(pst: Long, dwrfc: UInt, lpsztime: PSTR, cbtime: UInt): BOOL {
@@ -965,8 +964,8 @@ public fun InternetTimeToSystemTimeW(lpsztime: PCWSTR, pst: Long, dwreserved: UI
     return Win32DynamicFfi.invoke("wininet.dll", "InternetTimeToSystemTimeW", longArrayOf(lpsztime, pst, dwreserved.toLong())).toInt()
 }
 
-public fun InternetUnlockRequestFile(hlockrequestinfo: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("wininet.dll", "InternetUnlockRequestFile", longArrayOf(Win32DynamicFfi.objectSlot(hlockrequestinfo))).toInt()
+public fun InternetUnlockRequestFile(hlockrequestinfo: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("wininet.dll", "InternetUnlockRequestFile", longArrayOf(hlockrequestinfo)).toInt()
 }
 
 public fun InternetWriteFile(hfile: Long, lpbuffer: Long, dwnumberofbytestowrite: UInt, lpdwnumberofbyteswritten: Long): BOOL {
@@ -1029,16 +1028,16 @@ public fun ReadGuidsForConnectedNetworks(pcnetworks: Long, pppwsznetworkguids: L
     return Win32DynamicFfi.invoke("wininet.dll", "ReadGuidsForConnectedNetworks", longArrayOf(pcnetworks, pppwsznetworkguids, pppbstrnetworknames, pppwszgwmacs, pcgatewaymacs, pdwflags)).toInt()
 }
 
-public fun ReadUrlCacheEntryStream(hurlcachestream: Foundation.HANDLE, dwlocation: UInt, lpbuffer: Long, lpdwlen: Long, reserved: UInt): BOOL {
-    return Win32DynamicFfi.invoke("wininet.dll", "ReadUrlCacheEntryStream", longArrayOf(Win32DynamicFfi.objectSlot(hurlcachestream), dwlocation.toLong(), lpbuffer, lpdwlen, reserved.toLong())).toInt()
+public fun ReadUrlCacheEntryStream(hurlcachestream: HANDLE, dwlocation: UInt, lpbuffer: Long, lpdwlen: Long, reserved: UInt): BOOL {
+    return Win32DynamicFfi.invoke("wininet.dll", "ReadUrlCacheEntryStream", longArrayOf(hurlcachestream, dwlocation.toLong(), lpbuffer, lpdwlen, reserved.toLong())).toInt()
 }
 
-public fun ReadUrlCacheEntryStreamEx(hurlcachestream: Foundation.HANDLE, qwlocation: ULong, lpbuffer: Long, lpdwlen: Long): BOOL {
-    return Win32DynamicFfi.invoke("wininet.dll", "ReadUrlCacheEntryStreamEx", longArrayOf(Win32DynamicFfi.objectSlot(hurlcachestream), qwlocation.toLong(), lpbuffer, lpdwlen)).toInt()
+public fun ReadUrlCacheEntryStreamEx(hurlcachestream: HANDLE, qwlocation: ULong, lpbuffer: Long, lpdwlen: Long): BOOL {
+    return Win32DynamicFfi.invoke("wininet.dll", "ReadUrlCacheEntryStreamEx", longArrayOf(hurlcachestream, qwlocation.toLong(), lpbuffer, lpdwlen)).toInt()
 }
 
-public fun RegisterUrlCacheNotification(hwnd: Foundation.HWND, umsg: UInt, gid: Long, dwopsfilter: UInt, dwreserved: UInt): BOOL {
-    return Win32DynamicFfi.invoke("wininet.dll", "RegisterUrlCacheNotification", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), umsg.toLong(), gid, dwopsfilter.toLong(), dwreserved.toLong())).toInt()
+public fun RegisterUrlCacheNotification(hwnd: HWND, umsg: UInt, gid: Long, dwopsfilter: UInt, dwreserved: UInt): BOOL {
+    return Win32DynamicFfi.invoke("wininet.dll", "RegisterUrlCacheNotification", longArrayOf(hwnd, umsg.toLong(), gid, dwopsfilter.toLong(), dwreserved.toLong())).toInt()
 }
 
 public fun ResumeSuspendedDownload(hrequest: Long, dwresultcode: UInt): BOOL {
@@ -1053,18 +1052,16 @@ public fun RetrieveUrlCacheEntryFileW(lpszurlname: PCWSTR, lpcacheentryinfo: Lon
     return Win32DynamicFfi.invoke("wininet.dll", "RetrieveUrlCacheEntryFileW", longArrayOf(lpszurlname, lpcacheentryinfo, lpcbcacheentryinfo, dwreserved.toLong())).toInt()
 }
 
-public fun RetrieveUrlCacheEntryStreamA(lpszurlname: PCSTR, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, frandomread: BOOL, dwreserved: UInt): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("wininet.dll", "RetrieveUrlCacheEntryStreamA", longArrayOf(lpszurlname, lpcacheentryinfo, lpcbcacheentryinfo, frandomread.toLong(), dwreserved.toLong()))
-    return Foundation.HANDLE()
+public fun RetrieveUrlCacheEntryStreamA(lpszurlname: PCSTR, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, frandomread: BOOL, dwreserved: UInt): HANDLE {
+    return Win32DynamicFfi.invoke("wininet.dll", "RetrieveUrlCacheEntryStreamA", longArrayOf(lpszurlname, lpcacheentryinfo, lpcbcacheentryinfo, frandomread.toLong(), dwreserved.toLong()))
 }
 
-public fun RetrieveUrlCacheEntryStreamW(lpszurlname: PCWSTR, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, frandomread: BOOL, dwreserved: UInt): Foundation.HANDLE {
-    Win32DynamicFfi.invoke("wininet.dll", "RetrieveUrlCacheEntryStreamW", longArrayOf(lpszurlname, lpcacheentryinfo, lpcbcacheentryinfo, frandomread.toLong(), dwreserved.toLong()))
-    return Foundation.HANDLE()
+public fun RetrieveUrlCacheEntryStreamW(lpszurlname: PCWSTR, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, frandomread: BOOL, dwreserved: UInt): HANDLE {
+    return Win32DynamicFfi.invoke("wininet.dll", "RetrieveUrlCacheEntryStreamW", longArrayOf(lpszurlname, lpcacheentryinfo, lpcbcacheentryinfo, frandomread.toLong(), dwreserved.toLong()))
 }
 
-public fun RunOnceUrlCache(hwnd: Foundation.HWND, hinst: Foundation.HINSTANCE, lpszcmd: PCSTR, ncmdshow: Int): UInt {
-    return Win32DynamicFfi.invoke("wininet.dll", "RunOnceUrlCache", longArrayOf(Win32DynamicFfi.objectSlot(hwnd), Win32DynamicFfi.objectSlot(hinst), lpszcmd, ncmdshow.toLong())).toUInt()
+public fun RunOnceUrlCache(hwnd: HWND, hinst: HINSTANCE, lpszcmd: PCSTR, ncmdshow: Int): UInt {
+    return Win32DynamicFfi.invoke("wininet.dll", "RunOnceUrlCache", longArrayOf(hwnd, hinst, lpszcmd, ncmdshow.toLong())).toUInt()
 }
 
 public fun SetUrlCacheConfigInfoA(lpcacheconfiginfo: Long, dwfieldcontrol: UInt): BOOL {
@@ -1107,16 +1104,16 @@ public fun SetUrlCacheHeaderData(nidx: UInt, dwdata: UInt): BOOL {
     return Win32DynamicFfi.invoke("wininet.dll", "SetUrlCacheHeaderData", longArrayOf(nidx.toLong(), dwdata.toLong())).toInt()
 }
 
-public fun ShowClientAuthCerts(hwndparent: Foundation.HWND): UInt {
-    return Win32DynamicFfi.invoke("wininet.dll", "ShowClientAuthCerts", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent))).toUInt()
+public fun ShowClientAuthCerts(hwndparent: HWND): UInt {
+    return Win32DynamicFfi.invoke("wininet.dll", "ShowClientAuthCerts", longArrayOf(hwndparent)).toUInt()
 }
 
-public fun ShowSecurityInfo(hwndparent: Foundation.HWND, psecurityinfo: Long): UInt {
-    return Win32DynamicFfi.invoke("wininet.dll", "ShowSecurityInfo", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), psecurityinfo)).toUInt()
+public fun ShowSecurityInfo(hwndparent: HWND, psecurityinfo: Long): UInt {
+    return Win32DynamicFfi.invoke("wininet.dll", "ShowSecurityInfo", longArrayOf(hwndparent, psecurityinfo)).toUInt()
 }
 
-public fun ShowX509EncodedCertificate(hwndparent: Foundation.HWND, lpcert: Long, cbcert: UInt): UInt {
-    return Win32DynamicFfi.invoke("wininet.dll", "ShowX509EncodedCertificate", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), lpcert, cbcert.toLong())).toUInt()
+public fun ShowX509EncodedCertificate(hwndparent: HWND, lpcert: Long, cbcert: UInt): UInt {
+    return Win32DynamicFfi.invoke("wininet.dll", "ShowX509EncodedCertificate", longArrayOf(hwndparent, lpcert, cbcert.toLong())).toUInt()
 }
 
 public fun UnlockUrlCacheEntryFile(lpszurlname: PCSTR, dwreserved: UInt): BOOL {
@@ -1131,8 +1128,8 @@ public fun UnlockUrlCacheEntryFileW(lpszurlname: PCWSTR, dwreserved: UInt): BOOL
     return Win32DynamicFfi.invoke("wininet.dll", "UnlockUrlCacheEntryFileW", longArrayOf(lpszurlname, dwreserved.toLong())).toInt()
 }
 
-public fun UnlockUrlCacheEntryStream(hurlcachestream: Foundation.HANDLE, reserved: UInt): BOOL {
-    return Win32DynamicFfi.invoke("wininet.dll", "UnlockUrlCacheEntryStream", longArrayOf(Win32DynamicFfi.objectSlot(hurlcachestream), reserved.toLong())).toInt()
+public fun UnlockUrlCacheEntryStream(hurlcachestream: HANDLE, reserved: UInt): BOOL {
+    return Win32DynamicFfi.invoke("wininet.dll", "UnlockUrlCacheEntryStream", longArrayOf(hurlcachestream, reserved.toLong())).toInt()
 }
 
 public fun UpdateUrlCacheContentPath(sznewpath: PCSTR): BOOL {
@@ -1159,8 +1156,8 @@ public fun UrlCacheFindFirstEntry(pwszprefix: PCWSTR, dwflags: UInt, dwfilter: U
     return Win32DynamicFfi.invoke("wininet.dll", "UrlCacheFindFirstEntry", longArrayOf(pwszprefix, dwflags.toLong(), dwfilter.toLong(), groupid, pcacheentryinfo, phfind)).toUInt()
 }
 
-public fun UrlCacheFindNextEntry(hfind: Foundation.HANDLE, pcacheentryinfo: Long): UInt {
-    return Win32DynamicFfi.invoke("wininet.dll", "UrlCacheFindNextEntry", longArrayOf(Win32DynamicFfi.objectSlot(hfind), pcacheentryinfo)).toUInt()
+public fun UrlCacheFindNextEntry(hfind: HANDLE, pcacheentryinfo: Long): UInt {
+    return Win32DynamicFfi.invoke("wininet.dll", "UrlCacheFindNextEntry", longArrayOf(hfind, pcacheentryinfo)).toUInt()
 }
 
 public fun UrlCacheFreeEntryInfo(pcacheentryinfo: Long) {

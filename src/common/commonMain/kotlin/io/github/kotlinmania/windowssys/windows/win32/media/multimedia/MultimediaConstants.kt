@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.media.multimedia
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
@@ -97,9 +98,9 @@ public val AVSTREAMMASTER_NONE: UInt = 1u
 
 public val BI_1632: UInt = 842217009u
 
-public val CLSID_AVIFile: GUID = GUID.from_u128(0x2000000000000uL, 0xc000000000000046uL)
+public val CLSID_AVIFile: GUID = GUID.from_u128(U128(0x2000000000000uL, 0xc000000000000046uL))
 
-public val CLSID_AVISimpleUnMarshal: GUID = GUID.from_u128(0x2000900000000uL, 0xc000000000000046uL)
+public val CLSID_AVISimpleUnMarshal: GUID = GUID.from_u128(U128(0x2000900000000uL, 0xc000000000000046uL))
 
 public val CONTROLCALLBACK_CAPTURING: UInt = 2u
 
@@ -1069,7 +1070,7 @@ public val JPEG_Y: UInt = 1u
 
 public val JPEG_YCbCr: UInt = 2u
 
-public val KSDATAFORMAT_SUBTYPE_IEEE_FLOAT: GUID = GUID.from_u128(0x300000010uL, 0x800000aa00389b71uL)
+public val KSDATAFORMAT_SUBTYPE_IEEE_FLOAT: GUID = GUID.from_u128(U128(0x300000010uL, 0x800000aa00389b71uL))
 
 public val MCIERR_AVI_AUDIOERROR: UInt = 619u
 

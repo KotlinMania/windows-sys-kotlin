@@ -1,5 +1,8 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.sensors
 
+import io.github.kotlinmania.windowssys.windows.win32.foundation.PROPERTYKEY
+import io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.PROPVARIANT
+
 public data class MATRIX3X3(public var Anonymous: MATRIX3X3_0 = MATRIX3X3_0())
 
 public data class MATRIX3X3_0(
@@ -58,10 +61,10 @@ public data class SENSOR_COLLECTION_LIST(
 public data class SENSOR_PROPERTY_LIST(
     public var AllocatedSizeInBytes: UInt = 0u,
     public var Count: UInt = 0u,
-    public var List: List<Foundation.PROPERTYKEY> = List(1) { Foundation.PROPERTYKEY() },
+    public var List: List<PROPERTYKEY> = List(1) { PROPERTYKEY() },
 )
 
-public data class SENSOR_VALUE_PAIR(public var Key: Foundation.PROPERTYKEY = Foundation.PROPERTYKEY(), public var Value: System.Com.StructuredStorage.PROPVARIANT = System.Com.StructuredStorage.PROPVARIANT())
+public data class SENSOR_VALUE_PAIR(public var Key: PROPERTYKEY = PROPERTYKEY(), public var Value: PROPVARIANT = PROPVARIANT())
 
 public data class VEC3D(
     public var X: Float = 0.0f,

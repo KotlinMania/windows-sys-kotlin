@@ -6,12 +6,17 @@ import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.SYSTEMTIME
+import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.ALG_ID
 
 public data class BY_HANDLE_FILE_INFORMATION(
     public var dwFileAttributes: UInt = 0u,
-    public var ftCreationTime: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ftLastAccessTime: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ftLastWriteTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftCreationTime: FILETIME = FILETIME(),
+    public var ftLastAccessTime: FILETIME = FILETIME(),
+    public var ftLastWriteTime: FILETIME = FILETIME(),
     public var dwVolumeSerialNumber: UInt = 0u,
     public var nFileSizeHigh: UInt = 0u,
     public var nFileSizeLow: UInt = 0u,
@@ -213,7 +218,7 @@ public data class CLS_LSN(public var Internal: ULong = 0uL)
 
 public data class CLS_SCAN_CONTEXT(
     public var cidNode: CLFS_NODE_ID = CLFS_NODE_ID(),
-    public var hLog: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hLog: HANDLE = 0L,
     public var cIndex: UInt = 0u,
     public var cContainers: UInt = 0u,
     public var cContainersReturned: UInt = 0u,
@@ -301,8 +306,8 @@ public data class COPYFILE2_MESSAGE_0(
 public data class COPYFILE2_MESSAGE_0_1(
     public var dwStreamNumber: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hSourceFile: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hDestinationFile: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hSourceFile: HANDLE = 0L,
+    public var hDestinationFile: HANDLE = 0L,
     public var uliChunkNumber: ULong = 0uL,
     public var uliChunkSize: ULong = 0uL,
     public var uliStreamSize: ULong = 0uL,
@@ -314,8 +319,8 @@ public data class COPYFILE2_MESSAGE_0_1(
 public data class COPYFILE2_MESSAGE_0_0(
     public var dwStreamNumber: UInt = 0u,
     public var dwReserved: UInt = 0u,
-    public var hSourceFile: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hDestinationFile: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hSourceFile: HANDLE = 0L,
+    public var hDestinationFile: HANDLE = 0L,
     public var uliChunkNumber: ULong = 0uL,
     public var uliChunkSize: ULong = 0uL,
     public var uliStreamSize: ULong = 0uL,
@@ -339,8 +344,8 @@ public data class COPYFILE2_MESSAGE_0_4(public var dwReserved: UInt = 0u)
 public data class COPYFILE2_MESSAGE_0_3(
     public var dwStreamNumber: UInt = 0u,
     public var dwReserved: UInt = 0u,
-    public var hSourceFile: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hDestinationFile: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hSourceFile: HANDLE = 0L,
+    public var hDestinationFile: HANDLE = 0L,
     public var uliStreamSize: ULong = 0uL,
     public var uliStreamBytesTransferred: ULong = 0uL,
     public var uliTotalFileSize: ULong = 0uL,
@@ -350,8 +355,8 @@ public data class COPYFILE2_MESSAGE_0_3(
 public data class COPYFILE2_MESSAGE_0_2(
     public var dwStreamNumber: UInt = 0u,
     public var dwReserved: UInt = 0u,
-    public var hSourceFile: Foundation.HANDLE = Foundation.HANDLE(),
-    public var hDestinationFile: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hSourceFile: HANDLE = 0L,
+    public var hDestinationFile: HANDLE = 0L,
     public var uliStreamSize: ULong = 0uL,
     public var uliTotalFileSize: ULong = 0uL,
 )
@@ -362,7 +367,7 @@ public data class CREATEFILE2_EXTENDED_PARAMETERS(
     public var dwFileFlags: UInt = 0u,
     public var dwSecurityQosFlags: UInt = 0u,
     public var lpSecurityAttributes: Long = 0L,
-    public var hTemplateFile: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hTemplateFile: HANDLE = 0L,
 )
 
 public data class DISKQUOTA_USER_INFORMATION(
@@ -408,7 +413,7 @@ public data class EFS_HASH_BLOB(public var cbData: UInt = 0u, public var pbData:
 public data class EFS_KEY_INFO(
     public var dwVersion: UInt = 0u,
     public var Entropy: UInt = 0u,
-    public var Algorithm: Security.Cryptography.ALG_ID = Security.Cryptography.ALG_ID(),
+    public var Algorithm: ALG_ID = 0u,
     public var KeyLength: UInt = 0u,
 )
 
@@ -459,7 +464,7 @@ public data class FH_OVERLAPPED(
     public var InternalHigh: ULong = 0uL,
     public var Offset: UInt = 0u,
     public var OffsetHigh: UInt = 0u,
-    public var hEvent: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hEvent: HANDLE = 0L,
     public var pfnCompletion: PFN_IO_COMPLETION = null,
     public var Reserved1: ULong = 0uL,
     public var Reserved2: ULong = 0uL,
@@ -871,7 +876,7 @@ public data class FILE_REMOTE_PROTOCOL_INFO_1_0_1(public var Capabilities: UInt 
 
 public data class FILE_RENAME_INFO(
     public var Anonymous: FILE_RENAME_INFO_0 = FILE_RENAME_INFO_0(),
-    public var RootDirectory: Foundation.HANDLE = Foundation.HANDLE(),
+    public var RootDirectory: HANDLE = 0L,
     public var FileNameLength: UInt = 0u,
     public var FileName: UShortArray = UShortArray(1),
 ) {
@@ -947,7 +952,7 @@ public data class FILE_STREAM_INFO(
 public data class FIO_CONTEXT(
     public var m_dwTempHack: UInt = 0u,
     public var m_dwSignature: UInt = 0u,
-    public var m_hFile: Foundation.HANDLE = Foundation.HANDLE(),
+    public var m_hFile: HANDLE = 0L,
     public var m_dwLinesOffset: UInt = 0u,
     public var m_dwHeaderLength: UInt = 0u,
 )
@@ -975,7 +980,7 @@ public data class IORING_CREATE_FLAGS(public var Required: IORING_CREATE_REQUIRE
 
 public data class IORING_HANDLE_REF(public var Kind: IORING_REF_KIND = 0, public var Handle: IORING_HANDLE_REF_0 = IORING_HANDLE_REF_0())
 
-public data class IORING_HANDLE_REF_0(public var Handle: Foundation.HANDLE = Foundation.HANDLE(), public var Index: UInt = 0u)
+public data class IORING_HANDLE_REF_0(public var Handle: HANDLE = 0L, public var Index: UInt = 0u)
 
 public data class IORING_INFO(
     public var IoRingVersion: IORING_VERSION = 0,
@@ -1078,7 +1083,7 @@ public data class NTMS_ASYNC_IO(
     public var dwOperationType: UInt = 0u,
     public var dwResult: UInt = 0u,
     public var dwAsyncState: UInt = 0u,
-    public var hEvent: Foundation.HANDLE = Foundation.HANDLE(),
+    public var hEvent: HANDLE = 0L,
     public var bOnStateChange: BOOL = 0,
 )
 
@@ -1232,7 +1237,7 @@ public data class NTMS_DRIVEINFORMATIONA(
     public var ScsiTarget: UShort = 0u,
     public var ScsiLun: UShort = 0u,
     public var dwMountCount: UInt = 0u,
-    public var LastCleanedTs: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var LastCleanedTs: SYSTEMTIME = SYSTEMTIME(),
     public var SavedPartitionId: GUID = GUID(),
     public var Library: GUID = GUID(),
     public var Reserved: GUID = GUID(),
@@ -1293,7 +1298,7 @@ public data class NTMS_DRIVEINFORMATIONW(
     public var ScsiTarget: UShort = 0u,
     public var ScsiLun: UShort = 0u,
     public var dwMountCount: UInt = 0u,
-    public var LastCleanedTs: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var LastCleanedTs: SYSTEMTIME = SYSTEMTIME(),
     public var SavedPartitionId: GUID = GUID(),
     public var Library: GUID = GUID(),
     public var Reserved: GUID = GUID(),
@@ -1447,8 +1452,8 @@ public data class NTMS_I1_LIBREQUESTINFORMATIONA(
     public var PhysMediaId: GUID = GUID(),
     public var Library: GUID = GUID(),
     public var SlotId: GUID = GUID(),
-    public var TimeQueued: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
-    public var TimeCompleted: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var TimeQueued: SYSTEMTIME = SYSTEMTIME(),
+    public var TimeCompleted: SYSTEMTIME = SYSTEMTIME(),
     public var szApplication: ByteArray = ByteArray(64),
     public var szUser: ByteArray = ByteArray(64),
     public var szComputer: ByteArray = ByteArray(64),
@@ -1499,8 +1504,8 @@ public data class NTMS_I1_LIBREQUESTINFORMATIONW(
     public var PhysMediaId: GUID = GUID(),
     public var Library: GUID = GUID(),
     public var SlotId: GUID = GUID(),
-    public var TimeQueued: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
-    public var TimeCompleted: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var TimeQueued: SYSTEMTIME = SYSTEMTIME(),
+    public var TimeCompleted: SYSTEMTIME = SYSTEMTIME(),
     public var szApplication: UShortArray = UShortArray(64),
     public var szUser: UShortArray = UShortArray(64),
     public var szComputer: UShortArray = UShortArray(64),
@@ -1545,8 +1550,8 @@ public data class NTMS_I1_LIBREQUESTINFORMATIONW(
 public data class NTMS_I1_OBJECTINFORMATIONA(
     public var dwSize: UInt = 0u,
     public var dwType: UInt = 0u,
-    public var Created: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
-    public var Modified: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var Created: SYSTEMTIME = SYSTEMTIME(),
+    public var Modified: SYSTEMTIME = SYSTEMTIME(),
     public var ObjectGuid: GUID = GUID(),
     public var Enabled: BOOL = 0,
     public var dwOperationalState: UInt = 0u,
@@ -1606,8 +1611,8 @@ public data class NTMS_I1_OBJECTINFORMATIONA_0(
 public data class NTMS_I1_OBJECTINFORMATIONW(
     public var dwSize: UInt = 0u,
     public var dwType: UInt = 0u,
-    public var Created: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
-    public var Modified: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var Created: SYSTEMTIME = SYSTEMTIME(),
+    public var Modified: SYSTEMTIME = SYSTEMTIME(),
     public var ObjectGuid: GUID = GUID(),
     public var Enabled: BOOL = 0,
     public var dwOperationalState: UInt = 0u,
@@ -1666,7 +1671,7 @@ public data class NTMS_I1_OBJECTINFORMATIONW_0(
 
 public data class NTMS_I1_OPREQUESTINFORMATIONA(
     public var Request: UInt = 0u,
-    public var Submitted: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var Submitted: SYSTEMTIME = SYSTEMTIME(),
     public var State: UInt = 0u,
     public var szMessage: ByteArray = ByteArray(127),
     public var Arg1Type: UInt = 0u,
@@ -1712,7 +1717,7 @@ public data class NTMS_I1_OPREQUESTINFORMATIONA(
 
 public data class NTMS_I1_OPREQUESTINFORMATIONW(
     public var Request: UInt = 0u,
-    public var Submitted: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var Submitted: SYSTEMTIME = SYSTEMTIME(),
     public var State: UInt = 0u,
     public var szMessage: UShortArray = UShortArray(127),
     public var Arg1Type: UInt = 0u,
@@ -1984,8 +1989,8 @@ public data class NTMS_LIBREQUESTINFORMATIONA(
     public var PhysMediaId: GUID = GUID(),
     public var Library: GUID = GUID(),
     public var SlotId: GUID = GUID(),
-    public var TimeQueued: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
-    public var TimeCompleted: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var TimeQueued: SYSTEMTIME = SYSTEMTIME(),
+    public var TimeCompleted: SYSTEMTIME = SYSTEMTIME(),
     public var szApplication: ByteArray = ByteArray(64),
     public var szUser: ByteArray = ByteArray(64),
     public var szComputer: ByteArray = ByteArray(64),
@@ -2045,8 +2050,8 @@ public data class NTMS_LIBREQUESTINFORMATIONW(
     public var PhysMediaId: GUID = GUID(),
     public var Library: GUID = GUID(),
     public var SlotId: GUID = GUID(),
-    public var TimeQueued: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
-    public var TimeCompleted: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var TimeQueued: SYSTEMTIME = SYSTEMTIME(),
+    public var TimeCompleted: SYSTEMTIME = SYSTEMTIME(),
     public var szApplication: UShortArray = UShortArray(64),
     public var szUser: UShortArray = UShortArray(64),
     public var szComputer: UShortArray = UShortArray(64),
@@ -2125,8 +2130,8 @@ public data class NTMS_NOTIFICATIONINFORMATION(public var dwOperation: UInt = 0u
 public data class NTMS_OBJECTINFORMATIONA(
     public var dwSize: UInt = 0u,
     public var dwType: UInt = 0u,
-    public var Created: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
-    public var Modified: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var Created: SYSTEMTIME = SYSTEMTIME(),
+    public var Modified: SYSTEMTIME = SYSTEMTIME(),
     public var ObjectGuid: GUID = GUID(),
     public var Enabled: BOOL = 0,
     public var dwOperationalState: UInt = 0u,
@@ -2187,8 +2192,8 @@ public data class NTMS_OBJECTINFORMATIONA_0(
 public data class NTMS_OBJECTINFORMATIONW(
     public var dwSize: UInt = 0u,
     public var dwType: UInt = 0u,
-    public var Created: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
-    public var Modified: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var Created: SYSTEMTIME = SYSTEMTIME(),
+    public var Modified: SYSTEMTIME = SYSTEMTIME(),
     public var ObjectGuid: GUID = GUID(),
     public var Enabled: BOOL = 0,
     public var dwOperationalState: UInt = 0u,
@@ -2248,7 +2253,7 @@ public data class NTMS_OBJECTINFORMATIONW_0(
 
 public data class NTMS_OPREQUESTINFORMATIONA(
     public var Request: UInt = 0u,
-    public var Submitted: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var Submitted: SYSTEMTIME = SYSTEMTIME(),
     public var State: UInt = 0u,
     public var szMessage: ByteArray = ByteArray(256),
     public var Arg1Type: UInt = 0u,
@@ -2294,7 +2299,7 @@ public data class NTMS_OPREQUESTINFORMATIONA(
 
 public data class NTMS_OPREQUESTINFORMATIONW(
     public var Request: UInt = 0u,
-    public var Submitted: Foundation.SYSTEMTIME = Foundation.SYSTEMTIME(),
+    public var Submitted: SYSTEMTIME = SYSTEMTIME(),
     public var State: UInt = 0u,
     public var szMessage: UShortArray = UShortArray(256),
     public var Arg1Type: UInt = 0u,
@@ -2674,7 +2679,7 @@ public data class SHARE_INFO_1005(public var shi1005_flags: UInt = 0u)
 
 public data class SHARE_INFO_1006(public var shi1006_max_uses: UInt = 0u)
 
-public data class SHARE_INFO_1501(public var shi1501_reserved: UInt = 0u, public var shi1501_security_descriptor: Security.PSECURITY_DESCRIPTOR = Security.PSECURITY_DESCRIPTOR())
+public data class SHARE_INFO_1501(public var shi1501_reserved: UInt = 0u, public var shi1501_security_descriptor: PSECURITY_DESCRIPTOR = 0L)
 
 public data class SHARE_INFO_1503(public var shi1503_sharefilter: GUID = GUID())
 
@@ -2706,7 +2711,7 @@ public data class SHARE_INFO_502(
     public var shi502_path: PWSTR = 0L,
     public var shi502_passwd: PWSTR = 0L,
     public var shi502_reserved: UInt = 0u,
-    public var shi502_security_descriptor: Security.PSECURITY_DESCRIPTOR = Security.PSECURITY_DESCRIPTOR(),
+    public var shi502_security_descriptor: PSECURITY_DESCRIPTOR = 0L,
 )
 
 public data class SHARE_INFO_503(
@@ -2720,7 +2725,7 @@ public data class SHARE_INFO_503(
     public var shi503_passwd: PWSTR = 0L,
     public var shi503_servername: PWSTR = 0L,
     public var shi503_reserved: UInt = 0u,
-    public var shi503_security_descriptor: Security.PSECURITY_DESCRIPTOR = Security.PSECURITY_DESCRIPTOR(),
+    public var shi503_security_descriptor: PSECURITY_DESCRIPTOR = 0L,
 )
 
 public class STAT_SERVER_0(
@@ -3069,18 +3074,18 @@ public data class WIM_EXTERNAL_FILE_INFO(
 
 public data class WIN32_FILE_ATTRIBUTE_DATA(
     public var dwFileAttributes: UInt = 0u,
-    public var ftCreationTime: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ftLastAccessTime: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ftLastWriteTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftCreationTime: FILETIME = FILETIME(),
+    public var ftLastAccessTime: FILETIME = FILETIME(),
+    public var ftLastWriteTime: FILETIME = FILETIME(),
     public var nFileSizeHigh: UInt = 0u,
     public var nFileSizeLow: UInt = 0u,
 )
 
 public data class WIN32_FIND_DATAA(
     public var dwFileAttributes: UInt = 0u,
-    public var ftCreationTime: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ftLastAccessTime: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ftLastWriteTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftCreationTime: FILETIME = FILETIME(),
+    public var ftLastAccessTime: FILETIME = FILETIME(),
+    public var ftLastWriteTime: FILETIME = FILETIME(),
     public var nFileSizeHigh: UInt = 0u,
     public var nFileSizeLow: UInt = 0u,
     public var dwReserved0: UInt = 0u,
@@ -3121,9 +3126,9 @@ public data class WIN32_FIND_DATAA(
 
 public data class WIN32_FIND_DATAW(
     public var dwFileAttributes: UInt = 0u,
-    public var ftCreationTime: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ftLastAccessTime: Foundation.FILETIME = Foundation.FILETIME(),
-    public var ftLastWriteTime: Foundation.FILETIME = Foundation.FILETIME(),
+    public var ftCreationTime: FILETIME = FILETIME(),
+    public var ftLastAccessTime: FILETIME = FILETIME(),
+    public var ftLastWriteTime: FILETIME = FILETIME(),
     public var nFileSizeHigh: UInt = 0u,
     public var nFileSizeLow: UInt = 0u,
     public var dwReserved0: UInt = 0u,

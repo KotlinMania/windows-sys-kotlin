@@ -2,6 +2,7 @@ package io.github.kotlinmania.windowssys.windows.wdk.devices.humaninterfacedevic
 
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 
 public data class HID_XFER_PACKET(
     public var reportBuffer: Long = 0L,
@@ -13,7 +14,7 @@ public class VHF_CONFIG(
     public var Size: UInt = 0u,
     public var VhfClientContext: Long = 0L,
     public var OperationContextSize: UInt = 0u,
-    public var FileHandle: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var FileHandle: HANDLE = 0L,
     public var VendorID: UShort = 0u,
     public var ProductID: UShort = 0u,
     public var VersionNumber: UShort = 0u,

@@ -5,6 +5,8 @@ import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
 
 public fun DrtClose(hdrt: Long) {
     Win32DynamicFfi.invoke("drt.dll", "DrtClose", longArrayOf(hdrt))
@@ -94,16 +96,16 @@ public fun DrtGetSearchResultSize(hsearchcontext: Long, pulsearchresultsize: Lon
     return Win32DynamicFfi.invoke("drt.dll", "DrtGetSearchResultSize", longArrayOf(hsearchcontext, pulsearchresultsize)).toInt()
 }
 
-public fun DrtOpen(psettings: Long, hevent: Foundation.HANDLE, pvcontext: Long, phdrt: Long): HRESULT {
-    return Win32DynamicFfi.invoke("drt.dll", "DrtOpen", longArrayOf(psettings, Win32DynamicFfi.objectSlot(hevent), pvcontext, phdrt)).toInt()
+public fun DrtOpen(psettings: Long, hevent: HANDLE, pvcontext: Long, phdrt: Long): HRESULT {
+    return Win32DynamicFfi.invoke("drt.dll", "DrtOpen", longArrayOf(psettings, hevent, pvcontext, phdrt)).toInt()
 }
 
 public fun DrtRegisterKey(hdrt: Long, pregistration: Long, pvkeycontext: Long, phkeyregistration: Long): HRESULT {
     return Win32DynamicFfi.invoke("drt.dll", "DrtRegisterKey", longArrayOf(hdrt, pregistration, pvkeycontext, phkeyregistration)).toInt()
 }
 
-public fun DrtStartSearch(hdrt: Long, pkey: Long, pinfo: Long, timeout: UInt, hevent: Foundation.HANDLE, pvcontext: Long, hsearchcontext: Long): HRESULT {
-    return Win32DynamicFfi.invoke("drt.dll", "DrtStartSearch", longArrayOf(hdrt, pkey, pinfo, timeout.toLong(), Win32DynamicFfi.objectSlot(hevent), pvcontext, hsearchcontext)).toInt()
+public fun DrtStartSearch(hdrt: Long, pkey: Long, pinfo: Long, timeout: UInt, hevent: HANDLE, pvcontext: Long, hsearchcontext: Long): HRESULT {
+    return Win32DynamicFfi.invoke("drt.dll", "DrtStartSearch", longArrayOf(hdrt, pkey, pinfo, timeout.toLong(), hevent, pvcontext, hsearchcontext)).toInt()
 }
 
 public fun DrtUnregisterKey(hkeyregistration: Long) {
@@ -118,20 +120,20 @@ public fun PeerCollabAddContact(pwzcontactdata: PCWSTR, ppcontact: Long): HRESUL
     return Win32DynamicFfi.invoke("p2p.dll", "PeerCollabAddContact", longArrayOf(pwzcontactdata, ppcontact)).toInt()
 }
 
-public fun PeerCollabAsyncInviteContact(pccontact: Long, pcendpoint: Long, pcinvitation: Long, hevent: Foundation.HANDLE, phinvitation: Long): HRESULT {
-    return Win32DynamicFfi.invoke("p2p.dll", "PeerCollabAsyncInviteContact", longArrayOf(pccontact, pcendpoint, pcinvitation, Win32DynamicFfi.objectSlot(hevent), phinvitation)).toInt()
+public fun PeerCollabAsyncInviteContact(pccontact: Long, pcendpoint: Long, pcinvitation: Long, hevent: HANDLE, phinvitation: Long): HRESULT {
+    return Win32DynamicFfi.invoke("p2p.dll", "PeerCollabAsyncInviteContact", longArrayOf(pccontact, pcendpoint, pcinvitation, hevent, phinvitation)).toInt()
 }
 
-public fun PeerCollabAsyncInviteEndpoint(pcendpoint: Long, pcinvitation: Long, hevent: Foundation.HANDLE, phinvitation: Long): HRESULT {
-    return Win32DynamicFfi.invoke("p2p.dll", "PeerCollabAsyncInviteEndpoint", longArrayOf(pcendpoint, pcinvitation, Win32DynamicFfi.objectSlot(hevent), phinvitation)).toInt()
+public fun PeerCollabAsyncInviteEndpoint(pcendpoint: Long, pcinvitation: Long, hevent: HANDLE, phinvitation: Long): HRESULT {
+    return Win32DynamicFfi.invoke("p2p.dll", "PeerCollabAsyncInviteEndpoint", longArrayOf(pcendpoint, pcinvitation, hevent, phinvitation)).toInt()
 }
 
-public fun PeerCollabCancelInvitation(hinvitation: Foundation.HANDLE): HRESULT {
-    return Win32DynamicFfi.invoke("p2p.dll", "PeerCollabCancelInvitation", longArrayOf(Win32DynamicFfi.objectSlot(hinvitation))).toInt()
+public fun PeerCollabCancelInvitation(hinvitation: HANDLE): HRESULT {
+    return Win32DynamicFfi.invoke("p2p.dll", "PeerCollabCancelInvitation", longArrayOf(hinvitation)).toInt()
 }
 
-public fun PeerCollabCloseHandle(hinvitation: Foundation.HANDLE): HRESULT {
-    return Win32DynamicFfi.invoke("p2p.dll", "PeerCollabCloseHandle", longArrayOf(Win32DynamicFfi.objectSlot(hinvitation))).toInt()
+public fun PeerCollabCloseHandle(hinvitation: HANDLE): HRESULT {
+    return Win32DynamicFfi.invoke("p2p.dll", "PeerCollabCloseHandle", longArrayOf(hinvitation)).toInt()
 }
 
 public fun PeerCollabDeleteContact(pwzpeername: PCWSTR): HRESULT {
@@ -194,8 +196,8 @@ public fun PeerCollabGetEventData(hpeerevent: Long, ppeventdata: Long): HRESULT 
     return Win32DynamicFfi.invoke("p2p.dll", "PeerCollabGetEventData", longArrayOf(hpeerevent, ppeventdata)).toInt()
 }
 
-public fun PeerCollabGetInvitationResponse(hinvitation: Foundation.HANDLE, ppinvitationresponse: Long): HRESULT {
-    return Win32DynamicFfi.invoke("p2p.dll", "PeerCollabGetInvitationResponse", longArrayOf(Win32DynamicFfi.objectSlot(hinvitation), ppinvitationresponse)).toInt()
+public fun PeerCollabGetInvitationResponse(hinvitation: HANDLE, ppinvitationresponse: Long): HRESULT {
+    return Win32DynamicFfi.invoke("p2p.dll", "PeerCollabGetInvitationResponse", longArrayOf(hinvitation, ppinvitationresponse)).toInt()
 }
 
 public fun PeerCollabGetPresenceInfo(pcendpoint: Long, pppresenceinfo: Long): HRESULT {
@@ -230,8 +232,8 @@ public fun PeerCollabRegisterApplication(pcapplication: Long, registrationtype: 
     return Win32DynamicFfi.invoke("p2p.dll", "PeerCollabRegisterApplication", longArrayOf(pcapplication, registrationtype.toLong())).toInt()
 }
 
-public fun PeerCollabRegisterEvent(hevent: Foundation.HANDLE, ceventregistration: UInt, peventregistrations: Long, phpeerevent: Long): HRESULT {
-    return Win32DynamicFfi.invoke("p2p.dll", "PeerCollabRegisterEvent", longArrayOf(Win32DynamicFfi.objectSlot(hevent), ceventregistration.toLong(), peventregistrations, phpeerevent)).toInt()
+public fun PeerCollabRegisterEvent(hevent: HANDLE, ceventregistration: UInt, peventregistrations: Long, phpeerevent: Long): HRESULT {
+    return Win32DynamicFfi.invoke("p2p.dll", "PeerCollabRegisterEvent", longArrayOf(hevent, ceventregistration.toLong(), peventregistrations, phpeerevent)).toInt()
 }
 
 public fun PeerCollabSetEndpointName(pwzendpointname: PCWSTR): HRESULT {
@@ -250,8 +252,8 @@ public fun PeerCollabShutdown(): HRESULT {
     return Win32DynamicFfi.invoke("p2p.dll", "PeerCollabShutdown", longArrayOf()).toInt()
 }
 
-public fun PeerCollabSignin(hwndparent: Foundation.HWND, dwsigninoptions: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("p2p.dll", "PeerCollabSignin", longArrayOf(Win32DynamicFfi.objectSlot(hwndparent), dwsigninoptions.toLong())).toInt()
+public fun PeerCollabSignin(hwndparent: HWND, dwsigninoptions: UInt): HRESULT {
+    return Win32DynamicFfi.invoke("p2p.dll", "PeerCollabSignin", longArrayOf(hwndparent, dwsigninoptions.toLong())).toInt()
 }
 
 public fun PeerCollabSignout(dwsigninoptions: UInt): HRESULT {
@@ -310,16 +312,16 @@ public fun PeerDistClientCompleteContentInformation(hpeerdist: Long, hcontenthan
     return Win32DynamicFfi.invoke("peerdist.dll", "PeerDistClientCompleteContentInformation", longArrayOf(hpeerdist, hcontenthandle, lpoverlapped)).toUInt()
 }
 
-public fun PeerDistClientFlushContent(hpeerdist: Long, pcontenttag: Long, hcompletionport: Foundation.HANDLE, ulcompletionkey: ULong, lpoverlapped: Long): UInt {
-    return Win32DynamicFfi.invoke("peerdist.dll", "PeerDistClientFlushContent", longArrayOf(hpeerdist, pcontenttag, Win32DynamicFfi.objectSlot(hcompletionport), ulcompletionkey.toLong(), lpoverlapped)).toUInt()
+public fun PeerDistClientFlushContent(hpeerdist: Long, pcontenttag: Long, hcompletionport: HANDLE, ulcompletionkey: ULong, lpoverlapped: Long): UInt {
+    return Win32DynamicFfi.invoke("peerdist.dll", "PeerDistClientFlushContent", longArrayOf(hpeerdist, pcontenttag, hcompletionport, ulcompletionkey.toLong(), lpoverlapped)).toUInt()
 }
 
 public fun PeerDistClientGetInformationByHandle(hpeerdist: Long, hcontenthandle: Long, peerdistclientinfoclass: PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS, dwbuffersize: UInt, lpinformation: Long): UInt {
     return Win32DynamicFfi.invoke("peerdist.dll", "PeerDistClientGetInformationByHandle", longArrayOf(hpeerdist, hcontenthandle, peerdistclientinfoclass.toLong(), dwbuffersize.toLong(), lpinformation)).toUInt()
 }
 
-public fun PeerDistClientOpenContent(hpeerdist: Long, pcontenttag: Long, hcompletionport: Foundation.HANDLE, ulcompletionkey: ULong, phcontenthandle: Long): UInt {
-    return Win32DynamicFfi.invoke("peerdist.dll", "PeerDistClientOpenContent", longArrayOf(hpeerdist, pcontenttag, Win32DynamicFfi.objectSlot(hcompletionport), ulcompletionkey.toLong(), phcontenthandle)).toUInt()
+public fun PeerDistClientOpenContent(hpeerdist: Long, pcontenttag: Long, hcompletionport: HANDLE, ulcompletionkey: ULong, phcontenthandle: Long): UInt {
+    return Win32DynamicFfi.invoke("peerdist.dll", "PeerDistClientOpenContent", longArrayOf(hpeerdist, pcontenttag, hcompletionport, ulcompletionkey.toLong(), phcontenthandle)).toUInt()
 }
 
 public fun PeerDistClientStreamRead(hpeerdist: Long, hcontenthandle: Long, cbmaxnumberofbytes: UInt, pbuffer: Long, dwtimeoutinmilliseconds: UInt, lpoverlapped: Long): UInt {
@@ -338,12 +340,12 @@ public fun PeerDistGetStatusEx(hpeerdist: Long, ppeerdiststatus: Long): UInt {
     return Win32DynamicFfi.invoke("peerdist.dll", "PeerDistGetStatusEx", longArrayOf(hpeerdist, ppeerdiststatus)).toUInt()
 }
 
-public fun PeerDistRegisterForStatusChangeNotification(hpeerdist: Long, hcompletionport: Foundation.HANDLE, ulcompletionkey: ULong, lpoverlapped: Long, ppeerdiststatus: Long): UInt {
-    return Win32DynamicFfi.invoke("peerdist.dll", "PeerDistRegisterForStatusChangeNotification", longArrayOf(hpeerdist, Win32DynamicFfi.objectSlot(hcompletionport), ulcompletionkey.toLong(), lpoverlapped, ppeerdiststatus)).toUInt()
+public fun PeerDistRegisterForStatusChangeNotification(hpeerdist: Long, hcompletionport: HANDLE, ulcompletionkey: ULong, lpoverlapped: Long, ppeerdiststatus: Long): UInt {
+    return Win32DynamicFfi.invoke("peerdist.dll", "PeerDistRegisterForStatusChangeNotification", longArrayOf(hpeerdist, hcompletionport, ulcompletionkey.toLong(), lpoverlapped, ppeerdiststatus)).toUInt()
 }
 
-public fun PeerDistRegisterForStatusChangeNotificationEx(hpeerdist: Long, hcompletionport: Foundation.HANDLE, ulcompletionkey: ULong, lpoverlapped: Long, ppeerdiststatus: Long): UInt {
-    return Win32DynamicFfi.invoke("peerdist.dll", "PeerDistRegisterForStatusChangeNotificationEx", longArrayOf(hpeerdist, Win32DynamicFfi.objectSlot(hcompletionport), ulcompletionkey.toLong(), lpoverlapped, ppeerdiststatus)).toUInt()
+public fun PeerDistRegisterForStatusChangeNotificationEx(hpeerdist: Long, hcompletionport: HANDLE, ulcompletionkey: ULong, lpoverlapped: Long, ppeerdiststatus: Long): UInt {
+    return Win32DynamicFfi.invoke("peerdist.dll", "PeerDistRegisterForStatusChangeNotificationEx", longArrayOf(hpeerdist, hcompletionport, ulcompletionkey.toLong(), lpoverlapped, ppeerdiststatus)).toUInt()
 }
 
 public fun PeerDistServerCancelAsyncOperation(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: Long, poverlapped: Long): UInt {
@@ -358,12 +360,12 @@ public fun PeerDistServerCloseStreamHandle(hpeerdist: Long, hstream: Long): UInt
     return Win32DynamicFfi.invoke("peerdist.dll", "PeerDistServerCloseStreamHandle", longArrayOf(hpeerdist, hstream)).toUInt()
 }
 
-public fun PeerDistServerOpenContentInformation(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: Long, ullcontentoffset: ULong, cbcontentlength: ULong, hcompletionport: Foundation.HANDLE, ulcompletionkey: ULong, phcontentinfo: Long): UInt {
-    return Win32DynamicFfi.invoke("peerdist.dll", "PeerDistServerOpenContentInformation", longArrayOf(hpeerdist, cbcontentidentifier.toLong(), pcontentidentifier, ullcontentoffset.toLong(), cbcontentlength.toLong(), Win32DynamicFfi.objectSlot(hcompletionport), ulcompletionkey.toLong(), phcontentinfo)).toUInt()
+public fun PeerDistServerOpenContentInformation(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: Long, ullcontentoffset: ULong, cbcontentlength: ULong, hcompletionport: HANDLE, ulcompletionkey: ULong, phcontentinfo: Long): UInt {
+    return Win32DynamicFfi.invoke("peerdist.dll", "PeerDistServerOpenContentInformation", longArrayOf(hpeerdist, cbcontentidentifier.toLong(), pcontentidentifier, ullcontentoffset.toLong(), cbcontentlength.toLong(), hcompletionport, ulcompletionkey.toLong(), phcontentinfo)).toUInt()
 }
 
-public fun PeerDistServerOpenContentInformationEx(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: Long, ullcontentoffset: ULong, cbcontentlength: ULong, pretrievaloptions: Long, hcompletionport: Foundation.HANDLE, ulcompletionkey: ULong, phcontentinfo: Long): UInt {
-    return Win32DynamicFfi.invoke("peerdist.dll", "PeerDistServerOpenContentInformationEx", longArrayOf(hpeerdist, cbcontentidentifier.toLong(), pcontentidentifier, ullcontentoffset.toLong(), cbcontentlength.toLong(), pretrievaloptions, Win32DynamicFfi.objectSlot(hcompletionport), ulcompletionkey.toLong(), phcontentinfo)).toUInt()
+public fun PeerDistServerOpenContentInformationEx(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: Long, ullcontentoffset: ULong, cbcontentlength: ULong, pretrievaloptions: Long, hcompletionport: HANDLE, ulcompletionkey: ULong, phcontentinfo: Long): UInt {
+    return Win32DynamicFfi.invoke("peerdist.dll", "PeerDistServerOpenContentInformationEx", longArrayOf(hpeerdist, cbcontentidentifier.toLong(), pcontentidentifier, ullcontentoffset.toLong(), cbcontentlength.toLong(), pretrievaloptions, hcompletionport, ulcompletionkey.toLong(), phcontentinfo)).toUInt()
 }
 
 public fun PeerDistServerPublishAddToStream(hpeerdist: Long, hstream: Long, cbnumberofbytes: UInt, pbuffer: Long, lpoverlapped: Long): UInt {
@@ -374,8 +376,8 @@ public fun PeerDistServerPublishCompleteStream(hpeerdist: Long, hstream: Long, l
     return Win32DynamicFfi.invoke("peerdist.dll", "PeerDistServerPublishCompleteStream", longArrayOf(hpeerdist, hstream, lpoverlapped)).toUInt()
 }
 
-public fun PeerDistServerPublishStream(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: Long, cbcontentlength: ULong, ppublishoptions: Long, hcompletionport: Foundation.HANDLE, ulcompletionkey: ULong, phstream: Long): UInt {
-    return Win32DynamicFfi.invoke("peerdist.dll", "PeerDistServerPublishStream", longArrayOf(hpeerdist, cbcontentidentifier.toLong(), pcontentidentifier, cbcontentlength.toLong(), ppublishoptions, Win32DynamicFfi.objectSlot(hcompletionport), ulcompletionkey.toLong(), phstream)).toUInt()
+public fun PeerDistServerPublishStream(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: Long, cbcontentlength: ULong, ppublishoptions: Long, hcompletionport: HANDLE, ulcompletionkey: ULong, phstream: Long): UInt {
+    return Win32DynamicFfi.invoke("peerdist.dll", "PeerDistServerPublishStream", longArrayOf(hpeerdist, cbcontentidentifier.toLong(), pcontentidentifier, cbcontentlength.toLong(), ppublishoptions, hcompletionport, ulcompletionkey.toLong(), phstream)).toUInt()
 }
 
 public fun PeerDistServerRetrieveContentInformation(hpeerdist: Long, hcontentinfo: Long, cbmaxnumberofbytes: UInt, pbuffer: Long, lpoverlapped: Long): UInt {
@@ -522,8 +524,8 @@ public fun PeerGraphPeerTimeToUniversalTime(hgraph: Long, pftpeertime: Long, pft
     return Win32DynamicFfi.invoke("p2pgraph.dll", "PeerGraphPeerTimeToUniversalTime", longArrayOf(hgraph, pftpeertime, pftuniversaltime)).toInt()
 }
 
-public fun PeerGraphRegisterEvent(hgraph: Long, hevent: Foundation.HANDLE, ceventregistrations: UInt, peventregistrations: Long, phpeerevent: Long): HRESULT {
-    return Win32DynamicFfi.invoke("p2pgraph.dll", "PeerGraphRegisterEvent", longArrayOf(hgraph, Win32DynamicFfi.objectSlot(hevent), ceventregistrations.toLong(), peventregistrations, phpeerevent)).toInt()
+public fun PeerGraphRegisterEvent(hgraph: Long, hevent: HANDLE, ceventregistrations: UInt, peventregistrations: Long, phpeerevent: Long): HRESULT {
+    return Win32DynamicFfi.invoke("p2pgraph.dll", "PeerGraphRegisterEvent", longArrayOf(hgraph, hevent, ceventregistrations.toLong(), peventregistrations, phpeerevent)).toInt()
 }
 
 public fun PeerGraphSearchRecords(hgraph: Long, pwzcriteria: PCWSTR, phpeerenum: Long): HRESULT {
@@ -682,8 +684,8 @@ public fun PeerGroupPeerTimeToUniversalTime(hgroup: Long, pftpeertime: Long, pft
     return Win32DynamicFfi.invoke("p2p.dll", "PeerGroupPeerTimeToUniversalTime", longArrayOf(hgroup, pftpeertime, pftuniversaltime)).toInt()
 }
 
-public fun PeerGroupRegisterEvent(hgroup: Long, hevent: Foundation.HANDLE, ceventregistration: UInt, peventregistrations: Long, phpeerevent: Long): HRESULT {
-    return Win32DynamicFfi.invoke("p2p.dll", "PeerGroupRegisterEvent", longArrayOf(hgroup, Win32DynamicFfi.objectSlot(hevent), ceventregistration.toLong(), peventregistrations, phpeerevent)).toInt()
+public fun PeerGroupRegisterEvent(hgroup: Long, hevent: HANDLE, ceventregistration: UInt, peventregistrations: Long, phpeerevent: Long): HRESULT {
+    return Win32DynamicFfi.invoke("p2p.dll", "PeerGroupRegisterEvent", longArrayOf(hgroup, hevent, ceventregistration.toLong(), peventregistrations, phpeerevent)).toInt()
 }
 
 public fun PeerGroupResumePasswordAuthentication(hgroup: Long, hpeereventhandle: Long): HRESULT {
@@ -790,8 +792,8 @@ public fun PeerPnrpShutdown(): HRESULT {
     return Win32DynamicFfi.invoke("p2p.dll", "PeerPnrpShutdown", longArrayOf()).toInt()
 }
 
-public fun PeerPnrpStartResolve(pcwzpeername: PCWSTR, pcwzcloudname: PCWSTR, cmaxendpoints: UInt, hevent: Foundation.HANDLE, phresolve: Long): HRESULT {
-    return Win32DynamicFfi.invoke("p2p.dll", "PeerPnrpStartResolve", longArrayOf(pcwzpeername, pcwzcloudname, cmaxendpoints.toLong(), Win32DynamicFfi.objectSlot(hevent), phresolve)).toInt()
+public fun PeerPnrpStartResolve(pcwzpeername: PCWSTR, pcwzcloudname: PCWSTR, cmaxendpoints: UInt, hevent: HANDLE, phresolve: Long): HRESULT {
+    return Win32DynamicFfi.invoke("p2p.dll", "PeerPnrpStartResolve", longArrayOf(pcwzpeername, pcwzcloudname, cmaxendpoints.toLong(), hevent, phresolve)).toInt()
 }
 
 public fun PeerPnrpStartup(wversionrequested: UShort): HRESULT {

@@ -3,6 +3,11 @@ package io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d
 
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
+import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
+import io.github.kotlinmania.windowssys.windows.win32.foundation.RECTL
 
 public data class D3DDDIARG_CREATERESOURCE(
     public var Format: D3DDDIFORMAT = 0u,
@@ -15,7 +20,7 @@ public data class D3DDDIARG_CREATERESOURCE(
     public var Fvf: UInt = 0u,
     public var VidPnSourceId: UInt = 0u,
     public var RefreshRate: D3DDDI_RATIONAL = D3DDDI_RATIONAL(),
-    public var hResource: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var hResource: HANDLE = 0L,
     public var Flags: D3DDDI_RESOURCEFLAGS = D3DDDI_RESOURCEFLAGS(),
     public var Rotation: D3DDDI_ROTATION = 0,
 )
@@ -31,7 +36,7 @@ public data class D3DDDIARG_CREATERESOURCE2(
     public var Fvf: UInt = 0u,
     public var VidPnSourceId: UInt = 0u,
     public var RefreshRate: D3DDDI_RATIONAL = D3DDDI_RATIONAL(),
-    public var hResource: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(),
+    public var hResource: HANDLE = 0L,
     public var Flags: D3DDDI_RESOURCEFLAGS = D3DDDI_RESOURCEFLAGS(),
     public var Rotation: D3DDDI_ROTATION = 0,
     public var Flags2: D3DDDI_RESOURCEFLAGS2 = D3DDDI_RESOURCEFLAGS2(),
@@ -127,7 +132,7 @@ public data class D3DDDI_ALLOCATIONINFO2(
     }
 }
 
-public data class D3DDDI_ALLOCATIONINFO2_0(public var hSection: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE(), public var pSystemMem: Long = 0L)
+public data class D3DDDI_ALLOCATIONINFO2_0(public var hSection: HANDLE = 0L, public var pSystemMem: Long = 0L)
 
 public data class D3DDDI_ALLOCATIONINFO2_2(public var Priority: UInt = 0u, public var Unused: ULong = 0uL)
 
@@ -562,7 +567,7 @@ public data class D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0(
     public var Reserved: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 = D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6(),
 )
 
-public data class D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3(public var Event: Win32.Foundation.HANDLE = Win32.Foundation.HANDLE())
+public data class D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3(public var Event: HANDLE = 0L)
 
 public data class D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2(public var FenceValue: ULong = 0uL)
 
@@ -753,14 +758,14 @@ public class D3DHAL_D3DEXTENDEDCAPS(
     public var dwReserved4: UInt = 0u,
 )
 
-public data class D3DHAL_DP2ADDDIRTYRECT(public var dwSurface: UInt = 0u, public var rDirtyArea: Win32.Foundation.RECTL = Win32.Foundation.RECTL())
+public data class D3DHAL_DP2ADDDIRTYRECT(public var dwSurface: UInt = 0u, public var rDirtyArea: RECTL = RECTL())
 
 public data class D3DHAL_DP2BLT(
     public var dwSource: UInt = 0u,
-    public var rSource: Win32.Foundation.RECTL = Win32.Foundation.RECTL(),
+    public var rSource: RECTL = RECTL(),
     public var dwSourceMipLevel: UInt = 0u,
     public var dwDest: UInt = 0u,
-    public var rDest: Win32.Foundation.RECTL = Win32.Foundation.RECTL(),
+    public var rDest: RECTL = RECTL(),
     public var dwDestMipLevel: UInt = 0u,
     public var Flags: UInt = 0u,
 )
@@ -770,12 +775,12 @@ public data class D3DHAL_DP2CLEAR(
     public var dwFillColor: UInt = 0u,
     public var dvFillDepth: Float = 0.0f,
     public var dwFillStencil: UInt = 0u,
-    public var Rects: List<Win32.Foundation.RECT> = List(1) { Win32.Foundation.RECT() },
+    public var Rects: List<RECT> = List(1) { RECT() },
 )
 
 public data class D3DHAL_DP2COLORFILL(
     public var dwSurface: UInt = 0u,
-    public var rRect: Win32.Foundation.RECTL = Win32.Foundation.RECTL(),
+    public var rRect: RECTL = RECTL(),
     public var Color: UInt = 0u,
 )
 
@@ -949,10 +954,10 @@ public data class D3DHAL_DP2STARTVERTEX(public var wVStart: UShort = 0u)
 
 public data class D3DHAL_DP2SURFACEBLT(
     public var dwSource: UInt = 0u,
-    public var rSource: Win32.Foundation.RECTL = Win32.Foundation.RECTL(),
+    public var rSource: RECTL = RECTL(),
     public var dwSourceMipLevel: UInt = 0u,
     public var dwDest: UInt = 0u,
-    public var rDest: Win32.Foundation.RECTL = Win32.Foundation.RECTL(),
+    public var rDest: RECTL = RECTL(),
     public var dwDestMipLevel: UInt = 0u,
     public var Flags: UInt = 0u,
 )
@@ -960,8 +965,8 @@ public data class D3DHAL_DP2SURFACEBLT(
 public data class D3DHAL_DP2TEXBLT(
     public var dwDDDestSurface: UInt = 0u,
     public var dwDDSrcSurface: UInt = 0u,
-    public var pDest: Win32.Foundation.POINT = Win32.Foundation.POINT(),
-    public var rSrc: Win32.Foundation.RECTL = Win32.Foundation.RECTL(),
+    public var pDest: POINT = POINT(),
+    public var rSrc: RECTL = RECTL(),
     public var dwFlags: UInt = 0u,
 )
 
@@ -1346,7 +1351,7 @@ public data class D3DKMT_ADAPTERADDRESS(
 
 public data class D3DKMT_ADAPTERINFO(
     public var hAdapter: UInt = 0u,
-    public var AdapterLuid: Win32.Foundation.LUID = Win32.Foundation.LUID(),
+    public var AdapterLuid: LUID = LUID(),
     public var NumOfSources: UInt = 0u,
     public var bPrecisePresentRegionsPreferred: BOOL = 0,
 )

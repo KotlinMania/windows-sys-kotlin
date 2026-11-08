@@ -3,6 +3,7 @@ package io.github.kotlinmania.windowssys.windows.win32.storage.xps
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
 
 public data class DOCINFOA(
     public var cbSize: Int = 0,
@@ -21,8 +22,8 @@ public data class DOCINFOW(
 )
 
 public data class DRAWPATRECT(
-    public var ptPosition: Foundation.POINT = Foundation.POINT(),
-    public var ptSize: Foundation.POINT = Foundation.POINT(),
+    public var ptPosition: POINT = POINT(),
+    public var ptSize: POINT = POINT(),
     public var wStyle: UShort = 0u,
     public var wPattern: UShort = 0u,
 )

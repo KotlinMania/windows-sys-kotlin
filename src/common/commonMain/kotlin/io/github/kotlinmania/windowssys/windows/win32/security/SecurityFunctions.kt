@@ -6,9 +6,11 @@ import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
 
-public fun AccessCheck(psecuritydescriptor: PSECURITY_DESCRIPTOR, clienttoken: Foundation.HANDLE, desiredaccess: UInt, genericmapping: Long, privilegeset: Long, privilegesetlength: Long, grantedaccess: Long, accessstatus: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "AccessCheck", longArrayOf(psecuritydescriptor, Win32DynamicFfi.objectSlot(clienttoken), desiredaccess.toLong(), genericmapping, privilegeset, privilegesetlength, grantedaccess, accessstatus)).toInt()
+public fun AccessCheck(psecuritydescriptor: PSECURITY_DESCRIPTOR, clienttoken: HANDLE, desiredaccess: UInt, genericmapping: Long, privilegeset: Long, privilegesetlength: Long, grantedaccess: Long, accessstatus: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "AccessCheck", longArrayOf(psecuritydescriptor, clienttoken, desiredaccess.toLong(), genericmapping, privilegeset, privilegesetlength, grantedaccess, accessstatus)).toInt()
 }
 
 public fun AccessCheckAndAuditAlarmA(subsystemname: PCSTR, handleid: Long, objecttypename: PCSTR, objectname: PCSTR, securitydescriptor: PSECURITY_DESCRIPTOR, desiredaccess: UInt, genericmapping: Long, objectcreation: BOOL, grantedaccess: Long, accessstatus: Long, pfgenerateonclose: Long): BOOL {
@@ -19,8 +21,8 @@ public fun AccessCheckAndAuditAlarmW(subsystemname: PCWSTR, handleid: Long, obje
     return Win32DynamicFfi.invoke("advapi32.dll", "AccessCheckAndAuditAlarmW", longArrayOf(subsystemname, handleid, objecttypename, objectname, securitydescriptor, desiredaccess.toLong(), genericmapping, objectcreation.toLong(), grantedaccess, accessstatus, pfgenerateonclose)).toInt()
 }
 
-public fun AccessCheckByType(psecuritydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, clienttoken: Foundation.HANDLE, desiredaccess: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, privilegeset: Long, privilegesetlength: Long, grantedaccess: Long, accessstatus: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "AccessCheckByType", longArrayOf(psecuritydescriptor, principalselfsid, Win32DynamicFfi.objectSlot(clienttoken), desiredaccess.toLong(), objecttypelist, objecttypelistlength.toLong(), genericmapping, privilegeset, privilegesetlength, grantedaccess, accessstatus)).toInt()
+public fun AccessCheckByType(psecuritydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, clienttoken: HANDLE, desiredaccess: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, privilegeset: Long, privilegesetlength: Long, grantedaccess: Long, accessstatus: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "AccessCheckByType", longArrayOf(psecuritydescriptor, principalselfsid, clienttoken, desiredaccess.toLong(), objecttypelist, objecttypelistlength.toLong(), genericmapping, privilegeset, privilegesetlength, grantedaccess, accessstatus)).toInt()
 }
 
 public fun AccessCheckByTypeAndAuditAlarmA(subsystemname: PCSTR, handleid: Long, objecttypename: PCSTR, objectname: PCSTR, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, desiredaccess: UInt, audittype: AUDIT_EVENT_TYPE, flags: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, objectcreation: BOOL, grantedaccess: Long, accessstatus: Long, pfgenerateonclose: Long): BOOL {
@@ -31,20 +33,20 @@ public fun AccessCheckByTypeAndAuditAlarmW(subsystemname: PCWSTR, handleid: Long
     return Win32DynamicFfi.invoke("advapi32.dll", "AccessCheckByTypeAndAuditAlarmW", longArrayOf(subsystemname, handleid, objecttypename, objectname, securitydescriptor, principalselfsid, desiredaccess.toLong(), audittype.toLong(), flags.toLong(), objecttypelist, objecttypelistlength.toLong(), genericmapping, objectcreation.toLong(), grantedaccess, accessstatus, pfgenerateonclose)).toInt()
 }
 
-public fun AccessCheckByTypeResultList(psecuritydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, clienttoken: Foundation.HANDLE, desiredaccess: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, privilegeset: Long, privilegesetlength: Long, grantedaccesslist: Long, accessstatuslist: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "AccessCheckByTypeResultList", longArrayOf(psecuritydescriptor, principalselfsid, Win32DynamicFfi.objectSlot(clienttoken), desiredaccess.toLong(), objecttypelist, objecttypelistlength.toLong(), genericmapping, privilegeset, privilegesetlength, grantedaccesslist, accessstatuslist)).toInt()
+public fun AccessCheckByTypeResultList(psecuritydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, clienttoken: HANDLE, desiredaccess: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, privilegeset: Long, privilegesetlength: Long, grantedaccesslist: Long, accessstatuslist: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "AccessCheckByTypeResultList", longArrayOf(psecuritydescriptor, principalselfsid, clienttoken, desiredaccess.toLong(), objecttypelist, objecttypelistlength.toLong(), genericmapping, privilegeset, privilegesetlength, grantedaccesslist, accessstatuslist)).toInt()
 }
 
 public fun AccessCheckByTypeResultListAndAuditAlarmA(subsystemname: PCSTR, handleid: Long, objecttypename: PCSTR, objectname: PCSTR, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, desiredaccess: UInt, audittype: AUDIT_EVENT_TYPE, flags: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, objectcreation: BOOL, grantedaccess: Long, accessstatuslist: Long, pfgenerateonclose: Long): BOOL {
     return Win32DynamicFfi.invoke("advapi32.dll", "AccessCheckByTypeResultListAndAuditAlarmA", longArrayOf(subsystemname, handleid, objecttypename, objectname, securitydescriptor, principalselfsid, desiredaccess.toLong(), audittype.toLong(), flags.toLong(), objecttypelist, objecttypelistlength.toLong(), genericmapping, objectcreation.toLong(), grantedaccess, accessstatuslist, pfgenerateonclose)).toInt()
 }
 
-public fun AccessCheckByTypeResultListAndAuditAlarmByHandleA(subsystemname: PCSTR, handleid: Long, clienttoken: Foundation.HANDLE, objecttypename: PCSTR, objectname: PCSTR, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, desiredaccess: UInt, audittype: AUDIT_EVENT_TYPE, flags: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, objectcreation: BOOL, grantedaccess: Long, accessstatuslist: Long, pfgenerateonclose: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "AccessCheckByTypeResultListAndAuditAlarmByHandleA", longArrayOf(subsystemname, handleid, Win32DynamicFfi.objectSlot(clienttoken), objecttypename, objectname, securitydescriptor, principalselfsid, desiredaccess.toLong(), audittype.toLong(), flags.toLong(), objecttypelist, objecttypelistlength.toLong(), genericmapping, objectcreation.toLong(), grantedaccess, accessstatuslist, pfgenerateonclose)).toInt()
+public fun AccessCheckByTypeResultListAndAuditAlarmByHandleA(subsystemname: PCSTR, handleid: Long, clienttoken: HANDLE, objecttypename: PCSTR, objectname: PCSTR, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, desiredaccess: UInt, audittype: AUDIT_EVENT_TYPE, flags: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, objectcreation: BOOL, grantedaccess: Long, accessstatuslist: Long, pfgenerateonclose: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "AccessCheckByTypeResultListAndAuditAlarmByHandleA", longArrayOf(subsystemname, handleid, clienttoken, objecttypename, objectname, securitydescriptor, principalselfsid, desiredaccess.toLong(), audittype.toLong(), flags.toLong(), objecttypelist, objecttypelistlength.toLong(), genericmapping, objectcreation.toLong(), grantedaccess, accessstatuslist, pfgenerateonclose)).toInt()
 }
 
-public fun AccessCheckByTypeResultListAndAuditAlarmByHandleW(subsystemname: PCWSTR, handleid: Long, clienttoken: Foundation.HANDLE, objecttypename: PCWSTR, objectname: PCWSTR, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, desiredaccess: UInt, audittype: AUDIT_EVENT_TYPE, flags: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, objectcreation: BOOL, grantedaccesslist: Long, accessstatuslist: Long, pfgenerateonclose: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "AccessCheckByTypeResultListAndAuditAlarmByHandleW", longArrayOf(subsystemname, handleid, Win32DynamicFfi.objectSlot(clienttoken), objecttypename, objectname, securitydescriptor, principalselfsid, desiredaccess.toLong(), audittype.toLong(), flags.toLong(), objecttypelist, objecttypelistlength.toLong(), genericmapping, objectcreation.toLong(), grantedaccesslist, accessstatuslist, pfgenerateonclose)).toInt()
+public fun AccessCheckByTypeResultListAndAuditAlarmByHandleW(subsystemname: PCWSTR, handleid: Long, clienttoken: HANDLE, objecttypename: PCWSTR, objectname: PCWSTR, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, desiredaccess: UInt, audittype: AUDIT_EVENT_TYPE, flags: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, objectcreation: BOOL, grantedaccesslist: Long, accessstatuslist: Long, pfgenerateonclose: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "AccessCheckByTypeResultListAndAuditAlarmByHandleW", longArrayOf(subsystemname, handleid, clienttoken, objecttypename, objectname, securitydescriptor, principalselfsid, desiredaccess.toLong(), audittype.toLong(), flags.toLong(), objecttypelist, objecttypelistlength.toLong(), genericmapping, objectcreation.toLong(), grantedaccesslist, accessstatuslist, pfgenerateonclose)).toInt()
 }
 
 public fun AccessCheckByTypeResultListAndAuditAlarmW(subsystemname: PCWSTR, handleid: Long, objecttypename: PCWSTR, objectname: PCWSTR, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: PSID, desiredaccess: UInt, audittype: AUDIT_EVENT_TYPE, flags: UInt, objecttypelist: Long, objecttypelistlength: UInt, genericmapping: Long, objectcreation: BOOL, grantedaccesslist: Long, accessstatuslist: Long, pfgenerateonclose: Long): BOOL {
@@ -107,12 +109,12 @@ public fun AddScopedPolicyIDAce(pacl: Long, dwacerevision: ACE_REVISION, aceflag
     return Win32DynamicFfi.invoke("kernel32.dll", "AddScopedPolicyIDAce", longArrayOf(pacl, dwacerevision.toLong(), aceflags.toLong(), accessmask.toLong(), psid)).toInt()
 }
 
-public fun AdjustTokenGroups(tokenhandle: Foundation.HANDLE, resettodefault: BOOL, newstate: Long, bufferlength: UInt, previousstate: Long, returnlength: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "AdjustTokenGroups", longArrayOf(Win32DynamicFfi.objectSlot(tokenhandle), resettodefault.toLong(), newstate, bufferlength.toLong(), previousstate, returnlength)).toInt()
+public fun AdjustTokenGroups(tokenhandle: HANDLE, resettodefault: BOOL, newstate: Long, bufferlength: UInt, previousstate: Long, returnlength: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "AdjustTokenGroups", longArrayOf(tokenhandle, resettodefault.toLong(), newstate, bufferlength.toLong(), previousstate, returnlength)).toInt()
 }
 
-public fun AdjustTokenPrivileges(tokenhandle: Foundation.HANDLE, disableallprivileges: BOOL, newstate: Long, bufferlength: UInt, previousstate: Long, returnlength: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "AdjustTokenPrivileges", longArrayOf(Win32DynamicFfi.objectSlot(tokenhandle), disableallprivileges.toLong(), newstate, bufferlength.toLong(), previousstate, returnlength)).toInt()
+public fun AdjustTokenPrivileges(tokenhandle: HANDLE, disableallprivileges: BOOL, newstate: Long, bufferlength: UInt, previousstate: Long, returnlength: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "AdjustTokenPrivileges", longArrayOf(tokenhandle, disableallprivileges.toLong(), newstate, bufferlength.toLong(), previousstate, returnlength)).toInt()
 }
 
 public fun AllocateAndInitializeSid(pidentifierauthority: Long, nsubauthoritycount: UByte, nsubauthority0: UInt, nsubauthority1: UInt, nsubauthority2: UInt, nsubauthority3: UInt, nsubauthority4: UInt, nsubauthority5: UInt, nsubauthority6: UInt, nsubauthority7: UInt, psid: Long): BOOL {
@@ -131,16 +133,16 @@ public fun AreAnyAccessesGranted(grantedaccess: UInt, desiredaccess: UInt): BOOL
     return Win32DynamicFfi.invoke("advapi32.dll", "AreAnyAccessesGranted", longArrayOf(grantedaccess.toLong(), desiredaccess.toLong())).toInt()
 }
 
-public fun CheckTokenCapability(tokenhandle: Foundation.HANDLE, capabilitysidtocheck: PSID, hascapability: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "CheckTokenCapability", longArrayOf(Win32DynamicFfi.objectSlot(tokenhandle), capabilitysidtocheck, hascapability)).toInt()
+public fun CheckTokenCapability(tokenhandle: HANDLE, capabilitysidtocheck: PSID, hascapability: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CheckTokenCapability", longArrayOf(tokenhandle, capabilitysidtocheck, hascapability)).toInt()
 }
 
-public fun CheckTokenMembership(tokenhandle: Foundation.HANDLE, sidtocheck: PSID, ismember: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "CheckTokenMembership", longArrayOf(Win32DynamicFfi.objectSlot(tokenhandle), sidtocheck, ismember)).toInt()
+public fun CheckTokenMembership(tokenhandle: HANDLE, sidtocheck: PSID, ismember: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "CheckTokenMembership", longArrayOf(tokenhandle, sidtocheck, ismember)).toInt()
 }
 
-public fun CheckTokenMembershipEx(tokenhandle: Foundation.HANDLE, sidtocheck: PSID, flags: UInt, ismember: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "CheckTokenMembershipEx", longArrayOf(Win32DynamicFfi.objectSlot(tokenhandle), sidtocheck, flags.toLong(), ismember)).toInt()
+public fun CheckTokenMembershipEx(tokenhandle: HANDLE, sidtocheck: PSID, flags: UInt, ismember: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "CheckTokenMembershipEx", longArrayOf(tokenhandle, sidtocheck, flags.toLong(), ismember)).toInt()
 }
 
 public fun ConvertToAutoInheritPrivateObjectSecurity(parentdescriptor: PSECURITY_DESCRIPTOR, currentsecuritydescriptor: PSECURITY_DESCRIPTOR, newsecuritydescriptor: Long, objecttype: Long, isdirectoryobject: Boolean, genericmapping: Long): BOOL {
@@ -151,20 +153,20 @@ public fun CopySid(ndestinationsidlength: UInt, pdestinationsid: PSID, psourcesi
     return Win32DynamicFfi.invoke("advapi32.dll", "CopySid", longArrayOf(ndestinationsidlength.toLong(), pdestinationsid, psourcesid)).toInt()
 }
 
-public fun CreatePrivateObjectSecurity(parentdescriptor: PSECURITY_DESCRIPTOR, creatordescriptor: PSECURITY_DESCRIPTOR, newdescriptor: Long, isdirectoryobject: BOOL, token: Foundation.HANDLE, genericmapping: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "CreatePrivateObjectSecurity", longArrayOf(parentdescriptor, creatordescriptor, newdescriptor, isdirectoryobject.toLong(), Win32DynamicFfi.objectSlot(token), genericmapping)).toInt()
+public fun CreatePrivateObjectSecurity(parentdescriptor: PSECURITY_DESCRIPTOR, creatordescriptor: PSECURITY_DESCRIPTOR, newdescriptor: Long, isdirectoryobject: BOOL, token: HANDLE, genericmapping: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "CreatePrivateObjectSecurity", longArrayOf(parentdescriptor, creatordescriptor, newdescriptor, isdirectoryobject.toLong(), token, genericmapping)).toInt()
 }
 
-public fun CreatePrivateObjectSecurityEx(parentdescriptor: PSECURITY_DESCRIPTOR, creatordescriptor: PSECURITY_DESCRIPTOR, newdescriptor: Long, objecttype: Long, iscontainerobject: BOOL, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, token: Foundation.HANDLE, genericmapping: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "CreatePrivateObjectSecurityEx", longArrayOf(parentdescriptor, creatordescriptor, newdescriptor, objecttype, iscontainerobject.toLong(), autoinheritflags.toLong(), Win32DynamicFfi.objectSlot(token), genericmapping)).toInt()
+public fun CreatePrivateObjectSecurityEx(parentdescriptor: PSECURITY_DESCRIPTOR, creatordescriptor: PSECURITY_DESCRIPTOR, newdescriptor: Long, objecttype: Long, iscontainerobject: BOOL, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, token: HANDLE, genericmapping: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "CreatePrivateObjectSecurityEx", longArrayOf(parentdescriptor, creatordescriptor, newdescriptor, objecttype, iscontainerobject.toLong(), autoinheritflags.toLong(), token, genericmapping)).toInt()
 }
 
-public fun CreatePrivateObjectSecurityWithMultipleInheritance(parentdescriptor: PSECURITY_DESCRIPTOR, creatordescriptor: PSECURITY_DESCRIPTOR, newdescriptor: Long, objecttypes: Long, guidcount: UInt, iscontainerobject: BOOL, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, token: Foundation.HANDLE, genericmapping: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "CreatePrivateObjectSecurityWithMultipleInheritance", longArrayOf(parentdescriptor, creatordescriptor, newdescriptor, objecttypes, guidcount.toLong(), iscontainerobject.toLong(), autoinheritflags.toLong(), Win32DynamicFfi.objectSlot(token), genericmapping)).toInt()
+public fun CreatePrivateObjectSecurityWithMultipleInheritance(parentdescriptor: PSECURITY_DESCRIPTOR, creatordescriptor: PSECURITY_DESCRIPTOR, newdescriptor: Long, objecttypes: Long, guidcount: UInt, iscontainerobject: BOOL, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, token: HANDLE, genericmapping: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "CreatePrivateObjectSecurityWithMultipleInheritance", longArrayOf(parentdescriptor, creatordescriptor, newdescriptor, objecttypes, guidcount.toLong(), iscontainerobject.toLong(), autoinheritflags.toLong(), token, genericmapping)).toInt()
 }
 
-public fun CreateRestrictedToken(existingtokenhandle: Foundation.HANDLE, flags: CREATE_RESTRICTED_TOKEN_FLAGS, disablesidcount: UInt, sidstodisable: Long, deleteprivilegecount: UInt, privilegestodelete: Long, restrictedsidcount: UInt, sidstorestrict: Long, newtokenhandle: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "CreateRestrictedToken", longArrayOf(Win32DynamicFfi.objectSlot(existingtokenhandle), flags.toLong(), disablesidcount.toLong(), sidstodisable, deleteprivilegecount.toLong(), privilegestodelete, restrictedsidcount.toLong(), sidstorestrict, newtokenhandle)).toInt()
+public fun CreateRestrictedToken(existingtokenhandle: HANDLE, flags: CREATE_RESTRICTED_TOKEN_FLAGS, disablesidcount: UInt, sidstodisable: Long, deleteprivilegecount: UInt, privilegestodelete: Long, restrictedsidcount: UInt, sidstorestrict: Long, newtokenhandle: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "CreateRestrictedToken", longArrayOf(existingtokenhandle, flags.toLong(), disablesidcount.toLong(), sidstodisable, deleteprivilegecount.toLong(), privilegestodelete, restrictedsidcount.toLong(), sidstorestrict, newtokenhandle)).toInt()
 }
 
 public fun CreateWellKnownSid(wellknownsidtype: WELL_KNOWN_SID_TYPE, domainsid: PSID, psid: PSID, cbsid: Long): BOOL {
@@ -183,12 +185,12 @@ public fun DestroyPrivateObjectSecurity(objectdescriptor: Long): BOOL {
     return Win32DynamicFfi.invoke("advapi32.dll", "DestroyPrivateObjectSecurity", longArrayOf(objectdescriptor)).toInt()
 }
 
-public fun DuplicateToken(existingtokenhandle: Foundation.HANDLE, impersonationlevel: SECURITY_IMPERSONATION_LEVEL, duplicatetokenhandle: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "DuplicateToken", longArrayOf(Win32DynamicFfi.objectSlot(existingtokenhandle), impersonationlevel.toLong(), duplicatetokenhandle)).toInt()
+public fun DuplicateToken(existingtokenhandle: HANDLE, impersonationlevel: SECURITY_IMPERSONATION_LEVEL, duplicatetokenhandle: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "DuplicateToken", longArrayOf(existingtokenhandle, impersonationlevel.toLong(), duplicatetokenhandle)).toInt()
 }
 
-public fun DuplicateTokenEx(hexistingtoken: Foundation.HANDLE, dwdesiredaccess: TOKEN_ACCESS_MASK, lptokenattributes: Long, impersonationlevel: SECURITY_IMPERSONATION_LEVEL, tokentype: TOKEN_TYPE, phnewtoken: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "DuplicateTokenEx", longArrayOf(Win32DynamicFfi.objectSlot(hexistingtoken), dwdesiredaccess.toLong(), lptokenattributes, impersonationlevel.toLong(), tokentype.toLong(), phnewtoken)).toInt()
+public fun DuplicateTokenEx(hexistingtoken: HANDLE, dwdesiredaccess: TOKEN_ACCESS_MASK, lptokenattributes: Long, impersonationlevel: SECURITY_IMPERSONATION_LEVEL, tokentype: TOKEN_TYPE, phnewtoken: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "DuplicateTokenEx", longArrayOf(hexistingtoken, dwdesiredaccess.toLong(), lptokenattributes, impersonationlevel.toLong(), tokentype.toLong(), phnewtoken)).toInt()
 }
 
 public fun EqualDomainSid(psid1: PSID, psid2: PSID, pfequal: Long): BOOL {
@@ -223,8 +225,8 @@ public fun GetAppContainerAce(acl: Long, startingaceindex: UInt, appcontainerace
     return Win32DynamicFfi.invoke("kernel32.dll", "GetAppContainerAce", longArrayOf(acl, startingaceindex.toLong(), appcontainerace, appcontaineraceindex)).toInt()
 }
 
-public fun GetCachedSigningLevel(file: Foundation.HANDLE, flags: Long, signinglevel: Long, thumbprint: Long, thumbprintsize: Long, thumbprintalgorithm: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetCachedSigningLevel", longArrayOf(Win32DynamicFfi.objectSlot(file), flags, signinglevel, thumbprint, thumbprintsize, thumbprintalgorithm)).toInt()
+public fun GetCachedSigningLevel(file: HANDLE, flags: Long, signinglevel: Long, thumbprint: Long, thumbprintsize: Long, thumbprintalgorithm: Long): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "GetCachedSigningLevel", longArrayOf(file, flags, signinglevel, thumbprint, thumbprintsize, thumbprintalgorithm)).toInt()
 }
 
 public fun GetFileSecurityA(lpfilename: PCSTR, requestedinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: UInt, lpnlengthneeded: Long): BOOL {
@@ -235,8 +237,8 @@ public fun GetFileSecurityW(lpfilename: PCWSTR, requestedinformation: UInt, psec
     return Win32DynamicFfi.invoke("advapi32.dll", "GetFileSecurityW", longArrayOf(lpfilename, requestedinformation.toLong(), psecuritydescriptor, nlength.toLong(), lpnlengthneeded)).toInt()
 }
 
-public fun GetKernelObjectSecurity(handle: Foundation.HANDLE, requestedinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: UInt, lpnlengthneeded: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "GetKernelObjectSecurity", longArrayOf(Win32DynamicFfi.objectSlot(handle), requestedinformation.toLong(), psecuritydescriptor, nlength.toLong(), lpnlengthneeded)).toInt()
+public fun GetKernelObjectSecurity(handle: HANDLE, requestedinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: UInt, lpnlengthneeded: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "GetKernelObjectSecurity", longArrayOf(handle, requestedinformation.toLong(), psecuritydescriptor, nlength.toLong(), lpnlengthneeded)).toInt()
 }
 
 public fun GetLengthSid(psid: PSID): UInt {
@@ -291,24 +293,24 @@ public fun GetSidSubAuthorityCount(psid: PSID): Long {
     return Win32DynamicFfi.invoke("advapi32.dll", "GetSidSubAuthorityCount", longArrayOf(psid))
 }
 
-public fun GetTokenInformation(tokenhandle: Foundation.HANDLE, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: Long, tokeninformationlength: UInt, returnlength: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "GetTokenInformation", longArrayOf(Win32DynamicFfi.objectSlot(tokenhandle), tokeninformationclass.toLong(), tokeninformation, tokeninformationlength.toLong(), returnlength)).toInt()
+public fun GetTokenInformation(tokenhandle: HANDLE, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: Long, tokeninformationlength: UInt, returnlength: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "GetTokenInformation", longArrayOf(tokenhandle, tokeninformationclass.toLong(), tokeninformation, tokeninformationlength.toLong(), returnlength)).toInt()
 }
 
-public fun GetUserObjectSecurity(hobj: Foundation.HANDLE, psirequested: Long, psid: PSECURITY_DESCRIPTOR, nlength: UInt, lpnlengthneeded: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetUserObjectSecurity", longArrayOf(Win32DynamicFfi.objectSlot(hobj), psirequested, psid, nlength.toLong(), lpnlengthneeded)).toInt()
+public fun GetUserObjectSecurity(hobj: HANDLE, psirequested: Long, psid: PSECURITY_DESCRIPTOR, nlength: UInt, lpnlengthneeded: Long): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "GetUserObjectSecurity", longArrayOf(hobj, psirequested, psid, nlength.toLong(), lpnlengthneeded)).toInt()
 }
 
 public fun GetWindowsAccountDomainSid(psid: PSID, pdomainsid: PSID, cbdomainsid: Long): BOOL {
     return Win32DynamicFfi.invoke("advapi32.dll", "GetWindowsAccountDomainSid", longArrayOf(psid, pdomainsid, cbdomainsid)).toInt()
 }
 
-public fun ImpersonateAnonymousToken(threadhandle: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "ImpersonateAnonymousToken", longArrayOf(Win32DynamicFfi.objectSlot(threadhandle))).toInt()
+public fun ImpersonateAnonymousToken(threadhandle: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "ImpersonateAnonymousToken", longArrayOf(threadhandle)).toInt()
 }
 
-public fun ImpersonateLoggedOnUser(htoken: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "ImpersonateLoggedOnUser", longArrayOf(Win32DynamicFfi.objectSlot(htoken))).toInt()
+public fun ImpersonateLoggedOnUser(htoken: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "ImpersonateLoggedOnUser", longArrayOf(htoken)).toInt()
 }
 
 public fun ImpersonateSelf(impersonationlevel: SECURITY_IMPERSONATION_LEVEL): BOOL {
@@ -327,8 +329,8 @@ public fun InitializeSid(sid: PSID, pidentifierauthority: Long, nsubauthoritycou
     return Win32DynamicFfi.invoke("advapi32.dll", "InitializeSid", longArrayOf(sid, pidentifierauthority, nsubauthoritycount.toLong())).toInt()
 }
 
-public fun IsTokenRestricted(tokenhandle: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "IsTokenRestricted", longArrayOf(Win32DynamicFfi.objectSlot(tokenhandle))).toInt()
+public fun IsTokenRestricted(tokenhandle: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "IsTokenRestricted", longArrayOf(tokenhandle)).toInt()
 }
 
 public fun IsValidAcl(pacl: Long): BOOL {
@@ -431,32 +433,32 @@ public fun ObjectDeleteAuditAlarmW(subsystemname: PCWSTR, handleid: Long, genera
     return Win32DynamicFfi.invoke("advapi32.dll", "ObjectDeleteAuditAlarmW", longArrayOf(subsystemname, handleid, generateonclose.toLong())).toInt()
 }
 
-public fun ObjectOpenAuditAlarmA(subsystemname: PCSTR, handleid: Long, objecttypename: PCSTR, objectname: PCSTR, psecuritydescriptor: PSECURITY_DESCRIPTOR, clienttoken: Foundation.HANDLE, desiredaccess: UInt, grantedaccess: UInt, privileges: Long, objectcreation: BOOL, accessgranted: BOOL, generateonclose: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "ObjectOpenAuditAlarmA", longArrayOf(subsystemname, handleid, objecttypename, objectname, psecuritydescriptor, Win32DynamicFfi.objectSlot(clienttoken), desiredaccess.toLong(), grantedaccess.toLong(), privileges, objectcreation.toLong(), accessgranted.toLong(), generateonclose)).toInt()
+public fun ObjectOpenAuditAlarmA(subsystemname: PCSTR, handleid: Long, objecttypename: PCSTR, objectname: PCSTR, psecuritydescriptor: PSECURITY_DESCRIPTOR, clienttoken: HANDLE, desiredaccess: UInt, grantedaccess: UInt, privileges: Long, objectcreation: BOOL, accessgranted: BOOL, generateonclose: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "ObjectOpenAuditAlarmA", longArrayOf(subsystemname, handleid, objecttypename, objectname, psecuritydescriptor, clienttoken, desiredaccess.toLong(), grantedaccess.toLong(), privileges, objectcreation.toLong(), accessgranted.toLong(), generateonclose)).toInt()
 }
 
-public fun ObjectOpenAuditAlarmW(subsystemname: PCWSTR, handleid: Long, objecttypename: PCWSTR, objectname: PCWSTR, psecuritydescriptor: PSECURITY_DESCRIPTOR, clienttoken: Foundation.HANDLE, desiredaccess: UInt, grantedaccess: UInt, privileges: Long, objectcreation: BOOL, accessgranted: BOOL, generateonclose: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "ObjectOpenAuditAlarmW", longArrayOf(subsystemname, handleid, objecttypename, objectname, psecuritydescriptor, Win32DynamicFfi.objectSlot(clienttoken), desiredaccess.toLong(), grantedaccess.toLong(), privileges, objectcreation.toLong(), accessgranted.toLong(), generateonclose)).toInt()
+public fun ObjectOpenAuditAlarmW(subsystemname: PCWSTR, handleid: Long, objecttypename: PCWSTR, objectname: PCWSTR, psecuritydescriptor: PSECURITY_DESCRIPTOR, clienttoken: HANDLE, desiredaccess: UInt, grantedaccess: UInt, privileges: Long, objectcreation: BOOL, accessgranted: BOOL, generateonclose: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "ObjectOpenAuditAlarmW", longArrayOf(subsystemname, handleid, objecttypename, objectname, psecuritydescriptor, clienttoken, desiredaccess.toLong(), grantedaccess.toLong(), privileges, objectcreation.toLong(), accessgranted.toLong(), generateonclose)).toInt()
 }
 
-public fun ObjectPrivilegeAuditAlarmA(subsystemname: PCSTR, handleid: Long, clienttoken: Foundation.HANDLE, desiredaccess: UInt, privileges: Long, accessgranted: BOOL): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "ObjectPrivilegeAuditAlarmA", longArrayOf(subsystemname, handleid, Win32DynamicFfi.objectSlot(clienttoken), desiredaccess.toLong(), privileges, accessgranted.toLong())).toInt()
+public fun ObjectPrivilegeAuditAlarmA(subsystemname: PCSTR, handleid: Long, clienttoken: HANDLE, desiredaccess: UInt, privileges: Long, accessgranted: BOOL): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "ObjectPrivilegeAuditAlarmA", longArrayOf(subsystemname, handleid, clienttoken, desiredaccess.toLong(), privileges, accessgranted.toLong())).toInt()
 }
 
-public fun ObjectPrivilegeAuditAlarmW(subsystemname: PCWSTR, handleid: Long, clienttoken: Foundation.HANDLE, desiredaccess: UInt, privileges: Long, accessgranted: BOOL): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "ObjectPrivilegeAuditAlarmW", longArrayOf(subsystemname, handleid, Win32DynamicFfi.objectSlot(clienttoken), desiredaccess.toLong(), privileges, accessgranted.toLong())).toInt()
+public fun ObjectPrivilegeAuditAlarmW(subsystemname: PCWSTR, handleid: Long, clienttoken: HANDLE, desiredaccess: UInt, privileges: Long, accessgranted: BOOL): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "ObjectPrivilegeAuditAlarmW", longArrayOf(subsystemname, handleid, clienttoken, desiredaccess.toLong(), privileges, accessgranted.toLong())).toInt()
 }
 
-public fun PrivilegeCheck(clienttoken: Foundation.HANDLE, requiredprivileges: Long, pfresult: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "PrivilegeCheck", longArrayOf(Win32DynamicFfi.objectSlot(clienttoken), requiredprivileges, pfresult)).toInt()
+public fun PrivilegeCheck(clienttoken: HANDLE, requiredprivileges: Long, pfresult: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "PrivilegeCheck", longArrayOf(clienttoken, requiredprivileges, pfresult)).toInt()
 }
 
-public fun PrivilegedServiceAuditAlarmA(subsystemname: PCSTR, servicename: PCSTR, clienttoken: Foundation.HANDLE, privileges: Long, accessgranted: BOOL): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "PrivilegedServiceAuditAlarmA", longArrayOf(subsystemname, servicename, Win32DynamicFfi.objectSlot(clienttoken), privileges, accessgranted.toLong())).toInt()
+public fun PrivilegedServiceAuditAlarmA(subsystemname: PCSTR, servicename: PCSTR, clienttoken: HANDLE, privileges: Long, accessgranted: BOOL): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "PrivilegedServiceAuditAlarmA", longArrayOf(subsystemname, servicename, clienttoken, privileges, accessgranted.toLong())).toInt()
 }
 
-public fun PrivilegedServiceAuditAlarmW(subsystemname: PCWSTR, servicename: PCWSTR, clienttoken: Foundation.HANDLE, privileges: Long, accessgranted: BOOL): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "PrivilegedServiceAuditAlarmW", longArrayOf(subsystemname, servicename, Win32DynamicFfi.objectSlot(clienttoken), privileges, accessgranted.toLong())).toInt()
+public fun PrivilegedServiceAuditAlarmW(subsystemname: PCWSTR, servicename: PCWSTR, clienttoken: HANDLE, privileges: Long, accessgranted: BOOL): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "PrivilegedServiceAuditAlarmW", longArrayOf(subsystemname, servicename, clienttoken, privileges, accessgranted.toLong())).toInt()
 }
 
 public fun QuerySecurityAccessMask(securityinformation: OBJECT_SECURITY_INFORMATION, desiredaccess: Long) {
@@ -467,9 +469,8 @@ public fun RevertToSelf(): BOOL {
     return Win32DynamicFfi.invoke("advapi32.dll", "RevertToSelf", longArrayOf()).toInt()
 }
 
-public fun RtlConvertSidToUnicodeString(unicodestring: Long, sid: PSID, allocatedestinationstring: Boolean): Foundation.NTSTATUS {
-    Win32DynamicFfi.invoke("ntdll.dll", "RtlConvertSidToUnicodeString", longArrayOf(unicodestring, sid, if (allocatedestinationstring) 1L else 0L))
-    return Foundation.NTSTATUS()
+public fun RtlConvertSidToUnicodeString(unicodestring: Long, sid: PSID, allocatedestinationstring: Boolean): NTSTATUS {
+    return Win32DynamicFfi.invoke("ntdll.dll", "RtlConvertSidToUnicodeString", longArrayOf(unicodestring, sid, if (allocatedestinationstring) 1L else 0L)).toInt()
 }
 
 public fun RtlNormalizeSecurityDescriptor(securitydescriptor: Long, securitydescriptorlength: UInt, newsecuritydescriptor: Long, newsecuritydescriptorlength: Long, checkonly: Boolean): Boolean {
@@ -481,8 +482,8 @@ public fun SetAclInformation(pacl: Long, paclinformation: Long, naclinformationl
     return Win32DynamicFfi.invoke("advapi32.dll", "SetAclInformation", longArrayOf(pacl, paclinformation, naclinformationlength.toLong(), dwaclinformationclass.toLong())).toInt()
 }
 
-public fun SetCachedSigningLevel(sourcefiles: Long, sourcefilecount: UInt, flags: UInt, targetfile: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetCachedSigningLevel", longArrayOf(sourcefiles, sourcefilecount.toLong(), flags.toLong(), Win32DynamicFfi.objectSlot(targetfile))).toInt()
+public fun SetCachedSigningLevel(sourcefiles: Long, sourcefilecount: UInt, flags: UInt, targetfile: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("kernel32.dll", "SetCachedSigningLevel", longArrayOf(sourcefiles, sourcefilecount.toLong(), flags.toLong(), targetfile)).toInt()
 }
 
 public fun SetFileSecurityA(lpfilename: PCSTR, securityinformation: OBJECT_SECURITY_INFORMATION, psecuritydescriptor: PSECURITY_DESCRIPTOR): BOOL {
@@ -493,16 +494,16 @@ public fun SetFileSecurityW(lpfilename: PCWSTR, securityinformation: OBJECT_SECU
     return Win32DynamicFfi.invoke("advapi32.dll", "SetFileSecurityW", longArrayOf(lpfilename, securityinformation.toLong(), psecuritydescriptor)).toInt()
 }
 
-public fun SetKernelObjectSecurity(handle: Foundation.HANDLE, securityinformation: OBJECT_SECURITY_INFORMATION, securitydescriptor: PSECURITY_DESCRIPTOR): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "SetKernelObjectSecurity", longArrayOf(Win32DynamicFfi.objectSlot(handle), securityinformation.toLong(), securitydescriptor)).toInt()
+public fun SetKernelObjectSecurity(handle: HANDLE, securityinformation: OBJECT_SECURITY_INFORMATION, securitydescriptor: PSECURITY_DESCRIPTOR): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "SetKernelObjectSecurity", longArrayOf(handle, securityinformation.toLong(), securitydescriptor)).toInt()
 }
 
-public fun SetPrivateObjectSecurity(securityinformation: OBJECT_SECURITY_INFORMATION, modificationdescriptor: PSECURITY_DESCRIPTOR, objectssecuritydescriptor: Long, genericmapping: Long, token: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "SetPrivateObjectSecurity", longArrayOf(securityinformation.toLong(), modificationdescriptor, objectssecuritydescriptor, genericmapping, Win32DynamicFfi.objectSlot(token))).toInt()
+public fun SetPrivateObjectSecurity(securityinformation: OBJECT_SECURITY_INFORMATION, modificationdescriptor: PSECURITY_DESCRIPTOR, objectssecuritydescriptor: Long, genericmapping: Long, token: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "SetPrivateObjectSecurity", longArrayOf(securityinformation.toLong(), modificationdescriptor, objectssecuritydescriptor, genericmapping, token)).toInt()
 }
 
-public fun SetPrivateObjectSecurityEx(securityinformation: OBJECT_SECURITY_INFORMATION, modificationdescriptor: PSECURITY_DESCRIPTOR, objectssecuritydescriptor: Long, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, genericmapping: Long, token: Foundation.HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "SetPrivateObjectSecurityEx", longArrayOf(securityinformation.toLong(), modificationdescriptor, objectssecuritydescriptor, autoinheritflags.toLong(), genericmapping, Win32DynamicFfi.objectSlot(token))).toInt()
+public fun SetPrivateObjectSecurityEx(securityinformation: OBJECT_SECURITY_INFORMATION, modificationdescriptor: PSECURITY_DESCRIPTOR, objectssecuritydescriptor: Long, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, genericmapping: Long, token: HANDLE): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "SetPrivateObjectSecurityEx", longArrayOf(securityinformation.toLong(), modificationdescriptor, objectssecuritydescriptor, autoinheritflags.toLong(), genericmapping, token)).toInt()
 }
 
 public fun SetSecurityAccessMask(securityinformation: OBJECT_SECURITY_INFORMATION, desiredaccess: Long) {
@@ -533,10 +534,10 @@ public fun SetSecurityDescriptorSacl(psecuritydescriptor: PSECURITY_DESCRIPTOR, 
     return Win32DynamicFfi.invoke("advapi32.dll", "SetSecurityDescriptorSacl", longArrayOf(psecuritydescriptor, bsaclpresent.toLong(), psacl, bsacldefaulted.toLong())).toInt()
 }
 
-public fun SetTokenInformation(tokenhandle: Foundation.HANDLE, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: Long, tokeninformationlength: UInt): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "SetTokenInformation", longArrayOf(Win32DynamicFfi.objectSlot(tokenhandle), tokeninformationclass.toLong(), tokeninformation, tokeninformationlength.toLong())).toInt()
+public fun SetTokenInformation(tokenhandle: HANDLE, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: Long, tokeninformationlength: UInt): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "SetTokenInformation", longArrayOf(tokenhandle, tokeninformationclass.toLong(), tokeninformation, tokeninformationlength.toLong())).toInt()
 }
 
-public fun SetUserObjectSecurity(hobj: Foundation.HANDLE, psirequested: Long, psid: PSECURITY_DESCRIPTOR): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetUserObjectSecurity", longArrayOf(Win32DynamicFfi.objectSlot(hobj), psirequested, psid)).toInt()
+public fun SetUserObjectSecurity(hobj: HANDLE, psirequested: Long, psid: PSECURITY_DESCRIPTOR): BOOL {
+    return Win32DynamicFfi.invoke("user32.dll", "SetUserObjectSecurity", longArrayOf(hobj, psirequested, psid)).toInt()
 }

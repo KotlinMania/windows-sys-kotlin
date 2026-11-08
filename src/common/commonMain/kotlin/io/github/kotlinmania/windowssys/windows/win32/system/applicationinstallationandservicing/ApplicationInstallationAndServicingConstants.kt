@@ -1,5 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing
 
+import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.w
@@ -130,9 +131,9 @@ public val CANOF_PARSE_DISPLAY_NAME: CREATE_ASM_NAME_OBJ_FLAGS = 1
 
 public val CANOF_SET_DEFAULT_VALUES: CREATE_ASM_NAME_OBJ_FLAGS = 2
 
-public val CLSID_EvalCom2: GUID = GUID.from_u128(0x6e5e191080534660uL, 0xb7956b612e29bc58uL)
+public val CLSID_EvalCom2: GUID = GUID.from_u128(U128(0x6e5e191080534660uL, 0xb7956b612e29bc58uL))
 
-public val CLSID_MsmMerge2: GUID = GUID.from_u128(0xf94985d529f94743uL, 0x980599bc3f35b678uL)
+public val CLSID_MsmMerge2: GUID = GUID.from_u128(U128(0xf94985d529f94743uL, 0x980599bc3f35b678uL))
 
 public val DEFAULT_DISK_ID: UInt = 2u
 
@@ -504,11 +505,11 @@ public val ERROR_PCW_WRONG_PATCHMETADATA_STRD_PROP: UInt = 3222163859u
 
 public val ERROR_ROLLBACK_DISABLED: UInt = 1653u
 
-public val FUSION_REFCOUNT_FILEPATH_GUID: GUID = GUID.from_u128(0xb02f9d65fb774f7auL, 0xafa5b391309f11c9uL)
+public val FUSION_REFCOUNT_FILEPATH_GUID: GUID = GUID.from_u128(U128(0xb02f9d65fb774f7auL, 0xafa5b391309f11c9uL))
 
-public val FUSION_REFCOUNT_OPAQUE_STRING_GUID: GUID = GUID.from_u128(0x2ec93463b0c345e1uL, 0x8364327e96aea856uL)
+public val FUSION_REFCOUNT_OPAQUE_STRING_GUID: GUID = GUID.from_u128(U128(0x2ec93463b0c345e1uL, 0x8364327e96aea856uL))
 
-public val FUSION_REFCOUNT_UNINSTALL_SUBKEY_GUID: GUID = GUID.from_u128(0x8cedc215ac4b488buL, 0x93c0a50a49cb2fb8uL)
+public val FUSION_REFCOUNT_UNINSTALL_SUBKEY_GUID: GUID = GUID.from_u128(U128(0x8cedc215ac4b488buL, 0x93c0a50a49cb2fb8uL))
 
 public val IACTIONNAME_ADMIN: PCWSTR = w("ADMIN")
 
@@ -1264,7 +1265,7 @@ public val IPROPVALUE__CARRYINGNDP_URTREINSTALL: PCWSTR = w("URTREINSTALL")
 
 public val IPROPVALUE__CARRYINGNDP_URTUPGRADE: PCWSTR = w("URTUPGRADE")
 
-public val LIBID_MsmMergeTypeLib: GUID = GUID.from_u128(0xadda82f2c2611d2uL, 0xad6500a0c9af11a6uL)
+public val LIBID_MsmMergeTypeLib: GUID = GUID.from_u128(U128(0xadda82f2c2611d2uL, 0xad6500a0c9af11a6uL))
 
 public val LOGALL: UInt = 15u
 
@@ -1572,7 +1573,7 @@ public val MSI_INVALID_HASH_IS_FATAL: UInt = 1u
 
 public val MSI_NULL_INTEGER: UInt = 2147483648u
 
-public val MsmMerge: GUID = GUID.from_u128(0xadda8302c2611d2uL, 0xad6500a0c9af11a6uL)
+public val MsmMerge: GUID = GUID.from_u128(U128(0xadda8302c2611d2uL, 0xad6500a0c9af11a6uL))
 
 public val PACKMAN_RUNTIME_INVALID: PACKMAN_RUNTIME = 6
 
@@ -1672,7 +1673,7 @@ public val PID_TITLE: UInt = 2u
 
 public val PID_WORDCOUNT: UInt = 15u
 
-public val PMSvc: GUID = GUID.from_u128(0xb9e511fce364497auL, 0xa121b7b3612cedceuL)
+public val PMSvc: GUID = GUID.from_u128(U128(0xb9e511fce364497auL, 0xa121b7b3612cedceuL))
 
 public val PM_ACTIVATION_POLICY_INVALID: PM_ACTIVATION_POLICY = 7
 

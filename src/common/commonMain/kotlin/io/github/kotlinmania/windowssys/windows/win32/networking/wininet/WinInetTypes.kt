@@ -2,6 +2,7 @@ package io.github.kotlinmania.windowssys.windows.win32.networking.wininet
 
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
 
 public typealias APP_CACHE_FINALIZE_STATE = Int
 
@@ -86,7 +87,7 @@ public fun interface PFN_AUTH_NOTIFYFn {
 public typealias PFN_AUTH_NOTIFY = PFN_AUTH_NOTIFYFn?
 
 public fun interface PFN_DIAL_HANDLERFn {
-    public operator fun invoke(param0: Foundation.HWND, param1: PCSTR, param2: UInt, param3: Long): UInt
+    public operator fun invoke(param0: HWND, param1: PCSTR, param2: UInt, param3: Long): UInt
 }
 
 public typealias PFN_DIAL_HANDLER = PFN_DIAL_HANDLERFn?

@@ -6,6 +6,7 @@ import io.github.kotlinmania.windowssys.core.GUID
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.VARIANT
 
 public data class ACCESSTIMEOUT(
     public var cbSize: UInt = 0u,
@@ -164,8 +165,8 @@ public data class UiaCacheRequest(
 
 public data class UiaChangeInfo(
     public var uiaId: Int = 0,
-    public var payload: System.Variant.VARIANT = System.Variant.VARIANT(),
-    public var extraInfo: System.Variant.VARIANT = System.Variant.VARIANT(),
+    public var payload: VARIANT = VARIANT(),
+    public var extraInfo: VARIANT = VARIANT(),
 )
 
 public data class UiaChangesEventArgs(
@@ -194,14 +195,14 @@ public data class UiaPropertyChangedEventArgs(
     public var Type: EventArgsType = 0,
     public var EventId: UIA_EVENT_ID = 0,
     public var PropertyId: Int = 0,
-    public var OldValue: System.Variant.VARIANT = System.Variant.VARIANT(),
-    public var NewValue: System.Variant.VARIANT = System.Variant.VARIANT(),
+    public var OldValue: VARIANT = VARIANT(),
+    public var NewValue: VARIANT = VARIANT(),
 )
 
 public data class UiaPropertyCondition(
     public var ConditionType: ConditionType = 0,
     public var PropertyId: UIA_PROPERTY_ID = 0,
-    public var Value: System.Variant.VARIANT = System.Variant.VARIANT(),
+    public var Value: VARIANT = VARIANT(),
     public var Flags: PropertyConditionFlags = 0,
 )
 

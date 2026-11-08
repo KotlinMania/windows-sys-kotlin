@@ -3,14 +3,15 @@ package io.github.kotlinmania.windowssys.windows.win32.security.applocker
 import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 import io.github.kotlinmania.windowssys.windows.win32.security.SAFER_LEVEL_HANDLE
 
 public fun SaferCloseLevel(hlevelhandle: SAFER_LEVEL_HANDLE): BOOL {
     return Win32DynamicFfi.invoke("advapi32.dll", "SaferCloseLevel", longArrayOf(hlevelhandle)).toInt()
 }
 
-public fun SaferComputeTokenFromLevel(levelhandle: SAFER_LEVEL_HANDLE, inaccesstoken: Foundation.HANDLE, outaccesstoken: Long, dwflags: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS, lpreserved: Long): BOOL {
-    return Win32DynamicFfi.invoke("advapi32.dll", "SaferComputeTokenFromLevel", longArrayOf(levelhandle, Win32DynamicFfi.objectSlot(inaccesstoken), outaccesstoken, dwflags.toLong(), lpreserved)).toInt()
+public fun SaferComputeTokenFromLevel(levelhandle: SAFER_LEVEL_HANDLE, inaccesstoken: HANDLE, outaccesstoken: Long, dwflags: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS, lpreserved: Long): BOOL {
+    return Win32DynamicFfi.invoke("advapi32.dll", "SaferComputeTokenFromLevel", longArrayOf(levelhandle, inaccesstoken, outaccesstoken, dwflags.toLong(), lpreserved)).toInt()
 }
 
 public fun SaferCreateLevel(dwscopeid: UInt, dwlevelid: UInt, openflags: UInt, plevelhandle: Long, lpreserved: Long): BOOL {
