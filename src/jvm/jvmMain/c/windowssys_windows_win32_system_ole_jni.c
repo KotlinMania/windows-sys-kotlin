@@ -1,0 +1,8283 @@
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
+#endif
+#include <jni.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <errno.h>
+#ifdef _WIN32
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+#include <windows.h>
+#else
+#include <dlfcn.h>
+#ifndef RTLD_DEFAULT
+#define RTLD_DEFAULT ((void*)0)
+#endif
+#endif
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1BstrFromVector(JNIEnv* km_env, jclass km_clazz, jlong psa, jlong pbstr) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BstrFromVector");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psa, (void*)(uintptr_t)pbstr) : -1;
+#else
+    (void)psa;
+    (void)pbstr;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1ClearCustData(JNIEnv* km_env, jclass km_clazz, jlong pcustdata) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ClearCustData");
+    }
+    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)pcustdata);
+#else
+    (void)pcustdata;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1CreateDispTypeInfo(JNIEnv* km_env, jclass km_clazz, jlong pidata, jint lcid, jlong pptinfo) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CreateDispTypeInfo");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pidata, (uint32_t)lcid, (void*)(uintptr_t)pptinfo) : -1;
+#else
+    (void)pidata;
+    (void)lcid;
+    (void)pptinfo;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1CreateErrorInfo(JNIEnv* km_env, jclass km_clazz, jlong pperrinfo) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CreateErrorInfo");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pperrinfo) : -1;
+#else
+    (void)pperrinfo;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1CreateOleAdviseHolder(JNIEnv* km_env, jclass km_clazz, jlong ppoaholder) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CreateOleAdviseHolder");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ppoaholder) : -1;
+#else
+    (void)ppoaholder;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1CreateStdDispatch(JNIEnv* km_env, jclass km_clazz, jlong punkouter, jlong pvthis, jlong ptinfo, jlong ppunkstddisp) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CreateStdDispatch");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)punkouter, (void*)(uintptr_t)pvthis, (void*)(uintptr_t)ptinfo, (void*)(uintptr_t)ppunkstddisp) : -1;
+#else
+    (void)punkouter;
+    (void)pvthis;
+    (void)ptinfo;
+    (void)ppunkstddisp;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1CreateTypeLib(JNIEnv* km_env, jclass km_clazz, jint syskind, jlong szfile, jlong ppctlib) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CreateTypeLib");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)syskind, (void*)(uintptr_t)szfile, (void*)(uintptr_t)ppctlib) : -1;
+#else
+    (void)syskind;
+    (void)szfile;
+    (void)ppctlib;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1CreateTypeLib2(JNIEnv* km_env, jclass km_clazz, jint syskind, jlong szfile, jlong ppctlib) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CreateTypeLib2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)syskind, (void*)(uintptr_t)szfile, (void*)(uintptr_t)ppctlib) : -1;
+#else
+    (void)syskind;
+    (void)szfile;
+    (void)ppctlib;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1DispCallFunc(JNIEnv* km_env, jclass km_clazz, jlong pvinstance, jlong ovft, jint cc, jshort vtreturn, jint cactuals, jlong prgvt, jlong prgpvarg, jlong pvargresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, int32_t, uint16_t, uint32_t, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DispCallFunc");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvinstance, (uint64_t)ovft, (int32_t)cc, (uint16_t)vtreturn, (uint32_t)cactuals, (void*)(uintptr_t)prgvt, (void*)(uintptr_t)prgpvarg, (void*)(uintptr_t)pvargresult) : -1;
+#else
+    (void)pvinstance;
+    (void)ovft;
+    (void)cc;
+    (void)vtreturn;
+    (void)cactuals;
+    (void)prgvt;
+    (void)prgpvarg;
+    (void)pvargresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1DispGetIDsOfNames(JNIEnv* km_env, jclass km_clazz, jlong ptinfo, jlong rgsznames, jint cnames, jlong rgdispid) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DispGetIDsOfNames");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ptinfo, (void*)(uintptr_t)rgsznames, (uint32_t)cnames, (void*)(uintptr_t)rgdispid) : -1;
+#else
+    (void)ptinfo;
+    (void)rgsznames;
+    (void)cnames;
+    (void)rgdispid;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1DispGetParam(JNIEnv* km_env, jclass km_clazz, jlong pdispparams, jint position, jshort vttarg, jlong pvarresult, jlong puargerr) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint16_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DispGetParam");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdispparams, (uint32_t)position, (uint16_t)vttarg, (void*)(uintptr_t)pvarresult, (void*)(uintptr_t)puargerr) : -1;
+#else
+    (void)pdispparams;
+    (void)position;
+    (void)vttarg;
+    (void)pvarresult;
+    (void)puargerr;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1DispInvoke(JNIEnv* km_env, jclass km_clazz, jlong _this, jlong ptinfo, jint dispidmember, jshort wflags, jlong pparams, jlong pvarresult, jlong pexcepinfo, jlong puargerr) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint16_t, void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DispInvoke");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)_this, (void*)(uintptr_t)ptinfo, (int32_t)dispidmember, (uint16_t)wflags, (void*)(uintptr_t)pparams, (void*)(uintptr_t)pvarresult, (void*)(uintptr_t)pexcepinfo, (void*)(uintptr_t)puargerr) : -1;
+#else
+    (void)_this;
+    (void)ptinfo;
+    (void)dispidmember;
+    (void)wflags;
+    (void)pparams;
+    (void)pvarresult;
+    (void)pexcepinfo;
+    (void)puargerr;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1DoDragDrop(JNIEnv* km_env, jclass km_clazz, jlong pdataobj, jlong pdropsource, jint dwokeffects, jlong pdweffect) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DoDragDrop");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdataobj, (void*)(uintptr_t)pdropsource, (uint32_t)dwokeffects, (void*)(uintptr_t)pdweffect) : -1;
+#else
+    (void)pdataobj;
+    (void)pdropsource;
+    (void)dwokeffects;
+    (void)pdweffect;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1GetActiveObject(JNIEnv* km_env, jclass km_clazz, jlong rclsid, jlong pvreserved, jlong ppunk) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetActiveObject");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)rclsid, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)ppunk) : -1;
+#else
+    (void)rclsid;
+    (void)pvreserved;
+    (void)ppunk;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1GetAltMonthNames(JNIEnv* km_env, jclass km_clazz, jint lcid, jlong prgp) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetAltMonthNames");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)lcid, (void*)(uintptr_t)prgp) : -1;
+#else
+    (void)lcid;
+    (void)prgp;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1GetRecordInfoFromGuids(JNIEnv* km_env, jclass km_clazz, jlong rguidtypelib, jint uvermajor, jint uverminor, jint lcid, jlong rguidtypeinfo, jlong pprecinfo) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetRecordInfoFromGuids");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)rguidtypelib, (uint32_t)uvermajor, (uint32_t)uverminor, (uint32_t)lcid, (void*)(uintptr_t)rguidtypeinfo, (void*)(uintptr_t)pprecinfo) : -1;
+#else
+    (void)rguidtypelib;
+    (void)uvermajor;
+    (void)uverminor;
+    (void)lcid;
+    (void)rguidtypeinfo;
+    (void)pprecinfo;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1GetRecordInfoFromTypeInfo(JNIEnv* km_env, jclass km_clazz, jlong ptypeinfo, jlong pprecinfo) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetRecordInfoFromTypeInfo");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ptypeinfo, (void*)(uintptr_t)pprecinfo) : -1;
+#else
+    (void)ptypeinfo;
+    (void)pprecinfo;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1HRGN_1UserFree(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HRGN_UserFree");
+    }
+    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)param0, (void*)(uintptr_t)param1);
+#else
+    (void)param0;
+    (void)param1;
+#endif
+}
+
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1HRGN_1UserFree64(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-marshal-l1-1-0.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HRGN_UserFree64");
+    }
+    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)param0, (void*)(uintptr_t)param1);
+#else
+    (void)param0;
+    (void)param1;
+#endif
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1HRGN_1UserMarshal(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jlong param2) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HRGN_UserMarshal");
+    }
+    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0, (void*)(uintptr_t)param1, (void*)(uintptr_t)param2) : NULL;
+#else
+    (void)param0;
+    (void)param1;
+    (void)param2;
+    void* km_res = NULL;
+#endif
+    return (jlong)(uintptr_t)km_res;
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1HRGN_1UserMarshal64(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jlong param2) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-marshal-l1-1-0.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HRGN_UserMarshal64");
+    }
+    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0, (void*)(uintptr_t)param1, (void*)(uintptr_t)param2) : NULL;
+#else
+    (void)param0;
+    (void)param1;
+    (void)param2;
+    void* km_res = NULL;
+#endif
+    return (jlong)(uintptr_t)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1HRGN_1UserSize(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jlong param2) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HRGN_UserSize");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0, (uint32_t)param1, (void*)(uintptr_t)param2) : 0;
+#else
+    (void)param0;
+    (void)param1;
+    (void)param2;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1HRGN_1UserSize64(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jlong param2) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-marshal-l1-1-0.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HRGN_UserSize64");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0, (uint32_t)param1, (void*)(uintptr_t)param2) : 0;
+#else
+    (void)param0;
+    (void)param1;
+    (void)param2;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1HRGN_1UserUnmarshal(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jlong param2) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HRGN_UserUnmarshal");
+    }
+    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0, (void*)(uintptr_t)param1, (void*)(uintptr_t)param2) : NULL;
+#else
+    (void)param0;
+    (void)param1;
+    (void)param2;
+    void* km_res = NULL;
+#endif
+    return (jlong)(uintptr_t)km_res;
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1HRGN_1UserUnmarshal64(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jlong param2) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-marshal-l1-1-0.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HRGN_UserUnmarshal64");
+    }
+    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0, (void*)(uintptr_t)param1, (void*)(uintptr_t)param2) : NULL;
+#else
+    (void)param0;
+    (void)param1;
+    (void)param2;
+    void* km_res = NULL;
+#endif
+    return (jlong)(uintptr_t)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1IsAccelerator(JNIEnv* km_env, jclass km_clazz, jlong haccel, jint caccelentries, jlong lpmsg, jlong lpwcmd) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "IsAccelerator");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)haccel, (int32_t)caccelentries, (void*)(uintptr_t)lpmsg, (void*)(uintptr_t)lpwcmd) : -1;
+#else
+    (void)haccel;
+    (void)caccelentries;
+    (void)lpmsg;
+    (void)lpwcmd;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1LHashValOfNameSys(JNIEnv* km_env, jclass km_clazz, jint syskind, jint lcid, jlong szname) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(int32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "LHashValOfNameSys");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)syskind, (uint32_t)lcid, (void*)(uintptr_t)szname) : 0;
+#else
+    (void)syskind;
+    (void)lcid;
+    (void)szname;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1LHashValOfNameSysA(JNIEnv* km_env, jclass km_clazz, jint syskind, jint lcid, jlong szname) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(int32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "LHashValOfNameSysA");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)syskind, (uint32_t)lcid, (void*)(uintptr_t)szname) : 0;
+#else
+    (void)syskind;
+    (void)lcid;
+    (void)szname;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1LoadRegTypeLib(JNIEnv* km_env, jclass km_clazz, jlong rguid, jshort wvermajor, jshort wverminor, jint lcid, jlong pptlib) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, uint16_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "LoadRegTypeLib");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)rguid, (uint16_t)wvermajor, (uint16_t)wverminor, (uint32_t)lcid, (void*)(uintptr_t)pptlib) : -1;
+#else
+    (void)rguid;
+    (void)wvermajor;
+    (void)wverminor;
+    (void)lcid;
+    (void)pptlib;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1LoadTypeLib(JNIEnv* km_env, jclass km_clazz, jlong szfile, jlong pptlib) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "LoadTypeLib");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)szfile, (void*)(uintptr_t)pptlib) : -1;
+#else
+    (void)szfile;
+    (void)pptlib;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1LoadTypeLibEx(JNIEnv* km_env, jclass km_clazz, jlong szfile, jint regkind, jlong pptlib) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "LoadTypeLibEx");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)szfile, (int32_t)regkind, (void*)(uintptr_t)pptlib) : -1;
+#else
+    (void)szfile;
+    (void)regkind;
+    (void)pptlib;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OaBuildVersion(JNIEnv* km_env, jclass km_clazz) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OaBuildVersion");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : 0;
+#else
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OaEnablePerUserTLibRegistration(JNIEnv* km_env, jclass km_clazz) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OaEnablePerUserTLibRegistration");
+    }
+    if (km_fn_ptr != NULL) km_fn_ptr();
+#else
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleBuildVersion(JNIEnv* km_env, jclass km_clazz) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleBuildVersion");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : 0;
+#else
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleConvertOLESTREAMToIStorage2(JNIEnv* km_env, jclass km_clazz, jlong lpolestream, jlong pstg, jlong ptd, jint opt, jlong pvcallbackcontext, jlong pqueryconvertolelinkcallback) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleConvertOLESTREAMToIStorage2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpolestream, (void*)(uintptr_t)pstg, (void*)(uintptr_t)ptd, (uint32_t)opt, (void*)(uintptr_t)pvcallbackcontext, (void*)(uintptr_t)pqueryconvertolelinkcallback) : -1;
+#else
+    (void)lpolestream;
+    (void)pstg;
+    (void)ptd;
+    (void)opt;
+    (void)pvcallbackcontext;
+    (void)pqueryconvertolelinkcallback;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleConvertOLESTREAMToIStorageEx2(JNIEnv* km_env, jclass km_clazz, jlong polestm, jlong pstg, jlong pcfformat, jlong plwwidth, jlong plheight, jlong pdwsize, jlong pmedium, jint opt, jlong pvcallbackcontext, jlong pqueryconvertolelinkcallback) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleConvertOLESTREAMToIStorageEx2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)polestm, (void*)(uintptr_t)pstg, (void*)(uintptr_t)pcfformat, (void*)(uintptr_t)plwwidth, (void*)(uintptr_t)plheight, (void*)(uintptr_t)pdwsize, (void*)(uintptr_t)pmedium, (uint32_t)opt, (void*)(uintptr_t)pvcallbackcontext, (void*)(uintptr_t)pqueryconvertolelinkcallback) : -1;
+#else
+    (void)polestm;
+    (void)pstg;
+    (void)pcfformat;
+    (void)plwwidth;
+    (void)plheight;
+    (void)pdwsize;
+    (void)pmedium;
+    (void)opt;
+    (void)pvcallbackcontext;
+    (void)pqueryconvertolelinkcallback;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleCreate(JNIEnv* km_env, jclass km_clazz, jlong rclsid, jlong riid, jint renderopt, jlong pformatetc, jlong pclientsite, jlong pstg, jlong ppvobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleCreate");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)rclsid, (void*)(uintptr_t)riid, (uint32_t)renderopt, (void*)(uintptr_t)pformatetc, (void*)(uintptr_t)pclientsite, (void*)(uintptr_t)pstg, (void*)(uintptr_t)ppvobj) : -1;
+#else
+    (void)rclsid;
+    (void)riid;
+    (void)renderopt;
+    (void)pformatetc;
+    (void)pclientsite;
+    (void)pstg;
+    (void)ppvobj;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleCreateDefaultHandler(JNIEnv* km_env, jclass km_clazz, jlong clsid, jlong punkouter, jlong riid, jlong lplpobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleCreateDefaultHandler");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)clsid, (void*)(uintptr_t)punkouter, (void*)(uintptr_t)riid, (void*)(uintptr_t)lplpobj) : -1;
+#else
+    (void)clsid;
+    (void)punkouter;
+    (void)riid;
+    (void)lplpobj;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleCreateEmbeddingHelper(JNIEnv* km_env, jclass km_clazz, jlong clsid, jlong punkouter, jint flags, jlong pcf, jlong riid, jlong lplpobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleCreateEmbeddingHelper");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)clsid, (void*)(uintptr_t)punkouter, (uint32_t)flags, (void*)(uintptr_t)pcf, (void*)(uintptr_t)riid, (void*)(uintptr_t)lplpobj) : -1;
+#else
+    (void)clsid;
+    (void)punkouter;
+    (void)flags;
+    (void)pcf;
+    (void)riid;
+    (void)lplpobj;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleCreateEx(JNIEnv* km_env, jclass km_clazz, jlong rclsid, jlong riid, jint dwflags, jint renderopt, jint cformats, jlong rgadvf, jlong rgformatetc, jlong lpadvisesink, jlong rgdwconnection, jlong pclientsite, jlong pstg, jlong ppvobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t, void*, void*, void*, void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleCreateEx");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)rclsid, (void*)(uintptr_t)riid, (uint32_t)dwflags, (uint32_t)renderopt, (uint32_t)cformats, (void*)(uintptr_t)rgadvf, (void*)(uintptr_t)rgformatetc, (void*)(uintptr_t)lpadvisesink, (void*)(uintptr_t)rgdwconnection, (void*)(uintptr_t)pclientsite, (void*)(uintptr_t)pstg, (void*)(uintptr_t)ppvobj) : -1;
+#else
+    (void)rclsid;
+    (void)riid;
+    (void)dwflags;
+    (void)renderopt;
+    (void)cformats;
+    (void)rgadvf;
+    (void)rgformatetc;
+    (void)lpadvisesink;
+    (void)rgdwconnection;
+    (void)pclientsite;
+    (void)pstg;
+    (void)ppvobj;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleCreateFontIndirect(JNIEnv* km_env, jclass km_clazz, jlong lpfontdesc, jlong riid, jlong lplpvobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleCreateFontIndirect");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpfontdesc, (void*)(uintptr_t)riid, (void*)(uintptr_t)lplpvobj) : -1;
+#else
+    (void)lpfontdesc;
+    (void)riid;
+    (void)lplpvobj;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleCreateFromData(JNIEnv* km_env, jclass km_clazz, jlong psrcdataobj, jlong riid, jint renderopt, jlong pformatetc, jlong pclientsite, jlong pstg, jlong ppvobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleCreateFromData");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psrcdataobj, (void*)(uintptr_t)riid, (uint32_t)renderopt, (void*)(uintptr_t)pformatetc, (void*)(uintptr_t)pclientsite, (void*)(uintptr_t)pstg, (void*)(uintptr_t)ppvobj) : -1;
+#else
+    (void)psrcdataobj;
+    (void)riid;
+    (void)renderopt;
+    (void)pformatetc;
+    (void)pclientsite;
+    (void)pstg;
+    (void)ppvobj;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleCreateFromDataEx(JNIEnv* km_env, jclass km_clazz, jlong psrcdataobj, jlong riid, jint dwflags, jint renderopt, jint cformats, jlong rgadvf, jlong rgformatetc, jlong lpadvisesink, jlong rgdwconnection, jlong pclientsite, jlong pstg, jlong ppvobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t, void*, void*, void*, void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleCreateFromDataEx");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psrcdataobj, (void*)(uintptr_t)riid, (uint32_t)dwflags, (uint32_t)renderopt, (uint32_t)cformats, (void*)(uintptr_t)rgadvf, (void*)(uintptr_t)rgformatetc, (void*)(uintptr_t)lpadvisesink, (void*)(uintptr_t)rgdwconnection, (void*)(uintptr_t)pclientsite, (void*)(uintptr_t)pstg, (void*)(uintptr_t)ppvobj) : -1;
+#else
+    (void)psrcdataobj;
+    (void)riid;
+    (void)dwflags;
+    (void)renderopt;
+    (void)cformats;
+    (void)rgadvf;
+    (void)rgformatetc;
+    (void)lpadvisesink;
+    (void)rgdwconnection;
+    (void)pclientsite;
+    (void)pstg;
+    (void)ppvobj;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleCreateFromFile(JNIEnv* km_env, jclass km_clazz, jlong rclsid, jlong lpszfilename, jlong riid, jint renderopt, jlong lpformatetc, jlong pclientsite, jlong pstg, jlong ppvobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleCreateFromFile");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)rclsid, (void*)(uintptr_t)lpszfilename, (void*)(uintptr_t)riid, (uint32_t)renderopt, (void*)(uintptr_t)lpformatetc, (void*)(uintptr_t)pclientsite, (void*)(uintptr_t)pstg, (void*)(uintptr_t)ppvobj) : -1;
+#else
+    (void)rclsid;
+    (void)lpszfilename;
+    (void)riid;
+    (void)renderopt;
+    (void)lpformatetc;
+    (void)pclientsite;
+    (void)pstg;
+    (void)ppvobj;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleCreateFromFileEx(JNIEnv* km_env, jclass km_clazz, jlong rclsid, jlong lpszfilename, jlong riid, jint dwflags, jint renderopt, jint cformats, jlong rgadvf, jlong rgformatetc, jlong lpadvisesink, jlong rgdwconnection, jlong pclientsite, jlong pstg, jlong ppvobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, uint32_t, void*, void*, void*, void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleCreateFromFileEx");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)rclsid, (void*)(uintptr_t)lpszfilename, (void*)(uintptr_t)riid, (uint32_t)dwflags, (uint32_t)renderopt, (uint32_t)cformats, (void*)(uintptr_t)rgadvf, (void*)(uintptr_t)rgformatetc, (void*)(uintptr_t)lpadvisesink, (void*)(uintptr_t)rgdwconnection, (void*)(uintptr_t)pclientsite, (void*)(uintptr_t)pstg, (void*)(uintptr_t)ppvobj) : -1;
+#else
+    (void)rclsid;
+    (void)lpszfilename;
+    (void)riid;
+    (void)dwflags;
+    (void)renderopt;
+    (void)cformats;
+    (void)rgadvf;
+    (void)rgformatetc;
+    (void)lpadvisesink;
+    (void)rgdwconnection;
+    (void)pclientsite;
+    (void)pstg;
+    (void)ppvobj;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleCreateLink(JNIEnv* km_env, jclass km_clazz, jlong pmklinksrc, jlong riid, jint renderopt, jlong lpformatetc, jlong pclientsite, jlong pstg, jlong ppvobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleCreateLink");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pmklinksrc, (void*)(uintptr_t)riid, (uint32_t)renderopt, (void*)(uintptr_t)lpformatetc, (void*)(uintptr_t)pclientsite, (void*)(uintptr_t)pstg, (void*)(uintptr_t)ppvobj) : -1;
+#else
+    (void)pmklinksrc;
+    (void)riid;
+    (void)renderopt;
+    (void)lpformatetc;
+    (void)pclientsite;
+    (void)pstg;
+    (void)ppvobj;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleCreateLinkEx(JNIEnv* km_env, jclass km_clazz, jlong pmklinksrc, jlong riid, jint dwflags, jint renderopt, jint cformats, jlong rgadvf, jlong rgformatetc, jlong lpadvisesink, jlong rgdwconnection, jlong pclientsite, jlong pstg, jlong ppvobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t, void*, void*, void*, void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleCreateLinkEx");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pmklinksrc, (void*)(uintptr_t)riid, (uint32_t)dwflags, (uint32_t)renderopt, (uint32_t)cformats, (void*)(uintptr_t)rgadvf, (void*)(uintptr_t)rgformatetc, (void*)(uintptr_t)lpadvisesink, (void*)(uintptr_t)rgdwconnection, (void*)(uintptr_t)pclientsite, (void*)(uintptr_t)pstg, (void*)(uintptr_t)ppvobj) : -1;
+#else
+    (void)pmklinksrc;
+    (void)riid;
+    (void)dwflags;
+    (void)renderopt;
+    (void)cformats;
+    (void)rgadvf;
+    (void)rgformatetc;
+    (void)lpadvisesink;
+    (void)rgdwconnection;
+    (void)pclientsite;
+    (void)pstg;
+    (void)ppvobj;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleCreateLinkFromData(JNIEnv* km_env, jclass km_clazz, jlong psrcdataobj, jlong riid, jint renderopt, jlong pformatetc, jlong pclientsite, jlong pstg, jlong ppvobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleCreateLinkFromData");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psrcdataobj, (void*)(uintptr_t)riid, (uint32_t)renderopt, (void*)(uintptr_t)pformatetc, (void*)(uintptr_t)pclientsite, (void*)(uintptr_t)pstg, (void*)(uintptr_t)ppvobj) : -1;
+#else
+    (void)psrcdataobj;
+    (void)riid;
+    (void)renderopt;
+    (void)pformatetc;
+    (void)pclientsite;
+    (void)pstg;
+    (void)ppvobj;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleCreateLinkFromDataEx(JNIEnv* km_env, jclass km_clazz, jlong psrcdataobj, jlong riid, jint dwflags, jint renderopt, jint cformats, jlong rgadvf, jlong rgformatetc, jlong lpadvisesink, jlong rgdwconnection, jlong pclientsite, jlong pstg, jlong ppvobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t, void*, void*, void*, void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleCreateLinkFromDataEx");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psrcdataobj, (void*)(uintptr_t)riid, (uint32_t)dwflags, (uint32_t)renderopt, (uint32_t)cformats, (void*)(uintptr_t)rgadvf, (void*)(uintptr_t)rgformatetc, (void*)(uintptr_t)lpadvisesink, (void*)(uintptr_t)rgdwconnection, (void*)(uintptr_t)pclientsite, (void*)(uintptr_t)pstg, (void*)(uintptr_t)ppvobj) : -1;
+#else
+    (void)psrcdataobj;
+    (void)riid;
+    (void)dwflags;
+    (void)renderopt;
+    (void)cformats;
+    (void)rgadvf;
+    (void)rgformatetc;
+    (void)lpadvisesink;
+    (void)rgdwconnection;
+    (void)pclientsite;
+    (void)pstg;
+    (void)ppvobj;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleCreateLinkToFile(JNIEnv* km_env, jclass km_clazz, jlong lpszfilename, jlong riid, jint renderopt, jlong lpformatetc, jlong pclientsite, jlong pstg, jlong ppvobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleCreateLinkToFile");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpszfilename, (void*)(uintptr_t)riid, (uint32_t)renderopt, (void*)(uintptr_t)lpformatetc, (void*)(uintptr_t)pclientsite, (void*)(uintptr_t)pstg, (void*)(uintptr_t)ppvobj) : -1;
+#else
+    (void)lpszfilename;
+    (void)riid;
+    (void)renderopt;
+    (void)lpformatetc;
+    (void)pclientsite;
+    (void)pstg;
+    (void)ppvobj;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleCreateLinkToFileEx(JNIEnv* km_env, jclass km_clazz, jlong lpszfilename, jlong riid, jint dwflags, jint renderopt, jint cformats, jlong rgadvf, jlong rgformatetc, jlong lpadvisesink, jlong rgdwconnection, jlong pclientsite, jlong pstg, jlong ppvobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t, void*, void*, void*, void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleCreateLinkToFileEx");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpszfilename, (void*)(uintptr_t)riid, (uint32_t)dwflags, (uint32_t)renderopt, (uint32_t)cformats, (void*)(uintptr_t)rgadvf, (void*)(uintptr_t)rgformatetc, (void*)(uintptr_t)lpadvisesink, (void*)(uintptr_t)rgdwconnection, (void*)(uintptr_t)pclientsite, (void*)(uintptr_t)pstg, (void*)(uintptr_t)ppvobj) : -1;
+#else
+    (void)lpszfilename;
+    (void)riid;
+    (void)dwflags;
+    (void)renderopt;
+    (void)cformats;
+    (void)rgadvf;
+    (void)rgformatetc;
+    (void)lpadvisesink;
+    (void)rgdwconnection;
+    (void)pclientsite;
+    (void)pstg;
+    (void)ppvobj;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleCreateMenuDescriptor(JNIEnv* km_env, jclass km_clazz, jlong hmenucombined, jlong lpmenuwidths) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleCreateMenuDescriptor");
+    }
+    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hmenucombined, (void*)(uintptr_t)lpmenuwidths) : -1;
+#else
+    (void)hmenucombined;
+    (void)lpmenuwidths;
+    int64_t km_res = -1;
+#endif
+    return (jlong)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleCreatePictureIndirect(JNIEnv* km_env, jclass km_clazz, jlong lppictdesc, jlong riid, jint fown, jlong lplpvobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleCreatePictureIndirect");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lppictdesc, (void*)(uintptr_t)riid, (int32_t)fown, (void*)(uintptr_t)lplpvobj) : -1;
+#else
+    (void)lppictdesc;
+    (void)riid;
+    (void)fown;
+    (void)lplpvobj;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleCreatePropertyFrame(JNIEnv* km_env, jclass km_clazz, jlong hwndowner, jint x, jint y, jlong lpszcaption, jint cobjects, jlong ppunk, jint cpages, jlong ppageclsid, jint lcid, jint dwreserved, jlong pvreserved) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, uint32_t, void*, uint32_t, void*, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleCreatePropertyFrame");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwndowner, (uint32_t)x, (uint32_t)y, (void*)(uintptr_t)lpszcaption, (uint32_t)cobjects, (void*)(uintptr_t)ppunk, (uint32_t)cpages, (void*)(uintptr_t)ppageclsid, (uint32_t)lcid, (uint32_t)dwreserved, (void*)(uintptr_t)pvreserved) : -1;
+#else
+    (void)hwndowner;
+    (void)x;
+    (void)y;
+    (void)lpszcaption;
+    (void)cobjects;
+    (void)ppunk;
+    (void)cpages;
+    (void)ppageclsid;
+    (void)lcid;
+    (void)dwreserved;
+    (void)pvreserved;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleCreatePropertyFrameIndirect(JNIEnv* km_env, jclass km_clazz, jlong lpparams) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleCreatePropertyFrameIndirect");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpparams) : -1;
+#else
+    (void)lpparams;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleCreateStaticFromData(JNIEnv* km_env, jclass km_clazz, jlong psrcdataobj, jlong iid, jint renderopt, jlong pformatetc, jlong pclientsite, jlong pstg, jlong ppvobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleCreateStaticFromData");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psrcdataobj, (void*)(uintptr_t)iid, (uint32_t)renderopt, (void*)(uintptr_t)pformatetc, (void*)(uintptr_t)pclientsite, (void*)(uintptr_t)pstg, (void*)(uintptr_t)ppvobj) : -1;
+#else
+    (void)psrcdataobj;
+    (void)iid;
+    (void)renderopt;
+    (void)pformatetc;
+    (void)pclientsite;
+    (void)pstg;
+    (void)ppvobj;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleDestroyMenuDescriptor(JNIEnv* km_env, jclass km_clazz, jlong holemenu) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int64_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleDestroyMenuDescriptor");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)holemenu) : -1;
+#else
+    (void)holemenu;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleDoAutoConvert(JNIEnv* km_env, jclass km_clazz, jlong pstg, jlong pclsidnew) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleDoAutoConvert");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pstg, (void*)(uintptr_t)pclsidnew) : -1;
+#else
+    (void)pstg;
+    (void)pclsidnew;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleDraw(JNIEnv* km_env, jclass km_clazz, jlong punknown, jint dwaspect, jlong hdcdraw, jlong lprcbounds) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleDraw");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)punknown, (uint32_t)dwaspect, (void*)(uintptr_t)hdcdraw, (void*)(uintptr_t)lprcbounds) : -1;
+#else
+    (void)punknown;
+    (void)dwaspect;
+    (void)hdcdraw;
+    (void)lprcbounds;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleDuplicateData(JNIEnv* km_env, jclass km_clazz, jlong hsrc, jshort cfformat, jint uiflags) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(void*, uint16_t, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleDuplicateData");
+    }
+    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hsrc, (uint16_t)cfformat, (uint32_t)uiflags) : NULL;
+#else
+    (void)hsrc;
+    (void)cfformat;
+    (void)uiflags;
+    void* km_res = NULL;
+#endif
+    return (jlong)(uintptr_t)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleFlushClipboard(JNIEnv* km_env, jclass km_clazz) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleFlushClipboard");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : -1;
+#else
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleGetAutoConvert(JNIEnv* km_env, jclass km_clazz, jlong clsidold, jlong pclsidnew) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleGetAutoConvert");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)clsidold, (void*)(uintptr_t)pclsidnew) : -1;
+#else
+    (void)clsidold;
+    (void)pclsidnew;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleGetClipboard(JNIEnv* km_env, jclass km_clazz, jlong ppdataobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleGetClipboard");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ppdataobj) : -1;
+#else
+    (void)ppdataobj;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleGetClipboardWithEnterpriseInfo(JNIEnv* km_env, jclass km_clazz, jlong dataobject, jlong dataenterpriseid, jlong sourcedescription, jlong targetdescription, jlong datadescription) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleGetClipboardWithEnterpriseInfo");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)dataobject, (void*)(uintptr_t)dataenterpriseid, (void*)(uintptr_t)sourcedescription, (void*)(uintptr_t)targetdescription, (void*)(uintptr_t)datadescription) : -1;
+#else
+    (void)dataobject;
+    (void)dataenterpriseid;
+    (void)sourcedescription;
+    (void)targetdescription;
+    (void)datadescription;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleGetIconOfClass(JNIEnv* km_env, jclass km_clazz, jlong rclsid, jlong lpszlabel, jint fusetypeaslabel) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(void*, void*, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleGetIconOfClass");
+    }
+    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)rclsid, (void*)(uintptr_t)lpszlabel, (int32_t)fusetypeaslabel) : NULL;
+#else
+    (void)rclsid;
+    (void)lpszlabel;
+    (void)fusetypeaslabel;
+    void* km_res = NULL;
+#endif
+    return (jlong)(uintptr_t)km_res;
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleGetIconOfFile(JNIEnv* km_env, jclass km_clazz, jlong lpszpath, jint fusefileaslabel) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(void*, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleGetIconOfFile");
+    }
+    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpszpath, (int32_t)fusefileaslabel) : NULL;
+#else
+    (void)lpszpath;
+    (void)fusefileaslabel;
+    void* km_res = NULL;
+#endif
+    return (jlong)(uintptr_t)km_res;
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleIconToCursor(JNIEnv* km_env, jclass km_clazz, jlong hinstexe, jlong hicon) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleIconToCursor");
+    }
+    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hinstexe, (void*)(uintptr_t)hicon) : NULL;
+#else
+    (void)hinstexe;
+    (void)hicon;
+    void* km_res = NULL;
+#endif
+    return (jlong)(uintptr_t)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleInitialize(JNIEnv* km_env, jclass km_clazz, jlong pvreserved) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleInitialize");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvreserved) : -1;
+#else
+    (void)pvreserved;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleIsCurrentClipboard(JNIEnv* km_env, jclass km_clazz, jlong pdataobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleIsCurrentClipboard");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdataobj) : -1;
+#else
+    (void)pdataobj;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleIsRunning(JNIEnv* km_env, jclass km_clazz, jlong pobject) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleIsRunning");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pobject) : -1;
+#else
+    (void)pobject;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleLoad(JNIEnv* km_env, jclass km_clazz, jlong pstg, jlong riid, jlong pclientsite, jlong ppvobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleLoad");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pstg, (void*)(uintptr_t)riid, (void*)(uintptr_t)pclientsite, (void*)(uintptr_t)ppvobj) : -1;
+#else
+    (void)pstg;
+    (void)riid;
+    (void)pclientsite;
+    (void)ppvobj;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleLoadFromStream(JNIEnv* km_env, jclass km_clazz, jlong pstm, jlong iidinterface, jlong ppvobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleLoadFromStream");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pstm, (void*)(uintptr_t)iidinterface, (void*)(uintptr_t)ppvobj) : -1;
+#else
+    (void)pstm;
+    (void)iidinterface;
+    (void)ppvobj;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleLoadPicture(JNIEnv* km_env, jclass km_clazz, jlong lpstream, jint lsize, jint frunmode, jlong riid, jlong lplpvobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleLoadPicture");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpstream, (int32_t)lsize, (int32_t)frunmode, (void*)(uintptr_t)riid, (void*)(uintptr_t)lplpvobj) : -1;
+#else
+    (void)lpstream;
+    (void)lsize;
+    (void)frunmode;
+    (void)riid;
+    (void)lplpvobj;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleLoadPictureEx(JNIEnv* km_env, jclass km_clazz, jlong lpstream, jint lsize, jint frunmode, jlong riid, jint xsizedesired, jint ysizedesired, jint dwflags, jlong lplpvobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, uint32_t, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleLoadPictureEx");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpstream, (int32_t)lsize, (int32_t)frunmode, (void*)(uintptr_t)riid, (uint32_t)xsizedesired, (uint32_t)ysizedesired, (uint32_t)dwflags, (void*)(uintptr_t)lplpvobj) : -1;
+#else
+    (void)lpstream;
+    (void)lsize;
+    (void)frunmode;
+    (void)riid;
+    (void)xsizedesired;
+    (void)ysizedesired;
+    (void)dwflags;
+    (void)lplpvobj;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleLoadPicturePath(JNIEnv* km_env, jclass km_clazz, jlong szurlorpath, jlong punkcaller, jint dwreserved, jint clrreserved, jlong riid, jlong ppvret) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleLoadPicturePath");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)szurlorpath, (void*)(uintptr_t)punkcaller, (uint32_t)dwreserved, (uint32_t)clrreserved, (void*)(uintptr_t)riid, (void*)(uintptr_t)ppvret) : -1;
+#else
+    (void)szurlorpath;
+    (void)punkcaller;
+    (void)dwreserved;
+    (void)clrreserved;
+    (void)riid;
+    (void)ppvret;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleLockRunning(JNIEnv* km_env, jclass km_clazz, jlong punknown, jint flock, jint flastunlockcloses) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleLockRunning");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)punknown, (int32_t)flock, (int32_t)flastunlockcloses) : -1;
+#else
+    (void)punknown;
+    (void)flock;
+    (void)flastunlockcloses;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleMetafilePictFromIconAndLabel(JNIEnv* km_env, jclass km_clazz, jlong hicon, jlong lpszlabel, jlong lpszsourcefile, jint iiconindex) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleMetafilePictFromIconAndLabel");
+    }
+    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hicon, (void*)(uintptr_t)lpszlabel, (void*)(uintptr_t)lpszsourcefile, (uint32_t)iiconindex) : NULL;
+#else
+    (void)hicon;
+    (void)lpszlabel;
+    (void)lpszsourcefile;
+    (void)iiconindex;
+    void* km_res = NULL;
+#endif
+    return (jlong)(uintptr_t)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleNoteObjectVisible(JNIEnv* km_env, jclass km_clazz, jlong punknown, jint fvisible) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleNoteObjectVisible");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)punknown, (int32_t)fvisible) : -1;
+#else
+    (void)punknown;
+    (void)fvisible;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleQueryCreateFromData(JNIEnv* km_env, jclass km_clazz, jlong psrcdataobject) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleQueryCreateFromData");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psrcdataobject) : -1;
+#else
+    (void)psrcdataobject;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleQueryLinkFromData(JNIEnv* km_env, jclass km_clazz, jlong psrcdataobject) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleQueryLinkFromData");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psrcdataobject) : -1;
+#else
+    (void)psrcdataobject;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleRegEnumFormatEtc(JNIEnv* km_env, jclass km_clazz, jlong clsid, jint dwdirection, jlong ppenum) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleRegEnumFormatEtc");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)clsid, (uint32_t)dwdirection, (void*)(uintptr_t)ppenum) : -1;
+#else
+    (void)clsid;
+    (void)dwdirection;
+    (void)ppenum;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleRegEnumVerbs(JNIEnv* km_env, jclass km_clazz, jlong clsid, jlong ppenum) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleRegEnumVerbs");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)clsid, (void*)(uintptr_t)ppenum) : -1;
+#else
+    (void)clsid;
+    (void)ppenum;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleRegGetMiscStatus(JNIEnv* km_env, jclass km_clazz, jlong clsid, jint dwaspect, jlong pdwstatus) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleRegGetMiscStatus");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)clsid, (uint32_t)dwaspect, (void*)(uintptr_t)pdwstatus) : -1;
+#else
+    (void)clsid;
+    (void)dwaspect;
+    (void)pdwstatus;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleRegGetUserType(JNIEnv* km_env, jclass km_clazz, jlong clsid, jint dwformoftype, jlong pszusertype) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleRegGetUserType");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)clsid, (uint32_t)dwformoftype, (void*)(uintptr_t)pszusertype) : -1;
+#else
+    (void)clsid;
+    (void)dwformoftype;
+    (void)pszusertype;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleRun(JNIEnv* km_env, jclass km_clazz, jlong punknown) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleRun");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)punknown) : -1;
+#else
+    (void)punknown;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleSave(JNIEnv* km_env, jclass km_clazz, jlong pps, jlong pstg, jint fsameasload) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleSave");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pps, (void*)(uintptr_t)pstg, (int32_t)fsameasload) : -1;
+#else
+    (void)pps;
+    (void)pstg;
+    (void)fsameasload;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleSavePictureFile(JNIEnv* km_env, jclass km_clazz, jlong lpdisppicture, jlong bstrfilename) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleSavePictureFile");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpdisppicture, (void*)(uintptr_t)bstrfilename) : -1;
+#else
+    (void)lpdisppicture;
+    (void)bstrfilename;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleSaveToStream(JNIEnv* km_env, jclass km_clazz, jlong ppstm, jlong pstm) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleSaveToStream");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ppstm, (void*)(uintptr_t)pstm) : -1;
+#else
+    (void)ppstm;
+    (void)pstm;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleSetAutoConvert(JNIEnv* km_env, jclass km_clazz, jlong clsidold, jlong clsidnew) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleSetAutoConvert");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)clsidold, (void*)(uintptr_t)clsidnew) : -1;
+#else
+    (void)clsidold;
+    (void)clsidnew;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleSetClipboard(JNIEnv* km_env, jclass km_clazz, jlong pdataobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleSetClipboard");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdataobj) : -1;
+#else
+    (void)pdataobj;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleSetContainedObject(JNIEnv* km_env, jclass km_clazz, jlong punknown, jint fcontained) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleSetContainedObject");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)punknown, (int32_t)fcontained) : -1;
+#else
+    (void)punknown;
+    (void)fcontained;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleSetMenuDescriptor(JNIEnv* km_env, jclass km_clazz, jlong holemenu, jlong hwndframe, jlong hwndactiveobject, jlong lpframe, jlong lpactiveobj) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleSetMenuDescriptor");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)holemenu, (void*)(uintptr_t)hwndframe, (void*)(uintptr_t)hwndactiveobject, (void*)(uintptr_t)lpframe, (void*)(uintptr_t)lpactiveobj) : -1;
+#else
+    (void)holemenu;
+    (void)hwndframe;
+    (void)hwndactiveobject;
+    (void)lpframe;
+    (void)lpactiveobj;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleTranslateAccelerator(JNIEnv* km_env, jclass km_clazz, jlong lpframe, jlong lpframeinfo, jlong lpmsg) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleTranslateAccelerator");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpframe, (void*)(uintptr_t)lpframeinfo, (void*)(uintptr_t)lpmsg) : -1;
+#else
+    (void)lpframe;
+    (void)lpframeinfo;
+    (void)lpmsg;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleTranslateColor(JNIEnv* km_env, jclass km_clazz, jint clr, jlong hpal, jlong lpcolorref) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleTranslateColor");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)clr, (void*)(uintptr_t)hpal, (void*)(uintptr_t)lpcolorref) : -1;
+#else
+    (void)clr;
+    (void)hpal;
+    (void)lpcolorref;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleUIAddVerbMenuA(JNIEnv* km_env, jclass km_clazz, jlong lpoleobj, jlong lpszshorttype, jlong hmenu, jint upos, jint uidverbmin, jint uidverbmax, jint baddconvert, jint idconvert, jlong lphmenu) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, uint32_t, int32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oledlg.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleUIAddVerbMenuA");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpoleobj, (void*)(uintptr_t)lpszshorttype, (void*)(uintptr_t)hmenu, (uint32_t)upos, (uint32_t)uidverbmin, (uint32_t)uidverbmax, (int32_t)baddconvert, (uint32_t)idconvert, (void*)(uintptr_t)lphmenu) : -1;
+#else
+    (void)lpoleobj;
+    (void)lpszshorttype;
+    (void)hmenu;
+    (void)upos;
+    (void)uidverbmin;
+    (void)uidverbmax;
+    (void)baddconvert;
+    (void)idconvert;
+    (void)lphmenu;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleUIAddVerbMenuW(JNIEnv* km_env, jclass km_clazz, jlong lpoleobj, jlong lpszshorttype, jlong hmenu, jint upos, jint uidverbmin, jint uidverbmax, jint baddconvert, jint idconvert, jlong lphmenu) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, uint32_t, int32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oledlg.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleUIAddVerbMenuW");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpoleobj, (void*)(uintptr_t)lpszshorttype, (void*)(uintptr_t)hmenu, (uint32_t)upos, (uint32_t)uidverbmin, (uint32_t)uidverbmax, (int32_t)baddconvert, (uint32_t)idconvert, (void*)(uintptr_t)lphmenu) : -1;
+#else
+    (void)lpoleobj;
+    (void)lpszshorttype;
+    (void)hmenu;
+    (void)upos;
+    (void)uidverbmin;
+    (void)uidverbmax;
+    (void)baddconvert;
+    (void)idconvert;
+    (void)lphmenu;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleUIBusyA(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oledlg.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleUIBusyA");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0) : 0;
+#else
+    (void)param0;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleUIBusyW(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oledlg.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleUIBusyW");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0) : 0;
+#else
+    (void)param0;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleUICanConvertOrActivateAs(JNIEnv* km_env, jclass km_clazz, jlong rclsid, jint fislinkedobject, jshort wformat) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint16_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oledlg.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleUICanConvertOrActivateAs");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)rclsid, (int32_t)fislinkedobject, (uint16_t)wformat) : -1;
+#else
+    (void)rclsid;
+    (void)fislinkedobject;
+    (void)wformat;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleUIChangeIconA(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oledlg.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleUIChangeIconA");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0) : 0;
+#else
+    (void)param0;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleUIChangeIconW(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oledlg.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleUIChangeIconW");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0) : 0;
+#else
+    (void)param0;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleUIChangeSourceA(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oledlg.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleUIChangeSourceA");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0) : 0;
+#else
+    (void)param0;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleUIChangeSourceW(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oledlg.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleUIChangeSourceW");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0) : 0;
+#else
+    (void)param0;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleUIConvertA(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oledlg.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleUIConvertA");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0) : 0;
+#else
+    (void)param0;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleUIConvertW(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oledlg.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleUIConvertW");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0) : 0;
+#else
+    (void)param0;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleUIEditLinksA(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oledlg.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleUIEditLinksA");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0) : 0;
+#else
+    (void)param0;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleUIEditLinksW(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oledlg.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleUIEditLinksW");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0) : 0;
+#else
+    (void)param0;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleUIInsertObjectA(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oledlg.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleUIInsertObjectA");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0) : 0;
+#else
+    (void)param0;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleUIInsertObjectW(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oledlg.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleUIInsertObjectW");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0) : 0;
+#else
+    (void)param0;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleUIObjectPropertiesA(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oledlg.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleUIObjectPropertiesA");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0) : 0;
+#else
+    (void)param0;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleUIObjectPropertiesW(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oledlg.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleUIObjectPropertiesW");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0) : 0;
+#else
+    (void)param0;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleUIPasteSpecialA(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oledlg.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleUIPasteSpecialA");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0) : 0;
+#else
+    (void)param0;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleUIPasteSpecialW(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oledlg.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleUIPasteSpecialW");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0) : 0;
+#else
+    (void)param0;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleUIUpdateLinksA(JNIEnv* km_env, jclass km_clazz, jlong lpoleuilinkcntr, jlong hwndparent, jlong lpsztitle, jint clinks) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oledlg.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleUIUpdateLinksA");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpoleuilinkcntr, (void*)(uintptr_t)hwndparent, (void*)(uintptr_t)lpsztitle, (int32_t)clinks) : -1;
+#else
+    (void)lpoleuilinkcntr;
+    (void)hwndparent;
+    (void)lpsztitle;
+    (void)clinks;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleUIUpdateLinksW(JNIEnv* km_env, jclass km_clazz, jlong lpoleuilinkcntr, jlong hwndparent, jlong lpsztitle, jint clinks) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oledlg.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleUIUpdateLinksW");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpoleuilinkcntr, (void*)(uintptr_t)hwndparent, (void*)(uintptr_t)lpsztitle, (int32_t)clinks) : -1;
+#else
+    (void)lpoleuilinkcntr;
+    (void)hwndparent;
+    (void)lpsztitle;
+    (void)clinks;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1OleUninitialize(JNIEnv* km_env, jclass km_clazz) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OleUninitialize");
+    }
+    if (km_fn_ptr != NULL) km_fn_ptr();
+#else
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1QueryPathOfRegTypeLib(JNIEnv* km_env, jclass km_clazz, jlong guid, jshort wmaj, jshort wmin, jint lcid, jlong lpbstrpathname) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, uint16_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "QueryPathOfRegTypeLib");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)guid, (uint16_t)wmaj, (uint16_t)wmin, (uint32_t)lcid, (void*)(uintptr_t)lpbstrpathname) : -1;
+#else
+    (void)guid;
+    (void)wmaj;
+    (void)wmin;
+    (void)lcid;
+    (void)lpbstrpathname;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1RegisterActiveObject(JNIEnv* km_env, jclass km_clazz, jlong punk, jlong rclsid, jint dwflags, jlong pdwregister) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RegisterActiveObject");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)punk, (void*)(uintptr_t)rclsid, (uint32_t)dwflags, (void*)(uintptr_t)pdwregister) : -1;
+#else
+    (void)punk;
+    (void)rclsid;
+    (void)dwflags;
+    (void)pdwregister;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1RegisterDragDrop(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pdroptarget) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RegisterDragDrop");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwnd, (void*)(uintptr_t)pdroptarget) : -1;
+#else
+    (void)hwnd;
+    (void)pdroptarget;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1RegisterTypeLib(JNIEnv* km_env, jclass km_clazz, jlong ptlib, jlong szfullpath, jlong szhelpdir) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RegisterTypeLib");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ptlib, (void*)(uintptr_t)szfullpath, (void*)(uintptr_t)szhelpdir) : -1;
+#else
+    (void)ptlib;
+    (void)szfullpath;
+    (void)szhelpdir;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1RegisterTypeLibForUser(JNIEnv* km_env, jclass km_clazz, jlong ptlib, jlong szfullpath, jlong szhelpdir) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RegisterTypeLibForUser");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ptlib, (void*)(uintptr_t)szfullpath, (void*)(uintptr_t)szhelpdir) : -1;
+#else
+    (void)ptlib;
+    (void)szfullpath;
+    (void)szhelpdir;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1ReleaseStgMedium(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ReleaseStgMedium");
+    }
+    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)param0);
+#else
+    (void)param0;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1RevokeActiveObject(JNIEnv* km_env, jclass km_clazz, jint dwregister, jlong pvreserved) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RevokeActiveObject");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwregister, (void*)(uintptr_t)pvreserved) : -1;
+#else
+    (void)dwregister;
+    (void)pvreserved;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1RevokeDragDrop(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RevokeDragDrop");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwnd) : -1;
+#else
+    (void)hwnd;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArrayAccessData(JNIEnv* km_env, jclass km_clazz, jlong psa, jlong ppvdata) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArrayAccessData");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psa, (void*)(uintptr_t)ppvdata) : -1;
+#else
+    (void)psa;
+    (void)ppvdata;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArrayAddRef(JNIEnv* km_env, jclass km_clazz, jlong psa, jlong ppdatatorelease) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArrayAddRef");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psa, (void*)(uintptr_t)ppdatatorelease) : -1;
+#else
+    (void)psa;
+    (void)ppdatatorelease;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArrayAllocData(JNIEnv* km_env, jclass km_clazz, jlong psa) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArrayAllocData");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psa) : -1;
+#else
+    (void)psa;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArrayAllocDescriptor(JNIEnv* km_env, jclass km_clazz, jint cdims, jlong ppsaout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArrayAllocDescriptor");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)cdims, (void*)(uintptr_t)ppsaout) : -1;
+#else
+    (void)cdims;
+    (void)ppsaout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArrayAllocDescriptorEx(JNIEnv* km_env, jclass km_clazz, jshort vt, jint cdims, jlong ppsaout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint16_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArrayAllocDescriptorEx");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint16_t)vt, (uint32_t)cdims, (void*)(uintptr_t)ppsaout) : -1;
+#else
+    (void)vt;
+    (void)cdims;
+    (void)ppsaout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArrayCopy(JNIEnv* km_env, jclass km_clazz, jlong psa, jlong ppsaout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArrayCopy");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psa, (void*)(uintptr_t)ppsaout) : -1;
+#else
+    (void)psa;
+    (void)ppsaout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArrayCopyData(JNIEnv* km_env, jclass km_clazz, jlong psasource, jlong psatarget) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArrayCopyData");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psasource, (void*)(uintptr_t)psatarget) : -1;
+#else
+    (void)psasource;
+    (void)psatarget;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArrayCreate(JNIEnv* km_env, jclass km_clazz, jshort vt, jint cdims, jlong rgsabound) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(uint16_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArrayCreate");
+    }
+    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint16_t)vt, (uint32_t)cdims, (void*)(uintptr_t)rgsabound) : NULL;
+#else
+    (void)vt;
+    (void)cdims;
+    (void)rgsabound;
+    void* km_res = NULL;
+#endif
+    return (jlong)(uintptr_t)km_res;
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArrayCreateEx(JNIEnv* km_env, jclass km_clazz, jshort vt, jint cdims, jlong rgsabound, jlong pvextra) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(uint16_t, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArrayCreateEx");
+    }
+    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint16_t)vt, (uint32_t)cdims, (void*)(uintptr_t)rgsabound, (void*)(uintptr_t)pvextra) : NULL;
+#else
+    (void)vt;
+    (void)cdims;
+    (void)rgsabound;
+    (void)pvextra;
+    void* km_res = NULL;
+#endif
+    return (jlong)(uintptr_t)km_res;
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArrayCreateVector(JNIEnv* km_env, jclass km_clazz, jshort vt, jint llbound, jint celements) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(uint16_t, int32_t, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArrayCreateVector");
+    }
+    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint16_t)vt, (int32_t)llbound, (uint32_t)celements) : NULL;
+#else
+    (void)vt;
+    (void)llbound;
+    (void)celements;
+    void* km_res = NULL;
+#endif
+    return (jlong)(uintptr_t)km_res;
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArrayCreateVectorEx(JNIEnv* km_env, jclass km_clazz, jshort vt, jint llbound, jint celements, jlong pvextra) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(uint16_t, int32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArrayCreateVectorEx");
+    }
+    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint16_t)vt, (int32_t)llbound, (uint32_t)celements, (void*)(uintptr_t)pvextra) : NULL;
+#else
+    (void)vt;
+    (void)llbound;
+    (void)celements;
+    (void)pvextra;
+    void* km_res = NULL;
+#endif
+    return (jlong)(uintptr_t)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArrayDestroy(JNIEnv* km_env, jclass km_clazz, jlong psa) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArrayDestroy");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psa) : -1;
+#else
+    (void)psa;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArrayDestroyData(JNIEnv* km_env, jclass km_clazz, jlong psa) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArrayDestroyData");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psa) : -1;
+#else
+    (void)psa;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArrayDestroyDescriptor(JNIEnv* km_env, jclass km_clazz, jlong psa) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArrayDestroyDescriptor");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psa) : -1;
+#else
+    (void)psa;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArrayGetDim(JNIEnv* km_env, jclass km_clazz, jlong psa) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArrayGetDim");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psa) : 0;
+#else
+    (void)psa;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArrayGetElement(JNIEnv* km_env, jclass km_clazz, jlong psa, jlong rgindices, jlong pv) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArrayGetElement");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psa, (void*)(uintptr_t)rgindices, (void*)(uintptr_t)pv) : -1;
+#else
+    (void)psa;
+    (void)rgindices;
+    (void)pv;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArrayGetElemsize(JNIEnv* km_env, jclass km_clazz, jlong psa) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArrayGetElemsize");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psa) : 0;
+#else
+    (void)psa;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArrayGetIID(JNIEnv* km_env, jclass km_clazz, jlong psa, jlong pguid) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArrayGetIID");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psa, (void*)(uintptr_t)pguid) : -1;
+#else
+    (void)psa;
+    (void)pguid;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArrayGetLBound(JNIEnv* km_env, jclass km_clazz, jlong psa, jint ndim, jlong pllbound) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArrayGetLBound");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psa, (uint32_t)ndim, (void*)(uintptr_t)pllbound) : -1;
+#else
+    (void)psa;
+    (void)ndim;
+    (void)pllbound;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArrayGetRecordInfo(JNIEnv* km_env, jclass km_clazz, jlong psa, jlong prinfo) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArrayGetRecordInfo");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psa, (void*)(uintptr_t)prinfo) : -1;
+#else
+    (void)psa;
+    (void)prinfo;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArrayGetUBound(JNIEnv* km_env, jclass km_clazz, jlong psa, jint ndim, jlong plubound) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArrayGetUBound");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psa, (uint32_t)ndim, (void*)(uintptr_t)plubound) : -1;
+#else
+    (void)psa;
+    (void)ndim;
+    (void)plubound;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArrayGetVartype(JNIEnv* km_env, jclass km_clazz, jlong psa, jlong pvt) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArrayGetVartype");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psa, (void*)(uintptr_t)pvt) : -1;
+#else
+    (void)psa;
+    (void)pvt;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArrayLock(JNIEnv* km_env, jclass km_clazz, jlong psa) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArrayLock");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psa) : -1;
+#else
+    (void)psa;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArrayPtrOfIndex(JNIEnv* km_env, jclass km_clazz, jlong psa, jlong rgindices, jlong ppvdata) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArrayPtrOfIndex");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psa, (void*)(uintptr_t)rgindices, (void*)(uintptr_t)ppvdata) : -1;
+#else
+    (void)psa;
+    (void)rgindices;
+    (void)ppvdata;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArrayPutElement(JNIEnv* km_env, jclass km_clazz, jlong psa, jlong rgindices, jlong pv) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArrayPutElement");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psa, (void*)(uintptr_t)rgindices, (void*)(uintptr_t)pv) : -1;
+#else
+    (void)psa;
+    (void)rgindices;
+    (void)pv;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArrayRedim(JNIEnv* km_env, jclass km_clazz, jlong psa, jlong psaboundnew) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArrayRedim");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psa, (void*)(uintptr_t)psaboundnew) : -1;
+#else
+    (void)psa;
+    (void)psaboundnew;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArrayReleaseData(JNIEnv* km_env, jclass km_clazz, jlong pdata) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArrayReleaseData");
+    }
+    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)pdata);
+#else
+    (void)pdata;
+#endif
+}
+
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArrayReleaseDescriptor(JNIEnv* km_env, jclass km_clazz, jlong psa) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArrayReleaseDescriptor");
+    }
+    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)psa);
+#else
+    (void)psa;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArraySetIID(JNIEnv* km_env, jclass km_clazz, jlong psa, jlong guid) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArraySetIID");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psa, (void*)(uintptr_t)guid) : -1;
+#else
+    (void)psa;
+    (void)guid;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArraySetRecordInfo(JNIEnv* km_env, jclass km_clazz, jlong psa, jlong prinfo) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArraySetRecordInfo");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psa, (void*)(uintptr_t)prinfo) : -1;
+#else
+    (void)psa;
+    (void)prinfo;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArrayUnaccessData(JNIEnv* km_env, jclass km_clazz, jlong psa) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArrayUnaccessData");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psa) : -1;
+#else
+    (void)psa;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1SafeArrayUnlock(JNIEnv* km_env, jclass km_clazz, jlong psa) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SafeArrayUnlock");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psa) : -1;
+#else
+    (void)psa;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1UnRegisterTypeLib(JNIEnv* km_env, jclass km_clazz, jlong libid, jshort wvermajor, jshort wverminor, jint lcid, jint syskind) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, uint16_t, uint32_t, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UnRegisterTypeLib");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)libid, (uint16_t)wvermajor, (uint16_t)wverminor, (uint32_t)lcid, (int32_t)syskind) : -1;
+#else
+    (void)libid;
+    (void)wvermajor;
+    (void)wverminor;
+    (void)lcid;
+    (void)syskind;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1UnRegisterTypeLibForUser(JNIEnv* km_env, jclass km_clazz, jlong libid, jshort wmajorvernum, jshort wminorvernum, jint lcid, jint syskind) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, uint16_t, uint32_t, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UnRegisterTypeLibForUser");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)libid, (uint16_t)wmajorvernum, (uint16_t)wminorvernum, (uint32_t)lcid, (int32_t)syskind) : -1;
+#else
+    (void)libid;
+    (void)wmajorvernum;
+    (void)wminorvernum;
+    (void)lcid;
+    (void)syskind;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarAbs(JNIEnv* km_env, jclass km_clazz, jlong pvarin, jlong pvarresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarAbs");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvarin, (void*)(uintptr_t)pvarresult) : -1;
+#else
+    (void)pvarin;
+    (void)pvarresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarAdd(JNIEnv* km_env, jclass km_clazz, jlong pvarleft, jlong pvarright, jlong pvarresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarAdd");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvarleft, (void*)(uintptr_t)pvarright, (void*)(uintptr_t)pvarresult) : -1;
+#else
+    (void)pvarleft;
+    (void)pvarright;
+    (void)pvarresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarAnd(JNIEnv* km_env, jclass km_clazz, jlong pvarleft, jlong pvarright, jlong pvarresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarAnd");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvarleft, (void*)(uintptr_t)pvarright, (void*)(uintptr_t)pvarresult) : -1;
+#else
+    (void)pvarleft;
+    (void)pvarright;
+    (void)pvarresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarBoolFromDate(JNIEnv* km_env, jclass km_clazz, jdouble datein, jlong pboolout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarBoolFromDate");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)datein, (void*)(uintptr_t)pboolout) : -1;
+#else
+    (void)datein;
+    (void)pboolout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarBoolFromDec(JNIEnv* km_env, jclass km_clazz, jlong pdecin, jlong pboolout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarBoolFromDec");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdecin, (void*)(uintptr_t)pboolout) : -1;
+#else
+    (void)pdecin;
+    (void)pboolout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarBoolFromDisp(JNIEnv* km_env, jclass km_clazz, jlong pdispin, jint lcid, jlong pboolout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarBoolFromDisp");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdispin, (uint32_t)lcid, (void*)(uintptr_t)pboolout) : -1;
+#else
+    (void)pdispin;
+    (void)lcid;
+    (void)pboolout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarBoolFromI1(JNIEnv* km_env, jclass km_clazz, jbyte cin, jlong pboolout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int8_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarBoolFromI1");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int8_t)cin, (void*)(uintptr_t)pboolout) : -1;
+#else
+    (void)cin;
+    (void)pboolout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarBoolFromI2(JNIEnv* km_env, jclass km_clazz, jshort arg_0_sin, jlong pboolout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarBoolFromI2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)arg_0_sin, (void*)(uintptr_t)pboolout) : -1;
+#else
+    (void)arg_0_sin;
+    (void)pboolout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarBoolFromI4(JNIEnv* km_env, jclass km_clazz, jint lin, jlong pboolout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarBoolFromI4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)lin, (void*)(uintptr_t)pboolout) : -1;
+#else
+    (void)lin;
+    (void)pboolout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarBoolFromI8(JNIEnv* km_env, jclass km_clazz, jlong i64in, jlong pboolout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarBoolFromI8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)i64in, (void*)(uintptr_t)pboolout) : -1;
+#else
+    (void)i64in;
+    (void)pboolout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarBoolFromR4(JNIEnv* km_env, jclass km_clazz, jfloat fltin, jlong pboolout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(float, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarBoolFromR4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((float)fltin, (void*)(uintptr_t)pboolout) : -1;
+#else
+    (void)fltin;
+    (void)pboolout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarBoolFromR8(JNIEnv* km_env, jclass km_clazz, jdouble dblin, jlong pboolout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarBoolFromR8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)dblin, (void*)(uintptr_t)pboolout) : -1;
+#else
+    (void)dblin;
+    (void)pboolout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarBoolFromStr(JNIEnv* km_env, jclass km_clazz, jlong strin, jint lcid, jint dwflags, jlong pboolout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarBoolFromStr");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)strin, (uint32_t)lcid, (uint32_t)dwflags, (void*)(uintptr_t)pboolout) : -1;
+#else
+    (void)strin;
+    (void)lcid;
+    (void)dwflags;
+    (void)pboolout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarBoolFromUI1(JNIEnv* km_env, jclass km_clazz, jbyte bin, jlong pboolout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint8_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarBoolFromUI1");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint8_t)bin, (void*)(uintptr_t)pboolout) : -1;
+#else
+    (void)bin;
+    (void)pboolout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarBoolFromUI2(JNIEnv* km_env, jclass km_clazz, jshort uiin, jlong pboolout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarBoolFromUI2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint16_t)uiin, (void*)(uintptr_t)pboolout) : -1;
+#else
+    (void)uiin;
+    (void)pboolout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarBoolFromUI4(JNIEnv* km_env, jclass km_clazz, jint ulin, jlong pboolout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarBoolFromUI4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)ulin, (void*)(uintptr_t)pboolout) : -1;
+#else
+    (void)ulin;
+    (void)pboolout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarBoolFromUI8(JNIEnv* km_env, jclass km_clazz, jlong i64in, jlong pboolout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarBoolFromUI8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)i64in, (void*)(uintptr_t)pboolout) : -1;
+#else
+    (void)i64in;
+    (void)pboolout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarBstrCat(JNIEnv* km_env, jclass km_clazz, jlong bstrleft, jlong bstrright, jlong pbstrresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarBstrCat");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)bstrleft, (void*)(uintptr_t)bstrright, (void*)(uintptr_t)pbstrresult) : -1;
+#else
+    (void)bstrleft;
+    (void)bstrright;
+    (void)pbstrresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarBstrCmp(JNIEnv* km_env, jclass km_clazz, jlong bstrleft, jlong bstrright, jint lcid, jint dwflags) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarBstrCmp");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)bstrleft, (void*)(uintptr_t)bstrright, (uint32_t)lcid, (uint32_t)dwflags) : -1;
+#else
+    (void)bstrleft;
+    (void)bstrright;
+    (void)lcid;
+    (void)dwflags;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarBstrFromBool(JNIEnv* km_env, jclass km_clazz, jshort boolin, jint lcid, jint dwflags, jlong pbstrout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int16_t, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarBstrFromBool");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)boolin, (uint32_t)lcid, (uint32_t)dwflags, (void*)(uintptr_t)pbstrout) : -1;
+#else
+    (void)boolin;
+    (void)lcid;
+    (void)dwflags;
+    (void)pbstrout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarBstrFromDate(JNIEnv* km_env, jclass km_clazz, jdouble datein, jint lcid, jint dwflags, jlong pbstrout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarBstrFromDate");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)datein, (uint32_t)lcid, (uint32_t)dwflags, (void*)(uintptr_t)pbstrout) : -1;
+#else
+    (void)datein;
+    (void)lcid;
+    (void)dwflags;
+    (void)pbstrout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarBstrFromDec(JNIEnv* km_env, jclass km_clazz, jlong pdecin, jint lcid, jint dwflags, jlong pbstrout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarBstrFromDec");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdecin, (uint32_t)lcid, (uint32_t)dwflags, (void*)(uintptr_t)pbstrout) : -1;
+#else
+    (void)pdecin;
+    (void)lcid;
+    (void)dwflags;
+    (void)pbstrout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarBstrFromDisp(JNIEnv* km_env, jclass km_clazz, jlong pdispin, jint lcid, jint dwflags, jlong pbstrout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarBstrFromDisp");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdispin, (uint32_t)lcid, (uint32_t)dwflags, (void*)(uintptr_t)pbstrout) : -1;
+#else
+    (void)pdispin;
+    (void)lcid;
+    (void)dwflags;
+    (void)pbstrout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarBstrFromI1(JNIEnv* km_env, jclass km_clazz, jbyte cin, jint lcid, jint dwflags, jlong pbstrout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int8_t, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarBstrFromI1");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int8_t)cin, (uint32_t)lcid, (uint32_t)dwflags, (void*)(uintptr_t)pbstrout) : -1;
+#else
+    (void)cin;
+    (void)lcid;
+    (void)dwflags;
+    (void)pbstrout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarBstrFromI2(JNIEnv* km_env, jclass km_clazz, jshort ival, jint lcid, jint dwflags, jlong pbstrout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int16_t, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarBstrFromI2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)ival, (uint32_t)lcid, (uint32_t)dwflags, (void*)(uintptr_t)pbstrout) : -1;
+#else
+    (void)ival;
+    (void)lcid;
+    (void)dwflags;
+    (void)pbstrout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarBstrFromI4(JNIEnv* km_env, jclass km_clazz, jint lin, jint lcid, jint dwflags, jlong pbstrout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarBstrFromI4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)lin, (uint32_t)lcid, (uint32_t)dwflags, (void*)(uintptr_t)pbstrout) : -1;
+#else
+    (void)lin;
+    (void)lcid;
+    (void)dwflags;
+    (void)pbstrout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarBstrFromI8(JNIEnv* km_env, jclass km_clazz, jlong i64in, jint lcid, jint dwflags, jlong pbstrout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarBstrFromI8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)i64in, (uint32_t)lcid, (uint32_t)dwflags, (void*)(uintptr_t)pbstrout) : -1;
+#else
+    (void)i64in;
+    (void)lcid;
+    (void)dwflags;
+    (void)pbstrout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarBstrFromR4(JNIEnv* km_env, jclass km_clazz, jfloat fltin, jint lcid, jint dwflags, jlong pbstrout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(float, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarBstrFromR4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((float)fltin, (uint32_t)lcid, (uint32_t)dwflags, (void*)(uintptr_t)pbstrout) : -1;
+#else
+    (void)fltin;
+    (void)lcid;
+    (void)dwflags;
+    (void)pbstrout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarBstrFromR8(JNIEnv* km_env, jclass km_clazz, jdouble dblin, jint lcid, jint dwflags, jlong pbstrout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarBstrFromR8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)dblin, (uint32_t)lcid, (uint32_t)dwflags, (void*)(uintptr_t)pbstrout) : -1;
+#else
+    (void)dblin;
+    (void)lcid;
+    (void)dwflags;
+    (void)pbstrout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarBstrFromUI1(JNIEnv* km_env, jclass km_clazz, jbyte bval, jint lcid, jint dwflags, jlong pbstrout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint8_t, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarBstrFromUI1");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint8_t)bval, (uint32_t)lcid, (uint32_t)dwflags, (void*)(uintptr_t)pbstrout) : -1;
+#else
+    (void)bval;
+    (void)lcid;
+    (void)dwflags;
+    (void)pbstrout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarBstrFromUI2(JNIEnv* km_env, jclass km_clazz, jshort uiin, jint lcid, jint dwflags, jlong pbstrout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint16_t, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarBstrFromUI2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint16_t)uiin, (uint32_t)lcid, (uint32_t)dwflags, (void*)(uintptr_t)pbstrout) : -1;
+#else
+    (void)uiin;
+    (void)lcid;
+    (void)dwflags;
+    (void)pbstrout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarBstrFromUI4(JNIEnv* km_env, jclass km_clazz, jint ulin, jint lcid, jint dwflags, jlong pbstrout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarBstrFromUI4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)ulin, (uint32_t)lcid, (uint32_t)dwflags, (void*)(uintptr_t)pbstrout) : -1;
+#else
+    (void)ulin;
+    (void)lcid;
+    (void)dwflags;
+    (void)pbstrout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarBstrFromUI8(JNIEnv* km_env, jclass km_clazz, jlong ui64in, jint lcid, jint dwflags, jlong pbstrout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarBstrFromUI8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)ui64in, (uint32_t)lcid, (uint32_t)dwflags, (void*)(uintptr_t)pbstrout) : -1;
+#else
+    (void)ui64in;
+    (void)lcid;
+    (void)dwflags;
+    (void)pbstrout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarCat(JNIEnv* km_env, jclass km_clazz, jlong pvarleft, jlong pvarright, jlong pvarresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarCat");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvarleft, (void*)(uintptr_t)pvarright, (void*)(uintptr_t)pvarresult) : -1;
+#else
+    (void)pvarleft;
+    (void)pvarright;
+    (void)pvarresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarCmp(JNIEnv* km_env, jclass km_clazz, jlong pvarleft, jlong pvarright, jint lcid, jint dwflags) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarCmp");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvarleft, (void*)(uintptr_t)pvarright, (uint32_t)lcid, (uint32_t)dwflags) : 0;
+#else
+    (void)pvarleft;
+    (void)pvarright;
+    (void)lcid;
+    (void)dwflags;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarCyFromBool(JNIEnv* km_env, jclass km_clazz, jshort boolin, jlong pcyout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarCyFromBool");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)boolin, (void*)(uintptr_t)pcyout) : -1;
+#else
+    (void)boolin;
+    (void)pcyout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarCyFromDate(JNIEnv* km_env, jclass km_clazz, jdouble datein, jlong pcyout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarCyFromDate");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)datein, (void*)(uintptr_t)pcyout) : -1;
+#else
+    (void)datein;
+    (void)pcyout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarCyFromDec(JNIEnv* km_env, jclass km_clazz, jlong pdecin, jlong pcyout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarCyFromDec");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdecin, (void*)(uintptr_t)pcyout) : -1;
+#else
+    (void)pdecin;
+    (void)pcyout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarCyFromDisp(JNIEnv* km_env, jclass km_clazz, jlong pdispin, jint lcid, jlong pcyout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarCyFromDisp");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdispin, (uint32_t)lcid, (void*)(uintptr_t)pcyout) : -1;
+#else
+    (void)pdispin;
+    (void)lcid;
+    (void)pcyout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarCyFromI1(JNIEnv* km_env, jclass km_clazz, jbyte cin, jlong pcyout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int8_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarCyFromI1");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int8_t)cin, (void*)(uintptr_t)pcyout) : -1;
+#else
+    (void)cin;
+    (void)pcyout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarCyFromI2(JNIEnv* km_env, jclass km_clazz, jshort arg_0_sin, jlong pcyout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarCyFromI2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)arg_0_sin, (void*)(uintptr_t)pcyout) : -1;
+#else
+    (void)arg_0_sin;
+    (void)pcyout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarCyFromI4(JNIEnv* km_env, jclass km_clazz, jint lin, jlong pcyout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarCyFromI4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)lin, (void*)(uintptr_t)pcyout) : -1;
+#else
+    (void)lin;
+    (void)pcyout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarCyFromI8(JNIEnv* km_env, jclass km_clazz, jlong i64in, jlong pcyout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarCyFromI8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)i64in, (void*)(uintptr_t)pcyout) : -1;
+#else
+    (void)i64in;
+    (void)pcyout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarCyFromR4(JNIEnv* km_env, jclass km_clazz, jfloat fltin, jlong pcyout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(float, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarCyFromR4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((float)fltin, (void*)(uintptr_t)pcyout) : -1;
+#else
+    (void)fltin;
+    (void)pcyout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarCyFromR8(JNIEnv* km_env, jclass km_clazz, jdouble dblin, jlong pcyout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarCyFromR8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)dblin, (void*)(uintptr_t)pcyout) : -1;
+#else
+    (void)dblin;
+    (void)pcyout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarCyFromStr(JNIEnv* km_env, jclass km_clazz, jlong strin, jint lcid, jint dwflags, jlong pcyout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarCyFromStr");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)strin, (uint32_t)lcid, (uint32_t)dwflags, (void*)(uintptr_t)pcyout) : -1;
+#else
+    (void)strin;
+    (void)lcid;
+    (void)dwflags;
+    (void)pcyout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarCyFromUI1(JNIEnv* km_env, jclass km_clazz, jbyte bin, jlong pcyout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint8_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarCyFromUI1");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint8_t)bin, (void*)(uintptr_t)pcyout) : -1;
+#else
+    (void)bin;
+    (void)pcyout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarCyFromUI2(JNIEnv* km_env, jclass km_clazz, jshort uiin, jlong pcyout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarCyFromUI2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint16_t)uiin, (void*)(uintptr_t)pcyout) : -1;
+#else
+    (void)uiin;
+    (void)pcyout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarCyFromUI4(JNIEnv* km_env, jclass km_clazz, jint ulin, jlong pcyout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarCyFromUI4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)ulin, (void*)(uintptr_t)pcyout) : -1;
+#else
+    (void)ulin;
+    (void)pcyout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarCyFromUI8(JNIEnv* km_env, jclass km_clazz, jlong ui64in, jlong pcyout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarCyFromUI8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)ui64in, (void*)(uintptr_t)pcyout) : -1;
+#else
+    (void)ui64in;
+    (void)pcyout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDateFromBool(JNIEnv* km_env, jclass km_clazz, jshort boolin, jlong pdateout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDateFromBool");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)boolin, (void*)(uintptr_t)pdateout) : -1;
+#else
+    (void)boolin;
+    (void)pdateout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDateFromDec(JNIEnv* km_env, jclass km_clazz, jlong pdecin, jlong pdateout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDateFromDec");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdecin, (void*)(uintptr_t)pdateout) : -1;
+#else
+    (void)pdecin;
+    (void)pdateout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDateFromDisp(JNIEnv* km_env, jclass km_clazz, jlong pdispin, jint lcid, jlong pdateout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDateFromDisp");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdispin, (uint32_t)lcid, (void*)(uintptr_t)pdateout) : -1;
+#else
+    (void)pdispin;
+    (void)lcid;
+    (void)pdateout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDateFromI1(JNIEnv* km_env, jclass km_clazz, jbyte cin, jlong pdateout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int8_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDateFromI1");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int8_t)cin, (void*)(uintptr_t)pdateout) : -1;
+#else
+    (void)cin;
+    (void)pdateout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDateFromI2(JNIEnv* km_env, jclass km_clazz, jshort arg_0_sin, jlong pdateout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDateFromI2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)arg_0_sin, (void*)(uintptr_t)pdateout) : -1;
+#else
+    (void)arg_0_sin;
+    (void)pdateout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDateFromI4(JNIEnv* km_env, jclass km_clazz, jint lin, jlong pdateout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDateFromI4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)lin, (void*)(uintptr_t)pdateout) : -1;
+#else
+    (void)lin;
+    (void)pdateout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDateFromI8(JNIEnv* km_env, jclass km_clazz, jlong i64in, jlong pdateout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDateFromI8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)i64in, (void*)(uintptr_t)pdateout) : -1;
+#else
+    (void)i64in;
+    (void)pdateout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDateFromR4(JNIEnv* km_env, jclass km_clazz, jfloat fltin, jlong pdateout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(float, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDateFromR4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((float)fltin, (void*)(uintptr_t)pdateout) : -1;
+#else
+    (void)fltin;
+    (void)pdateout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDateFromR8(JNIEnv* km_env, jclass km_clazz, jdouble dblin, jlong pdateout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDateFromR8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)dblin, (void*)(uintptr_t)pdateout) : -1;
+#else
+    (void)dblin;
+    (void)pdateout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDateFromStr(JNIEnv* km_env, jclass km_clazz, jlong strin, jint lcid, jint dwflags, jlong pdateout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDateFromStr");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)strin, (uint32_t)lcid, (uint32_t)dwflags, (void*)(uintptr_t)pdateout) : -1;
+#else
+    (void)strin;
+    (void)lcid;
+    (void)dwflags;
+    (void)pdateout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDateFromUI1(JNIEnv* km_env, jclass km_clazz, jbyte bin, jlong pdateout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint8_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDateFromUI1");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint8_t)bin, (void*)(uintptr_t)pdateout) : -1;
+#else
+    (void)bin;
+    (void)pdateout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDateFromUI2(JNIEnv* km_env, jclass km_clazz, jshort uiin, jlong pdateout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDateFromUI2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint16_t)uiin, (void*)(uintptr_t)pdateout) : -1;
+#else
+    (void)uiin;
+    (void)pdateout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDateFromUI4(JNIEnv* km_env, jclass km_clazz, jint ulin, jlong pdateout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDateFromUI4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)ulin, (void*)(uintptr_t)pdateout) : -1;
+#else
+    (void)ulin;
+    (void)pdateout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDateFromUI8(JNIEnv* km_env, jclass km_clazz, jlong ui64in, jlong pdateout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDateFromUI8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)ui64in, (void*)(uintptr_t)pdateout) : -1;
+#else
+    (void)ui64in;
+    (void)pdateout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDateFromUdate(JNIEnv* km_env, jclass km_clazz, jlong pudatein, jint dwflags, jlong pdateout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDateFromUdate");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pudatein, (uint32_t)dwflags, (void*)(uintptr_t)pdateout) : -1;
+#else
+    (void)pudatein;
+    (void)dwflags;
+    (void)pdateout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDateFromUdateEx(JNIEnv* km_env, jclass km_clazz, jlong pudatein, jint lcid, jint dwflags, jlong pdateout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDateFromUdateEx");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pudatein, (uint32_t)lcid, (uint32_t)dwflags, (void*)(uintptr_t)pdateout) : -1;
+#else
+    (void)pudatein;
+    (void)lcid;
+    (void)dwflags;
+    (void)pdateout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDecAbs(JNIEnv* km_env, jclass km_clazz, jlong pdecin, jlong pdecresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDecAbs");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdecin, (void*)(uintptr_t)pdecresult) : -1;
+#else
+    (void)pdecin;
+    (void)pdecresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDecAdd(JNIEnv* km_env, jclass km_clazz, jlong pdecleft, jlong pdecright, jlong pdecresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDecAdd");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdecleft, (void*)(uintptr_t)pdecright, (void*)(uintptr_t)pdecresult) : -1;
+#else
+    (void)pdecleft;
+    (void)pdecright;
+    (void)pdecresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDecCmp(JNIEnv* km_env, jclass km_clazz, jlong pdecleft, jlong pdecright) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDecCmp");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdecleft, (void*)(uintptr_t)pdecright) : 0;
+#else
+    (void)pdecleft;
+    (void)pdecright;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDecCmpR8(JNIEnv* km_env, jclass km_clazz, jlong pdecleft, jdouble dblright) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, double);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDecCmpR8");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdecleft, (double)dblright) : 0;
+#else
+    (void)pdecleft;
+    (void)dblright;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDecDiv(JNIEnv* km_env, jclass km_clazz, jlong pdecleft, jlong pdecright, jlong pdecresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDecDiv");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdecleft, (void*)(uintptr_t)pdecright, (void*)(uintptr_t)pdecresult) : -1;
+#else
+    (void)pdecleft;
+    (void)pdecright;
+    (void)pdecresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDecFix(JNIEnv* km_env, jclass km_clazz, jlong pdecin, jlong pdecresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDecFix");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdecin, (void*)(uintptr_t)pdecresult) : -1;
+#else
+    (void)pdecin;
+    (void)pdecresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDecFromBool(JNIEnv* km_env, jclass km_clazz, jshort boolin, jlong pdecout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDecFromBool");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)boolin, (void*)(uintptr_t)pdecout) : -1;
+#else
+    (void)boolin;
+    (void)pdecout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDecFromDate(JNIEnv* km_env, jclass km_clazz, jdouble datein, jlong pdecout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDecFromDate");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)datein, (void*)(uintptr_t)pdecout) : -1;
+#else
+    (void)datein;
+    (void)pdecout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDecFromDisp(JNIEnv* km_env, jclass km_clazz, jlong pdispin, jint lcid, jlong pdecout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDecFromDisp");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdispin, (uint32_t)lcid, (void*)(uintptr_t)pdecout) : -1;
+#else
+    (void)pdispin;
+    (void)lcid;
+    (void)pdecout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDecFromI1(JNIEnv* km_env, jclass km_clazz, jbyte cin, jlong pdecout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int8_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDecFromI1");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int8_t)cin, (void*)(uintptr_t)pdecout) : -1;
+#else
+    (void)cin;
+    (void)pdecout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDecFromI2(JNIEnv* km_env, jclass km_clazz, jshort uiin, jlong pdecout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDecFromI2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)uiin, (void*)(uintptr_t)pdecout) : -1;
+#else
+    (void)uiin;
+    (void)pdecout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDecFromI4(JNIEnv* km_env, jclass km_clazz, jint lin, jlong pdecout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDecFromI4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)lin, (void*)(uintptr_t)pdecout) : -1;
+#else
+    (void)lin;
+    (void)pdecout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDecFromI8(JNIEnv* km_env, jclass km_clazz, jlong i64in, jlong pdecout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDecFromI8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)i64in, (void*)(uintptr_t)pdecout) : -1;
+#else
+    (void)i64in;
+    (void)pdecout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDecFromR4(JNIEnv* km_env, jclass km_clazz, jfloat fltin, jlong pdecout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(float, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDecFromR4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((float)fltin, (void*)(uintptr_t)pdecout) : -1;
+#else
+    (void)fltin;
+    (void)pdecout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDecFromR8(JNIEnv* km_env, jclass km_clazz, jdouble dblin, jlong pdecout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDecFromR8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)dblin, (void*)(uintptr_t)pdecout) : -1;
+#else
+    (void)dblin;
+    (void)pdecout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDecFromStr(JNIEnv* km_env, jclass km_clazz, jlong strin, jint lcid, jint dwflags, jlong pdecout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDecFromStr");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)strin, (uint32_t)lcid, (uint32_t)dwflags, (void*)(uintptr_t)pdecout) : -1;
+#else
+    (void)strin;
+    (void)lcid;
+    (void)dwflags;
+    (void)pdecout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDecFromUI1(JNIEnv* km_env, jclass km_clazz, jbyte bin, jlong pdecout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint8_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDecFromUI1");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint8_t)bin, (void*)(uintptr_t)pdecout) : -1;
+#else
+    (void)bin;
+    (void)pdecout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDecFromUI2(JNIEnv* km_env, jclass km_clazz, jshort uiin, jlong pdecout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDecFromUI2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint16_t)uiin, (void*)(uintptr_t)pdecout) : -1;
+#else
+    (void)uiin;
+    (void)pdecout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDecFromUI4(JNIEnv* km_env, jclass km_clazz, jint ulin, jlong pdecout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDecFromUI4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)ulin, (void*)(uintptr_t)pdecout) : -1;
+#else
+    (void)ulin;
+    (void)pdecout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDecFromUI8(JNIEnv* km_env, jclass km_clazz, jlong ui64in, jlong pdecout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDecFromUI8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)ui64in, (void*)(uintptr_t)pdecout) : -1;
+#else
+    (void)ui64in;
+    (void)pdecout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDecInt(JNIEnv* km_env, jclass km_clazz, jlong pdecin, jlong pdecresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDecInt");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdecin, (void*)(uintptr_t)pdecresult) : -1;
+#else
+    (void)pdecin;
+    (void)pdecresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDecMul(JNIEnv* km_env, jclass km_clazz, jlong pdecleft, jlong pdecright, jlong pdecresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDecMul");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdecleft, (void*)(uintptr_t)pdecright, (void*)(uintptr_t)pdecresult) : -1;
+#else
+    (void)pdecleft;
+    (void)pdecright;
+    (void)pdecresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDecNeg(JNIEnv* km_env, jclass km_clazz, jlong pdecin, jlong pdecresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDecNeg");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdecin, (void*)(uintptr_t)pdecresult) : -1;
+#else
+    (void)pdecin;
+    (void)pdecresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDecRound(JNIEnv* km_env, jclass km_clazz, jlong pdecin, jint cdecimals, jlong pdecresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDecRound");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdecin, (int32_t)cdecimals, (void*)(uintptr_t)pdecresult) : -1;
+#else
+    (void)pdecin;
+    (void)cdecimals;
+    (void)pdecresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDecSub(JNIEnv* km_env, jclass km_clazz, jlong pdecleft, jlong pdecright, jlong pdecresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDecSub");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdecleft, (void*)(uintptr_t)pdecright, (void*)(uintptr_t)pdecresult) : -1;
+#else
+    (void)pdecleft;
+    (void)pdecright;
+    (void)pdecresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarDiv(JNIEnv* km_env, jclass km_clazz, jlong pvarleft, jlong pvarright, jlong pvarresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarDiv");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvarleft, (void*)(uintptr_t)pvarright, (void*)(uintptr_t)pvarresult) : -1;
+#else
+    (void)pvarleft;
+    (void)pvarright;
+    (void)pvarresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarEqv(JNIEnv* km_env, jclass km_clazz, jlong pvarleft, jlong pvarright, jlong pvarresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarEqv");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvarleft, (void*)(uintptr_t)pvarright, (void*)(uintptr_t)pvarresult) : -1;
+#else
+    (void)pvarleft;
+    (void)pvarright;
+    (void)pvarresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarFix(JNIEnv* km_env, jclass km_clazz, jlong pvarin, jlong pvarresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarFix");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvarin, (void*)(uintptr_t)pvarresult) : -1;
+#else
+    (void)pvarin;
+    (void)pvarresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarFormat(JNIEnv* km_env, jclass km_clazz, jlong pvarin, jlong pstrformat, jint ifirstday, jint ifirstweek, jint dwflags, jlong pbstrout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarFormat");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvarin, (void*)(uintptr_t)pstrformat, (int32_t)ifirstday, (int32_t)ifirstweek, (uint32_t)dwflags, (void*)(uintptr_t)pbstrout) : -1;
+#else
+    (void)pvarin;
+    (void)pstrformat;
+    (void)ifirstday;
+    (void)ifirstweek;
+    (void)dwflags;
+    (void)pbstrout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarFormatCurrency(JNIEnv* km_env, jclass km_clazz, jlong pvarin, jint inumdig, jint iinclead, jint iuseparens, jint igroup, jint dwflags, jlong pbstrout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarFormatCurrency");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvarin, (int32_t)inumdig, (int32_t)iinclead, (int32_t)iuseparens, (int32_t)igroup, (uint32_t)dwflags, (void*)(uintptr_t)pbstrout) : -1;
+#else
+    (void)pvarin;
+    (void)inumdig;
+    (void)iinclead;
+    (void)iuseparens;
+    (void)igroup;
+    (void)dwflags;
+    (void)pbstrout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarFormatDateTime(JNIEnv* km_env, jclass km_clazz, jlong pvarin, jint inamedformat, jint dwflags, jlong pbstrout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarFormatDateTime");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvarin, (int32_t)inamedformat, (uint32_t)dwflags, (void*)(uintptr_t)pbstrout) : -1;
+#else
+    (void)pvarin;
+    (void)inamedformat;
+    (void)dwflags;
+    (void)pbstrout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarFormatFromTokens(JNIEnv* km_env, jclass km_clazz, jlong pvarin, jlong pstrformat, jlong pbtokcur, jint dwflags, jlong pbstrout, jint lcid) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarFormatFromTokens");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvarin, (void*)(uintptr_t)pstrformat, (void*)(uintptr_t)pbtokcur, (uint32_t)dwflags, (void*)(uintptr_t)pbstrout, (uint32_t)lcid) : -1;
+#else
+    (void)pvarin;
+    (void)pstrformat;
+    (void)pbtokcur;
+    (void)dwflags;
+    (void)pbstrout;
+    (void)lcid;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarFormatNumber(JNIEnv* km_env, jclass km_clazz, jlong pvarin, jint inumdig, jint iinclead, jint iuseparens, jint igroup, jint dwflags, jlong pbstrout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarFormatNumber");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvarin, (int32_t)inumdig, (int32_t)iinclead, (int32_t)iuseparens, (int32_t)igroup, (uint32_t)dwflags, (void*)(uintptr_t)pbstrout) : -1;
+#else
+    (void)pvarin;
+    (void)inumdig;
+    (void)iinclead;
+    (void)iuseparens;
+    (void)igroup;
+    (void)dwflags;
+    (void)pbstrout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarFormatPercent(JNIEnv* km_env, jclass km_clazz, jlong pvarin, jint inumdig, jint iinclead, jint iuseparens, jint igroup, jint dwflags, jlong pbstrout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t, int32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarFormatPercent");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvarin, (int32_t)inumdig, (int32_t)iinclead, (int32_t)iuseparens, (int32_t)igroup, (uint32_t)dwflags, (void*)(uintptr_t)pbstrout) : -1;
+#else
+    (void)pvarin;
+    (void)inumdig;
+    (void)iinclead;
+    (void)iuseparens;
+    (void)igroup;
+    (void)dwflags;
+    (void)pbstrout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI1FromBool(JNIEnv* km_env, jclass km_clazz, jshort boolin, jlong pcout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI1FromBool");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)boolin, (void*)(uintptr_t)pcout) : -1;
+#else
+    (void)boolin;
+    (void)pcout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI1FromDate(JNIEnv* km_env, jclass km_clazz, jdouble datein, jlong pcout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI1FromDate");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)datein, (void*)(uintptr_t)pcout) : -1;
+#else
+    (void)datein;
+    (void)pcout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI1FromDec(JNIEnv* km_env, jclass km_clazz, jlong pdecin, jlong pcout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI1FromDec");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdecin, (void*)(uintptr_t)pcout) : -1;
+#else
+    (void)pdecin;
+    (void)pcout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI1FromDisp(JNIEnv* km_env, jclass km_clazz, jlong pdispin, jint lcid, jlong pcout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI1FromDisp");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdispin, (uint32_t)lcid, (void*)(uintptr_t)pcout) : -1;
+#else
+    (void)pdispin;
+    (void)lcid;
+    (void)pcout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI1FromI2(JNIEnv* km_env, jclass km_clazz, jshort uiin, jlong pcout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI1FromI2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)uiin, (void*)(uintptr_t)pcout) : -1;
+#else
+    (void)uiin;
+    (void)pcout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI1FromI4(JNIEnv* km_env, jclass km_clazz, jint lin, jlong pcout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI1FromI4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)lin, (void*)(uintptr_t)pcout) : -1;
+#else
+    (void)lin;
+    (void)pcout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI1FromI8(JNIEnv* km_env, jclass km_clazz, jlong i64in, jlong pcout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI1FromI8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)i64in, (void*)(uintptr_t)pcout) : -1;
+#else
+    (void)i64in;
+    (void)pcout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI1FromR4(JNIEnv* km_env, jclass km_clazz, jfloat fltin, jlong pcout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(float, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI1FromR4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((float)fltin, (void*)(uintptr_t)pcout) : -1;
+#else
+    (void)fltin;
+    (void)pcout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI1FromR8(JNIEnv* km_env, jclass km_clazz, jdouble dblin, jlong pcout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI1FromR8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)dblin, (void*)(uintptr_t)pcout) : -1;
+#else
+    (void)dblin;
+    (void)pcout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI1FromStr(JNIEnv* km_env, jclass km_clazz, jlong strin, jint lcid, jint dwflags, jlong pcout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI1FromStr");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)strin, (uint32_t)lcid, (uint32_t)dwflags, (void*)(uintptr_t)pcout) : -1;
+#else
+    (void)strin;
+    (void)lcid;
+    (void)dwflags;
+    (void)pcout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI1FromUI1(JNIEnv* km_env, jclass km_clazz, jbyte bin, jlong pcout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint8_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI1FromUI1");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint8_t)bin, (void*)(uintptr_t)pcout) : -1;
+#else
+    (void)bin;
+    (void)pcout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI1FromUI2(JNIEnv* km_env, jclass km_clazz, jshort uiin, jlong pcout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI1FromUI2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint16_t)uiin, (void*)(uintptr_t)pcout) : -1;
+#else
+    (void)uiin;
+    (void)pcout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI1FromUI4(JNIEnv* km_env, jclass km_clazz, jint ulin, jlong pcout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI1FromUI4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)ulin, (void*)(uintptr_t)pcout) : -1;
+#else
+    (void)ulin;
+    (void)pcout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI1FromUI8(JNIEnv* km_env, jclass km_clazz, jlong i64in, jlong pcout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI1FromUI8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)i64in, (void*)(uintptr_t)pcout) : -1;
+#else
+    (void)i64in;
+    (void)pcout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI2FromBool(JNIEnv* km_env, jclass km_clazz, jshort boolin, jlong psout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI2FromBool");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)boolin, (void*)(uintptr_t)psout) : -1;
+#else
+    (void)boolin;
+    (void)psout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI2FromDate(JNIEnv* km_env, jclass km_clazz, jdouble datein, jlong psout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI2FromDate");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)datein, (void*)(uintptr_t)psout) : -1;
+#else
+    (void)datein;
+    (void)psout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI2FromDec(JNIEnv* km_env, jclass km_clazz, jlong pdecin, jlong psout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI2FromDec");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdecin, (void*)(uintptr_t)psout) : -1;
+#else
+    (void)pdecin;
+    (void)psout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI2FromDisp(JNIEnv* km_env, jclass km_clazz, jlong pdispin, jint lcid, jlong psout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI2FromDisp");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdispin, (uint32_t)lcid, (void*)(uintptr_t)psout) : -1;
+#else
+    (void)pdispin;
+    (void)lcid;
+    (void)psout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI2FromI1(JNIEnv* km_env, jclass km_clazz, jbyte cin, jlong psout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int8_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI2FromI1");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int8_t)cin, (void*)(uintptr_t)psout) : -1;
+#else
+    (void)cin;
+    (void)psout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI2FromI4(JNIEnv* km_env, jclass km_clazz, jint lin, jlong psout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI2FromI4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)lin, (void*)(uintptr_t)psout) : -1;
+#else
+    (void)lin;
+    (void)psout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI2FromI8(JNIEnv* km_env, jclass km_clazz, jlong i64in, jlong psout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI2FromI8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)i64in, (void*)(uintptr_t)psout) : -1;
+#else
+    (void)i64in;
+    (void)psout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI2FromR4(JNIEnv* km_env, jclass km_clazz, jfloat fltin, jlong psout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(float, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI2FromR4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((float)fltin, (void*)(uintptr_t)psout) : -1;
+#else
+    (void)fltin;
+    (void)psout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI2FromR8(JNIEnv* km_env, jclass km_clazz, jdouble dblin, jlong psout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI2FromR8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)dblin, (void*)(uintptr_t)psout) : -1;
+#else
+    (void)dblin;
+    (void)psout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI2FromStr(JNIEnv* km_env, jclass km_clazz, jlong strin, jint lcid, jint dwflags, jlong psout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI2FromStr");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)strin, (uint32_t)lcid, (uint32_t)dwflags, (void*)(uintptr_t)psout) : -1;
+#else
+    (void)strin;
+    (void)lcid;
+    (void)dwflags;
+    (void)psout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI2FromUI1(JNIEnv* km_env, jclass km_clazz, jbyte bin, jlong psout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint8_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI2FromUI1");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint8_t)bin, (void*)(uintptr_t)psout) : -1;
+#else
+    (void)bin;
+    (void)psout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI2FromUI2(JNIEnv* km_env, jclass km_clazz, jshort uiin, jlong psout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI2FromUI2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint16_t)uiin, (void*)(uintptr_t)psout) : -1;
+#else
+    (void)uiin;
+    (void)psout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI2FromUI4(JNIEnv* km_env, jclass km_clazz, jint ulin, jlong psout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI2FromUI4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)ulin, (void*)(uintptr_t)psout) : -1;
+#else
+    (void)ulin;
+    (void)psout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI2FromUI8(JNIEnv* km_env, jclass km_clazz, jlong ui64in, jlong psout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI2FromUI8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)ui64in, (void*)(uintptr_t)psout) : -1;
+#else
+    (void)ui64in;
+    (void)psout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI4FromBool(JNIEnv* km_env, jclass km_clazz, jshort boolin, jlong plout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI4FromBool");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)boolin, (void*)(uintptr_t)plout) : -1;
+#else
+    (void)boolin;
+    (void)plout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI4FromDate(JNIEnv* km_env, jclass km_clazz, jdouble datein, jlong plout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI4FromDate");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)datein, (void*)(uintptr_t)plout) : -1;
+#else
+    (void)datein;
+    (void)plout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI4FromDec(JNIEnv* km_env, jclass km_clazz, jlong pdecin, jlong plout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI4FromDec");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdecin, (void*)(uintptr_t)plout) : -1;
+#else
+    (void)pdecin;
+    (void)plout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI4FromDisp(JNIEnv* km_env, jclass km_clazz, jlong pdispin, jint lcid, jlong plout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI4FromDisp");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdispin, (uint32_t)lcid, (void*)(uintptr_t)plout) : -1;
+#else
+    (void)pdispin;
+    (void)lcid;
+    (void)plout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI4FromI1(JNIEnv* km_env, jclass km_clazz, jbyte cin, jlong plout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int8_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI4FromI1");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int8_t)cin, (void*)(uintptr_t)plout) : -1;
+#else
+    (void)cin;
+    (void)plout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI4FromI2(JNIEnv* km_env, jclass km_clazz, jshort arg_0_sin, jlong plout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI4FromI2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)arg_0_sin, (void*)(uintptr_t)plout) : -1;
+#else
+    (void)arg_0_sin;
+    (void)plout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI4FromI8(JNIEnv* km_env, jclass km_clazz, jlong i64in, jlong plout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI4FromI8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)i64in, (void*)(uintptr_t)plout) : -1;
+#else
+    (void)i64in;
+    (void)plout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI4FromR4(JNIEnv* km_env, jclass km_clazz, jfloat fltin, jlong plout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(float, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI4FromR4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((float)fltin, (void*)(uintptr_t)plout) : -1;
+#else
+    (void)fltin;
+    (void)plout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI4FromR8(JNIEnv* km_env, jclass km_clazz, jdouble dblin, jlong plout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI4FromR8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)dblin, (void*)(uintptr_t)plout) : -1;
+#else
+    (void)dblin;
+    (void)plout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI4FromStr(JNIEnv* km_env, jclass km_clazz, jlong strin, jint lcid, jint dwflags, jlong plout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI4FromStr");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)strin, (uint32_t)lcid, (uint32_t)dwflags, (void*)(uintptr_t)plout) : -1;
+#else
+    (void)strin;
+    (void)lcid;
+    (void)dwflags;
+    (void)plout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI4FromUI1(JNIEnv* km_env, jclass km_clazz, jbyte bin, jlong plout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint8_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI4FromUI1");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint8_t)bin, (void*)(uintptr_t)plout) : -1;
+#else
+    (void)bin;
+    (void)plout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI4FromUI2(JNIEnv* km_env, jclass km_clazz, jshort uiin, jlong plout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI4FromUI2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint16_t)uiin, (void*)(uintptr_t)plout) : -1;
+#else
+    (void)uiin;
+    (void)plout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI4FromUI4(JNIEnv* km_env, jclass km_clazz, jint ulin, jlong plout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI4FromUI4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)ulin, (void*)(uintptr_t)plout) : -1;
+#else
+    (void)ulin;
+    (void)plout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI4FromUI8(JNIEnv* km_env, jclass km_clazz, jlong ui64in, jlong plout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI4FromUI8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)ui64in, (void*)(uintptr_t)plout) : -1;
+#else
+    (void)ui64in;
+    (void)plout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI8FromBool(JNIEnv* km_env, jclass km_clazz, jshort boolin, jlong pi64out) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI8FromBool");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)boolin, (void*)(uintptr_t)pi64out) : -1;
+#else
+    (void)boolin;
+    (void)pi64out;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI8FromDate(JNIEnv* km_env, jclass km_clazz, jdouble datein, jlong pi64out) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI8FromDate");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)datein, (void*)(uintptr_t)pi64out) : -1;
+#else
+    (void)datein;
+    (void)pi64out;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI8FromDec(JNIEnv* km_env, jclass km_clazz, jlong pdecin, jlong pi64out) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI8FromDec");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdecin, (void*)(uintptr_t)pi64out) : -1;
+#else
+    (void)pdecin;
+    (void)pi64out;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI8FromDisp(JNIEnv* km_env, jclass km_clazz, jlong pdispin, jint lcid, jlong pi64out) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI8FromDisp");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdispin, (uint32_t)lcid, (void*)(uintptr_t)pi64out) : -1;
+#else
+    (void)pdispin;
+    (void)lcid;
+    (void)pi64out;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI8FromI1(JNIEnv* km_env, jclass km_clazz, jbyte cin, jlong pi64out) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int8_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI8FromI1");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int8_t)cin, (void*)(uintptr_t)pi64out) : -1;
+#else
+    (void)cin;
+    (void)pi64out;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI8FromI2(JNIEnv* km_env, jclass km_clazz, jshort arg_0_sin, jlong pi64out) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI8FromI2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)arg_0_sin, (void*)(uintptr_t)pi64out) : -1;
+#else
+    (void)arg_0_sin;
+    (void)pi64out;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI8FromR4(JNIEnv* km_env, jclass km_clazz, jfloat fltin, jlong pi64out) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(float, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI8FromR4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((float)fltin, (void*)(uintptr_t)pi64out) : -1;
+#else
+    (void)fltin;
+    (void)pi64out;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI8FromR8(JNIEnv* km_env, jclass km_clazz, jdouble dblin, jlong pi64out) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI8FromR8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)dblin, (void*)(uintptr_t)pi64out) : -1;
+#else
+    (void)dblin;
+    (void)pi64out;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI8FromStr(JNIEnv* km_env, jclass km_clazz, jlong strin, jint lcid, jint dwflags, jlong pi64out) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI8FromStr");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)strin, (uint32_t)lcid, (uint32_t)dwflags, (void*)(uintptr_t)pi64out) : -1;
+#else
+    (void)strin;
+    (void)lcid;
+    (void)dwflags;
+    (void)pi64out;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI8FromUI1(JNIEnv* km_env, jclass km_clazz, jbyte bin, jlong pi64out) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint8_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI8FromUI1");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint8_t)bin, (void*)(uintptr_t)pi64out) : -1;
+#else
+    (void)bin;
+    (void)pi64out;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI8FromUI2(JNIEnv* km_env, jclass km_clazz, jshort uiin, jlong pi64out) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI8FromUI2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint16_t)uiin, (void*)(uintptr_t)pi64out) : -1;
+#else
+    (void)uiin;
+    (void)pi64out;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI8FromUI4(JNIEnv* km_env, jclass km_clazz, jint ulin, jlong pi64out) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI8FromUI4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)ulin, (void*)(uintptr_t)pi64out) : -1;
+#else
+    (void)ulin;
+    (void)pi64out;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarI8FromUI8(JNIEnv* km_env, jclass km_clazz, jlong ui64in, jlong pi64out) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarI8FromUI8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)ui64in, (void*)(uintptr_t)pi64out) : -1;
+#else
+    (void)ui64in;
+    (void)pi64out;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarIdiv(JNIEnv* km_env, jclass km_clazz, jlong pvarleft, jlong pvarright, jlong pvarresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarIdiv");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvarleft, (void*)(uintptr_t)pvarright, (void*)(uintptr_t)pvarresult) : -1;
+#else
+    (void)pvarleft;
+    (void)pvarright;
+    (void)pvarresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarImp(JNIEnv* km_env, jclass km_clazz, jlong pvarleft, jlong pvarright, jlong pvarresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarImp");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvarleft, (void*)(uintptr_t)pvarright, (void*)(uintptr_t)pvarresult) : -1;
+#else
+    (void)pvarleft;
+    (void)pvarright;
+    (void)pvarresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarInt(JNIEnv* km_env, jclass km_clazz, jlong pvarin, jlong pvarresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarInt");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvarin, (void*)(uintptr_t)pvarresult) : -1;
+#else
+    (void)pvarin;
+    (void)pvarresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarMod(JNIEnv* km_env, jclass km_clazz, jlong pvarleft, jlong pvarright, jlong pvarresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarMod");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvarleft, (void*)(uintptr_t)pvarright, (void*)(uintptr_t)pvarresult) : -1;
+#else
+    (void)pvarleft;
+    (void)pvarright;
+    (void)pvarresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarMonthName(JNIEnv* km_env, jclass km_clazz, jint imonth, jint fabbrev, jint dwflags, jlong pbstrout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarMonthName");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)imonth, (int32_t)fabbrev, (uint32_t)dwflags, (void*)(uintptr_t)pbstrout) : -1;
+#else
+    (void)imonth;
+    (void)fabbrev;
+    (void)dwflags;
+    (void)pbstrout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarMul(JNIEnv* km_env, jclass km_clazz, jlong pvarleft, jlong pvarright, jlong pvarresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarMul");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvarleft, (void*)(uintptr_t)pvarright, (void*)(uintptr_t)pvarresult) : -1;
+#else
+    (void)pvarleft;
+    (void)pvarright;
+    (void)pvarresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarNeg(JNIEnv* km_env, jclass km_clazz, jlong pvarin, jlong pvarresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarNeg");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvarin, (void*)(uintptr_t)pvarresult) : -1;
+#else
+    (void)pvarin;
+    (void)pvarresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarNot(JNIEnv* km_env, jclass km_clazz, jlong pvarin, jlong pvarresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarNot");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvarin, (void*)(uintptr_t)pvarresult) : -1;
+#else
+    (void)pvarin;
+    (void)pvarresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarNumFromParseNum(JNIEnv* km_env, jclass km_clazz, jlong pnumprs, jlong rgbdig, jint dwvtbits, jlong pvar) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarNumFromParseNum");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pnumprs, (void*)(uintptr_t)rgbdig, (uint32_t)dwvtbits, (void*)(uintptr_t)pvar) : -1;
+#else
+    (void)pnumprs;
+    (void)rgbdig;
+    (void)dwvtbits;
+    (void)pvar;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarOr(JNIEnv* km_env, jclass km_clazz, jlong pvarleft, jlong pvarright, jlong pvarresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarOr");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvarleft, (void*)(uintptr_t)pvarright, (void*)(uintptr_t)pvarresult) : -1;
+#else
+    (void)pvarleft;
+    (void)pvarright;
+    (void)pvarresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarParseNumFromStr(JNIEnv* km_env, jclass km_clazz, jlong strin, jint lcid, jint dwflags, jlong pnumprs, jlong rgbdig) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarParseNumFromStr");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)strin, (uint32_t)lcid, (uint32_t)dwflags, (void*)(uintptr_t)pnumprs, (void*)(uintptr_t)rgbdig) : -1;
+#else
+    (void)strin;
+    (void)lcid;
+    (void)dwflags;
+    (void)pnumprs;
+    (void)rgbdig;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarPow(JNIEnv* km_env, jclass km_clazz, jlong pvarleft, jlong pvarright, jlong pvarresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarPow");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvarleft, (void*)(uintptr_t)pvarright, (void*)(uintptr_t)pvarresult) : -1;
+#else
+    (void)pvarleft;
+    (void)pvarright;
+    (void)pvarresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR4CmpR8(JNIEnv* km_env, jclass km_clazz, jfloat fltleft, jdouble dblright) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(float, double);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR4CmpR8");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((float)fltleft, (double)dblright) : 0;
+#else
+    (void)fltleft;
+    (void)dblright;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR4FromBool(JNIEnv* km_env, jclass km_clazz, jshort boolin, jlong pfltout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR4FromBool");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)boolin, (void*)(uintptr_t)pfltout) : -1;
+#else
+    (void)boolin;
+    (void)pfltout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR4FromDate(JNIEnv* km_env, jclass km_clazz, jdouble datein, jlong pfltout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR4FromDate");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)datein, (void*)(uintptr_t)pfltout) : -1;
+#else
+    (void)datein;
+    (void)pfltout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR4FromDec(JNIEnv* km_env, jclass km_clazz, jlong pdecin, jlong pfltout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR4FromDec");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdecin, (void*)(uintptr_t)pfltout) : -1;
+#else
+    (void)pdecin;
+    (void)pfltout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR4FromDisp(JNIEnv* km_env, jclass km_clazz, jlong pdispin, jint lcid, jlong pfltout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR4FromDisp");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdispin, (uint32_t)lcid, (void*)(uintptr_t)pfltout) : -1;
+#else
+    (void)pdispin;
+    (void)lcid;
+    (void)pfltout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR4FromI1(JNIEnv* km_env, jclass km_clazz, jbyte cin, jlong pfltout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int8_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR4FromI1");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int8_t)cin, (void*)(uintptr_t)pfltout) : -1;
+#else
+    (void)cin;
+    (void)pfltout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR4FromI2(JNIEnv* km_env, jclass km_clazz, jshort arg_0_sin, jlong pfltout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR4FromI2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)arg_0_sin, (void*)(uintptr_t)pfltout) : -1;
+#else
+    (void)arg_0_sin;
+    (void)pfltout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR4FromI4(JNIEnv* km_env, jclass km_clazz, jint lin, jlong pfltout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR4FromI4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)lin, (void*)(uintptr_t)pfltout) : -1;
+#else
+    (void)lin;
+    (void)pfltout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR4FromI8(JNIEnv* km_env, jclass km_clazz, jlong i64in, jlong pfltout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR4FromI8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)i64in, (void*)(uintptr_t)pfltout) : -1;
+#else
+    (void)i64in;
+    (void)pfltout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR4FromR8(JNIEnv* km_env, jclass km_clazz, jdouble dblin, jlong pfltout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR4FromR8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)dblin, (void*)(uintptr_t)pfltout) : -1;
+#else
+    (void)dblin;
+    (void)pfltout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR4FromStr(JNIEnv* km_env, jclass km_clazz, jlong strin, jint lcid, jint dwflags, jlong pfltout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR4FromStr");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)strin, (uint32_t)lcid, (uint32_t)dwflags, (void*)(uintptr_t)pfltout) : -1;
+#else
+    (void)strin;
+    (void)lcid;
+    (void)dwflags;
+    (void)pfltout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR4FromUI1(JNIEnv* km_env, jclass km_clazz, jbyte bin, jlong pfltout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint8_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR4FromUI1");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint8_t)bin, (void*)(uintptr_t)pfltout) : -1;
+#else
+    (void)bin;
+    (void)pfltout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR4FromUI2(JNIEnv* km_env, jclass km_clazz, jshort uiin, jlong pfltout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR4FromUI2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint16_t)uiin, (void*)(uintptr_t)pfltout) : -1;
+#else
+    (void)uiin;
+    (void)pfltout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR4FromUI4(JNIEnv* km_env, jclass km_clazz, jint ulin, jlong pfltout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR4FromUI4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)ulin, (void*)(uintptr_t)pfltout) : -1;
+#else
+    (void)ulin;
+    (void)pfltout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR4FromUI8(JNIEnv* km_env, jclass km_clazz, jlong ui64in, jlong pfltout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR4FromUI8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)ui64in, (void*)(uintptr_t)pfltout) : -1;
+#else
+    (void)ui64in;
+    (void)pfltout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR8FromBool(JNIEnv* km_env, jclass km_clazz, jshort boolin, jlong pdblout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR8FromBool");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)boolin, (void*)(uintptr_t)pdblout) : -1;
+#else
+    (void)boolin;
+    (void)pdblout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR8FromDate(JNIEnv* km_env, jclass km_clazz, jdouble datein, jlong pdblout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR8FromDate");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)datein, (void*)(uintptr_t)pdblout) : -1;
+#else
+    (void)datein;
+    (void)pdblout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR8FromDec(JNIEnv* km_env, jclass km_clazz, jlong pdecin, jlong pdblout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR8FromDec");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdecin, (void*)(uintptr_t)pdblout) : -1;
+#else
+    (void)pdecin;
+    (void)pdblout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR8FromDisp(JNIEnv* km_env, jclass km_clazz, jlong pdispin, jint lcid, jlong pdblout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR8FromDisp");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdispin, (uint32_t)lcid, (void*)(uintptr_t)pdblout) : -1;
+#else
+    (void)pdispin;
+    (void)lcid;
+    (void)pdblout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR8FromI1(JNIEnv* km_env, jclass km_clazz, jbyte cin, jlong pdblout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int8_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR8FromI1");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int8_t)cin, (void*)(uintptr_t)pdblout) : -1;
+#else
+    (void)cin;
+    (void)pdblout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR8FromI2(JNIEnv* km_env, jclass km_clazz, jshort arg_0_sin, jlong pdblout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR8FromI2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)arg_0_sin, (void*)(uintptr_t)pdblout) : -1;
+#else
+    (void)arg_0_sin;
+    (void)pdblout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR8FromI4(JNIEnv* km_env, jclass km_clazz, jint lin, jlong pdblout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR8FromI4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)lin, (void*)(uintptr_t)pdblout) : -1;
+#else
+    (void)lin;
+    (void)pdblout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR8FromI8(JNIEnv* km_env, jclass km_clazz, jlong i64in, jlong pdblout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR8FromI8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)i64in, (void*)(uintptr_t)pdblout) : -1;
+#else
+    (void)i64in;
+    (void)pdblout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR8FromR4(JNIEnv* km_env, jclass km_clazz, jfloat fltin, jlong pdblout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(float, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR8FromR4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((float)fltin, (void*)(uintptr_t)pdblout) : -1;
+#else
+    (void)fltin;
+    (void)pdblout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR8FromStr(JNIEnv* km_env, jclass km_clazz, jlong strin, jint lcid, jint dwflags, jlong pdblout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR8FromStr");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)strin, (uint32_t)lcid, (uint32_t)dwflags, (void*)(uintptr_t)pdblout) : -1;
+#else
+    (void)strin;
+    (void)lcid;
+    (void)dwflags;
+    (void)pdblout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR8FromUI1(JNIEnv* km_env, jclass km_clazz, jbyte bin, jlong pdblout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint8_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR8FromUI1");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint8_t)bin, (void*)(uintptr_t)pdblout) : -1;
+#else
+    (void)bin;
+    (void)pdblout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR8FromUI2(JNIEnv* km_env, jclass km_clazz, jshort uiin, jlong pdblout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR8FromUI2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint16_t)uiin, (void*)(uintptr_t)pdblout) : -1;
+#else
+    (void)uiin;
+    (void)pdblout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR8FromUI4(JNIEnv* km_env, jclass km_clazz, jint ulin, jlong pdblout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR8FromUI4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)ulin, (void*)(uintptr_t)pdblout) : -1;
+#else
+    (void)ulin;
+    (void)pdblout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR8FromUI8(JNIEnv* km_env, jclass km_clazz, jlong ui64in, jlong pdblout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR8FromUI8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)ui64in, (void*)(uintptr_t)pdblout) : -1;
+#else
+    (void)ui64in;
+    (void)pdblout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR8Pow(JNIEnv* km_env, jclass km_clazz, jdouble dblleft, jdouble dblright, jlong pdblresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, double, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR8Pow");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)dblleft, (double)dblright, (void*)(uintptr_t)pdblresult) : -1;
+#else
+    (void)dblleft;
+    (void)dblright;
+    (void)pdblresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarR8Round(JNIEnv* km_env, jclass km_clazz, jdouble dblin, jint cdecimals, jlong pdblresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarR8Round");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)dblin, (int32_t)cdecimals, (void*)(uintptr_t)pdblresult) : -1;
+#else
+    (void)dblin;
+    (void)cdecimals;
+    (void)pdblresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarRound(JNIEnv* km_env, jclass km_clazz, jlong pvarin, jint cdecimals, jlong pvarresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarRound");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvarin, (int32_t)cdecimals, (void*)(uintptr_t)pvarresult) : -1;
+#else
+    (void)pvarin;
+    (void)cdecimals;
+    (void)pvarresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarSub(JNIEnv* km_env, jclass km_clazz, jlong pvarleft, jlong pvarright, jlong pvarresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarSub");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvarleft, (void*)(uintptr_t)pvarright, (void*)(uintptr_t)pvarresult) : -1;
+#else
+    (void)pvarleft;
+    (void)pvarright;
+    (void)pvarresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarTokenizeFormatString(JNIEnv* km_env, jclass km_clazz, jlong pstrformat, jlong rgbtok, jint cbtok, jint ifirstday, jint ifirstweek, jint lcid, jlong pcbactual) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, int32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarTokenizeFormatString");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pstrformat, (void*)(uintptr_t)rgbtok, (int32_t)cbtok, (int32_t)ifirstday, (int32_t)ifirstweek, (uint32_t)lcid, (void*)(uintptr_t)pcbactual) : -1;
+#else
+    (void)pstrformat;
+    (void)rgbtok;
+    (void)cbtok;
+    (void)ifirstday;
+    (void)ifirstweek;
+    (void)lcid;
+    (void)pcbactual;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI1FromBool(JNIEnv* km_env, jclass km_clazz, jshort boolin, jlong pbout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI1FromBool");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)boolin, (void*)(uintptr_t)pbout) : -1;
+#else
+    (void)boolin;
+    (void)pbout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI1FromDate(JNIEnv* km_env, jclass km_clazz, jdouble datein, jlong pbout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI1FromDate");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)datein, (void*)(uintptr_t)pbout) : -1;
+#else
+    (void)datein;
+    (void)pbout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI1FromDec(JNIEnv* km_env, jclass km_clazz, jlong pdecin, jlong pbout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI1FromDec");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdecin, (void*)(uintptr_t)pbout) : -1;
+#else
+    (void)pdecin;
+    (void)pbout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI1FromDisp(JNIEnv* km_env, jclass km_clazz, jlong pdispin, jint lcid, jlong pbout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI1FromDisp");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdispin, (uint32_t)lcid, (void*)(uintptr_t)pbout) : -1;
+#else
+    (void)pdispin;
+    (void)lcid;
+    (void)pbout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI1FromI1(JNIEnv* km_env, jclass km_clazz, jbyte cin, jlong pbout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int8_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI1FromI1");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int8_t)cin, (void*)(uintptr_t)pbout) : -1;
+#else
+    (void)cin;
+    (void)pbout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI1FromI2(JNIEnv* km_env, jclass km_clazz, jshort arg_0_sin, jlong pbout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI1FromI2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)arg_0_sin, (void*)(uintptr_t)pbout) : -1;
+#else
+    (void)arg_0_sin;
+    (void)pbout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI1FromI4(JNIEnv* km_env, jclass km_clazz, jint lin, jlong pbout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI1FromI4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)lin, (void*)(uintptr_t)pbout) : -1;
+#else
+    (void)lin;
+    (void)pbout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI1FromI8(JNIEnv* km_env, jclass km_clazz, jlong i64in, jlong pbout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI1FromI8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)i64in, (void*)(uintptr_t)pbout) : -1;
+#else
+    (void)i64in;
+    (void)pbout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI1FromR4(JNIEnv* km_env, jclass km_clazz, jfloat fltin, jlong pbout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(float, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI1FromR4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((float)fltin, (void*)(uintptr_t)pbout) : -1;
+#else
+    (void)fltin;
+    (void)pbout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI1FromR8(JNIEnv* km_env, jclass km_clazz, jdouble dblin, jlong pbout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI1FromR8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)dblin, (void*)(uintptr_t)pbout) : -1;
+#else
+    (void)dblin;
+    (void)pbout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI1FromStr(JNIEnv* km_env, jclass km_clazz, jlong strin, jint lcid, jint dwflags, jlong pbout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI1FromStr");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)strin, (uint32_t)lcid, (uint32_t)dwflags, (void*)(uintptr_t)pbout) : -1;
+#else
+    (void)strin;
+    (void)lcid;
+    (void)dwflags;
+    (void)pbout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI1FromUI2(JNIEnv* km_env, jclass km_clazz, jshort uiin, jlong pbout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI1FromUI2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint16_t)uiin, (void*)(uintptr_t)pbout) : -1;
+#else
+    (void)uiin;
+    (void)pbout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI1FromUI4(JNIEnv* km_env, jclass km_clazz, jint ulin, jlong pbout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI1FromUI4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)ulin, (void*)(uintptr_t)pbout) : -1;
+#else
+    (void)ulin;
+    (void)pbout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI1FromUI8(JNIEnv* km_env, jclass km_clazz, jlong ui64in, jlong pbout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI1FromUI8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)ui64in, (void*)(uintptr_t)pbout) : -1;
+#else
+    (void)ui64in;
+    (void)pbout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI2FromBool(JNIEnv* km_env, jclass km_clazz, jshort boolin, jlong puiout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI2FromBool");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)boolin, (void*)(uintptr_t)puiout) : -1;
+#else
+    (void)boolin;
+    (void)puiout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI2FromDate(JNIEnv* km_env, jclass km_clazz, jdouble datein, jlong puiout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI2FromDate");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)datein, (void*)(uintptr_t)puiout) : -1;
+#else
+    (void)datein;
+    (void)puiout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI2FromDec(JNIEnv* km_env, jclass km_clazz, jlong pdecin, jlong puiout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI2FromDec");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdecin, (void*)(uintptr_t)puiout) : -1;
+#else
+    (void)pdecin;
+    (void)puiout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI2FromDisp(JNIEnv* km_env, jclass km_clazz, jlong pdispin, jint lcid, jlong puiout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI2FromDisp");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdispin, (uint32_t)lcid, (void*)(uintptr_t)puiout) : -1;
+#else
+    (void)pdispin;
+    (void)lcid;
+    (void)puiout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI2FromI1(JNIEnv* km_env, jclass km_clazz, jbyte cin, jlong puiout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int8_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI2FromI1");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int8_t)cin, (void*)(uintptr_t)puiout) : -1;
+#else
+    (void)cin;
+    (void)puiout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI2FromI2(JNIEnv* km_env, jclass km_clazz, jshort uiin, jlong puiout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI2FromI2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)uiin, (void*)(uintptr_t)puiout) : -1;
+#else
+    (void)uiin;
+    (void)puiout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI2FromI4(JNIEnv* km_env, jclass km_clazz, jint lin, jlong puiout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI2FromI4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)lin, (void*)(uintptr_t)puiout) : -1;
+#else
+    (void)lin;
+    (void)puiout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI2FromI8(JNIEnv* km_env, jclass km_clazz, jlong i64in, jlong puiout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI2FromI8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)i64in, (void*)(uintptr_t)puiout) : -1;
+#else
+    (void)i64in;
+    (void)puiout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI2FromR4(JNIEnv* km_env, jclass km_clazz, jfloat fltin, jlong puiout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(float, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI2FromR4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((float)fltin, (void*)(uintptr_t)puiout) : -1;
+#else
+    (void)fltin;
+    (void)puiout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI2FromR8(JNIEnv* km_env, jclass km_clazz, jdouble dblin, jlong puiout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI2FromR8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)dblin, (void*)(uintptr_t)puiout) : -1;
+#else
+    (void)dblin;
+    (void)puiout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI2FromStr(JNIEnv* km_env, jclass km_clazz, jlong strin, jint lcid, jint dwflags, jlong puiout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI2FromStr");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)strin, (uint32_t)lcid, (uint32_t)dwflags, (void*)(uintptr_t)puiout) : -1;
+#else
+    (void)strin;
+    (void)lcid;
+    (void)dwflags;
+    (void)puiout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI2FromUI1(JNIEnv* km_env, jclass km_clazz, jbyte bin, jlong puiout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint8_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI2FromUI1");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint8_t)bin, (void*)(uintptr_t)puiout) : -1;
+#else
+    (void)bin;
+    (void)puiout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI2FromUI4(JNIEnv* km_env, jclass km_clazz, jint ulin, jlong puiout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI2FromUI4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)ulin, (void*)(uintptr_t)puiout) : -1;
+#else
+    (void)ulin;
+    (void)puiout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI2FromUI8(JNIEnv* km_env, jclass km_clazz, jlong i64in, jlong puiout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI2FromUI8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)i64in, (void*)(uintptr_t)puiout) : -1;
+#else
+    (void)i64in;
+    (void)puiout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI4FromBool(JNIEnv* km_env, jclass km_clazz, jshort boolin, jlong pulout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI4FromBool");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)boolin, (void*)(uintptr_t)pulout) : -1;
+#else
+    (void)boolin;
+    (void)pulout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI4FromDate(JNIEnv* km_env, jclass km_clazz, jdouble datein, jlong pulout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI4FromDate");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)datein, (void*)(uintptr_t)pulout) : -1;
+#else
+    (void)datein;
+    (void)pulout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI4FromDec(JNIEnv* km_env, jclass km_clazz, jlong pdecin, jlong pulout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI4FromDec");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdecin, (void*)(uintptr_t)pulout) : -1;
+#else
+    (void)pdecin;
+    (void)pulout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI4FromDisp(JNIEnv* km_env, jclass km_clazz, jlong pdispin, jint lcid, jlong pulout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI4FromDisp");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdispin, (uint32_t)lcid, (void*)(uintptr_t)pulout) : -1;
+#else
+    (void)pdispin;
+    (void)lcid;
+    (void)pulout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI4FromI1(JNIEnv* km_env, jclass km_clazz, jbyte cin, jlong pulout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int8_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI4FromI1");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int8_t)cin, (void*)(uintptr_t)pulout) : -1;
+#else
+    (void)cin;
+    (void)pulout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI4FromI2(JNIEnv* km_env, jclass km_clazz, jshort uiin, jlong pulout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI4FromI2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)uiin, (void*)(uintptr_t)pulout) : -1;
+#else
+    (void)uiin;
+    (void)pulout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI4FromI4(JNIEnv* km_env, jclass km_clazz, jint lin, jlong pulout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI4FromI4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)lin, (void*)(uintptr_t)pulout) : -1;
+#else
+    (void)lin;
+    (void)pulout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI4FromI8(JNIEnv* km_env, jclass km_clazz, jlong i64in, jlong plout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI4FromI8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)i64in, (void*)(uintptr_t)plout) : -1;
+#else
+    (void)i64in;
+    (void)plout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI4FromR4(JNIEnv* km_env, jclass km_clazz, jfloat fltin, jlong pulout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(float, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI4FromR4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((float)fltin, (void*)(uintptr_t)pulout) : -1;
+#else
+    (void)fltin;
+    (void)pulout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI4FromR8(JNIEnv* km_env, jclass km_clazz, jdouble dblin, jlong pulout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI4FromR8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)dblin, (void*)(uintptr_t)pulout) : -1;
+#else
+    (void)dblin;
+    (void)pulout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI4FromStr(JNIEnv* km_env, jclass km_clazz, jlong strin, jint lcid, jint dwflags, jlong pulout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI4FromStr");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)strin, (uint32_t)lcid, (uint32_t)dwflags, (void*)(uintptr_t)pulout) : -1;
+#else
+    (void)strin;
+    (void)lcid;
+    (void)dwflags;
+    (void)pulout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI4FromUI1(JNIEnv* km_env, jclass km_clazz, jbyte bin, jlong pulout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint8_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI4FromUI1");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint8_t)bin, (void*)(uintptr_t)pulout) : -1;
+#else
+    (void)bin;
+    (void)pulout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI4FromUI2(JNIEnv* km_env, jclass km_clazz, jshort uiin, jlong pulout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI4FromUI2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint16_t)uiin, (void*)(uintptr_t)pulout) : -1;
+#else
+    (void)uiin;
+    (void)pulout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI4FromUI8(JNIEnv* km_env, jclass km_clazz, jlong ui64in, jlong plout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI4FromUI8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)ui64in, (void*)(uintptr_t)plout) : -1;
+#else
+    (void)ui64in;
+    (void)plout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI8FromBool(JNIEnv* km_env, jclass km_clazz, jshort boolin, jlong pi64out) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI8FromBool");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)boolin, (void*)(uintptr_t)pi64out) : -1;
+#else
+    (void)boolin;
+    (void)pi64out;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI8FromDate(JNIEnv* km_env, jclass km_clazz, jdouble datein, jlong pi64out) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI8FromDate");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)datein, (void*)(uintptr_t)pi64out) : -1;
+#else
+    (void)datein;
+    (void)pi64out;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI8FromDec(JNIEnv* km_env, jclass km_clazz, jlong pdecin, jlong pi64out) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI8FromDec");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdecin, (void*)(uintptr_t)pi64out) : -1;
+#else
+    (void)pdecin;
+    (void)pi64out;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI8FromDisp(JNIEnv* km_env, jclass km_clazz, jlong pdispin, jint lcid, jlong pi64out) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI8FromDisp");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdispin, (uint32_t)lcid, (void*)(uintptr_t)pi64out) : -1;
+#else
+    (void)pdispin;
+    (void)lcid;
+    (void)pi64out;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI8FromI1(JNIEnv* km_env, jclass km_clazz, jbyte cin, jlong pi64out) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int8_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI8FromI1");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int8_t)cin, (void*)(uintptr_t)pi64out) : -1;
+#else
+    (void)cin;
+    (void)pi64out;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI8FromI2(JNIEnv* km_env, jclass km_clazz, jshort arg_0_sin, jlong pi64out) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI8FromI2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)arg_0_sin, (void*)(uintptr_t)pi64out) : -1;
+#else
+    (void)arg_0_sin;
+    (void)pi64out;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI8FromI8(JNIEnv* km_env, jclass km_clazz, jlong ui64in, jlong pi64out) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI8FromI8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)ui64in, (void*)(uintptr_t)pi64out) : -1;
+#else
+    (void)ui64in;
+    (void)pi64out;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI8FromR4(JNIEnv* km_env, jclass km_clazz, jfloat fltin, jlong pi64out) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(float, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI8FromR4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((float)fltin, (void*)(uintptr_t)pi64out) : -1;
+#else
+    (void)fltin;
+    (void)pi64out;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI8FromR8(JNIEnv* km_env, jclass km_clazz, jdouble dblin, jlong pi64out) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI8FromR8");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)dblin, (void*)(uintptr_t)pi64out) : -1;
+#else
+    (void)dblin;
+    (void)pi64out;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI8FromStr(JNIEnv* km_env, jclass km_clazz, jlong strin, jint lcid, jint dwflags, jlong pi64out) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI8FromStr");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)strin, (uint32_t)lcid, (uint32_t)dwflags, (void*)(uintptr_t)pi64out) : -1;
+#else
+    (void)strin;
+    (void)lcid;
+    (void)dwflags;
+    (void)pi64out;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI8FromUI1(JNIEnv* km_env, jclass km_clazz, jbyte bin, jlong pi64out) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint8_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI8FromUI1");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint8_t)bin, (void*)(uintptr_t)pi64out) : -1;
+#else
+    (void)bin;
+    (void)pi64out;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI8FromUI2(JNIEnv* km_env, jclass km_clazz, jshort uiin, jlong pi64out) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI8FromUI2");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint16_t)uiin, (void*)(uintptr_t)pi64out) : -1;
+#else
+    (void)uiin;
+    (void)pi64out;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUI8FromUI4(JNIEnv* km_env, jclass km_clazz, jint ulin, jlong pi64out) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUI8FromUI4");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)ulin, (void*)(uintptr_t)pi64out) : -1;
+#else
+    (void)ulin;
+    (void)pi64out;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarUdateFromDate(JNIEnv* km_env, jclass km_clazz, jdouble datein, jint dwflags, jlong pudateout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(double, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarUdateFromDate");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((double)datein, (uint32_t)dwflags, (void*)(uintptr_t)pudateout) : -1;
+#else
+    (void)datein;
+    (void)dwflags;
+    (void)pudateout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarWeekdayName(JNIEnv* km_env, jclass km_clazz, jint iweekday, jint fabbrev, jint ifirstday, jint dwflags, jlong pbstrout) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t, int32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarWeekdayName");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)iweekday, (int32_t)fabbrev, (int32_t)ifirstday, (uint32_t)dwflags, (void*)(uintptr_t)pbstrout) : -1;
+#else
+    (void)iweekday;
+    (void)fabbrev;
+    (void)ifirstday;
+    (void)dwflags;
+    (void)pbstrout;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VarXor(JNIEnv* km_env, jclass km_clazz, jlong pvarleft, jlong pvarright, jlong pvarresult) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VarXor");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvarleft, (void*)(uintptr_t)pvarright, (void*)(uintptr_t)pvarresult) : -1;
+#else
+    (void)pvarleft;
+    (void)pvarright;
+    (void)pvarresult;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_ole_WindowsWin32SystemOleJniBridge_windowssys_1windows_1win32_1system_1ole_1VectorFromBstr(JNIEnv* km_env, jclass km_clazz, jlong bstr, jlong ppsa) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VectorFromBstr");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)bstr, (void*)(uintptr_t)ppsa) : -1;
+#else
+    (void)bstr;
+    (void)ppsa;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+

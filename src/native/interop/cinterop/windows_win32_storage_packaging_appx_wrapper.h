@@ -1,0 +1,81 @@
+#ifndef WINDOWSSYS_WINDOWS_WIN32_STORAGE_PACKAGING_APPX_WINDOWS_WIN32_STORAGE_PACKAGING_APPX_WRAPPER_H
+#define WINDOWSSYS_WINDOWS_WIN32_STORAGE_PACKAGING_APPX_WINDOWS_WIN32_STORAGE_PACKAGING_APPX_WRAPPER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+int32_t windowssys_windows_win32_storage_packaging_appx_ActivatePackageVirtualizationContext(void* context, void* cookie);
+int32_t windowssys_windows_win32_storage_packaging_appx_AddPackageDependency(void* packagedependencyid, int32_t rank, int32_t options, void* packagedependencycontext, void* packagefullname);
+uint32_t windowssys_windows_win32_storage_packaging_appx_AppPolicyGetClrCompat(void* processtoken, void* policy);
+uint32_t windowssys_windows_win32_storage_packaging_appx_AppPolicyGetCreateFileAccess(void* processtoken, void* policy);
+uint32_t windowssys_windows_win32_storage_packaging_appx_AppPolicyGetLifecycleManagement(void* processtoken, void* policy);
+uint32_t windowssys_windows_win32_storage_packaging_appx_AppPolicyGetMediaFoundationCodecLoading(void* processtoken, void* policy);
+uint32_t windowssys_windows_win32_storage_packaging_appx_AppPolicyGetProcessTerminationMethod(void* processtoken, void* policy);
+uint32_t windowssys_windows_win32_storage_packaging_appx_AppPolicyGetShowDeveloperDiagnostic(void* processtoken, void* policy);
+uint32_t windowssys_windows_win32_storage_packaging_appx_AppPolicyGetThreadInitializationType(void* processtoken, void* policy);
+uint32_t windowssys_windows_win32_storage_packaging_appx_AppPolicyGetWindowingModel(void* processtoken, void* policy);
+int32_t windowssys_windows_win32_storage_packaging_appx_CheckIsMSIXPackage(void* packagefullname, void* ismsixpackage);
+uint32_t windowssys_windows_win32_storage_packaging_appx_ClosePackageInfo(void* packageinforeference);
+int32_t windowssys_windows_win32_storage_packaging_appx_CreatePackageVirtualizationContext(void* packagefamilyname, void* context);
+void windowssys_windows_win32_storage_packaging_appx_DeactivatePackageVirtualizationContext(uint64_t cookie);
+int32_t windowssys_windows_win32_storage_packaging_appx_DeletePackageDependency(void* packagedependencyid);
+int32_t windowssys_windows_win32_storage_packaging_appx_DuplicatePackageVirtualizationContext(void* sourcecontext, void* destcontext);
+uint32_t windowssys_windows_win32_storage_packaging_appx_FindPackagesByPackageFamily(void* packagefamilyname, uint32_t packagefilters, void* count, void* packagefullnames, void* bufferlength, void* buffer, void* packageproperties);
+uint32_t windowssys_windows_win32_storage_packaging_appx_FormatApplicationUserModelId(void* packagefamilyname, void* packagerelativeapplicationid, void* applicationusermodelidlength, void* applicationusermodelid);
+uint32_t windowssys_windows_win32_storage_packaging_appx_GetApplicationUserModelId(void* hprocess, void* applicationusermodelidlength, void* applicationusermodelid);
+uint32_t windowssys_windows_win32_storage_packaging_appx_GetApplicationUserModelIdFromToken(void* token, void* applicationusermodelidlength, void* applicationusermodelid);
+uint32_t windowssys_windows_win32_storage_packaging_appx_GetCurrentApplicationUserModelId(void* applicationusermodelidlength, void* applicationusermodelid);
+uint32_t windowssys_windows_win32_storage_packaging_appx_GetCurrentPackageFamilyName(void* packagefamilynamelength, void* packagefamilyname);
+uint32_t windowssys_windows_win32_storage_packaging_appx_GetCurrentPackageFullName(void* packagefullnamelength, void* packagefullname);
+uint32_t windowssys_windows_win32_storage_packaging_appx_GetCurrentPackageId(void* bufferlength, void* buffer);
+uint32_t windowssys_windows_win32_storage_packaging_appx_GetCurrentPackageInfo(uint32_t flags, void* bufferlength, void* buffer, void* count);
+uint32_t windowssys_windows_win32_storage_packaging_appx_GetCurrentPackageInfo2(uint32_t flags, int32_t packagepathtype, void* bufferlength, void* buffer, void* count);
+int32_t windowssys_windows_win32_storage_packaging_appx_GetCurrentPackageInfo3(uint32_t flags, int32_t packageinfotype, void* bufferlength, void* buffer, void* count);
+uint32_t windowssys_windows_win32_storage_packaging_appx_GetCurrentPackagePath(void* pathlength, void* path);
+uint32_t windowssys_windows_win32_storage_packaging_appx_GetCurrentPackagePath2(int32_t packagepathtype, void* pathlength, void* path);
+void* windowssys_windows_win32_storage_packaging_appx_GetCurrentPackageVirtualizationContext(void);
+int32_t windowssys_windows_win32_storage_packaging_appx_GetIdForPackageDependencyContext(void* packagedependencycontext, void* packagedependencyid);
+uint32_t windowssys_windows_win32_storage_packaging_appx_GetPackageApplicationIds(void* packageinforeference, void* bufferlength, void* buffer, void* count);
+uint32_t windowssys_windows_win32_storage_packaging_appx_GetPackageFamilyName(void* hprocess, void* packagefamilynamelength, void* packagefamilyname);
+uint32_t windowssys_windows_win32_storage_packaging_appx_GetPackageFamilyNameFromToken(void* token, void* packagefamilynamelength, void* packagefamilyname);
+uint32_t windowssys_windows_win32_storage_packaging_appx_GetPackageFullName(void* hprocess, void* packagefullnamelength, void* packagefullname);
+uint32_t windowssys_windows_win32_storage_packaging_appx_GetPackageFullNameFromToken(void* token, void* packagefullnamelength, void* packagefullname);
+uint32_t windowssys_windows_win32_storage_packaging_appx_GetPackageGraphRevisionId(void);
+uint32_t windowssys_windows_win32_storage_packaging_appx_GetPackageId(void* hprocess, void* bufferlength, void* buffer);
+uint32_t windowssys_windows_win32_storage_packaging_appx_GetPackageInfo(void* packageinforeference, uint32_t flags, void* bufferlength, void* buffer, void* count);
+uint32_t windowssys_windows_win32_storage_packaging_appx_GetPackageInfo2(void* packageinforeference, uint32_t flags, int32_t packagepathtype, void* bufferlength, void* buffer, void* count);
+uint32_t windowssys_windows_win32_storage_packaging_appx_GetPackagePath(void* packageid, uint32_t reserved, void* pathlength, void* path);
+uint32_t windowssys_windows_win32_storage_packaging_appx_GetPackagePathByFullName(void* packagefullname, void* pathlength, void* path);
+uint32_t windowssys_windows_win32_storage_packaging_appx_GetPackagePathByFullName2(void* packagefullname, int32_t packagepathtype, void* pathlength, void* path);
+uint32_t windowssys_windows_win32_storage_packaging_appx_GetPackagesByPackageFamily(void* packagefamilyname, void* count, void* packagefullnames, void* bufferlength, void* buffer);
+int32_t windowssys_windows_win32_storage_packaging_appx_GetProcessesInVirtualizationContext(void* packagefamilyname, void* count, void* processes);
+int32_t windowssys_windows_win32_storage_packaging_appx_GetResolvedPackageFullNameForPackageDependency(void* packagedependencyid, void* packagefullname);
+uint32_t windowssys_windows_win32_storage_packaging_appx_GetStagedPackageOrigin(void* packagefullname, void* origin);
+uint32_t windowssys_windows_win32_storage_packaging_appx_GetStagedPackagePathByFullName(void* packagefullname, void* pathlength, void* path);
+uint32_t windowssys_windows_win32_storage_packaging_appx_GetStagedPackagePathByFullName2(void* packagefullname, int32_t packagepathtype, void* pathlength, void* path);
+uint32_t windowssys_windows_win32_storage_packaging_appx_OpenPackageInfoByFullName(void* packagefullname, uint32_t reserved, void* packageinforeference);
+uint32_t windowssys_windows_win32_storage_packaging_appx_OpenPackageInfoByFullNameForUser(void* usersid, void* packagefullname, uint32_t reserved, void* packageinforeference);
+uint32_t windowssys_windows_win32_storage_packaging_appx_PackageFamilyNameFromFullName(void* packagefullname, void* packagefamilynamelength, void* packagefamilyname);
+uint32_t windowssys_windows_win32_storage_packaging_appx_PackageFamilyNameFromId(void* packageid, void* packagefamilynamelength, void* packagefamilyname);
+uint32_t windowssys_windows_win32_storage_packaging_appx_PackageFullNameFromId(void* packageid, void* packagefullnamelength, void* packagefullname);
+uint32_t windowssys_windows_win32_storage_packaging_appx_PackageIdFromFullName(void* packagefullname, uint32_t flags, void* bufferlength, void* buffer);
+uint32_t windowssys_windows_win32_storage_packaging_appx_PackageNameAndPublisherIdFromFamilyName(void* packagefamilyname, void* packagenamelength, void* packagename, void* packagepublisheridlength, void* packagepublisherid);
+uint32_t windowssys_windows_win32_storage_packaging_appx_ParseApplicationUserModelId(void* applicationusermodelid, void* packagefamilynamelength, void* packagefamilyname, void* packagerelativeapplicationidlength, void* packagerelativeapplicationid);
+void windowssys_windows_win32_storage_packaging_appx_ReleasePackageVirtualizationContext(void* context);
+int32_t windowssys_windows_win32_storage_packaging_appx_RemovePackageDependency(void* packagedependencycontext);
+uint32_t windowssys_windows_win32_storage_packaging_appx_VerifyApplicationUserModelId(void* applicationusermodelid);
+uint32_t windowssys_windows_win32_storage_packaging_appx_VerifyPackageFamilyName(void* packagefamilyname);
+uint32_t windowssys_windows_win32_storage_packaging_appx_VerifyPackageFullName(void* packagefullname);
+uint32_t windowssys_windows_win32_storage_packaging_appx_VerifyPackageId(void* packageid);
+uint32_t windowssys_windows_win32_storage_packaging_appx_VerifyPackageRelativeApplicationId(void* packagerelativeapplicationid);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* WINDOWSSYS_WINDOWS_WIN32_STORAGE_PACKAGING_APPX_WINDOWS_WIN32_STORAGE_PACKAGING_APPX_WRAPPER_H */

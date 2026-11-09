@@ -1,0 +1,5 @@
+package = io.github.kotlinmania.windowssys.windows.win32.devices.serialcommunication.cinterop
+headers = windows_win32_devices_serialcommunication_wrapper.h
+headerFilter = windows_win32_devices_serialcommunication_wrapper.h
+compilerOpts = -Isrc/native/interop/cinterop
+staticLibraries = windows_win32_devices_serialcommunication_wrapper.a

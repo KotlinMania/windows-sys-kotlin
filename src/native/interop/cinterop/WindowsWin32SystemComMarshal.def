@@ -1,0 +1,5 @@
+package = io.github.kotlinmania.windowssys.windows.win32.system.com.marshal.cinterop
+headers = windows_win32_system_com_marshal_wrapper.h
+headerFilter = windows_win32_system_com_marshal_wrapper.h
+compilerOpts = -Isrc/native/interop/cinterop
+staticLibraries = windows_win32_system_com_marshal_wrapper.a

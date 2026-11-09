@@ -1,0 +1,1319 @@
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
+#endif
+#include <napi.h>
+#include <cstdint>
+#include <cstddef>
+#include <cstdlib>
+#include <cstring>
+#include <cerrno>
+#include <string>
+#ifdef _WIN32
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+#include <windows.h>
+#else
+#include <dlfcn.h>
+#ifndef RTLD_DEFAULT
+#define RTLD_DEFAULT ((void*)0)
+#endif
+#endif
+
+struct KmNapiRegistrarNode {
+    void (*register_fn)(Napi::Env, Napi::Object);
+    KmNapiRegistrarNode* next;
+};
+#if defined(__GNUC__) || defined(__clang__)
+__attribute__((visibility("hidden")))
+#endif
+extern KmNapiRegistrarNode* km_napi_registrar_head;
+
+namespace {
+
+static int64_t km_napi_arg_i64(const Napi::Value& v) {
+    if (v.IsNull() || v.IsUndefined()) return 0;
+    if (v.IsString()) {
+        std::string s = v.As<Napi::String>().Utf8Value();
+        return static_cast<int64_t>(std::strtoll(s.c_str(), nullptr, 10));
+    }
+    if (v.IsNumber()) return v.As<Napi::Number>().Int64Value();
+    return 0;
+}
+
+static uint64_t km_napi_arg_u64(const Napi::Value& v) {
+    if (v.IsNull() || v.IsUndefined()) return 0;
+    if (v.IsString()) {
+        std::string s = v.As<Napi::String>().Utf8Value();
+        return static_cast<uint64_t>(std::strtoull(s.c_str(), nullptr, 10));
+    }
+    if (v.IsNumber()) return static_cast<uint64_t>(v.As<Napi::Number>().Int64Value());
+    return 0;
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_ComputeInvCMAP_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* prgbcolors = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    uint32_t ncolors = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    void* pinvtable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    uint32_t cbtable = static_cast<uint32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("imgutil.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ComputeInvCMAP")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prgbcolors, ncolors, pinvtable, cbtable) : -1;
+#else
+    (void)prgbcolors;
+    (void)ncolors;
+    (void)pinvtable;
+    (void)cbtable;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_CreateMIMEMap_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* ppmap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("imgutil.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateMIMEMap")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppmap) : -1;
+#else
+    (void)ppmap;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_DecodeImage_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pstream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pmap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* peventsink = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("imgutil.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DecodeImage")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstream, pmap, peventsink) : -1;
+#else
+    (void)pstream;
+    (void)pmap;
+    (void)peventsink;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_DecodeImageEx_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pstream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pmap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* peventsink = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* pszmimetypeparam = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("imgutil.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DecodeImageEx")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstream, pmap, peventsink, pszmimetypeparam) : -1;
+#else
+    (void)pstream;
+    (void)pmap;
+    (void)peventsink;
+    (void)pszmimetypeparam;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_DitherTo8_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pdestbits = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    int32_t ndestpitch = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    void* psrcbits = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    int32_t nsrcpitch = static_cast<int32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
+    void* bfidsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+    void* prgbdestcolors = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    void* prgbsrccolors = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 6 ? km_napi_arg_u64(km_info[6]) : 0));
+    void* pbdestinvmap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 7 ? km_napi_arg_u64(km_info[7]) : 0));
+    int32_t x = static_cast<int32_t>(km_info.Length() > 8 ? km_info[8].ToNumber().Int32Value() : 0);
+    int32_t y = static_cast<int32_t>(km_info.Length() > 9 ? km_info[9].ToNumber().Int32Value() : 0);
+    int32_t cx = static_cast<int32_t>(km_info.Length() > 10 ? km_info[10].ToNumber().Int32Value() : 0);
+    int32_t cy = static_cast<int32_t>(km_info.Length() > 11 ? km_info[11].ToNumber().Int32Value() : 0);
+    int32_t ldesttrans = static_cast<int32_t>(km_info.Length() > 12 ? km_info[12].ToNumber().Int32Value() : 0);
+    int32_t lsrctrans = static_cast<int32_t>(km_info.Length() > 13 ? km_info[13].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t, void*, void*, void*, void*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("imgutil.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DitherTo8")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdestbits, ndestpitch, psrcbits, nsrcpitch, bfidsrc, prgbdestcolors, prgbsrccolors, pbdestinvmap, x, y, cx, cy, ldesttrans, lsrctrans) : -1;
+#else
+    (void)pdestbits;
+    (void)ndestpitch;
+    (void)psrcbits;
+    (void)nsrcpitch;
+    (void)bfidsrc;
+    (void)prgbdestcolors;
+    (void)prgbsrccolors;
+    (void)pbdestinvmap;
+    (void)x;
+    (void)y;
+    (void)cx;
+    (void)cy;
+    (void)ldesttrans;
+    (void)lsrctrans;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_GetMaxMIMEIDBytes_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pnmaxbytes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("imgutil.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetMaxMIMEIDBytes")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pnmaxbytes) : -1;
+#else
+    (void)pnmaxbytes;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_IEAssociateThreadWithTab_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    uint32_t dwtabthreadid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+    uint32_t dwassociatedthreadid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEAssociateThreadWithTab")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwtabthreadid, dwassociatedthreadid) : -1;
+#else
+    (void)dwtabthreadid;
+    (void)dwassociatedthreadid;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_IECancelSaveFile_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hstate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IECancelSaveFile")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstate) : -1;
+#else
+    (void)hstate;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_IECreateDirectory_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lppathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpsecurityattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IECreateDirectory")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lppathname, lpsecurityattributes) : -1;
+#else
+    (void)lppathname;
+    (void)lpsecurityattributes;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_IECreateFile_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    uint32_t dwdesiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    uint32_t dwsharemode = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    void* lpsecurityattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    uint32_t dwcreationdisposition = static_cast<uint32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
+    uint32_t dwflagsandattributes = static_cast<uint32_t>(km_info.Length() > 5 ? km_info[5].ToNumber().Int32Value() : 0);
+    void* htemplatefile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 6 ? km_napi_arg_u64(km_info[6]) : 0));
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IECreateFile")));
+    }
+    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpfilename, dwdesiredaccess, dwsharemode, lpsecurityattributes, dwcreationdisposition, dwflagsandattributes, htemplatefile) : NULL;
+#else
+    (void)lpfilename;
+    (void)dwdesiredaccess;
+    (void)dwsharemode;
+    (void)lpsecurityattributes;
+    (void)dwcreationdisposition;
+    (void)dwflagsandattributes;
+    (void)htemplatefile;
+    void* km_res = NULL;
+#endif
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_IEDeleteFile_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEDeleteFile")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpfilename) : -1;
+#else
+    (void)lpfilename;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_IEDisassociateThreadWithTab_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    uint32_t dwtabthreadid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+    uint32_t dwassociatedthreadid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEDisassociateThreadWithTab")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwtabthreadid, dwassociatedthreadid) : -1;
+#else
+    (void)dwtabthreadid;
+    (void)dwassociatedthreadid;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_IEFindFirstFile_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpfindfiledata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEFindFirstFile")));
+    }
+    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpfilename, lpfindfiledata) : NULL;
+#else
+    (void)lpfilename;
+    (void)lpfindfiledata;
+    void* km_res = NULL;
+#endif
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_IEGetFileAttributesEx_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    int32_t finfolevelid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    void* lpfileinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEGetFileAttributesEx")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpfilename, finfolevelid, lpfileinformation) : -1;
+#else
+    (void)lpfilename;
+    (void)finfolevelid;
+    (void)lpfileinformation;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_IEGetProtectedModeCookie_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpszcookiename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpszcookiedata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* pcchcookiedata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEGetProtectedModeCookie")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, lpszcookiename, lpszcookiedata, pcchcookiedata, dwflags) : -1;
+#else
+    (void)lpszurl;
+    (void)lpszcookiename;
+    (void)lpszcookiedata;
+    (void)pcchcookiedata;
+    (void)dwflags;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_IEGetWriteableFolderPath_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* clsidfolderid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lppwstrpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEGetWriteableFolderPath")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clsidfolderid, lppwstrpath) : -1;
+#else
+    (void)clsidfolderid;
+    (void)lppwstrpath;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_IEGetWriteableLowHKCU_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* phkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEGetWriteableLowHKCU")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phkey) : -1;
+#else
+    (void)phkey;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_IEInPrivateFilteringEnabled_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEInPrivateFilteringEnabled")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+#else
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_IEIsInPrivateBrowsing_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEIsInPrivateBrowsing")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+#else
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_IEIsProtectedModeProcess_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pbresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEIsProtectedModeProcess")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbresult) : -1;
+#else
+    (void)pbresult;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_IEIsProtectedModeURL_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpwstrurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEIsProtectedModeURL")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpwstrurl) : -1;
+#else
+    (void)lpwstrurl;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_IELaunchURL_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpwstrurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpprocinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IELaunchURL")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpwstrurl, lpprocinfo, lpinfo) : -1;
+#else
+    (void)lpwstrurl;
+    (void)lpprocinfo;
+    (void)lpinfo;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_IEMoveFileEx_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpexistingfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpnewfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEMoveFileEx")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpexistingfilename, lpnewfilename, dwflags) : -1;
+#else
+    (void)lpexistingfilename;
+    (void)lpnewfilename;
+    (void)dwflags;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_IERefreshElevationPolicy_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IERefreshElevationPolicy")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+#else
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_IERegCreateKeyEx_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    uint32_t reserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    void* lpclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    uint32_t dwoptions = static_cast<uint32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
+    uint32_t samdesired = static_cast<uint32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
+    void* lpsecurityattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    void* phkresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 6 ? km_napi_arg_u64(km_info[6]) : 0));
+    void* lpdwdisposition = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 7 ? km_napi_arg_u64(km_info[7]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t, void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IERegCreateKeyEx")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpsubkey, reserved, lpclass, dwoptions, samdesired, lpsecurityattributes, phkresult, lpdwdisposition) : -1;
+#else
+    (void)lpsubkey;
+    (void)reserved;
+    (void)lpclass;
+    (void)dwoptions;
+    (void)samdesired;
+    (void)lpsecurityattributes;
+    (void)phkresult;
+    (void)lpdwdisposition;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_IERegSetValueEx_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpvaluename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    uint32_t reserved = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    uint32_t dwtype = static_cast<uint32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
+    void* lpdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+    uint32_t cbdata = static_cast<uint32_t>(km_info.Length() > 5 ? km_info[5].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IERegSetValueEx")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpsubkey, lpvaluename, reserved, dwtype, lpdata, cbdata) : -1;
+#else
+    (void)lpsubkey;
+    (void)lpvaluename;
+    (void)reserved;
+    (void)dwtype;
+    (void)lpdata;
+    (void)cbdata;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_IERemoveDirectory_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lppathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IERemoveDirectory")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lppathname) : -1;
+#else
+    (void)lppathname;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_IESaveFile_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hstate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpwstrsourcefile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IESaveFile")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstate, lpwstrsourcefile) : -1;
+#else
+    (void)hstate;
+    (void)lpwstrsourcefile;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_IESetProtectedModeCookie_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpszcookiename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpszcookiedata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IESetProtectedModeCookie")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, lpszcookiename, lpszcookiedata, dwflags) : -1;
+#else
+    (void)lpszurl;
+    (void)lpszcookiename;
+    (void)lpszcookiedata;
+    (void)dwflags;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_IEShowOpenFileDialog_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpwstrfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    uint32_t cchmaxfilename = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    void* lpwstrinitialdir = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* lpwstrfilter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+    void* lpwstrdefext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    uint32_t dwfilterindex = static_cast<uint32_t>(km_info.Length() > 6 ? km_info[6].ToNumber().Int32Value() : 0);
+    uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 7 ? km_info[7].ToNumber().Int32Value() : 0);
+    void* phfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 8 ? km_napi_arg_u64(km_info[8]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEShowOpenFileDialog")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, lpwstrfilename, cchmaxfilename, lpwstrinitialdir, lpwstrfilter, lpwstrdefext, dwfilterindex, dwflags, phfile) : -1;
+#else
+    (void)hwnd;
+    (void)lpwstrfilename;
+    (void)cchmaxfilename;
+    (void)lpwstrinitialdir;
+    (void)lpwstrfilter;
+    (void)lpwstrdefext;
+    (void)dwfilterindex;
+    (void)dwflags;
+    (void)phfile;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_IEShowSaveFileDialog_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpwstrinitialfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpwstrinitialdir = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* lpwstrfilter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* lpwstrdefext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+    uint32_t dwfilterindex = static_cast<uint32_t>(km_info.Length() > 5 ? km_info[5].ToNumber().Int32Value() : 0);
+    uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 6 ? km_info[6].ToNumber().Int32Value() : 0);
+    void* lppwstrdestinationfilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 7 ? km_napi_arg_u64(km_info[7]) : 0));
+    void* phstate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 8 ? km_napi_arg_u64(km_info[8]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEShowSaveFileDialog")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, lpwstrinitialfilename, lpwstrinitialdir, lpwstrfilter, lpwstrdefext, dwfilterindex, dwflags, lppwstrdestinationfilepath, phstate) : -1;
+#else
+    (void)hwnd;
+    (void)lpwstrinitialfilename;
+    (void)lpwstrinitialdir;
+    (void)lpwstrfilter;
+    (void)lpwstrdefext;
+    (void)dwfilterindex;
+    (void)dwflags;
+    (void)lppwstrdestinationfilepath;
+    (void)phstate;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_IETrackingProtectionEnabled_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IETrackingProtectionEnabled")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+#else
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_IdentifyMIMEType_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pbbytes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    uint32_t nbytes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    void* pnformat = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("imgutil.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IdentifyMIMEType")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbbytes, nbytes, pnformat) : -1;
+#else
+    (void)pbbytes;
+    (void)nbytes;
+    (void)pnformat;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingAccessDeniedDialog_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pszusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* pszcontentdescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* pratingdetails = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("msrating.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingAccessDeniedDialog")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdlg, pszusername, pszcontentdescription, pratingdetails) : -1;
+#else
+    (void)hdlg;
+    (void)pszusername;
+    (void)pszcontentdescription;
+    (void)pratingdetails;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingAccessDeniedDialog2_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pszusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* pratingdetails = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("msrating.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingAccessDeniedDialog2")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdlg, pszusername, pratingdetails) : -1;
+#else
+    (void)hdlg;
+    (void)pszusername;
+    (void)pratingdetails;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingAccessDeniedDialog2W_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pszusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* pratingdetails = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("msrating.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingAccessDeniedDialog2W")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdlg, pszusername, pratingdetails) : -1;
+#else
+    (void)hdlg;
+    (void)pszusername;
+    (void)pratingdetails;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingAccessDeniedDialogW_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pszusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* pszcontentdescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* pratingdetails = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("msrating.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingAccessDeniedDialogW")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdlg, pszusername, pszcontentdescription, pratingdetails) : -1;
+#else
+    (void)hdlg;
+    (void)pszusername;
+    (void)pszcontentdescription;
+    (void)pratingdetails;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingAddToApprovedSites_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    uint32_t cbpasswordblob = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    void* pbpasswordblob = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    int32_t falwaysnever = static_cast<int32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
+    int32_t fsitepage = static_cast<int32_t>(km_info.Length() > 5 ? km_info[5].ToNumber().Int32Value() : 0);
+    int32_t fapprovedsitesenforced = static_cast<int32_t>(km_info.Length() > 6 ? km_info[6].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, int32_t, int32_t, int32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("msrating.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingAddToApprovedSites")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdlg, cbpasswordblob, pbpasswordblob, lpszurl, falwaysnever, fsitepage, fapprovedsitesenforced) : -1;
+#else
+    (void)hdlg;
+    (void)cbpasswordblob;
+    (void)pbpasswordblob;
+    (void)lpszurl;
+    (void)falwaysnever;
+    (void)fsitepage;
+    (void)fapprovedsitesenforced;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingCheckUserAccess_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pszusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* pszratinginfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* pdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    uint32_t cbdata = static_cast<uint32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
+    void* ppratingdetails = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("msrating.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingCheckUserAccess")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszusername, pszurl, pszratinginfo, pdata, cbdata, ppratingdetails) : -1;
+#else
+    (void)pszusername;
+    (void)pszurl;
+    (void)pszratinginfo;
+    (void)pdata;
+    (void)cbdata;
+    (void)ppratingdetails;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingCheckUserAccessW_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pszusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* pszratinginfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* pdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    uint32_t cbdata = static_cast<uint32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
+    void* ppratingdetails = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("msrating.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingCheckUserAccessW")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszusername, pszurl, pszratinginfo, pdata, cbdata, ppratingdetails) : -1;
+#else
+    (void)pszusername;
+    (void)pszurl;
+    (void)pszratinginfo;
+    (void)pdata;
+    (void)cbdata;
+    (void)ppratingdetails;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingClickedOnPRFInternal_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpszfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    int32_t nshow = static_cast<int32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("msrating.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingClickedOnPRFInternal")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndowner, param1, lpszfilename, nshow) : -1;
+#else
+    (void)hwndowner;
+    (void)param1;
+    (void)lpszfilename;
+    (void)nshow;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingClickedOnRATInternal_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpszfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    int32_t nshow = static_cast<int32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("msrating.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingClickedOnRATInternal")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndowner, param1, lpszfilename, nshow) : -1;
+#else
+    (void)hwndowner;
+    (void)param1;
+    (void)lpszfilename;
+    (void)nshow;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingEnable_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pszusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    int32_t fenable = static_cast<int32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("msrating.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingEnable")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, pszusername, fenable) : -1;
+#else
+    (void)hwndparent;
+    (void)pszusername;
+    (void)fenable;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingEnableW_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pszusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    int32_t fenable = static_cast<int32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("msrating.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingEnableW")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, pszusername, fenable) : -1;
+#else
+    (void)hwndparent;
+    (void)pszusername;
+    (void)fenable;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingEnabledQuery_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("msrating.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingEnabledQuery")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+#else
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingFreeDetails_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pratingdetails = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("msrating.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingFreeDetails")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pratingdetails) : -1;
+#else
+    (void)pratingdetails;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingInit_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("msrating.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingInit")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+#else
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingObtainCancel_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hratingobtainquery = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("msrating.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingObtainCancel")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hratingobtainquery) : -1;
+#else
+    (void)hratingobtainquery;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingObtainQuery_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* psztargeturl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    uint32_t dwuserdata = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    int64_t fcallback = km_info.Length() > 2 ? km_napi_arg_i64(km_info[2]) : 0;
+    void* phratingobtainquery = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int64_t, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("msrating.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingObtainQuery")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psztargeturl, dwuserdata, fcallback, phratingobtainquery) : -1;
+#else
+    (void)psztargeturl;
+    (void)dwuserdata;
+    (void)fcallback;
+    (void)phratingobtainquery;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingObtainQueryW_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* psztargeturl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    uint32_t dwuserdata = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    int64_t fcallback = km_info.Length() > 2 ? km_napi_arg_i64(km_info[2]) : 0;
+    void* phratingobtainquery = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int64_t, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("msrating.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingObtainQueryW")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psztargeturl, dwuserdata, fcallback, phratingobtainquery) : -1;
+#else
+    (void)psztargeturl;
+    (void)dwuserdata;
+    (void)fcallback;
+    (void)phratingobtainquery;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingSetupUI_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pszusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("msrating.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingSetupUI")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdlg, pszusername) : -1;
+#else
+    (void)hdlg;
+    (void)pszusername;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingSetupUIW_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pszusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("msrating.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingSetupUIW")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdlg, pszusername) : -1;
+#else
+    (void)hdlg;
+    (void)pszusername;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_web_internetexplorer_SniffStream_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pinstream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pnformat = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* ppoutstream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("imgutil.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SniffStream")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pinstream, pnformat, ppoutstream) : -1;
+#else
+    (void)pinstream;
+    (void)pnformat;
+    (void)ppoutstream;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static void register_windows_win32_web_internetexplorer_napi(Napi::Env env, Napi::Object exports) {
+    exports.Set("windowssys_windows_win32_web_internetexplorer_ComputeInvCMAP", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_ComputeInvCMAP_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_CreateMIMEMap", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_CreateMIMEMap_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_DecodeImage", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_DecodeImage_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_DecodeImageEx", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_DecodeImageEx_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_DitherTo8", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_DitherTo8_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_GetMaxMIMEIDBytes", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_GetMaxMIMEIDBytes_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_IEAssociateThreadWithTab", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IEAssociateThreadWithTab_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_IECancelSaveFile", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IECancelSaveFile_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_IECreateDirectory", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IECreateDirectory_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_IECreateFile", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IECreateFile_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_IEDeleteFile", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IEDeleteFile_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_IEDisassociateThreadWithTab", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IEDisassociateThreadWithTab_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_IEFindFirstFile", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IEFindFirstFile_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_IEGetFileAttributesEx", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IEGetFileAttributesEx_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_IEGetProtectedModeCookie", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IEGetProtectedModeCookie_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_IEGetWriteableFolderPath", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IEGetWriteableFolderPath_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_IEGetWriteableLowHKCU", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IEGetWriteableLowHKCU_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_IEInPrivateFilteringEnabled", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IEInPrivateFilteringEnabled_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_IEIsInPrivateBrowsing", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IEIsInPrivateBrowsing_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_IEIsProtectedModeProcess", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IEIsProtectedModeProcess_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_IEIsProtectedModeURL", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IEIsProtectedModeURL_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_IELaunchURL", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IELaunchURL_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_IEMoveFileEx", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IEMoveFileEx_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_IERefreshElevationPolicy", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IERefreshElevationPolicy_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_IERegCreateKeyEx", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IERegCreateKeyEx_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_IERegSetValueEx", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IERegSetValueEx_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_IERemoveDirectory", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IERemoveDirectory_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_IESaveFile", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IESaveFile_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_IESetProtectedModeCookie", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IESetProtectedModeCookie_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_IEShowOpenFileDialog", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IEShowOpenFileDialog_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_IEShowSaveFileDialog", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IEShowSaveFileDialog_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_IETrackingProtectionEnabled", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IETrackingProtectionEnabled_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_IdentifyMIMEType", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IdentifyMIMEType_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingAccessDeniedDialog", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingAccessDeniedDialog_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingAccessDeniedDialog2", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingAccessDeniedDialog2_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingAccessDeniedDialog2W", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingAccessDeniedDialog2W_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingAccessDeniedDialogW", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingAccessDeniedDialogW_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingAddToApprovedSites", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingAddToApprovedSites_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingCheckUserAccess", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingCheckUserAccess_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingCheckUserAccessW", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingCheckUserAccessW_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingClickedOnPRFInternal", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingClickedOnPRFInternal_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingClickedOnRATInternal", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingClickedOnRATInternal_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingEnable", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingEnable_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingEnableW", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingEnableW_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingEnabledQuery", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingEnabledQuery_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingFreeDetails", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingFreeDetails_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingInit", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingInit_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingObtainCancel", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingObtainCancel_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingObtainQuery", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingObtainQuery_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingObtainQueryW", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingObtainQueryW_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingSetupUI", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingSetupUI_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingSetupUIW", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingSetupUIW_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_SniffStream", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_SniffStream_napi));
+}
+
+static KmNapiRegistrarNode registrar_node = { &register_windows_win32_web_internetexplorer_napi, nullptr };
+struct KmNapiAutoRegister {
+    KmNapiAutoRegister() {
+        registrar_node.next = km_napi_registrar_head;
+        km_napi_registrar_head = &registrar_node;
+    }
+};
+static KmNapiAutoRegister auto_register_instance;
+
+} // namespace
+
+#ifdef KM_NAPI_STANDALONE_MODULE
+#if defined(__GNUC__) || defined(__clang__)
+__attribute__((visibility("hidden")))
+#endif
+KmNapiRegistrarNode* km_napi_registrar_head = nullptr;
+static Napi::Object KmNapiStandaloneInit(Napi::Env env, Napi::Object exports) {
+    for (KmNapiRegistrarNode* cur = km_napi_registrar_head; cur != nullptr; cur = cur->next) {
+        cur->register_fn(env, exports);
+    }
+    return exports;
+}
+NODE_API_MODULE(NODE_GYP_MODULE_NAME, KmNapiStandaloneInit)
+#endif

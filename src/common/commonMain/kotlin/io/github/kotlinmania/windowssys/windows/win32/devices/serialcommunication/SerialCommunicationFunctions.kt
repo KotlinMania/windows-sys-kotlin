@@ -1,32 +1,17 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.serialcommunication
 
-import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 
-public fun ComDBClaimNextFreePort(hcomdb: HCOMDB, comnumber: Long): Int {
-    return Win32DynamicFfi.invoke("msports.dll", "ComDBClaimNextFreePort", longArrayOf(hcomdb, comnumber)).toInt()
-}
+public expect fun ComDBClaimNextFreePort(hcomdb: HCOMDB, comnumber: Long): Int
 
-public fun ComDBClaimPort(hcomdb: HCOMDB, comnumber: UInt, forceclaim: BOOL, forced: Long): Int {
-    return Win32DynamicFfi.invoke("msports.dll", "ComDBClaimPort", longArrayOf(hcomdb, comnumber.toLong(), forceclaim.toLong(), forced)).toInt()
-}
+public expect fun ComDBClaimPort(hcomdb: HCOMDB, comnumber: UInt, forceclaim: BOOL, forced: Long): Int
 
-public fun ComDBClose(hcomdb: HCOMDB): Int {
-    return Win32DynamicFfi.invoke("msports.dll", "ComDBClose", longArrayOf(hcomdb)).toInt()
-}
+public expect fun ComDBClose(hcomdb: HCOMDB): Int
 
-public fun ComDBGetCurrentPortUsage(hcomdb: HCOMDB, buffer: Long, buffersize: UInt, reporttype: UInt, maxportsreported: Long): Int {
-    return Win32DynamicFfi.invoke("msports.dll", "ComDBGetCurrentPortUsage", longArrayOf(hcomdb, buffer, buffersize.toLong(), reporttype.toLong(), maxportsreported)).toInt()
-}
+public expect fun ComDBGetCurrentPortUsage(hcomdb: HCOMDB, buffer: Long, buffersize: UInt, reporttype: UInt, maxportsreported: Long): Int
 
-public fun ComDBOpen(phcomdb: Long): Int {
-    return Win32DynamicFfi.invoke("msports.dll", "ComDBOpen", longArrayOf(phcomdb)).toInt()
-}
+public expect fun ComDBOpen(phcomdb: Long): Int
 
-public fun ComDBReleasePort(hcomdb: HCOMDB, comnumber: UInt): Int {
-    return Win32DynamicFfi.invoke("msports.dll", "ComDBReleasePort", longArrayOf(hcomdb, comnumber.toLong())).toInt()
-}
+public expect fun ComDBReleasePort(hcomdb: HCOMDB, comnumber: UInt): Int
 
-public fun ComDBResizeDatabase(hcomdb: HCOMDB, newsize: UInt): Int {
-    return Win32DynamicFfi.invoke("msports.dll", "ComDBResizeDatabase", longArrayOf(hcomdb, newsize.toLong())).toInt()
-}
+public expect fun ComDBResizeDatabase(hcomdb: HCOMDB, newsize: UInt): Int

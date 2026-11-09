@@ -1,0 +1,21 @@
+#ifndef WINDOWSSYS_WINDOWS_WIN32_SYSTEM_PERFORMANCE_HARDWARECOUNTERPROFILING_WINDOWS_WIN32_SYSTEM_PERFORMANCE_HARDWARECOUNTERPROFILING_WRAPPER_H
+#define WINDOWSSYS_WINDOWS_WIN32_SYSTEM_PERFORMANCE_HARDWARECOUNTERPROFILING_WINDOWS_WIN32_SYSTEM_PERFORMANCE_HARDWARECOUNTERPROFILING_WRAPPER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+uint32_t windowssys_windows_win32_system_performance_hardwarecounterprofiling_DisableThreadProfiling(void* performancedatahandle);
+uint32_t windowssys_windows_win32_system_performance_hardwarecounterprofiling_EnableThreadProfiling(void* threadhandle, uint32_t flags, uint64_t hardwarecounters, void* performancedatahandle);
+uint32_t windowssys_windows_win32_system_performance_hardwarecounterprofiling_QueryThreadProfiling(void* threadhandle, void* enabled);
+uint32_t windowssys_windows_win32_system_performance_hardwarecounterprofiling_ReadThreadProfilingData(void* performancedatahandle, uint32_t flags, void* performancedata);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* WINDOWSSYS_WINDOWS_WIN32_SYSTEM_PERFORMANCE_HARDWARECOUNTERPROFILING_WINDOWS_WIN32_SYSTEM_PERFORMANCE_HARDWARECOUNTERPROFILING_WRAPPER_H */

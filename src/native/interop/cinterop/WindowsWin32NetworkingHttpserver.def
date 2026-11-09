@@ -1,0 +1,5 @@
+package = io.github.kotlinmania.windowssys.windows.win32.networking.httpserver.cinterop
+headers = windows_win32_networking_httpserver_wrapper.h
+headerFilter = windows_win32_networking_httpserver_wrapper.h
+compilerOpts = -Isrc/native/interop/cinterop
+staticLibraries = windows_win32_networking_httpserver_wrapper.a

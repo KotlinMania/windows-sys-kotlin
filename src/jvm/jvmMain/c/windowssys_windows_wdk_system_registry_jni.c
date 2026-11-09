@@ -1,0 +1,1026 @@
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
+#endif
+#include <jni.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <errno.h>
+#ifdef _WIN32
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+#include <windows.h>
+#else
+#include <dlfcn.h>
+#ifndef RTLD_DEFAULT
+#define RTLD_DEFAULT ((void*)0)
+#endif
+#endif
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1NtCommitRegistryTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jint flags) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtCommitRegistryTransaction");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)transactionhandle, (uint32_t)flags) : -1;
+#else
+    (void)transactionhandle;
+    (void)flags;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1NtCreateKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jint desiredaccess, jlong objectattributes, jint titleindex, jlong arg_4_class, jint createoptions, jlong disposition) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtCreateKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (uint32_t)desiredaccess, (void*)(uintptr_t)objectattributes, (uint32_t)titleindex, (void*)(uintptr_t)arg_4_class, (uint32_t)createoptions, (void*)(uintptr_t)disposition) : -1;
+#else
+    (void)keyhandle;
+    (void)desiredaccess;
+    (void)objectattributes;
+    (void)titleindex;
+    (void)arg_4_class;
+    (void)createoptions;
+    (void)disposition;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1NtCreateKeyTransacted(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jint desiredaccess, jlong objectattributes, jint titleindex, jlong arg_4_class, jint createoptions, jlong transactionhandle, jlong disposition) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtCreateKeyTransacted");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (uint32_t)desiredaccess, (void*)(uintptr_t)objectattributes, (uint32_t)titleindex, (void*)(uintptr_t)arg_4_class, (uint32_t)createoptions, (void*)(uintptr_t)transactionhandle, (void*)(uintptr_t)disposition) : -1;
+#else
+    (void)keyhandle;
+    (void)desiredaccess;
+    (void)objectattributes;
+    (void)titleindex;
+    (void)arg_4_class;
+    (void)createoptions;
+    (void)transactionhandle;
+    (void)disposition;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1NtCreateRegistryTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jint desiredaccess, jlong objectattributes, jint createoptions) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtCreateRegistryTransaction");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)transactionhandle, (uint32_t)desiredaccess, (void*)(uintptr_t)objectattributes, (uint32_t)createoptions) : -1;
+#else
+    (void)transactionhandle;
+    (void)desiredaccess;
+    (void)objectattributes;
+    (void)createoptions;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1NtDeleteKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtDeleteKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle) : -1;
+#else
+    (void)keyhandle;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1NtDeleteValueKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jlong valuename) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtDeleteValueKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (void*)(uintptr_t)valuename) : -1;
+#else
+    (void)keyhandle;
+    (void)valuename;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1NtEnumerateKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jint arg_1_index, jint keyinformationclass, jlong keyinformation, jint length, jlong resultlength) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtEnumerateKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (uint32_t)arg_1_index, (int32_t)keyinformationclass, (void*)(uintptr_t)keyinformation, (uint32_t)length, (void*)(uintptr_t)resultlength) : -1;
+#else
+    (void)keyhandle;
+    (void)arg_1_index;
+    (void)keyinformationclass;
+    (void)keyinformation;
+    (void)length;
+    (void)resultlength;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1NtEnumerateValueKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jint arg_1_index, jint keyvalueinformationclass, jlong keyvalueinformation, jint length, jlong resultlength) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtEnumerateValueKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (uint32_t)arg_1_index, (int32_t)keyvalueinformationclass, (void*)(uintptr_t)keyvalueinformation, (uint32_t)length, (void*)(uintptr_t)resultlength) : -1;
+#else
+    (void)keyhandle;
+    (void)arg_1_index;
+    (void)keyvalueinformationclass;
+    (void)keyvalueinformation;
+    (void)length;
+    (void)resultlength;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1NtFlushKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtFlushKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle) : -1;
+#else
+    (void)keyhandle;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1NtOpenKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jint desiredaccess, jlong objectattributes) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtOpenKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (uint32_t)desiredaccess, (void*)(uintptr_t)objectattributes) : -1;
+#else
+    (void)keyhandle;
+    (void)desiredaccess;
+    (void)objectattributes;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1NtOpenKeyEx(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jint desiredaccess, jlong objectattributes, jint openoptions) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtOpenKeyEx");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (uint32_t)desiredaccess, (void*)(uintptr_t)objectattributes, (uint32_t)openoptions) : -1;
+#else
+    (void)keyhandle;
+    (void)desiredaccess;
+    (void)objectattributes;
+    (void)openoptions;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1NtOpenKeyTransacted(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jint desiredaccess, jlong objectattributes, jlong transactionhandle) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtOpenKeyTransacted");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (uint32_t)desiredaccess, (void*)(uintptr_t)objectattributes, (void*)(uintptr_t)transactionhandle) : -1;
+#else
+    (void)keyhandle;
+    (void)desiredaccess;
+    (void)objectattributes;
+    (void)transactionhandle;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1NtOpenKeyTransactedEx(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jint desiredaccess, jlong objectattributes, jint openoptions, jlong transactionhandle) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtOpenKeyTransactedEx");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (uint32_t)desiredaccess, (void*)(uintptr_t)objectattributes, (uint32_t)openoptions, (void*)(uintptr_t)transactionhandle) : -1;
+#else
+    (void)keyhandle;
+    (void)desiredaccess;
+    (void)objectattributes;
+    (void)openoptions;
+    (void)transactionhandle;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1NtOpenRegistryTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jint desiredaccess, jlong objectattributes) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtOpenRegistryTransaction");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)transactionhandle, (uint32_t)desiredaccess, (void*)(uintptr_t)objectattributes) : -1;
+#else
+    (void)transactionhandle;
+    (void)desiredaccess;
+    (void)objectattributes;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1NtQueryKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jint keyinformationclass, jlong keyinformation, jint length, jlong resultlength) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtQueryKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (int32_t)keyinformationclass, (void*)(uintptr_t)keyinformation, (uint32_t)length, (void*)(uintptr_t)resultlength) : -1;
+#else
+    (void)keyhandle;
+    (void)keyinformationclass;
+    (void)keyinformation;
+    (void)length;
+    (void)resultlength;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1NtQueryMultipleValueKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jlong valueentries, jint entrycount, jlong valuebuffer, jlong bufferlength, jlong requiredbufferlength) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtQueryMultipleValueKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (void*)(uintptr_t)valueentries, (uint32_t)entrycount, (void*)(uintptr_t)valuebuffer, (void*)(uintptr_t)bufferlength, (void*)(uintptr_t)requiredbufferlength) : -1;
+#else
+    (void)keyhandle;
+    (void)valueentries;
+    (void)entrycount;
+    (void)valuebuffer;
+    (void)bufferlength;
+    (void)requiredbufferlength;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1NtQueryValueKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jlong valuename, jint keyvalueinformationclass, jlong keyvalueinformation, jint length, jlong resultlength) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtQueryValueKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (void*)(uintptr_t)valuename, (int32_t)keyvalueinformationclass, (void*)(uintptr_t)keyvalueinformation, (uint32_t)length, (void*)(uintptr_t)resultlength) : -1;
+#else
+    (void)keyhandle;
+    (void)valuename;
+    (void)keyvalueinformationclass;
+    (void)keyvalueinformation;
+    (void)length;
+    (void)resultlength;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1NtRenameKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jlong newname) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtRenameKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (void*)(uintptr_t)newname) : -1;
+#else
+    (void)keyhandle;
+    (void)newname;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1NtRestoreKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jlong filehandle, jint flags) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtRestoreKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (void*)(uintptr_t)filehandle, (uint32_t)flags) : -1;
+#else
+    (void)keyhandle;
+    (void)filehandle;
+    (void)flags;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1NtRollbackRegistryTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jint flags) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtRollbackRegistryTransaction");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)transactionhandle, (uint32_t)flags) : -1;
+#else
+    (void)transactionhandle;
+    (void)flags;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1NtSaveKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jlong filehandle) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtSaveKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (void*)(uintptr_t)filehandle) : -1;
+#else
+    (void)keyhandle;
+    (void)filehandle;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1NtSaveKeyEx(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jlong filehandle, jint format) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtSaveKeyEx");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (void*)(uintptr_t)filehandle, (uint32_t)format) : -1;
+#else
+    (void)keyhandle;
+    (void)filehandle;
+    (void)format;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1NtSetInformationKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jint keysetinformationclass, jlong keysetinformation, jint keysetinformationlength) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtSetInformationKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (int32_t)keysetinformationclass, (void*)(uintptr_t)keysetinformation, (uint32_t)keysetinformationlength) : -1;
+#else
+    (void)keyhandle;
+    (void)keysetinformationclass;
+    (void)keysetinformation;
+    (void)keysetinformationlength;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1NtSetValueKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jlong valuename, jint titleindex, jint type, jlong data, jint datasize) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtSetValueKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (void*)(uintptr_t)valuename, (uint32_t)titleindex, (uint32_t)type, (void*)(uintptr_t)data, (uint32_t)datasize) : -1;
+#else
+    (void)keyhandle;
+    (void)valuename;
+    (void)titleindex;
+    (void)type;
+    (void)data;
+    (void)datasize;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1ZwCommitRegistryTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jint flags) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwCommitRegistryTransaction");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)transactionhandle, (uint32_t)flags) : -1;
+#else
+    (void)transactionhandle;
+    (void)flags;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1ZwCreateKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jint desiredaccess, jlong objectattributes, jint titleindex, jlong arg_4_class, jint createoptions, jlong disposition) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwCreateKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (uint32_t)desiredaccess, (void*)(uintptr_t)objectattributes, (uint32_t)titleindex, (void*)(uintptr_t)arg_4_class, (uint32_t)createoptions, (void*)(uintptr_t)disposition) : -1;
+#else
+    (void)keyhandle;
+    (void)desiredaccess;
+    (void)objectattributes;
+    (void)titleindex;
+    (void)arg_4_class;
+    (void)createoptions;
+    (void)disposition;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1ZwCreateKeyTransacted(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jint desiredaccess, jlong objectattributes, jint titleindex, jlong arg_4_class, jint createoptions, jlong transactionhandle, jlong disposition) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwCreateKeyTransacted");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (uint32_t)desiredaccess, (void*)(uintptr_t)objectattributes, (uint32_t)titleindex, (void*)(uintptr_t)arg_4_class, (uint32_t)createoptions, (void*)(uintptr_t)transactionhandle, (void*)(uintptr_t)disposition) : -1;
+#else
+    (void)keyhandle;
+    (void)desiredaccess;
+    (void)objectattributes;
+    (void)titleindex;
+    (void)arg_4_class;
+    (void)createoptions;
+    (void)transactionhandle;
+    (void)disposition;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1ZwCreateRegistryTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jint desiredaccess, jlong objectattributes, jint createoptions) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwCreateRegistryTransaction");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)transactionhandle, (uint32_t)desiredaccess, (void*)(uintptr_t)objectattributes, (uint32_t)createoptions) : -1;
+#else
+    (void)transactionhandle;
+    (void)desiredaccess;
+    (void)objectattributes;
+    (void)createoptions;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1ZwDeleteKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwDeleteKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle) : -1;
+#else
+    (void)keyhandle;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1ZwDeleteValueKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jlong valuename) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwDeleteValueKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (void*)(uintptr_t)valuename) : -1;
+#else
+    (void)keyhandle;
+    (void)valuename;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1ZwEnumerateKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jint arg_1_index, jint keyinformationclass, jlong keyinformation, jint length, jlong resultlength) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwEnumerateKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (uint32_t)arg_1_index, (int32_t)keyinformationclass, (void*)(uintptr_t)keyinformation, (uint32_t)length, (void*)(uintptr_t)resultlength) : -1;
+#else
+    (void)keyhandle;
+    (void)arg_1_index;
+    (void)keyinformationclass;
+    (void)keyinformation;
+    (void)length;
+    (void)resultlength;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1ZwEnumerateValueKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jint arg_1_index, jint keyvalueinformationclass, jlong keyvalueinformation, jint length, jlong resultlength) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwEnumerateValueKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (uint32_t)arg_1_index, (int32_t)keyvalueinformationclass, (void*)(uintptr_t)keyvalueinformation, (uint32_t)length, (void*)(uintptr_t)resultlength) : -1;
+#else
+    (void)keyhandle;
+    (void)arg_1_index;
+    (void)keyvalueinformationclass;
+    (void)keyvalueinformation;
+    (void)length;
+    (void)resultlength;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1ZwFlushKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwFlushKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle) : -1;
+#else
+    (void)keyhandle;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1ZwOpenKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jint desiredaccess, jlong objectattributes) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwOpenKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (uint32_t)desiredaccess, (void*)(uintptr_t)objectattributes) : -1;
+#else
+    (void)keyhandle;
+    (void)desiredaccess;
+    (void)objectattributes;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1ZwOpenKeyEx(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jint desiredaccess, jlong objectattributes, jint openoptions) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwOpenKeyEx");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (uint32_t)desiredaccess, (void*)(uintptr_t)objectattributes, (uint32_t)openoptions) : -1;
+#else
+    (void)keyhandle;
+    (void)desiredaccess;
+    (void)objectattributes;
+    (void)openoptions;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1ZwOpenKeyTransacted(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jint desiredaccess, jlong objectattributes, jlong transactionhandle) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwOpenKeyTransacted");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (uint32_t)desiredaccess, (void*)(uintptr_t)objectattributes, (void*)(uintptr_t)transactionhandle) : -1;
+#else
+    (void)keyhandle;
+    (void)desiredaccess;
+    (void)objectattributes;
+    (void)transactionhandle;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1ZwOpenKeyTransactedEx(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jint desiredaccess, jlong objectattributes, jint openoptions, jlong transactionhandle) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwOpenKeyTransactedEx");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (uint32_t)desiredaccess, (void*)(uintptr_t)objectattributes, (uint32_t)openoptions, (void*)(uintptr_t)transactionhandle) : -1;
+#else
+    (void)keyhandle;
+    (void)desiredaccess;
+    (void)objectattributes;
+    (void)openoptions;
+    (void)transactionhandle;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1ZwOpenRegistryTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jint desiredaccess, jlong objectattributes) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwOpenRegistryTransaction");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)transactionhandle, (uint32_t)desiredaccess, (void*)(uintptr_t)objectattributes) : -1;
+#else
+    (void)transactionhandle;
+    (void)desiredaccess;
+    (void)objectattributes;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1ZwQueryKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jint keyinformationclass, jlong keyinformation, jint length, jlong resultlength) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwQueryKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (int32_t)keyinformationclass, (void*)(uintptr_t)keyinformation, (uint32_t)length, (void*)(uintptr_t)resultlength) : -1;
+#else
+    (void)keyhandle;
+    (void)keyinformationclass;
+    (void)keyinformation;
+    (void)length;
+    (void)resultlength;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1ZwQueryMultipleValueKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jlong valueentries, jint entrycount, jlong valuebuffer, jlong bufferlength, jlong requiredbufferlength) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwQueryMultipleValueKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (void*)(uintptr_t)valueentries, (uint32_t)entrycount, (void*)(uintptr_t)valuebuffer, (void*)(uintptr_t)bufferlength, (void*)(uintptr_t)requiredbufferlength) : -1;
+#else
+    (void)keyhandle;
+    (void)valueentries;
+    (void)entrycount;
+    (void)valuebuffer;
+    (void)bufferlength;
+    (void)requiredbufferlength;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1ZwQueryValueKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jlong valuename, jint keyvalueinformationclass, jlong keyvalueinformation, jint length, jlong resultlength) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwQueryValueKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (void*)(uintptr_t)valuename, (int32_t)keyvalueinformationclass, (void*)(uintptr_t)keyvalueinformation, (uint32_t)length, (void*)(uintptr_t)resultlength) : -1;
+#else
+    (void)keyhandle;
+    (void)valuename;
+    (void)keyvalueinformationclass;
+    (void)keyvalueinformation;
+    (void)length;
+    (void)resultlength;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1ZwRenameKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jlong newname) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwRenameKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (void*)(uintptr_t)newname) : -1;
+#else
+    (void)keyhandle;
+    (void)newname;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1ZwRestoreKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jlong filehandle, jint flags) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwRestoreKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (void*)(uintptr_t)filehandle, (uint32_t)flags) : -1;
+#else
+    (void)keyhandle;
+    (void)filehandle;
+    (void)flags;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1ZwRollbackRegistryTransaction(JNIEnv* km_env, jclass km_clazz, jlong transactionhandle, jint flags) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwRollbackRegistryTransaction");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)transactionhandle, (uint32_t)flags) : -1;
+#else
+    (void)transactionhandle;
+    (void)flags;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1ZwSaveKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jlong filehandle) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwSaveKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (void*)(uintptr_t)filehandle) : -1;
+#else
+    (void)keyhandle;
+    (void)filehandle;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1ZwSaveKeyEx(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jlong filehandle, jint format) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwSaveKeyEx");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (void*)(uintptr_t)filehandle, (uint32_t)format) : -1;
+#else
+    (void)keyhandle;
+    (void)filehandle;
+    (void)format;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1ZwSetInformationKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jint keysetinformationclass, jlong keysetinformation, jint keysetinformationlength) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwSetInformationKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (int32_t)keysetinformationclass, (void*)(uintptr_t)keysetinformation, (uint32_t)keysetinformationlength) : -1;
+#else
+    (void)keyhandle;
+    (void)keysetinformationclass;
+    (void)keysetinformation;
+    (void)keysetinformationlength;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_registry_WindowsWdkSystemRegistryJniBridge_windowssys_1windows_1wdk_1system_1registry_1ZwSetValueKey(JNIEnv* km_env, jclass km_clazz, jlong keyhandle, jlong valuename, jint titleindex, jint type, jlong data, jint datasize) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwSetValueKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (void*)(uintptr_t)valuename, (uint32_t)titleindex, (uint32_t)type, (void*)(uintptr_t)data, (uint32_t)datasize) : -1;
+#else
+    (void)keyhandle;
+    (void)valuename;
+    (void)titleindex;
+    (void)type;
+    (void)data;
+    (void)datasize;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+

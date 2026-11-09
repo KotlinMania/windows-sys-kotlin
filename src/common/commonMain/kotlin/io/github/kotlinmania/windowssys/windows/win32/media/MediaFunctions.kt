@@ -1,35 +1,15 @@
 package io.github.kotlinmania.windowssys.windows.win32.media
 
-import io.github.kotlinmania.windowssys.Win32DynamicFfi
+public expect fun timeBeginPeriod(uperiod: UInt): UInt
 
-public fun interface FnCallback {
-    public operator fun invoke(utimerid: UInt, umsg: UInt, dwuser: ULong, dw1: ULong, dw2: ULong)
-}
+public expect fun timeEndPeriod(uperiod: UInt): UInt
 
-public fun timeBeginPeriod(uperiod: UInt): UInt {
-    return Win32DynamicFfi.invoke("winmm.dll", "timeBeginPeriod", longArrayOf(uperiod.toLong())).toUInt()
-}
+public expect fun timeGetDevCaps(ptc: Long, cbtc: UInt): UInt
 
-public fun timeEndPeriod(uperiod: UInt): UInt {
-    return Win32DynamicFfi.invoke("winmm.dll", "timeEndPeriod", longArrayOf(uperiod.toLong())).toUInt()
-}
+public expect fun timeGetSystemTime(pmmt: Long, cbmmt: UInt): UInt
 
-public fun timeGetDevCaps(ptc: Long, cbtc: UInt): UInt {
-    return Win32DynamicFfi.invoke("winmm.dll", "timeGetDevCaps", longArrayOf(ptc, cbtc.toLong())).toUInt()
-}
+public expect fun timeGetTime(): UInt
 
-public fun timeGetSystemTime(pmmt: Long, cbmmt: UInt): UInt {
-    return Win32DynamicFfi.invoke("winmm.dll", "timeGetSystemTime", longArrayOf(pmmt, cbmmt.toLong())).toUInt()
-}
+public expect fun timeKillEvent(utimerid: UInt): UInt
 
-public fun timeGetTime(): UInt {
-    return Win32DynamicFfi.invoke("winmm.dll", "timeGetTime", longArrayOf()).toUInt()
-}
-
-public fun timeKillEvent(utimerid: UInt): UInt {
-    return Win32DynamicFfi.invoke("winmm.dll", "timeKillEvent", longArrayOf(utimerid.toLong())).toUInt()
-}
-
-public fun timeSetEvent(udelay: UInt, uresolution: UInt, fptc: LPTIMECALLBACK, dwuser: ULong, fuevent: UInt): UInt {
-    return Win32DynamicFfi.invoke("winmm.dll", "timeSetEvent", longArrayOf(udelay.toLong(), uresolution.toLong(), Win32DynamicFfi.objectSlot(fptc), dwuser.toLong(), fuevent.toLong())).toUInt()
-}
+public expect fun timeSetEvent(udelay: UInt, uresolution: UInt, fptc: LPTIMECALLBACK, dwuser: ULong, fuevent: UInt): UInt

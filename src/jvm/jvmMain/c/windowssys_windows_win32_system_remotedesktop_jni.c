@@ -1,0 +1,1366 @@
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
+#endif
+#include <jni.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <errno.h>
+#ifdef _WIN32
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+#include <windows.h>
+#else
+#include <dlfcn.h>
+#ifndef RTLD_DEFAULT
+#define RTLD_DEFAULT ((void*)0)
+#endif
+#endif
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1ProcessIdToSessionId(JNIEnv* km_env, jclass km_clazz, jint dwprocessid, jlong psessionid) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ProcessIdToSessionId");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwprocessid, (void*)(uintptr_t)psessionid) : -1;
+#else
+    (void)dwprocessid;
+    (void)psessionid;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSCloseServer(JNIEnv* km_env, jclass km_clazz, jlong hserver) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSCloseServer");
+    }
+    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)hserver);
+#else
+    (void)hserver;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSConnectSessionA(JNIEnv* km_env, jclass km_clazz, jint logonid, jint targetlogonid, jlong ppassword, jint bwait) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSConnectSessionA");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)logonid, (uint32_t)targetlogonid, (void*)(uintptr_t)ppassword, (int32_t)bwait) : -1;
+#else
+    (void)logonid;
+    (void)targetlogonid;
+    (void)ppassword;
+    (void)bwait;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSConnectSessionW(JNIEnv* km_env, jclass km_clazz, jint logonid, jint targetlogonid, jlong ppassword, jint bwait) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSConnectSessionW");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)logonid, (uint32_t)targetlogonid, (void*)(uintptr_t)ppassword, (int32_t)bwait) : -1;
+#else
+    (void)logonid;
+    (void)targetlogonid;
+    (void)ppassword;
+    (void)bwait;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSCreateListenerA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong preserved, jint reserved, jlong plistenername, jlong pbuffer, jint flag) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSCreateListenerA");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserver, (void*)(uintptr_t)preserved, (uint32_t)reserved, (void*)(uintptr_t)plistenername, (void*)(uintptr_t)pbuffer, (uint32_t)flag) : -1;
+#else
+    (void)hserver;
+    (void)preserved;
+    (void)reserved;
+    (void)plistenername;
+    (void)pbuffer;
+    (void)flag;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSCreateListenerW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong preserved, jint reserved, jlong plistenername, jlong pbuffer, jint flag) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSCreateListenerW");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserver, (void*)(uintptr_t)preserved, (uint32_t)reserved, (void*)(uintptr_t)plistenername, (void*)(uintptr_t)pbuffer, (uint32_t)flag) : -1;
+#else
+    (void)hserver;
+    (void)preserved;
+    (void)reserved;
+    (void)plistenername;
+    (void)pbuffer;
+    (void)flag;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSDisconnectSession(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint sessionid, jint bwait) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSDisconnectSession");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserver, (uint32_t)sessionid, (int32_t)bwait) : -1;
+#else
+    (void)hserver;
+    (void)sessionid;
+    (void)bwait;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSEnableChildSessions(JNIEnv* km_env, jclass km_clazz, jint benable) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSEnableChildSessions");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)benable) : -1;
+#else
+    (void)benable;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSEnumerateListenersA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong preserved, jint reserved, jlong plisteners, jlong pcount) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSEnumerateListenersA");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserver, (void*)(uintptr_t)preserved, (uint32_t)reserved, (void*)(uintptr_t)plisteners, (void*)(uintptr_t)pcount) : -1;
+#else
+    (void)hserver;
+    (void)preserved;
+    (void)reserved;
+    (void)plisteners;
+    (void)pcount;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSEnumerateListenersW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong preserved, jint reserved, jlong plisteners, jlong pcount) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSEnumerateListenersW");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserver, (void*)(uintptr_t)preserved, (uint32_t)reserved, (void*)(uintptr_t)plisteners, (void*)(uintptr_t)pcount) : -1;
+#else
+    (void)hserver;
+    (void)preserved;
+    (void)reserved;
+    (void)plisteners;
+    (void)pcount;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSEnumerateProcessesA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint reserved, jint version, jlong ppprocessinfo, jlong pcount) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSEnumerateProcessesA");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserver, (uint32_t)reserved, (uint32_t)version, (void*)(uintptr_t)ppprocessinfo, (void*)(uintptr_t)pcount) : -1;
+#else
+    (void)hserver;
+    (void)reserved;
+    (void)version;
+    (void)ppprocessinfo;
+    (void)pcount;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSEnumerateProcessesExA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong plevel, jint sessionid, jlong ppprocessinfo, jlong pcount) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSEnumerateProcessesExA");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserver, (void*)(uintptr_t)plevel, (uint32_t)sessionid, (void*)(uintptr_t)ppprocessinfo, (void*)(uintptr_t)pcount) : -1;
+#else
+    (void)hserver;
+    (void)plevel;
+    (void)sessionid;
+    (void)ppprocessinfo;
+    (void)pcount;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSEnumerateProcessesExW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong plevel, jint sessionid, jlong ppprocessinfo, jlong pcount) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSEnumerateProcessesExW");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserver, (void*)(uintptr_t)plevel, (uint32_t)sessionid, (void*)(uintptr_t)ppprocessinfo, (void*)(uintptr_t)pcount) : -1;
+#else
+    (void)hserver;
+    (void)plevel;
+    (void)sessionid;
+    (void)ppprocessinfo;
+    (void)pcount;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSEnumerateProcessesW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint reserved, jint version, jlong ppprocessinfo, jlong pcount) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSEnumerateProcessesW");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserver, (uint32_t)reserved, (uint32_t)version, (void*)(uintptr_t)ppprocessinfo, (void*)(uintptr_t)pcount) : -1;
+#else
+    (void)hserver;
+    (void)reserved;
+    (void)version;
+    (void)ppprocessinfo;
+    (void)pcount;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSEnumerateServersA(JNIEnv* km_env, jclass km_clazz, jlong pdomainname, jint reserved, jint version, jlong ppserverinfo, jlong pcount) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSEnumerateServersA");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdomainname, (uint32_t)reserved, (uint32_t)version, (void*)(uintptr_t)ppserverinfo, (void*)(uintptr_t)pcount) : -1;
+#else
+    (void)pdomainname;
+    (void)reserved;
+    (void)version;
+    (void)ppserverinfo;
+    (void)pcount;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSEnumerateServersW(JNIEnv* km_env, jclass km_clazz, jlong pdomainname, jint reserved, jint version, jlong ppserverinfo, jlong pcount) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSEnumerateServersW");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdomainname, (uint32_t)reserved, (uint32_t)version, (void*)(uintptr_t)ppserverinfo, (void*)(uintptr_t)pcount) : -1;
+#else
+    (void)pdomainname;
+    (void)reserved;
+    (void)version;
+    (void)ppserverinfo;
+    (void)pcount;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSEnumerateSessionsA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint reserved, jint version, jlong ppsessioninfo, jlong pcount) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSEnumerateSessionsA");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserver, (uint32_t)reserved, (uint32_t)version, (void*)(uintptr_t)ppsessioninfo, (void*)(uintptr_t)pcount) : -1;
+#else
+    (void)hserver;
+    (void)reserved;
+    (void)version;
+    (void)ppsessioninfo;
+    (void)pcount;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSEnumerateSessionsExA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong plevel, jint filter, jlong ppsessioninfo, jlong pcount) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSEnumerateSessionsExA");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserver, (void*)(uintptr_t)plevel, (uint32_t)filter, (void*)(uintptr_t)ppsessioninfo, (void*)(uintptr_t)pcount) : -1;
+#else
+    (void)hserver;
+    (void)plevel;
+    (void)filter;
+    (void)ppsessioninfo;
+    (void)pcount;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSEnumerateSessionsExW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong plevel, jint filter, jlong ppsessioninfo, jlong pcount) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSEnumerateSessionsExW");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserver, (void*)(uintptr_t)plevel, (uint32_t)filter, (void*)(uintptr_t)ppsessioninfo, (void*)(uintptr_t)pcount) : -1;
+#else
+    (void)hserver;
+    (void)plevel;
+    (void)filter;
+    (void)ppsessioninfo;
+    (void)pcount;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSEnumerateSessionsW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint reserved, jint version, jlong ppsessioninfo, jlong pcount) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSEnumerateSessionsW");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserver, (uint32_t)reserved, (uint32_t)version, (void*)(uintptr_t)ppsessioninfo, (void*)(uintptr_t)pcount) : -1;
+#else
+    (void)hserver;
+    (void)reserved;
+    (void)version;
+    (void)ppsessioninfo;
+    (void)pcount;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSFreeMemory(JNIEnv* km_env, jclass km_clazz, jlong pmemory) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSFreeMemory");
+    }
+    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)pmemory);
+#else
+    (void)pmemory;
+#endif
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSFreeMemoryExA(JNIEnv* km_env, jclass km_clazz, jint wtstypeclass, jlong pmemory, jint numberofentries) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSFreeMemoryExA");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)wtstypeclass, (void*)(uintptr_t)pmemory, (uint32_t)numberofentries) : -1;
+#else
+    (void)wtstypeclass;
+    (void)pmemory;
+    (void)numberofentries;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSFreeMemoryExW(JNIEnv* km_env, jclass km_clazz, jint wtstypeclass, jlong pmemory, jint numberofentries) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSFreeMemoryExW");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)wtstypeclass, (void*)(uintptr_t)pmemory, (uint32_t)numberofentries) : -1;
+#else
+    (void)wtstypeclass;
+    (void)pmemory;
+    (void)numberofentries;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSGetActiveConsoleSessionId(JNIEnv* km_env, jclass km_clazz) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSGetActiveConsoleSessionId");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : 0;
+#else
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSGetChildSessionId(JNIEnv* km_env, jclass km_clazz, jlong psessionid) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSGetChildSessionId");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psessionid) : -1;
+#else
+    (void)psessionid;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSGetListenerSecurityA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong preserved, jint reserved, jlong plistenername, jint securityinformation, jlong psecuritydescriptor, jint nlength, jlong lpnlengthneeded) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSGetListenerSecurityA");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserver, (void*)(uintptr_t)preserved, (uint32_t)reserved, (void*)(uintptr_t)plistenername, (uint32_t)securityinformation, (void*)(uintptr_t)psecuritydescriptor, (uint32_t)nlength, (void*)(uintptr_t)lpnlengthneeded) : -1;
+#else
+    (void)hserver;
+    (void)preserved;
+    (void)reserved;
+    (void)plistenername;
+    (void)securityinformation;
+    (void)psecuritydescriptor;
+    (void)nlength;
+    (void)lpnlengthneeded;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSGetListenerSecurityW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong preserved, jint reserved, jlong plistenername, jint securityinformation, jlong psecuritydescriptor, jint nlength, jlong lpnlengthneeded) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSGetListenerSecurityW");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserver, (void*)(uintptr_t)preserved, (uint32_t)reserved, (void*)(uintptr_t)plistenername, (uint32_t)securityinformation, (void*)(uintptr_t)psecuritydescriptor, (uint32_t)nlength, (void*)(uintptr_t)lpnlengthneeded) : -1;
+#else
+    (void)hserver;
+    (void)preserved;
+    (void)reserved;
+    (void)plistenername;
+    (void)securityinformation;
+    (void)psecuritydescriptor;
+    (void)nlength;
+    (void)lpnlengthneeded;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSIsChildSessionsEnabled(JNIEnv* km_env, jclass km_clazz, jlong pbenabled) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSIsChildSessionsEnabled");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pbenabled) : -1;
+#else
+    (void)pbenabled;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSLogoffSession(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint sessionid, jint bwait) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSLogoffSession");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserver, (uint32_t)sessionid, (int32_t)bwait) : -1;
+#else
+    (void)hserver;
+    (void)sessionid;
+    (void)bwait;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSOpenServerA(JNIEnv* km_env, jclass km_clazz, jlong pservername) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSOpenServerA");
+    }
+    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pservername) : NULL;
+#else
+    (void)pservername;
+    void* km_res = NULL;
+#endif
+    return (jlong)(uintptr_t)km_res;
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSOpenServerExA(JNIEnv* km_env, jclass km_clazz, jlong pservername) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSOpenServerExA");
+    }
+    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pservername) : NULL;
+#else
+    (void)pservername;
+    void* km_res = NULL;
+#endif
+    return (jlong)(uintptr_t)km_res;
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSOpenServerExW(JNIEnv* km_env, jclass km_clazz, jlong pservername) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSOpenServerExW");
+    }
+    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pservername) : NULL;
+#else
+    (void)pservername;
+    void* km_res = NULL;
+#endif
+    return (jlong)(uintptr_t)km_res;
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSOpenServerW(JNIEnv* km_env, jclass km_clazz, jlong pservername) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSOpenServerW");
+    }
+    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pservername) : NULL;
+#else
+    (void)pservername;
+    void* km_res = NULL;
+#endif
+    return (jlong)(uintptr_t)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSQueryListenerConfigA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong preserved, jint reserved, jlong plistenername, jlong pbuffer) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSQueryListenerConfigA");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserver, (void*)(uintptr_t)preserved, (uint32_t)reserved, (void*)(uintptr_t)plistenername, (void*)(uintptr_t)pbuffer) : -1;
+#else
+    (void)hserver;
+    (void)preserved;
+    (void)reserved;
+    (void)plistenername;
+    (void)pbuffer;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSQueryListenerConfigW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong preserved, jint reserved, jlong plistenername, jlong pbuffer) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSQueryListenerConfigW");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserver, (void*)(uintptr_t)preserved, (uint32_t)reserved, (void*)(uintptr_t)plistenername, (void*)(uintptr_t)pbuffer) : -1;
+#else
+    (void)hserver;
+    (void)preserved;
+    (void)reserved;
+    (void)plistenername;
+    (void)pbuffer;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSQuerySessionInformationA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint sessionid, jint wtsinfoclass, jlong ppbuffer, jlong pbytesreturned) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSQuerySessionInformationA");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserver, (uint32_t)sessionid, (int32_t)wtsinfoclass, (void*)(uintptr_t)ppbuffer, (void*)(uintptr_t)pbytesreturned) : -1;
+#else
+    (void)hserver;
+    (void)sessionid;
+    (void)wtsinfoclass;
+    (void)ppbuffer;
+    (void)pbytesreturned;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSQuerySessionInformationW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint sessionid, jint wtsinfoclass, jlong ppbuffer, jlong pbytesreturned) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSQuerySessionInformationW");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserver, (uint32_t)sessionid, (int32_t)wtsinfoclass, (void*)(uintptr_t)ppbuffer, (void*)(uintptr_t)pbytesreturned) : -1;
+#else
+    (void)hserver;
+    (void)sessionid;
+    (void)wtsinfoclass;
+    (void)ppbuffer;
+    (void)pbytesreturned;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSQueryUserConfigA(JNIEnv* km_env, jclass km_clazz, jlong pservername, jlong pusername, jint wtsconfigclass, jlong ppbuffer, jlong pbytesreturned) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSQueryUserConfigA");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pservername, (void*)(uintptr_t)pusername, (int32_t)wtsconfigclass, (void*)(uintptr_t)ppbuffer, (void*)(uintptr_t)pbytesreturned) : -1;
+#else
+    (void)pservername;
+    (void)pusername;
+    (void)wtsconfigclass;
+    (void)ppbuffer;
+    (void)pbytesreturned;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSQueryUserConfigW(JNIEnv* km_env, jclass km_clazz, jlong pservername, jlong pusername, jint wtsconfigclass, jlong ppbuffer, jlong pbytesreturned) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSQueryUserConfigW");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pservername, (void*)(uintptr_t)pusername, (int32_t)wtsconfigclass, (void*)(uintptr_t)ppbuffer, (void*)(uintptr_t)pbytesreturned) : -1;
+#else
+    (void)pservername;
+    (void)pusername;
+    (void)wtsconfigclass;
+    (void)ppbuffer;
+    (void)pbytesreturned;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSQueryUserToken(JNIEnv* km_env, jclass km_clazz, jint sessionid, jlong phtoken) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSQueryUserToken");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionid, (void*)(uintptr_t)phtoken) : -1;
+#else
+    (void)sessionid;
+    (void)phtoken;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSRegisterSessionNotification(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint dwflags) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSRegisterSessionNotification");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwnd, (uint32_t)dwflags) : -1;
+#else
+    (void)hwnd;
+    (void)dwflags;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSRegisterSessionNotificationEx(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong hwnd, jint dwflags) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSRegisterSessionNotificationEx");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserver, (void*)(uintptr_t)hwnd, (uint32_t)dwflags) : -1;
+#else
+    (void)hserver;
+    (void)hwnd;
+    (void)dwflags;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSSendMessageA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint sessionid, jlong ptitle, jint titlelength, jlong pmessage, jint messagelength, jint style, jint timeout, jlong presponse, jint bwait) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t, uint32_t, uint32_t, void*, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSSendMessageA");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserver, (uint32_t)sessionid, (void*)(uintptr_t)ptitle, (uint32_t)titlelength, (void*)(uintptr_t)pmessage, (uint32_t)messagelength, (uint32_t)style, (uint32_t)timeout, (void*)(uintptr_t)presponse, (int32_t)bwait) : -1;
+#else
+    (void)hserver;
+    (void)sessionid;
+    (void)ptitle;
+    (void)titlelength;
+    (void)pmessage;
+    (void)messagelength;
+    (void)style;
+    (void)timeout;
+    (void)presponse;
+    (void)bwait;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSSendMessageW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint sessionid, jlong ptitle, jint titlelength, jlong pmessage, jint messagelength, jint style, jint timeout, jlong presponse, jint bwait) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t, uint32_t, uint32_t, void*, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSSendMessageW");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserver, (uint32_t)sessionid, (void*)(uintptr_t)ptitle, (uint32_t)titlelength, (void*)(uintptr_t)pmessage, (uint32_t)messagelength, (uint32_t)style, (uint32_t)timeout, (void*)(uintptr_t)presponse, (int32_t)bwait) : -1;
+#else
+    (void)hserver;
+    (void)sessionid;
+    (void)ptitle;
+    (void)titlelength;
+    (void)pmessage;
+    (void)messagelength;
+    (void)style;
+    (void)timeout;
+    (void)presponse;
+    (void)bwait;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSSetListenerSecurityA(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong preserved, jint reserved, jlong plistenername, jint securityinformation, jlong psecuritydescriptor) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSSetListenerSecurityA");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserver, (void*)(uintptr_t)preserved, (uint32_t)reserved, (void*)(uintptr_t)plistenername, (uint32_t)securityinformation, (void*)(uintptr_t)psecuritydescriptor) : -1;
+#else
+    (void)hserver;
+    (void)preserved;
+    (void)reserved;
+    (void)plistenername;
+    (void)securityinformation;
+    (void)psecuritydescriptor;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSSetListenerSecurityW(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong preserved, jint reserved, jlong plistenername, jint securityinformation, jlong psecuritydescriptor) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSSetListenerSecurityW");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserver, (void*)(uintptr_t)preserved, (uint32_t)reserved, (void*)(uintptr_t)plistenername, (uint32_t)securityinformation, (void*)(uintptr_t)psecuritydescriptor) : -1;
+#else
+    (void)hserver;
+    (void)preserved;
+    (void)reserved;
+    (void)plistenername;
+    (void)securityinformation;
+    (void)psecuritydescriptor;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSSetRenderHint(JNIEnv* km_env, jclass km_clazz, jlong prenderhintid, jlong hwndowner, jint renderhinttype, jint cbhintdatalength, jlong phintdata) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSSetRenderHint");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)prenderhintid, (void*)(uintptr_t)hwndowner, (uint32_t)renderhinttype, (uint32_t)cbhintdatalength, (void*)(uintptr_t)phintdata) : -1;
+#else
+    (void)prenderhintid;
+    (void)hwndowner;
+    (void)renderhinttype;
+    (void)cbhintdatalength;
+    (void)phintdata;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSSetUserConfigA(JNIEnv* km_env, jclass km_clazz, jlong pservername, jlong pusername, jint wtsconfigclass, jlong pbuffer, jint datalength) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSSetUserConfigA");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pservername, (void*)(uintptr_t)pusername, (int32_t)wtsconfigclass, (void*)(uintptr_t)pbuffer, (uint32_t)datalength) : -1;
+#else
+    (void)pservername;
+    (void)pusername;
+    (void)wtsconfigclass;
+    (void)pbuffer;
+    (void)datalength;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSSetUserConfigW(JNIEnv* km_env, jclass km_clazz, jlong pservername, jlong pusername, jint wtsconfigclass, jlong pbuffer, jint datalength) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSSetUserConfigW");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pservername, (void*)(uintptr_t)pusername, (int32_t)wtsconfigclass, (void*)(uintptr_t)pbuffer, (uint32_t)datalength) : -1;
+#else
+    (void)pservername;
+    (void)pusername;
+    (void)wtsconfigclass;
+    (void)pbuffer;
+    (void)datalength;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSShutdownSystem(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint shutdownflag) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSShutdownSystem");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserver, (uint32_t)shutdownflag) : -1;
+#else
+    (void)hserver;
+    (void)shutdownflag;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSStartRemoteControlSessionA(JNIEnv* km_env, jclass km_clazz, jlong ptargetservername, jint targetlogonid, jbyte hotkeyvk, jshort hotkeymodifiers) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint8_t, uint16_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSStartRemoteControlSessionA");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ptargetservername, (uint32_t)targetlogonid, (uint8_t)hotkeyvk, (uint16_t)hotkeymodifiers) : -1;
+#else
+    (void)ptargetservername;
+    (void)targetlogonid;
+    (void)hotkeyvk;
+    (void)hotkeymodifiers;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSStartRemoteControlSessionW(JNIEnv* km_env, jclass km_clazz, jlong ptargetservername, jint targetlogonid, jbyte hotkeyvk, jshort hotkeymodifiers) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint8_t, uint16_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSStartRemoteControlSessionW");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ptargetservername, (uint32_t)targetlogonid, (uint8_t)hotkeyvk, (uint16_t)hotkeymodifiers) : -1;
+#else
+    (void)ptargetservername;
+    (void)targetlogonid;
+    (void)hotkeyvk;
+    (void)hotkeymodifiers;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSStopRemoteControlSession(JNIEnv* km_env, jclass km_clazz, jint logonid) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSStopRemoteControlSession");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)logonid) : -1;
+#else
+    (void)logonid;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSTerminateProcess(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint processid, jint exitcode) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSTerminateProcess");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserver, (uint32_t)processid, (uint32_t)exitcode) : -1;
+#else
+    (void)hserver;
+    (void)processid;
+    (void)exitcode;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSUnRegisterSessionNotification(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSUnRegisterSessionNotification");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwnd) : -1;
+#else
+    (void)hwnd;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSUnRegisterSessionNotificationEx(JNIEnv* km_env, jclass km_clazz, jlong hserver, jlong hwnd) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSUnRegisterSessionNotificationEx");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserver, (void*)(uintptr_t)hwnd) : -1;
+#else
+    (void)hserver;
+    (void)hwnd;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSVirtualChannelClose(JNIEnv* km_env, jclass km_clazz, jlong hchannelhandle) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSVirtualChannelClose");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hchannelhandle) : -1;
+#else
+    (void)hchannelhandle;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSVirtualChannelOpen(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint sessionid, jlong pvirtualname) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSVirtualChannelOpen");
+    }
+    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserver, (uint32_t)sessionid, (void*)(uintptr_t)pvirtualname) : NULL;
+#else
+    (void)hserver;
+    (void)sessionid;
+    (void)pvirtualname;
+    void* km_res = NULL;
+#endif
+    return (jlong)(uintptr_t)km_res;
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSVirtualChannelOpenEx(JNIEnv* km_env, jclass km_clazz, jint sessionid, jlong pvirtualname, jint flags) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSVirtualChannelOpenEx");
+    }
+    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionid, (void*)(uintptr_t)pvirtualname, (uint32_t)flags) : NULL;
+#else
+    (void)sessionid;
+    (void)pvirtualname;
+    (void)flags;
+    void* km_res = NULL;
+#endif
+    return (jlong)(uintptr_t)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSVirtualChannelPurgeInput(JNIEnv* km_env, jclass km_clazz, jlong hchannelhandle) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSVirtualChannelPurgeInput");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hchannelhandle) : -1;
+#else
+    (void)hchannelhandle;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSVirtualChannelPurgeOutput(JNIEnv* km_env, jclass km_clazz, jlong hchannelhandle) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSVirtualChannelPurgeOutput");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hchannelhandle) : -1;
+#else
+    (void)hchannelhandle;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSVirtualChannelQuery(JNIEnv* km_env, jclass km_clazz, jlong hchannelhandle, jint param1, jlong ppbuffer, jlong pbytesreturned) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSVirtualChannelQuery");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hchannelhandle, (int32_t)param1, (void*)(uintptr_t)ppbuffer, (void*)(uintptr_t)pbytesreturned) : -1;
+#else
+    (void)hchannelhandle;
+    (void)param1;
+    (void)ppbuffer;
+    (void)pbytesreturned;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSVirtualChannelRead(JNIEnv* km_env, jclass km_clazz, jlong hchannelhandle, jint timeout, jlong buffer, jint buffersize, jlong pbytesread) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSVirtualChannelRead");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hchannelhandle, (uint32_t)timeout, (void*)(uintptr_t)buffer, (uint32_t)buffersize, (void*)(uintptr_t)pbytesread) : -1;
+#else
+    (void)hchannelhandle;
+    (void)timeout;
+    (void)buffer;
+    (void)buffersize;
+    (void)pbytesread;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSVirtualChannelWrite(JNIEnv* km_env, jclass km_clazz, jlong hchannelhandle, jlong buffer, jint length, jlong pbyteswritten) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSVirtualChannelWrite");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hchannelhandle, (void*)(uintptr_t)buffer, (uint32_t)length, (void*)(uintptr_t)pbyteswritten) : -1;
+#else
+    (void)hchannelhandle;
+    (void)buffer;
+    (void)length;
+    (void)pbyteswritten;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_remotedesktop_WindowsWin32SystemRemotedesktopJniBridge_windowssys_1windows_1win32_1system_1remotedesktop_1WTSWaitSystemEvent(JNIEnv* km_env, jclass km_clazz, jlong hserver, jint eventmask, jlong peventflags) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WTSWaitSystemEvent");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserver, (uint32_t)eventmask, (void*)(uintptr_t)peventflags) : -1;
+#else
+    (void)hserver;
+    (void)eventmask;
+    (void)peventflags;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+

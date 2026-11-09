@@ -1,19 +1,9 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.correlationvector
 
-import io.github.kotlinmania.windowssys.Win32DynamicFfi
+public expect fun RtlExtendCorrelationVector(correlationvector: Long): UInt
 
-public fun RtlExtendCorrelationVector(correlationvector: Long): UInt {
-    return Win32DynamicFfi.invoke("ntdll.dll", "RtlExtendCorrelationVector", longArrayOf(correlationvector)).toUInt()
-}
+public expect fun RtlIncrementCorrelationVector(correlationvector: Long): UInt
 
-public fun RtlIncrementCorrelationVector(correlationvector: Long): UInt {
-    return Win32DynamicFfi.invoke("ntdll.dll", "RtlIncrementCorrelationVector", longArrayOf(correlationvector)).toUInt()
-}
+public expect fun RtlInitializeCorrelationVector(correlationvector: Long, version: Int, guid: Long): UInt
 
-public fun RtlInitializeCorrelationVector(correlationvector: Long, version: Int, guid: Long): UInt {
-    return Win32DynamicFfi.invoke("ntdll.dll", "RtlInitializeCorrelationVector", longArrayOf(correlationvector, version.toLong(), guid)).toUInt()
-}
-
-public fun RtlValidateCorrelationVector(vector: Long): UInt {
-    return Win32DynamicFfi.invoke("ntdll.dll", "RtlValidateCorrelationVector", longArrayOf(vector)).toUInt()
-}
+public expect fun RtlValidateCorrelationVector(vector: Long): UInt

@@ -49,13 +49,59 @@ public final class FfiBuildSupport {
         String targetCapitalized,
         File konanDataDir
     ) {
-        Project rootProject = project.getRootProject();
+        TaskProvider<ExecTask> debugTask = registerNativeWrapperVariantTask(
+            project, ffiName, ffiWrapperBase, konanTargetName, targetCapitalized, konanDataDir, true
+        );
+        TaskProvider<ExecTask> releaseTask = registerNativeWrapperVariantTask(
+            project, ffiName, ffiWrapperBase, konanTargetName, targetCapitalized, konanDataDir, false
+        );
         String wrapperTaskName = "compile" + ffiName + "WrapperFor" + targetCapitalized;
         return project.getTasks().register(wrapperTaskName, ExecTask.class, task -> {
             task.setGroup("build");
-            task.setDescription("Compiles native C/C++ wrapper sources into static libraries for " + konanTargetName);
-            File cinteropDir = project.file("src/native/interop/cinterop");
+            task.setDescription("Stages compiled native C/C++ wrapper static libraries for " + konanTargetName);
+            task.dependsOn(debugTask, releaseTask);
+            File releaseDir = project.getLayout().getBuildDirectory().dir("cinterop-targets/" + konanTargetName + "/release").get().getAsFile();
             File outDir = project.getLayout().getBuildDirectory().dir("cinterop-targets/" + konanTargetName).get().getAsFile();
+            task.getInputs().dir(releaseDir);
+            if (konanTargetName.startsWith("linux")) {
+                task.getOutputs().file(new File(outDir, "native-archive-verification.json"));
+            }
+            task.getOutputs().dir(outDir);
+            task.doLast(t -> {
+                outDir.mkdirs();
+                File[] builtFiles = releaseDir.listFiles(f -> f.isFile() && (f.getName().endsWith(".a") || f.getName().endsWith(".json")));
+                if (builtFiles == null || builtFiles.length == 0) {
+                    throw new GradleException("No compiled release wrapper archives found in " + releaseDir);
+                }
+                for (File built : builtFiles) {
+                    try {
+                        Files.copy(built.toPath(), new File(outDir, built.getName()).toPath(), StandardCopyOption.REPLACE_EXISTING);
+                    } catch (IOException e) {
+                        throw new GradleException("Failed to stage native wrapper artifact " + built, e);
+                    }
+                }
+            });
+        });
+    }
+
+    private static TaskProvider<ExecTask> registerNativeWrapperVariantTask(
+        Project project,
+        String ffiName,
+        String ffiWrapperBase,
+        String konanTargetName,
+        String targetCapitalized,
+        File konanDataDir,
+        boolean isDebug
+    ) {
+        Project rootProject = project.getRootProject();
+        String variantCap = isDebug ? "Debug" : "Release";
+        String variantLower = isDebug ? "debug" : "release";
+        String wrapperTaskName = "compile" + ffiName + "Wrapper" + variantCap + "For" + targetCapitalized;
+        return project.getTasks().register(wrapperTaskName, ExecTask.class, task -> {
+            task.setGroup("build");
+            task.setDescription("Compiles " + variantLower + " native C/C++ wrapper sources into static libraries for " + konanTargetName);
+            File cinteropDir = project.file("src/native/interop/cinterop");
+            File outDir = project.getLayout().getBuildDirectory().dir("cinterop-targets/" + konanTargetName + "/" + variantLower).get().getAsFile();
             File outFile = new File(outDir, ffiWrapperBase + ".a");
             task.getInputs().files(project.fileTree(cinteropDir, spec -> spec.include("*.c", "*.cpp", "*.h", "*.hpp")));
             if (konanTargetName.startsWith("linux")) {
@@ -95,6 +141,8 @@ public final class FfiBuildSupport {
                 boolean isWindows = os.contains("windows");
                 ExecOperations execOps = task.getExecOperations();
                 List<File> allObjFiles = new ArrayList<>();
+                String optFlag = isDebug ? "-O0" : "-O2";
+                String defFlag = isDebug ? "-g" : "-DNDEBUG";
 
                 for (File srcFile : wrapperSources) {
                     String srcName = srcFile.getName();
@@ -123,6 +171,7 @@ public final class FfiBuildSupport {
                         }
                         execOps.exec(s -> s.commandLine(
                             "xcrun", "-sdk", sdkName, isCpp ? "clang++" : "clang", "-target", appleTriple,
+                            optFlag, defFlag, "-fvisibility=hidden",
                             "-Wall", "-Wextra", "-Werror", "-Wno-unused-parameter", "-c", "-I" + srcFile.getParent(),
                             srcFile.getAbsolutePath(), "-o", tempObj.getAbsolutePath()
                         )).assertNormalExitValue();
@@ -146,7 +195,8 @@ public final class FfiBuildSupport {
                         if (clangBin.exists() && sysroot.exists()) {
                             execOps.exec(s -> s.commandLine(
                                 clangBin.getAbsolutePath(), "--sysroot=" + sysroot.getAbsolutePath(),
-                                "-fPIC", "-Wall", "-Wextra", "-Werror", "-Wno-unused-parameter", "-c", "-I" + srcFile.getParent(),
+                                optFlag, defFlag, "-fPIC", "-fvisibility=hidden",
+                                "-Wall", "-Wextra", "-Werror", "-Wno-unused-parameter", "-c", "-I" + srcFile.getParent(),
                                 srcFile.getAbsolutePath(), "-o", tempObj.getAbsolutePath()
                             )).assertNormalExitValue();
                             execOps.exec(s -> s.commandLine(
@@ -169,7 +219,8 @@ public final class FfiBuildSupport {
                             }
                             execOps.exec(s -> s.commandLine(
                                 isCpp ? "clang++" : "clang", "--target=" + targetTriple, "--sysroot=" + sysroot.getAbsolutePath(),
-                                "-fPIC", "-Wall", "-Wextra", "-Werror", "-Wno-unused-parameter", "-c", "-I" + srcFile.getParent(),
+                                optFlag, defFlag, "-fPIC", "-fvisibility=hidden",
+                                "-Wall", "-Wextra", "-Werror", "-Wno-unused-parameter", "-c", "-I" + srcFile.getParent(),
                                 srcFile.getAbsolutePath(), "-o", tempObj.getAbsolutePath()
                             )).assertNormalExitValue();
                             execOps.exec(s -> s.commandLine(
@@ -185,7 +236,8 @@ public final class FfiBuildSupport {
                             if (sysroot.exists() && llvmAr.exists()) {
                                 execOps.exec(s -> s.commandLine(
                                     isCpp ? "clang++" : "clang", "--target=" + targetTriple, "--sysroot=" + sysroot.getAbsolutePath(),
-                                    "-fPIC", "-Wall", "-Wextra", "-Werror", "-Wno-unused-parameter", "-c", "-I" + srcFile.getParent(),
+                                    optFlag, defFlag, "-fPIC", "-fvisibility=hidden",
+                                    "-Wall", "-Wextra", "-Werror", "-Wno-unused-parameter", "-c", "-I" + srcFile.getParent(),
                                     srcFile.getAbsolutePath(), "-o", tempObj.getAbsolutePath()
                                 )).assertNormalExitValue();
                                 execOps.exec(s -> s.commandLine(
@@ -203,7 +255,7 @@ public final class FfiBuildSupport {
                         if (isWindows && mingwSysroot.exists()) {
                             execOps.exec(s -> s.commandLine(
                                 isCpp ? "clang++" : "clang", "--target=x86_64-w64-mingw32", "--sysroot=" + mingwSysroot.getAbsolutePath(),
-                                "-Wall", "-Wextra", "-Werror", "-Wno-unused-parameter", "-c", "-I" + srcFile.getParent(),
+                                optFlag, defFlag, "-Wall", "-Wextra", "-Werror", "-Wno-unused-parameter", "-c", "-I" + srcFile.getParent(),
                                 srcFile.getAbsolutePath(), "-o", tempObj.getAbsolutePath()
                             )).assertNormalExitValue();
                             execOps.exec(s -> s.commandLine(
@@ -217,7 +269,7 @@ public final class FfiBuildSupport {
                             if (mingwSysroot.exists() && llvmAr.exists()) {
                                 execOps.exec(s -> s.commandLine(
                                     isCpp ? "clang++" : "clang", "--target=x86_64-w64-mingw32", "--sysroot=" + mingwSysroot.getAbsolutePath(),
-                                    "-Wall", "-Wextra", "-Werror", "-Wno-unused-parameter", "-c", "-I" + srcFile.getParent(),
+                                    optFlag, defFlag, "-Wall", "-Wextra", "-Werror", "-Wno-unused-parameter", "-c", "-I" + srcFile.getParent(),
                                     srcFile.getAbsolutePath(), "-o", tempObj.getAbsolutePath()
                                 )).assertNormalExitValue();
                                 execOps.exec(s -> s.commandLine(
@@ -235,7 +287,7 @@ public final class FfiBuildSupport {
 
                     if (!stemArchive.exists() || stemArchive.length() == 0L) {
                         throw new GradleException(
-                            "compile" + ffiName + "Wrapper failed: output library does not exist for " + konanTargetName + " at " + stemArchive
+                            "compile" + ffiName + "Wrapper" + variantCap + " failed: output library does not exist for " + konanTargetName + " at " + stemArchive
                         );
                     }
                     if (tempObj.exists()) {
@@ -271,68 +323,35 @@ public final class FfiBuildSupport {
         boolean isWindowsHost = os.contains("windows");
         boolean isMacHost = os.contains("mac");
 
-        String jvmMainCDir = IdeSourceSetSupport.sourceSetDir("jvmMain") + "/c/";
+        TaskProvider<ExecTask> compileFfiJniDebug = registerJniVariantTask(
+            project, ffiName, ffiNameLower, isWindowsHost, isMacHost, true
+        );
+        TaskProvider<ExecTask> compileFfiJniRelease = registerJniVariantTask(
+            project, ffiName, ffiNameLower, isWindowsHost, isMacHost, false
+        );
+
         TaskProvider<ExecTask> compileFfiJni = project.getTasks().register("compile" + ffiName + "Jni", ExecTask.class, task -> {
             task.setGroup("build");
-            task.setDescription("Compiles JNI C sources into a shared library for JVM JNI binding");
-            File cDir = project.file(jvmMainCDir);
+            task.setDescription("Stages compiled release JNI shared library for JVM JNI binding");
+            task.dependsOn(compileFfiJniDebug, compileFfiJniRelease);
+            File releaseDir = project.getLayout().getBuildDirectory().dir("natives/release").get().getAsFile();
             File outDir = project.getLayout().getBuildDirectory().dir("natives").get().getAsFile();
-            task.getInputs().files(project.fileTree(jvmMainCDir, spec -> spec.include("*.c", "*.h")));
-            task.getInputs().files(project.fileTree("src/native/interop/cinterop", spec -> spec.include("*.h")));
+            task.getInputs().dir(releaseDir);
             task.getOutputs().dir(outDir);
-
             task.doLast(t -> {
                 outDir.mkdirs();
-                String javaHome = System.getProperty("java.home");
-                if (javaHome == null || javaHome.isEmpty()) {
-                    javaHome = System.getenv("JAVA_HOME");
+                String libName = isWindowsHost
+                    ? ffiNameLower + "_jni.dll"
+                    : (isMacHost ? "lib" + ffiNameLower + "_jni.dylib" : "lib" + ffiNameLower + "_jni.so");
+                File srcLib = new File(releaseDir, libName);
+                File dstLib = new File(outDir, libName);
+                if (!srcLib.isFile() || srcLib.length() == 0L) {
+                    throw new GradleException("Missing compiled release JNI artifact: " + srcLib);
                 }
-                String libName;
-                String osInclude;
-                if (isWindowsHost) {
-                    libName = ffiNameLower + "_jni.dll";
-                    osInclude = "win32";
-                } else if (isMacHost) {
-                    libName = "lib" + ffiNameLower + "_jni.dylib";
-                    osInclude = "darwin";
-                } else {
-                    libName = "lib" + ffiNameLower + "_jni.so";
-                    osInclude = "linux";
-                }
-                File outFile = new File(outDir, libName);
-                File javaInclude = new File(javaHome != null ? javaHome : "", "include");
-                File javaOsInclude = new File(javaInclude, osInclude);
-                if (outFile.exists() && !outFile.delete()) {
-                    throw new GradleException("Cannot remove old JNI artifact: " + outFile);
-                }
-                if (!new File(javaInclude, "jni.h").isFile() || !new File(javaOsInclude, "jni_md.h").isFile()) {
-                    throw new GradleException("JNI headers are required at " + javaInclude + " and " + javaOsInclude);
-                }
-                File[] cSources = cDir.listFiles((d, name) -> name.endsWith(".c"));
-                if (cSources == null || cSources.length == 0) {
-                    throw new GradleException("No JNI C sources found in " + cDir);
-                }
-                java.util.Arrays.sort(cSources, java.util.Comparator.comparing(File::getName));
-                List<String> cmd = new ArrayList<>();
-                cmd.add("clang");
-                cmd.add("-shared");
-                if (!isWindowsHost) {
-                    cmd.add("-fPIC");
-                }
-                cmd.add("-O2");
-                cmd.add("-I" + javaInclude.getAbsolutePath());
-                cmd.add("-I" + javaOsInclude.getAbsolutePath());
-                for (File cSrc : cSources) {
-                    cmd.add(cSrc.getAbsolutePath());
-                }
-                cmd.add("-o");
-                cmd.add(outFile.getAbsolutePath());
-                if (isWindowsHost) {
-                    cmd.add("-lws2_32");
-                }
-                task.getExecOperations().exec(s -> s.commandLine(cmd)).assertNormalExitValue();
-                if (!outFile.isFile() || outFile.length() == 0L) {
-                    throw new GradleException("JNI compiler produced no artifact: " + outFile);
+                try {
+                    Files.copy(srcLib.toPath(), dstLib.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                } catch (IOException e) {
+                    throw new GradleException("Failed to stage release JNI artifact to " + dstLib, e);
                 }
             });
         });
@@ -382,6 +401,93 @@ public final class FfiBuildSupport {
         return packageFfiJni;
     }
 
+    private static TaskProvider<ExecTask> registerJniVariantTask(
+        Project project,
+        String ffiName,
+        String ffiNameLower,
+        boolean isWindowsHost,
+        boolean isMacHost,
+        boolean isDebug
+    ) {
+        String variantCap = isDebug ? "Debug" : "Release";
+        String variantLower = isDebug ? "debug" : "release";
+        String jvmMainCDir = IdeSourceSetSupport.sourceSetDir("jvmMain") + "/c/";
+        return project.getTasks().register("compile" + ffiName + "Jni" + variantCap, ExecTask.class, task -> {
+            task.setGroup("build");
+            task.setDescription("Compiles " + variantLower + " JNI C sources into a shared library for JVM JNI binding");
+            File cDir = project.file(jvmMainCDir);
+            File outDir = project.getLayout().getBuildDirectory().dir("natives/" + variantLower).get().getAsFile();
+            task.getInputs().files(project.fileTree(jvmMainCDir, spec -> spec.include("*.c", "*.h")));
+            task.getInputs().files(project.fileTree("src/native/interop/cinterop", spec -> spec.include("*.h")));
+            task.getOutputs().dir(outDir);
+
+            task.doLast(t -> {
+                outDir.mkdirs();
+                String javaHome = System.getProperty("java.home");
+                if (javaHome == null || javaHome.isEmpty()) {
+                    javaHome = System.getenv("JAVA_HOME");
+                }
+                String libName;
+                String osInclude;
+                if (isWindowsHost) {
+                    libName = ffiNameLower + "_jni.dll";
+                    osInclude = "win32";
+                } else if (isMacHost) {
+                    libName = "lib" + ffiNameLower + "_jni.dylib";
+                    osInclude = "darwin";
+                } else {
+                    libName = "lib" + ffiNameLower + "_jni.so";
+                    osInclude = "linux";
+                }
+                File outFile = new File(outDir, libName);
+                File javaInclude = new File(javaHome != null ? javaHome : "", "include");
+                File javaOsInclude = new File(javaInclude, osInclude);
+                if (outFile.exists() && !outFile.delete()) {
+                    throw new GradleException("Cannot remove old JNI artifact: " + outFile);
+                }
+                if (!new File(javaInclude, "jni.h").isFile() || !new File(javaOsInclude, "jni_md.h").isFile()) {
+                    throw new GradleException("JNI headers are required at " + javaInclude + " and " + javaOsInclude);
+                }
+                File[] cSources = cDir.listFiles((d, name) -> name.endsWith(".c"));
+                if (cSources == null || cSources.length == 0) {
+                    throw new GradleException("No JNI C sources found in " + cDir);
+                }
+                java.util.Arrays.sort(cSources, java.util.Comparator.comparing(File::getName));
+                List<String> cmd = new ArrayList<>();
+                cmd.add("clang");
+                cmd.add("-shared");
+                if (!isWindowsHost) {
+                    cmd.add("-fPIC");
+                    cmd.add("-fvisibility=hidden");
+                }
+                if (isDebug) {
+                    cmd.add("-O0");
+                    cmd.add("-g");
+                } else {
+                    cmd.add("-O2");
+                    cmd.add("-DNDEBUG");
+                    if (!isWindowsHost) {
+                        cmd.add(isMacHost ? "-Wl,-x" : "-Wl,--strip-debug");
+                    }
+                }
+                cmd.add("-I" + javaInclude.getAbsolutePath());
+                cmd.add("-I" + javaOsInclude.getAbsolutePath());
+                for (File cSrc : cSources) {
+                    cmd.add(cSrc.getAbsolutePath());
+                }
+                cmd.add("-o");
+                cmd.add(outFile.getAbsolutePath());
+                if (isWindowsHost) {
+                    cmd.add("-lws2_32");
+                }
+                task.getExecOperations().exec(s -> s.commandLine(cmd)).assertNormalExitValue();
+                if (!outFile.isFile() || outFile.length() == 0L) {
+                    throw new GradleException("JNI compiler produced no artifact: " + outFile);
+                }
+            });
+        });
+    }
+
     public static TaskProvider<AndroidJniCompileTask> registerAndroidJniTask(
         Project project,
         String ffiName,
@@ -394,14 +500,65 @@ public final class FfiBuildSupport {
         boolean isWindowsHost = os.contains("windows");
         boolean isMacHost = os.contains("mac");
 
-        String jvmMainCDir = IdeSourceSetSupport.sourceSetDir("jvmMain") + "/c/";
+        TaskProvider<AndroidJniCompileTask> debugTask = registerAndroidJniVariantTask(
+            project, ffiName, ffiNameLower, nativeFfiEnabled, nativeFfiCompileWrapper, konanDataDir, isWindowsHost, isMacHost, true
+        );
+        TaskProvider<AndroidJniCompileTask> releaseTask = registerAndroidJniVariantTask(
+            project, ffiName, ffiNameLower, nativeFfiEnabled, nativeFfiCompileWrapper, konanDataDir, isWindowsHost, isMacHost, false
+        );
+
         return project.getTasks().register("compileAndroidJni", AndroidJniCompileTask.class, task -> {
+            task.setGroup("build");
+            task.setDescription("Stages compiled release Android JNI shared libraries");
+            task.dependsOn(debugTask, releaseTask);
+            task.getInputs().dir(releaseTask.flatMap(AndroidJniCompileTask::getNativeDirectory));
+            task.getNativeDirectory().set(project.getLayout().getBuildDirectory().dir("android-jni"));
+            task.doLast(t -> {
+                File releaseRoot = releaseTask.get().getNativeDirectory().get().getAsFile();
+                File outRoot = task.getNativeDirectory().get().getAsFile();
+                for (String abi : List.of("arm64-v8a", "x86_64")) {
+                    File src = new File(releaseRoot, abi + "/lib" + ffiNameLower + "_jni.so");
+                    File dst = new File(outRoot, abi + "/lib" + ffiNameLower + "_jni.so");
+                    if (!src.isFile() || src.length() == 0L) {
+                        throw new GradleException("Missing compiled release Android JNI library: " + src);
+                    }
+                    dst.getParentFile().mkdirs();
+                    try {
+                        Files.copy(src.toPath(), dst.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                    } catch (IOException e) {
+                        throw new GradleException("Failed to stage Android JNI library to " + dst, e);
+                    }
+                }
+            });
+        });
+    }
+
+    private static TaskProvider<AndroidJniCompileTask> registerAndroidJniVariantTask(
+        Project project,
+        String ffiName,
+        String ffiNameLower,
+        boolean nativeFfiEnabled,
+        boolean nativeFfiCompileWrapper,
+        File konanDataDir,
+        boolean isWindowsHost,
+        boolean isMacHost,
+        boolean isDebug
+    ) {
+        String variantCap = isDebug ? "Debug" : "Release";
+        String variantLower = isDebug ? "debug" : "release";
+        String jvmMainCDir = IdeSourceSetSupport.sourceSetDir("jvmMain") + "/c/";
+        return project.getTasks().register("compileAndroidJni" + variantCap, AndroidJniCompileTask.class, task -> {
+            task.setGroup("build");
+            task.setDescription("Compiles " + variantLower + " Android JNI C sources into shared libraries");
             if (nativeFfiEnabled && nativeFfiCompileWrapper) {
-                task.dependsOn("compile" + ffiName + "WrapperForAndroidNativeArm64", "compile" + ffiName + "WrapperForAndroidNativeX64");
+                task.dependsOn(
+                    "compile" + ffiName + "Wrapper" + variantCap + "ForAndroidNativeArm64",
+                    "compile" + ffiName + "Wrapper" + variantCap + "ForAndroidNativeX64"
+                );
             }
             task.getInputs().files(project.fileTree(jvmMainCDir, spec -> spec.include("*.c", "*.h")));
             task.getInputs().files(project.fileTree("src/native/interop/cinterop", spec -> spec.include("*.h")));
-            task.getNativeDirectory().set(project.getLayout().getBuildDirectory().dir("android-jni"));
+            task.getNativeDirectory().set(project.getLayout().getBuildDirectory().dir("android-jni-" + variantLower));
             task.doLast(t -> {
                 if (isWindowsHost) {
                     throw new GradleException("Build Android JNI payloads on the coordinated macOS or Linux host");
@@ -442,7 +599,13 @@ public final class FfiBuildSupport {
                     List<String> cmd = new ArrayList<>();
                     cmd.add(compiler.getAbsolutePath());
                     cmd.add("--sysroot=" + new File(ndk, "sysroot").getAbsolutePath());
-                    cmd.addAll(List.of("-shared", "-fPIC", "-O2", "-Wall", "-Wextra", "-Werror", "-Wl,-z,max-page-size=16384"));
+                    cmd.addAll(List.of("-shared", "-fPIC", "-fvisibility=hidden"));
+                    if (isDebug) {
+                        cmd.addAll(List.of("-O0", "-g"));
+                    } else {
+                        cmd.addAll(List.of("-O2", "-DNDEBUG", "-Wl,--strip-debug"));
+                    }
+                    cmd.addAll(List.of("-Wall", "-Wextra", "-Werror", "-Wl,-z,max-page-size=16384"));
                     for (File cSrc : cSources) {
                         cmd.add(cSrc.getAbsolutePath());
                     }
@@ -498,24 +661,57 @@ public final class FfiBuildSupport {
             }
         );
 
-        TaskProvider<BuildToolTask> buildNodeFfi = project.getTasks().register(
-            "buildNode" + ffiName,
+        TaskProvider<BuildToolTask> buildNodeFfiDebug = project.getTasks().register(
+            "buildNode" + ffiName + "Debug",
             BuildToolTask.class,
             task -> {
                 task.setGroup("build");
-                task.setDescription("Builds the native node-" + ffiNameLower + " N-API addon with its declared binding settings.");
+                task.setDescription("Builds the debug native node-" + ffiNameLower + " N-API addon.");
                 task.dependsOn(installNodeFfiHeaders);
                 task.getToolClass().set(NodeFfiBuilder.class.getName());
                 task.getArguments().addAll(
                     "--project-dir", rootProject.getProjectDir().getAbsolutePath(),
                     "--addon-dir", addonDirectory.getAbsolutePath(),
                     "--build-dir", project.getLayout().getBuildDirectory().get().getAsFile().getAbsolutePath(),
-                    "--node-version", nodeVersion
+                    "--node-version", nodeVersion,
+                    "--configuration", "Debug"
                 );
                 task.getArguments().addAll(nodeExecutable.map(it -> List.of("--node", it)));
                 if (project.getGradle().getStartParameter().isOffline()) {
                     task.getArguments().add("--offline");
                 }
+            }
+        );
+
+        TaskProvider<BuildToolTask> buildNodeFfiRelease = project.getTasks().register(
+            "buildNode" + ffiName + "Release",
+            BuildToolTask.class,
+            task -> {
+                task.setGroup("build");
+                task.setDescription("Builds the release native node-" + ffiNameLower + " N-API addon.");
+                task.dependsOn(installNodeFfiHeaders);
+                task.getToolClass().set(NodeFfiBuilder.class.getName());
+                task.getArguments().addAll(
+                    "--project-dir", rootProject.getProjectDir().getAbsolutePath(),
+                    "--addon-dir", addonDirectory.getAbsolutePath(),
+                    "--build-dir", project.getLayout().getBuildDirectory().get().getAsFile().getAbsolutePath(),
+                    "--node-version", nodeVersion,
+                    "--configuration", "Release"
+                );
+                task.getArguments().addAll(nodeExecutable.map(it -> List.of("--node", it)));
+                if (project.getGradle().getStartParameter().isOffline()) {
+                    task.getArguments().add("--offline");
+                }
+            }
+        );
+
+        TaskProvider<DefaultTask> buildNodeFfi = project.getTasks().register(
+            "buildNode" + ffiName,
+            DefaultTask.class,
+            task -> {
+                task.setGroup("build");
+                task.setDescription("Builds the debug and release native node-" + ffiNameLower + " N-API addons.");
+                task.dependsOn(buildNodeFfiDebug, buildNodeFfiRelease);
             }
         );
 

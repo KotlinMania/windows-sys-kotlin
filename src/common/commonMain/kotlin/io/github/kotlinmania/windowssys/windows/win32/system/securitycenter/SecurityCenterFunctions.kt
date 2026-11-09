@@ -1,30 +1,17 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.securitycenter
 
-import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 import io.github.kotlinmania.windowssys.windows.win32.system.threading.LPTHREAD_START_ROUTINE
 
-public fun WscGetAntiMalwareUri(ppszuri: Long): HRESULT {
-    return Win32DynamicFfi.invoke("wscapi.dll", "WscGetAntiMalwareUri", longArrayOf(ppszuri)).toInt()
-}
+public expect fun WscGetAntiMalwareUri(ppszuri: Long): HRESULT
 
-public fun WscGetSecurityProviderHealth(providers: UInt, phealth: Long): HRESULT {
-    return Win32DynamicFfi.invoke("wscapi.dll", "WscGetSecurityProviderHealth", longArrayOf(providers.toLong(), phealth)).toInt()
-}
+public expect fun WscGetSecurityProviderHealth(providers: UInt, phealth: Long): HRESULT
 
-public fun WscQueryAntiMalwareUri(): HRESULT {
-    return Win32DynamicFfi.invoke("wscapi.dll", "WscQueryAntiMalwareUri", longArrayOf()).toInt()
-}
+public expect fun WscQueryAntiMalwareUri(): HRESULT
 
-public fun WscRegisterForChanges(reserved: Long, phcallbackregistration: Long, lpcallbackaddress: LPTHREAD_START_ROUTINE, pcontext: Long): HRESULT {
-    return Win32DynamicFfi.invoke("wscapi.dll", "WscRegisterForChanges", longArrayOf(reserved, phcallbackregistration, Win32DynamicFfi.objectSlot(lpcallbackaddress), pcontext)).toInt()
-}
+public expect fun WscRegisterForChanges(reserved: Long, phcallbackregistration: Long, lpcallbackaddress: LPTHREAD_START_ROUTINE, pcontext: Long): HRESULT
 
-public fun WscRegisterForUserNotifications(): HRESULT {
-    return Win32DynamicFfi.invoke("wscapi.dll", "WscRegisterForUserNotifications", longArrayOf()).toInt()
-}
+public expect fun WscRegisterForUserNotifications(): HRESULT
 
-public fun WscUnRegisterChanges(hregistrationhandle: HANDLE): HRESULT {
-    return Win32DynamicFfi.invoke("wscapi.dll", "WscUnRegisterChanges", longArrayOf(hregistrationhandle)).toInt()
-}
+public expect fun WscUnRegisterChanges(hregistrationhandle: HANDLE): HRESULT

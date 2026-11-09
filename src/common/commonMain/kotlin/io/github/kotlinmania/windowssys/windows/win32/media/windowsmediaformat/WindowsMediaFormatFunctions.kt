@@ -1,49 +1,26 @@
 package io.github.kotlinmania.windowssys.windows.win32.media.windowsmediaformat
 
-import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
 
-public fun WMCreateBackupRestorer(pcallback: Long, ppbackup: Long): HRESULT {
-    return Win32DynamicFfi.invoke("wmvcore.dll", "WMCreateBackupRestorer", longArrayOf(pcallback, ppbackup)).toInt()
-}
+public expect fun WMCreateBackupRestorer(pcallback: Long, ppbackup: Long): HRESULT
 
-public fun WMCreateEditor(ppeditor: Long): HRESULT {
-    return Win32DynamicFfi.invoke("wmvcore.dll", "WMCreateEditor", longArrayOf(ppeditor)).toInt()
-}
+public expect fun WMCreateEditor(ppeditor: Long): HRESULT
 
-public fun WMCreateIndexer(ppindexer: Long): HRESULT {
-    return Win32DynamicFfi.invoke("wmvcore.dll", "WMCreateIndexer", longArrayOf(ppindexer)).toInt()
-}
+public expect fun WMCreateIndexer(ppindexer: Long): HRESULT
 
-public fun WMCreateProfileManager(ppprofilemanager: Long): HRESULT {
-    return Win32DynamicFfi.invoke("wmvcore.dll", "WMCreateProfileManager", longArrayOf(ppprofilemanager)).toInt()
-}
+public expect fun WMCreateProfileManager(ppprofilemanager: Long): HRESULT
 
-public fun WMCreateReader(punkcert: Long, dwrights: UInt, ppreader: Long): HRESULT {
-    return Win32DynamicFfi.invoke("wmvcore.dll", "WMCreateReader", longArrayOf(punkcert, dwrights.toLong(), ppreader)).toInt()
-}
+public expect fun WMCreateReader(punkcert: Long, dwrights: UInt, ppreader: Long): HRESULT
 
-public fun WMCreateSyncReader(punkcert: Long, dwrights: UInt, ppsyncreader: Long): HRESULT {
-    return Win32DynamicFfi.invoke("wmvcore.dll", "WMCreateSyncReader", longArrayOf(punkcert, dwrights.toLong(), ppsyncreader)).toInt()
-}
+public expect fun WMCreateSyncReader(punkcert: Long, dwrights: UInt, ppsyncreader: Long): HRESULT
 
-public fun WMCreateWriter(punkcert: Long, ppwriter: Long): HRESULT {
-    return Win32DynamicFfi.invoke("wmvcore.dll", "WMCreateWriter", longArrayOf(punkcert, ppwriter)).toInt()
-}
+public expect fun WMCreateWriter(punkcert: Long, ppwriter: Long): HRESULT
 
-public fun WMCreateWriterFileSink(ppsink: Long): HRESULT {
-    return Win32DynamicFfi.invoke("wmvcore.dll", "WMCreateWriterFileSink", longArrayOf(ppsink)).toInt()
-}
+public expect fun WMCreateWriterFileSink(ppsink: Long): HRESULT
 
-public fun WMCreateWriterNetworkSink(ppsink: Long): HRESULT {
-    return Win32DynamicFfi.invoke("wmvcore.dll", "WMCreateWriterNetworkSink", longArrayOf(ppsink)).toInt()
-}
+public expect fun WMCreateWriterNetworkSink(ppsink: Long): HRESULT
 
-public fun WMCreateWriterPushSink(ppsink: Long): HRESULT {
-    return Win32DynamicFfi.invoke("wmvcore.dll", "WMCreateWriterPushSink", longArrayOf(ppsink)).toInt()
-}
+public expect fun WMCreateWriterPushSink(ppsink: Long): HRESULT
 
-public fun WMIsContentProtected(pwszfilename: PCWSTR, pfisprotected: Long): HRESULT {
-    return Win32DynamicFfi.invoke("wmvcore.dll", "WMIsContentProtected", longArrayOf(pwszfilename, pfisprotected)).toInt()
-}
+public expect fun WMIsContentProtected(pwszfilename: PCWSTR, pfisprotected: Long): HRESULT

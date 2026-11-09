@@ -33,10 +33,6 @@ import io.github.kotlinmania.windowssys.windows.win32.system.kernel.SINGLE_LIST_
 import io.github.kotlinmania.windowssys.windows.win32.system.power.POWER_ACTION
 import io.github.kotlinmania.windowssys.windows.win32.system.power.SYSTEM_POWER_STATE
 
-public fun interface DRIVER_OBJECTMajorFunctionCallback {
-    public operator fun invoke(deviceobject: Long, irp: Long): NTSTATUS
-}
-
 public data class ACCESS_STATE(
     public var OperationID: LUID = LUID(),
     public var SecurityEvaluated: Boolean = false,

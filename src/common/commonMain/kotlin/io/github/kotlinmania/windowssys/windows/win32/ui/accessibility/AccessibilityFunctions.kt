@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.accessibility
 
-import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.BSTR
 import io.github.kotlinmania.windowssys.core.HRESULT
@@ -17,498 +16,248 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
 import io.github.kotlinmania.windowssys.windows.win32.system.variant.VARIANT
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.POINTER_INPUT_TYPE
 
-public fun interface FnCallback {
-    public operator fun invoke(hwineventhook: HWINEVENTHOOK, event: UInt, hwnd: HWND, idobject: Int, idchild: Int, ideventthread: UInt, dwmseventtime: UInt)
-}
-
-public fun AccNotifyTouchInteraction(hwndapp: HWND, hwndtarget: HWND, pttarget: POINT): HRESULT {
-    return Win32DynamicFfi.invoke("oleacc.dll", "AccNotifyTouchInteraction", longArrayOf(hwndapp, hwndtarget, ((pttarget.x.toLong() and 0xFFFF_FFFFL) or ((pttarget.y.toLong() and 0xFFFF_FFFFL) shl 32)))).toInt()
-}
-
-public fun AccSetRunningUtilityState(hwndapp: HWND, dwutilitystatemask: UInt, dwutilitystate: ACC_UTILITY_STATE_FLAGS): HRESULT {
-    return Win32DynamicFfi.invoke("oleacc.dll", "AccSetRunningUtilityState", longArrayOf(hwndapp, dwutilitystatemask.toLong(), dwutilitystate.toLong())).toInt()
-}
-
-public fun AccessibleChildren(pacccontainer: Long, ichildstart: Int, cchildren: Int, rgvarchildren: Long, pcobtained: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleacc.dll", "AccessibleChildren", longArrayOf(pacccontainer, ichildstart.toLong(), cchildren.toLong(), rgvarchildren, pcobtained)).toInt()
-}
-
-public fun AccessibleObjectFromEvent(hwnd: HWND, dwid: UInt, dwchildid: UInt, ppacc: Long, pvarchild: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleacc.dll", "AccessibleObjectFromEvent", longArrayOf(hwnd, dwid.toLong(), dwchildid.toLong(), ppacc, pvarchild)).toInt()
-}
-
-public fun AccessibleObjectFromPoint(ptscreen: POINT, ppacc: Long, pvarchild: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleacc.dll", "AccessibleObjectFromPoint", longArrayOf(((ptscreen.x.toLong() and 0xFFFF_FFFFL) or ((ptscreen.y.toLong() and 0xFFFF_FFFFL) shl 32)), ppacc, pvarchild)).toInt()
-}
-
-public fun AccessibleObjectFromWindow(hwnd: HWND, dwid: UInt, riid: Long, ppvobject: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleacc.dll", "AccessibleObjectFromWindow", longArrayOf(hwnd, dwid.toLong(), riid, ppvobject)).toInt()
-}
-
-public fun CreateStdAccessibleObject(hwnd: HWND, idobject: Int, riid: Long, ppvobject: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleacc.dll", "CreateStdAccessibleObject", longArrayOf(hwnd, idobject.toLong(), riid, ppvobject)).toInt()
-}
-
-public fun CreateStdAccessibleProxyA(hwnd: HWND, pclassname: PCSTR, idobject: Int, riid: Long, ppvobject: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleacc.dll", "CreateStdAccessibleProxyA", longArrayOf(hwnd, pclassname, idobject.toLong(), riid, ppvobject)).toInt()
-}
-
-public fun CreateStdAccessibleProxyW(hwnd: HWND, pclassname: PCWSTR, idobject: Int, riid: Long, ppvobject: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleacc.dll", "CreateStdAccessibleProxyW", longArrayOf(hwnd, pclassname, idobject.toLong(), riid, ppvobject)).toInt()
-}
-
-public fun DockPattern_SetDockPosition(hobj: HUIAPATTERNOBJECT, dockposition: DockPosition): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "DockPattern_SetDockPosition", longArrayOf(hobj, dockposition.toLong())).toInt()
-}
-
-public fun ExpandCollapsePattern_Collapse(hobj: HUIAPATTERNOBJECT): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "ExpandCollapsePattern_Collapse", longArrayOf(hobj)).toInt()
-}
-
-public fun ExpandCollapsePattern_Expand(hobj: HUIAPATTERNOBJECT): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "ExpandCollapsePattern_Expand", longArrayOf(hobj)).toInt()
-}
-
-public fun GetOleaccVersionInfo(pver: Long, pbuild: Long) {
-    Win32DynamicFfi.invoke("oleacc.dll", "GetOleaccVersionInfo", longArrayOf(pver, pbuild))
-}
-
-public fun GetRoleTextA(lrole: UInt, lpszrole: PSTR, cchrolemax: UInt): UInt {
-    return Win32DynamicFfi.invoke("oleacc.dll", "GetRoleTextA", longArrayOf(lrole.toLong(), lpszrole, cchrolemax.toLong())).toUInt()
-}
-
-public fun GetRoleTextW(lrole: UInt, lpszrole: PWSTR, cchrolemax: UInt): UInt {
-    return Win32DynamicFfi.invoke("oleacc.dll", "GetRoleTextW", longArrayOf(lrole.toLong(), lpszrole, cchrolemax.toLong())).toUInt()
-}
-
-public fun GetStateTextA(lstatebit: UInt, lpszstate: PSTR, cchstate: UInt): UInt {
-    return Win32DynamicFfi.invoke("oleacc.dll", "GetStateTextA", longArrayOf(lstatebit.toLong(), lpszstate, cchstate.toLong())).toUInt()
-}
-
-public fun GetStateTextW(lstatebit: UInt, lpszstate: PWSTR, cchstate: UInt): UInt {
-    return Win32DynamicFfi.invoke("oleacc.dll", "GetStateTextW", longArrayOf(lstatebit.toLong(), lpszstate, cchstate.toLong())).toUInt()
-}
-
-public fun GridPattern_GetItem(hobj: HUIAPATTERNOBJECT, row: Int, column: Int, presult: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "GridPattern_GetItem", longArrayOf(hobj, row.toLong(), column.toLong(), presult)).toInt()
-}
-
-public fun InvokePattern_Invoke(hobj: HUIAPATTERNOBJECT): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "InvokePattern_Invoke", longArrayOf(hobj)).toInt()
-}
-
-public fun IsWinEventHookInstalled(event: UInt): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "IsWinEventHookInstalled", longArrayOf(event.toLong())).toInt()
-}
-
-public fun ItemContainerPattern_FindItemByProperty(hobj: HUIAPATTERNOBJECT, hnodestartafter: HUIANODE, propertyid: Int, value: VARIANT, pfound: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "ItemContainerPattern_FindItemByProperty", longArrayOf(hobj, hnodestartafter, propertyid.toLong(), Win32DynamicFfi.objectSlot(value), pfound)).toInt()
-}
-
-public fun LegacyIAccessiblePattern_DoDefaultAction(hobj: HUIAPATTERNOBJECT): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "LegacyIAccessiblePattern_DoDefaultAction", longArrayOf(hobj)).toInt()
-}
-
-public fun LegacyIAccessiblePattern_GetIAccessible(hobj: HUIAPATTERNOBJECT, paccessible: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "LegacyIAccessiblePattern_GetIAccessible", longArrayOf(hobj, paccessible)).toInt()
-}
-
-public fun LegacyIAccessiblePattern_Select(hobj: HUIAPATTERNOBJECT, flagsselect: Int): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "LegacyIAccessiblePattern_Select", longArrayOf(hobj, flagsselect.toLong())).toInt()
-}
-
-public fun LegacyIAccessiblePattern_SetValue(hobj: HUIAPATTERNOBJECT, szvalue: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "LegacyIAccessiblePattern_SetValue", longArrayOf(hobj, szvalue)).toInt()
-}
-
-public fun LresultFromObject(riid: Long, wparam: WPARAM, punk: Long): LRESULT {
-    return Win32DynamicFfi.invoke("oleacc.dll", "LresultFromObject", longArrayOf(riid, wparam.toLong(), punk))
-}
-
-public fun MultipleViewPattern_GetViewName(hobj: HUIAPATTERNOBJECT, viewid: Int, ppstr: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "MultipleViewPattern_GetViewName", longArrayOf(hobj, viewid.toLong(), ppstr)).toInt()
-}
-
-public fun MultipleViewPattern_SetCurrentView(hobj: HUIAPATTERNOBJECT, viewid: Int): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "MultipleViewPattern_SetCurrentView", longArrayOf(hobj, viewid.toLong())).toInt()
-}
-
-public fun NotifyWinEvent(event: UInt, hwnd: HWND, idobject: Int, idchild: Int) {
-    Win32DynamicFfi.invoke("user32.dll", "NotifyWinEvent", longArrayOf(event.toLong(), hwnd, idobject.toLong(), idchild.toLong()))
-}
-
-public fun ObjectFromLresult(lresult: LRESULT, riid: Long, wparam: WPARAM, ppvobject: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleacc.dll", "ObjectFromLresult", longArrayOf(lresult, riid, wparam.toLong(), ppvobject)).toInt()
-}
-
-public fun RangeValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, value: Double): HRESULT {
-    return Win32DynamicFfi.invokeFp("uiautomationcore.dll", "RangeValuePattern_SetValue", 8, false, longArrayOf(hobj, value.toRawBits())).toLong().toInt()
-}
-
-public fun RegisterPointerInputTarget(hwnd: HWND, pointertype: POINTER_INPUT_TYPE): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "RegisterPointerInputTarget", longArrayOf(hwnd, pointertype.toLong())).toInt()
-}
-
-public fun RegisterPointerInputTargetEx(hwnd: HWND, pointertype: POINTER_INPUT_TYPE, fobserve: BOOL): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "RegisterPointerInputTargetEx", longArrayOf(hwnd, pointertype.toLong(), fobserve.toLong())).toInt()
-}
-
-public fun ScrollItemPattern_ScrollIntoView(hobj: HUIAPATTERNOBJECT): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "ScrollItemPattern_ScrollIntoView", longArrayOf(hobj)).toInt()
-}
-
-public fun ScrollPattern_Scroll(hobj: HUIAPATTERNOBJECT, horizontalamount: ScrollAmount, verticalamount: ScrollAmount): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "ScrollPattern_Scroll", longArrayOf(hobj, horizontalamount.toLong(), verticalamount.toLong())).toInt()
-}
-
-public fun ScrollPattern_SetScrollPercent(hobj: HUIAPATTERNOBJECT, horizontalpercent: Double, verticalpercent: Double): HRESULT {
-    return Win32DynamicFfi.invokeFp("uiautomationcore.dll", "ScrollPattern_SetScrollPercent", 40, false, longArrayOf(hobj, horizontalpercent.toRawBits(), verticalpercent.toRawBits())).toLong().toInt()
-}
-
-public fun SelectionItemPattern_AddToSelection(hobj: HUIAPATTERNOBJECT): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "SelectionItemPattern_AddToSelection", longArrayOf(hobj)).toInt()
-}
-
-public fun SelectionItemPattern_RemoveFromSelection(hobj: HUIAPATTERNOBJECT): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "SelectionItemPattern_RemoveFromSelection", longArrayOf(hobj)).toInt()
-}
-
-public fun SelectionItemPattern_Select(hobj: HUIAPATTERNOBJECT): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "SelectionItemPattern_Select", longArrayOf(hobj)).toInt()
-}
-
-public fun SetWinEventHook(eventmin: UInt, eventmax: UInt, hmodwineventproc: HMODULE, pfnwineventproc: WINEVENTPROC, idprocess: UInt, idthread: UInt, dwflags: UInt): HWINEVENTHOOK {
-    return Win32DynamicFfi.invoke("user32.dll", "SetWinEventHook", longArrayOf(eventmin.toLong(), eventmax.toLong(), hmodwineventproc, Win32DynamicFfi.objectSlot(pfnwineventproc), idprocess.toLong(), idthread.toLong(), dwflags.toLong()))
-}
-
-public fun SynchronizedInputPattern_Cancel(hobj: HUIAPATTERNOBJECT): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "SynchronizedInputPattern_Cancel", longArrayOf(hobj)).toInt()
-}
-
-public fun SynchronizedInputPattern_StartListening(hobj: HUIAPATTERNOBJECT, inputtype: SynchronizedInputType): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "SynchronizedInputPattern_StartListening", longArrayOf(hobj, inputtype.toLong())).toInt()
-}
-
-public fun TextPattern_GetSelection(hobj: HUIAPATTERNOBJECT, pretval: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "TextPattern_GetSelection", longArrayOf(hobj, pretval)).toInt()
-}
-
-public fun TextPattern_GetVisibleRanges(hobj: HUIAPATTERNOBJECT, pretval: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "TextPattern_GetVisibleRanges", longArrayOf(hobj, pretval)).toInt()
-}
-
-public fun TextPattern_RangeFromChild(hobj: HUIAPATTERNOBJECT, hnodechild: HUIANODE, pretval: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "TextPattern_RangeFromChild", longArrayOf(hobj, hnodechild, pretval)).toInt()
-}
-
-public fun TextPattern_RangeFromPoint(hobj: HUIAPATTERNOBJECT, point: UiaPoint, pretval: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "TextPattern_RangeFromPoint", longArrayOf(hobj, run { val buf = ByteArray(16); buf[0] = (point.x.toRawBits() and 0xFF).toByte(); buf[1] = ((point.x.toRawBits() ushr 8) and 0xFF).toByte(); buf[2] = ((point.x.toRawBits() ushr 16) and 0xFF).toByte(); buf[3] = ((point.x.toRawBits() ushr 24) and 0xFF).toByte(); buf[4] = ((point.x.toRawBits() ushr 32) and 0xFF).toByte(); buf[5] = ((point.x.toRawBits() ushr 40) and 0xFF).toByte(); buf[6] = ((point.x.toRawBits() ushr 48) and 0xFF).toByte(); buf[7] = ((point.x.toRawBits() ushr 56) and 0xFF).toByte(); buf[8] = (point.y.toRawBits() and 0xFF).toByte(); buf[9] = ((point.y.toRawBits() ushr 8) and 0xFF).toByte(); buf[10] = ((point.y.toRawBits() ushr 16) and 0xFF).toByte(); buf[11] = ((point.y.toRawBits() ushr 24) and 0xFF).toByte(); buf[12] = ((point.y.toRawBits() ushr 32) and 0xFF).toByte(); buf[13] = ((point.y.toRawBits() ushr 40) and 0xFF).toByte(); buf[14] = ((point.y.toRawBits() ushr 48) and 0xFF).toByte(); buf[15] = ((point.y.toRawBits() ushr 56) and 0xFF).toByte(); val ptr = Win32DynamicFfi.allocZeroed(16); Win32DynamicFfi.writeBytes(ptr, buf); ptr }, pretval)).toInt()
-}
-
-public fun TextPattern_get_DocumentRange(hobj: HUIAPATTERNOBJECT, pretval: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "TextPattern_get_DocumentRange", longArrayOf(hobj, pretval)).toInt()
-}
-
-public fun TextPattern_get_SupportedTextSelection(hobj: HUIAPATTERNOBJECT, pretval: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "TextPattern_get_SupportedTextSelection", longArrayOf(hobj, pretval)).toInt()
-}
-
-public fun TextRange_AddToSelection(hobj: HUIATEXTRANGE): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "TextRange_AddToSelection", longArrayOf(hobj)).toInt()
-}
-
-public fun TextRange_Clone(hobj: HUIATEXTRANGE, pretval: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "TextRange_Clone", longArrayOf(hobj, pretval)).toInt()
-}
-
-public fun TextRange_Compare(hobj: HUIATEXTRANGE, range: HUIATEXTRANGE, pretval: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "TextRange_Compare", longArrayOf(hobj, range, pretval)).toInt()
-}
-
-public fun TextRange_CompareEndpoints(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, targetrange: HUIATEXTRANGE, targetendpoint: TextPatternRangeEndpoint, pretval: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "TextRange_CompareEndpoints", longArrayOf(hobj, endpoint.toLong(), targetrange, targetendpoint.toLong(), pretval)).toInt()
-}
-
-public fun TextRange_ExpandToEnclosingUnit(hobj: HUIATEXTRANGE, unit: TextUnit): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "TextRange_ExpandToEnclosingUnit", longArrayOf(hobj, unit.toLong())).toInt()
-}
-
-public fun TextRange_FindAttribute(hobj: HUIATEXTRANGE, attributeid: Int, value: VARIANT, backward: BOOL, pretval: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "TextRange_FindAttribute", longArrayOf(hobj, attributeid.toLong(), Win32DynamicFfi.objectSlot(value), backward.toLong(), pretval)).toInt()
-}
-
-public fun TextRange_FindText(hobj: HUIATEXTRANGE, text: BSTR, backward: BOOL, ignorecase: BOOL, pretval: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "TextRange_FindText", longArrayOf(hobj, text, backward.toLong(), ignorecase.toLong(), pretval)).toInt()
-}
-
-public fun TextRange_GetAttributeValue(hobj: HUIATEXTRANGE, attributeid: Int, pretval: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "TextRange_GetAttributeValue", longArrayOf(hobj, attributeid.toLong(), pretval)).toInt()
-}
-
-public fun TextRange_GetBoundingRectangles(hobj: HUIATEXTRANGE, pretval: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "TextRange_GetBoundingRectangles", longArrayOf(hobj, pretval)).toInt()
-}
-
-public fun TextRange_GetChildren(hobj: HUIATEXTRANGE, pretval: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "TextRange_GetChildren", longArrayOf(hobj, pretval)).toInt()
-}
-
-public fun TextRange_GetEnclosingElement(hobj: HUIATEXTRANGE, pretval: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "TextRange_GetEnclosingElement", longArrayOf(hobj, pretval)).toInt()
-}
-
-public fun TextRange_GetText(hobj: HUIATEXTRANGE, maxlength: Int, pretval: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "TextRange_GetText", longArrayOf(hobj, maxlength.toLong(), pretval)).toInt()
-}
-
-public fun TextRange_Move(hobj: HUIATEXTRANGE, unit: TextUnit, count: Int, pretval: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "TextRange_Move", longArrayOf(hobj, unit.toLong(), count.toLong(), pretval)).toInt()
-}
-
-public fun TextRange_MoveEndpointByRange(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, targetrange: HUIATEXTRANGE, targetendpoint: TextPatternRangeEndpoint): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "TextRange_MoveEndpointByRange", longArrayOf(hobj, endpoint.toLong(), targetrange, targetendpoint.toLong())).toInt()
-}
-
-public fun TextRange_MoveEndpointByUnit(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: Int, pretval: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "TextRange_MoveEndpointByUnit", longArrayOf(hobj, endpoint.toLong(), unit.toLong(), count.toLong(), pretval)).toInt()
-}
-
-public fun TextRange_RemoveFromSelection(hobj: HUIATEXTRANGE): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "TextRange_RemoveFromSelection", longArrayOf(hobj)).toInt()
-}
-
-public fun TextRange_ScrollIntoView(hobj: HUIATEXTRANGE, aligntotop: BOOL): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "TextRange_ScrollIntoView", longArrayOf(hobj, aligntotop.toLong())).toInt()
-}
-
-public fun TextRange_Select(hobj: HUIATEXTRANGE): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "TextRange_Select", longArrayOf(hobj)).toInt()
-}
-
-public fun TogglePattern_Toggle(hobj: HUIAPATTERNOBJECT): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "TogglePattern_Toggle", longArrayOf(hobj)).toInt()
-}
-
-public fun TransformPattern_Move(hobj: HUIAPATTERNOBJECT, x: Double, y: Double): HRESULT {
-    return Win32DynamicFfi.invokeFp("uiautomationcore.dll", "TransformPattern_Move", 40, false, longArrayOf(hobj, x.toRawBits(), y.toRawBits())).toLong().toInt()
-}
-
-public fun TransformPattern_Resize(hobj: HUIAPATTERNOBJECT, width: Double, height: Double): HRESULT {
-    return Win32DynamicFfi.invokeFp("uiautomationcore.dll", "TransformPattern_Resize", 40, false, longArrayOf(hobj, width.toRawBits(), height.toRawBits())).toLong().toInt()
-}
-
-public fun TransformPattern_Rotate(hobj: HUIAPATTERNOBJECT, degrees: Double): HRESULT {
-    return Win32DynamicFfi.invokeFp("uiautomationcore.dll", "TransformPattern_Rotate", 8, false, longArrayOf(hobj, degrees.toRawBits())).toLong().toInt()
-}
-
-public fun UiaAddEvent(hnode: HUIANODE, eventid: Int, pcallback: Long, scope: TreeScope, pproperties: Long, cproperties: Int, prequest: Long, phevent: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaAddEvent", longArrayOf(hnode, eventid.toLong(), pcallback, scope.toLong(), pproperties, cproperties.toLong(), prequest, phevent)).toInt()
-}
-
-public fun UiaClientsAreListening(): BOOL {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaClientsAreListening", longArrayOf()).toInt()
-}
-
-public fun UiaDisconnectAllProviders(): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaDisconnectAllProviders", longArrayOf()).toInt()
-}
-
-public fun UiaDisconnectProvider(pprovider: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaDisconnectProvider", longArrayOf(pprovider)).toInt()
-}
-
-public fun UiaEventAddWindow(hevent: HUIAEVENT, hwnd: HWND): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaEventAddWindow", longArrayOf(hevent, hwnd)).toInt()
-}
-
-public fun UiaEventRemoveWindow(hevent: HUIAEVENT, hwnd: HWND): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaEventRemoveWindow", longArrayOf(hevent, hwnd)).toInt()
-}
-
-public fun UiaFind(hnode: HUIANODE, pparams: Long, prequest: Long, pprequesteddata: Long, ppoffsets: Long, pptreestructures: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaFind", longArrayOf(hnode, pparams, prequest, pprequesteddata, ppoffsets, pptreestructures)).toInt()
-}
-
-public fun UiaGetErrorDescription(pdescription: Long): BOOL {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaGetErrorDescription", longArrayOf(pdescription)).toInt()
-}
-
-public fun UiaGetPatternProvider(hnode: HUIANODE, patternid: Int, phobj: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaGetPatternProvider", longArrayOf(hnode, patternid.toLong(), phobj)).toInt()
-}
-
-public fun UiaGetPropertyValue(hnode: HUIANODE, propertyid: Int, pvalue: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaGetPropertyValue", longArrayOf(hnode, propertyid.toLong(), pvalue)).toInt()
-}
-
-public fun UiaGetReservedMixedAttributeValue(punkmixedattributevalue: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaGetReservedMixedAttributeValue", longArrayOf(punkmixedattributevalue)).toInt()
-}
-
-public fun UiaGetReservedNotSupportedValue(punknotsupportedvalue: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaGetReservedNotSupportedValue", longArrayOf(punknotsupportedvalue)).toInt()
-}
-
-public fun UiaGetRootNode(phnode: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaGetRootNode", longArrayOf(phnode)).toInt()
-}
-
-public fun UiaGetRuntimeId(hnode: HUIANODE, pruntimeid: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaGetRuntimeId", longArrayOf(hnode, pruntimeid)).toInt()
-}
-
-public fun UiaGetUpdatedCache(hnode: HUIANODE, prequest: Long, normalizestate: NormalizeState, pnormalizecondition: Long, pprequesteddata: Long, pptreestructure: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaGetUpdatedCache", longArrayOf(hnode, prequest, normalizestate.toLong(), pnormalizecondition, pprequesteddata, pptreestructure)).toInt()
-}
-
-public fun UiaHPatternObjectFromVariant(pvar: Long, phobj: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaHPatternObjectFromVariant", longArrayOf(pvar, phobj)).toInt()
-}
-
-public fun UiaHTextRangeFromVariant(pvar: Long, phtextrange: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaHTextRangeFromVariant", longArrayOf(pvar, phtextrange)).toInt()
-}
-
-public fun UiaHUiaNodeFromVariant(pvar: Long, phnode: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaHUiaNodeFromVariant", longArrayOf(pvar, phnode)).toInt()
-}
-
-public fun UiaHasServerSideProvider(hwnd: HWND): BOOL {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaHasServerSideProvider", longArrayOf(hwnd)).toInt()
-}
-
-public fun UiaHostProviderFromHwnd(hwnd: HWND, ppprovider: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaHostProviderFromHwnd", longArrayOf(hwnd, ppprovider)).toInt()
-}
-
-public fun UiaIAccessibleFromProvider(pprovider: Long, dwflags: UInt, ppaccessible: Long, pvarchild: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaIAccessibleFromProvider", longArrayOf(pprovider, dwflags.toLong(), ppaccessible, pvarchild)).toInt()
-}
-
-public fun UiaLookupId(type: AutomationIdentifierType, pguid: Long): Int {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaLookupId", longArrayOf(type.toLong(), pguid)).toInt()
-}
-
-public fun UiaNavigate(hnode: HUIANODE, direction: NavigateDirection, pcondition: Long, prequest: Long, pprequesteddata: Long, pptreestructure: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaNavigate", longArrayOf(hnode, direction.toLong(), pcondition, prequest, pprequesteddata, pptreestructure)).toInt()
-}
-
-public fun UiaNodeFromFocus(prequest: Long, pprequesteddata: Long, pptreestructure: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaNodeFromFocus", longArrayOf(prequest, pprequesteddata, pptreestructure)).toInt()
-}
-
-public fun UiaNodeFromHandle(hwnd: HWND, phnode: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaNodeFromHandle", longArrayOf(hwnd, phnode)).toInt()
-}
-
-public fun UiaNodeFromPoint(x: Double, y: Double, prequest: Long, pprequesteddata: Long, pptreestructure: Long): HRESULT {
-    return Win32DynamicFfi.invokeFp("uiautomationcore.dll", "UiaNodeFromPoint", 10, false, longArrayOf(x.toRawBits(), y.toRawBits(), prequest, pprequesteddata, pptreestructure)).toLong().toInt()
-}
-
-public fun UiaNodeFromProvider(pprovider: Long, phnode: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaNodeFromProvider", longArrayOf(pprovider, phnode)).toInt()
-}
-
-public fun UiaNodeRelease(hnode: HUIANODE): BOOL {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaNodeRelease", longArrayOf(hnode)).toInt()
-}
-
-public fun UiaPatternRelease(hobj: HUIAPATTERNOBJECT): BOOL {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaPatternRelease", longArrayOf(hobj)).toInt()
-}
-
-public fun UiaProviderForNonClient(hwnd: HWND, idobject: Int, idchild: Int, ppprovider: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaProviderForNonClient", longArrayOf(hwnd, idobject.toLong(), idchild.toLong(), ppprovider)).toInt()
-}
-
-public fun UiaProviderFromIAccessible(paccessible: Long, idchild: Int, dwflags: UInt, ppprovider: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaProviderFromIAccessible", longArrayOf(paccessible, idchild.toLong(), dwflags.toLong(), ppprovider)).toInt()
-}
-
-public fun UiaRaiseActiveTextPositionChangedEvent(provider: Long, textrange: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaRaiseActiveTextPositionChangedEvent", longArrayOf(provider, textrange)).toInt()
-}
-
-public fun UiaRaiseAsyncContentLoadedEvent(pprovider: Long, asynccontentloadedstate: AsyncContentLoadedState, percentcomplete: Double): HRESULT {
-    return Win32DynamicFfi.invokeFp("uiautomationcore.dll", "UiaRaiseAsyncContentLoadedEvent", 32, false, longArrayOf(pprovider, asynccontentloadedstate.toLong(), percentcomplete.toRawBits())).toLong().toInt()
-}
-
-public fun UiaRaiseAutomationEvent(pprovider: Long, id: UIA_EVENT_ID): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaRaiseAutomationEvent", longArrayOf(pprovider, id.toLong())).toInt()
-}
-
-public fun UiaRaiseAutomationPropertyChangedEvent(pprovider: Long, id: UIA_PROPERTY_ID, oldvalue: VARIANT, newvalue: VARIANT): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaRaiseAutomationPropertyChangedEvent", longArrayOf(pprovider, id.toLong(), Win32DynamicFfi.objectSlot(oldvalue), Win32DynamicFfi.objectSlot(newvalue))).toInt()
-}
-
-public fun UiaRaiseChangesEvent(pprovider: Long, eventidcount: Int, puiachanges: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaRaiseChangesEvent", longArrayOf(pprovider, eventidcount.toLong(), puiachanges)).toInt()
-}
-
-public fun UiaRaiseNotificationEvent(provider: Long, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: BSTR, activityid: BSTR): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaRaiseNotificationEvent", longArrayOf(provider, notificationkind.toLong(), notificationprocessing.toLong(), displaystring, activityid)).toInt()
-}
-
-public fun UiaRaiseStructureChangedEvent(pprovider: Long, structurechangetype: StructureChangeType, pruntimeid: Long, cruntimeidlen: Int): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaRaiseStructureChangedEvent", longArrayOf(pprovider, structurechangetype.toLong(), pruntimeid, cruntimeidlen.toLong())).toInt()
-}
-
-public fun UiaRaiseTextEditTextChangedEvent(pprovider: Long, texteditchangetype: TextEditChangeType, pchangeddata: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaRaiseTextEditTextChangedEvent", longArrayOf(pprovider, texteditchangetype.toLong(), pchangeddata)).toInt()
-}
-
-public fun UiaRegisterProviderCallback(pcallback: Long) {
-    Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaRegisterProviderCallback", longArrayOf(pcallback))
-}
-
-public fun UiaRemoveEvent(hevent: HUIAEVENT): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaRemoveEvent", longArrayOf(hevent)).toInt()
-}
-
-public fun UiaReturnRawElementProvider(hwnd: HWND, wparam: WPARAM, lparam: LPARAM, el: Long): LRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaReturnRawElementProvider", longArrayOf(hwnd, wparam.toLong(), lparam, el))
-}
-
-public fun UiaSetFocus(hnode: HUIANODE): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaSetFocus", longArrayOf(hnode)).toInt()
-}
-
-public fun UiaTextRangeRelease(hobj: HUIATEXTRANGE): BOOL {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "UiaTextRangeRelease", longArrayOf(hobj)).toInt()
-}
-
-public fun UnhookWinEvent(hwineventhook: HWINEVENTHOOK): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "UnhookWinEvent", longArrayOf(hwineventhook)).toInt()
-}
-
-public fun UnregisterPointerInputTarget(hwnd: HWND, pointertype: POINTER_INPUT_TYPE): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "UnregisterPointerInputTarget", longArrayOf(hwnd, pointertype.toLong())).toInt()
-}
-
-public fun UnregisterPointerInputTargetEx(hwnd: HWND, pointertype: POINTER_INPUT_TYPE): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "UnregisterPointerInputTargetEx", longArrayOf(hwnd, pointertype.toLong())).toInt()
-}
-
-public fun ValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, pval: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "ValuePattern_SetValue", longArrayOf(hobj, pval)).toInt()
-}
-
-public fun VirtualizedItemPattern_Realize(hobj: HUIAPATTERNOBJECT): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "VirtualizedItemPattern_Realize", longArrayOf(hobj)).toInt()
-}
-
-public fun WindowFromAccessibleObject(param0: Long, phwnd: Long): HRESULT {
-    return Win32DynamicFfi.invoke("oleacc.dll", "WindowFromAccessibleObject", longArrayOf(param0, phwnd)).toInt()
-}
-
-public fun WindowPattern_Close(hobj: HUIAPATTERNOBJECT): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "WindowPattern_Close", longArrayOf(hobj)).toInt()
-}
-
-public fun WindowPattern_SetWindowVisualState(hobj: HUIAPATTERNOBJECT, state: WindowVisualState): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "WindowPattern_SetWindowVisualState", longArrayOf(hobj, state.toLong())).toInt()
-}
-
-public fun WindowPattern_WaitForInputIdle(hobj: HUIAPATTERNOBJECT, milliseconds: Int, presult: Long): HRESULT {
-    return Win32DynamicFfi.invoke("uiautomationcore.dll", "WindowPattern_WaitForInputIdle", longArrayOf(hobj, milliseconds.toLong(), presult)).toInt()
-}
+public expect fun AccNotifyTouchInteraction(hwndapp: HWND, hwndtarget: HWND, pttarget: POINT): HRESULT
+
+public expect fun AccSetRunningUtilityState(hwndapp: HWND, dwutilitystatemask: UInt, dwutilitystate: ACC_UTILITY_STATE_FLAGS): HRESULT
+
+public expect fun AccessibleChildren(pacccontainer: Long, ichildstart: Int, cchildren: Int, rgvarchildren: Long, pcobtained: Long): HRESULT
+
+public expect fun AccessibleObjectFromEvent(hwnd: HWND, dwid: UInt, dwchildid: UInt, ppacc: Long, pvarchild: Long): HRESULT
+
+public expect fun AccessibleObjectFromPoint(ptscreen: POINT, ppacc: Long, pvarchild: Long): HRESULT
+
+public expect fun AccessibleObjectFromWindow(hwnd: HWND, dwid: UInt, riid: Long, ppvobject: Long): HRESULT
+
+public expect fun CreateStdAccessibleObject(hwnd: HWND, idobject: Int, riid: Long, ppvobject: Long): HRESULT
+
+public expect fun CreateStdAccessibleProxyA(hwnd: HWND, pclassname: PCSTR, idobject: Int, riid: Long, ppvobject: Long): HRESULT
+
+public expect fun CreateStdAccessibleProxyW(hwnd: HWND, pclassname: PCWSTR, idobject: Int, riid: Long, ppvobject: Long): HRESULT
+
+public expect fun DockPattern_SetDockPosition(hobj: HUIAPATTERNOBJECT, dockposition: DockPosition): HRESULT
+
+public expect fun ExpandCollapsePattern_Collapse(hobj: HUIAPATTERNOBJECT): HRESULT
+
+public expect fun ExpandCollapsePattern_Expand(hobj: HUIAPATTERNOBJECT): HRESULT
+
+public expect fun GetOleaccVersionInfo(pver: Long, pbuild: Long)
+
+public expect fun GetRoleTextA(lrole: UInt, lpszrole: PSTR, cchrolemax: UInt): UInt
+
+public expect fun GetRoleTextW(lrole: UInt, lpszrole: PWSTR, cchrolemax: UInt): UInt
+
+public expect fun GetStateTextA(lstatebit: UInt, lpszstate: PSTR, cchstate: UInt): UInt
+
+public expect fun GetStateTextW(lstatebit: UInt, lpszstate: PWSTR, cchstate: UInt): UInt
+
+public expect fun GridPattern_GetItem(hobj: HUIAPATTERNOBJECT, row: Int, column: Int, presult: Long): HRESULT
+
+public expect fun InvokePattern_Invoke(hobj: HUIAPATTERNOBJECT): HRESULT
+
+public expect fun IsWinEventHookInstalled(event: UInt): BOOL
+
+public expect fun ItemContainerPattern_FindItemByProperty(hobj: HUIAPATTERNOBJECT, hnodestartafter: HUIANODE, propertyid: Int, value: VARIANT, pfound: Long): HRESULT
+
+public expect fun LegacyIAccessiblePattern_DoDefaultAction(hobj: HUIAPATTERNOBJECT): HRESULT
+
+public expect fun LegacyIAccessiblePattern_GetIAccessible(hobj: HUIAPATTERNOBJECT, paccessible: Long): HRESULT
+
+public expect fun LegacyIAccessiblePattern_Select(hobj: HUIAPATTERNOBJECT, flagsselect: Int): HRESULT
+
+public expect fun LegacyIAccessiblePattern_SetValue(hobj: HUIAPATTERNOBJECT, szvalue: PCWSTR): HRESULT
+
+public expect fun LresultFromObject(riid: Long, wparam: WPARAM, punk: Long): LRESULT
+
+public expect fun MultipleViewPattern_GetViewName(hobj: HUIAPATTERNOBJECT, viewid: Int, ppstr: Long): HRESULT
+
+public expect fun MultipleViewPattern_SetCurrentView(hobj: HUIAPATTERNOBJECT, viewid: Int): HRESULT
+
+public expect fun NotifyWinEvent(event: UInt, hwnd: HWND, idobject: Int, idchild: Int)
+
+public expect fun ObjectFromLresult(lresult: LRESULT, riid: Long, wparam: WPARAM, ppvobject: Long): HRESULT
+
+public expect fun RangeValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, value: Double): HRESULT
+
+public expect fun RegisterPointerInputTarget(hwnd: HWND, pointertype: POINTER_INPUT_TYPE): BOOL
+
+public expect fun RegisterPointerInputTargetEx(hwnd: HWND, pointertype: POINTER_INPUT_TYPE, fobserve: BOOL): BOOL
+
+public expect fun ScrollItemPattern_ScrollIntoView(hobj: HUIAPATTERNOBJECT): HRESULT
+
+public expect fun ScrollPattern_Scroll(hobj: HUIAPATTERNOBJECT, horizontalamount: ScrollAmount, verticalamount: ScrollAmount): HRESULT
+
+public expect fun ScrollPattern_SetScrollPercent(hobj: HUIAPATTERNOBJECT, horizontalpercent: Double, verticalpercent: Double): HRESULT
+
+public expect fun SelectionItemPattern_AddToSelection(hobj: HUIAPATTERNOBJECT): HRESULT
+
+public expect fun SelectionItemPattern_RemoveFromSelection(hobj: HUIAPATTERNOBJECT): HRESULT
+
+public expect fun SelectionItemPattern_Select(hobj: HUIAPATTERNOBJECT): HRESULT
+
+public expect fun SetWinEventHook(eventmin: UInt, eventmax: UInt, hmodwineventproc: HMODULE, pfnwineventproc: WINEVENTPROC, idprocess: UInt, idthread: UInt, dwflags: UInt): HWINEVENTHOOK
+
+public expect fun SynchronizedInputPattern_Cancel(hobj: HUIAPATTERNOBJECT): HRESULT
+
+public expect fun SynchronizedInputPattern_StartListening(hobj: HUIAPATTERNOBJECT, inputtype: SynchronizedInputType): HRESULT
+
+public expect fun TextPattern_GetSelection(hobj: HUIAPATTERNOBJECT, pretval: Long): HRESULT
+
+public expect fun TextPattern_GetVisibleRanges(hobj: HUIAPATTERNOBJECT, pretval: Long): HRESULT
+
+public expect fun TextPattern_RangeFromChild(hobj: HUIAPATTERNOBJECT, hnodechild: HUIANODE, pretval: Long): HRESULT
+
+public expect fun TextPattern_RangeFromPoint(hobj: HUIAPATTERNOBJECT, point: UiaPoint, pretval: Long): HRESULT
+
+public expect fun TextPattern_get_DocumentRange(hobj: HUIAPATTERNOBJECT, pretval: Long): HRESULT
+
+public expect fun TextPattern_get_SupportedTextSelection(hobj: HUIAPATTERNOBJECT, pretval: Long): HRESULT
+
+public expect fun TextRange_AddToSelection(hobj: HUIATEXTRANGE): HRESULT
+
+public expect fun TextRange_Clone(hobj: HUIATEXTRANGE, pretval: Long): HRESULT
+
+public expect fun TextRange_Compare(hobj: HUIATEXTRANGE, range: HUIATEXTRANGE, pretval: Long): HRESULT
+
+public expect fun TextRange_CompareEndpoints(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, targetrange: HUIATEXTRANGE, targetendpoint: TextPatternRangeEndpoint, pretval: Long): HRESULT
+
+public expect fun TextRange_ExpandToEnclosingUnit(hobj: HUIATEXTRANGE, unit: TextUnit): HRESULT
+
+public expect fun TextRange_FindAttribute(hobj: HUIATEXTRANGE, attributeid: Int, value: VARIANT, backward: BOOL, pretval: Long): HRESULT
+
+public expect fun TextRange_FindText(hobj: HUIATEXTRANGE, text: BSTR, backward: BOOL, ignorecase: BOOL, pretval: Long): HRESULT
+
+public expect fun TextRange_GetAttributeValue(hobj: HUIATEXTRANGE, attributeid: Int, pretval: Long): HRESULT
+
+public expect fun TextRange_GetBoundingRectangles(hobj: HUIATEXTRANGE, pretval: Long): HRESULT
+
+public expect fun TextRange_GetChildren(hobj: HUIATEXTRANGE, pretval: Long): HRESULT
+
+public expect fun TextRange_GetEnclosingElement(hobj: HUIATEXTRANGE, pretval: Long): HRESULT
+
+public expect fun TextRange_GetText(hobj: HUIATEXTRANGE, maxlength: Int, pretval: Long): HRESULT
+
+public expect fun TextRange_Move(hobj: HUIATEXTRANGE, unit: TextUnit, count: Int, pretval: Long): HRESULT
+
+public expect fun TextRange_MoveEndpointByRange(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, targetrange: HUIATEXTRANGE, targetendpoint: TextPatternRangeEndpoint): HRESULT
+
+public expect fun TextRange_MoveEndpointByUnit(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: Int, pretval: Long): HRESULT
+
+public expect fun TextRange_RemoveFromSelection(hobj: HUIATEXTRANGE): HRESULT
+
+public expect fun TextRange_ScrollIntoView(hobj: HUIATEXTRANGE, aligntotop: BOOL): HRESULT
+
+public expect fun TextRange_Select(hobj: HUIATEXTRANGE): HRESULT
+
+public expect fun TogglePattern_Toggle(hobj: HUIAPATTERNOBJECT): HRESULT
+
+public expect fun TransformPattern_Move(hobj: HUIAPATTERNOBJECT, x: Double, y: Double): HRESULT
+
+public expect fun TransformPattern_Resize(hobj: HUIAPATTERNOBJECT, width: Double, height: Double): HRESULT
+
+public expect fun TransformPattern_Rotate(hobj: HUIAPATTERNOBJECT, degrees: Double): HRESULT
+
+public expect fun UiaAddEvent(hnode: HUIANODE, eventid: Int, pcallback: Long, scope: TreeScope, pproperties: Long, cproperties: Int, prequest: Long, phevent: Long): HRESULT
+
+public expect fun UiaClientsAreListening(): BOOL
+
+public expect fun UiaDisconnectAllProviders(): HRESULT
+
+public expect fun UiaDisconnectProvider(pprovider: Long): HRESULT
+
+public expect fun UiaEventAddWindow(hevent: HUIAEVENT, hwnd: HWND): HRESULT
+
+public expect fun UiaEventRemoveWindow(hevent: HUIAEVENT, hwnd: HWND): HRESULT
+
+public expect fun UiaFind(hnode: HUIANODE, pparams: Long, prequest: Long, pprequesteddata: Long, ppoffsets: Long, pptreestructures: Long): HRESULT
+
+public expect fun UiaGetErrorDescription(pdescription: Long): BOOL
+
+public expect fun UiaGetPatternProvider(hnode: HUIANODE, patternid: Int, phobj: Long): HRESULT
+
+public expect fun UiaGetPropertyValue(hnode: HUIANODE, propertyid: Int, pvalue: Long): HRESULT
+
+public expect fun UiaGetReservedMixedAttributeValue(punkmixedattributevalue: Long): HRESULT
+
+public expect fun UiaGetReservedNotSupportedValue(punknotsupportedvalue: Long): HRESULT
+
+public expect fun UiaGetRootNode(phnode: Long): HRESULT
+
+public expect fun UiaGetRuntimeId(hnode: HUIANODE, pruntimeid: Long): HRESULT
+
+public expect fun UiaGetUpdatedCache(hnode: HUIANODE, prequest: Long, normalizestate: NormalizeState, pnormalizecondition: Long, pprequesteddata: Long, pptreestructure: Long): HRESULT
+
+public expect fun UiaHPatternObjectFromVariant(pvar: Long, phobj: Long): HRESULT
+
+public expect fun UiaHTextRangeFromVariant(pvar: Long, phtextrange: Long): HRESULT
+
+public expect fun UiaHUiaNodeFromVariant(pvar: Long, phnode: Long): HRESULT
+
+public expect fun UiaHasServerSideProvider(hwnd: HWND): BOOL
+
+public expect fun UiaHostProviderFromHwnd(hwnd: HWND, ppprovider: Long): HRESULT
+
+public expect fun UiaIAccessibleFromProvider(pprovider: Long, dwflags: UInt, ppaccessible: Long, pvarchild: Long): HRESULT
+
+public expect fun UiaLookupId(type: AutomationIdentifierType, pguid: Long): Int
+
+public expect fun UiaNavigate(hnode: HUIANODE, direction: NavigateDirection, pcondition: Long, prequest: Long, pprequesteddata: Long, pptreestructure: Long): HRESULT
+
+public expect fun UiaNodeFromFocus(prequest: Long, pprequesteddata: Long, pptreestructure: Long): HRESULT
+
+public expect fun UiaNodeFromHandle(hwnd: HWND, phnode: Long): HRESULT
+
+public expect fun UiaNodeFromPoint(x: Double, y: Double, prequest: Long, pprequesteddata: Long, pptreestructure: Long): HRESULT
+
+public expect fun UiaNodeFromProvider(pprovider: Long, phnode: Long): HRESULT
+
+public expect fun UiaNodeRelease(hnode: HUIANODE): BOOL
+
+public expect fun UiaPatternRelease(hobj: HUIAPATTERNOBJECT): BOOL
+
+public expect fun UiaProviderForNonClient(hwnd: HWND, idobject: Int, idchild: Int, ppprovider: Long): HRESULT
+
+public expect fun UiaProviderFromIAccessible(paccessible: Long, idchild: Int, dwflags: UInt, ppprovider: Long): HRESULT
+
+public expect fun UiaRaiseActiveTextPositionChangedEvent(provider: Long, textrange: Long): HRESULT
+
+public expect fun UiaRaiseAsyncContentLoadedEvent(pprovider: Long, asynccontentloadedstate: AsyncContentLoadedState, percentcomplete: Double): HRESULT
+
+public expect fun UiaRaiseAutomationEvent(pprovider: Long, id: UIA_EVENT_ID): HRESULT
+
+public expect fun UiaRaiseAutomationPropertyChangedEvent(pprovider: Long, id: UIA_PROPERTY_ID, oldvalue: VARIANT, newvalue: VARIANT): HRESULT
+
+public expect fun UiaRaiseChangesEvent(pprovider: Long, eventidcount: Int, puiachanges: Long): HRESULT
+
+public expect fun UiaRaiseNotificationEvent(provider: Long, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: BSTR, activityid: BSTR): HRESULT
+
+public expect fun UiaRaiseStructureChangedEvent(pprovider: Long, structurechangetype: StructureChangeType, pruntimeid: Long, cruntimeidlen: Int): HRESULT
+
+public expect fun UiaRaiseTextEditTextChangedEvent(pprovider: Long, texteditchangetype: TextEditChangeType, pchangeddata: Long): HRESULT
+
+public expect fun UiaRegisterProviderCallback(pcallback: Long)
+
+public expect fun UiaRemoveEvent(hevent: HUIAEVENT): HRESULT
+
+public expect fun UiaReturnRawElementProvider(hwnd: HWND, wparam: WPARAM, lparam: LPARAM, el: Long): LRESULT
+
+public expect fun UiaSetFocus(hnode: HUIANODE): HRESULT
+
+public expect fun UiaTextRangeRelease(hobj: HUIATEXTRANGE): BOOL
+
+public expect fun UnhookWinEvent(hwineventhook: HWINEVENTHOOK): BOOL
+
+public expect fun UnregisterPointerInputTarget(hwnd: HWND, pointertype: POINTER_INPUT_TYPE): BOOL
+
+public expect fun UnregisterPointerInputTargetEx(hwnd: HWND, pointertype: POINTER_INPUT_TYPE): BOOL
+
+public expect fun ValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, pval: PCWSTR): HRESULT
+
+public expect fun VirtualizedItemPattern_Realize(hobj: HUIAPATTERNOBJECT): HRESULT
+
+public expect fun WindowFromAccessibleObject(param0: Long, phwnd: Long): HRESULT
+
+public expect fun WindowPattern_Close(hobj: HUIAPATTERNOBJECT): HRESULT
+
+public expect fun WindowPattern_SetWindowVisualState(hobj: HUIAPATTERNOBJECT, state: WindowVisualState): HRESULT
+
+public expect fun WindowPattern_WaitForInputIdle(hobj: HUIAPATTERNOBJECT, milliseconds: Int, presult: Long): HRESULT

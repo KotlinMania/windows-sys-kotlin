@@ -1,57 +1,30 @@
 package io.github.kotlinmania.windowssys.windows.win32.media.kernelstreaming
 
-import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 
-public fun KsCreateAllocator(connectionhandle: HANDLE, allocatorframing: Long, allocatorhandle: Long): UInt {
-    return Win32DynamicFfi.invoke("ksuser.dll", "KsCreateAllocator", longArrayOf(connectionhandle, allocatorframing, allocatorhandle)).toUInt()
-}
+public expect fun KsCreateAllocator(connectionhandle: HANDLE, allocatorframing: Long, allocatorhandle: Long): UInt
 
-public fun KsCreateAllocator2(connectionhandle: HANDLE, allocatorframing: Long, allocatorhandle: Long): HRESULT {
-    return Win32DynamicFfi.invoke("ksuser.dll", "KsCreateAllocator2", longArrayOf(connectionhandle, allocatorframing, allocatorhandle)).toInt()
-}
+public expect fun KsCreateAllocator2(connectionhandle: HANDLE, allocatorframing: Long, allocatorhandle: Long): HRESULT
 
-public fun KsCreateClock(connectionhandle: HANDLE, clockcreate: Long, clockhandle: Long): UInt {
-    return Win32DynamicFfi.invoke("ksuser.dll", "KsCreateClock", longArrayOf(connectionhandle, clockcreate, clockhandle)).toUInt()
-}
+public expect fun KsCreateClock(connectionhandle: HANDLE, clockcreate: Long, clockhandle: Long): UInt
 
-public fun KsCreateClock2(connectionhandle: HANDLE, clockcreate: Long, clockhandle: Long): HRESULT {
-    return Win32DynamicFfi.invoke("ksuser.dll", "KsCreateClock2", longArrayOf(connectionhandle, clockcreate, clockhandle)).toInt()
-}
+public expect fun KsCreateClock2(connectionhandle: HANDLE, clockcreate: Long, clockhandle: Long): HRESULT
 
-public fun KsCreatePin(filterhandle: HANDLE, connect: Long, desiredaccess: UInt, connectionhandle: Long): UInt {
-    return Win32DynamicFfi.invoke("ksuser.dll", "KsCreatePin", longArrayOf(filterhandle, connect, desiredaccess.toLong(), connectionhandle)).toUInt()
-}
+public expect fun KsCreatePin(filterhandle: HANDLE, connect: Long, desiredaccess: UInt, connectionhandle: Long): UInt
 
-public fun KsCreatePin2(filterhandle: HANDLE, connect: Long, desiredaccess: UInt, connectionhandle: Long): HRESULT {
-    return Win32DynamicFfi.invoke("ksuser.dll", "KsCreatePin2", longArrayOf(filterhandle, connect, desiredaccess.toLong(), connectionhandle)).toInt()
-}
+public expect fun KsCreatePin2(filterhandle: HANDLE, connect: Long, desiredaccess: UInt, connectionhandle: Long): HRESULT
 
-public fun KsCreateTopologyNode(parenthandle: HANDLE, nodecreate: Long, desiredaccess: UInt, nodehandle: Long): UInt {
-    return Win32DynamicFfi.invoke("ksuser.dll", "KsCreateTopologyNode", longArrayOf(parenthandle, nodecreate, desiredaccess.toLong(), nodehandle)).toUInt()
-}
+public expect fun KsCreateTopologyNode(parenthandle: HANDLE, nodecreate: Long, desiredaccess: UInt, nodehandle: Long): UInt
 
-public fun KsCreateTopologyNode2(parenthandle: HANDLE, nodecreate: Long, desiredaccess: UInt, nodehandle: Long): HRESULT {
-    return Win32DynamicFfi.invoke("ksuser.dll", "KsCreateTopologyNode2", longArrayOf(parenthandle, nodecreate, desiredaccess.toLong(), nodehandle)).toInt()
-}
+public expect fun KsCreateTopologyNode2(parenthandle: HANDLE, nodecreate: Long, desiredaccess: UInt, nodehandle: Long): HRESULT
 
-public fun KsGetMediaTypeCount(filterhandle: HANDLE, pinfactoryid: UInt, mediatypecount: Long): HRESULT {
-    return Win32DynamicFfi.invoke("ksproxy.ax", "KsGetMediaTypeCount", longArrayOf(filterhandle, pinfactoryid.toLong(), mediatypecount)).toInt()
-}
+public expect fun KsGetMediaTypeCount(filterhandle: HANDLE, pinfactoryid: UInt, mediatypecount: Long): HRESULT
 
-public fun KsGetMultiplePinFactoryItems(filterhandle: HANDLE, pinfactoryid: UInt, propertyid: UInt, items: Long): HRESULT {
-    return Win32DynamicFfi.invoke("ksproxy.ax", "KsGetMultiplePinFactoryItems", longArrayOf(filterhandle, pinfactoryid.toLong(), propertyid.toLong(), items)).toInt()
-}
+public expect fun KsGetMultiplePinFactoryItems(filterhandle: HANDLE, pinfactoryid: UInt, propertyid: UInt, items: Long): HRESULT
 
-public fun KsOpenDefaultDevice(category: Long, access: UInt, devicehandle: Long): HRESULT {
-    return Win32DynamicFfi.invoke("ksproxy.ax", "KsOpenDefaultDevice", longArrayOf(category, access.toLong(), devicehandle)).toInt()
-}
+public expect fun KsOpenDefaultDevice(category: Long, access: UInt, devicehandle: Long): HRESULT
 
-public fun KsResolveRequiredAttributes(datarange: Long, attributes: Long): HRESULT {
-    return Win32DynamicFfi.invoke("ksproxy.ax", "KsResolveRequiredAttributes", longArrayOf(datarange, attributes)).toInt()
-}
+public expect fun KsResolveRequiredAttributes(datarange: Long, attributes: Long): HRESULT
 
-public fun KsSynchronousDeviceControl(handle: HANDLE, iocontrol: UInt, inbuffer: Long, inlength: UInt, outbuffer: Long, outlength: UInt, bytesreturned: Long): HRESULT {
-    return Win32DynamicFfi.invoke("ksproxy.ax", "KsSynchronousDeviceControl", longArrayOf(handle, iocontrol.toLong(), inbuffer, inlength.toLong(), outbuffer, outlength.toLong(), bytesreturned)).toInt()
-}
+public expect fun KsSynchronousDeviceControl(handle: HANDLE, iocontrol: UInt, inbuffer: Long, inlength: UInt, outbuffer: Long, outlength: UInt, bytesreturned: Long): HRESULT

@@ -1,0 +1,5 @@
+package = io.github.kotlinmania.windowssys.windows.win32.devices.alljoyn.cinterop
+headers = windows_win32_devices_alljoyn_wrapper.h
+headerFilter = windows_win32_devices_alljoyn_wrapper.h
+compilerOpts = -Isrc/native/interop/cinterop
+staticLibraries = windows_win32_devices_alljoyn_wrapper.a

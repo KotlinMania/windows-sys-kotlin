@@ -1,41 +1,22 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.componentservices
 
-import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.windows.win32.system.com.APTTYPE
 
-public fun CoCreateActivity(piunknown: Long, riid: Long, ppobj: Long): HRESULT {
-    return Win32DynamicFfi.invoke("comsvcs.dll", "CoCreateActivity", longArrayOf(piunknown, riid, ppobj)).toInt()
-}
+public expect fun CoCreateActivity(piunknown: Long, riid: Long, ppobj: Long): HRESULT
 
-public fun CoEnterServiceDomain(pconfigobject: Long): HRESULT {
-    return Win32DynamicFfi.invoke("comsvcs.dll", "CoEnterServiceDomain", longArrayOf(pconfigobject)).toInt()
-}
+public expect fun CoEnterServiceDomain(pconfigobject: Long): HRESULT
 
-public fun CoGetDefaultContext(apttype: APTTYPE, riid: Long, ppv: Long): HRESULT {
-    return Win32DynamicFfi.invoke("ole32.dll", "CoGetDefaultContext", longArrayOf(apttype.toLong(), riid, ppv)).toInt()
-}
+public expect fun CoGetDefaultContext(apttype: APTTYPE, riid: Long, ppv: Long): HRESULT
 
-public fun CoLeaveServiceDomain(punkstatus: Long) {
-    Win32DynamicFfi.invoke("comsvcs.dll", "CoLeaveServiceDomain", longArrayOf(punkstatus))
-}
+public expect fun CoLeaveServiceDomain(punkstatus: Long)
 
-public fun GetDispenserManager(param0: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mtxdm.dll", "GetDispenserManager", longArrayOf(param0)).toInt()
-}
+public expect fun GetDispenserManager(param0: Long): HRESULT
 
-public fun GetManagedExtensions(dwexts: Long): HRESULT {
-    return Win32DynamicFfi.invoke("comsvcs.dll", "GetManagedExtensions", longArrayOf(dwexts)).toInt()
-}
+public expect fun GetManagedExtensions(dwexts: Long): HRESULT
 
-public fun MTSCreateActivity(riid: Long, ppobj: Long): HRESULT {
-    return Win32DynamicFfi.invoke("comsvcs.dll", "MTSCreateActivity", longArrayOf(riid, ppobj)).toInt()
-}
+public expect fun MTSCreateActivity(riid: Long, ppobj: Long): HRESULT
 
-public fun RecycleSurrogate(lreasoncode: Int): HRESULT {
-    return Win32DynamicFfi.invoke("comsvcs.dll", "RecycleSurrogate", longArrayOf(lreasoncode.toLong())).toInt()
-}
+public expect fun RecycleSurrogate(lreasoncode: Int): HRESULT
 
-public fun SafeRef(rid: Long, punk: Long): Long {
-    return Win32DynamicFfi.invoke("comsvcs.dll", "SafeRef", longArrayOf(rid, punk))
-}
+public expect fun SafeRef(rid: Long, punk: Long): Long

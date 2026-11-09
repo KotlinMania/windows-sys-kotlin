@@ -1,0 +1,22 @@
+#ifndef WINDOWSSYS_WINDOWS_WIN32_SYSTEM_DIAGNOSTICS_DEBUG_EXTENSIONS_WINDOWS_WIN32_SYSTEM_DIAGNOSTICS_DEBUG_EXTENSIONS_WRAPPER_H
+#define WINDOWSSYS_WINDOWS_WIN32_SYSTEM_DIAGNOSTICS_DEBUG_EXTENSIONS_WINDOWS_WIN32_SYSTEM_DIAGNOSTICS_DEBUG_EXTENSIONS_WRAPPER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+int32_t windowssys_windows_win32_system_diagnostics_debug_extensions_CreateDataModelManager(void* debughost, void* manager);
+int32_t windowssys_windows_win32_system_diagnostics_debug_extensions_DebugConnect(void* remoteoptions, void* interfaceid, void* arg_2_interface);
+int32_t windowssys_windows_win32_system_diagnostics_debug_extensions_DebugConnectWide(void* remoteoptions, void* interfaceid, void* arg_2_interface);
+int32_t windowssys_windows_win32_system_diagnostics_debug_extensions_DebugCreate(void* interfaceid, void* arg_1_interface);
+int32_t windowssys_windows_win32_system_diagnostics_debug_extensions_DebugCreateEx(void* interfaceid, uint32_t dbgengoptions, void* arg_2_interface);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* WINDOWSSYS_WINDOWS_WIN32_SYSTEM_DIAGNOSTICS_DEBUG_EXTENSIONS_WINDOWS_WIN32_SYSTEM_DIAGNOSTICS_DEBUG_EXTENSIONS_WRAPPER_H */

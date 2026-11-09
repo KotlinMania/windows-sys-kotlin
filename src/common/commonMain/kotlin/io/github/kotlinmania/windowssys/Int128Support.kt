@@ -1,14 +1,6 @@
-// port-lint: source primitives.rs
 @file:OptIn(ExperimentalUnsignedTypes::class)
-package io.github.kotlinmania.windowssys
 
-// This module contains type aliases for C's platform-specific types
-// and fixed-width integer types.
-//
-// The platform-specific types definitions were taken from rust-lang/rust in
-// library/core/src/ffi/primitives.rs
-//
-// The fixed-width integer aliases are deprecated: use the Rust types instead.
+package io.github.kotlinmania.windowssys
 
 public class U128(
     public val high: ULong = 0uL,
@@ -399,4 +391,3 @@ public class I128(
         public fun fromLeBytes(bytes: List<UByte>): I128 = U128.fromLeBytes(bytes).toI128()
     }
 }
-

@@ -13,10 +13,6 @@ import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.IN6_ADD
 import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.IN_ADDR
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CRYPT_INTEGER_BLOB
 
-public fun interface RTM_ENTITY_EXPORT_METHODSMethodsCallback {
-    public operator fun invoke(callerhandle: Long, calleehandle: Long, input: Long, output: Long)
-}
-
 public data class AUTH_VALIDATION_EX(
     public var Header: MPRAPI_OBJECT_HEADER = MPRAPI_OBJECT_HEADER(),
     public var hRasConnection: HANDLE = 0L,

@@ -1,63 +1,34 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.jobobjects
 
-import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 
-public fun AssignProcessToJobObject(hjob: HANDLE, hprocess: HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "AssignProcessToJobObject", longArrayOf(hjob, hprocess)).toInt()
-}
+public expect fun AssignProcessToJobObject(hjob: HANDLE, hprocess: HANDLE): BOOL
 
-public fun CreateJobObjectA(lpjobattributes: Long, lpname: PCSTR): HANDLE {
-    return Win32DynamicFfi.invoke("kernel32.dll", "CreateJobObjectA", longArrayOf(lpjobattributes, lpname))
-}
+public expect fun CreateJobObjectA(lpjobattributes: Long, lpname: PCSTR): HANDLE
 
-public fun CreateJobObjectW(lpjobattributes: Long, lpname: PCWSTR): HANDLE {
-    return Win32DynamicFfi.invoke("kernel32.dll", "CreateJobObjectW", longArrayOf(lpjobattributes, lpname))
-}
+public expect fun CreateJobObjectW(lpjobattributes: Long, lpname: PCWSTR): HANDLE
 
-public fun CreateJobSet(numjob: UInt, userjobset: Long, flags: UInt): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "CreateJobSet", longArrayOf(numjob.toLong(), userjobset, flags.toLong())).toInt()
-}
+public expect fun CreateJobSet(numjob: UInt, userjobset: Long, flags: UInt): BOOL
 
-public fun FreeMemoryJobObject(buffer: Long) {
-    Win32DynamicFfi.invoke("kernel32.dll", "FreeMemoryJobObject", longArrayOf(buffer))
-}
+public expect fun FreeMemoryJobObject(buffer: Long)
 
-public fun IsProcessInJob(processhandle: HANDLE, jobhandle: HANDLE, result: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "IsProcessInJob", longArrayOf(processhandle, jobhandle, result)).toInt()
-}
+public expect fun IsProcessInJob(processhandle: HANDLE, jobhandle: HANDLE, result: Long): BOOL
 
-public fun OpenJobObjectA(dwdesiredaccess: UInt, binherithandle: BOOL, lpname: PCSTR): HANDLE {
-    return Win32DynamicFfi.invoke("kernel32.dll", "OpenJobObjectA", longArrayOf(dwdesiredaccess.toLong(), binherithandle.toLong(), lpname))
-}
+public expect fun OpenJobObjectA(dwdesiredaccess: UInt, binherithandle: BOOL, lpname: PCSTR): HANDLE
 
-public fun OpenJobObjectW(dwdesiredaccess: UInt, binherithandle: BOOL, lpname: PCWSTR): HANDLE {
-    return Win32DynamicFfi.invoke("kernel32.dll", "OpenJobObjectW", longArrayOf(dwdesiredaccess.toLong(), binherithandle.toLong(), lpname))
-}
+public expect fun OpenJobObjectW(dwdesiredaccess: UInt, binherithandle: BOOL, lpname: PCWSTR): HANDLE
 
-public fun QueryInformationJobObject(hjob: HANDLE, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: Long, cbjobobjectinformationlength: UInt, lpreturnlength: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "QueryInformationJobObject", longArrayOf(hjob, jobobjectinformationclass.toLong(), lpjobobjectinformation, cbjobobjectinformationlength.toLong(), lpreturnlength)).toInt()
-}
+public expect fun QueryInformationJobObject(hjob: HANDLE, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: Long, cbjobobjectinformationlength: UInt, lpreturnlength: Long): BOOL
 
-public fun QueryIoRateControlInformationJobObject(hjob: HANDLE, volumename: PCWSTR, infoblocks: Long, infoblockcount: Long): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "QueryIoRateControlInformationJobObject", longArrayOf(hjob, volumename, infoblocks, infoblockcount)).toUInt()
-}
+public expect fun QueryIoRateControlInformationJobObject(hjob: HANDLE, volumename: PCWSTR, infoblocks: Long, infoblockcount: Long): UInt
 
-public fun SetInformationJobObject(hjob: HANDLE, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: Long, cbjobobjectinformationlength: UInt): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetInformationJobObject", longArrayOf(hjob, jobobjectinformationclass.toLong(), lpjobobjectinformation, cbjobobjectinformationlength.toLong())).toInt()
-}
+public expect fun SetInformationJobObject(hjob: HANDLE, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: Long, cbjobobjectinformationlength: UInt): BOOL
 
-public fun SetIoRateControlInformationJobObject(hjob: HANDLE, ioratecontrolinfo: Long): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetIoRateControlInformationJobObject", longArrayOf(hjob, ioratecontrolinfo)).toUInt()
-}
+public expect fun SetIoRateControlInformationJobObject(hjob: HANDLE, ioratecontrolinfo: Long): UInt
 
-public fun TerminateJobObject(hjob: HANDLE, uexitcode: UInt): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "TerminateJobObject", longArrayOf(hjob, uexitcode.toLong())).toInt()
-}
+public expect fun TerminateJobObject(hjob: HANDLE, uexitcode: UInt): BOOL
 
-public fun UserHandleGrantAccess(huserhandle: HANDLE, hjob: HANDLE, bgrant: BOOL): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "UserHandleGrantAccess", longArrayOf(huserhandle, hjob, bgrant.toLong())).toInt()
-}
+public expect fun UserHandleGrantAccess(huserhandle: HANDLE, hjob: HANDLE, bgrant: BOOL): BOOL

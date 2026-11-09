@@ -1,0 +1,22 @@
+#ifndef WINDOWSSYS_WINDOWS_WIN32_SYSTEM_SECURITYCENTER_WINDOWS_WIN32_SYSTEM_SECURITYCENTER_WRAPPER_H
+#define WINDOWSSYS_WINDOWS_WIN32_SYSTEM_SECURITYCENTER_WINDOWS_WIN32_SYSTEM_SECURITYCENTER_WRAPPER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+int32_t windowssys_windows_win32_system_securitycenter_WscGetAntiMalwareUri(void* ppszuri);
+int32_t windowssys_windows_win32_system_securitycenter_WscGetSecurityProviderHealth(uint32_t providers, void* phealth);
+int32_t windowssys_windows_win32_system_securitycenter_WscQueryAntiMalwareUri(void);
+int32_t windowssys_windows_win32_system_securitycenter_WscRegisterForUserNotifications(void);
+int32_t windowssys_windows_win32_system_securitycenter_WscUnRegisterChanges(void* hregistrationhandle);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* WINDOWSSYS_WINDOWS_WIN32_SYSTEM_SECURITYCENTER_WINDOWS_WIN32_SYSTEM_SECURITYCENTER_WRAPPER_H */

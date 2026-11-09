@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.environment
 
-import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
@@ -9,150 +8,76 @@ import io.github.kotlinmania.windowssys.core.PSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
 import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 
-public fun CallEnclave(lproutine: Long, lpparameter: Long, fwaitforthread: BOOL, lpreturnvalue: Long): BOOL {
-    return Win32DynamicFfi.invoke("vertdll.dll", "CallEnclave", longArrayOf(lproutine, lpparameter, fwaitforthread.toLong(), lpreturnvalue)).toInt()
-}
+public expect fun CallEnclave(lproutine: Long, lpparameter: Long, fwaitforthread: BOOL, lpreturnvalue: Long): BOOL
 
-public fun CreateEnclave(hprocess: HANDLE, lpaddress: Long, dwsize: ULong, dwinitialcommitment: ULong, flenclavetype: UInt, lpenclaveinformation: Long, dwinfolength: UInt, lpenclaveerror: Long): Long {
-    return Win32DynamicFfi.invoke("kernel32.dll", "CreateEnclave", longArrayOf(hprocess, lpaddress, dwsize.toLong(), dwinitialcommitment.toLong(), flenclavetype.toLong(), lpenclaveinformation, dwinfolength.toLong(), lpenclaveerror))
-}
+public expect fun CreateEnclave(hprocess: HANDLE, lpaddress: Long, dwsize: ULong, dwinitialcommitment: ULong, flenclavetype: UInt, lpenclaveinformation: Long, dwinfolength: UInt, lpenclaveerror: Long): Long
 
-public fun CreateEnvironmentBlock(lpenvironment: Long, htoken: HANDLE, binherit: BOOL): BOOL {
-    return Win32DynamicFfi.invoke("userenv.dll", "CreateEnvironmentBlock", longArrayOf(lpenvironment, htoken, binherit.toLong())).toInt()
-}
+public expect fun CreateEnvironmentBlock(lpenvironment: Long, htoken: HANDLE, binherit: BOOL): BOOL
 
-public fun DeleteEnclave(lpaddress: Long): BOOL {
-    return Win32DynamicFfi.invoke("api-ms-win-core-enclave-l1-1-1.dll", "DeleteEnclave", longArrayOf(lpaddress)).toInt()
-}
+public expect fun DeleteEnclave(lpaddress: Long): BOOL
 
-public fun DestroyEnvironmentBlock(lpenvironment: Long): BOOL {
-    return Win32DynamicFfi.invoke("userenv.dll", "DestroyEnvironmentBlock", longArrayOf(lpenvironment)).toInt()
-}
+public expect fun DestroyEnvironmentBlock(lpenvironment: Long): BOOL
 
-public fun EnclaveGetAttestationReport(enclavedata: Long, report: Long, buffersize: UInt, outputsize: Long): HRESULT {
-    return Win32DynamicFfi.invoke("vertdll.dll", "EnclaveGetAttestationReport", longArrayOf(enclavedata, report, buffersize.toLong(), outputsize)).toInt()
-}
+public expect fun EnclaveGetAttestationReport(enclavedata: Long, report: Long, buffersize: UInt, outputsize: Long): HRESULT
 
-public fun EnclaveGetEnclaveInformation(informationsize: UInt, enclaveinformation: Long): HRESULT {
-    return Win32DynamicFfi.invoke("vertdll.dll", "EnclaveGetEnclaveInformation", longArrayOf(informationsize.toLong(), enclaveinformation)).toInt()
-}
+public expect fun EnclaveGetEnclaveInformation(informationsize: UInt, enclaveinformation: Long): HRESULT
 
-public fun EnclaveSealData(datatoencrypt: Long, datatoencryptsize: UInt, identitypolicy: ENCLAVE_SEALING_IDENTITY_POLICY, runtimepolicy: UInt, protectedblob: Long, buffersize: UInt, protectedblobsize: Long): HRESULT {
-    return Win32DynamicFfi.invoke("vertdll.dll", "EnclaveSealData", longArrayOf(datatoencrypt, datatoencryptsize.toLong(), identitypolicy.toLong(), runtimepolicy.toLong(), protectedblob, buffersize.toLong(), protectedblobsize)).toInt()
-}
+public expect fun EnclaveSealData(datatoencrypt: Long, datatoencryptsize: UInt, identitypolicy: ENCLAVE_SEALING_IDENTITY_POLICY, runtimepolicy: UInt, protectedblob: Long, buffersize: UInt, protectedblobsize: Long): HRESULT
 
-public fun EnclaveUnsealData(protectedblob: Long, protectedblobsize: UInt, decrypteddata: Long, buffersize: UInt, decrypteddatasize: Long, sealingidentity: Long, unsealingflags: Long): HRESULT {
-    return Win32DynamicFfi.invoke("vertdll.dll", "EnclaveUnsealData", longArrayOf(protectedblob, protectedblobsize.toLong(), decrypteddata, buffersize.toLong(), decrypteddatasize, sealingidentity, unsealingflags)).toInt()
-}
+public expect fun EnclaveUnsealData(protectedblob: Long, protectedblobsize: UInt, decrypteddata: Long, buffersize: UInt, decrypteddatasize: Long, sealingidentity: Long, unsealingflags: Long): HRESULT
 
-public fun EnclaveVerifyAttestationReport(enclavetype: UInt, report: Long, reportsize: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("vertdll.dll", "EnclaveVerifyAttestationReport", longArrayOf(enclavetype.toLong(), report, reportsize.toLong())).toInt()
-}
+public expect fun EnclaveVerifyAttestationReport(enclavetype: UInt, report: Long, reportsize: UInt): HRESULT
 
-public fun ExpandEnvironmentStringsA(lpsrc: PCSTR, lpdst: PSTR, nsize: UInt): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "ExpandEnvironmentStringsA", longArrayOf(lpsrc, lpdst, nsize.toLong())).toUInt()
-}
+public expect fun ExpandEnvironmentStringsA(lpsrc: PCSTR, lpdst: PSTR, nsize: UInt): UInt
 
-public fun ExpandEnvironmentStringsForUserA(htoken: HANDLE, lpsrc: PCSTR, lpdest: PSTR, dwsize: UInt): BOOL {
-    return Win32DynamicFfi.invoke("userenv.dll", "ExpandEnvironmentStringsForUserA", longArrayOf(htoken, lpsrc, lpdest, dwsize.toLong())).toInt()
-}
+public expect fun ExpandEnvironmentStringsForUserA(htoken: HANDLE, lpsrc: PCSTR, lpdest: PSTR, dwsize: UInt): BOOL
 
-public fun ExpandEnvironmentStringsForUserW(htoken: HANDLE, lpsrc: PCWSTR, lpdest: PWSTR, dwsize: UInt): BOOL {
-    return Win32DynamicFfi.invoke("userenv.dll", "ExpandEnvironmentStringsForUserW", longArrayOf(htoken, lpsrc, lpdest, dwsize.toLong())).toInt()
-}
+public expect fun ExpandEnvironmentStringsForUserW(htoken: HANDLE, lpsrc: PCWSTR, lpdest: PWSTR, dwsize: UInt): BOOL
 
-public fun ExpandEnvironmentStringsW(lpsrc: PCWSTR, lpdst: PWSTR, nsize: UInt): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "ExpandEnvironmentStringsW", longArrayOf(lpsrc, lpdst, nsize.toLong())).toUInt()
-}
+public expect fun ExpandEnvironmentStringsW(lpsrc: PCWSTR, lpdst: PWSTR, nsize: UInt): UInt
 
-public fun FreeEnvironmentStringsA(penv: PCSTR): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "FreeEnvironmentStringsA", longArrayOf(penv)).toInt()
-}
+public expect fun FreeEnvironmentStringsA(penv: PCSTR): BOOL
 
-public fun FreeEnvironmentStringsW(penv: PCWSTR): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "FreeEnvironmentStringsW", longArrayOf(penv)).toInt()
-}
+public expect fun FreeEnvironmentStringsW(penv: PCWSTR): BOOL
 
-public fun GetCommandLineA(): PCSTR {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetCommandLineA", longArrayOf())
-}
+public expect fun GetCommandLineA(): PCSTR
 
-public fun GetCommandLineW(): PCWSTR {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetCommandLineW", longArrayOf())
-}
+public expect fun GetCommandLineW(): PCWSTR
 
-public fun GetCurrentDirectoryA(nbufferlength: UInt, lpbuffer: PSTR): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetCurrentDirectoryA", longArrayOf(nbufferlength.toLong(), lpbuffer)).toUInt()
-}
+public expect fun GetCurrentDirectoryA(nbufferlength: UInt, lpbuffer: PSTR): UInt
 
-public fun GetCurrentDirectoryW(nbufferlength: UInt, lpbuffer: PWSTR): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetCurrentDirectoryW", longArrayOf(nbufferlength.toLong(), lpbuffer)).toUInt()
-}
+public expect fun GetCurrentDirectoryW(nbufferlength: UInt, lpbuffer: PWSTR): UInt
 
-public fun GetEnvironmentStrings(): PSTR {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetEnvironmentStrings", longArrayOf())
-}
+public expect fun GetEnvironmentStrings(): PSTR
 
-public fun GetEnvironmentStringsW(): PWSTR {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetEnvironmentStringsW", longArrayOf())
-}
+public expect fun GetEnvironmentStringsW(): PWSTR
 
-public fun GetEnvironmentVariableA(lpname: PCSTR, lpbuffer: PSTR, nsize: UInt): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetEnvironmentVariableA", longArrayOf(lpname, lpbuffer, nsize.toLong())).toUInt()
-}
+public expect fun GetEnvironmentVariableA(lpname: PCSTR, lpbuffer: PSTR, nsize: UInt): UInt
 
-public fun GetEnvironmentVariableW(lpname: PCWSTR, lpbuffer: PWSTR, nsize: UInt): UInt {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetEnvironmentVariableW", longArrayOf(lpname, lpbuffer, nsize.toLong())).toUInt()
-}
+public expect fun GetEnvironmentVariableW(lpname: PCWSTR, lpbuffer: PWSTR, nsize: UInt): UInt
 
-public fun InitializeEnclave(hprocess: HANDLE, lpaddress: Long, lpenclaveinformation: Long, dwinfolength: UInt, lpenclaveerror: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "InitializeEnclave", longArrayOf(hprocess, lpaddress, lpenclaveinformation, dwinfolength.toLong(), lpenclaveerror)).toInt()
-}
+public expect fun InitializeEnclave(hprocess: HANDLE, lpaddress: Long, lpenclaveinformation: Long, dwinfolength: UInt, lpenclaveerror: Long): BOOL
 
-public fun IsEnclaveTypeSupported(flenclavetype: UInt): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "IsEnclaveTypeSupported", longArrayOf(flenclavetype.toLong())).toInt()
-}
+public expect fun IsEnclaveTypeSupported(flenclavetype: UInt): BOOL
 
-public fun LoadEnclaveData(hprocess: HANDLE, lpaddress: Long, lpbuffer: Long, nsize: ULong, flprotect: UInt, lppageinformation: Long, dwinfolength: UInt, lpnumberofbyteswritten: Long, lpenclaveerror: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "LoadEnclaveData", longArrayOf(hprocess, lpaddress, lpbuffer, nsize.toLong(), flprotect.toLong(), lppageinformation, dwinfolength.toLong(), lpnumberofbyteswritten, lpenclaveerror)).toInt()
-}
+public expect fun LoadEnclaveData(hprocess: HANDLE, lpaddress: Long, lpbuffer: Long, nsize: ULong, flprotect: UInt, lppageinformation: Long, dwinfolength: UInt, lpnumberofbyteswritten: Long, lpenclaveerror: Long): BOOL
 
-public fun LoadEnclaveImageA(lpenclaveaddress: Long, lpimagename: PCSTR): BOOL {
-    return Win32DynamicFfi.invoke("api-ms-win-core-enclave-l1-1-1.dll", "LoadEnclaveImageA", longArrayOf(lpenclaveaddress, lpimagename)).toInt()
-}
+public expect fun LoadEnclaveImageA(lpenclaveaddress: Long, lpimagename: PCSTR): BOOL
 
-public fun LoadEnclaveImageW(lpenclaveaddress: Long, lpimagename: PCWSTR): BOOL {
-    return Win32DynamicFfi.invoke("api-ms-win-core-enclave-l1-1-1.dll", "LoadEnclaveImageW", longArrayOf(lpenclaveaddress, lpimagename)).toInt()
-}
+public expect fun LoadEnclaveImageW(lpenclaveaddress: Long, lpimagename: PCWSTR): BOOL
 
-public fun NeedCurrentDirectoryForExePathA(exename: PCSTR): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "NeedCurrentDirectoryForExePathA", longArrayOf(exename)).toInt()
-}
+public expect fun NeedCurrentDirectoryForExePathA(exename: PCSTR): BOOL
 
-public fun NeedCurrentDirectoryForExePathW(exename: PCWSTR): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "NeedCurrentDirectoryForExePathW", longArrayOf(exename)).toInt()
-}
+public expect fun NeedCurrentDirectoryForExePathW(exename: PCWSTR): BOOL
 
-public fun SetCurrentDirectoryA(lppathname: PCSTR): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetCurrentDirectoryA", longArrayOf(lppathname)).toInt()
-}
+public expect fun SetCurrentDirectoryA(lppathname: PCSTR): BOOL
 
-public fun SetCurrentDirectoryW(lppathname: PCWSTR): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetCurrentDirectoryW", longArrayOf(lppathname)).toInt()
-}
+public expect fun SetCurrentDirectoryW(lppathname: PCWSTR): BOOL
 
-public fun SetEnvironmentStringsW(newenvironment: PCWSTR): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetEnvironmentStringsW", longArrayOf(newenvironment)).toInt()
-}
+public expect fun SetEnvironmentStringsW(newenvironment: PCWSTR): BOOL
 
-public fun SetEnvironmentVariableA(lpname: PCSTR, lpvalue: PCSTR): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetEnvironmentVariableA", longArrayOf(lpname, lpvalue)).toInt()
-}
+public expect fun SetEnvironmentVariableA(lpname: PCSTR, lpvalue: PCSTR): BOOL
 
-public fun SetEnvironmentVariableW(lpname: PCWSTR, lpvalue: PCWSTR): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "SetEnvironmentVariableW", longArrayOf(lpname, lpvalue)).toInt()
-}
+public expect fun SetEnvironmentVariableW(lpname: PCWSTR, lpvalue: PCWSTR): BOOL
 
-public fun TerminateEnclave(lpaddress: Long, fwait: BOOL): BOOL {
-    return Win32DynamicFfi.invoke("vertdll.dll", "TerminateEnclave", longArrayOf(lpaddress, fwait.toLong())).toInt()
-}
+public expect fun TerminateEnclave(lpaddress: Long, fwait: BOOL): BOOL

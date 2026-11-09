@@ -1,0 +1,5 @@
+package = io.github.kotlinmania.windowssys.windows.wdk.foundation.cinterop
+headers = windows_wdk_foundation_wrapper.h
+headerFilter = windows_wdk_foundation_wrapper.h
+compilerOpts = -Isrc/native/interop/cinterop
+staticLibraries = windows_wdk_foundation_wrapper.a

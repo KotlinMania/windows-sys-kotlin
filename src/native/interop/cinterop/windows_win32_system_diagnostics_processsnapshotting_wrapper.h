@@ -1,0 +1,27 @@
+#ifndef WINDOWSSYS_WINDOWS_WIN32_SYSTEM_DIAGNOSTICS_PROCESSSNAPSHOTTING_WINDOWS_WIN32_SYSTEM_DIAGNOSTICS_PROCESSSNAPSHOTTING_WRAPPER_H
+#define WINDOWSSYS_WINDOWS_WIN32_SYSTEM_DIAGNOSTICS_PROCESSSNAPSHOTTING_WINDOWS_WIN32_SYSTEM_DIAGNOSTICS_PROCESSSNAPSHOTTING_WRAPPER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+uint32_t windowssys_windows_win32_system_diagnostics_processsnapshotting_PssCaptureSnapshot(void* processhandle, uint32_t captureflags, uint32_t threadcontextflags, void* snapshothandle);
+uint32_t windowssys_windows_win32_system_diagnostics_processsnapshotting_PssDuplicateSnapshot(void* sourceprocesshandle, void* snapshothandle, void* targetprocesshandle, void* targetsnapshothandle, int32_t flags);
+uint32_t windowssys_windows_win32_system_diagnostics_processsnapshotting_PssFreeSnapshot(void* processhandle, void* snapshothandle);
+uint32_t windowssys_windows_win32_system_diagnostics_processsnapshotting_PssQuerySnapshot(void* snapshothandle, int32_t informationclass, void* buffer, uint32_t bufferlength);
+uint32_t windowssys_windows_win32_system_diagnostics_processsnapshotting_PssWalkMarkerCreate(void* allocator, void* walkmarkerhandle);
+uint32_t windowssys_windows_win32_system_diagnostics_processsnapshotting_PssWalkMarkerFree(void* walkmarkerhandle);
+uint32_t windowssys_windows_win32_system_diagnostics_processsnapshotting_PssWalkMarkerGetPosition(void* walkmarkerhandle, void* position);
+uint32_t windowssys_windows_win32_system_diagnostics_processsnapshotting_PssWalkMarkerSeekToBeginning(void* walkmarkerhandle);
+uint32_t windowssys_windows_win32_system_diagnostics_processsnapshotting_PssWalkMarkerSetPosition(void* walkmarkerhandle, uint64_t position);
+uint32_t windowssys_windows_win32_system_diagnostics_processsnapshotting_PssWalkSnapshot(void* snapshothandle, int32_t informationclass, void* walkmarkerhandle, void* buffer, uint32_t bufferlength);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* WINDOWSSYS_WINDOWS_WIN32_SYSTEM_DIAGNOSTICS_PROCESSSNAPSHOTTING_WINDOWS_WIN32_SYSTEM_DIAGNOSTICS_PROCESSSNAPSHOTTING_WRAPPER_H */

@@ -1,0 +1,28 @@
+#ifndef WINDOWSSYS_WINDOWS_WIN32_SECURITY_ISOLATION_WINDOWS_WIN32_SECURITY_ISOLATION_WRAPPER_H
+#define WINDOWSSYS_WINDOWS_WIN32_SECURITY_ISOLATION_WINDOWS_WIN32_SECURITY_ISOLATION_WRAPPER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+int32_t windowssys_windows_win32_security_isolation_CreateAppContainerProfile(void* pszappcontainername, void* pszdisplayname, void* pszdescription, void* pcapabilities, uint32_t dwcapabilitycount, void* ppsidappcontainersid);
+int32_t windowssys_windows_win32_security_isolation_DeleteAppContainerProfile(void* pszappcontainername);
+int32_t windowssys_windows_win32_security_isolation_DeriveAppContainerSidFromAppContainerName(void* pszappcontainername, void* ppsidappcontainersid);
+int32_t windowssys_windows_win32_security_isolation_DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(void* psidappcontainersid, void* pszrestrictedappcontainername, void* ppsidrestrictedappcontainersid);
+int32_t windowssys_windows_win32_security_isolation_GetAppContainerFolderPath(void* pszappcontainersid, void* ppszpath);
+int32_t windowssys_windows_win32_security_isolation_GetAppContainerNamedObjectPath(void* token, void* appcontainersid, uint32_t objectpathlength, void* objectpath, void* returnlength);
+int32_t windowssys_windows_win32_security_isolation_GetAppContainerRegistryLocation(uint32_t desiredaccess, void* phappcontainerkey);
+int32_t windowssys_windows_win32_security_isolation_IsCrossIsolatedEnvironmentClipboardContent(void* iscrossisolatedenvironmentclipboardcontent);
+int32_t windowssys_windows_win32_security_isolation_IsProcessInIsolatedContainer(void* isprocessinisolatedcontainer);
+int32_t windowssys_windows_win32_security_isolation_IsProcessInIsolatedWindowsEnvironment(void* isprocessinisolatedwindowsenvironment);
+int32_t windowssys_windows_win32_security_isolation_IsProcessInWDAGContainer(void* reserved, void* isprocessinwdagcontainer);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* WINDOWSSYS_WINDOWS_WIN32_SECURITY_ISOLATION_WINDOWS_WIN32_SECURITY_ISOLATION_WRAPPER_H */

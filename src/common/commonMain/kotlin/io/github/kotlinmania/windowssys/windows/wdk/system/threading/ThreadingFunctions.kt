@@ -1,103 +1,54 @@
 package io.github.kotlinmania.windowssys.windows.wdk.system.threading
 
-import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.PTIMER_APC_ROUTINE
 import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
 import io.github.kotlinmania.windowssys.windows.win32.system.kernel.TIMER_TYPE
 
-public fun NtCancelTimer(timerhandle: HANDLE, currentstate: Long): NTSTATUS {
-    return Win32DynamicFfi.invoke("ntdll.dll", "NtCancelTimer", longArrayOf(timerhandle, currentstate)).toInt()
-}
+public expect fun NtCancelTimer(timerhandle: HANDLE, currentstate: Long): NTSTATUS
 
-public fun NtCreateTimer(timerhandle: Long, desiredaccess: UInt, objectattributes: Long, timertype: TIMER_TYPE): NTSTATUS {
-    return Win32DynamicFfi.invoke("ntdll.dll", "NtCreateTimer", longArrayOf(timerhandle, desiredaccess.toLong(), objectattributes, timertype.toLong())).toInt()
-}
+public expect fun NtCreateTimer(timerhandle: Long, desiredaccess: UInt, objectattributes: Long, timertype: TIMER_TYPE): NTSTATUS
 
-public fun NtOpenEvent(eventhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS {
-    return Win32DynamicFfi.invoke("ntdll.dll", "NtOpenEvent", longArrayOf(eventhandle, desiredaccess.toLong(), objectattributes)).toInt()
-}
+public expect fun NtOpenEvent(eventhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS
 
-public fun NtOpenProcess(processhandle: Long, desiredaccess: UInt, objectattributes: Long, clientid: Long): NTSTATUS {
-    return Win32DynamicFfi.invoke("ntdll.dll", "NtOpenProcess", longArrayOf(processhandle, desiredaccess.toLong(), objectattributes, clientid)).toInt()
-}
+public expect fun NtOpenProcess(processhandle: Long, desiredaccess: UInt, objectattributes: Long, clientid: Long): NTSTATUS
 
-public fun NtOpenTimer(timerhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS {
-    return Win32DynamicFfi.invoke("ntdll.dll", "NtOpenTimer", longArrayOf(timerhandle, desiredaccess.toLong(), objectattributes)).toInt()
-}
+public expect fun NtOpenTimer(timerhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS
 
-public fun NtQueryInformationProcess(processhandle: HANDLE, processinformationclass: PROCESSINFOCLASS, processinformation: Long, processinformationlength: UInt, returnlength: Long): NTSTATUS {
-    return Win32DynamicFfi.invoke("ntdll.dll", "NtQueryInformationProcess", longArrayOf(processhandle, processinformationclass.toLong(), processinformation, processinformationlength.toLong(), returnlength)).toInt()
-}
+public expect fun NtQueryInformationProcess(processhandle: HANDLE, processinformationclass: PROCESSINFOCLASS, processinformation: Long, processinformationlength: UInt, returnlength: Long): NTSTATUS
 
-public fun NtQueryInformationThread(threadhandle: HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: Long, threadinformationlength: UInt, returnlength: Long): NTSTATUS {
-    return Win32DynamicFfi.invoke("ntdll.dll", "NtQueryInformationThread", longArrayOf(threadhandle, threadinformationclass.toLong(), threadinformation, threadinformationlength.toLong(), returnlength)).toInt()
-}
+public expect fun NtQueryInformationThread(threadhandle: HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: Long, threadinformationlength: UInt, returnlength: Long): NTSTATUS
 
-public fun NtSetInformationThread(threadhandle: HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: Long, threadinformationlength: UInt): NTSTATUS {
-    return Win32DynamicFfi.invoke("ntdll.dll", "NtSetInformationThread", longArrayOf(threadhandle, threadinformationclass.toLong(), threadinformation, threadinformationlength.toLong())).toInt()
-}
+public expect fun NtSetInformationThread(threadhandle: HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: Long, threadinformationlength: UInt): NTSTATUS
 
-public fun NtSetTimer(timerhandle: HANDLE, duetime: Long, timerapcroutine: PTIMER_APC_ROUTINE, timercontext: Long, resumetimer: Boolean, period: Int, previousstate: Long): NTSTATUS {
-    return Win32DynamicFfi.invoke("ntdll.dll", "NtSetTimer", longArrayOf(timerhandle, duetime, Win32DynamicFfi.objectSlot(timerapcroutine), timercontext, if (resumetimer) 1L else 0L, period.toLong(), previousstate)).toInt()
-}
+public expect fun NtSetTimer(timerhandle: HANDLE, duetime: Long, timerapcroutine: PTIMER_APC_ROUTINE, timercontext: Long, resumetimer: Boolean, period: Int, previousstate: Long): NTSTATUS
 
-public fun NtSetTimerEx(timerhandle: HANDLE, timersetinformationclass: TIMER_SET_INFORMATION_CLASS, timersetinformation: Long, timersetinformationlength: UInt): NTSTATUS {
-    return Win32DynamicFfi.invoke("ntdll.dll", "NtSetTimerEx", longArrayOf(timerhandle, timersetinformationclass.toLong(), timersetinformation, timersetinformationlength.toLong())).toInt()
-}
+public expect fun NtSetTimerEx(timerhandle: HANDLE, timersetinformationclass: TIMER_SET_INFORMATION_CLASS, timersetinformation: Long, timersetinformationlength: UInt): NTSTATUS
 
-public fun NtTerminateProcess(processhandle: HANDLE, exitstatus: NTSTATUS): NTSTATUS {
-    return Win32DynamicFfi.invoke("ntdll.dll", "NtTerminateProcess", longArrayOf(processhandle, exitstatus.toLong())).toInt()
-}
+public expect fun NtTerminateProcess(processhandle: HANDLE, exitstatus: NTSTATUS): NTSTATUS
 
-public fun NtWaitForSingleObject(handle: HANDLE, alertable: Boolean, timeout: Long): NTSTATUS {
-    return Win32DynamicFfi.invoke("ntdll.dll", "NtWaitForSingleObject", longArrayOf(handle, if (alertable) 1L else 0L, timeout)).toInt()
-}
+public expect fun NtWaitForSingleObject(handle: HANDLE, alertable: Boolean, timeout: Long): NTSTATUS
 
-public fun ZwCancelTimer(timerhandle: HANDLE, currentstate: Long): NTSTATUS {
-    return Win32DynamicFfi.invoke("ntdll.dll", "ZwCancelTimer", longArrayOf(timerhandle, currentstate)).toInt()
-}
+public expect fun ZwCancelTimer(timerhandle: HANDLE, currentstate: Long): NTSTATUS
 
-public fun ZwCreateTimer(timerhandle: Long, desiredaccess: UInt, objectattributes: Long, timertype: TIMER_TYPE): NTSTATUS {
-    return Win32DynamicFfi.invoke("ntdll.dll", "ZwCreateTimer", longArrayOf(timerhandle, desiredaccess.toLong(), objectattributes, timertype.toLong())).toInt()
-}
+public expect fun ZwCreateTimer(timerhandle: Long, desiredaccess: UInt, objectattributes: Long, timertype: TIMER_TYPE): NTSTATUS
 
-public fun ZwOpenEvent(eventhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS {
-    return Win32DynamicFfi.invoke("ntdll.dll", "ZwOpenEvent", longArrayOf(eventhandle, desiredaccess.toLong(), objectattributes)).toInt()
-}
+public expect fun ZwOpenEvent(eventhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS
 
-public fun ZwOpenProcess(processhandle: Long, desiredaccess: UInt, objectattributes: Long, clientid: Long): NTSTATUS {
-    return Win32DynamicFfi.invoke("ntdll.dll", "ZwOpenProcess", longArrayOf(processhandle, desiredaccess.toLong(), objectattributes, clientid)).toInt()
-}
+public expect fun ZwOpenProcess(processhandle: Long, desiredaccess: UInt, objectattributes: Long, clientid: Long): NTSTATUS
 
-public fun ZwOpenTimer(timerhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS {
-    return Win32DynamicFfi.invoke("ntdll.dll", "ZwOpenTimer", longArrayOf(timerhandle, desiredaccess.toLong(), objectattributes)).toInt()
-}
+public expect fun ZwOpenTimer(timerhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS
 
-public fun ZwQueryInformationProcess(processhandle: HANDLE, processinformationclass: PROCESSINFOCLASS, processinformation: Long, processinformationlength: UInt, returnlength: Long): NTSTATUS {
-    return Win32DynamicFfi.invoke("ntdll.dll", "ZwQueryInformationProcess", longArrayOf(processhandle, processinformationclass.toLong(), processinformation, processinformationlength.toLong(), returnlength)).toInt()
-}
+public expect fun ZwQueryInformationProcess(processhandle: HANDLE, processinformationclass: PROCESSINFOCLASS, processinformation: Long, processinformationlength: UInt, returnlength: Long): NTSTATUS
 
-public fun ZwQueryInformationThread(threadhandle: HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: Long, threadinformationlength: UInt, returnlength: Long): NTSTATUS {
-    return Win32DynamicFfi.invoke("ntdll.dll", "ZwQueryInformationThread", longArrayOf(threadhandle, threadinformationclass.toLong(), threadinformation, threadinformationlength.toLong(), returnlength)).toInt()
-}
+public expect fun ZwQueryInformationThread(threadhandle: HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: Long, threadinformationlength: UInt, returnlength: Long): NTSTATUS
 
-public fun ZwSetInformationThread(threadhandle: HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: Long, threadinformationlength: UInt): NTSTATUS {
-    return Win32DynamicFfi.invoke("ntdll.dll", "ZwSetInformationThread", longArrayOf(threadhandle, threadinformationclass.toLong(), threadinformation, threadinformationlength.toLong())).toInt()
-}
+public expect fun ZwSetInformationThread(threadhandle: HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: Long, threadinformationlength: UInt): NTSTATUS
 
-public fun ZwSetTimer(timerhandle: HANDLE, duetime: Long, timerapcroutine: PTIMER_APC_ROUTINE, timercontext: Long, resumetimer: Boolean, period: Int, previousstate: Long): NTSTATUS {
-    return Win32DynamicFfi.invoke("ntdll.dll", "ZwSetTimer", longArrayOf(timerhandle, duetime, Win32DynamicFfi.objectSlot(timerapcroutine), timercontext, if (resumetimer) 1L else 0L, period.toLong(), previousstate)).toInt()
-}
+public expect fun ZwSetTimer(timerhandle: HANDLE, duetime: Long, timerapcroutine: PTIMER_APC_ROUTINE, timercontext: Long, resumetimer: Boolean, period: Int, previousstate: Long): NTSTATUS
 
-public fun ZwSetTimerEx(timerhandle: HANDLE, timersetinformationclass: TIMER_SET_INFORMATION_CLASS, timersetinformation: Long, timersetinformationlength: UInt): NTSTATUS {
-    return Win32DynamicFfi.invoke("ntdll.dll", "ZwSetTimerEx", longArrayOf(timerhandle, timersetinformationclass.toLong(), timersetinformation, timersetinformationlength.toLong())).toInt()
-}
+public expect fun ZwSetTimerEx(timerhandle: HANDLE, timersetinformationclass: TIMER_SET_INFORMATION_CLASS, timersetinformation: Long, timersetinformationlength: UInt): NTSTATUS
 
-public fun ZwTerminateProcess(processhandle: HANDLE, exitstatus: NTSTATUS): NTSTATUS {
-    return Win32DynamicFfi.invoke("ntdll.dll", "ZwTerminateProcess", longArrayOf(processhandle, exitstatus.toLong())).toInt()
-}
+public expect fun ZwTerminateProcess(processhandle: HANDLE, exitstatus: NTSTATUS): NTSTATUS
 
-public fun ZwWaitForSingleObject(handle: HANDLE, alertable: Boolean, timeout: Long): NTSTATUS {
-    return Win32DynamicFfi.invoke("ntdll.dll", "ZwWaitForSingleObject", longArrayOf(handle, if (alertable) 1L else 0L, timeout)).toInt()
-}
+public expect fun ZwWaitForSingleObject(handle: HANDLE, alertable: Boolean, timeout: Long): NTSTATUS

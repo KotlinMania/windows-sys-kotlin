@@ -1,0 +1,184 @@
+#ifndef WINDOWSSYS_WINDOWS_WIN32_MEDIA_MULTIMEDIA_WINDOWS_WIN32_MEDIA_MULTIMEDIA_WRAPPER_H
+#define WINDOWSSYS_WINDOWS_WIN32_MEDIA_MULTIMEDIA_WINDOWS_WIN32_MEDIA_MULTIMEDIA_WRAPPER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+int32_t windowssys_windows_win32_media_multimedia_AVIBuildFilterA(void* lpszfilter, int32_t cbfilter, int32_t fsaving);
+int32_t windowssys_windows_win32_media_multimedia_AVIBuildFilterW(void* lpszfilter, int32_t cbfilter, int32_t fsaving);
+int32_t windowssys_windows_win32_media_multimedia_AVIClearClipboard(void);
+uint32_t windowssys_windows_win32_media_multimedia_AVIFileAddRef(void* pfile);
+int32_t windowssys_windows_win32_media_multimedia_AVIFileCreateStreamA(void* pfile, void* ppavi, void* psi);
+int32_t windowssys_windows_win32_media_multimedia_AVIFileCreateStreamW(void* pfile, void* ppavi, void* psi);
+int32_t windowssys_windows_win32_media_multimedia_AVIFileEndRecord(void* pfile);
+void windowssys_windows_win32_media_multimedia_AVIFileExit(void);
+int32_t windowssys_windows_win32_media_multimedia_AVIFileGetStream(void* pfile, void* ppavi, uint32_t fcctype, int32_t lparam);
+int32_t windowssys_windows_win32_media_multimedia_AVIFileInfoA(void* pfile, void* pfi, int32_t lsize);
+int32_t windowssys_windows_win32_media_multimedia_AVIFileInfoW(void* pfile, void* pfi, int32_t lsize);
+void windowssys_windows_win32_media_multimedia_AVIFileInit(void);
+int32_t windowssys_windows_win32_media_multimedia_AVIFileOpenA(void* ppfile, void* szfile, uint32_t umode, void* lphandler);
+int32_t windowssys_windows_win32_media_multimedia_AVIFileOpenW(void* ppfile, void* szfile, uint32_t umode, void* lphandler);
+int32_t windowssys_windows_win32_media_multimedia_AVIFileReadData(void* pfile, uint32_t ckid, void* lpdata, void* lpcbdata);
+uint32_t windowssys_windows_win32_media_multimedia_AVIFileRelease(void* pfile);
+int32_t windowssys_windows_win32_media_multimedia_AVIFileWriteData(void* pfile, uint32_t ckid, void* lpdata, int32_t cbdata);
+int32_t windowssys_windows_win32_media_multimedia_AVIGetFromClipboard(void* lppf);
+int32_t windowssys_windows_win32_media_multimedia_AVIMakeCompressedStream(void* ppscompressed, void* ppssource, void* lpoptions, void* pclsidhandler);
+int32_t windowssys_windows_win32_media_multimedia_AVIMakeFileFromStreams(void* ppfile, int32_t nstreams, void* papstreams);
+int32_t windowssys_windows_win32_media_multimedia_AVIMakeStreamFromClipboard(uint32_t cfformat, void* hglobal, void* ppstream);
+int32_t windowssys_windows_win32_media_multimedia_AVIPutFileOnClipboard(void* pf);
+int64_t windowssys_windows_win32_media_multimedia_AVISaveOptions(void* hwnd, uint32_t uiflags, int32_t nstreams, void* ppavi, void* plpoptions);
+int32_t windowssys_windows_win32_media_multimedia_AVISaveOptionsFree(int32_t nstreams, void* plpoptions);
+int32_t windowssys_windows_win32_media_multimedia_AVISaveVA(void* szfile, void* pclsidhandler, void* lpfncallback, int32_t nstreams, void* ppavi, void* plpoptions);
+int32_t windowssys_windows_win32_media_multimedia_AVISaveVW(void* szfile, void* pclsidhandler, void* lpfncallback, int32_t nstreams, void* ppavi, void* plpoptions);
+uint32_t windowssys_windows_win32_media_multimedia_AVIStreamAddRef(void* pavi);
+int32_t windowssys_windows_win32_media_multimedia_AVIStreamBeginStreaming(void* pavi, int32_t lstart, int32_t lend, int32_t lrate);
+int32_t windowssys_windows_win32_media_multimedia_AVIStreamCreate(void* ppavi, int32_t lparam1, int32_t lparam2, void* pclsidhandler);
+int32_t windowssys_windows_win32_media_multimedia_AVIStreamEndStreaming(void* pavi);
+int32_t windowssys_windows_win32_media_multimedia_AVIStreamFindSample(void* pavi, int32_t lpos, int32_t lflags);
+void* windowssys_windows_win32_media_multimedia_AVIStreamGetFrame(void* pg, int32_t lpos);
+int32_t windowssys_windows_win32_media_multimedia_AVIStreamGetFrameClose(void* pg);
+void* windowssys_windows_win32_media_multimedia_AVIStreamGetFrameOpen(void* pavi, void* lpbiwanted);
+int32_t windowssys_windows_win32_media_multimedia_AVIStreamInfoA(void* pavi, void* psi, int32_t lsize);
+int32_t windowssys_windows_win32_media_multimedia_AVIStreamInfoW(void* pavi, void* psi, int32_t lsize);
+int32_t windowssys_windows_win32_media_multimedia_AVIStreamLength(void* pavi);
+int32_t windowssys_windows_win32_media_multimedia_AVIStreamOpenFromFileA(void* ppavi, void* szfile, uint32_t fcctype, int32_t lparam, uint32_t mode, void* pclsidhandler);
+int32_t windowssys_windows_win32_media_multimedia_AVIStreamOpenFromFileW(void* ppavi, void* szfile, uint32_t fcctype, int32_t lparam, uint32_t mode, void* pclsidhandler);
+int32_t windowssys_windows_win32_media_multimedia_AVIStreamRead(void* pavi, int32_t lstart, int32_t lsamples, void* lpbuffer, int32_t cbbuffer, void* plbytes, void* plsamples);
+int32_t windowssys_windows_win32_media_multimedia_AVIStreamReadData(void* pavi, uint32_t fcc, void* lp, void* lpcb);
+int32_t windowssys_windows_win32_media_multimedia_AVIStreamReadFormat(void* pavi, int32_t lpos, void* lpformat, void* lpcbformat);
+uint32_t windowssys_windows_win32_media_multimedia_AVIStreamRelease(void* pavi);
+int32_t windowssys_windows_win32_media_multimedia_AVIStreamSampleToTime(void* pavi, int32_t lsample);
+int32_t windowssys_windows_win32_media_multimedia_AVIStreamSetFormat(void* pavi, int32_t lpos, void* lpformat, int32_t cbformat);
+int32_t windowssys_windows_win32_media_multimedia_AVIStreamStart(void* pavi);
+int32_t windowssys_windows_win32_media_multimedia_AVIStreamTimeToSample(void* pavi, int32_t ltime);
+int32_t windowssys_windows_win32_media_multimedia_AVIStreamWrite(void* pavi, int32_t lstart, int32_t lsamples, void* lpbuffer, int32_t cbbuffer, uint32_t dwflags, void* plsampwritten, void* plbyteswritten);
+int32_t windowssys_windows_win32_media_multimedia_AVIStreamWriteData(void* pavi, uint32_t fcc, void* lp, int32_t cb);
+int64_t windowssys_windows_win32_media_multimedia_CloseDriver(void* hdriver, int64_t lparam1, int64_t lparam2);
+int32_t windowssys_windows_win32_media_multimedia_CreateEditableStream(void* ppseditable, void* pssource);
+int64_t windowssys_windows_win32_media_multimedia_DefDriverProc(uint64_t dwdriveridentifier, void* hdrvr, uint32_t umsg, int64_t lparam1, int64_t lparam2);
+int32_t windowssys_windows_win32_media_multimedia_DrawDibBegin(int64_t hdd, void* hdc, int32_t dxdst, int32_t dydst, void* lpbi, int32_t dxsrc, int32_t dysrc, uint32_t wflags);
+int32_t windowssys_windows_win32_media_multimedia_DrawDibChangePalette(int64_t hdd, int32_t istart, int32_t ilen, void* lppe);
+int32_t windowssys_windows_win32_media_multimedia_DrawDibClose(int64_t hdd);
+int32_t windowssys_windows_win32_media_multimedia_DrawDibDraw(int64_t hdd, void* hdc, int32_t xdst, int32_t ydst, int32_t dxdst, int32_t dydst, void* lpbi, void* lpbits, int32_t xsrc, int32_t ysrc, int32_t dxsrc, int32_t dysrc, uint32_t wflags);
+int32_t windowssys_windows_win32_media_multimedia_DrawDibEnd(int64_t hdd);
+void* windowssys_windows_win32_media_multimedia_DrawDibGetBuffer(int64_t hdd, void* lpbi, uint32_t dwsize, uint32_t dwflags);
+void* windowssys_windows_win32_media_multimedia_DrawDibGetPalette(int64_t hdd);
+int64_t windowssys_windows_win32_media_multimedia_DrawDibOpen(void);
+int64_t windowssys_windows_win32_media_multimedia_DrawDibProfileDisplay(void* lpbi);
+uint32_t windowssys_windows_win32_media_multimedia_DrawDibRealize(int64_t hdd, void* hdc, int32_t fbackground);
+int32_t windowssys_windows_win32_media_multimedia_DrawDibSetPalette(int64_t hdd, void* hpal);
+int32_t windowssys_windows_win32_media_multimedia_DrawDibStart(int64_t hdd, uint32_t rate);
+int32_t windowssys_windows_win32_media_multimedia_DrawDibStop(int64_t hdd);
+int32_t windowssys_windows_win32_media_multimedia_DrawDibTime(int64_t hdd, void* lpddtime);
+int32_t windowssys_windows_win32_media_multimedia_DriverCallback(uint64_t dwcallback, uint32_t dwflags, void* hdevice, uint32_t dwmsg, uint64_t dwuser, uint64_t dwparam1, uint64_t dwparam2);
+void* windowssys_windows_win32_media_multimedia_DrvGetModuleHandle(void* hdriver);
+int32_t windowssys_windows_win32_media_multimedia_EditStreamClone(void* pavi, void* ppresult);
+int32_t windowssys_windows_win32_media_multimedia_EditStreamCopy(void* pavi, void* plstart, void* pllength, void* ppresult);
+int32_t windowssys_windows_win32_media_multimedia_EditStreamCut(void* pavi, void* plstart, void* pllength, void* ppresult);
+int32_t windowssys_windows_win32_media_multimedia_EditStreamPaste(void* pavi, void* plpos, void* pllength, void* pstream, int32_t lstart, int32_t lend);
+int32_t windowssys_windows_win32_media_multimedia_EditStreamSetInfoA(void* pavi, void* lpinfo, int32_t cbinfo);
+int32_t windowssys_windows_win32_media_multimedia_EditStreamSetInfoW(void* pavi, void* lpinfo, int32_t cbinfo);
+int32_t windowssys_windows_win32_media_multimedia_EditStreamSetNameA(void* pavi, void* lpszname);
+int32_t windowssys_windows_win32_media_multimedia_EditStreamSetNameW(void* pavi, void* lpszname);
+void* windowssys_windows_win32_media_multimedia_GetDriverModuleHandle(void* hdriver);
+int32_t windowssys_windows_win32_media_multimedia_GetOpenFileNamePreviewA(void* lpofn);
+int32_t windowssys_windows_win32_media_multimedia_GetOpenFileNamePreviewW(void* lpofn);
+int32_t windowssys_windows_win32_media_multimedia_GetSaveFileNamePreviewA(void* lpofn);
+int32_t windowssys_windows_win32_media_multimedia_GetSaveFileNamePreviewW(void* lpofn);
+int64_t windowssys_windows_win32_media_multimedia_ICClose(void* hic);
+uint32_t windowssys_windows_win32_media_multimedia_ICCompress(void* hic, uint32_t dwflags, void* lpbioutput, void* lpdata, void* lpbiinput, void* lpbits, void* lpckid, void* lpdwflags, int32_t lframenum, uint32_t dwframesize, uint32_t dwquality, void* lpbiprev, void* lpprev);
+int32_t windowssys_windows_win32_media_multimedia_ICCompressorChoose(void* hwnd, uint32_t uiflags, void* pvin, void* lpdata, void* pc, void* lpsztitle);
+void windowssys_windows_win32_media_multimedia_ICCompressorFree(void* pc);
+uint32_t windowssys_windows_win32_media_multimedia_ICDecompress(void* hic, uint32_t dwflags, void* lpbiformat, void* lpdata, void* lpbi, void* lpbits);
+uint32_t windowssys_windows_win32_media_multimedia_ICDraw(void* hic, uint32_t dwflags, void* lpformat, void* lpdata, uint32_t cbdata, int32_t ltime);
+uint32_t windowssys_windows_win32_media_multimedia_ICDrawBegin(void* hic, uint32_t dwflags, void* hpal, void* hwnd, void* hdc, int32_t xdst, int32_t ydst, int32_t dxdst, int32_t dydst, void* lpbi, int32_t xsrc, int32_t ysrc, int32_t dxsrc, int32_t dysrc, uint32_t dwrate, uint32_t dwscale);
+void* windowssys_windows_win32_media_multimedia_ICGetDisplayFormat(void* hic, void* lpbiin, void* lpbiout, int32_t bitdepth, int32_t dx, int32_t dy);
+int64_t windowssys_windows_win32_media_multimedia_ICGetInfo(void* hic, void* picinfo, uint32_t cb);
+void* windowssys_windows_win32_media_multimedia_ICImageCompress(void* hic, uint32_t uiflags, void* lpbiin, void* lpbits, void* lpbiout, int32_t lquality, void* plsize);
+void* windowssys_windows_win32_media_multimedia_ICImageDecompress(void* hic, uint32_t uiflags, void* lpbiin, void* lpbits, void* lpbiout);
+int32_t windowssys_windows_win32_media_multimedia_ICInfo(uint32_t fcctype, uint32_t fcchandler, void* lpicinfo);
+int32_t windowssys_windows_win32_media_multimedia_ICInstall(uint32_t fcctype, uint32_t fcchandler, int64_t lparam, void* szdesc, uint32_t wflags);
+void* windowssys_windows_win32_media_multimedia_ICLocate(uint32_t fcctype, uint32_t fcchandler, void* lpbiin, void* lpbiout, uint16_t wflags);
+void* windowssys_windows_win32_media_multimedia_ICOpen(uint32_t fcctype, uint32_t fcchandler, uint32_t wmode);
+int32_t windowssys_windows_win32_media_multimedia_ICRemove(uint32_t fcctype, uint32_t fcchandler, uint32_t wflags);
+int64_t windowssys_windows_win32_media_multimedia_ICSendMessage(void* hic, uint32_t msg, uint64_t dw1, uint64_t dw2);
+void* windowssys_windows_win32_media_multimedia_ICSeqCompressFrame(void* pc, uint32_t uiflags, void* lpbits, void* pfkey, void* plsize);
+void windowssys_windows_win32_media_multimedia_ICSeqCompressFrameEnd(void* pc);
+int32_t windowssys_windows_win32_media_multimedia_ICSeqCompressFrameStart(void* pc, void* lpbiin);
+void* windowssys_windows_win32_media_multimedia_MCIWndCreateA(void* hwndparent, void* hinstance, uint32_t dwstyle, void* szfile);
+void* windowssys_windows_win32_media_multimedia_MCIWndCreateW(void* hwndparent, void* hinstance, uint32_t dwstyle, void* szfile);
+int32_t windowssys_windows_win32_media_multimedia_MCIWndRegisterClass(void);
+void* windowssys_windows_win32_media_multimedia_OpenDriver(void* szdrivername, void* szsectionname, int64_t lparam2);
+int64_t windowssys_windows_win32_media_multimedia_SendDriverMessage(void* hdriver, uint32_t message, int64_t lparam1, int64_t lparam2);
+uint32_t windowssys_windows_win32_media_multimedia_VideoForWindowsVersion(void);
+void* windowssys_windows_win32_media_multimedia_capCreateCaptureWindowA(void* lpszwindowname, uint32_t dwstyle, int32_t x, int32_t y, int32_t nwidth, int32_t nheight, void* hwndparent, int32_t nid);
+void* windowssys_windows_win32_media_multimedia_capCreateCaptureWindowW(void* lpszwindowname, uint32_t dwstyle, int32_t x, int32_t y, int32_t nwidth, int32_t nheight, void* hwndparent, int32_t nid);
+int32_t windowssys_windows_win32_media_multimedia_capGetDriverDescriptionA(uint32_t wdriverindex, void* lpszname, int32_t cbname, void* lpszver, int32_t cbver);
+int32_t windowssys_windows_win32_media_multimedia_capGetDriverDescriptionW(uint32_t wdriverindex, void* lpszname, int32_t cbname, void* lpszver, int32_t cbver);
+uint32_t windowssys_windows_win32_media_multimedia_joyGetDevCapsA(uint64_t ujoyid, void* pjc, uint32_t cbjc);
+uint32_t windowssys_windows_win32_media_multimedia_joyGetDevCapsW(uint64_t ujoyid, void* pjc, uint32_t cbjc);
+uint32_t windowssys_windows_win32_media_multimedia_joyGetNumDevs(void);
+uint32_t windowssys_windows_win32_media_multimedia_joyGetPos(uint32_t ujoyid, void* pji);
+uint32_t windowssys_windows_win32_media_multimedia_joyGetPosEx(uint32_t ujoyid, void* pji);
+uint32_t windowssys_windows_win32_media_multimedia_joyGetThreshold(uint32_t ujoyid, void* puthreshold);
+uint32_t windowssys_windows_win32_media_multimedia_joyReleaseCapture(uint32_t ujoyid);
+uint32_t windowssys_windows_win32_media_multimedia_joySetCapture(void* hwnd, uint32_t ujoyid, uint32_t uperiod, int32_t fchanged);
+uint32_t windowssys_windows_win32_media_multimedia_joySetThreshold(uint32_t ujoyid, uint32_t uthreshold);
+int32_t windowssys_windows_win32_media_multimedia_mciDriverNotify(void* hwndcallback, uint32_t wdeviceid, uint32_t ustatus);
+uint32_t windowssys_windows_win32_media_multimedia_mciDriverYield(uint32_t wdeviceid);
+int32_t windowssys_windows_win32_media_multimedia_mciFreeCommandResource(uint32_t wtable);
+void* windowssys_windows_win32_media_multimedia_mciGetCreatorTask(uint32_t mciid);
+uint32_t windowssys_windows_win32_media_multimedia_mciGetDeviceIDA(void* pszdevice);
+uint32_t windowssys_windows_win32_media_multimedia_mciGetDeviceIDFromElementIDA(uint32_t dwelementid, void* lpstrtype);
+uint32_t windowssys_windows_win32_media_multimedia_mciGetDeviceIDFromElementIDW(uint32_t dwelementid, void* lpstrtype);
+uint32_t windowssys_windows_win32_media_multimedia_mciGetDeviceIDW(void* pszdevice);
+uint64_t windowssys_windows_win32_media_multimedia_mciGetDriverData(uint32_t wdeviceid);
+int32_t windowssys_windows_win32_media_multimedia_mciGetErrorStringA(uint32_t mcierr, void* psztext, uint32_t cchtext);
+int32_t windowssys_windows_win32_media_multimedia_mciGetErrorStringW(uint32_t mcierr, void* psztext, uint32_t cchtext);
+void* windowssys_windows_win32_media_multimedia_mciGetYieldProc(uint32_t mciid, void* pdwyielddata);
+uint32_t windowssys_windows_win32_media_multimedia_mciLoadCommandResource(void* hinstance, void* lpresname, uint32_t wtype);
+uint32_t windowssys_windows_win32_media_multimedia_mciSendCommandA(uint32_t mciid, uint32_t umsg, uint64_t dwparam1, uint64_t dwparam2);
+uint32_t windowssys_windows_win32_media_multimedia_mciSendCommandW(uint32_t mciid, uint32_t umsg, uint64_t dwparam1, uint64_t dwparam2);
+uint32_t windowssys_windows_win32_media_multimedia_mciSendStringA(void* lpstrcommand, void* lpstrreturnstring, uint32_t ureturnlength, void* hwndcallback);
+uint32_t windowssys_windows_win32_media_multimedia_mciSendStringW(void* lpstrcommand, void* lpstrreturnstring, uint32_t ureturnlength, void* hwndcallback);
+int32_t windowssys_windows_win32_media_multimedia_mciSetDriverData(uint32_t wdeviceid, uint64_t dwdata);
+int32_t windowssys_windows_win32_media_multimedia_mciSetYieldProc(uint32_t mciid, void* fpyieldproc, uint32_t dwyielddata);
+uint32_t windowssys_windows_win32_media_multimedia_mmDrvInstall(void* hdriver, void* wszdrventry, void* drvmessage, uint32_t wflags);
+uint32_t windowssys_windows_win32_media_multimedia_mmGetCurrentTask(void);
+void windowssys_windows_win32_media_multimedia_mmTaskBlock(uint32_t h);
+uint32_t windowssys_windows_win32_media_multimedia_mmTaskCreate(void* lpfn, void* lph, uint64_t dwinst);
+int32_t windowssys_windows_win32_media_multimedia_mmTaskSignal(uint32_t h);
+void windowssys_windows_win32_media_multimedia_mmTaskYield(void);
+uint32_t windowssys_windows_win32_media_multimedia_mmioAdvance(void* hmmio, void* pmmioinfo, uint32_t fuadvance);
+uint32_t windowssys_windows_win32_media_multimedia_mmioAscend(void* hmmio, void* pmmcki, uint32_t fuascend);
+uint32_t windowssys_windows_win32_media_multimedia_mmioClose(void* hmmio, uint32_t fuclose);
+uint32_t windowssys_windows_win32_media_multimedia_mmioCreateChunk(void* hmmio, void* pmmcki, uint32_t fucreate);
+uint32_t windowssys_windows_win32_media_multimedia_mmioDescend(void* hmmio, void* pmmcki, void* pmmckiparent, uint32_t fudescend);
+uint32_t windowssys_windows_win32_media_multimedia_mmioFlush(void* hmmio, uint32_t fuflush);
+uint32_t windowssys_windows_win32_media_multimedia_mmioGetInfo(void* hmmio, void* pmmioinfo, uint32_t fuinfo);
+void* windowssys_windows_win32_media_multimedia_mmioInstallIOProcA(uint32_t fccioproc, void* pioproc, uint32_t dwflags);
+void* windowssys_windows_win32_media_multimedia_mmioInstallIOProcW(uint32_t fccioproc, void* pioproc, uint32_t dwflags);
+void* windowssys_windows_win32_media_multimedia_mmioOpenA(void* pszfilename, void* pmmioinfo, uint32_t fdwopen);
+void* windowssys_windows_win32_media_multimedia_mmioOpenW(void* pszfilename, void* pmmioinfo, uint32_t fdwopen);
+int32_t windowssys_windows_win32_media_multimedia_mmioRead(void* hmmio, void* pch, int32_t cch);
+uint32_t windowssys_windows_win32_media_multimedia_mmioRenameA(void* pszfilename, void* psznewfilename, void* pmmioinfo, uint32_t fdwrename);
+uint32_t windowssys_windows_win32_media_multimedia_mmioRenameW(void* pszfilename, void* psznewfilename, void* pmmioinfo, uint32_t fdwrename);
+int32_t windowssys_windows_win32_media_multimedia_mmioSeek(void* hmmio, int32_t loffset, int32_t iorigin);
+int64_t windowssys_windows_win32_media_multimedia_mmioSendMessage(void* hmmio, uint32_t umsg, int64_t lparam1, int64_t lparam2);
+uint32_t windowssys_windows_win32_media_multimedia_mmioSetBuffer(void* hmmio, void* pchbuffer, int32_t cchbuffer, uint32_t fubuffer);
+uint32_t windowssys_windows_win32_media_multimedia_mmioSetInfo(void* hmmio, void* pmmioinfo, uint32_t fuinfo);
+uint32_t windowssys_windows_win32_media_multimedia_mmioStringToFOURCCA(void* sz, uint32_t uflags);
+uint32_t windowssys_windows_win32_media_multimedia_mmioStringToFOURCCW(void* sz, uint32_t uflags);
+int32_t windowssys_windows_win32_media_multimedia_mmioWrite(void* hmmio, void* pch, int32_t cch);
+int32_t windowssys_windows_win32_media_multimedia_sndOpenSound(void* eventname, void* appname, int32_t flags, void* filehandle);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* WINDOWSSYS_WINDOWS_WIN32_MEDIA_MULTIMEDIA_WINDOWS_WIN32_MEDIA_MULTIMEDIA_WRAPPER_H */

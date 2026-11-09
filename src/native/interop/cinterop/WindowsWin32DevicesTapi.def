@@ -1,0 +1,5 @@
+package = io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop
+headers = windows_win32_devices_tapi_wrapper.h
+headerFilter = windows_win32_devices_tapi_wrapper.h
+compilerOpts = -Isrc/native/interop/cinterop
+staticLibraries = windows_win32_devices_tapi_wrapper.a

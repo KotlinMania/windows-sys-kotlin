@@ -1,0 +1,91 @@
+#ifndef WINDOWSSYS_WINDOWS_WIN32_SYSTEM_CONSOLE_WINDOWS_WIN32_SYSTEM_CONSOLE_WRAPPER_H
+#define WINDOWSSYS_WINDOWS_WIN32_SYSTEM_CONSOLE_WINDOWS_WIN32_SYSTEM_CONSOLE_WRAPPER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+int32_t windowssys_windows_win32_system_console_AddConsoleAliasA(void* source, void* target, void* exename);
+int32_t windowssys_windows_win32_system_console_AddConsoleAliasW(void* source, void* target, void* exename);
+int32_t windowssys_windows_win32_system_console_AllocConsole(void);
+int32_t windowssys_windows_win32_system_console_AttachConsole(uint32_t dwprocessid);
+void windowssys_windows_win32_system_console_ClosePseudoConsole(int64_t hpc);
+int32_t windowssys_windows_win32_system_console_ConsoleControl(int32_t command, void* consoleinformation, uint32_t consoleinformationlength);
+void* windowssys_windows_win32_system_console_CreateConsoleScreenBuffer(uint32_t dwdesiredaccess, uint32_t dwsharemode, void* lpsecurityattributes, uint32_t dwflags, void* lpscreenbufferdata);
+void windowssys_windows_win32_system_console_ExpungeConsoleCommandHistoryA(void* exename);
+void windowssys_windows_win32_system_console_ExpungeConsoleCommandHistoryW(void* exename);
+int32_t windowssys_windows_win32_system_console_FlushConsoleInputBuffer(void* hconsoleinput);
+int32_t windowssys_windows_win32_system_console_FreeConsole(void);
+int32_t windowssys_windows_win32_system_console_GenerateConsoleCtrlEvent(uint32_t dwctrlevent, uint32_t dwprocessgroupid);
+uint32_t windowssys_windows_win32_system_console_GetConsoleAliasA(void* source, void* targetbuffer, uint32_t targetbufferlength, void* exename);
+uint32_t windowssys_windows_win32_system_console_GetConsoleAliasExesA(void* exenamebuffer, uint32_t exenamebufferlength);
+uint32_t windowssys_windows_win32_system_console_GetConsoleAliasExesLengthA(void);
+uint32_t windowssys_windows_win32_system_console_GetConsoleAliasExesLengthW(void);
+uint32_t windowssys_windows_win32_system_console_GetConsoleAliasExesW(void* exenamebuffer, uint32_t exenamebufferlength);
+uint32_t windowssys_windows_win32_system_console_GetConsoleAliasW(void* source, void* targetbuffer, uint32_t targetbufferlength, void* exename);
+uint32_t windowssys_windows_win32_system_console_GetConsoleAliasesA(void* aliasbuffer, uint32_t aliasbufferlength, void* exename);
+uint32_t windowssys_windows_win32_system_console_GetConsoleAliasesLengthA(void* exename);
+uint32_t windowssys_windows_win32_system_console_GetConsoleAliasesLengthW(void* exename);
+uint32_t windowssys_windows_win32_system_console_GetConsoleAliasesW(void* aliasbuffer, uint32_t aliasbufferlength, void* exename);
+uint32_t windowssys_windows_win32_system_console_GetConsoleCP(void);
+uint32_t windowssys_windows_win32_system_console_GetConsoleCommandHistoryA(void* commands, uint32_t commandbufferlength, void* exename);
+uint32_t windowssys_windows_win32_system_console_GetConsoleCommandHistoryLengthA(void* exename);
+uint32_t windowssys_windows_win32_system_console_GetConsoleCommandHistoryLengthW(void* exename);
+uint32_t windowssys_windows_win32_system_console_GetConsoleCommandHistoryW(void* commands, uint32_t commandbufferlength, void* exename);
+int32_t windowssys_windows_win32_system_console_GetConsoleCursorInfo(void* hconsoleoutput, void* lpconsolecursorinfo);
+int32_t windowssys_windows_win32_system_console_GetConsoleDisplayMode(void* lpmodeflags);
+int32_t windowssys_windows_win32_system_console_GetConsoleHistoryInfo(void* lpconsolehistoryinfo);
+int32_t windowssys_windows_win32_system_console_GetConsoleMode(void* hconsolehandle, void* lpmode);
+uint32_t windowssys_windows_win32_system_console_GetConsoleOriginalTitleA(void* lpconsoletitle, uint32_t nsize);
+uint32_t windowssys_windows_win32_system_console_GetConsoleOriginalTitleW(void* lpconsoletitle, uint32_t nsize);
+uint32_t windowssys_windows_win32_system_console_GetConsoleOutputCP(void);
+uint32_t windowssys_windows_win32_system_console_GetConsoleProcessList(void* lpdwprocesslist, uint32_t dwprocesscount);
+int32_t windowssys_windows_win32_system_console_GetConsoleScreenBufferInfo(void* hconsoleoutput, void* lpconsolescreenbufferinfo);
+int32_t windowssys_windows_win32_system_console_GetConsoleScreenBufferInfoEx(void* hconsoleoutput, void* lpconsolescreenbufferinfoex);
+int32_t windowssys_windows_win32_system_console_GetConsoleSelectionInfo(void* lpconsoleselectioninfo);
+uint32_t windowssys_windows_win32_system_console_GetConsoleTitleA(void* lpconsoletitle, uint32_t nsize);
+uint32_t windowssys_windows_win32_system_console_GetConsoleTitleW(void* lpconsoletitle, uint32_t nsize);
+void* windowssys_windows_win32_system_console_GetConsoleWindow(void);
+int32_t windowssys_windows_win32_system_console_GetCurrentConsoleFont(void* hconsoleoutput, int32_t bmaximumwindow, void* lpconsolecurrentfont);
+int32_t windowssys_windows_win32_system_console_GetCurrentConsoleFontEx(void* hconsoleoutput, int32_t bmaximumwindow, void* lpconsolecurrentfontex);
+int32_t windowssys_windows_win32_system_console_GetNumberOfConsoleInputEvents(void* hconsoleinput, void* lpnumberofevents);
+int32_t windowssys_windows_win32_system_console_GetNumberOfConsoleMouseButtons(void* lpnumberofmousebuttons);
+void* windowssys_windows_win32_system_console_GetStdHandle(uint32_t nstdhandle);
+int32_t windowssys_windows_win32_system_console_PeekConsoleInputA(void* hconsoleinput, void* lpbuffer, uint32_t nlength, void* lpnumberofeventsread);
+int32_t windowssys_windows_win32_system_console_PeekConsoleInputW(void* hconsoleinput, void* lpbuffer, uint32_t nlength, void* lpnumberofeventsread);
+int32_t windowssys_windows_win32_system_console_ReadConsoleA(void* hconsoleinput, void* lpbuffer, uint32_t nnumberofcharstoread, void* lpnumberofcharsread, void* pinputcontrol);
+int32_t windowssys_windows_win32_system_console_ReadConsoleInputA(void* hconsoleinput, void* lpbuffer, uint32_t nlength, void* lpnumberofeventsread);
+int32_t windowssys_windows_win32_system_console_ReadConsoleInputW(void* hconsoleinput, void* lpbuffer, uint32_t nlength, void* lpnumberofeventsread);
+int32_t windowssys_windows_win32_system_console_ReadConsoleW(void* hconsoleinput, void* lpbuffer, uint32_t nnumberofcharstoread, void* lpnumberofcharsread, void* pinputcontrol);
+int32_t windowssys_windows_win32_system_console_SetConsoleActiveScreenBuffer(void* hconsoleoutput);
+int32_t windowssys_windows_win32_system_console_SetConsoleCP(uint32_t wcodepageid);
+int32_t windowssys_windows_win32_system_console_SetConsoleCtrlHandler(void* handlerroutine, int32_t add);
+int32_t windowssys_windows_win32_system_console_SetConsoleCursorInfo(void* hconsoleoutput, void* lpconsolecursorinfo);
+int32_t windowssys_windows_win32_system_console_SetConsoleDisplayMode(void* hconsoleoutput, uint32_t dwflags, void* lpnewscreenbufferdimensions);
+int32_t windowssys_windows_win32_system_console_SetConsoleHistoryInfo(void* lpconsolehistoryinfo);
+int32_t windowssys_windows_win32_system_console_SetConsoleMode(void* hconsolehandle, uint32_t dwmode);
+int32_t windowssys_windows_win32_system_console_SetConsoleNumberOfCommandsA(uint32_t number, void* exename);
+int32_t windowssys_windows_win32_system_console_SetConsoleNumberOfCommandsW(uint32_t number, void* exename);
+int32_t windowssys_windows_win32_system_console_SetConsoleOutputCP(uint32_t wcodepageid);
+int32_t windowssys_windows_win32_system_console_SetConsoleScreenBufferInfoEx(void* hconsoleoutput, void* lpconsolescreenbufferinfoex);
+int32_t windowssys_windows_win32_system_console_SetConsoleTextAttribute(void* hconsoleoutput, uint16_t wattributes);
+int32_t windowssys_windows_win32_system_console_SetConsoleTitleA(void* lpconsoletitle);
+int32_t windowssys_windows_win32_system_console_SetConsoleTitleW(void* lpconsoletitle);
+int32_t windowssys_windows_win32_system_console_SetConsoleWindowInfo(void* hconsoleoutput, int32_t babsolute, void* lpconsolewindow);
+int32_t windowssys_windows_win32_system_console_SetCurrentConsoleFontEx(void* hconsoleoutput, int32_t bmaximumwindow, void* lpconsolecurrentfontex);
+int32_t windowssys_windows_win32_system_console_SetStdHandle(uint32_t nstdhandle, void* hhandle);
+int32_t windowssys_windows_win32_system_console_SetStdHandleEx(uint32_t nstdhandle, void* hhandle, void* phprevvalue);
+int32_t windowssys_windows_win32_system_console_WriteConsoleA(void* hconsoleoutput, void* lpbuffer, uint32_t nnumberofcharstowrite, void* lpnumberofcharswritten, void* lpreserved);
+int32_t windowssys_windows_win32_system_console_WriteConsoleInputA(void* hconsoleinput, void* lpbuffer, uint32_t nlength, void* lpnumberofeventswritten);
+int32_t windowssys_windows_win32_system_console_WriteConsoleInputW(void* hconsoleinput, void* lpbuffer, uint32_t nlength, void* lpnumberofeventswritten);
+int32_t windowssys_windows_win32_system_console_WriteConsoleW(void* hconsoleoutput, void* lpbuffer, uint32_t nnumberofcharstowrite, void* lpnumberofcharswritten, void* lpreserved);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* WINDOWSSYS_WINDOWS_WIN32_SYSTEM_CONSOLE_WINDOWS_WIN32_SYSTEM_CONSOLE_WRAPPER_H */

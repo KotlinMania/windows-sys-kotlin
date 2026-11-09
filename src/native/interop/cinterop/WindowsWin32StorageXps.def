@@ -1,0 +1,5 @@
+package = io.github.kotlinmania.windowssys.windows.win32.storage.xps.cinterop
+headers = windows_win32_storage_xps_wrapper.h
+headerFilter = windows_win32_storage_xps_wrapper.h
+compilerOpts = -Isrc/native/interop/cinterop
+staticLibraries = windows_win32_storage_xps_wrapper.a

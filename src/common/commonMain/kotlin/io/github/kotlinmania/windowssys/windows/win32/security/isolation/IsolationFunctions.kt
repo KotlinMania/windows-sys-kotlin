@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.isolation
 
-import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
@@ -8,46 +7,24 @@ import io.github.kotlinmania.windowssys.core.PWSTR
 import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 import io.github.kotlinmania.windowssys.windows.win32.security.PSID
 
-public fun CreateAppContainerProfile(pszappcontainername: PCWSTR, pszdisplayname: PCWSTR, pszdescription: PCWSTR, pcapabilities: Long, dwcapabilitycount: UInt, ppsidappcontainersid: Long): HRESULT {
-    return Win32DynamicFfi.invoke("userenv.dll", "CreateAppContainerProfile", longArrayOf(pszappcontainername, pszdisplayname, pszdescription, pcapabilities, dwcapabilitycount.toLong(), ppsidappcontainersid)).toInt()
-}
+public expect fun CreateAppContainerProfile(pszappcontainername: PCWSTR, pszdisplayname: PCWSTR, pszdescription: PCWSTR, pcapabilities: Long, dwcapabilitycount: UInt, ppsidappcontainersid: Long): HRESULT
 
-public fun DeleteAppContainerProfile(pszappcontainername: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("userenv.dll", "DeleteAppContainerProfile", longArrayOf(pszappcontainername)).toInt()
-}
+public expect fun DeleteAppContainerProfile(pszappcontainername: PCWSTR): HRESULT
 
-public fun DeriveAppContainerSidFromAppContainerName(pszappcontainername: PCWSTR, ppsidappcontainersid: Long): HRESULT {
-    return Win32DynamicFfi.invoke("userenv.dll", "DeriveAppContainerSidFromAppContainerName", longArrayOf(pszappcontainername, ppsidappcontainersid)).toInt()
-}
+public expect fun DeriveAppContainerSidFromAppContainerName(pszappcontainername: PCWSTR, ppsidappcontainersid: Long): HRESULT
 
-public fun DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid: PSID, pszrestrictedappcontainername: PCWSTR, ppsidrestrictedappcontainersid: Long): HRESULT {
-    return Win32DynamicFfi.invoke("userenv.dll", "DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName", longArrayOf(psidappcontainersid, pszrestrictedappcontainername, ppsidrestrictedappcontainersid)).toInt()
-}
+public expect fun DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid: PSID, pszrestrictedappcontainername: PCWSTR, ppsidrestrictedappcontainersid: Long): HRESULT
 
-public fun GetAppContainerFolderPath(pszappcontainersid: PCWSTR, ppszpath: Long): HRESULT {
-    return Win32DynamicFfi.invoke("userenv.dll", "GetAppContainerFolderPath", longArrayOf(pszappcontainersid, ppszpath)).toInt()
-}
+public expect fun GetAppContainerFolderPath(pszappcontainersid: PCWSTR, ppszpath: Long): HRESULT
 
-public fun GetAppContainerNamedObjectPath(token: HANDLE, appcontainersid: PSID, objectpathlength: UInt, objectpath: PWSTR, returnlength: Long): BOOL {
-    return Win32DynamicFfi.invoke("kernel32.dll", "GetAppContainerNamedObjectPath", longArrayOf(token, appcontainersid, objectpathlength.toLong(), objectpath, returnlength)).toInt()
-}
+public expect fun GetAppContainerNamedObjectPath(token: HANDLE, appcontainersid: PSID, objectpathlength: UInt, objectpath: PWSTR, returnlength: Long): BOOL
 
-public fun GetAppContainerRegistryLocation(desiredaccess: UInt, phappcontainerkey: Long): HRESULT {
-    return Win32DynamicFfi.invoke("userenv.dll", "GetAppContainerRegistryLocation", longArrayOf(desiredaccess.toLong(), phappcontainerkey)).toInt()
-}
+public expect fun GetAppContainerRegistryLocation(desiredaccess: UInt, phappcontainerkey: Long): HRESULT
 
-public fun IsCrossIsolatedEnvironmentClipboardContent(iscrossisolatedenvironmentclipboardcontent: Long): HRESULT {
-    return Win32DynamicFfi.invoke("isolatedwindowsenvironmentutils.dll", "IsCrossIsolatedEnvironmentClipboardContent", longArrayOf(iscrossisolatedenvironmentclipboardcontent)).toInt()
-}
+public expect fun IsCrossIsolatedEnvironmentClipboardContent(iscrossisolatedenvironmentclipboardcontent: Long): HRESULT
 
-public fun IsProcessInIsolatedContainer(isprocessinisolatedcontainer: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-security-isolatedcontainer-l1-1-0.dll", "IsProcessInIsolatedContainer", longArrayOf(isprocessinisolatedcontainer)).toInt()
-}
+public expect fun IsProcessInIsolatedContainer(isprocessinisolatedcontainer: Long): HRESULT
 
-public fun IsProcessInIsolatedWindowsEnvironment(isprocessinisolatedwindowsenvironment: Long): HRESULT {
-    return Win32DynamicFfi.invoke("isolatedwindowsenvironmentutils.dll", "IsProcessInIsolatedWindowsEnvironment", longArrayOf(isprocessinisolatedwindowsenvironment)).toInt()
-}
+public expect fun IsProcessInIsolatedWindowsEnvironment(isprocessinisolatedwindowsenvironment: Long): HRESULT
 
-public fun IsProcessInWDAGContainer(reserved: Long, isprocessinwdagcontainer: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-security-isolatedcontainer-l1-1-1.dll", "IsProcessInWDAGContainer", longArrayOf(reserved, isprocessinwdagcontainer)).toInt()
-}
+public expect fun IsProcessInWDAGContainer(reserved: Long, isprocessinwdagcontainer: Long): HRESULT

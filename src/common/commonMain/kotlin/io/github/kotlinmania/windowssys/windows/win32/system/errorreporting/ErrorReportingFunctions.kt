@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.errorreporting
 
-import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
@@ -8,166 +7,84 @@ import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
 
-public fun AddERExcludedApplicationA(szapplication: PCSTR): BOOL {
-    return Win32DynamicFfi.invoke("faultrep.dll", "AddERExcludedApplicationA", longArrayOf(szapplication)).toInt()
-}
+public expect fun AddERExcludedApplicationA(szapplication: PCSTR): BOOL
 
-public fun AddERExcludedApplicationW(wszapplication: PCWSTR): BOOL {
-    return Win32DynamicFfi.invoke("faultrep.dll", "AddERExcludedApplicationW", longArrayOf(wszapplication)).toInt()
-}
+public expect fun AddERExcludedApplicationW(wszapplication: PCWSTR): BOOL
 
-public fun ReportFault(pep: Long, dwopt: UInt): EFaultRepRetVal {
-    return Win32DynamicFfi.invoke("faultrep.dll", "ReportFault", longArrayOf(pep, dwopt.toLong())).toInt()
-}
+public expect fun ReportFault(pep: Long, dwopt: UInt): EFaultRepRetVal
 
-public fun WerAddExcludedApplication(pwzexename: PCWSTR, ballusers: BOOL): HRESULT {
-    return Win32DynamicFfi.invoke("wer.dll", "WerAddExcludedApplication", longArrayOf(pwzexename, ballusers.toLong())).toInt()
-}
+public expect fun WerAddExcludedApplication(pwzexename: PCWSTR, ballusers: BOOL): HRESULT
 
-public fun WerFreeString(pwszstr: PCWSTR) {
-    Win32DynamicFfi.invoke("wer.dll", "WerFreeString", longArrayOf(pwszstr))
-}
+public expect fun WerFreeString(pwszstr: PCWSTR)
 
-public fun WerGetFlags(hprocess: HANDLE, pdwflags: Long): HRESULT {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WerGetFlags", longArrayOf(hprocess, pdwflags)).toInt()
-}
+public expect fun WerGetFlags(hprocess: HANDLE, pdwflags: Long): HRESULT
 
-public fun WerRegisterAdditionalProcess(processid: UInt, captureextrainfoforthreadid: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WerRegisterAdditionalProcess", longArrayOf(processid.toLong(), captureextrainfoforthreadid.toLong())).toInt()
-}
+public expect fun WerRegisterAdditionalProcess(processid: UInt, captureextrainfoforthreadid: UInt): HRESULT
 
-public fun WerRegisterAppLocalDump(localappdatarelativepath: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WerRegisterAppLocalDump", longArrayOf(localappdatarelativepath)).toInt()
-}
+public expect fun WerRegisterAppLocalDump(localappdatarelativepath: PCWSTR): HRESULT
 
-public fun WerRegisterCustomMetadata(key: PCWSTR, value: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WerRegisterCustomMetadata", longArrayOf(key, value)).toInt()
-}
+public expect fun WerRegisterCustomMetadata(key: PCWSTR, value: PCWSTR): HRESULT
 
-public fun WerRegisterExcludedMemoryBlock(address: Long, size: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WerRegisterExcludedMemoryBlock", longArrayOf(address, size.toLong())).toInt()
-}
+public expect fun WerRegisterExcludedMemoryBlock(address: Long, size: UInt): HRESULT
 
-public fun WerRegisterFile(pwzfile: PCWSTR, regfiletype: WER_REGISTER_FILE_TYPE, dwflags: WER_FILE): HRESULT {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WerRegisterFile", longArrayOf(pwzfile, regfiletype.toLong(), dwflags.toLong())).toInt()
-}
+public expect fun WerRegisterFile(pwzfile: PCWSTR, regfiletype: WER_REGISTER_FILE_TYPE, dwflags: WER_FILE): HRESULT
 
-public fun WerRegisterMemoryBlock(pvaddress: Long, dwsize: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WerRegisterMemoryBlock", longArrayOf(pvaddress, dwsize.toLong())).toInt()
-}
+public expect fun WerRegisterMemoryBlock(pvaddress: Long, dwsize: UInt): HRESULT
 
-public fun WerRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: PCWSTR, pcontext: Long): HRESULT {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WerRegisterRuntimeExceptionModule", longArrayOf(pwszoutofprocesscallbackdll, pcontext)).toInt()
-}
+public expect fun WerRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: PCWSTR, pcontext: Long): HRESULT
 
-public fun WerRemoveExcludedApplication(pwzexename: PCWSTR, ballusers: BOOL): HRESULT {
-    return Win32DynamicFfi.invoke("wer.dll", "WerRemoveExcludedApplication", longArrayOf(pwzexename, ballusers.toLong())).toInt()
-}
+public expect fun WerRemoveExcludedApplication(pwzexename: PCWSTR, ballusers: BOOL): HRESULT
 
-public fun WerReportAddDump(hreporthandle: HREPORT, hprocess: HANDLE, hthread: HANDLE, dumptype: WER_DUMP_TYPE, pexceptionparam: Long, pdumpcustomoptions: Long, dwflags: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("wer.dll", "WerReportAddDump", longArrayOf(hreporthandle, hprocess, hthread, dumptype.toLong(), pexceptionparam, pdumpcustomoptions, dwflags.toLong())).toInt()
-}
+public expect fun WerReportAddDump(hreporthandle: HREPORT, hprocess: HANDLE, hthread: HANDLE, dumptype: WER_DUMP_TYPE, pexceptionparam: Long, pdumpcustomoptions: Long, dwflags: UInt): HRESULT
 
-public fun WerReportAddFile(hreporthandle: HREPORT, pwzpath: PCWSTR, repfiletype: WER_FILE_TYPE, dwfileflags: WER_FILE): HRESULT {
-    return Win32DynamicFfi.invoke("wer.dll", "WerReportAddFile", longArrayOf(hreporthandle, pwzpath, repfiletype.toLong(), dwfileflags.toLong())).toInt()
-}
+public expect fun WerReportAddFile(hreporthandle: HREPORT, pwzpath: PCWSTR, repfiletype: WER_FILE_TYPE, dwfileflags: WER_FILE): HRESULT
 
-public fun WerReportCloseHandle(hreporthandle: HREPORT): HRESULT {
-    return Win32DynamicFfi.invoke("wer.dll", "WerReportCloseHandle", longArrayOf(hreporthandle)).toInt()
-}
+public expect fun WerReportCloseHandle(hreporthandle: HREPORT): HRESULT
 
-public fun WerReportCreate(pwzeventtype: PCWSTR, reptype: WER_REPORT_TYPE, preportinformation: Long, phreporthandle: Long): HRESULT {
-    return Win32DynamicFfi.invoke("wer.dll", "WerReportCreate", longArrayOf(pwzeventtype, reptype.toLong(), preportinformation, phreporthandle)).toInt()
-}
+public expect fun WerReportCreate(pwzeventtype: PCWSTR, reptype: WER_REPORT_TYPE, preportinformation: Long, phreporthandle: Long): HRESULT
 
-public fun WerReportHang(hwndhungapp: HWND, pwzhungapplicationname: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("faultrep.dll", "WerReportHang", longArrayOf(hwndhungapp, pwzhungapplicationname)).toInt()
-}
+public expect fun WerReportHang(hwndhungapp: HWND, pwzhungapplicationname: PCWSTR): HRESULT
 
-public fun WerReportSetParameter(hreporthandle: HREPORT, dwparamid: UInt, pwzname: PCWSTR, pwzvalue: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("wer.dll", "WerReportSetParameter", longArrayOf(hreporthandle, dwparamid.toLong(), pwzname, pwzvalue)).toInt()
-}
+public expect fun WerReportSetParameter(hreporthandle: HREPORT, dwparamid: UInt, pwzname: PCWSTR, pwzvalue: PCWSTR): HRESULT
 
-public fun WerReportSetUIOption(hreporthandle: HREPORT, repuitypeid: WER_REPORT_UI, pwzvalue: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("wer.dll", "WerReportSetUIOption", longArrayOf(hreporthandle, repuitypeid.toLong(), pwzvalue)).toInt()
-}
+public expect fun WerReportSetUIOption(hreporthandle: HREPORT, repuitypeid: WER_REPORT_UI, pwzvalue: PCWSTR): HRESULT
 
-public fun WerReportSubmit(hreporthandle: HREPORT, consent: WER_CONSENT, dwflags: WER_SUBMIT_FLAGS, psubmitresult: Long): HRESULT {
-    return Win32DynamicFfi.invoke("wer.dll", "WerReportSubmit", longArrayOf(hreporthandle, consent.toLong(), dwflags.toLong(), psubmitresult)).toInt()
-}
+public expect fun WerReportSubmit(hreporthandle: HREPORT, consent: WER_CONSENT, dwflags: WER_SUBMIT_FLAGS, psubmitresult: Long): HRESULT
 
-public fun WerSetFlags(dwflags: WER_FAULT_REPORTING): HRESULT {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WerSetFlags", longArrayOf(dwflags.toLong())).toInt()
-}
+public expect fun WerSetFlags(dwflags: WER_FAULT_REPORTING): HRESULT
 
-public fun WerStoreClose(hreportstore: HREPORTSTORE) {
-    Win32DynamicFfi.invoke("wer.dll", "WerStoreClose", longArrayOf(hreportstore))
-}
+public expect fun WerStoreClose(hreportstore: HREPORTSTORE)
 
-public fun WerStoreGetFirstReportKey(hreportstore: HREPORTSTORE, ppszreportkey: Long): HRESULT {
-    return Win32DynamicFfi.invoke("wer.dll", "WerStoreGetFirstReportKey", longArrayOf(hreportstore, ppszreportkey)).toInt()
-}
+public expect fun WerStoreGetFirstReportKey(hreportstore: HREPORTSTORE, ppszreportkey: Long): HRESULT
 
-public fun WerStoreGetNextReportKey(hreportstore: HREPORTSTORE, ppszreportkey: Long): HRESULT {
-    return Win32DynamicFfi.invoke("wer.dll", "WerStoreGetNextReportKey", longArrayOf(hreportstore, ppszreportkey)).toInt()
-}
+public expect fun WerStoreGetNextReportKey(hreportstore: HREPORTSTORE, ppszreportkey: Long): HRESULT
 
-public fun WerStoreGetReportCount(hreportstore: HREPORTSTORE, pdwreportcount: Long): HRESULT {
-    return Win32DynamicFfi.invoke("wer.dll", "WerStoreGetReportCount", longArrayOf(hreportstore, pdwreportcount)).toInt()
-}
+public expect fun WerStoreGetReportCount(hreportstore: HREPORTSTORE, pdwreportcount: Long): HRESULT
 
-public fun WerStoreGetSizeOnDisk(hreportstore: HREPORTSTORE, pqwsizeinbytes: Long): HRESULT {
-    return Win32DynamicFfi.invoke("wer.dll", "WerStoreGetSizeOnDisk", longArrayOf(hreportstore, pqwsizeinbytes)).toInt()
-}
+public expect fun WerStoreGetSizeOnDisk(hreportstore: HREPORTSTORE, pqwsizeinbytes: Long): HRESULT
 
-public fun WerStoreOpen(repstoretype: REPORT_STORE_TYPES, phreportstore: Long): HRESULT {
-    return Win32DynamicFfi.invoke("wer.dll", "WerStoreOpen", longArrayOf(repstoretype.toLong(), phreportstore)).toInt()
-}
+public expect fun WerStoreOpen(repstoretype: REPORT_STORE_TYPES, phreportstore: Long): HRESULT
 
-public fun WerStorePurge(): HRESULT {
-    return Win32DynamicFfi.invoke("wer.dll", "WerStorePurge", longArrayOf()).toInt()
-}
+public expect fun WerStorePurge(): HRESULT
 
-public fun WerStoreQueryReportMetadataV1(hreportstore: HREPORTSTORE, pszreportkey: PCWSTR, preportmetadata: Long): HRESULT {
-    return Win32DynamicFfi.invoke("wer.dll", "WerStoreQueryReportMetadataV1", longArrayOf(hreportstore, pszreportkey, preportmetadata)).toInt()
-}
+public expect fun WerStoreQueryReportMetadataV1(hreportstore: HREPORTSTORE, pszreportkey: PCWSTR, preportmetadata: Long): HRESULT
 
-public fun WerStoreQueryReportMetadataV2(hreportstore: HREPORTSTORE, pszreportkey: PCWSTR, preportmetadata: Long): HRESULT {
-    return Win32DynamicFfi.invoke("wer.dll", "WerStoreQueryReportMetadataV2", longArrayOf(hreportstore, pszreportkey, preportmetadata)).toInt()
-}
+public expect fun WerStoreQueryReportMetadataV2(hreportstore: HREPORTSTORE, pszreportkey: PCWSTR, preportmetadata: Long): HRESULT
 
-public fun WerStoreQueryReportMetadataV3(hreportstore: HREPORTSTORE, pszreportkey: PCWSTR, preportmetadata: Long): HRESULT {
-    return Win32DynamicFfi.invoke("wer.dll", "WerStoreQueryReportMetadataV3", longArrayOf(hreportstore, pszreportkey, preportmetadata)).toInt()
-}
+public expect fun WerStoreQueryReportMetadataV3(hreportstore: HREPORTSTORE, pszreportkey: PCWSTR, preportmetadata: Long): HRESULT
 
-public fun WerStoreUploadReport(hreportstore: HREPORTSTORE, pszreportkey: PCWSTR, dwflags: UInt, psubmitresult: Long): HRESULT {
-    return Win32DynamicFfi.invoke("wer.dll", "WerStoreUploadReport", longArrayOf(hreportstore, pszreportkey, dwflags.toLong(), psubmitresult)).toInt()
-}
+public expect fun WerStoreUploadReport(hreportstore: HREPORTSTORE, pszreportkey: PCWSTR, dwflags: UInt, psubmitresult: Long): HRESULT
 
-public fun WerUnregisterAdditionalProcess(processid: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WerUnregisterAdditionalProcess", longArrayOf(processid.toLong())).toInt()
-}
+public expect fun WerUnregisterAdditionalProcess(processid: UInt): HRESULT
 
-public fun WerUnregisterAppLocalDump(): HRESULT {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WerUnregisterAppLocalDump", longArrayOf()).toInt()
-}
+public expect fun WerUnregisterAppLocalDump(): HRESULT
 
-public fun WerUnregisterCustomMetadata(key: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WerUnregisterCustomMetadata", longArrayOf(key)).toInt()
-}
+public expect fun WerUnregisterCustomMetadata(key: PCWSTR): HRESULT
 
-public fun WerUnregisterExcludedMemoryBlock(address: Long): HRESULT {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WerUnregisterExcludedMemoryBlock", longArrayOf(address)).toInt()
-}
+public expect fun WerUnregisterExcludedMemoryBlock(address: Long): HRESULT
 
-public fun WerUnregisterFile(pwzfilepath: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WerUnregisterFile", longArrayOf(pwzfilepath)).toInt()
-}
+public expect fun WerUnregisterFile(pwzfilepath: PCWSTR): HRESULT
 
-public fun WerUnregisterMemoryBlock(pvaddress: Long): HRESULT {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WerUnregisterMemoryBlock", longArrayOf(pvaddress)).toInt()
-}
+public expect fun WerUnregisterMemoryBlock(pvaddress: Long): HRESULT
 
-public fun WerUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: PCWSTR, pcontext: Long): HRESULT {
-    return Win32DynamicFfi.invoke("kernel32.dll", "WerUnregisterRuntimeExceptionModule", longArrayOf(pwszoutofprocesscallbackdll, pcontext)).toInt()
-}
+public expect fun WerUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: PCWSTR, pcontext: Long): HRESULT

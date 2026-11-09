@@ -1,50 +1,27 @@
 package io.github.kotlinmania.windowssys.windows.win32.media.dxmediaobjects
 
-import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
 
-public fun DMOEnum(guidcategory: Long, dwflags: UInt, cintypes: UInt, pintypes: Long, couttypes: UInt, pouttypes: Long, ppenum: Long): HRESULT {
-    return Win32DynamicFfi.invoke("msdmo.dll", "DMOEnum", longArrayOf(guidcategory, dwflags.toLong(), cintypes.toLong(), pintypes, couttypes.toLong(), pouttypes, ppenum)).toInt()
-}
+public expect fun DMOEnum(guidcategory: Long, dwflags: UInt, cintypes: UInt, pintypes: Long, couttypes: UInt, pouttypes: Long, ppenum: Long): HRESULT
 
-public fun DMOGetName(clsiddmo: Long, szname: PWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("msdmo.dll", "DMOGetName", longArrayOf(clsiddmo, szname)).toInt()
-}
+public expect fun DMOGetName(clsiddmo: Long, szname: PWSTR): HRESULT
 
-public fun DMOGetTypes(clsiddmo: Long, ulinputtypesrequested: UInt, pulinputtypessupplied: Long, pinputtypes: Long, uloutputtypesrequested: UInt, puloutputtypessupplied: Long, poutputtypes: Long): HRESULT {
-    return Win32DynamicFfi.invoke("msdmo.dll", "DMOGetTypes", longArrayOf(clsiddmo, ulinputtypesrequested.toLong(), pulinputtypessupplied, pinputtypes, uloutputtypesrequested.toLong(), puloutputtypessupplied, poutputtypes)).toInt()
-}
+public expect fun DMOGetTypes(clsiddmo: Long, ulinputtypesrequested: UInt, pulinputtypessupplied: Long, pinputtypes: Long, uloutputtypesrequested: UInt, puloutputtypessupplied: Long, poutputtypes: Long): HRESULT
 
-public fun DMORegister(szname: PCWSTR, clsiddmo: Long, guidcategory: Long, dwflags: UInt, cintypes: UInt, pintypes: Long, couttypes: UInt, pouttypes: Long): HRESULT {
-    return Win32DynamicFfi.invoke("msdmo.dll", "DMORegister", longArrayOf(szname, clsiddmo, guidcategory, dwflags.toLong(), cintypes.toLong(), pintypes, couttypes.toLong(), pouttypes)).toInt()
-}
+public expect fun DMORegister(szname: PCWSTR, clsiddmo: Long, guidcategory: Long, dwflags: UInt, cintypes: UInt, pintypes: Long, couttypes: UInt, pouttypes: Long): HRESULT
 
-public fun DMOUnregister(clsiddmo: Long, guidcategory: Long): HRESULT {
-    return Win32DynamicFfi.invoke("msdmo.dll", "DMOUnregister", longArrayOf(clsiddmo, guidcategory)).toInt()
-}
+public expect fun DMOUnregister(clsiddmo: Long, guidcategory: Long): HRESULT
 
-public fun MoCopyMediaType(pmtdest: Long, pmtsrc: Long): HRESULT {
-    return Win32DynamicFfi.invoke("msdmo.dll", "MoCopyMediaType", longArrayOf(pmtdest, pmtsrc)).toInt()
-}
+public expect fun MoCopyMediaType(pmtdest: Long, pmtsrc: Long): HRESULT
 
-public fun MoCreateMediaType(ppmt: Long, cbformat: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("msdmo.dll", "MoCreateMediaType", longArrayOf(ppmt, cbformat.toLong())).toInt()
-}
+public expect fun MoCreateMediaType(ppmt: Long, cbformat: UInt): HRESULT
 
-public fun MoDeleteMediaType(pmt: Long): HRESULT {
-    return Win32DynamicFfi.invoke("msdmo.dll", "MoDeleteMediaType", longArrayOf(pmt)).toInt()
-}
+public expect fun MoDeleteMediaType(pmt: Long): HRESULT
 
-public fun MoDuplicateMediaType(ppmtdest: Long, pmtsrc: Long): HRESULT {
-    return Win32DynamicFfi.invoke("msdmo.dll", "MoDuplicateMediaType", longArrayOf(ppmtdest, pmtsrc)).toInt()
-}
+public expect fun MoDuplicateMediaType(ppmtdest: Long, pmtsrc: Long): HRESULT
 
-public fun MoFreeMediaType(pmt: Long): HRESULT {
-    return Win32DynamicFfi.invoke("msdmo.dll", "MoFreeMediaType", longArrayOf(pmt)).toInt()
-}
+public expect fun MoFreeMediaType(pmt: Long): HRESULT
 
-public fun MoInitMediaType(pmt: Long, cbformat: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("msdmo.dll", "MoInitMediaType", longArrayOf(pmt, cbformat.toLong())).toInt()
-}
+public expect fun MoInitMediaType(pmt: Long, cbformat: UInt): HRESULT

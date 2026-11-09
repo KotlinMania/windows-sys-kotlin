@@ -1,55 +1,28 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.webdav
 
-import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
 import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 
-public fun interface FnCallback {
-    public operator fun invoke(lpwzservername: PCWSTR, lpwzremotename: PCWSTR, dwauthscheme: UInt, dwflags: UInt, pcallbackcred: Long, nextstep: Long, pfreecred: Long): UInt
-}
+public expect fun DavAddConnection(connectionhandle: Long, remotename: PCWSTR, username: PCWSTR, password: PCWSTR, clientcert: Long, certsize: UInt): UInt
 
-public fun DavAddConnection(connectionhandle: Long, remotename: PCWSTR, username: PCWSTR, password: PCWSTR, clientcert: Long, certsize: UInt): UInt {
-    return Win32DynamicFfi.invoke("netapi32.dll", "DavAddConnection", longArrayOf(connectionhandle, remotename, username, password, clientcert, certsize.toLong())).toUInt()
-}
+public expect fun DavCancelConnectionsToServer(lpname: PCWSTR, fforce: BOOL): UInt
 
-public fun DavCancelConnectionsToServer(lpname: PCWSTR, fforce: BOOL): UInt {
-    return Win32DynamicFfi.invoke("davclnt.dll", "DavCancelConnectionsToServer", longArrayOf(lpname, fforce.toLong())).toUInt()
-}
+public expect fun DavDeleteConnection(connectionhandle: HANDLE): UInt
 
-public fun DavDeleteConnection(connectionhandle: HANDLE): UInt {
-    return Win32DynamicFfi.invoke("netapi32.dll", "DavDeleteConnection", longArrayOf(connectionhandle)).toUInt()
-}
+public expect fun DavFlushFile(hfile: HANDLE): UInt
 
-public fun DavFlushFile(hfile: HANDLE): UInt {
-    return Win32DynamicFfi.invoke("netapi32.dll", "DavFlushFile", longArrayOf(hfile)).toUInt()
-}
+public expect fun DavGetExtendedError(hfile: HANDLE, exterror: Long, exterrorstring: PWSTR, cchsize: Long): UInt
 
-public fun DavGetExtendedError(hfile: HANDLE, exterror: Long, exterrorstring: PWSTR, cchsize: Long): UInt {
-    return Win32DynamicFfi.invoke("netapi32.dll", "DavGetExtendedError", longArrayOf(hfile, exterror, exterrorstring, cchsize)).toUInt()
-}
+public expect fun DavGetHTTPFromUNCPath(uncpath: PCWSTR, url: PWSTR, lpsize: Long): UInt
 
-public fun DavGetHTTPFromUNCPath(uncpath: PCWSTR, url: PWSTR, lpsize: Long): UInt {
-    return Win32DynamicFfi.invoke("netapi32.dll", "DavGetHTTPFromUNCPath", longArrayOf(uncpath, url, lpsize)).toUInt()
-}
+public expect fun DavGetTheLockOwnerOfTheFile(filename: PCWSTR, lockownername: PWSTR, lockownernamelengthinbytes: Long): UInt
 
-public fun DavGetTheLockOwnerOfTheFile(filename: PCWSTR, lockownername: PWSTR, lockownernamelengthinbytes: Long): UInt {
-    return Win32DynamicFfi.invoke("davclnt.dll", "DavGetTheLockOwnerOfTheFile", longArrayOf(filename, lockownername, lockownernamelengthinbytes)).toUInt()
-}
+public expect fun DavGetUNCFromHTTPPath(url: PCWSTR, uncpath: PWSTR, lpsize: Long): UInt
 
-public fun DavGetUNCFromHTTPPath(url: PCWSTR, uncpath: PWSTR, lpsize: Long): UInt {
-    return Win32DynamicFfi.invoke("netapi32.dll", "DavGetUNCFromHTTPPath", longArrayOf(url, uncpath, lpsize)).toUInt()
-}
+public expect fun DavInvalidateCache(urlname: PCWSTR): UInt
 
-public fun DavInvalidateCache(urlname: PCWSTR): UInt {
-    return Win32DynamicFfi.invoke("davclnt.dll", "DavInvalidateCache", longArrayOf(urlname)).toUInt()
-}
+public expect fun DavRegisterAuthCallback(callback: PFNDAVAUTHCALLBACK, version: UInt): UInt
 
-public fun DavRegisterAuthCallback(callback: PFNDAVAUTHCALLBACK, version: UInt): UInt {
-    return Win32DynamicFfi.invoke("davclnt.dll", "DavRegisterAuthCallback", longArrayOf(Win32DynamicFfi.objectSlot(callback), version.toLong())).toUInt()
-}
-
-public fun DavUnregisterAuthCallback(hcallback: UInt) {
-    Win32DynamicFfi.invoke("davclnt.dll", "DavUnregisterAuthCallback", longArrayOf(hcallback.toLong()))
-}
+public expect fun DavUnregisterAuthCallback(hcallback: UInt)

@@ -40,27 +40,9 @@ public data class GUID(
     }
 
     public companion object {
-        public fun from_u128(uuidHi: ULong, uuidLo: ULong): GUID = GUID(
-            data1 = (uuidHi shr 32).toUInt(),
-            data2 = ((uuidHi shr 16) and 0xffffuL).toUShort(),
-            data3 = (uuidHi and 0xffffuL).toUShort(),
-            data4 = ubyteArrayOf(
-                (uuidLo shr 56).toUByte(),
-                (uuidLo shr 48).toUByte(),
-                (uuidLo shr 40).toUByte(),
-                (uuidLo shr 32).toUByte(),
-                (uuidLo shr 24).toUByte(),
-                (uuidLo shr 16).toUByte(),
-                (uuidLo shr 8).toUByte(),
-                uuidLo.toUByte(),
-            ),
-        )
-
-        public fun fromU128(uuidHi: ULong, uuidLo: ULong): GUID = from_u128(uuidHi, uuidLo)
-
-        public fun from_u128(uuid: U128): GUID = from_u128(uuid.high, uuid.low)
-
-        public fun fromU128(uuid: U128): GUID = from_u128(uuid.high, uuid.low)
+        public fun from_u128(uuid: U128): GUID {
+            return GUID(data1 = (uuid shr 96).toUInt(), data2 = (uuid shr 80 and U128(0x0uL, 0xffffuL)).toUShort(), data3 = (uuid shr 64 and U128(0x0uL, 0xffffuL)).toUShort(), data4 = run { val _b = ((uuid.toULong())).toULong(); ubyteArrayOf((_b shr 56).toUByte(), (_b shr 48).toUByte(), (_b shr 40).toUByte(), (_b shr 32).toUByte(), (_b shr 24).toUByte(), (_b shr 16).toUByte(), (_b shr 8).toUByte(), _b.toUByte()) })
+        }
     }
 }
 

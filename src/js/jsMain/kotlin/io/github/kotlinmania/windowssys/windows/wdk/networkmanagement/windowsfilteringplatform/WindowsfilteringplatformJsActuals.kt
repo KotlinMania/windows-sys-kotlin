@@ -1,0 +1,466 @@
+@file:OptIn(kotlin.ExperimentalUnsignedTypes::class)
+
+package io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.windowsfilteringplatform
+
+import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.FWPM_ENGINE_OPTION
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.FWPM_SERVICE_STATE
+import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
+
+private val _windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon: dynamic =
+    js(
+        "\"\"\"(function() { if (typeof process === "undefined" || !process.versions || !process.versions.node) return null; var req = typeof require === "function" ? require : null; if (!req) return null; var fs = req("fs"); var path = req("path"); var dir = process.cwd ? process.cwd() : "."; for (var d = 0; d < 8; d++) {     var c1 = path.resolve(dir, "build/node-ffi/windowssys_native.node");     if (fs.existsSync(c1)) return req(c1);     var c2 = path.resolve(dir, "src/js/node-windowssys/build/Release/windowssys_native.node");     if (fs.existsSync(c2)) return req(c2);     var c3 = path.resolve(dir, "src/js/node-windowssys/build/Debug/windowssys_native.node");     if (fs.existsSync(c3)) return req(c3);     var c4 = path.resolve(dir, "src/js/node-windowssys/dist/build/Release/windowssys_native.node");     if (fs.existsSync(c4)) return req(c4);     var c5 = path.resolve(dir, "src/js/node-windowssys/dist/build/Debug/windowssys_native.node");     if (fs.existsSync(c5)) return req(c5);     var parent = path.dirname(dir);     if (parent === dir) break;     dir = parent; } return null;
+        })()\"\"\""
+    )
+
+public actual fun FwpmBfeStateGet0(): FWPM_SERVICE_STATE =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmBfeStateGet0() as Int) else 0
+
+public actual fun FwpmBfeStateSubscribeChanges0(deviceobject: Long, callback: FWPM_SERVICE_STATE_CHANGE_CALLBACK0, context: Long, changehandle: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmBfeStateSubscribeChanges0(deviceobject.toString(), callback.toLong().toString(), context.toString(), changehandle.toString()) as Int) else 0
+
+public actual fun FwpmBfeStateUnsubscribeChanges0(changehandle: HANDLE): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmBfeStateUnsubscribeChanges0(changehandle.toString()) as Int) else 0
+
+public actual fun FwpmCalloutAdd0(enginehandle: HANDLE, callout: Long, sd: PSECURITY_DESCRIPTOR, id: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutAdd0(enginehandle.toString(), callout.toString(), sd.toString(), id.toString()) as Int) else 0
+
+public actual fun FwpmCalloutCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutCreateEnumHandle0(enginehandle.toString(), enumtemplate.toString(), enumhandle.toString()) as Int) else 0
+
+public actual fun FwpmCalloutDeleteById0(enginehandle: HANDLE, id: UInt): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutDeleteById0(enginehandle.toString(), id.toInt()) as Int) else 0
+
+public actual fun FwpmCalloutDeleteByKey0(enginehandle: HANDLE, key: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutDeleteByKey0(enginehandle.toString(), key.toString()) as Int) else 0
+
+public actual fun FwpmCalloutDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutDestroyEnumHandle0(enginehandle.toString(), enumhandle.toString()) as Int) else 0
+
+public actual fun FwpmCalloutEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutEnum0(enginehandle.toString(), enumhandle.toString(), numentriesrequested.toInt(), entries.toString(), numentriesreturned.toString()) as Int) else 0
+
+public actual fun FwpmCalloutGetById0(enginehandle: HANDLE, id: UInt, callout: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutGetById0(enginehandle.toString(), id.toInt(), callout.toString()) as Int) else 0
+
+public actual fun FwpmCalloutGetByKey0(enginehandle: HANDLE, key: Long, callout: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutGetByKey0(enginehandle.toString(), key.toString(), callout.toString()) as Int) else 0
+
+public actual fun FwpmCalloutGetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutGetSecurityInfoByKey0(enginehandle.toString(), key.toString(), securityinfo.toInt(), sidowner.toString(), sidgroup.toString(), dacl.toString(), sacl.toString(), securitydescriptor.toString()) as Int) else 0
+
+public actual fun FwpmCalloutSetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutSetSecurityInfoByKey0(enginehandle.toString(), key.toString(), securityinfo.toInt(), sidowner.toString(), sidgroup.toString(), dacl.toString(), sacl.toString()) as Int) else 0
+
+public actual fun FwpmConnectionCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionCreateEnumHandle0(enginehandle.toString(), enumtemplate.toString(), enumhandle.toString()) as Int) else 0
+
+public actual fun FwpmConnectionDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionDestroyEnumHandle0(enginehandle.toString(), enumhandle.toString()) as Int) else 0
+
+public actual fun FwpmConnectionEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionEnum0(enginehandle.toString(), enumhandle.toString(), numentriesrequested.toInt(), entries.toString(), numentriesreturned.toString()) as Int) else 0
+
+public actual fun FwpmConnectionGetById0(enginehandle: HANDLE, id: ULong, connection: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionGetById0(enginehandle.toString(), id.toString(), connection.toString()) as Int) else 0
+
+public actual fun FwpmConnectionGetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionGetSecurityInfo0(enginehandle.toString(), securityinfo.toInt(), sidowner.toString(), sidgroup.toString(), dacl.toString(), sacl.toString(), securitydescriptor.toString()) as Int) else 0
+
+public actual fun FwpmConnectionSetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionSetSecurityInfo0(enginehandle.toString(), securityinfo.toInt(), sidowner.toString(), sidgroup.toString(), dacl.toString(), sacl.toString()) as Int) else 0
+
+public actual fun FwpmEngineClose0(enginehandle: HANDLE): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineClose0(enginehandle.toString()) as Int) else 0
+
+public actual fun FwpmEngineGetOption0(enginehandle: HANDLE, option: FWPM_ENGINE_OPTION, value: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineGetOption0(enginehandle.toString(), option, value.toString()) as Int) else 0
+
+public actual fun FwpmEngineGetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineGetSecurityInfo0(enginehandle.toString(), securityinfo.toInt(), sidowner.toString(), sidgroup.toString(), dacl.toString(), sacl.toString(), securitydescriptor.toString()) as Int) else 0
+
+public actual fun FwpmEngineOpen0(servername: PCWSTR, authnservice: UInt, authidentity: Long, session: Long, enginehandle: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineOpen0(servername.toString(), authnservice.toInt(), authidentity.toString(), session.toString(), enginehandle.toString()) as Int) else 0
+
+public actual fun FwpmEngineSetOption0(enginehandle: HANDLE, option: FWPM_ENGINE_OPTION, newvalue: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineSetOption0(enginehandle.toString(), option, newvalue.toString()) as Int) else 0
+
+public actual fun FwpmEngineSetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineSetSecurityInfo0(enginehandle.toString(), securityinfo.toInt(), sidowner.toString(), sidgroup.toString(), dacl.toString(), sacl.toString()) as Int) else 0
+
+public actual fun FwpmFilterAdd0(enginehandle: HANDLE, filter: Long, sd: PSECURITY_DESCRIPTOR, id: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterAdd0(enginehandle.toString(), filter.toString(), sd.toString(), id.toString()) as Int) else 0
+
+public actual fun FwpmFilterCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterCreateEnumHandle0(enginehandle.toString(), enumtemplate.toString(), enumhandle.toString()) as Int) else 0
+
+public actual fun FwpmFilterDeleteById0(enginehandle: HANDLE, id: ULong): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterDeleteById0(enginehandle.toString(), id.toString()) as Int) else 0
+
+public actual fun FwpmFilterDeleteByKey0(enginehandle: HANDLE, key: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterDeleteByKey0(enginehandle.toString(), key.toString()) as Int) else 0
+
+public actual fun FwpmFilterDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterDestroyEnumHandle0(enginehandle.toString(), enumhandle.toString()) as Int) else 0
+
+public actual fun FwpmFilterEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterEnum0(enginehandle.toString(), enumhandle.toString(), numentriesrequested.toInt(), entries.toString(), numentriesreturned.toString()) as Int) else 0
+
+public actual fun FwpmFilterGetById0(enginehandle: HANDLE, id: ULong, filter: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterGetById0(enginehandle.toString(), id.toString(), filter.toString()) as Int) else 0
+
+public actual fun FwpmFilterGetByKey0(enginehandle: HANDLE, key: Long, filter: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterGetByKey0(enginehandle.toString(), key.toString(), filter.toString()) as Int) else 0
+
+public actual fun FwpmFilterGetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterGetSecurityInfoByKey0(enginehandle.toString(), key.toString(), securityinfo.toInt(), sidowner.toString(), sidgroup.toString(), dacl.toString(), sacl.toString(), securitydescriptor.toString()) as Int) else 0
+
+public actual fun FwpmFilterSetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterSetSecurityInfoByKey0(enginehandle.toString(), key.toString(), securityinfo.toInt(), sidowner.toString(), sidgroup.toString(), dacl.toString(), sacl.toString()) as Int) else 0
+
+public actual fun FwpmFreeMemory0(p: Long) {
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) {
+        _windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFreeMemory0(p.toString())
+    }
+}
+
+public actual fun FwpmIPsecTunnelAdd0(enginehandle: HANDLE, flags: UInt, mainmodepolicy: Long, tunnelpolicy: Long, numfilterconditions: UInt, filterconditions: Long, sd: PSECURITY_DESCRIPTOR): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd0(enginehandle.toString(), flags.toInt(), mainmodepolicy.toString(), tunnelpolicy.toString(), numfilterconditions.toInt(), filterconditions.toString(), sd.toString()) as Int) else 0
+
+public actual fun FwpmIPsecTunnelAdd1(enginehandle: HANDLE, flags: UInt, mainmodepolicy: Long, tunnelpolicy: Long, numfilterconditions: UInt, filterconditions: Long, keymodkey: Long, sd: PSECURITY_DESCRIPTOR): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd1(enginehandle.toString(), flags.toInt(), mainmodepolicy.toString(), tunnelpolicy.toString(), numfilterconditions.toInt(), filterconditions.toString(), keymodkey.toString(), sd.toString()) as Int) else 0
+
+public actual fun FwpmIPsecTunnelAdd2(enginehandle: HANDLE, flags: UInt, mainmodepolicy: Long, tunnelpolicy: Long, numfilterconditions: UInt, filterconditions: Long, keymodkey: Long, sd: PSECURITY_DESCRIPTOR): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd2(enginehandle.toString(), flags.toInt(), mainmodepolicy.toString(), tunnelpolicy.toString(), numfilterconditions.toInt(), filterconditions.toString(), keymodkey.toString(), sd.toString()) as Int) else 0
+
+public actual fun FwpmIPsecTunnelAdd3(enginehandle: HANDLE, flags: UInt, mainmodepolicy: Long, tunnelpolicy: Long, numfilterconditions: UInt, filterconditions: Long, keymodkey: Long, sd: PSECURITY_DESCRIPTOR): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd3(enginehandle.toString(), flags.toInt(), mainmodepolicy.toString(), tunnelpolicy.toString(), numfilterconditions.toInt(), filterconditions.toString(), keymodkey.toString(), sd.toString()) as Int) else 0
+
+public actual fun FwpmIPsecTunnelDeleteByKey0(enginehandle: HANDLE, key: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelDeleteByKey0(enginehandle.toString(), key.toString()) as Int) else 0
+
+public actual fun FwpmLayerCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerCreateEnumHandle0(enginehandle.toString(), enumtemplate.toString(), enumhandle.toString()) as Int) else 0
+
+public actual fun FwpmLayerDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerDestroyEnumHandle0(enginehandle.toString(), enumhandle.toString()) as Int) else 0
+
+public actual fun FwpmLayerEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerEnum0(enginehandle.toString(), enumhandle.toString(), numentriesrequested.toInt(), entries.toString(), numentriesreturned.toString()) as Int) else 0
+
+public actual fun FwpmLayerGetById0(enginehandle: HANDLE, id: UShort, layer: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerGetById0(enginehandle.toString(), id.toInt(), layer.toString()) as Int) else 0
+
+public actual fun FwpmLayerGetByKey0(enginehandle: HANDLE, key: Long, layer: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerGetByKey0(enginehandle.toString(), key.toString(), layer.toString()) as Int) else 0
+
+public actual fun FwpmLayerGetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerGetSecurityInfoByKey0(enginehandle.toString(), key.toString(), securityinfo.toInt(), sidowner.toString(), sidgroup.toString(), dacl.toString(), sacl.toString(), securitydescriptor.toString()) as Int) else 0
+
+public actual fun FwpmLayerSetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerSetSecurityInfoByKey0(enginehandle.toString(), key.toString(), securityinfo.toInt(), sidowner.toString(), sidgroup.toString(), dacl.toString(), sacl.toString()) as Int) else 0
+
+public actual fun FwpmNetEventCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventCreateEnumHandle0(enginehandle.toString(), enumtemplate.toString(), enumhandle.toString()) as Int) else 0
+
+public actual fun FwpmNetEventDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventDestroyEnumHandle0(enginehandle.toString(), enumhandle.toString()) as Int) else 0
+
+public actual fun FwpmNetEventEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum0(enginehandle.toString(), enumhandle.toString(), numentriesrequested.toInt(), entries.toString(), numentriesreturned.toString()) as Int) else 0
+
+public actual fun FwpmNetEventEnum1(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum1(enginehandle.toString(), enumhandle.toString(), numentriesrequested.toInt(), entries.toString(), numentriesreturned.toString()) as Int) else 0
+
+public actual fun FwpmNetEventEnum2(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum2(enginehandle.toString(), enumhandle.toString(), numentriesrequested.toInt(), entries.toString(), numentriesreturned.toString()) as Int) else 0
+
+public actual fun FwpmNetEventEnum3(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum3(enginehandle.toString(), enumhandle.toString(), numentriesrequested.toInt(), entries.toString(), numentriesreturned.toString()) as Int) else 0
+
+public actual fun FwpmNetEventEnum4(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum4(enginehandle.toString(), enumhandle.toString(), numentriesrequested.toInt(), entries.toString(), numentriesreturned.toString()) as Int) else 0
+
+public actual fun FwpmNetEventEnum5(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum5(enginehandle.toString(), enumhandle.toString(), numentriesrequested.toInt(), entries.toString(), numentriesreturned.toString()) as Int) else 0
+
+public actual fun FwpmNetEventsGetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventsGetSecurityInfo0(enginehandle.toString(), securityinfo.toInt(), sidowner.toString(), sidgroup.toString(), dacl.toString(), sacl.toString(), securitydescriptor.toString()) as Int) else 0
+
+public actual fun FwpmNetEventsSetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventsSetSecurityInfo0(enginehandle.toString(), securityinfo.toInt(), sidowner.toString(), sidgroup.toString(), dacl.toString(), sacl.toString()) as Int) else 0
+
+public actual fun FwpmProviderAdd0(enginehandle: HANDLE, provider: Long, sd: PSECURITY_DESCRIPTOR): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderAdd0(enginehandle.toString(), provider.toString(), sd.toString()) as Int) else 0
+
+public actual fun FwpmProviderContextAdd0(enginehandle: HANDLE, providercontext: Long, sd: PSECURITY_DESCRIPTOR, id: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd0(enginehandle.toString(), providercontext.toString(), sd.toString(), id.toString()) as Int) else 0
+
+public actual fun FwpmProviderContextAdd1(enginehandle: HANDLE, providercontext: Long, sd: PSECURITY_DESCRIPTOR, id: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd1(enginehandle.toString(), providercontext.toString(), sd.toString(), id.toString()) as Int) else 0
+
+public actual fun FwpmProviderContextAdd2(enginehandle: HANDLE, providercontext: Long, sd: PSECURITY_DESCRIPTOR, id: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd2(enginehandle.toString(), providercontext.toString(), sd.toString(), id.toString()) as Int) else 0
+
+public actual fun FwpmProviderContextAdd3(enginehandle: HANDLE, providercontext: Long, sd: PSECURITY_DESCRIPTOR, id: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd3(enginehandle.toString(), providercontext.toString(), sd.toString(), id.toString()) as Int) else 0
+
+public actual fun FwpmProviderContextCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextCreateEnumHandle0(enginehandle.toString(), enumtemplate.toString(), enumhandle.toString()) as Int) else 0
+
+public actual fun FwpmProviderContextDeleteById0(enginehandle: HANDLE, id: ULong): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextDeleteById0(enginehandle.toString(), id.toString()) as Int) else 0
+
+public actual fun FwpmProviderContextDeleteByKey0(enginehandle: HANDLE, key: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextDeleteByKey0(enginehandle.toString(), key.toString()) as Int) else 0
+
+public actual fun FwpmProviderContextDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextDestroyEnumHandle0(enginehandle.toString(), enumhandle.toString()) as Int) else 0
+
+public actual fun FwpmProviderContextEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum0(enginehandle.toString(), enumhandle.toString(), numentriesrequested.toInt(), entries.toString(), numentriesreturned.toString()) as Int) else 0
+
+public actual fun FwpmProviderContextEnum1(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum1(enginehandle.toString(), enumhandle.toString(), numentriesrequested.toInt(), entries.toString(), numentriesreturned.toString()) as Int) else 0
+
+public actual fun FwpmProviderContextEnum2(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum2(enginehandle.toString(), enumhandle.toString(), numentriesrequested.toInt(), entries.toString(), numentriesreturned.toString()) as Int) else 0
+
+public actual fun FwpmProviderContextEnum3(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum3(enginehandle.toString(), enumhandle.toString(), numentriesrequested.toInt(), entries.toString(), numentriesreturned.toString()) as Int) else 0
+
+public actual fun FwpmProviderContextGetById0(enginehandle: HANDLE, id: ULong, providercontext: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById0(enginehandle.toString(), id.toString(), providercontext.toString()) as Int) else 0
+
+public actual fun FwpmProviderContextGetById1(enginehandle: HANDLE, id: ULong, providercontext: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById1(enginehandle.toString(), id.toString(), providercontext.toString()) as Int) else 0
+
+public actual fun FwpmProviderContextGetById2(enginehandle: HANDLE, id: ULong, providercontext: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById2(enginehandle.toString(), id.toString(), providercontext.toString()) as Int) else 0
+
+public actual fun FwpmProviderContextGetById3(enginehandle: HANDLE, id: ULong, providercontext: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById3(enginehandle.toString(), id.toString(), providercontext.toString()) as Int) else 0
+
+public actual fun FwpmProviderContextGetByKey0(enginehandle: HANDLE, key: Long, providercontext: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey0(enginehandle.toString(), key.toString(), providercontext.toString()) as Int) else 0
+
+public actual fun FwpmProviderContextGetByKey1(enginehandle: HANDLE, key: Long, providercontext: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey1(enginehandle.toString(), key.toString(), providercontext.toString()) as Int) else 0
+
+public actual fun FwpmProviderContextGetByKey2(enginehandle: HANDLE, key: Long, providercontext: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey2(enginehandle.toString(), key.toString(), providercontext.toString()) as Int) else 0
+
+public actual fun FwpmProviderContextGetByKey3(enginehandle: HANDLE, key: Long, providercontext: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey3(enginehandle.toString(), key.toString(), providercontext.toString()) as Int) else 0
+
+public actual fun FwpmProviderContextGetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetSecurityInfoByKey0(enginehandle.toString(), key.toString(), securityinfo.toInt(), sidowner.toString(), sidgroup.toString(), dacl.toString(), sacl.toString(), securitydescriptor.toString()) as Int) else 0
+
+public actual fun FwpmProviderContextSetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextSetSecurityInfoByKey0(enginehandle.toString(), key.toString(), securityinfo.toInt(), sidowner.toString(), sidgroup.toString(), dacl.toString(), sacl.toString()) as Int) else 0
+
+public actual fun FwpmProviderCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderCreateEnumHandle0(enginehandle.toString(), enumtemplate.toString(), enumhandle.toString()) as Int) else 0
+
+public actual fun FwpmProviderDeleteByKey0(enginehandle: HANDLE, key: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderDeleteByKey0(enginehandle.toString(), key.toString()) as Int) else 0
+
+public actual fun FwpmProviderDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderDestroyEnumHandle0(enginehandle.toString(), enumhandle.toString()) as Int) else 0
+
+public actual fun FwpmProviderEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderEnum0(enginehandle.toString(), enumhandle.toString(), numentriesrequested.toInt(), entries.toString(), numentriesreturned.toString()) as Int) else 0
+
+public actual fun FwpmProviderGetByKey0(enginehandle: HANDLE, key: Long, provider: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderGetByKey0(enginehandle.toString(), key.toString(), provider.toString()) as Int) else 0
+
+public actual fun FwpmProviderGetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderGetSecurityInfoByKey0(enginehandle.toString(), key.toString(), securityinfo.toInt(), sidowner.toString(), sidgroup.toString(), dacl.toString(), sacl.toString(), securitydescriptor.toString()) as Int) else 0
+
+public actual fun FwpmProviderSetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderSetSecurityInfoByKey0(enginehandle.toString(), key.toString(), securityinfo.toInt(), sidowner.toString(), sidgroup.toString(), dacl.toString(), sacl.toString()) as Int) else 0
+
+public actual fun FwpmSessionCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSessionCreateEnumHandle0(enginehandle.toString(), enumtemplate.toString(), enumhandle.toString()) as Int) else 0
+
+public actual fun FwpmSessionDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSessionDestroyEnumHandle0(enginehandle.toString(), enumhandle.toString()) as Int) else 0
+
+public actual fun FwpmSessionEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSessionEnum0(enginehandle.toString(), enumhandle.toString(), numentriesrequested.toInt(), entries.toString(), numentriesreturned.toString()) as Int) else 0
+
+public actual fun FwpmSubLayerAdd0(enginehandle: HANDLE, sublayer: Long, sd: PSECURITY_DESCRIPTOR): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerAdd0(enginehandle.toString(), sublayer.toString(), sd.toString()) as Int) else 0
+
+public actual fun FwpmSubLayerCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerCreateEnumHandle0(enginehandle.toString(), enumtemplate.toString(), enumhandle.toString()) as Int) else 0
+
+public actual fun FwpmSubLayerDeleteByKey0(enginehandle: HANDLE, key: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerDeleteByKey0(enginehandle.toString(), key.toString()) as Int) else 0
+
+public actual fun FwpmSubLayerDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerDestroyEnumHandle0(enginehandle.toString(), enumhandle.toString()) as Int) else 0
+
+public actual fun FwpmSubLayerEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerEnum0(enginehandle.toString(), enumhandle.toString(), numentriesrequested.toInt(), entries.toString(), numentriesreturned.toString()) as Int) else 0
+
+public actual fun FwpmSubLayerGetByKey0(enginehandle: HANDLE, key: Long, sublayer: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerGetByKey0(enginehandle.toString(), key.toString(), sublayer.toString()) as Int) else 0
+
+public actual fun FwpmSubLayerGetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerGetSecurityInfoByKey0(enginehandle.toString(), key.toString(), securityinfo.toInt(), sidowner.toString(), sidgroup.toString(), dacl.toString(), sacl.toString(), securitydescriptor.toString()) as Int) else 0
+
+public actual fun FwpmSubLayerSetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerSetSecurityInfoByKey0(enginehandle.toString(), key.toString(), securityinfo.toInt(), sidowner.toString(), sidgroup.toString(), dacl.toString(), sacl.toString()) as Int) else 0
+
+public actual fun FwpmTransactionAbort0(enginehandle: HANDLE): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmTransactionAbort0(enginehandle.toString()) as Int) else 0
+
+public actual fun FwpmTransactionBegin0(enginehandle: HANDLE, flags: UInt): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmTransactionBegin0(enginehandle.toString(), flags.toInt()) as Int) else 0
+
+public actual fun FwpmTransactionCommit0(enginehandle: HANDLE): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmTransactionCommit0(enginehandle.toString()) as Int) else 0
+
+public actual fun FwpmvSwitchEventsGetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmvSwitchEventsGetSecurityInfo0(enginehandle.toString(), securityinfo.toInt(), sidowner.toString(), sidgroup.toString(), dacl.toString(), sacl.toString(), securitydescriptor.toString()) as Int) else 0
+
+public actual fun FwpmvSwitchEventsSetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmvSwitchEventsSetSecurityInfo0(enginehandle.toString(), securityinfo.toInt(), sidowner.toString(), sidgroup.toString(), dacl.toString(), sacl.toString()) as Int) else 0
+
+public actual fun IPsecDospGetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospGetSecurityInfo0(enginehandle.toString(), securityinfo.toInt(), sidowner.toString(), sidgroup.toString(), dacl.toString(), sacl.toString(), securitydescriptor.toString()) as Int) else 0
+
+public actual fun IPsecDospGetStatistics0(enginehandle: HANDLE, idpstatistics: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospGetStatistics0(enginehandle.toString(), idpstatistics.toString()) as Int) else 0
+
+public actual fun IPsecDospSetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospSetSecurityInfo0(enginehandle.toString(), securityinfo.toInt(), sidowner.toString(), sidgroup.toString(), dacl.toString(), sacl.toString()) as Int) else 0
+
+public actual fun IPsecDospStateCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospStateCreateEnumHandle0(enginehandle.toString(), enumtemplate.toString(), enumhandle.toString()) as Int) else 0
+
+public actual fun IPsecDospStateDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospStateDestroyEnumHandle0(enginehandle.toString(), enumhandle.toString()) as Int) else 0
+
+public actual fun IPsecDospStateEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentries: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospStateEnum0(enginehandle.toString(), enumhandle.toString(), numentriesrequested.toInt(), entries.toString(), numentries.toString()) as Int) else 0
+
+public actual fun IPsecGetStatistics0(enginehandle: HANDLE, ipsecstatistics: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecGetStatistics0(enginehandle.toString(), ipsecstatistics.toString()) as Int) else 0
+
+public actual fun IPsecGetStatistics1(enginehandle: HANDLE, ipsecstatistics: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecGetStatistics1(enginehandle.toString(), ipsecstatistics.toString()) as Int) else 0
+
+public actual fun IPsecSaContextAddInbound0(enginehandle: HANDLE, id: ULong, inboundbundle: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextAddInbound0(enginehandle.toString(), id.toString(), inboundbundle.toString()) as Int) else 0
+
+public actual fun IPsecSaContextAddInbound1(enginehandle: HANDLE, id: ULong, inboundbundle: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextAddInbound1(enginehandle.toString(), id.toString(), inboundbundle.toString()) as Int) else 0
+
+public actual fun IPsecSaContextAddOutbound0(enginehandle: HANDLE, id: ULong, outboundbundle: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextAddOutbound0(enginehandle.toString(), id.toString(), outboundbundle.toString()) as Int) else 0
+
+public actual fun IPsecSaContextAddOutbound1(enginehandle: HANDLE, id: ULong, outboundbundle: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextAddOutbound1(enginehandle.toString(), id.toString(), outboundbundle.toString()) as Int) else 0
+
+public actual fun IPsecSaContextCreate0(enginehandle: HANDLE, outboundtraffic: Long, inboundfilterid: Long, id: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextCreate0(enginehandle.toString(), outboundtraffic.toString(), inboundfilterid.toString(), id.toString()) as Int) else 0
+
+public actual fun IPsecSaContextCreate1(enginehandle: HANDLE, outboundtraffic: Long, virtualiftunnelinfo: Long, inboundfilterid: Long, id: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextCreate1(enginehandle.toString(), outboundtraffic.toString(), virtualiftunnelinfo.toString(), inboundfilterid.toString(), id.toString()) as Int) else 0
+
+public actual fun IPsecSaContextCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextCreateEnumHandle0(enginehandle.toString(), enumtemplate.toString(), enumhandle.toString()) as Int) else 0
+
+public actual fun IPsecSaContextDeleteById0(enginehandle: HANDLE, id: ULong): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextDeleteById0(enginehandle.toString(), id.toString()) as Int) else 0
+
+public actual fun IPsecSaContextDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextDestroyEnumHandle0(enginehandle.toString(), enumhandle.toString()) as Int) else 0
+
+public actual fun IPsecSaContextEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextEnum0(enginehandle.toString(), enumhandle.toString(), numentriesrequested.toInt(), entries.toString(), numentriesreturned.toString()) as Int) else 0
+
+public actual fun IPsecSaContextEnum1(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextEnum1(enginehandle.toString(), enumhandle.toString(), numentriesrequested.toInt(), entries.toString(), numentriesreturned.toString()) as Int) else 0
+
+public actual fun IPsecSaContextExpire0(enginehandle: HANDLE, id: ULong): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextExpire0(enginehandle.toString(), id.toString()) as Int) else 0
+
+public actual fun IPsecSaContextGetById0(enginehandle: HANDLE, id: ULong, sacontext: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextGetById0(enginehandle.toString(), id.toString(), sacontext.toString()) as Int) else 0
+
+public actual fun IPsecSaContextGetById1(enginehandle: HANDLE, id: ULong, sacontext: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextGetById1(enginehandle.toString(), id.toString(), sacontext.toString()) as Int) else 0
+
+public actual fun IPsecSaContextGetSpi0(enginehandle: HANDLE, id: ULong, getspi: Long, inboundspi: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextGetSpi0(enginehandle.toString(), id.toString(), getspi.toString(), inboundspi.toString()) as Int) else 0
+
+public actual fun IPsecSaContextGetSpi1(enginehandle: HANDLE, id: ULong, getspi: Long, inboundspi: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextGetSpi1(enginehandle.toString(), id.toString(), getspi.toString(), inboundspi.toString()) as Int) else 0
+
+public actual fun IPsecSaContextSetSpi0(enginehandle: HANDLE, id: ULong, getspi: Long, inboundspi: UInt): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextSetSpi0(enginehandle.toString(), id.toString(), getspi.toString(), inboundspi.toInt()) as Int) else 0
+
+public actual fun IPsecSaContextUpdate0(enginehandle: HANDLE, flags: ULong, newvalues: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextUpdate0(enginehandle.toString(), flags.toString(), newvalues.toString()) as Int) else 0
+
+public actual fun IPsecSaCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaCreateEnumHandle0(enginehandle.toString(), enumtemplate.toString(), enumhandle.toString()) as Int) else 0
+
+public actual fun IPsecSaDbGetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaDbGetSecurityInfo0(enginehandle.toString(), securityinfo.toInt(), sidowner.toString(), sidgroup.toString(), dacl.toString(), sacl.toString(), securitydescriptor.toString()) as Int) else 0
+
+public actual fun IPsecSaDbSetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaDbSetSecurityInfo0(enginehandle.toString(), securityinfo.toInt(), sidowner.toString(), sidgroup.toString(), dacl.toString(), sacl.toString()) as Int) else 0
+
+public actual fun IPsecSaDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaDestroyEnumHandle0(enginehandle.toString(), enumhandle.toString()) as Int) else 0
+
+public actual fun IPsecSaEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaEnum0(enginehandle.toString(), enumhandle.toString(), numentriesrequested.toInt(), entries.toString(), numentriesreturned.toString()) as Int) else 0
+
+public actual fun IPsecSaEnum1(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaEnum1(enginehandle.toString(), enumhandle.toString(), numentriesrequested.toInt(), entries.toString(), numentriesreturned.toString()) as Int) else 0
+
+public actual fun IkeextGetStatistics0(enginehandle: HANDLE, ikeextstatistics: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextGetStatistics0(enginehandle.toString(), ikeextstatistics.toString()) as Int) else 0
+
+public actual fun IkeextGetStatistics1(enginehandle: HANDLE, ikeextstatistics: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextGetStatistics1(enginehandle.toString(), ikeextstatistics.toString()) as Int) else 0
+
+public actual fun IkeextSaCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaCreateEnumHandle0(enginehandle.toString(), enumtemplate.toString(), enumhandle.toString()) as Int) else 0
+
+public actual fun IkeextSaDbGetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaDbGetSecurityInfo0(enginehandle.toString(), securityinfo.toInt(), sidowner.toString(), sidgroup.toString(), dacl.toString(), sacl.toString(), securitydescriptor.toString()) as Int) else 0
+
+public actual fun IkeextSaDbSetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaDbSetSecurityInfo0(enginehandle.toString(), securityinfo.toInt(), sidowner.toString(), sidgroup.toString(), dacl.toString(), sacl.toString()) as Int) else 0
+
+public actual fun IkeextSaDeleteById0(enginehandle: HANDLE, id: ULong): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaDeleteById0(enginehandle.toString(), id.toString()) as Int) else 0
+
+public actual fun IkeextSaDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaDestroyEnumHandle0(enginehandle.toString(), enumhandle.toString()) as Int) else 0
+
+public actual fun IkeextSaEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaEnum0(enginehandle.toString(), enumhandle.toString(), numentriesrequested.toInt(), entries.toString(), numentriesreturned.toString()) as Int) else 0
+
+public actual fun IkeextSaEnum1(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaEnum1(enginehandle.toString(), enumhandle.toString(), numentriesrequested.toInt(), entries.toString(), numentriesreturned.toString()) as Int) else 0
+
+public actual fun IkeextSaEnum2(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaEnum2(enginehandle.toString(), enumhandle.toString(), numentriesrequested.toInt(), entries.toString(), numentriesreturned.toString()) as Int) else 0
+
+public actual fun IkeextSaGetById0(enginehandle: HANDLE, id: ULong, sa: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaGetById0(enginehandle.toString(), id.toString(), sa.toString()) as Int) else 0
+
+public actual fun IkeextSaGetById1(enginehandle: HANDLE, id: ULong, salookupcontext: Long, sa: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaGetById1(enginehandle.toString(), id.toString(), salookupcontext.toString(), sa.toString()) as Int) else 0
+
+public actual fun IkeextSaGetById2(enginehandle: HANDLE, id: ULong, salookupcontext: Long, sa: Long): NTSTATUS =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon != null) (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaGetById2(enginehandle.toString(), id.toString(), salookupcontext.toString(), sa.toString()) as Int) else 0

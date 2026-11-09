@@ -1,31 +1,15 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.kernel
 
-import io.github.kotlinmania.windowssys.Win32DynamicFfi
+public expect fun RtlFirstEntrySList(listhead: Long): Long
 
-public fun RtlFirstEntrySList(listhead: Long): Long {
-    return Win32DynamicFfi.invoke("ntdll.dll", "RtlFirstEntrySList", longArrayOf(listhead))
-}
+public expect fun RtlInitializeSListHead(listhead: Long)
 
-public fun RtlInitializeSListHead(listhead: Long) {
-    Win32DynamicFfi.invoke("ntdll.dll", "RtlInitializeSListHead", longArrayOf(listhead))
-}
+public expect fun RtlInterlockedFlushSList(listhead: Long): Long
 
-public fun RtlInterlockedFlushSList(listhead: Long): Long {
-    return Win32DynamicFfi.invoke("ntdll.dll", "RtlInterlockedFlushSList", longArrayOf(listhead))
-}
+public expect fun RtlInterlockedPopEntrySList(listhead: Long): Long
 
-public fun RtlInterlockedPopEntrySList(listhead: Long): Long {
-    return Win32DynamicFfi.invoke("ntdll.dll", "RtlInterlockedPopEntrySList", longArrayOf(listhead))
-}
+public expect fun RtlInterlockedPushEntrySList(listhead: Long, listentry: Long): Long
 
-public fun RtlInterlockedPushEntrySList(listhead: Long, listentry: Long): Long {
-    return Win32DynamicFfi.invoke("ntdll.dll", "RtlInterlockedPushEntrySList", longArrayOf(listhead, listentry))
-}
+public expect fun RtlInterlockedPushListSListEx(listhead: Long, list: Long, listend: Long, count: UInt): Long
 
-public fun RtlInterlockedPushListSListEx(listhead: Long, list: Long, listend: Long, count: UInt): Long {
-    return Win32DynamicFfi.invoke("ntdll.dll", "RtlInterlockedPushListSListEx", longArrayOf(listhead, list, listend, count.toLong()))
-}
-
-public fun RtlQueryDepthSList(listhead: Long): UShort {
-    return Win32DynamicFfi.invoke("ntdll.dll", "RtlQueryDepthSList", longArrayOf(listhead)).toUShort()
-}
+public expect fun RtlQueryDepthSList(listhead: Long): UShort

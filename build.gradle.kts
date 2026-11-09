@@ -1225,8 +1225,78 @@ val fullTargetBuildTaskNames =
             add("${target}Binaries")
             add("${target}TestBinaries")
         }
-        if (jvmFfiEnabled) add("compile${ffiName}Jni")
-        if (napiFfiEnabled) add("buildNode$ffiName")
+        if (jvmFfiEnabled) {
+            add("compile${ffiName}JniDebug")
+            add("compile${ffiName}JniRelease")
+            add("compile${ffiName}Jni")
+        }
+        if (napiFfiEnabled) {
+            add("buildNode${ffiName}Debug")
+            add("buildNode${ffiName}Release")
+            add("buildNode$ffiName")
+        }
+    }
+
+val debugBuildTaskNames =
+    buildSet {
+        addAll(
+            listOf(
+                "compileAndroidMain",
+                "compileAndroidHostTest",
+                "compileAndroidDeviceTest",
+                "assembleAndroidMain",
+                "jvmMainClasses",
+                "jvmTestClasses",
+                "compileDevelopmentLibraryKotlinJs",
+                "jsMainClasses",
+                "jsTestClasses",
+                "compileDevelopmentLibraryKotlinWasmJs",
+                "wasmJsMainClasses",
+                "wasmJsTestClasses",
+                "compileDevelopmentLibraryKotlinWasmWasi",
+                "wasmWasiMainClasses",
+                "wasmWasiTestClasses",
+                "assemble${frameworkName}DebugXCFramework",
+            ),
+        )
+        for (target in nativeTargetNames) {
+            val targetCap = target.replaceFirstChar { it.uppercase() }
+            add("compileKotlin$targetCap")
+            add("${target}TestBinaries")
+            if (nativeFfiEnabled && nativeFfiCompileWrapper && (nativeFfiTargetNames.isEmpty() || target in nativeFfiTargetNames)) {
+                add("compile${ffiName}WrapperDebugFor$targetCap")
+            }
+        }
+        if (jvmFfiEnabled) add("compile${ffiName}JniDebug")
+        if (napiFfiEnabled) add("buildNode${ffiName}Debug")
+    }
+
+val releaseBuildTaskNames =
+    buildSet {
+        addAll(
+            listOf(
+                "compileAndroidMain",
+                "assembleAndroidMain",
+                "jvmMainClasses",
+                "jvmJar",
+                "compileProductionLibraryKotlinJs",
+                "jsMainClasses",
+                "compileProductionLibraryKotlinWasmJs",
+                "wasmJsMainClasses",
+                "compileProductionLibraryKotlinWasmWasi",
+                "wasmWasiMainClasses",
+                "assemble${frameworkName}ReleaseXCFramework",
+            ),
+        )
+        for (target in nativeTargetNames) {
+            val targetCap = target.replaceFirstChar { it.uppercase() }
+            add("compileKotlin$targetCap")
+            if (nativeFfiEnabled && nativeFfiCompileWrapper && (nativeFfiTargetNames.isEmpty() || target in nativeFfiTargetNames)) {
+                add("compile${ffiName}WrapperReleaseFor$targetCap")
+            }
+        }
+        if (jvmFfiEnabled) add("compile${ffiName}JniRelease")
+        if (napiFfiEnabled) add("buildNode${ffiName}Release")
     }
 
 val verifierProperties =
@@ -1327,8 +1397,23 @@ tasks.named("check") {
     dependsOn("test")
 }
 
+tasks.register("debug") {
+    group = "build"
+    description = "Builds debug artifacts and FFI bindings across all enabled targets."
+    dependsOn(rootYarnLockTasks)
+    dependsOn(debugBuildTaskNames)
+}
+
+tasks.register("release") {
+    group = "build"
+    description = "Builds release artifacts and symbol-hidden FFI bindings across all enabled targets."
+    dependsOn(rootYarnLockTasks)
+    dependsOn(releaseBuildTaskNames)
+}
+
 tasks.named("build") {
     dependsOn(rootYarnLockTasks)
+    dependsOn("debug", "release")
     dependsOn(fullTargetBuildTaskNames)
 }
 

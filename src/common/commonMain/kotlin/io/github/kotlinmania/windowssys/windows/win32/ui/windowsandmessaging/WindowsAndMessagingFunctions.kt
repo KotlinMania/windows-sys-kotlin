@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging
 
-import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
@@ -21,1706 +20,834 @@ import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBRUSH
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HRGN
 
-public fun interface FnCallback {
-    public operator fun invoke(param0: HWND, param1: UInt, param2: WPARAM, param3: LPARAM): LRESULT
-}
-
-public fun interface FnCallback1 {
-    public operator fun invoke(param0: HWND, param1: UInt, param2: WPARAM, param3: LPARAM): Long
-}
-
-public fun interface FnCallback2 {
-    public operator fun invoke(param0: HWND, param1: LPARAM): BOOL
-}
-
-public fun interface FnCallback3 {
-    public operator fun invoke(param0: HWND, param1: PCSTR, param2: HANDLE): BOOL
-}
-
-public fun interface FnCallback4 {
-    public operator fun invoke(param0: HWND, param1: PCSTR, param2: HANDLE, param3: ULong): BOOL
-}
-
-public fun interface FnCallback5 {
-    public operator fun invoke(param0: HWND, param1: PCWSTR, param2: HANDLE, param3: ULong): BOOL
-}
-
-public fun interface FnCallback6 {
-    public operator fun invoke(param0: HWND, param1: PCWSTR, param2: HANDLE): BOOL
-}
-
-public fun interface FnCallback7 {
-    public operator fun invoke(param0: HWND, param1: UInt, param2: ULong, param3: LRESULT)
-}
-
-public fun interface FnCallback8 {
-    public operator fun invoke(param0: HWND, param1: UInt, param2: ULong, param3: UInt)
-}
-
-public fun interface FnCallback9 {
-    public operator fun invoke(code: Int, wparam: WPARAM, lparam: LPARAM): LRESULT
-}
-
-public fun AdjustWindowRect(lprect: Long, dwstyle: WINDOW_STYLE, bmenu: BOOL): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "AdjustWindowRect", longArrayOf(lprect, dwstyle.toLong(), bmenu.toLong())).toInt()
-}
-
-public fun AdjustWindowRectEx(lprect: Long, dwstyle: WINDOW_STYLE, bmenu: BOOL, dwexstyle: WINDOW_EX_STYLE): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "AdjustWindowRectEx", longArrayOf(lprect, dwstyle.toLong(), bmenu.toLong(), dwexstyle.toLong())).toInt()
-}
-
-public fun AllowSetForegroundWindow(dwprocessid: UInt): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "AllowSetForegroundWindow", longArrayOf(dwprocessid.toLong())).toInt()
-}
-
-public fun AnimateWindow(hwnd: HWND, dwtime: UInt, dwflags: ANIMATE_WINDOW_FLAGS): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "AnimateWindow", longArrayOf(hwnd, dwtime.toLong(), dwflags.toLong())).toInt()
-}
-
-public fun AnyPopup(): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "AnyPopup", longArrayOf()).toInt()
-}
-
-public fun AppendMenuA(hmenu: HMENU, uflags: MENU_ITEM_FLAGS, uidnewitem: ULong, lpnewitem: PCSTR): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "AppendMenuA", longArrayOf(hmenu, uflags.toLong(), uidnewitem.toLong(), lpnewitem)).toInt()
-}
-
-public fun AppendMenuW(hmenu: HMENU, uflags: MENU_ITEM_FLAGS, uidnewitem: ULong, lpnewitem: PCWSTR): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "AppendMenuW", longArrayOf(hmenu, uflags.toLong(), uidnewitem.toLong(), lpnewitem)).toInt()
-}
-
-public fun ArrangeIconicWindows(hwnd: HWND): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "ArrangeIconicWindows", longArrayOf(hwnd)).toUInt()
-}
-
-public fun BeginDeferWindowPos(nnumwindows: Int): HDWP {
-    return Win32DynamicFfi.invoke("user32.dll", "BeginDeferWindowPos", longArrayOf(nnumwindows.toLong()))
-}
-
-public fun BringWindowToTop(hwnd: HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "BringWindowToTop", longArrayOf(hwnd)).toInt()
-}
-
-public fun CalculatePopupWindowPosition(anchorpoint: Long, windowsize: Long, flags: UInt, excluderect: Long, popupwindowposition: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "CalculatePopupWindowPosition", longArrayOf(anchorpoint, windowsize, flags.toLong(), excluderect, popupwindowposition)).toInt()
-}
-
-public fun CallMsgFilterA(lpmsg: Long, ncode: Int): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "CallMsgFilterA", longArrayOf(lpmsg, ncode.toLong())).toInt()
-}
-
-public fun CallMsgFilterW(lpmsg: Long, ncode: Int): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "CallMsgFilterW", longArrayOf(lpmsg, ncode.toLong())).toInt()
-}
-
-public fun CallNextHookEx(hhk: HHOOK, ncode: Int, wparam: WPARAM, lparam: LPARAM): LRESULT {
-    return Win32DynamicFfi.invoke("user32.dll", "CallNextHookEx", longArrayOf(hhk, ncode.toLong(), wparam.toLong(), lparam))
-}
-
-public fun CallWindowProcA(lpprevwndfunc: WNDPROC, hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT {
-    return Win32DynamicFfi.invoke("user32.dll", "CallWindowProcA", longArrayOf(Win32DynamicFfi.objectSlot(lpprevwndfunc), hwnd, msg.toLong(), wparam.toLong(), lparam))
-}
-
-public fun CallWindowProcW(lpprevwndfunc: WNDPROC, hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT {
-    return Win32DynamicFfi.invoke("user32.dll", "CallWindowProcW", longArrayOf(Win32DynamicFfi.objectSlot(lpprevwndfunc), hwnd, msg.toLong(), wparam.toLong(), lparam))
-}
-
-public fun CancelShutdown(): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "CancelShutdown", longArrayOf()).toInt()
-}
-
-public fun CascadeWindows(hwndparent: HWND, whow: CASCADE_WINDOWS_HOW, lprect: Long, ckids: UInt, lpkids: Long): UShort {
-    return Win32DynamicFfi.invoke("user32.dll", "CascadeWindows", longArrayOf(hwndparent, whow.toLong(), lprect, ckids.toLong(), lpkids)).toUShort()
-}
-
-public fun ChangeMenuA(hmenu: HMENU, cmd: UInt, lpsznewitem: PCSTR, cmdinsert: UInt, flags: UInt): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "ChangeMenuA", longArrayOf(hmenu, cmd.toLong(), lpsznewitem, cmdinsert.toLong(), flags.toLong())).toInt()
-}
-
-public fun ChangeMenuW(hmenu: HMENU, cmd: UInt, lpsznewitem: PCWSTR, cmdinsert: UInt, flags: UInt): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "ChangeMenuW", longArrayOf(hmenu, cmd.toLong(), lpsznewitem, cmdinsert.toLong(), flags.toLong())).toInt()
-}
-
-public fun ChangeWindowMessageFilter(message: UInt, dwflag: CHANGE_WINDOW_MESSAGE_FILTER_FLAGS): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "ChangeWindowMessageFilter", longArrayOf(message.toLong(), dwflag.toLong())).toInt()
-}
-
-public fun ChangeWindowMessageFilterEx(hwnd: HWND, message: UInt, action: WINDOW_MESSAGE_FILTER_ACTION, pchangefilterstruct: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "ChangeWindowMessageFilterEx", longArrayOf(hwnd, message.toLong(), action.toLong(), pchangefilterstruct)).toInt()
-}
-
-public fun CharLowerA(lpsz: PSTR): PSTR {
-    return Win32DynamicFfi.invoke("user32.dll", "CharLowerA", longArrayOf(lpsz))
-}
-
-public fun CharLowerBuffA(lpsz: PSTR, cchlength: UInt): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "CharLowerBuffA", longArrayOf(lpsz, cchlength.toLong())).toUInt()
-}
-
-public fun CharLowerBuffW(lpsz: PWSTR, cchlength: UInt): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "CharLowerBuffW", longArrayOf(lpsz, cchlength.toLong())).toUInt()
-}
-
-public fun CharLowerW(lpsz: PWSTR): PWSTR {
-    return Win32DynamicFfi.invoke("user32.dll", "CharLowerW", longArrayOf(lpsz))
-}
-
-public fun CharNextA(lpsz: PCSTR): PSTR {
-    return Win32DynamicFfi.invoke("user32.dll", "CharNextA", longArrayOf(lpsz))
-}
-
-public fun CharNextExA(codepage: UShort, lpcurrentchar: PCSTR, dwflags: UInt): PSTR {
-    return Win32DynamicFfi.invoke("user32.dll", "CharNextExA", longArrayOf(codepage.toLong(), lpcurrentchar, dwflags.toLong()))
-}
-
-public fun CharNextW(lpsz: PCWSTR): PWSTR {
-    return Win32DynamicFfi.invoke("user32.dll", "CharNextW", longArrayOf(lpsz))
-}
-
-public fun CharPrevA(lpszstart: PCSTR, lpszcurrent: PCSTR): PSTR {
-    return Win32DynamicFfi.invoke("user32.dll", "CharPrevA", longArrayOf(lpszstart, lpszcurrent))
-}
-
-public fun CharPrevExA(codepage: UShort, lpstart: PCSTR, lpcurrentchar: PCSTR, dwflags: UInt): PSTR {
-    return Win32DynamicFfi.invoke("user32.dll", "CharPrevExA", longArrayOf(codepage.toLong(), lpstart, lpcurrentchar, dwflags.toLong()))
-}
-
-public fun CharPrevW(lpszstart: PCWSTR, lpszcurrent: PCWSTR): PWSTR {
-    return Win32DynamicFfi.invoke("user32.dll", "CharPrevW", longArrayOf(lpszstart, lpszcurrent))
-}
-
-public fun CharToOemA(psrc: PCSTR, pdst: PSTR): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "CharToOemA", longArrayOf(psrc, pdst)).toInt()
-}
-
-public fun CharToOemBuffA(lpszsrc: PCSTR, lpszdst: PSTR, cchdstlength: UInt): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "CharToOemBuffA", longArrayOf(lpszsrc, lpszdst, cchdstlength.toLong())).toInt()
-}
-
-public fun CharToOemBuffW(lpszsrc: PCWSTR, lpszdst: PSTR, cchdstlength: UInt): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "CharToOemBuffW", longArrayOf(lpszsrc, lpszdst, cchdstlength.toLong())).toInt()
-}
-
-public fun CharToOemW(psrc: PCWSTR, pdst: PSTR): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "CharToOemW", longArrayOf(psrc, pdst)).toInt()
-}
-
-public fun CharUpperA(lpsz: PSTR): PSTR {
-    return Win32DynamicFfi.invoke("user32.dll", "CharUpperA", longArrayOf(lpsz))
-}
-
-public fun CharUpperBuffA(lpsz: PSTR, cchlength: UInt): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "CharUpperBuffA", longArrayOf(lpsz, cchlength.toLong())).toUInt()
-}
-
-public fun CharUpperBuffW(lpsz: PWSTR, cchlength: UInt): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "CharUpperBuffW", longArrayOf(lpsz, cchlength.toLong())).toUInt()
-}
-
-public fun CharUpperW(lpsz: PWSTR): PWSTR {
-    return Win32DynamicFfi.invoke("user32.dll", "CharUpperW", longArrayOf(lpsz))
-}
-
-public fun CheckMenuItem(hmenu: HMENU, uidcheckitem: UInt, ucheck: UInt): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "CheckMenuItem", longArrayOf(hmenu, uidcheckitem.toLong(), ucheck.toLong())).toUInt()
-}
-
-public fun CheckMenuRadioItem(hmenu: HMENU, first: UInt, last: UInt, check: UInt, flags: UInt): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "CheckMenuRadioItem", longArrayOf(hmenu, first.toLong(), last.toLong(), check.toLong(), flags.toLong())).toInt()
-}
-
-public fun ChildWindowFromPoint(hwndparent: HWND, point: POINT): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "ChildWindowFromPoint", longArrayOf(hwndparent, ((point.x.toLong() and 0xFFFF_FFFFL) or ((point.y.toLong() and 0xFFFF_FFFFL) shl 32))))
-}
-
-public fun ChildWindowFromPointEx(hwnd: HWND, pt: POINT, flags: CWP_FLAGS): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "ChildWindowFromPointEx", longArrayOf(hwnd, ((pt.x.toLong() and 0xFFFF_FFFFL) or ((pt.y.toLong() and 0xFFFF_FFFFL) shl 32)), flags.toLong()))
-}
-
-public fun ClipCursor(lprect: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "ClipCursor", longArrayOf(lprect)).toInt()
-}
-
-public fun CloseWindow(hwnd: HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "CloseWindow", longArrayOf(hwnd)).toInt()
-}
-
-public fun CopyAcceleratorTableA(haccelsrc: HACCEL, lpacceldst: Long, caccelentries: Int): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "CopyAcceleratorTableA", longArrayOf(haccelsrc, lpacceldst, caccelentries.toLong())).toInt()
-}
-
-public fun CopyAcceleratorTableW(haccelsrc: HACCEL, lpacceldst: Long, caccelentries: Int): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "CopyAcceleratorTableW", longArrayOf(haccelsrc, lpacceldst, caccelentries.toLong())).toInt()
-}
-
-public fun CopyIcon(hicon: HICON): HICON {
-    return Win32DynamicFfi.invoke("user32.dll", "CopyIcon", longArrayOf(hicon))
-}
-
-public fun CopyImage(h: HANDLE, type: GDI_IMAGE_TYPE, cx: Int, cy: Int, flags: IMAGE_FLAGS): HANDLE {
-    return Win32DynamicFfi.invoke("user32.dll", "CopyImage", longArrayOf(h, type.toLong(), cx.toLong(), cy.toLong(), flags.toLong()))
-}
-
-public fun CreateAcceleratorTableA(paccel: Long, caccel: Int): HACCEL {
-    return Win32DynamicFfi.invoke("user32.dll", "CreateAcceleratorTableA", longArrayOf(paccel, caccel.toLong()))
-}
-
-public fun CreateAcceleratorTableW(paccel: Long, caccel: Int): HACCEL {
-    return Win32DynamicFfi.invoke("user32.dll", "CreateAcceleratorTableW", longArrayOf(paccel, caccel.toLong()))
-}
-
-public fun CreateCaret(hwnd: HWND, hbitmap: HBITMAP, nwidth: Int, nheight: Int): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "CreateCaret", longArrayOf(hwnd, hbitmap, nwidth.toLong(), nheight.toLong())).toInt()
-}
-
-public fun CreateCursor(hinst: HINSTANCE, xhotspot: Int, yhotspot: Int, nwidth: Int, nheight: Int, pvandplane: Long, pvxorplane: Long): HCURSOR {
-    return Win32DynamicFfi.invoke("user32.dll", "CreateCursor", longArrayOf(hinst, xhotspot.toLong(), yhotspot.toLong(), nwidth.toLong(), nheight.toLong(), pvandplane, pvxorplane))
-}
-
-public fun CreateDialogIndirectParamA(hinstance: HINSTANCE, lptemplate: Long, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "CreateDialogIndirectParamA", longArrayOf(hinstance, lptemplate, hwndparent, Win32DynamicFfi.objectSlot(lpdialogfunc), dwinitparam))
-}
-
-public fun CreateDialogIndirectParamW(hinstance: HINSTANCE, lptemplate: Long, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "CreateDialogIndirectParamW", longArrayOf(hinstance, lptemplate, hwndparent, Win32DynamicFfi.objectSlot(lpdialogfunc), dwinitparam))
-}
-
-public fun CreateDialogParamA(hinstance: HINSTANCE, lptemplatename: PCSTR, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "CreateDialogParamA", longArrayOf(hinstance, lptemplatename, hwndparent, Win32DynamicFfi.objectSlot(lpdialogfunc), dwinitparam))
-}
-
-public fun CreateDialogParamW(hinstance: HINSTANCE, lptemplatename: PCWSTR, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "CreateDialogParamW", longArrayOf(hinstance, lptemplatename, hwndparent, Win32DynamicFfi.objectSlot(lpdialogfunc), dwinitparam))
-}
-
-public fun CreateIcon(hinstance: HINSTANCE, nwidth: Int, nheight: Int, cplanes: UByte, cbitspixel: UByte, lpbandbits: Long, lpbxorbits: Long): HICON {
-    return Win32DynamicFfi.invoke("user32.dll", "CreateIcon", longArrayOf(hinstance, nwidth.toLong(), nheight.toLong(), cplanes.toLong(), cbitspixel.toLong(), lpbandbits, lpbxorbits))
-}
-
-public fun CreateIconFromResource(presbits: Long, dwressize: UInt, ficon: BOOL, dwver: UInt): HICON {
-    return Win32DynamicFfi.invoke("user32.dll", "CreateIconFromResource", longArrayOf(presbits, dwressize.toLong(), ficon.toLong(), dwver.toLong()))
-}
-
-public fun CreateIconFromResourceEx(presbits: Long, dwressize: UInt, ficon: BOOL, dwver: UInt, cxdesired: Int, cydesired: Int, flags: IMAGE_FLAGS): HICON {
-    return Win32DynamicFfi.invoke("user32.dll", "CreateIconFromResourceEx", longArrayOf(presbits, dwressize.toLong(), ficon.toLong(), dwver.toLong(), cxdesired.toLong(), cydesired.toLong(), flags.toLong()))
-}
-
-public fun CreateIconIndirect(piconinfo: Long): HICON {
-    return Win32DynamicFfi.invoke("user32.dll", "CreateIconIndirect", longArrayOf(piconinfo))
-}
-
-public fun CreateMDIWindowA(lpclassname: PCSTR, lpwindowname: PCSTR, dwstyle: WINDOW_STYLE, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: HWND, hinstance: HINSTANCE, lparam: LPARAM): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "CreateMDIWindowA", longArrayOf(lpclassname, lpwindowname, dwstyle.toLong(), x.toLong(), y.toLong(), nwidth.toLong(), nheight.toLong(), hwndparent, hinstance, lparam))
-}
-
-public fun CreateMDIWindowW(lpclassname: PCWSTR, lpwindowname: PCWSTR, dwstyle: WINDOW_STYLE, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: HWND, hinstance: HINSTANCE, lparam: LPARAM): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "CreateMDIWindowW", longArrayOf(lpclassname, lpwindowname, dwstyle.toLong(), x.toLong(), y.toLong(), nwidth.toLong(), nheight.toLong(), hwndparent, hinstance, lparam))
-}
-
-public fun CreateMenu(): HMENU {
-    return Win32DynamicFfi.invoke("user32.dll", "CreateMenu", longArrayOf())
-}
-
-public fun CreatePopupMenu(): HMENU {
-    return Win32DynamicFfi.invoke("user32.dll", "CreatePopupMenu", longArrayOf())
-}
-
-public fun CreateResourceIndexer(projectroot: PCWSTR, extensiondllpath: PCWSTR, ppresourceindexer: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mrmsupport.dll", "CreateResourceIndexer", longArrayOf(projectroot, extensiondllpath, ppresourceindexer)).toInt()
-}
-
-public fun CreateWindowExA(dwexstyle: WINDOW_EX_STYLE, lpclassname: PCSTR, lpwindowname: PCSTR, dwstyle: WINDOW_STYLE, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: HWND, hmenu: HMENU, hinstance: HINSTANCE, lpparam: Long): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "CreateWindowExA", longArrayOf(dwexstyle.toLong(), lpclassname, lpwindowname, dwstyle.toLong(), x.toLong(), y.toLong(), nwidth.toLong(), nheight.toLong(), hwndparent, hmenu, hinstance, lpparam))
-}
-
-public fun CreateWindowExW(dwexstyle: WINDOW_EX_STYLE, lpclassname: PCWSTR, lpwindowname: PCWSTR, dwstyle: WINDOW_STYLE, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: HWND, hmenu: HMENU, hinstance: HINSTANCE, lpparam: Long): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "CreateWindowExW", longArrayOf(dwexstyle.toLong(), lpclassname, lpwindowname, dwstyle.toLong(), x.toLong(), y.toLong(), nwidth.toLong(), nheight.toLong(), hwndparent, hmenu, hinstance, lpparam))
-}
-
-public fun DefDlgProcA(hdlg: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT {
-    return Win32DynamicFfi.invoke("user32.dll", "DefDlgProcA", longArrayOf(hdlg, msg.toLong(), wparam.toLong(), lparam))
-}
-
-public fun DefDlgProcW(hdlg: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT {
-    return Win32DynamicFfi.invoke("user32.dll", "DefDlgProcW", longArrayOf(hdlg, msg.toLong(), wparam.toLong(), lparam))
-}
-
-public fun DefFrameProcA(hwnd: HWND, hwndmdiclient: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT {
-    return Win32DynamicFfi.invoke("user32.dll", "DefFrameProcA", longArrayOf(hwnd, hwndmdiclient, umsg.toLong(), wparam.toLong(), lparam))
-}
-
-public fun DefFrameProcW(hwnd: HWND, hwndmdiclient: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT {
-    return Win32DynamicFfi.invoke("user32.dll", "DefFrameProcW", longArrayOf(hwnd, hwndmdiclient, umsg.toLong(), wparam.toLong(), lparam))
-}
-
-public fun DefMDIChildProcA(hwnd: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT {
-    return Win32DynamicFfi.invoke("user32.dll", "DefMDIChildProcA", longArrayOf(hwnd, umsg.toLong(), wparam.toLong(), lparam))
-}
-
-public fun DefMDIChildProcW(hwnd: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT {
-    return Win32DynamicFfi.invoke("user32.dll", "DefMDIChildProcW", longArrayOf(hwnd, umsg.toLong(), wparam.toLong(), lparam))
-}
-
-public fun DefWindowProcA(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT {
-    return Win32DynamicFfi.invoke("user32.dll", "DefWindowProcA", longArrayOf(hwnd, msg.toLong(), wparam.toLong(), lparam))
-}
-
-public fun DefWindowProcW(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT {
-    return Win32DynamicFfi.invoke("user32.dll", "DefWindowProcW", longArrayOf(hwnd, msg.toLong(), wparam.toLong(), lparam))
-}
-
-public fun DeferWindowPos(hwinposinfo: HDWP, hwnd: HWND, hwndinsertafter: HWND, x: Int, y: Int, cx: Int, cy: Int, uflags: SET_WINDOW_POS_FLAGS): HDWP {
-    return Win32DynamicFfi.invoke("user32.dll", "DeferWindowPos", longArrayOf(hwinposinfo, hwnd, hwndinsertafter, x.toLong(), y.toLong(), cx.toLong(), cy.toLong(), uflags.toLong()))
-}
-
-public fun DeleteMenu(hmenu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "DeleteMenu", longArrayOf(hmenu, uposition.toLong(), uflags.toLong())).toInt()
-}
-
-public fun DeregisterShellHookWindow(hwnd: HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "DeregisterShellHookWindow", longArrayOf(hwnd)).toInt()
-}
-
-public fun DestroyAcceleratorTable(haccel: HACCEL): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "DestroyAcceleratorTable", longArrayOf(haccel)).toInt()
-}
-
-public fun DestroyCaret(): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "DestroyCaret", longArrayOf()).toInt()
-}
-
-public fun DestroyCursor(hcursor: HCURSOR): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "DestroyCursor", longArrayOf(hcursor)).toInt()
-}
-
-public fun DestroyIcon(hicon: HICON): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "DestroyIcon", longArrayOf(hicon)).toInt()
-}
-
-public fun DestroyIndexedResults(resourceuri: PCWSTR, qualifiercount: UInt, qualifiers: Long) {
-    Win32DynamicFfi.invoke("mrmsupport.dll", "DestroyIndexedResults", longArrayOf(resourceuri, qualifiercount.toLong(), qualifiers))
-}
-
-public fun DestroyMenu(hmenu: HMENU): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "DestroyMenu", longArrayOf(hmenu)).toInt()
-}
-
-public fun DestroyResourceIndexer(resourceindexer: Long) {
-    Win32DynamicFfi.invoke("mrmsupport.dll", "DestroyResourceIndexer", longArrayOf(resourceindexer))
-}
-
-public fun DestroyWindow(hwnd: HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "DestroyWindow", longArrayOf(hwnd)).toInt()
-}
-
-public fun DialogBoxIndirectParamA(hinstance: HINSTANCE, hdialogtemplate: Long, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): Long {
-    return Win32DynamicFfi.invoke("user32.dll", "DialogBoxIndirectParamA", longArrayOf(hinstance, hdialogtemplate, hwndparent, Win32DynamicFfi.objectSlot(lpdialogfunc), dwinitparam))
-}
-
-public fun DialogBoxIndirectParamW(hinstance: HINSTANCE, hdialogtemplate: Long, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): Long {
-    return Win32DynamicFfi.invoke("user32.dll", "DialogBoxIndirectParamW", longArrayOf(hinstance, hdialogtemplate, hwndparent, Win32DynamicFfi.objectSlot(lpdialogfunc), dwinitparam))
-}
-
-public fun DialogBoxParamA(hinstance: HINSTANCE, lptemplatename: PCSTR, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): Long {
-    return Win32DynamicFfi.invoke("user32.dll", "DialogBoxParamA", longArrayOf(hinstance, lptemplatename, hwndparent, Win32DynamicFfi.objectSlot(lpdialogfunc), dwinitparam))
-}
-
-public fun DialogBoxParamW(hinstance: HINSTANCE, lptemplatename: PCWSTR, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): Long {
-    return Win32DynamicFfi.invoke("user32.dll", "DialogBoxParamW", longArrayOf(hinstance, lptemplatename, hwndparent, Win32DynamicFfi.objectSlot(lpdialogfunc), dwinitparam))
-}
-
-public fun DisableProcessWindowsGhosting() {
-    Win32DynamicFfi.invoke("user32.dll", "DisableProcessWindowsGhosting", longArrayOf())
-}
-
-public fun DispatchMessageA(lpmsg: Long): LRESULT {
-    return Win32DynamicFfi.invoke("user32.dll", "DispatchMessageA", longArrayOf(lpmsg))
-}
-
-public fun DispatchMessageW(lpmsg: Long): LRESULT {
-    return Win32DynamicFfi.invoke("user32.dll", "DispatchMessageW", longArrayOf(lpmsg))
-}
-
-public fun DragObject(hwndparent: HWND, hwndfrom: HWND, fmt: UInt, data: ULong, hcur: HCURSOR): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "DragObject", longArrayOf(hwndparent, hwndfrom, fmt.toLong(), data.toLong(), hcur)).toUInt()
-}
-
-public fun DrawIcon(hdc: HDC, x: Int, y: Int, hicon: HICON): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "DrawIcon", longArrayOf(hdc, x.toLong(), y.toLong(), hicon)).toInt()
-}
-
-public fun DrawIconEx(hdc: HDC, xleft: Int, ytop: Int, hicon: HICON, cxwidth: Int, cywidth: Int, istepifanicur: UInt, hbrflickerfreedraw: HBRUSH, diflags: DI_FLAGS): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "DrawIconEx", longArrayOf(hdc, xleft.toLong(), ytop.toLong(), hicon, cxwidth.toLong(), cywidth.toLong(), istepifanicur.toLong(), hbrflickerfreedraw, diflags.toLong())).toInt()
-}
-
-public fun DrawMenuBar(hwnd: HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "DrawMenuBar", longArrayOf(hwnd)).toInt()
-}
-
-public fun EnableMenuItem(hmenu: HMENU, uidenableitem: UInt, uenable: MENU_ITEM_FLAGS): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "EnableMenuItem", longArrayOf(hmenu, uidenableitem.toLong(), uenable.toLong())).toInt()
-}
-
-public fun EndDeferWindowPos(hwinposinfo: HDWP): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "EndDeferWindowPos", longArrayOf(hwinposinfo)).toInt()
-}
-
-public fun EndDialog(hdlg: HWND, nresult: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "EndDialog", longArrayOf(hdlg, nresult)).toInt()
-}
-
-public fun EndMenu(): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "EndMenu", longArrayOf()).toInt()
-}
-
-public fun EnumChildWindows(hwndparent: HWND, lpenumfunc: WNDENUMPROC, lparam: LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "EnumChildWindows", longArrayOf(hwndparent, Win32DynamicFfi.objectSlot(lpenumfunc), lparam)).toInt()
-}
-
-public fun EnumPropsA(hwnd: HWND, lpenumfunc: PROPENUMPROCA): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "EnumPropsA", longArrayOf(hwnd, Win32DynamicFfi.objectSlot(lpenumfunc))).toInt()
-}
-
-public fun EnumPropsExA(hwnd: HWND, lpenumfunc: PROPENUMPROCEXA, lparam: LPARAM): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "EnumPropsExA", longArrayOf(hwnd, Win32DynamicFfi.objectSlot(lpenumfunc), lparam)).toInt()
-}
-
-public fun EnumPropsExW(hwnd: HWND, lpenumfunc: PROPENUMPROCEXW, lparam: LPARAM): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "EnumPropsExW", longArrayOf(hwnd, Win32DynamicFfi.objectSlot(lpenumfunc), lparam)).toInt()
-}
-
-public fun EnumPropsW(hwnd: HWND, lpenumfunc: PROPENUMPROCW): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "EnumPropsW", longArrayOf(hwnd, Win32DynamicFfi.objectSlot(lpenumfunc))).toInt()
-}
-
-public fun EnumThreadWindows(dwthreadid: UInt, lpfn: WNDENUMPROC, lparam: LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "EnumThreadWindows", longArrayOf(dwthreadid.toLong(), Win32DynamicFfi.objectSlot(lpfn), lparam)).toInt()
-}
-
-public fun EnumWindows(lpenumfunc: WNDENUMPROC, lparam: LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "EnumWindows", longArrayOf(Win32DynamicFfi.objectSlot(lpenumfunc), lparam)).toInt()
-}
-
-public fun FindWindowA(lpclassname: PCSTR, lpwindowname: PCSTR): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "FindWindowA", longArrayOf(lpclassname, lpwindowname))
-}
-
-public fun FindWindowExA(hwndparent: HWND, hwndchildafter: HWND, lpszclass: PCSTR, lpszwindow: PCSTR): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "FindWindowExA", longArrayOf(hwndparent, hwndchildafter, lpszclass, lpszwindow))
-}
-
-public fun FindWindowExW(hwndparent: HWND, hwndchildafter: HWND, lpszclass: PCWSTR, lpszwindow: PCWSTR): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "FindWindowExW", longArrayOf(hwndparent, hwndchildafter, lpszclass, lpszwindow))
-}
-
-public fun FindWindowW(lpclassname: PCWSTR, lpwindowname: PCWSTR): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "FindWindowW", longArrayOf(lpclassname, lpwindowname))
-}
-
-public fun FlashWindow(hwnd: HWND, binvert: BOOL): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "FlashWindow", longArrayOf(hwnd, binvert.toLong())).toInt()
-}
-
-public fun FlashWindowEx(pfwi: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "FlashWindowEx", longArrayOf(pfwi)).toInt()
-}
-
-public fun GetAltTabInfoA(hwnd: HWND, iitem: Int, pati: Long, pszitemtext: PSTR, cchitemtext: UInt): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetAltTabInfoA", longArrayOf(hwnd, iitem.toLong(), pati, pszitemtext, cchitemtext.toLong())).toInt()
-}
-
-public fun GetAltTabInfoW(hwnd: HWND, iitem: Int, pati: Long, pszitemtext: PWSTR, cchitemtext: UInt): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetAltTabInfoW", longArrayOf(hwnd, iitem.toLong(), pati, pszitemtext, cchitemtext.toLong())).toInt()
-}
-
-public fun GetAncestor(hwnd: HWND, gaflags: GET_ANCESTOR_FLAGS): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "GetAncestor", longArrayOf(hwnd, gaflags.toLong()))
-}
-
-public fun GetCaretBlinkTime(): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "GetCaretBlinkTime", longArrayOf()).toUInt()
-}
-
-public fun GetCaretPos(lppoint: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetCaretPos", longArrayOf(lppoint)).toInt()
-}
-
-public fun GetClassInfoA(hinstance: HINSTANCE, lpclassname: PCSTR, lpwndclass: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetClassInfoA", longArrayOf(hinstance, lpclassname, lpwndclass)).toInt()
-}
-
-public fun GetClassInfoExA(hinstance: HINSTANCE, lpszclass: PCSTR, lpwcx: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetClassInfoExA", longArrayOf(hinstance, lpszclass, lpwcx)).toInt()
-}
-
-public fun GetClassInfoExW(hinstance: HINSTANCE, lpszclass: PCWSTR, lpwcx: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetClassInfoExW", longArrayOf(hinstance, lpszclass, lpwcx)).toInt()
-}
-
-public fun GetClassInfoW(hinstance: HINSTANCE, lpclassname: PCWSTR, lpwndclass: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetClassInfoW", longArrayOf(hinstance, lpclassname, lpwndclass)).toInt()
-}
-
-public fun GetClassLongA(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "GetClassLongA", longArrayOf(hwnd, nindex.toLong())).toUInt()
-}
-
-public fun GetClassLongPtrA(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX): ULong {
-    return Win32DynamicFfi.invoke("user32.dll", "GetClassLongPtrA", longArrayOf(hwnd, nindex.toLong())).toULong()
-}
-
-public fun GetClassLongPtrW(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX): ULong {
-    return Win32DynamicFfi.invoke("user32.dll", "GetClassLongPtrW", longArrayOf(hwnd, nindex.toLong())).toULong()
-}
-
-public fun GetClassLongW(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "GetClassLongW", longArrayOf(hwnd, nindex.toLong())).toUInt()
-}
-
-public fun GetClassNameA(hwnd: HWND, lpclassname: PSTR, nmaxcount: Int): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "GetClassNameA", longArrayOf(hwnd, lpclassname, nmaxcount.toLong())).toInt()
-}
-
-public fun GetClassNameW(hwnd: HWND, lpclassname: PWSTR, nmaxcount: Int): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "GetClassNameW", longArrayOf(hwnd, lpclassname, nmaxcount.toLong())).toInt()
-}
-
-public fun GetClassWord(hwnd: HWND, nindex: Int): UShort {
-    return Win32DynamicFfi.invoke("user32.dll", "GetClassWord", longArrayOf(hwnd, nindex.toLong())).toUShort()
-}
-
-public fun GetClientRect(hwnd: HWND, lprect: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetClientRect", longArrayOf(hwnd, lprect)).toInt()
-}
-
-public fun GetClipCursor(lprect: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetClipCursor", longArrayOf(lprect)).toInt()
-}
-
-public fun GetCursor(): HCURSOR {
-    return Win32DynamicFfi.invoke("user32.dll", "GetCursor", longArrayOf())
-}
-
-public fun GetCursorInfo(pci: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetCursorInfo", longArrayOf(pci)).toInt()
-}
-
-public fun GetCursorPos(lppoint: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetCursorPos", longArrayOf(lppoint)).toInt()
-}
-
-public fun GetDesktopWindow(): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "GetDesktopWindow", longArrayOf())
-}
-
-public fun GetDialogBaseUnits(): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "GetDialogBaseUnits", longArrayOf()).toInt()
-}
-
-public fun GetDlgCtrlID(hwnd: HWND): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "GetDlgCtrlID", longArrayOf(hwnd)).toInt()
-}
-
-public fun GetDlgItem(hdlg: HWND, niddlgitem: Int): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "GetDlgItem", longArrayOf(hdlg, niddlgitem.toLong()))
-}
-
-public fun GetDlgItemInt(hdlg: HWND, niddlgitem: Int, lptranslated: Long, bsigned: BOOL): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "GetDlgItemInt", longArrayOf(hdlg, niddlgitem.toLong(), lptranslated, bsigned.toLong())).toUInt()
-}
-
-public fun GetDlgItemTextA(hdlg: HWND, niddlgitem: Int, lpstring: PSTR, cchmax: Int): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "GetDlgItemTextA", longArrayOf(hdlg, niddlgitem.toLong(), lpstring, cchmax.toLong())).toUInt()
-}
-
-public fun GetDlgItemTextW(hdlg: HWND, niddlgitem: Int, lpstring: PWSTR, cchmax: Int): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "GetDlgItemTextW", longArrayOf(hdlg, niddlgitem.toLong(), lpstring, cchmax.toLong())).toUInt()
-}
-
-public fun GetForegroundWindow(): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "GetForegroundWindow", longArrayOf())
-}
-
-public fun GetGUIThreadInfo(idthread: UInt, pgui: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetGUIThreadInfo", longArrayOf(idthread.toLong(), pgui)).toInt()
-}
-
-public fun GetIconInfo(hicon: HICON, piconinfo: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetIconInfo", longArrayOf(hicon, piconinfo)).toInt()
-}
-
-public fun GetIconInfoExA(hicon: HICON, piconinfo: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetIconInfoExA", longArrayOf(hicon, piconinfo)).toInt()
-}
-
-public fun GetIconInfoExW(hicon: HICON, piconinfo: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetIconInfoExW", longArrayOf(hicon, piconinfo)).toInt()
-}
-
-public fun GetInputState(): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetInputState", longArrayOf()).toInt()
-}
-
-public fun GetLastActivePopup(hwnd: HWND): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "GetLastActivePopup", longArrayOf(hwnd))
-}
-
-public fun GetLayeredWindowAttributes(hwnd: HWND, pcrkey: Long, pbalpha: Long, pdwflags: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetLayeredWindowAttributes", longArrayOf(hwnd, pcrkey, pbalpha, pdwflags)).toInt()
-}
-
-public fun GetMenu(hwnd: HWND): HMENU {
-    return Win32DynamicFfi.invoke("user32.dll", "GetMenu", longArrayOf(hwnd))
-}
-
-public fun GetMenuBarInfo(hwnd: HWND, idobject: OBJECT_IDENTIFIER, iditem: Int, pmbi: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetMenuBarInfo", longArrayOf(hwnd, idobject.toLong(), iditem.toLong(), pmbi)).toInt()
-}
-
-public fun GetMenuCheckMarkDimensions(): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "GetMenuCheckMarkDimensions", longArrayOf()).toInt()
-}
-
-public fun GetMenuDefaultItem(hmenu: HMENU, fbypos: UInt, gmdiflags: GET_MENU_DEFAULT_ITEM_FLAGS): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "GetMenuDefaultItem", longArrayOf(hmenu, fbypos.toLong(), gmdiflags.toLong())).toUInt()
-}
-
-public fun GetMenuInfo(param0: HMENU, param1: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetMenuInfo", longArrayOf(param0, param1)).toInt()
-}
-
-public fun GetMenuItemCount(hmenu: HMENU): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "GetMenuItemCount", longArrayOf(hmenu)).toInt()
-}
-
-public fun GetMenuItemID(hmenu: HMENU, npos: Int): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "GetMenuItemID", longArrayOf(hmenu, npos.toLong())).toUInt()
-}
-
-public fun GetMenuItemInfoA(hmenu: HMENU, item: UInt, fbyposition: BOOL, lpmii: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetMenuItemInfoA", longArrayOf(hmenu, item.toLong(), fbyposition.toLong(), lpmii)).toInt()
-}
-
-public fun GetMenuItemInfoW(hmenu: HMENU, item: UInt, fbyposition: BOOL, lpmii: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetMenuItemInfoW", longArrayOf(hmenu, item.toLong(), fbyposition.toLong(), lpmii)).toInt()
-}
-
-public fun GetMenuItemRect(hwnd: HWND, hmenu: HMENU, uitem: UInt, lprcitem: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetMenuItemRect", longArrayOf(hwnd, hmenu, uitem.toLong(), lprcitem)).toInt()
-}
-
-public fun GetMenuState(hmenu: HMENU, uid: UInt, uflags: MENU_ITEM_FLAGS): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "GetMenuState", longArrayOf(hmenu, uid.toLong(), uflags.toLong())).toUInt()
-}
-
-public fun GetMenuStringA(hmenu: HMENU, uiditem: UInt, lpstring: PSTR, cchmax: Int, flags: MENU_ITEM_FLAGS): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "GetMenuStringA", longArrayOf(hmenu, uiditem.toLong(), lpstring, cchmax.toLong(), flags.toLong())).toInt()
-}
-
-public fun GetMenuStringW(hmenu: HMENU, uiditem: UInt, lpstring: PWSTR, cchmax: Int, flags: MENU_ITEM_FLAGS): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "GetMenuStringW", longArrayOf(hmenu, uiditem.toLong(), lpstring, cchmax.toLong(), flags.toLong())).toInt()
-}
-
-public fun GetMessageA(lpmsg: Long, hwnd: HWND, wmsgfiltermin: UInt, wmsgfiltermax: UInt): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetMessageA", longArrayOf(lpmsg, hwnd, wmsgfiltermin.toLong(), wmsgfiltermax.toLong())).toInt()
-}
-
-public fun GetMessageExtraInfo(): LPARAM {
-    return Win32DynamicFfi.invoke("user32.dll", "GetMessageExtraInfo", longArrayOf())
-}
-
-public fun GetMessagePos(): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "GetMessagePos", longArrayOf()).toUInt()
-}
-
-public fun GetMessageTime(): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "GetMessageTime", longArrayOf()).toInt()
-}
-
-public fun GetMessageW(lpmsg: Long, hwnd: HWND, wmsgfiltermin: UInt, wmsgfiltermax: UInt): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetMessageW", longArrayOf(lpmsg, hwnd, wmsgfiltermin.toLong(), wmsgfiltermax.toLong())).toInt()
-}
-
-public fun GetNextDlgGroupItem(hdlg: HWND, hctl: HWND, bprevious: BOOL): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "GetNextDlgGroupItem", longArrayOf(hdlg, hctl, bprevious.toLong()))
-}
-
-public fun GetNextDlgTabItem(hdlg: HWND, hctl: HWND, bprevious: BOOL): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "GetNextDlgTabItem", longArrayOf(hdlg, hctl, bprevious.toLong()))
-}
-
-public fun GetParent(hwnd: HWND): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "GetParent", longArrayOf(hwnd))
-}
-
-public fun GetPhysicalCursorPos(lppoint: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetPhysicalCursorPos", longArrayOf(lppoint)).toInt()
-}
-
-public fun GetProcessDefaultLayout(pdwdefaultlayout: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetProcessDefaultLayout", longArrayOf(pdwdefaultlayout)).toInt()
-}
-
-public fun GetPropA(hwnd: HWND, lpstring: PCSTR): HANDLE {
-    return Win32DynamicFfi.invoke("user32.dll", "GetPropA", longArrayOf(hwnd, lpstring))
-}
-
-public fun GetPropW(hwnd: HWND, lpstring: PCWSTR): HANDLE {
-    return Win32DynamicFfi.invoke("user32.dll", "GetPropW", longArrayOf(hwnd, lpstring))
-}
-
-public fun GetQueueStatus(flags: QUEUE_STATUS_FLAGS): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "GetQueueStatus", longArrayOf(flags.toLong())).toUInt()
-}
-
-public fun GetScrollBarInfo(hwnd: HWND, idobject: OBJECT_IDENTIFIER, psbi: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetScrollBarInfo", longArrayOf(hwnd, idobject.toLong(), psbi)).toInt()
-}
-
-public fun GetScrollInfo(hwnd: HWND, nbar: SCROLLBAR_CONSTANTS, lpsi: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetScrollInfo", longArrayOf(hwnd, nbar.toLong(), lpsi)).toInt()
-}
-
-public fun GetScrollPos(hwnd: HWND, nbar: SCROLLBAR_CONSTANTS): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "GetScrollPos", longArrayOf(hwnd, nbar.toLong())).toInt()
-}
-
-public fun GetScrollRange(hwnd: HWND, nbar: SCROLLBAR_CONSTANTS, lpminpos: Long, lpmaxpos: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetScrollRange", longArrayOf(hwnd, nbar.toLong(), lpminpos, lpmaxpos)).toInt()
-}
-
-public fun GetShellWindow(): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "GetShellWindow", longArrayOf())
-}
-
-public fun GetSubMenu(hmenu: HMENU, npos: Int): HMENU {
-    return Win32DynamicFfi.invoke("user32.dll", "GetSubMenu", longArrayOf(hmenu, npos.toLong()))
-}
-
-public fun GetSystemMenu(hwnd: HWND, brevert: BOOL): HMENU {
-    return Win32DynamicFfi.invoke("user32.dll", "GetSystemMenu", longArrayOf(hwnd, brevert.toLong()))
-}
-
-public fun GetSystemMetrics(nindex: SYSTEM_METRICS_INDEX): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "GetSystemMetrics", longArrayOf(nindex.toLong())).toInt()
-}
-
-public fun GetTitleBarInfo(hwnd: HWND, pti: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetTitleBarInfo", longArrayOf(hwnd, pti)).toInt()
-}
-
-public fun GetTopWindow(hwnd: HWND): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "GetTopWindow", longArrayOf(hwnd))
-}
-
-public fun GetWindow(hwnd: HWND, ucmd: GET_WINDOW_CMD): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "GetWindow", longArrayOf(hwnd, ucmd.toLong()))
-}
-
-public fun GetWindowDisplayAffinity(hwnd: HWND, pdwaffinity: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetWindowDisplayAffinity", longArrayOf(hwnd, pdwaffinity)).toInt()
-}
-
-public fun GetWindowInfo(hwnd: HWND, pwi: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetWindowInfo", longArrayOf(hwnd, pwi)).toInt()
-}
-
-public fun GetWindowLongA(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "GetWindowLongA", longArrayOf(hwnd, nindex.toLong())).toInt()
-}
-
-public fun GetWindowLongPtrA(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX): Long {
-    return Win32DynamicFfi.invoke("user32.dll", "GetWindowLongPtrA", longArrayOf(hwnd, nindex.toLong()))
-}
-
-public fun GetWindowLongPtrW(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX): Long {
-    return Win32DynamicFfi.invoke("user32.dll", "GetWindowLongPtrW", longArrayOf(hwnd, nindex.toLong()))
-}
-
-public fun GetWindowLongW(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "GetWindowLongW", longArrayOf(hwnd, nindex.toLong())).toInt()
-}
-
-public fun GetWindowModuleFileNameA(hwnd: HWND, pszfilename: PSTR, cchfilenamemax: UInt): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "GetWindowModuleFileNameA", longArrayOf(hwnd, pszfilename, cchfilenamemax.toLong())).toUInt()
-}
-
-public fun GetWindowModuleFileNameW(hwnd: HWND, pszfilename: PWSTR, cchfilenamemax: UInt): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "GetWindowModuleFileNameW", longArrayOf(hwnd, pszfilename, cchfilenamemax.toLong())).toUInt()
-}
-
-public fun GetWindowPlacement(hwnd: HWND, lpwndpl: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetWindowPlacement", longArrayOf(hwnd, lpwndpl)).toInt()
-}
-
-public fun GetWindowRect(hwnd: HWND, lprect: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetWindowRect", longArrayOf(hwnd, lprect)).toInt()
-}
-
-public fun GetWindowTextA(hwnd: HWND, lpstring: PSTR, nmaxcount: Int): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "GetWindowTextA", longArrayOf(hwnd, lpstring, nmaxcount.toLong())).toInt()
-}
-
-public fun GetWindowTextLengthA(hwnd: HWND): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "GetWindowTextLengthA", longArrayOf(hwnd)).toInt()
-}
-
-public fun GetWindowTextLengthW(hwnd: HWND): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "GetWindowTextLengthW", longArrayOf(hwnd)).toInt()
-}
-
-public fun GetWindowTextW(hwnd: HWND, lpstring: PWSTR, nmaxcount: Int): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "GetWindowTextW", longArrayOf(hwnd, lpstring, nmaxcount.toLong())).toInt()
-}
-
-public fun GetWindowThreadProcessId(hwnd: HWND, lpdwprocessid: Long): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "GetWindowThreadProcessId", longArrayOf(hwnd, lpdwprocessid)).toUInt()
-}
-
-public fun GetWindowWord(hwnd: HWND, nindex: Int): UShort {
-    return Win32DynamicFfi.invoke("user32.dll", "GetWindowWord", longArrayOf(hwnd, nindex.toLong())).toUShort()
-}
-
-public fun HideCaret(hwnd: HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "HideCaret", longArrayOf(hwnd)).toInt()
-}
-
-public fun HiliteMenuItem(hwnd: HWND, hmenu: HMENU, uidhiliteitem: UInt, uhilite: UInt): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "HiliteMenuItem", longArrayOf(hwnd, hmenu, uidhiliteitem.toLong(), uhilite.toLong())).toInt()
-}
-
-public fun InSendMessage(): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "InSendMessage", longArrayOf()).toInt()
-}
-
-public fun InSendMessageEx(lpreserved: Long): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "InSendMessageEx", longArrayOf(lpreserved)).toUInt()
-}
-
-public fun IndexFilePath(resourceindexer: Long, filepath: PCWSTR, ppresourceuri: Long, pqualifiercount: Long, ppqualifiers: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mrmsupport.dll", "IndexFilePath", longArrayOf(resourceindexer, filepath, ppresourceuri, pqualifiercount, ppqualifiers)).toInt()
-}
-
-public fun InheritWindowMonitor(hwnd: HWND, hwndinherit: HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "InheritWindowMonitor", longArrayOf(hwnd, hwndinherit)).toInt()
-}
-
-public fun InsertMenuA(hmenu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS, uidnewitem: ULong, lpnewitem: PCSTR): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "InsertMenuA", longArrayOf(hmenu, uposition.toLong(), uflags.toLong(), uidnewitem.toLong(), lpnewitem)).toInt()
-}
-
-public fun InsertMenuItemA(hmenu: HMENU, item: UInt, fbyposition: BOOL, lpmi: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "InsertMenuItemA", longArrayOf(hmenu, item.toLong(), fbyposition.toLong(), lpmi)).toInt()
-}
-
-public fun InsertMenuItemW(hmenu: HMENU, item: UInt, fbyposition: BOOL, lpmi: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "InsertMenuItemW", longArrayOf(hmenu, item.toLong(), fbyposition.toLong(), lpmi)).toInt()
-}
-
-public fun InsertMenuW(hmenu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS, uidnewitem: ULong, lpnewitem: PCWSTR): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "InsertMenuW", longArrayOf(hmenu, uposition.toLong(), uflags.toLong(), uidnewitem.toLong(), lpnewitem)).toInt()
-}
-
-public fun InternalGetWindowText(hwnd: HWND, pstring: PWSTR, cchmaxcount: Int): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "InternalGetWindowText", longArrayOf(hwnd, pstring, cchmaxcount.toLong())).toInt()
-}
-
-public fun IsCharAlphaA(ch: Byte): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "IsCharAlphaA", longArrayOf(ch.toLong())).toInt()
-}
-
-public fun IsCharAlphaNumericA(ch: Byte): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "IsCharAlphaNumericA", longArrayOf(ch.toLong())).toInt()
-}
-
-public fun IsCharAlphaNumericW(ch: UShort): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "IsCharAlphaNumericW", longArrayOf(ch.toLong())).toInt()
-}
-
-public fun IsCharAlphaW(ch: UShort): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "IsCharAlphaW", longArrayOf(ch.toLong())).toInt()
-}
-
-public fun IsCharLowerA(ch: Byte): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "IsCharLowerA", longArrayOf(ch.toLong())).toInt()
-}
-
-public fun IsCharUpperA(ch: Byte): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "IsCharUpperA", longArrayOf(ch.toLong())).toInt()
-}
-
-public fun IsCharUpperW(ch: UShort): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "IsCharUpperW", longArrayOf(ch.toLong())).toInt()
-}
-
-public fun IsChild(hwndparent: HWND, hwnd: HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "IsChild", longArrayOf(hwndparent, hwnd)).toInt()
-}
-
-public fun IsDialogMessageA(hdlg: HWND, lpmsg: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "IsDialogMessageA", longArrayOf(hdlg, lpmsg)).toInt()
-}
-
-public fun IsDialogMessageW(hdlg: HWND, lpmsg: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "IsDialogMessageW", longArrayOf(hdlg, lpmsg)).toInt()
-}
-
-public fun IsGUIThread(bconvert: BOOL): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "IsGUIThread", longArrayOf(bconvert.toLong())).toInt()
-}
-
-public fun IsHungAppWindow(hwnd: HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "IsHungAppWindow", longArrayOf(hwnd)).toInt()
-}
-
-public fun IsIconic(hwnd: HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "IsIconic", longArrayOf(hwnd)).toInt()
-}
-
-public fun IsMenu(hmenu: HMENU): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "IsMenu", longArrayOf(hmenu)).toInt()
-}
-
-public fun IsProcessDPIAware(): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "IsProcessDPIAware", longArrayOf()).toInt()
-}
-
-public fun IsWindow(hwnd: HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "IsWindow", longArrayOf(hwnd)).toInt()
-}
-
-public fun IsWindowArranged(hwnd: HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "IsWindowArranged", longArrayOf(hwnd)).toInt()
-}
-
-public fun IsWindowUnicode(hwnd: HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "IsWindowUnicode", longArrayOf(hwnd)).toInt()
-}
-
-public fun IsWindowVisible(hwnd: HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "IsWindowVisible", longArrayOf(hwnd)).toInt()
-}
-
-public fun IsWow64Message(): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "IsWow64Message", longArrayOf()).toInt()
-}
-
-public fun IsZoomed(hwnd: HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "IsZoomed", longArrayOf(hwnd)).toInt()
-}
-
-public fun KillTimer(hwnd: HWND, uidevent: ULong): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "KillTimer", longArrayOf(hwnd, uidevent.toLong())).toInt()
-}
-
-public fun LoadAcceleratorsA(hinstance: HINSTANCE, lptablename: PCSTR): HACCEL {
-    return Win32DynamicFfi.invoke("user32.dll", "LoadAcceleratorsA", longArrayOf(hinstance, lptablename))
-}
-
-public fun LoadAcceleratorsW(hinstance: HINSTANCE, lptablename: PCWSTR): HACCEL {
-    return Win32DynamicFfi.invoke("user32.dll", "LoadAcceleratorsW", longArrayOf(hinstance, lptablename))
-}
-
-public fun LoadCursorA(hinstance: HINSTANCE, lpcursorname: PCSTR): HCURSOR {
-    return Win32DynamicFfi.invoke("user32.dll", "LoadCursorA", longArrayOf(hinstance, lpcursorname))
-}
-
-public fun LoadCursorFromFileA(lpfilename: PCSTR): HCURSOR {
-    return Win32DynamicFfi.invoke("user32.dll", "LoadCursorFromFileA", longArrayOf(lpfilename))
-}
-
-public fun LoadCursorFromFileW(lpfilename: PCWSTR): HCURSOR {
-    return Win32DynamicFfi.invoke("user32.dll", "LoadCursorFromFileW", longArrayOf(lpfilename))
-}
-
-public fun LoadCursorW(hinstance: HINSTANCE, lpcursorname: PCWSTR): HCURSOR {
-    return Win32DynamicFfi.invoke("user32.dll", "LoadCursorW", longArrayOf(hinstance, lpcursorname))
-}
-
-public fun LoadIconA(hinstance: HINSTANCE, lpiconname: PCSTR): HICON {
-    return Win32DynamicFfi.invoke("user32.dll", "LoadIconA", longArrayOf(hinstance, lpiconname))
-}
-
-public fun LoadIconW(hinstance: HINSTANCE, lpiconname: PCWSTR): HICON {
-    return Win32DynamicFfi.invoke("user32.dll", "LoadIconW", longArrayOf(hinstance, lpiconname))
-}
-
-public fun LoadImageA(hinst: HINSTANCE, name: PCSTR, type: GDI_IMAGE_TYPE, cx: Int, cy: Int, fuload: IMAGE_FLAGS): HANDLE {
-    return Win32DynamicFfi.invoke("user32.dll", "LoadImageA", longArrayOf(hinst, name, type.toLong(), cx.toLong(), cy.toLong(), fuload.toLong()))
-}
-
-public fun LoadImageW(hinst: HINSTANCE, name: PCWSTR, type: GDI_IMAGE_TYPE, cx: Int, cy: Int, fuload: IMAGE_FLAGS): HANDLE {
-    return Win32DynamicFfi.invoke("user32.dll", "LoadImageW", longArrayOf(hinst, name, type.toLong(), cx.toLong(), cy.toLong(), fuload.toLong()))
-}
-
-public fun LoadMenuA(hinstance: HINSTANCE, lpmenuname: PCSTR): HMENU {
-    return Win32DynamicFfi.invoke("user32.dll", "LoadMenuA", longArrayOf(hinstance, lpmenuname))
-}
-
-public fun LoadMenuIndirectA(lpmenutemplate: Long): HMENU {
-    return Win32DynamicFfi.invoke("user32.dll", "LoadMenuIndirectA", longArrayOf(lpmenutemplate))
-}
-
-public fun LoadMenuIndirectW(lpmenutemplate: Long): HMENU {
-    return Win32DynamicFfi.invoke("user32.dll", "LoadMenuIndirectW", longArrayOf(lpmenutemplate))
-}
-
-public fun LoadMenuW(hinstance: HINSTANCE, lpmenuname: PCWSTR): HMENU {
-    return Win32DynamicFfi.invoke("user32.dll", "LoadMenuW", longArrayOf(hinstance, lpmenuname))
-}
-
-public fun LoadStringA(hinstance: HINSTANCE, uid: UInt, lpbuffer: PSTR, cchbuffermax: Int): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "LoadStringA", longArrayOf(hinstance, uid.toLong(), lpbuffer, cchbuffermax.toLong())).toInt()
-}
-
-public fun LoadStringW(hinstance: HINSTANCE, uid: UInt, lpbuffer: PWSTR, cchbuffermax: Int): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "LoadStringW", longArrayOf(hinstance, uid.toLong(), lpbuffer, cchbuffermax.toLong())).toInt()
-}
-
-public fun LockSetForegroundWindow(ulockcode: FOREGROUND_WINDOW_LOCK_CODE): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "LockSetForegroundWindow", longArrayOf(ulockcode.toLong())).toInt()
-}
-
-public fun LogicalToPhysicalPoint(hwnd: HWND, lppoint: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "LogicalToPhysicalPoint", longArrayOf(hwnd, lppoint)).toInt()
-}
-
-public fun LookupIconIdFromDirectory(presbits: Long, ficon: BOOL): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "LookupIconIdFromDirectory", longArrayOf(presbits, ficon.toLong())).toInt()
-}
-
-public fun LookupIconIdFromDirectoryEx(presbits: Long, ficon: BOOL, cxdesired: Int, cydesired: Int, flags: IMAGE_FLAGS): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "LookupIconIdFromDirectoryEx", longArrayOf(presbits, ficon.toLong(), cxdesired.toLong(), cydesired.toLong(), flags.toLong())).toInt()
-}
-
-public fun MapDialogRect(hdlg: HWND, lprect: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "MapDialogRect", longArrayOf(hdlg, lprect)).toInt()
-}
-
-public fun MenuItemFromPoint(hwnd: HWND, hmenu: HMENU, ptscreen: POINT): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "MenuItemFromPoint", longArrayOf(hwnd, hmenu, ((ptscreen.x.toLong() and 0xFFFF_FFFFL) or ((ptscreen.y.toLong() and 0xFFFF_FFFFL) shl 32)))).toInt()
-}
-
-public fun MessageBoxA(hwnd: HWND, lptext: PCSTR, lpcaption: PCSTR, utype: MESSAGEBOX_STYLE): MESSAGEBOX_RESULT {
-    return Win32DynamicFfi.invoke("user32.dll", "MessageBoxA", longArrayOf(hwnd, lptext, lpcaption, utype.toLong())).toInt()
-}
-
-public fun MessageBoxExA(hwnd: HWND, lptext: PCSTR, lpcaption: PCSTR, utype: MESSAGEBOX_STYLE, wlanguageid: UShort): MESSAGEBOX_RESULT {
-    return Win32DynamicFfi.invoke("user32.dll", "MessageBoxExA", longArrayOf(hwnd, lptext, lpcaption, utype.toLong(), wlanguageid.toLong())).toInt()
-}
-
-public fun MessageBoxExW(hwnd: HWND, lptext: PCWSTR, lpcaption: PCWSTR, utype: MESSAGEBOX_STYLE, wlanguageid: UShort): MESSAGEBOX_RESULT {
-    return Win32DynamicFfi.invoke("user32.dll", "MessageBoxExW", longArrayOf(hwnd, lptext, lpcaption, utype.toLong(), wlanguageid.toLong())).toInt()
-}
-
-public fun MessageBoxIndirectA(lpmbp: Long): MESSAGEBOX_RESULT {
-    return Win32DynamicFfi.invoke("user32.dll", "MessageBoxIndirectA", longArrayOf(lpmbp)).toInt()
-}
-
-public fun MessageBoxIndirectW(lpmbp: Long): MESSAGEBOX_RESULT {
-    return Win32DynamicFfi.invoke("user32.dll", "MessageBoxIndirectW", longArrayOf(lpmbp)).toInt()
-}
-
-public fun MessageBoxW(hwnd: HWND, lptext: PCWSTR, lpcaption: PCWSTR, utype: MESSAGEBOX_STYLE): MESSAGEBOX_RESULT {
-    return Win32DynamicFfi.invoke("user32.dll", "MessageBoxW", longArrayOf(hwnd, lptext, lpcaption, utype.toLong())).toInt()
-}
-
-public fun ModifyMenuA(hmnu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS, uidnewitem: ULong, lpnewitem: PCSTR): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "ModifyMenuA", longArrayOf(hmnu, uposition.toLong(), uflags.toLong(), uidnewitem.toLong(), lpnewitem)).toInt()
-}
-
-public fun ModifyMenuW(hmnu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS, uidnewitem: ULong, lpnewitem: PCWSTR): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "ModifyMenuW", longArrayOf(hmnu, uposition.toLong(), uflags.toLong(), uidnewitem.toLong(), lpnewitem)).toInt()
-}
-
-public fun MoveWindow(hwnd: HWND, x: Int, y: Int, nwidth: Int, nheight: Int, brepaint: BOOL): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "MoveWindow", longArrayOf(hwnd, x.toLong(), y.toLong(), nwidth.toLong(), nheight.toLong(), brepaint.toLong())).toInt()
-}
-
-public fun MrmCreateConfig(platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, outputxmlfile: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("mrmsupport.dll", "MrmCreateConfig", longArrayOf(platformversion.toLong(), defaultqualifiers, outputxmlfile)).toInt()
-}
-
-public fun MrmCreateConfigInMemory(platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, outputxmldata: Long, outputxmlsize: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mrmsupport.dll", "MrmCreateConfigInMemory", longArrayOf(platformversion.toLong(), defaultqualifiers, outputxmldata, outputxmlsize)).toInt()
-}
-
-public fun MrmCreateResourceFile(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputdirectory: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("mrmsupport.dll", "MrmCreateResourceFile", longArrayOf(indexer.handle, packagingmode.toLong(), packagingoptions.toLong(), outputdirectory)).toInt()
-}
-
-public fun MrmCreateResourceFileInMemory(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputpridata: Long, outputprisize: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mrmsupport.dll", "MrmCreateResourceFileInMemory", longArrayOf(indexer.handle, packagingmode.toLong(), packagingoptions.toLong(), outputpridata, outputprisize)).toInt()
-}
-
-public fun MrmCreateResourceFileWithChecksum(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, checksum: UInt, outputdirectory: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("mrmsupport.dll", "MrmCreateResourceFileWithChecksum", longArrayOf(indexer.handle, packagingmode.toLong(), packagingoptions.toLong(), checksum.toLong(), outputdirectory)).toInt()
-}
-
-public fun MrmCreateResourceIndexer(packagefamilyname: PCWSTR, projectroot: PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, indexer: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mrmsupport.dll", "MrmCreateResourceIndexer", longArrayOf(packagefamilyname, projectroot, platformversion.toLong(), defaultqualifiers, indexer)).toInt()
-}
-
-public fun MrmCreateResourceIndexerFromPreviousPriData(projectroot: PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, pridata: Long, prisize: UInt, indexer: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mrmsupport.dll", "MrmCreateResourceIndexerFromPreviousPriData", longArrayOf(projectroot, platformversion.toLong(), defaultqualifiers, pridata, prisize.toLong(), indexer)).toInt()
-}
-
-public fun MrmCreateResourceIndexerFromPreviousPriFile(projectroot: PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, prifile: PCWSTR, indexer: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mrmsupport.dll", "MrmCreateResourceIndexerFromPreviousPriFile", longArrayOf(projectroot, platformversion.toLong(), defaultqualifiers, prifile, indexer)).toInt()
-}
-
-public fun MrmCreateResourceIndexerFromPreviousSchemaData(projectroot: PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, schemaxmldata: Long, schemaxmlsize: UInt, indexer: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mrmsupport.dll", "MrmCreateResourceIndexerFromPreviousSchemaData", longArrayOf(projectroot, platformversion.toLong(), defaultqualifiers, schemaxmldata, schemaxmlsize.toLong(), indexer)).toInt()
-}
-
-public fun MrmCreateResourceIndexerFromPreviousSchemaFile(projectroot: PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, schemafile: PCWSTR, indexer: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mrmsupport.dll", "MrmCreateResourceIndexerFromPreviousSchemaFile", longArrayOf(projectroot, platformversion.toLong(), defaultqualifiers, schemafile, indexer)).toInt()
-}
-
-public fun MrmCreateResourceIndexerWithFlags(packagefamilyname: PCWSTR, projectroot: PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, flags: MrmIndexerFlags, indexer: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mrmsupport.dll", "MrmCreateResourceIndexerWithFlags", longArrayOf(packagefamilyname, projectroot, platformversion.toLong(), defaultqualifiers, flags.toLong(), indexer)).toInt()
-}
-
-public fun MrmDestroyIndexerAndMessages(indexer: MrmResourceIndexerHandle): HRESULT {
-    return Win32DynamicFfi.invoke("mrmsupport.dll", "MrmDestroyIndexerAndMessages", longArrayOf(indexer.handle)).toInt()
-}
-
-public fun MrmDumpPriDataInMemory(inputpridata: Long, inputprisize: UInt, schemapridata: Long, schemaprisize: UInt, dumptype: MrmDumpType, outputxmldata: Long, outputxmlsize: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mrmsupport.dll", "MrmDumpPriDataInMemory", longArrayOf(inputpridata, inputprisize.toLong(), schemapridata, schemaprisize.toLong(), dumptype.toLong(), outputxmldata, outputxmlsize)).toInt()
-}
-
-public fun MrmDumpPriFile(indexfilename: PCWSTR, schemaprifile: PCWSTR, dumptype: MrmDumpType, outputxmlfile: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("mrmsupport.dll", "MrmDumpPriFile", longArrayOf(indexfilename, schemaprifile, dumptype.toLong(), outputxmlfile)).toInt()
-}
-
-public fun MrmDumpPriFileInMemory(indexfilename: PCWSTR, schemaprifile: PCWSTR, dumptype: MrmDumpType, outputxmldata: Long, outputxmlsize: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mrmsupport.dll", "MrmDumpPriFileInMemory", longArrayOf(indexfilename, schemaprifile, dumptype.toLong(), outputxmldata, outputxmlsize)).toInt()
-}
-
-public fun MrmFreeMemory(data: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mrmsupport.dll", "MrmFreeMemory", longArrayOf(data)).toInt()
-}
-
-public fun MrmGetPriFileContentChecksum(prifile: PCWSTR, checksum: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mrmsupport.dll", "MrmGetPriFileContentChecksum", longArrayOf(prifile, checksum)).toInt()
-}
-
-public fun MrmIndexEmbeddedData(indexer: MrmResourceIndexerHandle, resourceuri: PCWSTR, embeddeddata: Long, embeddeddatasize: UInt, qualifiers: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("mrmsupport.dll", "MrmIndexEmbeddedData", longArrayOf(indexer.handle, resourceuri, embeddeddata, embeddeddatasize.toLong(), qualifiers)).toInt()
-}
-
-public fun MrmIndexFile(indexer: MrmResourceIndexerHandle, resourceuri: PCWSTR, filepath: PCWSTR, qualifiers: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("mrmsupport.dll", "MrmIndexFile", longArrayOf(indexer.handle, resourceuri, filepath, qualifiers)).toInt()
-}
-
-public fun MrmIndexFileAutoQualifiers(indexer: MrmResourceIndexerHandle, filepath: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("mrmsupport.dll", "MrmIndexFileAutoQualifiers", longArrayOf(indexer.handle, filepath)).toInt()
-}
-
-public fun MrmIndexResourceContainerAutoQualifiers(indexer: MrmResourceIndexerHandle, containerpath: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("mrmsupport.dll", "MrmIndexResourceContainerAutoQualifiers", longArrayOf(indexer.handle, containerpath)).toInt()
-}
-
-public fun MrmIndexString(indexer: MrmResourceIndexerHandle, resourceuri: PCWSTR, resourcestring: PCWSTR, qualifiers: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("mrmsupport.dll", "MrmIndexString", longArrayOf(indexer.handle, resourceuri, resourcestring, qualifiers)).toInt()
-}
-
-public fun MrmPeekResourceIndexerMessages(handle: MrmResourceIndexerHandle, messages: Long, nummsgs: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mrmsupport.dll", "MrmPeekResourceIndexerMessages", longArrayOf(handle.handle, messages, nummsgs)).toInt()
-}
-
-public fun MsgWaitForMultipleObjects(ncount: UInt, phandles: Long, fwaitall: BOOL, dwmilliseconds: UInt, dwwakemask: QUEUE_STATUS_FLAGS): WAIT_EVENT {
-    return Win32DynamicFfi.invoke("user32.dll", "MsgWaitForMultipleObjects", longArrayOf(ncount.toLong(), phandles, fwaitall.toLong(), dwmilliseconds.toLong(), dwwakemask.toLong())).toUInt()
-}
-
-public fun MsgWaitForMultipleObjectsEx(ncount: UInt, phandles: Long, dwmilliseconds: UInt, dwwakemask: QUEUE_STATUS_FLAGS, dwflags: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS): WAIT_EVENT {
-    return Win32DynamicFfi.invoke("user32.dll", "MsgWaitForMultipleObjectsEx", longArrayOf(ncount.toLong(), phandles, dwmilliseconds.toLong(), dwwakemask.toLong(), dwflags.toLong())).toUInt()
-}
-
-public fun OemToCharA(psrc: PCSTR, pdst: PSTR): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "OemToCharA", longArrayOf(psrc, pdst)).toInt()
-}
-
-public fun OemToCharBuffA(lpszsrc: PCSTR, lpszdst: PSTR, cchdstlength: UInt): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "OemToCharBuffA", longArrayOf(lpszsrc, lpszdst, cchdstlength.toLong())).toInt()
-}
-
-public fun OemToCharBuffW(lpszsrc: PCSTR, lpszdst: PWSTR, cchdstlength: UInt): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "OemToCharBuffW", longArrayOf(lpszsrc, lpszdst, cchdstlength.toLong())).toInt()
-}
-
-public fun OemToCharW(psrc: PCSTR, pdst: PWSTR): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "OemToCharW", longArrayOf(psrc, pdst)).toInt()
-}
-
-public fun OpenIcon(hwnd: HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "OpenIcon", longArrayOf(hwnd)).toInt()
-}
-
-public fun PeekMessageA(lpmsg: Long, hwnd: HWND, wmsgfiltermin: UInt, wmsgfiltermax: UInt, wremovemsg: PEEK_MESSAGE_REMOVE_TYPE): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "PeekMessageA", longArrayOf(lpmsg, hwnd, wmsgfiltermin.toLong(), wmsgfiltermax.toLong(), wremovemsg.toLong())).toInt()
-}
-
-public fun PeekMessageW(lpmsg: Long, hwnd: HWND, wmsgfiltermin: UInt, wmsgfiltermax: UInt, wremovemsg: PEEK_MESSAGE_REMOVE_TYPE): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "PeekMessageW", longArrayOf(lpmsg, hwnd, wmsgfiltermin.toLong(), wmsgfiltermax.toLong(), wremovemsg.toLong())).toInt()
-}
-
-public fun PhysicalToLogicalPoint(hwnd: HWND, lppoint: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "PhysicalToLogicalPoint", longArrayOf(hwnd, lppoint)).toInt()
-}
-
-public fun PostMessageA(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "PostMessageA", longArrayOf(hwnd, msg.toLong(), wparam.toLong(), lparam)).toInt()
-}
-
-public fun PostMessageW(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "PostMessageW", longArrayOf(hwnd, msg.toLong(), wparam.toLong(), lparam)).toInt()
-}
-
-public fun PostQuitMessage(nexitcode: Int) {
-    Win32DynamicFfi.invoke("user32.dll", "PostQuitMessage", longArrayOf(nexitcode.toLong()))
-}
-
-public fun PostThreadMessageA(idthread: UInt, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "PostThreadMessageA", longArrayOf(idthread.toLong(), msg.toLong(), wparam.toLong(), lparam)).toInt()
-}
-
-public fun PostThreadMessageW(idthread: UInt, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "PostThreadMessageW", longArrayOf(idthread.toLong(), msg.toLong(), wparam.toLong(), lparam)).toInt()
-}
-
-public fun PrivateExtractIconsA(szfilename: PCSTR, niconindex: Int, cxicon: Int, cyicon: Int, phicon: Long, piconid: Long, nicons: UInt, flags: UInt): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "PrivateExtractIconsA", longArrayOf(szfilename, niconindex.toLong(), cxicon.toLong(), cyicon.toLong(), phicon, piconid, nicons.toLong(), flags.toLong())).toUInt()
-}
-
-public fun PrivateExtractIconsW(szfilename: PCWSTR, niconindex: Int, cxicon: Int, cyicon: Int, phicon: Long, piconid: Long, nicons: UInt, flags: UInt): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "PrivateExtractIconsW", longArrayOf(szfilename, niconindex.toLong(), cxicon.toLong(), cyicon.toLong(), phicon, piconid, nicons.toLong(), flags.toLong())).toUInt()
-}
-
-public fun RealChildWindowFromPoint(hwndparent: HWND, ptparentclientcoords: POINT): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "RealChildWindowFromPoint", longArrayOf(hwndparent, ((ptparentclientcoords.x.toLong() and 0xFFFF_FFFFL) or ((ptparentclientcoords.y.toLong() and 0xFFFF_FFFFL) shl 32))))
-}
-
-public fun RealGetWindowClassA(hwnd: HWND, ptszclassname: PSTR, cchclassnamemax: UInt): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "RealGetWindowClassA", longArrayOf(hwnd, ptszclassname, cchclassnamemax.toLong())).toUInt()
-}
-
-public fun RealGetWindowClassW(hwnd: HWND, ptszclassname: PWSTR, cchclassnamemax: UInt): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "RealGetWindowClassW", longArrayOf(hwnd, ptszclassname, cchclassnamemax.toLong())).toUInt()
-}
-
-public fun RegisterClassA(lpwndclass: Long): UShort {
-    return Win32DynamicFfi.invoke("user32.dll", "RegisterClassA", longArrayOf(lpwndclass)).toUShort()
-}
-
-public fun RegisterClassExA(param0: Long): UShort {
-    return Win32DynamicFfi.invoke("user32.dll", "RegisterClassExA", longArrayOf(param0)).toUShort()
-}
-
-public fun RegisterClassExW(param0: Long): UShort {
-    return Win32DynamicFfi.invoke("user32.dll", "RegisterClassExW", longArrayOf(param0)).toUShort()
-}
-
-public fun RegisterClassW(lpwndclass: Long): UShort {
-    return Win32DynamicFfi.invoke("user32.dll", "RegisterClassW", longArrayOf(lpwndclass)).toUShort()
-}
-
-public fun RegisterDeviceNotificationA(hrecipient: HANDLE, notificationfilter: Long, flags: REGISTER_NOTIFICATION_FLAGS): HDEVNOTIFY {
-    return Win32DynamicFfi.invoke("user32.dll", "RegisterDeviceNotificationA", longArrayOf(hrecipient, notificationfilter, flags.toLong()))
-}
-
-public fun RegisterDeviceNotificationW(hrecipient: HANDLE, notificationfilter: Long, flags: REGISTER_NOTIFICATION_FLAGS): HDEVNOTIFY {
-    return Win32DynamicFfi.invoke("user32.dll", "RegisterDeviceNotificationW", longArrayOf(hrecipient, notificationfilter, flags.toLong()))
-}
-
-public fun RegisterForTooltipDismissNotification(hwnd: HWND, tdflags: TOOLTIP_DISMISS_FLAGS): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "RegisterForTooltipDismissNotification", longArrayOf(hwnd, tdflags.toLong())).toInt()
-}
-
-public fun RegisterShellHookWindow(hwnd: HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "RegisterShellHookWindow", longArrayOf(hwnd)).toInt()
-}
-
-public fun RegisterWindowMessageA(lpstring: PCSTR): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "RegisterWindowMessageA", longArrayOf(lpstring)).toUInt()
-}
-
-public fun RegisterWindowMessageW(lpstring: PCWSTR): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "RegisterWindowMessageW", longArrayOf(lpstring)).toUInt()
-}
-
-public fun RemoveMenu(hmenu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "RemoveMenu", longArrayOf(hmenu, uposition.toLong(), uflags.toLong())).toInt()
-}
-
-public fun RemovePropA(hwnd: HWND, lpstring: PCSTR): HANDLE {
-    return Win32DynamicFfi.invoke("user32.dll", "RemovePropA", longArrayOf(hwnd, lpstring))
-}
-
-public fun RemovePropW(hwnd: HWND, lpstring: PCWSTR): HANDLE {
-    return Win32DynamicFfi.invoke("user32.dll", "RemovePropW", longArrayOf(hwnd, lpstring))
-}
-
-public fun ReplyMessage(lresult: LRESULT): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "ReplyMessage", longArrayOf(lresult)).toInt()
-}
-
-public fun ScrollDC(hdc: HDC, dx: Int, dy: Int, lprcscroll: Long, lprcclip: Long, hrgnupdate: HRGN, lprcupdate: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "ScrollDC", longArrayOf(hdc, dx.toLong(), dy.toLong(), lprcscroll, lprcclip, hrgnupdate, lprcupdate)).toInt()
-}
-
-public fun ScrollWindow(hwnd: HWND, xamount: Int, yamount: Int, lprect: Long, lpcliprect: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "ScrollWindow", longArrayOf(hwnd, xamount.toLong(), yamount.toLong(), lprect, lpcliprect)).toInt()
-}
-
-public fun ScrollWindowEx(hwnd: HWND, dx: Int, dy: Int, prcscroll: Long, prcclip: Long, hrgnupdate: HRGN, prcupdate: Long, flags: SCROLL_WINDOW_FLAGS): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "ScrollWindowEx", longArrayOf(hwnd, dx.toLong(), dy.toLong(), prcscroll, prcclip, hrgnupdate, prcupdate, flags.toLong())).toInt()
-}
-
-public fun SendDlgItemMessageA(hdlg: HWND, niddlgitem: Int, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT {
-    return Win32DynamicFfi.invoke("user32.dll", "SendDlgItemMessageA", longArrayOf(hdlg, niddlgitem.toLong(), msg.toLong(), wparam.toLong(), lparam))
-}
-
-public fun SendDlgItemMessageW(hdlg: HWND, niddlgitem: Int, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT {
-    return Win32DynamicFfi.invoke("user32.dll", "SendDlgItemMessageW", longArrayOf(hdlg, niddlgitem.toLong(), msg.toLong(), wparam.toLong(), lparam))
-}
-
-public fun SendMessageA(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT {
-    return Win32DynamicFfi.invoke("user32.dll", "SendMessageA", longArrayOf(hwnd, msg.toLong(), wparam.toLong(), lparam))
-}
-
-public fun SendMessageCallbackA(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM, lpresultcallback: SENDASYNCPROC, dwdata: ULong): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SendMessageCallbackA", longArrayOf(hwnd, msg.toLong(), wparam.toLong(), lparam, Win32DynamicFfi.objectSlot(lpresultcallback), dwdata.toLong())).toInt()
-}
-
-public fun SendMessageCallbackW(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM, lpresultcallback: SENDASYNCPROC, dwdata: ULong): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SendMessageCallbackW", longArrayOf(hwnd, msg.toLong(), wparam.toLong(), lparam, Win32DynamicFfi.objectSlot(lpresultcallback), dwdata.toLong())).toInt()
-}
-
-public fun SendMessageTimeoutA(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM, fuflags: SEND_MESSAGE_TIMEOUT_FLAGS, utimeout: UInt, lpdwresult: Long): LRESULT {
-    return Win32DynamicFfi.invoke("user32.dll", "SendMessageTimeoutA", longArrayOf(hwnd, msg.toLong(), wparam.toLong(), lparam, fuflags.toLong(), utimeout.toLong(), lpdwresult))
-}
-
-public fun SendMessageTimeoutW(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM, fuflags: SEND_MESSAGE_TIMEOUT_FLAGS, utimeout: UInt, lpdwresult: Long): LRESULT {
-    return Win32DynamicFfi.invoke("user32.dll", "SendMessageTimeoutW", longArrayOf(hwnd, msg.toLong(), wparam.toLong(), lparam, fuflags.toLong(), utimeout.toLong(), lpdwresult))
-}
-
-public fun SendMessageW(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT {
-    return Win32DynamicFfi.invoke("user32.dll", "SendMessageW", longArrayOf(hwnd, msg.toLong(), wparam.toLong(), lparam))
-}
-
-public fun SendNotifyMessageA(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SendNotifyMessageA", longArrayOf(hwnd, msg.toLong(), wparam.toLong(), lparam)).toInt()
-}
-
-public fun SendNotifyMessageW(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SendNotifyMessageW", longArrayOf(hwnd, msg.toLong(), wparam.toLong(), lparam)).toInt()
-}
-
-public fun SetAdditionalForegroundBoostProcesses(toplevelwindow: HWND, processhandlecount: UInt, processhandlearray: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetAdditionalForegroundBoostProcesses", longArrayOf(toplevelwindow, processhandlecount.toLong(), processhandlearray)).toInt()
-}
-
-public fun SetCaretBlinkTime(umseconds: UInt): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetCaretBlinkTime", longArrayOf(umseconds.toLong())).toInt()
-}
-
-public fun SetCaretPos(x: Int, y: Int): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetCaretPos", longArrayOf(x.toLong(), y.toLong())).toInt()
-}
-
-public fun SetClassLongA(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX, dwnewlong: Int): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "SetClassLongA", longArrayOf(hwnd, nindex.toLong(), dwnewlong.toLong())).toUInt()
-}
-
-public fun SetClassLongPtrA(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX, dwnewlong: Long): ULong {
-    return Win32DynamicFfi.invoke("user32.dll", "SetClassLongPtrA", longArrayOf(hwnd, nindex.toLong(), dwnewlong)).toULong()
-}
-
-public fun SetClassLongPtrW(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX, dwnewlong: Long): ULong {
-    return Win32DynamicFfi.invoke("user32.dll", "SetClassLongPtrW", longArrayOf(hwnd, nindex.toLong(), dwnewlong)).toULong()
-}
-
-public fun SetClassLongW(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX, dwnewlong: Int): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "SetClassLongW", longArrayOf(hwnd, nindex.toLong(), dwnewlong.toLong())).toUInt()
-}
-
-public fun SetClassWord(hwnd: HWND, nindex: Int, wnewword: UShort): UShort {
-    return Win32DynamicFfi.invoke("user32.dll", "SetClassWord", longArrayOf(hwnd, nindex.toLong(), wnewword.toLong())).toUShort()
-}
-
-public fun SetCoalescableTimer(hwnd: HWND, nidevent: ULong, uelapse: UInt, lptimerfunc: TIMERPROC, utolerancedelay: UInt): ULong {
-    return Win32DynamicFfi.invoke("user32.dll", "SetCoalescableTimer", longArrayOf(hwnd, nidevent.toLong(), uelapse.toLong(), Win32DynamicFfi.objectSlot(lptimerfunc), utolerancedelay.toLong())).toULong()
-}
-
-public fun SetCursor(hcursor: HCURSOR): HCURSOR {
-    return Win32DynamicFfi.invoke("user32.dll", "SetCursor", longArrayOf(hcursor))
-}
-
-public fun SetCursorPos(x: Int, y: Int): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetCursorPos", longArrayOf(x.toLong(), y.toLong())).toInt()
-}
-
-public fun SetDebugErrorLevel(dwlevel: UInt) {
-    Win32DynamicFfi.invoke("user32.dll", "SetDebugErrorLevel", longArrayOf(dwlevel.toLong()))
-}
-
-public fun SetDlgItemInt(hdlg: HWND, niddlgitem: Int, uvalue: UInt, bsigned: BOOL): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetDlgItemInt", longArrayOf(hdlg, niddlgitem.toLong(), uvalue.toLong(), bsigned.toLong())).toInt()
-}
-
-public fun SetDlgItemTextA(hdlg: HWND, niddlgitem: Int, lpstring: PCSTR): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetDlgItemTextA", longArrayOf(hdlg, niddlgitem.toLong(), lpstring)).toInt()
-}
-
-public fun SetDlgItemTextW(hdlg: HWND, niddlgitem: Int, lpstring: PCWSTR): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetDlgItemTextW", longArrayOf(hdlg, niddlgitem.toLong(), lpstring)).toInt()
-}
-
-public fun SetForegroundWindow(hwnd: HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetForegroundWindow", longArrayOf(hwnd)).toInt()
-}
-
-public fun SetLayeredWindowAttributes(hwnd: HWND, crkey: COLORREF, balpha: UByte, dwflags: LAYERED_WINDOW_ATTRIBUTES_FLAGS): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetLayeredWindowAttributes", longArrayOf(hwnd, crkey.toLong(), balpha.toLong(), dwflags.toLong())).toInt()
-}
-
-public fun SetMenu(hwnd: HWND, hmenu: HMENU): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetMenu", longArrayOf(hwnd, hmenu)).toInt()
-}
-
-public fun SetMenuDefaultItem(hmenu: HMENU, uitem: UInt, fbypos: UInt): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetMenuDefaultItem", longArrayOf(hmenu, uitem.toLong(), fbypos.toLong())).toInt()
-}
-
-public fun SetMenuInfo(param0: HMENU, param1: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetMenuInfo", longArrayOf(param0, param1)).toInt()
-}
-
-public fun SetMenuItemBitmaps(hmenu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS, hbitmapunchecked: HBITMAP, hbitmapchecked: HBITMAP): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetMenuItemBitmaps", longArrayOf(hmenu, uposition.toLong(), uflags.toLong(), hbitmapunchecked, hbitmapchecked)).toInt()
-}
-
-public fun SetMenuItemInfoA(hmenu: HMENU, item: UInt, fbypositon: BOOL, lpmii: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetMenuItemInfoA", longArrayOf(hmenu, item.toLong(), fbypositon.toLong(), lpmii)).toInt()
-}
-
-public fun SetMenuItemInfoW(hmenu: HMENU, item: UInt, fbypositon: BOOL, lpmii: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetMenuItemInfoW", longArrayOf(hmenu, item.toLong(), fbypositon.toLong(), lpmii)).toInt()
-}
-
-public fun SetMessageExtraInfo(lparam: LPARAM): LPARAM {
-    return Win32DynamicFfi.invoke("user32.dll", "SetMessageExtraInfo", longArrayOf(lparam))
-}
-
-public fun SetMessageQueue(cmessagesmax: Int): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetMessageQueue", longArrayOf(cmessagesmax.toLong())).toInt()
-}
-
-public fun SetParent(hwndchild: HWND, hwndnewparent: HWND): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "SetParent", longArrayOf(hwndchild, hwndnewparent))
-}
-
-public fun SetPhysicalCursorPos(x: Int, y: Int): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetPhysicalCursorPos", longArrayOf(x.toLong(), y.toLong())).toInt()
-}
-
-public fun SetProcessDPIAware(): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetProcessDPIAware", longArrayOf()).toInt()
-}
-
-public fun SetProcessDefaultLayout(dwdefaultlayout: UInt): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetProcessDefaultLayout", longArrayOf(dwdefaultlayout.toLong())).toInt()
-}
-
-public fun SetPropA(hwnd: HWND, lpstring: PCSTR, hdata: HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetPropA", longArrayOf(hwnd, lpstring, hdata)).toInt()
-}
-
-public fun SetPropW(hwnd: HWND, lpstring: PCWSTR, hdata: HANDLE): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetPropW", longArrayOf(hwnd, lpstring, hdata)).toInt()
-}
-
-public fun SetSystemCursor(hcur: HCURSOR, id: SYSTEM_CURSOR_ID): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetSystemCursor", longArrayOf(hcur, id.toLong())).toInt()
-}
-
-public fun SetTimer(hwnd: HWND, nidevent: ULong, uelapse: UInt, lptimerfunc: TIMERPROC): ULong {
-    return Win32DynamicFfi.invoke("user32.dll", "SetTimer", longArrayOf(hwnd, nidevent.toLong(), uelapse.toLong(), Win32DynamicFfi.objectSlot(lptimerfunc))).toULong()
-}
-
-public fun SetWindowDisplayAffinity(hwnd: HWND, dwaffinity: WINDOW_DISPLAY_AFFINITY): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetWindowDisplayAffinity", longArrayOf(hwnd, dwaffinity.toLong())).toInt()
-}
-
-public fun SetWindowLongA(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: Int): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "SetWindowLongA", longArrayOf(hwnd, nindex.toLong(), dwnewlong.toLong())).toInt()
-}
-
-public fun SetWindowLongPtrA(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: Long): Long {
-    return Win32DynamicFfi.invoke("user32.dll", "SetWindowLongPtrA", longArrayOf(hwnd, nindex.toLong(), dwnewlong))
-}
-
-public fun SetWindowLongPtrW(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: Long): Long {
-    return Win32DynamicFfi.invoke("user32.dll", "SetWindowLongPtrW", longArrayOf(hwnd, nindex.toLong(), dwnewlong))
-}
-
-public fun SetWindowLongW(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: Int): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "SetWindowLongW", longArrayOf(hwnd, nindex.toLong(), dwnewlong.toLong())).toInt()
-}
-
-public fun SetWindowPlacement(hwnd: HWND, lpwndpl: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetWindowPlacement", longArrayOf(hwnd, lpwndpl)).toInt()
-}
-
-public fun SetWindowPos(hwnd: HWND, hwndinsertafter: HWND, x: Int, y: Int, cx: Int, cy: Int, uflags: SET_WINDOW_POS_FLAGS): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetWindowPos", longArrayOf(hwnd, hwndinsertafter, x.toLong(), y.toLong(), cx.toLong(), cy.toLong(), uflags.toLong())).toInt()
-}
-
-public fun SetWindowTextA(hwnd: HWND, lpstring: PCSTR): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetWindowTextA", longArrayOf(hwnd, lpstring)).toInt()
-}
-
-public fun SetWindowTextW(hwnd: HWND, lpstring: PCWSTR): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetWindowTextW", longArrayOf(hwnd, lpstring)).toInt()
-}
-
-public fun SetWindowWord(hwnd: HWND, nindex: Int, wnewword: UShort): UShort {
-    return Win32DynamicFfi.invoke("user32.dll", "SetWindowWord", longArrayOf(hwnd, nindex.toLong(), wnewword.toLong())).toUShort()
-}
-
-public fun SetWindowsHookA(nfiltertype: Int, pfnfilterproc: HOOKPROC): HHOOK {
-    return Win32DynamicFfi.invoke("user32.dll", "SetWindowsHookA", longArrayOf(nfiltertype.toLong(), Win32DynamicFfi.objectSlot(pfnfilterproc)))
-}
-
-public fun SetWindowsHookExA(idhook: WINDOWS_HOOK_ID, lpfn: HOOKPROC, hmod: HINSTANCE, dwthreadid: UInt): HHOOK {
-    return Win32DynamicFfi.invoke("user32.dll", "SetWindowsHookExA", longArrayOf(idhook.toLong(), Win32DynamicFfi.objectSlot(lpfn), hmod, dwthreadid.toLong()))
-}
-
-public fun SetWindowsHookExW(idhook: WINDOWS_HOOK_ID, lpfn: HOOKPROC, hmod: HINSTANCE, dwthreadid: UInt): HHOOK {
-    return Win32DynamicFfi.invoke("user32.dll", "SetWindowsHookExW", longArrayOf(idhook.toLong(), Win32DynamicFfi.objectSlot(lpfn), hmod, dwthreadid.toLong()))
-}
-
-public fun SetWindowsHookW(nfiltertype: Int, pfnfilterproc: HOOKPROC): HHOOK {
-    return Win32DynamicFfi.invoke("user32.dll", "SetWindowsHookW", longArrayOf(nfiltertype.toLong(), Win32DynamicFfi.objectSlot(pfnfilterproc)))
-}
-
-public fun ShowCaret(hwnd: HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "ShowCaret", longArrayOf(hwnd)).toInt()
-}
-
-public fun ShowCursor(bshow: BOOL): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "ShowCursor", longArrayOf(bshow.toLong())).toInt()
-}
-
-public fun ShowOwnedPopups(hwnd: HWND, fshow: BOOL): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "ShowOwnedPopups", longArrayOf(hwnd, fshow.toLong())).toInt()
-}
-
-public fun ShowWindow(hwnd: HWND, ncmdshow: SHOW_WINDOW_CMD): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "ShowWindow", longArrayOf(hwnd, ncmdshow.toLong())).toInt()
-}
-
-public fun ShowWindowAsync(hwnd: HWND, ncmdshow: SHOW_WINDOW_CMD): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "ShowWindowAsync", longArrayOf(hwnd, ncmdshow.toLong())).toInt()
-}
-
-public fun SoundSentry(): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SoundSentry", longArrayOf()).toInt()
-}
-
-public fun SwitchToThisWindow(hwnd: HWND, funknown: BOOL) {
-    Win32DynamicFfi.invoke("user32.dll", "SwitchToThisWindow", longArrayOf(hwnd, funknown.toLong()))
-}
-
-public fun SystemParametersInfoA(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: UInt, pvparam: Long, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SystemParametersInfoA", longArrayOf(uiaction.toLong(), uiparam.toLong(), pvparam, fwinini.toLong())).toInt()
-}
-
-public fun SystemParametersInfoW(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: UInt, pvparam: Long, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SystemParametersInfoW", longArrayOf(uiaction.toLong(), uiparam.toLong(), pvparam, fwinini.toLong())).toInt()
-}
-
-public fun TileWindows(hwndparent: HWND, whow: TILE_WINDOWS_HOW, lprect: Long, ckids: UInt, lpkids: Long): UShort {
-    return Win32DynamicFfi.invoke("user32.dll", "TileWindows", longArrayOf(hwndparent, whow.toLong(), lprect, ckids.toLong(), lpkids)).toUShort()
-}
-
-public fun TrackPopupMenu(hmenu: HMENU, uflags: TRACK_POPUP_MENU_FLAGS, x: Int, y: Int, nreserved: Int, hwnd: HWND, prcrect: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "TrackPopupMenu", longArrayOf(hmenu, uflags.toLong(), x.toLong(), y.toLong(), nreserved.toLong(), hwnd, prcrect)).toInt()
-}
-
-public fun TrackPopupMenuEx(hmenu: HMENU, uflags: UInt, x: Int, y: Int, hwnd: HWND, lptpm: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "TrackPopupMenuEx", longArrayOf(hmenu, uflags.toLong(), x.toLong(), y.toLong(), hwnd, lptpm)).toInt()
-}
-
-public fun TranslateAcceleratorA(hwnd: HWND, hacctable: HACCEL, lpmsg: Long): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "TranslateAcceleratorA", longArrayOf(hwnd, hacctable, lpmsg)).toInt()
-}
-
-public fun TranslateAcceleratorW(hwnd: HWND, hacctable: HACCEL, lpmsg: Long): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "TranslateAcceleratorW", longArrayOf(hwnd, hacctable, lpmsg)).toInt()
-}
-
-public fun TranslateMDISysAccel(hwndclient: HWND, lpmsg: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "TranslateMDISysAccel", longArrayOf(hwndclient, lpmsg)).toInt()
-}
-
-public fun TranslateMessage(lpmsg: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "TranslateMessage", longArrayOf(lpmsg)).toInt()
-}
-
-public fun UnhookWindowsHook(ncode: Int, pfnfilterproc: HOOKPROC): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "UnhookWindowsHook", longArrayOf(ncode.toLong(), Win32DynamicFfi.objectSlot(pfnfilterproc))).toInt()
-}
-
-public fun UnhookWindowsHookEx(hhk: HHOOK): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "UnhookWindowsHookEx", longArrayOf(hhk)).toInt()
-}
-
-public fun UnregisterClassA(lpclassname: PCSTR, hinstance: HINSTANCE): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "UnregisterClassA", longArrayOf(lpclassname, hinstance)).toInt()
-}
-
-public fun UnregisterClassW(lpclassname: PCWSTR, hinstance: HINSTANCE): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "UnregisterClassW", longArrayOf(lpclassname, hinstance)).toInt()
-}
-
-public fun UnregisterDeviceNotification(handle: HDEVNOTIFY): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "UnregisterDeviceNotification", longArrayOf(handle)).toInt()
-}
-
-public fun UpdateLayeredWindow(hwnd: HWND, hdcdst: HDC, pptdst: Long, psize: Long, hdcsrc: HDC, pptsrc: Long, crkey: COLORREF, pblend: Long, dwflags: UPDATE_LAYERED_WINDOW_FLAGS): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "UpdateLayeredWindow", longArrayOf(hwnd, hdcdst, pptdst, psize, hdcsrc, pptsrc, crkey.toLong(), pblend, dwflags.toLong())).toInt()
-}
-
-public fun UpdateLayeredWindowIndirect(hwnd: HWND, pulwinfo: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "UpdateLayeredWindowIndirect", longArrayOf(hwnd, pulwinfo)).toInt()
-}
-
-public fun WaitMessage(): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "WaitMessage", longArrayOf()).toInt()
-}
-
-public fun WindowFromPhysicalPoint(point: POINT): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "WindowFromPhysicalPoint", longArrayOf(((point.x.toLong() and 0xFFFF_FFFFL) or ((point.y.toLong() and 0xFFFF_FFFFL) shl 32))))
-}
-
-public fun WindowFromPoint(point: POINT): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "WindowFromPoint", longArrayOf(((point.x.toLong() and 0xFFFF_FFFFL) or ((point.y.toLong() and 0xFFFF_FFFFL) shl 32))))
-}
-
-public fun wsprintfA(param0: PSTR, param1: PCSTR, vararg variadicArgs: Long): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "wsprintfA", longArrayOf(param0, param1) + variadicArgs).toInt()
-}
-
-public fun wsprintfW(param0: PWSTR, param1: PCWSTR, vararg variadicArgs: Long): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "wsprintfW", longArrayOf(param0, param1) + variadicArgs).toInt()
-}
-
-public fun wvsprintfA(param0: PSTR, param1: PCSTR, arglist: Long): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "wvsprintfA", longArrayOf(param0, param1, arglist)).toInt()
-}
-
-public fun wvsprintfW(param0: PWSTR, param1: PCWSTR, arglist: Long): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "wvsprintfW", longArrayOf(param0, param1, arglist)).toInt()
-}
+public expect fun AdjustWindowRect(lprect: Long, dwstyle: WINDOW_STYLE, bmenu: BOOL): BOOL
+
+public expect fun AdjustWindowRectEx(lprect: Long, dwstyle: WINDOW_STYLE, bmenu: BOOL, dwexstyle: WINDOW_EX_STYLE): BOOL
+
+public expect fun AllowSetForegroundWindow(dwprocessid: UInt): BOOL
+
+public expect fun AnimateWindow(hwnd: HWND, dwtime: UInt, dwflags: ANIMATE_WINDOW_FLAGS): BOOL
+
+public expect fun AnyPopup(): BOOL
+
+public expect fun AppendMenuA(hmenu: HMENU, uflags: MENU_ITEM_FLAGS, uidnewitem: ULong, lpnewitem: PCSTR): BOOL
+
+public expect fun AppendMenuW(hmenu: HMENU, uflags: MENU_ITEM_FLAGS, uidnewitem: ULong, lpnewitem: PCWSTR): BOOL
+
+public expect fun ArrangeIconicWindows(hwnd: HWND): UInt
+
+public expect fun BeginDeferWindowPos(nnumwindows: Int): HDWP
+
+public expect fun BringWindowToTop(hwnd: HWND): BOOL
+
+public expect fun CalculatePopupWindowPosition(anchorpoint: Long, windowsize: Long, flags: UInt, excluderect: Long, popupwindowposition: Long): BOOL
+
+public expect fun CallMsgFilterA(lpmsg: Long, ncode: Int): BOOL
+
+public expect fun CallMsgFilterW(lpmsg: Long, ncode: Int): BOOL
+
+public expect fun CallNextHookEx(hhk: HHOOK, ncode: Int, wparam: WPARAM, lparam: LPARAM): LRESULT
+
+public expect fun CallWindowProcA(lpprevwndfunc: WNDPROC, hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT
+
+public expect fun CallWindowProcW(lpprevwndfunc: WNDPROC, hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT
+
+public expect fun CancelShutdown(): BOOL
+
+public expect fun CascadeWindows(hwndparent: HWND, whow: CASCADE_WINDOWS_HOW, lprect: Long, ckids: UInt, lpkids: Long): UShort
+
+public expect fun ChangeMenuA(hmenu: HMENU, cmd: UInt, lpsznewitem: PCSTR, cmdinsert: UInt, flags: UInt): BOOL
+
+public expect fun ChangeMenuW(hmenu: HMENU, cmd: UInt, lpsznewitem: PCWSTR, cmdinsert: UInt, flags: UInt): BOOL
+
+public expect fun ChangeWindowMessageFilter(message: UInt, dwflag: CHANGE_WINDOW_MESSAGE_FILTER_FLAGS): BOOL
+
+public expect fun ChangeWindowMessageFilterEx(hwnd: HWND, message: UInt, action: WINDOW_MESSAGE_FILTER_ACTION, pchangefilterstruct: Long): BOOL
+
+public expect fun CharLowerA(lpsz: PSTR): PSTR
+
+public expect fun CharLowerBuffA(lpsz: PSTR, cchlength: UInt): UInt
+
+public expect fun CharLowerBuffW(lpsz: PWSTR, cchlength: UInt): UInt
+
+public expect fun CharLowerW(lpsz: PWSTR): PWSTR
+
+public expect fun CharNextA(lpsz: PCSTR): PSTR
+
+public expect fun CharNextExA(codepage: UShort, lpcurrentchar: PCSTR, dwflags: UInt): PSTR
+
+public expect fun CharNextW(lpsz: PCWSTR): PWSTR
+
+public expect fun CharPrevA(lpszstart: PCSTR, lpszcurrent: PCSTR): PSTR
+
+public expect fun CharPrevExA(codepage: UShort, lpstart: PCSTR, lpcurrentchar: PCSTR, dwflags: UInt): PSTR
+
+public expect fun CharPrevW(lpszstart: PCWSTR, lpszcurrent: PCWSTR): PWSTR
+
+public expect fun CharToOemA(psrc: PCSTR, pdst: PSTR): BOOL
+
+public expect fun CharToOemBuffA(lpszsrc: PCSTR, lpszdst: PSTR, cchdstlength: UInt): BOOL
+
+public expect fun CharToOemBuffW(lpszsrc: PCWSTR, lpszdst: PSTR, cchdstlength: UInt): BOOL
+
+public expect fun CharToOemW(psrc: PCWSTR, pdst: PSTR): BOOL
+
+public expect fun CharUpperA(lpsz: PSTR): PSTR
+
+public expect fun CharUpperBuffA(lpsz: PSTR, cchlength: UInt): UInt
+
+public expect fun CharUpperBuffW(lpsz: PWSTR, cchlength: UInt): UInt
+
+public expect fun CharUpperW(lpsz: PWSTR): PWSTR
+
+public expect fun CheckMenuItem(hmenu: HMENU, uidcheckitem: UInt, ucheck: UInt): UInt
+
+public expect fun CheckMenuRadioItem(hmenu: HMENU, first: UInt, last: UInt, check: UInt, flags: UInt): BOOL
+
+public expect fun ChildWindowFromPoint(hwndparent: HWND, point: POINT): HWND
+
+public expect fun ChildWindowFromPointEx(hwnd: HWND, pt: POINT, flags: CWP_FLAGS): HWND
+
+public expect fun ClipCursor(lprect: Long): BOOL
+
+public expect fun CloseWindow(hwnd: HWND): BOOL
+
+public expect fun CopyAcceleratorTableA(haccelsrc: HACCEL, lpacceldst: Long, caccelentries: Int): Int
+
+public expect fun CopyAcceleratorTableW(haccelsrc: HACCEL, lpacceldst: Long, caccelentries: Int): Int
+
+public expect fun CopyIcon(hicon: HICON): HICON
+
+public expect fun CopyImage(h: HANDLE, type: GDI_IMAGE_TYPE, cx: Int, cy: Int, flags: IMAGE_FLAGS): HANDLE
+
+public expect fun CreateAcceleratorTableA(paccel: Long, caccel: Int): HACCEL
+
+public expect fun CreateAcceleratorTableW(paccel: Long, caccel: Int): HACCEL
+
+public expect fun CreateCaret(hwnd: HWND, hbitmap: HBITMAP, nwidth: Int, nheight: Int): BOOL
+
+public expect fun CreateCursor(hinst: HINSTANCE, xhotspot: Int, yhotspot: Int, nwidth: Int, nheight: Int, pvandplane: Long, pvxorplane: Long): HCURSOR
+
+public expect fun CreateDialogIndirectParamA(hinstance: HINSTANCE, lptemplate: Long, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): HWND
+
+public expect fun CreateDialogIndirectParamW(hinstance: HINSTANCE, lptemplate: Long, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): HWND
+
+public expect fun CreateDialogParamA(hinstance: HINSTANCE, lptemplatename: PCSTR, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): HWND
+
+public expect fun CreateDialogParamW(hinstance: HINSTANCE, lptemplatename: PCWSTR, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): HWND
+
+public expect fun CreateIcon(hinstance: HINSTANCE, nwidth: Int, nheight: Int, cplanes: UByte, cbitspixel: UByte, lpbandbits: Long, lpbxorbits: Long): HICON
+
+public expect fun CreateIconFromResource(presbits: Long, dwressize: UInt, ficon: BOOL, dwver: UInt): HICON
+
+public expect fun CreateIconFromResourceEx(presbits: Long, dwressize: UInt, ficon: BOOL, dwver: UInt, cxdesired: Int, cydesired: Int, flags: IMAGE_FLAGS): HICON
+
+public expect fun CreateIconIndirect(piconinfo: Long): HICON
+
+public expect fun CreateMDIWindowA(lpclassname: PCSTR, lpwindowname: PCSTR, dwstyle: WINDOW_STYLE, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: HWND, hinstance: HINSTANCE, lparam: LPARAM): HWND
+
+public expect fun CreateMDIWindowW(lpclassname: PCWSTR, lpwindowname: PCWSTR, dwstyle: WINDOW_STYLE, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: HWND, hinstance: HINSTANCE, lparam: LPARAM): HWND
+
+public expect fun CreateMenu(): HMENU
+
+public expect fun CreatePopupMenu(): HMENU
+
+public expect fun CreateResourceIndexer(projectroot: PCWSTR, extensiondllpath: PCWSTR, ppresourceindexer: Long): HRESULT
+
+public expect fun CreateWindowExA(dwexstyle: WINDOW_EX_STYLE, lpclassname: PCSTR, lpwindowname: PCSTR, dwstyle: WINDOW_STYLE, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: HWND, hmenu: HMENU, hinstance: HINSTANCE, lpparam: Long): HWND
+
+public expect fun CreateWindowExW(dwexstyle: WINDOW_EX_STYLE, lpclassname: PCWSTR, lpwindowname: PCWSTR, dwstyle: WINDOW_STYLE, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: HWND, hmenu: HMENU, hinstance: HINSTANCE, lpparam: Long): HWND
+
+public expect fun DefDlgProcA(hdlg: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT
+
+public expect fun DefDlgProcW(hdlg: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT
+
+public expect fun DefFrameProcA(hwnd: HWND, hwndmdiclient: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT
+
+public expect fun DefFrameProcW(hwnd: HWND, hwndmdiclient: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT
+
+public expect fun DefMDIChildProcA(hwnd: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT
+
+public expect fun DefMDIChildProcW(hwnd: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT
+
+public expect fun DefWindowProcA(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT
+
+public expect fun DefWindowProcW(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT
+
+public expect fun DeferWindowPos(hwinposinfo: HDWP, hwnd: HWND, hwndinsertafter: HWND, x: Int, y: Int, cx: Int, cy: Int, uflags: SET_WINDOW_POS_FLAGS): HDWP
+
+public expect fun DeleteMenu(hmenu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS): BOOL
+
+public expect fun DeregisterShellHookWindow(hwnd: HWND): BOOL
+
+public expect fun DestroyAcceleratorTable(haccel: HACCEL): BOOL
+
+public expect fun DestroyCaret(): BOOL
+
+public expect fun DestroyCursor(hcursor: HCURSOR): BOOL
+
+public expect fun DestroyIcon(hicon: HICON): BOOL
+
+public expect fun DestroyIndexedResults(resourceuri: PCWSTR, qualifiercount: UInt, qualifiers: Long)
+
+public expect fun DestroyMenu(hmenu: HMENU): BOOL
+
+public expect fun DestroyResourceIndexer(resourceindexer: Long)
+
+public expect fun DestroyWindow(hwnd: HWND): BOOL
+
+public expect fun DialogBoxIndirectParamA(hinstance: HINSTANCE, hdialogtemplate: Long, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): Long
+
+public expect fun DialogBoxIndirectParamW(hinstance: HINSTANCE, hdialogtemplate: Long, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): Long
+
+public expect fun DialogBoxParamA(hinstance: HINSTANCE, lptemplatename: PCSTR, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): Long
+
+public expect fun DialogBoxParamW(hinstance: HINSTANCE, lptemplatename: PCWSTR, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): Long
+
+public expect fun DisableProcessWindowsGhosting()
+
+public expect fun DispatchMessageA(lpmsg: Long): LRESULT
+
+public expect fun DispatchMessageW(lpmsg: Long): LRESULT
+
+public expect fun DragObject(hwndparent: HWND, hwndfrom: HWND, fmt: UInt, data: ULong, hcur: HCURSOR): UInt
+
+public expect fun DrawIcon(hdc: HDC, x: Int, y: Int, hicon: HICON): BOOL
+
+public expect fun DrawIconEx(hdc: HDC, xleft: Int, ytop: Int, hicon: HICON, cxwidth: Int, cywidth: Int, istepifanicur: UInt, hbrflickerfreedraw: HBRUSH, diflags: DI_FLAGS): BOOL
+
+public expect fun DrawMenuBar(hwnd: HWND): BOOL
+
+public expect fun EnableMenuItem(hmenu: HMENU, uidenableitem: UInt, uenable: MENU_ITEM_FLAGS): BOOL
+
+public expect fun EndDeferWindowPos(hwinposinfo: HDWP): BOOL
+
+public expect fun EndDialog(hdlg: HWND, nresult: Long): BOOL
+
+public expect fun EndMenu(): BOOL
+
+public expect fun EnumChildWindows(hwndparent: HWND, lpenumfunc: WNDENUMPROC, lparam: LPARAM): BOOL
+
+public expect fun EnumPropsA(hwnd: HWND, lpenumfunc: PROPENUMPROCA): Int
+
+public expect fun EnumPropsExA(hwnd: HWND, lpenumfunc: PROPENUMPROCEXA, lparam: LPARAM): Int
+
+public expect fun EnumPropsExW(hwnd: HWND, lpenumfunc: PROPENUMPROCEXW, lparam: LPARAM): Int
+
+public expect fun EnumPropsW(hwnd: HWND, lpenumfunc: PROPENUMPROCW): Int
+
+public expect fun EnumThreadWindows(dwthreadid: UInt, lpfn: WNDENUMPROC, lparam: LPARAM): BOOL
+
+public expect fun EnumWindows(lpenumfunc: WNDENUMPROC, lparam: LPARAM): BOOL
+
+public expect fun FindWindowA(lpclassname: PCSTR, lpwindowname: PCSTR): HWND
+
+public expect fun FindWindowExA(hwndparent: HWND, hwndchildafter: HWND, lpszclass: PCSTR, lpszwindow: PCSTR): HWND
+
+public expect fun FindWindowExW(hwndparent: HWND, hwndchildafter: HWND, lpszclass: PCWSTR, lpszwindow: PCWSTR): HWND
+
+public expect fun FindWindowW(lpclassname: PCWSTR, lpwindowname: PCWSTR): HWND
+
+public expect fun FlashWindow(hwnd: HWND, binvert: BOOL): BOOL
+
+public expect fun FlashWindowEx(pfwi: Long): BOOL
+
+public expect fun GetAltTabInfoA(hwnd: HWND, iitem: Int, pati: Long, pszitemtext: PSTR, cchitemtext: UInt): BOOL
+
+public expect fun GetAltTabInfoW(hwnd: HWND, iitem: Int, pati: Long, pszitemtext: PWSTR, cchitemtext: UInt): BOOL
+
+public expect fun GetAncestor(hwnd: HWND, gaflags: GET_ANCESTOR_FLAGS): HWND
+
+public expect fun GetCaretBlinkTime(): UInt
+
+public expect fun GetCaretPos(lppoint: Long): BOOL
+
+public expect fun GetClassInfoA(hinstance: HINSTANCE, lpclassname: PCSTR, lpwndclass: Long): BOOL
+
+public expect fun GetClassInfoExA(hinstance: HINSTANCE, lpszclass: PCSTR, lpwcx: Long): BOOL
+
+public expect fun GetClassInfoExW(hinstance: HINSTANCE, lpszclass: PCWSTR, lpwcx: Long): BOOL
+
+public expect fun GetClassInfoW(hinstance: HINSTANCE, lpclassname: PCWSTR, lpwndclass: Long): BOOL
+
+public expect fun GetClassLongA(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX): UInt
+
+public expect fun GetClassLongPtrA(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX): ULong
+
+public expect fun GetClassLongPtrW(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX): ULong
+
+public expect fun GetClassLongW(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX): UInt
+
+public expect fun GetClassNameA(hwnd: HWND, lpclassname: PSTR, nmaxcount: Int): Int
+
+public expect fun GetClassNameW(hwnd: HWND, lpclassname: PWSTR, nmaxcount: Int): Int
+
+public expect fun GetClassWord(hwnd: HWND, nindex: Int): UShort
+
+public expect fun GetClientRect(hwnd: HWND, lprect: Long): BOOL
+
+public expect fun GetClipCursor(lprect: Long): BOOL
+
+public expect fun GetCursor(): HCURSOR
+
+public expect fun GetCursorInfo(pci: Long): BOOL
+
+public expect fun GetCursorPos(lppoint: Long): BOOL
+
+public expect fun GetDesktopWindow(): HWND
+
+public expect fun GetDialogBaseUnits(): Int
+
+public expect fun GetDlgCtrlID(hwnd: HWND): Int
+
+public expect fun GetDlgItem(hdlg: HWND, niddlgitem: Int): HWND
+
+public expect fun GetDlgItemInt(hdlg: HWND, niddlgitem: Int, lptranslated: Long, bsigned: BOOL): UInt
+
+public expect fun GetDlgItemTextA(hdlg: HWND, niddlgitem: Int, lpstring: PSTR, cchmax: Int): UInt
+
+public expect fun GetDlgItemTextW(hdlg: HWND, niddlgitem: Int, lpstring: PWSTR, cchmax: Int): UInt
+
+public expect fun GetForegroundWindow(): HWND
+
+public expect fun GetGUIThreadInfo(idthread: UInt, pgui: Long): BOOL
+
+public expect fun GetIconInfo(hicon: HICON, piconinfo: Long): BOOL
+
+public expect fun GetIconInfoExA(hicon: HICON, piconinfo: Long): BOOL
+
+public expect fun GetIconInfoExW(hicon: HICON, piconinfo: Long): BOOL
+
+public expect fun GetInputState(): BOOL
+
+public expect fun GetLastActivePopup(hwnd: HWND): HWND
+
+public expect fun GetLayeredWindowAttributes(hwnd: HWND, pcrkey: Long, pbalpha: Long, pdwflags: Long): BOOL
+
+public expect fun GetMenu(hwnd: HWND): HMENU
+
+public expect fun GetMenuBarInfo(hwnd: HWND, idobject: OBJECT_IDENTIFIER, iditem: Int, pmbi: Long): BOOL
+
+public expect fun GetMenuCheckMarkDimensions(): Int
+
+public expect fun GetMenuDefaultItem(hmenu: HMENU, fbypos: UInt, gmdiflags: GET_MENU_DEFAULT_ITEM_FLAGS): UInt
+
+public expect fun GetMenuInfo(param0: HMENU, param1: Long): BOOL
+
+public expect fun GetMenuItemCount(hmenu: HMENU): Int
+
+public expect fun GetMenuItemID(hmenu: HMENU, npos: Int): UInt
+
+public expect fun GetMenuItemInfoA(hmenu: HMENU, item: UInt, fbyposition: BOOL, lpmii: Long): BOOL
+
+public expect fun GetMenuItemInfoW(hmenu: HMENU, item: UInt, fbyposition: BOOL, lpmii: Long): BOOL
+
+public expect fun GetMenuItemRect(hwnd: HWND, hmenu: HMENU, uitem: UInt, lprcitem: Long): BOOL
+
+public expect fun GetMenuState(hmenu: HMENU, uid: UInt, uflags: MENU_ITEM_FLAGS): UInt
+
+public expect fun GetMenuStringA(hmenu: HMENU, uiditem: UInt, lpstring: PSTR, cchmax: Int, flags: MENU_ITEM_FLAGS): Int
+
+public expect fun GetMenuStringW(hmenu: HMENU, uiditem: UInt, lpstring: PWSTR, cchmax: Int, flags: MENU_ITEM_FLAGS): Int
+
+public expect fun GetMessageA(lpmsg: Long, hwnd: HWND, wmsgfiltermin: UInt, wmsgfiltermax: UInt): BOOL
+
+public expect fun GetMessageExtraInfo(): LPARAM
+
+public expect fun GetMessagePos(): UInt
+
+public expect fun GetMessageTime(): Int
+
+public expect fun GetMessageW(lpmsg: Long, hwnd: HWND, wmsgfiltermin: UInt, wmsgfiltermax: UInt): BOOL
+
+public expect fun GetNextDlgGroupItem(hdlg: HWND, hctl: HWND, bprevious: BOOL): HWND
+
+public expect fun GetNextDlgTabItem(hdlg: HWND, hctl: HWND, bprevious: BOOL): HWND
+
+public expect fun GetParent(hwnd: HWND): HWND
+
+public expect fun GetPhysicalCursorPos(lppoint: Long): BOOL
+
+public expect fun GetProcessDefaultLayout(pdwdefaultlayout: Long): BOOL
+
+public expect fun GetPropA(hwnd: HWND, lpstring: PCSTR): HANDLE
+
+public expect fun GetPropW(hwnd: HWND, lpstring: PCWSTR): HANDLE
+
+public expect fun GetQueueStatus(flags: QUEUE_STATUS_FLAGS): UInt
+
+public expect fun GetScrollBarInfo(hwnd: HWND, idobject: OBJECT_IDENTIFIER, psbi: Long): BOOL
+
+public expect fun GetScrollInfo(hwnd: HWND, nbar: SCROLLBAR_CONSTANTS, lpsi: Long): BOOL
+
+public expect fun GetScrollPos(hwnd: HWND, nbar: SCROLLBAR_CONSTANTS): Int
+
+public expect fun GetScrollRange(hwnd: HWND, nbar: SCROLLBAR_CONSTANTS, lpminpos: Long, lpmaxpos: Long): BOOL
+
+public expect fun GetShellWindow(): HWND
+
+public expect fun GetSubMenu(hmenu: HMENU, npos: Int): HMENU
+
+public expect fun GetSystemMenu(hwnd: HWND, brevert: BOOL): HMENU
+
+public expect fun GetSystemMetrics(nindex: SYSTEM_METRICS_INDEX): Int
+
+public expect fun GetTitleBarInfo(hwnd: HWND, pti: Long): BOOL
+
+public expect fun GetTopWindow(hwnd: HWND): HWND
+
+public expect fun GetWindow(hwnd: HWND, ucmd: GET_WINDOW_CMD): HWND
+
+public expect fun GetWindowDisplayAffinity(hwnd: HWND, pdwaffinity: Long): BOOL
+
+public expect fun GetWindowInfo(hwnd: HWND, pwi: Long): BOOL
+
+public expect fun GetWindowLongA(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX): Int
+
+public expect fun GetWindowLongPtrA(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX): Long
+
+public expect fun GetWindowLongPtrW(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX): Long
+
+public expect fun GetWindowLongW(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX): Int
+
+public expect fun GetWindowModuleFileNameA(hwnd: HWND, pszfilename: PSTR, cchfilenamemax: UInt): UInt
+
+public expect fun GetWindowModuleFileNameW(hwnd: HWND, pszfilename: PWSTR, cchfilenamemax: UInt): UInt
+
+public expect fun GetWindowPlacement(hwnd: HWND, lpwndpl: Long): BOOL
+
+public expect fun GetWindowRect(hwnd: HWND, lprect: Long): BOOL
+
+public expect fun GetWindowTextA(hwnd: HWND, lpstring: PSTR, nmaxcount: Int): Int
+
+public expect fun GetWindowTextLengthA(hwnd: HWND): Int
+
+public expect fun GetWindowTextLengthW(hwnd: HWND): Int
+
+public expect fun GetWindowTextW(hwnd: HWND, lpstring: PWSTR, nmaxcount: Int): Int
+
+public expect fun GetWindowThreadProcessId(hwnd: HWND, lpdwprocessid: Long): UInt
+
+public expect fun GetWindowWord(hwnd: HWND, nindex: Int): UShort
+
+public expect fun HideCaret(hwnd: HWND): BOOL
+
+public expect fun HiliteMenuItem(hwnd: HWND, hmenu: HMENU, uidhiliteitem: UInt, uhilite: UInt): BOOL
+
+public expect fun InSendMessage(): BOOL
+
+public expect fun InSendMessageEx(lpreserved: Long): UInt
+
+public expect fun IndexFilePath(resourceindexer: Long, filepath: PCWSTR, ppresourceuri: Long, pqualifiercount: Long, ppqualifiers: Long): HRESULT
+
+public expect fun InheritWindowMonitor(hwnd: HWND, hwndinherit: HWND): BOOL
+
+public expect fun InsertMenuA(hmenu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS, uidnewitem: ULong, lpnewitem: PCSTR): BOOL
+
+public expect fun InsertMenuItemA(hmenu: HMENU, item: UInt, fbyposition: BOOL, lpmi: Long): BOOL
+
+public expect fun InsertMenuItemW(hmenu: HMENU, item: UInt, fbyposition: BOOL, lpmi: Long): BOOL
+
+public expect fun InsertMenuW(hmenu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS, uidnewitem: ULong, lpnewitem: PCWSTR): BOOL
+
+public expect fun InternalGetWindowText(hwnd: HWND, pstring: PWSTR, cchmaxcount: Int): Int
+
+public expect fun IsCharAlphaA(ch: Byte): BOOL
+
+public expect fun IsCharAlphaNumericA(ch: Byte): BOOL
+
+public expect fun IsCharAlphaNumericW(ch: UShort): BOOL
+
+public expect fun IsCharAlphaW(ch: UShort): BOOL
+
+public expect fun IsCharLowerA(ch: Byte): BOOL
+
+public expect fun IsCharUpperA(ch: Byte): BOOL
+
+public expect fun IsCharUpperW(ch: UShort): BOOL
+
+public expect fun IsChild(hwndparent: HWND, hwnd: HWND): BOOL
+
+public expect fun IsDialogMessageA(hdlg: HWND, lpmsg: Long): BOOL
+
+public expect fun IsDialogMessageW(hdlg: HWND, lpmsg: Long): BOOL
+
+public expect fun IsGUIThread(bconvert: BOOL): BOOL
+
+public expect fun IsHungAppWindow(hwnd: HWND): BOOL
+
+public expect fun IsIconic(hwnd: HWND): BOOL
+
+public expect fun IsMenu(hmenu: HMENU): BOOL
+
+public expect fun IsProcessDPIAware(): BOOL
+
+public expect fun IsWindow(hwnd: HWND): BOOL
+
+public expect fun IsWindowArranged(hwnd: HWND): BOOL
+
+public expect fun IsWindowUnicode(hwnd: HWND): BOOL
+
+public expect fun IsWindowVisible(hwnd: HWND): BOOL
+
+public expect fun IsWow64Message(): BOOL
+
+public expect fun IsZoomed(hwnd: HWND): BOOL
+
+public expect fun KillTimer(hwnd: HWND, uidevent: ULong): BOOL
+
+public expect fun LoadAcceleratorsA(hinstance: HINSTANCE, lptablename: PCSTR): HACCEL
+
+public expect fun LoadAcceleratorsW(hinstance: HINSTANCE, lptablename: PCWSTR): HACCEL
+
+public expect fun LoadCursorA(hinstance: HINSTANCE, lpcursorname: PCSTR): HCURSOR
+
+public expect fun LoadCursorFromFileA(lpfilename: PCSTR): HCURSOR
+
+public expect fun LoadCursorFromFileW(lpfilename: PCWSTR): HCURSOR
+
+public expect fun LoadCursorW(hinstance: HINSTANCE, lpcursorname: PCWSTR): HCURSOR
+
+public expect fun LoadIconA(hinstance: HINSTANCE, lpiconname: PCSTR): HICON
+
+public expect fun LoadIconW(hinstance: HINSTANCE, lpiconname: PCWSTR): HICON
+
+public expect fun LoadImageA(hinst: HINSTANCE, name: PCSTR, type: GDI_IMAGE_TYPE, cx: Int, cy: Int, fuload: IMAGE_FLAGS): HANDLE
+
+public expect fun LoadImageW(hinst: HINSTANCE, name: PCWSTR, type: GDI_IMAGE_TYPE, cx: Int, cy: Int, fuload: IMAGE_FLAGS): HANDLE
+
+public expect fun LoadMenuA(hinstance: HINSTANCE, lpmenuname: PCSTR): HMENU
+
+public expect fun LoadMenuIndirectA(lpmenutemplate: Long): HMENU
+
+public expect fun LoadMenuIndirectW(lpmenutemplate: Long): HMENU
+
+public expect fun LoadMenuW(hinstance: HINSTANCE, lpmenuname: PCWSTR): HMENU
+
+public expect fun LoadStringA(hinstance: HINSTANCE, uid: UInt, lpbuffer: PSTR, cchbuffermax: Int): Int
+
+public expect fun LoadStringW(hinstance: HINSTANCE, uid: UInt, lpbuffer: PWSTR, cchbuffermax: Int): Int
+
+public expect fun LockSetForegroundWindow(ulockcode: FOREGROUND_WINDOW_LOCK_CODE): BOOL
+
+public expect fun LogicalToPhysicalPoint(hwnd: HWND, lppoint: Long): BOOL
+
+public expect fun LookupIconIdFromDirectory(presbits: Long, ficon: BOOL): Int
+
+public expect fun LookupIconIdFromDirectoryEx(presbits: Long, ficon: BOOL, cxdesired: Int, cydesired: Int, flags: IMAGE_FLAGS): Int
+
+public expect fun MapDialogRect(hdlg: HWND, lprect: Long): BOOL
+
+public expect fun MenuItemFromPoint(hwnd: HWND, hmenu: HMENU, ptscreen: POINT): Int
+
+public expect fun MessageBoxA(hwnd: HWND, lptext: PCSTR, lpcaption: PCSTR, utype: MESSAGEBOX_STYLE): MESSAGEBOX_RESULT
+
+public expect fun MessageBoxExA(hwnd: HWND, lptext: PCSTR, lpcaption: PCSTR, utype: MESSAGEBOX_STYLE, wlanguageid: UShort): MESSAGEBOX_RESULT
+
+public expect fun MessageBoxExW(hwnd: HWND, lptext: PCWSTR, lpcaption: PCWSTR, utype: MESSAGEBOX_STYLE, wlanguageid: UShort): MESSAGEBOX_RESULT
+
+public expect fun MessageBoxIndirectA(lpmbp: Long): MESSAGEBOX_RESULT
+
+public expect fun MessageBoxIndirectW(lpmbp: Long): MESSAGEBOX_RESULT
+
+public expect fun MessageBoxW(hwnd: HWND, lptext: PCWSTR, lpcaption: PCWSTR, utype: MESSAGEBOX_STYLE): MESSAGEBOX_RESULT
+
+public expect fun ModifyMenuA(hmnu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS, uidnewitem: ULong, lpnewitem: PCSTR): BOOL
+
+public expect fun ModifyMenuW(hmnu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS, uidnewitem: ULong, lpnewitem: PCWSTR): BOOL
+
+public expect fun MoveWindow(hwnd: HWND, x: Int, y: Int, nwidth: Int, nheight: Int, brepaint: BOOL): BOOL
+
+public expect fun MrmCreateConfig(platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, outputxmlfile: PCWSTR): HRESULT
+
+public expect fun MrmCreateConfigInMemory(platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, outputxmldata: Long, outputxmlsize: Long): HRESULT
+
+public expect fun MrmCreateResourceFile(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputdirectory: PCWSTR): HRESULT
+
+public expect fun MrmCreateResourceFileInMemory(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputpridata: Long, outputprisize: Long): HRESULT
+
+public expect fun MrmCreateResourceFileWithChecksum(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, checksum: UInt, outputdirectory: PCWSTR): HRESULT
+
+public expect fun MrmCreateResourceIndexer(packagefamilyname: PCWSTR, projectroot: PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, indexer: Long): HRESULT
+
+public expect fun MrmCreateResourceIndexerFromPreviousPriData(projectroot: PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, pridata: Long, prisize: UInt, indexer: Long): HRESULT
+
+public expect fun MrmCreateResourceIndexerFromPreviousPriFile(projectroot: PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, prifile: PCWSTR, indexer: Long): HRESULT
+
+public expect fun MrmCreateResourceIndexerFromPreviousSchemaData(projectroot: PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, schemaxmldata: Long, schemaxmlsize: UInt, indexer: Long): HRESULT
+
+public expect fun MrmCreateResourceIndexerFromPreviousSchemaFile(projectroot: PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, schemafile: PCWSTR, indexer: Long): HRESULT
+
+public expect fun MrmCreateResourceIndexerWithFlags(packagefamilyname: PCWSTR, projectroot: PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, flags: MrmIndexerFlags, indexer: Long): HRESULT
+
+public expect fun MrmDestroyIndexerAndMessages(indexer: MrmResourceIndexerHandle): HRESULT
+
+public expect fun MrmDumpPriDataInMemory(inputpridata: Long, inputprisize: UInt, schemapridata: Long, schemaprisize: UInt, dumptype: MrmDumpType, outputxmldata: Long, outputxmlsize: Long): HRESULT
+
+public expect fun MrmDumpPriFile(indexfilename: PCWSTR, schemaprifile: PCWSTR, dumptype: MrmDumpType, outputxmlfile: PCWSTR): HRESULT
+
+public expect fun MrmDumpPriFileInMemory(indexfilename: PCWSTR, schemaprifile: PCWSTR, dumptype: MrmDumpType, outputxmldata: Long, outputxmlsize: Long): HRESULT
+
+public expect fun MrmFreeMemory(data: Long): HRESULT
+
+public expect fun MrmGetPriFileContentChecksum(prifile: PCWSTR, checksum: Long): HRESULT
+
+public expect fun MrmIndexEmbeddedData(indexer: MrmResourceIndexerHandle, resourceuri: PCWSTR, embeddeddata: Long, embeddeddatasize: UInt, qualifiers: PCWSTR): HRESULT
+
+public expect fun MrmIndexFile(indexer: MrmResourceIndexerHandle, resourceuri: PCWSTR, filepath: PCWSTR, qualifiers: PCWSTR): HRESULT
+
+public expect fun MrmIndexFileAutoQualifiers(indexer: MrmResourceIndexerHandle, filepath: PCWSTR): HRESULT
+
+public expect fun MrmIndexResourceContainerAutoQualifiers(indexer: MrmResourceIndexerHandle, containerpath: PCWSTR): HRESULT
+
+public expect fun MrmIndexString(indexer: MrmResourceIndexerHandle, resourceuri: PCWSTR, resourcestring: PCWSTR, qualifiers: PCWSTR): HRESULT
+
+public expect fun MrmPeekResourceIndexerMessages(handle: MrmResourceIndexerHandle, messages: Long, nummsgs: Long): HRESULT
+
+public expect fun MsgWaitForMultipleObjects(ncount: UInt, phandles: Long, fwaitall: BOOL, dwmilliseconds: UInt, dwwakemask: QUEUE_STATUS_FLAGS): WAIT_EVENT
+
+public expect fun MsgWaitForMultipleObjectsEx(ncount: UInt, phandles: Long, dwmilliseconds: UInt, dwwakemask: QUEUE_STATUS_FLAGS, dwflags: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS): WAIT_EVENT
+
+public expect fun OemToCharA(psrc: PCSTR, pdst: PSTR): BOOL
+
+public expect fun OemToCharBuffA(lpszsrc: PCSTR, lpszdst: PSTR, cchdstlength: UInt): BOOL
+
+public expect fun OemToCharBuffW(lpszsrc: PCSTR, lpszdst: PWSTR, cchdstlength: UInt): BOOL
+
+public expect fun OemToCharW(psrc: PCSTR, pdst: PWSTR): BOOL
+
+public expect fun OpenIcon(hwnd: HWND): BOOL
+
+public expect fun PeekMessageA(lpmsg: Long, hwnd: HWND, wmsgfiltermin: UInt, wmsgfiltermax: UInt, wremovemsg: PEEK_MESSAGE_REMOVE_TYPE): BOOL
+
+public expect fun PeekMessageW(lpmsg: Long, hwnd: HWND, wmsgfiltermin: UInt, wmsgfiltermax: UInt, wremovemsg: PEEK_MESSAGE_REMOVE_TYPE): BOOL
+
+public expect fun PhysicalToLogicalPoint(hwnd: HWND, lppoint: Long): BOOL
+
+public expect fun PostMessageA(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL
+
+public expect fun PostMessageW(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL
+
+public expect fun PostQuitMessage(nexitcode: Int)
+
+public expect fun PostThreadMessageA(idthread: UInt, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL
+
+public expect fun PostThreadMessageW(idthread: UInt, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL
+
+public expect fun PrivateExtractIconsA(szfilename: PCSTR, niconindex: Int, cxicon: Int, cyicon: Int, phicon: Long, piconid: Long, nicons: UInt, flags: UInt): UInt
+
+public expect fun PrivateExtractIconsW(szfilename: PCWSTR, niconindex: Int, cxicon: Int, cyicon: Int, phicon: Long, piconid: Long, nicons: UInt, flags: UInt): UInt
+
+public expect fun RealChildWindowFromPoint(hwndparent: HWND, ptparentclientcoords: POINT): HWND
+
+public expect fun RealGetWindowClassA(hwnd: HWND, ptszclassname: PSTR, cchclassnamemax: UInt): UInt
+
+public expect fun RealGetWindowClassW(hwnd: HWND, ptszclassname: PWSTR, cchclassnamemax: UInt): UInt
+
+public expect fun RegisterClassA(lpwndclass: Long): UShort
+
+public expect fun RegisterClassExA(param0: Long): UShort
+
+public expect fun RegisterClassExW(param0: Long): UShort
+
+public expect fun RegisterClassW(lpwndclass: Long): UShort
+
+public expect fun RegisterDeviceNotificationA(hrecipient: HANDLE, notificationfilter: Long, flags: REGISTER_NOTIFICATION_FLAGS): HDEVNOTIFY
+
+public expect fun RegisterDeviceNotificationW(hrecipient: HANDLE, notificationfilter: Long, flags: REGISTER_NOTIFICATION_FLAGS): HDEVNOTIFY
+
+public expect fun RegisterForTooltipDismissNotification(hwnd: HWND, tdflags: TOOLTIP_DISMISS_FLAGS): BOOL
+
+public expect fun RegisterShellHookWindow(hwnd: HWND): BOOL
+
+public expect fun RegisterWindowMessageA(lpstring: PCSTR): UInt
+
+public expect fun RegisterWindowMessageW(lpstring: PCWSTR): UInt
+
+public expect fun RemoveMenu(hmenu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS): BOOL
+
+public expect fun RemovePropA(hwnd: HWND, lpstring: PCSTR): HANDLE
+
+public expect fun RemovePropW(hwnd: HWND, lpstring: PCWSTR): HANDLE
+
+public expect fun ReplyMessage(lresult: LRESULT): BOOL
+
+public expect fun ScrollDC(hdc: HDC, dx: Int, dy: Int, lprcscroll: Long, lprcclip: Long, hrgnupdate: HRGN, lprcupdate: Long): BOOL
+
+public expect fun ScrollWindow(hwnd: HWND, xamount: Int, yamount: Int, lprect: Long, lpcliprect: Long): BOOL
+
+public expect fun ScrollWindowEx(hwnd: HWND, dx: Int, dy: Int, prcscroll: Long, prcclip: Long, hrgnupdate: HRGN, prcupdate: Long, flags: SCROLL_WINDOW_FLAGS): Int
+
+public expect fun SendDlgItemMessageA(hdlg: HWND, niddlgitem: Int, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT
+
+public expect fun SendDlgItemMessageW(hdlg: HWND, niddlgitem: Int, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT
+
+public expect fun SendMessageA(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT
+
+public expect fun SendMessageCallbackA(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM, lpresultcallback: SENDASYNCPROC, dwdata: ULong): BOOL
+
+public expect fun SendMessageCallbackW(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM, lpresultcallback: SENDASYNCPROC, dwdata: ULong): BOOL
+
+public expect fun SendMessageTimeoutA(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM, fuflags: SEND_MESSAGE_TIMEOUT_FLAGS, utimeout: UInt, lpdwresult: Long): LRESULT
+
+public expect fun SendMessageTimeoutW(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM, fuflags: SEND_MESSAGE_TIMEOUT_FLAGS, utimeout: UInt, lpdwresult: Long): LRESULT
+
+public expect fun SendMessageW(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT
+
+public expect fun SendNotifyMessageA(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL
+
+public expect fun SendNotifyMessageW(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL
+
+public expect fun SetAdditionalForegroundBoostProcesses(toplevelwindow: HWND, processhandlecount: UInt, processhandlearray: Long): BOOL
+
+public expect fun SetCaretBlinkTime(umseconds: UInt): BOOL
+
+public expect fun SetCaretPos(x: Int, y: Int): BOOL
+
+public expect fun SetClassLongA(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX, dwnewlong: Int): UInt
+
+public expect fun SetClassLongPtrA(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX, dwnewlong: Long): ULong
+
+public expect fun SetClassLongPtrW(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX, dwnewlong: Long): ULong
+
+public expect fun SetClassLongW(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX, dwnewlong: Int): UInt
+
+public expect fun SetClassWord(hwnd: HWND, nindex: Int, wnewword: UShort): UShort
+
+public expect fun SetCoalescableTimer(hwnd: HWND, nidevent: ULong, uelapse: UInt, lptimerfunc: TIMERPROC, utolerancedelay: UInt): ULong
+
+public expect fun SetCursor(hcursor: HCURSOR): HCURSOR
+
+public expect fun SetCursorPos(x: Int, y: Int): BOOL
+
+public expect fun SetDebugErrorLevel(dwlevel: UInt)
+
+public expect fun SetDlgItemInt(hdlg: HWND, niddlgitem: Int, uvalue: UInt, bsigned: BOOL): BOOL
+
+public expect fun SetDlgItemTextA(hdlg: HWND, niddlgitem: Int, lpstring: PCSTR): BOOL
+
+public expect fun SetDlgItemTextW(hdlg: HWND, niddlgitem: Int, lpstring: PCWSTR): BOOL
+
+public expect fun SetForegroundWindow(hwnd: HWND): BOOL
+
+public expect fun SetLayeredWindowAttributes(hwnd: HWND, crkey: COLORREF, balpha: UByte, dwflags: LAYERED_WINDOW_ATTRIBUTES_FLAGS): BOOL
+
+public expect fun SetMenu(hwnd: HWND, hmenu: HMENU): BOOL
+
+public expect fun SetMenuDefaultItem(hmenu: HMENU, uitem: UInt, fbypos: UInt): BOOL
+
+public expect fun SetMenuInfo(param0: HMENU, param1: Long): BOOL
+
+public expect fun SetMenuItemBitmaps(hmenu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS, hbitmapunchecked: HBITMAP, hbitmapchecked: HBITMAP): BOOL
+
+public expect fun SetMenuItemInfoA(hmenu: HMENU, item: UInt, fbypositon: BOOL, lpmii: Long): BOOL
+
+public expect fun SetMenuItemInfoW(hmenu: HMENU, item: UInt, fbypositon: BOOL, lpmii: Long): BOOL
+
+public expect fun SetMessageExtraInfo(lparam: LPARAM): LPARAM
+
+public expect fun SetMessageQueue(cmessagesmax: Int): BOOL
+
+public expect fun SetParent(hwndchild: HWND, hwndnewparent: HWND): HWND
+
+public expect fun SetPhysicalCursorPos(x: Int, y: Int): BOOL
+
+public expect fun SetProcessDPIAware(): BOOL
+
+public expect fun SetProcessDefaultLayout(dwdefaultlayout: UInt): BOOL
+
+public expect fun SetPropA(hwnd: HWND, lpstring: PCSTR, hdata: HANDLE): BOOL
+
+public expect fun SetPropW(hwnd: HWND, lpstring: PCWSTR, hdata: HANDLE): BOOL
+
+public expect fun SetSystemCursor(hcur: HCURSOR, id: SYSTEM_CURSOR_ID): BOOL
+
+public expect fun SetTimer(hwnd: HWND, nidevent: ULong, uelapse: UInt, lptimerfunc: TIMERPROC): ULong
+
+public expect fun SetWindowDisplayAffinity(hwnd: HWND, dwaffinity: WINDOW_DISPLAY_AFFINITY): BOOL
+
+public expect fun SetWindowLongA(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: Int): Int
+
+public expect fun SetWindowLongPtrA(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: Long): Long
+
+public expect fun SetWindowLongPtrW(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: Long): Long
+
+public expect fun SetWindowLongW(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: Int): Int
+
+public expect fun SetWindowPlacement(hwnd: HWND, lpwndpl: Long): BOOL
+
+public expect fun SetWindowPos(hwnd: HWND, hwndinsertafter: HWND, x: Int, y: Int, cx: Int, cy: Int, uflags: SET_WINDOW_POS_FLAGS): BOOL
+
+public expect fun SetWindowTextA(hwnd: HWND, lpstring: PCSTR): BOOL
+
+public expect fun SetWindowTextW(hwnd: HWND, lpstring: PCWSTR): BOOL
+
+public expect fun SetWindowWord(hwnd: HWND, nindex: Int, wnewword: UShort): UShort
+
+public expect fun SetWindowsHookA(nfiltertype: Int, pfnfilterproc: HOOKPROC): HHOOK
+
+public expect fun SetWindowsHookExA(idhook: WINDOWS_HOOK_ID, lpfn: HOOKPROC, hmod: HINSTANCE, dwthreadid: UInt): HHOOK
+
+public expect fun SetWindowsHookExW(idhook: WINDOWS_HOOK_ID, lpfn: HOOKPROC, hmod: HINSTANCE, dwthreadid: UInt): HHOOK
+
+public expect fun SetWindowsHookW(nfiltertype: Int, pfnfilterproc: HOOKPROC): HHOOK
+
+public expect fun ShowCaret(hwnd: HWND): BOOL
+
+public expect fun ShowCursor(bshow: BOOL): Int
+
+public expect fun ShowOwnedPopups(hwnd: HWND, fshow: BOOL): BOOL
+
+public expect fun ShowWindow(hwnd: HWND, ncmdshow: SHOW_WINDOW_CMD): BOOL
+
+public expect fun ShowWindowAsync(hwnd: HWND, ncmdshow: SHOW_WINDOW_CMD): BOOL
+
+public expect fun SoundSentry(): BOOL
+
+public expect fun SwitchToThisWindow(hwnd: HWND, funknown: BOOL)
+
+public expect fun SystemParametersInfoA(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: UInt, pvparam: Long, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS): BOOL
+
+public expect fun SystemParametersInfoW(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: UInt, pvparam: Long, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS): BOOL
+
+public expect fun TileWindows(hwndparent: HWND, whow: TILE_WINDOWS_HOW, lprect: Long, ckids: UInt, lpkids: Long): UShort
+
+public expect fun TrackPopupMenu(hmenu: HMENU, uflags: TRACK_POPUP_MENU_FLAGS, x: Int, y: Int, nreserved: Int, hwnd: HWND, prcrect: Long): BOOL
+
+public expect fun TrackPopupMenuEx(hmenu: HMENU, uflags: UInt, x: Int, y: Int, hwnd: HWND, lptpm: Long): BOOL
+
+public expect fun TranslateAcceleratorA(hwnd: HWND, hacctable: HACCEL, lpmsg: Long): Int
+
+public expect fun TranslateAcceleratorW(hwnd: HWND, hacctable: HACCEL, lpmsg: Long): Int
+
+public expect fun TranslateMDISysAccel(hwndclient: HWND, lpmsg: Long): BOOL
+
+public expect fun TranslateMessage(lpmsg: Long): BOOL
+
+public expect fun UnhookWindowsHook(ncode: Int, pfnfilterproc: HOOKPROC): BOOL
+
+public expect fun UnhookWindowsHookEx(hhk: HHOOK): BOOL
+
+public expect fun UnregisterClassA(lpclassname: PCSTR, hinstance: HINSTANCE): BOOL
+
+public expect fun UnregisterClassW(lpclassname: PCWSTR, hinstance: HINSTANCE): BOOL
+
+public expect fun UnregisterDeviceNotification(handle: HDEVNOTIFY): BOOL
+
+public expect fun UpdateLayeredWindow(hwnd: HWND, hdcdst: HDC, pptdst: Long, psize: Long, hdcsrc: HDC, pptsrc: Long, crkey: COLORREF, pblend: Long, dwflags: UPDATE_LAYERED_WINDOW_FLAGS): BOOL
+
+public expect fun UpdateLayeredWindowIndirect(hwnd: HWND, pulwinfo: Long): BOOL
+
+public expect fun WaitMessage(): BOOL
+
+public expect fun WindowFromPhysicalPoint(point: POINT): HWND
+
+public expect fun WindowFromPoint(point: POINT): HWND
+
+public expect fun wsprintfA(param0: PSTR, param1: PCSTR, vararg variadicArgs: Long): Int
+
+public expect fun wsprintfW(param0: PWSTR, param1: PCWSTR, vararg variadicArgs: Long): Int
+
+public expect fun wvsprintfA(param0: PSTR, param1: PCSTR, arglist: Long): Int
+
+public expect fun wvsprintfW(param0: PWSTR, param1: PCWSTR, arglist: Long): Int

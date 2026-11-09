@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse
 
-import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
@@ -9,210 +8,106 @@ import io.github.kotlinmania.windowssys.core.PWSTR
 import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
 import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
 
-public fun ActivateKeyboardLayout(hkl: HKL, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS): HKL {
-    return Win32DynamicFfi.invoke("user32.dll", "ActivateKeyboardLayout", longArrayOf(hkl, flags.toLong()))
-}
+public expect fun ActivateKeyboardLayout(hkl: HKL, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS): HKL
 
-public fun BlockInput(fblockit: BOOL): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "BlockInput", longArrayOf(fblockit.toLong())).toInt()
-}
+public expect fun BlockInput(fblockit: BOOL): BOOL
 
-public fun DragDetect(hwnd: HWND, pt: POINT): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "DragDetect", longArrayOf(hwnd, ((pt.x.toLong() and 0xFFFF_FFFFL) or ((pt.y.toLong() and 0xFFFF_FFFFL) shl 32)))).toInt()
-}
+public expect fun DragDetect(hwnd: HWND, pt: POINT): BOOL
 
-public fun EnableWindow(hwnd: HWND, benable: BOOL): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "EnableWindow", longArrayOf(hwnd, benable.toLong())).toInt()
-}
+public expect fun EnableWindow(hwnd: HWND, benable: BOOL): BOOL
 
-public fun GetActiveWindow(): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "GetActiveWindow", longArrayOf())
-}
+public expect fun GetActiveWindow(): HWND
 
-public fun GetAsyncKeyState(vkey: Int): Short {
-    return Win32DynamicFfi.invoke("user32.dll", "GetAsyncKeyState", longArrayOf(vkey.toLong())).toShort()
-}
+public expect fun GetAsyncKeyState(vkey: Int): Short
 
-public fun GetCapture(): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "GetCapture", longArrayOf())
-}
+public expect fun GetCapture(): HWND
 
-public fun GetDoubleClickTime(): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "GetDoubleClickTime", longArrayOf()).toUInt()
-}
+public expect fun GetDoubleClickTime(): UInt
 
-public fun GetFocus(): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "GetFocus", longArrayOf())
-}
+public expect fun GetFocus(): HWND
 
-public fun GetKBCodePage(): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "GetKBCodePage", longArrayOf()).toUInt()
-}
+public expect fun GetKBCodePage(): UInt
 
-public fun GetKeyNameTextA(lparam: Int, lpstring: PSTR, cchsize: Int): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "GetKeyNameTextA", longArrayOf(lparam.toLong(), lpstring, cchsize.toLong())).toInt()
-}
+public expect fun GetKeyNameTextA(lparam: Int, lpstring: PSTR, cchsize: Int): Int
 
-public fun GetKeyNameTextW(lparam: Int, lpstring: PWSTR, cchsize: Int): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "GetKeyNameTextW", longArrayOf(lparam.toLong(), lpstring, cchsize.toLong())).toInt()
-}
+public expect fun GetKeyNameTextW(lparam: Int, lpstring: PWSTR, cchsize: Int): Int
 
-public fun GetKeyState(nvirtkey: Int): Short {
-    return Win32DynamicFfi.invoke("user32.dll", "GetKeyState", longArrayOf(nvirtkey.toLong())).toShort()
-}
+public expect fun GetKeyState(nvirtkey: Int): Short
 
-public fun GetKeyboardLayout(idthread: UInt): HKL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetKeyboardLayout", longArrayOf(idthread.toLong()))
-}
+public expect fun GetKeyboardLayout(idthread: UInt): HKL
 
-public fun GetKeyboardLayoutList(nbuff: Int, lplist: Long): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "GetKeyboardLayoutList", longArrayOf(nbuff.toLong(), lplist)).toInt()
-}
+public expect fun GetKeyboardLayoutList(nbuff: Int, lplist: Long): Int
 
-public fun GetKeyboardLayoutNameA(pwszklid: PSTR): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetKeyboardLayoutNameA", longArrayOf(pwszklid)).toInt()
-}
+public expect fun GetKeyboardLayoutNameA(pwszklid: PSTR): BOOL
 
-public fun GetKeyboardLayoutNameW(pwszklid: PWSTR): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetKeyboardLayoutNameW", longArrayOf(pwszklid)).toInt()
-}
+public expect fun GetKeyboardLayoutNameW(pwszklid: PWSTR): BOOL
 
-public fun GetKeyboardState(lpkeystate: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetKeyboardState", longArrayOf(lpkeystate)).toInt()
-}
+public expect fun GetKeyboardState(lpkeystate: Long): BOOL
 
-public fun GetKeyboardType(ntypeflag: Int): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "GetKeyboardType", longArrayOf(ntypeflag.toLong())).toInt()
-}
+public expect fun GetKeyboardType(ntypeflag: Int): Int
 
-public fun GetLastInputInfo(plii: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetLastInputInfo", longArrayOf(plii)).toInt()
-}
+public expect fun GetLastInputInfo(plii: Long): BOOL
 
-public fun GetMouseMovePointsEx(cbsize: UInt, lppt: Long, lpptbuf: Long, nbufpoints: Int, resolution: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "GetMouseMovePointsEx", longArrayOf(cbsize.toLong(), lppt, lpptbuf, nbufpoints.toLong(), resolution.toLong())).toInt()
-}
+public expect fun GetMouseMovePointsEx(cbsize: UInt, lppt: Long, lpptbuf: Long, nbufpoints: Int, resolution: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION): Int
 
-public fun IsWindowEnabled(hwnd: HWND): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "IsWindowEnabled", longArrayOf(hwnd)).toInt()
-}
+public expect fun IsWindowEnabled(hwnd: HWND): BOOL
 
-public fun LoadKeyboardLayoutA(pwszklid: PCSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS): HKL {
-    return Win32DynamicFfi.invoke("user32.dll", "LoadKeyboardLayoutA", longArrayOf(pwszklid, flags.toLong()))
-}
+public expect fun LoadKeyboardLayoutA(pwszklid: PCSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS): HKL
 
-public fun LoadKeyboardLayoutW(pwszklid: PCWSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS): HKL {
-    return Win32DynamicFfi.invoke("user32.dll", "LoadKeyboardLayoutW", longArrayOf(pwszklid, flags.toLong()))
-}
+public expect fun LoadKeyboardLayoutW(pwszklid: PCWSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS): HKL
 
-public fun MapVirtualKeyA(ucode: UInt, umaptype: MAP_VIRTUAL_KEY_TYPE): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "MapVirtualKeyA", longArrayOf(ucode.toLong(), umaptype.toLong())).toUInt()
-}
+public expect fun MapVirtualKeyA(ucode: UInt, umaptype: MAP_VIRTUAL_KEY_TYPE): UInt
 
-public fun MapVirtualKeyExA(ucode: UInt, umaptype: MAP_VIRTUAL_KEY_TYPE, dwhkl: HKL): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "MapVirtualKeyExA", longArrayOf(ucode.toLong(), umaptype.toLong(), dwhkl)).toUInt()
-}
+public expect fun MapVirtualKeyExA(ucode: UInt, umaptype: MAP_VIRTUAL_KEY_TYPE, dwhkl: HKL): UInt
 
-public fun MapVirtualKeyExW(ucode: UInt, umaptype: MAP_VIRTUAL_KEY_TYPE, dwhkl: HKL): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "MapVirtualKeyExW", longArrayOf(ucode.toLong(), umaptype.toLong(), dwhkl)).toUInt()
-}
+public expect fun MapVirtualKeyExW(ucode: UInt, umaptype: MAP_VIRTUAL_KEY_TYPE, dwhkl: HKL): UInt
 
-public fun MapVirtualKeyW(ucode: UInt, umaptype: MAP_VIRTUAL_KEY_TYPE): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "MapVirtualKeyW", longArrayOf(ucode.toLong(), umaptype.toLong())).toUInt()
-}
+public expect fun MapVirtualKeyW(ucode: UInt, umaptype: MAP_VIRTUAL_KEY_TYPE): UInt
 
-public fun OemKeyScan(woemchar: UShort): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "OemKeyScan", longArrayOf(woemchar.toLong())).toUInt()
-}
+public expect fun OemKeyScan(woemchar: UShort): UInt
 
-public fun RegisterHotKey(hwnd: HWND, id: Int, fsmodifiers: HOT_KEY_MODIFIERS, vk: UInt): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "RegisterHotKey", longArrayOf(hwnd, id.toLong(), fsmodifiers.toLong(), vk.toLong())).toInt()
-}
+public expect fun RegisterHotKey(hwnd: HWND, id: Int, fsmodifiers: HOT_KEY_MODIFIERS, vk: UInt): BOOL
 
-public fun ReleaseCapture(): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "ReleaseCapture", longArrayOf()).toInt()
-}
+public expect fun ReleaseCapture(): BOOL
 
-public fun SendInput(cinputs: UInt, pinputs: Long, cbsize: Int): UInt {
-    return Win32DynamicFfi.invoke("user32.dll", "SendInput", longArrayOf(cinputs.toLong(), pinputs, cbsize.toLong())).toUInt()
-}
+public expect fun SendInput(cinputs: UInt, pinputs: Long, cbsize: Int): UInt
 
-public fun SetActiveWindow(hwnd: HWND): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "SetActiveWindow", longArrayOf(hwnd))
-}
+public expect fun SetActiveWindow(hwnd: HWND): HWND
 
-public fun SetCapture(hwnd: HWND): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "SetCapture", longArrayOf(hwnd))
-}
+public expect fun SetCapture(hwnd: HWND): HWND
 
-public fun SetDoubleClickTime(param0: UInt): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetDoubleClickTime", longArrayOf(param0.toLong())).toInt()
-}
+public expect fun SetDoubleClickTime(param0: UInt): BOOL
 
-public fun SetFocus(hwnd: HWND): HWND {
-    return Win32DynamicFfi.invoke("user32.dll", "SetFocus", longArrayOf(hwnd))
-}
+public expect fun SetFocus(hwnd: HWND): HWND
 
-public fun SetKeyboardState(lpkeystate: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetKeyboardState", longArrayOf(lpkeystate)).toInt()
-}
+public expect fun SetKeyboardState(lpkeystate: Long): BOOL
 
-public fun SwapMouseButton(fswap: BOOL): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SwapMouseButton", longArrayOf(fswap.toLong())).toInt()
-}
+public expect fun SwapMouseButton(fswap: BOOL): BOOL
 
-public fun ToAscii(uvirtkey: UInt, uscancode: UInt, lpkeystate: Long, lpchar: Long, uflags: UInt): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "ToAscii", longArrayOf(uvirtkey.toLong(), uscancode.toLong(), lpkeystate, lpchar, uflags.toLong())).toInt()
-}
+public expect fun ToAscii(uvirtkey: UInt, uscancode: UInt, lpkeystate: Long, lpchar: Long, uflags: UInt): Int
 
-public fun ToAsciiEx(uvirtkey: UInt, uscancode: UInt, lpkeystate: Long, lpchar: Long, uflags: UInt, dwhkl: HKL): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "ToAsciiEx", longArrayOf(uvirtkey.toLong(), uscancode.toLong(), lpkeystate, lpchar, uflags.toLong(), dwhkl)).toInt()
-}
+public expect fun ToAsciiEx(uvirtkey: UInt, uscancode: UInt, lpkeystate: Long, lpchar: Long, uflags: UInt, dwhkl: HKL): Int
 
-public fun ToUnicode(wvirtkey: UInt, wscancode: UInt, lpkeystate: Long, pwszbuff: PWSTR, cchbuff: Int, wflags: UInt): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "ToUnicode", longArrayOf(wvirtkey.toLong(), wscancode.toLong(), lpkeystate, pwszbuff, cchbuff.toLong(), wflags.toLong())).toInt()
-}
+public expect fun ToUnicode(wvirtkey: UInt, wscancode: UInt, lpkeystate: Long, pwszbuff: PWSTR, cchbuff: Int, wflags: UInt): Int
 
-public fun ToUnicodeEx(wvirtkey: UInt, wscancode: UInt, lpkeystate: Long, pwszbuff: PWSTR, cchbuff: Int, wflags: UInt, dwhkl: HKL): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "ToUnicodeEx", longArrayOf(wvirtkey.toLong(), wscancode.toLong(), lpkeystate, pwszbuff, cchbuff.toLong(), wflags.toLong(), dwhkl)).toInt()
-}
+public expect fun ToUnicodeEx(wvirtkey: UInt, wscancode: UInt, lpkeystate: Long, pwszbuff: PWSTR, cchbuff: Int, wflags: UInt, dwhkl: HKL): Int
 
-public fun TrackMouseEvent(lpeventtrack: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "TrackMouseEvent", longArrayOf(lpeventtrack)).toInt()
-}
+public expect fun TrackMouseEvent(lpeventtrack: Long): BOOL
 
-public fun UnloadKeyboardLayout(hkl: HKL): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "UnloadKeyboardLayout", longArrayOf(hkl)).toInt()
-}
+public expect fun UnloadKeyboardLayout(hkl: HKL): BOOL
 
-public fun UnregisterHotKey(hwnd: HWND, id: Int): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "UnregisterHotKey", longArrayOf(hwnd, id.toLong())).toInt()
-}
+public expect fun UnregisterHotKey(hwnd: HWND, id: Int): BOOL
 
-public fun VkKeyScanA(ch: Byte): Short {
-    return Win32DynamicFfi.invoke("user32.dll", "VkKeyScanA", longArrayOf(ch.toLong())).toShort()
-}
+public expect fun VkKeyScanA(ch: Byte): Short
 
-public fun VkKeyScanExA(ch: Byte, dwhkl: HKL): Short {
-    return Win32DynamicFfi.invoke("user32.dll", "VkKeyScanExA", longArrayOf(ch.toLong(), dwhkl)).toShort()
-}
+public expect fun VkKeyScanExA(ch: Byte, dwhkl: HKL): Short
 
-public fun VkKeyScanExW(ch: UShort, dwhkl: HKL): Short {
-    return Win32DynamicFfi.invoke("user32.dll", "VkKeyScanExW", longArrayOf(ch.toLong(), dwhkl)).toShort()
-}
+public expect fun VkKeyScanExW(ch: UShort, dwhkl: HKL): Short
 
-public fun VkKeyScanW(ch: UShort): Short {
-    return Win32DynamicFfi.invoke("user32.dll", "VkKeyScanW", longArrayOf(ch.toLong())).toShort()
-}
+public expect fun VkKeyScanW(ch: UShort): Short
 
-public fun _TrackMouseEvent(lpeventtrack: Long): BOOL {
-    return Win32DynamicFfi.invoke("comctl32.dll", "_TrackMouseEvent", longArrayOf(lpeventtrack)).toInt()
-}
+public expect fun _TrackMouseEvent(lpeventtrack: Long): BOOL
 
-public fun keybd_event(bvk: UByte, bscan: UByte, dwflags: KEYBD_EVENT_FLAGS, dwextrainfo: ULong) {
-    Win32DynamicFfi.invoke("user32.dll", "keybd_event", longArrayOf(bvk.toLong(), bscan.toLong(), dwflags.toLong(), dwextrainfo.toLong()))
-}
+public expect fun keybd_event(bvk: UByte, bscan: UByte, dwflags: KEYBD_EVENT_FLAGS, dwextrainfo: ULong)
 
-public fun mouse_event(dwflags: MOUSE_EVENT_FLAGS, dx: Int, dy: Int, dwdata: Int, dwextrainfo: ULong) {
-    Win32DynamicFfi.invoke("user32.dll", "mouse_event", longArrayOf(dwflags.toLong(), dx.toLong(), dy.toLong(), dwdata.toLong(), dwextrainfo.toLong()))
-}
+public expect fun mouse_event(dwflags: MOUSE_EVENT_FLAGS, dx: Int, dy: Int, dwdata: Int, dwextrainfo: ULong)

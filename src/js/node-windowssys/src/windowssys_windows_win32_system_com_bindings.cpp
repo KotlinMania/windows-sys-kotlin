@@ -1,0 +1,2442 @@
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
+#endif
+#include <napi.h>
+#include <cstdint>
+#include <cstddef>
+#include <cstdlib>
+#include <cstring>
+#include <cerrno>
+#include <string>
+#ifdef _WIN32
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+#include <windows.h>
+#else
+#include <dlfcn.h>
+#ifndef RTLD_DEFAULT
+#define RTLD_DEFAULT ((void*)0)
+#endif
+#endif
+
+struct KmNapiRegistrarNode {
+    void (*register_fn)(Napi::Env, Napi::Object);
+    KmNapiRegistrarNode* next;
+};
+#if defined(__GNUC__) || defined(__clang__)
+__attribute__((visibility("hidden")))
+#endif
+extern KmNapiRegistrarNode* km_napi_registrar_head;
+
+namespace {
+
+static int64_t km_napi_arg_i64(const Napi::Value& v) {
+    if (v.IsNull() || v.IsUndefined()) return 0;
+    if (v.IsString()) {
+        std::string s = v.As<Napi::String>().Utf8Value();
+        return static_cast<int64_t>(std::strtoll(s.c_str(), nullptr, 10));
+    }
+    if (v.IsNumber()) return v.As<Napi::Number>().Int64Value();
+    return 0;
+}
+
+static uint64_t km_napi_arg_u64(const Napi::Value& v) {
+    if (v.IsNull() || v.IsUndefined()) return 0;
+    if (v.IsString()) {
+        std::string s = v.As<Napi::String>().Utf8Value();
+        return static_cast<uint64_t>(std::strtoull(s.c_str(), nullptr, 10));
+    }
+    if (v.IsNumber()) return static_cast<uint64_t>(v.As<Napi::Number>().Int64Value());
+    return 0;
+}
+
+static Napi::Value windowssys_windows_win32_system_com_BindMoniker_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pmk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    uint32_t grfopt = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    void* iidresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* ppvresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BindMoniker")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmk, grfopt, iidresult, ppvresult) : -1;
+#else
+    (void)pmk;
+    (void)grfopt;
+    (void)iidresult;
+    (void)ppvresult;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CLSIDFromProgID_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpszprogid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CLSIDFromProgID")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszprogid, lpclsid) : -1;
+#else
+    (void)lpszprogid;
+    (void)lpclsid;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CLSIDFromProgIDEx_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpszprogid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CLSIDFromProgIDEx")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszprogid, lpclsid) : -1;
+#else
+    (void)lpszprogid;
+    (void)lpclsid;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CLSIDFromString_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CLSIDFromString")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpsz, pclsid) : -1;
+#else
+    (void)lpsz;
+    (void)pclsid;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoAddRefServerProcess_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoAddRefServerProcess")));
+    }
+    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+#else
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoAllowSetForegroundWindow_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpvreserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoAllowSetForegroundWindow")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(punk, lpvreserved) : -1;
+#else
+    (void)punk;
+    (void)lpvreserved;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoAllowUnmarshalerCLSID_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* clsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoAllowUnmarshalerCLSID")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clsid) : -1;
+#else
+    (void)clsid;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoBuildVersion_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoBuildVersion")));
+    }
+    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+#else
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoCancelCall_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    uint32_t dwthreadid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+    uint32_t ultimeout = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoCancelCall")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwthreadid, ultimeout) : -1;
+#else
+    (void)dwthreadid;
+    (void)ultimeout;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoCopyProxy_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pproxy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* ppcopy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoCopyProxy")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pproxy, ppcopy) : -1;
+#else
+    (void)pproxy;
+    (void)ppcopy;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoCreateFreeThreadedMarshaler_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* punkouter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* ppunkmarshal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("combase.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoCreateFreeThreadedMarshaler")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(punkouter, ppunkmarshal) : -1;
+#else
+    (void)punkouter;
+    (void)ppunkmarshal;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoCreateGuid_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoCreateGuid")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pguid) : -1;
+#else
+    (void)pguid;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoCreateInstance_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* punkouter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    uint32_t dwclscontext = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* ppv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoCreateInstance")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rclsid, punkouter, dwclscontext, riid, ppv) : -1;
+#else
+    (void)rclsid;
+    (void)punkouter;
+    (void)dwclscontext;
+    (void)riid;
+    (void)ppv;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoCreateInstanceEx_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* clsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* punkouter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    uint32_t dwclsctx = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    void* pserverinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    uint32_t dwcount = static_cast<uint32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
+    void* presults = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoCreateInstanceEx")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clsid, punkouter, dwclsctx, pserverinfo, dwcount, presults) : -1;
+#else
+    (void)clsid;
+    (void)punkouter;
+    (void)dwclsctx;
+    (void)pserverinfo;
+    (void)dwcount;
+    (void)presults;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoCreateInstanceFromApp_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* clsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* punkouter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    uint32_t dwclsctx = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    void* reserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    uint32_t dwcount = static_cast<uint32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
+    void* presults = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoCreateInstanceFromApp")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clsid, punkouter, dwclsctx, reserved, dwcount, presults) : -1;
+#else
+    (void)clsid;
+    (void)punkouter;
+    (void)dwclsctx;
+    (void)reserved;
+    (void)dwcount;
+    (void)presults;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoDecrementMTAUsage_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* cookie = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoDecrementMTAUsage")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cookie) : -1;
+#else
+    (void)cookie;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoDisableCallCancellation_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* preserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoDisableCallCancellation")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(preserved) : -1;
+#else
+    (void)preserved;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoDisconnectContext_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    uint32_t dwtimeout = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoDisconnectContext")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwtimeout) : -1;
+#else
+    (void)dwtimeout;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoDisconnectObject_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoDisconnectObject")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(punk, dwreserved) : -1;
+#else
+    (void)punk;
+    (void)dwreserved;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoDosDateTimeToFileTime_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    uint16_t ndosdate = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+    uint16_t ndostime = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    void* lpfiletime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint16_t, uint16_t, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoDosDateTimeToFileTime")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ndosdate, ndostime, lpfiletime) : -1;
+#else
+    (void)ndosdate;
+    (void)ndostime;
+    (void)lpfiletime;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoEnableCallCancellation_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* preserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoEnableCallCancellation")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(preserved) : -1;
+#else
+    (void)preserved;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoFileTimeNow_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpfiletime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoFileTimeNow")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpfiletime) : -1;
+#else
+    (void)lpfiletime;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoFileTimeToDosDateTime_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpfiletime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpdosdate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpdostime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoFileTimeToDosDateTime")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpfiletime, lpdosdate, lpdostime) : -1;
+#else
+    (void)lpfiletime;
+    (void)lpdosdate;
+    (void)lpdostime;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoFreeAllLibraries_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+#ifdef _WIN32
+    typedef void (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoFreeAllLibraries")));
+    }
+    if (km_fn_ptr != nullptr) km_fn_ptr();
+#else
+#endif
+    return km_env.Undefined();
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoFreeLibrary_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef void (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoFreeLibrary")));
+    }
+    if (km_fn_ptr != nullptr) km_fn_ptr(hinst);
+#else
+    (void)hinst;
+#endif
+    return km_env.Undefined();
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoFreeUnusedLibraries_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+#ifdef _WIN32
+    typedef void (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoFreeUnusedLibraries")));
+    }
+    if (km_fn_ptr != nullptr) km_fn_ptr();
+#else
+#endif
+    return km_env.Undefined();
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoFreeUnusedLibrariesEx_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    uint32_t dwunloaddelay = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+    uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef void (__stdcall *km_fn_t)(uint32_t, uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoFreeUnusedLibrariesEx")));
+    }
+    if (km_fn_ptr != nullptr) km_fn_ptr(dwunloaddelay, dwreserved);
+#else
+    (void)dwunloaddelay;
+    (void)dwreserved;
+#endif
+    return km_env.Undefined();
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoGetApartmentType_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* papttype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* paptqualifier = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoGetApartmentType")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(papttype, paptqualifier) : -1;
+#else
+    (void)papttype;
+    (void)paptqualifier;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoGetCallContext_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* ppinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoGetCallContext")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(riid, ppinterface) : -1;
+#else
+    (void)riid;
+    (void)ppinterface;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoGetCallerTID_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpdwtid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoGetCallerTID")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpdwtid) : -1;
+#else
+    (void)lpdwtid;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoGetCancelObject_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    uint32_t dwthreadid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+    void* iid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* ppunk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoGetCancelObject")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwthreadid, iid, ppunk) : -1;
+#else
+    (void)dwthreadid;
+    (void)iid;
+    (void)ppunk;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoGetClassObject_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    uint32_t dwclscontext = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    void* pvreserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* ppv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoGetClassObject")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rclsid, dwclscontext, pvreserved, riid, ppv) : -1;
+#else
+    (void)rclsid;
+    (void)dwclscontext;
+    (void)pvreserved;
+    (void)riid;
+    (void)ppv;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoGetContextToken_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* ptoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoGetContextToken")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ptoken) : -1;
+#else
+    (void)ptoken;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoGetCurrentLogicalThreadId_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoGetCurrentLogicalThreadId")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pguid) : -1;
+#else
+    (void)pguid;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoGetCurrentProcess_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoGetCurrentProcess")));
+    }
+    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+#else
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoGetMalloc_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    uint32_t dwmemcontext = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+    void* ppmalloc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoGetMalloc")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwmemcontext, ppmalloc) : -1;
+#else
+    (void)dwmemcontext;
+    (void)ppmalloc;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoGetObject_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pbindoptions = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* ppv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoGetObject")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszname, pbindoptions, riid, ppv) : -1;
+#else
+    (void)pszname;
+    (void)pbindoptions;
+    (void)riid;
+    (void)ppv;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoGetObjectContext_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* ppv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoGetObjectContext")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(riid, ppv) : -1;
+#else
+    (void)riid;
+    (void)ppv;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoGetPSClsid_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoGetPSClsid")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(riid, pclsid) : -1;
+#else
+    (void)riid;
+    (void)pclsid;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoGetSystemSecurityPermissions_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    int32_t comsdtype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+    void* ppsd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoGetSystemSecurityPermissions")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(comsdtype, ppsd) : -1;
+#else
+    (void)comsdtype;
+    (void)ppsd;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoGetTreatAsClass_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* clsidold = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pclsidnew = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoGetTreatAsClass")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clsidold, pclsidnew) : -1;
+#else
+    (void)clsidold;
+    (void)pclsidnew;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoImpersonateClient_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoImpersonateClient")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+#else
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoIncrementMTAUsage_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pcookie = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("combase.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoIncrementMTAUsage")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcookie) : -1;
+#else
+    (void)pcookie;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoInitialize_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pvreserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoInitialize")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pvreserved) : -1;
+#else
+    (void)pvreserved;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoInitializeEx_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pvreserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    uint32_t dwcoinit = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoInitializeEx")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pvreserved, dwcoinit) : -1;
+#else
+    (void)pvreserved;
+    (void)dwcoinit;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoInitializeSecurity_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* psecdesc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    int32_t cauthsvc = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    void* asauthsvc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* preserved1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    uint32_t dwauthnlevel = static_cast<uint32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
+    uint32_t dwimplevel = static_cast<uint32_t>(km_info.Length() > 5 ? km_info[5].ToNumber().Int32Value() : 0);
+    void* pauthlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 6 ? km_napi_arg_u64(km_info[6]) : 0));
+    uint32_t dwcapabilities = static_cast<uint32_t>(km_info.Length() > 7 ? km_info[7].ToNumber().Int32Value() : 0);
+    void* preserved3 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 8 ? km_napi_arg_u64(km_info[8]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, uint32_t, uint32_t, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoInitializeSecurity")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psecdesc, cauthsvc, asauthsvc, preserved1, dwauthnlevel, dwimplevel, pauthlist, dwcapabilities, preserved3) : -1;
+#else
+    (void)psecdesc;
+    (void)cauthsvc;
+    (void)asauthsvc;
+    (void)preserved1;
+    (void)dwauthnlevel;
+    (void)dwimplevel;
+    (void)pauthlist;
+    (void)dwcapabilities;
+    (void)preserved3;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoInstall_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    void* pclassspec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* pquery = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* pszcodebase = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoInstall")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbc, dwflags, pclassspec, pquery, pszcodebase) : -1;
+#else
+    (void)pbc;
+    (void)dwflags;
+    (void)pclassspec;
+    (void)pquery;
+    (void)pszcodebase;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoInvalidateRemoteMachineBindings_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pszmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoInvalidateRemoteMachineBindings")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszmachinename) : -1;
+#else
+    (void)pszmachinename;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoIsHandlerConnected_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoIsHandlerConnected")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(punk) : -1;
+#else
+    (void)punk;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoIsOle1Class_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoIsOle1Class")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rclsid) : -1;
+#else
+    (void)rclsid;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoLoadLibrary_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpszlibname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    int32_t bautofree = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(void*, int32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoLoadLibrary")));
+    }
+    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszlibname, bautofree) : NULL;
+#else
+    (void)lpszlibname;
+    (void)bautofree;
+    void* km_res = NULL;
+#endif
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoLockObjectExternal_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    int32_t flock = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    int32_t flastunlockreleases = static_cast<int32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoLockObjectExternal")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(punk, flock, flastunlockreleases) : -1;
+#else
+    (void)punk;
+    (void)flock;
+    (void)flastunlockreleases;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoQueryAuthenticationServices_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pcauthsvc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* asauthsvc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoQueryAuthenticationServices")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcauthsvc, asauthsvc) : -1;
+#else
+    (void)pcauthsvc;
+    (void)asauthsvc;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoQueryClientBlanket_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pauthnsvc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pauthzsvc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* pserverprincname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* pauthnlevel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* pimplevel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+    void* pprivs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    void* pcapabilities = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 6 ? km_napi_arg_u64(km_info[6]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoQueryClientBlanket")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pauthnsvc, pauthzsvc, pserverprincname, pauthnlevel, pimplevel, pprivs, pcapabilities) : -1;
+#else
+    (void)pauthnsvc;
+    (void)pauthzsvc;
+    (void)pserverprincname;
+    (void)pauthnlevel;
+    (void)pimplevel;
+    (void)pprivs;
+    (void)pcapabilities;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoQueryProxyBlanket_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pproxy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pwauthnsvc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* pauthzsvc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* pserverprincname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* pauthnlevel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+    void* pimplevel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    void* pauthinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 6 ? km_napi_arg_u64(km_info[6]) : 0));
+    void* pcapabilites = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 7 ? km_napi_arg_u64(km_info[7]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoQueryProxyBlanket")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pproxy, pwauthnsvc, pauthzsvc, pserverprincname, pauthnlevel, pimplevel, pauthinfo, pcapabilites) : -1;
+#else
+    (void)pproxy;
+    (void)pwauthnsvc;
+    (void)pauthzsvc;
+    (void)pserverprincname;
+    (void)pauthnlevel;
+    (void)pimplevel;
+    (void)pauthinfo;
+    (void)pcapabilites;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoRegisterActivationFilter_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pactivationfilter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoRegisterActivationFilter")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pactivationfilter) : -1;
+#else
+    (void)pactivationfilter;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoRegisterChannelHook_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* extensionuuid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pchannelhook = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoRegisterChannelHook")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(extensionuuid, pchannelhook) : -1;
+#else
+    (void)extensionuuid;
+    (void)pchannelhook;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoRegisterClassObject_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    uint32_t dwclscontext = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    uint32_t flags = static_cast<uint32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
+    void* lpdwregister = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoRegisterClassObject")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rclsid, punk, dwclscontext, flags, lpdwregister) : -1;
+#else
+    (void)rclsid;
+    (void)punk;
+    (void)dwclscontext;
+    (void)flags;
+    (void)lpdwregister;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoRegisterDeviceCatalog_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* deviceinstanceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* cookie = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoRegisterDeviceCatalog")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinstanceid, cookie) : -1;
+#else
+    (void)deviceinstanceid;
+    (void)cookie;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoRegisterInitializeSpy_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pspy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pulicookie = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoRegisterInitializeSpy")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pspy, pulicookie) : -1;
+#else
+    (void)pspy;
+    (void)pulicookie;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoRegisterMallocSpy_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pmallocspy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoRegisterMallocSpy")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmallocspy) : -1;
+#else
+    (void)pmallocspy;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoRegisterPSClsid_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoRegisterPSClsid")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(riid, rclsid) : -1;
+#else
+    (void)riid;
+    (void)rclsid;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoRegisterSurrogate_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* psurrogate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoRegisterSurrogate")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psurrogate) : -1;
+#else
+    (void)psurrogate;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoReleaseServerProcess_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoReleaseServerProcess")));
+    }
+    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+#else
+    uint32_t km_res = 0;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoResumeClassObjects_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoResumeClassObjects")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+#else
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoRevertToSelf_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoRevertToSelf")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+#else
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoRevokeClassObject_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    uint32_t dwregister = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoRevokeClassObject")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwregister) : -1;
+#else
+    (void)dwregister;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoRevokeDeviceCatalog_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* cookie = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoRevokeDeviceCatalog")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cookie) : -1;
+#else
+    (void)cookie;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoRevokeInitializeSpy_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    uint64_t ulicookie = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint64_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoRevokeInitializeSpy")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ulicookie) : -1;
+#else
+    (void)ulicookie;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoRevokeMallocSpy_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoRevokeMallocSpy")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+#else
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoSetCancelObject_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoSetCancelObject")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(punk) : -1;
+#else
+    (void)punk;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoSetProxyBlanket_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pproxy = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    uint32_t dwauthnsvc = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    uint32_t dwauthzsvc = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    void* pserverprincname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    uint32_t dwauthnlevel = static_cast<uint32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
+    uint32_t dwimplevel = static_cast<uint32_t>(km_info.Length() > 5 ? km_info[5].ToNumber().Int32Value() : 0);
+    void* pauthinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 6 ? km_napi_arg_u64(km_info[6]) : 0));
+    uint32_t dwcapabilities = static_cast<uint32_t>(km_info.Length() > 7 ? km_info[7].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, uint32_t, uint32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoSetProxyBlanket")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pproxy, dwauthnsvc, dwauthzsvc, pserverprincname, dwauthnlevel, dwimplevel, pauthinfo, dwcapabilities) : -1;
+#else
+    (void)pproxy;
+    (void)dwauthnsvc;
+    (void)dwauthzsvc;
+    (void)pserverprincname;
+    (void)dwauthnlevel;
+    (void)dwimplevel;
+    (void)pauthinfo;
+    (void)dwcapabilities;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoSuspendClassObjects_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoSuspendClassObjects")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+#else
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoSwitchCallContext_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pnewobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* ppoldobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoSwitchCallContext")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pnewobject, ppoldobject) : -1;
+#else
+    (void)pnewobject;
+    (void)ppoldobject;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoTaskMemAlloc_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    uint64_t cb = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(uint64_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("combase.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoTaskMemAlloc")));
+    }
+    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cb) : NULL;
+#else
+    (void)cb;
+    void* km_res = NULL;
+#endif
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoTaskMemFree_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef void (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("combase.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoTaskMemFree")));
+    }
+    if (km_fn_ptr != nullptr) km_fn_ptr(pv);
+#else
+    (void)pv;
+#endif
+    return km_env.Undefined();
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoTaskMemRealloc_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    uint64_t cb = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(void*, uint64_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoTaskMemRealloc")));
+    }
+    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pv, cb) : NULL;
+#else
+    (void)pv;
+    (void)cb;
+    void* km_res = NULL;
+#endif
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoTestCancel_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoTestCancel")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+#else
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoTreatAsClass_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* clsidold = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* clsidnew = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoTreatAsClass")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clsidold, clsidnew) : -1;
+#else
+    (void)clsidold;
+    (void)clsidnew;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoUninitialize_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+#ifdef _WIN32
+    typedef void (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoUninitialize")));
+    }
+    if (km_fn_ptr != nullptr) km_fn_ptr();
+#else
+#endif
+    return km_env.Undefined();
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoWaitForMultipleHandles_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+    uint32_t dwtimeout = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    uint32_t chandles = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    void* phandles = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* lpdwindex = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoWaitForMultipleHandles")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwflags, dwtimeout, chandles, phandles, lpdwindex) : -1;
+#else
+    (void)dwflags;
+    (void)dwtimeout;
+    (void)chandles;
+    (void)phandles;
+    (void)lpdwindex;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CoWaitForMultipleObjects_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+    uint32_t dwtimeout = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    uint32_t chandles = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    void* phandles = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* lpdwindex = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoWaitForMultipleObjects")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwflags, dwtimeout, chandles, phandles, lpdwindex) : -1;
+#else
+    (void)dwflags;
+    (void)dwtimeout;
+    (void)chandles;
+    (void)phandles;
+    (void)lpdwindex;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CreateAntiMoniker_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* ppmk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateAntiMoniker")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppmk) : -1;
+#else
+    (void)ppmk;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CreateBindCtx_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    uint32_t reserved = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+    void* ppbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateBindCtx")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reserved, ppbc) : -1;
+#else
+    (void)reserved;
+    (void)ppbc;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CreateClassMoniker_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* ppmk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateClassMoniker")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rclsid, ppmk) : -1;
+#else
+    (void)rclsid;
+    (void)ppmk;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CreateDataAdviseHolder_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* ppdaholder = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateDataAdviseHolder")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppdaholder) : -1;
+#else
+    (void)ppdaholder;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CreateDataCache_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* punkouter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* iid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* ppv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateDataCache")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(punkouter, rclsid, iid, ppv) : -1;
+#else
+    (void)punkouter;
+    (void)rclsid;
+    (void)iid;
+    (void)ppv;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CreateFileMoniker_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpszpathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* ppmk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateFileMoniker")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszpathname, ppmk) : -1;
+#else
+    (void)lpszpathname;
+    (void)ppmk;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CreateGenericComposite_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pmkfirst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pmkrest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* ppmkcomposite = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateGenericComposite")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmkfirst, pmkrest, ppmkcomposite) : -1;
+#else
+    (void)pmkfirst;
+    (void)pmkrest;
+    (void)ppmkcomposite;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CreateIUriBuilder_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* piuri = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    uint64_t dwreserved = km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0;
+    void* ppiuribuilder = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateIUriBuilder")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(piuri, dwflags, dwreserved, ppiuribuilder) : -1;
+#else
+    (void)piuri;
+    (void)dwflags;
+    (void)dwreserved;
+    (void)ppiuribuilder;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CreateItemMoniker_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpszdelim = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpszitem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* ppmk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateItemMoniker")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszdelim, lpszitem, ppmk) : -1;
+#else
+    (void)lpszdelim;
+    (void)lpszitem;
+    (void)ppmk;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CreateObjrefMoniker_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* ppmk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateObjrefMoniker")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(punk, ppmk) : -1;
+#else
+    (void)punk;
+    (void)ppmk;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CreatePointerMoniker_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* ppmk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreatePointerMoniker")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(punk, ppmk) : -1;
+#else
+    (void)punk;
+    (void)ppmk;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CreateStdProgressIndicator_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* psztitle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* pibsccaller = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* ppibsc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateStdProgressIndicator")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, psztitle, pibsccaller, ppibsc) : -1;
+#else
+    (void)hwndparent;
+    (void)psztitle;
+    (void)pibsccaller;
+    (void)ppibsc;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CreateUri_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pwzuri = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    uint64_t dwreserved = km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0;
+    void* ppuri = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateUri")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzuri, dwflags, dwreserved, ppuri) : -1;
+#else
+    (void)pwzuri;
+    (void)dwflags;
+    (void)dwreserved;
+    (void)ppuri;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CreateUriFromMultiByteString_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pszansiinputuri = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    uint32_t dwencodingflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    uint32_t dwcodepage = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    uint32_t dwcreateflags = static_cast<uint32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
+    uint64_t dwreserved = km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0;
+    void* ppuri = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, uint64_t, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateUriFromMultiByteString")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszansiinputuri, dwencodingflags, dwcodepage, dwcreateflags, dwreserved, ppuri) : -1;
+#else
+    (void)pszansiinputuri;
+    (void)dwencodingflags;
+    (void)dwcodepage;
+    (void)dwcreateflags;
+    (void)dwreserved;
+    (void)ppuri;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_CreateUriWithFragment_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pwzuri = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pwzfragment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    uint64_t dwreserved = km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0;
+    void* ppuri = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint64_t, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateUriWithFragment")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzuri, pwzfragment, dwflags, dwreserved, ppuri) : -1;
+#else
+    (void)pwzuri;
+    (void)pwzfragment;
+    (void)dwflags;
+    (void)dwreserved;
+    (void)ppuri;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_DcomChannelSetHResult_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pvreserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pulreserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    int32_t appshr = static_cast<int32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DcomChannelSetHResult")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pvreserved, pulreserved, appshr) : -1;
+#else
+    (void)pvreserved;
+    (void)pulreserved;
+    (void)appshr;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_GetClassFile_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClassFile")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szfilename, pclsid) : -1;
+#else
+    (void)szfilename;
+    (void)pclsid;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_GetErrorInfo_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+    void* pperrinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetErrorInfo")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwreserved, pperrinfo) : -1;
+#else
+    (void)dwreserved;
+    (void)pperrinfo;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_GetRunningObjectTable_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    uint32_t reserved = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+    void* pprot = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetRunningObjectTable")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reserved, pprot) : -1;
+#else
+    (void)reserved;
+    (void)pprot;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_IIDFromString_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* lpsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpiid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IIDFromString")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpsz, lpiid) : -1;
+#else
+    (void)lpsz;
+    (void)lpiid;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_MkParseDisplayName_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* szusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* pcheaten = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* ppmk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MkParseDisplayName")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbc, szusername, pcheaten, ppmk) : -1;
+#else
+    (void)pbc;
+    (void)szusername;
+    (void)pcheaten;
+    (void)ppmk;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_MonikerCommonPrefixWith_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pmkthis = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pmkother = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* ppmkcommon = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MonikerCommonPrefixWith")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmkthis, pmkother, ppmkcommon) : -1;
+#else
+    (void)pmkthis;
+    (void)pmkother;
+    (void)ppmkcommon;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_MonikerRelativePathTo_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pmksrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pmkdest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* ppmkrelpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    int32_t dwreserved = static_cast<int32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MonikerRelativePathTo")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmksrc, pmkdest, ppmkrelpath, dwreserved) : -1;
+#else
+    (void)pmksrc;
+    (void)pmkdest;
+    (void)ppmkrelpath;
+    (void)dwreserved;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_ProgIDFromCLSID_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* clsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lplpszprogid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ProgIDFromCLSID")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clsid, lplpszprogid) : -1;
+#else
+    (void)clsid;
+    (void)lplpszprogid;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_SetErrorInfo_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+    void* perrinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetErrorInfo")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwreserved, perrinfo) : -1;
+#else
+    (void)dwreserved;
+    (void)perrinfo;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_StringFromCLSID_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lplpsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StringFromCLSID")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rclsid, lplpsz) : -1;
+#else
+    (void)rclsid;
+    (void)lplpsz;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_StringFromGUID2_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* rguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lpsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    int32_t cchmax = static_cast<int32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StringFromGUID2")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rguid, lpsz, cchmax) : -1;
+#else
+    (void)rguid;
+    (void)lpsz;
+    (void)cchmax;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_com_StringFromIID_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* lplpsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ole32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StringFromIID")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rclsid, lplpsz) : -1;
+#else
+    (void)rclsid;
+    (void)lplpsz;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static void register_windows_win32_system_com_napi(Napi::Env env, Napi::Object exports) {
+    exports.Set("windowssys_windows_win32_system_com_BindMoniker", Napi::Function::New(env, windowssys_windows_win32_system_com_BindMoniker_napi));
+    exports.Set("windowssys_windows_win32_system_com_CLSIDFromProgID", Napi::Function::New(env, windowssys_windows_win32_system_com_CLSIDFromProgID_napi));
+    exports.Set("windowssys_windows_win32_system_com_CLSIDFromProgIDEx", Napi::Function::New(env, windowssys_windows_win32_system_com_CLSIDFromProgIDEx_napi));
+    exports.Set("windowssys_windows_win32_system_com_CLSIDFromString", Napi::Function::New(env, windowssys_windows_win32_system_com_CLSIDFromString_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoAddRefServerProcess", Napi::Function::New(env, windowssys_windows_win32_system_com_CoAddRefServerProcess_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoAllowSetForegroundWindow", Napi::Function::New(env, windowssys_windows_win32_system_com_CoAllowSetForegroundWindow_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoAllowUnmarshalerCLSID", Napi::Function::New(env, windowssys_windows_win32_system_com_CoAllowUnmarshalerCLSID_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoBuildVersion", Napi::Function::New(env, windowssys_windows_win32_system_com_CoBuildVersion_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoCancelCall", Napi::Function::New(env, windowssys_windows_win32_system_com_CoCancelCall_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoCopyProxy", Napi::Function::New(env, windowssys_windows_win32_system_com_CoCopyProxy_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoCreateFreeThreadedMarshaler", Napi::Function::New(env, windowssys_windows_win32_system_com_CoCreateFreeThreadedMarshaler_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoCreateGuid", Napi::Function::New(env, windowssys_windows_win32_system_com_CoCreateGuid_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoCreateInstance", Napi::Function::New(env, windowssys_windows_win32_system_com_CoCreateInstance_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoCreateInstanceEx", Napi::Function::New(env, windowssys_windows_win32_system_com_CoCreateInstanceEx_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoCreateInstanceFromApp", Napi::Function::New(env, windowssys_windows_win32_system_com_CoCreateInstanceFromApp_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoDecrementMTAUsage", Napi::Function::New(env, windowssys_windows_win32_system_com_CoDecrementMTAUsage_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoDisableCallCancellation", Napi::Function::New(env, windowssys_windows_win32_system_com_CoDisableCallCancellation_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoDisconnectContext", Napi::Function::New(env, windowssys_windows_win32_system_com_CoDisconnectContext_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoDisconnectObject", Napi::Function::New(env, windowssys_windows_win32_system_com_CoDisconnectObject_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoDosDateTimeToFileTime", Napi::Function::New(env, windowssys_windows_win32_system_com_CoDosDateTimeToFileTime_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoEnableCallCancellation", Napi::Function::New(env, windowssys_windows_win32_system_com_CoEnableCallCancellation_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoFileTimeNow", Napi::Function::New(env, windowssys_windows_win32_system_com_CoFileTimeNow_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoFileTimeToDosDateTime", Napi::Function::New(env, windowssys_windows_win32_system_com_CoFileTimeToDosDateTime_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoFreeAllLibraries", Napi::Function::New(env, windowssys_windows_win32_system_com_CoFreeAllLibraries_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoFreeLibrary", Napi::Function::New(env, windowssys_windows_win32_system_com_CoFreeLibrary_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoFreeUnusedLibraries", Napi::Function::New(env, windowssys_windows_win32_system_com_CoFreeUnusedLibraries_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoFreeUnusedLibrariesEx", Napi::Function::New(env, windowssys_windows_win32_system_com_CoFreeUnusedLibrariesEx_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoGetApartmentType", Napi::Function::New(env, windowssys_windows_win32_system_com_CoGetApartmentType_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoGetCallContext", Napi::Function::New(env, windowssys_windows_win32_system_com_CoGetCallContext_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoGetCallerTID", Napi::Function::New(env, windowssys_windows_win32_system_com_CoGetCallerTID_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoGetCancelObject", Napi::Function::New(env, windowssys_windows_win32_system_com_CoGetCancelObject_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoGetClassObject", Napi::Function::New(env, windowssys_windows_win32_system_com_CoGetClassObject_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoGetContextToken", Napi::Function::New(env, windowssys_windows_win32_system_com_CoGetContextToken_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoGetCurrentLogicalThreadId", Napi::Function::New(env, windowssys_windows_win32_system_com_CoGetCurrentLogicalThreadId_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoGetCurrentProcess", Napi::Function::New(env, windowssys_windows_win32_system_com_CoGetCurrentProcess_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoGetMalloc", Napi::Function::New(env, windowssys_windows_win32_system_com_CoGetMalloc_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoGetObject", Napi::Function::New(env, windowssys_windows_win32_system_com_CoGetObject_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoGetObjectContext", Napi::Function::New(env, windowssys_windows_win32_system_com_CoGetObjectContext_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoGetPSClsid", Napi::Function::New(env, windowssys_windows_win32_system_com_CoGetPSClsid_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoGetSystemSecurityPermissions", Napi::Function::New(env, windowssys_windows_win32_system_com_CoGetSystemSecurityPermissions_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoGetTreatAsClass", Napi::Function::New(env, windowssys_windows_win32_system_com_CoGetTreatAsClass_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoImpersonateClient", Napi::Function::New(env, windowssys_windows_win32_system_com_CoImpersonateClient_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoIncrementMTAUsage", Napi::Function::New(env, windowssys_windows_win32_system_com_CoIncrementMTAUsage_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoInitialize", Napi::Function::New(env, windowssys_windows_win32_system_com_CoInitialize_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoInitializeEx", Napi::Function::New(env, windowssys_windows_win32_system_com_CoInitializeEx_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoInitializeSecurity", Napi::Function::New(env, windowssys_windows_win32_system_com_CoInitializeSecurity_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoInstall", Napi::Function::New(env, windowssys_windows_win32_system_com_CoInstall_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoInvalidateRemoteMachineBindings", Napi::Function::New(env, windowssys_windows_win32_system_com_CoInvalidateRemoteMachineBindings_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoIsHandlerConnected", Napi::Function::New(env, windowssys_windows_win32_system_com_CoIsHandlerConnected_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoIsOle1Class", Napi::Function::New(env, windowssys_windows_win32_system_com_CoIsOle1Class_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoLoadLibrary", Napi::Function::New(env, windowssys_windows_win32_system_com_CoLoadLibrary_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoLockObjectExternal", Napi::Function::New(env, windowssys_windows_win32_system_com_CoLockObjectExternal_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoQueryAuthenticationServices", Napi::Function::New(env, windowssys_windows_win32_system_com_CoQueryAuthenticationServices_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoQueryClientBlanket", Napi::Function::New(env, windowssys_windows_win32_system_com_CoQueryClientBlanket_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoQueryProxyBlanket", Napi::Function::New(env, windowssys_windows_win32_system_com_CoQueryProxyBlanket_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoRegisterActivationFilter", Napi::Function::New(env, windowssys_windows_win32_system_com_CoRegisterActivationFilter_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoRegisterChannelHook", Napi::Function::New(env, windowssys_windows_win32_system_com_CoRegisterChannelHook_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoRegisterClassObject", Napi::Function::New(env, windowssys_windows_win32_system_com_CoRegisterClassObject_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoRegisterDeviceCatalog", Napi::Function::New(env, windowssys_windows_win32_system_com_CoRegisterDeviceCatalog_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoRegisterInitializeSpy", Napi::Function::New(env, windowssys_windows_win32_system_com_CoRegisterInitializeSpy_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoRegisterMallocSpy", Napi::Function::New(env, windowssys_windows_win32_system_com_CoRegisterMallocSpy_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoRegisterPSClsid", Napi::Function::New(env, windowssys_windows_win32_system_com_CoRegisterPSClsid_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoRegisterSurrogate", Napi::Function::New(env, windowssys_windows_win32_system_com_CoRegisterSurrogate_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoReleaseServerProcess", Napi::Function::New(env, windowssys_windows_win32_system_com_CoReleaseServerProcess_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoResumeClassObjects", Napi::Function::New(env, windowssys_windows_win32_system_com_CoResumeClassObjects_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoRevertToSelf", Napi::Function::New(env, windowssys_windows_win32_system_com_CoRevertToSelf_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoRevokeClassObject", Napi::Function::New(env, windowssys_windows_win32_system_com_CoRevokeClassObject_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoRevokeDeviceCatalog", Napi::Function::New(env, windowssys_windows_win32_system_com_CoRevokeDeviceCatalog_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoRevokeInitializeSpy", Napi::Function::New(env, windowssys_windows_win32_system_com_CoRevokeInitializeSpy_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoRevokeMallocSpy", Napi::Function::New(env, windowssys_windows_win32_system_com_CoRevokeMallocSpy_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoSetCancelObject", Napi::Function::New(env, windowssys_windows_win32_system_com_CoSetCancelObject_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoSetProxyBlanket", Napi::Function::New(env, windowssys_windows_win32_system_com_CoSetProxyBlanket_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoSuspendClassObjects", Napi::Function::New(env, windowssys_windows_win32_system_com_CoSuspendClassObjects_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoSwitchCallContext", Napi::Function::New(env, windowssys_windows_win32_system_com_CoSwitchCallContext_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoTaskMemAlloc", Napi::Function::New(env, windowssys_windows_win32_system_com_CoTaskMemAlloc_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoTaskMemFree", Napi::Function::New(env, windowssys_windows_win32_system_com_CoTaskMemFree_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoTaskMemRealloc", Napi::Function::New(env, windowssys_windows_win32_system_com_CoTaskMemRealloc_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoTestCancel", Napi::Function::New(env, windowssys_windows_win32_system_com_CoTestCancel_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoTreatAsClass", Napi::Function::New(env, windowssys_windows_win32_system_com_CoTreatAsClass_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoUninitialize", Napi::Function::New(env, windowssys_windows_win32_system_com_CoUninitialize_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoWaitForMultipleHandles", Napi::Function::New(env, windowssys_windows_win32_system_com_CoWaitForMultipleHandles_napi));
+    exports.Set("windowssys_windows_win32_system_com_CoWaitForMultipleObjects", Napi::Function::New(env, windowssys_windows_win32_system_com_CoWaitForMultipleObjects_napi));
+    exports.Set("windowssys_windows_win32_system_com_CreateAntiMoniker", Napi::Function::New(env, windowssys_windows_win32_system_com_CreateAntiMoniker_napi));
+    exports.Set("windowssys_windows_win32_system_com_CreateBindCtx", Napi::Function::New(env, windowssys_windows_win32_system_com_CreateBindCtx_napi));
+    exports.Set("windowssys_windows_win32_system_com_CreateClassMoniker", Napi::Function::New(env, windowssys_windows_win32_system_com_CreateClassMoniker_napi));
+    exports.Set("windowssys_windows_win32_system_com_CreateDataAdviseHolder", Napi::Function::New(env, windowssys_windows_win32_system_com_CreateDataAdviseHolder_napi));
+    exports.Set("windowssys_windows_win32_system_com_CreateDataCache", Napi::Function::New(env, windowssys_windows_win32_system_com_CreateDataCache_napi));
+    exports.Set("windowssys_windows_win32_system_com_CreateFileMoniker", Napi::Function::New(env, windowssys_windows_win32_system_com_CreateFileMoniker_napi));
+    exports.Set("windowssys_windows_win32_system_com_CreateGenericComposite", Napi::Function::New(env, windowssys_windows_win32_system_com_CreateGenericComposite_napi));
+    exports.Set("windowssys_windows_win32_system_com_CreateIUriBuilder", Napi::Function::New(env, windowssys_windows_win32_system_com_CreateIUriBuilder_napi));
+    exports.Set("windowssys_windows_win32_system_com_CreateItemMoniker", Napi::Function::New(env, windowssys_windows_win32_system_com_CreateItemMoniker_napi));
+    exports.Set("windowssys_windows_win32_system_com_CreateObjrefMoniker", Napi::Function::New(env, windowssys_windows_win32_system_com_CreateObjrefMoniker_napi));
+    exports.Set("windowssys_windows_win32_system_com_CreatePointerMoniker", Napi::Function::New(env, windowssys_windows_win32_system_com_CreatePointerMoniker_napi));
+    exports.Set("windowssys_windows_win32_system_com_CreateStdProgressIndicator", Napi::Function::New(env, windowssys_windows_win32_system_com_CreateStdProgressIndicator_napi));
+    exports.Set("windowssys_windows_win32_system_com_CreateUri", Napi::Function::New(env, windowssys_windows_win32_system_com_CreateUri_napi));
+    exports.Set("windowssys_windows_win32_system_com_CreateUriFromMultiByteString", Napi::Function::New(env, windowssys_windows_win32_system_com_CreateUriFromMultiByteString_napi));
+    exports.Set("windowssys_windows_win32_system_com_CreateUriWithFragment", Napi::Function::New(env, windowssys_windows_win32_system_com_CreateUriWithFragment_napi));
+    exports.Set("windowssys_windows_win32_system_com_DcomChannelSetHResult", Napi::Function::New(env, windowssys_windows_win32_system_com_DcomChannelSetHResult_napi));
+    exports.Set("windowssys_windows_win32_system_com_GetClassFile", Napi::Function::New(env, windowssys_windows_win32_system_com_GetClassFile_napi));
+    exports.Set("windowssys_windows_win32_system_com_GetErrorInfo", Napi::Function::New(env, windowssys_windows_win32_system_com_GetErrorInfo_napi));
+    exports.Set("windowssys_windows_win32_system_com_GetRunningObjectTable", Napi::Function::New(env, windowssys_windows_win32_system_com_GetRunningObjectTable_napi));
+    exports.Set("windowssys_windows_win32_system_com_IIDFromString", Napi::Function::New(env, windowssys_windows_win32_system_com_IIDFromString_napi));
+    exports.Set("windowssys_windows_win32_system_com_MkParseDisplayName", Napi::Function::New(env, windowssys_windows_win32_system_com_MkParseDisplayName_napi));
+    exports.Set("windowssys_windows_win32_system_com_MonikerCommonPrefixWith", Napi::Function::New(env, windowssys_windows_win32_system_com_MonikerCommonPrefixWith_napi));
+    exports.Set("windowssys_windows_win32_system_com_MonikerRelativePathTo", Napi::Function::New(env, windowssys_windows_win32_system_com_MonikerRelativePathTo_napi));
+    exports.Set("windowssys_windows_win32_system_com_ProgIDFromCLSID", Napi::Function::New(env, windowssys_windows_win32_system_com_ProgIDFromCLSID_napi));
+    exports.Set("windowssys_windows_win32_system_com_SetErrorInfo", Napi::Function::New(env, windowssys_windows_win32_system_com_SetErrorInfo_napi));
+    exports.Set("windowssys_windows_win32_system_com_StringFromCLSID", Napi::Function::New(env, windowssys_windows_win32_system_com_StringFromCLSID_napi));
+    exports.Set("windowssys_windows_win32_system_com_StringFromGUID2", Napi::Function::New(env, windowssys_windows_win32_system_com_StringFromGUID2_napi));
+    exports.Set("windowssys_windows_win32_system_com_StringFromIID", Napi::Function::New(env, windowssys_windows_win32_system_com_StringFromIID_napi));
+}
+
+static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_com_napi, nullptr };
+struct KmNapiAutoRegister {
+    KmNapiAutoRegister() {
+        registrar_node.next = km_napi_registrar_head;
+        km_napi_registrar_head = &registrar_node;
+    }
+};
+static KmNapiAutoRegister auto_register_instance;
+
+} // namespace
+
+#ifdef KM_NAPI_STANDALONE_MODULE
+#if defined(__GNUC__) || defined(__clang__)
+__attribute__((visibility("hidden")))
+#endif
+KmNapiRegistrarNode* km_napi_registrar_head = nullptr;
+static Napi::Object KmNapiStandaloneInit(Napi::Env env, Napi::Object exports) {
+    for (KmNapiRegistrarNode* cur = km_napi_registrar_head; cur != nullptr; cur = cur->next) {
+        cur->register_fn(env, exports);
+    }
+    return exports;
+}
+NODE_API_MODULE(NODE_GYP_MODULE_NAME, KmNapiStandaloneInit)
+#endif

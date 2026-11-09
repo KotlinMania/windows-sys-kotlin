@@ -1,0 +1,30 @@
+#ifndef WINDOWSSYS_WINDOWS_WIN32_SECURITY_ENTERPRISEDATA_WINDOWS_WIN32_SECURITY_ENTERPRISEDATA_WRAPPER_H
+#define WINDOWSSYS_WINDOWS_WIN32_SECURITY_ENTERPRISEDATA_WINDOWS_WIN32_SECURITY_ENTERPRISEDATA_WRAPPER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+int32_t windowssys_windows_win32_security_enterprisedata_ProtectFileToEnterpriseIdentity(void* fileorfolderpath, void* identity);
+int32_t windowssys_windows_win32_security_enterprisedata_SrpCloseThreadNetworkContext(void* threadnetworkcontext);
+int32_t windowssys_windows_win32_security_enterprisedata_SrpCreateThreadNetworkContext(void* enterpriseid, void* threadnetworkcontext);
+int32_t windowssys_windows_win32_security_enterprisedata_SrpDisablePermissiveModeFileEncryption(void);
+int32_t windowssys_windows_win32_security_enterprisedata_SrpDoesPolicyAllowAppExecution(void* packageid, void* isallowed);
+int32_t windowssys_windows_win32_security_enterprisedata_SrpEnablePermissiveModeFileEncryption(void* enterpriseid);
+int32_t windowssys_windows_win32_security_enterprisedata_SrpGetEnterpriseIds(void* tokenhandle, void* numberofbytes, void* enterpriseids, void* enterpriseidcount);
+int32_t windowssys_windows_win32_security_enterprisedata_SrpGetEnterprisePolicy(void* tokenhandle, void* policyflags);
+int32_t windowssys_windows_win32_security_enterprisedata_SrpHostingInitialize(int32_t version, int32_t type, void* pvdata, uint32_t cbdata);
+void windowssys_windows_win32_security_enterprisedata_SrpHostingTerminate(int32_t type);
+int32_t windowssys_windows_win32_security_enterprisedata_SrpIsTokenService(void* tokenhandle, void* istokenservice);
+int32_t windowssys_windows_win32_security_enterprisedata_SrpSetTokenEnterpriseId(void* tokenhandle, void* enterpriseid);
+int32_t windowssys_windows_win32_security_enterprisedata_UnprotectFile(void* fileorfolderpath, void* options);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* WINDOWSSYS_WINDOWS_WIN32_SECURITY_ENTERPRISEDATA_WINDOWS_WIN32_SECURITY_ENTERPRISEDATA_WRAPPER_H */

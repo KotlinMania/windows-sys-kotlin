@@ -1,0 +1,5 @@
+package = io.github.kotlinmania.windowssys.windows.win32.data.htmlhelp.cinterop
+headers = windows_win32_data_htmlhelp_wrapper.h
+headerFilter = windows_win32_data_htmlhelp_wrapper.h
+compilerOpts = -Isrc/native/interop/cinterop
+staticLibraries = windows_win32_data_htmlhelp_wrapper.a

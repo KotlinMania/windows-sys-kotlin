@@ -1,134 +1,65 @@
 package io.github.kotlinmania.windowssys.windows.win32.gaming
 
-import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.HSTRING
 
-public fun interface FnCallback {
-    public operator fun invoke(returncode: HRESULT, context: Long)
-}
+public expect fun CheckGamingPrivilegeSilently(privilegeid: UInt, scope: HSTRING, policy: HSTRING, hasprivilege: Long): HRESULT
 
-public fun interface FnCallback1 {
-    public operator fun invoke(returncode: HRESULT, context: Long, selectedxuids: Long, selectedxuidscount: ULong)
-}
+public expect fun CheckGamingPrivilegeSilentlyForUser(user: Long, privilegeid: UInt, scope: HSTRING, policy: HSTRING, hasprivilege: Long): HRESULT
 
-public fun CheckGamingPrivilegeSilently(privilegeid: UInt, scope: HSTRING, policy: HSTRING, hasprivilege: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-gaming-tcui-l1-1-1.dll", "CheckGamingPrivilegeSilently", longArrayOf(privilegeid.toLong(), scope, policy, hasprivilege)).toInt()
-}
+public expect fun CheckGamingPrivilegeWithUI(privilegeid: UInt, scope: HSTRING, policy: HSTRING, friendlymessage: HSTRING, completionroutine: GameUICompletionRoutine, context: Long): HRESULT
 
-public fun CheckGamingPrivilegeSilentlyForUser(user: Long, privilegeid: UInt, scope: HSTRING, policy: HSTRING, hasprivilege: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-gaming-tcui-l1-1-2.dll", "CheckGamingPrivilegeSilentlyForUser", longArrayOf(user, privilegeid.toLong(), scope, policy, hasprivilege)).toInt()
-}
+public expect fun CheckGamingPrivilegeWithUIForUser(user: Long, privilegeid: UInt, scope: HSTRING, policy: HSTRING, friendlymessage: HSTRING, completionroutine: GameUICompletionRoutine, context: Long): HRESULT
 
-public fun CheckGamingPrivilegeWithUI(privilegeid: UInt, scope: HSTRING, policy: HSTRING, friendlymessage: HSTRING, completionroutine: GameUICompletionRoutine, context: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-gaming-tcui-l1-1-1.dll", "CheckGamingPrivilegeWithUI", longArrayOf(privilegeid.toLong(), scope, policy, friendlymessage, Win32DynamicFfi.objectSlot(completionroutine), context)).toInt()
-}
+public expect fun GetExpandedResourceExclusiveCpuCount(exclusivecpucount: Long): HRESULT
 
-public fun CheckGamingPrivilegeWithUIForUser(user: Long, privilegeid: UInt, scope: HSTRING, policy: HSTRING, friendlymessage: HSTRING, completionroutine: GameUICompletionRoutine, context: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-gaming-tcui-l1-1-2.dll", "CheckGamingPrivilegeWithUIForUser", longArrayOf(user, privilegeid.toLong(), scope, policy, friendlymessage, Win32DynamicFfi.objectSlot(completionroutine), context)).toInt()
-}
+public expect fun GetGamingDeviceModelInformation(information: Long): HRESULT
 
-public fun GetExpandedResourceExclusiveCpuCount(exclusivecpucount: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-gaming-expandedresources-l1-1-0.dll", "GetExpandedResourceExclusiveCpuCount", longArrayOf(exclusivecpucount)).toInt()
-}
+public expect fun HasExpandedResources(hasexpandedresources: Long): HRESULT
 
-public fun GetGamingDeviceModelInformation(information: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-gaming-deviceinformation-l1-1-0.dll", "GetGamingDeviceModelInformation", longArrayOf(information)).toInt()
-}
+public expect fun ProcessPendingGameUI(waitforcompletion: BOOL): HRESULT
 
-public fun HasExpandedResources(hasexpandedresources: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-gaming-expandedresources-l1-1-0.dll", "HasExpandedResources", longArrayOf(hasexpandedresources)).toInt()
-}
+public expect fun ReleaseExclusiveCpuSets(): HRESULT
 
-public fun ProcessPendingGameUI(waitforcompletion: BOOL): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-gaming-tcui-l1-1-0.dll", "ProcessPendingGameUI", longArrayOf(waitforcompletion.toLong())).toInt()
-}
+public expect fun ShowChangeFriendRelationshipUI(targetuserxuid: HSTRING, completionroutine: GameUICompletionRoutine, context: Long): HRESULT
 
-public fun ReleaseExclusiveCpuSets(): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-gaming-expandedresources-l1-1-0.dll", "ReleaseExclusiveCpuSets", longArrayOf()).toInt()
-}
+public expect fun ShowChangeFriendRelationshipUIForUser(user: Long, targetuserxuid: HSTRING, completionroutine: GameUICompletionRoutine, context: Long): HRESULT
 
-public fun ShowChangeFriendRelationshipUI(targetuserxuid: HSTRING, completionroutine: GameUICompletionRoutine, context: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-gaming-tcui-l1-1-0.dll", "ShowChangeFriendRelationshipUI", longArrayOf(targetuserxuid, Win32DynamicFfi.objectSlot(completionroutine), context)).toInt()
-}
+public expect fun ShowCustomizeUserProfileUI(completionroutine: GameUICompletionRoutine, context: Long): HRESULT
 
-public fun ShowChangeFriendRelationshipUIForUser(user: Long, targetuserxuid: HSTRING, completionroutine: GameUICompletionRoutine, context: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-gaming-tcui-l1-1-2.dll", "ShowChangeFriendRelationshipUIForUser", longArrayOf(user, targetuserxuid, Win32DynamicFfi.objectSlot(completionroutine), context)).toInt()
-}
+public expect fun ShowCustomizeUserProfileUIForUser(user: Long, completionroutine: GameUICompletionRoutine, context: Long): HRESULT
 
-public fun ShowCustomizeUserProfileUI(completionroutine: GameUICompletionRoutine, context: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-gaming-tcui-l1-1-4.dll", "ShowCustomizeUserProfileUI", longArrayOf(Win32DynamicFfi.objectSlot(completionroutine), context)).toInt()
-}
+public expect fun ShowFindFriendsUI(completionroutine: GameUICompletionRoutine, context: Long): HRESULT
 
-public fun ShowCustomizeUserProfileUIForUser(user: Long, completionroutine: GameUICompletionRoutine, context: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-gaming-tcui-l1-1-4.dll", "ShowCustomizeUserProfileUIForUser", longArrayOf(user, Win32DynamicFfi.objectSlot(completionroutine), context)).toInt()
-}
+public expect fun ShowFindFriendsUIForUser(user: Long, completionroutine: GameUICompletionRoutine, context: Long): HRESULT
 
-public fun ShowFindFriendsUI(completionroutine: GameUICompletionRoutine, context: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-gaming-tcui-l1-1-4.dll", "ShowFindFriendsUI", longArrayOf(Win32DynamicFfi.objectSlot(completionroutine), context)).toInt()
-}
+public expect fun ShowGameInfoUI(titleid: UInt, completionroutine: GameUICompletionRoutine, context: Long): HRESULT
 
-public fun ShowFindFriendsUIForUser(user: Long, completionroutine: GameUICompletionRoutine, context: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-gaming-tcui-l1-1-4.dll", "ShowFindFriendsUIForUser", longArrayOf(user, Win32DynamicFfi.objectSlot(completionroutine), context)).toInt()
-}
+public expect fun ShowGameInfoUIForUser(user: Long, titleid: UInt, completionroutine: GameUICompletionRoutine, context: Long): HRESULT
 
-public fun ShowGameInfoUI(titleid: UInt, completionroutine: GameUICompletionRoutine, context: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-gaming-tcui-l1-1-4.dll", "ShowGameInfoUI", longArrayOf(titleid.toLong(), Win32DynamicFfi.objectSlot(completionroutine), context)).toInt()
-}
+public expect fun ShowGameInviteUI(serviceconfigurationid: HSTRING, sessiontemplatename: HSTRING, sessionid: HSTRING, invitationdisplaytext: HSTRING, completionroutine: GameUICompletionRoutine, context: Long): HRESULT
 
-public fun ShowGameInfoUIForUser(user: Long, titleid: UInt, completionroutine: GameUICompletionRoutine, context: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-gaming-tcui-l1-1-4.dll", "ShowGameInfoUIForUser", longArrayOf(user, titleid.toLong(), Win32DynamicFfi.objectSlot(completionroutine), context)).toInt()
-}
+public expect fun ShowGameInviteUIForUser(user: Long, serviceconfigurationid: HSTRING, sessiontemplatename: HSTRING, sessionid: HSTRING, invitationdisplaytext: HSTRING, completionroutine: GameUICompletionRoutine, context: Long): HRESULT
 
-public fun ShowGameInviteUI(serviceconfigurationid: HSTRING, sessiontemplatename: HSTRING, sessionid: HSTRING, invitationdisplaytext: HSTRING, completionroutine: GameUICompletionRoutine, context: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-gaming-tcui-l1-1-0.dll", "ShowGameInviteUI", longArrayOf(serviceconfigurationid, sessiontemplatename, sessionid, invitationdisplaytext, Win32DynamicFfi.objectSlot(completionroutine), context)).toInt()
-}
+public expect fun ShowGameInviteUIWithContext(serviceconfigurationid: HSTRING, sessiontemplatename: HSTRING, sessionid: HSTRING, invitationdisplaytext: HSTRING, customactivationcontext: HSTRING, completionroutine: GameUICompletionRoutine, context: Long): HRESULT
 
-public fun ShowGameInviteUIForUser(user: Long, serviceconfigurationid: HSTRING, sessiontemplatename: HSTRING, sessionid: HSTRING, invitationdisplaytext: HSTRING, completionroutine: GameUICompletionRoutine, context: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-gaming-tcui-l1-1-2.dll", "ShowGameInviteUIForUser", longArrayOf(user, serviceconfigurationid, sessiontemplatename, sessionid, invitationdisplaytext, Win32DynamicFfi.objectSlot(completionroutine), context)).toInt()
-}
+public expect fun ShowGameInviteUIWithContextForUser(user: Long, serviceconfigurationid: HSTRING, sessiontemplatename: HSTRING, sessionid: HSTRING, invitationdisplaytext: HSTRING, customactivationcontext: HSTRING, completionroutine: GameUICompletionRoutine, context: Long): HRESULT
 
-public fun ShowGameInviteUIWithContext(serviceconfigurationid: HSTRING, sessiontemplatename: HSTRING, sessionid: HSTRING, invitationdisplaytext: HSTRING, customactivationcontext: HSTRING, completionroutine: GameUICompletionRoutine, context: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-gaming-tcui-l1-1-3.dll", "ShowGameInviteUIWithContext", longArrayOf(serviceconfigurationid, sessiontemplatename, sessionid, invitationdisplaytext, customactivationcontext, Win32DynamicFfi.objectSlot(completionroutine), context)).toInt()
-}
+public expect fun ShowPlayerPickerUI(promptdisplaytext: HSTRING, xuids: Long, xuidscount: ULong, preselectedxuids: Long, preselectedxuidscount: ULong, minselectioncount: ULong, maxselectioncount: ULong, completionroutine: PlayerPickerUICompletionRoutine, context: Long): HRESULT
 
-public fun ShowGameInviteUIWithContextForUser(user: Long, serviceconfigurationid: HSTRING, sessiontemplatename: HSTRING, sessionid: HSTRING, invitationdisplaytext: HSTRING, customactivationcontext: HSTRING, completionroutine: GameUICompletionRoutine, context: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-gaming-tcui-l1-1-3.dll", "ShowGameInviteUIWithContextForUser", longArrayOf(user, serviceconfigurationid, sessiontemplatename, sessionid, invitationdisplaytext, customactivationcontext, Win32DynamicFfi.objectSlot(completionroutine), context)).toInt()
-}
+public expect fun ShowPlayerPickerUIForUser(user: Long, promptdisplaytext: HSTRING, xuids: Long, xuidscount: ULong, preselectedxuids: Long, preselectedxuidscount: ULong, minselectioncount: ULong, maxselectioncount: ULong, completionroutine: PlayerPickerUICompletionRoutine, context: Long): HRESULT
 
-public fun ShowPlayerPickerUI(promptdisplaytext: HSTRING, xuids: Long, xuidscount: ULong, preselectedxuids: Long, preselectedxuidscount: ULong, minselectioncount: ULong, maxselectioncount: ULong, completionroutine: PlayerPickerUICompletionRoutine, context: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-gaming-tcui-l1-1-0.dll", "ShowPlayerPickerUI", longArrayOf(promptdisplaytext, xuids, xuidscount.toLong(), preselectedxuids, preselectedxuidscount.toLong(), minselectioncount.toLong(), maxselectioncount.toLong(), Win32DynamicFfi.objectSlot(completionroutine), context)).toInt()
-}
+public expect fun ShowProfileCardUI(targetuserxuid: HSTRING, completionroutine: GameUICompletionRoutine, context: Long): HRESULT
 
-public fun ShowPlayerPickerUIForUser(user: Long, promptdisplaytext: HSTRING, xuids: Long, xuidscount: ULong, preselectedxuids: Long, preselectedxuidscount: ULong, minselectioncount: ULong, maxselectioncount: ULong, completionroutine: PlayerPickerUICompletionRoutine, context: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-gaming-tcui-l1-1-2.dll", "ShowPlayerPickerUIForUser", longArrayOf(user, promptdisplaytext, xuids, xuidscount.toLong(), preselectedxuids, preselectedxuidscount.toLong(), minselectioncount.toLong(), maxselectioncount.toLong(), Win32DynamicFfi.objectSlot(completionroutine), context)).toInt()
-}
+public expect fun ShowProfileCardUIForUser(user: Long, targetuserxuid: HSTRING, completionroutine: GameUICompletionRoutine, context: Long): HRESULT
 
-public fun ShowProfileCardUI(targetuserxuid: HSTRING, completionroutine: GameUICompletionRoutine, context: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-gaming-tcui-l1-1-0.dll", "ShowProfileCardUI", longArrayOf(targetuserxuid, Win32DynamicFfi.objectSlot(completionroutine), context)).toInt()
-}
+public expect fun ShowTitleAchievementsUI(titleid: UInt, completionroutine: GameUICompletionRoutine, context: Long): HRESULT
 
-public fun ShowProfileCardUIForUser(user: Long, targetuserxuid: HSTRING, completionroutine: GameUICompletionRoutine, context: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-gaming-tcui-l1-1-2.dll", "ShowProfileCardUIForUser", longArrayOf(user, targetuserxuid, Win32DynamicFfi.objectSlot(completionroutine), context)).toInt()
-}
+public expect fun ShowTitleAchievementsUIForUser(user: Long, titleid: UInt, completionroutine: GameUICompletionRoutine, context: Long): HRESULT
 
-public fun ShowTitleAchievementsUI(titleid: UInt, completionroutine: GameUICompletionRoutine, context: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-gaming-tcui-l1-1-0.dll", "ShowTitleAchievementsUI", longArrayOf(titleid.toLong(), Win32DynamicFfi.objectSlot(completionroutine), context)).toInt()
-}
+public expect fun ShowUserSettingsUI(completionroutine: GameUICompletionRoutine, context: Long): HRESULT
 
-public fun ShowTitleAchievementsUIForUser(user: Long, titleid: UInt, completionroutine: GameUICompletionRoutine, context: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-gaming-tcui-l1-1-2.dll", "ShowTitleAchievementsUIForUser", longArrayOf(user, titleid.toLong(), Win32DynamicFfi.objectSlot(completionroutine), context)).toInt()
-}
+public expect fun ShowUserSettingsUIForUser(user: Long, completionroutine: GameUICompletionRoutine, context: Long): HRESULT
 
-public fun ShowUserSettingsUI(completionroutine: GameUICompletionRoutine, context: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-gaming-tcui-l1-1-4.dll", "ShowUserSettingsUI", longArrayOf(Win32DynamicFfi.objectSlot(completionroutine), context)).toInt()
-}
-
-public fun ShowUserSettingsUIForUser(user: Long, completionroutine: GameUICompletionRoutine, context: Long): HRESULT {
-    return Win32DynamicFfi.invoke("api-ms-win-gaming-tcui-l1-1-4.dll", "ShowUserSettingsUIForUser", longArrayOf(user, Win32DynamicFfi.objectSlot(completionroutine), context)).toInt()
-}
-
-public fun TryCancelPendingGameUI(): BOOL {
-    return Win32DynamicFfi.invoke("api-ms-win-gaming-tcui-l1-1-0.dll", "TryCancelPendingGameUI", longArrayOf()).toInt()
-}
+public expect fun TryCancelPendingGameUI(): BOOL

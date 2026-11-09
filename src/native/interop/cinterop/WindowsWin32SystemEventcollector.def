@@ -1,0 +1,5 @@
+package = io.github.kotlinmania.windowssys.windows.win32.system.eventcollector.cinterop
+headers = windows_win32_system_eventcollector_wrapper.h
+headerFilter = windows_win32_system_eventcollector_wrapper.h
+compilerOpts = -Isrc/native/interop/cinterop
+staticLibraries = windows_win32_system_eventcollector_wrapper.a

@@ -1,0 +1,1564 @@
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
+#endif
+#include <jni.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <errno.h>
+#ifdef _WIN32
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+#include <windows.h>
+#else
+#include <dlfcn.h>
+#ifndef RTLD_DEFAULT
+#define RTLD_DEFAULT ((void*)0)
+#endif
+#endif
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSCoerceToCanonicalValue(JNIEnv* km_env, jclass km_clazz, jlong key, jlong ppropvar) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSCoerceToCanonicalValue");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)key, (void*)(uintptr_t)ppropvar) : -1;
+#else
+    (void)key;
+    (void)ppropvar;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSCreateAdapterFromPropertyStore(JNIEnv* km_env, jclass km_clazz, jlong pps, jlong riid, jlong ppv) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSCreateAdapterFromPropertyStore");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pps, (void*)(uintptr_t)riid, (void*)(uintptr_t)ppv) : -1;
+#else
+    (void)pps;
+    (void)riid;
+    (void)ppv;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSCreateDelayedMultiplexPropertyStore(JNIEnv* km_env, jclass km_clazz, jint flags, jlong pdpsf, jlong rgstoreids, jint cstores, jlong riid, jlong ppv) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSCreateDelayedMultiplexPropertyStore");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)flags, (void*)(uintptr_t)pdpsf, (void*)(uintptr_t)rgstoreids, (uint32_t)cstores, (void*)(uintptr_t)riid, (void*)(uintptr_t)ppv) : -1;
+#else
+    (void)flags;
+    (void)pdpsf;
+    (void)rgstoreids;
+    (void)cstores;
+    (void)riid;
+    (void)ppv;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSCreateMemoryPropertyStore(JNIEnv* km_env, jclass km_clazz, jlong riid, jlong ppv) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSCreateMemoryPropertyStore");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)riid, (void*)(uintptr_t)ppv) : -1;
+#else
+    (void)riid;
+    (void)ppv;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSCreateMultiplexPropertyStore(JNIEnv* km_env, jclass km_clazz, jlong prgpunkstores, jint cstores, jlong riid, jlong ppv) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSCreateMultiplexPropertyStore");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)prgpunkstores, (uint32_t)cstores, (void*)(uintptr_t)riid, (void*)(uintptr_t)ppv) : -1;
+#else
+    (void)prgpunkstores;
+    (void)cstores;
+    (void)riid;
+    (void)ppv;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSCreatePropertyChangeArray(JNIEnv* km_env, jclass km_clazz, jlong rgpropkey, jlong rgflags, jlong rgpropvar, jint cchanges, jlong riid, jlong ppv) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSCreatePropertyChangeArray");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)rgpropkey, (void*)(uintptr_t)rgflags, (void*)(uintptr_t)rgpropvar, (uint32_t)cchanges, (void*)(uintptr_t)riid, (void*)(uintptr_t)ppv) : -1;
+#else
+    (void)rgpropkey;
+    (void)rgflags;
+    (void)rgpropvar;
+    (void)cchanges;
+    (void)riid;
+    (void)ppv;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSCreatePropertyStoreFromObject(JNIEnv* km_env, jclass km_clazz, jlong punk, jint grfmode, jlong riid, jlong ppv) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSCreatePropertyStoreFromObject");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)punk, (uint32_t)grfmode, (void*)(uintptr_t)riid, (void*)(uintptr_t)ppv) : -1;
+#else
+    (void)punk;
+    (void)grfmode;
+    (void)riid;
+    (void)ppv;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSCreatePropertyStoreFromPropertySetStorage(JNIEnv* km_env, jclass km_clazz, jlong ppss, jint grfmode, jlong riid, jlong ppv) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSCreatePropertyStoreFromPropertySetStorage");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ppss, (uint32_t)grfmode, (void*)(uintptr_t)riid, (void*)(uintptr_t)ppv) : -1;
+#else
+    (void)ppss;
+    (void)grfmode;
+    (void)riid;
+    (void)ppv;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSCreateSimplePropertyChange(JNIEnv* km_env, jclass km_clazz, jint flags, jlong key, jlong propvar, jlong riid, jlong ppv) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSCreateSimplePropertyChange");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)flags, (void*)(uintptr_t)key, (void*)(uintptr_t)propvar, (void*)(uintptr_t)riid, (void*)(uintptr_t)ppv) : -1;
+#else
+    (void)flags;
+    (void)key;
+    (void)propvar;
+    (void)riid;
+    (void)ppv;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSEnumeratePropertyDescriptions(JNIEnv* km_env, jclass km_clazz, jint filteron, jlong riid, jlong ppv) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSEnumeratePropertyDescriptions");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)filteron, (void*)(uintptr_t)riid, (void*)(uintptr_t)ppv) : -1;
+#else
+    (void)filteron;
+    (void)riid;
+    (void)ppv;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSFormatForDisplay(JNIEnv* km_env, jclass km_clazz, jlong propkey, jlong propvar, jint pdfflags, jlong pwsztext, jint cchtext) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSFormatForDisplay");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propkey, (void*)(uintptr_t)propvar, (int32_t)pdfflags, (void*)(uintptr_t)pwsztext, (uint32_t)cchtext) : -1;
+#else
+    (void)propkey;
+    (void)propvar;
+    (void)pdfflags;
+    (void)pwsztext;
+    (void)cchtext;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSFormatForDisplayAlloc(JNIEnv* km_env, jclass km_clazz, jlong key, jlong propvar, jint pdff, jlong ppszdisplay) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSFormatForDisplayAlloc");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)key, (void*)(uintptr_t)propvar, (int32_t)pdff, (void*)(uintptr_t)ppszdisplay) : -1;
+#else
+    (void)key;
+    (void)propvar;
+    (void)pdff;
+    (void)ppszdisplay;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSFormatPropertyValue(JNIEnv* km_env, jclass km_clazz, jlong pps, jlong ppd, jint pdff, jlong ppszdisplay) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSFormatPropertyValue");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pps, (void*)(uintptr_t)ppd, (int32_t)pdff, (void*)(uintptr_t)ppszdisplay) : -1;
+#else
+    (void)pps;
+    (void)ppd;
+    (void)pdff;
+    (void)ppszdisplay;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSGetImageReferenceForValue(JNIEnv* km_env, jclass km_clazz, jlong propkey, jlong propvar, jlong ppszimageres) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSGetImageReferenceForValue");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propkey, (void*)(uintptr_t)propvar, (void*)(uintptr_t)ppszimageres) : -1;
+#else
+    (void)propkey;
+    (void)propvar;
+    (void)ppszimageres;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSGetItemPropertyHandler(JNIEnv* km_env, jclass km_clazz, jlong punkitem, jint freadwrite, jlong riid, jlong ppv) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSGetItemPropertyHandler");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)punkitem, (int32_t)freadwrite, (void*)(uintptr_t)riid, (void*)(uintptr_t)ppv) : -1;
+#else
+    (void)punkitem;
+    (void)freadwrite;
+    (void)riid;
+    (void)ppv;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSGetItemPropertyHandlerWithCreateObject(JNIEnv* km_env, jclass km_clazz, jlong punkitem, jint freadwrite, jlong punkcreateobject, jlong riid, jlong ppv) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSGetItemPropertyHandlerWithCreateObject");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)punkitem, (int32_t)freadwrite, (void*)(uintptr_t)punkcreateobject, (void*)(uintptr_t)riid, (void*)(uintptr_t)ppv) : -1;
+#else
+    (void)punkitem;
+    (void)freadwrite;
+    (void)punkcreateobject;
+    (void)riid;
+    (void)ppv;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSGetNameFromPropertyKey(JNIEnv* km_env, jclass km_clazz, jlong propkey, jlong ppszcanonicalname) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSGetNameFromPropertyKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propkey, (void*)(uintptr_t)ppszcanonicalname) : -1;
+#else
+    (void)propkey;
+    (void)ppszcanonicalname;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSGetNamedPropertyFromPropertyStorage(JNIEnv* km_env, jclass km_clazz, jlong psps, jint cb, jlong pszname, jlong ppropvar) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSGetNamedPropertyFromPropertyStorage");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)psps, (uint32_t)cb, (void*)(uintptr_t)pszname, (void*)(uintptr_t)ppropvar) : -1;
+#else
+    (void)psps;
+    (void)cb;
+    (void)pszname;
+    (void)ppropvar;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSGetPropertyDescription(JNIEnv* km_env, jclass km_clazz, jlong propkey, jlong riid, jlong ppv) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSGetPropertyDescription");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propkey, (void*)(uintptr_t)riid, (void*)(uintptr_t)ppv) : -1;
+#else
+    (void)propkey;
+    (void)riid;
+    (void)ppv;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSGetPropertyDescriptionByName(JNIEnv* km_env, jclass km_clazz, jlong pszcanonicalname, jlong riid, jlong ppv) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSGetPropertyDescriptionByName");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszcanonicalname, (void*)(uintptr_t)riid, (void*)(uintptr_t)ppv) : -1;
+#else
+    (void)pszcanonicalname;
+    (void)riid;
+    (void)ppv;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSGetPropertyDescriptionListFromString(JNIEnv* km_env, jclass km_clazz, jlong pszproplist, jlong riid, jlong ppv) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSGetPropertyDescriptionListFromString");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszproplist, (void*)(uintptr_t)riid, (void*)(uintptr_t)ppv) : -1;
+#else
+    (void)pszproplist;
+    (void)riid;
+    (void)ppv;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSGetPropertyFromPropertyStorage(JNIEnv* km_env, jclass km_clazz, jlong psps, jint cb, jlong rpkey, jlong ppropvar) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSGetPropertyFromPropertyStorage");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)psps, (uint32_t)cb, (void*)(uintptr_t)rpkey, (void*)(uintptr_t)ppropvar) : -1;
+#else
+    (void)psps;
+    (void)cb;
+    (void)rpkey;
+    (void)ppropvar;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSGetPropertyKeyFromName(JNIEnv* km_env, jclass km_clazz, jlong pszname, jlong ppropkey) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSGetPropertyKeyFromName");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszname, (void*)(uintptr_t)ppropkey) : -1;
+#else
+    (void)pszname;
+    (void)ppropkey;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSGetPropertySystem(JNIEnv* km_env, jclass km_clazz, jlong riid, jlong ppv) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSGetPropertySystem");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)riid, (void*)(uintptr_t)ppv) : -1;
+#else
+    (void)riid;
+    (void)ppv;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSGetPropertyValue(JNIEnv* km_env, jclass km_clazz, jlong pps, jlong ppd, jlong ppropvar) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSGetPropertyValue");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pps, (void*)(uintptr_t)ppd, (void*)(uintptr_t)ppropvar) : -1;
+#else
+    (void)pps;
+    (void)ppd;
+    (void)ppropvar;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSLookupPropertyHandlerCLSID(JNIEnv* km_env, jclass km_clazz, jlong pszfilepath, jlong pclsid) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSLookupPropertyHandlerCLSID");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszfilepath, (void*)(uintptr_t)pclsid) : -1;
+#else
+    (void)pszfilepath;
+    (void)pclsid;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1Delete(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_Delete");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadBOOL(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_ReadBOOL");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (void*)(uintptr_t)value) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)value;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadBSTR(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_ReadBSTR");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (void*)(uintptr_t)value) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)value;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadDWORD(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_ReadDWORD");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (void*)(uintptr_t)value) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)value;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadGUID(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_ReadGUID");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (void*)(uintptr_t)value) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)value;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadInt(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_ReadInt");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (void*)(uintptr_t)value) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)value;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadLONG(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_ReadLONG");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (void*)(uintptr_t)value) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)value;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadPOINTL(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_ReadPOINTL");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (void*)(uintptr_t)value) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)value;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadPOINTS(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_ReadPOINTS");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (void*)(uintptr_t)value) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)value;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadPropertyKey(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_ReadPropertyKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (void*)(uintptr_t)value) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)value;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadRECTL(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_ReadRECTL");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (void*)(uintptr_t)value) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)value;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadSHORT(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_ReadSHORT");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (void*)(uintptr_t)value) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)value;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadStr(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value, jint charactercount) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_ReadStr");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (void*)(uintptr_t)value, (int32_t)charactercount) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)value;
+    (void)charactercount;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadStrAlloc(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_ReadStrAlloc");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (void*)(uintptr_t)value) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)value;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadStream(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_ReadStream");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (void*)(uintptr_t)value) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)value;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadType(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong var, jshort type) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint16_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_ReadType");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (void*)(uintptr_t)var, (uint16_t)type) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)var;
+    (void)type;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadULONGLONG(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_ReadULONGLONG");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (void*)(uintptr_t)value) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)value;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1ReadUnknown(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong riid, jlong ppv) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_ReadUnknown");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (void*)(uintptr_t)riid, (void*)(uintptr_t)ppv) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)riid;
+    (void)ppv;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1WriteBOOL(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jint value) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_WriteBOOL");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (int32_t)value) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)value;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1WriteBSTR(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_WriteBSTR");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (void*)(uintptr_t)value) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)value;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1WriteDWORD(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jint value) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_WriteDWORD");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (uint32_t)value) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)value;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1WriteGUID(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_WriteGUID");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (void*)(uintptr_t)value) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)value;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1WriteInt(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jint value) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_WriteInt");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (int32_t)value) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)value;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1WriteLONG(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jint value) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_WriteLONG");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (int32_t)value) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)value;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1WritePOINTL(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_WritePOINTL");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (void*)(uintptr_t)value) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)value;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1WritePOINTS(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_WritePOINTS");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (void*)(uintptr_t)value) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)value;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1WritePropertyKey(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_WritePropertyKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (void*)(uintptr_t)value) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)value;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1WriteRECTL(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_WriteRECTL");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (void*)(uintptr_t)value) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)value;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1WriteSHORT(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jshort value) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int16_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_WriteSHORT");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (int16_t)value) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)value;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1WriteStr(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_WriteStr");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (void*)(uintptr_t)value) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)value;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1WriteStream(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_WriteStream");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (void*)(uintptr_t)value) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)value;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1WriteULONGLONG(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong value) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint64_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_WriteULONGLONG");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (uint64_t)value) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)value;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyBag_1WriteUnknown(JNIEnv* km_env, jclass km_clazz, jlong propbag, jlong propname, jlong punk) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyBag_WriteUnknown");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)propbag, (void*)(uintptr_t)propname, (void*)(uintptr_t)punk) : -1;
+#else
+    (void)propbag;
+    (void)propname;
+    (void)punk;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSPropertyKeyFromString(JNIEnv* km_env, jclass km_clazz, jlong pszstring, jlong pkey) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSPropertyKeyFromString");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszstring, (void*)(uintptr_t)pkey) : -1;
+#else
+    (void)pszstring;
+    (void)pkey;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSRefreshPropertySchema(JNIEnv* km_env, jclass km_clazz) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSRefreshPropertySchema");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : -1;
+#else
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSRegisterPropertySchema(JNIEnv* km_env, jclass km_clazz, jlong pszpath) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSRegisterPropertySchema");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszpath) : -1;
+#else
+    (void)pszpath;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSSetPropertyValue(JNIEnv* km_env, jclass km_clazz, jlong pps, jlong ppd, jlong propvar) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSSetPropertyValue");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pps, (void*)(uintptr_t)ppd, (void*)(uintptr_t)propvar) : -1;
+#else
+    (void)pps;
+    (void)ppd;
+    (void)propvar;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSStringFromPropertyKey(JNIEnv* km_env, jclass km_clazz, jlong pkey, jlong psz, jint cch) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSStringFromPropertyKey");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pkey, (void*)(uintptr_t)psz, (uint32_t)cch) : -1;
+#else
+    (void)pkey;
+    (void)psz;
+    (void)cch;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PSUnregisterPropertySchema(JNIEnv* km_env, jclass km_clazz, jlong pszpath) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("propsys.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PSUnregisterPropertySchema");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszpath) : -1;
+#else
+    (void)pszpath;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PifMgr_1CloseProperties(JNIEnv* km_env, jclass km_clazz, jlong hprops, jint flopt) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("shell32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PifMgr_CloseProperties");
+    }
+    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprops, (uint32_t)flopt) : NULL;
+#else
+    (void)hprops;
+    (void)flopt;
+    void* km_res = NULL;
+#endif
+    return (jlong)(uintptr_t)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PifMgr_1GetProperties(JNIEnv* km_env, jclass km_clazz, jlong hprops, jlong pszgroup, jlong lpprops, jint cbprops, jint flopt) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("shell32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PifMgr_GetProperties");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprops, (void*)(uintptr_t)pszgroup, (void*)(uintptr_t)lpprops, (int32_t)cbprops, (uint32_t)flopt) : -1;
+#else
+    (void)hprops;
+    (void)pszgroup;
+    (void)lpprops;
+    (void)cbprops;
+    (void)flopt;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PifMgr_1OpenProperties(JNIEnv* km_env, jclass km_clazz, jlong pszapp, jlong pszpif, jint hinf, jint flopt) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("shell32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PifMgr_OpenProperties");
+    }
+    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszapp, (void*)(uintptr_t)pszpif, (uint32_t)hinf, (uint32_t)flopt) : NULL;
+#else
+    (void)pszapp;
+    (void)pszpif;
+    (void)hinf;
+    (void)flopt;
+    void* km_res = NULL;
+#endif
+    return (jlong)(uintptr_t)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1PifMgr_1SetProperties(JNIEnv* km_env, jclass km_clazz, jlong hprops, jlong pszgroup, jlong lpprops, jint cbprops, jint flopt) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("shell32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PifMgr_SetProperties");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprops, (void*)(uintptr_t)pszgroup, (void*)(uintptr_t)lpprops, (int32_t)cbprops, (uint32_t)flopt) : -1;
+#else
+    (void)hprops;
+    (void)pszgroup;
+    (void)lpprops;
+    (void)cbprops;
+    (void)flopt;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1SHAddDefaultPropertiesByExt(JNIEnv* km_env, jclass km_clazz, jlong pszext, jlong ppropstore) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("shell32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SHAddDefaultPropertiesByExt");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszext, (void*)(uintptr_t)ppropstore) : -1;
+#else
+    (void)pszext;
+    (void)ppropstore;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1SHGetPropertyStoreForWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong riid, jlong ppv) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("shell32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SHGetPropertyStoreForWindow");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwnd, (void*)(uintptr_t)riid, (void*)(uintptr_t)ppv) : -1;
+#else
+    (void)hwnd;
+    (void)riid;
+    (void)ppv;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1SHGetPropertyStoreFromIDList(JNIEnv* km_env, jclass km_clazz, jlong pidl, jint flags, jlong riid, jlong ppv) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("shell32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SHGetPropertyStoreFromIDList");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pidl, (int32_t)flags, (void*)(uintptr_t)riid, (void*)(uintptr_t)ppv) : -1;
+#else
+    (void)pidl;
+    (void)flags;
+    (void)riid;
+    (void)ppv;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1SHGetPropertyStoreFromParsingName(JNIEnv* km_env, jclass km_clazz, jlong pszpath, jlong pbc, jint flags, jlong riid, jlong ppv) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("shell32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SHGetPropertyStoreFromParsingName");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszpath, (void*)(uintptr_t)pbc, (int32_t)flags, (void*)(uintptr_t)riid, (void*)(uintptr_t)ppv) : -1;
+#else
+    (void)pszpath;
+    (void)pbc;
+    (void)flags;
+    (void)riid;
+    (void)ppv;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1SHPropStgCreate(JNIEnv* km_env, jclass km_clazz, jlong psstg, jlong fmtid, jlong pclsid, jint grfflags, jint grfmode, jint dwdisposition, jlong ppstg, jlong pucodepage) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("shell32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SHPropStgCreate");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psstg, (void*)(uintptr_t)fmtid, (void*)(uintptr_t)pclsid, (uint32_t)grfflags, (uint32_t)grfmode, (uint32_t)dwdisposition, (void*)(uintptr_t)ppstg, (void*)(uintptr_t)pucodepage) : -1;
+#else
+    (void)psstg;
+    (void)fmtid;
+    (void)pclsid;
+    (void)grfflags;
+    (void)grfmode;
+    (void)dwdisposition;
+    (void)ppstg;
+    (void)pucodepage;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1SHPropStgReadMultiple(JNIEnv* km_env, jclass km_clazz, jlong pps, jint ucodepage, jint cpspec, jlong rgpspec, jlong rgvar) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("shell32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SHPropStgReadMultiple");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pps, (uint32_t)ucodepage, (uint32_t)cpspec, (void*)(uintptr_t)rgpspec, (void*)(uintptr_t)rgvar) : -1;
+#else
+    (void)pps;
+    (void)ucodepage;
+    (void)cpspec;
+    (void)rgpspec;
+    (void)rgvar;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_shell_propertiessystem_WindowsWin32UiShellPropertiessystemJniBridge_windowssys_1windows_1win32_1ui_1shell_1propertiessystem_1SHPropStgWriteMultiple(JNIEnv* km_env, jclass km_clazz, jlong pps, jlong pucodepage, jint cpspec, jlong rgpspec, jlong rgvar, jint propidnamefirst) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("shell32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SHPropStgWriteMultiple");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pps, (void*)(uintptr_t)pucodepage, (uint32_t)cpspec, (void*)(uintptr_t)rgpspec, (void*)(uintptr_t)rgvar, (uint32_t)propidnamefirst) : -1;
+#else
+    (void)pps;
+    (void)pucodepage;
+    (void)cpspec;
+    (void)rgpspec;
+    (void)rgvar;
+    (void)propidnamefirst;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+

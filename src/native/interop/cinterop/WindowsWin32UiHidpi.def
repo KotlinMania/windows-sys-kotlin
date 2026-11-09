@@ -1,0 +1,5 @@
+package = io.github.kotlinmania.windowssys.windows.win32.ui.hidpi.cinterop
+headers = windows_win32_ui_hidpi_wrapper.h
+headerFilter = windows_win32_ui_hidpi_wrapper.h
+compilerOpts = -Isrc/native/interop/cinterop
+staticLibraries = windows_win32_ui_hidpi_wrapper.a

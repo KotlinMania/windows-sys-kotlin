@@ -1,0 +1,5 @@
+package = io.github.kotlinmania.windowssys.windows.win32.system.performance.hardwarecounterprofiling.cinterop
+headers = windows_win32_system_performance_hardwarecounterprofiling_wrapper.h
+headerFilter = windows_win32_system_performance_hardwarecounterprofiling_wrapper.h
+compilerOpts = -Isrc/native/interop/cinterop
+staticLibraries = windows_win32_system_performance_hardwarecounterprofiling_wrapper.a

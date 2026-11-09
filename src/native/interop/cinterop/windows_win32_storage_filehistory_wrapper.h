@@ -1,0 +1,24 @@
+#ifndef WINDOWSSYS_WINDOWS_WIN32_STORAGE_FILEHISTORY_WINDOWS_WIN32_STORAGE_FILEHISTORY_WRAPPER_H
+#define WINDOWSSYS_WINDOWS_WIN32_STORAGE_FILEHISTORY_WINDOWS_WIN32_STORAGE_FILEHISTORY_WRAPPER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+int32_t windowssys_windows_win32_storage_filehistory_FhServiceBlockBackup(void* arg_0_pipe);
+int32_t windowssys_windows_win32_storage_filehistory_FhServiceClosePipe(void* arg_0_pipe);
+int32_t windowssys_windows_win32_storage_filehistory_FhServiceOpenPipe(int32_t startserviceifstopped, void* arg_1_pipe);
+int32_t windowssys_windows_win32_storage_filehistory_FhServiceReloadConfiguration(void* arg_0_pipe);
+int32_t windowssys_windows_win32_storage_filehistory_FhServiceStartBackup(void* arg_0_pipe, int32_t lowpriorityio);
+int32_t windowssys_windows_win32_storage_filehistory_FhServiceStopBackup(void* arg_0_pipe, int32_t stoptracking);
+int32_t windowssys_windows_win32_storage_filehistory_FhServiceUnblockBackup(void* arg_0_pipe);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* WINDOWSSYS_WINDOWS_WIN32_STORAGE_FILEHISTORY_WINDOWS_WIN32_STORAGE_FILEHISTORY_WRAPPER_H */

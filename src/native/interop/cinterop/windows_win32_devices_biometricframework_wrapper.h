@@ -1,0 +1,69 @@
+#ifndef WINDOWSSYS_WINDOWS_WIN32_DEVICES_BIOMETRICFRAMEWORK_WINDOWS_WIN32_DEVICES_BIOMETRICFRAMEWORK_WRAPPER_H
+#define WINDOWSSYS_WINDOWS_WIN32_DEVICES_BIOMETRICFRAMEWORK_WINDOWS_WIN32_DEVICES_BIOMETRICFRAMEWORK_WRAPPER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioAcquireFocus(void);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioAsyncEnumBiometricUnits(uint32_t frameworkhandle, uint32_t factor);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioAsyncEnumDatabases(uint32_t frameworkhandle, uint32_t factor);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioAsyncEnumServiceProviders(uint32_t frameworkhandle, uint32_t factor);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioAsyncMonitorFrameworkChanges(uint32_t frameworkhandle, uint32_t changetypes);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioAsyncOpenFramework(int32_t notificationmethod, void* targetwindow, uint32_t messagecode, void* callbackroutine, void* userdata, int32_t asynchronousopen, void* frameworkhandle);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioAsyncOpenSession(uint32_t factor, uint32_t pooltype, uint32_t flags, void* unitarray, uint64_t unitcount, void* databaseid, int32_t notificationmethod, void* targetwindow, uint32_t messagecode, void* callbackroutine, void* userdata, int32_t asynchronousopen, void* sessionhandle);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioCancel(uint32_t sessionhandle);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioCaptureSample(uint32_t sessionhandle, uint8_t purpose, uint8_t flags, void* unitid, void* sample, void* samplesize, void* rejectdetail);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioCaptureSampleWithCallback(uint32_t sessionhandle, uint8_t purpose, uint8_t flags, void* capturecallback, void* capturecallbackcontext);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioCloseFramework(uint32_t frameworkhandle);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioCloseSession(uint32_t sessionhandle);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioControlUnit(uint32_t sessionhandle, uint32_t unitid, uint32_t component, uint32_t controlcode, void* sendbuffer, uint64_t sendbuffersize, void* receivebuffer, uint64_t receivebuffersize, void* receivedatasize, void* operationstatus);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioControlUnitPrivileged(uint32_t sessionhandle, uint32_t unitid, uint32_t component, uint32_t controlcode, void* sendbuffer, uint64_t sendbuffersize, void* receivebuffer, uint64_t receivebuffersize, void* receivedatasize, void* operationstatus);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioDeleteTemplate(uint32_t sessionhandle, uint32_t unitid, void* identity, uint8_t subfactor);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioEnrollBegin(uint32_t sessionhandle, uint8_t subfactor, uint32_t unitid);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioEnrollCapture(uint32_t sessionhandle, void* rejectdetail);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioEnrollCaptureWithCallback(uint32_t sessionhandle, void* enrollcallback, void* enrollcallbackcontext);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioEnrollCommit(uint32_t sessionhandle, void* identity, void* isnewtemplate);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioEnrollDiscard(uint32_t sessionhandle);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioEnrollSelect(uint32_t sessionhandle, uint64_t selectorvalue);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioEnumBiometricUnits(uint32_t factor, void* unitschemaarray, void* unitcount);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioEnumDatabases(uint32_t factor, void* storageschemaarray, void* storagecount);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioEnumEnrollments(uint32_t sessionhandle, uint32_t unitid, void* identity, void* subfactorarray, void* subfactorcount);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioEnumServiceProviders(uint32_t factor, void* bspschemaarray, void* bspcount);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioFree(void* address);
+void windowssys_windows_win32_devices_biometricframework_WinBioGetDomainLogonSetting(void* value, void* source);
+void windowssys_windows_win32_devices_biometricframework_WinBioGetEnabledSetting(void* value, void* source);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioGetEnrolledFactors(void* accountowner, void* enrolledfactors);
+void windowssys_windows_win32_devices_biometricframework_WinBioGetLogonSetting(void* value, void* source);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioGetProperty(uint32_t sessionhandle, uint32_t propertytype, uint32_t propertyid, uint32_t unitid, void* identity, uint8_t subfactor, void* propertybuffer, void* propertybuffersize);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioIdentify(uint32_t sessionhandle, void* unitid, void* identity, void* subfactor, void* rejectdetail);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioIdentifyWithCallback(uint32_t sessionhandle, void* identifycallback, void* identifycallbackcontext);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioImproveBegin(uint32_t sessionhandle, uint32_t unitid);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioImproveEnd(uint32_t sessionhandle);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioLocateSensor(uint32_t sessionhandle, void* unitid);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioLocateSensorWithCallback(uint32_t sessionhandle, void* locatecallback, void* locatecallbackcontext);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioLockUnit(uint32_t sessionhandle, uint32_t unitid);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioLogonIdentifiedUser(uint32_t sessionhandle);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioMonitorPresence(uint32_t sessionhandle, uint32_t unitid);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioOpenSession(uint32_t factor, uint32_t pooltype, uint32_t flags, void* unitarray, uint64_t unitcount, void* databaseid, void* sessionhandle);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioRegisterEventMonitor(uint32_t sessionhandle, uint32_t eventmask, void* eventcallback, void* eventcallbackcontext);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioReleaseFocus(void);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioRemoveAllCredentials(void);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioRemoveAllDomainCredentials(void);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioSetCredential(int32_t type, void* credential, uint64_t credentialsize, int32_t format);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioSetProperty(uint32_t sessionhandle, uint32_t propertytype, uint32_t propertyid, uint32_t unitid, void* identity, uint8_t subfactor, void* propertybuffer, uint64_t propertybuffersize);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioUnlockUnit(uint32_t sessionhandle, uint32_t unitid);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioUnregisterEventMonitor(uint32_t sessionhandle);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioVerify(uint32_t sessionhandle, void* identity, uint8_t subfactor, void* unitid, void* match, void* rejectdetail);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioVerifyWithCallback(uint32_t sessionhandle, void* identity, uint8_t subfactor, void* verifycallback, void* verifycallbackcontext);
+int32_t windowssys_windows_win32_devices_biometricframework_WinBioWait(uint32_t sessionhandle);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* WINDOWSSYS_WINDOWS_WIN32_DEVICES_BIOMETRICFRAMEWORK_WINDOWS_WIN32_DEVICES_BIOMETRICFRAMEWORK_WRAPPER_H */

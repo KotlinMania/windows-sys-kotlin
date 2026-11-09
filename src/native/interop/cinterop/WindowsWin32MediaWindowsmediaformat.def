@@ -1,0 +1,5 @@
+package = io.github.kotlinmania.windowssys.windows.win32.media.windowsmediaformat.cinterop
+headers = windows_win32_media_windowsmediaformat_wrapper.h
+headerFilter = windows_win32_media_windowsmediaformat_wrapper.h
+compilerOpts = -Isrc/native/interop/cinterop
+staticLibraries = windows_win32_media_windowsmediaformat_wrapper.a

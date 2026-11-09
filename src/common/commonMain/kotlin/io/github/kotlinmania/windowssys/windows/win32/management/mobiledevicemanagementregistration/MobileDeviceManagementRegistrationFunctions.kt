@@ -1,80 +1,43 @@
 package io.github.kotlinmania.windowssys.windows.win32.management.mobiledevicemanagementregistration
 
-import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.core.PWSTR
 import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 
-public fun ApplyLocalManagementSyncML(syncmlrequest: PCWSTR, syncmlresult: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mdmlocalmanagement.dll", "ApplyLocalManagementSyncML", longArrayOf(syncmlrequest, syncmlresult)).toInt()
-}
+public expect fun ApplyLocalManagementSyncML(syncmlrequest: PCWSTR, syncmlresult: Long): HRESULT
 
-public fun DiscoverManagementService(pszupn: PCWSTR, ppmgmtinfo: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mdmregistration.dll", "DiscoverManagementService", longArrayOf(pszupn, ppmgmtinfo)).toInt()
-}
+public expect fun DiscoverManagementService(pszupn: PCWSTR, ppmgmtinfo: Long): HRESULT
 
-public fun DiscoverManagementServiceEx(pszupn: PCWSTR, pszdiscoveryservicecandidate: PCWSTR, ppmgmtinfo: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mdmregistration.dll", "DiscoverManagementServiceEx", longArrayOf(pszupn, pszdiscoveryservicecandidate, ppmgmtinfo)).toInt()
-}
+public expect fun DiscoverManagementServiceEx(pszupn: PCWSTR, pszdiscoveryservicecandidate: PCWSTR, ppmgmtinfo: Long): HRESULT
 
-public fun GetDeviceManagementConfigInfo(providerid: PCWSTR, configstringbufferlength: Long, configstring: PWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("mdmregistration.dll", "GetDeviceManagementConfigInfo", longArrayOf(providerid, configstringbufferlength, configstring)).toInt()
-}
+public expect fun GetDeviceManagementConfigInfo(providerid: PCWSTR, configstringbufferlength: Long, configstring: PWSTR): HRESULT
 
-public fun GetDeviceRegistrationInfo(deviceinformationclass: REGISTRATION_INFORMATION_CLASS, ppdeviceregistrationinfo: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mdmregistration.dll", "GetDeviceRegistrationInfo", longArrayOf(deviceinformationclass.toLong(), ppdeviceregistrationinfo)).toInt()
-}
+public expect fun GetDeviceRegistrationInfo(deviceinformationclass: REGISTRATION_INFORMATION_CLASS, ppdeviceregistrationinfo: Long): HRESULT
 
-public fun GetManagementAppHyperlink(cchhyperlink: UInt, pszhyperlink: PWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("mdmregistration.dll", "GetManagementAppHyperlink", longArrayOf(cchhyperlink.toLong(), pszhyperlink)).toInt()
-}
+public expect fun GetManagementAppHyperlink(cchhyperlink: UInt, pszhyperlink: PWSTR): HRESULT
 
-public fun IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: Long, cchupn: UInt, pszupn: PWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("mdmregistration.dll", "IsDeviceRegisteredWithManagement", longArrayOf(pfisdeviceregisteredwithmanagement, cchupn.toLong(), pszupn)).toInt()
-}
+public expect fun IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: Long, cchupn: UInt, pszupn: PWSTR): HRESULT
 
-public fun IsManagementRegistrationAllowed(pfismanagementregistrationallowed: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mdmregistration.dll", "IsManagementRegistrationAllowed", longArrayOf(pfismanagementregistrationallowed)).toInt()
-}
+public expect fun IsManagementRegistrationAllowed(pfismanagementregistrationallowed: Long): HRESULT
 
-public fun IsMdmUxWithoutAadAllowed(isenrollmentallowed: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mdmregistration.dll", "IsMdmUxWithoutAadAllowed", longArrayOf(isenrollmentallowed)).toInt()
-}
+public expect fun IsMdmUxWithoutAadAllowed(isenrollmentallowed: Long): HRESULT
 
-public fun RegisterDeviceWithLocalManagement(alreadyregistered: Long): HRESULT {
-    return Win32DynamicFfi.invoke("mdmlocalmanagement.dll", "RegisterDeviceWithLocalManagement", longArrayOf(alreadyregistered)).toInt()
-}
+public expect fun RegisterDeviceWithLocalManagement(alreadyregistered: Long): HRESULT
 
-public fun RegisterDeviceWithManagement(pszupn: PCWSTR, ppszmdmserviceuri: PCWSTR, ppzsaccesstoken: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("mdmregistration.dll", "RegisterDeviceWithManagement", longArrayOf(pszupn, ppszmdmserviceuri, ppzsaccesstoken)).toInt()
-}
+public expect fun RegisterDeviceWithManagement(pszupn: PCWSTR, ppszmdmserviceuri: PCWSTR, ppzsaccesstoken: PCWSTR): HRESULT
 
-public fun RegisterDeviceWithManagementUsingAADCredentials(usertoken: HANDLE): HRESULT {
-    return Win32DynamicFfi.invoke("mdmregistration.dll", "RegisterDeviceWithManagementUsingAADCredentials", longArrayOf(usertoken)).toInt()
-}
+public expect fun RegisterDeviceWithManagementUsingAADCredentials(usertoken: HANDLE): HRESULT
 
-public fun RegisterDeviceWithManagementUsingAADDeviceCredentials(): HRESULT {
-    return Win32DynamicFfi.invoke("mdmregistration.dll", "RegisterDeviceWithManagementUsingAADDeviceCredentials", longArrayOf()).toInt()
-}
+public expect fun RegisterDeviceWithManagementUsingAADDeviceCredentials(): HRESULT
 
-public fun RegisterDeviceWithManagementUsingAADDeviceCredentials2(mdmapplicationid: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("mdmregistration.dll", "RegisterDeviceWithManagementUsingAADDeviceCredentials2", longArrayOf(mdmapplicationid)).toInt()
-}
+public expect fun RegisterDeviceWithManagementUsingAADDeviceCredentials2(mdmapplicationid: PCWSTR): HRESULT
 
-public fun SetDeviceManagementConfigInfo(providerid: PCWSTR, configstring: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("mdmregistration.dll", "SetDeviceManagementConfigInfo", longArrayOf(providerid, configstring)).toInt()
-}
+public expect fun SetDeviceManagementConfigInfo(providerid: PCWSTR, configstring: PCWSTR): HRESULT
 
-public fun SetManagedExternally(ismanagedexternally: BOOL): HRESULT {
-    return Win32DynamicFfi.invoke("mdmregistration.dll", "SetManagedExternally", longArrayOf(ismanagedexternally.toLong())).toInt()
-}
+public expect fun SetManagedExternally(ismanagedexternally: BOOL): HRESULT
 
-public fun UnregisterDeviceWithLocalManagement(): HRESULT {
-    return Win32DynamicFfi.invoke("mdmlocalmanagement.dll", "UnregisterDeviceWithLocalManagement", longArrayOf()).toInt()
-}
+public expect fun UnregisterDeviceWithLocalManagement(): HRESULT
 
-public fun UnregisterDeviceWithManagement(enrollmentid: PCWSTR): HRESULT {
-    return Win32DynamicFfi.invoke("mdmregistration.dll", "UnregisterDeviceWithManagement", longArrayOf(enrollmentid)).toInt()
-}
+public expect fun UnregisterDeviceWithManagement(enrollmentid: PCWSTR): HRESULT

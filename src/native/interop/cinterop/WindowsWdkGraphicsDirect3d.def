@@ -1,0 +1,5 @@
+package = io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d.cinterop
+headers = windows_wdk_graphics_direct3d_wrapper.h
+headerFilter = windows_wdk_graphics_direct3d_wrapper.h
+compilerOpts = -Isrc/native/interop/cinterop
+staticLibraries = windows_wdk_graphics_direct3d_wrapper.a

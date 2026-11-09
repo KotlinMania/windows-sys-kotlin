@@ -1,0 +1,5 @@
+package = io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop
+headers = windows_win32_networkmanagement_p2p_wrapper.h
+headerFilter = windows_win32_networkmanagement_p2p_wrapper.h
+compilerOpts = -Isrc/native/interop/cinterop
+staticLibraries = windows_win32_networkmanagement_p2p_wrapper.a

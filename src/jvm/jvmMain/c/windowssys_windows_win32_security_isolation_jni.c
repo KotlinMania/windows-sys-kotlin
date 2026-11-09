@@ -1,0 +1,233 @@
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
+#endif
+#include <jni.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <errno.h>
+#ifdef _WIN32
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+#include <windows.h>
+#else
+#include <dlfcn.h>
+#ifndef RTLD_DEFAULT
+#define RTLD_DEFAULT ((void*)0)
+#endif
+#endif
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssys_1windows_1win32_1security_1isolation_1CreateAppContainerProfile(JNIEnv* km_env, jclass km_clazz, jlong pszappcontainername, jlong pszdisplayname, jlong pszdescription, jlong pcapabilities, jint dwcapabilitycount, jlong ppsidappcontainersid) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("userenv.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CreateAppContainerProfile");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszappcontainername, (void*)(uintptr_t)pszdisplayname, (void*)(uintptr_t)pszdescription, (void*)(uintptr_t)pcapabilities, (uint32_t)dwcapabilitycount, (void*)(uintptr_t)ppsidappcontainersid) : -1;
+#else
+    (void)pszappcontainername;
+    (void)pszdisplayname;
+    (void)pszdescription;
+    (void)pcapabilities;
+    (void)dwcapabilitycount;
+    (void)ppsidappcontainersid;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssys_1windows_1win32_1security_1isolation_1DeleteAppContainerProfile(JNIEnv* km_env, jclass km_clazz, jlong pszappcontainername) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("userenv.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DeleteAppContainerProfile");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszappcontainername) : -1;
+#else
+    (void)pszappcontainername;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssys_1windows_1win32_1security_1isolation_1DeriveAppContainerSidFromAppContainerName(JNIEnv* km_env, jclass km_clazz, jlong pszappcontainername, jlong ppsidappcontainersid) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("userenv.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DeriveAppContainerSidFromAppContainerName");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszappcontainername, (void*)(uintptr_t)ppsidappcontainersid) : -1;
+#else
+    (void)pszappcontainername;
+    (void)ppsidappcontainersid;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssys_1windows_1win32_1security_1isolation_1DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(JNIEnv* km_env, jclass km_clazz, jlong psidappcontainersid, jlong pszrestrictedappcontainername, jlong ppsidrestrictedappcontainersid) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("userenv.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psidappcontainersid, (void*)(uintptr_t)pszrestrictedappcontainername, (void*)(uintptr_t)ppsidrestrictedappcontainersid) : -1;
+#else
+    (void)psidappcontainersid;
+    (void)pszrestrictedappcontainername;
+    (void)ppsidrestrictedappcontainersid;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssys_1windows_1win32_1security_1isolation_1GetAppContainerFolderPath(JNIEnv* km_env, jclass km_clazz, jlong pszappcontainersid, jlong ppszpath) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("userenv.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetAppContainerFolderPath");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszappcontainersid, (void*)(uintptr_t)ppszpath) : -1;
+#else
+    (void)pszappcontainersid;
+    (void)ppszpath;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssys_1windows_1win32_1security_1isolation_1GetAppContainerNamedObjectPath(JNIEnv* km_env, jclass km_clazz, jlong token, jlong appcontainersid, jint objectpathlength, jlong objectpath, jlong returnlength) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetAppContainerNamedObjectPath");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)token, (void*)(uintptr_t)appcontainersid, (uint32_t)objectpathlength, (void*)(uintptr_t)objectpath, (void*)(uintptr_t)returnlength) : -1;
+#else
+    (void)token;
+    (void)appcontainersid;
+    (void)objectpathlength;
+    (void)objectpath;
+    (void)returnlength;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssys_1windows_1win32_1security_1isolation_1GetAppContainerRegistryLocation(JNIEnv* km_env, jclass km_clazz, jint desiredaccess, jlong phappcontainerkey) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("userenv.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetAppContainerRegistryLocation");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)desiredaccess, (void*)(uintptr_t)phappcontainerkey) : -1;
+#else
+    (void)desiredaccess;
+    (void)phappcontainerkey;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssys_1windows_1win32_1security_1isolation_1IsCrossIsolatedEnvironmentClipboardContent(JNIEnv* km_env, jclass km_clazz, jlong iscrossisolatedenvironmentclipboardcontent) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("isolatedwindowsenvironmentutils.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "IsCrossIsolatedEnvironmentClipboardContent");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)iscrossisolatedenvironmentclipboardcontent) : -1;
+#else
+    (void)iscrossisolatedenvironmentclipboardcontent;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssys_1windows_1win32_1security_1isolation_1IsProcessInIsolatedContainer(JNIEnv* km_env, jclass km_clazz, jlong isprocessinisolatedcontainer) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("api-ms-win-security-isolatedcontainer-l1-1-0.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "IsProcessInIsolatedContainer");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)isprocessinisolatedcontainer) : -1;
+#else
+    (void)isprocessinisolatedcontainer;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssys_1windows_1win32_1security_1isolation_1IsProcessInIsolatedWindowsEnvironment(JNIEnv* km_env, jclass km_clazz, jlong isprocessinisolatedwindowsenvironment) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("isolatedwindowsenvironmentutils.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "IsProcessInIsolatedWindowsEnvironment");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)isprocessinisolatedwindowsenvironment) : -1;
+#else
+    (void)isprocessinisolatedwindowsenvironment;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_security_isolation_WindowsWin32SecurityIsolationJniBridge_windowssys_1windows_1win32_1security_1isolation_1IsProcessInWDAGContainer(JNIEnv* km_env, jclass km_clazz, jlong reserved, jlong isprocessinwdagcontainer) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("api-ms-win-security-isolatedcontainer-l1-1-1.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "IsProcessInWDAGContainer");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)reserved, (void*)(uintptr_t)isprocessinwdagcontainer) : -1;
+#else
+    (void)reserved;
+    (void)isprocessinwdagcontainer;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+

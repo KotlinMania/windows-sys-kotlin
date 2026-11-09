@@ -1,0 +1,5 @@
+package = io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.cinterop
+headers = windows_wdk_system_systemservices_wrapper.h
+headerFilter = windows_wdk_system_systemservices_wrapper.h
+compilerOpts = -Isrc/native/interop/cinterop
+staticLibraries = windows_wdk_system_systemservices_wrapper.a

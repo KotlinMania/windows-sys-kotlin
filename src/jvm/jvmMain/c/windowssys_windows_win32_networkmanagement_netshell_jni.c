@@ -1,0 +1,124 @@
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
+#endif
+#include <jni.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <errno.h>
+#ifdef _WIN32
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+#include <windows.h>
+#else
+#include <dlfcn.h>
+#ifndef RTLD_DEFAULT
+#define RTLD_DEFAULT ((void*)0)
+#endif
+#endif
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netshell_WindowsWin32NetworkmanagementNetshellJniBridge_windowssys_1windows_1win32_1networkmanagement_1netshell_1MatchEnumTag(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong pwcarg, jint dwnumarg, jlong penumtable, jlong pdwvalue) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("netsh.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MatchEnumTag");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hmodule, (void*)(uintptr_t)pwcarg, (uint32_t)dwnumarg, (void*)(uintptr_t)penumtable, (void*)(uintptr_t)pdwvalue) : 0;
+#else
+    (void)hmodule;
+    (void)pwcarg;
+    (void)dwnumarg;
+    (void)penumtable;
+    (void)pdwvalue;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netshell_WindowsWin32NetworkmanagementNetshellJniBridge_windowssys_1windows_1win32_1networkmanagement_1netshell_1MatchToken(JNIEnv* km_env, jclass km_clazz, jlong pwszusertoken, jlong pwszcmdtoken) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("netsh.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MatchToken");
+    }
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pwszusertoken, (void*)(uintptr_t)pwszcmdtoken) : -1;
+#else
+    (void)pwszusertoken;
+    (void)pwszcmdtoken;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netshell_WindowsWin32NetworkmanagementNetshellJniBridge_windowssys_1windows_1win32_1networkmanagement_1netshell_1PreprocessCommand(JNIEnv* km_env, jclass km_clazz, jlong hmodule, jlong ppwcarguments, jint dwcurrentindex, jint dwargcount, jlong ptttags, jint dwtagcount, jint dwminargs, jint dwmaxargs, jlong pdwtagtype) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, uint32_t, uint32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("netsh.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PreprocessCommand");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hmodule, (void*)(uintptr_t)ppwcarguments, (uint32_t)dwcurrentindex, (uint32_t)dwargcount, (void*)(uintptr_t)ptttags, (uint32_t)dwtagcount, (uint32_t)dwminargs, (uint32_t)dwmaxargs, (void*)(uintptr_t)pdwtagtype) : 0;
+#else
+    (void)hmodule;
+    (void)ppwcarguments;
+    (void)dwcurrentindex;
+    (void)dwargcount;
+    (void)ptttags;
+    (void)dwtagcount;
+    (void)dwminargs;
+    (void)dwmaxargs;
+    (void)pdwtagtype;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netshell_WindowsWin32NetworkmanagementNetshellJniBridge_windowssys_1windows_1win32_1networkmanagement_1netshell_1RegisterContext(JNIEnv* km_env, jclass km_clazz, jlong pchildcontext) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("netsh.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RegisterContext");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pchildcontext) : 0;
+#else
+    (void)pchildcontext;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_netshell_WindowsWin32NetworkmanagementNetshellJniBridge_windowssys_1windows_1win32_1networkmanagement_1netshell_1RegisterHelper(JNIEnv* km_env, jclass km_clazz, jlong pguidparentcontext, jlong pfnregistersubcontext) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("netsh.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RegisterHelper");
+    }
+    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pguidparentcontext, (void*)(uintptr_t)pfnregistersubcontext) : 0;
+#else
+    (void)pguidparentcontext;
+    (void)pfnregistersubcontext;
+    uint32_t km_res = 0;
+#endif
+    return (jint)km_res;
+}
+

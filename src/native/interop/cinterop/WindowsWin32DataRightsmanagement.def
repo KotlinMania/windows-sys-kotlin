@@ -1,0 +1,5 @@
+package = io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop
+headers = windows_win32_data_rightsmanagement_wrapper.h
+headerFilter = windows_win32_data_rightsmanagement_wrapper.h
+compilerOpts = -Isrc/native/interop/cinterop
+staticLibraries = windows_win32_data_rightsmanagement_wrapper.a

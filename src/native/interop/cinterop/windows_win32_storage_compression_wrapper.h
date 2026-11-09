@@ -1,0 +1,29 @@
+#ifndef WINDOWSSYS_WINDOWS_WIN32_STORAGE_COMPRESSION_WINDOWS_WIN32_STORAGE_COMPRESSION_WRAPPER_H
+#define WINDOWSSYS_WINDOWS_WIN32_STORAGE_COMPRESSION_WINDOWS_WIN32_STORAGE_COMPRESSION_WRAPPER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+int32_t windowssys_windows_win32_storage_compression_CloseCompressor(void* compressorhandle);
+int32_t windowssys_windows_win32_storage_compression_CloseDecompressor(void* decompressorhandle);
+int32_t windowssys_windows_win32_storage_compression_Compress(void* compressorhandle, void* uncompresseddata, uint64_t uncompresseddatasize, void* compressedbuffer, uint64_t compressedbuffersize, void* compresseddatasize);
+int32_t windowssys_windows_win32_storage_compression_CreateCompressor(uint32_t algorithm, void* allocationroutines, void* compressorhandle);
+int32_t windowssys_windows_win32_storage_compression_CreateDecompressor(uint32_t algorithm, void* allocationroutines, void* decompressorhandle);
+int32_t windowssys_windows_win32_storage_compression_Decompress(void* decompressorhandle, void* compresseddata, uint64_t compresseddatasize, void* uncompressedbuffer, uint64_t uncompressedbuffersize, void* uncompresseddatasize);
+int32_t windowssys_windows_win32_storage_compression_QueryCompressorInformation(void* compressorhandle, int32_t compressinformationclass, void* compressinformation, uint64_t compressinformationsize);
+int32_t windowssys_windows_win32_storage_compression_QueryDecompressorInformation(void* decompressorhandle, int32_t compressinformationclass, void* compressinformation, uint64_t compressinformationsize);
+int32_t windowssys_windows_win32_storage_compression_ResetCompressor(void* compressorhandle);
+int32_t windowssys_windows_win32_storage_compression_ResetDecompressor(void* decompressorhandle);
+int32_t windowssys_windows_win32_storage_compression_SetCompressorInformation(void* compressorhandle, int32_t compressinformationclass, void* compressinformation, uint64_t compressinformationsize);
+int32_t windowssys_windows_win32_storage_compression_SetDecompressorInformation(void* decompressorhandle, int32_t compressinformationclass, void* compressinformation, uint64_t compressinformationsize);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* WINDOWSSYS_WINDOWS_WIN32_STORAGE_COMPRESSION_WINDOWS_WIN32_STORAGE_COMPRESSION_WRAPPER_H */

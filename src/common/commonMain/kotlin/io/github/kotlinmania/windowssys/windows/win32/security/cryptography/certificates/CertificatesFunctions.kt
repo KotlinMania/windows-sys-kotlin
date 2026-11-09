@@ -1,111 +1,58 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates
 
-import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCWSTR
 import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
 
-public fun CertSrvBackupClose(hbc: Long): HRESULT {
-    return Win32DynamicFfi.invoke("certadm.dll", "CertSrvBackupClose", longArrayOf(hbc)).toInt()
-}
+public expect fun CertSrvBackupClose(hbc: Long): HRESULT
 
-public fun CertSrvBackupEnd(hbc: Long): HRESULT {
-    return Win32DynamicFfi.invoke("certadm.dll", "CertSrvBackupEnd", longArrayOf(hbc)).toInt()
-}
+public expect fun CertSrvBackupEnd(hbc: Long): HRESULT
 
-public fun CertSrvBackupFree(pv: Long) {
-    Win32DynamicFfi.invoke("certadm.dll", "CertSrvBackupFree", longArrayOf(pv))
-}
+public expect fun CertSrvBackupFree(pv: Long)
 
-public fun CertSrvBackupGetBackupLogsW(hbc: Long, ppwszzbackuplogfiles: Long, pcbsize: Long): HRESULT {
-    return Win32DynamicFfi.invoke("certadm.dll", "CertSrvBackupGetBackupLogsW", longArrayOf(hbc, ppwszzbackuplogfiles, pcbsize)).toInt()
-}
+public expect fun CertSrvBackupGetBackupLogsW(hbc: Long, ppwszzbackuplogfiles: Long, pcbsize: Long): HRESULT
 
-public fun CertSrvBackupGetDatabaseNamesW(hbc: Long, ppwszzattachmentinformation: Long, pcbsize: Long): HRESULT {
-    return Win32DynamicFfi.invoke("certadm.dll", "CertSrvBackupGetDatabaseNamesW", longArrayOf(hbc, ppwszzattachmentinformation, pcbsize)).toInt()
-}
+public expect fun CertSrvBackupGetDatabaseNamesW(hbc: Long, ppwszzattachmentinformation: Long, pcbsize: Long): HRESULT
 
-public fun CertSrvBackupGetDynamicFileListW(hbc: Long, ppwszzfilelist: Long, pcbsize: Long): HRESULT {
-    return Win32DynamicFfi.invoke("certadm.dll", "CertSrvBackupGetDynamicFileListW", longArrayOf(hbc, ppwszzfilelist, pcbsize)).toInt()
-}
+public expect fun CertSrvBackupGetDynamicFileListW(hbc: Long, ppwszzfilelist: Long, pcbsize: Long): HRESULT
 
-public fun CertSrvBackupOpenFileW(hbc: Long, pwszattachmentname: PCWSTR, cbreadhintsize: UInt, plifilesize: Long): HRESULT {
-    return Win32DynamicFfi.invoke("certadm.dll", "CertSrvBackupOpenFileW", longArrayOf(hbc, pwszattachmentname, cbreadhintsize.toLong(), plifilesize)).toInt()
-}
+public expect fun CertSrvBackupOpenFileW(hbc: Long, pwszattachmentname: PCWSTR, cbreadhintsize: UInt, plifilesize: Long): HRESULT
 
-public fun CertSrvBackupPrepareW(pwszservername: PCWSTR, grbitjet: UInt, dwbackupflags: CSBACKUP_TYPE, phbc: Long): HRESULT {
-    return Win32DynamicFfi.invoke("certadm.dll", "CertSrvBackupPrepareW", longArrayOf(pwszservername, grbitjet.toLong(), dwbackupflags.toLong(), phbc)).toInt()
-}
+public expect fun CertSrvBackupPrepareW(pwszservername: PCWSTR, grbitjet: UInt, dwbackupflags: CSBACKUP_TYPE, phbc: Long): HRESULT
 
-public fun CertSrvBackupRead(hbc: Long, pvbuffer: Long, cbbuffer: UInt, pcbread: Long): HRESULT {
-    return Win32DynamicFfi.invoke("certadm.dll", "CertSrvBackupRead", longArrayOf(hbc, pvbuffer, cbbuffer.toLong(), pcbread)).toInt()
-}
+public expect fun CertSrvBackupRead(hbc: Long, pvbuffer: Long, cbbuffer: UInt, pcbread: Long): HRESULT
 
-public fun CertSrvBackupTruncateLogs(hbc: Long): HRESULT {
-    return Win32DynamicFfi.invoke("certadm.dll", "CertSrvBackupTruncateLogs", longArrayOf(hbc)).toInt()
-}
+public expect fun CertSrvBackupTruncateLogs(hbc: Long): HRESULT
 
-public fun CertSrvIsServerOnlineW(pwszservername: PCWSTR, pfserveronline: Long): HRESULT {
-    return Win32DynamicFfi.invoke("certadm.dll", "CertSrvIsServerOnlineW", longArrayOf(pwszservername, pfserveronline)).toInt()
-}
+public expect fun CertSrvIsServerOnlineW(pwszservername: PCWSTR, pfserveronline: Long): HRESULT
 
-public fun CertSrvRestoreEnd(hbc: Long): HRESULT {
-    return Win32DynamicFfi.invoke("certadm.dll", "CertSrvRestoreEnd", longArrayOf(hbc)).toInt()
-}
+public expect fun CertSrvRestoreEnd(hbc: Long): HRESULT
 
-public fun CertSrvRestoreGetDatabaseLocationsW(hbc: Long, ppwszzdatabaselocationlist: Long, pcbsize: Long): HRESULT {
-    return Win32DynamicFfi.invoke("certadm.dll", "CertSrvRestoreGetDatabaseLocationsW", longArrayOf(hbc, ppwszzdatabaselocationlist, pcbsize)).toInt()
-}
+public expect fun CertSrvRestoreGetDatabaseLocationsW(hbc: Long, ppwszzdatabaselocationlist: Long, pcbsize: Long): HRESULT
 
-public fun CertSrvRestorePrepareW(pwszservername: PCWSTR, dwrestoreflags: UInt, phbc: Long): HRESULT {
-    return Win32DynamicFfi.invoke("certadm.dll", "CertSrvRestorePrepareW", longArrayOf(pwszservername, dwrestoreflags.toLong(), phbc)).toInt()
-}
+public expect fun CertSrvRestorePrepareW(pwszservername: PCWSTR, dwrestoreflags: UInt, phbc: Long): HRESULT
 
-public fun CertSrvRestoreRegisterComplete(hbc: Long, hrrestorestate: HRESULT): HRESULT {
-    return Win32DynamicFfi.invoke("certadm.dll", "CertSrvRestoreRegisterComplete", longArrayOf(hbc, hrrestorestate.toLong())).toInt()
-}
+public expect fun CertSrvRestoreRegisterComplete(hbc: Long, hrrestorestate: HRESULT): HRESULT
 
-public fun CertSrvRestoreRegisterThroughFile(hbc: Long, pwszcheckpointfilepath: PCWSTR, pwszlogpath: PCWSTR, rgrstmap: Long, crstmap: Int, pwszbackuplogpath: PCWSTR, genlow: UInt, genhigh: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("certadm.dll", "CertSrvRestoreRegisterThroughFile", longArrayOf(hbc, pwszcheckpointfilepath, pwszlogpath, rgrstmap, crstmap.toLong(), pwszbackuplogpath, genlow.toLong(), genhigh.toLong())).toInt()
-}
+public expect fun CertSrvRestoreRegisterThroughFile(hbc: Long, pwszcheckpointfilepath: PCWSTR, pwszlogpath: PCWSTR, rgrstmap: Long, crstmap: Int, pwszbackuplogpath: PCWSTR, genlow: UInt, genhigh: UInt): HRESULT
 
-public fun CertSrvRestoreRegisterW(hbc: Long, pwszcheckpointfilepath: PCWSTR, pwszlogpath: PCWSTR, rgrstmap: Long, crstmap: Int, pwszbackuplogpath: PCWSTR, genlow: UInt, genhigh: UInt): HRESULT {
-    return Win32DynamicFfi.invoke("certadm.dll", "CertSrvRestoreRegisterW", longArrayOf(hbc, pwszcheckpointfilepath, pwszlogpath, rgrstmap, crstmap.toLong(), pwszbackuplogpath, genlow.toLong(), genhigh.toLong())).toInt()
-}
+public expect fun CertSrvRestoreRegisterW(hbc: Long, pwszcheckpointfilepath: PCWSTR, pwszlogpath: PCWSTR, rgrstmap: Long, crstmap: Int, pwszbackuplogpath: PCWSTR, genlow: UInt, genhigh: UInt): HRESULT
 
-public fun CertSrvServerControlW(pwszservername: PCWSTR, dwcontrolflags: UInt, pcbout: Long, ppbout: Long): HRESULT {
-    return Win32DynamicFfi.invoke("certadm.dll", "CertSrvServerControlW", longArrayOf(pwszservername, dwcontrolflags.toLong(), pcbout, ppbout)).toInt()
-}
+public expect fun CertSrvServerControlW(pwszservername: PCWSTR, dwcontrolflags: UInt, pcbout: Long, ppbout: Long): HRESULT
 
-public fun PstAcquirePrivateKey(pcert: Long): NTSTATUS {
-    return Win32DynamicFfi.invoke("certpoleng.dll", "PstAcquirePrivateKey", longArrayOf(pcert)).toInt()
-}
+public expect fun PstAcquirePrivateKey(pcert: Long): NTSTATUS
 
-public fun PstGetCertificateChain(pcert: Long, ptrustedissuers: Long, ppcertchaincontext: Long): NTSTATUS {
-    return Win32DynamicFfi.invoke("certpoleng.dll", "PstGetCertificateChain", longArrayOf(pcert, ptrustedissuers, ppcertchaincontext)).toInt()
-}
+public expect fun PstGetCertificateChain(pcert: Long, ptrustedissuers: Long, ppcertchaincontext: Long): NTSTATUS
 
-public fun PstGetCertificates(ptargetname: Long, ccriteria: UInt, rgpcriteria: Long, bisclient: BOOL, pdwcertchaincontextcount: Long, ppcertchaincontexts: Long): NTSTATUS {
-    return Win32DynamicFfi.invoke("certpoleng.dll", "PstGetCertificates", longArrayOf(ptargetname, ccriteria.toLong(), rgpcriteria, bisclient.toLong(), pdwcertchaincontextcount, ppcertchaincontexts)).toInt()
-}
+public expect fun PstGetCertificates(ptargetname: Long, ccriteria: UInt, rgpcriteria: Long, bisclient: BOOL, pdwcertchaincontextcount: Long, ppcertchaincontexts: Long): NTSTATUS
 
-public fun PstGetTrustAnchors(ptargetname: Long, ccriteria: UInt, rgpcriteria: Long, pptrustedissuers: Long): NTSTATUS {
-    return Win32DynamicFfi.invoke("certpoleng.dll", "PstGetTrustAnchors", longArrayOf(ptargetname, ccriteria.toLong(), rgpcriteria, pptrustedissuers)).toInt()
-}
+public expect fun PstGetTrustAnchors(ptargetname: Long, ccriteria: UInt, rgpcriteria: Long, pptrustedissuers: Long): NTSTATUS
 
-public fun PstGetTrustAnchorsEx(ptargetname: Long, ccriteria: UInt, rgpcriteria: Long, pcertcontext: Long, pptrustedissuers: Long): NTSTATUS {
-    return Win32DynamicFfi.invoke("certpoleng.dll", "PstGetTrustAnchorsEx", longArrayOf(ptargetname, ccriteria.toLong(), rgpcriteria, pcertcontext, pptrustedissuers)).toInt()
-}
+public expect fun PstGetTrustAnchorsEx(ptargetname: Long, ccriteria: UInt, rgpcriteria: Long, pcertcontext: Long, pptrustedissuers: Long): NTSTATUS
 
-public fun PstGetUserNameForCertificate(pcertcontext: Long, username: Long): NTSTATUS {
-    return Win32DynamicFfi.invoke("certpoleng.dll", "PstGetUserNameForCertificate", longArrayOf(pcertcontext, username)).toInt()
-}
+public expect fun PstGetUserNameForCertificate(pcertcontext: Long, username: Long): NTSTATUS
 
-public fun PstMapCertificate(pcert: Long, ptokeninformationtype: Long, pptokeninformation: Long): NTSTATUS {
-    return Win32DynamicFfi.invoke("certpoleng.dll", "PstMapCertificate", longArrayOf(pcert, ptokeninformationtype, pptokeninformation)).toInt()
-}
+public expect fun PstMapCertificate(pcert: Long, ptokeninformationtype: Long, pptokeninformation: Long): NTSTATUS
 
-public fun PstValidate(ptargetname: Long, bisclient: BOOL, prequestedissuancepolicy: Long, phadditionalcertstore: Long, pcert: Long, pprovguid: Long): NTSTATUS {
-    return Win32DynamicFfi.invoke("certpoleng.dll", "PstValidate", longArrayOf(ptargetname, bisclient.toLong(), prequestedissuancepolicy, phadditionalcertstore, pcert, pprovguid)).toInt()
-}
+public expect fun PstValidate(ptargetname: Long, bisclient: BOOL, prequestedissuancepolicy: Long, phadditionalcertstore: Long, pcert: Long, pprovguid: Long): NTSTATUS

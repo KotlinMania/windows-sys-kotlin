@@ -1,0 +1,5 @@
+package = io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop
+headers = windows_win32_security_cryptography_certificates_wrapper.h
+headerFilter = windows_win32_security_cryptography_certificates_wrapper.h
+compilerOpts = -Isrc/native/interop/cinterop
+staticLibraries = windows_win32_security_cryptography_certificates_wrapper.a

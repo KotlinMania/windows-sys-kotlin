@@ -1,0 +1,5 @@
+package = io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop
+headers = windows_win32_ui_input_ime_wrapper.h
+headerFilter = windows_win32_ui_input_ime_wrapper.h
+compilerOpts = -Isrc/native/interop/cinterop
+staticLibraries = windows_win32_ui_input_ime_wrapper.a

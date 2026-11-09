@@ -1,0 +1,5 @@
+package = io.github.kotlinmania.windowssys.windows.win32.gaming.cinterop
+headers = windows_win32_gaming_wrapper.h
+headerFilter = windows_win32_gaming_wrapper.h
+compilerOpts = -Isrc/native/interop/cinterop
+staticLibraries = windows_win32_gaming_wrapper.a

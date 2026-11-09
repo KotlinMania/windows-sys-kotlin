@@ -1,80 +1,43 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.wintrust
 
-import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.HRESULT
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
 import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
 
-public fun OpenPersonalTrustDBDialog(hwndparent: HWND): BOOL {
-    return Win32DynamicFfi.invoke("wintrust.dll", "OpenPersonalTrustDBDialog", longArrayOf(hwndparent)).toInt()
-}
+public expect fun OpenPersonalTrustDBDialog(hwndparent: HWND): BOOL
 
-public fun OpenPersonalTrustDBDialogEx(hwndparent: HWND, dwflags: UInt, pvreserved: Long): BOOL {
-    return Win32DynamicFfi.invoke("wintrust.dll", "OpenPersonalTrustDBDialogEx", longArrayOf(hwndparent, dwflags.toLong(), pvreserved)).toInt()
-}
+public expect fun OpenPersonalTrustDBDialogEx(hwndparent: HWND, dwflags: UInt, pvreserved: Long): BOOL
 
-public fun WTHelperCertCheckValidSignature(pprovdata: Long): HRESULT {
-    return Win32DynamicFfi.invoke("wintrust.dll", "WTHelperCertCheckValidSignature", longArrayOf(pprovdata)).toInt()
-}
+public expect fun WTHelperCertCheckValidSignature(pprovdata: Long): HRESULT
 
-public fun WTHelperCertIsSelfSigned(dwencoding: UInt, pcert: Long): BOOL {
-    return Win32DynamicFfi.invoke("wintrust.dll", "WTHelperCertIsSelfSigned", longArrayOf(dwencoding.toLong(), pcert)).toInt()
-}
+public expect fun WTHelperCertIsSelfSigned(dwencoding: UInt, pcert: Long): BOOL
 
-public fun WTHelperGetProvCertFromChain(psgnr: Long, idxcert: UInt): Long {
-    return Win32DynamicFfi.invoke("wintrust.dll", "WTHelperGetProvCertFromChain", longArrayOf(psgnr, idxcert.toLong()))
-}
+public expect fun WTHelperGetProvCertFromChain(psgnr: Long, idxcert: UInt): Long
 
-public fun WTHelperGetProvPrivateDataFromChain(pprovdata: Long, pgproviderid: Long): Long {
-    return Win32DynamicFfi.invoke("wintrust.dll", "WTHelperGetProvPrivateDataFromChain", longArrayOf(pprovdata, pgproviderid))
-}
+public expect fun WTHelperGetProvPrivateDataFromChain(pprovdata: Long, pgproviderid: Long): Long
 
-public fun WTHelperGetProvSignerFromChain(pprovdata: Long, idxsigner: UInt, fcountersigner: BOOL, idxcountersigner: UInt): Long {
-    return Win32DynamicFfi.invoke("wintrust.dll", "WTHelperGetProvSignerFromChain", longArrayOf(pprovdata, idxsigner.toLong(), fcountersigner.toLong(), idxcountersigner.toLong()))
-}
+public expect fun WTHelperGetProvSignerFromChain(pprovdata: Long, idxsigner: UInt, fcountersigner: BOOL, idxcountersigner: UInt): Long
 
-public fun WTHelperProvDataFromStateData(hstatedata: HANDLE): Long {
-    return Win32DynamicFfi.invoke("wintrust.dll", "WTHelperProvDataFromStateData", longArrayOf(hstatedata))
-}
+public expect fun WTHelperProvDataFromStateData(hstatedata: HANDLE): Long
 
-public fun WinVerifyTrust(hwnd: HWND, pgactionid: Long, pwvtdata: Long): Int {
-    return Win32DynamicFfi.invoke("wintrust.dll", "WinVerifyTrust", longArrayOf(hwnd, pgactionid, pwvtdata)).toInt()
-}
+public expect fun WinVerifyTrust(hwnd: HWND, pgactionid: Long, pwvtdata: Long): Int
 
-public fun WinVerifyTrustEx(hwnd: HWND, pgactionid: Long, pwintrustdata: Long): Int {
-    return Win32DynamicFfi.invoke("wintrust.dll", "WinVerifyTrustEx", longArrayOf(hwnd, pgactionid, pwintrustdata)).toInt()
-}
+public expect fun WinVerifyTrustEx(hwnd: HWND, pgactionid: Long, pwintrustdata: Long): Int
 
-public fun WintrustAddActionID(pgactionid: Long, fdwflags: UInt, psprovinfo: Long): BOOL {
-    return Win32DynamicFfi.invoke("wintrust.dll", "WintrustAddActionID", longArrayOf(pgactionid, fdwflags.toLong(), psprovinfo)).toInt()
-}
+public expect fun WintrustAddActionID(pgactionid: Long, fdwflags: UInt, psprovinfo: Long): BOOL
 
-public fun WintrustAddDefaultForUsage(pszusageoid: PCSTR, psdefusage: Long): BOOL {
-    return Win32DynamicFfi.invoke("wintrust.dll", "WintrustAddDefaultForUsage", longArrayOf(pszusageoid, psdefusage)).toInt()
-}
+public expect fun WintrustAddDefaultForUsage(pszusageoid: PCSTR, psdefusage: Long): BOOL
 
-public fun WintrustGetDefaultForUsage(dwaction: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION, pszusageoid: PCSTR, psusage: Long): BOOL {
-    return Win32DynamicFfi.invoke("wintrust.dll", "WintrustGetDefaultForUsage", longArrayOf(dwaction.toLong(), pszusageoid, psusage)).toInt()
-}
+public expect fun WintrustGetDefaultForUsage(dwaction: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION, pszusageoid: PCSTR, psusage: Long): BOOL
 
-public fun WintrustGetRegPolicyFlags(pdwpolicyflags: Long) {
-    Win32DynamicFfi.invoke("wintrust.dll", "WintrustGetRegPolicyFlags", longArrayOf(pdwpolicyflags))
-}
+public expect fun WintrustGetRegPolicyFlags(pdwpolicyflags: Long)
 
-public fun WintrustLoadFunctionPointers(pgactionid: Long, ppfns: Long): BOOL {
-    return Win32DynamicFfi.invoke("wintrust.dll", "WintrustLoadFunctionPointers", longArrayOf(pgactionid, ppfns)).toInt()
-}
+public expect fun WintrustLoadFunctionPointers(pgactionid: Long, ppfns: Long): BOOL
 
-public fun WintrustRemoveActionID(pgactionid: Long): BOOL {
-    return Win32DynamicFfi.invoke("wintrust.dll", "WintrustRemoveActionID", longArrayOf(pgactionid)).toInt()
-}
+public expect fun WintrustRemoveActionID(pgactionid: Long): BOOL
 
-public fun WintrustSetDefaultIncludePEPageHashes(fincludepepagehashes: BOOL) {
-    Win32DynamicFfi.invoke("wintrust.dll", "WintrustSetDefaultIncludePEPageHashes", longArrayOf(fincludepepagehashes.toLong()))
-}
+public expect fun WintrustSetDefaultIncludePEPageHashes(fincludepepagehashes: BOOL)
 
-public fun WintrustSetRegPolicyFlags(dwpolicyflags: WINTRUST_POLICY_FLAGS): BOOL {
-    return Win32DynamicFfi.invoke("wintrust.dll", "WintrustSetRegPolicyFlags", longArrayOf(dwpolicyflags.toLong())).toInt()
-}
+public expect fun WintrustSetRegPolicyFlags(dwpolicyflags: WINTRUST_POLICY_FLAGS): BOOL

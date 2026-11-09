@@ -1,0 +1,5 @@
+package = io.github.kotlinmania.windowssys.windows.win32.ui.shell.cinterop
+headers = windows_win32_ui_shell_wrapper.h
+headerFilter = windows_win32_ui_shell_wrapper.h
+compilerOpts = -Isrc/native/interop/cinterop
+staticLibraries = windows_win32_ui_shell_wrapper.a

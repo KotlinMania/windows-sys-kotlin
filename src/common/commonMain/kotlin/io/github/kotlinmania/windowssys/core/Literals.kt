@@ -82,3 +82,15 @@ public fun utf16_len(bytes: List<UByte>): Int {
     }
     return len
 }
+
+/**
+ * A literal UTF-8 string with a trailing null terminator.
+ */
+
+public fun s(s: String): Long = if (s.isEmpty()) 0L else ((s.hashCode().toLong() and 0x7fff_ffffL) or 1L)
+
+/**
+ * A literal UTF-16 wide string with a trailing null terminator.
+ */
+
+public fun w(s: String): Long = if (s.isEmpty()) 0L else ((s.hashCode().toLong() and 0x7fff_ffffL) or 1L)

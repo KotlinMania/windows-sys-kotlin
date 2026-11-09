@@ -1,0 +1,68 @@
+#ifndef WINDOWSSYS_WINDOWS_WIN32_UI_INPUT_KEYBOARDANDMOUSE_WINDOWS_WIN32_UI_INPUT_KEYBOARDANDMOUSE_WRAPPER_H
+#define WINDOWSSYS_WINDOWS_WIN32_UI_INPUT_KEYBOARDANDMOUSE_WINDOWS_WIN32_UI_INPUT_KEYBOARDANDMOUSE_WRAPPER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+void* windowssys_windows_win32_ui_input_keyboardandmouse_ActivateKeyboardLayout(void* hkl, uint32_t flags);
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_BlockInput(int32_t fblockit);
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_EnableWindow(void* hwnd, int32_t benable);
+void* windowssys_windows_win32_ui_input_keyboardandmouse_GetActiveWindow(void);
+int16_t windowssys_windows_win32_ui_input_keyboardandmouse_GetAsyncKeyState(int32_t vkey);
+void* windowssys_windows_win32_ui_input_keyboardandmouse_GetCapture(void);
+uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetDoubleClickTime(void);
+void* windowssys_windows_win32_ui_input_keyboardandmouse_GetFocus(void);
+uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetKBCodePage(void);
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyNameTextA(int32_t lparam, void* lpstring, int32_t cchsize);
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyNameTextW(int32_t lparam, void* lpstring, int32_t cchsize);
+int16_t windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyState(int32_t nvirtkey);
+void* windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayout(uint32_t idthread);
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayoutList(int32_t nbuff, void* lplist);
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayoutNameA(void* pwszklid);
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayoutNameW(void* pwszklid);
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardState(void* lpkeystate);
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardType(int32_t ntypeflag);
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetLastInputInfo(void* plii);
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetMouseMovePointsEx(uint32_t cbsize, void* lppt, void* lpptbuf, int32_t nbufpoints, uint32_t resolution);
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_IsWindowEnabled(void* hwnd);
+void* windowssys_windows_win32_ui_input_keyboardandmouse_LoadKeyboardLayoutA(void* pwszklid, uint32_t flags);
+void* windowssys_windows_win32_ui_input_keyboardandmouse_LoadKeyboardLayoutW(void* pwszklid, uint32_t flags);
+uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyA(uint32_t ucode, uint32_t umaptype);
+uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyExA(uint32_t ucode, uint32_t umaptype, void* dwhkl);
+uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyExW(uint32_t ucode, uint32_t umaptype, void* dwhkl);
+uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyW(uint32_t ucode, uint32_t umaptype);
+uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_OemKeyScan(uint16_t woemchar);
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_RegisterHotKey(void* hwnd, int32_t id, uint32_t fsmodifiers, uint32_t vk);
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_ReleaseCapture(void);
+uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_SendInput(uint32_t cinputs, void* pinputs, int32_t cbsize);
+void* windowssys_windows_win32_ui_input_keyboardandmouse_SetActiveWindow(void* hwnd);
+void* windowssys_windows_win32_ui_input_keyboardandmouse_SetCapture(void* hwnd);
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_SetDoubleClickTime(uint32_t param0);
+void* windowssys_windows_win32_ui_input_keyboardandmouse_SetFocus(void* hwnd);
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_SetKeyboardState(void* lpkeystate);
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_SwapMouseButton(int32_t fswap);
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_ToAscii(uint32_t uvirtkey, uint32_t uscancode, void* lpkeystate, void* lpchar, uint32_t uflags);
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_ToAsciiEx(uint32_t uvirtkey, uint32_t uscancode, void* lpkeystate, void* lpchar, uint32_t uflags, void* dwhkl);
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_ToUnicode(uint32_t wvirtkey, uint32_t wscancode, void* lpkeystate, void* pwszbuff, int32_t cchbuff, uint32_t wflags);
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_ToUnicodeEx(uint32_t wvirtkey, uint32_t wscancode, void* lpkeystate, void* pwszbuff, int32_t cchbuff, uint32_t wflags, void* dwhkl);
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_TrackMouseEvent(void* lpeventtrack);
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_UnloadKeyboardLayout(void* hkl);
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_UnregisterHotKey(void* hwnd, int32_t id);
+int16_t windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanA(int8_t ch);
+int16_t windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanExA(int8_t ch, void* dwhkl);
+int16_t windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanExW(uint16_t ch, void* dwhkl);
+int16_t windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanW(uint16_t ch);
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse__TrackMouseEvent(void* lpeventtrack);
+void windowssys_windows_win32_ui_input_keyboardandmouse_keybd_event(uint8_t bvk, uint8_t bscan, uint32_t dwflags, uint64_t dwextrainfo);
+void windowssys_windows_win32_ui_input_keyboardandmouse_mouse_event(uint32_t dwflags, int32_t dx, int32_t dy, int32_t dwdata, uint64_t dwextrainfo);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* WINDOWSSYS_WINDOWS_WIN32_UI_INPUT_KEYBOARDANDMOUSE_WINDOWS_WIN32_UI_INPUT_KEYBOARDANDMOUSE_WRAPPER_H */

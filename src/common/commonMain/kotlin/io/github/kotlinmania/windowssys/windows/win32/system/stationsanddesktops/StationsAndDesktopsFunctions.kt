@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops
 
-import io.github.kotlinmania.windowssys.Win32DynamicFfi
 import io.github.kotlinmania.windowssys.core.BOOL
 import io.github.kotlinmania.windowssys.core.PCSTR
 import io.github.kotlinmania.windowssys.core.PCWSTR
@@ -9,134 +8,64 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
 import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.WNDENUMPROC
 
-public fun interface FnCallback {
-    public operator fun invoke(param0: PCSTR, param1: LPARAM): BOOL
-}
+public expect fun BroadcastSystemMessageA(flags: UInt, lpinfo: Long, msg: UInt, wparam: WPARAM, lparam: LPARAM): Int
 
-public fun interface FnCallback1 {
-    public operator fun invoke(param0: PCWSTR, param1: LPARAM): BOOL
-}
+public expect fun BroadcastSystemMessageExA(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: Long, msg: UInt, wparam: WPARAM, lparam: LPARAM, pbsminfo: Long): Int
 
-public fun BroadcastSystemMessageA(flags: UInt, lpinfo: Long, msg: UInt, wparam: WPARAM, lparam: LPARAM): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "BroadcastSystemMessageA", longArrayOf(flags.toLong(), lpinfo, msg.toLong(), wparam.toLong(), lparam)).toInt()
-}
+public expect fun BroadcastSystemMessageExW(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: Long, msg: UInt, wparam: WPARAM, lparam: LPARAM, pbsminfo: Long): Int
 
-public fun BroadcastSystemMessageExA(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: Long, msg: UInt, wparam: WPARAM, lparam: LPARAM, pbsminfo: Long): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "BroadcastSystemMessageExA", longArrayOf(flags.toLong(), lpinfo, msg.toLong(), wparam.toLong(), lparam, pbsminfo)).toInt()
-}
+public expect fun BroadcastSystemMessageW(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: Long, msg: UInt, wparam: WPARAM, lparam: LPARAM): Int
 
-public fun BroadcastSystemMessageExW(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: Long, msg: UInt, wparam: WPARAM, lparam: LPARAM, pbsminfo: Long): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "BroadcastSystemMessageExW", longArrayOf(flags.toLong(), lpinfo, msg.toLong(), wparam.toLong(), lparam, pbsminfo)).toInt()
-}
+public expect fun CloseDesktop(hdesktop: HDESK): BOOL
 
-public fun BroadcastSystemMessageW(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: Long, msg: UInt, wparam: WPARAM, lparam: LPARAM): Int {
-    return Win32DynamicFfi.invoke("user32.dll", "BroadcastSystemMessageW", longArrayOf(flags.toLong(), lpinfo, msg.toLong(), wparam.toLong(), lparam)).toInt()
-}
+public expect fun CloseWindowStation(hwinsta: HWINSTA): BOOL
 
-public fun CloseDesktop(hdesktop: HDESK): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "CloseDesktop", longArrayOf(hdesktop)).toInt()
-}
+public expect fun CreateDesktopA(lpszdesktop: PCSTR, lpszdevice: PCSTR, pdevmode: Long, dwflags: DESKTOP_CONTROL_FLAGS, dwdesiredaccess: UInt, lpsa: Long): HDESK
 
-public fun CloseWindowStation(hwinsta: HWINSTA): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "CloseWindowStation", longArrayOf(hwinsta)).toInt()
-}
+public expect fun CreateDesktopExA(lpszdesktop: PCSTR, lpszdevice: PCSTR, pdevmode: Long, dwflags: DESKTOP_CONTROL_FLAGS, dwdesiredaccess: UInt, lpsa: Long, ulheapsize: UInt, pvoid: Long): HDESK
 
-public fun CreateDesktopA(lpszdesktop: PCSTR, lpszdevice: PCSTR, pdevmode: Long, dwflags: DESKTOP_CONTROL_FLAGS, dwdesiredaccess: UInt, lpsa: Long): HDESK {
-    return Win32DynamicFfi.invoke("user32.dll", "CreateDesktopA", longArrayOf(lpszdesktop, lpszdevice, pdevmode, dwflags.toLong(), dwdesiredaccess.toLong(), lpsa))
-}
+public expect fun CreateDesktopExW(lpszdesktop: PCWSTR, lpszdevice: PCWSTR, pdevmode: Long, dwflags: DESKTOP_CONTROL_FLAGS, dwdesiredaccess: UInt, lpsa: Long, ulheapsize: UInt, pvoid: Long): HDESK
 
-public fun CreateDesktopExA(lpszdesktop: PCSTR, lpszdevice: PCSTR, pdevmode: Long, dwflags: DESKTOP_CONTROL_FLAGS, dwdesiredaccess: UInt, lpsa: Long, ulheapsize: UInt, pvoid: Long): HDESK {
-    return Win32DynamicFfi.invoke("user32.dll", "CreateDesktopExA", longArrayOf(lpszdesktop, lpszdevice, pdevmode, dwflags.toLong(), dwdesiredaccess.toLong(), lpsa, ulheapsize.toLong(), pvoid))
-}
+public expect fun CreateDesktopW(lpszdesktop: PCWSTR, lpszdevice: PCWSTR, pdevmode: Long, dwflags: DESKTOP_CONTROL_FLAGS, dwdesiredaccess: UInt, lpsa: Long): HDESK
 
-public fun CreateDesktopExW(lpszdesktop: PCWSTR, lpszdevice: PCWSTR, pdevmode: Long, dwflags: DESKTOP_CONTROL_FLAGS, dwdesiredaccess: UInt, lpsa: Long, ulheapsize: UInt, pvoid: Long): HDESK {
-    return Win32DynamicFfi.invoke("user32.dll", "CreateDesktopExW", longArrayOf(lpszdesktop, lpszdevice, pdevmode, dwflags.toLong(), dwdesiredaccess.toLong(), lpsa, ulheapsize.toLong(), pvoid))
-}
+public expect fun CreateWindowStationA(lpwinsta: PCSTR, dwflags: UInt, dwdesiredaccess: UInt, lpsa: Long): HWINSTA
 
-public fun CreateDesktopW(lpszdesktop: PCWSTR, lpszdevice: PCWSTR, pdevmode: Long, dwflags: DESKTOP_CONTROL_FLAGS, dwdesiredaccess: UInt, lpsa: Long): HDESK {
-    return Win32DynamicFfi.invoke("user32.dll", "CreateDesktopW", longArrayOf(lpszdesktop, lpszdevice, pdevmode, dwflags.toLong(), dwdesiredaccess.toLong(), lpsa))
-}
+public expect fun CreateWindowStationW(lpwinsta: PCWSTR, dwflags: UInt, dwdesiredaccess: UInt, lpsa: Long): HWINSTA
 
-public fun CreateWindowStationA(lpwinsta: PCSTR, dwflags: UInt, dwdesiredaccess: UInt, lpsa: Long): HWINSTA {
-    return Win32DynamicFfi.invoke("user32.dll", "CreateWindowStationA", longArrayOf(lpwinsta, dwflags.toLong(), dwdesiredaccess.toLong(), lpsa))
-}
+public expect fun EnumDesktopWindows(hdesktop: HDESK, lpfn: WNDENUMPROC, lparam: LPARAM): BOOL
 
-public fun CreateWindowStationW(lpwinsta: PCWSTR, dwflags: UInt, dwdesiredaccess: UInt, lpsa: Long): HWINSTA {
-    return Win32DynamicFfi.invoke("user32.dll", "CreateWindowStationW", longArrayOf(lpwinsta, dwflags.toLong(), dwdesiredaccess.toLong(), lpsa))
-}
+public expect fun EnumDesktopsA(hwinsta: HWINSTA, lpenumfunc: DESKTOPENUMPROCA, lparam: LPARAM): BOOL
 
-public fun EnumDesktopWindows(hdesktop: HDESK, lpfn: WNDENUMPROC, lparam: LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "EnumDesktopWindows", longArrayOf(hdesktop, Win32DynamicFfi.objectSlot(lpfn), lparam)).toInt()
-}
+public expect fun EnumDesktopsW(hwinsta: HWINSTA, lpenumfunc: DESKTOPENUMPROCW, lparam: LPARAM): BOOL
 
-public fun EnumDesktopsA(hwinsta: HWINSTA, lpenumfunc: DESKTOPENUMPROCA, lparam: LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "EnumDesktopsA", longArrayOf(hwinsta, Win32DynamicFfi.objectSlot(lpenumfunc), lparam)).toInt()
-}
+public expect fun EnumWindowStationsA(lpenumfunc: WINSTAENUMPROCA, lparam: LPARAM): BOOL
 
-public fun EnumDesktopsW(hwinsta: HWINSTA, lpenumfunc: DESKTOPENUMPROCW, lparam: LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "EnumDesktopsW", longArrayOf(hwinsta, Win32DynamicFfi.objectSlot(lpenumfunc), lparam)).toInt()
-}
+public expect fun EnumWindowStationsW(lpenumfunc: WINSTAENUMPROCW, lparam: LPARAM): BOOL
 
-public fun EnumWindowStationsA(lpenumfunc: WINSTAENUMPROCA, lparam: LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "EnumWindowStationsA", longArrayOf(Win32DynamicFfi.objectSlot(lpenumfunc), lparam)).toInt()
-}
+public expect fun GetProcessWindowStation(): HWINSTA
 
-public fun EnumWindowStationsW(lpenumfunc: WINSTAENUMPROCW, lparam: LPARAM): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "EnumWindowStationsW", longArrayOf(Win32DynamicFfi.objectSlot(lpenumfunc), lparam)).toInt()
-}
+public expect fun GetThreadDesktop(dwthreadid: UInt): HDESK
 
-public fun GetProcessWindowStation(): HWINSTA {
-    return Win32DynamicFfi.invoke("user32.dll", "GetProcessWindowStation", longArrayOf())
-}
+public expect fun GetUserObjectInformationA(hobj: HANDLE, nindex: USER_OBJECT_INFORMATION_INDEX, pvinfo: Long, nlength: UInt, lpnlengthneeded: Long): BOOL
 
-public fun GetThreadDesktop(dwthreadid: UInt): HDESK {
-    return Win32DynamicFfi.invoke("user32.dll", "GetThreadDesktop", longArrayOf(dwthreadid.toLong()))
-}
+public expect fun GetUserObjectInformationW(hobj: HANDLE, nindex: USER_OBJECT_INFORMATION_INDEX, pvinfo: Long, nlength: UInt, lpnlengthneeded: Long): BOOL
 
-public fun GetUserObjectInformationA(hobj: HANDLE, nindex: USER_OBJECT_INFORMATION_INDEX, pvinfo: Long, nlength: UInt, lpnlengthneeded: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetUserObjectInformationA", longArrayOf(hobj, nindex.toLong(), pvinfo, nlength.toLong(), lpnlengthneeded)).toInt()
-}
+public expect fun OpenDesktopA(lpszdesktop: PCSTR, dwflags: DESKTOP_CONTROL_FLAGS, finherit: BOOL, dwdesiredaccess: UInt): HDESK
 
-public fun GetUserObjectInformationW(hobj: HANDLE, nindex: USER_OBJECT_INFORMATION_INDEX, pvinfo: Long, nlength: UInt, lpnlengthneeded: Long): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "GetUserObjectInformationW", longArrayOf(hobj, nindex.toLong(), pvinfo, nlength.toLong(), lpnlengthneeded)).toInt()
-}
+public expect fun OpenDesktopW(lpszdesktop: PCWSTR, dwflags: DESKTOP_CONTROL_FLAGS, finherit: BOOL, dwdesiredaccess: UInt): HDESK
 
-public fun OpenDesktopA(lpszdesktop: PCSTR, dwflags: DESKTOP_CONTROL_FLAGS, finherit: BOOL, dwdesiredaccess: UInt): HDESK {
-    return Win32DynamicFfi.invoke("user32.dll", "OpenDesktopA", longArrayOf(lpszdesktop, dwflags.toLong(), finherit.toLong(), dwdesiredaccess.toLong()))
-}
+public expect fun OpenInputDesktop(dwflags: DESKTOP_CONTROL_FLAGS, finherit: BOOL, dwdesiredaccess: DESKTOP_ACCESS_FLAGS): HDESK
 
-public fun OpenDesktopW(lpszdesktop: PCWSTR, dwflags: DESKTOP_CONTROL_FLAGS, finherit: BOOL, dwdesiredaccess: UInt): HDESK {
-    return Win32DynamicFfi.invoke("user32.dll", "OpenDesktopW", longArrayOf(lpszdesktop, dwflags.toLong(), finherit.toLong(), dwdesiredaccess.toLong()))
-}
+public expect fun OpenWindowStationA(lpszwinsta: PCSTR, finherit: BOOL, dwdesiredaccess: UInt): HWINSTA
 
-public fun OpenInputDesktop(dwflags: DESKTOP_CONTROL_FLAGS, finherit: BOOL, dwdesiredaccess: DESKTOP_ACCESS_FLAGS): HDESK {
-    return Win32DynamicFfi.invoke("user32.dll", "OpenInputDesktop", longArrayOf(dwflags.toLong(), finherit.toLong(), dwdesiredaccess.toLong()))
-}
+public expect fun OpenWindowStationW(lpszwinsta: PCWSTR, finherit: BOOL, dwdesiredaccess: UInt): HWINSTA
 
-public fun OpenWindowStationA(lpszwinsta: PCSTR, finherit: BOOL, dwdesiredaccess: UInt): HWINSTA {
-    return Win32DynamicFfi.invoke("user32.dll", "OpenWindowStationA", longArrayOf(lpszwinsta, finherit.toLong(), dwdesiredaccess.toLong()))
-}
+public expect fun SetProcessWindowStation(hwinsta: HWINSTA): BOOL
 
-public fun OpenWindowStationW(lpszwinsta: PCWSTR, finherit: BOOL, dwdesiredaccess: UInt): HWINSTA {
-    return Win32DynamicFfi.invoke("user32.dll", "OpenWindowStationW", longArrayOf(lpszwinsta, finherit.toLong(), dwdesiredaccess.toLong()))
-}
+public expect fun SetThreadDesktop(hdesktop: HDESK): BOOL
 
-public fun SetProcessWindowStation(hwinsta: HWINSTA): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetProcessWindowStation", longArrayOf(hwinsta)).toInt()
-}
+public expect fun SetUserObjectInformationA(hobj: HANDLE, nindex: Int, pvinfo: Long, nlength: UInt): BOOL
 
-public fun SetThreadDesktop(hdesktop: HDESK): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetThreadDesktop", longArrayOf(hdesktop)).toInt()
-}
+public expect fun SetUserObjectInformationW(hobj: HANDLE, nindex: Int, pvinfo: Long, nlength: UInt): BOOL
 
-public fun SetUserObjectInformationA(hobj: HANDLE, nindex: Int, pvinfo: Long, nlength: UInt): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetUserObjectInformationA", longArrayOf(hobj, nindex.toLong(), pvinfo, nlength.toLong())).toInt()
-}
-
-public fun SetUserObjectInformationW(hobj: HANDLE, nindex: Int, pvinfo: Long, nlength: UInt): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SetUserObjectInformationW", longArrayOf(hobj, nindex.toLong(), pvinfo, nlength.toLong())).toInt()
-}
-
-public fun SwitchDesktop(hdesktop: HDESK): BOOL {
-    return Win32DynamicFfi.invoke("user32.dll", "SwitchDesktop", longArrayOf(hdesktop)).toInt()
-}
+public expect fun SwitchDesktop(hdesktop: HDESK): BOOL
