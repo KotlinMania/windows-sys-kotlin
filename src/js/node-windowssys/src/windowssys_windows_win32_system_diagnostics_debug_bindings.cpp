@@ -5263,7 +5263,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_SymGetTypeI
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t modbase = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
-    uint32_t typeid = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    uint32_t arg_2_typeid = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
     int32_t gettype = static_cast<int32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
     void* pinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
 #ifdef _WIN32
@@ -5273,11 +5273,11 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_SymGetTypeI
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetTypeInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, modbase, typeid, gettype, pinfo) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, modbase, arg_2_typeid, gettype, pinfo) : -1;
 #else
     (void)hprocess;
     (void)modbase;
-    (void)typeid;
+    (void)arg_2_typeid;
     (void)gettype;
     (void)pinfo;
     int32_t km_res = -1;
